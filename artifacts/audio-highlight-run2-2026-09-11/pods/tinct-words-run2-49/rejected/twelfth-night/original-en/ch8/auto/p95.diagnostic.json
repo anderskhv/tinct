@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "5250328149bb00d1dc6c0ccc8c9ba61935528e7bbdc333e0ce7d417d845d23c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.32877353578805923,
+      "alignment_seconds": 0.0006308779120445251,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Toby. She's a beagle true bred, and one that adores me. What o' that?",
+        "hotwords": "Sir, Toby, She's, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Toby, She's a beagle true bred, and one that adores me. What o' that?",
+          "start": 0.05,
+          "end": 4.59,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.802734375
+            },
+            {
+              "text": " Toby,",
+              "start": 0.53,
+              "end": 0.89,
+              "probability": 0.767578125
+            },
+            {
+              "text": " She's",
+              "start": 1.25,
+              "end": 1.61,
+              "probability": 0.4855194091796875
+            },
+            {
+              "text": " a",
+              "start": 1.61,
+              "end": 1.65,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " beagle",
+              "start": 1.65,
+              "end": 1.89,
+              "probability": 0.797119140625
+            },
+            {
+              "text": " true",
+              "start": 1.89,
+              "end": 2.11,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " bred,",
+              "start": 2.11,
+              "end": 2.45,
+              "probability": 0.09954833984375
+            },
+            {
+              "text": " and",
+              "start": 2.61,
+              "end": 2.69,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " one",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " that",
+              "start": 2.87,
+              "end": 3.05,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " adores",
+              "start": 3.05,
+              "end": 3.41,
+              "probability": 0.975830078125
+            },
+            {
+              "text": " me.",
+              "start": 3.41,
+              "end": 3.75,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " What",
+              "start": 4.11,
+              "end": 4.19,
+              "probability": 0.71875
+            },
+            {
+              "text": " o'",
+              "start": 4.19,
+              "end": 4.31,
+              "probability": 0.1976318359375
+            },
+            {
+              "text": " that?",
+              "start": 4.43,
+              "end": 4.59,
+              "probability": 0.916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.89
+        },
+        {
+          "raw": "She's",
+          "start": 1.25,
+          "end": 1.61
+        },
+        {
+          "raw": "a",
+          "start": 1.61,
+          "end": 1.65
+        },
+        {
+          "raw": "beagle",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "raw": "true",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "raw": "bred,",
+          "start": 2.11,
+          "end": 2.45
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.69
+        },
+        {
+          "raw": "one",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "that",
+          "start": 2.87,
+          "end": 3.05
+        },
+        {
+          "raw": "adores",
+          "start": 3.05,
+          "end": 3.41
+        },
+        {
+          "raw": "me.",
+          "start": 3.41,
+          "end": 3.75
+        },
+        {
+          "raw": "What",
+          "start": 4.11,
+          "end": 4.19
+        },
+        {
+          "raw": "o'",
+          "start": 4.19,
+          "end": 4.31
+        },
+        {
+          "raw": "that?",
+          "start": 4.43,
+          "end": 4.59
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "She's",
+        "a",
+        "beagle",
+        "true",
+        "bred,",
+        "and",
+        "one",
+        "that",
+        "adores",
+        "me.",
+        "What",
+        "o'",
+        "that?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.89,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "She's",
+          "start": 1.25,
+          "end": 1.61,
+          "key": "shes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.61,
+          "end": 1.65,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "beagle",
+          "start": 1.65,
+          "end": 1.89,
+          "key": "beagle",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 1.89,
+          "end": 2.11,
+          "key": "true",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bred,",
+          "start": 2.11,
+          "end": 2.45,
+          "key": "bred",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.69,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "one",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.87,
+          "end": 3.05,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "adores",
+          "start": 3.05,
+          "end": 3.41,
+          "key": "adores",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 3.41,
+          "end": 3.75,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 4.11,
+          "end": 4.19,
+          "key": "what",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "o'",
+          "start": 4.19,
+          "end": 4.31,
+          "key": "o",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 4.43,
+          "end": 4.59,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Toby.",
+          "start": 0.53,
+          "end": 0.89
+        },
+        {
+          "text": "She's",
+          "start": 1.25,
+          "end": 1.61
+        },
+        {
+          "text": "a",
+          "start": 1.61,
+          "end": 1.65
+        },
+        {
+          "text": "beagle",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "text": "true",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "text": "bred,",
+          "start": 2.11,
+          "end": 2.45
+        },
+        {
+          "text": "and",
+          "start": 2.61,
+          "end": 2.69
+        },
+        {
+          "text": "one",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "that",
+          "start": 2.87,
+          "end": 3.05
+        },
+        {
+          "text": "adores",
+          "start": 3.05,
+          "end": 3.41
+        },
+        {
+          "text": "me.",
+          "start": 3.41,
+          "end": 3.75
+        },
+        {
+          "text": "What",
+          "start": 4.11,
+          "end": 4.19
+        },
+        {
+          "text": "o'",
+          "start": 4.19,
+          "end": 4.31
+        },
+        {
+          "text": "that?",
+          "start": 4.43,
+          "end": 4.59
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32966263964772224
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "12768ad040984ab09df312c201b59e9e5d5585845f0cbfebe2fc43952ea430f5",
+  "selected_reasons": []
+}

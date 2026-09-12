@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "bed4aa8ee90adb8c682ee50fa1c2c1c43e68e6501b66355dd7e3d0b8efb936bb",
+  "attempts": [
+    {
+      "asr_seconds": 0.11841103062033653,
+      "alignment_seconds": 0.00021063163876533508,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Viola",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " Viola",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.76416015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola",
+          "start": 0.05,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "Viola."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.05,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11868445947766304
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3384002ba04facf57385ef649f388e6dea589c07cc220ee1bc10ac01258b0cb8",
+  "selected_reasons": []
+}

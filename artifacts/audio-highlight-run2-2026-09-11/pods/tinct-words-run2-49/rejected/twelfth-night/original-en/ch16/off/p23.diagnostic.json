@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "5e6b317194406059b3dd985efcd1bd938ae4d7506221ee18cee753d87a834cb2",
+  "attempts": [
+    {
+      "asr_seconds": 0.17934077605605125,
+      "alignment_seconds": 0.0003871619701385498,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown, what is the opinion of Pythagoras concerning Wildfowl?",
+          "start": 0.08,
+          "end": 4.12,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.60498046875
+            },
+            {
+              "text": " what",
+              "start": 1.26,
+              "end": 1.44,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " is",
+              "start": 1.44,
+              "end": 1.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " opinion",
+              "start": 1.68,
+              "end": 2.0,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 2.0,
+              "end": 2.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Pythagoras",
+              "start": 2.3,
+              "end": 2.92,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " concerning",
+              "start": 2.92,
+              "end": 3.44,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Wildfowl?",
+              "start": 3.44,
+              "end": 4.12,
+              "probability": 0.9337565104166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "what",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "raw": "is",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "opinion",
+          "start": 1.68,
+          "end": 2.0
+        },
+        {
+          "raw": "of",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "raw": "Pythagoras",
+          "start": 2.3,
+          "end": 2.92
+        },
+        {
+          "raw": "concerning",
+          "start": 2.92,
+          "end": 3.44
+        },
+        {
+          "raw": "Wildfowl?",
+          "start": 3.44,
+          "end": 4.12
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "What",
+        "is",
+        "the",
+        "opinion",
+        "of",
+        "Pythagoras",
+        "concerning",
+        "wildfowl?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.26,
+          "end": 1.44,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.44,
+          "end": 1.54,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "opinion",
+          "start": 1.68,
+          "end": 2.0,
+          "key": "opinion",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.0,
+          "end": 2.3,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Pythagoras",
+          "start": 2.3,
+          "end": 2.92,
+          "key": "pythagoras",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "concerning",
+          "start": 2.92,
+          "end": 3.44,
+          "key": "concerning",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Wildfowl?",
+          "start": 3.44,
+          "end": 4.12,
+          "key": "wildfowl",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "What",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "text": "is",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "text": "the",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "opinion",
+          "start": 1.68,
+          "end": 2.0
+        },
+        {
+          "text": "of",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "text": "Pythagoras",
+          "start": 2.3,
+          "end": 2.92
+        },
+        {
+          "text": "concerning",
+          "start": 2.92,
+          "end": 3.44
+        },
+        {
+          "text": "wildfowl?",
+          "start": 3.44,
+          "end": 4.12
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17987727001309395
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c01eff770bd4792918e1626d2621565ad530ec2b4980064de38be69e397a9872",
+  "selected_reasons": []
+}

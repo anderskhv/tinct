@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "cdf9752e29584d696cdbed2fd988669886d8a765f0d23720ff5d30749bb0b9a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2097257822751999,
+      "alignment_seconds": 0.00032592564821243286,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Draws, I do assure you tis against my will.",
+          "start": 0.08,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " Draws,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " I",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " do",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " assure",
+              "start": 1.54,
+              "end": 1.8,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " you",
+              "start": 1.8,
+              "end": 1.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " tis",
+              "start": 1.98,
+              "end": 2.2,
+              "probability": 0.665771484375
+            },
+            {
+              "text": " against",
+              "start": 2.2,
+              "end": 2.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 2.4,
+              "end": 2.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " will.",
+              "start": 2.66,
+              "end": 2.9,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Draws,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "do",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "assure",
+          "start": 1.54,
+          "end": 1.8
+        },
+        {
+          "raw": "you",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "raw": "tis",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "raw": "against",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "raw": "my",
+          "start": 2.4,
+          "end": 2.66
+        },
+        {
+          "raw": "will.",
+          "start": 2.66,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "[_Draws._]",
+        "I",
+        "do",
+        "assure",
+        "you",
+        "'tis",
+        "against",
+        "my",
+        "will."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Draws,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "draws",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.4,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.4,
+          "end": 1.54,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "assure",
+          "start": 1.54,
+          "end": 1.8,
+          "key": "assure",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.8,
+          "end": 1.98,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tis",
+          "start": 1.98,
+          "end": 2.2,
+          "key": "tis",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 2.2,
+          "end": 2.4,
+          "key": "against",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.4,
+          "end": 2.66,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 2.66,
+          "end": 2.9,
+          "key": "will",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Draws._]",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "I",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "text": "do",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "text": "assure",
+          "start": 1.54,
+          "end": 1.8
+        },
+        {
+          "text": "you",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "text": "'tis",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "text": "against",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "text": "my",
+          "start": 2.4,
+          "end": 2.66
+        },
+        {
+          "text": "will.",
+          "start": 2.66,
+          "end": 2.9
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21023188903927803
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "773d4c1cb477362942e128936b54295a08e296545497eb67a0f452202ceac11a",
+  "selected_reasons": []
+}

@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "da10caca817ed423bc041c63eabcb49a717a0db60f2900daa740d37c0cf858c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.16312868148088455,
+      "alignment_seconds": 0.00038250163197517395,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sings, but I will never die.",
+          "start": 0.11,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Sings,",
+              "start": 0.11,
+              "end": 0.79,
+              "probability": 0.75146484375
+            },
+            {
+              "text": " but",
+              "start": 1.09,
+              "end": 1.29,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " I",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " will",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " never",
+              "start": 1.51,
+              "end": 1.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " die.",
+              "start": 1.75,
+              "end": 2.07,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sings,",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "raw": "but",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "raw": "I",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "will",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "never",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "raw": "die.",
+          "start": 1.75,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "[_Sings._]",
+        "_But",
+        "I",
+        "will",
+        "never",
+        "die._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sings,",
+          "start": 0.11,
+          "end": 0.79,
+          "key": "sings",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.09,
+          "end": 1.29,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 1.51,
+          "end": 1.75,
+          "key": "never",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "die.",
+          "start": 1.75,
+          "end": 2.07,
+          "key": "die",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Sings._]",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "text": "_But",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "text": "I",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "text": "will",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "never",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "text": "die._",
+          "start": 1.75,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.163654163479805
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c2a98cfa9da1b8c5f7cefcd37b13bcad7c71e8cfd19902ae6be972a0f1b93009",
+  "selected_reasons": []
+}

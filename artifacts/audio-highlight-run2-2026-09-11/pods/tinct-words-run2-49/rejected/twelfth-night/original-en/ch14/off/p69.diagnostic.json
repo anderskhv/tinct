@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "a65301c4ec399cd49fe4902332b3d20a28668026530e6631fabacd1a37872a7a",
+  "attempts": [
+    {
+      "asr_seconds": 0.18053820729255676,
+      "alignment_seconds": 0.00043113529682159424,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fabian why we shall make him mad indeed",
+          "start": 0.08,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " Fabian",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.950927734375
+            },
+            {
+              "text": " why",
+              "start": 0.88,
+              "end": 1.52,
+              "probability": 0.216064453125
+            },
+            {
+              "text": " we",
+              "start": 1.52,
+              "end": 1.82,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " shall",
+              "start": 1.82,
+              "end": 1.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " make",
+              "start": 1.96,
+              "end": 2.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him",
+              "start": 2.12,
+              "end": 2.3,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " mad",
+              "start": 2.3,
+              "end": 2.54,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " indeed",
+              "start": 2.54,
+              "end": 2.86,
+              "probability": 0.9716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fabian",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "why",
+          "start": 0.88,
+          "end": 1.52
+        },
+        {
+          "raw": "we",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "raw": "shall",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "raw": "make",
+          "start": 1.96,
+          "end": 2.12
+        },
+        {
+          "raw": "him",
+          "start": 2.12,
+          "end": 2.3
+        },
+        {
+          "raw": "mad",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "raw": "indeed",
+          "start": 2.54,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "Fabian.",
+        "Why,",
+        "we",
+        "shall",
+        "make",
+        "him",
+        "mad",
+        "indeed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fabian",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "fabian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 0.88,
+          "end": 1.52,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.52,
+          "end": 1.82,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.82,
+          "end": 1.96,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.96,
+          "end": 2.12,
+          "key": "make",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.12,
+          "end": 2.3,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mad",
+          "start": 2.3,
+          "end": 2.54,
+          "key": "mad",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "indeed",
+          "start": 2.54,
+          "end": 2.86,
+          "key": "indeed",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fabian.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "Why,",
+          "start": 0.88,
+          "end": 1.52
+        },
+        {
+          "text": "we",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "text": "shall",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "text": "make",
+          "start": 1.96,
+          "end": 2.12
+        },
+        {
+          "text": "him",
+          "start": 2.12,
+          "end": 2.3
+        },
+        {
+          "text": "mad",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "text": "indeed.",
+          "start": 2.54,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18113785237073898
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eaa67cdd09e26892d090a1c0092e8ba899940a7eb4245f316fa0d73fc107fbe7",
+  "selected_reasons": []
+}

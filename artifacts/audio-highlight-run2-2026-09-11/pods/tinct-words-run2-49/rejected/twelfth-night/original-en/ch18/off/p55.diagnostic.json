@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "dad99840d3710d54015878eec57ef6736009bd760e13fa213776364ec516c33d",
+  "attempts": [
+    {
+      "asr_seconds": 0.10461942479014397,
+      "alignment_seconds": 0.00030612945556640625,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit an attendant.",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " an",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.74072265625
+            },
+            {
+              "text": " attendant.",
+              "start": 0.82,
+              "end": 1.18,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "an",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "attendant.",
+          "start": 0.82,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "an",
+        "Attendant._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 0.66,
+          "end": 0.82,
+          "key": "an",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "attendant.",
+          "start": 0.82,
+          "end": 1.18,
+          "key": "attendant",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "an",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "Attendant._]",
+          "start": 0.82,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10503039509057999
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f72371dd2c5624385df64e3cc0dd9aff7c1410480c66169b1241ebcde6e4b77d",
+  "selected_reasons": []
+}

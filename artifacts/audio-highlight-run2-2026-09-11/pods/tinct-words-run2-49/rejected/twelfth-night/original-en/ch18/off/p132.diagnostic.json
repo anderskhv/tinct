@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "93b4bf8cb838942eb5619069f3715d73bdc15c55e287cc11ece97ff98a96c7f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.201756339520216,
+      "alignment_seconds": 0.00044029951095581055,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Duke, this saver's not much of distraction.",
+          "start": 0.05,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " this",
+              "start": 1.11,
+              "end": 1.31,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " saver's",
+              "start": 1.31,
+              "end": 1.77,
+              "probability": 0.8009440104166666
+            },
+            {
+              "text": " not",
+              "start": 1.77,
+              "end": 1.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " much",
+              "start": 1.93,
+              "end": 2.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 2.09,
+              "end": 2.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " distraction.",
+              "start": 2.19,
+              "end": 2.67,
+              "probability": 0.97412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "this",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "raw": "saver's",
+          "start": 1.31,
+          "end": 1.77
+        },
+        {
+          "raw": "not",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "raw": "much",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "raw": "of",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "raw": "distraction.",
+          "start": 2.19,
+          "end": 2.67
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "This",
+        "savours",
+        "not",
+        "much",
+        "of",
+        "distraction."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          7,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.11,
+          "end": 1.31,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "saver's",
+          "start": 1.31,
+          "end": 1.77,
+          "key": "savers",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.77,
+          "end": 1.93,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 1.93,
+          "end": 2.09,
+          "key": "much",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.09,
+          "end": 2.19,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "distraction.",
+          "start": 2.19,
+          "end": 2.67,
+          "key": "distraction",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "This",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "text": "savours",
+          "start": 1.31,
+          "end": 1.54
+        },
+        {
+          "text": "not",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "text": "much",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "text": "of",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "text": "distraction.",
+          "start": 2.19,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.20234942808747292
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "47b54b5a53fb808a5f063d8a4edecc64a2f8fc1ab599887f9e35165ef163fb73",
+  "selected_reasons": []
+}

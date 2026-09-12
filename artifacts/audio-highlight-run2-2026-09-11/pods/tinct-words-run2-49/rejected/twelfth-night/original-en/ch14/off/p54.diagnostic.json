@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "6e79470f441694859259c6522ca7f53de233c01d5ffa9b198b7685d391aebef7",
+  "attempts": [
+    {
+      "asr_seconds": 0.12700485810637474,
+      "alignment_seconds": 0.00017200782895088196,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Maria, oh lord.",
+          "start": 0.02,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " Maria,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.284912109375
+            },
+            {
+              "text": " oh",
+              "start": 1.16,
+              "end": 1.24,
+              "probability": 0.497802734375
+            },
+            {
+              "text": " lord.",
+              "start": 1.24,
+              "end": 1.46,
+              "probability": 0.50146484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Maria,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "oh",
+          "start": 1.16,
+          "end": 1.24
+        },
+        {
+          "raw": "lord.",
+          "start": 1.24,
+          "end": 1.46
+        }
+      ],
+      "expected_tokens": [
+        "Maria.",
+        "O",
+        "Lord!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Maria,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "maria",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.16,
+          "end": 1.24,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.24,
+          "end": 1.46,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Maria.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "O",
+          "start": 0.82,
+          "end": 1.03
+        },
+        {
+          "text": "Lord!",
+          "start": 1.24,
+          "end": 1.46
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12722726166248322
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "710212f7a5a42d96a5c00f36c0d98f898413ec995f494c86ef717df89f647672",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

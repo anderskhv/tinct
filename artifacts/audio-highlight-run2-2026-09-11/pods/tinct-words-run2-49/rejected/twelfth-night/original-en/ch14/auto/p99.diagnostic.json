@@ -1,0 +1,4526 @@
+{
+  "complete": true,
+  "signature": "753a29ed75e810ba389628bbacfbaf40481c34b9e7350a2591a96e55e2cd78a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.5420072302222252,
+      "alignment_seconds": 0.0008135251700878143,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Olivia. Here, wear this jewel for me, 'tis my picture. Refuse it not, it hath no tongue to vex you. And I beseech you come again tomorrow. What shall you ask of me that I'll deny, That honour sav'd, may upon asking give?",
+        "hotwords": "Olivia, Here, Refuse, And, I, What, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Olivia, Here, wear this jewel for me, tease my picture. Refuse it not, it hath no tongue",
+          "start": 0.02,
+          "end": 6.16,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.373779296875
+            },
+            {
+              "text": " Here,",
+              "start": 1.14,
+              "end": 1.4,
+              "probability": 0.039947509765625
+            },
+            {
+              "text": " wear",
+              "start": 1.74,
+              "end": 1.78,
+              "probability": 0.0156707763671875
+            },
+            {
+              "text": " this",
+              "start": 1.78,
+              "end": 2.0,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " jewel",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " for",
+              "start": 2.2,
+              "end": 2.44,
+              "probability": 0.96484375
+            },
+            {
+              "text": " me,",
+              "start": 2.44,
+              "end": 2.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " tease",
+              "start": 3.14,
+              "end": 3.24,
+              "probability": 0.677734375
+            },
+            {
+              "text": " my",
+              "start": 3.24,
+              "end": 3.52,
+              "probability": 0.94140625
+            },
+            {
+              "text": " picture.",
+              "start": 3.52,
+              "end": 3.96,
+              "probability": 0.935546875
+            },
+            {
+              "text": " Refuse",
+              "start": 4.68,
+              "end": 4.96,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " it",
+              "start": 4.96,
+              "end": 5.1,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " not,",
+              "start": 5.1,
+              "end": 5.34,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " it",
+              "start": 5.52,
+              "end": 5.56,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " hath",
+              "start": 5.56,
+              "end": 5.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " no",
+              "start": 5.68,
+              "end": 5.94,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " tongue",
+              "start": 5.94,
+              "end": 6.16,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " to vex you. And I beseech you come again tomorrow. What shall you ask of me that I'll deny, That",
+          "start": 6.16,
+          "end": 11.66,
+          "words": [
+            {
+              "text": " to",
+              "start": 6.16,
+              "end": 6.38,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " vex",
+              "start": 6.38,
+              "end": 6.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you.",
+              "start": 6.56,
+              "end": 6.94,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " And",
+              "start": 7.4,
+              "end": 7.5,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " I",
+              "start": 7.5,
+              "end": 7.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " beseech",
+              "start": 7.6,
+              "end": 8.02,
+              "probability": 0.984375
+            },
+            {
+              "text": " you",
+              "start": 8.02,
+              "end": 8.16,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " come",
+              "start": 8.16,
+              "end": 8.28,
+              "probability": 0.916015625
+            },
+            {
+              "text": " again",
+              "start": 8.28,
+              "end": 8.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " tomorrow.",
+              "start": 8.54,
+              "end": 8.92,
+              "probability": 0.427734375
+            },
+            {
+              "text": " What",
+              "start": 9.62,
+              "end": 9.72,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " shall",
+              "start": 9.72,
+              "end": 9.86,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " you",
+              "start": 9.86,
+              "end": 10.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ask",
+              "start": 10.0,
+              "end": 10.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 10.28,
+              "end": 10.4,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me",
+              "start": 10.4,
+              "end": 10.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 10.56,
+              "end": 10.7,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " I'll",
+              "start": 10.7,
+              "end": 10.92,
+              "probability": 0.983154296875
+            },
+            {
+              "text": " deny,",
+              "start": 10.92,
+              "end": 11.26,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " That",
+              "start": 11.58,
+              "end": 11.66,
+              "probability": 0.6435546875
+            }
+          ]
+        },
+        {
+          "text": " honour sav'd, may upon asking give?",
+          "start": 11.66,
+          "end": 13.84,
+          "words": [
+            {
+              "text": " honour",
+              "start": 11.66,
+              "end": 11.96,
+              "probability": 0.197509765625
+            },
+            {
+              "text": " sav'd,",
+              "start": 11.96,
+              "end": 12.56,
+              "probability": 0.6080322265625
+            },
+            {
+              "text": " may",
+              "start": 12.68,
+              "end": 12.78,
+              "probability": 0.916015625
+            },
+            {
+              "text": " upon",
+              "start": 12.78,
+              "end": 13.08,
+              "probability": 0.873046875
+            },
+            {
+              "text": " asking",
+              "start": 13.08,
+              "end": 13.5,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " give?",
+              "start": 13.5,
+              "end": 13.84,
+              "probability": 0.9560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Here,",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "raw": "wear",
+          "start": 1.74,
+          "end": 1.78
+        },
+        {
+          "raw": "this",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "raw": "jewel",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "for",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "raw": "me,",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "raw": "tease",
+          "start": 3.14,
+          "end": 3.24
+        },
+        {
+          "raw": "my",
+          "start": 3.24,
+          "end": 3.52
+        },
+        {
+          "raw": "picture.",
+          "start": 3.52,
+          "end": 3.96
+        },
+        {
+          "raw": "Refuse",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "raw": "it",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "raw": "not,",
+          "start": 5.1,
+          "end": 5.34
+        },
+        {
+          "raw": "it",
+          "start": 5.52,
+          "end": 5.56
+        },
+        {
+          "raw": "hath",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "raw": "no",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "raw": "tongue",
+          "start": 5.94,
+          "end": 6.16
+        },
+        {
+          "raw": "to",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "raw": "vex",
+          "start": 6.38,
+          "end": 6.56
+        },
+        {
+          "raw": "you.",
+          "start": 6.56,
+          "end": 6.94
+        },
+        {
+          "raw": "And",
+          "start": 7.4,
+          "end": 7.5
+        },
+        {
+          "raw": "I",
+          "start": 7.5,
+          "end": 7.6
+        },
+        {
+          "raw": "beseech",
+          "start": 7.6,
+          "end": 8.02
+        },
+        {
+          "raw": "you",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "raw": "come",
+          "start": 8.16,
+          "end": 8.28
+        },
+        {
+          "raw": "again",
+          "start": 8.28,
+          "end": 8.54
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 8.54,
+          "end": 8.92
+        },
+        {
+          "raw": "What",
+          "start": 9.62,
+          "end": 9.72
+        },
+        {
+          "raw": "shall",
+          "start": 9.72,
+          "end": 9.86
+        },
+        {
+          "raw": "you",
+          "start": 9.86,
+          "end": 10.0
+        },
+        {
+          "raw": "ask",
+          "start": 10.0,
+          "end": 10.28
+        },
+        {
+          "raw": "of",
+          "start": 10.28,
+          "end": 10.4
+        },
+        {
+          "raw": "me",
+          "start": 10.4,
+          "end": 10.56
+        },
+        {
+          "raw": "that",
+          "start": 10.56,
+          "end": 10.7
+        },
+        {
+          "raw": "I'll",
+          "start": 10.7,
+          "end": 10.92
+        },
+        {
+          "raw": "deny,",
+          "start": 10.92,
+          "end": 11.26
+        },
+        {
+          "raw": "That",
+          "start": 11.58,
+          "end": 11.66
+        },
+        {
+          "raw": "honour",
+          "start": 11.66,
+          "end": 11.96
+        },
+        {
+          "raw": "sav'd,",
+          "start": 11.96,
+          "end": 12.56
+        },
+        {
+          "raw": "may",
+          "start": 12.68,
+          "end": 12.78
+        },
+        {
+          "raw": "upon",
+          "start": 12.78,
+          "end": 13.08
+        },
+        {
+          "raw": "asking",
+          "start": 13.08,
+          "end": 13.5
+        },
+        {
+          "raw": "give?",
+          "start": 13.5,
+          "end": 13.84
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Here,",
+        "wear",
+        "this",
+        "jewel",
+        "for",
+        "me,",
+        "'tis",
+        "my",
+        "picture.",
+        "Refuse",
+        "it",
+        "not,",
+        "it",
+        "hath",
+        "no",
+        "tongue",
+        "to",
+        "vex",
+        "you.",
+        "And",
+        "I",
+        "beseech",
+        "you",
+        "come",
+        "again",
+        "tomorrow.",
+        "What",
+        "shall",
+        "you",
+        "ask",
+        "of",
+        "me",
+        "that",
+        "I'll",
+        "deny,",
+        "That",
+        "honour",
+        "sav'd,",
+        "may",
+        "upon",
+        "asking",
+        "give?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          43,
+          8,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Here,",
+          "start": 1.14,
+          "end": 1.4,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 1.74,
+          "end": 1.78,
+          "key": "wear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.78,
+          "end": 2.0,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "jewel",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "jewel",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.2,
+          "end": 2.44,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.44,
+          "end": 2.7,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 3.14,
+          "end": 3.24,
+          "key": "tease",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.24,
+          "end": 3.52,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "picture.",
+          "start": 3.52,
+          "end": 3.96,
+          "key": "picture",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Refuse",
+          "start": 4.68,
+          "end": 4.96,
+          "key": "refuse",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.96,
+          "end": 5.1,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 5.1,
+          "end": 5.34,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.52,
+          "end": 5.56,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 5.56,
+          "end": 5.68,
+          "key": "hath",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 5.68,
+          "end": 5.94,
+          "key": "no",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tongue",
+          "start": 5.94,
+          "end": 6.16,
+          "key": "tongue",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.16,
+          "end": 6.38,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "vex",
+          "start": 6.38,
+          "end": 6.56,
+          "key": "vex",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 6.56,
+          "end": 6.94,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 7.4,
+          "end": 7.5,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.5,
+          "end": 7.6,
+          "key": "i",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "beseech",
+          "start": 7.6,
+          "end": 8.02,
+          "key": "beseech",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.02,
+          "end": 8.16,
+          "key": "you",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 8.16,
+          "end": 8.28,
+          "key": "come",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 8.28,
+          "end": 8.54,
+          "key": "again",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 8.54,
+          "end": 8.92,
+          "key": "tomorrow",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 9.62,
+          "end": 9.72,
+          "key": "what",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 9.72,
+          "end": 9.86,
+          "key": "shall",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 9.86,
+          "end": 10.0,
+          "key": "you",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 10.0,
+          "end": 10.28,
+          "key": "ask",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.28,
+          "end": 10.4,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 10.4,
+          "end": 10.56,
+          "key": "me",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 10.56,
+          "end": 10.7,
+          "key": "that",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 10.7,
+          "end": 10.92,
+          "key": "ill",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "deny,",
+          "start": 10.92,
+          "end": 11.26,
+          "key": "deny",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 11.58,
+          "end": 11.66,
+          "key": "that",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "honour",
+          "start": 11.66,
+          "end": 11.96,
+          "key": "honour",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "sav'd,",
+          "start": 11.96,
+          "end": 12.56,
+          "key": "savd",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 12.68,
+          "end": 12.78,
+          "key": "may",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 12.78,
+          "end": 13.08,
+          "key": "upon",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "asking",
+          "start": 13.08,
+          "end": 13.5,
+          "key": "asking",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "give?",
+          "start": 13.5,
+          "end": 13.84,
+          "key": "give",
+          "pieces": [
+            42
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Here,",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "text": "wear",
+          "start": 1.74,
+          "end": 1.78
+        },
+        {
+          "text": "this",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "text": "jewel",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "for",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "text": "me,",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "text": "'tis",
+          "start": 2.7,
+          "end": 2.97
+        },
+        {
+          "text": "my",
+          "start": 3.24,
+          "end": 3.52
+        },
+        {
+          "text": "picture.",
+          "start": 3.52,
+          "end": 3.96
+        },
+        {
+          "text": "Refuse",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "text": "it",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "text": "not,",
+          "start": 5.1,
+          "end": 5.34
+        },
+        {
+          "text": "it",
+          "start": 5.52,
+          "end": 5.56
+        },
+        {
+          "text": "hath",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "text": "no",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "text": "tongue",
+          "start": 5.94,
+          "end": 6.16
+        },
+        {
+          "text": "to",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "text": "vex",
+          "start": 6.38,
+          "end": 6.56
+        },
+        {
+          "text": "you.",
+          "start": 6.56,
+          "end": 6.94
+        },
+        {
+          "text": "And",
+          "start": 7.4,
+          "end": 7.5
+        },
+        {
+          "text": "I",
+          "start": 7.5,
+          "end": 7.6
+        },
+        {
+          "text": "beseech",
+          "start": 7.6,
+          "end": 8.02
+        },
+        {
+          "text": "you",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "text": "come",
+          "start": 8.16,
+          "end": 8.28
+        },
+        {
+          "text": "again",
+          "start": 8.28,
+          "end": 8.54
+        },
+        {
+          "text": "tomorrow.",
+          "start": 8.54,
+          "end": 8.92
+        },
+        {
+          "text": "What",
+          "start": 9.62,
+          "end": 9.72
+        },
+        {
+          "text": "shall",
+          "start": 9.72,
+          "end": 9.86
+        },
+        {
+          "text": "you",
+          "start": 9.86,
+          "end": 10.0
+        },
+        {
+          "text": "ask",
+          "start": 10.0,
+          "end": 10.28
+        },
+        {
+          "text": "of",
+          "start": 10.28,
+          "end": 10.4
+        },
+        {
+          "text": "me",
+          "start": 10.4,
+          "end": 10.56
+        },
+        {
+          "text": "that",
+          "start": 10.56,
+          "end": 10.7
+        },
+        {
+          "text": "I'll",
+          "start": 10.7,
+          "end": 10.92
+        },
+        {
+          "text": "deny,",
+          "start": 10.92,
+          "end": 11.26
+        },
+        {
+          "text": "That",
+          "start": 11.58,
+          "end": 11.66
+        },
+        {
+          "text": "honour",
+          "start": 11.66,
+          "end": 11.96
+        },
+        {
+          "text": "sav'd,",
+          "start": 11.96,
+          "end": 12.56
+        },
+        {
+          "text": "may",
+          "start": 12.68,
+          "end": 12.78
+        },
+        {
+          "text": "upon",
+          "start": 12.78,
+          "end": 13.08
+        },
+        {
+          "text": "asking",
+          "start": 13.08,
+          "end": 13.5
+        },
+        {
+          "text": "give?",
+          "start": 13.5,
+          "end": 13.84
+        }
+      ],
+      "stats": {
+        "expected_words": 43,
+        "heard_words": 43,
+        "matched_words": 42
+      },
+      "match_ratio": 0.9767441860465116,
+      "rejection_reasons": [],
+      "seconds": 0.5431761555373669
+    },
+    {
+      "asr_seconds": 0.4833734333515167,
+      "alignment_seconds": 0.0009067468345165253,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Olivia, Here, Refuse, And, I, What, I'll"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Olivia, Here, Where This Jewel For Me, Tease My Picture,",
+          "start": 0.02,
+          "end": 3.9,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.37353515625
+            },
+            {
+              "text": " Here,",
+              "start": 1.14,
+              "end": 1.4,
+              "probability": 0.039947509765625
+            },
+            {
+              "text": " Where",
+              "start": 1.72,
+              "end": 1.78,
+              "probability": 0.1429443359375
+            },
+            {
+              "text": " This",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.0099334716796875
+            },
+            {
+              "text": " Jewel",
+              "start": 2.02,
+              "end": 2.2,
+              "probability": 0.78515625
+            },
+            {
+              "text": " For",
+              "start": 2.2,
+              "end": 2.42,
+              "probability": 0.70654296875
+            },
+            {
+              "text": " Me,",
+              "start": 2.42,
+              "end": 2.7,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " Tease",
+              "start": 3.14,
+              "end": 3.36,
+              "probability": 0.776611328125
+            },
+            {
+              "text": " My",
+              "start": 3.36,
+              "end": 3.52,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Picture,",
+              "start": 3.52,
+              "end": 3.9,
+              "probability": 0.99072265625
+            }
+          ]
+        },
+        {
+          "text": " Refuse It Not, It Hath No Tongue To Vex You, And I Beseech You Come Again Tomorrow, What",
+          "start": 4.68,
+          "end": 9.72,
+          "words": [
+            {
+              "text": " Refuse",
+              "start": 4.68,
+              "end": 4.96,
+              "probability": 0.986083984375
+            },
+            {
+              "text": " It",
+              "start": 4.96,
+              "end": 5.1,
+              "probability": 0.94921875
+            },
+            {
+              "text": " Not,",
+              "start": 5.1,
+              "end": 5.34,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " It",
+              "start": 5.52,
+              "end": 5.56,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Hath",
+              "start": 5.56,
+              "end": 5.68,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " No",
+              "start": 5.68,
+              "end": 5.96,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Tongue",
+              "start": 5.96,
+              "end": 6.24,
+              "probability": 0.925537109375
+            },
+            {
+              "text": " To",
+              "start": 6.24,
+              "end": 6.4,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " Vex",
+              "start": 6.4,
+              "end": 6.62,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " You,",
+              "start": 6.62,
+              "end": 6.9,
+              "probability": 0.9921875
+            },
+            {
+              "text": " And",
+              "start": 7.4,
+              "end": 7.5,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " I",
+              "start": 7.5,
+              "end": 7.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Beseech",
+              "start": 7.64,
+              "end": 8.0,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " You",
+              "start": 8.0,
+              "end": 8.14,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Come",
+              "start": 8.14,
+              "end": 8.3,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Again",
+              "start": 8.3,
+              "end": 8.54,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Tomorrow,",
+              "start": 8.54,
+              "end": 8.9,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " What",
+              "start": 9.58,
+              "end": 9.72,
+              "probability": 0.853515625
+            }
+          ]
+        },
+        {
+          "text": " Shall You Ask Of Me That I'll Deny That Honor Saved May Upon Asking Give?",
+          "start": 9.72,
+          "end": 13.9,
+          "words": [
+            {
+              "text": " Shall",
+              "start": 9.72,
+              "end": 9.84,
+              "probability": 0.97265625
+            },
+            {
+              "text": " You",
+              "start": 9.84,
+              "end": 10.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Ask",
+              "start": 10.0,
+              "end": 10.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Of",
+              "start": 10.26,
+              "end": 10.4,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Me",
+              "start": 10.4,
+              "end": 10.54,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " That",
+              "start": 10.54,
+              "end": 10.7,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " I'll",
+              "start": 10.7,
+              "end": 10.92,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " Deny",
+              "start": 10.92,
+              "end": 11.4,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " That",
+              "start": 11.4,
+              "end": 11.66,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " Honor",
+              "start": 11.66,
+              "end": 11.96,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " Saved",
+              "start": 11.96,
+              "end": 12.58,
+              "probability": 0.699951171875
+            },
+            {
+              "text": " May",
+              "start": 12.58,
+              "end": 12.78,
+              "probability": 0.900390625
+            },
+            {
+              "text": " Upon",
+              "start": 12.78,
+              "end": 13.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Asking",
+              "start": 13.08,
+              "end": 13.56,
+              "probability": 0.855712890625
+            },
+            {
+              "text": " Give?",
+              "start": 13.56,
+              "end": 13.9,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "Here,",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "raw": "Where",
+          "start": 1.72,
+          "end": 1.78
+        },
+        {
+          "raw": "This",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "raw": "Jewel",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "raw": "For",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "raw": "Me,",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "raw": "Tease",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "raw": "My",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "raw": "Picture,",
+          "start": 3.52,
+          "end": 3.9
+        },
+        {
+          "raw": "Refuse",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "raw": "It",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "raw": "Not,",
+          "start": 5.1,
+          "end": 5.34
+        },
+        {
+          "raw": "It",
+          "start": 5.52,
+          "end": 5.56
+        },
+        {
+          "raw": "Hath",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "raw": "No",
+          "start": 5.68,
+          "end": 5.96
+        },
+        {
+          "raw": "Tongue",
+          "start": 5.96,
+          "end": 6.24
+        },
+        {
+          "raw": "To",
+          "start": 6.24,
+          "end": 6.4
+        },
+        {
+          "raw": "Vex",
+          "start": 6.4,
+          "end": 6.62
+        },
+        {
+          "raw": "You,",
+          "start": 6.62,
+          "end": 6.9
+        },
+        {
+          "raw": "And",
+          "start": 7.4,
+          "end": 7.5
+        },
+        {
+          "raw": "I",
+          "start": 7.5,
+          "end": 7.64
+        },
+        {
+          "raw": "Beseech",
+          "start": 7.64,
+          "end": 8.0
+        },
+        {
+          "raw": "You",
+          "start": 8.0,
+          "end": 8.14
+        },
+        {
+          "raw": "Come",
+          "start": 8.14,
+          "end": 8.3
+        },
+        {
+          "raw": "Again",
+          "start": 8.3,
+          "end": 8.54
+        },
+        {
+          "raw": "Tomorrow,",
+          "start": 8.54,
+          "end": 8.9
+        },
+        {
+          "raw": "What",
+          "start": 9.58,
+          "end": 9.72
+        },
+        {
+          "raw": "Shall",
+          "start": 9.72,
+          "end": 9.84
+        },
+        {
+          "raw": "You",
+          "start": 9.84,
+          "end": 10.0
+        },
+        {
+          "raw": "Ask",
+          "start": 10.0,
+          "end": 10.26
+        },
+        {
+          "raw": "Of",
+          "start": 10.26,
+          "end": 10.4
+        },
+        {
+          "raw": "Me",
+          "start": 10.4,
+          "end": 10.54
+        },
+        {
+          "raw": "That",
+          "start": 10.54,
+          "end": 10.7
+        },
+        {
+          "raw": "I'll",
+          "start": 10.7,
+          "end": 10.92
+        },
+        {
+          "raw": "Deny",
+          "start": 10.92,
+          "end": 11.4
+        },
+        {
+          "raw": "That",
+          "start": 11.4,
+          "end": 11.66
+        },
+        {
+          "raw": "Honor",
+          "start": 11.66,
+          "end": 11.96
+        },
+        {
+          "raw": "Saved",
+          "start": 11.96,
+          "end": 12.58
+        },
+        {
+          "raw": "May",
+          "start": 12.58,
+          "end": 12.78
+        },
+        {
+          "raw": "Upon",
+          "start": 12.78,
+          "end": 13.08
+        },
+        {
+          "raw": "Asking",
+          "start": 13.08,
+          "end": 13.56
+        },
+        {
+          "raw": "Give?",
+          "start": 13.56,
+          "end": 13.9
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Here,",
+        "wear",
+        "this",
+        "jewel",
+        "for",
+        "me,",
+        "'tis",
+        "my",
+        "picture.",
+        "Refuse",
+        "it",
+        "not,",
+        "it",
+        "hath",
+        "no",
+        "tongue",
+        "to",
+        "vex",
+        "you.",
+        "And",
+        "I",
+        "beseech",
+        "you",
+        "come",
+        "again",
+        "tomorrow.",
+        "What",
+        "shall",
+        "you",
+        "ask",
+        "of",
+        "me",
+        "that",
+        "I'll",
+        "deny,",
+        "That",
+        "honour",
+        "sav'd,",
+        "may",
+        "upon",
+        "asking",
+        "give?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          7,
+          3,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          37,
+          8,
+          37
+        ],
+        [
+          "replace",
+          37,
+          39,
+          37,
+          39
+        ],
+        [
+          "equal",
+          39,
+          43,
+          39,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          37,
+          39,
+          37,
+          39
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Here,",
+          "start": 1.14,
+          "end": 1.4,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 1.72,
+          "end": 1.78,
+          "key": "where",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Jewel",
+          "start": 2.02,
+          "end": 2.2,
+          "key": "jewel",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 2.2,
+          "end": 2.42,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Me,",
+          "start": 2.42,
+          "end": 2.7,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 3.14,
+          "end": 3.36,
+          "key": "tease",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 3.36,
+          "end": 3.52,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Picture,",
+          "start": 3.52,
+          "end": 3.9,
+          "key": "picture",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Refuse",
+          "start": 4.68,
+          "end": 4.96,
+          "key": "refuse",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 4.96,
+          "end": 5.1,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Not,",
+          "start": 5.1,
+          "end": 5.34,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 5.52,
+          "end": 5.56,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Hath",
+          "start": 5.56,
+          "end": 5.68,
+          "key": "hath",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 5.68,
+          "end": 5.96,
+          "key": "no",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Tongue",
+          "start": 5.96,
+          "end": 6.24,
+          "key": "tongue",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 6.24,
+          "end": 6.4,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Vex",
+          "start": 6.4,
+          "end": 6.62,
+          "key": "vex",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "You,",
+          "start": 6.62,
+          "end": 6.9,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 7.4,
+          "end": 7.5,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.5,
+          "end": 7.64,
+          "key": "i",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Beseech",
+          "start": 7.64,
+          "end": 8.0,
+          "key": "beseech",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 8.0,
+          "end": 8.14,
+          "key": "you",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 8.14,
+          "end": 8.3,
+          "key": "come",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Again",
+          "start": 8.3,
+          "end": 8.54,
+          "key": "again",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Tomorrow,",
+          "start": 8.54,
+          "end": 8.9,
+          "key": "tomorrow",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 9.58,
+          "end": 9.72,
+          "key": "what",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 9.72,
+          "end": 9.84,
+          "key": "shall",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 9.84,
+          "end": 10.0,
+          "key": "you",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Ask",
+          "start": 10.0,
+          "end": 10.26,
+          "key": "ask",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 10.26,
+          "end": 10.4,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Me",
+          "start": 10.4,
+          "end": 10.54,
+          "key": "me",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 10.54,
+          "end": 10.7,
+          "key": "that",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 10.7,
+          "end": 10.92,
+          "key": "ill",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Deny",
+          "start": 10.92,
+          "end": 11.4,
+          "key": "deny",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 11.4,
+          "end": 11.66,
+          "key": "that",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Honor",
+          "start": 11.66,
+          "end": 11.96,
+          "key": "honor",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Saved",
+          "start": 11.96,
+          "end": 12.58,
+          "key": "saved",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "May",
+          "start": 12.58,
+          "end": 12.78,
+          "key": "may",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 12.78,
+          "end": 13.08,
+          "key": "upon",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Asking",
+          "start": 13.08,
+          "end": 13.56,
+          "key": "asking",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Give?",
+          "start": 13.56,
+          "end": 13.9,
+          "key": "give",
+          "pieces": [
+            42
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "Here,",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "text": "wear",
+          "start": 1.4,
+          "end": 1.59
+        },
+        {
+          "text": "this",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "text": "jewel",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "text": "for",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "text": "me,",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "text": "'tis",
+          "start": 2.7,
+          "end": 3.03
+        },
+        {
+          "text": "my",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "text": "picture.",
+          "start": 3.52,
+          "end": 3.9
+        },
+        {
+          "text": "Refuse",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "text": "it",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "text": "not,",
+          "start": 5.1,
+          "end": 5.34
+        },
+        {
+          "text": "it",
+          "start": 5.52,
+          "end": 5.56
+        },
+        {
+          "text": "hath",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "text": "no",
+          "start": 5.68,
+          "end": 5.96
+        },
+        {
+          "text": "tongue",
+          "start": 5.96,
+          "end": 6.24
+        },
+        {
+          "text": "to",
+          "start": 6.24,
+          "end": 6.4
+        },
+        {
+          "text": "vex",
+          "start": 6.4,
+          "end": 6.62
+        },
+        {
+          "text": "you.",
+          "start": 6.62,
+          "end": 6.9
+        },
+        {
+          "text": "And",
+          "start": 7.4,
+          "end": 7.5
+        },
+        {
+          "text": "I",
+          "start": 7.5,
+          "end": 7.64
+        },
+        {
+          "text": "beseech",
+          "start": 7.64,
+          "end": 8.0
+        },
+        {
+          "text": "you",
+          "start": 8.0,
+          "end": 8.14
+        },
+        {
+          "text": "come",
+          "start": 8.14,
+          "end": 8.3
+        },
+        {
+          "text": "again",
+          "start": 8.3,
+          "end": 8.54
+        },
+        {
+          "text": "tomorrow.",
+          "start": 8.54,
+          "end": 8.9
+        },
+        {
+          "text": "What",
+          "start": 9.58,
+          "end": 9.72
+        },
+        {
+          "text": "shall",
+          "start": 9.72,
+          "end": 9.84
+        },
+        {
+          "text": "you",
+          "start": 9.84,
+          "end": 10.0
+        },
+        {
+          "text": "ask",
+          "start": 10.0,
+          "end": 10.26
+        },
+        {
+          "text": "of",
+          "start": 10.26,
+          "end": 10.4
+        },
+        {
+          "text": "me",
+          "start": 10.4,
+          "end": 10.54
+        },
+        {
+          "text": "that",
+          "start": 10.54,
+          "end": 10.7
+        },
+        {
+          "text": "I'll",
+          "start": 10.7,
+          "end": 10.92
+        },
+        {
+          "text": "deny,",
+          "start": 10.92,
+          "end": 11.4
+        },
+        {
+          "text": "That",
+          "start": 11.4,
+          "end": 11.66
+        },
+        {
+          "text": "honour",
+          "start": 11.66,
+          "end": 12.12
+        },
+        {
+          "text": "sav'd,",
+          "start": 12.12,
+          "end": 12.35
+        },
+        {
+          "text": "may",
+          "start": 12.58,
+          "end": 12.78
+        },
+        {
+          "text": "upon",
+          "start": 12.78,
+          "end": 13.08
+        },
+        {
+          "text": "asking",
+          "start": 13.08,
+          "end": 13.56
+        },
+        {
+          "text": "give?",
+          "start": 13.56,
+          "end": 13.9
+        }
+      ],
+      "stats": {
+        "expected_words": 43,
+        "heard_words": 43,
+        "matched_words": 39
+      },
+      "match_ratio": 0.9069767441860465,
+      "rejection_reasons": [],
+      "seconds": 0.484667856246233
+    },
+    {
+      "asr_seconds": 0.49808844551444054,
+      "alignment_seconds": 0.0009645931422710419,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, here, where this jewel for me, tease my picture.",
+          "start": 0.02,
+          "end": 3.96,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.373779296875
+            },
+            {
+              "text": " here,",
+              "start": 1.14,
+              "end": 1.42,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " where",
+              "start": 1.72,
+              "end": 1.78,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " this",
+              "start": 1.78,
+              "end": 2.0,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " jewel",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " for",
+              "start": 2.2,
+              "end": 2.42,
+              "probability": 0.966796875
+            },
+            {
+              "text": " me,",
+              "start": 2.42,
+              "end": 2.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tease",
+              "start": 3.16,
+              "end": 3.24,
+              "probability": 0.49658203125
+            },
+            {
+              "text": " my",
+              "start": 3.24,
+              "end": 3.52,
+              "probability": 0.986328125
+            },
+            {
+              "text": " picture.",
+              "start": 3.52,
+              "end": 3.96,
+              "probability": 0.98779296875
+            }
+          ]
+        },
+        {
+          "text": " Refuse it not, it hath no tongue to vex you, and I beseech you come again to-morrow.",
+          "start": 4.68,
+          "end": 8.94,
+          "words": [
+            {
+              "text": " Refuse",
+              "start": 4.68,
+              "end": 4.96,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " it",
+              "start": 4.96,
+              "end": 5.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not,",
+              "start": 5.1,
+              "end": 5.34,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " it",
+              "start": 5.52,
+              "end": 5.56,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " hath",
+              "start": 5.56,
+              "end": 5.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " no",
+              "start": 5.68,
+              "end": 5.92,
+              "probability": 0.982421875
+            },
+            {
+              "text": " tongue",
+              "start": 5.92,
+              "end": 6.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 6.16,
+              "end": 6.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " vex",
+              "start": 6.38,
+              "end": 6.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you,",
+              "start": 6.56,
+              "end": 6.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 7.34,
+              "end": 7.5,
+              "probability": 0.91796875
+            },
+            {
+              "text": " I",
+              "start": 7.5,
+              "end": 7.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " beseech",
+              "start": 7.6,
+              "end": 8.02,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " you",
+              "start": 8.02,
+              "end": 8.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " come",
+              "start": 8.16,
+              "end": 8.28,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " again",
+              "start": 8.28,
+              "end": 8.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 8.56,
+              "end": 8.7,
+              "probability": 0.5068359375
+            },
+            {
+              "text": "-morrow.",
+              "start": 8.7,
+              "end": 8.94,
+              "probability": 0.970947265625
+            }
+          ]
+        },
+        {
+          "text": " What shall you ask of me that I'll deny that honor-saved may upon asking give?",
+          "start": 9.62,
+          "end": 13.86,
+          "words": [
+            {
+              "text": " What",
+              "start": 9.62,
+              "end": 9.72,
+              "probability": 0.810546875
+            },
+            {
+              "text": " shall",
+              "start": 9.72,
+              "end": 9.86,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " you",
+              "start": 9.86,
+              "end": 10.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ask",
+              "start": 10.0,
+              "end": 10.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 10.28,
+              "end": 10.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 10.4,
+              "end": 10.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 10.56,
+              "end": 10.7,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " I'll",
+              "start": 10.7,
+              "end": 10.92,
+              "probability": 0.982177734375
+            },
+            {
+              "text": " deny",
+              "start": 10.92,
+              "end": 11.26,
+              "probability": 0.98828125
+            },
+            {
+              "text": " that",
+              "start": 11.26,
+              "end": 11.66,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " honor",
+              "start": 11.66,
+              "end": 11.98,
+              "probability": 0.68896484375
+            },
+            {
+              "text": "-saved",
+              "start": 11.98,
+              "end": 12.48,
+              "probability": 0.6407877604166666
+            },
+            {
+              "text": " may",
+              "start": 12.48,
+              "end": 12.76,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " upon",
+              "start": 12.76,
+              "end": 13.08,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " asking",
+              "start": 13.08,
+              "end": 13.5,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " give?",
+              "start": 13.5,
+              "end": 13.86,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "here,",
+          "start": 1.14,
+          "end": 1.42
+        },
+        {
+          "raw": "where",
+          "start": 1.72,
+          "end": 1.78
+        },
+        {
+          "raw": "this",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "raw": "jewel",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "for",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "raw": "me,",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "raw": "tease",
+          "start": 3.16,
+          "end": 3.24
+        },
+        {
+          "raw": "my",
+          "start": 3.24,
+          "end": 3.52
+        },
+        {
+          "raw": "picture.",
+          "start": 3.52,
+          "end": 3.96
+        },
+        {
+          "raw": "Refuse",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "raw": "it",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "raw": "not,",
+          "start": 5.1,
+          "end": 5.34
+        },
+        {
+          "raw": "it",
+          "start": 5.52,
+          "end": 5.56
+        },
+        {
+          "raw": "hath",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "raw": "no",
+          "start": 5.68,
+          "end": 5.92
+        },
+        {
+          "raw": "tongue",
+          "start": 5.92,
+          "end": 6.16
+        },
+        {
+          "raw": "to",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "raw": "vex",
+          "start": 6.38,
+          "end": 6.56
+        },
+        {
+          "raw": "you,",
+          "start": 6.56,
+          "end": 6.92
+        },
+        {
+          "raw": "and",
+          "start": 7.34,
+          "end": 7.5
+        },
+        {
+          "raw": "I",
+          "start": 7.5,
+          "end": 7.6
+        },
+        {
+          "raw": "beseech",
+          "start": 7.6,
+          "end": 8.02
+        },
+        {
+          "raw": "you",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "raw": "come",
+          "start": 8.16,
+          "end": 8.28
+        },
+        {
+          "raw": "again",
+          "start": 8.28,
+          "end": 8.56
+        },
+        {
+          "raw": "to",
+          "start": 8.56,
+          "end": 8.7
+        },
+        {
+          "raw": "-morrow.",
+          "start": 8.7,
+          "end": 8.94
+        },
+        {
+          "raw": "What",
+          "start": 9.62,
+          "end": 9.72
+        },
+        {
+          "raw": "shall",
+          "start": 9.72,
+          "end": 9.86
+        },
+        {
+          "raw": "you",
+          "start": 9.86,
+          "end": 10.0
+        },
+        {
+          "raw": "ask",
+          "start": 10.0,
+          "end": 10.28
+        },
+        {
+          "raw": "of",
+          "start": 10.28,
+          "end": 10.4
+        },
+        {
+          "raw": "me",
+          "start": 10.4,
+          "end": 10.56
+        },
+        {
+          "raw": "that",
+          "start": 10.56,
+          "end": 10.7
+        },
+        {
+          "raw": "I'll",
+          "start": 10.7,
+          "end": 10.92
+        },
+        {
+          "raw": "deny",
+          "start": 10.92,
+          "end": 11.26
+        },
+        {
+          "raw": "that",
+          "start": 11.26,
+          "end": 11.66
+        },
+        {
+          "raw": "honor",
+          "start": 11.66,
+          "end": 11.98
+        },
+        {
+          "raw": "-saved",
+          "start": 11.98,
+          "end": 12.48
+        },
+        {
+          "raw": "may",
+          "start": 12.48,
+          "end": 12.76
+        },
+        {
+          "raw": "upon",
+          "start": 12.76,
+          "end": 13.08
+        },
+        {
+          "raw": "asking",
+          "start": 13.08,
+          "end": 13.5
+        },
+        {
+          "raw": "give?",
+          "start": 13.5,
+          "end": 13.86
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Here,",
+        "wear",
+        "this",
+        "jewel",
+        "for",
+        "me,",
+        "'tis",
+        "my",
+        "picture.",
+        "Refuse",
+        "it",
+        "not,",
+        "it",
+        "hath",
+        "no",
+        "tongue",
+        "to",
+        "vex",
+        "you.",
+        "And",
+        "I",
+        "beseech",
+        "you",
+        "come",
+        "again",
+        "tomorrow.",
+        "What",
+        "shall",
+        "you",
+        "ask",
+        "of",
+        "me",
+        "that",
+        "I'll",
+        "deny,",
+        "That",
+        "honour",
+        "sav'd,",
+        "may",
+        "upon",
+        "asking",
+        "give?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          7,
+          3,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          26,
+          8,
+          26
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          28
+        ],
+        [
+          "equal",
+          27,
+          37,
+          28,
+          38
+        ],
+        [
+          "replace",
+          37,
+          39,
+          38,
+          40
+        ],
+        [
+          "equal",
+          39,
+          43,
+          40,
+          44
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          28
+        ],
+        [
+          "replace",
+          37,
+          39,
+          38,
+          40
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 1.14,
+          "end": 1.42,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.72,
+          "end": 1.78,
+          "key": "where",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.78,
+          "end": 2.0,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "jewel",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "jewel",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.2,
+          "end": 2.42,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.42,
+          "end": 2.68,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 3.16,
+          "end": 3.24,
+          "key": "tease",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.24,
+          "end": 3.52,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "picture.",
+          "start": 3.52,
+          "end": 3.96,
+          "key": "picture",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Refuse",
+          "start": 4.68,
+          "end": 4.96,
+          "key": "refuse",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.96,
+          "end": 5.1,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 5.1,
+          "end": 5.34,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.52,
+          "end": 5.56,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 5.56,
+          "end": 5.68,
+          "key": "hath",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 5.68,
+          "end": 5.92,
+          "key": "no",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tongue",
+          "start": 5.92,
+          "end": 6.16,
+          "key": "tongue",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.16,
+          "end": 6.38,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "vex",
+          "start": 6.38,
+          "end": 6.56,
+          "key": "vex",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 6.56,
+          "end": 6.92,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.34,
+          "end": 7.5,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.5,
+          "end": 7.6,
+          "key": "i",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "beseech",
+          "start": 7.6,
+          "end": 8.02,
+          "key": "beseech",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.02,
+          "end": 8.16,
+          "key": "you",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 8.16,
+          "end": 8.28,
+          "key": "come",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 8.28,
+          "end": 8.56,
+          "key": "again",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.56,
+          "end": 8.7,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "-morrow.",
+          "start": 8.7,
+          "end": 8.94,
+          "key": "morrow",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 9.62,
+          "end": 9.72,
+          "key": "what",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 9.72,
+          "end": 9.86,
+          "key": "shall",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 9.86,
+          "end": 10.0,
+          "key": "you",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 10.0,
+          "end": 10.28,
+          "key": "ask",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.28,
+          "end": 10.4,
+          "key": "of",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 10.4,
+          "end": 10.56,
+          "key": "me",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 10.56,
+          "end": 10.7,
+          "key": "that",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 10.7,
+          "end": 10.92,
+          "key": "ill",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "deny",
+          "start": 10.92,
+          "end": 11.26,
+          "key": "deny",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 11.26,
+          "end": 11.66,
+          "key": "that",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 11.66,
+          "end": 11.98,
+          "key": "honor",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "-saved",
+          "start": 11.98,
+          "end": 12.48,
+          "key": "saved",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 12.48,
+          "end": 12.76,
+          "key": "may",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 12.76,
+          "end": 13.08,
+          "key": "upon",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "asking",
+          "start": 13.08,
+          "end": 13.5,
+          "key": "asking",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "give?",
+          "start": 13.5,
+          "end": 13.86,
+          "key": "give",
+          "pieces": [
+            43
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "Here,",
+          "start": 1.14,
+          "end": 1.42
+        },
+        {
+          "text": "wear",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "this",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "text": "jewel",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "for",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "text": "me,",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "text": "'tis",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "text": "my",
+          "start": 3.24,
+          "end": 3.52
+        },
+        {
+          "text": "picture.",
+          "start": 3.52,
+          "end": 3.96
+        },
+        {
+          "text": "Refuse",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "text": "it",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "text": "not,",
+          "start": 5.1,
+          "end": 5.34
+        },
+        {
+          "text": "it",
+          "start": 5.52,
+          "end": 5.56
+        },
+        {
+          "text": "hath",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "text": "no",
+          "start": 5.68,
+          "end": 5.92
+        },
+        {
+          "text": "tongue",
+          "start": 5.92,
+          "end": 6.16
+        },
+        {
+          "text": "to",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "text": "vex",
+          "start": 6.38,
+          "end": 6.56
+        },
+        {
+          "text": "you.",
+          "start": 6.56,
+          "end": 6.92
+        },
+        {
+          "text": "And",
+          "start": 7.34,
+          "end": 7.5
+        },
+        {
+          "text": "I",
+          "start": 7.5,
+          "end": 7.6
+        },
+        {
+          "text": "beseech",
+          "start": 7.6,
+          "end": 8.02
+        },
+        {
+          "text": "you",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "text": "come",
+          "start": 8.16,
+          "end": 8.28
+        },
+        {
+          "text": "again",
+          "start": 8.28,
+          "end": 8.56
+        },
+        {
+          "text": "tomorrow.",
+          "start": 8.56,
+          "end": 9.09
+        },
+        {
+          "text": "What",
+          "start": 9.62,
+          "end": 9.72
+        },
+        {
+          "text": "shall",
+          "start": 9.72,
+          "end": 9.86
+        },
+        {
+          "text": "you",
+          "start": 9.86,
+          "end": 10.0
+        },
+        {
+          "text": "ask",
+          "start": 10.0,
+          "end": 10.28
+        },
+        {
+          "text": "of",
+          "start": 10.28,
+          "end": 10.4
+        },
+        {
+          "text": "me",
+          "start": 10.4,
+          "end": 10.56
+        },
+        {
+          "text": "that",
+          "start": 10.56,
+          "end": 10.7
+        },
+        {
+          "text": "I'll",
+          "start": 10.7,
+          "end": 10.92
+        },
+        {
+          "text": "deny,",
+          "start": 10.92,
+          "end": 11.26
+        },
+        {
+          "text": "That",
+          "start": 11.26,
+          "end": 11.66
+        },
+        {
+          "text": "honour",
+          "start": 11.66,
+          "end": 12.07
+        },
+        {
+          "text": "sav'd,",
+          "start": 12.07,
+          "end": 12.275
+        },
+        {
+          "text": "may",
+          "start": 12.48,
+          "end": 12.76
+        },
+        {
+          "text": "upon",
+          "start": 12.76,
+          "end": 13.08
+        },
+        {
+          "text": "asking",
+          "start": 13.08,
+          "end": 13.5
+        },
+        {
+          "text": "give?",
+          "start": 13.5,
+          "end": 13.86
+        }
+      ],
+      "stats": {
+        "expected_words": 43,
+        "heard_words": 44,
+        "matched_words": 38
+      },
+      "match_ratio": 0.8837209302325582,
+      "rejection_reasons": [],
+      "seconds": 0.4994742386043072
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fcc7c27809511a47f48e176e96766c5d5f9c459ebbe952799b95cd801f789885",
+  "selected_reasons": []
+}

@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "35e2a1cfc86500abc08259690a8dd9d64e20cd921e2f12cb1eb2266312a954cb",
+  "attempts": [
+    {
+      "asr_seconds": 0.12169886752963066,
+      "alignment_seconds": 0.0003613196313381195,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, where goes Caesario?",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " where",
+              "start": 1.23,
+              "end": 1.29,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " goes",
+              "start": 1.29,
+              "end": 1.59,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Caesario?",
+              "start": 1.59,
+              "end": 2.01,
+              "probability": 0.6442057291666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "where",
+          "start": 1.23,
+          "end": 1.29
+        },
+        {
+          "raw": "goes",
+          "start": 1.29,
+          "end": 1.59
+        },
+        {
+          "raw": "Caesario?",
+          "start": 1.59,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Where",
+        "goes",
+        "Cesario?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.23,
+          "end": 1.29,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 1.29,
+          "end": 1.59,
+          "key": "goes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Caesario?",
+          "start": 1.59,
+          "end": 2.01,
+          "key": "caesario",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Where",
+          "start": 1.23,
+          "end": 1.29
+        },
+        {
+          "text": "goes",
+          "start": 1.29,
+          "end": 1.59
+        },
+        {
+          "text": "Cesario?",
+          "start": 1.59,
+          "end": 1.8
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.122183658182621
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4b20f07167bc30220a152fc14804be41df8bc9af6c0e63bbd2040fd553e53802",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

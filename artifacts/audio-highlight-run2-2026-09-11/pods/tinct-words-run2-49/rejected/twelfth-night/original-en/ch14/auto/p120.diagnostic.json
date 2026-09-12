@@ -1,0 +1,1204 @@
+{
+  "complete": true,
+  "signature": "f5c801ec769dc6bd90b53a3ee1c714651dafa45c371ff950ae7a59ef226cbe28",
+  "attempts": [
+    {
+      "asr_seconds": 3.338947109878063,
+      "alignment_seconds": 0.0009448826313018799,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Viola. I beseech you, what manner of man is he?",
+        "hotwords": "Viola, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Viola, I Viola, I Viola, I worsteach you, what manner of man is he?",
+          "start": 0.55,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.55,
+              "end": 0.95,
+              "probability": 0.7236328125
+            },
+            {
+              "text": " I",
+              "start": 1.27,
+              "end": 1.33,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Viola,",
+              "start": 1.33,
+              "end": 1.47,
+              "probability": 0.431884765625
+            },
+            {
+              "text": " I",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " Viola,",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.4970712661743164
+            },
+            {
+              "text": " I",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " worsteach",
+              "start": 1.47,
+              "end": 1.69,
+              "probability": 0.06412521998087566
+            },
+            {
+              "text": " you,",
+              "start": 1.69,
+              "end": 1.85,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " what",
+              "start": 2.05,
+              "end": 2.13,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " manner",
+              "start": 2.13,
+              "end": 2.35,
+              "probability": 0.88671875
+            },
+            {
+              "text": " of",
+              "start": 2.35,
+              "end": 2.55,
+              "probability": 0.919921875
+            },
+            {
+              "text": " man",
+              "start": 2.55,
+              "end": 2.75,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " is",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " he?",
+              "start": 2.93,
+              "end": 3.11,
+              "probability": 0.9697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.33
+        },
+        {
+          "raw": "Viola,",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "Viola,",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "worsteach",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "raw": "you,",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "raw": "what",
+          "start": 2.05,
+          "end": 2.13
+        },
+        {
+          "raw": "manner",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "raw": "of",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "raw": "man",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "raw": "is",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "he?",
+          "start": 2.93,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "I",
+        "beseech",
+        "you,",
+        "what",
+        "manner",
+        "of",
+        "man",
+        "is",
+        "he?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          7
+        ],
+        [
+          "equal",
+          3,
+          10,
+          7,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.55,
+          "end": 0.95,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.33,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Viola,",
+          "start": 1.33,
+          "end": 1.47,
+          "key": "viola",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Viola,",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "viola",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "worsteach",
+          "start": 1.47,
+          "end": 1.69,
+          "key": "worsteach",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.69,
+          "end": 1.85,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.05,
+          "end": 2.13,
+          "key": "what",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "manner",
+          "start": 2.13,
+          "end": 2.35,
+          "key": "manner",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.35,
+          "end": 2.55,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.55,
+          "end": 2.75,
+          "key": "man",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he?",
+          "start": 2.93,
+          "end": 3.11,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "text": "I",
+          "start": 1.27,
+          "end": 1.33
+        },
+        {
+          "text": "beseech",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "text": "you,",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "text": "what",
+          "start": 2.05,
+          "end": 2.13
+        },
+        {
+          "text": "manner",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "text": "of",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "text": "man",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "text": "is",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "he?",
+          "start": 2.93,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 14,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 3.340330421924591
+    },
+    {
+      "asr_seconds": 0.2526404485106468,
+      "alignment_seconds": 0.00047009438276290894,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Viola, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " beseech you, what manner of man is he?",
+          "start": 1.29,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " beseech",
+              "start": 1.29,
+              "end": 1.69,
+              "probability": 0.6193044583002726
+            },
+            {
+              "text": " you,",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " what",
+              "start": 2.05,
+              "end": 2.13,
+              "probability": 0.84375
+            },
+            {
+              "text": " manner",
+              "start": 2.13,
+              "end": 2.39,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " of",
+              "start": 2.39,
+              "end": 2.55,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " man",
+              "start": 2.55,
+              "end": 2.75,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " is",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he?",
+              "start": 2.93,
+              "end": 3.13,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "beseech",
+          "start": 1.29,
+          "end": 1.69
+        },
+        {
+          "raw": "you,",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "what",
+          "start": 2.05,
+          "end": 2.13
+        },
+        {
+          "raw": "manner",
+          "start": 2.13,
+          "end": 2.39
+        },
+        {
+          "raw": "of",
+          "start": 2.39,
+          "end": 2.55
+        },
+        {
+          "raw": "man",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "raw": "is",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "he?",
+          "start": 2.93,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "I",
+        "beseech",
+        "you,",
+        "what",
+        "manner",
+        "of",
+        "man",
+        "is",
+        "he?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          10,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "beseech",
+          "start": 1.29,
+          "end": 1.69,
+          "key": "beseech",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.05,
+          "end": 2.13,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "manner",
+          "start": 2.13,
+          "end": 2.39,
+          "key": "manner",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.39,
+          "end": 2.55,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.55,
+          "end": 2.75,
+          "key": "man",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he?",
+          "start": 2.93,
+          "end": 3.13,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.0,
+          "end": 0.645
+        },
+        {
+          "text": "I",
+          "start": 0.645,
+          "end": 0.968
+        },
+        {
+          "text": "beseech",
+          "start": 1.29,
+          "end": 1.69
+        },
+        {
+          "text": "you,",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "text": "what",
+          "start": 2.05,
+          "end": 2.13
+        },
+        {
+          "text": "manner",
+          "start": 2.13,
+          "end": 2.39
+        },
+        {
+          "text": "of",
+          "start": 2.39,
+          "end": 2.55
+        },
+        {
+          "text": "man",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "text": "is",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "he?",
+          "start": 2.93,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2532620467245579
+    },
+    {
+      "asr_seconds": 0.2341255396604538,
+      "alignment_seconds": 0.0006949082016944885,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Viola, I beseech you. What manner of man is he?",
+          "start": 0.51,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.51,
+              "end": 0.91,
+              "probability": 0.7236328125
+            },
+            {
+              "text": " I",
+              "start": 1.25,
+              "end": 1.33,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " beseech",
+              "start": 1.33,
+              "end": 1.69,
+              "probability": 0.9791666666666666
+            },
+            {
+              "text": " you.",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " What",
+              "start": 2.05,
+              "end": 2.15,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " manner",
+              "start": 2.15,
+              "end": 2.39,
+              "probability": 0.9765625
+            },
+            {
+              "text": " of",
+              "start": 2.39,
+              "end": 2.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " man",
+              "start": 2.55,
+              "end": 2.75,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " is",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he?",
+              "start": 2.93,
+              "end": 3.11,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.51,
+          "end": 0.91
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "raw": "beseech",
+          "start": 1.33,
+          "end": 1.69
+        },
+        {
+          "raw": "you.",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "What",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "raw": "manner",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "raw": "of",
+          "start": 2.39,
+          "end": 2.55
+        },
+        {
+          "raw": "man",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "raw": "is",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "he?",
+          "start": 2.93,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "I",
+        "beseech",
+        "you,",
+        "what",
+        "manner",
+        "of",
+        "man",
+        "is",
+        "he?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.51,
+          "end": 0.91,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.33,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "beseech",
+          "start": 1.33,
+          "end": 1.69,
+          "key": "beseech",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.05,
+          "end": 2.15,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "manner",
+          "start": 2.15,
+          "end": 2.39,
+          "key": "manner",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.39,
+          "end": 2.55,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.55,
+          "end": 2.75,
+          "key": "man",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he?",
+          "start": 2.93,
+          "end": 3.11,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.51,
+          "end": 0.91
+        },
+        {
+          "text": "I",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "text": "beseech",
+          "start": 1.33,
+          "end": 1.69
+        },
+        {
+          "text": "you,",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "text": "what",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "text": "manner",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "text": "of",
+          "start": 2.39,
+          "end": 2.55
+        },
+        {
+          "text": "man",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "text": "is",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "he?",
+          "start": 2.93,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23507460206747055
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "56bad607017ff53b6ffc18a0c940d92e4a24ee66c1df565aa2f8e90bbdee03c5",
+  "selected_reasons": []
+}

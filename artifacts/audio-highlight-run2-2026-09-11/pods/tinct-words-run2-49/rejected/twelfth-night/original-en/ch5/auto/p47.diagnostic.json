@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "a9e762f484f6a76fae98b7fd77229a2d13b243323596df5b817e94cc3e98b1a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.20704737305641174,
+      "alignment_seconds": 0.00032623857259750366,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Maria. Sir Toby, madam, your kinsman.",
+        "hotwords": "Maria, Sir, Toby"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Maria, Sir Toby, madam, your kinsman.",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Maria,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.25
+            },
+            {
+              "text": " Sir",
+              "start": 1.31,
+              "end": 1.35,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " Toby,",
+              "start": 1.35,
+              "end": 1.71,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " madam,",
+              "start": 1.85,
+              "end": 2.15,
+              "probability": 0.47381591796875
+            },
+            {
+              "text": " your",
+              "start": 2.25,
+              "end": 2.29,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " kinsman.",
+              "start": 2.29,
+              "end": 2.75,
+              "probability": 0.74951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Maria,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Sir",
+          "start": 1.31,
+          "end": 1.35
+        },
+        {
+          "raw": "Toby,",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "raw": "madam,",
+          "start": 1.85,
+          "end": 2.15
+        },
+        {
+          "raw": "your",
+          "start": 2.25,
+          "end": 2.29
+        },
+        {
+          "raw": "kinsman.",
+          "start": 2.29,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "Maria.",
+        "Sir",
+        "Toby,",
+        "madam,",
+        "your",
+        "kinsman."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Maria,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "maria",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 1.31,
+          "end": 1.35,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 1.35,
+          "end": 1.71,
+          "key": "toby",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 1.85,
+          "end": 2.15,
+          "key": "madam",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.25,
+          "end": 2.29,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "kinsman.",
+          "start": 2.29,
+          "end": 2.75,
+          "key": "kinsman",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Maria.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Sir",
+          "start": 1.31,
+          "end": 1.35
+        },
+        {
+          "text": "Toby,",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "text": "madam,",
+          "start": 1.85,
+          "end": 2.15
+        },
+        {
+          "text": "your",
+          "start": 2.25,
+          "end": 2.29
+        },
+        {
+          "text": "kinsman.",
+          "start": 2.29,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2074963040649891
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "16c8979a25d92f8fdef4ff712d5b2b1ece7f74c17cabda4378fd74f4ab6498c4",
+  "selected_reasons": []
+}

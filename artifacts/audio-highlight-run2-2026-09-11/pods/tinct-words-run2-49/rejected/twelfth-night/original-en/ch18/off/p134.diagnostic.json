@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "dc428c412fd417bbcf4393eccadde3cffe25b49e664f8bbde32690a107a09347",
+  "attempts": [
+    {
+      "asr_seconds": 0.1212276965379715,
+      "alignment_seconds": 0.00026945769786834717,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Fabian.",
+          "start": 0.05,
+          "end": 1.13,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " Fabian.",
+              "start": 0.65,
+              "end": 1.13,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Fabian.",
+          "start": 0.65,
+          "end": 1.13
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Fabian._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fabian.",
+          "start": 0.65,
+          "end": 1.13,
+          "key": "fabian",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Fabian._]",
+          "start": 0.65,
+          "end": 1.13
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12158950418233871
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "82df8c65690bd78eac73c11861172bf36229ba38c143a6e11aaab7e4346639c5",
+  "selected_reasons": []
+}

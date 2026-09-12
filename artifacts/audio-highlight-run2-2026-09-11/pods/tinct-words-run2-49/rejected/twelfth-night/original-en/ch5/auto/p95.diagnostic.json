@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "feeb416c31b30e84abcae0bd03facaac99f232f5c31f69cdf057db962b3eb31e",
+  "attempts": [
+    {
+      "asr_seconds": 0.20330584421753883,
+      "alignment_seconds": 0.0005057565867900848,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Olivia. Come to what is important in't: I forgive you the praise.",
+        "hotwords": "Olivia, Come, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Olivia, Come to what is important in't. I forgive you the praise.",
+          "start": 0.05,
+          "end": 4.01,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " Come",
+              "start": 1.23,
+              "end": 1.49,
+              "probability": 0.0225372314453125
+            },
+            {
+              "text": " to",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " what",
+              "start": 1.67,
+              "end": 1.75,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " is",
+              "start": 1.75,
+              "end": 1.87,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " important",
+              "start": 1.87,
+              "end": 2.33,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " in't.",
+              "start": 2.33,
+              "end": 2.81,
+              "probability": 0.36822509765625
+            },
+            {
+              "text": " I",
+              "start": 3.07,
+              "end": 3.17,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " forgive",
+              "start": 3.17,
+              "end": 3.37,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " you",
+              "start": 3.37,
+              "end": 3.63,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 3.63,
+              "end": 3.75,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " praise.",
+              "start": 3.75,
+              "end": 4.01,
+              "probability": 0.94677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Come",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "raw": "to",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "what",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "raw": "is",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "raw": "important",
+          "start": 1.87,
+          "end": 2.33
+        },
+        {
+          "raw": "in't.",
+          "start": 2.33,
+          "end": 2.81
+        },
+        {
+          "raw": "I",
+          "start": 3.07,
+          "end": 3.17
+        },
+        {
+          "raw": "forgive",
+          "start": 3.17,
+          "end": 3.37
+        },
+        {
+          "raw": "you",
+          "start": 3.37,
+          "end": 3.63
+        },
+        {
+          "raw": "the",
+          "start": 3.63,
+          "end": 3.75
+        },
+        {
+          "raw": "praise.",
+          "start": 3.75,
+          "end": 4.01
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Come",
+        "to",
+        "what",
+        "is",
+        "important",
+        "in't:",
+        "I",
+        "forgive",
+        "you",
+        "the",
+        "praise."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 1.23,
+          "end": 1.49,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.49,
+          "end": 1.67,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.67,
+          "end": 1.75,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.75,
+          "end": 1.87,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "important",
+          "start": 1.87,
+          "end": 2.33,
+          "key": "important",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in't.",
+          "start": 2.33,
+          "end": 2.81,
+          "key": "int",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.07,
+          "end": 3.17,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "forgive",
+          "start": 3.17,
+          "end": 3.37,
+          "key": "forgive",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.37,
+          "end": 3.63,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.63,
+          "end": 3.75,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "praise.",
+          "start": 3.75,
+          "end": 4.01,
+          "key": "praise",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Come",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "text": "to",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "what",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "text": "is",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "text": "important",
+          "start": 1.87,
+          "end": 2.33
+        },
+        {
+          "text": "in't:",
+          "start": 2.33,
+          "end": 2.81
+        },
+        {
+          "text": "I",
+          "start": 3.07,
+          "end": 3.17
+        },
+        {
+          "text": "forgive",
+          "start": 3.17,
+          "end": 3.37
+        },
+        {
+          "text": "you",
+          "start": 3.37,
+          "end": 3.63
+        },
+        {
+          "text": "the",
+          "start": 3.63,
+          "end": 3.75
+        },
+        {
+          "text": "praise.",
+          "start": 3.75,
+          "end": 4.01
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2040541134774685
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5d84f4a2ab10915b36e290f7728fc181c806307ed78299c7c68982a438f47b5a",
+  "selected_reasons": []
+}

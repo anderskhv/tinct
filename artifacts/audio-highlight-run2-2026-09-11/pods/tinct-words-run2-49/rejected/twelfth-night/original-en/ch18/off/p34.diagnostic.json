@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "5f0c497884553ba1aa0f98eb3a28fd9d4ed16d0707ce302aa0a66700505bbd58",
+  "attempts": [
+    {
+      "asr_seconds": 0.18431969732046127,
+      "alignment_seconds": 0.000419076532125473,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Duke, when came he to this town?",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " when",
+              "start": 1.03,
+              "end": 1.19,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " came",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 1.37,
+              "end": 1.53,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " to",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " this",
+              "start": 1.63,
+              "end": 1.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " town?",
+              "start": 1.79,
+              "end": 2.09,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "when",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "raw": "came",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "he",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "raw": "to",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "this",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "raw": "town?",
+          "start": 1.79,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "When",
+        "came",
+        "he",
+        "to",
+        "this",
+        "town?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.03,
+          "end": 1.19,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "came",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.37,
+          "end": 1.53,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.63,
+          "end": 1.79,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "town?",
+          "start": 1.79,
+          "end": 2.09,
+          "key": "town",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "When",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "text": "came",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "he",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "text": "to",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "this",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "text": "town?",
+          "start": 1.79,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1848929189145565
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "620bb721a38948a57ce0cc01e4ae4d3eaf9bdb5c37548028cc09dd2baa8199fc",
+  "selected_reasons": []
+}

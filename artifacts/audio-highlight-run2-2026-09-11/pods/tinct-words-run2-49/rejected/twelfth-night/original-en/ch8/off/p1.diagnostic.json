@@ -1,0 +1,841 @@
+{
+  "complete": true,
+  "signature": "ef445181e040e2381fd6c5f73b269706911b70d8d127386e586ac0a8ce2e4c57",
+  "attempts": [
+    {
+      "asr_seconds": 0.3801903873682022,
+      "alignment_seconds": 0.0007570460438728333,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Toby, approach, Sir Andrew, not to be abet after midnight is to be up at times,",
+          "start": 0.05,
+          "end": 5.47,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.68212890625
+            },
+            {
+              "text": " Toby,",
+              "start": 0.53,
+              "end": 0.87,
+              "probability": 0.76611328125
+            },
+            {
+              "text": " approach,",
+              "start": 1.49,
+              "end": 1.87,
+              "probability": 0.67431640625
+            },
+            {
+              "text": " Sir",
+              "start": 2.25,
+              "end": 2.29,
+              "probability": 0.703125
+            },
+            {
+              "text": " Andrew,",
+              "start": 2.29,
+              "end": 2.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " not",
+              "start": 3.13,
+              "end": 3.23,
+              "probability": 0.71875
+            },
+            {
+              "text": " to",
+              "start": 3.23,
+              "end": 3.35,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " be",
+              "start": 3.35,
+              "end": 3.43,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " abet",
+              "start": 3.43,
+              "end": 3.69,
+              "probability": 0.814208984375
+            },
+            {
+              "text": " after",
+              "start": 3.69,
+              "end": 3.93,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " midnight",
+              "start": 3.93,
+              "end": 4.29,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " is",
+              "start": 4.29,
+              "end": 4.55,
+              "probability": 0.75634765625
+            },
+            {
+              "text": " to",
+              "start": 4.55,
+              "end": 4.69,
+              "probability": 0.986328125
+            },
+            {
+              "text": " be",
+              "start": 4.69,
+              "end": 4.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " up",
+              "start": 4.81,
+              "end": 4.93,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " at",
+              "start": 4.93,
+              "end": 5.03,
+              "probability": 0.498291015625
+            },
+            {
+              "text": " times,",
+              "start": 5.03,
+              "end": 5.47,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " And deliculo serger thou nos'dee.",
+          "start": 5.99,
+          "end": 7.87,
+          "words": [
+            {
+              "text": " And",
+              "start": 5.99,
+              "end": 6.03,
+              "probability": 0.36279296875
+            },
+            {
+              "text": " deliculo",
+              "start": 6.03,
+              "end": 6.51,
+              "probability": 0.5333658854166666
+            },
+            {
+              "text": " serger",
+              "start": 6.51,
+              "end": 7.01,
+              "probability": 0.6099853515625
+            },
+            {
+              "text": " thou",
+              "start": 7.01,
+              "end": 7.23,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " nos'dee.",
+              "start": 7.23,
+              "end": 7.87,
+              "probability": 0.4239908854166667
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "raw": "approach,",
+          "start": 1.49,
+          "end": 1.87
+        },
+        {
+          "raw": "Sir",
+          "start": 2.25,
+          "end": 2.29
+        },
+        {
+          "raw": "Andrew,",
+          "start": 2.29,
+          "end": 2.71
+        },
+        {
+          "raw": "not",
+          "start": 3.13,
+          "end": 3.23
+        },
+        {
+          "raw": "to",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "raw": "be",
+          "start": 3.35,
+          "end": 3.43
+        },
+        {
+          "raw": "abet",
+          "start": 3.43,
+          "end": 3.69
+        },
+        {
+          "raw": "after",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "raw": "midnight",
+          "start": 3.93,
+          "end": 4.29
+        },
+        {
+          "raw": "is",
+          "start": 4.29,
+          "end": 4.55
+        },
+        {
+          "raw": "to",
+          "start": 4.55,
+          "end": 4.69
+        },
+        {
+          "raw": "be",
+          "start": 4.69,
+          "end": 4.81
+        },
+        {
+          "raw": "up",
+          "start": 4.81,
+          "end": 4.93
+        },
+        {
+          "raw": "at",
+          "start": 4.93,
+          "end": 5.03
+        },
+        {
+          "raw": "times,",
+          "start": 5.03,
+          "end": 5.47
+        },
+        {
+          "raw": "And",
+          "start": 5.99,
+          "end": 6.03
+        },
+        {
+          "raw": "deliculo",
+          "start": 6.03,
+          "end": 6.51
+        },
+        {
+          "raw": "serger",
+          "start": 6.51,
+          "end": 7.01
+        },
+        {
+          "raw": "thou",
+          "start": 7.01,
+          "end": 7.23
+        },
+        {
+          "raw": "nos'dee.",
+          "start": 7.23,
+          "end": 7.87
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "Approach,",
+        "Sir",
+        "Andrew;",
+        "not",
+        "to",
+        "be",
+        "abed",
+        "after",
+        "midnight,",
+        "is",
+        "to",
+        "be",
+        "up",
+        "betimes;",
+        "and",
+        "_diluculo",
+        "surgere_,",
+        "thou",
+        "know'st."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          15,
+          9,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          17
+        ],
+        [
+          "equal",
+          16,
+          17,
+          17,
+          18
+        ],
+        [
+          "replace",
+          17,
+          19,
+          18,
+          20
+        ],
+        [
+          "equal",
+          19,
+          20,
+          20,
+          21
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          17
+        ],
+        [
+          "replace",
+          17,
+          19,
+          18,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.87,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "approach,",
+          "start": 1.49,
+          "end": 1.87,
+          "key": "approach",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 2.25,
+          "end": 2.29,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Andrew,",
+          "start": 2.29,
+          "end": 2.71,
+          "key": "andrew",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.13,
+          "end": 3.23,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.23,
+          "end": 3.35,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.35,
+          "end": 3.43,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "abet",
+          "start": 3.43,
+          "end": 3.69,
+          "key": "abet",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 3.69,
+          "end": 3.93,
+          "key": "after",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "midnight",
+          "start": 3.93,
+          "end": 4.29,
+          "key": "midnight",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.29,
+          "end": 4.55,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.55,
+          "end": 4.69,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.69,
+          "end": 4.81,
+          "key": "be",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 4.81,
+          "end": 4.93,
+          "key": "up",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.93,
+          "end": 5.03,
+          "key": "at",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "times,",
+          "start": 5.03,
+          "end": 5.47,
+          "key": "times",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.99,
+          "end": 6.03,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "deliculo",
+          "start": 6.03,
+          "end": 6.51,
+          "key": "deliculo",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "serger",
+          "start": 6.51,
+          "end": 7.01,
+          "key": "serger",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 7.01,
+          "end": 7.23,
+          "key": "thou",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "nos'dee.",
+          "start": 7.23,
+          "end": 7.87,
+          "key": "nosdee",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Toby.",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "text": "Approach,",
+          "start": 1.49,
+          "end": 1.87
+        },
+        {
+          "text": "Sir",
+          "start": 2.25,
+          "end": 2.29
+        },
+        {
+          "text": "Andrew;",
+          "start": 2.29,
+          "end": 2.71
+        },
+        {
+          "text": "not",
+          "start": 3.13,
+          "end": 3.23
+        },
+        {
+          "text": "to",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "text": "be",
+          "start": 3.35,
+          "end": 3.43
+        },
+        {
+          "text": "abed",
+          "start": 3.43,
+          "end": 3.56
+        },
+        {
+          "text": "after",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "text": "midnight,",
+          "start": 3.93,
+          "end": 4.29
+        },
+        {
+          "text": "is",
+          "start": 4.29,
+          "end": 4.55
+        },
+        {
+          "text": "to",
+          "start": 4.55,
+          "end": 4.69
+        },
+        {
+          "text": "be",
+          "start": 4.69,
+          "end": 4.81
+        },
+        {
+          "text": "up",
+          "start": 4.81,
+          "end": 4.93
+        },
+        {
+          "text": "betimes;",
+          "start": 4.93,
+          "end": 5.46
+        },
+        {
+          "text": "and",
+          "start": 5.99,
+          "end": 6.03
+        },
+        {
+          "text": "_diluculo",
+          "start": 6.03,
+          "end": 6.52
+        },
+        {
+          "text": "surgere_,",
+          "start": 6.52,
+          "end": 6.765
+        },
+        {
+          "text": "thou",
+          "start": 7.01,
+          "end": 7.23
+        },
+        {
+          "text": "know'st.",
+          "start": 7.23,
+          "end": 7.55
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 16
+      },
+      "match_ratio": 0.7619047619047619,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3812367431819439
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fcc989889c05e7713519079b6821a0e3169dfd6dd49db7419ad2fd107e303e5f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

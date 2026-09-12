@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "8a7640698934edba17d75c7ac619a65204f47255d74dae146944f22f1034ee3d",
+  "attempts": [
+    {
+      "asr_seconds": 0.11101864278316498,
+      "alignment_seconds": 9.668618440628052e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian.",
+          "start": 0.08,
+          "end": 0.66,
+          "words": [
+            {
+              "text": " Sebastian.",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.87109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian.",
+          "start": 0.08,
+          "end": 0.66
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian.",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.66
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11114677041769028
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8b7e569ec4d8487f137444615bb43e0dcb486f01059b65555a1ef3573b1a692a",
+  "selected_reasons": []
+}

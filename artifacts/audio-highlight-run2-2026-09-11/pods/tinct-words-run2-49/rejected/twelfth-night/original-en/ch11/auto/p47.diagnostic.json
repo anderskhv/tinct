@@ -1,0 +1,867 @@
+{
+  "complete": true,
+  "signature": "be08f6b627a60923efa98b14547ee943f063b3c0ef21dfddde10d12fba4a31c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.15340717509388924,
+      "alignment_seconds": 0.000472094863653183,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exeunt Sir Toby, Sir Andrew and Maria._]",
+        "hotwords": "Sir, Toby, Andrew, Maria._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt Sir Toby, Sir Andrew and Maria._",
+          "start": 0.05,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.6207275390625
+            },
+            {
+              "text": " Sir",
+              "start": 0.75,
+              "end": 0.91,
+              "probability": 0.402587890625
+            },
+            {
+              "text": " Toby,",
+              "start": 0.91,
+              "end": 1.23,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " Sir",
+              "start": 1.71,
+              "end": 1.75,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Andrew",
+              "start": 1.75,
+              "end": 2.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.681640625
+            },
+            {
+              "text": " Maria._",
+              "start": 2.23,
+              "end": 3.25,
+              "probability": 0.255126953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Sir",
+          "start": 0.75,
+          "end": 0.91
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.91,
+          "end": 1.23
+        },
+        {
+          "raw": "Sir",
+          "start": 1.71,
+          "end": 1.75
+        },
+        {
+          "raw": "Andrew",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "raw": "and",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "Maria._",
+          "start": 2.23,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Sir",
+        "Toby,",
+        "Sir",
+        "Andrew",
+        "and",
+        "Maria._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 0.75,
+          "end": 0.91,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.91,
+          "end": 1.23,
+          "key": "toby",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 1.71,
+          "end": 1.75,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Andrew",
+          "start": 1.75,
+          "end": 2.07,
+          "key": "andrew",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Maria._",
+          "start": 2.23,
+          "end": 3.25,
+          "key": "maria_",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Sir",
+          "start": 0.75,
+          "end": 0.91
+        },
+        {
+          "text": "Toby,",
+          "start": 0.91,
+          "end": 1.23
+        },
+        {
+          "text": "Sir",
+          "start": 1.71,
+          "end": 1.75
+        },
+        {
+          "text": "Andrew",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "text": "and",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "Maria._]",
+          "start": 2.23,
+          "end": 2.74
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.15403743088245392
+    },
+    {
+      "asr_seconds": 0.23524809628725052,
+      "alignment_seconds": 0.00039977580308914185,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Sir, Toby, Andrew, Maria._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exeunt, Sir, Toby, Sir, Andrew, and Maria._",
+          "start": 0.49,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " Exeunt,",
+              "start": 0.49,
+              "end": 0.77,
+              "probability": 0.6205240885416666
+            },
+            {
+              "text": " Sir,",
+              "start": 0.79,
+              "end": 0.91,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " Toby,",
+              "start": 1.17,
+              "end": 1.23,
+              "probability": 0.5986328125
+            },
+            {
+              "text": " Sir,",
+              "start": 1.71,
+              "end": 1.75,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Andrew,",
+              "start": 1.79,
+              "end": 2.03,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " and",
+              "start": 2.19,
+              "end": 2.25,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Maria._",
+              "start": 2.25,
+              "end": 3.25,
+              "probability": 0.271728515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "raw": "Sir,",
+          "start": 0.79,
+          "end": 0.91
+        },
+        {
+          "raw": "Toby,",
+          "start": 1.17,
+          "end": 1.23
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.71,
+          "end": 1.75
+        },
+        {
+          "raw": "Andrew,",
+          "start": 1.79,
+          "end": 2.03
+        },
+        {
+          "raw": "and",
+          "start": 2.19,
+          "end": 2.25
+        },
+        {
+          "raw": "Maria._",
+          "start": 2.25,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Sir",
+        "Toby,",
+        "Sir",
+        "Andrew",
+        "and",
+        "Maria._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.49,
+          "end": 0.77,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 0.79,
+          "end": 0.91,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 1.17,
+          "end": 1.23,
+          "key": "toby",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.71,
+          "end": 1.75,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Andrew,",
+          "start": 1.79,
+          "end": 2.03,
+          "key": "andrew",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.19,
+          "end": 2.25,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Maria._",
+          "start": 2.25,
+          "end": 3.25,
+          "key": "maria_",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "text": "Sir",
+          "start": 0.79,
+          "end": 0.91
+        },
+        {
+          "text": "Toby,",
+          "start": 1.17,
+          "end": 1.23
+        },
+        {
+          "text": "Sir",
+          "start": 1.71,
+          "end": 1.75
+        },
+        {
+          "text": "Andrew",
+          "start": 1.79,
+          "end": 2.03
+        },
+        {
+          "text": "and",
+          "start": 2.19,
+          "end": 2.25
+        },
+        {
+          "text": "Maria._]",
+          "start": 2.25,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.2357967272400856
+    },
+    {
+      "asr_seconds": 0.1634911745786667,
+      "alignment_seconds": 0.00041338056325912476,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt Sir Toby, Sir Andrew and Maria.",
+          "start": 0.05,
+          "end": 2.51,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.6207275390625
+            },
+            {
+              "text": " Sir",
+              "start": 0.75,
+              "end": 0.91,
+              "probability": 0.402587890625
+            },
+            {
+              "text": " Toby,",
+              "start": 0.91,
+              "end": 1.23,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " Sir",
+              "start": 1.71,
+              "end": 1.75,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Andrew",
+              "start": 1.75,
+              "end": 2.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.681640625
+            },
+            {
+              "text": " Maria.",
+              "start": 2.23,
+              "end": 2.51,
+              "probability": 0.51025390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Sir",
+          "start": 0.75,
+          "end": 0.91
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.91,
+          "end": 1.23
+        },
+        {
+          "raw": "Sir",
+          "start": 1.71,
+          "end": 1.75
+        },
+        {
+          "raw": "Andrew",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "raw": "and",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "Maria.",
+          "start": 2.23,
+          "end": 2.51
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Sir",
+        "Toby,",
+        "Sir",
+        "Andrew",
+        "and",
+        "Maria._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 0.75,
+          "end": 0.91,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.91,
+          "end": 1.23,
+          "key": "toby",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 1.71,
+          "end": 1.75,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Andrew",
+          "start": 1.75,
+          "end": 2.07,
+          "key": "andrew",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Maria.",
+          "start": 2.23,
+          "end": 2.51,
+          "key": "maria",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Sir",
+          "start": 0.75,
+          "end": 0.91
+        },
+        {
+          "text": "Toby,",
+          "start": 0.91,
+          "end": 1.23
+        },
+        {
+          "text": "Sir",
+          "start": 1.71,
+          "end": 1.75
+        },
+        {
+          "text": "Andrew",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "text": "and",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "Maria._]",
+          "start": 2.23,
+          "end": 2.51
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16406963020563126
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "40d1c214eb43b1ba593daeca39a0082d8aa60870af2c13ed3ead087ed5126023",
+  "selected_reasons": []
+}

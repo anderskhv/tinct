@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "116c7eb0e1cc5e03d2f3c787ee51736c2a06a714c6db47efee98ccd3ae2fc476",
+  "attempts": [
+    {
+      "asr_seconds": 0.13890507444739342,
+      "alignment_seconds": 0.0002693980932235718,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, lead me on.",
+          "start": 0.11,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.75,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " lead",
+              "start": 1.29,
+              "end": 1.37,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " me",
+              "start": 1.37,
+              "end": 1.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on.",
+              "start": 1.53,
+              "end": 1.79,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.75
+        },
+        {
+          "raw": "lead",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "raw": "me",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "raw": "on.",
+          "start": 1.53,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "Lead",
+        "me",
+        "on."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.75,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lead",
+          "start": 1.29,
+          "end": 1.37,
+          "key": "lead",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.37,
+          "end": 1.53,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 1.53,
+          "end": 1.79,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.75
+        },
+        {
+          "text": "Lead",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "text": "me",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "text": "on.",
+          "start": 1.53,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13927384838461876
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "74c0c53dd14c713a7ac3c579c14bea8625235b2c8709ca1a97e4d3731fde38b2",
+  "selected_reasons": []
+}

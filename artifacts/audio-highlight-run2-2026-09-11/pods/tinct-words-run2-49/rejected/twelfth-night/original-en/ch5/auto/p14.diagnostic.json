@@ -1,0 +1,1029 @@
+{
+  "complete": true,
+  "signature": "0fdbd76a2345fec2dbee97833b11c0dc21ba9e3df15149cac7991e2817754f41",
+  "attempts": [
+    {
+      "asr_seconds": 0.4068187288939953,
+      "alignment_seconds": 0.000838007777929306,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. Apt, in good faith, very apt! Well, go thy way; if Sir Toby would leave drinking, thou wert as witty a piece of Eve's flesh as any in Illyria.",
+        "hotwords": "Clown, Well, Sir, Toby, Eve's, Illyria"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, Apt, in good faith, very apt! Well, go thy way. If Sir Toby would leave drinking,",
+          "start": 0.0,
+          "end": 6.3,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.232177734375
+            },
+            {
+              "text": " Apt,",
+              "start": 1.32,
+              "end": 1.44,
+              "probability": 0.4947166442871094
+            },
+            {
+              "text": " in",
+              "start": 1.58,
+              "end": 1.66,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " good",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " faith,",
+              "start": 1.84,
+              "end": 2.2,
+              "probability": 0.955078125
+            },
+            {
+              "text": " very",
+              "start": 2.5,
+              "end": 2.56,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " apt!",
+              "start": 2.56,
+              "end": 2.96,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Well,",
+              "start": 3.64,
+              "end": 3.74,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " go",
+              "start": 3.88,
+              "end": 3.98,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " thy",
+              "start": 3.98,
+              "end": 4.18,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " way.",
+              "start": 4.18,
+              "end": 4.42,
+              "probability": 0.982421875
+            },
+            {
+              "text": " If",
+              "start": 4.84,
+              "end": 4.94,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Sir",
+              "start": 4.94,
+              "end": 5.12,
+              "probability": 0.923828125
+            },
+            {
+              "text": " Toby",
+              "start": 5.12,
+              "end": 5.42,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " would",
+              "start": 5.42,
+              "end": 5.62,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " leave",
+              "start": 5.62,
+              "end": 5.86,
+              "probability": 0.98828125
+            },
+            {
+              "text": " drinking,",
+              "start": 5.86,
+              "end": 6.3,
+              "probability": 0.88720703125
+            }
+          ]
+        },
+        {
+          "text": " thou wert as witty a piece of Eve's flesh as any in Illyria.",
+          "start": 6.68,
+          "end": 9.66,
+          "words": [
+            {
+              "text": " thou",
+              "start": 6.68,
+              "end": 6.7,
+              "probability": 0.357421875
+            },
+            {
+              "text": " wert",
+              "start": 6.7,
+              "end": 6.94,
+              "probability": 0.944580078125
+            },
+            {
+              "text": " as",
+              "start": 6.94,
+              "end": 7.14,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " witty",
+              "start": 7.14,
+              "end": 7.34,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " a",
+              "start": 7.34,
+              "end": 7.54,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " piece",
+              "start": 7.54,
+              "end": 7.7,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " of",
+              "start": 7.7,
+              "end": 7.92,
+              "probability": 0.9609375
+            },
+            {
+              "text": " Eve's",
+              "start": 7.92,
+              "end": 8.3,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " flesh",
+              "start": 8.3,
+              "end": 8.52,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " as",
+              "start": 8.52,
+              "end": 8.76,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " any",
+              "start": 8.76,
+              "end": 9.0,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " in",
+              "start": 9.0,
+              "end": 9.2,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Illyria.",
+              "start": 9.2,
+              "end": 9.66,
+              "probability": 0.8216145833333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "raw": "Apt,",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "raw": "in",
+          "start": 1.58,
+          "end": 1.66
+        },
+        {
+          "raw": "good",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "faith,",
+          "start": 1.84,
+          "end": 2.2
+        },
+        {
+          "raw": "very",
+          "start": 2.5,
+          "end": 2.56
+        },
+        {
+          "raw": "apt!",
+          "start": 2.56,
+          "end": 2.96
+        },
+        {
+          "raw": "Well,",
+          "start": 3.64,
+          "end": 3.74
+        },
+        {
+          "raw": "go",
+          "start": 3.88,
+          "end": 3.98
+        },
+        {
+          "raw": "thy",
+          "start": 3.98,
+          "end": 4.18
+        },
+        {
+          "raw": "way.",
+          "start": 4.18,
+          "end": 4.42
+        },
+        {
+          "raw": "If",
+          "start": 4.84,
+          "end": 4.94
+        },
+        {
+          "raw": "Sir",
+          "start": 4.94,
+          "end": 5.12
+        },
+        {
+          "raw": "Toby",
+          "start": 5.12,
+          "end": 5.42
+        },
+        {
+          "raw": "would",
+          "start": 5.42,
+          "end": 5.62
+        },
+        {
+          "raw": "leave",
+          "start": 5.62,
+          "end": 5.86
+        },
+        {
+          "raw": "drinking,",
+          "start": 5.86,
+          "end": 6.3
+        },
+        {
+          "raw": "thou",
+          "start": 6.68,
+          "end": 6.7
+        },
+        {
+          "raw": "wert",
+          "start": 6.7,
+          "end": 6.94
+        },
+        {
+          "raw": "as",
+          "start": 6.94,
+          "end": 7.14
+        },
+        {
+          "raw": "witty",
+          "start": 7.14,
+          "end": 7.34
+        },
+        {
+          "raw": "a",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "raw": "piece",
+          "start": 7.54,
+          "end": 7.7
+        },
+        {
+          "raw": "of",
+          "start": 7.7,
+          "end": 7.92
+        },
+        {
+          "raw": "Eve's",
+          "start": 7.92,
+          "end": 8.3
+        },
+        {
+          "raw": "flesh",
+          "start": 8.3,
+          "end": 8.52
+        },
+        {
+          "raw": "as",
+          "start": 8.52,
+          "end": 8.76
+        },
+        {
+          "raw": "any",
+          "start": 8.76,
+          "end": 9.0
+        },
+        {
+          "raw": "in",
+          "start": 9.0,
+          "end": 9.2
+        },
+        {
+          "raw": "Illyria.",
+          "start": 9.2,
+          "end": 9.66
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Apt,",
+        "in",
+        "good",
+        "faith,",
+        "very",
+        "apt!",
+        "Well,",
+        "go",
+        "thy",
+        "way;",
+        "if",
+        "Sir",
+        "Toby",
+        "would",
+        "leave",
+        "drinking,",
+        "thou",
+        "wert",
+        "as",
+        "witty",
+        "a",
+        "piece",
+        "of",
+        "Eve's",
+        "flesh",
+        "as",
+        "any",
+        "in",
+        "Illyria."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          30,
+          0,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Apt,",
+          "start": 1.32,
+          "end": 1.44,
+          "key": "apt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.58,
+          "end": 1.66,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "faith,",
+          "start": 1.84,
+          "end": 2.2,
+          "key": "faith",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 2.5,
+          "end": 2.56,
+          "key": "very",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "apt!",
+          "start": 2.56,
+          "end": 2.96,
+          "key": "apt",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 3.64,
+          "end": 3.74,
+          "key": "well",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 3.88,
+          "end": 3.98,
+          "key": "go",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.98,
+          "end": 4.18,
+          "key": "thy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "way.",
+          "start": 4.18,
+          "end": 4.42,
+          "key": "way",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 4.84,
+          "end": 4.94,
+          "key": "if",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 4.94,
+          "end": 5.12,
+          "key": "sir",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Toby",
+          "start": 5.12,
+          "end": 5.42,
+          "key": "toby",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 5.42,
+          "end": 5.62,
+          "key": "would",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 5.62,
+          "end": 5.86,
+          "key": "leave",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "drinking,",
+          "start": 5.86,
+          "end": 6.3,
+          "key": "drinking",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 6.68,
+          "end": 6.7,
+          "key": "thou",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "wert",
+          "start": 6.7,
+          "end": 6.94,
+          "key": "wert",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.94,
+          "end": 7.14,
+          "key": "as",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "witty",
+          "start": 7.14,
+          "end": 7.34,
+          "key": "witty",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.34,
+          "end": 7.54,
+          "key": "a",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "piece",
+          "start": 7.54,
+          "end": 7.7,
+          "key": "piece",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.7,
+          "end": 7.92,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Eve's",
+          "start": 7.92,
+          "end": 8.3,
+          "key": "eves",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "flesh",
+          "start": 8.3,
+          "end": 8.52,
+          "key": "flesh",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 8.52,
+          "end": 8.76,
+          "key": "as",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 8.76,
+          "end": 9.0,
+          "key": "any",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.0,
+          "end": 9.2,
+          "key": "in",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Illyria.",
+          "start": 9.2,
+          "end": 9.66,
+          "key": "illyria",
+          "pieces": [
+            29
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "text": "Apt,",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "text": "in",
+          "start": 1.58,
+          "end": 1.66
+        },
+        {
+          "text": "good",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "faith,",
+          "start": 1.84,
+          "end": 2.2
+        },
+        {
+          "text": "very",
+          "start": 2.5,
+          "end": 2.56
+        },
+        {
+          "text": "apt!",
+          "start": 2.56,
+          "end": 2.96
+        },
+        {
+          "text": "Well,",
+          "start": 3.64,
+          "end": 3.74
+        },
+        {
+          "text": "go",
+          "start": 3.88,
+          "end": 3.98
+        },
+        {
+          "text": "thy",
+          "start": 3.98,
+          "end": 4.18
+        },
+        {
+          "text": "way;",
+          "start": 4.18,
+          "end": 4.42
+        },
+        {
+          "text": "if",
+          "start": 4.84,
+          "end": 4.94
+        },
+        {
+          "text": "Sir",
+          "start": 4.94,
+          "end": 5.12
+        },
+        {
+          "text": "Toby",
+          "start": 5.12,
+          "end": 5.42
+        },
+        {
+          "text": "would",
+          "start": 5.42,
+          "end": 5.62
+        },
+        {
+          "text": "leave",
+          "start": 5.62,
+          "end": 5.86
+        },
+        {
+          "text": "drinking,",
+          "start": 5.86,
+          "end": 6.3
+        },
+        {
+          "text": "thou",
+          "start": 6.68,
+          "end": 6.7
+        },
+        {
+          "text": "wert",
+          "start": 6.7,
+          "end": 6.94
+        },
+        {
+          "text": "as",
+          "start": 6.94,
+          "end": 7.14
+        },
+        {
+          "text": "witty",
+          "start": 7.14,
+          "end": 7.34
+        },
+        {
+          "text": "a",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "text": "piece",
+          "start": 7.54,
+          "end": 7.7
+        },
+        {
+          "text": "of",
+          "start": 7.7,
+          "end": 7.92
+        },
+        {
+          "text": "Eve's",
+          "start": 7.92,
+          "end": 8.3
+        },
+        {
+          "text": "flesh",
+          "start": 8.3,
+          "end": 8.52
+        },
+        {
+          "text": "as",
+          "start": 8.52,
+          "end": 8.76
+        },
+        {
+          "text": "any",
+          "start": 8.76,
+          "end": 9.0
+        },
+        {
+          "text": "in",
+          "start": 9.0,
+          "end": 9.2
+        },
+        {
+          "text": "Illyria.",
+          "start": 9.2,
+          "end": 9.66
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 30,
+        "matched_words": 30
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4080379828810692
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9dd867e9b01ab26af1a0c4026042f0eff1fdb7ffd6939679ad722c28f834da35",
+  "selected_reasons": []
+}

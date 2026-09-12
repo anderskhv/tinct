@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "93d9aa4b350854434cdab3acab854e8e5f81f9d660a9ab308ecee25b7254333f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2391766719520092,
+      "alignment_seconds": 0.0004706569015979767,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Malvolio, believe me I am not, I tell thee true.",
+          "start": 0.69,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.69,
+              "end": 1.05,
+              "probability": 0.8527018229166666
+            },
+            {
+              "text": " believe",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " me",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 1.79,
+              "end": 1.91,
+              "probability": 0.67822265625
+            },
+            {
+              "text": " am",
+              "start": 1.91,
+              "end": 2.03,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " not,",
+              "start": 2.03,
+              "end": 2.27,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " I",
+              "start": 2.53,
+              "end": 2.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " tell",
+              "start": 2.59,
+              "end": 2.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thee",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " true.",
+              "start": 2.93,
+              "end": 3.19,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.69,
+          "end": 1.05
+        },
+        {
+          "raw": "believe",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "me",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "I",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "raw": "am",
+          "start": 1.91,
+          "end": 2.03
+        },
+        {
+          "raw": "not,",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "raw": "I",
+          "start": 2.53,
+          "end": 2.59
+        },
+        {
+          "raw": "tell",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "raw": "thee",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "true.",
+          "start": 2.93,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "Believe",
+        "me,",
+        "I",
+        "am",
+        "not.",
+        "I",
+        "tell",
+        "thee",
+        "true."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.69,
+          "end": 1.05,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "believe",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.79,
+          "end": 1.91,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.91,
+          "end": 2.03,
+          "key": "am",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 2.03,
+          "end": 2.27,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.53,
+          "end": 2.59,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.59,
+          "end": 2.75,
+          "key": "tell",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "thee",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 2.93,
+          "end": 3.19,
+          "key": "true",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.69,
+          "end": 1.05
+        },
+        {
+          "text": "Believe",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "me,",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "I",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "text": "am",
+          "start": 1.91,
+          "end": 2.03
+        },
+        {
+          "text": "not.",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "text": "I",
+          "start": 2.53,
+          "end": 2.59
+        },
+        {
+          "text": "tell",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "text": "thee",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "true.",
+          "start": 2.93,
+          "end": 3.19
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23983633518218994
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "55e8713b1a554f615daa8b739f23ac6bd18b92454736a5d5289477d72360145c",
+  "selected_reasons": []
+}

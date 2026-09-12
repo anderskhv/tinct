@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "852a878c61db5d816449bb6c079d1d7921d44b3fc0f9981a7972c883566d43ff",
+  "attempts": [
+    {
+      "asr_seconds": 0.1962435245513916,
+      "alignment_seconds": 0.000532396137714386,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, I, my lord, the same. How now, Malvolio?",
+          "start": 0.08,
+          "end": 3.52,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " I,",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.962890625
+            },
+            {
+              "text": " my",
+              "start": 1.48,
+              "end": 1.56,
+              "probability": 0.97265625
+            },
+            {
+              "text": " lord,",
+              "start": 1.56,
+              "end": 1.74,
+              "probability": 0.67724609375
+            },
+            {
+              "text": " the",
+              "start": 1.9,
+              "end": 1.94,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " same.",
+              "start": 1.94,
+              "end": 2.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " How",
+              "start": 2.62,
+              "end": 2.7,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " now,",
+              "start": 2.7,
+              "end": 2.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Malvolio?",
+              "start": 3.02,
+              "end": 3.52,
+              "probability": 0.9435221354166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "I,",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "my",
+          "start": 1.48,
+          "end": 1.56
+        },
+        {
+          "raw": "lord,",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 1.94
+        },
+        {
+          "raw": "same.",
+          "start": 1.94,
+          "end": 2.22
+        },
+        {
+          "raw": "How",
+          "start": 2.62,
+          "end": 2.7
+        },
+        {
+          "raw": "now,",
+          "start": 2.7,
+          "end": 2.86
+        },
+        {
+          "raw": "Malvolio?",
+          "start": 3.02,
+          "end": 3.52
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Ay,",
+        "my",
+        "lord,",
+        "this",
+        "same.",
+        "How",
+        "now,",
+        "Malvolio?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          9,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.22,
+          "end": 1.4,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.48,
+          "end": 1.56,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.56,
+          "end": 1.74,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 1.94,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "same.",
+          "start": 1.94,
+          "end": 2.22,
+          "key": "same",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.62,
+          "end": 2.7,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 2.7,
+          "end": 2.86,
+          "key": "now",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Malvolio?",
+          "start": 3.02,
+          "end": 3.52,
+          "key": "malvolio",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Ay,",
+          "start": 0.78,
+          "end": 1.13
+        },
+        {
+          "text": "my",
+          "start": 1.48,
+          "end": 1.56
+        },
+        {
+          "text": "lord,",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "text": "this",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "text": "same.",
+          "start": 1.94,
+          "end": 2.22
+        },
+        {
+          "text": "How",
+          "start": 2.62,
+          "end": 2.7
+        },
+        {
+          "text": "now,",
+          "start": 2.7,
+          "end": 2.86
+        },
+        {
+          "text": "Malvolio?",
+          "start": 3.02,
+          "end": 3.52
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19696654751896858
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "10674f1007a500fd40b6f5ee90752b89916b2208e408322d4f0132a687cccc8c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

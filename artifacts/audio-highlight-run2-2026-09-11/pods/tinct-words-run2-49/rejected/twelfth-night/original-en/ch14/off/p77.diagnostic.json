@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "2e050ddd005de2a9eeb96fa6dc6835c35b2dfd23ff94fe77d60a4c841966fa2f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2924187071621418,
+      "alignment_seconds": 0.0005926378071308136,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Toby give me reads youth whatsoever thou art thou art, but a scurvy fellow",
+          "start": 0.05,
+          "end": 5.83,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " Toby",
+              "start": 0.53,
+              "end": 0.85,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " give",
+              "start": 0.85,
+              "end": 1.41,
+              "probability": 0.0772705078125
+            },
+            {
+              "text": " me",
+              "start": 1.41,
+              "end": 1.67,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " reads",
+              "start": 1.67,
+              "end": 2.25,
+              "probability": 0.61181640625
+            },
+            {
+              "text": " youth",
+              "start": 2.25,
+              "end": 3.17,
+              "probability": 0.66650390625
+            },
+            {
+              "text": " whatsoever",
+              "start": 3.17,
+              "end": 3.71,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " thou",
+              "start": 3.71,
+              "end": 4.03,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " art",
+              "start": 4.03,
+              "end": 4.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " thou",
+              "start": 4.37,
+              "end": 4.55,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " art,",
+              "start": 4.55,
+              "end": 4.83,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " but",
+              "start": 4.85,
+              "end": 5.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 5.01,
+              "end": 5.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " scurvy",
+              "start": 5.11,
+              "end": 5.47,
+              "probability": 0.9713541666666666
+            },
+            {
+              "text": " fellow",
+              "start": 5.47,
+              "end": 5.83,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Toby",
+          "start": 0.53,
+          "end": 0.85
+        },
+        {
+          "raw": "give",
+          "start": 0.85,
+          "end": 1.41
+        },
+        {
+          "raw": "me",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "raw": "reads",
+          "start": 1.67,
+          "end": 2.25
+        },
+        {
+          "raw": "youth",
+          "start": 2.25,
+          "end": 3.17
+        },
+        {
+          "raw": "whatsoever",
+          "start": 3.17,
+          "end": 3.71
+        },
+        {
+          "raw": "thou",
+          "start": 3.71,
+          "end": 4.03
+        },
+        {
+          "raw": "art",
+          "start": 4.03,
+          "end": 4.37
+        },
+        {
+          "raw": "thou",
+          "start": 4.37,
+          "end": 4.55
+        },
+        {
+          "raw": "art,",
+          "start": 4.55,
+          "end": 4.83
+        },
+        {
+          "raw": "but",
+          "start": 4.85,
+          "end": 5.01
+        },
+        {
+          "raw": "a",
+          "start": 5.01,
+          "end": 5.11
+        },
+        {
+          "raw": "scurvy",
+          "start": 5.11,
+          "end": 5.47
+        },
+        {
+          "raw": "fellow",
+          "start": 5.47,
+          "end": 5.83
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "Give",
+        "me.",
+        "[_Reads._]",
+        "_Youth,",
+        "whatsoever",
+        "thou",
+        "art,",
+        "thou",
+        "art",
+        "but",
+        "a",
+        "scurvy",
+        "fellow._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby",
+          "start": 0.53,
+          "end": 0.85,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 0.85,
+          "end": 1.41,
+          "key": "give",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.41,
+          "end": 1.67,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "reads",
+          "start": 1.67,
+          "end": 2.25,
+          "key": "reads",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "youth",
+          "start": 2.25,
+          "end": 3.17,
+          "key": "youth",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "whatsoever",
+          "start": 3.17,
+          "end": 3.71,
+          "key": "whatsoever",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.71,
+          "end": 4.03,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 4.03,
+          "end": 4.37,
+          "key": "art",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 4.37,
+          "end": 4.55,
+          "key": "thou",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "art,",
+          "start": 4.55,
+          "end": 4.83,
+          "key": "art",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.85,
+          "end": 5.01,
+          "key": "but",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.01,
+          "end": 5.11,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "scurvy",
+          "start": 5.11,
+          "end": 5.47,
+          "key": "scurvy",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fellow",
+          "start": 5.47,
+          "end": 5.83,
+          "key": "fellow",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Toby.",
+          "start": 0.53,
+          "end": 0.85
+        },
+        {
+          "text": "Give",
+          "start": 0.85,
+          "end": 1.41
+        },
+        {
+          "text": "me.",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "text": "[_Reads._]",
+          "start": 1.67,
+          "end": 2.25
+        },
+        {
+          "text": "_Youth,",
+          "start": 2.25,
+          "end": 3.17
+        },
+        {
+          "text": "whatsoever",
+          "start": 3.17,
+          "end": 3.71
+        },
+        {
+          "text": "thou",
+          "start": 3.71,
+          "end": 4.03
+        },
+        {
+          "text": "art,",
+          "start": 4.03,
+          "end": 4.37
+        },
+        {
+          "text": "thou",
+          "start": 4.37,
+          "end": 4.55
+        },
+        {
+          "text": "art",
+          "start": 4.55,
+          "end": 4.83
+        },
+        {
+          "text": "but",
+          "start": 4.85,
+          "end": 5.01
+        },
+        {
+          "text": "a",
+          "start": 5.01,
+          "end": 5.11
+        },
+        {
+          "text": "scurvy",
+          "start": 5.11,
+          "end": 5.47
+        },
+        {
+          "text": "fellow._",
+          "start": 5.47,
+          "end": 5.83
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29324862733483315
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "96af268f2d920b190ae5502fc66dba6cf9066ce830b0fec743f132dfb230420e",
+  "selected_reasons": []
+}

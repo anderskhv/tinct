@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "ea7eeb9e29b46402b9cd94e09cc9014ad2be65aab6a90648d5830b2a92eefdde",
+  "attempts": [
+    {
+      "asr_seconds": 0.1605106182396412,
+      "alignment_seconds": 0.00028719380497932434,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Malvolio, who calls there.",
+          "start": 0.05,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.8021647135416666
+            },
+            {
+              "text": " who",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.9921875
+            },
+            {
+              "text": " calls",
+              "start": 1.41,
+              "end": 1.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " there.",
+              "start": 1.67,
+              "end": 1.97,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "who",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "calls",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "raw": "there.",
+          "start": 1.67,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "Who",
+        "calls",
+        "there?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.27,
+          "end": 1.41,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "calls",
+          "start": 1.41,
+          "end": 1.67,
+          "key": "calls",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 1.67,
+          "end": 1.97,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "Who",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "text": "calls",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "text": "there?",
+          "start": 1.67,
+          "end": 1.97
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16090989485383034
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b901e7473c2886ecda0cb2f4f5a05ac4f4cc335488add2179390b64c738ec3af",
+  "selected_reasons": []
+}

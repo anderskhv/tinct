@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "7e78148a7622111bc6ade2526d90eb8096f285f3992846abdb602d1a550db038",
+  "attempts": [
+    {
+      "asr_seconds": 0.2090980000793934,
+      "alignment_seconds": 0.0005296878516674042,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Viola, then think you right. I am not what I am.",
+          "start": 0.53,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.53,
+              "end": 0.93,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " then",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " think",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.65966796875
+            },
+            {
+              "text": " you",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " right.",
+              "start": 1.77,
+              "end": 2.01,
+              "probability": 0.66259765625
+            },
+            {
+              "text": " I",
+              "start": 2.25,
+              "end": 2.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " am",
+              "start": 2.31,
+              "end": 2.39,
+              "probability": 0.984375
+            },
+            {
+              "text": " not",
+              "start": 2.39,
+              "end": 2.53,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " what",
+              "start": 2.53,
+              "end": 2.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 2.69,
+              "end": 2.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " am.",
+              "start": 2.83,
+              "end": 3.11,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "raw": "then",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "think",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "you",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "right.",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "raw": "I",
+          "start": 2.25,
+          "end": 2.31
+        },
+        {
+          "raw": "am",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "raw": "not",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "raw": "what",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "raw": "I",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "raw": "am.",
+          "start": 2.83,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "Then",
+        "think",
+        "you",
+        "right;",
+        "I",
+        "am",
+        "not",
+        "what",
+        "I",
+        "am."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.53,
+          "end": 0.93,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.19,
+          "end": 1.45,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "think",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "right.",
+          "start": 1.77,
+          "end": 2.01,
+          "key": "right",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.25,
+          "end": 2.31,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.31,
+          "end": 2.39,
+          "key": "am",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.39,
+          "end": 2.53,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.53,
+          "end": 2.69,
+          "key": "what",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.69,
+          "end": 2.83,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "am.",
+          "start": 2.83,
+          "end": 3.11,
+          "key": "am",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "text": "Then",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "think",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "you",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "right;",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "text": "I",
+          "start": 2.25,
+          "end": 2.31
+        },
+        {
+          "text": "am",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "text": "not",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "text": "what",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "text": "I",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "text": "am.",
+          "start": 2.83,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20983325317502022
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9ad1107a5bed45933994ad3a66b59aac1894b7a0181198b47024137d6b683c72",
+  "selected_reasons": []
+}

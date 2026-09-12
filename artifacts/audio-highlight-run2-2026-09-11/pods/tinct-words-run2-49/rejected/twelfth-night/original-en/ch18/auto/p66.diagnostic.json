@@ -1,0 +1,5870 @@
+{
+  "complete": true,
+  "signature": "dff3b6c5c8788f677f4b57d8f126ed4dbe9b213c141cb7e322533b5dd392d977",
+  "attempts": [
+    {
+      "asr_seconds": 0.6038187816739082,
+      "alignment_seconds": 0.0009296461939811707,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Priest. A contract of eternal bond of love, Confirmed by mutual joinder of your hands, Attested by the holy close of lips, Strengthen'd by interchangement of your rings, And all the ceremony of this compact Sealed in my function, by my testimony; Since when, my watch hath told me, toward my grave, I have travelled but two hours.",
+        "hotwords": "Priest, A, Confirmed, Attested, Strengthen'd, And, Sealed, Since, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A contract of eternal bond of love, Confirmed by mutual joinder of your hands, Attested by the holy close of lips, Strengthen'd by interchangement of your rings, And all the ceremony of this compact Sealed in my function, by my testimony, Since when, my watch hath told me, toward my grave, I have travelled but two hours.",
+          "start": 0.02,
+          "end": 20.84,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.011871337890625
+            },
+            {
+              "text": " contract",
+              "start": 0.56,
+              "end": 1.78,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " of",
+              "start": 1.78,
+              "end": 2.0,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " eternal",
+              "start": 2.0,
+              "end": 2.38,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " bond",
+              "start": 2.38,
+              "end": 2.72,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 2.72,
+              "end": 2.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " love,",
+              "start": 2.9,
+              "end": 3.26,
+              "probability": 0.91015625
+            },
+            {
+              "text": " Confirmed",
+              "start": 3.68,
+              "end": 4.06,
+              "probability": 0.58380126953125
+            },
+            {
+              "text": " by",
+              "start": 4.06,
+              "end": 4.3,
+              "probability": 0.994140625
+            },
+            {
+              "text": " mutual",
+              "start": 4.3,
+              "end": 4.7,
+              "probability": 0.978515625
+            },
+            {
+              "text": " joinder",
+              "start": 4.7,
+              "end": 5.14,
+              "probability": 0.775634765625
+            },
+            {
+              "text": " of",
+              "start": 5.14,
+              "end": 5.3,
+              "probability": 0.994140625
+            },
+            {
+              "text": " your",
+              "start": 5.3,
+              "end": 5.4,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " hands,",
+              "start": 5.4,
+              "end": 5.84,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Attested",
+              "start": 6.34,
+              "end": 6.6,
+              "probability": 0.958740234375
+            },
+            {
+              "text": " by",
+              "start": 6.6,
+              "end": 6.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 6.84,
+              "end": 7.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " holy",
+              "start": 7.0,
+              "end": 7.34,
+              "probability": 0.94140625
+            },
+            {
+              "text": " close",
+              "start": 7.34,
+              "end": 7.66,
+              "probability": 0.07122802734375
+            },
+            {
+              "text": " of",
+              "start": 7.66,
+              "end": 7.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lips,",
+              "start": 7.92,
+              "end": 8.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Strengthen'd",
+              "start": 8.9,
+              "end": 9.36,
+              "probability": 0.7425193786621094
+            },
+            {
+              "text": " by",
+              "start": 9.36,
+              "end": 9.48,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " interchangement",
+              "start": 9.48,
+              "end": 10.26,
+              "probability": 0.73297119140625
+            },
+            {
+              "text": " of",
+              "start": 10.26,
+              "end": 10.4,
+              "probability": 0.96484375
+            },
+            {
+              "text": " your",
+              "start": 10.4,
+              "end": 10.54,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " rings,",
+              "start": 10.54,
+              "end": 10.86,
+              "probability": 0.978515625
+            },
+            {
+              "text": " And",
+              "start": 11.38,
+              "end": 11.54,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " all",
+              "start": 11.54,
+              "end": 11.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 11.76,
+              "end": 11.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ceremony",
+              "start": 11.94,
+              "end": 12.34,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " of",
+              "start": 12.34,
+              "end": 12.58,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " this",
+              "start": 12.58,
+              "end": 12.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " compact",
+              "start": 12.76,
+              "end": 13.22,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " Sealed",
+              "start": 13.22,
+              "end": 13.7,
+              "probability": 0.79296875
+            },
+            {
+              "text": " in",
+              "start": 13.7,
+              "end": 13.82,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " my",
+              "start": 13.82,
+              "end": 13.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " function,",
+              "start": 13.96,
+              "end": 14.4,
+              "probability": 0.990234375
+            },
+            {
+              "text": " by",
+              "start": 14.74,
+              "end": 14.88,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " my",
+              "start": 14.88,
+              "end": 15.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " testimony,",
+              "start": 15.1,
+              "end": 15.48,
+              "probability": 0.9765625
+            },
+            {
+              "text": " Since",
+              "start": 16.24,
+              "end": 16.46,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " when,",
+              "start": 16.46,
+              "end": 16.72,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " my",
+              "start": 16.8,
+              "end": 16.96,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " watch",
+              "start": 16.96,
+              "end": 17.28,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " hath",
+              "start": 17.28,
+              "end": 17.46,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " told",
+              "start": 17.46,
+              "end": 17.76,
+              "probability": 0.990234375
+            },
+            {
+              "text": " me,",
+              "start": 17.76,
+              "end": 18.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " toward",
+              "start": 18.26,
+              "end": 18.4,
+              "probability": 0.4970703125
+            },
+            {
+              "text": " my",
+              "start": 18.4,
+              "end": 18.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " grave,",
+              "start": 18.64,
+              "end": 18.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 19.36,
+              "end": 19.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " have",
+              "start": 19.46,
+              "end": 19.6,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " travelled",
+              "start": 19.6,
+              "end": 19.92,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " but",
+              "start": 19.92,
+              "end": 20.2,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " two",
+              "start": 20.2,
+              "end": 20.44,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " hours.",
+              "start": 20.44,
+              "end": 20.84,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "contract",
+          "start": 0.56,
+          "end": 1.78
+        },
+        {
+          "raw": "of",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "raw": "eternal",
+          "start": 2.0,
+          "end": 2.38
+        },
+        {
+          "raw": "bond",
+          "start": 2.38,
+          "end": 2.72
+        },
+        {
+          "raw": "of",
+          "start": 2.72,
+          "end": 2.9
+        },
+        {
+          "raw": "love,",
+          "start": 2.9,
+          "end": 3.26
+        },
+        {
+          "raw": "Confirmed",
+          "start": 3.68,
+          "end": 4.06
+        },
+        {
+          "raw": "by",
+          "start": 4.06,
+          "end": 4.3
+        },
+        {
+          "raw": "mutual",
+          "start": 4.3,
+          "end": 4.7
+        },
+        {
+          "raw": "joinder",
+          "start": 4.7,
+          "end": 5.14
+        },
+        {
+          "raw": "of",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "raw": "your",
+          "start": 5.3,
+          "end": 5.4
+        },
+        {
+          "raw": "hands,",
+          "start": 5.4,
+          "end": 5.84
+        },
+        {
+          "raw": "Attested",
+          "start": 6.34,
+          "end": 6.6
+        },
+        {
+          "raw": "by",
+          "start": 6.6,
+          "end": 6.84
+        },
+        {
+          "raw": "the",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "raw": "holy",
+          "start": 7.0,
+          "end": 7.34
+        },
+        {
+          "raw": "close",
+          "start": 7.34,
+          "end": 7.66
+        },
+        {
+          "raw": "of",
+          "start": 7.66,
+          "end": 7.92
+        },
+        {
+          "raw": "lips,",
+          "start": 7.92,
+          "end": 8.24
+        },
+        {
+          "raw": "Strengthen'd",
+          "start": 8.9,
+          "end": 9.36
+        },
+        {
+          "raw": "by",
+          "start": 9.36,
+          "end": 9.48
+        },
+        {
+          "raw": "interchangement",
+          "start": 9.48,
+          "end": 10.26
+        },
+        {
+          "raw": "of",
+          "start": 10.26,
+          "end": 10.4
+        },
+        {
+          "raw": "your",
+          "start": 10.4,
+          "end": 10.54
+        },
+        {
+          "raw": "rings,",
+          "start": 10.54,
+          "end": 10.86
+        },
+        {
+          "raw": "And",
+          "start": 11.38,
+          "end": 11.54
+        },
+        {
+          "raw": "all",
+          "start": 11.54,
+          "end": 11.76
+        },
+        {
+          "raw": "the",
+          "start": 11.76,
+          "end": 11.94
+        },
+        {
+          "raw": "ceremony",
+          "start": 11.94,
+          "end": 12.34
+        },
+        {
+          "raw": "of",
+          "start": 12.34,
+          "end": 12.58
+        },
+        {
+          "raw": "this",
+          "start": 12.58,
+          "end": 12.76
+        },
+        {
+          "raw": "compact",
+          "start": 12.76,
+          "end": 13.22
+        },
+        {
+          "raw": "Sealed",
+          "start": 13.22,
+          "end": 13.7
+        },
+        {
+          "raw": "in",
+          "start": 13.7,
+          "end": 13.82
+        },
+        {
+          "raw": "my",
+          "start": 13.82,
+          "end": 13.96
+        },
+        {
+          "raw": "function,",
+          "start": 13.96,
+          "end": 14.4
+        },
+        {
+          "raw": "by",
+          "start": 14.74,
+          "end": 14.88
+        },
+        {
+          "raw": "my",
+          "start": 14.88,
+          "end": 15.1
+        },
+        {
+          "raw": "testimony,",
+          "start": 15.1,
+          "end": 15.48
+        },
+        {
+          "raw": "Since",
+          "start": 16.24,
+          "end": 16.46
+        },
+        {
+          "raw": "when,",
+          "start": 16.46,
+          "end": 16.72
+        },
+        {
+          "raw": "my",
+          "start": 16.8,
+          "end": 16.96
+        },
+        {
+          "raw": "watch",
+          "start": 16.96,
+          "end": 17.28
+        },
+        {
+          "raw": "hath",
+          "start": 17.28,
+          "end": 17.46
+        },
+        {
+          "raw": "told",
+          "start": 17.46,
+          "end": 17.76
+        },
+        {
+          "raw": "me,",
+          "start": 17.76,
+          "end": 18.08
+        },
+        {
+          "raw": "toward",
+          "start": 18.26,
+          "end": 18.4
+        },
+        {
+          "raw": "my",
+          "start": 18.4,
+          "end": 18.64
+        },
+        {
+          "raw": "grave,",
+          "start": 18.64,
+          "end": 18.94
+        },
+        {
+          "raw": "I",
+          "start": 19.36,
+          "end": 19.46
+        },
+        {
+          "raw": "have",
+          "start": 19.46,
+          "end": 19.6
+        },
+        {
+          "raw": "travelled",
+          "start": 19.6,
+          "end": 19.92
+        },
+        {
+          "raw": "but",
+          "start": 19.92,
+          "end": 20.2
+        },
+        {
+          "raw": "two",
+          "start": 20.2,
+          "end": 20.44
+        },
+        {
+          "raw": "hours.",
+          "start": 20.44,
+          "end": 20.84
+        }
+      ],
+      "expected_tokens": [
+        "Priest.",
+        "A",
+        "contract",
+        "of",
+        "eternal",
+        "bond",
+        "of",
+        "love,",
+        "Confirmed",
+        "by",
+        "mutual",
+        "joinder",
+        "of",
+        "your",
+        "hands,",
+        "Attested",
+        "by",
+        "the",
+        "holy",
+        "close",
+        "of",
+        "lips,",
+        "Strengthen'd",
+        "by",
+        "interchangement",
+        "of",
+        "your",
+        "rings,",
+        "And",
+        "all",
+        "the",
+        "ceremony",
+        "of",
+        "this",
+        "compact",
+        "Sealed",
+        "in",
+        "my",
+        "function,",
+        "by",
+        "my",
+        "testimony;",
+        "Since",
+        "when,",
+        "my",
+        "watch",
+        "hath",
+        "told",
+        "me,",
+        "toward",
+        "my",
+        "grave,",
+        "I",
+        "have",
+        "travelled",
+        "but",
+        "two",
+        "hours."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          58,
+          0,
+          57
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 56
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "contract",
+          "start": 0.56,
+          "end": 1.78,
+          "key": "contract",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.78,
+          "end": 2.0,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "eternal",
+          "start": 2.0,
+          "end": 2.38,
+          "key": "eternal",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bond",
+          "start": 2.38,
+          "end": 2.72,
+          "key": "bond",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.72,
+          "end": 2.9,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "love,",
+          "start": 2.9,
+          "end": 3.26,
+          "key": "love",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Confirmed",
+          "start": 3.68,
+          "end": 4.06,
+          "key": "confirmed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.06,
+          "end": 4.3,
+          "key": "by",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mutual",
+          "start": 4.3,
+          "end": 4.7,
+          "key": "mutual",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "joinder",
+          "start": 4.7,
+          "end": 5.14,
+          "key": "joinder",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.14,
+          "end": 5.3,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.3,
+          "end": 5.4,
+          "key": "your",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hands,",
+          "start": 5.4,
+          "end": 5.84,
+          "key": "hands",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Attested",
+          "start": 6.34,
+          "end": 6.6,
+          "key": "attested",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.6,
+          "end": 6.84,
+          "key": "by",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.84,
+          "end": 7.0,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "holy",
+          "start": 7.0,
+          "end": 7.34,
+          "key": "holy",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "close",
+          "start": 7.34,
+          "end": 7.66,
+          "key": "close",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.66,
+          "end": 7.92,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "lips,",
+          "start": 7.92,
+          "end": 8.24,
+          "key": "lips",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Strengthen'd",
+          "start": 8.9,
+          "end": 9.36,
+          "key": "strengthend",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 9.36,
+          "end": 9.48,
+          "key": "by",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "interchangement",
+          "start": 9.48,
+          "end": 10.26,
+          "key": "interchangement",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.26,
+          "end": 10.4,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 10.4,
+          "end": 10.54,
+          "key": "your",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "rings,",
+          "start": 10.54,
+          "end": 10.86,
+          "key": "rings",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 11.38,
+          "end": 11.54,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 11.54,
+          "end": 11.76,
+          "key": "all",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.76,
+          "end": 11.94,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "ceremony",
+          "start": 11.94,
+          "end": 12.34,
+          "key": "ceremony",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.34,
+          "end": 12.58,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 12.58,
+          "end": 12.76,
+          "key": "this",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "compact",
+          "start": 12.76,
+          "end": 13.22,
+          "key": "compact",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Sealed",
+          "start": 13.22,
+          "end": 13.7,
+          "key": "sealed",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.7,
+          "end": 13.82,
+          "key": "in",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.82,
+          "end": 13.96,
+          "key": "my",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "function,",
+          "start": 13.96,
+          "end": 14.4,
+          "key": "function",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 14.74,
+          "end": 14.88,
+          "key": "by",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.88,
+          "end": 15.1,
+          "key": "my",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "testimony,",
+          "start": 15.1,
+          "end": 15.48,
+          "key": "testimony",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Since",
+          "start": 16.24,
+          "end": 16.46,
+          "key": "since",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "when,",
+          "start": 16.46,
+          "end": 16.72,
+          "key": "when",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 16.8,
+          "end": 16.96,
+          "key": "my",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 16.96,
+          "end": 17.28,
+          "key": "watch",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 17.28,
+          "end": 17.46,
+          "key": "hath",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 17.46,
+          "end": 17.76,
+          "key": "told",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 17.76,
+          "end": 18.08,
+          "key": "me",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "toward",
+          "start": 18.26,
+          "end": 18.4,
+          "key": "toward",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 18.4,
+          "end": 18.64,
+          "key": "my",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "grave,",
+          "start": 18.64,
+          "end": 18.94,
+          "key": "grave",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 19.36,
+          "end": 19.46,
+          "key": "i",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 19.46,
+          "end": 19.6,
+          "key": "have",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "travelled",
+          "start": 19.6,
+          "end": 19.92,
+          "key": "travelled",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 19.92,
+          "end": 20.2,
+          "key": "but",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 20.2,
+          "end": 20.44,
+          "key": "two",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "hours.",
+          "start": 20.44,
+          "end": 20.84,
+          "key": "hours",
+          "pieces": [
+            56
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Priest.",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "A",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "contract",
+          "start": 0.56,
+          "end": 1.78
+        },
+        {
+          "text": "of",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "text": "eternal",
+          "start": 2.0,
+          "end": 2.38
+        },
+        {
+          "text": "bond",
+          "start": 2.38,
+          "end": 2.72
+        },
+        {
+          "text": "of",
+          "start": 2.72,
+          "end": 2.9
+        },
+        {
+          "text": "love,",
+          "start": 2.9,
+          "end": 3.26
+        },
+        {
+          "text": "Confirmed",
+          "start": 3.68,
+          "end": 4.06
+        },
+        {
+          "text": "by",
+          "start": 4.06,
+          "end": 4.3
+        },
+        {
+          "text": "mutual",
+          "start": 4.3,
+          "end": 4.7
+        },
+        {
+          "text": "joinder",
+          "start": 4.7,
+          "end": 5.14
+        },
+        {
+          "text": "of",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "text": "your",
+          "start": 5.3,
+          "end": 5.4
+        },
+        {
+          "text": "hands,",
+          "start": 5.4,
+          "end": 5.84
+        },
+        {
+          "text": "Attested",
+          "start": 6.34,
+          "end": 6.6
+        },
+        {
+          "text": "by",
+          "start": 6.6,
+          "end": 6.84
+        },
+        {
+          "text": "the",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "text": "holy",
+          "start": 7.0,
+          "end": 7.34
+        },
+        {
+          "text": "close",
+          "start": 7.34,
+          "end": 7.66
+        },
+        {
+          "text": "of",
+          "start": 7.66,
+          "end": 7.92
+        },
+        {
+          "text": "lips,",
+          "start": 7.92,
+          "end": 8.24
+        },
+        {
+          "text": "Strengthen'd",
+          "start": 8.9,
+          "end": 9.36
+        },
+        {
+          "text": "by",
+          "start": 9.36,
+          "end": 9.48
+        },
+        {
+          "text": "interchangement",
+          "start": 9.48,
+          "end": 10.26
+        },
+        {
+          "text": "of",
+          "start": 10.26,
+          "end": 10.4
+        },
+        {
+          "text": "your",
+          "start": 10.4,
+          "end": 10.54
+        },
+        {
+          "text": "rings,",
+          "start": 10.54,
+          "end": 10.86
+        },
+        {
+          "text": "And",
+          "start": 11.38,
+          "end": 11.54
+        },
+        {
+          "text": "all",
+          "start": 11.54,
+          "end": 11.76
+        },
+        {
+          "text": "the",
+          "start": 11.76,
+          "end": 11.94
+        },
+        {
+          "text": "ceremony",
+          "start": 11.94,
+          "end": 12.34
+        },
+        {
+          "text": "of",
+          "start": 12.34,
+          "end": 12.58
+        },
+        {
+          "text": "this",
+          "start": 12.58,
+          "end": 12.76
+        },
+        {
+          "text": "compact",
+          "start": 12.76,
+          "end": 13.22
+        },
+        {
+          "text": "Sealed",
+          "start": 13.22,
+          "end": 13.7
+        },
+        {
+          "text": "in",
+          "start": 13.7,
+          "end": 13.82
+        },
+        {
+          "text": "my",
+          "start": 13.82,
+          "end": 13.96
+        },
+        {
+          "text": "function,",
+          "start": 13.96,
+          "end": 14.4
+        },
+        {
+          "text": "by",
+          "start": 14.74,
+          "end": 14.88
+        },
+        {
+          "text": "my",
+          "start": 14.88,
+          "end": 15.1
+        },
+        {
+          "text": "testimony;",
+          "start": 15.1,
+          "end": 15.48
+        },
+        {
+          "text": "Since",
+          "start": 16.24,
+          "end": 16.46
+        },
+        {
+          "text": "when,",
+          "start": 16.46,
+          "end": 16.72
+        },
+        {
+          "text": "my",
+          "start": 16.8,
+          "end": 16.96
+        },
+        {
+          "text": "watch",
+          "start": 16.96,
+          "end": 17.28
+        },
+        {
+          "text": "hath",
+          "start": 17.28,
+          "end": 17.46
+        },
+        {
+          "text": "told",
+          "start": 17.46,
+          "end": 17.76
+        },
+        {
+          "text": "me,",
+          "start": 17.76,
+          "end": 18.08
+        },
+        {
+          "text": "toward",
+          "start": 18.26,
+          "end": 18.4
+        },
+        {
+          "text": "my",
+          "start": 18.4,
+          "end": 18.64
+        },
+        {
+          "text": "grave,",
+          "start": 18.64,
+          "end": 18.94
+        },
+        {
+          "text": "I",
+          "start": 19.36,
+          "end": 19.46
+        },
+        {
+          "text": "have",
+          "start": 19.46,
+          "end": 19.6
+        },
+        {
+          "text": "travelled",
+          "start": 19.6,
+          "end": 19.92
+        },
+        {
+          "text": "but",
+          "start": 19.92,
+          "end": 20.2
+        },
+        {
+          "text": "two",
+          "start": 20.2,
+          "end": 20.44
+        },
+        {
+          "text": "hours.",
+          "start": 20.44,
+          "end": 20.84
+        }
+      ],
+      "stats": {
+        "expected_words": 58,
+        "heard_words": 57,
+        "matched_words": 57
+      },
+      "match_ratio": 0.9827586206896551,
+      "rejection_reasons": [],
+      "seconds": 0.6051694341003895
+    },
+    {
+      "asr_seconds": 0.6920789293944836,
+      "alignment_seconds": 0.0019409321248531342,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Priest, A, Confirmed, Attested, Strengthen'd, And, Sealed, Since, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Preist, A Contract of Eternal Bond of Love, Confirmed by Mutual Joinder of Your Hands,",
+          "start": 0.02,
+          "end": 5.84,
+          "words": [
+            {
+              "text": " Preist,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.058719635009765625
+            },
+            {
+              "text": " A",
+              "start": 1.14,
+              "end": 1.38,
+              "probability": 0.2431640625
+            },
+            {
+              "text": " Contract",
+              "start": 1.38,
+              "end": 1.78,
+              "probability": 0.2081298828125
+            },
+            {
+              "text": " of",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " Eternal",
+              "start": 2.02,
+              "end": 2.36,
+              "probability": 0.5751953125
+            },
+            {
+              "text": " Bond",
+              "start": 2.36,
+              "end": 2.7,
+              "probability": 0.970703125
+            },
+            {
+              "text": " of",
+              "start": 2.7,
+              "end": 2.9,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Love,",
+              "start": 2.9,
+              "end": 3.24,
+              "probability": 0.916015625
+            },
+            {
+              "text": " Confirmed",
+              "start": 3.68,
+              "end": 4.08,
+              "probability": 0.963134765625
+            },
+            {
+              "text": " by",
+              "start": 4.08,
+              "end": 4.3,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " Mutual",
+              "start": 4.3,
+              "end": 4.7,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " Joinder",
+              "start": 4.7,
+              "end": 5.14,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " of",
+              "start": 5.14,
+              "end": 5.3,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Your",
+              "start": 5.3,
+              "end": 5.42,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " Hands,",
+              "start": 5.42,
+              "end": 5.84,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " Attested by the Holy Clothes of Lips, Strengthen'd by Interchangement of Your Rings, And all",
+          "start": 6.34,
+          "end": 11.76,
+          "words": [
+            {
+              "text": " Attested",
+              "start": 6.34,
+              "end": 6.6,
+              "probability": 0.938232421875
+            },
+            {
+              "text": " by",
+              "start": 6.6,
+              "end": 6.84,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " the",
+              "start": 6.84,
+              "end": 7.0,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " Holy",
+              "start": 7.0,
+              "end": 7.36,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " Clothes",
+              "start": 7.36,
+              "end": 7.7,
+              "probability": 0.970947265625
+            },
+            {
+              "text": " of",
+              "start": 7.7,
+              "end": 7.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Lips,",
+              "start": 7.96,
+              "end": 8.28,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Strengthen'd",
+              "start": 8.96,
+              "end": 9.36,
+              "probability": 0.74163818359375
+            },
+            {
+              "text": " by",
+              "start": 9.36,
+              "end": 9.48,
+              "probability": 0.927734375
+            },
+            {
+              "text": " Interchangement",
+              "start": 9.48,
+              "end": 10.28,
+              "probability": 0.8984375
+            },
+            {
+              "text": " of",
+              "start": 10.28,
+              "end": 10.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Your",
+              "start": 10.4,
+              "end": 10.54,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " Rings,",
+              "start": 10.54,
+              "end": 10.84,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " And",
+              "start": 11.44,
+              "end": 11.54,
+              "probability": 0.58837890625
+            },
+            {
+              "text": " all",
+              "start": 11.54,
+              "end": 11.76,
+              "probability": 0.7548828125
+            }
+          ]
+        },
+        {
+          "text": " the Ceremony of this Compact Sealed in my Function, by my Testimony, Since when my Watch",
+          "start": 11.76,
+          "end": 17.26,
+          "words": [
+            {
+              "text": " the",
+              "start": 11.76,
+              "end": 11.94,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " Ceremony",
+              "start": 11.94,
+              "end": 12.4,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " of",
+              "start": 12.4,
+              "end": 12.58,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " this",
+              "start": 12.58,
+              "end": 12.76,
+              "probability": 0.861328125
+            },
+            {
+              "text": " Compact",
+              "start": 12.76,
+              "end": 13.2,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " Sealed",
+              "start": 13.2,
+              "end": 13.7,
+              "probability": 0.803955078125
+            },
+            {
+              "text": " in",
+              "start": 13.7,
+              "end": 13.82,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " my",
+              "start": 13.82,
+              "end": 13.98,
+              "probability": 0.36962890625
+            },
+            {
+              "text": " Function,",
+              "start": 13.98,
+              "end": 14.34,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " by",
+              "start": 14.8,
+              "end": 14.9,
+              "probability": 0.65380859375
+            },
+            {
+              "text": " my",
+              "start": 14.9,
+              "end": 15.1,
+              "probability": 0.7607421875
+            },
+            {
+              "text": " Testimony,",
+              "start": 15.1,
+              "end": 15.6,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " Since",
+              "start": 16.26,
+              "end": 16.46,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " when",
+              "start": 16.46,
+              "end": 16.7,
+              "probability": 0.69775390625
+            },
+            {
+              "text": " my",
+              "start": 16.7,
+              "end": 16.98,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " Watch",
+              "start": 16.98,
+              "end": 17.26,
+              "probability": 0.7431640625
+            }
+          ]
+        },
+        {
+          "text": " hath told me, toward my grave, I have traveled but two hours.",
+          "start": 17.26,
+          "end": 20.82,
+          "words": [
+            {
+              "text": " hath",
+              "start": 17.26,
+              "end": 17.46,
+              "probability": 0.1893310546875
+            },
+            {
+              "text": " told",
+              "start": 17.46,
+              "end": 17.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me,",
+              "start": 17.76,
+              "end": 18.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " toward",
+              "start": 18.24,
+              "end": 18.4,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " my",
+              "start": 18.4,
+              "end": 18.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " grave,",
+              "start": 18.62,
+              "end": 18.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 19.34,
+              "end": 19.46,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " have",
+              "start": 19.46,
+              "end": 19.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " traveled",
+              "start": 19.58,
+              "end": 19.94,
+              "probability": 0.43505859375
+            },
+            {
+              "text": " but",
+              "start": 19.94,
+              "end": 20.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " two",
+              "start": 20.2,
+              "end": 20.44,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " hours.",
+              "start": 20.44,
+              "end": 20.82,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Preist,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "A",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "raw": "Contract",
+          "start": 1.38,
+          "end": 1.78
+        },
+        {
+          "raw": "of",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "raw": "Eternal",
+          "start": 2.02,
+          "end": 2.36
+        },
+        {
+          "raw": "Bond",
+          "start": 2.36,
+          "end": 2.7
+        },
+        {
+          "raw": "of",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "raw": "Love,",
+          "start": 2.9,
+          "end": 3.24
+        },
+        {
+          "raw": "Confirmed",
+          "start": 3.68,
+          "end": 4.08
+        },
+        {
+          "raw": "by",
+          "start": 4.08,
+          "end": 4.3
+        },
+        {
+          "raw": "Mutual",
+          "start": 4.3,
+          "end": 4.7
+        },
+        {
+          "raw": "Joinder",
+          "start": 4.7,
+          "end": 5.14
+        },
+        {
+          "raw": "of",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "raw": "Your",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "raw": "Hands,",
+          "start": 5.42,
+          "end": 5.84
+        },
+        {
+          "raw": "Attested",
+          "start": 6.34,
+          "end": 6.6
+        },
+        {
+          "raw": "by",
+          "start": 6.6,
+          "end": 6.84
+        },
+        {
+          "raw": "the",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "raw": "Holy",
+          "start": 7.0,
+          "end": 7.36
+        },
+        {
+          "raw": "Clothes",
+          "start": 7.36,
+          "end": 7.7
+        },
+        {
+          "raw": "of",
+          "start": 7.7,
+          "end": 7.96
+        },
+        {
+          "raw": "Lips,",
+          "start": 7.96,
+          "end": 8.28
+        },
+        {
+          "raw": "Strengthen'd",
+          "start": 8.96,
+          "end": 9.36
+        },
+        {
+          "raw": "by",
+          "start": 9.36,
+          "end": 9.48
+        },
+        {
+          "raw": "Interchangement",
+          "start": 9.48,
+          "end": 10.28
+        },
+        {
+          "raw": "of",
+          "start": 10.28,
+          "end": 10.4
+        },
+        {
+          "raw": "Your",
+          "start": 10.4,
+          "end": 10.54
+        },
+        {
+          "raw": "Rings,",
+          "start": 10.54,
+          "end": 10.84
+        },
+        {
+          "raw": "And",
+          "start": 11.44,
+          "end": 11.54
+        },
+        {
+          "raw": "all",
+          "start": 11.54,
+          "end": 11.76
+        },
+        {
+          "raw": "the",
+          "start": 11.76,
+          "end": 11.94
+        },
+        {
+          "raw": "Ceremony",
+          "start": 11.94,
+          "end": 12.4
+        },
+        {
+          "raw": "of",
+          "start": 12.4,
+          "end": 12.58
+        },
+        {
+          "raw": "this",
+          "start": 12.58,
+          "end": 12.76
+        },
+        {
+          "raw": "Compact",
+          "start": 12.76,
+          "end": 13.2
+        },
+        {
+          "raw": "Sealed",
+          "start": 13.2,
+          "end": 13.7
+        },
+        {
+          "raw": "in",
+          "start": 13.7,
+          "end": 13.82
+        },
+        {
+          "raw": "my",
+          "start": 13.82,
+          "end": 13.98
+        },
+        {
+          "raw": "Function,",
+          "start": 13.98,
+          "end": 14.34
+        },
+        {
+          "raw": "by",
+          "start": 14.8,
+          "end": 14.9
+        },
+        {
+          "raw": "my",
+          "start": 14.9,
+          "end": 15.1
+        },
+        {
+          "raw": "Testimony,",
+          "start": 15.1,
+          "end": 15.6
+        },
+        {
+          "raw": "Since",
+          "start": 16.26,
+          "end": 16.46
+        },
+        {
+          "raw": "when",
+          "start": 16.46,
+          "end": 16.7
+        },
+        {
+          "raw": "my",
+          "start": 16.7,
+          "end": 16.98
+        },
+        {
+          "raw": "Watch",
+          "start": 16.98,
+          "end": 17.26
+        },
+        {
+          "raw": "hath",
+          "start": 17.26,
+          "end": 17.46
+        },
+        {
+          "raw": "told",
+          "start": 17.46,
+          "end": 17.76
+        },
+        {
+          "raw": "me,",
+          "start": 17.76,
+          "end": 18.08
+        },
+        {
+          "raw": "toward",
+          "start": 18.24,
+          "end": 18.4
+        },
+        {
+          "raw": "my",
+          "start": 18.4,
+          "end": 18.62
+        },
+        {
+          "raw": "grave,",
+          "start": 18.62,
+          "end": 18.96
+        },
+        {
+          "raw": "I",
+          "start": 19.34,
+          "end": 19.46
+        },
+        {
+          "raw": "have",
+          "start": 19.46,
+          "end": 19.58
+        },
+        {
+          "raw": "traveled",
+          "start": 19.58,
+          "end": 19.94
+        },
+        {
+          "raw": "but",
+          "start": 19.94,
+          "end": 20.2
+        },
+        {
+          "raw": "two",
+          "start": 20.2,
+          "end": 20.44
+        },
+        {
+          "raw": "hours.",
+          "start": 20.44,
+          "end": 20.82
+        }
+      ],
+      "expected_tokens": [
+        "Priest.",
+        "A",
+        "contract",
+        "of",
+        "eternal",
+        "bond",
+        "of",
+        "love,",
+        "Confirmed",
+        "by",
+        "mutual",
+        "joinder",
+        "of",
+        "your",
+        "hands,",
+        "Attested",
+        "by",
+        "the",
+        "holy",
+        "close",
+        "of",
+        "lips,",
+        "Strengthen'd",
+        "by",
+        "interchangement",
+        "of",
+        "your",
+        "rings,",
+        "And",
+        "all",
+        "the",
+        "ceremony",
+        "of",
+        "this",
+        "compact",
+        "Sealed",
+        "in",
+        "my",
+        "function,",
+        "by",
+        "my",
+        "testimony;",
+        "Since",
+        "when,",
+        "my",
+        "watch",
+        "hath",
+        "told",
+        "me,",
+        "toward",
+        "my",
+        "grave,",
+        "I",
+        "have",
+        "travelled",
+        "but",
+        "two",
+        "hours."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          19,
+          1,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          54,
+          20,
+          54
+        ],
+        [
+          "replace",
+          54,
+          55,
+          54,
+          55
+        ],
+        [
+          "equal",
+          55,
+          58,
+          55,
+          58
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "replace",
+          54,
+          55,
+          54,
+          55
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Preist,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "preist",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.14,
+          "end": 1.38,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Contract",
+          "start": 1.38,
+          "end": 1.78,
+          "key": "contract",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Eternal",
+          "start": 2.02,
+          "end": 2.36,
+          "key": "eternal",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Bond",
+          "start": 2.36,
+          "end": 2.7,
+          "key": "bond",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.7,
+          "end": 2.9,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Love,",
+          "start": 2.9,
+          "end": 3.24,
+          "key": "love",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Confirmed",
+          "start": 3.68,
+          "end": 4.08,
+          "key": "confirmed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.08,
+          "end": 4.3,
+          "key": "by",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Mutual",
+          "start": 4.3,
+          "end": 4.7,
+          "key": "mutual",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Joinder",
+          "start": 4.7,
+          "end": 5.14,
+          "key": "joinder",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.14,
+          "end": 5.3,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 5.3,
+          "end": 5.42,
+          "key": "your",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Hands,",
+          "start": 5.42,
+          "end": 5.84,
+          "key": "hands",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Attested",
+          "start": 6.34,
+          "end": 6.6,
+          "key": "attested",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.6,
+          "end": 6.84,
+          "key": "by",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.84,
+          "end": 7.0,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Holy",
+          "start": 7.0,
+          "end": 7.36,
+          "key": "holy",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Clothes",
+          "start": 7.36,
+          "end": 7.7,
+          "key": "clothes",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.7,
+          "end": 7.96,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Lips,",
+          "start": 7.96,
+          "end": 8.28,
+          "key": "lips",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Strengthen'd",
+          "start": 8.96,
+          "end": 9.36,
+          "key": "strengthend",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 9.36,
+          "end": 9.48,
+          "key": "by",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Interchangement",
+          "start": 9.48,
+          "end": 10.28,
+          "key": "interchangement",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.28,
+          "end": 10.4,
+          "key": "of",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 10.4,
+          "end": 10.54,
+          "key": "your",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Rings,",
+          "start": 10.54,
+          "end": 10.84,
+          "key": "rings",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 11.44,
+          "end": 11.54,
+          "key": "and",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 11.54,
+          "end": 11.76,
+          "key": "all",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.76,
+          "end": 11.94,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Ceremony",
+          "start": 11.94,
+          "end": 12.4,
+          "key": "ceremony",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.4,
+          "end": 12.58,
+          "key": "of",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 12.58,
+          "end": 12.76,
+          "key": "this",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Compact",
+          "start": 12.76,
+          "end": 13.2,
+          "key": "compact",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Sealed",
+          "start": 13.2,
+          "end": 13.7,
+          "key": "sealed",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.7,
+          "end": 13.82,
+          "key": "in",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.82,
+          "end": 13.98,
+          "key": "my",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Function,",
+          "start": 13.98,
+          "end": 14.34,
+          "key": "function",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 14.8,
+          "end": 14.9,
+          "key": "by",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.9,
+          "end": 15.1,
+          "key": "my",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Testimony,",
+          "start": 15.1,
+          "end": 15.6,
+          "key": "testimony",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Since",
+          "start": 16.26,
+          "end": 16.46,
+          "key": "since",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 16.46,
+          "end": 16.7,
+          "key": "when",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 16.7,
+          "end": 16.98,
+          "key": "my",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Watch",
+          "start": 16.98,
+          "end": 17.26,
+          "key": "watch",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 17.26,
+          "end": 17.46,
+          "key": "hath",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 17.46,
+          "end": 17.76,
+          "key": "told",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 17.76,
+          "end": 18.08,
+          "key": "me",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "toward",
+          "start": 18.24,
+          "end": 18.4,
+          "key": "toward",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 18.4,
+          "end": 18.62,
+          "key": "my",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "grave,",
+          "start": 18.62,
+          "end": 18.96,
+          "key": "grave",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 19.34,
+          "end": 19.46,
+          "key": "i",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 19.46,
+          "end": 19.58,
+          "key": "have",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "traveled",
+          "start": 19.58,
+          "end": 19.94,
+          "key": "traveled",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 19.94,
+          "end": 20.2,
+          "key": "but",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 20.2,
+          "end": 20.44,
+          "key": "two",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "hours.",
+          "start": 20.44,
+          "end": 20.82,
+          "key": "hours",
+          "pieces": [
+            57
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Priest.",
+          "start": 0.0,
+          "end": 0.57
+        },
+        {
+          "text": "A",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "text": "contract",
+          "start": 1.38,
+          "end": 1.78
+        },
+        {
+          "text": "of",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "text": "eternal",
+          "start": 2.02,
+          "end": 2.36
+        },
+        {
+          "text": "bond",
+          "start": 2.36,
+          "end": 2.7
+        },
+        {
+          "text": "of",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "text": "love,",
+          "start": 2.9,
+          "end": 3.24
+        },
+        {
+          "text": "Confirmed",
+          "start": 3.68,
+          "end": 4.08
+        },
+        {
+          "text": "by",
+          "start": 4.08,
+          "end": 4.3
+        },
+        {
+          "text": "mutual",
+          "start": 4.3,
+          "end": 4.7
+        },
+        {
+          "text": "joinder",
+          "start": 4.7,
+          "end": 5.14
+        },
+        {
+          "text": "of",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "text": "your",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "text": "hands,",
+          "start": 5.42,
+          "end": 5.84
+        },
+        {
+          "text": "Attested",
+          "start": 6.34,
+          "end": 6.6
+        },
+        {
+          "text": "by",
+          "start": 6.6,
+          "end": 6.84
+        },
+        {
+          "text": "the",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "text": "holy",
+          "start": 7.0,
+          "end": 7.36
+        },
+        {
+          "text": "close",
+          "start": 7.36,
+          "end": 7.53
+        },
+        {
+          "text": "of",
+          "start": 7.7,
+          "end": 7.96
+        },
+        {
+          "text": "lips,",
+          "start": 7.96,
+          "end": 8.28
+        },
+        {
+          "text": "Strengthen'd",
+          "start": 8.96,
+          "end": 9.36
+        },
+        {
+          "text": "by",
+          "start": 9.36,
+          "end": 9.48
+        },
+        {
+          "text": "interchangement",
+          "start": 9.48,
+          "end": 10.28
+        },
+        {
+          "text": "of",
+          "start": 10.28,
+          "end": 10.4
+        },
+        {
+          "text": "your",
+          "start": 10.4,
+          "end": 10.54
+        },
+        {
+          "text": "rings,",
+          "start": 10.54,
+          "end": 10.84
+        },
+        {
+          "text": "And",
+          "start": 11.44,
+          "end": 11.54
+        },
+        {
+          "text": "all",
+          "start": 11.54,
+          "end": 11.76
+        },
+        {
+          "text": "the",
+          "start": 11.76,
+          "end": 11.94
+        },
+        {
+          "text": "ceremony",
+          "start": 11.94,
+          "end": 12.4
+        },
+        {
+          "text": "of",
+          "start": 12.4,
+          "end": 12.58
+        },
+        {
+          "text": "this",
+          "start": 12.58,
+          "end": 12.76
+        },
+        {
+          "text": "compact",
+          "start": 12.76,
+          "end": 13.2
+        },
+        {
+          "text": "Sealed",
+          "start": 13.2,
+          "end": 13.7
+        },
+        {
+          "text": "in",
+          "start": 13.7,
+          "end": 13.82
+        },
+        {
+          "text": "my",
+          "start": 13.82,
+          "end": 13.98
+        },
+        {
+          "text": "function,",
+          "start": 13.98,
+          "end": 14.34
+        },
+        {
+          "text": "by",
+          "start": 14.8,
+          "end": 14.9
+        },
+        {
+          "text": "my",
+          "start": 14.9,
+          "end": 15.1
+        },
+        {
+          "text": "testimony;",
+          "start": 15.1,
+          "end": 15.6
+        },
+        {
+          "text": "Since",
+          "start": 16.26,
+          "end": 16.46
+        },
+        {
+          "text": "when,",
+          "start": 16.46,
+          "end": 16.7
+        },
+        {
+          "text": "my",
+          "start": 16.7,
+          "end": 16.98
+        },
+        {
+          "text": "watch",
+          "start": 16.98,
+          "end": 17.26
+        },
+        {
+          "text": "hath",
+          "start": 17.26,
+          "end": 17.46
+        },
+        {
+          "text": "told",
+          "start": 17.46,
+          "end": 17.76
+        },
+        {
+          "text": "me,",
+          "start": 17.76,
+          "end": 18.08
+        },
+        {
+          "text": "toward",
+          "start": 18.24,
+          "end": 18.4
+        },
+        {
+          "text": "my",
+          "start": 18.4,
+          "end": 18.62
+        },
+        {
+          "text": "grave,",
+          "start": 18.62,
+          "end": 18.96
+        },
+        {
+          "text": "I",
+          "start": 19.34,
+          "end": 19.46
+        },
+        {
+          "text": "have",
+          "start": 19.46,
+          "end": 19.58
+        },
+        {
+          "text": "travelled",
+          "start": 19.58,
+          "end": 19.76
+        },
+        {
+          "text": "but",
+          "start": 19.94,
+          "end": 20.2
+        },
+        {
+          "text": "two",
+          "start": 20.2,
+          "end": 20.44
+        },
+        {
+          "text": "hours.",
+          "start": 20.44,
+          "end": 20.82
+        }
+      ],
+      "stats": {
+        "expected_words": 58,
+        "heard_words": 58,
+        "matched_words": 55
+      },
+      "match_ratio": 0.9482758620689655,
+      "rejection_reasons": [],
+      "seconds": 0.6948681995272636
+    },
+    {
+      "asr_seconds": 0.6076721586287022,
+      "alignment_seconds": 0.0011354237794876099,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Priest, a contract of eternal bond of love, confirmed by mutual joinder of your hands,",
+          "start": 0.02,
+          "end": 5.84,
+          "words": [
+            {
+              "text": " Priest,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.47607421875
+            },
+            {
+              "text": " a",
+              "start": 1.14,
+              "end": 1.38,
+              "probability": 0.72265625
+            },
+            {
+              "text": " contract",
+              "start": 1.38,
+              "end": 1.78,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " of",
+              "start": 1.78,
+              "end": 2.0,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " eternal",
+              "start": 2.0,
+              "end": 2.36,
+              "probability": 0.95703125
+            },
+            {
+              "text": " bond",
+              "start": 2.36,
+              "end": 2.72,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 2.72,
+              "end": 2.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " love,",
+              "start": 2.92,
+              "end": 3.26,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " confirmed",
+              "start": 3.68,
+              "end": 4.0,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " by",
+              "start": 4.0,
+              "end": 4.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mutual",
+              "start": 4.3,
+              "end": 4.72,
+              "probability": 0.982421875
+            },
+            {
+              "text": " joinder",
+              "start": 4.72,
+              "end": 5.14,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " of",
+              "start": 5.14,
+              "end": 5.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 5.3,
+              "end": 5.4,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " hands,",
+              "start": 5.4,
+              "end": 5.84,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " attested by the holy clothes of lips, strengthened by interchangement of your rings, and all",
+          "start": 6.3,
+          "end": 11.76,
+          "words": [
+            {
+              "text": " attested",
+              "start": 6.3,
+              "end": 6.62,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " by",
+              "start": 6.62,
+              "end": 6.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.84,
+              "end": 7.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " holy",
+              "start": 7.0,
+              "end": 7.34,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " clothes",
+              "start": 7.34,
+              "end": 7.68,
+              "probability": 0.77734375
+            },
+            {
+              "text": " of",
+              "start": 7.68,
+              "end": 7.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lips,",
+              "start": 7.92,
+              "end": 8.24,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " strengthened",
+              "start": 8.9,
+              "end": 9.12,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " by",
+              "start": 9.12,
+              "end": 9.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " interchangement",
+              "start": 9.5,
+              "end": 10.26,
+              "probability": 0.7303466796875
+            },
+            {
+              "text": " of",
+              "start": 10.26,
+              "end": 10.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " your",
+              "start": 10.4,
+              "end": 10.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rings,",
+              "start": 10.54,
+              "end": 10.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 11.4,
+              "end": 11.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " all",
+              "start": 11.54,
+              "end": 11.76,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " the ceremony of this compact sealed in my function, by my testimony, since when my watch",
+          "start": 11.76,
+          "end": 17.28,
+          "words": [
+            {
+              "text": " the",
+              "start": 11.76,
+              "end": 11.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ceremony",
+              "start": 11.94,
+              "end": 12.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 12.3,
+              "end": 12.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 12.58,
+              "end": 12.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " compact",
+              "start": 12.76,
+              "end": 13.22,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " sealed",
+              "start": 13.22,
+              "end": 13.64,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " in",
+              "start": 13.64,
+              "end": 13.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 13.82,
+              "end": 13.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " function,",
+              "start": 13.96,
+              "end": 14.42,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " by",
+              "start": 14.76,
+              "end": 14.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 14.9,
+              "end": 15.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " testimony,",
+              "start": 15.08,
+              "end": 15.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " since",
+              "start": 16.2,
+              "end": 16.44,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " when",
+              "start": 16.44,
+              "end": 16.7,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " my",
+              "start": 16.7,
+              "end": 16.96,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " watch",
+              "start": 16.96,
+              "end": 17.28,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " hath told me, toward my grave, I have travelled but two hours.",
+          "start": 17.28,
+          "end": 20.84,
+          "words": [
+            {
+              "text": " hath",
+              "start": 17.28,
+              "end": 17.46,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " told",
+              "start": 17.46,
+              "end": 17.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me,",
+              "start": 17.76,
+              "end": 18.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " toward",
+              "start": 18.24,
+              "end": 18.4,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " my",
+              "start": 18.4,
+              "end": 18.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " grave,",
+              "start": 18.62,
+              "end": 18.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 19.36,
+              "end": 19.46,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " have",
+              "start": 19.46,
+              "end": 19.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " travelled",
+              "start": 19.58,
+              "end": 19.92,
+              "probability": 0.51123046875
+            },
+            {
+              "text": " but",
+              "start": 19.92,
+              "end": 20.2,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " two",
+              "start": 20.2,
+              "end": 20.44,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " hours.",
+              "start": 20.44,
+              "end": 20.84,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Priest,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "a",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "raw": "contract",
+          "start": 1.38,
+          "end": 1.78
+        },
+        {
+          "raw": "of",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "raw": "eternal",
+          "start": 2.0,
+          "end": 2.36
+        },
+        {
+          "raw": "bond",
+          "start": 2.36,
+          "end": 2.72
+        },
+        {
+          "raw": "of",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "raw": "love,",
+          "start": 2.92,
+          "end": 3.26
+        },
+        {
+          "raw": "confirmed",
+          "start": 3.68,
+          "end": 4.0
+        },
+        {
+          "raw": "by",
+          "start": 4.0,
+          "end": 4.3
+        },
+        {
+          "raw": "mutual",
+          "start": 4.3,
+          "end": 4.72
+        },
+        {
+          "raw": "joinder",
+          "start": 4.72,
+          "end": 5.14
+        },
+        {
+          "raw": "of",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "raw": "your",
+          "start": 5.3,
+          "end": 5.4
+        },
+        {
+          "raw": "hands,",
+          "start": 5.4,
+          "end": 5.84
+        },
+        {
+          "raw": "attested",
+          "start": 6.3,
+          "end": 6.62
+        },
+        {
+          "raw": "by",
+          "start": 6.62,
+          "end": 6.84
+        },
+        {
+          "raw": "the",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "raw": "holy",
+          "start": 7.0,
+          "end": 7.34
+        },
+        {
+          "raw": "clothes",
+          "start": 7.34,
+          "end": 7.68
+        },
+        {
+          "raw": "of",
+          "start": 7.68,
+          "end": 7.92
+        },
+        {
+          "raw": "lips,",
+          "start": 7.92,
+          "end": 8.24
+        },
+        {
+          "raw": "strengthened",
+          "start": 8.9,
+          "end": 9.12
+        },
+        {
+          "raw": "by",
+          "start": 9.12,
+          "end": 9.5
+        },
+        {
+          "raw": "interchangement",
+          "start": 9.5,
+          "end": 10.26
+        },
+        {
+          "raw": "of",
+          "start": 10.26,
+          "end": 10.4
+        },
+        {
+          "raw": "your",
+          "start": 10.4,
+          "end": 10.54
+        },
+        {
+          "raw": "rings,",
+          "start": 10.54,
+          "end": 10.86
+        },
+        {
+          "raw": "and",
+          "start": 11.4,
+          "end": 11.54
+        },
+        {
+          "raw": "all",
+          "start": 11.54,
+          "end": 11.76
+        },
+        {
+          "raw": "the",
+          "start": 11.76,
+          "end": 11.94
+        },
+        {
+          "raw": "ceremony",
+          "start": 11.94,
+          "end": 12.3
+        },
+        {
+          "raw": "of",
+          "start": 12.3,
+          "end": 12.58
+        },
+        {
+          "raw": "this",
+          "start": 12.58,
+          "end": 12.76
+        },
+        {
+          "raw": "compact",
+          "start": 12.76,
+          "end": 13.22
+        },
+        {
+          "raw": "sealed",
+          "start": 13.22,
+          "end": 13.64
+        },
+        {
+          "raw": "in",
+          "start": 13.64,
+          "end": 13.82
+        },
+        {
+          "raw": "my",
+          "start": 13.82,
+          "end": 13.96
+        },
+        {
+          "raw": "function,",
+          "start": 13.96,
+          "end": 14.42
+        },
+        {
+          "raw": "by",
+          "start": 14.76,
+          "end": 14.9
+        },
+        {
+          "raw": "my",
+          "start": 14.9,
+          "end": 15.08
+        },
+        {
+          "raw": "testimony,",
+          "start": 15.08,
+          "end": 15.52
+        },
+        {
+          "raw": "since",
+          "start": 16.2,
+          "end": 16.44
+        },
+        {
+          "raw": "when",
+          "start": 16.44,
+          "end": 16.7
+        },
+        {
+          "raw": "my",
+          "start": 16.7,
+          "end": 16.96
+        },
+        {
+          "raw": "watch",
+          "start": 16.96,
+          "end": 17.28
+        },
+        {
+          "raw": "hath",
+          "start": 17.28,
+          "end": 17.46
+        },
+        {
+          "raw": "told",
+          "start": 17.46,
+          "end": 17.76
+        },
+        {
+          "raw": "me,",
+          "start": 17.76,
+          "end": 18.08
+        },
+        {
+          "raw": "toward",
+          "start": 18.24,
+          "end": 18.4
+        },
+        {
+          "raw": "my",
+          "start": 18.4,
+          "end": 18.62
+        },
+        {
+          "raw": "grave,",
+          "start": 18.62,
+          "end": 18.94
+        },
+        {
+          "raw": "I",
+          "start": 19.36,
+          "end": 19.46
+        },
+        {
+          "raw": "have",
+          "start": 19.46,
+          "end": 19.58
+        },
+        {
+          "raw": "travelled",
+          "start": 19.58,
+          "end": 19.92
+        },
+        {
+          "raw": "but",
+          "start": 19.92,
+          "end": 20.2
+        },
+        {
+          "raw": "two",
+          "start": 20.2,
+          "end": 20.44
+        },
+        {
+          "raw": "hours.",
+          "start": 20.44,
+          "end": 20.84
+        }
+      ],
+      "expected_tokens": [
+        "Priest.",
+        "A",
+        "contract",
+        "of",
+        "eternal",
+        "bond",
+        "of",
+        "love,",
+        "Confirmed",
+        "by",
+        "mutual",
+        "joinder",
+        "of",
+        "your",
+        "hands,",
+        "Attested",
+        "by",
+        "the",
+        "holy",
+        "close",
+        "of",
+        "lips,",
+        "Strengthen'd",
+        "by",
+        "interchangement",
+        "of",
+        "your",
+        "rings,",
+        "And",
+        "all",
+        "the",
+        "ceremony",
+        "of",
+        "this",
+        "compact",
+        "Sealed",
+        "in",
+        "my",
+        "function,",
+        "by",
+        "my",
+        "testimony;",
+        "Since",
+        "when,",
+        "my",
+        "watch",
+        "hath",
+        "told",
+        "me,",
+        "toward",
+        "my",
+        "grave,",
+        "I",
+        "have",
+        "travelled",
+        "but",
+        "two",
+        "hours."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          22,
+          20,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "equal",
+          23,
+          58,
+          23,
+          58
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Priest,",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "priest",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.14,
+          "end": 1.38,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "contract",
+          "start": 1.38,
+          "end": 1.78,
+          "key": "contract",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.78,
+          "end": 2.0,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "eternal",
+          "start": 2.0,
+          "end": 2.36,
+          "key": "eternal",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bond",
+          "start": 2.36,
+          "end": 2.72,
+          "key": "bond",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.72,
+          "end": 2.92,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "love,",
+          "start": 2.92,
+          "end": 3.26,
+          "key": "love",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "confirmed",
+          "start": 3.68,
+          "end": 4.0,
+          "key": "confirmed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.0,
+          "end": 4.3,
+          "key": "by",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mutual",
+          "start": 4.3,
+          "end": 4.72,
+          "key": "mutual",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "joinder",
+          "start": 4.72,
+          "end": 5.14,
+          "key": "joinder",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.14,
+          "end": 5.3,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.3,
+          "end": 5.4,
+          "key": "your",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "hands,",
+          "start": 5.4,
+          "end": 5.84,
+          "key": "hands",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "attested",
+          "start": 6.3,
+          "end": 6.62,
+          "key": "attested",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.62,
+          "end": 6.84,
+          "key": "by",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.84,
+          "end": 7.0,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "holy",
+          "start": 7.0,
+          "end": 7.34,
+          "key": "holy",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "clothes",
+          "start": 7.34,
+          "end": 7.68,
+          "key": "clothes",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.68,
+          "end": 7.92,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "lips,",
+          "start": 7.92,
+          "end": 8.24,
+          "key": "lips",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "strengthened",
+          "start": 8.9,
+          "end": 9.12,
+          "key": "strengthened",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 9.12,
+          "end": 9.5,
+          "key": "by",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "interchangement",
+          "start": 9.5,
+          "end": 10.26,
+          "key": "interchangement",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.26,
+          "end": 10.4,
+          "key": "of",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 10.4,
+          "end": 10.54,
+          "key": "your",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "rings,",
+          "start": 10.54,
+          "end": 10.86,
+          "key": "rings",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.4,
+          "end": 11.54,
+          "key": "and",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 11.54,
+          "end": 11.76,
+          "key": "all",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.76,
+          "end": 11.94,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "ceremony",
+          "start": 11.94,
+          "end": 12.3,
+          "key": "ceremony",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.3,
+          "end": 12.58,
+          "key": "of",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 12.58,
+          "end": 12.76,
+          "key": "this",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "compact",
+          "start": 12.76,
+          "end": 13.22,
+          "key": "compact",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "sealed",
+          "start": 13.22,
+          "end": 13.64,
+          "key": "sealed",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.64,
+          "end": 13.82,
+          "key": "in",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.82,
+          "end": 13.96,
+          "key": "my",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "function,",
+          "start": 13.96,
+          "end": 14.42,
+          "key": "function",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 14.76,
+          "end": 14.9,
+          "key": "by",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.9,
+          "end": 15.08,
+          "key": "my",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "testimony,",
+          "start": 15.08,
+          "end": 15.52,
+          "key": "testimony",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 16.2,
+          "end": 16.44,
+          "key": "since",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 16.44,
+          "end": 16.7,
+          "key": "when",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 16.7,
+          "end": 16.96,
+          "key": "my",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 16.96,
+          "end": 17.28,
+          "key": "watch",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 17.28,
+          "end": 17.46,
+          "key": "hath",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 17.46,
+          "end": 17.76,
+          "key": "told",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 17.76,
+          "end": 18.08,
+          "key": "me",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "toward",
+          "start": 18.24,
+          "end": 18.4,
+          "key": "toward",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 18.4,
+          "end": 18.62,
+          "key": "my",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "grave,",
+          "start": 18.62,
+          "end": 18.94,
+          "key": "grave",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 19.36,
+          "end": 19.46,
+          "key": "i",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 19.46,
+          "end": 19.58,
+          "key": "have",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "travelled",
+          "start": 19.58,
+          "end": 19.92,
+          "key": "travelled",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 19.92,
+          "end": 20.2,
+          "key": "but",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 20.2,
+          "end": 20.44,
+          "key": "two",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "hours.",
+          "start": 20.44,
+          "end": 20.84,
+          "key": "hours",
+          "pieces": [
+            57
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Priest.",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "A",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "text": "contract",
+          "start": 1.38,
+          "end": 1.78
+        },
+        {
+          "text": "of",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "text": "eternal",
+          "start": 2.0,
+          "end": 2.36
+        },
+        {
+          "text": "bond",
+          "start": 2.36,
+          "end": 2.72
+        },
+        {
+          "text": "of",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "text": "love,",
+          "start": 2.92,
+          "end": 3.26
+        },
+        {
+          "text": "Confirmed",
+          "start": 3.68,
+          "end": 4.0
+        },
+        {
+          "text": "by",
+          "start": 4.0,
+          "end": 4.3
+        },
+        {
+          "text": "mutual",
+          "start": 4.3,
+          "end": 4.72
+        },
+        {
+          "text": "joinder",
+          "start": 4.72,
+          "end": 5.14
+        },
+        {
+          "text": "of",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "text": "your",
+          "start": 5.3,
+          "end": 5.4
+        },
+        {
+          "text": "hands,",
+          "start": 5.4,
+          "end": 5.84
+        },
+        {
+          "text": "Attested",
+          "start": 6.3,
+          "end": 6.62
+        },
+        {
+          "text": "by",
+          "start": 6.62,
+          "end": 6.84
+        },
+        {
+          "text": "the",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "text": "holy",
+          "start": 7.0,
+          "end": 7.34
+        },
+        {
+          "text": "close",
+          "start": 7.34,
+          "end": 7.51
+        },
+        {
+          "text": "of",
+          "start": 7.68,
+          "end": 7.92
+        },
+        {
+          "text": "lips,",
+          "start": 7.92,
+          "end": 8.24
+        },
+        {
+          "text": "Strengthen'd",
+          "start": 8.24,
+          "end": 8.68
+        },
+        {
+          "text": "by",
+          "start": 9.12,
+          "end": 9.5
+        },
+        {
+          "text": "interchangement",
+          "start": 9.5,
+          "end": 10.26
+        },
+        {
+          "text": "of",
+          "start": 10.26,
+          "end": 10.4
+        },
+        {
+          "text": "your",
+          "start": 10.4,
+          "end": 10.54
+        },
+        {
+          "text": "rings,",
+          "start": 10.54,
+          "end": 10.86
+        },
+        {
+          "text": "And",
+          "start": 11.4,
+          "end": 11.54
+        },
+        {
+          "text": "all",
+          "start": 11.54,
+          "end": 11.76
+        },
+        {
+          "text": "the",
+          "start": 11.76,
+          "end": 11.94
+        },
+        {
+          "text": "ceremony",
+          "start": 11.94,
+          "end": 12.3
+        },
+        {
+          "text": "of",
+          "start": 12.3,
+          "end": 12.58
+        },
+        {
+          "text": "this",
+          "start": 12.58,
+          "end": 12.76
+        },
+        {
+          "text": "compact",
+          "start": 12.76,
+          "end": 13.22
+        },
+        {
+          "text": "Sealed",
+          "start": 13.22,
+          "end": 13.64
+        },
+        {
+          "text": "in",
+          "start": 13.64,
+          "end": 13.82
+        },
+        {
+          "text": "my",
+          "start": 13.82,
+          "end": 13.96
+        },
+        {
+          "text": "function,",
+          "start": 13.96,
+          "end": 14.42
+        },
+        {
+          "text": "by",
+          "start": 14.76,
+          "end": 14.9
+        },
+        {
+          "text": "my",
+          "start": 14.9,
+          "end": 15.08
+        },
+        {
+          "text": "testimony;",
+          "start": 15.08,
+          "end": 15.52
+        },
+        {
+          "text": "Since",
+          "start": 16.2,
+          "end": 16.44
+        },
+        {
+          "text": "when,",
+          "start": 16.44,
+          "end": 16.7
+        },
+        {
+          "text": "my",
+          "start": 16.7,
+          "end": 16.96
+        },
+        {
+          "text": "watch",
+          "start": 16.96,
+          "end": 17.28
+        },
+        {
+          "text": "hath",
+          "start": 17.28,
+          "end": 17.46
+        },
+        {
+          "text": "told",
+          "start": 17.46,
+          "end": 17.76
+        },
+        {
+          "text": "me,",
+          "start": 17.76,
+          "end": 18.08
+        },
+        {
+          "text": "toward",
+          "start": 18.24,
+          "end": 18.4
+        },
+        {
+          "text": "my",
+          "start": 18.4,
+          "end": 18.62
+        },
+        {
+          "text": "grave,",
+          "start": 18.62,
+          "end": 18.94
+        },
+        {
+          "text": "I",
+          "start": 19.36,
+          "end": 19.46
+        },
+        {
+          "text": "have",
+          "start": 19.46,
+          "end": 19.58
+        },
+        {
+          "text": "travelled",
+          "start": 19.58,
+          "end": 19.92
+        },
+        {
+          "text": "but",
+          "start": 19.92,
+          "end": 20.2
+        },
+        {
+          "text": "two",
+          "start": 20.2,
+          "end": 20.44
+        },
+        {
+          "text": "hours.",
+          "start": 20.44,
+          "end": 20.84
+        }
+      ],
+      "stats": {
+        "expected_words": 58,
+        "heard_words": 58,
+        "matched_words": 56
+      },
+      "match_ratio": 0.9655172413793104,
+      "rejection_reasons": [],
+      "seconds": 0.6092955134809017
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8146e27d632dba8b639a669fba59f03b41b7c39ed9ee6dfc72bd36811574f8f4",
+  "selected_reasons": []
+}

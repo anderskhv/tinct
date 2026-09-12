@@ -1,0 +1,326 @@
+{
+  "complete": true,
+  "signature": "6254d5126d241e6f09c44d8a4343b32f6e8641861954f764074193a7ec935af1",
+  "attempts": [
+    {
+      "asr_seconds": 0.23387835919857025,
+      "alignment_seconds": 0.0004605986177921295,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, what means d' thou by that, Malvolio?",
+          "start": 0.08,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.68359375
+            },
+            {
+              "text": " what",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " means",
+              "start": 1.36,
+              "end": 1.6,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " d'",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.6025390625
+            },
+            {
+              "text": " thou",
+              "start": 1.76,
+              "end": 1.92,
+              "probability": 0.418212890625
+            },
+            {
+              "text": " by",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " that,",
+              "start": 2.1,
+              "end": 2.34,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Malvolio?",
+              "start": 2.52,
+              "end": 3.0,
+              "probability": 0.9117838541666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "what",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "means",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "raw": "d'",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "thou",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "raw": "by",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "that,",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "raw": "Malvolio?",
+          "start": 2.52,
+          "end": 3.0
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "What",
+        "mean'st",
+        "thou",
+        "by",
+        "that,",
+        "Malvolio?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          7,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 1.36,
+          "end": 1.6,
+          "key": "means",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "d'",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "d",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.76,
+          "end": 1.92,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.92,
+          "end": 2.1,
+          "key": "by",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 2.1,
+          "end": 2.34,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Malvolio?",
+          "start": 2.52,
+          "end": 3.0,
+          "key": "malvolio",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "What",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "mean'st",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "text": "thou",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "text": "by",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "that,",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "text": "Malvolio?",
+          "start": 2.52,
+          "end": 3.0
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.23450514674186707
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "84785a65152da3d28fa6e882b108dfa0fd85d593436352ee938aec75f6dac479",
+  "selected_reasons": []
+}

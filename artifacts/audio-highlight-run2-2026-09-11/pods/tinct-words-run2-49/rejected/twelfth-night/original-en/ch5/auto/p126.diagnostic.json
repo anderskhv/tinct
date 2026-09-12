@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "f2a5214c94710eb0137ecf7b9f25b37c8b872e82953314fdbd5ecb7df4dcf9e2",
+  "attempts": [
+    {
+      "asr_seconds": 0.20318125560879707,
+      "alignment_seconds": 0.00045495107769966125,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Olivia. You might do much. What is your parentage?",
+        "hotwords": "Olivia, You, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Olivia, You might do much. What is your parentage?",
+          "start": 0.05,
+          "end": 3.03,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " You",
+              "start": 1.07,
+              "end": 1.17,
+              "probability": 0.006473541259765625
+            },
+            {
+              "text": " might",
+              "start": 1.17,
+              "end": 1.31,
+              "probability": 0.7314453125
+            },
+            {
+              "text": " do",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " much.",
+              "start": 1.49,
+              "end": 1.75,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " What",
+              "start": 2.19,
+              "end": 2.29,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " is",
+              "start": 2.29,
+              "end": 2.39,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " your",
+              "start": 2.39,
+              "end": 2.51,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " parentage?",
+              "start": 2.51,
+              "end": 3.03,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "You",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "raw": "might",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "raw": "do",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "much.",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "raw": "What",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "raw": "is",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "raw": "your",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "raw": "parentage?",
+          "start": 2.51,
+          "end": 3.03
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "You",
+        "might",
+        "do",
+        "much.",
+        "What",
+        "is",
+        "your",
+        "parentage?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.07,
+          "end": 1.17,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 1.17,
+          "end": 1.31,
+          "key": "might",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "much.",
+          "start": 1.49,
+          "end": 1.75,
+          "key": "much",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.19,
+          "end": 2.29,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.29,
+          "end": 2.39,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.39,
+          "end": 2.51,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "parentage?",
+          "start": 2.51,
+          "end": 3.03,
+          "key": "parentage",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "You",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "text": "might",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "text": "do",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "much.",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "text": "What",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "text": "is",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "text": "your",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "text": "parentage?",
+          "start": 2.51,
+          "end": 3.03
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20382584258913994
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "69a0a1aad9c9caeba8389872027e616c011043f3102650ba37e9afae5f8f6df4",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "54add73540eb61daf172cad5a7907fa058a47519e356dca362c1b54455b4a54c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2584414929151535,
+      "alignment_seconds": 0.0007454976439476013,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. I would, therefore, my sister had had no name, sir.",
+        "hotwords": "Clown, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, I would, therefore, my sister had had no name, sir.",
+          "start": 0.08,
+          "end": 3.46,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.341064453125
+            },
+            {
+              "text": " I",
+              "start": 1.14,
+              "end": 1.36,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " would,",
+              "start": 1.36,
+              "end": 1.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " therefore,",
+              "start": 1.66,
+              "end": 1.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " my",
+              "start": 2.06,
+              "end": 2.18,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " sister",
+              "start": 2.18,
+              "end": 2.42,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " had",
+              "start": 2.42,
+              "end": 2.62,
+              "probability": 0.994140625
+            },
+            {
+              "text": " had",
+              "start": 2.62,
+              "end": 2.76,
+              "probability": 0.5859375
+            },
+            {
+              "text": " no",
+              "start": 2.76,
+              "end": 2.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " name,",
+              "start": 2.92,
+              "end": 3.16,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " sir.",
+              "start": 3.34,
+              "end": 3.46,
+              "probability": 0.939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "raw": "would,",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "raw": "therefore,",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "raw": "my",
+          "start": 2.06,
+          "end": 2.18
+        },
+        {
+          "raw": "sister",
+          "start": 2.18,
+          "end": 2.42
+        },
+        {
+          "raw": "had",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "raw": "had",
+          "start": 2.62,
+          "end": 2.76
+        },
+        {
+          "raw": "no",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "raw": "name,",
+          "start": 2.92,
+          "end": 3.16
+        },
+        {
+          "raw": "sir.",
+          "start": 3.34,
+          "end": 3.46
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "I",
+        "would,",
+        "therefore,",
+        "my",
+        "sister",
+        "had",
+        "had",
+        "no",
+        "name,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.36,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would,",
+          "start": 1.36,
+          "end": 1.56,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "therefore,",
+          "start": 1.66,
+          "end": 1.92,
+          "key": "therefore",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.06,
+          "end": 2.18,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sister",
+          "start": 2.18,
+          "end": 2.42,
+          "key": "sister",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.42,
+          "end": 2.62,
+          "key": "had",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.62,
+          "end": 2.76,
+          "key": "had",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.76,
+          "end": 2.92,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "name,",
+          "start": 2.92,
+          "end": 3.16,
+          "key": "name",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 3.34,
+          "end": 3.46,
+          "key": "sir",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "I",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "text": "would,",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "text": "therefore,",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "text": "my",
+          "start": 2.06,
+          "end": 2.18
+        },
+        {
+          "text": "sister",
+          "start": 2.18,
+          "end": 2.42
+        },
+        {
+          "text": "had",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "text": "had",
+          "start": 2.62,
+          "end": 2.76
+        },
+        {
+          "text": "no",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "text": "name,",
+          "start": 2.92,
+          "end": 3.16
+        },
+        {
+          "text": "sir.",
+          "start": 3.34,
+          "end": 3.46
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25949060916900635
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4d1a0f158c93ebe43cfc5660bf749d2ad89df0890bd33f5e648f68df045df42f",
+  "selected_reasons": []
+}

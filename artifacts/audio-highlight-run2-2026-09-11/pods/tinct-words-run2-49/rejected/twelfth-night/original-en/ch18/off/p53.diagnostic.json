@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "256e4ba3c79e1484bbf2a660cb9d92113ea9d80a1d36a138a093ccc0e338d8d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.18259549140930176,
+      "alignment_seconds": 0.0002302229404449463,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Viola, who does beguile you? Who does do you wrong?",
+          "start": 0.57,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.57,
+              "end": 0.93,
+              "probability": 0.822021484375
+            },
+            {
+              "text": " who",
+              "start": 1.17,
+              "end": 1.21,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " does",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " beguile",
+              "start": 1.37,
+              "end": 1.77,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " you?",
+              "start": 1.77,
+              "end": 1.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Who",
+              "start": 2.29,
+              "end": 2.33,
+              "probability": 0.96484375
+            },
+            {
+              "text": " does",
+              "start": 2.33,
+              "end": 2.43,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " do",
+              "start": 2.43,
+              "end": 2.57,
+              "probability": 0.9296875
+            },
+            {
+              "text": " you",
+              "start": 2.57,
+              "end": 2.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " wrong?",
+              "start": 2.67,
+              "end": 2.91,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "raw": "who",
+          "start": 1.17,
+          "end": 1.21
+        },
+        {
+          "raw": "does",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "beguile",
+          "start": 1.37,
+          "end": 1.77
+        },
+        {
+          "raw": "you?",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "raw": "Who",
+          "start": 2.29,
+          "end": 2.33
+        },
+        {
+          "raw": "does",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "raw": "do",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "raw": "you",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "raw": "wrong?",
+          "start": 2.67,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "Who",
+        "does",
+        "beguile",
+        "you?",
+        "Who",
+        "does",
+        "do",
+        "you",
+        "wrong?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.57,
+          "end": 0.93,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.17,
+          "end": 1.21,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 1.21,
+          "end": 1.37,
+          "key": "does",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "beguile",
+          "start": 1.37,
+          "end": 1.77,
+          "key": "beguile",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 1.77,
+          "end": 1.95,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 2.29,
+          "end": 2.33,
+          "key": "who",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 2.33,
+          "end": 2.43,
+          "key": "does",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.43,
+          "end": 2.57,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.57,
+          "end": 2.67,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wrong?",
+          "start": 2.67,
+          "end": 2.91,
+          "key": "wrong",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "text": "Who",
+          "start": 1.17,
+          "end": 1.21
+        },
+        {
+          "text": "does",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "text": "beguile",
+          "start": 1.37,
+          "end": 1.77
+        },
+        {
+          "text": "you?",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "text": "Who",
+          "start": 2.29,
+          "end": 2.33
+        },
+        {
+          "text": "does",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "text": "do",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "text": "you",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "text": "wrong?",
+          "start": 2.67,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18292342126369476
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e59afa6ccea13fbac70a6ea000953fa2a9ca2be5b77d6d72fc2e410e748960ee",
+  "selected_reasons": []
+}

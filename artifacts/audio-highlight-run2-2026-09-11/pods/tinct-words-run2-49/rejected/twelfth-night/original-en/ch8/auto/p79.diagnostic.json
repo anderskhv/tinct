@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "7808aafad4fdc251fa4824e5e98d8743b67d364386087f63f761b8f5ac788adb",
+  "attempts": [
+    {
+      "asr_seconds": 0.2331911437213421,
+      "alignment_seconds": 0.0005293972790241241,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Toby. What, for being a Puritan? Thy exquisite reason, dear knight?",
+        "hotwords": "Sir, Toby, What, Puritan, Thy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Toby, What, for being a Puritan? Thy exquisite reason, dear knight?",
+          "start": 0.05,
+          "end": 4.29,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " Toby,",
+              "start": 0.53,
+              "end": 0.87,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " What,",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.015228271484375
+            },
+            {
+              "text": " for",
+              "start": 1.55,
+              "end": 1.61,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " being",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " a",
+              "start": 1.79,
+              "end": 1.95,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Puritan?",
+              "start": 1.95,
+              "end": 2.29,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " Thy",
+              "start": 2.75,
+              "end": 2.87,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " exquisite",
+              "start": 2.87,
+              "end": 3.25,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " reason,",
+              "start": 3.25,
+              "end": 3.75,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " dear",
+              "start": 3.91,
+              "end": 3.99,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " knight?",
+              "start": 3.99,
+              "end": 4.29,
+              "probability": 0.1824951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "raw": "What,",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "for",
+          "start": 1.55,
+          "end": 1.61
+        },
+        {
+          "raw": "being",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "a",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "raw": "Puritan?",
+          "start": 1.95,
+          "end": 2.29
+        },
+        {
+          "raw": "Thy",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "raw": "exquisite",
+          "start": 2.87,
+          "end": 3.25
+        },
+        {
+          "raw": "reason,",
+          "start": 3.25,
+          "end": 3.75
+        },
+        {
+          "raw": "dear",
+          "start": 3.91,
+          "end": 3.99
+        },
+        {
+          "raw": "knight?",
+          "start": 3.99,
+          "end": 4.29
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "What,",
+        "for",
+        "being",
+        "a",
+        "Puritan?",
+        "Thy",
+        "exquisite",
+        "reason,",
+        "dear",
+        "knight?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.87,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 1.19,
+          "end": 1.45,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.55,
+          "end": 1.61,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "being",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.79,
+          "end": 1.95,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Puritan?",
+          "start": 1.95,
+          "end": 2.29,
+          "key": "puritan",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 2.75,
+          "end": 2.87,
+          "key": "thy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "exquisite",
+          "start": 2.87,
+          "end": 3.25,
+          "key": "exquisite",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "reason,",
+          "start": 3.25,
+          "end": 3.75,
+          "key": "reason",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 3.91,
+          "end": 3.99,
+          "key": "dear",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "knight?",
+          "start": 3.99,
+          "end": 4.29,
+          "key": "knight",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Toby.",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "text": "What,",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "for",
+          "start": 1.55,
+          "end": 1.61
+        },
+        {
+          "text": "being",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "a",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "text": "Puritan?",
+          "start": 1.95,
+          "end": 2.29
+        },
+        {
+          "text": "Thy",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "text": "exquisite",
+          "start": 2.87,
+          "end": 3.25
+        },
+        {
+          "text": "reason,",
+          "start": 3.25,
+          "end": 3.75
+        },
+        {
+          "text": "dear",
+          "start": 3.91,
+          "end": 3.99
+        },
+        {
+          "text": "knight?",
+          "start": 3.99,
+          "end": 4.29
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23394238576292992
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d51021563e5458527f59bd963e6e0363201c85ab34301a1fb23645b4e1aa2b96",
+  "selected_reasons": []
+}

@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "447b9212dc7b24faf040f359e128c3d9c357b98a2908868afb43c938f04bf6e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1709190271794796,
+      "alignment_seconds": 0.0003864467144012451,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Viola, about your years, my lord.",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.790771484375
+            },
+            {
+              "text": " about",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.978515625
+            },
+            {
+              "text": " your",
+              "start": 1.35,
+              "end": 1.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " years,",
+              "start": 1.51,
+              "end": 1.73,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " my",
+              "start": 1.89,
+              "end": 1.97,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " lord.",
+              "start": 1.97,
+              "end": 2.19,
+              "probability": 0.7919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "about",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "raw": "your",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "raw": "years,",
+          "start": 1.51,
+          "end": 1.73
+        },
+        {
+          "raw": "my",
+          "start": 1.89,
+          "end": 1.97
+        },
+        {
+          "raw": "lord.",
+          "start": 1.97,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "About",
+        "your",
+        "years,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "about",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.35,
+          "end": 1.51,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "years,",
+          "start": 1.51,
+          "end": 1.73,
+          "key": "years",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.89,
+          "end": 1.97,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.97,
+          "end": 2.19,
+          "key": "lord",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "About",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "text": "your",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "text": "years,",
+          "start": 1.51,
+          "end": 1.73
+        },
+        {
+          "text": "my",
+          "start": 1.89,
+          "end": 1.97
+        },
+        {
+          "text": "lord.",
+          "start": 1.97,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17144093662500381
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2f6498164acb545174122deb3d5b94b5ffa844f85f86b8b9ff5dfe812cf20af1",
+  "selected_reasons": []
+}

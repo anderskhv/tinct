@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "102c5c589b8bddf8f4072e2dfee972f3164ca611862799e6e5a6df55d9874381",
+  "attempts": [
+    {
+      "asr_seconds": 0.1554735116660595,
+      "alignment_seconds": 0.00023323670029640198,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Duke, I prithee sing.",
+          "start": 0.02,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " I",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " prithee",
+              "start": 1.18,
+              "end": 1.5,
+              "probability": 0.634765625
+            },
+            {
+              "text": " sing.",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.95703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "prithee",
+          "start": 1.18,
+          "end": 1.5
+        },
+        {
+          "raw": "sing.",
+          "start": 1.5,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "Ay;",
+        "prithee,",
+        "sing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.18,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "prithee",
+          "start": 1.18,
+          "end": 1.5,
+          "key": "prithee",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sing.",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "sing",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Ay;",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "prithee,",
+          "start": 1.18,
+          "end": 1.5
+        },
+        {
+          "text": "sing.",
+          "start": 1.5,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1558091640472412
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6832c29e542388d2ae1be6e3397292d4a10d0166d04d7c0269e47f644fb51778",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

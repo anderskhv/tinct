@@ -1,0 +1,2371 @@
+{
+  "complete": true,
+  "signature": "7824cfbb4f02d40793a1d5348712414c5c0f63e15b0dd70324c8820d310c7359",
+  "attempts": [
+    {
+      "asr_seconds": 0.3955640196800232,
+      "alignment_seconds": 0.0006678588688373566,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Olivia. My servant, sir! 'Twas never merry world, Since lowly feigning was call'd compliment: Y'are servant to the Count Orsino, youth.",
+        "hotwords": "Olivia, My, Twas, Since, Y'are, Count, Orsino"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Olivia, My servant, sir! Twas never merry world, Since lowly feigning was call'd compliment,",
+          "start": 0.05,
+          "end": 6.01,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.413330078125
+            },
+            {
+              "text": " My",
+              "start": 1.11,
+              "end": 1.21,
+              "probability": 0.0110931396484375
+            },
+            {
+              "text": " servant,",
+              "start": 1.21,
+              "end": 1.59,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " sir!",
+              "start": 1.85,
+              "end": 1.91,
+              "probability": 0.42919921875
+            },
+            {
+              "text": " Twas",
+              "start": 2.63,
+              "end": 2.85,
+              "probability": 0.51348876953125
+            },
+            {
+              "text": " never",
+              "start": 2.85,
+              "end": 3.17,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " merry",
+              "start": 3.17,
+              "end": 3.47,
+              "probability": 0.26318359375
+            },
+            {
+              "text": " world,",
+              "start": 3.47,
+              "end": 3.85,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " Since",
+              "start": 4.17,
+              "end": 4.33,
+              "probability": 0.5888671875
+            },
+            {
+              "text": " lowly",
+              "start": 4.33,
+              "end": 4.63,
+              "probability": 0.97265625
+            },
+            {
+              "text": " feigning",
+              "start": 4.63,
+              "end": 5.07,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " was",
+              "start": 5.07,
+              "end": 5.25,
+              "probability": 0.9453125
+            },
+            {
+              "text": " call'd",
+              "start": 5.25,
+              "end": 5.61,
+              "probability": 0.4911174774169922
+            },
+            {
+              "text": " compliment,",
+              "start": 5.61,
+              "end": 6.01,
+              "probability": 0.464111328125
+            }
+          ]
+        },
+        {
+          "text": " Y'are servant to the Count Orsino, youth.",
+          "start": 6.73,
+          "end": 8.63,
+          "words": [
+            {
+              "text": " Y",
+              "start": 6.73,
+              "end": 6.77,
+              "probability": 0.461181640625
+            },
+            {
+              "text": "'are",
+              "start": 6.77,
+              "end": 6.85,
+              "probability": 0.16359710693359375
+            },
+            {
+              "text": " servant",
+              "start": 6.85,
+              "end": 7.23,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " to",
+              "start": 7.23,
+              "end": 7.43,
+              "probability": 0.890625
+            },
+            {
+              "text": " the",
+              "start": 7.43,
+              "end": 7.55,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Count",
+              "start": 7.55,
+              "end": 7.79,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " Orsino,",
+              "start": 7.79,
+              "end": 8.31,
+              "probability": 0.742431640625
+            },
+            {
+              "text": " youth.",
+              "start": 8.53,
+              "end": 8.63,
+              "probability": 0.8740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "My",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "raw": "servant,",
+          "start": 1.21,
+          "end": 1.59
+        },
+        {
+          "raw": "sir!",
+          "start": 1.85,
+          "end": 1.91
+        },
+        {
+          "raw": "Twas",
+          "start": 2.63,
+          "end": 2.85
+        },
+        {
+          "raw": "never",
+          "start": 2.85,
+          "end": 3.17
+        },
+        {
+          "raw": "merry",
+          "start": 3.17,
+          "end": 3.47
+        },
+        {
+          "raw": "world,",
+          "start": 3.47,
+          "end": 3.85
+        },
+        {
+          "raw": "Since",
+          "start": 4.17,
+          "end": 4.33
+        },
+        {
+          "raw": "lowly",
+          "start": 4.33,
+          "end": 4.63
+        },
+        {
+          "raw": "feigning",
+          "start": 4.63,
+          "end": 5.07
+        },
+        {
+          "raw": "was",
+          "start": 5.07,
+          "end": 5.25
+        },
+        {
+          "raw": "call'd",
+          "start": 5.25,
+          "end": 5.61
+        },
+        {
+          "raw": "compliment,",
+          "start": 5.61,
+          "end": 6.01
+        },
+        {
+          "raw": "Y",
+          "start": 6.73,
+          "end": 6.77
+        },
+        {
+          "raw": "'are",
+          "start": 6.77,
+          "end": 6.85
+        },
+        {
+          "raw": "servant",
+          "start": 6.85,
+          "end": 7.23
+        },
+        {
+          "raw": "to",
+          "start": 7.23,
+          "end": 7.43
+        },
+        {
+          "raw": "the",
+          "start": 7.43,
+          "end": 7.55
+        },
+        {
+          "raw": "Count",
+          "start": 7.55,
+          "end": 7.79
+        },
+        {
+          "raw": "Orsino,",
+          "start": 7.79,
+          "end": 8.31
+        },
+        {
+          "raw": "youth.",
+          "start": 8.53,
+          "end": 8.63
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "My",
+        "servant,",
+        "sir!",
+        "'Twas",
+        "never",
+        "merry",
+        "world,",
+        "Since",
+        "lowly",
+        "feigning",
+        "was",
+        "call'd",
+        "compliment:",
+        "Y'are",
+        "servant",
+        "to",
+        "the",
+        "Count",
+        "Orsino,",
+        "youth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ],
+        [
+          "equal",
+          15,
+          21,
+          16,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.11,
+          "end": 1.21,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "servant,",
+          "start": 1.21,
+          "end": 1.59,
+          "key": "servant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir!",
+          "start": 1.85,
+          "end": 1.91,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Twas",
+          "start": 2.63,
+          "end": 2.85,
+          "key": "twas",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 2.85,
+          "end": 3.17,
+          "key": "never",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "merry",
+          "start": 3.17,
+          "end": 3.47,
+          "key": "merry",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "world,",
+          "start": 3.47,
+          "end": 3.85,
+          "key": "world",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Since",
+          "start": 4.17,
+          "end": 4.33,
+          "key": "since",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lowly",
+          "start": 4.33,
+          "end": 4.63,
+          "key": "lowly",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "feigning",
+          "start": 4.63,
+          "end": 5.07,
+          "key": "feigning",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.07,
+          "end": 5.25,
+          "key": "was",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "call'd",
+          "start": 5.25,
+          "end": 5.61,
+          "key": "calld",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "compliment,",
+          "start": 5.61,
+          "end": 6.01,
+          "key": "compliment",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Y",
+          "start": 6.73,
+          "end": 6.77,
+          "key": "y",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "'are",
+          "start": 6.77,
+          "end": 6.85,
+          "key": "are",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "servant",
+          "start": 6.85,
+          "end": 7.23,
+          "key": "servant",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.23,
+          "end": 7.43,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.43,
+          "end": 7.55,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Count",
+          "start": 7.55,
+          "end": 7.79,
+          "key": "count",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Orsino,",
+          "start": 7.79,
+          "end": 8.31,
+          "key": "orsino",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "youth.",
+          "start": 8.53,
+          "end": 8.63,
+          "key": "youth",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "My",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "text": "servant,",
+          "start": 1.21,
+          "end": 1.59
+        },
+        {
+          "text": "sir!",
+          "start": 1.85,
+          "end": 1.91
+        },
+        {
+          "text": "'Twas",
+          "start": 2.63,
+          "end": 2.85
+        },
+        {
+          "text": "never",
+          "start": 2.85,
+          "end": 3.17
+        },
+        {
+          "text": "merry",
+          "start": 3.17,
+          "end": 3.47
+        },
+        {
+          "text": "world,",
+          "start": 3.47,
+          "end": 3.85
+        },
+        {
+          "text": "Since",
+          "start": 4.17,
+          "end": 4.33
+        },
+        {
+          "text": "lowly",
+          "start": 4.33,
+          "end": 4.63
+        },
+        {
+          "text": "feigning",
+          "start": 4.63,
+          "end": 5.07
+        },
+        {
+          "text": "was",
+          "start": 5.07,
+          "end": 5.25
+        },
+        {
+          "text": "call'd",
+          "start": 5.25,
+          "end": 5.61
+        },
+        {
+          "text": "compliment:",
+          "start": 5.61,
+          "end": 6.01
+        },
+        {
+          "text": "Y'are",
+          "start": 6.01,
+          "end": 6.43
+        },
+        {
+          "text": "servant",
+          "start": 6.85,
+          "end": 7.23
+        },
+        {
+          "text": "to",
+          "start": 7.23,
+          "end": 7.43
+        },
+        {
+          "text": "the",
+          "start": 7.43,
+          "end": 7.55
+        },
+        {
+          "text": "Count",
+          "start": 7.55,
+          "end": 7.79
+        },
+        {
+          "text": "Orsino,",
+          "start": 7.79,
+          "end": 8.31
+        },
+        {
+          "text": "youth.",
+          "start": 8.53,
+          "end": 8.63
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.3964944928884506
+    },
+    {
+      "asr_seconds": 0.41237906739115715,
+      "alignment_seconds": 0.0006592907011508942,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Olivia, My, Twas, Since, Y'are, Count, Orsino"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Olivia, My, Servant, Sir, Twas, Never, Merry, World, Since, Lowly, Feigning, Was Called, Compliment, Y'are, Servant, To, The Count, Orsino, Youth",
+          "start": 0.45,
+          "end": 8.65,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.45,
+              "end": 0.79,
+              "probability": 0.4150390625
+            },
+            {
+              "text": " My,",
+              "start": 1.11,
+              "end": 1.21,
+              "probability": 0.0110931396484375
+            },
+            {
+              "text": " Servant,",
+              "start": 1.29,
+              "end": 1.71,
+              "probability": 0.649169921875
+            },
+            {
+              "text": " Sir,",
+              "start": 1.85,
+              "end": 1.91,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " Twas,",
+              "start": 2.61,
+              "end": 2.87,
+              "probability": 0.50396728515625
+            },
+            {
+              "text": " Never,",
+              "start": 2.93,
+              "end": 3.15,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " Merry,",
+              "start": 3.35,
+              "end": 3.45,
+              "probability": 0.2841796875
+            },
+            {
+              "text": " World,",
+              "start": 3.55,
+              "end": 3.87,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " Since,",
+              "start": 4.21,
+              "end": 4.33,
+              "probability": 0.86328125
+            },
+            {
+              "text": " Lowly,",
+              "start": 4.39,
+              "end": 4.75,
+              "probability": 0.580078125
+            },
+            {
+              "text": " Feigning,",
+              "start": 4.93,
+              "end": 5.07,
+              "probability": 0.61572265625
+            },
+            {
+              "text": " Was",
+              "start": 5.17,
+              "end": 5.27,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " Called,",
+              "start": 5.27,
+              "end": 5.51,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " Compliment,",
+              "start": 5.73,
+              "end": 6.15,
+              "probability": 0.875244140625
+            },
+            {
+              "text": " Y",
+              "start": 6.73,
+              "end": 6.77,
+              "probability": 0.50439453125
+            },
+            {
+              "text": "'are,",
+              "start": 6.77,
+              "end": 6.85,
+              "probability": 0.08185577392578125
+            },
+            {
+              "text": " Servant,",
+              "start": 7.03,
+              "end": 7.33,
+              "probability": 0.974609375
+            },
+            {
+              "text": " To,",
+              "start": 7.35,
+              "end": 7.43,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " The",
+              "start": 7.45,
+              "end": 7.55,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " Count,",
+              "start": 7.55,
+              "end": 7.77,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " Orsino,",
+              "start": 7.93,
+              "end": 8.29,
+              "probability": 0.79150390625
+            },
+            {
+              "text": " Youth",
+              "start": 8.39,
+              "end": 8.65,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.45,
+          "end": 0.79
+        },
+        {
+          "raw": "My,",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "raw": "Servant,",
+          "start": 1.29,
+          "end": 1.71
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.85,
+          "end": 1.91
+        },
+        {
+          "raw": "Twas,",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "raw": "Never,",
+          "start": 2.93,
+          "end": 3.15
+        },
+        {
+          "raw": "Merry,",
+          "start": 3.35,
+          "end": 3.45
+        },
+        {
+          "raw": "World,",
+          "start": 3.55,
+          "end": 3.87
+        },
+        {
+          "raw": "Since,",
+          "start": 4.21,
+          "end": 4.33
+        },
+        {
+          "raw": "Lowly,",
+          "start": 4.39,
+          "end": 4.75
+        },
+        {
+          "raw": "Feigning,",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "raw": "Was",
+          "start": 5.17,
+          "end": 5.27
+        },
+        {
+          "raw": "Called,",
+          "start": 5.27,
+          "end": 5.51
+        },
+        {
+          "raw": "Compliment,",
+          "start": 5.73,
+          "end": 6.15
+        },
+        {
+          "raw": "Y",
+          "start": 6.73,
+          "end": 6.77
+        },
+        {
+          "raw": "'are,",
+          "start": 6.77,
+          "end": 6.85
+        },
+        {
+          "raw": "Servant,",
+          "start": 7.03,
+          "end": 7.33
+        },
+        {
+          "raw": "To,",
+          "start": 7.35,
+          "end": 7.43
+        },
+        {
+          "raw": "The",
+          "start": 7.45,
+          "end": 7.55
+        },
+        {
+          "raw": "Count,",
+          "start": 7.55,
+          "end": 7.77
+        },
+        {
+          "raw": "Orsino,",
+          "start": 7.93,
+          "end": 8.29
+        },
+        {
+          "raw": "Youth",
+          "start": 8.39,
+          "end": 8.65
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "My",
+        "servant,",
+        "sir!",
+        "'Twas",
+        "never",
+        "merry",
+        "world,",
+        "Since",
+        "lowly",
+        "feigning",
+        "was",
+        "call'd",
+        "compliment:",
+        "Y'are",
+        "servant",
+        "to",
+        "the",
+        "Count",
+        "Orsino,",
+        "youth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ],
+        [
+          "equal",
+          15,
+          21,
+          16,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.45,
+          "end": 0.79,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My,",
+          "start": 1.11,
+          "end": 1.21,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Servant,",
+          "start": 1.29,
+          "end": 1.71,
+          "key": "servant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.85,
+          "end": 1.91,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Twas,",
+          "start": 2.61,
+          "end": 2.87,
+          "key": "twas",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Never,",
+          "start": 2.93,
+          "end": 3.15,
+          "key": "never",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Merry,",
+          "start": 3.35,
+          "end": 3.45,
+          "key": "merry",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "World,",
+          "start": 3.55,
+          "end": 3.87,
+          "key": "world",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Since,",
+          "start": 4.21,
+          "end": 4.33,
+          "key": "since",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Lowly,",
+          "start": 4.39,
+          "end": 4.75,
+          "key": "lowly",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Feigning,",
+          "start": 4.93,
+          "end": 5.07,
+          "key": "feigning",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Was",
+          "start": 5.17,
+          "end": 5.27,
+          "key": "was",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Called,",
+          "start": 5.27,
+          "end": 5.51,
+          "key": "called",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Compliment,",
+          "start": 5.73,
+          "end": 6.15,
+          "key": "compliment",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Y",
+          "start": 6.73,
+          "end": 6.77,
+          "key": "y",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "'are,",
+          "start": 6.77,
+          "end": 6.85,
+          "key": "are",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Servant,",
+          "start": 7.03,
+          "end": 7.33,
+          "key": "servant",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "To,",
+          "start": 7.35,
+          "end": 7.43,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 7.45,
+          "end": 7.55,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Count,",
+          "start": 7.55,
+          "end": 7.77,
+          "key": "count",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Orsino,",
+          "start": 7.93,
+          "end": 8.29,
+          "key": "orsino",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Youth",
+          "start": 8.39,
+          "end": 8.65,
+          "key": "youth",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.45,
+          "end": 0.79
+        },
+        {
+          "text": "My",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "text": "servant,",
+          "start": 1.29,
+          "end": 1.71
+        },
+        {
+          "text": "sir!",
+          "start": 1.85,
+          "end": 1.91
+        },
+        {
+          "text": "'Twas",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "text": "never",
+          "start": 2.93,
+          "end": 3.15
+        },
+        {
+          "text": "merry",
+          "start": 3.35,
+          "end": 3.45
+        },
+        {
+          "text": "world,",
+          "start": 3.55,
+          "end": 3.87
+        },
+        {
+          "text": "Since",
+          "start": 4.21,
+          "end": 4.33
+        },
+        {
+          "text": "lowly",
+          "start": 4.39,
+          "end": 4.75
+        },
+        {
+          "text": "feigning",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "text": "was",
+          "start": 5.17,
+          "end": 5.27
+        },
+        {
+          "text": "call'd",
+          "start": 5.27,
+          "end": 5.5
+        },
+        {
+          "text": "compliment:",
+          "start": 5.73,
+          "end": 6.15
+        },
+        {
+          "text": "Y'are",
+          "start": 6.15,
+          "end": 6.59
+        },
+        {
+          "text": "servant",
+          "start": 7.03,
+          "end": 7.33
+        },
+        {
+          "text": "to",
+          "start": 7.35,
+          "end": 7.43
+        },
+        {
+          "text": "the",
+          "start": 7.45,
+          "end": 7.55
+        },
+        {
+          "text": "Count",
+          "start": 7.55,
+          "end": 7.77
+        },
+        {
+          "text": "Orsino,",
+          "start": 7.93,
+          "end": 8.29
+        },
+        {
+          "text": "youth.",
+          "start": 8.39,
+          "end": 8.65
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 19
+      },
+      "match_ratio": 0.9047619047619048,
+      "rejection_reasons": [],
+      "seconds": 0.41329916939139366
+    },
+    {
+      "asr_seconds": 0.3901895694434643,
+      "alignment_seconds": 0.0005176849663257599,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, my servant, sir.",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.413330078125
+            },
+            {
+              "text": " my",
+              "start": 1.11,
+              "end": 1.21,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " servant,",
+              "start": 1.21,
+              "end": 1.59,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " sir.",
+              "start": 1.81,
+              "end": 1.91,
+              "probability": 0.90771484375
+            }
+          ]
+        },
+        {
+          "text": " Toi's never merry world, since lowly feigning was called compliment.",
+          "start": 2.63,
+          "end": 5.99,
+          "words": [
+            {
+              "text": " Toi's",
+              "start": 2.63,
+              "end": 2.91,
+              "probability": 0.5087890625
+            },
+            {
+              "text": " never",
+              "start": 2.91,
+              "end": 3.17,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " merry",
+              "start": 3.17,
+              "end": 3.47,
+              "probability": 0.72509765625
+            },
+            {
+              "text": " world,",
+              "start": 3.47,
+              "end": 3.83,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " since",
+              "start": 4.19,
+              "end": 4.33,
+              "probability": 0.7568359375
+            },
+            {
+              "text": " lowly",
+              "start": 4.33,
+              "end": 4.65,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " feigning",
+              "start": 4.65,
+              "end": 5.07,
+              "probability": 0.899658203125
+            },
+            {
+              "text": " was",
+              "start": 5.07,
+              "end": 5.25,
+              "probability": 0.982421875
+            },
+            {
+              "text": " called",
+              "start": 5.25,
+              "end": 5.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " compliment.",
+              "start": 5.53,
+              "end": 5.99,
+              "probability": 0.580078125
+            }
+          ]
+        },
+        {
+          "text": " Yere servant to the Count Orsino youth.",
+          "start": 6.77,
+          "end": 8.63,
+          "words": [
+            {
+              "text": " Yere",
+              "start": 6.77,
+              "end": 6.85,
+              "probability": 0.527587890625
+            },
+            {
+              "text": " servant",
+              "start": 6.85,
+              "end": 7.19,
+              "probability": 0.955078125
+            },
+            {
+              "text": " to",
+              "start": 7.19,
+              "end": 7.43,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 7.43,
+              "end": 7.55,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Count",
+              "start": 7.55,
+              "end": 7.79,
+              "probability": 0.814453125
+            },
+            {
+              "text": " Orsino",
+              "start": 7.79,
+              "end": 8.29,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " youth.",
+              "start": 8.29,
+              "end": 8.63,
+              "probability": 0.92138671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "my",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "raw": "servant,",
+          "start": 1.21,
+          "end": 1.59
+        },
+        {
+          "raw": "sir.",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "raw": "Toi's",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "raw": "never",
+          "start": 2.91,
+          "end": 3.17
+        },
+        {
+          "raw": "merry",
+          "start": 3.17,
+          "end": 3.47
+        },
+        {
+          "raw": "world,",
+          "start": 3.47,
+          "end": 3.83
+        },
+        {
+          "raw": "since",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "raw": "lowly",
+          "start": 4.33,
+          "end": 4.65
+        },
+        {
+          "raw": "feigning",
+          "start": 4.65,
+          "end": 5.07
+        },
+        {
+          "raw": "was",
+          "start": 5.07,
+          "end": 5.25
+        },
+        {
+          "raw": "called",
+          "start": 5.25,
+          "end": 5.53
+        },
+        {
+          "raw": "compliment.",
+          "start": 5.53,
+          "end": 5.99
+        },
+        {
+          "raw": "Yere",
+          "start": 6.77,
+          "end": 6.85
+        },
+        {
+          "raw": "servant",
+          "start": 6.85,
+          "end": 7.19
+        },
+        {
+          "raw": "to",
+          "start": 7.19,
+          "end": 7.43
+        },
+        {
+          "raw": "the",
+          "start": 7.43,
+          "end": 7.55
+        },
+        {
+          "raw": "Count",
+          "start": 7.55,
+          "end": 7.79
+        },
+        {
+          "raw": "Orsino",
+          "start": 7.79,
+          "end": 8.29
+        },
+        {
+          "raw": "youth.",
+          "start": 8.29,
+          "end": 8.63
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "My",
+        "servant,",
+        "sir!",
+        "'Twas",
+        "never",
+        "merry",
+        "world,",
+        "Since",
+        "lowly",
+        "feigning",
+        "was",
+        "call'd",
+        "compliment:",
+        "Y'are",
+        "servant",
+        "to",
+        "the",
+        "Count",
+        "Orsino,",
+        "youth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          12,
+          5,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          21,
+          15,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.11,
+          "end": 1.21,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "servant,",
+          "start": 1.21,
+          "end": 1.59,
+          "key": "servant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.81,
+          "end": 1.91,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Toi's",
+          "start": 2.63,
+          "end": 2.91,
+          "key": "tois",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 2.91,
+          "end": 3.17,
+          "key": "never",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "merry",
+          "start": 3.17,
+          "end": 3.47,
+          "key": "merry",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "world,",
+          "start": 3.47,
+          "end": 3.83,
+          "key": "world",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 4.19,
+          "end": 4.33,
+          "key": "since",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lowly",
+          "start": 4.33,
+          "end": 4.65,
+          "key": "lowly",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "feigning",
+          "start": 4.65,
+          "end": 5.07,
+          "key": "feigning",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.07,
+          "end": 5.25,
+          "key": "was",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "called",
+          "start": 5.25,
+          "end": 5.53,
+          "key": "called",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "compliment.",
+          "start": 5.53,
+          "end": 5.99,
+          "key": "compliment",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Yere",
+          "start": 6.77,
+          "end": 6.85,
+          "key": "yere",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "servant",
+          "start": 6.85,
+          "end": 7.19,
+          "key": "servant",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.19,
+          "end": 7.43,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.43,
+          "end": 7.55,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Count",
+          "start": 7.55,
+          "end": 7.79,
+          "key": "count",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Orsino",
+          "start": 7.79,
+          "end": 8.29,
+          "key": "orsino",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "youth.",
+          "start": 8.29,
+          "end": 8.63,
+          "key": "youth",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "My",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "text": "servant,",
+          "start": 1.21,
+          "end": 1.59
+        },
+        {
+          "text": "sir!",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "text": "'Twas",
+          "start": 1.91,
+          "end": 2.41
+        },
+        {
+          "text": "never",
+          "start": 2.91,
+          "end": 3.17
+        },
+        {
+          "text": "merry",
+          "start": 3.17,
+          "end": 3.47
+        },
+        {
+          "text": "world,",
+          "start": 3.47,
+          "end": 3.83
+        },
+        {
+          "text": "Since",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "text": "lowly",
+          "start": 4.33,
+          "end": 4.65
+        },
+        {
+          "text": "feigning",
+          "start": 4.65,
+          "end": 5.07
+        },
+        {
+          "text": "was",
+          "start": 5.07,
+          "end": 5.25
+        },
+        {
+          "text": "call'd",
+          "start": 5.25,
+          "end": 5.39
+        },
+        {
+          "text": "compliment:",
+          "start": 5.53,
+          "end": 5.99
+        },
+        {
+          "text": "Y'are",
+          "start": 5.99,
+          "end": 6.42
+        },
+        {
+          "text": "servant",
+          "start": 6.85,
+          "end": 7.19
+        },
+        {
+          "text": "to",
+          "start": 7.19,
+          "end": 7.43
+        },
+        {
+          "text": "the",
+          "start": 7.43,
+          "end": 7.55
+        },
+        {
+          "text": "Count",
+          "start": 7.55,
+          "end": 7.79
+        },
+        {
+          "text": "Orsino,",
+          "start": 7.79,
+          "end": 8.29
+        },
+        {
+          "text": "youth.",
+          "start": 8.29,
+          "end": 8.63
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 18
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.390927255153656
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "25725535cfd4ba5c703849496bb78c46efafbe674e5d667aa5dfda46ed9f8fff",
+  "selected_reasons": []
+}

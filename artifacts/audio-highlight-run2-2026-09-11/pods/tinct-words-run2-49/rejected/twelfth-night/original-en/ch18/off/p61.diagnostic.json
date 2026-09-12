@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "aeb445b2b30f0c289270687afb7488da66bfb9bce640c21ea86a3f13dafe4e53",
+  "attempts": [
+    {
+      "asr_seconds": 0.1529809832572937,
+      "alignment_seconds": 0.0003705248236656189,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Duke, her husband, Sarah.",
+          "start": 0.05,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " her",
+              "start": 0.91,
+              "end": 0.99,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " husband,",
+              "start": 0.99,
+              "end": 1.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Sarah.",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.1942138671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "her",
+          "start": 0.91,
+          "end": 0.99
+        },
+        {
+          "raw": "husband,",
+          "start": 0.99,
+          "end": 1.31
+        },
+        {
+          "raw": "Sarah.",
+          "start": 1.47,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "Her",
+        "husband,",
+        "sirrah?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.91,
+          "end": 0.99,
+          "key": "her",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "husband,",
+          "start": 0.99,
+          "end": 1.31,
+          "key": "husband",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sarah.",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "sarah",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Her",
+          "start": 0.91,
+          "end": 0.99
+        },
+        {
+          "text": "husband,",
+          "start": 0.99,
+          "end": 1.31
+        },
+        {
+          "text": "sirrah?",
+          "start": 1.31,
+          "end": 1.47
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15347078815102577
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "11ade6a02b5fc8d2b9111497d19b09e503fd64389394f55f99b4aed01291e84a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

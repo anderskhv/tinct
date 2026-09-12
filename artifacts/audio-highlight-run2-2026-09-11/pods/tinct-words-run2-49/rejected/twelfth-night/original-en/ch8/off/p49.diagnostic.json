@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "b894ab728283f88419fdc84c01324d7ab9323a670add863747face3cf3efea6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.19486965239048004,
+      "alignment_seconds": 0.0004937648773193359,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sings farewell dear heart since I must needs be gone",
+          "start": 0.11,
+          "end": 3.57,
+          "words": [
+            {
+              "text": " Sings",
+              "start": 0.11,
+              "end": 0.81,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " farewell",
+              "start": 0.81,
+              "end": 1.63,
+              "probability": 0.26171875
+            },
+            {
+              "text": " dear",
+              "start": 1.63,
+              "end": 1.93,
+              "probability": 0.763671875
+            },
+            {
+              "text": " heart",
+              "start": 1.93,
+              "end": 2.25,
+              "probability": 0.98046875
+            },
+            {
+              "text": " since",
+              "start": 2.25,
+              "end": 2.57,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " I",
+              "start": 2.57,
+              "end": 2.71,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " must",
+              "start": 2.71,
+              "end": 2.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " needs",
+              "start": 2.83,
+              "end": 3.07,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " be",
+              "start": 3.07,
+              "end": 3.23,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " gone",
+              "start": 3.23,
+              "end": 3.57,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sings",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "raw": "farewell",
+          "start": 0.81,
+          "end": 1.63
+        },
+        {
+          "raw": "dear",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "raw": "heart",
+          "start": 1.93,
+          "end": 2.25
+        },
+        {
+          "raw": "since",
+          "start": 2.25,
+          "end": 2.57
+        },
+        {
+          "raw": "I",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "raw": "must",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "raw": "needs",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "raw": "be",
+          "start": 3.07,
+          "end": 3.23
+        },
+        {
+          "raw": "gone",
+          "start": 3.23,
+          "end": 3.57
+        }
+      ],
+      "expected_tokens": [
+        "[_Sings._]",
+        "_Farewell,",
+        "dear",
+        "heart,",
+        "since",
+        "I",
+        "must",
+        "needs",
+        "be",
+        "gone._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sings",
+          "start": 0.11,
+          "end": 0.81,
+          "key": "sings",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "farewell",
+          "start": 0.81,
+          "end": 1.63,
+          "key": "farewell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 1.63,
+          "end": 1.93,
+          "key": "dear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 1.93,
+          "end": 2.25,
+          "key": "heart",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 2.25,
+          "end": 2.57,
+          "key": "since",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.57,
+          "end": 2.71,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.71,
+          "end": 2.83,
+          "key": "must",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "needs",
+          "start": 2.83,
+          "end": 3.07,
+          "key": "needs",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.07,
+          "end": 3.23,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 3.23,
+          "end": 3.57,
+          "key": "gone",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Sings._]",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "text": "_Farewell,",
+          "start": 0.81,
+          "end": 1.63
+        },
+        {
+          "text": "dear",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "text": "heart,",
+          "start": 1.93,
+          "end": 2.25
+        },
+        {
+          "text": "since",
+          "start": 2.25,
+          "end": 2.57
+        },
+        {
+          "text": "I",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "text": "must",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "text": "needs",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "text": "be",
+          "start": 3.07,
+          "end": 3.23
+        },
+        {
+          "text": "gone._",
+          "start": 3.23,
+          "end": 3.57
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19557415321469307
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9af7679ebf7ccecf352a175ce15edba443cf37576bce6de8630ab9a2f392750d",
+  "selected_reasons": []
+}

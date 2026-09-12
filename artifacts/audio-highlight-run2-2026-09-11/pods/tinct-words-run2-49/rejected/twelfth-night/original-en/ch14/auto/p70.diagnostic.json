@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "27bf45e0e4a5bebc7fa50056c1db13f84c5c1ffa3e0a09af754f1d0157c2a3f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.19046835228800774,
+      "alignment_seconds": 0.00042137131094932556,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Maria. The house will be the quieter.",
+        "hotwords": "Maria"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Maria. The house will be the quieter.",
+          "start": 0.42,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Maria.",
+              "start": 0.42,
+              "end": 0.78,
+              "probability": 0.2288818359375
+            },
+            {
+              "text": " The",
+              "start": 1.2,
+              "end": 1.28,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " house",
+              "start": 1.28,
+              "end": 1.46,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " will",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 1.64,
+              "end": 1.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.74,
+              "end": 1.86,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " quieter.",
+              "start": 1.86,
+              "end": 2.14,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Maria.",
+          "start": 0.42,
+          "end": 0.78
+        },
+        {
+          "raw": "The",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "raw": "house",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "raw": "will",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "be",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "raw": "quieter.",
+          "start": 1.86,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "Maria.",
+        "The",
+        "house",
+        "will",
+        "be",
+        "the",
+        "quieter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Maria.",
+          "start": 0.42,
+          "end": 0.78,
+          "key": "maria",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.2,
+          "end": 1.28,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 1.28,
+          "end": 1.46,
+          "key": "house",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.64,
+          "end": 1.74,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.86,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "quieter.",
+          "start": 1.86,
+          "end": 2.14,
+          "key": "quieter",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Maria.",
+          "start": 0.42,
+          "end": 0.78
+        },
+        {
+          "text": "The",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "text": "house",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "text": "will",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "be",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "text": "the",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "text": "quieter.",
+          "start": 1.86,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19104118272662163
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c474425a2d2eb9b38ed83a9432d9732da43e6ceef7ddf171360202d8bc2b29f9",
+  "selected_reasons": []
+}

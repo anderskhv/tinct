@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "3e15e54500074b092f86e3178ce2aa8ac9f966ae8ce532da4dfbc6ac5c81793d",
+  "attempts": [
+    {
+      "asr_seconds": 0.23328235372900963,
+      "alignment_seconds": 0.0005336366593837738,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Toby, why how now my bawcock? How dost thou, Chuck?",
+          "start": 0.05,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Toby,",
+              "start": 0.55,
+              "end": 0.87,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " why",
+              "start": 1.21,
+              "end": 1.45,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " how",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " now",
+              "start": 1.63,
+              "end": 1.73,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " my",
+              "start": 1.73,
+              "end": 1.91,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " bawcock?",
+              "start": 1.91,
+              "end": 2.29,
+              "probability": 0.53076171875
+            },
+            {
+              "text": " How",
+              "start": 2.69,
+              "end": 2.75,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " dost",
+              "start": 2.75,
+              "end": 2.91,
+              "probability": 0.740478515625
+            },
+            {
+              "text": " thou,",
+              "start": 2.91,
+              "end": 3.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Chuck?",
+              "start": 3.19,
+              "end": 3.37,
+              "probability": 0.5654296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.55,
+          "end": 0.87
+        },
+        {
+          "raw": "why",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "raw": "how",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "now",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "raw": "my",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "raw": "bawcock?",
+          "start": 1.91,
+          "end": 2.29
+        },
+        {
+          "raw": "How",
+          "start": 2.69,
+          "end": 2.75
+        },
+        {
+          "raw": "dost",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "raw": "thou,",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "raw": "Chuck?",
+          "start": 3.19,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "Why,",
+        "how",
+        "now,",
+        "my",
+        "bawcock?",
+        "How",
+        "dost",
+        "thou,",
+        "chuck?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.55,
+          "end": 0.87,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.21,
+          "end": 1.45,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "how",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.63,
+          "end": 1.73,
+          "key": "now",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.73,
+          "end": 1.91,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bawcock?",
+          "start": 1.91,
+          "end": 2.29,
+          "key": "bawcock",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.69,
+          "end": 2.75,
+          "key": "how",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 2.75,
+          "end": 2.91,
+          "key": "dost",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thou,",
+          "start": 2.91,
+          "end": 3.09,
+          "key": "thou",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Chuck?",
+          "start": 3.19,
+          "end": 3.37,
+          "key": "chuck",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Toby.",
+          "start": 0.55,
+          "end": 0.87
+        },
+        {
+          "text": "Why,",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "text": "how",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "now,",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "text": "my",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "text": "bawcock?",
+          "start": 1.91,
+          "end": 2.29
+        },
+        {
+          "text": "How",
+          "start": 2.69,
+          "end": 2.75
+        },
+        {
+          "text": "dost",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "text": "thou,",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "text": "chuck?",
+          "start": 3.19,
+          "end": 3.37
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23403962701559067
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c81c518bd6c0d6d0456a632a24f149039359ed46fbbba4d63654eb6ddbe7400c",
+  "selected_reasons": []
+}

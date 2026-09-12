@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "cbab0444d955848c1d823b615186e8339c57f4c5d629e1f2ebd37e2ae98b33ae",
+  "attempts": [
+    {
+      "asr_seconds": 0.15426965802907944,
+      "alignment_seconds": 0.00042426958680152893,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To Antonio, I'll be with you anon",
+          "start": 0.0,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " Antonio,",
+              "start": 0.5,
+              "end": 0.94,
+              "probability": 0.990234375
+            },
+            {
+              "text": " I'll",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.986328125
+            },
+            {
+              "text": " be",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 1.86,
+              "end": 2.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " anon",
+              "start": 2.02,
+              "end": 2.38,
+              "probability": 0.5950927734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "Antonio,",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "raw": "I'll",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "be",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "with",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "you",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "raw": "anon",
+          "start": 2.02,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Antonio._]",
+        "I'll",
+        "be",
+        "with",
+        "you",
+        "anon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Antonio,",
+          "start": 0.5,
+          "end": 0.94,
+          "key": "antonio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "ill",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.6,
+          "end": 1.72,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.86,
+          "end": 2.02,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "anon",
+          "start": 2.02,
+          "end": 2.38,
+          "key": "anon",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "Antonio._]",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "text": "I'll",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "be",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "with",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "you",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "text": "anon.",
+          "start": 2.02,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15485674515366554
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fbe4726bdd820944f145f2bad82b28f4a903c03b118a0de1c65be83ff4b1c600",
+  "selected_reasons": []
+}

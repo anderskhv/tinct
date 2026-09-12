@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "c5f4b1f4a6060158dd6d581a140df6bbd6843b2574c101816eb7de73dcedb716",
+  "attempts": [
+    {
+      "asr_seconds": 0.20732825994491577,
+      "alignment_seconds": 0.0005580484867095947,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Andrew. 'Slid, I'll after him again and beat him.",
+        "hotwords": "Sir, Andrew, Slid, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Andrew, Slid, I'll after him again and beat him.",
+          "start": 0.08,
+          "end": 3.46,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.58740234375
+            },
+            {
+              "text": " Andrew,",
+              "start": 0.58,
+              "end": 0.96,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " Slid,",
+              "start": 1.46,
+              "end": 1.9,
+              "probability": 0.582275390625
+            },
+            {
+              "text": " I'll",
+              "start": 2.14,
+              "end": 2.26,
+              "probability": 0.973388671875
+            },
+            {
+              "text": " after",
+              "start": 2.26,
+              "end": 2.44,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " him",
+              "start": 2.44,
+              "end": 2.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " again",
+              "start": 2.6,
+              "end": 2.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 2.84,
+              "end": 3.04,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " beat",
+              "start": 3.04,
+              "end": 3.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him.",
+              "start": 3.2,
+              "end": 3.46,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Andrew,",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "raw": "Slid,",
+          "start": 1.46,
+          "end": 1.9
+        },
+        {
+          "raw": "I'll",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "raw": "after",
+          "start": 2.26,
+          "end": 2.44
+        },
+        {
+          "raw": "him",
+          "start": 2.44,
+          "end": 2.6
+        },
+        {
+          "raw": "again",
+          "start": 2.6,
+          "end": 2.84
+        },
+        {
+          "raw": "and",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "raw": "beat",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "raw": "him.",
+          "start": 3.2,
+          "end": 3.46
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Andrew.",
+        "'Slid,",
+        "I'll",
+        "after",
+        "him",
+        "again",
+        "and",
+        "beat",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Andrew,",
+          "start": 0.58,
+          "end": 0.96,
+          "key": "andrew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Slid,",
+          "start": 1.46,
+          "end": 1.9,
+          "key": "slid",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.14,
+          "end": 2.26,
+          "key": "ill",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 2.26,
+          "end": 2.44,
+          "key": "after",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.44,
+          "end": 2.6,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 2.6,
+          "end": 2.84,
+          "key": "again",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.84,
+          "end": 3.04,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "beat",
+          "start": 3.04,
+          "end": 3.2,
+          "key": "beat",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 3.2,
+          "end": 3.46,
+          "key": "him",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Andrew.",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "text": "'Slid,",
+          "start": 1.46,
+          "end": 1.9
+        },
+        {
+          "text": "I'll",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "text": "after",
+          "start": 2.26,
+          "end": 2.44
+        },
+        {
+          "text": "him",
+          "start": 2.44,
+          "end": 2.6
+        },
+        {
+          "text": "again",
+          "start": 2.6,
+          "end": 2.84
+        },
+        {
+          "text": "and",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "text": "beat",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "him.",
+          "start": 3.2,
+          "end": 3.46
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2080807350575924
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4de79a693a359ace5db21e001003bb7b8aa1ffddab1b77223638d41d89a8ad21",
+  "selected_reasons": []
+}

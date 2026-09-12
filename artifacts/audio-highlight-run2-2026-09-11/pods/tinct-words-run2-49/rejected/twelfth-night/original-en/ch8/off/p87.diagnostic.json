@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "6d1065cb61cfff86d48416687730c8468a2760258442c779abc1acb0fe316d37",
+  "attempts": [
+    {
+      "asr_seconds": 0.23558910563588142,
+      "alignment_seconds": 0.0004863254725933075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Maria, my purpose is indeed a horse of that color.",
+          "start": 0.05,
+          "end": 3.35,
+          "words": [
+            {
+              "text": " Maria,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.2344970703125
+            },
+            {
+              "text": " my",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " purpose",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " is",
+              "start": 1.69,
+              "end": 1.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " indeed",
+              "start": 1.99,
+              "end": 2.29,
+              "probability": 0.990234375
+            },
+            {
+              "text": " a",
+              "start": 2.29,
+              "end": 2.45,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " horse",
+              "start": 2.45,
+              "end": 2.63,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " of",
+              "start": 2.63,
+              "end": 2.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 2.81,
+              "end": 3.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " color.",
+              "start": 3.01,
+              "end": 3.35,
+              "probability": 0.80908203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Maria,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "my",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "raw": "purpose",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "raw": "is",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "raw": "indeed",
+          "start": 1.99,
+          "end": 2.29
+        },
+        {
+          "raw": "a",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "raw": "horse",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "raw": "of",
+          "start": 2.63,
+          "end": 2.81
+        },
+        {
+          "raw": "that",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "raw": "color.",
+          "start": 3.01,
+          "end": 3.35
+        }
+      ],
+      "expected_tokens": [
+        "Maria.",
+        "My",
+        "purpose",
+        "is",
+        "indeed",
+        "a",
+        "horse",
+        "of",
+        "that",
+        "colour."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Maria,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "maria",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.27,
+          "end": 1.43,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "purpose",
+          "start": 1.43,
+          "end": 1.69,
+          "key": "purpose",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.69,
+          "end": 1.99,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "indeed",
+          "start": 1.99,
+          "end": 2.29,
+          "key": "indeed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.29,
+          "end": 2.45,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "horse",
+          "start": 2.45,
+          "end": 2.63,
+          "key": "horse",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.63,
+          "end": 2.81,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.81,
+          "end": 3.01,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "color.",
+          "start": 3.01,
+          "end": 3.35,
+          "key": "color",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Maria.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "My",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "text": "purpose",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "text": "is",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "text": "indeed",
+          "start": 1.99,
+          "end": 2.29
+        },
+        {
+          "text": "a",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "text": "horse",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "text": "of",
+          "start": 2.63,
+          "end": 2.81
+        },
+        {
+          "text": "that",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "text": "colour.",
+          "start": 3.01,
+          "end": 3.18
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.2362787015736103
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dccd0ad08777364f9df3dcf46d1fd95cc5e32fc2e844a9fa114fafa6b912fd84",
+  "selected_reasons": []
+}

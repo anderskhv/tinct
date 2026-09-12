@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "89c9ffa0825acacdf248b5679aa7b18dbe210da80c2b56f66323df221ad9d09f",
+  "attempts": [
+    {
+      "asr_seconds": 3.520127698779106,
+      "alignment_seconds": 0.0003574863076210022,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Malvolio. 'Some achieve greatness'—",
+        "hotwords": "Malvolio, Some"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Malvolio, Some achieve greatness.",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.8474934895833334
+            },
+            {
+              "text": " Some",
+              "start": 1.35,
+              "end": 1.55,
+              "probability": 0.11676025390625
+            },
+            {
+              "text": " achieve",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.4736328125
+            },
+            {
+              "text": " greatness.",
+              "start": 1.83,
+              "end": 2.35,
+              "probability": 0.826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "Some",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "raw": "achieve",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "raw": "greatness.",
+          "start": 1.83,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "'Some",
+        "achieve",
+        "greatness'—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Some",
+          "start": 1.35,
+          "end": 1.55,
+          "key": "some",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "achieve",
+          "start": 1.55,
+          "end": 1.83,
+          "key": "achieve",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "greatness.",
+          "start": 1.83,
+          "end": 2.35,
+          "key": "greatness",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "text": "'Some",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "text": "achieve",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "text": "greatness'—",
+          "start": 1.83,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.5206004306674004
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8f1afc0ad246fd2556e1210a504ebfaac0ab4501004c47298e7deed205a84d2e",
+  "selected_reasons": []
+}

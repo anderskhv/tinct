@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "7b4b91652530f156fc8e4673efd7af89c5e22bdd6d3b0dd32ac12d6e56f28f2b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2484794668853283,
+      "alignment_seconds": 0.0005815364420413971,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside, pray God defend me, a little thing would make me tell them.",
+          "start": 0.05,
+          "end": 4.11,
+          "words": [
+            {
+              "text": " Aside,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.4677734375
+            },
+            {
+              "text": " pray",
+              "start": 1.37,
+              "end": 1.45,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " God",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " defend",
+              "start": 1.71,
+              "end": 2.05,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " me,",
+              "start": 2.05,
+              "end": 2.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 2.65,
+              "end": 2.81,
+              "probability": 0.986328125
+            },
+            {
+              "text": " little",
+              "start": 2.81,
+              "end": 2.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thing",
+              "start": 2.95,
+              "end": 3.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " would",
+              "start": 3.19,
+              "end": 3.33,
+              "probability": 0.994140625
+            },
+            {
+              "text": " make",
+              "start": 3.33,
+              "end": 3.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 3.49,
+              "end": 3.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tell",
+              "start": 3.63,
+              "end": 3.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them.",
+              "start": 3.85,
+              "end": 4.11,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "pray",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "raw": "God",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "defend",
+          "start": 1.71,
+          "end": 2.05
+        },
+        {
+          "raw": "me,",
+          "start": 2.05,
+          "end": 2.33
+        },
+        {
+          "raw": "a",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "raw": "little",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "raw": "thing",
+          "start": 2.95,
+          "end": 3.19
+        },
+        {
+          "raw": "would",
+          "start": 3.19,
+          "end": 3.33
+        },
+        {
+          "raw": "make",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "raw": "me",
+          "start": 3.49,
+          "end": 3.63
+        },
+        {
+          "raw": "tell",
+          "start": 3.63,
+          "end": 3.85
+        },
+        {
+          "raw": "them.",
+          "start": 3.85,
+          "end": 4.11
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside._]",
+        "Pray",
+        "God",
+        "defend",
+        "me!",
+        "A",
+        "little",
+        "thing",
+        "would",
+        "make",
+        "me",
+        "tell",
+        "them"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.37,
+          "end": 1.45,
+          "key": "pray",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 1.45,
+          "end": 1.71,
+          "key": "god",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "defend",
+          "start": 1.71,
+          "end": 2.05,
+          "key": "defend",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.05,
+          "end": 2.33,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.65,
+          "end": 2.81,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 2.81,
+          "end": 2.95,
+          "key": "little",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 2.95,
+          "end": 3.19,
+          "key": "thing",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 3.19,
+          "end": 3.33,
+          "key": "would",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 3.33,
+          "end": 3.49,
+          "key": "make",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.49,
+          "end": 3.63,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 3.63,
+          "end": 3.85,
+          "key": "tell",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 3.85,
+          "end": 4.11,
+          "key": "them",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside._]",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Pray",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "text": "God",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "text": "defend",
+          "start": 1.71,
+          "end": 2.05
+        },
+        {
+          "text": "me!",
+          "start": 2.05,
+          "end": 2.33
+        },
+        {
+          "text": "A",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "text": "little",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "text": "thing",
+          "start": 2.95,
+          "end": 3.19
+        },
+        {
+          "text": "would",
+          "start": 3.19,
+          "end": 3.33
+        },
+        {
+          "text": "make",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "text": "me",
+          "start": 3.49,
+          "end": 3.63
+        },
+        {
+          "text": "tell",
+          "start": 3.63,
+          "end": 3.85
+        },
+        {
+          "text": "them",
+          "start": 3.85,
+          "end": 4.11
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24929144605994225
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "866cce5ddbf286211267a32181f5d15a091413f2242430d2fc0a503350524dd2",
+  "selected_reasons": []
+}

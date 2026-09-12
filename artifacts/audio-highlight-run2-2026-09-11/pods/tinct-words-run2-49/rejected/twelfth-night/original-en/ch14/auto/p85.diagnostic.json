@@ -1,0 +1,1302 @@
+{
+  "complete": true,
+  "signature": "d45dcc4c9c50d8a672a8bcf2fdd3396d63333ea263fc9cb2afd660a8243cbb63",
+  "attempts": [
+    {
+      "asr_seconds": 0.2139577902853489,
+      "alignment_seconds": 0.0005029626190662384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Toby. _Thou kill'st me like a rogue and a villain._",
+        "hotwords": "Sir, Toby"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Toby, thou kill'st me like a rogue and a villain._",
+          "start": 0.05,
+          "end": 3.28,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.890625
+            },
+            {
+              "text": " Toby,",
+              "start": 0.55,
+              "end": 0.89,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " thou",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " kill'st",
+              "start": 1.55,
+              "end": 1.95,
+              "probability": 0.58349609375
+            },
+            {
+              "text": " me",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.06561279296875
+            },
+            {
+              "text": " like",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " a",
+              "start": 2.27,
+              "end": 2.43,
+              "probability": 0.98046875
+            },
+            {
+              "text": " rogue",
+              "start": 2.43,
+              "end": 2.71,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " and",
+              "start": 2.71,
+              "end": 2.93,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " a",
+              "start": 2.93,
+              "end": 3.03,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " villain._",
+              "start": 3.03,
+              "end": 3.28,
+              "probability": 0.4816894829273224
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "raw": "thou",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "kill'st",
+          "start": 1.55,
+          "end": 1.95
+        },
+        {
+          "raw": "me",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "like",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "a",
+          "start": 2.27,
+          "end": 2.43
+        },
+        {
+          "raw": "rogue",
+          "start": 2.43,
+          "end": 2.71
+        },
+        {
+          "raw": "and",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "raw": "a",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "raw": "villain._",
+          "start": 3.03,
+          "end": 3.28
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "_Thou",
+        "kill'st",
+        "me",
+        "like",
+        "a",
+        "rogue",
+        "and",
+        "a",
+        "villain._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.55,
+          "end": 0.89,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "kill'st",
+          "start": 1.55,
+          "end": 1.95,
+          "key": "killst",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 2.07,
+          "end": 2.27,
+          "key": "like",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.27,
+          "end": 2.43,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rogue",
+          "start": 2.43,
+          "end": 2.71,
+          "key": "rogue",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.71,
+          "end": 2.93,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.93,
+          "end": 3.03,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "villain._",
+          "start": 3.03,
+          "end": 3.28,
+          "key": "villain_",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Toby.",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "text": "_Thou",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "kill'st",
+          "start": 1.55,
+          "end": 1.95
+        },
+        {
+          "text": "me",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "like",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "a",
+          "start": 2.27,
+          "end": 2.43
+        },
+        {
+          "text": "rogue",
+          "start": 2.43,
+          "end": 2.71
+        },
+        {
+          "text": "and",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "text": "a",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "text": "villain._",
+          "start": 3.03,
+          "end": 3.155
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.2146482914686203
+    },
+    {
+      "asr_seconds": 0.1933770477771759,
+      "alignment_seconds": 0.0005756020545959473,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Sir, Toby"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Sir, Toby thou kills team me like a rogue and a villain",
+          "start": 0.05,
+          "end": 3.31,
+          "words": [
+            {
+              "text": " Sir,",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " Toby",
+              "start": 0.71,
+              "end": 0.89,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " thou",
+              "start": 0.89,
+              "end": 1.55,
+              "probability": 0.5771484375
+            },
+            {
+              "text": " kills",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " team",
+              "start": 1.83,
+              "end": 2.05,
+              "probability": 0.2156982421875
+            },
+            {
+              "text": " me",
+              "start": 2.05,
+              "end": 2.15,
+              "probability": 0.564453125
+            },
+            {
+              "text": " like",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rogue",
+              "start": 2.43,
+              "end": 2.73,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " and",
+              "start": 2.73,
+              "end": 2.93,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 2.93,
+              "end": 3.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " villain",
+              "start": 3.03,
+              "end": 3.31,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir,",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Toby",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "raw": "thou",
+          "start": 0.89,
+          "end": 1.55
+        },
+        {
+          "raw": "kills",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "raw": "team",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "raw": "me",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "raw": "like",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "a",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "rogue",
+          "start": 2.43,
+          "end": 2.73
+        },
+        {
+          "raw": "and",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "raw": "a",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "raw": "villain",
+          "start": 3.03,
+          "end": 3.31
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "_Thou",
+        "kill'st",
+        "me",
+        "like",
+        "a",
+        "rogue",
+        "and",
+        "a",
+        "villain._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          11,
+          5,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir,",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby",
+          "start": 0.71,
+          "end": 0.89,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 0.89,
+          "end": 1.55,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "kills",
+          "start": 1.55,
+          "end": 1.83,
+          "key": "kills",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "team",
+          "start": 1.83,
+          "end": 2.05,
+          "key": "team",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.05,
+          "end": 2.15,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "like",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.29,
+          "end": 2.43,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "rogue",
+          "start": 2.43,
+          "end": 2.73,
+          "key": "rogue",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.73,
+          "end": 2.93,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.93,
+          "end": 3.03,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "villain",
+          "start": 3.03,
+          "end": 3.31,
+          "key": "villain",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Toby.",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "text": "_Thou",
+          "start": 0.89,
+          "end": 1.55
+        },
+        {
+          "text": "kill'st",
+          "start": 1.55,
+          "end": 1.8
+        },
+        {
+          "text": "me",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "text": "like",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "text": "a",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "rogue",
+          "start": 2.43,
+          "end": 2.73
+        },
+        {
+          "text": "and",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "text": "a",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "text": "villain._",
+          "start": 3.03,
+          "end": 3.31
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.19417940080165863
+    },
+    {
+      "asr_seconds": 0.17878006026148796,
+      "alignment_seconds": 0.0005603618919849396,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Toby thou kill steamy like a rogue and a villain",
+          "start": 0.05,
+          "end": 3.31,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " Toby",
+              "start": 0.55,
+              "end": 0.89,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " thou",
+              "start": 0.89,
+              "end": 1.55,
+              "probability": 0.46826171875
+            },
+            {
+              "text": " kill",
+              "start": 1.55,
+              "end": 1.77,
+              "probability": 0.261474609375
+            },
+            {
+              "text": " steamy",
+              "start": 1.77,
+              "end": 2.15,
+              "probability": 0.774658203125
+            },
+            {
+              "text": " like",
+              "start": 2.15,
+              "end": 2.27,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " a",
+              "start": 2.27,
+              "end": 2.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rogue",
+              "start": 2.41,
+              "end": 2.73,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " and",
+              "start": 2.73,
+              "end": 2.93,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " a",
+              "start": 2.93,
+              "end": 3.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " villain",
+              "start": 3.03,
+              "end": 3.31,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Toby",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "raw": "thou",
+          "start": 0.89,
+          "end": 1.55
+        },
+        {
+          "raw": "kill",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "raw": "steamy",
+          "start": 1.77,
+          "end": 2.15
+        },
+        {
+          "raw": "like",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "raw": "a",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "raw": "rogue",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "raw": "and",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "raw": "a",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "raw": "villain",
+          "start": 3.03,
+          "end": 3.31
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "_Thou",
+        "kill'st",
+        "me",
+        "like",
+        "a",
+        "rogue",
+        "and",
+        "a",
+        "villain._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          11,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby",
+          "start": 0.55,
+          "end": 0.89,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 0.89,
+          "end": 1.55,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "kill",
+          "start": 1.55,
+          "end": 1.77,
+          "key": "kill",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "steamy",
+          "start": 1.77,
+          "end": 2.15,
+          "key": "steamy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 2.15,
+          "end": 2.27,
+          "key": "like",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.27,
+          "end": 2.41,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rogue",
+          "start": 2.41,
+          "end": 2.73,
+          "key": "rogue",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.73,
+          "end": 2.93,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.93,
+          "end": 3.03,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "villain",
+          "start": 3.03,
+          "end": 3.31,
+          "key": "villain",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Toby.",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "text": "_Thou",
+          "start": 0.89,
+          "end": 1.55
+        },
+        {
+          "text": "kill'st",
+          "start": 1.55,
+          "end": 1.85
+        },
+        {
+          "text": "me",
+          "start": 1.85,
+          "end": 2.0
+        },
+        {
+          "text": "like",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "text": "a",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "text": "rogue",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "text": "and",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "text": "a",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "text": "villain._",
+          "start": 3.03,
+          "end": 3.31
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17955035716295242
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "62546963e08eb6e755b12c63cd509a29e253a14be6b0ada45a8e38d278003305",
+  "selected_reasons": []
+}

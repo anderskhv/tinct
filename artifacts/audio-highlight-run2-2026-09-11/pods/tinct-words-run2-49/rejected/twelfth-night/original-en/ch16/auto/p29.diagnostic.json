@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "565bda92ed443e607343eb5de9f42fcb5095b65fe45b3e18728dc7560e090fb8",
+  "attempts": [
+    {
+      "asr_seconds": 0.25307733938097954,
+      "alignment_seconds": 0.00041135773062705994,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Toby. My most exquisite Sir Topas!",
+        "hotwords": "Sir, Toby, My, Topas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Toby, My Most Exquisite Sir Topas!",
+          "start": 0.05,
+          "end": 2.77,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " Toby,",
+              "start": 0.55,
+              "end": 0.87,
+              "probability": 0.67138671875
+            },
+            {
+              "text": " My",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.027099609375
+            },
+            {
+              "text": " Most",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.55859375
+            },
+            {
+              "text": " Exquisite",
+              "start": 1.65,
+              "end": 2.07,
+              "probability": 0.9752604166666666
+            },
+            {
+              "text": " Sir",
+              "start": 2.07,
+              "end": 2.31,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " Topas!",
+              "start": 2.31,
+              "end": 2.77,
+              "probability": 0.77197265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.55,
+          "end": 0.87
+        },
+        {
+          "raw": "My",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "Most",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "Exquisite",
+          "start": 1.65,
+          "end": 2.07
+        },
+        {
+          "raw": "Sir",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "raw": "Topas!",
+          "start": 2.31,
+          "end": 2.77
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "My",
+        "most",
+        "exquisite",
+        "Sir",
+        "Topas!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.55,
+          "end": 0.87,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Most",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "most",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Exquisite",
+          "start": 1.65,
+          "end": 2.07,
+          "key": "exquisite",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 2.07,
+          "end": 2.31,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Topas!",
+          "start": 2.31,
+          "end": 2.77,
+          "key": "topas",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Toby.",
+          "start": 0.55,
+          "end": 0.87
+        },
+        {
+          "text": "My",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "most",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "exquisite",
+          "start": 1.65,
+          "end": 2.07
+        },
+        {
+          "text": "Sir",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "text": "Topas!",
+          "start": 2.31,
+          "end": 2.77
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2536434642970562
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ac9a626bccc95813ef27527b942bad326a2e5594fb0344e9134b2f8e8ff4329b",
+  "selected_reasons": []
+}

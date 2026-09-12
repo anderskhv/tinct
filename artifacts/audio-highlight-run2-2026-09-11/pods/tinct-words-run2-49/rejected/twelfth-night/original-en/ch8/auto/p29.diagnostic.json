@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "057652ef91d6b0cda7a14cda6ac62075ff5e7297a35f35bf03fc5521d417b3d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.3252558968961239,
+      "alignment_seconds": 0.0006935074925422668,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. \"Hold thy peace, thou knave\" knight? I shall be constrain'd in't to call thee knave, knight.",
+        "hotwords": "Clown, Hold, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, Hold thy peace, thou knave knight? I shall be constrain'd in't to call thee knave, knight.",
+          "start": 0.08,
+          "end": 5.56,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.66943359375
+            },
+            {
+              "text": " Hold",
+              "start": 1.26,
+              "end": 1.52,
+              "probability": 0.0173187255859375
+            },
+            {
+              "text": " thy",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " peace,",
+              "start": 1.7,
+              "end": 2.0,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " thou",
+              "start": 2.16,
+              "end": 2.24,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " knave",
+              "start": 2.24,
+              "end": 2.54,
+              "probability": 0.874267578125
+            },
+            {
+              "text": " knight?",
+              "start": 2.54,
+              "end": 2.84,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " I",
+              "start": 3.34,
+              "end": 3.46,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " shall",
+              "start": 3.46,
+              "end": 3.6,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " be",
+              "start": 3.6,
+              "end": 3.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " constrain'd",
+              "start": 3.76,
+              "end": 4.36,
+              "probability": 0.56011962890625
+            },
+            {
+              "text": " in't",
+              "start": 4.36,
+              "end": 4.58,
+              "probability": 0.3096923828125
+            },
+            {
+              "text": " to",
+              "start": 4.58,
+              "end": 4.64,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " call",
+              "start": 4.64,
+              "end": 4.8,
+              "probability": 0.982421875
+            },
+            {
+              "text": " thee",
+              "start": 4.8,
+              "end": 4.94,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " knave,",
+              "start": 4.94,
+              "end": 5.3,
+              "probability": 0.935302734375
+            },
+            {
+              "text": " knight.",
+              "start": 5.5,
+              "end": 5.56,
+              "probability": 0.71044921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Hold",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "raw": "thy",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "peace,",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "raw": "thou",
+          "start": 2.16,
+          "end": 2.24
+        },
+        {
+          "raw": "knave",
+          "start": 2.24,
+          "end": 2.54
+        },
+        {
+          "raw": "knight?",
+          "start": 2.54,
+          "end": 2.84
+        },
+        {
+          "raw": "I",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "raw": "shall",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "raw": "be",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "raw": "constrain'd",
+          "start": 3.76,
+          "end": 4.36
+        },
+        {
+          "raw": "in't",
+          "start": 4.36,
+          "end": 4.58
+        },
+        {
+          "raw": "to",
+          "start": 4.58,
+          "end": 4.64
+        },
+        {
+          "raw": "call",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "raw": "thee",
+          "start": 4.8,
+          "end": 4.94
+        },
+        {
+          "raw": "knave,",
+          "start": 4.94,
+          "end": 5.3
+        },
+        {
+          "raw": "knight.",
+          "start": 5.5,
+          "end": 5.56
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "\"Hold",
+        "thy",
+        "peace,",
+        "thou",
+        "knave\"",
+        "knight?",
+        "I",
+        "shall",
+        "be",
+        "constrain'd",
+        "in't",
+        "to",
+        "call",
+        "thee",
+        "knave,",
+        "knight."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hold",
+          "start": 1.26,
+          "end": 1.52,
+          "key": "hold",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "thy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "peace,",
+          "start": 1.7,
+          "end": 2.0,
+          "key": "peace",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.16,
+          "end": 2.24,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knave",
+          "start": 2.24,
+          "end": 2.54,
+          "key": "knave",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "knight?",
+          "start": 2.54,
+          "end": 2.84,
+          "key": "knight",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.34,
+          "end": 3.46,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.46,
+          "end": 3.6,
+          "key": "shall",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.6,
+          "end": 3.76,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "constrain'd",
+          "start": 3.76,
+          "end": 4.36,
+          "key": "constraind",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in't",
+          "start": 4.36,
+          "end": 4.58,
+          "key": "int",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.58,
+          "end": 4.64,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 4.64,
+          "end": 4.8,
+          "key": "call",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.8,
+          "end": 4.94,
+          "key": "thee",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "knave,",
+          "start": 4.94,
+          "end": 5.3,
+          "key": "knave",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "knight.",
+          "start": 5.5,
+          "end": 5.56,
+          "key": "knight",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "\"Hold",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "text": "thy",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "peace,",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "text": "thou",
+          "start": 2.16,
+          "end": 2.24
+        },
+        {
+          "text": "knave\"",
+          "start": 2.24,
+          "end": 2.54
+        },
+        {
+          "text": "knight?",
+          "start": 2.54,
+          "end": 2.84
+        },
+        {
+          "text": "I",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "text": "shall",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "text": "be",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "text": "constrain'd",
+          "start": 3.76,
+          "end": 4.36
+        },
+        {
+          "text": "in't",
+          "start": 4.36,
+          "end": 4.58
+        },
+        {
+          "text": "to",
+          "start": 4.58,
+          "end": 4.64
+        },
+        {
+          "text": "call",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "text": "thee",
+          "start": 4.8,
+          "end": 4.94
+        },
+        {
+          "text": "knave,",
+          "start": 4.94,
+          "end": 5.3
+        },
+        {
+          "text": "knight.",
+          "start": 5.5,
+          "end": 5.56
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3262358605861664
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "52b9f05c289e34f787df9a964fec9b8bf649cd02cb7139a0e38cfdca89680c7d",
+  "selected_reasons": []
+}

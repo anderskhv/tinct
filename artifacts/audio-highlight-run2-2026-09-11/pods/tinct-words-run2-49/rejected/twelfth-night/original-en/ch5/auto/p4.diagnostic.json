@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "fd3695225e89468695b6fd6f3895ef29d603bf19417208ed73a50186deab64ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.19881225749850273,
+      "alignment_seconds": 0.0004025697708129883,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. He shall see none to fear.",
+        "hotwords": "Clown, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, He shall see none to fear.",
+          "start": 0.08,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.343505859375
+            },
+            {
+              "text": " He",
+              "start": 1.1,
+              "end": 1.22,
+              "probability": 0.07537841796875
+            },
+            {
+              "text": " shall",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " see",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.923828125
+            },
+            {
+              "text": " none",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " to",
+              "start": 1.62,
+              "end": 1.78,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " fear.",
+              "start": 1.78,
+              "end": 2.04,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "He",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "raw": "shall",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "see",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "none",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "to",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "raw": "fear.",
+          "start": 1.78,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "He",
+        "shall",
+        "see",
+        "none",
+        "to",
+        "fear."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.1,
+          "end": 1.22,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "see",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "none",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.62,
+          "end": 1.78,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fear.",
+          "start": 1.78,
+          "end": 2.04,
+          "key": "fear",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "He",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "text": "shall",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "see",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "none",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "to",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "fear.",
+          "start": 1.78,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19936487451195717
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8c722b271f04062c7886e11bca204c89fc575ca2fa724fca2c8f2d1b03042d2c",
+  "selected_reasons": []
+}

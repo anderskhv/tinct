@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "fe20901638f94266382b1a6d9c913ddd9bd5f4c9d712a611b0bcf3006b3185ad",
+  "attempts": [
+    {
+      "asr_seconds": 0.20014315098524094,
+      "alignment_seconds": 0.0005129128694534302,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Viola, the honorable lady of the house, which is she?",
+          "start": 0.05,
+          "end": 3.31,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.792724609375
+            },
+            {
+              "text": " the",
+              "start": 1.35,
+              "end": 1.37,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " honorable",
+              "start": 1.37,
+              "end": 1.73,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " lady",
+              "start": 1.73,
+              "end": 2.09,
+              "probability": 0.669921875
+            },
+            {
+              "text": " of",
+              "start": 2.09,
+              "end": 2.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.31,
+              "end": 2.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " house,",
+              "start": 2.39,
+              "end": 2.61,
+              "probability": 0.939453125
+            },
+            {
+              "text": " which",
+              "start": 2.81,
+              "end": 2.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 2.89,
+              "end": 3.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " she?",
+              "start": 3.07,
+              "end": 3.31,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "the",
+          "start": 1.35,
+          "end": 1.37
+        },
+        {
+          "raw": "honorable",
+          "start": 1.37,
+          "end": 1.73
+        },
+        {
+          "raw": "lady",
+          "start": 1.73,
+          "end": 2.09
+        },
+        {
+          "raw": "of",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "raw": "house,",
+          "start": 2.39,
+          "end": 2.61
+        },
+        {
+          "raw": "which",
+          "start": 2.81,
+          "end": 2.89
+        },
+        {
+          "raw": "is",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "raw": "she?",
+          "start": 3.07,
+          "end": 3.31
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "The",
+        "honourable",
+        "lady",
+        "of",
+        "the",
+        "house,",
+        "which",
+        "is",
+        "she?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          10,
+          3,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.35,
+          "end": 1.37,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "honorable",
+          "start": 1.37,
+          "end": 1.73,
+          "key": "honorable",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 1.73,
+          "end": 2.09,
+          "key": "lady",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.09,
+          "end": 2.31,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.39,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "house,",
+          "start": 2.39,
+          "end": 2.61,
+          "key": "house",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 2.81,
+          "end": 2.89,
+          "key": "which",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.89,
+          "end": 3.07,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "she?",
+          "start": 3.07,
+          "end": 3.31,
+          "key": "she",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "The",
+          "start": 1.35,
+          "end": 1.37
+        },
+        {
+          "text": "honourable",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "lady",
+          "start": 1.73,
+          "end": 2.09
+        },
+        {
+          "text": "of",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "text": "the",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "text": "house,",
+          "start": 2.39,
+          "end": 2.61
+        },
+        {
+          "text": "which",
+          "start": 2.81,
+          "end": 2.89
+        },
+        {
+          "text": "is",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "text": "she?",
+          "start": 3.07,
+          "end": 3.31
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.2008487991988659
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "af69b7526aa0a7def9d16969974a5496f6e4f7eab7043a0d693172de33a8aabe",
+  "selected_reasons": []
+}

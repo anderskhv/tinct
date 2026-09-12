@@ -1,0 +1,751 @@
+{
+  "complete": true,
+  "signature": "30ad19469de4c463e911e910896a6513db6fc6ad171d77183c0d48e8737e2bd2",
+  "attempts": [
+    {
+      "asr_seconds": 0.3299434408545494,
+      "alignment_seconds": 0.0007426030933856964,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Toby, T.H. art a scholar, let us therefore eat and drink.",
+          "start": 0.05,
+          "end": 3.79,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " Toby,",
+              "start": 0.53,
+              "end": 0.87,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " T",
+              "start": 1.43,
+              "end": 1.49,
+              "probability": 0.8310546875
+            },
+            {
+              "text": ".H.",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " art",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 0.0718994140625
+            },
+            {
+              "text": " a",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " scholar,",
+              "start": 1.99,
+              "end": 2.25,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " let",
+              "start": 2.51,
+              "end": 2.59,
+              "probability": 0.873046875
+            },
+            {
+              "text": " us",
+              "start": 2.59,
+              "end": 2.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " therefore",
+              "start": 2.73,
+              "end": 3.03,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " eat",
+              "start": 3.03,
+              "end": 3.29,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " and",
+              "start": 3.29,
+              "end": 3.53,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " drink.",
+              "start": 3.53,
+              "end": 3.79,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Marion, I say, a stoop of wine.",
+          "start": 4.75,
+          "end": 6.27,
+          "words": [
+            {
+              "text": " Marion,",
+              "start": 4.75,
+              "end": 4.75,
+              "probability": 0.625
+            },
+            {
+              "text": " I",
+              "start": 4.91,
+              "end": 4.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " say,",
+              "start": 4.99,
+              "end": 5.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 5.55,
+              "end": 5.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " stoop",
+              "start": 5.63,
+              "end": 5.85,
+              "probability": 0.9609375
+            },
+            {
+              "text": " of",
+              "start": 5.85,
+              "end": 5.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wine.",
+              "start": 5.97,
+              "end": 6.27,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "raw": "T",
+          "start": 1.43,
+          "end": 1.49
+        },
+        {
+          "raw": ".H.",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "art",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "a",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "scholar,",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "raw": "let",
+          "start": 2.51,
+          "end": 2.59
+        },
+        {
+          "raw": "us",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "raw": "therefore",
+          "start": 2.73,
+          "end": 3.03
+        },
+        {
+          "raw": "eat",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "raw": "and",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "raw": "drink.",
+          "start": 3.53,
+          "end": 3.79
+        },
+        {
+          "raw": "Marion,",
+          "start": 4.75,
+          "end": 4.75
+        },
+        {
+          "raw": "I",
+          "start": 4.91,
+          "end": 4.99
+        },
+        {
+          "raw": "say,",
+          "start": 4.99,
+          "end": 5.27
+        },
+        {
+          "raw": "a",
+          "start": 5.55,
+          "end": 5.63
+        },
+        {
+          "raw": "stoop",
+          "start": 5.63,
+          "end": 5.85
+        },
+        {
+          "raw": "of",
+          "start": 5.85,
+          "end": 5.97
+        },
+        {
+          "raw": "wine.",
+          "start": 5.97,
+          "end": 6.27
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "Th'art",
+        "a",
+        "scholar;",
+        "let",
+        "us",
+        "therefore",
+        "eat",
+        "and",
+        "drink.",
+        "Marian,",
+        "I",
+        "say!",
+        "a",
+        "stoup",
+        "of",
+        "wine."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          5
+        ],
+        [
+          "equal",
+          3,
+          11,
+          5,
+          13
+        ],
+        [
+          "replace",
+          11,
+          12,
+          13,
+          14
+        ],
+        [
+          "equal",
+          12,
+          15,
+          14,
+          17
+        ],
+        [
+          "replace",
+          15,
+          16,
+          17,
+          18
+        ],
+        [
+          "equal",
+          16,
+          18,
+          18,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          5
+        ],
+        [
+          "replace",
+          11,
+          12,
+          13,
+          14
+        ],
+        [
+          "replace",
+          15,
+          16,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.87,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 1.43,
+          "end": 1.49,
+          "key": "t",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "h",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 1.65,
+          "end": 1.83,
+          "key": "art",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "scholar,",
+          "start": 1.99,
+          "end": 2.25,
+          "key": "scholar",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 2.51,
+          "end": 2.59,
+          "key": "let",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 2.59,
+          "end": 2.73,
+          "key": "us",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "therefore",
+          "start": 2.73,
+          "end": 3.03,
+          "key": "therefore",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "eat",
+          "start": 3.03,
+          "end": 3.29,
+          "key": "eat",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.29,
+          "end": 3.53,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "drink.",
+          "start": 3.53,
+          "end": 3.79,
+          "key": "drink",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Marion,",
+          "start": 4.75,
+          "end": 4.75,
+          "key": "marion",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.91,
+          "end": 4.99,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 4.99,
+          "end": 5.27,
+          "key": "say",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.55,
+          "end": 5.63,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "stoop",
+          "start": 5.63,
+          "end": 5.85,
+          "key": "stoop",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.85,
+          "end": 5.97,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "wine.",
+          "start": 5.97,
+          "end": 6.27,
+          "key": "wine",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Toby.",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "text": "Th'art",
+          "start": 0.87,
+          "end": 1.35
+        },
+        {
+          "text": "a",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "scholar;",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "text": "let",
+          "start": 2.51,
+          "end": 2.59
+        },
+        {
+          "text": "us",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "text": "therefore",
+          "start": 2.73,
+          "end": 3.03
+        },
+        {
+          "text": "eat",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "text": "and",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "text": "drink.",
+          "start": 3.53,
+          "end": 3.79
+        },
+        {
+          "text": "Marian,",
+          "start": 3.79,
+          "end": 4.35
+        },
+        {
+          "text": "I",
+          "start": 4.91,
+          "end": 4.99
+        },
+        {
+          "text": "say!",
+          "start": 4.99,
+          "end": 5.27
+        },
+        {
+          "text": "a",
+          "start": 5.55,
+          "end": 5.63
+        },
+        {
+          "text": "stoup",
+          "start": 5.63,
+          "end": 5.74
+        },
+        {
+          "text": "of",
+          "start": 5.85,
+          "end": 5.97
+        },
+        {
+          "text": "wine.",
+          "start": 5.97,
+          "end": 6.27
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 20,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3310259059071541
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3bf4a42ebf9e103ea0cd34557d5fbbe944726eff4fdc6e8f6032979865e3e862",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

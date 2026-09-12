@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "6501a4d2ba3f18b16cf907ec29d2c23aa3d6011cd3e5bf7988c13baae89541a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.220389012247324,
+      "alignment_seconds": 0.0006030499935150146,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Toby, did she see thee the while old boy tell me that",
+          "start": 0.05,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " Toby,",
+              "start": 0.53,
+              "end": 0.85,
+              "probability": 0.7734375
+            },
+            {
+              "text": " did",
+              "start": 1.15,
+              "end": 1.45,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " she",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " see",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thee",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " the",
+              "start": 1.95,
+              "end": 2.05,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " while",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.55126953125
+            },
+            {
+              "text": " old",
+              "start": 2.29,
+              "end": 2.51,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " boy",
+              "start": 2.51,
+              "end": 2.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " tell",
+              "start": 2.85,
+              "end": 3.23,
+              "probability": 0.256103515625
+            },
+            {
+              "text": " me",
+              "start": 3.23,
+              "end": 3.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 3.35,
+              "end": 3.61,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.85
+        },
+        {
+          "raw": "did",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "raw": "she",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "see",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "raw": "thee",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "the",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "raw": "while",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "raw": "old",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "raw": "boy",
+          "start": 2.51,
+          "end": 2.85
+        },
+        {
+          "raw": "tell",
+          "start": 2.85,
+          "end": 3.23
+        },
+        {
+          "raw": "me",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "raw": "that",
+          "start": 3.35,
+          "end": 3.61
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "Did",
+        "she",
+        "see",
+        "thee",
+        "the",
+        "while,",
+        "old",
+        "boy?",
+        "Tell",
+        "me",
+        "that."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.85,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.15,
+          "end": 1.45,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.81,
+          "end": 1.95,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.95,
+          "end": 2.05,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "while",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 2.29,
+          "end": 2.51,
+          "key": "old",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 2.51,
+          "end": 2.85,
+          "key": "boy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.85,
+          "end": 3.23,
+          "key": "tell",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.23,
+          "end": 3.35,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.35,
+          "end": 3.61,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Toby.",
+          "start": 0.53,
+          "end": 0.85
+        },
+        {
+          "text": "Did",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "text": "she",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "see",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "text": "thee",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "the",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "text": "while,",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "text": "old",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "text": "boy?",
+          "start": 2.51,
+          "end": 2.85
+        },
+        {
+          "text": "Tell",
+          "start": 2.85,
+          "end": 3.23
+        },
+        {
+          "text": "me",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "text": "that.",
+          "start": 3.35,
+          "end": 3.61
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2213425599038601
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1881a9d6630a88aedccfb25f5d0511b919cf22a2c1ba9713d39ce1bcc03879db",
+  "selected_reasons": []
+}

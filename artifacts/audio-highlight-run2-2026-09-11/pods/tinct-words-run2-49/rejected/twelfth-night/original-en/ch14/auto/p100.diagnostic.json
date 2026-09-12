@@ -1,0 +1,437 @@
+{
+  "complete": true,
+  "signature": "64942e09b6e13a0ccab06633f908a8b1eb670b4672d0fd43ffbb6605cc7a3122",
+  "attempts": [
+    {
+      "asr_seconds": 0.21597595512866974,
+      "alignment_seconds": 0.0004165545105934143,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Viola. Nothing but this, your true love for my master.",
+        "hotwords": "Viola, Nothing"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Viola, Nothing Viola. Nothing but this, your true love for my master.",
+          "start": 0.08,
+          "end": 3.38,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.822021484375
+            },
+            {
+              "text": " Nothing",
+              "start": 1.26,
+              "end": 1.46,
+              "probability": 0.0063629150390625
+            },
+            {
+              "text": " Viola.",
+              "start": 1.46,
+              "end": 1.7,
+              "probability": 0.499267578125
+            },
+            {
+              "text": " Nothing",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " but",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.61181640625
+            },
+            {
+              "text": " this,",
+              "start": 1.7,
+              "end": 1.94,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " your",
+              "start": 2.18,
+              "end": 2.22,
+              "probability": 0.66259765625
+            },
+            {
+              "text": " true",
+              "start": 2.22,
+              "end": 2.46,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " love",
+              "start": 2.46,
+              "end": 2.68,
+              "probability": 0.962890625
+            },
+            {
+              "text": " for",
+              "start": 2.68,
+              "end": 2.86,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " my",
+              "start": 2.86,
+              "end": 3.0,
+              "probability": 0.984375
+            },
+            {
+              "text": " master.",
+              "start": 3.0,
+              "end": 3.38,
+              "probability": 0.88330078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "Nothing",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "raw": "Viola.",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "raw": "Nothing",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "but",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "this,",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "raw": "your",
+          "start": 2.18,
+          "end": 2.22
+        },
+        {
+          "raw": "true",
+          "start": 2.22,
+          "end": 2.46
+        },
+        {
+          "raw": "love",
+          "start": 2.46,
+          "end": 2.68
+        },
+        {
+          "raw": "for",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "raw": "my",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "raw": "master.",
+          "start": 3.0,
+          "end": 3.38
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "Nothing",
+        "but",
+        "this,",
+        "your",
+        "true",
+        "love",
+        "for",
+        "my",
+        "master."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          10,
+          2,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nothing",
+          "start": 1.26,
+          "end": 1.46,
+          "key": "nothing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Viola.",
+          "start": 1.46,
+          "end": 1.7,
+          "key": "viola",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Nothing",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "nothing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 1.7,
+          "end": 1.94,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.18,
+          "end": 2.22,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 2.22,
+          "end": 2.46,
+          "key": "true",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 2.46,
+          "end": 2.68,
+          "key": "love",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.68,
+          "end": 2.86,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.86,
+          "end": 3.0,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "master.",
+          "start": 3.0,
+          "end": 3.38,
+          "key": "master",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "text": "Nothing",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "text": "but",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "text": "this,",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "text": "your",
+          "start": 2.18,
+          "end": 2.22
+        },
+        {
+          "text": "true",
+          "start": 2.22,
+          "end": 2.46
+        },
+        {
+          "text": "love",
+          "start": 2.46,
+          "end": 2.68
+        },
+        {
+          "text": "for",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "text": "my",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "text": "master.",
+          "start": 3.0,
+          "end": 3.38
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21656939759850502
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "581d57e94fa561199d12ec5920e7357f6ed8855bbdfbbd3b5c9d6f620826d45c",
+  "selected_reasons": []
+}

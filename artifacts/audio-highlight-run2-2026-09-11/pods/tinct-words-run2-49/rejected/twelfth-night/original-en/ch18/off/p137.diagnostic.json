@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "5c8f3fb77451cce63537f186ee1b78fa08595f7c636847656c3c95c68c68dc50",
+  "attempts": [
+    {
+      "asr_seconds": 0.21588779985904694,
+      "alignment_seconds": 0.0005816146731376648,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To Viola your master quits you and for your service done him",
+          "start": 0.02,
+          "end": 4.12,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.412841796875
+            },
+            {
+              "text": " Viola",
+              "start": 0.5,
+              "end": 1.1,
+              "probability": 0.805419921875
+            },
+            {
+              "text": " your",
+              "start": 1.1,
+              "end": 1.58,
+              "probability": 0.261962890625
+            },
+            {
+              "text": " master",
+              "start": 1.58,
+              "end": 1.92,
+              "probability": 0.970703125
+            },
+            {
+              "text": " quits",
+              "start": 1.92,
+              "end": 2.26,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " you",
+              "start": 2.26,
+              "end": 2.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 2.48,
+              "end": 2.84,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " for",
+              "start": 2.84,
+              "end": 2.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " service",
+              "start": 3.1,
+              "end": 3.54,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " done",
+              "start": 3.54,
+              "end": 3.8,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " him",
+              "start": 3.8,
+              "end": 4.12,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Viola",
+          "start": 0.5,
+          "end": 1.1
+        },
+        {
+          "raw": "your",
+          "start": 1.1,
+          "end": 1.58
+        },
+        {
+          "raw": "master",
+          "start": 1.58,
+          "end": 1.92
+        },
+        {
+          "raw": "quits",
+          "start": 1.92,
+          "end": 2.26
+        },
+        {
+          "raw": "you",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "raw": "and",
+          "start": 2.48,
+          "end": 2.84
+        },
+        {
+          "raw": "for",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "raw": "your",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "service",
+          "start": 3.1,
+          "end": 3.54
+        },
+        {
+          "raw": "done",
+          "start": 3.54,
+          "end": 3.8
+        },
+        {
+          "raw": "him",
+          "start": 3.8,
+          "end": 4.12
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Viola._]",
+        "Your",
+        "master",
+        "quits",
+        "you;",
+        "and",
+        "for",
+        "your",
+        "service",
+        "done",
+        "him,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Viola",
+          "start": 0.5,
+          "end": 1.1,
+          "key": "viola",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.1,
+          "end": 1.58,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 1.58,
+          "end": 1.92,
+          "key": "master",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "quits",
+          "start": 1.92,
+          "end": 2.26,
+          "key": "quits",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.26,
+          "end": 2.48,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.48,
+          "end": 2.84,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.84,
+          "end": 2.96,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.96,
+          "end": 3.1,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "service",
+          "start": 3.1,
+          "end": 3.54,
+          "key": "service",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 3.54,
+          "end": 3.8,
+          "key": "done",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.8,
+          "end": 4.12,
+          "key": "him",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Viola._]",
+          "start": 0.5,
+          "end": 1.1
+        },
+        {
+          "text": "Your",
+          "start": 1.1,
+          "end": 1.58
+        },
+        {
+          "text": "master",
+          "start": 1.58,
+          "end": 1.92
+        },
+        {
+          "text": "quits",
+          "start": 1.92,
+          "end": 2.26
+        },
+        {
+          "text": "you;",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "text": "and",
+          "start": 2.48,
+          "end": 2.84
+        },
+        {
+          "text": "for",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "text": "your",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "service",
+          "start": 3.1,
+          "end": 3.54
+        },
+        {
+          "text": "done",
+          "start": 3.54,
+          "end": 3.8
+        },
+        {
+          "text": "him,",
+          "start": 3.8,
+          "end": 4.12
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21669409051537514
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6efc8b6c9075c4347440146770fb6142eaf507f28df033b404a37f9189d7e570",
+  "selected_reasons": []
+}

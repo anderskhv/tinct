@@ -1,0 +1,409 @@
+{
+  "complete": true,
+  "signature": "6bd1504ce90b6e71fe2f2039163c44a9f76356c4f32f19e6e87ac8d8140d394c",
+  "attempts": [
+    {
+      "asr_seconds": 0.23472322151064873,
+      "alignment_seconds": 0.0005355924367904663,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Malvolio to bed.",
+          "start": 0.05,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " Malvolio",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.8224283854166666
+            },
+            {
+              "text": " to",
+              "start": 1.01,
+              "end": 1.25,
+              "probability": 0.689453125
+            },
+            {
+              "text": " bed.",
+              "start": 1.25,
+              "end": 1.49,
+              "probability": 0.96826171875
+            }
+          ]
+        },
+        {
+          "text": " I sweetheart and I'll come to thee.",
+          "start": 2.19,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " I",
+              "start": 2.19,
+              "end": 2.23,
+              "probability": 0.31884765625
+            },
+            {
+              "text": " sweetheart",
+              "start": 2.23,
+              "end": 2.75,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " and",
+              "start": 2.75,
+              "end": 2.91,
+              "probability": 0.6826171875
+            },
+            {
+              "text": " I'll",
+              "start": 2.91,
+              "end": 3.07,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " come",
+              "start": 3.07,
+              "end": 3.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 3.19,
+              "end": 3.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thee.",
+              "start": 3.35,
+              "end": 3.61,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "to",
+          "start": 1.01,
+          "end": 1.25
+        },
+        {
+          "raw": "bed.",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "raw": "I",
+          "start": 2.19,
+          "end": 2.23
+        },
+        {
+          "raw": "sweetheart",
+          "start": 2.23,
+          "end": 2.75
+        },
+        {
+          "raw": "and",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "raw": "I'll",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "raw": "come",
+          "start": 3.07,
+          "end": 3.19
+        },
+        {
+          "raw": "to",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "raw": "thee.",
+          "start": 3.35,
+          "end": 3.61
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "To",
+        "bed?",
+        "Ay,",
+        "sweetheart,",
+        "and",
+        "I'll",
+        "come",
+        "to",
+        "thee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          10,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.01,
+          "end": 1.25,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bed.",
+          "start": 1.25,
+          "end": 1.49,
+          "key": "bed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.19,
+          "end": 2.23,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sweetheart",
+          "start": 2.23,
+          "end": 2.75,
+          "key": "sweetheart",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.75,
+          "end": 2.91,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.91,
+          "end": 3.07,
+          "key": "ill",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 3.07,
+          "end": 3.19,
+          "key": "come",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.19,
+          "end": 3.35,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 3.35,
+          "end": 3.61,
+          "key": "thee",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "To",
+          "start": 1.01,
+          "end": 1.25
+        },
+        {
+          "text": "bed?",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "text": "Ay,",
+          "start": 1.49,
+          "end": 1.86
+        },
+        {
+          "text": "sweetheart,",
+          "start": 2.23,
+          "end": 2.75
+        },
+        {
+          "text": "and",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "text": "I'll",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "text": "come",
+          "start": 3.07,
+          "end": 3.19
+        },
+        {
+          "text": "to",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "text": "thee.",
+          "start": 3.35,
+          "end": 3.61
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.23545489832758904
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "caaa1c617e698e267e273ab6fe8bb9a776971ea7c815463539d88eae661a4bd0",
+  "selected_reasons": []
+}

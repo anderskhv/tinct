@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "9bb655e9258422f815b12424bfcfbd2d1c3300200fa6e0670b213f46abeec7b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.31194939091801643,
+      "alignment_seconds": 0.0005843080580234528,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Viola and died that day when Viola from her birth had numbered 13 years",
+          "start": 0.05,
+          "end": 4.79,
+          "words": [
+            {
+              "text": " Viola",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " and",
+              "start": 0.95,
+              "end": 1.47,
+              "probability": 0.363037109375
+            },
+            {
+              "text": " died",
+              "start": 1.47,
+              "end": 1.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " day",
+              "start": 1.91,
+              "end": 2.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " when",
+              "start": 2.17,
+              "end": 2.39,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " Viola",
+              "start": 2.39,
+              "end": 2.83,
+              "probability": 0.841796875
+            },
+            {
+              "text": " from",
+              "start": 2.83,
+              "end": 2.95,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " her",
+              "start": 2.95,
+              "end": 3.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " birth",
+              "start": 3.11,
+              "end": 3.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " had",
+              "start": 3.39,
+              "end": 3.61,
+              "probability": 0.990234375
+            },
+            {
+              "text": " numbered",
+              "start": 3.61,
+              "end": 3.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " 13",
+              "start": 3.91,
+              "end": 4.37,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " years",
+              "start": 4.37,
+              "end": 4.79,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "and",
+          "start": 0.95,
+          "end": 1.47
+        },
+        {
+          "raw": "died",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "raw": "that",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "raw": "day",
+          "start": 1.91,
+          "end": 2.17
+        },
+        {
+          "raw": "when",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "raw": "Viola",
+          "start": 2.39,
+          "end": 2.83
+        },
+        {
+          "raw": "from",
+          "start": 2.83,
+          "end": 2.95
+        },
+        {
+          "raw": "her",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "raw": "birth",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "raw": "had",
+          "start": 3.39,
+          "end": 3.61
+        },
+        {
+          "raw": "numbered",
+          "start": 3.61,
+          "end": 3.91
+        },
+        {
+          "raw": "13",
+          "start": 3.91,
+          "end": 4.37
+        },
+        {
+          "raw": "years",
+          "start": 4.37,
+          "end": 4.79
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "And",
+        "died",
+        "that",
+        "day",
+        "when",
+        "Viola",
+        "from",
+        "her",
+        "birth",
+        "Had",
+        "numbered",
+        "thirteen",
+        "years."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.95,
+          "end": 1.47,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "died",
+          "start": 1.47,
+          "end": 1.67,
+          "key": "died",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 1.91,
+          "end": 2.17,
+          "key": "day",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.17,
+          "end": 2.39,
+          "key": "when",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Viola",
+          "start": 2.39,
+          "end": 2.83,
+          "key": "viola",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.83,
+          "end": 2.95,
+          "key": "from",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.95,
+          "end": 3.11,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "birth",
+          "start": 3.11,
+          "end": 3.39,
+          "key": "birth",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.39,
+          "end": 3.61,
+          "key": "had",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "numbered",
+          "start": 3.61,
+          "end": 3.91,
+          "key": "numbered",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "13",
+          "start": 3.91,
+          "end": 4.37,
+          "key": "thirteen",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "years",
+          "start": 4.37,
+          "end": 4.79,
+          "key": "years",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "And",
+          "start": 0.95,
+          "end": 1.47
+        },
+        {
+          "text": "died",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "text": "that",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "text": "day",
+          "start": 1.91,
+          "end": 2.17
+        },
+        {
+          "text": "when",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "text": "Viola",
+          "start": 2.39,
+          "end": 2.83
+        },
+        {
+          "text": "from",
+          "start": 2.83,
+          "end": 2.95
+        },
+        {
+          "text": "her",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "text": "birth",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "text": "Had",
+          "start": 3.39,
+          "end": 3.61
+        },
+        {
+          "text": "numbered",
+          "start": 3.61,
+          "end": 3.91
+        },
+        {
+          "text": "thirteen",
+          "start": 3.91,
+          "end": 4.37
+        },
+        {
+          "text": "years.",
+          "start": 4.37,
+          "end": 4.79
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3127904199063778
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6d5edef0a9e7d96409480b7ca4b90ba0b4676b4f7617db88b98f57cc11738992",
+  "selected_reasons": []
+}

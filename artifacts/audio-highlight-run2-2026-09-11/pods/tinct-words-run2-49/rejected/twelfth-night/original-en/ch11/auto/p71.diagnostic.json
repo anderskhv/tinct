@@ -1,0 +1,1644 @@
+{
+  "complete": true,
+  "signature": "176491de0bb92cce44cf7c2838d302a0457066e0277218f0d7b962962a3b47be",
+  "attempts": [
+    {
+      "asr_seconds": 0.5111334845423698,
+      "alignment_seconds": 0.0007463209331035614,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Viola. By innocence I swear, and by my youth, I have one heart, one bosom, and one truth, And that no woman has; nor never none Shall mistress be of it, save I alone. And so adieu, good madam; never more Will I my master's tears to you deplore.",
+        "hotwords": "Viola, I, Shall, Will"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Viola, by innocence I swear, and by my youth, I have one heart, one bosom, and one truth,",
+          "start": 0.05,
+          "end": 6.15,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.6861572265625
+            },
+            {
+              "text": " by",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.953125
+            },
+            {
+              "text": " innocence",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.962890625
+            },
+            {
+              "text": " I",
+              "start": 1.69,
+              "end": 2.07,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " swear,",
+              "start": 2.07,
+              "end": 2.47,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 2.89,
+              "end": 2.95,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " by",
+              "start": 2.95,
+              "end": 3.07,
+              "probability": 0.994140625
+            },
+            {
+              "text": " my",
+              "start": 3.07,
+              "end": 3.29,
+              "probability": 0.990234375
+            },
+            {
+              "text": " youth,",
+              "start": 3.29,
+              "end": 3.55,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " I",
+              "start": 3.91,
+              "end": 3.93,
+              "probability": 0.994140625
+            },
+            {
+              "text": " have",
+              "start": 3.93,
+              "end": 4.09,
+              "probability": 0.994140625
+            },
+            {
+              "text": " one",
+              "start": 4.09,
+              "end": 4.33,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " heart,",
+              "start": 4.33,
+              "end": 4.65,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " one",
+              "start": 4.89,
+              "end": 5.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " bosom,",
+              "start": 5.03,
+              "end": 5.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 5.55,
+              "end": 5.59,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " one",
+              "start": 5.59,
+              "end": 5.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " truth,",
+              "start": 5.79,
+              "end": 6.15,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " And that no woman has, nor never none Shall mistress be of it, save I alone.",
+          "start": 6.55,
+          "end": 10.75,
+          "words": [
+            {
+              "text": " And",
+              "start": 6.55,
+              "end": 6.63,
+              "probability": 0.088134765625
+            },
+            {
+              "text": " that",
+              "start": 6.63,
+              "end": 6.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " no",
+              "start": 6.73,
+              "end": 6.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " woman",
+              "start": 6.95,
+              "end": 7.17,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " has,",
+              "start": 7.17,
+              "end": 7.61,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " nor",
+              "start": 8.15,
+              "end": 8.31,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " never",
+              "start": 8.31,
+              "end": 8.61,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " none",
+              "start": 8.61,
+              "end": 8.81,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Shall",
+              "start": 8.81,
+              "end": 8.97,
+              "probability": 0.49658203125
+            },
+            {
+              "text": " mistress",
+              "start": 8.97,
+              "end": 9.31,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " be",
+              "start": 9.31,
+              "end": 9.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 9.59,
+              "end": 9.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it,",
+              "start": 9.73,
+              "end": 9.89,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " save",
+              "start": 10.09,
+              "end": 10.21,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " I",
+              "start": 10.21,
+              "end": 10.41,
+              "probability": 0.990234375
+            },
+            {
+              "text": " alone.",
+              "start": 10.41,
+              "end": 10.75,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " And so adieu, good madam, never more Will I my master's tears to you deplore.",
+          "start": 11.49,
+          "end": 16.13,
+          "words": [
+            {
+              "text": " And",
+              "start": 11.49,
+              "end": 11.61,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " so",
+              "start": 11.61,
+              "end": 11.81,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " adieu,",
+              "start": 11.81,
+              "end": 12.17,
+              "probability": 0.825927734375
+            },
+            {
+              "text": " good",
+              "start": 12.45,
+              "end": 12.55,
+              "probability": 0.951171875
+            },
+            {
+              "text": " madam,",
+              "start": 12.55,
+              "end": 13.07,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " never",
+              "start": 13.53,
+              "end": 13.61,
+              "probability": 0.2900390625
+            },
+            {
+              "text": " more",
+              "start": 13.61,
+              "end": 13.91,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " Will",
+              "start": 13.91,
+              "end": 14.11,
+              "probability": 0.70458984375
+            },
+            {
+              "text": " I",
+              "start": 14.11,
+              "end": 14.23,
+              "probability": 0.98828125
+            },
+            {
+              "text": " my",
+              "start": 14.23,
+              "end": 14.39,
+              "probability": 0.98046875
+            },
+            {
+              "text": " master's",
+              "start": 14.39,
+              "end": 15.03,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " tears",
+              "start": 15.03,
+              "end": 15.17,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " to",
+              "start": 15.17,
+              "end": 15.49,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " you",
+              "start": 15.49,
+              "end": 15.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " deplore.",
+              "start": 15.63,
+              "end": 16.13,
+              "probability": 0.95361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "by",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "raw": "innocence",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "raw": "I",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "raw": "swear,",
+          "start": 2.07,
+          "end": 2.47
+        },
+        {
+          "raw": "and",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "raw": "by",
+          "start": 2.95,
+          "end": 3.07
+        },
+        {
+          "raw": "my",
+          "start": 3.07,
+          "end": 3.29
+        },
+        {
+          "raw": "youth,",
+          "start": 3.29,
+          "end": 3.55
+        },
+        {
+          "raw": "I",
+          "start": 3.91,
+          "end": 3.93
+        },
+        {
+          "raw": "have",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "raw": "one",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "raw": "heart,",
+          "start": 4.33,
+          "end": 4.65
+        },
+        {
+          "raw": "one",
+          "start": 4.89,
+          "end": 5.03
+        },
+        {
+          "raw": "bosom,",
+          "start": 5.03,
+          "end": 5.41
+        },
+        {
+          "raw": "and",
+          "start": 5.55,
+          "end": 5.59
+        },
+        {
+          "raw": "one",
+          "start": 5.59,
+          "end": 5.79
+        },
+        {
+          "raw": "truth,",
+          "start": 5.79,
+          "end": 6.15
+        },
+        {
+          "raw": "And",
+          "start": 6.55,
+          "end": 6.63
+        },
+        {
+          "raw": "that",
+          "start": 6.63,
+          "end": 6.73
+        },
+        {
+          "raw": "no",
+          "start": 6.73,
+          "end": 6.95
+        },
+        {
+          "raw": "woman",
+          "start": 6.95,
+          "end": 7.17
+        },
+        {
+          "raw": "has,",
+          "start": 7.17,
+          "end": 7.61
+        },
+        {
+          "raw": "nor",
+          "start": 8.15,
+          "end": 8.31
+        },
+        {
+          "raw": "never",
+          "start": 8.31,
+          "end": 8.61
+        },
+        {
+          "raw": "none",
+          "start": 8.61,
+          "end": 8.81
+        },
+        {
+          "raw": "Shall",
+          "start": 8.81,
+          "end": 8.97
+        },
+        {
+          "raw": "mistress",
+          "start": 8.97,
+          "end": 9.31
+        },
+        {
+          "raw": "be",
+          "start": 9.31,
+          "end": 9.59
+        },
+        {
+          "raw": "of",
+          "start": 9.59,
+          "end": 9.73
+        },
+        {
+          "raw": "it,",
+          "start": 9.73,
+          "end": 9.89
+        },
+        {
+          "raw": "save",
+          "start": 10.09,
+          "end": 10.21
+        },
+        {
+          "raw": "I",
+          "start": 10.21,
+          "end": 10.41
+        },
+        {
+          "raw": "alone.",
+          "start": 10.41,
+          "end": 10.75
+        },
+        {
+          "raw": "And",
+          "start": 11.49,
+          "end": 11.61
+        },
+        {
+          "raw": "so",
+          "start": 11.61,
+          "end": 11.81
+        },
+        {
+          "raw": "adieu,",
+          "start": 11.81,
+          "end": 12.17
+        },
+        {
+          "raw": "good",
+          "start": 12.45,
+          "end": 12.55
+        },
+        {
+          "raw": "madam,",
+          "start": 12.55,
+          "end": 13.07
+        },
+        {
+          "raw": "never",
+          "start": 13.53,
+          "end": 13.61
+        },
+        {
+          "raw": "more",
+          "start": 13.61,
+          "end": 13.91
+        },
+        {
+          "raw": "Will",
+          "start": 13.91,
+          "end": 14.11
+        },
+        {
+          "raw": "I",
+          "start": 14.11,
+          "end": 14.23
+        },
+        {
+          "raw": "my",
+          "start": 14.23,
+          "end": 14.39
+        },
+        {
+          "raw": "master's",
+          "start": 14.39,
+          "end": 15.03
+        },
+        {
+          "raw": "tears",
+          "start": 15.03,
+          "end": 15.17
+        },
+        {
+          "raw": "to",
+          "start": 15.17,
+          "end": 15.49
+        },
+        {
+          "raw": "you",
+          "start": 15.49,
+          "end": 15.63
+        },
+        {
+          "raw": "deplore.",
+          "start": 15.63,
+          "end": 16.13
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "By",
+        "innocence",
+        "I",
+        "swear,",
+        "and",
+        "by",
+        "my",
+        "youth,",
+        "I",
+        "have",
+        "one",
+        "heart,",
+        "one",
+        "bosom,",
+        "and",
+        "one",
+        "truth,",
+        "And",
+        "that",
+        "no",
+        "woman",
+        "has;",
+        "nor",
+        "never",
+        "none",
+        "Shall",
+        "mistress",
+        "be",
+        "of",
+        "it,",
+        "save",
+        "I",
+        "alone.",
+        "And",
+        "so",
+        "adieu,",
+        "good",
+        "madam;",
+        "never",
+        "more",
+        "Will",
+        "I",
+        "my",
+        "master's",
+        "tears",
+        "to",
+        "you",
+        "deplore."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          49,
+          0,
+          49
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.27,
+          "end": 1.43,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "innocence",
+          "start": 1.43,
+          "end": 1.69,
+          "key": "innocence",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.69,
+          "end": 2.07,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "swear,",
+          "start": 2.07,
+          "end": 2.47,
+          "key": "swear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.89,
+          "end": 2.95,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.95,
+          "end": 3.07,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.07,
+          "end": 3.29,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "youth,",
+          "start": 3.29,
+          "end": 3.55,
+          "key": "youth",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.91,
+          "end": 3.93,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.93,
+          "end": 4.09,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 4.09,
+          "end": 4.33,
+          "key": "one",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "heart,",
+          "start": 4.33,
+          "end": 4.65,
+          "key": "heart",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 4.89,
+          "end": 5.03,
+          "key": "one",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bosom,",
+          "start": 5.03,
+          "end": 5.41,
+          "key": "bosom",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.55,
+          "end": 5.59,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 5.59,
+          "end": 5.79,
+          "key": "one",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "truth,",
+          "start": 5.79,
+          "end": 6.15,
+          "key": "truth",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 6.55,
+          "end": 6.63,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.63,
+          "end": 6.73,
+          "key": "that",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 6.73,
+          "end": 6.95,
+          "key": "no",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "woman",
+          "start": 6.95,
+          "end": 7.17,
+          "key": "woman",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "has,",
+          "start": 7.17,
+          "end": 7.61,
+          "key": "has",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 8.15,
+          "end": 8.31,
+          "key": "nor",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 8.31,
+          "end": 8.61,
+          "key": "never",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 8.61,
+          "end": 8.81,
+          "key": "none",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 8.81,
+          "end": 8.97,
+          "key": "shall",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "mistress",
+          "start": 8.97,
+          "end": 9.31,
+          "key": "mistress",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 9.31,
+          "end": 9.59,
+          "key": "be",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.59,
+          "end": 9.73,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 9.73,
+          "end": 9.89,
+          "key": "it",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "save",
+          "start": 10.09,
+          "end": 10.21,
+          "key": "save",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.21,
+          "end": 10.41,
+          "key": "i",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "alone.",
+          "start": 10.41,
+          "end": 10.75,
+          "key": "alone",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 11.49,
+          "end": 11.61,
+          "key": "and",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 11.61,
+          "end": 11.81,
+          "key": "so",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "adieu,",
+          "start": 11.81,
+          "end": 12.17,
+          "key": "adieu",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 12.45,
+          "end": 12.55,
+          "key": "good",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 12.55,
+          "end": 13.07,
+          "key": "madam",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 13.53,
+          "end": 13.61,
+          "key": "never",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 13.61,
+          "end": 13.91,
+          "key": "more",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 13.91,
+          "end": 14.11,
+          "key": "will",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 14.11,
+          "end": 14.23,
+          "key": "i",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.23,
+          "end": 14.39,
+          "key": "my",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "master's",
+          "start": 14.39,
+          "end": 15.03,
+          "key": "masters",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "tears",
+          "start": 15.03,
+          "end": 15.17,
+          "key": "tears",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.17,
+          "end": 15.49,
+          "key": "to",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 15.49,
+          "end": 15.63,
+          "key": "you",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "deplore.",
+          "start": 15.63,
+          "end": 16.13,
+          "key": "deplore",
+          "pieces": [
+            48
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "By",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "text": "innocence",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "text": "I",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "text": "swear,",
+          "start": 2.07,
+          "end": 2.47
+        },
+        {
+          "text": "and",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "text": "by",
+          "start": 2.95,
+          "end": 3.07
+        },
+        {
+          "text": "my",
+          "start": 3.07,
+          "end": 3.29
+        },
+        {
+          "text": "youth,",
+          "start": 3.29,
+          "end": 3.55
+        },
+        {
+          "text": "I",
+          "start": 3.91,
+          "end": 3.93
+        },
+        {
+          "text": "have",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "text": "one",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "text": "heart,",
+          "start": 4.33,
+          "end": 4.65
+        },
+        {
+          "text": "one",
+          "start": 4.89,
+          "end": 5.03
+        },
+        {
+          "text": "bosom,",
+          "start": 5.03,
+          "end": 5.41
+        },
+        {
+          "text": "and",
+          "start": 5.55,
+          "end": 5.59
+        },
+        {
+          "text": "one",
+          "start": 5.59,
+          "end": 5.79
+        },
+        {
+          "text": "truth,",
+          "start": 5.79,
+          "end": 6.15
+        },
+        {
+          "text": "And",
+          "start": 6.55,
+          "end": 6.63
+        },
+        {
+          "text": "that",
+          "start": 6.63,
+          "end": 6.73
+        },
+        {
+          "text": "no",
+          "start": 6.73,
+          "end": 6.95
+        },
+        {
+          "text": "woman",
+          "start": 6.95,
+          "end": 7.17
+        },
+        {
+          "text": "has;",
+          "start": 7.17,
+          "end": 7.61
+        },
+        {
+          "text": "nor",
+          "start": 8.15,
+          "end": 8.31
+        },
+        {
+          "text": "never",
+          "start": 8.31,
+          "end": 8.61
+        },
+        {
+          "text": "none",
+          "start": 8.61,
+          "end": 8.81
+        },
+        {
+          "text": "Shall",
+          "start": 8.81,
+          "end": 8.97
+        },
+        {
+          "text": "mistress",
+          "start": 8.97,
+          "end": 9.31
+        },
+        {
+          "text": "be",
+          "start": 9.31,
+          "end": 9.59
+        },
+        {
+          "text": "of",
+          "start": 9.59,
+          "end": 9.73
+        },
+        {
+          "text": "it,",
+          "start": 9.73,
+          "end": 9.89
+        },
+        {
+          "text": "save",
+          "start": 10.09,
+          "end": 10.21
+        },
+        {
+          "text": "I",
+          "start": 10.21,
+          "end": 10.41
+        },
+        {
+          "text": "alone.",
+          "start": 10.41,
+          "end": 10.75
+        },
+        {
+          "text": "And",
+          "start": 11.49,
+          "end": 11.61
+        },
+        {
+          "text": "so",
+          "start": 11.61,
+          "end": 11.81
+        },
+        {
+          "text": "adieu,",
+          "start": 11.81,
+          "end": 12.17
+        },
+        {
+          "text": "good",
+          "start": 12.45,
+          "end": 12.55
+        },
+        {
+          "text": "madam;",
+          "start": 12.55,
+          "end": 13.07
+        },
+        {
+          "text": "never",
+          "start": 13.53,
+          "end": 13.61
+        },
+        {
+          "text": "more",
+          "start": 13.61,
+          "end": 13.91
+        },
+        {
+          "text": "Will",
+          "start": 13.91,
+          "end": 14.11
+        },
+        {
+          "text": "I",
+          "start": 14.11,
+          "end": 14.23
+        },
+        {
+          "text": "my",
+          "start": 14.23,
+          "end": 14.39
+        },
+        {
+          "text": "master's",
+          "start": 14.39,
+          "end": 15.03
+        },
+        {
+          "text": "tears",
+          "start": 15.03,
+          "end": 15.17
+        },
+        {
+          "text": "to",
+          "start": 15.17,
+          "end": 15.49
+        },
+        {
+          "text": "you",
+          "start": 15.49,
+          "end": 15.63
+        },
+        {
+          "text": "deplore.",
+          "start": 15.63,
+          "end": 16.13
+        }
+      ],
+      "stats": {
+        "expected_words": 49,
+        "heard_words": 49,
+        "matched_words": 49
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5122011937201023
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "745a565005b1b63c0c828c621fcde3c2ba0b354f62ec98286f9f872958153820",
+  "selected_reasons": []
+}

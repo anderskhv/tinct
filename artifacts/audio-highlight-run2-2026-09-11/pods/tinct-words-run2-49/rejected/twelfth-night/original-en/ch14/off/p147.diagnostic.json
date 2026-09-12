@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "87f3c5d0091a5a21930389665f69949966bd7c5516bb6f4a915cf57b10b6488c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1175946369767189,
+      "alignment_seconds": 0.0002195313572883606,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio",
+          "start": 0.02,
+          "end": 0.78,
+          "words": [
+            {
+              "text": " Antonio",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.927734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio",
+          "start": 0.02,
+          "end": 0.78
+        }
+      ],
+      "expected_tokens": [
+        "Antonio."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.02,
+          "end": 0.78
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11788204312324524
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b436a44fac775f8488fb177f613569da7f2e09dbf2916b92ae4475b9e3bbe016",
+  "selected_reasons": []
+}

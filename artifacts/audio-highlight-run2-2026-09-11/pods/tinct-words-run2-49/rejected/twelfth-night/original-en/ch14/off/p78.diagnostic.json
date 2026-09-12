@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "3e19337cf480a3602c42c3bdbb2e5f8a123830c411c3d96ac8568b150d902654",
+  "attempts": [
+    {
+      "asr_seconds": 0.15024515241384506,
+      "alignment_seconds": 0.00033007562160491943,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fabian good and valiant",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Fabian",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.975830078125
+            },
+            {
+              "text": " good",
+              "start": 0.88,
+              "end": 1.44,
+              "probability": 0.1116943359375
+            },
+            {
+              "text": " and",
+              "start": 1.44,
+              "end": 1.66,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " valiant",
+              "start": 1.66,
+              "end": 2.0,
+              "probability": 0.86328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fabian",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "good",
+          "start": 0.88,
+          "end": 1.44
+        },
+        {
+          "raw": "and",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "raw": "valiant",
+          "start": 1.66,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "Fabian.",
+        "Good,",
+        "and",
+        "valiant."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fabian",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "fabian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.88,
+          "end": 1.44,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.44,
+          "end": 1.66,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "valiant",
+          "start": 1.66,
+          "end": 2.0,
+          "key": "valiant",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fabian.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "Good,",
+          "start": 0.88,
+          "end": 1.44
+        },
+        {
+          "text": "and",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "text": "valiant.",
+          "start": 1.66,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15069635584950447
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3eea66e01ae9e337449076bca1cd2333fdfeffef8ff76e32c7c882b70d09529d",
+  "selected_reasons": []
+}
