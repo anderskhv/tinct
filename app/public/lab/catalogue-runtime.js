@@ -1,6 +1,7 @@
 import { fullShelf, pairedSamples } from './entry-model.js?v=20260910-availability-1'
 import { wholeBookProgress } from './library-2-model.js'
 import {
+  LAB_CATALOGUE_URL,
   readerPreviewSearch,
   DEFAULT_LANDING_WORLD,
   LANDING_WORLD_SESSION_KEY,
@@ -1410,7 +1411,7 @@ import {
   // The library restores its own scroll position on the way back.
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
 
-  fetch('/lab/catalogue.json?v=20260910-availability-1').then(response => {
+  fetch(LAB_CATALOGUE_URL).then(response => {
     if (!response.ok) throw new Error(`Catalogue request failed (${response.status})`)
     return response.json()
   }).then(catalogue => {

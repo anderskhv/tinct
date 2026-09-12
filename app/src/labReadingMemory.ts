@@ -45,6 +45,8 @@ import type { ReadingAnchor } from './readingMemory/types'
 import { accountLabPositionRecord, mergeLabPositionStatesByTime, withHiddenFromReadingNow, type LabPositionState } from './lab/labPosition'
 import { fetchLabPositionCloud, putLabPositionCloud, readLabPositionLocal, writeLabPositionLocal } from './lab/labPositionStore'
 import { decideLabAiAction, recordLabAiAction } from './lab/labAccountPrompt'
+import { productionPlaces, withProductionPlaces } from './preReader/productionPositions'
+import { migrateWithheldEdition } from './data/withheldEditions'
 import { recapCacheKey, type LabRecapRequest } from './recapSummary'
 import { readStoredRecapSummary, recapSummaryPermission, requestLabRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
 import { LAB_LIBRARY_BOOT_ROW_MAX, clearLabLibraryBootSnapshot, safeCoverSource, writeLabLibraryBootSnapshot, type LabLibraryBootCard, type LabLibraryBootSnapshot } from './lab/labLibraryBoot'
@@ -52,7 +54,7 @@ import { LAB_LIBRARY_BOOT_ROW_MAX, clearLabLibraryBootSnapshot, safeCoverSource,
 // read the focused cover out of the same function rather than each keeping a
 // copy of it. library-model.js is a plain pure-function module; the bundler
 // takes this one export and leaves the rest.
-import { readerPreviewSearch, readReaderOrigin, shelfFocusIndex, writeReaderOrigin } from '../public/lab/library-model.js'
+import { LAB_CATALOGUE_URL, readerPreviewSearch, readReaderOrigin, shelfFocusIndex, writeReaderOrigin } from '../public/lab/library-model.js'
 import {
   catalogueBookIdForPlace,
   heroHeadline,
@@ -130,7 +132,7 @@ function buildVersion(): string {
 async function loadCatalogue(): Promise<Map<string, CatalogueBook>> {
   if (catalogue) return catalogue
   try {
-    const response = await fetch('/lab/catalogue.json?v=20260907-4')
+    const response = await fetch(LAB_CATALOGUE_URL)
     if (!response.ok) throw new Error(String(response.status))
     const data = await response.json() as { books?: CatalogueBook[] }
     catalogue = new Map((data.books ?? []).map(book => [book.id, book]))
@@ -194,6 +196,23 @@ function completedBookIds(): Set<string> {
     // storage blocked
   }
   return ids
+}
+
+/**
+ * The reader's places as the shelf must see them: the lab record (device,
+ * merged with the account's row when signed in) plus the classic reader's own
+ * `tinct:position:*` records for the same catalogue books. Read-only — see
+ * preReader/productionPositions.ts.
+ */
+function positionsWithProduction(positions: LabPositionState | null, books: Map<string, CatalogueBook>): LabPositionState | null {
+  if (!positions) return null
+  const places = productionPlaces({
+    bookIds: books.keys(),
+    read: key => {
+      try { return localStorage.getItem(key) } catch { return null }
+    },
+  })
+  return withProductionPlaces(positions, places)
 }
 
 function bookInfos(books: Map<string, CatalogueBook>): Map<string, LibraryBookInfo> {
@@ -943,7 +962,7 @@ async function performRender(): Promise<void> {
   const [auth] = await Promise.all([readAuth(), loadCatalogue()])
   const books = catalogue ?? new Map<string, CatalogueBook>()
   const paintList = (positions: LabPositionState | null) => {
-    const list = readingList({ memory: readDeviceReadingMemory(), viewer: auth.userId, positions, books: bookInfos(books), completedBookIds: completedBookIds() })
+    const list = readingList({ memory: readDeviceReadingMemory(), viewer: auth.userId, positions: positionsWithProduction(positions, books), books: bookInfos(books), completedBookIds: completedBookIds() })
     if (libraryModeFor(list) !== 'new') { lastList = list; renderSections(list, null); publishMode(libraryModeFor(list)) }
   }
   if (renderedViewer !== auth.userId) {
@@ -1009,7 +1028,7 @@ async function performRender(): Promise<void> {
   const list = readingList({
     memory: readDeviceReadingMemory(),
     viewer: auth.userId,
-    positions,
+    positions: positionsWithProduction(positions, books),
     books: bookInfos(books),
     completedBookIds: completedBookIds(),
   })
@@ -1092,7 +1111,11 @@ function defaultEditionKey(bookId: string): string | null {
 /** Open the reader at a resolved target through the existing handoff, in the edition the place was read in. */
 function openAt(target: ContinueTarget): void {
   const api = preReader()
-  const editionKey = target.editionKey ?? defaultEditionKey(target.bookId)
+  // A place saved in an edition that has since been withdrawn resumes in its
+  // successor (same chapter, same paragraph — Tinct's editions are aligned)
+  // rather than falling through to the book page.
+  const savedEditionKey = target.editionKey === null ? null : migrateWithheldEdition(target.bookId, target.editionKey)
+  const editionKey = savedEditionKey ?? defaultEditionKey(target.bookId)
   const intent = editionKey ? api?.createHandoff?.({
     bookId: target.bookId,
     primaryEditionKey: editionKey,

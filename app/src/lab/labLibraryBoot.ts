@@ -216,8 +216,11 @@ export interface CachedSupabaseUser {
  * confirms.
  */
 export function readCachedSupabaseUser(storage: StorageLike | null = browserStorage()): CachedSupabaseUser | null {
-  if (!storage || typeof storage.length !== 'number' || typeof storage.key !== 'function') return null
+  if (!storage) return null
   try {
+    // Reading `length` can itself throw (blocked site data, private mode), so
+    // the shape check belongs inside the guard, not in front of it.
+    if (typeof storage.length !== 'number' || typeof storage.key !== 'function') return null
     for (let index = 0; index < storage.length; index += 1) {
       const key = storage.key(index)
       if (!key || !/^sb-.*-auth-token$/.test(key)) continue

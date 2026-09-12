@@ -324,7 +324,7 @@
     },
   }
 
-  fetch('/lab/catalogue.json?v=20260910-availability-1').then(response => {
+  fetch('/lab/catalogue.json?v=20260912-continue-1').then(response => {
     if (!response.ok) throw new Error(`Catalogue request failed (${response.status})`)
     return response.json()
   }).then(catalogue => {
