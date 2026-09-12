@@ -1,4 +1,4 @@
-# Continuity sheet — Meditations, Book VII (candidate v1, frozen)
+# Continuity sheet — Meditations, Book VII (accepted as candidate v2)
 
 Written alongside drafting `candidate-v1.json`, after Books II, I, III, IV, V
 and VI were accepted, and describing what the frozen draft actually did. Term
@@ -6,6 +6,14 @@ renderings follow `../GLOSSARY.md` (one row added and two rows extended for
 Book VII **before** drafting, see below); the pattern for applying review
 findings follows the six earlier `ACCEPTANCE.md` files (decisions D8, D10, D11
 and D12 in the ledger).
+
+**Updated at acceptance (2026-09-12)** with the round-1 reviewer's rulings and
+the five corrections carried into `candidate-v2.json` (sha256 `a80e224d…`, the
+accepted file; see `ACCEPTANCE.md` and `changes-v1-to-v2.md`). Where a
+paragraph note below says a change was made, the wording quoted is the accepted
+v2 wording, with the v1 wording named where it differed. All six decisions the
+draft flagged were ruled in the draft's favour and are recorded here as settled
+rather than open; no flag remains outstanding in Book VII.
 
 ## Source
 
@@ -121,9 +129,17 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   needs its antecedent. This is the class VI.50 "[men]" settled at Book VI
   acceptance (finding 50.1): a bracket that supplies a referent the following
   text depends on is a supplement, not a D11 alternative rendering. Folded on
-  the V.8 "It, necessity or destiny" / VI.43 apposition precedent. **Flagged
-  for the reviewer** — it can be argued a D11 drop, since "thoughts" is also a
-  second rendering of *phantasiai*. "That opinion about anything which I ought
+  the V.8 "It, necessity or destiny" / VI.43 apposition precedent. **Settled at
+  acceptance**: the round-1 reviewer ruled the fold right and moved
+  "[thoughts]" out of the flagged column into the settled fold list, on the
+  VI.50 "[men]" ruling — the following sentence needs the antecedent. It was
+  flagged in v1 because "thoughts" can also be argued a second rendering of
+  *phantasiai*; that reading is not taken. **Corrected at v2 (finding 2.1):**
+  v1 had "to fan these thoughts continually into a flame"; Long wrote
+  "continuously", and the two are not the same word in current English —
+  "continuously" is without a break, "continually" is again and again — so the
+  narrowing cost Long's image of a fire kept alight rather than relit, and
+  bought nothing, both words being current. "That opinion about anything which I ought
   to have" → "the opinion about anything that I ought to have"; "external to my
   mind" → "outside my mind"; "thou standest erect" → "you stand upright" (as
   VII.12); "affects" → "feelings" (glossary).
@@ -145,6 +161,17 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   celebrated the fame of others" (Long's perfect is not needed beside "have
   long been dead").
 - **VII.7** — "Mount up on the battlements" → "climb the battlements".
+- **VII.8** — "Having with thee the same reason" → "having with you the same
+  reason". **Corrected at v2 (finding 8.1, the review's one optional
+  preference):** v1 had "carrying with you the same reason", which v1 recorded
+  no reason for — VII.8 was not in this list at all, the sheet's way of saying
+  the paragraph is Long with the pronouns modernised. Applied under D8 (a minor
+  finding is applied unless this sheet already records a considered reason not
+  to): "having with you" is ordinary current English and needs no replacement,
+  while "carrying" adds a faint physical image (reason as something portable)
+  that Long does not have and that the meditation — you will meet future things
+  with the same reason you use now — does not want. Same route as Book V's
+  33.1 and 36.1 and Book VI's 15.1.
 - **VII.9** — "Implicated with one another" → "bound up with one another", the
   rendering Book VI fixed for Long's "implicated" at VI.38. "The same universe
   [order]" — "[order]" is a second rendering of "universe" (*kosmos*) and is
@@ -153,7 +180,16 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   the same stock" → "all beings which are of the same stock", applying the
   rational-being row's principle (Long's "animal" means living creature) to his
   two other "animal" phrases in this paragraph. "Participate in the reason" →
-  "share in the reason".
+  "share in the reason". **Two base-text variants recorded at acceptance
+  (finding 9.1, documentation only; no change to the candidate):** PG ends the
+  paragraph "…and participate in the reason" (line 4395) where Standard Ebooks'
+  Long reads "participate in the **same** reason", and PG has lowercase "one
+  god who pervades all things" (line 4391) where SE capitalises "one God". The
+  candidate follows PG in both places, which is right — PG #15877 is this
+  package's base text (D6), and the glossary keeps Long's capitals as he has
+  them. Recorded under unresolved source issues on the precedent of the II.14
+  variant in `../PROVENANCE.md` §3, so a reader collating against SE finds the
+  difference explained rather than unaccounted for.
 - **VII.10** — "Everything formal [causal]" → "everything that is form" and
   "everything material" → "everything that is matter" (glossary row extended
   before drafting); "[causal]" is Long's second rendering and is dropped under
@@ -171,12 +207,28 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   staged file has it. "[Using the letter r]" folded in Long's own words: "But
   if, using the letter r, you say that you are a part (meros)". "More apparent
   to thee" → "clearer to you"; "beneficence" → "kindness" (glossary).
-  **Flagged for the reviewer**: keeping the transliterated Greek is a departure
-  from the glossary's note that the candidate never uses Greek — that note
-  governs the glossary's own Greek column, not Long's in-text words, but the
-  case is worth a ruling.
+  **Settled at acceptance.** The round-1 reviewer ruled the transliterated
+  Greek **kept**: the meditation is an argument that turns on one letter, Long
+  himself prints the Greek in the body of his text rather than in a note
+  because "if, using the letter r, you say that you are a part" says nothing
+  without it, and dropping the two words would not be a modernisation but the
+  deletion of the argument. The glossary's note that "the candidate never uses
+  the Greek" governs the glossary's own Greek column, which exists only to show
+  which of Long's English variants belong together; it was never a rule about
+  words Long prints in his translation. On the reviewer's recommendation this
+  is now written into `../GLOSSARY.md` as an explicit exception, so the
+  question does not reopen at VIII.57, where PG has two more `[Greek: …]`
+  spans.
 - **VII.14** — "Let there fall externally what will" → "Let there fall from
-  outside what will".
+  outside what will" (Long's odd but deliberate construction kept, as the
+  reviewer confirmed). **Corrected at v2 (finding 14.1):** v1 had "For those
+  parts which have felt it will complain"; the inserted "it" supplied an object
+  Long leaves out and created a garden path — "have felt it will complain"
+  invites the reading "have felt that it will complain" — so v2 restores Long's
+  absolute "For those parts which have felt will complain, if they choose.",
+  which is grammatical modern English and carries the sense without the
+  ambiguity. The reviewer's alternative ("have felt the fall") was not taken:
+  it adds a word where removing one suffices.
 - **VII.15** — Long's full stop before the repeated sentence becomes a colon:
   "as if the gold, or the emerald, or the purple were always saying this:
   Whatever anyone does or says, I must be emerald and keep my color." The colon
@@ -192,7 +244,9 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   them: the daggers mark uncertain **Greek**, which is a question about what
   Long was translating, not about how his English is carried over — the same
   reading Book VI's VI.50 took when it modernised that clause's pronouns.
-  **Flagged for the reviewer.**
+  **Settled at acceptance**: the round-1 reviewer ruled this right — the
+  daggers mark uncertain Greek, not uncertain English, and D10 would otherwise
+  force the same Long word to be rendered two ways inside one book.
 - **VII.17** — "Eudaemonia [happiness] is a good daemon" → "Eudaemonia,
   happiness, is a good god within": the bracket is folded as an apposition, and
   "a good daemon" takes the glossary's "the god within" for *daimōn*, which is
@@ -200,11 +254,29 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   at all. Long's transliterated "Eudaemonia" is kept for the same reason the
   Greek is kept at VII.13. "O imagination" → "imagination" (the vocative "O" is
   Victorian; the address survives without it); "I entreat thee" → "I beg you";
-  "according to thy old fashion" → "according to your old habit". **Flagged for
-  the reviewer** as the hardest paragraph in the book.
+  "according to thy old fashion" → "according to your old habit". Flagged in v1
+  as the hardest paragraph in the book; **settled at acceptance**, the reviewer
+  ruling this "the best of the available routes" and keeping it. The cost is
+  recorded here rather than argued away: **the "within" is the glossary's, not
+  the etymology's.** *Eu-daimonia* is "good" plus *daimōn*, and has no element
+  answering to "within"; a reader matching the Greek word to the English finds
+  one element unaccounted for. It is there because the glossary's settled
+  rendering of *daimōn* is "the god within", and the alternatives are worse:
+  "a good daemon" leaves the key word untranslated, which is what this edition
+  exists to avoid, and "a good god", unqualified, suggests a deity out in the
+  world rather than Marcus's *daimōn*. Long's transliterated "Eudaemonia" is
+  kept for the same reason the Greek is kept at VII.13, and under the same
+  glossary exception.
 - **VII.19** — Cross-reference "(v. 23; vi. 15)" dropped.
 - **VII.20** — "Troubles me, lest I should do something" → "troubles me: that I
-  should do something" (Long's "lest" after "troubles" is not current).
+  may do something" (Long's "lest" after "troubles" is not current).
+  **Corrected at v2 (finding 20.1):** v1 had "that I should do something",
+  which after a colon is read first as obligation — "the thing that troubles me
+  is that I ought to do something the constitution does not allow" — and that
+  reverses the meditation: Marcus fears a possibility, he does not describe a
+  duty. "That I may do" is the fear-of-a-possibility modal and keeps every
+  other word, including the three-member "or … or …" chain. ("That I might do"
+  would serve equally; "may" is the reviewer's first proposal.)
 - **VII.22** — "The wrong-doer" → "the wrongdoer" (as VI.6); "thy ruling
   faculty" → "your ruling part" (glossary).
 - **VII.23** — "Moulds" → "molds" (American spelling, following the base text);
@@ -277,7 +349,19 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   is not current, "insentient" is formal and rare, and "unfeeling" now means
   callous, which is the wrong sense. This is the one place in Book VII where the
   candidate uses more words than Long for a single term rather than fewer.
-  **Flagged for the reviewer.**
+  **Settled at acceptance: upheld, and recorded as this book's one licensed
+  one-off expansion.** The reviewer ruled that "non-sentient" is jargon and
+  "insentient" would fail the accessibility standard as squarely as the word it
+  replaces, so a relative clause is the only route left and "the elements that
+  have no sensation" is the shortest one available; it adds three words but not
+  one idea, and the no-expansion rule is a rule against *explaining*, not
+  against English needing more words than a Greek-derived Latinate compound.
+  Standard Ebooks' Long confirms "unsentient" is Long's own word and not a PG
+  corruption. **This must not be cited as precedent.** It is licensed because
+  it adds no idea and because no shorter current English word carries the
+  sense; an expansion that carries an added idea, or that replaces a word for
+  which a plain current equivalent exists, is not covered by it in this or any
+  later book.
 - **VII.51** — "To 'scape from death" → "to escape from death".
 - **VII.52** — "More expert in casting his opponent" → "more expert at throwing
   his opponent" (Long's wrestling sense of "cast" is now opaque; "throw" is the
@@ -286,7 +370,10 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   (glossary).
 - **VII.54** — "Piously to acquiesce in thy present condition" → "piously to
   accept your present condition" ("acquiesce in" is stiff and now carries a
-  note of reluctant consent that Long's "piously" contradicts).
+  note of reluctant consent that Long's "piously" contradicts). Base-text slip:
+  PG prints a stray comma inside "to behave, justly to the men about thee";
+  it is not reproduced, and the reviewer confirmed it a slip rather than a
+  reading. See unresolved source issues.
 - **VII.55** — "Other men's ruling principles" → "other men's ruling parts" and
   "the ruling principle" → "the ruling part" (glossary). Long's "motion" is
   **kept** as "motion" throughout this paragraph ("the rational and intelligent
@@ -295,8 +382,10 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   and it is current English. "For both are animal" is **kept as Long has it**:
   he is using "animal" as an adjective against "intelligent", and every way of
   unpacking it ("belong to the animal part", "are animal movements") adds a
-  noun he does not have, which the no-expansion rule forbids. **Flagged for the
-  reviewer.**
+  noun he does not have, which the no-expansion rule forbids. **Settled at
+  acceptance**: the reviewer ruled it "rightly kept", offering "for both are
+  animal motions" as an optional fold of Long's ellipsis and not pressing it;
+  the fold is not taken, for the reason v1 gave.
 - **VII.58** — "How they were vexed" → "how they resented them" (glossary).
   "[To work on]" folded: "they will be a material for you to work on". Long's
   text breaks off at "and remember…"; the ellipsis is kept, on the V.29
@@ -310,7 +399,16 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   → "being scorched by heat, and having no appetite" (Long's articled gerunds
   are not current); "in imagination" kept (glossary row added before drafting).
 - **VII.66** — "How do we know if Telauges was not superior" → "How do we know
-  that Telauges was not superior"; "skilfully" → "skillfully" (American
+  whether Telauges was not superior". **Corrected at v2 (finding 66.1):** v1
+  had "know that Telauges was not superior". Long's "if" is "whether" and the
+  meditation is an open question — we are not placed to know how the two men
+  compared, which is why the rest of the paragraph sets out what we would have
+  to know. "How do we know *that* X was not superior" reads in current English
+  as a challenge to someone who has claimed the contrary, which puts Marcus in
+  an argument he is not having and turns the following "For it is not enough
+  that…" into a rebuttal instead of the reason the question stays open.
+  Standard Ebooks' Long has the same "if", so this is Long's word and not a PG
+  variant. Also: "skilfully" → "skillfully" (American
   spelling, following the base text); "when he was bid to arrest Leon" → "when
   he was ordered to arrest Leon"; "idly vexed" → "idly resentful" (glossary);
   "out of the universal" → "out of the whole" (glossary row extended in Book
@@ -372,11 +470,11 @@ Alternative renderings and labels (D11) — six brackets, six drops:
 
 Long's supplements folded into prose — nine brackets, nine folds:
 
-- VII.2 "[thoughts]" (as an apposition; flagged, see above).
+- VII.2 "[thoughts]" (as an apposition; settled at acceptance on the VI.50 "[men]" ruling, see above).
 - VII.3 "[all alike]".
 - VII.9 "[one]".
 - VII.13 "[using the letter r]".
-- VII.17 "[happiness]" (as an apposition; flagged).
+- VII.17 "[happiness]" (as an apposition; settled at acceptance, see above).
 - VII.34 "[of those who seek fame]".
 - VII.45 "[of deserting his post]".
 - VII.58 "[to work on]".
@@ -423,4 +521,24 @@ Socrates, Epictetus, Plato, Antisthenes, Telauges, Leon of Salamis, Epicurus).
 - **VII.13, the Greek.** PG renders Long's Greek type as "[Greek: melos]" and
   "[Greek: meros]"; the staged original converts these to "(Greek: melos)" and
   "(Greek: meros)" (`../PROVENANCE.md` §4), and the candidate carries them as
-  "(melos)" and "(meros)". Flagged above for a ruling.
+  "(melos)" and "(meros)". **Ruled at acceptance: kept**, and written into
+  `../GLOSSARY.md` as an explicit exception covering Long's in-text
+  transliterated Greek, so VIII.57's two `[Greek: …]` spans do not reopen the
+  question. Standard Ebooks' Long prints the two words in Greek type
+  (μέλος / μέρος) where PG transliterates, which confirms they are Long's text
+  and not PG apparatus.
+- **VII.9, two PG/Standard Ebooks variants** (finding 9.1, recorded at
+  acceptance). PG line 4395 ends the section "…and participate in the reason";
+  Standard Ebooks' Long reads "participate in the **same** reason". PG line
+  4391 has lowercase "one god who pervades all things"; SE capitalises "one
+  God". The candidate follows PG in both — "share in the reason" and "one god"
+  — under D6 (PG #15877 is the base text) and, for the capital, under the
+  glossary row that keeps Long's capitals as he has them. Neither is a defect
+  in PG; both are recorded so a reader collating against SE finds them
+  explained, as II.14's "that which perish" is recorded in `../PROVENANCE.md`
+  §3. The missing "same" slightly weakens the run of "one … one … one", which
+  is why it is worth the record.
+- **VII.54, a stray comma.** PG prints "and to behave, justly to the men about
+  thee" — a comma between the verb and its adverb, which is a compositor's
+  slip, not a reading. Not reproduced; the candidate has "and to behave justly
+  to the men about you". Confirmed a slip by the round-1 reviewer.

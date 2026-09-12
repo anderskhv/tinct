@@ -6,6 +6,10 @@ column is Long's wording (the source); the middle column is the rendering used
 in every candidate paragraph, in every book, unless a specific paragraph records
 an exception in that book's `continuity.md`. The Greek is given only to show
 which of Long's variants belong together; the candidate never uses the Greek.
+**Exception, added at Book VII acceptance (2026-09-12):** that last clause
+governs *this table's own Greek column*. Where **Long himself prints a Greek
+word in the body of his translation**, it is his text and is kept — see "Long's
+in-text Greek" under Voice and form below.
 
 ## Recurring concepts (from Anders's brief)
 
@@ -81,6 +85,22 @@ which of Long's variants belong together; the candidate never uses the Greek.
   are kept at the end of the section where Long prints them, as a separate
   final sentence: "Written among the Quadi, at the Granua." / "Written at
   Carnuntum."
+- **Long's in-text Greek (exception to the Greek rule above).** Where Long
+  prints a Greek word in the body of his translation — PG renders these
+  `[Greek: …]` and the staged original `(Greek: …)` — the word is Long's text,
+  not apparatus, and is **kept**, transliterated as the staged file has it and
+  without the `Greek:` label: "I am a member (melos)… you are a part (meros)"
+  (VII.13); "Eudaemonia, happiness, is a good god within" (VII.17). The two
+  places in Book VII where this arises are arguments that do not exist without
+  the Greek — a pun on two words differing by one letter, and an etymology —
+  so dropping the word would delete the meditation rather than modernise it.
+  The glossary's "the candidate never uses the Greek" was always a rule about
+  this table's Greek column, which exists only to group Long's English
+  variants; it was never a rule about words Long prints himself. Ruled by the
+  Book VII round-1 reviewer and written here at the reviewer's suggestion so
+  the question does not reopen at **VIII.57**, where PG has two more
+  `[Greek: …]` spans. Long's own English gloss beside such a word (his
+  bracketed "[happiness]") is folded as an apposition, as any supplement is.
 - **Punctuation.** Straight apostrophes and quotation marks, em dashes without
   spaces, as in the staged original.
 - **Spelling.** American, following the PG #15877 base text (honor, vapor).
