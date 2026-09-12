@@ -1,13 +1,17 @@
-# The Odyssey, Book 5 — package (frozen at candidate v1)
+# The Odyssey, Book 5 — package (ACCEPTED at candidate v2)
 
-Steps 1–3 of `../WORKFLOW.md` are done for Book 5, and the step-4 artefacts
-(13 packets, manifest, review instructions) are built. **Step 4 itself — the
-independent review — has not run**: `candidate-v1.json` is frozen and the
-packets are pushed. Book 5 was **not** self-reviewed.
+**All eight steps of `../WORKFLOW.md` are done. Book 5 is accepted at
+`candidate-v2.json` — see `ACCEPTANCE.md`.** Round 1
+(`review/findings-v1.md`, a separate reviewer session) returned *accept after
+corrections*: 1 substantive, 14 minor, 18 optional, 8 records. Step 6 applied
+them by script (`../scripts/build_book05_v2.py`, `changes-v1-to-v2.md`,
+`checks-v2.md`), step 7 is `flow-read.md`, step 8 is `ACCEPTANCE.md`.
 
 | | |
 |---|---|
-| Candidate | `candidate-v1.json`, sha256 `7acc5c346154e7d23c85eaa3c31ef25654600e4e122f455eb93a1bf3737a59cf` — **frozen** |
+| **Accepted** | **`candidate-v2.json`**, sha256 `acbfcb03f15e8244dc46ec7f29d14d48da9179443191016525636d30b51479e9` |
+| Retention / splitting / semicolons | **0.93808** / **153 → 189 (+23.5%), sixty-word 9 → 1** / **34 → 13** |
+| Frozen predecessor | `candidate-v1.json`, sha256 `7acc5c346154e7d23c85eaa3c31ef25654600e4e122f455eb93a1bf3737a59cf` — **frozen**, never edited (**D10**) |
 | Source | `source-book5.json`, sha256 `c84e4bb2924d89250e4a943721703213bba0530c09641b662c93c4a8de02cd57` |
 | Paragraphs | 37 |
 | Words | 4,660 against 4,666 — ratio **0.999** |
@@ -63,6 +67,12 @@ paragraph 38 is the A3 defect and occurs nowhere in PG.
 9. `manifest.json` — packet → paragraph-ID map with a coverage check.
 
 ## Mechanical checks
+
+**The block below is the v1 check block, kept as the record of what was frozen
+and reviewed (D10).** It asserts v1's figures, v1's open `sea shore` and v1's
+`9 → 3` sixty-word census, all of which round 1 then ruled on. The accepted
+file's checks are in `../scripts/build_book05_v2.py`, which runs them every
+time it rebuilds, and its reports are in `checks-v2.md`.
 
 ```bash
 cd books/staged-replacements/odyssey
@@ -272,13 +282,12 @@ python3 scripts/verify_source_book5.py
 
 ## Next action
 
-Independent review of `candidate-v1.json` (step 4), by a separate reviewer
-session, following `review-instructions.md`. Findings go under `book05/review/`.
-On findings: `candidate-v2.json` via a change script in the established
-pattern, verification, flow read, `ACCEPTANCE.md` — steps 5–8.
+**None for Book 5.** It is accepted, and `ACCEPTANCE.md` records what remains
+open (nothing substantive). Book 6 is next, in numerical order — see
+`../RESUME.md`.
 
-**Five things are put to that reviewer explicitly** — see
-`review-instructions.md` and `continuity.md`: the open `sea shore` and the
-cross-Book hazard behind it, the one word supplied at B05-P012, the unbroken
-`heaven` census, `battledore and shuttlecock` → `batting it back and forth`,
-and the 62-word sentence left standing at B05-P017.
+Ruling 1 of this Book's round 1 reopened accepted work: `sea shore` →
+**`seashore`** cost **three** successors, `book02/candidate-v4.json`,
+`book03/candidate-v3.json` and `book04/candidate-v3.json`, built by
+`../scripts/build_seashore_successors.py`. Each accepted candidate and its
+`ACCEPTANCE.md` is byte-unchanged.

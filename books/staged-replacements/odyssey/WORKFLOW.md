@@ -80,6 +80,54 @@ disposition (adopt the existing pilot draft vs. redraft against this
 package's own glossary/continuity conventions) is a decision for the
 coordinator, not assumed here (see `PROVENANCE.md`).
 
+## Negative controls — the two-clause rule (D18)
+
+Written at Book 5's step 6, from records findings **R-1** and **R-2** of
+`book05/review/findings-v1.md`. Every verification script in this package
+verifies something nobody will check again, so each carries negative controls:
+mutations that the check **must** reject. Two ways of writing one are worthless
+and they look identical from outside.
+
+> **A negative control asserts (a) that its mutation changed the input, and
+> (b) that the check's own verdict changed. Where (b) cannot be made to hold,
+> the blindness is declared by name and a second check is made to carry that
+> class.**
+
+Clause (a) is the one Book 5's drafter found for itself: two of its controls
+were `paragraph.replace("the", …)`, a **no-op** on a paragraph with no `the` in
+it. Round 1 found the same shape in three further scripts, none of them a no-op
+today, none of them saying so — a control that is sound by luck is not sound.
+
+Clause (b) is the half that survives the fix, and round 1 demonstrated it rather
+than asserting it: the reviewer's own rule had a control that deleted twelve
+words, **asserted that the deletion changed the text**, and still did not fire,
+because the measure counted only the fraction of the chapter's tokens that
+aligned and every surviving token still aligned. The mutation was real; the
+*measure* was blind. Clause (b) is what catches that, and it caught one again
+while this rule was being applied: a one-letter control in
+`book04/review/verify_source_book4_review.py` mutated `understanding.”` into
+`understanding.””` — real, and invisible to a fingerprint that normalizes
+punctuation.
+
+`scripts/controls.py` is the rule as one callable. `control()` runs both
+clauses; `declare_blind()` is the escape, and it is not free — it requires the
+name of the check that carries the class instead. Every verification script in
+the package routes its controls through it, new and old:
+
+| script | controls | declared blind |
+|---|---|---|
+| `scripts/verify_source_book2.py` | 3 (none before; its controls were prose-described) | a defect PG and the served file share |
+| `scripts/verify_source_book3.py` | 2 process controls | — |
+| `scripts/verify_source_book4.py` | 4 | — |
+| `scripts/verify_source_book5.py` | 5 + 2 structural | a paragraph merge |
+| `book03/review/verify_source_book3_review.py` | 3 | — |
+| `book04/review/verify_source_book4_review.py` | 6 | a defect PG and the served file share |
+| `book05/review/verify_source_book5_review.py` | 5 | — (repaired at review time by its own audit) |
+| `scripts/compound_drift.py` | 3 | a compound no hyphen attests |
+
+Applying the rule to an existing script changes its assertions, never its
+verdict; where a review script is touched, the change says so in place.
+
 ## Process template
 
 The Odyssey Book 10 pilot is the template for the drafting, freezing, and

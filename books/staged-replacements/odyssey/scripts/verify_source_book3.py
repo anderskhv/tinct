@@ -40,6 +40,11 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from controls import control, summary as control_summary   # noqa: E402
+import sys
+from pathlib import Path
+
 ROOT = Path(__file__).resolve().parent.parent
 REPO_ROOT = ROOT.parent.parent.parent
 PG = ROOT / "source-texts/pg1727-butler-1900.txt"
@@ -329,18 +334,32 @@ def main():
     print("=" * 74)
     print("NEGATIVE CONTROLS — the check can fail")
     print("=" * 74)
+    # Both controls run under **D18**, the two-clause rule
+    # (`scripts/controls.py`): each asserts (a) that its mutation changed the
+    # reconstruction and (b) that this check's own verdict -- the number of
+    # paragraphs that differ from the staged file -- changed with it. These
+    # two are PROCESS controls: they vary the reconstruction procedure rather
+    # than the text, and were effective by construction; the clauses are now
+    # asserted rather than argued.
+    def verdict(reconstruction):
+        return sum(1 for i in range(len(staged))
+                   if reconstruction[i] != staged_flat[i])
+
+    baseline = [strip(p) for p in body]
     joined_with_space = [re.sub(r"\s*\n\s*", " ", strip(p)) for p in body]
-    n1 = sum(1 for i in range(len(staged)) if joined_with_space[i] != staged_flat[i])
+    n1 = verdict(joined_with_space)
     print("  join a paragraph's lines with a space:     %d of %d differ"
           % (n1, len(staged)))
-    check(n1 > 0, "negative control 1 did not fail")
+    control("1: join a paragraph's lines with a space",
+            baseline, joined_with_space, verdict)
     markers_left = list(body)
-    n2 = sum(1 for i in range(len(staged)) if markers_left[i] != staged_flat[i])
+    n2 = verdict(markers_left)
     print("  leave the footnote markers in:             %d of %d differ"
           % (n2, len(staged)))
-    check(n2 > 0, "negative control 2 did not fail")
+    control("2: leave PG's footnote markers in", baseline, markers_left, verdict)
     check(n2 == len(set(d[0] for d in diffs)),
           "control 2 should differ in exactly the paragraphs the diff named")
+    print(control_summary())
 
     print()
     print("OK — %d of %d paragraphs byte-identical after removing PG's 12 footnote"

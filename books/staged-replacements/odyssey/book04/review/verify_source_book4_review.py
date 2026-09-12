@@ -51,7 +51,7 @@ mode), and marker 44 in this Book is space-set rather than glued (no
 glued-only removal rule exists in this script; removal is per classified
 difference).
 """
-import json, re, sys, hashlib, unicodedata
+import json, re, sys, hashlib, pathlib, unicodedata
 
 PG   = 'source-texts/pg1727-butler-1900.txt'
 SRC  = 'book04/source-book4.json'
@@ -258,31 +258,62 @@ def locate(ps):
         m = index.get(fp(p), [])
         out.append(m[0] if len(m) == 1 else None)
     return out
+# Strengthened at Book 5's step 6 under **D18**, the two-clause control rule
+# (`../../scripts/controls.py`), which round 1 of Book 5 asked for by name.
+# Control C below was written `edited[20].replace('the','teh',1)` and control D
+# dropped the sixth word of `paras[30]` -- neither a no-op today, because
+# B04-P021 contains `the` and B04-P031 is 72 words long, but neither said so.
+# Both are now built from the paragraph's own words, with the precondition
+# asserted, and every control asserts BOTH clauses: that its mutation changed
+# the input, and that this check's verdict changed with it. The review's
+# verdict is unchanged; only the assertions are stronger.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2] / 'scripts'))
+from controls import (control as two_clause, declare_blind,   # noqa: E402
+                      summary as control_summary)
+
+
+def consecutive(ps):
+    h = locate(ps)
+    return all(h[i + 1] == h[i] + 1 for i in range(len(ps) - 1)
+               if h[i] is not None and h[i + 1] is not None)
+
+
+def located(k):
+    return lambda ps: locate(ps)[k] is not None
+
+
 swapped = paras[:]; swapped[10], swapped[11] = swapped[11], swapped[10]
-h = locate(swapped)
-if all(h[i + 1] == h[i] + 1 for i in range(80) if h[i] is not None and h[i+1] is not None):
-    bad('control A: swapping two paragraphs was NOT detected')
+two_clause('A: two paragraphs swapped', paras, swapped, consecutive)
 ok('control A: two paragraphs swapped breaks consecutiveness')
 
 merged = paras[:2] + [paras[2] + ' ' + paras[3]] + paras[4:]
-h = locate(merged)
-if h[2] is not None:
-    bad('control B: merging two paragraphs was NOT detected')
+two_clause('B: two paragraphs merged', paras, merged, located(2))
 ok('control B: two paragraphs MERGED is detected — the fingerprint no longer '
    'matches any single block (this is the question a contiguous-token-block '
    'rule cannot ask)')
 
-edited = paras[:]; edited[20] = edited[20].replace('the', 'teh', 1)
-if locate(edited)[20] is not None:
-    bad('control C: a one-letter change was NOT detected')
+edited = paras[:]
+# The word is taken from the paragraph's OWN letters, and it must be a letter
+# run: the first version of this took the longest whitespace token, which was
+# `understanding.”` -- and doubling its final character changed only
+# punctuation, which fp() normalizes away. Clause (b) caught that: the
+# mutation was real and the verdict did not move. That is R-2 happening live,
+# in the control that was written to demonstrate R-1.
+_w = max(re.findall(r'[A-Za-z]{6,}', edited[20]), key=len)
+edited[20] = edited[20].replace(_w, _w[:-1] + _w[-1] * 2, 1)
+two_clause('C: one letter changed (%r)' % _w, paras, edited, located(20))
 ok('control C: one letter changed in one word is detected')
 
-dropped = paras[:]; ws = dropped[30].split(); dropped[30] = ' '.join(ws[:5] + ws[6:])
-if locate(dropped)[30] is not None:
-    bad('control D: a dropped word was NOT detected')
+dropped = paras[:]; ws = dropped[30].split()
+if len(ws) < 7:
+    bad('control D precondition: B04-P031 has only %d words' % len(ws))
+dropped[30] = ' '.join(ws[:5] + ws[6:])
+two_clause('D: one word dropped (of %d)' % len(ws), paras, dropped, located(30))
 ok('control D: one word dropped is detected')
 
 invented = 'Telemachus put on his sandals of gleaming titanium and rang the bell.'
+two_clause('E: an invented paragraph', paras, paras[:30] + [invented] + paras[31:],
+           located(30))
 if index.get(fp(invented)):
     bad('control E: an invented paragraph was found in PG')
 ok('control E: an invented paragraph occurs zero times')
@@ -291,6 +322,7 @@ ok('control E: an invented paragraph occurs zero times')
 probe = paras[:]
 ki = next(i for i, p_ in enumerate(paras) if re.search(r'\btwenty\b', p_))
 probe[ki] = re.sub(r'\btwenty\b', 'thirty', probe[ki], count=1)
+two_clause('F: a changed number-word', paras, probe, located(ki))
 if locate(probe)[ki] is not None:
     bad('control F: a changed number-word was NOT detected')
 ok('control F: a changed NUMBER-WORD is detected — and it is the only kind of '
@@ -299,6 +331,12 @@ ok('control F: a changed NUMBER-WORD is detected — and it is the only kind of 
    'and the fingerprint\'s numeral-blindness costs nothing here'
    % len(re.findall(r'\b(one|two|three|four|ten|twelve|twenty)\b',
                     ' '.join(paras).lower())))
+# the blindness this rule keeps, declared rather than waved away
+declare_blind('a change inside ONE paragraph that PG also carries',
+              because='the fingerprint compares the served file against PG, '
+                      'so a defect they share moves neither side',
+              carried_by='the four unlike source rules used across Books 2-5')
+print(control_summary())
 
 # --------------------------------------------------- 6. brackets, reported
 print()

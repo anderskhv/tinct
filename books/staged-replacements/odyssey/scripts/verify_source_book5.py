@@ -52,6 +52,12 @@ import hashlib
 import json
 import re
 import sys
+from pathlib import Path as _P
+
+sys.path.insert(0, str(_P(__file__).resolve().parent))
+from controls import (control as two_clause, declare_blind,
+                      summary as control_summary)   # noqa: E402
+import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -182,12 +188,20 @@ def main():
     b5 = chapter_tokens(chapters[5]["paragraphs"])
     # the residue is the served Book 5 plus whatever PG carries around it
     hits = occurrences(index, pg_tok, b5)
-    if hits != [lo + (len(residue) - len(b5))] and len(hits) != 1:
-        fail("the served chapter 5 does not occur exactly once")
+    # Round 1's records finding **R-4**: the conditional that used to stand
+    # here -- `if hits != [lo + (len(residue) - len(b5))] and len(hits) != 1`
+    # -- could only fire in a case the next line already covered, so its first
+    # operand was never load-bearing. Deleted.
     if len(hits) != 1:
         fail("the served chapter 5 occurs %d times" % len(hits))
     at = hits[0]
-    if not lo <= at and at + len(b5) <= hi:
+    # Round 1's finding **C-14**: this guard was written
+    # `if not lo <= at and at + len(b5) <= hi:`, which Python binds as
+    # `(not (lo <= at)) and (at + len(b5) <= hi)` -- so it could not fire when
+    # the served chapter 5 was found AFTER the residue. A guard that cannot
+    # fail for half its cases is the same defect class as a control that
+    # cannot fail, four lines from the comment that boasts about fixing one.
+    if not (lo <= at and at + len(b5) <= hi):
         fail("the served chapter 5 is NOT inside the residue — the twenty-three "
              "other chapters place it somewhere else entirely")
     before = residue[:at - lo]
@@ -311,15 +325,35 @@ def main():
     print("Step 4 — negative controls, which must all FAIL to match")
     ctl = 0
 
-    def control(name, paras, want_hits=0):
+    # **D18**, the two-clause rule (`scripts/controls.py`). This script
+    # already asserted clause (a) -- that every mutation really changed the
+    # text -- because its own audit found two `replace("the", ...)` no-ops.
+    # Round 1's records finding **R-2** showed that clause (a) is necessary
+    # and NOT sufficient: the reviewer's own rule had a control that changed
+    # the text, asserted it, and still did not fire, because the measure was
+    # blind to deletion. Clause (b) -- the check's own verdict changed -- is
+    # now asserted here too, by routing every control through control().
+    def verdict(paras):
+        return len(occurrences(index, pg_tok, chapter_tokens(paras)))
+
+    def run(name, paras, want_hits=0):
         nonlocal ctl
-        hits = occurrences(index, pg_tok, chapter_tokens(paras))
-        ok = (len(hits) == want_hits)
+        if want_hits == 0:
+            two_clause(name, served5, paras, verdict)
+        else:
+            # clause (b) CANNOT hold here, and that is the declared point.
+            declare_blind(name, because="a merge leaves the token stream "
+                                        "untouched, so this rule sees no "
+                                        "change at all",
+                          carried_by="step 3's blank-line block count, "
+                                     "against which the merge and split "
+                                     "controls are run instead")
         print("    %-46s occurrences %d  %s"
-              % (name, len(hits), "detected" if ok else "NOT DETECTED"))
-        if not ok:
-            fail("negative control did not fire: %s" % name)
+              % (name, verdict(paras),
+                 "detected" if want_hits == 0 else "BLIND, declared"))
         ctl += 1
+
+    control = run
 
     p = list(served5)
     p[0], p[1] = p[1], p[0]
@@ -376,6 +410,7 @@ def main():
     p[k] = p[k].replace(w, "eleven", 1)
     control("a number-WORD changed (%r at paragraph %d)" % (w, k + 1), p)
     print("  %d negative controls, all fired" % ctl)
+    print(control_summary("    "))
 
     print()
     print("OK — the served Book 5 is Butler's text, identified as the residue "

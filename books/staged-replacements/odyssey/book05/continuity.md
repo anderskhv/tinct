@@ -1,17 +1,21 @@
 # The Odyssey, Book 5 — continuity, decisions and evidence
 
-Written at steps 1–3 of `../WORKFLOW.md`, before the independent review.
-Every claim here is asserted mechanically by the check block in `README.md`
-unless it says otherwise.
+Written at steps 1–3 of `../WORKFLOW.md`, before the independent review, and
+**corrected and extended at steps 6–8** — every such passage says so in place,
+with the round-1 finding that required it. Every claim here is asserted
+mechanically by the check block in `README.md` or by
+`../scripts/build_book05_v2.py` unless it says otherwise.
 
 | | |
 |---|---|
-| Candidate | `candidate-v1.json`, sha256 `7acc5c346154e7d23c85eaa3c31ef25654600e4e122f455eb93a1bf3737a59cf` — **frozen** |
+| **Accepted** | **`candidate-v2.json`**, sha256 `acbfcb03f15e8244dc46ec7f29d14d48da9179443191016525636d30b51479e9` — see `ACCEPTANCE.md` |
+| Frozen predecessor | `candidate-v1.json`, sha256 `7acc5c346154e7d23c85eaa3c31ef25654600e4e122f455eb93a1bf3737a59cf` — **frozen**, not edited (**D10**) |
 | Source | `source-book5.json`, sha256 `c84e4bb2924d89250e4a943721703213bba0530c09641b662c93c4a8de02cd57` |
 | Paragraphs | 37, one-to-one with the source |
-| Words | 4,660 against 4,666 — ratio **0.999**; lowest paragraph ratio **0.968** at B05-P028 |
-| Butler token retention | **0.94211** (Books 1–4: 0.727, 0.902, 0.897, 0.95872) |
-| **Splitting rate (D17)** | **sentences 153 → 189, +23.5%**; **sixty-word sentences 9 → 3, 67% broken** |
+| Words | v2 **4,652** against 4,666 — ratio **0.99700**; lowest paragraph ratio **0.963** at B05-P036 (v1: 4,660, 0.99871, 0.968 at B05-P028) |
+| Butler token retention | v2 **0.93808** (v1 **0.94211**; Books 1–4: 0.727, 0.902, 0.897, 0.95872) |
+| **Splitting rate (D17)** | **sentences 153 → 189, +23.5%**; **sixty-word sentences 9 → 1, 89% broken** (v1: 9 → 3) |
+| **Semicolons against Butler's (D19)** | **34 → 13** (v1 **34 → 12**) |
 | Packets | 13, coverage `B05-P001`…`B05-P037` |
 
 ## 1. The source, verified by a sixth kind of rule
@@ -184,6 +188,29 @@ question 3.**
   prayerfully` becomes `I come to you in prayer` rather than *as a suppliant*,
   because Butler's own `I declare myself your suppliant` closes the paragraph
   and the two must not be collapsed.
+- **B05-P007 — `Ulysses was not within` → `Odysseus was not in the cave`.**
+  *(Recorded at step 6, finding 7.1.)* A location Butler leaves to context is
+  supplied. It is an improvement and the same class as ruling 2's upheld `and`;
+  what was missing was the record, not the judgement.
+- **B05-P007 / P008 / P015 / P016 — the mark before a speech.**
+  *(Recorded at step 6, finding C-15, declined as a change.)* Butler prints a
+  colon at all four. The edition prints a **colon where the speech begins in
+  the next paragraph** (P008 → P009, P016 → P017) and a **comma or full stop
+  where it follows inline** (P007, P015). That is one disposition, not two; the
+  rule was simply never written down.
+- **B05-P012 — `crying aloud for his despair` → `in his despair`.**
+  *(Recorded at step 6, finding 12.1.)* A **D16** repair of a preposition a
+  modern reader reads as an error, beside B05-P011's.
+- **B05-P021 — `the wain` → `the Wain` is a RENDERING decision, not
+  normalization.** *(Reclassified at step 6, finding 21.2.)* Capitalizing a
+  common-noun gloss into a proper name changes what the word is, which is
+  D15's own test for a rendering decision. The capital stands; its
+  classification was wrong.
+- **B05-P023 — `pressing me so sorely` → `so hard`, against `sorely against my
+  will` kept at B05-P031.** *(Recorded at step 6, finding 23.1, declined as a
+  change.)* One Butler word, two dispositions: the second is a carried
+  cross-Book formula matching accepted B04-P043, the first is ordinary use.
+  Defensible, and it belongs on the record as a one-word-two-ways row.
 - **B05-P010 — `live with him in open matrimony`** becomes **"live with him
   openly as husband and wife"**. Calypso is describing a public union, which is
   the whole of her complaint; *openly as his wife* would have narrowed it.
@@ -237,12 +264,35 @@ sentential `on which` are asserted absent.
 
 ## 8. Compounds, under D15
 
-| direction | Butler | edition |
-|---|---|---|
-| closed | `sandal wood`, `home sickness`, `sea-gull`, `goat skin`, `yard arm`, `foot hold`, `hill side`, `day time` | `sandalwood`, `homesickness`, `seagull`, `goatskin`, `yardarm`, `foothold`, `hillside`, `daytime` |
-| hyphenated | `well found ship` | `well-found ship` |
-| open, kept | `sea-shore` / `sea shore`, `mid ocean`, `river bed` | `sea shore` (question 1), `mid ocean`, `river bed` |
-| Butler's own, untouched | `sea-crows`, `olive-wood`, `fire-seed`, `low-lying`, `late-setting`, `surf-beaten`, `rosy-fingered`, `well-to-do`, `thrice-ploughed` → `thrice-plowed` (D9) | |
+**Corrected at step 6 (finding C-12).** Three of the thirteen compounds this
+Book touches were missing from this table — `sweet smelling` (kept, silently),
+`half way` (kept, silently) and `sea-water` → `sea water` (moved, silently).
+D15 makes the *typographic* change silent; it does not make the table optional,
+and the table is the only place a later Book can look up what this Book did.
+The `open, kept` row is gone: round 1 found that every one of its members was
+either a third form or a Victorian setting, and all of them moved.
+
+| direction | Butler | edition (v1) | **edition (v2, accepted)** |
+|---|---|---|---|
+| closed | `sandal wood`, `home sickness`, `sea-gull`, `goat skin`, `yard arm`, `foot hold`, `hill side`, `day time` | `sandalwood`, `homesickness`, `seagull`, `goatskin`, `yardarm`, `foothold`, `hillside`, `daytime` | unchanged |
+| **closed at step 6** | `sea-shore` / `sea shore`, `half way`, `river bed`, `sea-water` | `sea shore`, `half way`, `river bed`, `sea water` | **`seashore`** (ruling 1), **`halfway`** (24.1), **`riverbed`** (36.1), **`seawater`** (35.1) |
+| hyphenated | `well found ship` | `well-found ship` | unchanged |
+| **hyphenated at step 6** | `mid ocean`, `sweet smelling` | `mid ocean`, `sweet smelling` | **`mid-ocean`** (10.1), **`sweet-smelling`** (6.1) |
+| Butler's own, untouched | `sea-crows`, `olive-wood`, `fire-seed`, `low-lying`, `late-setting`, `surf-beaten`, `rosy-fingered`, `well-to-do`, `well-disposed`, `thrice-ploughed` → `thrice-plowed` (D9) | | |
+
+`sea water` was the case D15 exists to prevent by name: Butler hyphenates, v1
+opened, and modern English closes — **a third form**, which is `sea side` →
+`sea side` exactly (Book 4's finding 37.1). `river bed` and `hill side` were in
+the same paragraph, one opened and one closed: one paragraph, two dispositions
+for one class.
+
+**The cross-Book check now sees this class.** `../scripts/compound_drift.py`
+keys each compound on its letters with the separator stripped and fails on any
+key carrying more than one setting across the Books, which the old
+`hyphen_drift()` could not do. Running it forced the three `seashore`
+successors and surfaced two drifts nobody had raised — `low-lying` and
+`well-disposed`, hyphenated in this Book and open in accepted Book 4, now
+carried by `book04/candidate-v3.json`.
 
 ## 9. American spelling (D9)
 
@@ -256,7 +306,22 @@ the modern standard, and this is the D9 class, not a rendering decision.
 ## 10. The splitting rate, and the three sentences left long
 
 **D17 is met with room to spare: 153 → 189 sentences (+23.5%), and six of
-Butler's nine sixty-word periods are broken.** Three survive, each on purpose:
+Butler's nine sixty-word periods are broken.** Three sixty-word sentences
+remain, in paragraphs 17, 30 and 37.
+
+> **Corrected at step 6 (records finding R-5).** The word *survive* is wrong for
+> all three, and it was hiding something. B05-P017's Butler period is **102**
+> words; v1 split it and what remained was a 62-word **residue**, not a
+> surviving sentence. B05-P030's 62-word simile was recast and came out at
+> **65** — three words *longer* than Butler's, which is a defect in itself, and
+> invisible to a census that counts sentences at or above 60 without reporting
+> the delta. B05-P037's 61 came out at 60. The count 9 → 3 was right; the claim
+> of survival was not. **In the accepted v2, P017 is divided (ruling 5), P030
+> is back inside Butler's 62, and P037 is 59 after finding 37.1 — so the
+> accepted figure is 9 → 1, and the build now fails on any recast that grows a
+> sentence to 50 words or more beyond its source's longest.**
+
+The three, as v1 left them, each on purpose:
 
 - **B05-P030's 65-word simile** — *"as children rejoice when their dear father
   begins to get better…"* — one of the poem's great similes, where the chain
@@ -272,13 +337,52 @@ Butler's nine sixty-word periods are broken.** Three survive, each on purpose:
   put to the reviewer as question 5** — it is also the paragraph the
   near-identical report flags (119 words, four word-level edits).
 
-## 11. What the drafter could not check, and hands to the reviewer
+## 11. The near-identical report, published (records finding R-7)
 
-- The near-identical report (40+ words, ≤4 word-level edits) flags **B05-P002,
-  P004, P014, P016, P017, P018, P019, P030**. Of these, **P014, P019 and P030**
-  have one or two edits each. Each was read again: Butler is already plain in
-  them and the divisions are doing the work. But "already plain" is exactly the
-  claim Book 4's round 1 showed a drafter cannot certify about its own draft.
-- The one-word-two-ways report returns 76 rows, almost all function words. The
-  content-word rows were read; none is a rendering split. That report is
-  **noise-heavy by design** and it is a reader's instrument, not an assertion.
+**Corrected at step 6.** This section used to say the report flags
+"B05-P002, P004, P014, P016, P017, P018, P019, P030", and
+`review-instructions.md` told the reviewer that "B05-P014, P019 and P030 are
+within one or two word-level edits of Butler at 40+ words". Run the package's
+own `near_identical()` (40+ source words, ≤4 word-level edits) and **none of
+those three is flagged**: P014 is 84 words with 14 edits, P019 is 23 words and
+below the threshold, and P030 is 184 words with 25 edits — one of the
+most-edited paragraphs in the Book. The report was computed and then not
+published, and a reviewer steered to the wrong three paragraphs is a review
+that did not happen where it was needed.
+
+The report's actual output on **v1** — the eight the reviewer names in S-1:
+
+| paragraph | source words | edits |
+|---|---|---|
+| B05-P001 | 60 | 4 |
+| B05-P003 | 59 | 2 |
+| B05-P013 | 108 | 1 |
+| B05-P015 | 97 | 3 |
+| B05-P016 | 92 | 3 |
+| B05-P017 | 119 | 4 |
+| B05-P018 | 90 | 1 |
+| B05-P029 | 51 | 2 |
+
+On the accepted **v2**, P017 leaves the list (ruling 5 divided it) and the
+remaining seven are in `checks-v2.md` §4, written by the build rather than
+transcribed. **P013, P018 and P029 are defensible and deliberate**: Butler is
+already speaking plain modern English in the first two, and P029's undivided
+51-word sentence is the one place in the Book where the drafter ran the flow
+instrument against the gate's own incentive — dividing `But Athena decided … ;
+but she roused …` would have produced two consecutive sentences opening `But`.
+
+The one-word-two-ways report returns 87 rows on v2, almost all function words.
+It is noise-heavy by design and is a reader's instrument, never an assertion;
+the full table is in `checks-v2.md` §3.
+
+## 12. Steps 6, 7 and 8
+
+- **Step 6** — `changes-v1-to-v2.md`: 30 substitutions in 20 of 37 paragraphs
+  by `../scripts/build_book05_v2.py`, five findings declined and asserted still
+  present. New checks in `checks-v2.md`.
+- **Step 7** — `flow-read.md`: one change, F-1, folded back into the build
+  script.
+- **Step 8** — `ACCEPTANCE.md`: accepted at `candidate-v2.json`, sha256
+  `acbfcb03f15e8244dc46ec7f29d14d48da9179443191016525636d30b51479e9`,
+  retention **0.93808**, splitting **153 → 189 (+23.5%)**, sixty-word
+  **9 → 1**, semicolons **34 → 13**.

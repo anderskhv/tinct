@@ -31,6 +31,11 @@ Usage: python3 scripts/verify_source_book2.py
 import json
 import re
 import sys
+from pathlib import Path as _P
+
+sys.path.insert(0, str(_P(__file__).resolve().parent))
+from controls import control, declare_blind, summary   # noqa: E402
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -205,6 +210,42 @@ def main():
     staged_words = [w for p in staged for w in p.split()]
     if mine_words != staged_words:
         fail("word streams differ")
+
+    # ------------------------------------------------- negative controls, D18
+    # Round 1 of Book 5 observed that this script's only controls were
+    # PROSE-DESCRIBED process controls -- effective by construction, but never
+    # executed. D18 (`scripts/controls.py`) asks for both clauses to be
+    # asserted, so three real controls are run here: each asserts (a) that its
+    # mutation changed the reconstruction and (b) that the verdict -- the
+    # number of paragraphs differing from the staged file -- changed with it.
+    print("\nnegative controls — the rule must be able to FAIL")
+
+    def verdict(ps):
+        return sum(1 for i in range(len(staged)) if ps[i] != staged[i])
+
+    swapped = list(out)
+    swapped[0], swapped[1] = swapped[1], swapped[0]
+    control("A: two paragraphs swapped", out, swapped, verdict)
+
+    typo = list(out)
+    w = max(re.findall(r"[A-Za-z]{6,}", typo[10]), key=len)  # its OWN letters
+    typo[10] = typo[10].replace(w, w[:-1] + w[-1] * 2, 1)
+    control("B: one letter changed", out, typo, verdict)
+
+    if len(out[20].split()) < 2:
+        fail("control C's precondition: P021 has nothing to drop")
+    dropped = list(out)
+    dropped[20] = " ".join(dropped[20].split()[:-1])
+    control("C: one word dropped", out, dropped, verdict)
+
+    # declared blindness: this rule compares the RECONSTRUCTION against the
+    # staged file, so a defect PG and the staged file share is invisible to it
+    # -- both sides would carry it. Clause (b) cannot be made to hold.
+    declare_blind("a defect present in PG #1727 itself",
+                  because="both sides of the diff would carry it",
+                  carried_by="the four unlike source rules used across "
+                             "Books 2-5, which agree on the same region")
+    print(summary())
 
     print("OK — all %d paragraphs byte-identical, zero diffs; "
           "%d words compared word-for-word" % (len(out), len(mine_words)))

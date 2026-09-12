@@ -37,6 +37,11 @@ import json
 import os
 import re
 import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from controls import control, summary            # noqa: E402
+import sys
 import difflib
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -227,17 +232,39 @@ def main():
                 out += 1
         return out
 
+    # Every control below runs under **D18**, the two-clause rule
+    # (`scripts/controls.py`): it asserts (a) that its mutation changed the
+    # input and (b) that this check's own verdict changed. Round 1 of Book 5
+    # found control B here in the shape `typo[40].replace("the","teh",1)` --
+    # not a no-op today, because B04-P041 contains `the`, but nothing said so,
+    # and a control that is sound by luck is not sound. The mutation is now
+    # built from the paragraph's own words.
     swapped = list(served)
     swapped[0], swapped[1] = swapped[1], swapped[0]
-    check(diffs_against(swapped) > 0, "control A: two paragraphs swapped is detected")
+    control("A: two paragraphs swapped", served, swapped, diffs_against)
+
     typo = list(served)
-    typo[40] = typo[40].replace("the", "teh", 1)
-    check(diffs_against(typo) > 0, "control B: one letter changed is detected")
+    w = max(re.findall(r"[A-Za-z]{6,}", typo[40]), key=len)  # its OWN letters
+    typo[40] = typo[40].replace(w, w[:-1] + w[-1] * 2, 1)
+    control("B: one letter changed", served, typo, diffs_against)
+
     dropped = list(served)
     dropped[9] = " ".join(dropped[9].split()[:-1])
-    check(diffs_against(dropped) > 0, "control C: one word dropped is detected")
-    check(len(occurrences(letters("this sentence is not in the odyssey at all"))) == 0,
-          "control D: a needle that is not in PG occurs zero times")
+    control("C: one word dropped", served, dropped, diffs_against)
+
+    # the precondition this control used to leave unasserted: served[9] must
+    # have a word to drop at all (round 1, section E's weaker variant).
+    check(len(served[9].split()) > 1,
+          "control C's precondition: B04-P010 has %d words to drop from"
+          % len(served[9].split()))
+
+    real = "the gods have been changing their minds"
+    invented = "this sentence is not in the odyssey at all"
+    control("D: a needle that is not in PG", real, invented,
+            lambda s: min(len(occurrences(letters(s))), 1))
+    check(len(occurrences(letters(invented))) == 0,
+          "control D: the invented needle occurs zero times")
+    print(summary())
 
     # ---- what the served file carries that Butler's brackets explain --------
     print("\n6. Butler's square brackets in this Book (D12), reported not touched")

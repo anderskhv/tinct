@@ -155,9 +155,14 @@ CORRECTIONS = [
      "on his left.",
      "Calypso had told him to keep the Bear on his left, so he never closed "
      "his eyes, but kept them fixed on the Pleiads, on late-setting Bootes, "
-     "and on the Bear itself. Men also call it the Wain, and it turns round "
-     "and round where it is, facing Orion, and alone never dips into the "
-     "stream of Oceanus."),
+     "and on the Bear. Men also call it the Wain, and it turns round and "
+     "round where it is, facing Orion, and alone never dips into the stream "
+     "of Oceanus."),
+    # Step 7's flow read, finding F-1: the recast above first read `and on the
+    # Bear itself.`, which put `the Bear` twice in one sentence to carry a
+    # contrast the sentence does not make. Butler names it once. `itself` is
+    # dropped here rather than in a later version, exactly as Book 4's flow
+    # read fed back into scripts/build_book04_v2.py.
     # --- B05-P024 -----------------------------------------------------------
     (23, "24.1 (minor) — D15: the modern standard is closed",
      "broke the mast half way up", "broke the mast halfway up"),
@@ -600,11 +605,29 @@ def main():
     # B05-P021 both loses a division and gains one; assert both by name.
     if "and another larger one of water; she also gave him a bag" not in paras[20]:
         fail("S-1: B05-P021's `She … She also …` must be back at Butler's ;")
+    if "Bear itself" in joined:
+        fail("flow read F-1: `the Bear itself` was reintroduced")
     if not paras[20].count("Calypso had told him to keep the Bear on his left,"):
         fail("S-1: B05-P021's Bear sentence must be recast")
-    if max(len(s.split()) for s in sentences(paras[29])) > \
-            max(len(s.split()) for s in sentences(src_flat[29])):
-        fail("30.2: B05-P030's recast still GROWS Butler's sentence")
+    # Round 1's section H.6: the 60+ census counts sentences at or above 60
+    # words and does not report the delta, so B05-P030 going 62 -> 65 was
+    # invisible. Generalized: NO paragraph's longest sentence may exceed its
+    # source paragraph's longest. (Narrower than the general statement -- a
+    # paragraph can still grow a sentence that is not its longest -- but it is
+    # what caught P030, and it is cheap.) The gate applies only where the
+    # RESULT is a long sentence: growing a 27-word sentence to 29 is not the
+    # defect, and B05-P003 and B05-P033 do exactly that, harmlessly. Every
+    # growth is REPORTED; only a grown long sentence fails the build.
+    grew = [(i + 1,
+             max(len(s.split()) for s in sentences(src_flat[i])),
+             max(len(s.split()) for s in sentences(paras[i])))
+            for i in range(37)
+            if max(len(s.split()) for s in sentences(paras[i])) >
+            max(len(s.split()) for s in sentences(src_flat[i]))]
+    grew_long = [g for g in grew if g[2] >= 50]
+    if grew_long:
+        fail("30.2 generalized: a recast GROWS a long sentence of Butler's: "
+             + "; ".join("B05-P%03d %d→%d" % g for g in grew_long))
     long_in = sorted({i + 1 for i, p in enumerate(paras)
                       for x in sentences(p) if len(x.split()) >= 60})
     # P037's fire-seed simile fell from 60 words to 59 when finding 37.1
@@ -695,6 +718,9 @@ def main():
         print("    B05-P%03d  %3d words, %d edit(s), longest sentence %d words"
               % (pid, w, e, longest))
     print()
+    print("  longest sentence grown     %s  (the build fails only at 50+ "
+          "words — round 1's H.6)"
+          % ("; ".join("B05-P%03d %d→%d" % g for g in grew) or "none"))
     print("  cross-Book compound drift  %s"
           % ("none, over " + ", ".join(sorted(books)) if not drift
              else "; ".join("%s %s" % (k, v) for k, v in drift)))

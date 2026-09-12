@@ -27,7 +27,7 @@ numeral in Butler's text would be reported rather than silently dropped.
 
 Read-only. Modifies nothing.
 """
-import json, re, pathlib
+import json, re, pathlib, sys
 
 HERE = pathlib.Path(__file__).resolve()
 ROOT = HERE.parents[2]                      # .../staged-replacements/odyssey
@@ -124,18 +124,34 @@ print(('PG at the located start: "' + raw[lo_c - 2:lo_c + 58] + '"')
 print(f'served B03-P001 opens:   "{bk3[0][:58]}"')
 
 # --- 6. negative controls: the check must be able to FAIL -----------------
+# Strengthened at Book 5's step 6 under **D18**, the two-clause control rule
+# (`../../scripts/controls.py`), which round 1 of Book 5 asked for by name:
+# control C was written `.replace('Nestor', 'Nestorr', 1)` -- not a no-op
+# today, because `Nestor` does occur in Book 3, but nothing said so, and a
+# control that is sound by luck is not sound. The mutation is now built from
+# the text's own longest word, and each control asserts BOTH clauses: that the
+# mutation changed the input, and that this check's verdict changed with it.
+# The review's verdict is unchanged; only the assertions are stronger.
 print()
-ctl_a = find_all(pg_tok, toks(' '.join(bk3)))
-print(f'control A (all 38 paragraphs as one block): {len(ctl_a)} '
-      f'occurrence(s) -- expected 0')
-ctl_b = find_all(pg_tok, toks(' '.join([bk3[1], bk3[0]] + list(bk3[2:-1]))))
-print(f'control B (first two paragraphs swapped):   {len(ctl_b)} '
-      f'occurrence(s) -- expected 0')
-ctl_c = find_all(pg_tok,
-                 toks(' '.join(bk3[:-1]).replace('Nestor', 'Nestorr', 1)))
-print(f'control C (one letter added to one word):   {len(ctl_c)} '
-      f'occurrence(s) -- expected 0')
-assert not (ctl_a or ctl_b or ctl_c), 'a negative control passed; check is vacuous'
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2] / 'scripts'))
+from controls import control, summary as control_summary   # noqa: E402
+
+baseline = ' '.join(bk3[:-1])
+
+
+def verdict(text):
+    return len(find_all(pg_tok, toks(text)))
+
+
+control('A: all 38 paragraphs as one block (the splice included)',
+        baseline, ' '.join(bk3), verdict)
+control('B: first two paragraphs swapped',
+        baseline, ' '.join([bk3[1], bk3[0]] + list(bk3[2:-1])), verdict)
+w = max(re.findall(r'[A-Za-z]{6,}', baseline), key=len)   # its OWN letters
+assert baseline.count(w) >= 1, 'control C precondition: the word is present'
+control('C: one letter added to one word (%r)' % w,
+        baseline, baseline.replace(w, w + w[-1], 1), verdict)
+print(control_summary())
 
 # --- 7. the served file's own fingerprint of the splice -------------------
 print()
