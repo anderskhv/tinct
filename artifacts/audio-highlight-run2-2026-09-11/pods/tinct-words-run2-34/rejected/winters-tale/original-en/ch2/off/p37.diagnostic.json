@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "581d13004431ad0a99c14372ec6a23a1af516038ec1b379538a38c7ce44ef5f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.08160534873604774,
+      "alignment_seconds": 0.00011331960558891296,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lance",
+          "start": 0.02,
+          "end": 0.74,
+          "words": [
+            {
+              "text": " Lance",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lance",
+          "start": 0.02,
+          "end": 0.74
+        }
+      ],
+      "expected_tokens": [
+        "Leontes."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lance",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "lance",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.0,
+          "end": 0.37
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08175517618656158
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "544b88ac293d96471cb60bcfbe5ac7fbfe81b3f36287ad69a08af8afc07aafdd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

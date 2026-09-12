@@ -1,0 +1,643 @@
+{
+  "complete": true,
+  "signature": "54d06d61c8ce3e61a8a7b402c21f75959ee08508ba58a23ff6e5adcd6b5ab273",
+  "attempts": [
+    {
+      "asr_seconds": 0.3615688104182482,
+      "alignment_seconds": 0.0003435984253883362,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " One glaring instance of the weakness which proceeds from ignorance first claims attention",
+          "start": 0.05,
+          "end": 5.55,
+          "words": [
+            {
+              "text": " One",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.5302734375
+            },
+            {
+              "text": " glaring",
+              "start": 0.67,
+              "end": 1.09,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " instance",
+              "start": 1.09,
+              "end": 1.61,
+              "probability": 0.990234375
+            },
+            {
+              "text": " of",
+              "start": 1.61,
+              "end": 1.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.87,
+              "end": 1.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " weakness",
+              "start": 1.97,
+              "end": 2.31,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " which",
+              "start": 2.31,
+              "end": 2.59,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " proceeds",
+              "start": 2.59,
+              "end": 3.01,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " from",
+              "start": 3.01,
+              "end": 3.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ignorance",
+              "start": 3.33,
+              "end": 3.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " first",
+              "start": 3.79,
+              "end": 4.67,
+              "probability": 0.8515625
+            },
+            {
+              "text": " claims",
+              "start": 4.67,
+              "end": 5.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " attention",
+              "start": 5.05,
+              "end": 5.55,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " and calls for severe reproof.",
+          "start": 5.83,
+          "end": 7.81,
+          "words": [
+            {
+              "text": " and",
+              "start": 5.83,
+              "end": 6.25,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " calls",
+              "start": 6.25,
+              "end": 6.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 6.55,
+              "end": 6.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " severe",
+              "start": 6.81,
+              "end": 7.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " reproof.",
+              "start": 7.19,
+              "end": 7.81,
+              "probability": 0.967041015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "One",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "glaring",
+          "start": 0.67,
+          "end": 1.09
+        },
+        {
+          "raw": "instance",
+          "start": 1.09,
+          "end": 1.61
+        },
+        {
+          "raw": "of",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "raw": "the",
+          "start": 1.87,
+          "end": 1.97
+        },
+        {
+          "raw": "weakness",
+          "start": 1.97,
+          "end": 2.31
+        },
+        {
+          "raw": "which",
+          "start": 2.31,
+          "end": 2.59
+        },
+        {
+          "raw": "proceeds",
+          "start": 2.59,
+          "end": 3.01
+        },
+        {
+          "raw": "from",
+          "start": 3.01,
+          "end": 3.33
+        },
+        {
+          "raw": "ignorance",
+          "start": 3.33,
+          "end": 3.79
+        },
+        {
+          "raw": "first",
+          "start": 3.79,
+          "end": 4.67
+        },
+        {
+          "raw": "claims",
+          "start": 4.67,
+          "end": 5.05
+        },
+        {
+          "raw": "attention",
+          "start": 5.05,
+          "end": 5.55
+        },
+        {
+          "raw": "and",
+          "start": 5.83,
+          "end": 6.25
+        },
+        {
+          "raw": "calls",
+          "start": 6.25,
+          "end": 6.55
+        },
+        {
+          "raw": "for",
+          "start": 6.55,
+          "end": 6.81
+        },
+        {
+          "raw": "severe",
+          "start": 6.81,
+          "end": 7.19
+        },
+        {
+          "raw": "reproof.",
+          "start": 7.19,
+          "end": 7.81
+        }
+      ],
+      "expected_tokens": [
+        "One",
+        "glaring",
+        "instance",
+        "of",
+        "the",
+        "weakness",
+        "which",
+        "proceeds",
+        "from",
+        "ignorance,",
+        "first",
+        "claims",
+        "attention,",
+        "and",
+        "calls",
+        "for",
+        "severe",
+        "reproof."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "One",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "one",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "glaring",
+          "start": 0.67,
+          "end": 1.09,
+          "key": "glaring",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "instance",
+          "start": 1.09,
+          "end": 1.61,
+          "key": "instance",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.61,
+          "end": 1.87,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.87,
+          "end": 1.97,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "weakness",
+          "start": 1.97,
+          "end": 2.31,
+          "key": "weakness",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 2.31,
+          "end": 2.59,
+          "key": "which",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "proceeds",
+          "start": 2.59,
+          "end": 3.01,
+          "key": "proceeds",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.01,
+          "end": 3.33,
+          "key": "from",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ignorance",
+          "start": 3.33,
+          "end": 3.79,
+          "key": "ignorance",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 3.79,
+          "end": 4.67,
+          "key": "first",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "claims",
+          "start": 4.67,
+          "end": 5.05,
+          "key": "claims",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "attention",
+          "start": 5.05,
+          "end": 5.55,
+          "key": "attention",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.83,
+          "end": 6.25,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "calls",
+          "start": 6.25,
+          "end": 6.55,
+          "key": "calls",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 6.55,
+          "end": 6.81,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "severe",
+          "start": 6.81,
+          "end": 7.19,
+          "key": "severe",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "reproof.",
+          "start": 7.19,
+          "end": 7.81,
+          "key": "reproof",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "One",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "glaring",
+          "start": 0.67,
+          "end": 1.09
+        },
+        {
+          "text": "instance",
+          "start": 1.09,
+          "end": 1.61
+        },
+        {
+          "text": "of",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "text": "the",
+          "start": 1.87,
+          "end": 1.97
+        },
+        {
+          "text": "weakness",
+          "start": 1.97,
+          "end": 2.31
+        },
+        {
+          "text": "which",
+          "start": 2.31,
+          "end": 2.59
+        },
+        {
+          "text": "proceeds",
+          "start": 2.59,
+          "end": 3.01
+        },
+        {
+          "text": "from",
+          "start": 3.01,
+          "end": 3.33
+        },
+        {
+          "text": "ignorance,",
+          "start": 3.33,
+          "end": 3.79
+        },
+        {
+          "text": "first",
+          "start": 3.79,
+          "end": 4.67
+        },
+        {
+          "text": "claims",
+          "start": 4.67,
+          "end": 5.05
+        },
+        {
+          "text": "attention,",
+          "start": 5.05,
+          "end": 5.55
+        },
+        {
+          "text": "and",
+          "start": 5.83,
+          "end": 6.25
+        },
+        {
+          "text": "calls",
+          "start": 6.25,
+          "end": 6.55
+        },
+        {
+          "text": "for",
+          "start": 6.55,
+          "end": 6.81
+        },
+        {
+          "text": "severe",
+          "start": 6.81,
+          "end": 7.19
+        },
+        {
+          "text": "reproof.",
+          "start": 7.19,
+          "end": 7.81
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36206636019051075
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "37c8c62ce54989e04ebbb6f64698764434209b32038904a36fd27d4ec6eef516",
+  "selected_reasons": []
+}

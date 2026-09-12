@@ -1,0 +1,227 @@
+{
+  "complete": true,
+  "signature": "29f40a2a35385bf4fc9bdc27f88de41dd86b825b5d3a0728ac674f5b058b5b3b",
+  "attempts": [
+    {
+      "asr_seconds": 0.14562884531915188,
+      "alignment_seconds": 9.473413228988647e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pollock scenes no longer stay.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Pollock",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.4822998046875
+            },
+            {
+              "text": " scenes",
+              "start": 0.73,
+              "end": 0.97,
+              "probability": 0.66748046875
+            },
+            {
+              "text": " no",
+              "start": 0.97,
+              "end": 1.45,
+              "probability": 0.6396484375
+            },
+            {
+              "text": " longer",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stay.",
+              "start": 1.71,
+              "end": 2.07,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pollock",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "scenes",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "raw": "no",
+          "start": 0.97,
+          "end": 1.45
+        },
+        {
+          "raw": "longer",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "stay.",
+          "start": 1.71,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Polixenes.",
+        "No",
+        "longer",
+        "stay."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          4,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pollock",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "pollock",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "scenes",
+          "start": 0.73,
+          "end": 0.97,
+          "key": "scenes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.97,
+          "end": 1.45,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "longer",
+          "start": 1.45,
+          "end": 1.71,
+          "key": "longer",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stay.",
+          "start": 1.71,
+          "end": 2.07,
+          "key": "stay",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polixenes.",
+          "start": 0.0,
+          "end": 0.485
+        },
+        {
+          "text": "No",
+          "start": 0.97,
+          "end": 1.45
+        },
+        {
+          "text": "longer",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "text": "stay.",
+          "start": 1.71,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14575476571917534
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6abcfc67619cd103cbbe18efb5fa61cb43797780103139cd12f19925c44dce72",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

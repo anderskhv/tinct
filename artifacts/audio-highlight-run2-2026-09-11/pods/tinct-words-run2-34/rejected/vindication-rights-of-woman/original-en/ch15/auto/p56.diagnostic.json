@@ -1,0 +1,1219 @@
+{
+  "complete": true,
+  "signature": "98854e1717f9eb99a1f13c413f24264e5dca08e1e0af1902ebcd47d782de18d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.3484372701495886,
+      "alignment_seconds": 0.0004968084394931793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The most cruel wounds will of course soon heal, and they may still people the world, and dress to please man--all the purposes which certain celebrated writers have allowed that they were created to fill."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The most cruel wounds will of course soon heal, and they may still people the world, and dress",
+          "start": 0.02,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.46,
+              "probability": 0.8046875
+            },
+            {
+              "text": " most",
+              "start": 0.46,
+              "end": 0.7,
+              "probability": 0.9921875
+            },
+            {
+              "text": " cruel",
+              "start": 0.7,
+              "end": 1.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wounds",
+              "start": 1.1,
+              "end": 1.56,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " will",
+              "start": 1.56,
+              "end": 1.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 1.8,
+              "end": 1.92,
+              "probability": 0.67626953125
+            },
+            {
+              "text": " course",
+              "start": 1.92,
+              "end": 2.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " soon",
+              "start": 2.22,
+              "end": 2.58,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " heal,",
+              "start": 2.58,
+              "end": 2.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 3.46,
+              "end": 3.52,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " they",
+              "start": 3.52,
+              "end": 3.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " may",
+              "start": 3.66,
+              "end": 3.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " still",
+              "start": 3.78,
+              "end": 4.08,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " people",
+              "start": 4.08,
+              "end": 4.36,
+              "probability": 0.962890625
+            },
+            {
+              "text": " the",
+              "start": 4.36,
+              "end": 4.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " world,",
+              "start": 4.6,
+              "end": 4.98,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 5.46,
+              "end": 5.58,
+              "probability": 0.955078125
+            },
+            {
+              "text": " dress",
+              "start": 5.58,
+              "end": 5.82,
+              "probability": 0.65478515625
+            }
+          ]
+        },
+        {
+          "text": " to please man all the purposes which certain celebrated writers have allowed that they",
+          "start": 5.82,
+          "end": 10.44,
+          "words": [
+            {
+              "text": " to",
+              "start": 5.82,
+              "end": 6.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " please",
+              "start": 6.06,
+              "end": 6.34,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " man",
+              "start": 6.34,
+              "end": 6.66,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " all",
+              "start": 6.66,
+              "end": 6.9,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " the",
+              "start": 6.9,
+              "end": 7.08,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " purposes",
+              "start": 7.08,
+              "end": 7.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " which",
+              "start": 7.44,
+              "end": 7.88,
+              "probability": 0.970703125
+            },
+            {
+              "text": " certain",
+              "start": 7.88,
+              "end": 8.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " celebrated",
+              "start": 8.3,
+              "end": 8.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " writers",
+              "start": 8.88,
+              "end": 9.36,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " have",
+              "start": 9.36,
+              "end": 9.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " allowed",
+              "start": 9.7,
+              "end": 10.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 10.04,
+              "end": 10.3,
+              "probability": 0.98828125
+            },
+            {
+              "text": " they",
+              "start": 10.3,
+              "end": 10.44,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " were created to fill.",
+          "start": 10.44,
+          "end": 11.48,
+          "words": [
+            {
+              "text": " were",
+              "start": 10.44,
+              "end": 10.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " created",
+              "start": 10.6,
+              "end": 10.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 10.96,
+              "end": 11.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fill.",
+              "start": 11.22,
+              "end": 11.48,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.46
+        },
+        {
+          "raw": "most",
+          "start": 0.46,
+          "end": 0.7
+        },
+        {
+          "raw": "cruel",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "raw": "wounds",
+          "start": 1.1,
+          "end": 1.56
+        },
+        {
+          "raw": "will",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "raw": "of",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "raw": "course",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "raw": "soon",
+          "start": 2.22,
+          "end": 2.58
+        },
+        {
+          "raw": "heal,",
+          "start": 2.58,
+          "end": 2.94
+        },
+        {
+          "raw": "and",
+          "start": 3.46,
+          "end": 3.52
+        },
+        {
+          "raw": "they",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "raw": "may",
+          "start": 3.66,
+          "end": 3.78
+        },
+        {
+          "raw": "still",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "raw": "people",
+          "start": 4.08,
+          "end": 4.36
+        },
+        {
+          "raw": "the",
+          "start": 4.36,
+          "end": 4.6
+        },
+        {
+          "raw": "world,",
+          "start": 4.6,
+          "end": 4.98
+        },
+        {
+          "raw": "and",
+          "start": 5.46,
+          "end": 5.58
+        },
+        {
+          "raw": "dress",
+          "start": 5.58,
+          "end": 5.82
+        },
+        {
+          "raw": "to",
+          "start": 5.82,
+          "end": 6.06
+        },
+        {
+          "raw": "please",
+          "start": 6.06,
+          "end": 6.34
+        },
+        {
+          "raw": "man",
+          "start": 6.34,
+          "end": 6.66
+        },
+        {
+          "raw": "all",
+          "start": 6.66,
+          "end": 6.9
+        },
+        {
+          "raw": "the",
+          "start": 6.9,
+          "end": 7.08
+        },
+        {
+          "raw": "purposes",
+          "start": 7.08,
+          "end": 7.44
+        },
+        {
+          "raw": "which",
+          "start": 7.44,
+          "end": 7.88
+        },
+        {
+          "raw": "certain",
+          "start": 7.88,
+          "end": 8.3
+        },
+        {
+          "raw": "celebrated",
+          "start": 8.3,
+          "end": 8.88
+        },
+        {
+          "raw": "writers",
+          "start": 8.88,
+          "end": 9.36
+        },
+        {
+          "raw": "have",
+          "start": 9.36,
+          "end": 9.7
+        },
+        {
+          "raw": "allowed",
+          "start": 9.7,
+          "end": 10.04
+        },
+        {
+          "raw": "that",
+          "start": 10.04,
+          "end": 10.3
+        },
+        {
+          "raw": "they",
+          "start": 10.3,
+          "end": 10.44
+        },
+        {
+          "raw": "were",
+          "start": 10.44,
+          "end": 10.6
+        },
+        {
+          "raw": "created",
+          "start": 10.6,
+          "end": 10.96
+        },
+        {
+          "raw": "to",
+          "start": 10.96,
+          "end": 11.22
+        },
+        {
+          "raw": "fill.",
+          "start": 11.22,
+          "end": 11.48
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "most",
+        "cruel",
+        "wounds",
+        "will",
+        "of",
+        "course",
+        "soon",
+        "heal,",
+        "and",
+        "they",
+        "may",
+        "still",
+        "people",
+        "the",
+        "world,",
+        "and",
+        "dress",
+        "to",
+        "please",
+        "man--all",
+        "the",
+        "purposes",
+        "which",
+        "certain",
+        "celebrated",
+        "writers",
+        "have",
+        "allowed",
+        "that",
+        "they",
+        "were",
+        "created",
+        "to",
+        "fill."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          35,
+          0,
+          35
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.46,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 0.46,
+          "end": 0.7,
+          "key": "most",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cruel",
+          "start": 0.7,
+          "end": 1.1,
+          "key": "cruel",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wounds",
+          "start": 1.1,
+          "end": 1.56,
+          "key": "wounds",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.56,
+          "end": 1.8,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.8,
+          "end": 1.92,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "course",
+          "start": 1.92,
+          "end": 2.22,
+          "key": "course",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 2.22,
+          "end": 2.58,
+          "key": "soon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "heal,",
+          "start": 2.58,
+          "end": 2.94,
+          "key": "heal",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.46,
+          "end": 3.52,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.52,
+          "end": 3.66,
+          "key": "they",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 3.66,
+          "end": 3.78,
+          "key": "may",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 3.78,
+          "end": 4.08,
+          "key": "still",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "people",
+          "start": 4.08,
+          "end": 4.36,
+          "key": "people",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.36,
+          "end": 4.6,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "world,",
+          "start": 4.6,
+          "end": 4.98,
+          "key": "world",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.46,
+          "end": 5.58,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "dress",
+          "start": 5.58,
+          "end": 5.82,
+          "key": "dress",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.82,
+          "end": 6.06,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 6.06,
+          "end": 6.34,
+          "key": "please",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "man all",
+          "start": 6.34,
+          "end": 6.9,
+          "key": "manall",
+          "pieces": [
+            20,
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.9,
+          "end": 7.08,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "purposes",
+          "start": 7.08,
+          "end": 7.44,
+          "key": "purposes",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 7.44,
+          "end": 7.88,
+          "key": "which",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "certain",
+          "start": 7.88,
+          "end": 8.3,
+          "key": "certain",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "celebrated",
+          "start": 8.3,
+          "end": 8.88,
+          "key": "celebrated",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "writers",
+          "start": 8.88,
+          "end": 9.36,
+          "key": "writers",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 9.36,
+          "end": 9.7,
+          "key": "have",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "allowed",
+          "start": 9.7,
+          "end": 10.04,
+          "key": "allowed",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 10.04,
+          "end": 10.3,
+          "key": "that",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 10.3,
+          "end": 10.44,
+          "key": "they",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 10.44,
+          "end": 10.6,
+          "key": "were",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "created",
+          "start": 10.6,
+          "end": 10.96,
+          "key": "created",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.96,
+          "end": 11.22,
+          "key": "to",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "fill.",
+          "start": 11.22,
+          "end": 11.48,
+          "key": "fill",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 20,
+          "text": "man--all",
+          "heard": "man all",
+          "heard_indexes": [
+            20,
+            21
+          ],
+          "start": 6.34,
+          "end": 6.9
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.46
+        },
+        {
+          "text": "most",
+          "start": 0.46,
+          "end": 0.7
+        },
+        {
+          "text": "cruel",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "text": "wounds",
+          "start": 1.1,
+          "end": 1.56
+        },
+        {
+          "text": "will",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "text": "of",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "text": "course",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "text": "soon",
+          "start": 2.22,
+          "end": 2.58
+        },
+        {
+          "text": "heal,",
+          "start": 2.58,
+          "end": 2.94
+        },
+        {
+          "text": "and",
+          "start": 3.46,
+          "end": 3.52
+        },
+        {
+          "text": "they",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "text": "may",
+          "start": 3.66,
+          "end": 3.78
+        },
+        {
+          "text": "still",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "text": "people",
+          "start": 4.08,
+          "end": 4.36
+        },
+        {
+          "text": "the",
+          "start": 4.36,
+          "end": 4.6
+        },
+        {
+          "text": "world,",
+          "start": 4.6,
+          "end": 4.98
+        },
+        {
+          "text": "and",
+          "start": 5.46,
+          "end": 5.58
+        },
+        {
+          "text": "dress",
+          "start": 5.58,
+          "end": 5.82
+        },
+        {
+          "text": "to",
+          "start": 5.82,
+          "end": 6.06
+        },
+        {
+          "text": "please",
+          "start": 6.06,
+          "end": 6.34
+        },
+        {
+          "text": "man--all",
+          "start": 6.34,
+          "end": 6.9
+        },
+        {
+          "text": "the",
+          "start": 6.9,
+          "end": 7.08
+        },
+        {
+          "text": "purposes",
+          "start": 7.08,
+          "end": 7.44
+        },
+        {
+          "text": "which",
+          "start": 7.44,
+          "end": 7.88
+        },
+        {
+          "text": "certain",
+          "start": 7.88,
+          "end": 8.3
+        },
+        {
+          "text": "celebrated",
+          "start": 8.3,
+          "end": 8.88
+        },
+        {
+          "text": "writers",
+          "start": 8.88,
+          "end": 9.36
+        },
+        {
+          "text": "have",
+          "start": 9.36,
+          "end": 9.7
+        },
+        {
+          "text": "allowed",
+          "start": 9.7,
+          "end": 10.04
+        },
+        {
+          "text": "that",
+          "start": 10.04,
+          "end": 10.3
+        },
+        {
+          "text": "they",
+          "start": 10.3,
+          "end": 10.44
+        },
+        {
+          "text": "were",
+          "start": 10.44,
+          "end": 10.6
+        },
+        {
+          "text": "created",
+          "start": 10.6,
+          "end": 10.96
+        },
+        {
+          "text": "to",
+          "start": 10.96,
+          "end": 11.22
+        },
+        {
+          "text": "fill.",
+          "start": 11.22,
+          "end": 11.48
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 35,
+        "matched_words": 35
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.34911645390093327
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "38e2ee1c605cff2c4478ba220674391550739964c558f92f685e6de35a73cb20",
+  "selected_reasons": []
+}

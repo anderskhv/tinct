@@ -1,0 +1,410 @@
+{
+  "complete": true,
+  "signature": "866210390baf5653ab8420e0c67453b2d0884aa954da4c9844bebd042b93eb6e",
+  "attempts": [
+    {
+      "asr_seconds": 0.09951788000762463,
+      "alignment_seconds": 9.679608047008514e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Mamillius._]",
+        "hotwords": "Mamillius._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Mamillius._",
+          "start": 0.02,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.861328125
+            },
+            {
+              "text": " Mamillius._",
+              "start": 0.64,
+              "end": 1.58,
+              "probability": 0.3112220764160156
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Mamillius._",
+          "start": 0.64,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Mamillius._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mamillius._",
+          "start": 0.64,
+          "end": 1.58,
+          "key": "mamillius_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Mamillius._]",
+          "start": 0.64,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0996423289179802
+    },
+    {
+      "asr_seconds": 0.09818175435066223,
+      "alignment_seconds": 0.00013895705342292786,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Mamillius._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Mamillius._",
+          "start": 0.02,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.861328125
+            },
+            {
+              "text": " Mamillius._",
+              "start": 0.64,
+              "end": 1.58,
+              "probability": 0.3112220764160156
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Mamillius._",
+          "start": 0.64,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Mamillius._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mamillius._",
+          "start": 0.64,
+          "end": 1.58,
+          "key": "mamillius_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Mamillius._]",
+          "start": 0.64,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09834984876215458
+    },
+    {
+      "asr_seconds": 0.08368838205933571,
+      "alignment_seconds": 0.00018067099153995514,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Mamilius.",
+          "start": 0.02,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.861328125
+            },
+            {
+              "text": " Mamilius.",
+              "start": 0.64,
+              "end": 1.28,
+              "probability": 0.5740559895833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Mamilius.",
+          "start": 0.64,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Mamillius._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mamilius.",
+          "start": 0.64,
+          "end": 1.28,
+          "key": "mamilius",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Mamillius._]",
+          "start": 0.64,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08391584642231464
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e12c243d172083c6a38541032aef9619e3550736902e406d84bfba2a799adf6a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

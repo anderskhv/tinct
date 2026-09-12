@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "39905887011f9557a286330fd9cc26c784f80cfe6661bb80ba4ed216c7f8f451",
+  "attempts": [
+    {
+      "asr_seconds": 0.167221300303936,
+      "alignment_seconds": 0.00018170475959777832,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leontes. Ay, but why?",
+        "hotwords": "Leontes, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leontes, Ay, but why?",
+          "start": 0.56,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Leontes,",
+              "start": 0.56,
+              "end": 1.0,
+              "probability": 0.1068267822265625
+            },
+            {
+              "text": " Ay,",
+              "start": 1.22,
+              "end": 1.24,
+              "probability": 0.0018148422241210938
+            },
+            {
+              "text": " but",
+              "start": 1.32,
+              "end": 1.38,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " why?",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leontes,",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.22,
+          "end": 1.24
+        },
+        {
+          "raw": "but",
+          "start": 1.32,
+          "end": 1.38
+        },
+        {
+          "raw": "why?",
+          "start": 1.38,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "Ay,",
+        "but",
+        "why?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leontes,",
+          "start": 0.56,
+          "end": 1.0,
+          "key": "leontes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.22,
+          "end": 1.24,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.32,
+          "end": 1.38,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "why?",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "why",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "text": "Ay,",
+          "start": 1.22,
+          "end": 1.24
+        },
+        {
+          "text": "but",
+          "start": 1.32,
+          "end": 1.38
+        },
+        {
+          "text": "why?",
+          "start": 1.38,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1674620918929577
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f1a06056e2f38e53c4b00fd8f2f8f785750a2110c3dd7349874006d9da0a7edc",
+  "selected_reasons": []
+}

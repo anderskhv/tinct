@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "f58bce4538823b92b60b0e5210731ca8af7d25c797635f9ec3b4a38d61497ef7",
+  "attempts": [
+    {
+      "asr_seconds": 0.16092352382838726,
+      "alignment_seconds": 0.0002065524458885193,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Camillo. Stays here longer.",
+        "hotwords": "Camillo, Stays"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Camillo, Stays here longer.",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " Camillo,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " Stays",
+              "start": 1.03,
+              "end": 1.45,
+              "probability": 0.5147705078125
+            },
+            {
+              "text": " here",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.1986083984375
+            },
+            {
+              "text": " longer.",
+              "start": 1.57,
+              "end": 1.91,
+              "probability": 0.859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Camillo,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Stays",
+          "start": 1.03,
+          "end": 1.45
+        },
+        {
+          "raw": "here",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "longer.",
+          "start": 1.57,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "Camillo.",
+        "Stays",
+        "here",
+        "longer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Camillo,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "camillo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Stays",
+          "start": 1.03,
+          "end": 1.45,
+          "key": "stays",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "longer.",
+          "start": 1.57,
+          "end": 1.91,
+          "key": "longer",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Camillo.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Stays",
+          "start": 1.03,
+          "end": 1.45
+        },
+        {
+          "text": "here",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "longer.",
+          "start": 1.57,
+          "end": 1.91
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16119023598730564
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1cd454cc22f3993b2fcdf7dab63f28eeeb2eaa595acdd46513fc262ef17ccf11",
+  "selected_reasons": []
+}

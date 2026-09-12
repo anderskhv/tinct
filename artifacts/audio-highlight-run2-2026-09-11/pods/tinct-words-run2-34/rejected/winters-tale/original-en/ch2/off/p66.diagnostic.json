@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "b6594a170fc10ef4616576a785e10ed7b30f30309b2a729a1661124c020c9972",
+  "attempts": [
+    {
+      "asr_seconds": 0.16000955365598202,
+      "alignment_seconds": 0.00017414428293704987,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lance didst perceive it.",
+          "start": 0.02,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Lance",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.72265625
+            },
+            {
+              "text": " didst",
+              "start": 0.82,
+              "end": 1.4,
+              "probability": 0.660888671875
+            },
+            {
+              "text": " perceive",
+              "start": 1.4,
+              "end": 1.66,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " it.",
+              "start": 1.66,
+              "end": 1.98,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lance",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "didst",
+          "start": 0.82,
+          "end": 1.4
+        },
+        {
+          "raw": "perceive",
+          "start": 1.4,
+          "end": 1.66
+        },
+        {
+          "raw": "it.",
+          "start": 1.66,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "Didst",
+        "perceive",
+        "it?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lance",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "lance",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "didst",
+          "start": 0.82,
+          "end": 1.4,
+          "key": "didst",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "perceive",
+          "start": 1.4,
+          "end": 1.66,
+          "key": "perceive",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.66,
+          "end": 1.98,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.0,
+          "end": 0.41
+        },
+        {
+          "text": "Didst",
+          "start": 0.82,
+          "end": 1.4
+        },
+        {
+          "text": "perceive",
+          "start": 1.4,
+          "end": 1.66
+        },
+        {
+          "text": "it?",
+          "start": 1.66,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16024016216397285
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "043bb7790929252629dcb284b1c73ae83d189ded204d62e668a17dcee9c8db00",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

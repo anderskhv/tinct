@@ -1,0 +1,1150 @@
+{
+  "complete": true,
+  "signature": "2320a413f18800a909571ebbd1ecb2792562de079f668c7330fb9139eda21946",
+  "attempts": [
+    {
+      "asr_seconds": 0.3814056869596243,
+      "alignment_seconds": 0.00041869282722473145,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In fact, the female mind has been so totally neglected, that knowledge was only to be acquired from this muddy source, till from reading novels some women of superior talents learned to despise them.",
+        "hotwords": "In"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In fact, the female mind has been so totally neglected, that knowledge was only to be acquired from this muddy source, till from reading novels some women of superior talents learned to despise them.",
+          "start": 0.05,
+          "end": 12.65,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.931640625
+            },
+            {
+              "text": " fact,",
+              "start": 0.55,
+              "end": 0.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.13,
+              "end": 1.17,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " female",
+              "start": 1.17,
+              "end": 1.51,
+              "probability": 0.99609375
+            },
+            {
+              "text": " mind",
+              "start": 1.51,
+              "end": 1.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " has",
+              "start": 1.87,
+              "end": 2.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " been",
+              "start": 2.11,
+              "end": 2.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so",
+              "start": 2.29,
+              "end": 2.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " totally",
+              "start": 2.61,
+              "end": 3.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " neglected,",
+              "start": 3.13,
+              "end": 3.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 4.23,
+              "end": 4.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " knowledge",
+              "start": 4.47,
+              "end": 4.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " was",
+              "start": 4.85,
+              "end": 5.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " only",
+              "start": 5.15,
+              "end": 5.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 5.45,
+              "end": 5.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " be",
+              "start": 5.63,
+              "end": 5.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " acquired",
+              "start": 5.75,
+              "end": 6.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " from",
+              "start": 6.19,
+              "end": 6.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this",
+              "start": 6.49,
+              "end": 6.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " muddy",
+              "start": 6.71,
+              "end": 6.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " source,",
+              "start": 6.95,
+              "end": 7.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " till",
+              "start": 7.95,
+              "end": 8.15,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " from",
+              "start": 8.15,
+              "end": 8.35,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " reading",
+              "start": 8.35,
+              "end": 8.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " novels",
+              "start": 8.65,
+              "end": 9.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " some",
+              "start": 9.15,
+              "end": 9.73,
+              "probability": 0.196044921875
+            },
+            {
+              "text": " women",
+              "start": 9.73,
+              "end": 10.05,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " of",
+              "start": 10.05,
+              "end": 10.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " superior",
+              "start": 10.27,
+              "end": 10.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " talents",
+              "start": 10.71,
+              "end": 11.35,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " learned",
+              "start": 11.35,
+              "end": 11.65,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " to",
+              "start": 11.65,
+              "end": 11.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " despise",
+              "start": 11.89,
+              "end": 12.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " them.",
+              "start": 12.27,
+              "end": 12.65,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "fact,",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "raw": "the",
+          "start": 1.13,
+          "end": 1.17
+        },
+        {
+          "raw": "female",
+          "start": 1.17,
+          "end": 1.51
+        },
+        {
+          "raw": "mind",
+          "start": 1.51,
+          "end": 1.87
+        },
+        {
+          "raw": "has",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "raw": "been",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "raw": "so",
+          "start": 2.29,
+          "end": 2.61
+        },
+        {
+          "raw": "totally",
+          "start": 2.61,
+          "end": 3.13
+        },
+        {
+          "raw": "neglected,",
+          "start": 3.13,
+          "end": 3.73
+        },
+        {
+          "raw": "that",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "raw": "knowledge",
+          "start": 4.47,
+          "end": 4.85
+        },
+        {
+          "raw": "was",
+          "start": 4.85,
+          "end": 5.15
+        },
+        {
+          "raw": "only",
+          "start": 5.15,
+          "end": 5.45
+        },
+        {
+          "raw": "to",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "raw": "be",
+          "start": 5.63,
+          "end": 5.75
+        },
+        {
+          "raw": "acquired",
+          "start": 5.75,
+          "end": 6.19
+        },
+        {
+          "raw": "from",
+          "start": 6.19,
+          "end": 6.49
+        },
+        {
+          "raw": "this",
+          "start": 6.49,
+          "end": 6.71
+        },
+        {
+          "raw": "muddy",
+          "start": 6.71,
+          "end": 6.95
+        },
+        {
+          "raw": "source,",
+          "start": 6.95,
+          "end": 7.45
+        },
+        {
+          "raw": "till",
+          "start": 7.95,
+          "end": 8.15
+        },
+        {
+          "raw": "from",
+          "start": 8.15,
+          "end": 8.35
+        },
+        {
+          "raw": "reading",
+          "start": 8.35,
+          "end": 8.65
+        },
+        {
+          "raw": "novels",
+          "start": 8.65,
+          "end": 9.15
+        },
+        {
+          "raw": "some",
+          "start": 9.15,
+          "end": 9.73
+        },
+        {
+          "raw": "women",
+          "start": 9.73,
+          "end": 10.05
+        },
+        {
+          "raw": "of",
+          "start": 10.05,
+          "end": 10.27
+        },
+        {
+          "raw": "superior",
+          "start": 10.27,
+          "end": 10.71
+        },
+        {
+          "raw": "talents",
+          "start": 10.71,
+          "end": 11.35
+        },
+        {
+          "raw": "learned",
+          "start": 11.35,
+          "end": 11.65
+        },
+        {
+          "raw": "to",
+          "start": 11.65,
+          "end": 11.89
+        },
+        {
+          "raw": "despise",
+          "start": 11.89,
+          "end": 12.27
+        },
+        {
+          "raw": "them.",
+          "start": 12.27,
+          "end": 12.65
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "fact,",
+        "the",
+        "female",
+        "mind",
+        "has",
+        "been",
+        "so",
+        "totally",
+        "neglected,",
+        "that",
+        "knowledge",
+        "was",
+        "only",
+        "to",
+        "be",
+        "acquired",
+        "from",
+        "this",
+        "muddy",
+        "source,",
+        "till",
+        "from",
+        "reading",
+        "novels",
+        "some",
+        "women",
+        "of",
+        "superior",
+        "talents",
+        "learned",
+        "to",
+        "despise",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          34,
+          0,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fact,",
+          "start": 0.55,
+          "end": 0.85,
+          "key": "fact",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.13,
+          "end": 1.17,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "female",
+          "start": 1.17,
+          "end": 1.51,
+          "key": "female",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 1.51,
+          "end": 1.87,
+          "key": "mind",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.87,
+          "end": 2.11,
+          "key": "has",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.11,
+          "end": 2.29,
+          "key": "been",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.29,
+          "end": 2.61,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "totally",
+          "start": 2.61,
+          "end": 3.13,
+          "key": "totally",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "neglected,",
+          "start": 3.13,
+          "end": 3.73,
+          "key": "neglected",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.23,
+          "end": 4.47,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "knowledge",
+          "start": 4.47,
+          "end": 4.85,
+          "key": "knowledge",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.85,
+          "end": 5.15,
+          "key": "was",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 5.15,
+          "end": 5.45,
+          "key": "only",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.45,
+          "end": 5.63,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.63,
+          "end": 5.75,
+          "key": "be",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "acquired",
+          "start": 5.75,
+          "end": 6.19,
+          "key": "acquired",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 6.19,
+          "end": 6.49,
+          "key": "from",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 6.49,
+          "end": 6.71,
+          "key": "this",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "muddy",
+          "start": 6.71,
+          "end": 6.95,
+          "key": "muddy",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "source,",
+          "start": 6.95,
+          "end": 7.45,
+          "key": "source",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 7.95,
+          "end": 8.15,
+          "key": "till",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 8.15,
+          "end": 8.35,
+          "key": "from",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "reading",
+          "start": 8.35,
+          "end": 8.65,
+          "key": "reading",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "novels",
+          "start": 8.65,
+          "end": 9.15,
+          "key": "novels",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 9.15,
+          "end": 9.73,
+          "key": "some",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "women",
+          "start": 9.73,
+          "end": 10.05,
+          "key": "women",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.05,
+          "end": 10.27,
+          "key": "of",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "superior",
+          "start": 10.27,
+          "end": 10.71,
+          "key": "superior",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "talents",
+          "start": 10.71,
+          "end": 11.35,
+          "key": "talents",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "learned",
+          "start": 11.35,
+          "end": 11.65,
+          "key": "learned",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.65,
+          "end": 11.89,
+          "key": "to",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "despise",
+          "start": 11.89,
+          "end": 12.27,
+          "key": "despise",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 12.27,
+          "end": 12.65,
+          "key": "them",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "fact,",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "text": "the",
+          "start": 1.13,
+          "end": 1.17
+        },
+        {
+          "text": "female",
+          "start": 1.17,
+          "end": 1.51
+        },
+        {
+          "text": "mind",
+          "start": 1.51,
+          "end": 1.87
+        },
+        {
+          "text": "has",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "text": "been",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "text": "so",
+          "start": 2.29,
+          "end": 2.61
+        },
+        {
+          "text": "totally",
+          "start": 2.61,
+          "end": 3.13
+        },
+        {
+          "text": "neglected,",
+          "start": 3.13,
+          "end": 3.73
+        },
+        {
+          "text": "that",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "text": "knowledge",
+          "start": 4.47,
+          "end": 4.85
+        },
+        {
+          "text": "was",
+          "start": 4.85,
+          "end": 5.15
+        },
+        {
+          "text": "only",
+          "start": 5.15,
+          "end": 5.45
+        },
+        {
+          "text": "to",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "text": "be",
+          "start": 5.63,
+          "end": 5.75
+        },
+        {
+          "text": "acquired",
+          "start": 5.75,
+          "end": 6.19
+        },
+        {
+          "text": "from",
+          "start": 6.19,
+          "end": 6.49
+        },
+        {
+          "text": "this",
+          "start": 6.49,
+          "end": 6.71
+        },
+        {
+          "text": "muddy",
+          "start": 6.71,
+          "end": 6.95
+        },
+        {
+          "text": "source,",
+          "start": 6.95,
+          "end": 7.45
+        },
+        {
+          "text": "till",
+          "start": 7.95,
+          "end": 8.15
+        },
+        {
+          "text": "from",
+          "start": 8.15,
+          "end": 8.35
+        },
+        {
+          "text": "reading",
+          "start": 8.35,
+          "end": 8.65
+        },
+        {
+          "text": "novels",
+          "start": 8.65,
+          "end": 9.15
+        },
+        {
+          "text": "some",
+          "start": 9.15,
+          "end": 9.73
+        },
+        {
+          "text": "women",
+          "start": 9.73,
+          "end": 10.05
+        },
+        {
+          "text": "of",
+          "start": 10.05,
+          "end": 10.27
+        },
+        {
+          "text": "superior",
+          "start": 10.27,
+          "end": 10.71
+        },
+        {
+          "text": "talents",
+          "start": 10.71,
+          "end": 11.35
+        },
+        {
+          "text": "learned",
+          "start": 11.35,
+          "end": 11.65
+        },
+        {
+          "text": "to",
+          "start": 11.65,
+          "end": 11.89
+        },
+        {
+          "text": "despise",
+          "start": 11.89,
+          "end": 12.27
+        },
+        {
+          "text": "them.",
+          "start": 12.27,
+          "end": 12.65
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 34,
+        "matched_words": 34
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.382003678008914
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8ac5613b04fcc1aa26b5c68cfcd350a38b374cfbf278dbd56d126e9025a93378",
+  "selected_reasons": []
+}

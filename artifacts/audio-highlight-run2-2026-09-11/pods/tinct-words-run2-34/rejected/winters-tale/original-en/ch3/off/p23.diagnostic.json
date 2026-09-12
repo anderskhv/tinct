@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "53a787085569114e4e91f55038d42c5ee862fd3ec7e83e4cf5fab68ec4eb595f",
+  "attempts": [
+    {
+      "asr_seconds": 0.18410979770123959,
+      "alignment_seconds": 0.00021469220519065857,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Leance, Antigonus, Lords and Guards.",
+          "start": 0.08,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.9296875
+            },
+            {
+              "text": " Leance,",
+              "start": 0.68,
+              "end": 1.12,
+              "probability": 0.30377197265625
+            },
+            {
+              "text": " Antigonus,",
+              "start": 1.5,
+              "end": 2.0,
+              "probability": 0.8893229166666666
+            },
+            {
+              "text": " Lords",
+              "start": 2.22,
+              "end": 2.38,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " and",
+              "start": 2.38,
+              "end": 2.64,
+              "probability": 0.73046875
+            },
+            {
+              "text": " Guards.",
+              "start": 2.64,
+              "end": 2.92,
+              "probability": 0.9296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Leance,",
+          "start": 0.68,
+          "end": 1.12
+        },
+        {
+          "raw": "Antigonus,",
+          "start": 1.5,
+          "end": 2.0
+        },
+        {
+          "raw": "Lords",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "raw": "and",
+          "start": 2.38,
+          "end": 2.64
+        },
+        {
+          "raw": "Guards.",
+          "start": 2.64,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Leontes,",
+        "Antigonus,",
+        "Lords",
+        "and",
+        "Guards."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Leance,",
+          "start": 0.68,
+          "end": 1.12,
+          "key": "leance",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Antigonus,",
+          "start": 1.5,
+          "end": 2.0,
+          "key": "antigonus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lords",
+          "start": 2.22,
+          "end": 2.38,
+          "key": "lords",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.38,
+          "end": 2.64,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Guards.",
+          "start": 2.64,
+          "end": 2.92,
+          "key": "guards",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Leontes,",
+          "start": 0.68,
+          "end": 1.09
+        },
+        {
+          "text": "Antigonus,",
+          "start": 1.5,
+          "end": 2.0
+        },
+        {
+          "text": "Lords",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "text": "and",
+          "start": 2.38,
+          "end": 2.64
+        },
+        {
+          "text": "Guards.",
+          "start": 2.64,
+          "end": 2.92
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1843925341963768
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4c99eb602385d311aa6e7126aaba641355c1161ab040e99ee9d42d8904a9a0cd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "6ee8c844b16f0a411b5a6d6f60472aec8652312aab7a83994c3f22ce075b767a",
+  "attempts": [
+    {
+      "asr_seconds": 0.11325621046125889,
+      "alignment_seconds": 0.00014984607696533203,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hermione, never.",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " Hermione,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.935546875
+            },
+            {
+              "text": " never.",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.90283203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hermione,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "never.",
+          "start": 1.27,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "Hermione.",
+        "Never?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hermione,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "hermione",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "never.",
+          "start": 1.27,
+          "end": 1.43,
+          "key": "never",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hermione.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Never?",
+          "start": 1.27,
+          "end": 1.43
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11345217376947403
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "70299ac3e6197ffb7dfc18710955b4bdb37f200647acea59c54f16ebae13d5d1",
+  "selected_reasons": []
+}

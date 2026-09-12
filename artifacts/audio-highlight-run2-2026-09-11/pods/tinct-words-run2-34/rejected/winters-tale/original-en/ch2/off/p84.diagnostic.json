@@ -1,0 +1,292 @@
+{
+  "complete": true,
+  "signature": "898d9fb2061740aa5101c08c7b279ae25adc3c200e99048637a435d516c43571",
+  "attempts": [
+    {
+      "asr_seconds": 0.15368830226361752,
+      "alignment_seconds": 0.00027621909976005554,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lance, say it be, tease true.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Lance,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.298828125
+            },
+            {
+              "text": " say",
+              "start": 1.05,
+              "end": 1.19,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " it",
+              "start": 1.19,
+              "end": 1.29,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " be,",
+              "start": 1.29,
+              "end": 1.49,
+              "probability": 0.75146484375
+            },
+            {
+              "text": " tease",
+              "start": 1.77,
+              "end": 1.87,
+              "probability": 0.62158203125
+            },
+            {
+              "text": " true.",
+              "start": 1.87,
+              "end": 2.25,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lance,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "say",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "raw": "it",
+          "start": 1.19,
+          "end": 1.29
+        },
+        {
+          "raw": "be,",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "raw": "tease",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "raw": "true.",
+          "start": 1.87,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "Say",
+        "it",
+        "be,",
+        "'tis",
+        "true."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lance,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "lance",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.05,
+          "end": 1.19,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.19,
+          "end": 1.29,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be,",
+          "start": 1.29,
+          "end": 1.49,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 1.77,
+          "end": 1.87,
+          "key": "tease",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 1.87,
+          "end": 2.25,
+          "key": "true",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.0,
+          "end": 0.525
+        },
+        {
+          "text": "Say",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "text": "it",
+          "start": 1.19,
+          "end": 1.29
+        },
+        {
+          "text": "be,",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "text": "'tis",
+          "start": 1.49,
+          "end": 1.68
+        },
+        {
+          "text": "true.",
+          "start": 1.87,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15403665602207184
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c4ed2965dacb9727926540e4f44d4451f96638a3f6695667de6a863de8f6497d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}
