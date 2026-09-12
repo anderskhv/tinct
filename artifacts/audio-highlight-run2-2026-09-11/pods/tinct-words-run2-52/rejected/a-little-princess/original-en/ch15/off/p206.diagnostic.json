@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "a2ba9ca4733a5699fffbcb44c39e12ca30ff5d2de498f380774152bd63173305",
+  "attempts": [
+    {
+      "asr_seconds": 0.12649749591946602,
+      "alignment_seconds": 0.0003740042448043823,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then it was Sarah's turn again.",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.93359375
+            },
+            {
+              "text": " it",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " was",
+              "start": 0.61,
+              "end": 0.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Sarah's",
+              "start": 0.71,
+              "end": 1.07,
+              "probability": 0.913330078125
+            },
+            {
+              "text": " turn",
+              "start": 1.07,
+              "end": 1.27,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " again.",
+              "start": 1.27,
+              "end": 1.55,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "it",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "was",
+          "start": 0.61,
+          "end": 0.71
+        },
+        {
+          "raw": "Sarah's",
+          "start": 0.71,
+          "end": 1.07
+        },
+        {
+          "raw": "turn",
+          "start": 1.07,
+          "end": 1.27
+        },
+        {
+          "raw": "again.",
+          "start": 1.27,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "it",
+        "was",
+        "Sara's",
+        "turn",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.51,
+          "end": 0.61,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.61,
+          "end": 0.71,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sarah's",
+          "start": 0.71,
+          "end": 1.07,
+          "key": "sarahs",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 1.07,
+          "end": 1.27,
+          "key": "turn",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 1.27,
+          "end": 1.55,
+          "key": "again",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "it",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "was",
+          "start": 0.61,
+          "end": 0.71
+        },
+        {
+          "text": "Sara's",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "text": "turn",
+          "start": 1.07,
+          "end": 1.27
+        },
+        {
+          "text": "again.",
+          "start": 1.27,
+          "end": 1.55
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12698988616466522
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7f8790daebb236c1e2def6a75367e1d01794eb3af8d876f01a6a42501bfbdde7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

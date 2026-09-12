@@ -1,0 +1,289 @@
+{
+  "complete": true,
+  "signature": "a31e90032f8f7f7d4ddc25f71fed4d4011cd359a1fe526bdc1408261c630b9d7",
+  "attempts": [
+    {
+      "asr_seconds": 0.14929461479187012,
+      "alignment_seconds": 0.0003873854875564575,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sara looked round the attic, too.",
+        "hotwords": "Sara"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sara Sara looked round the attic, too.",
+          "start": 0.08,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Sara",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.0916748046875
+            },
+            {
+              "text": " Sara",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.0
+            },
+            {
+              "text": " looked",
+              "start": 0.76,
+              "end": 0.84,
+              "probability": 0.9609375
+            },
+            {
+              "text": " round",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.200927734375
+            },
+            {
+              "text": " the",
+              "start": 1.04,
+              "end": 1.18,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " attic,",
+              "start": 1.18,
+              "end": 1.46,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " too.",
+              "start": 1.56,
+              "end": 1.84,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sara",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "Sara",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "looked",
+          "start": 0.76,
+          "end": 0.84
+        },
+        {
+          "raw": "round",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "raw": "attic,",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "raw": "too.",
+          "start": 1.56,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "Sara",
+        "looked",
+        "round",
+        "the",
+        "attic,",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          6,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sara",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "sara",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sara",
+          "start": 0.6,
+          "end": 0.76,
+          "key": "sara",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.76,
+          "end": 0.84,
+          "key": "looked",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "round",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.18,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "attic,",
+          "start": 1.18,
+          "end": 1.46,
+          "key": "attic",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 1.56,
+          "end": 1.84,
+          "key": "too",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sara",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "looked",
+          "start": 0.76,
+          "end": 0.84
+        },
+        {
+          "text": "round",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "the",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "text": "attic,",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "text": "too.",
+          "start": 1.56,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14983638375997543
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d5f4e70a8b0ac9152d907c750462826b6a39c1cca8cb7c0f6431d849025e6a38",
+  "selected_reasons": []
+}

@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "6e636a92fe206e3ab62272a805350d1f53b7ae72638422332b8b0fd2210bd77a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2831753306090832,
+      "alignment_seconds": 0.00044927746057510376,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "When Sara went into the house she met Miss Minchin, who had come downstairs to scold the cook.",
+        "hotwords": "When, Sara, Miss, Minchin"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " When Sara went into the house she met Miss Minchin, who had come downstairs to scold the cook.",
+          "start": 0.05,
+          "end": 5.51,
+          "words": [
+            {
+              "text": " When",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Sara",
+              "start": 0.57,
+              "end": 0.81,
+              "probability": 0.110107421875
+            },
+            {
+              "text": " went",
+              "start": 0.81,
+              "end": 1.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " into",
+              "start": 1.07,
+              "end": 1.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.23,
+              "end": 1.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " house",
+              "start": 1.39,
+              "end": 1.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " she",
+              "start": 1.71,
+              "end": 2.17,
+              "probability": 0.38525390625
+            },
+            {
+              "text": " met",
+              "start": 2.17,
+              "end": 2.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Miss",
+              "start": 2.39,
+              "end": 2.61,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " Minchin,",
+              "start": 2.61,
+              "end": 2.99,
+              "probability": 0.769287109375
+            },
+            {
+              "text": " who",
+              "start": 3.25,
+              "end": 3.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " had",
+              "start": 3.61,
+              "end": 3.69,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " come",
+              "start": 3.69,
+              "end": 3.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " downstairs",
+              "start": 3.89,
+              "end": 4.45,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " to",
+              "start": 4.45,
+              "end": 4.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " scold",
+              "start": 4.81,
+              "end": 5.11,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " the",
+              "start": 5.11,
+              "end": 5.31,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " cook.",
+              "start": 5.31,
+              "end": 5.51,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "When",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Sara",
+          "start": 0.57,
+          "end": 0.81
+        },
+        {
+          "raw": "went",
+          "start": 0.81,
+          "end": 1.07
+        },
+        {
+          "raw": "into",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "raw": "the",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "raw": "house",
+          "start": 1.39,
+          "end": 1.71
+        },
+        {
+          "raw": "she",
+          "start": 1.71,
+          "end": 2.17
+        },
+        {
+          "raw": "met",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "raw": "Miss",
+          "start": 2.39,
+          "end": 2.61
+        },
+        {
+          "raw": "Minchin,",
+          "start": 2.61,
+          "end": 2.99
+        },
+        {
+          "raw": "who",
+          "start": 3.25,
+          "end": 3.61
+        },
+        {
+          "raw": "had",
+          "start": 3.61,
+          "end": 3.69
+        },
+        {
+          "raw": "come",
+          "start": 3.69,
+          "end": 3.89
+        },
+        {
+          "raw": "downstairs",
+          "start": 3.89,
+          "end": 4.45
+        },
+        {
+          "raw": "to",
+          "start": 4.45,
+          "end": 4.81
+        },
+        {
+          "raw": "scold",
+          "start": 4.81,
+          "end": 5.11
+        },
+        {
+          "raw": "the",
+          "start": 5.11,
+          "end": 5.31
+        },
+        {
+          "raw": "cook.",
+          "start": 5.31,
+          "end": 5.51
+        }
+      ],
+      "expected_tokens": [
+        "When",
+        "Sara",
+        "went",
+        "into",
+        "the",
+        "house",
+        "she",
+        "met",
+        "Miss",
+        "Minchin,",
+        "who",
+        "had",
+        "come",
+        "downstairs",
+        "to",
+        "scold",
+        "the",
+        "cook."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "When",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "when",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sara",
+          "start": 0.57,
+          "end": 0.81,
+          "key": "sara",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 0.81,
+          "end": 1.07,
+          "key": "went",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.07,
+          "end": 1.23,
+          "key": "into",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.23,
+          "end": 1.39,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 1.39,
+          "end": 1.71,
+          "key": "house",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.71,
+          "end": 2.17,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "met",
+          "start": 2.17,
+          "end": 2.39,
+          "key": "met",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 2.39,
+          "end": 2.61,
+          "key": "miss",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Minchin,",
+          "start": 2.61,
+          "end": 2.99,
+          "key": "minchin",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 3.25,
+          "end": 3.61,
+          "key": "who",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.61,
+          "end": 3.69,
+          "key": "had",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 3.69,
+          "end": 3.89,
+          "key": "come",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "downstairs",
+          "start": 3.89,
+          "end": 4.45,
+          "key": "downstairs",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.45,
+          "end": 4.81,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "scold",
+          "start": 4.81,
+          "end": 5.11,
+          "key": "scold",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.11,
+          "end": 5.31,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "cook.",
+          "start": 5.31,
+          "end": 5.51,
+          "key": "cook",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "When",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Sara",
+          "start": 0.57,
+          "end": 0.81
+        },
+        {
+          "text": "went",
+          "start": 0.81,
+          "end": 1.07
+        },
+        {
+          "text": "into",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "text": "the",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "text": "house",
+          "start": 1.39,
+          "end": 1.71
+        },
+        {
+          "text": "she",
+          "start": 1.71,
+          "end": 2.17
+        },
+        {
+          "text": "met",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "text": "Miss",
+          "start": 2.39,
+          "end": 2.61
+        },
+        {
+          "text": "Minchin,",
+          "start": 2.61,
+          "end": 2.99
+        },
+        {
+          "text": "who",
+          "start": 3.25,
+          "end": 3.61
+        },
+        {
+          "text": "had",
+          "start": 3.61,
+          "end": 3.69
+        },
+        {
+          "text": "come",
+          "start": 3.69,
+          "end": 3.89
+        },
+        {
+          "text": "downstairs",
+          "start": 3.89,
+          "end": 4.45
+        },
+        {
+          "text": "to",
+          "start": 4.45,
+          "end": 4.81
+        },
+        {
+          "text": "scold",
+          "start": 4.81,
+          "end": 5.11
+        },
+        {
+          "text": "the",
+          "start": 5.11,
+          "end": 5.31
+        },
+        {
+          "text": "cook.",
+          "start": 5.31,
+          "end": 5.51
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2838144712150097
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0060a5cae80206dab07cfd42937512f6ef154a97d9d91789ed105749177f7d1b",
+  "selected_reasons": []
+}

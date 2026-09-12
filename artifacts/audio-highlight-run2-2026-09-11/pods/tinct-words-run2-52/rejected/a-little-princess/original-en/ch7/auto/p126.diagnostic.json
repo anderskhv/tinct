@@ -1,0 +1,424 @@
+{
+  "complete": true,
+  "signature": "305bab7ec530f7e21219c51fec5bb9f6e86fcec58449098347806fb197da9b73",
+  "attempts": [
+    {
+      "asr_seconds": 0.21533525362610817,
+      "alignment_seconds": 0.00040630996227264404,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh, sister!\" she sniffed. \"Oh, sister! What Can have happened?\"",
+        "hotwords": "Oh, What, Can"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, sister!\" she sniffed. Oh, sister! What Can have happened?\"",
+          "start": 0.08,
+          "end": 4.52,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.2236328125
+            },
+            {
+              "text": " sister",
+              "start": 1.0,
+              "end": 1.0,
+              "probability": 0.7275390625
+            },
+            {
+              "text": "!\"",
+              "start": 1.0,
+              "end": 1.36,
+              "probability": 0.005237579345703125
+            },
+            {
+              "text": " she",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " sniffed.",
+              "start": 1.46,
+              "end": 2.22,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Oh,",
+              "start": 2.4,
+              "end": 2.6,
+              "probability": 0.04302978515625
+            },
+            {
+              "text": " sister!",
+              "start": 2.62,
+              "end": 2.9,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " What",
+              "start": 3.22,
+              "end": 3.24,
+              "probability": 0.912109375
+            },
+            {
+              "text": " Can",
+              "start": 3.24,
+              "end": 3.4,
+              "probability": 0.0003151893615722656
+            },
+            {
+              "text": " have",
+              "start": 3.4,
+              "end": 3.5,
+              "probability": 0.059814453125
+            },
+            {
+              "text": " happened?\"",
+              "start": 3.5,
+              "end": 4.52,
+              "probability": 0.203094482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "sister",
+          "start": 1.0,
+          "end": 1.0
+        },
+        {
+          "raw": "!\"",
+          "start": 1.0,
+          "end": 1.36
+        },
+        {
+          "raw": "she",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "sniffed.",
+          "start": 1.46,
+          "end": 2.22
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.4,
+          "end": 2.6
+        },
+        {
+          "raw": "sister!",
+          "start": 2.62,
+          "end": 2.9
+        },
+        {
+          "raw": "What",
+          "start": 3.22,
+          "end": 3.24
+        },
+        {
+          "raw": "Can",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "raw": "have",
+          "start": 3.4,
+          "end": 3.5
+        },
+        {
+          "raw": "happened?\"",
+          "start": 3.5,
+          "end": 4.52
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "sister!\"",
+        "she",
+        "sniffed.",
+        "\"Oh,",
+        "sister!",
+        "What",
+        "Can",
+        "have",
+        "happened?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          "equal",
+          2,
+          10,
+          3,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sister",
+          "start": 1.0,
+          "end": 1.0,
+          "key": "sister",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.0,
+          "end": 1.36,
+          "key": "",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sniffed.",
+          "start": 1.46,
+          "end": 2.22,
+          "key": "sniffed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.4,
+          "end": 2.6,
+          "key": "oh",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sister!",
+          "start": 2.62,
+          "end": 2.9,
+          "key": "sister",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 3.22,
+          "end": 3.24,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Can",
+          "start": 3.24,
+          "end": 3.4,
+          "key": "can",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.4,
+          "end": 3.5,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "happened?\"",
+          "start": 3.5,
+          "end": 4.52,
+          "key": "happened",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "sister!\"",
+          "start": 1.0,
+          "end": 1.0
+        },
+        {
+          "text": "she",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "sniffed.",
+          "start": 1.46,
+          "end": 2.22
+        },
+        {
+          "text": "\"Oh,",
+          "start": 2.4,
+          "end": 2.6
+        },
+        {
+          "text": "sister!",
+          "start": 2.62,
+          "end": 2.9
+        },
+        {
+          "text": "What",
+          "start": 3.22,
+          "end": 3.24
+        },
+        {
+          "text": "Can",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "text": "have",
+          "start": 3.4,
+          "end": 3.5
+        },
+        {
+          "text": "happened?\"",
+          "start": 3.5,
+          "end": 4.52
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2158922664821148
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b3cb0aa334c096b56e3325fdc85fe3cace65697ba5193d3a5661201cae1ed467",
+  "selected_reasons": []
+}

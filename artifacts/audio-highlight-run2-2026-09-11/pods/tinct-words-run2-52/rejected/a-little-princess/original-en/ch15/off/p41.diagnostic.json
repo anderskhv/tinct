@@ -1,0 +1,799 @@
+{
+  "complete": true,
+  "signature": "18d80f34d5a979c6fe56a50a5545f3adc6a9d441d23eb52d5c7924613a9851ed",
+  "attempts": [
+    {
+      "asr_seconds": 0.35427168756723404,
+      "alignment_seconds": 0.0006319694221019745,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sarah, said Ermengard, hope gleaming in her round face, if you'll do that and make me",
+          "start": 0.11,
+          "end": 5.77,
+          "words": [
+            {
+              "text": " Sarah,",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.020721435546875
+            },
+            {
+              "text": " said",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Ermengard,",
+              "start": 1.33,
+              "end": 1.89,
+              "probability": 0.6575927734375
+            },
+            {
+              "text": " hope",
+              "start": 2.31,
+              "end": 2.49,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " gleaming",
+              "start": 2.49,
+              "end": 2.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 2.95,
+              "end": 3.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " her",
+              "start": 3.07,
+              "end": 3.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " round",
+              "start": 3.21,
+              "end": 3.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " face,",
+              "start": 3.47,
+              "end": 3.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " if",
+              "start": 4.41,
+              "end": 4.57,
+              "probability": 0.493896484375
+            },
+            {
+              "text": " you'll",
+              "start": 4.57,
+              "end": 4.75,
+              "probability": 0.976318359375
+            },
+            {
+              "text": " do",
+              "start": 4.75,
+              "end": 4.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 4.89,
+              "end": 5.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 5.17,
+              "end": 5.41,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " make",
+              "start": 5.41,
+              "end": 5.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 5.59,
+              "end": 5.77,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " remember I'll I'll give you anything.",
+          "start": 5.77,
+          "end": 7.27,
+          "words": [
+            {
+              "text": " remember",
+              "start": 5.77,
+              "end": 6.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I'll",
+              "start": 6.21,
+              "end": 6.57,
+              "probability": 0.7276611328125
+            },
+            {
+              "text": " I'll",
+              "start": 6.57,
+              "end": 6.69,
+              "probability": 0.775390625
+            },
+            {
+              "text": " give",
+              "start": 6.69,
+              "end": 6.75,
+              "probability": 0.958984375
+            },
+            {
+              "text": " you",
+              "start": 6.75,
+              "end": 6.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " anything.",
+              "start": 6.91,
+              "end": 7.27,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sarah,",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "said",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "Ermengard,",
+          "start": 1.33,
+          "end": 1.89
+        },
+        {
+          "raw": "hope",
+          "start": 2.31,
+          "end": 2.49
+        },
+        {
+          "raw": "gleaming",
+          "start": 2.49,
+          "end": 2.95
+        },
+        {
+          "raw": "in",
+          "start": 2.95,
+          "end": 3.07
+        },
+        {
+          "raw": "her",
+          "start": 3.07,
+          "end": 3.21
+        },
+        {
+          "raw": "round",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "raw": "face,",
+          "start": 3.47,
+          "end": 3.79
+        },
+        {
+          "raw": "if",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "raw": "you'll",
+          "start": 4.57,
+          "end": 4.75
+        },
+        {
+          "raw": "do",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "raw": "that",
+          "start": 4.89,
+          "end": 5.17
+        },
+        {
+          "raw": "and",
+          "start": 5.17,
+          "end": 5.41
+        },
+        {
+          "raw": "make",
+          "start": 5.41,
+          "end": 5.59
+        },
+        {
+          "raw": "me",
+          "start": 5.59,
+          "end": 5.77
+        },
+        {
+          "raw": "remember",
+          "start": 5.77,
+          "end": 6.21
+        },
+        {
+          "raw": "I'll",
+          "start": 6.21,
+          "end": 6.57
+        },
+        {
+          "raw": "I'll",
+          "start": 6.57,
+          "end": 6.69
+        },
+        {
+          "raw": "give",
+          "start": 6.69,
+          "end": 6.75
+        },
+        {
+          "raw": "you",
+          "start": 6.75,
+          "end": 6.91
+        },
+        {
+          "raw": "anything.",
+          "start": 6.91,
+          "end": 7.27
+        }
+      ],
+      "expected_tokens": [
+        "\"Sara,\"",
+        "said",
+        "Ermengarde,",
+        "hope",
+        "gleaming",
+        "in",
+        "her",
+        "round",
+        "face,",
+        "\"if",
+        "you'll",
+        "do",
+        "that,",
+        "and",
+        "make",
+        "me",
+        "remember,",
+        "I'll--I'll",
+        "give",
+        "you",
+        "anything.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          21,
+          3,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sarah,",
+          "start": 0.11,
+          "end": 0.83,
+          "key": "sarah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ermengard,",
+          "start": 1.33,
+          "end": 1.89,
+          "key": "ermengard",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 2.31,
+          "end": 2.49,
+          "key": "hope",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gleaming",
+          "start": 2.49,
+          "end": 2.95,
+          "key": "gleaming",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.95,
+          "end": 3.07,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.07,
+          "end": 3.21,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 3.21,
+          "end": 3.47,
+          "key": "round",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "face,",
+          "start": 3.47,
+          "end": 3.79,
+          "key": "face",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 4.41,
+          "end": 4.57,
+          "key": "if",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you'll",
+          "start": 4.57,
+          "end": 4.75,
+          "key": "youll",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 4.75,
+          "end": 4.89,
+          "key": "do",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.89,
+          "end": 5.17,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.17,
+          "end": 5.41,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 5.41,
+          "end": 5.59,
+          "key": "make",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.59,
+          "end": 5.77,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 5.77,
+          "end": 6.21,
+          "key": "remember",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I'll I'll",
+          "start": 6.21,
+          "end": 6.69,
+          "key": "illill",
+          "pieces": [
+            17,
+            18
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 6.69,
+          "end": 6.75,
+          "key": "give",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.75,
+          "end": 6.91,
+          "key": "you",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "anything.",
+          "start": 6.91,
+          "end": 7.27,
+          "key": "anything",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 17,
+          "text": "I'll--I'll",
+          "heard": "I'll I'll",
+          "heard_indexes": [
+            17,
+            18
+          ],
+          "start": 6.21,
+          "end": 6.69
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Sara,\"",
+          "start": 0.0,
+          "end": 0.605
+        },
+        {
+          "text": "said",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "Ermengarde,",
+          "start": 1.33,
+          "end": 1.82
+        },
+        {
+          "text": "hope",
+          "start": 2.31,
+          "end": 2.49
+        },
+        {
+          "text": "gleaming",
+          "start": 2.49,
+          "end": 2.95
+        },
+        {
+          "text": "in",
+          "start": 2.95,
+          "end": 3.07
+        },
+        {
+          "text": "her",
+          "start": 3.07,
+          "end": 3.21
+        },
+        {
+          "text": "round",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "text": "face,",
+          "start": 3.47,
+          "end": 3.79
+        },
+        {
+          "text": "\"if",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "text": "you'll",
+          "start": 4.57,
+          "end": 4.75
+        },
+        {
+          "text": "do",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "text": "that,",
+          "start": 4.89,
+          "end": 5.17
+        },
+        {
+          "text": "and",
+          "start": 5.17,
+          "end": 5.41
+        },
+        {
+          "text": "make",
+          "start": 5.41,
+          "end": 5.59
+        },
+        {
+          "text": "me",
+          "start": 5.59,
+          "end": 5.77
+        },
+        {
+          "text": "remember,",
+          "start": 5.77,
+          "end": 6.21
+        },
+        {
+          "text": "I'll--I'll",
+          "start": 6.21,
+          "end": 6.69
+        },
+        {
+          "text": "give",
+          "start": 6.69,
+          "end": 6.75
+        },
+        {
+          "text": "you",
+          "start": 6.75,
+          "end": 6.91
+        },
+        {
+          "text": "anything.\"",
+          "start": 6.91,
+          "end": 7.27
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.9047619047619048,
+      "rejection_reasons": [],
+      "seconds": 0.3551240377128124
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "91eb2a8da0145b11ebeee9eaa04c97bc6d1783be27f2fd4c377c89db1217435a",
+  "selected_reasons": []
+}

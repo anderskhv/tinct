@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "96a6c01a68793f1b33d29edc7a3dab3f374df09e2930dc3d0074f28eccfc9af7",
+  "attempts": [
+    {
+      "asr_seconds": 0.3686046227812767,
+      "alignment_seconds": 0.0007131770253181458,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The Late Captain Crewe!\" she cried out. \"The Late! You don't come to tell me that Captain Crewe is--\"",
+        "hotwords": "The, Late, Captain, Crewe, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Late Captain Crewe, she cried out. The Late! You don't come to tell me that Captain Crewe is...",
+          "start": 0.02,
+          "end": 6.2,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.25341796875
+            },
+            {
+              "text": " Late",
+              "start": 0.52,
+              "end": 0.72,
+              "probability": 0.1253662109375
+            },
+            {
+              "text": " Captain",
+              "start": 0.72,
+              "end": 1.14,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " Crewe,",
+              "start": 1.14,
+              "end": 1.64,
+              "probability": 0.49505615234375
+            },
+            {
+              "text": " she",
+              "start": 1.8,
+              "end": 1.98,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " cried",
+              "start": 1.98,
+              "end": 2.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " out.",
+              "start": 2.18,
+              "end": 2.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " The",
+              "start": 3.0,
+              "end": 3.12,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Late!",
+              "start": 3.12,
+              "end": 3.38,
+              "probability": 0.8671875
+            },
+            {
+              "text": " You",
+              "start": 3.74,
+              "end": 3.8,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " don't",
+              "start": 3.8,
+              "end": 3.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " come",
+              "start": 3.96,
+              "end": 4.08,
+              "probability": 0.990234375
+            },
+            {
+              "text": " to",
+              "start": 4.08,
+              "end": 4.22,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " tell",
+              "start": 4.22,
+              "end": 4.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me",
+              "start": 4.38,
+              "end": 4.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 4.5,
+              "end": 4.66,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Captain",
+              "start": 4.66,
+              "end": 4.98,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Crewe",
+              "start": 4.98,
+              "end": 5.32,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " is...",
+              "start": 5.32,
+              "end": 6.2,
+              "probability": 0.5244293212890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "Late",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "raw": "Captain",
+          "start": 0.72,
+          "end": 1.14
+        },
+        {
+          "raw": "Crewe,",
+          "start": 1.14,
+          "end": 1.64
+        },
+        {
+          "raw": "she",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "raw": "cried",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "raw": "out.",
+          "start": 2.18,
+          "end": 2.48
+        },
+        {
+          "raw": "The",
+          "start": 3.0,
+          "end": 3.12
+        },
+        {
+          "raw": "Late!",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "raw": "You",
+          "start": 3.74,
+          "end": 3.8
+        },
+        {
+          "raw": "don't",
+          "start": 3.8,
+          "end": 3.96
+        },
+        {
+          "raw": "come",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "raw": "to",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "raw": "tell",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "raw": "me",
+          "start": 4.38,
+          "end": 4.5
+        },
+        {
+          "raw": "that",
+          "start": 4.5,
+          "end": 4.66
+        },
+        {
+          "raw": "Captain",
+          "start": 4.66,
+          "end": 4.98
+        },
+        {
+          "raw": "Crewe",
+          "start": 4.98,
+          "end": 5.32
+        },
+        {
+          "raw": "is...",
+          "start": 5.32,
+          "end": 6.2
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "Late",
+        "Captain",
+        "Crewe!\"",
+        "she",
+        "cried",
+        "out.",
+        "\"The",
+        "Late!",
+        "You",
+        "don't",
+        "come",
+        "to",
+        "tell",
+        "me",
+        "that",
+        "Captain",
+        "Crewe",
+        "is--\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Late",
+          "start": 0.52,
+          "end": 0.72,
+          "key": "late",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Captain",
+          "start": 0.72,
+          "end": 1.14,
+          "key": "captain",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Crewe,",
+          "start": 1.14,
+          "end": 1.64,
+          "key": "crewe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.8,
+          "end": 1.98,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.98,
+          "end": 2.18,
+          "key": "cried",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 2.18,
+          "end": 2.48,
+          "key": "out",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.0,
+          "end": 3.12,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Late!",
+          "start": 3.12,
+          "end": 3.38,
+          "key": "late",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.74,
+          "end": 3.8,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 3.8,
+          "end": 3.96,
+          "key": "dont",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 3.96,
+          "end": 4.08,
+          "key": "come",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.08,
+          "end": 4.22,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 4.22,
+          "end": 4.38,
+          "key": "tell",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.38,
+          "end": 4.5,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.5,
+          "end": 4.66,
+          "key": "that",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Captain",
+          "start": 4.66,
+          "end": 4.98,
+          "key": "captain",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Crewe",
+          "start": 4.98,
+          "end": 5.32,
+          "key": "crewe",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "is...",
+          "start": 5.32,
+          "end": 6.2,
+          "key": "is",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "Late",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "text": "Captain",
+          "start": 0.72,
+          "end": 1.14
+        },
+        {
+          "text": "Crewe!\"",
+          "start": 1.14,
+          "end": 1.64
+        },
+        {
+          "text": "she",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "text": "cried",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "text": "out.",
+          "start": 2.18,
+          "end": 2.48
+        },
+        {
+          "text": "\"The",
+          "start": 3.0,
+          "end": 3.12
+        },
+        {
+          "text": "Late!",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "text": "You",
+          "start": 3.74,
+          "end": 3.8
+        },
+        {
+          "text": "don't",
+          "start": 3.8,
+          "end": 3.96
+        },
+        {
+          "text": "come",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "text": "to",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "text": "tell",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "text": "me",
+          "start": 4.38,
+          "end": 4.5
+        },
+        {
+          "text": "that",
+          "start": 4.5,
+          "end": 4.66
+        },
+        {
+          "text": "Captain",
+          "start": 4.66,
+          "end": 4.98
+        },
+        {
+          "text": "Crewe",
+          "start": 4.98,
+          "end": 5.32
+        },
+        {
+          "text": "is--\"",
+          "start": 5.32,
+          "end": 6.2
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.369595255702734
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "708d0717b3f6467f6178cfbba62634dc9b278fa08a48455958d335727258e9f6",
+  "selected_reasons": []
+}

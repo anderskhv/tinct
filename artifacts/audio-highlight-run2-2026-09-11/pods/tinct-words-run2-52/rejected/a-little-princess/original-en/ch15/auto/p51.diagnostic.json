@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "cf77e98e0676b9ad836ec1f99f236cd5f5f8fbd963639467f547941ad03eb85f",
+  "attempts": [
+    {
+      "asr_seconds": 0.15234815329313278,
+      "alignment_seconds": 0.0002908371388912201,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"That what?\" Ermengarde asked.",
+        "hotwords": "That, Ermengarde"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That what? Ermengarde asked.",
+          "start": 0.02,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.2352294921875
+            },
+            {
+              "text": " what?",
+              "start": 0.6,
+              "end": 0.94,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Ermengarde",
+              "start": 1.36,
+              "end": 1.74,
+              "probability": 0.49468994140625
+            },
+            {
+              "text": " asked.",
+              "start": 1.74,
+              "end": 2.14,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "what?",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "raw": "Ermengarde",
+          "start": 1.36,
+          "end": 1.74
+        },
+        {
+          "raw": "asked.",
+          "start": 1.74,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "\"That",
+        "what?\"",
+        "Ermengarde",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what?",
+          "start": 0.6,
+          "end": 0.94,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ermengarde",
+          "start": 1.36,
+          "end": 1.74,
+          "key": "ermengarde",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 1.74,
+          "end": 2.14,
+          "key": "asked",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "what?\"",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "text": "Ermengarde",
+          "start": 1.36,
+          "end": 1.74
+        },
+        {
+          "text": "asked.",
+          "start": 1.74,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15273818001151085
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "15ffc89a10ab46597de413b41e3884b2979439d8feaf0e010b71cac7c4689ef5",
+  "selected_reasons": []
+}

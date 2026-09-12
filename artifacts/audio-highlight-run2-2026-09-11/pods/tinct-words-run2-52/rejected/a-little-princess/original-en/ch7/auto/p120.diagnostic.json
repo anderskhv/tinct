@@ -1,0 +1,389 @@
+{
+  "complete": true,
+  "signature": "d5720c22171b4c2c348dad68f86476498f40d18612c7db2ebd7fe2c49a8670e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.24984882399439812,
+      "alignment_seconds": 0.0005449838936328888,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"A black frock?\" Miss Amelia stammered again. \"A Black one?\"",
+        "hotwords": "A, Miss, Amelia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A black frock?\" Miss Amelia stammered again.",
+          "start": 0.05,
+          "end": 2.79,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " black",
+              "start": 0.49,
+              "end": 0.75,
+              "probability": 0.69287109375
+            },
+            {
+              "text": " frock?\"",
+              "start": 0.75,
+              "end": 1.63,
+              "probability": 0.5296555558840433
+            },
+            {
+              "text": " Miss",
+              "start": 1.63,
+              "end": 1.69,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " Amelia",
+              "start": 1.69,
+              "end": 2.05,
+              "probability": 0.5283203125
+            },
+            {
+              "text": " stammered",
+              "start": 2.05,
+              "end": 2.53,
+              "probability": 0.9910481770833334
+            },
+            {
+              "text": " again.",
+              "start": 2.53,
+              "end": 2.79,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " A black one?",
+          "start": 2.79,
+          "end": 3.89,
+          "words": [
+            {
+              "text": " A",
+              "start": 2.79,
+              "end": 3.35,
+              "probability": 0.212158203125
+            },
+            {
+              "text": " black",
+              "start": 3.35,
+              "end": 3.59,
+              "probability": 0.419189453125
+            },
+            {
+              "text": " one?",
+              "start": 3.59,
+              "end": 3.89,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "black",
+          "start": 0.49,
+          "end": 0.75
+        },
+        {
+          "raw": "frock?\"",
+          "start": 0.75,
+          "end": 1.63
+        },
+        {
+          "raw": "Miss",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "raw": "Amelia",
+          "start": 1.69,
+          "end": 2.05
+        },
+        {
+          "raw": "stammered",
+          "start": 2.05,
+          "end": 2.53
+        },
+        {
+          "raw": "again.",
+          "start": 2.53,
+          "end": 2.79
+        },
+        {
+          "raw": "A",
+          "start": 2.79,
+          "end": 3.35
+        },
+        {
+          "raw": "black",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "raw": "one?",
+          "start": 3.59,
+          "end": 3.89
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "black",
+        "frock?\"",
+        "Miss",
+        "Amelia",
+        "stammered",
+        "again.",
+        "\"A",
+        "Black",
+        "one?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "black",
+          "start": 0.49,
+          "end": 0.75,
+          "key": "black",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "frock?\"",
+          "start": 0.75,
+          "end": 1.63,
+          "key": "frock",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.63,
+          "end": 1.69,
+          "key": "miss",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Amelia",
+          "start": 1.69,
+          "end": 2.05,
+          "key": "amelia",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "stammered",
+          "start": 2.05,
+          "end": 2.53,
+          "key": "stammered",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 2.53,
+          "end": 2.79,
+          "key": "again",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 2.79,
+          "end": 3.35,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "black",
+          "start": 3.35,
+          "end": 3.59,
+          "key": "black",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "one?",
+          "start": 3.59,
+          "end": 3.89,
+          "key": "one",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "black",
+          "start": 0.49,
+          "end": 0.75
+        },
+        {
+          "text": "frock?\"",
+          "start": 0.75,
+          "end": 1.63
+        },
+        {
+          "text": "Miss",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "text": "Amelia",
+          "start": 1.69,
+          "end": 2.05
+        },
+        {
+          "text": "stammered",
+          "start": 2.05,
+          "end": 2.53
+        },
+        {
+          "text": "again.",
+          "start": 2.53,
+          "end": 2.79
+        },
+        {
+          "text": "\"A",
+          "start": 2.79,
+          "end": 3.35
+        },
+        {
+          "text": "Black",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "text": "one?\"",
+          "start": 3.59,
+          "end": 3.89
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25058677420020103
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b0ec3b84534ca91ef3bf991fcd84147fccdb6452c2e77b958285a9c30a44260f",
+  "selected_reasons": []
+}

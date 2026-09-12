@@ -1,0 +1,636 @@
+{
+  "complete": true,
+  "signature": "79bdf28f8f61f1405f7f144c22664ae9e3938333130d17bfd5524a448974be26",
+  "attempts": [
+    {
+      "asr_seconds": 0.23235535621643066,
+      "alignment_seconds": 0.00036143139004707336,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She went up the stairs slowly but panting for breath and she held Emily tightly against her side",
+          "start": 0.0,
+          "end": 5.9,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " went",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " up",
+              "start": 0.62,
+              "end": 0.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 0.74,
+              "end": 0.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " stairs",
+              "start": 0.88,
+              "end": 1.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " slowly",
+              "start": 1.14,
+              "end": 1.68,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " but",
+              "start": 1.68,
+              "end": 2.34,
+              "probability": 0.35302734375
+            },
+            {
+              "text": " panting",
+              "start": 2.34,
+              "end": 2.82,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " for",
+              "start": 2.82,
+              "end": 3.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " breath",
+              "start": 3.0,
+              "end": 3.32,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 3.32,
+              "end": 3.76,
+              "probability": 0.828125
+            },
+            {
+              "text": " she",
+              "start": 3.76,
+              "end": 3.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " held",
+              "start": 3.9,
+              "end": 4.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Emily",
+              "start": 4.16,
+              "end": 4.5,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " tightly",
+              "start": 4.5,
+              "end": 4.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " against",
+              "start": 4.96,
+              "end": 5.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 5.32,
+              "end": 5.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " side",
+              "start": 5.58,
+              "end": 5.9,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "went",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "up",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "raw": "the",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "raw": "stairs",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "raw": "slowly",
+          "start": 1.14,
+          "end": 1.68
+        },
+        {
+          "raw": "but",
+          "start": 1.68,
+          "end": 2.34
+        },
+        {
+          "raw": "panting",
+          "start": 2.34,
+          "end": 2.82
+        },
+        {
+          "raw": "for",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "raw": "breath",
+          "start": 3.0,
+          "end": 3.32
+        },
+        {
+          "raw": "and",
+          "start": 3.32,
+          "end": 3.76
+        },
+        {
+          "raw": "she",
+          "start": 3.76,
+          "end": 3.9
+        },
+        {
+          "raw": "held",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "raw": "Emily",
+          "start": 4.16,
+          "end": 4.5
+        },
+        {
+          "raw": "tightly",
+          "start": 4.5,
+          "end": 4.96
+        },
+        {
+          "raw": "against",
+          "start": 4.96,
+          "end": 5.32
+        },
+        {
+          "raw": "her",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "raw": "side",
+          "start": 5.58,
+          "end": 5.9
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "went",
+        "up",
+        "the",
+        "stairs",
+        "slowly,",
+        "but",
+        "panting",
+        "for",
+        "breath",
+        "and",
+        "she",
+        "held",
+        "Emily",
+        "tightly",
+        "against",
+        "her",
+        "side."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "went",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 0.62,
+          "end": 0.74,
+          "key": "up",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.74,
+          "end": 0.88,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stairs",
+          "start": 0.88,
+          "end": 1.14,
+          "key": "stairs",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "slowly",
+          "start": 1.14,
+          "end": 1.68,
+          "key": "slowly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.68,
+          "end": 2.34,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "panting",
+          "start": 2.34,
+          "end": 2.82,
+          "key": "panting",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.82,
+          "end": 3.0,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "breath",
+          "start": 3.0,
+          "end": 3.32,
+          "key": "breath",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.32,
+          "end": 3.76,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.76,
+          "end": 3.9,
+          "key": "she",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "held",
+          "start": 3.9,
+          "end": 4.16,
+          "key": "held",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Emily",
+          "start": 4.16,
+          "end": 4.5,
+          "key": "emily",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "tightly",
+          "start": 4.5,
+          "end": 4.96,
+          "key": "tightly",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 4.96,
+          "end": 5.32,
+          "key": "against",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 5.32,
+          "end": 5.58,
+          "key": "her",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 5.58,
+          "end": 5.9,
+          "key": "side",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "went",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "up",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "text": "the",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "text": "stairs",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "text": "slowly,",
+          "start": 1.14,
+          "end": 1.68
+        },
+        {
+          "text": "but",
+          "start": 1.68,
+          "end": 2.34
+        },
+        {
+          "text": "panting",
+          "start": 2.34,
+          "end": 2.82
+        },
+        {
+          "text": "for",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "text": "breath",
+          "start": 3.0,
+          "end": 3.32
+        },
+        {
+          "text": "and",
+          "start": 3.32,
+          "end": 3.76
+        },
+        {
+          "text": "she",
+          "start": 3.76,
+          "end": 3.9
+        },
+        {
+          "text": "held",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "text": "Emily",
+          "start": 4.16,
+          "end": 4.5
+        },
+        {
+          "text": "tightly",
+          "start": 4.5,
+          "end": 4.96
+        },
+        {
+          "text": "against",
+          "start": 4.96,
+          "end": 5.32
+        },
+        {
+          "text": "her",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "text": "side.",
+          "start": 5.58,
+          "end": 5.9
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23285618051886559
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5fb9f5e8a4c5872e9e84cc1d21cbd9ef146db618c766284d468ed53994ec7cac",
+  "selected_reasons": []
+}

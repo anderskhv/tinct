@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "bd1e6ac6e1f9cacc35fa3652d10d892aae6b5c944cdf0e29e7c8015479b45a49",
+  "attempts": [
+    {
+      "asr_seconds": 0.1666005291044712,
+      "alignment_seconds": 0.0002656988799571991,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leave the room, ordered mis-mention.",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Leave",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.311279296875
+            },
+            {
+              "text": " the",
+              "start": 0.65,
+              "end": 0.81,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " room,",
+              "start": 0.81,
+              "end": 1.11,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " ordered",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " mis",
+              "start": 1.73,
+              "end": 1.93,
+              "probability": 0.634765625
+            },
+            {
+              "text": "-mention.",
+              "start": 1.93,
+              "end": 2.37,
+              "probability": 0.71923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leave",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "the",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "raw": "room,",
+          "start": 0.81,
+          "end": 1.11
+        },
+        {
+          "raw": "ordered",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "mis",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "raw": "-mention.",
+          "start": 1.93,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "\"Leave",
+        "the",
+        "room!\"",
+        "ordered",
+        "Miss",
+        "Minchin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leave",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "leave",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.65,
+          "end": 0.81,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "room,",
+          "start": 0.81,
+          "end": 1.11,
+          "key": "room",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ordered",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "ordered",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mis",
+          "start": 1.73,
+          "end": 1.93,
+          "key": "mis",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "-mention.",
+          "start": 1.93,
+          "end": 2.37,
+          "key": "mention",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Leave",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "the",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "text": "room!\"",
+          "start": 0.81,
+          "end": 1.11
+        },
+        {
+          "text": "ordered",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "Miss",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "text": "Minchin.",
+          "start": 2.05,
+          "end": 2.21
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16696569323539734
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d5c7e6e0c891c330c545dbea9939e82d036be38f2d0fcf0613962e512391f91e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

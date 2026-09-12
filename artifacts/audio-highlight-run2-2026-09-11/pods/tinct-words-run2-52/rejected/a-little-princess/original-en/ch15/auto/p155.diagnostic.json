@@ -1,0 +1,549 @@
+{
+  "complete": true,
+  "signature": "8544c3492e1fb5607354ff13fa502537da580278b0c6c51c9c34b7497a08133c",
+  "attempts": [
+    {
+      "asr_seconds": 0.31301888078451157,
+      "alignment_seconds": 0.0006479434669017792,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You must pretend it,\" said Sara. \"If you pretend it enough, you will see them.\"",
+        "hotwords": "Sara, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You must pretend it,\" said Sara.",
+          "start": 0.02,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.2342529296875
+            },
+            {
+              "text": " must",
+              "start": 0.54,
+              "end": 0.74,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " pretend",
+              "start": 0.74,
+              "end": 1.2,
+              "probability": 0.990234375
+            },
+            {
+              "text": " it,\"",
+              "start": 1.2,
+              "end": 1.6,
+              "probability": 0.6201171875
+            },
+            {
+              "text": " said",
+              "start": 1.6,
+              "end": 1.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Sara.",
+              "start": 1.92,
+              "end": 2.22,
+              "probability": 0.136962890625
+            }
+          ]
+        },
+        {
+          "text": " If you pretend it enough, you will see them.",
+          "start": 2.74,
+          "end": 4.54,
+          "words": [
+            {
+              "text": " If",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.0178985595703125
+            },
+            {
+              "text": " you",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pretend",
+              "start": 3.02,
+              "end": 3.34,
+              "probability": 0.939453125
+            },
+            {
+              "text": " it",
+              "start": 3.34,
+              "end": 3.5,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " enough,",
+              "start": 3.5,
+              "end": 3.72,
+              "probability": 1.0
+            },
+            {
+              "text": " you",
+              "start": 3.9,
+              "end": 3.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " will",
+              "start": 3.96,
+              "end": 4.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " see",
+              "start": 4.1,
+              "end": 4.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them.",
+              "start": 4.3,
+              "end": 4.54,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "must",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "raw": "pretend",
+          "start": 0.74,
+          "end": 1.2
+        },
+        {
+          "raw": "it,\"",
+          "start": 1.2,
+          "end": 1.6
+        },
+        {
+          "raw": "said",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "raw": "Sara.",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "raw": "If",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "you",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "pretend",
+          "start": 3.02,
+          "end": 3.34
+        },
+        {
+          "raw": "it",
+          "start": 3.34,
+          "end": 3.5
+        },
+        {
+          "raw": "enough,",
+          "start": 3.5,
+          "end": 3.72
+        },
+        {
+          "raw": "you",
+          "start": 3.9,
+          "end": 3.96
+        },
+        {
+          "raw": "will",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "raw": "see",
+          "start": 4.1,
+          "end": 4.3
+        },
+        {
+          "raw": "them.",
+          "start": 4.3,
+          "end": 4.54
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "must",
+        "pretend",
+        "it,\"",
+        "said",
+        "Sara.",
+        "\"If",
+        "you",
+        "pretend",
+        "it",
+        "enough,",
+        "you",
+        "will",
+        "see",
+        "them.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 0.54,
+          "end": 0.74,
+          "key": "must",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pretend",
+          "start": 0.74,
+          "end": 1.2,
+          "key": "pretend",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it,\"",
+          "start": 1.2,
+          "end": 1.6,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.6,
+          "end": 1.92,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sara.",
+          "start": 1.92,
+          "end": 2.22,
+          "key": "sara",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 2.74,
+          "end": 2.9,
+          "key": "if",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pretend",
+          "start": 3.02,
+          "end": 3.34,
+          "key": "pretend",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.34,
+          "end": 3.5,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "enough,",
+          "start": 3.5,
+          "end": 3.72,
+          "key": "enough",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.9,
+          "end": 3.96,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.96,
+          "end": 4.1,
+          "key": "will",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 4.1,
+          "end": 4.3,
+          "key": "see",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 4.3,
+          "end": 4.54,
+          "key": "them",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "must",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "text": "pretend",
+          "start": 0.74,
+          "end": 1.2
+        },
+        {
+          "text": "it,\"",
+          "start": 1.2,
+          "end": 1.6
+        },
+        {
+          "text": "said",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "text": "Sara.",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "text": "\"If",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "text": "you",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "pretend",
+          "start": 3.02,
+          "end": 3.34
+        },
+        {
+          "text": "it",
+          "start": 3.34,
+          "end": 3.5
+        },
+        {
+          "text": "enough,",
+          "start": 3.5,
+          "end": 3.72
+        },
+        {
+          "text": "you",
+          "start": 3.9,
+          "end": 3.96
+        },
+        {
+          "text": "will",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "text": "see",
+          "start": 4.1,
+          "end": 4.3
+        },
+        {
+          "text": "them.\"",
+          "start": 4.3,
+          "end": 4.54
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3139237239956856
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a8cdb4d2660e78f424e1f116ed8ad0e18f44a2b0b3520abdb9ddc4e426a4529f",
+  "selected_reasons": []
+}

@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "e822162dd6dc0678483c2c29340ce72d3ff6e6569de3d450216b943ef2edc062",
+  "attempts": [
+    {
+      "asr_seconds": 0.20889899507164955,
+      "alignment_seconds": 0.00039182230830192566,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Go and stand there. She commanded not to near the young ladies",
+          "start": 0.05,
+          "end": 4.01,
+          "words": [
+            {
+              "text": " Go",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.08404541015625
+            },
+            {
+              "text": " and",
+              "start": 0.57,
+              "end": 0.69,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " stand",
+              "start": 0.69,
+              "end": 0.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " there.",
+              "start": 0.97,
+              "end": 1.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " She",
+              "start": 1.53,
+              "end": 1.71,
+              "probability": 0.94921875
+            },
+            {
+              "text": " commanded",
+              "start": 1.71,
+              "end": 2.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 2.13,
+              "end": 2.89,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " to",
+              "start": 2.89,
+              "end": 3.11,
+              "probability": 0.75830078125
+            },
+            {
+              "text": " near",
+              "start": 3.11,
+              "end": 3.31,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 3.31,
+              "end": 3.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " young",
+              "start": 3.47,
+              "end": 3.65,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " ladies",
+              "start": 3.65,
+              "end": 4.01,
+              "probability": 0.9619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Go",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "and",
+          "start": 0.57,
+          "end": 0.69
+        },
+        {
+          "raw": "stand",
+          "start": 0.69,
+          "end": 0.97
+        },
+        {
+          "raw": "there.",
+          "start": 0.97,
+          "end": 1.39
+        },
+        {
+          "raw": "She",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "raw": "commanded",
+          "start": 1.71,
+          "end": 2.13
+        },
+        {
+          "raw": "not",
+          "start": 2.13,
+          "end": 2.89
+        },
+        {
+          "raw": "to",
+          "start": 2.89,
+          "end": 3.11
+        },
+        {
+          "raw": "near",
+          "start": 3.11,
+          "end": 3.31
+        },
+        {
+          "raw": "the",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "raw": "young",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "raw": "ladies",
+          "start": 3.65,
+          "end": 4.01
+        }
+      ],
+      "expected_tokens": [
+        "\"Go",
+        "and",
+        "stand",
+        "there,\"",
+        "she",
+        "commanded.",
+        "\"Not",
+        "too",
+        "near",
+        "the",
+        "young",
+        "ladies.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          12,
+          8,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Go",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "go",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.57,
+          "end": 0.69,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 0.69,
+          "end": 0.97,
+          "key": "stand",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 0.97,
+          "end": 1.39,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 1.53,
+          "end": 1.71,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "commanded",
+          "start": 1.71,
+          "end": 2.13,
+          "key": "commanded",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.13,
+          "end": 2.89,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.89,
+          "end": 3.11,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 3.11,
+          "end": 3.31,
+          "key": "near",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.31,
+          "end": 3.47,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 3.47,
+          "end": 3.65,
+          "key": "young",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ladies",
+          "start": 3.65,
+          "end": 4.01,
+          "key": "ladies",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Go",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "and",
+          "start": 0.57,
+          "end": 0.69
+        },
+        {
+          "text": "stand",
+          "start": 0.69,
+          "end": 0.97
+        },
+        {
+          "text": "there,\"",
+          "start": 0.97,
+          "end": 1.39
+        },
+        {
+          "text": "she",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "text": "commanded.",
+          "start": 1.71,
+          "end": 2.13
+        },
+        {
+          "text": "\"Not",
+          "start": 2.13,
+          "end": 2.89
+        },
+        {
+          "text": "too",
+          "start": 2.89,
+          "end": 3.0
+        },
+        {
+          "text": "near",
+          "start": 3.11,
+          "end": 3.31
+        },
+        {
+          "text": "the",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "text": "young",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "text": "ladies.\"",
+          "start": 3.65,
+          "end": 4.01
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.20942790806293488
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b25e698bbcbadd99c0f13fb43b37c6461a108814476db64178583b4b564afdb3",
+  "selected_reasons": []
+}

@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "9903d477ed3d7f40e89ee02479ca5f9ce1e12131c88842207f8e6f3e4ed5c711",
+  "attempts": [
+    {
+      "asr_seconds": 0.1347348466515541,
+      "alignment_seconds": 0.00036963075399398804,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why didn't you stay all night she snapped",
+          "start": 0.02,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.234375
+            },
+            {
+              "text": " didn't",
+              "start": 0.52,
+              "end": 0.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 0.72,
+              "end": 0.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " stay",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " all",
+              "start": 1.04,
+              "end": 1.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " night",
+              "start": 1.22,
+              "end": 1.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " she",
+              "start": 1.54,
+              "end": 2.02,
+              "probability": 0.14794921875
+            },
+            {
+              "text": " snapped",
+              "start": 2.02,
+              "end": 2.36,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "didn't",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "raw": "you",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "raw": "stay",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "all",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "raw": "night",
+          "start": 1.22,
+          "end": 1.54
+        },
+        {
+          "raw": "she",
+          "start": 1.54,
+          "end": 2.02
+        },
+        {
+          "raw": "snapped",
+          "start": 2.02,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "\"Why",
+        "didn't",
+        "you",
+        "stay",
+        "all",
+        "night?\"",
+        "she",
+        "snapped."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 0.52,
+          "end": 0.72,
+          "key": "didnt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.72,
+          "end": 0.84,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "stay",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.04,
+          "end": 1.22,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 1.22,
+          "end": 1.54,
+          "key": "night",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.54,
+          "end": 2.02,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "snapped",
+          "start": 2.02,
+          "end": 2.36,
+          "key": "snapped",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "didn't",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "text": "you",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "text": "stay",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "all",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "text": "night?\"",
+          "start": 1.22,
+          "end": 1.54
+        },
+        {
+          "text": "she",
+          "start": 1.54,
+          "end": 2.02
+        },
+        {
+          "text": "snapped.",
+          "start": 2.02,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13525015488266945
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5385e1e27a1ae86ff0c2b5014a7921e19c48c91371061d48e32fb8b6017791e0",
+  "selected_reasons": []
+}

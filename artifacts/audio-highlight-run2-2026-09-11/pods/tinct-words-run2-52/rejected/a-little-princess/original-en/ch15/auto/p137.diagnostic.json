@@ -1,0 +1,549 @@
+{
+  "complete": true,
+  "signature": "74e124f6c3f5f6b87eddbfd3af134e941d25940dc692cd2f0fb034198c779db1",
+  "attempts": [
+    {
+      "asr_seconds": 0.32765791937708855,
+      "alignment_seconds": 0.0006721951067447662,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Set the table, miss?\" said Becky, gazing round the room. \"What'll we set it with?\"",
+        "hotwords": "Becky, What'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Set the table, miss,\" said Becky, gazing round the room.",
+          "start": 0.08,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Set",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.14697265625
+            },
+            {
+              "text": " the",
+              "start": 0.56,
+              "end": 0.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " table,",
+              "start": 0.7,
+              "end": 1.02,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " miss,\"",
+              "start": 1.12,
+              "end": 1.74,
+              "probability": 0.40460205078125
+            },
+            {
+              "text": " said",
+              "start": 1.74,
+              "end": 1.86,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Becky,",
+              "start": 1.86,
+              "end": 2.2,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " gazing",
+              "start": 2.32,
+              "end": 2.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " round",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " the",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " room.",
+              "start": 3.1,
+              "end": 3.34,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " What'll we set it with?",
+          "start": 3.78,
+          "end": 4.72,
+          "words": [
+            {
+              "text": " What'll",
+              "start": 3.78,
+              "end": 4.14,
+              "probability": 0.390350341796875
+            },
+            {
+              "text": " we",
+              "start": 4.14,
+              "end": 4.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " set",
+              "start": 4.24,
+              "end": 4.44,
+              "probability": 0.93359375
+            },
+            {
+              "text": " it",
+              "start": 4.44,
+              "end": 4.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with?",
+              "start": 4.56,
+              "end": 4.72,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Set",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "the",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "raw": "table,",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "raw": "miss,\"",
+          "start": 1.12,
+          "end": 1.74
+        },
+        {
+          "raw": "said",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "raw": "Becky,",
+          "start": 1.86,
+          "end": 2.2
+        },
+        {
+          "raw": "gazing",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "raw": "round",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "room.",
+          "start": 3.1,
+          "end": 3.34
+        },
+        {
+          "raw": "What'll",
+          "start": 3.78,
+          "end": 4.14
+        },
+        {
+          "raw": "we",
+          "start": 4.14,
+          "end": 4.24
+        },
+        {
+          "raw": "set",
+          "start": 4.24,
+          "end": 4.44
+        },
+        {
+          "raw": "it",
+          "start": 4.44,
+          "end": 4.56
+        },
+        {
+          "raw": "with?",
+          "start": 4.56,
+          "end": 4.72
+        }
+      ],
+      "expected_tokens": [
+        "\"Set",
+        "the",
+        "table,",
+        "miss?\"",
+        "said",
+        "Becky,",
+        "gazing",
+        "round",
+        "the",
+        "room.",
+        "\"What'll",
+        "we",
+        "set",
+        "it",
+        "with?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Set",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "set",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.56,
+          "end": 0.7,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "table,",
+          "start": 0.7,
+          "end": 1.02,
+          "key": "table",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "miss,\"",
+          "start": 1.12,
+          "end": 1.74,
+          "key": "miss",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.74,
+          "end": 1.86,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Becky,",
+          "start": 1.86,
+          "end": 2.2,
+          "key": "becky",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gazing",
+          "start": 2.32,
+          "end": 2.64,
+          "key": "gazing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 2.64,
+          "end": 2.96,
+          "key": "round",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.1,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "room.",
+          "start": 3.1,
+          "end": 3.34,
+          "key": "room",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "What'll",
+          "start": 3.78,
+          "end": 4.14,
+          "key": "whatll",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.14,
+          "end": 4.24,
+          "key": "we",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 4.24,
+          "end": 4.44,
+          "key": "set",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.44,
+          "end": 4.56,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with?",
+          "start": 4.56,
+          "end": 4.72,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Set",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "the",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "text": "table,",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "text": "miss?\"",
+          "start": 1.12,
+          "end": 1.74
+        },
+        {
+          "text": "said",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "text": "Becky,",
+          "start": 1.86,
+          "end": 2.2
+        },
+        {
+          "text": "gazing",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "text": "round",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "the",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "room.",
+          "start": 3.1,
+          "end": 3.34
+        },
+        {
+          "text": "\"What'll",
+          "start": 3.78,
+          "end": 4.14
+        },
+        {
+          "text": "we",
+          "start": 4.14,
+          "end": 4.24
+        },
+        {
+          "text": "set",
+          "start": 4.24,
+          "end": 4.44
+        },
+        {
+          "text": "it",
+          "start": 4.44,
+          "end": 4.56
+        },
+        {
+          "text": "with?\"",
+          "start": 4.56,
+          "end": 4.72
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32859401032328606
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e8db9120bb8b7871512f61fc9d7131aa2737fd21c5406ff7b4293fe1ad76cfa4",
+  "selected_reasons": []
+}

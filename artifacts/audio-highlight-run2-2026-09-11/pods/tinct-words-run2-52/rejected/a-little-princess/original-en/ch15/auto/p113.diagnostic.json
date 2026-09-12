@@ -1,0 +1,1484 @@
+{
+  "complete": true,
+  "signature": "a6362ca2170bc63d166ffc503dc1e8d20429b20674519f46a995172806900bad",
+  "attempts": [
+    {
+      "asr_seconds": 0.315962802618742,
+      "alignment_seconds": 0.0005030445754528046,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sara almost reeled. When one is faint with hunger the mention of food has sometimes a curious effect. She clutched Ermengarde's arm.",
+        "hotwords": "Sara, When, She, Ermengarde's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " When one is faint with hunger the mention of food has sometimes a curious effect. She clutched Ermengarde's arm.",
+          "start": 1.18,
+          "end": 7.96,
+          "words": [
+            {
+              "text": " When",
+              "start": 1.18,
+              "end": 1.78,
+              "probability": 0.01302337646484375
+            },
+            {
+              "text": " one",
+              "start": 1.78,
+              "end": 2.38,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " is",
+              "start": 2.38,
+              "end": 2.52,
+              "probability": 0.990234375
+            },
+            {
+              "text": " faint",
+              "start": 2.52,
+              "end": 2.74,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " with",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " hunger",
+              "start": 2.92,
+              "end": 3.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 3.22,
+              "end": 3.42,
+              "probability": 0.253662109375
+            },
+            {
+              "text": " mention",
+              "start": 3.42,
+              "end": 3.68,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 3.68,
+              "end": 3.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " food",
+              "start": 3.86,
+              "end": 4.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " has",
+              "start": 4.16,
+              "end": 4.4,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " sometimes",
+              "start": 4.4,
+              "end": 4.84,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " a",
+              "start": 4.84,
+              "end": 5.08,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " curious",
+              "start": 5.08,
+              "end": 5.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " effect.",
+              "start": 5.46,
+              "end": 5.92,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " She",
+              "start": 6.54,
+              "end": 6.62,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " clutched",
+              "start": 6.62,
+              "end": 7.08,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " Ermengarde's",
+              "start": 7.08,
+              "end": 7.68,
+              "probability": 0.639990234375
+            },
+            {
+              "text": " arm.",
+              "start": 7.68,
+              "end": 7.96,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "When",
+          "start": 1.18,
+          "end": 1.78
+        },
+        {
+          "raw": "one",
+          "start": 1.78,
+          "end": 2.38
+        },
+        {
+          "raw": "is",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "raw": "faint",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "raw": "with",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "hunger",
+          "start": 2.92,
+          "end": 3.22
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "raw": "mention",
+          "start": 3.42,
+          "end": 3.68
+        },
+        {
+          "raw": "of",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "raw": "food",
+          "start": 3.86,
+          "end": 4.16
+        },
+        {
+          "raw": "has",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "raw": "sometimes",
+          "start": 4.4,
+          "end": 4.84
+        },
+        {
+          "raw": "a",
+          "start": 4.84,
+          "end": 5.08
+        },
+        {
+          "raw": "curious",
+          "start": 5.08,
+          "end": 5.46
+        },
+        {
+          "raw": "effect.",
+          "start": 5.46,
+          "end": 5.92
+        },
+        {
+          "raw": "She",
+          "start": 6.54,
+          "end": 6.62
+        },
+        {
+          "raw": "clutched",
+          "start": 6.62,
+          "end": 7.08
+        },
+        {
+          "raw": "Ermengarde's",
+          "start": 7.08,
+          "end": 7.68
+        },
+        {
+          "raw": "arm.",
+          "start": 7.68,
+          "end": 7.96
+        }
+      ],
+      "expected_tokens": [
+        "Sara",
+        "almost",
+        "reeled.",
+        "When",
+        "one",
+        "is",
+        "faint",
+        "with",
+        "hunger",
+        "the",
+        "mention",
+        "of",
+        "food",
+        "has",
+        "sometimes",
+        "a",
+        "curious",
+        "effect.",
+        "She",
+        "clutched",
+        "Ermengarde's",
+        "arm."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          "equal",
+          3,
+          22,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "When",
+          "start": 1.18,
+          "end": 1.78,
+          "key": "when",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.78,
+          "end": 2.38,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.38,
+          "end": 2.52,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "faint",
+          "start": 2.52,
+          "end": 2.74,
+          "key": "faint",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hunger",
+          "start": 2.92,
+          "end": 3.22,
+          "key": "hunger",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.42,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mention",
+          "start": 3.42,
+          "end": 3.68,
+          "key": "mention",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.68,
+          "end": 3.86,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "food",
+          "start": 3.86,
+          "end": 4.16,
+          "key": "food",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 4.16,
+          "end": 4.4,
+          "key": "has",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sometimes",
+          "start": 4.4,
+          "end": 4.84,
+          "key": "sometimes",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.84,
+          "end": 5.08,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "curious",
+          "start": 5.08,
+          "end": 5.46,
+          "key": "curious",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "effect.",
+          "start": 5.46,
+          "end": 5.92,
+          "key": "effect",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 6.54,
+          "end": 6.62,
+          "key": "she",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "clutched",
+          "start": 6.62,
+          "end": 7.08,
+          "key": "clutched",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Ermengarde's",
+          "start": 7.08,
+          "end": 7.68,
+          "key": "ermengardes",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "arm.",
+          "start": 7.68,
+          "end": 7.96,
+          "key": "arm",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sara",
+          "start": 0.0,
+          "end": 0.59
+        },
+        {
+          "text": "almost",
+          "start": 0.59,
+          "end": 0.885
+        },
+        {
+          "text": "reeled.",
+          "start": 0.885,
+          "end": 1.032
+        },
+        {
+          "text": "When",
+          "start": 1.18,
+          "end": 1.78
+        },
+        {
+          "text": "one",
+          "start": 1.78,
+          "end": 2.38
+        },
+        {
+          "text": "is",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "text": "faint",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "text": "with",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "hunger",
+          "start": 2.92,
+          "end": 3.22
+        },
+        {
+          "text": "the",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "text": "mention",
+          "start": 3.42,
+          "end": 3.68
+        },
+        {
+          "text": "of",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "text": "food",
+          "start": 3.86,
+          "end": 4.16
+        },
+        {
+          "text": "has",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "text": "sometimes",
+          "start": 4.4,
+          "end": 4.84
+        },
+        {
+          "text": "a",
+          "start": 4.84,
+          "end": 5.08
+        },
+        {
+          "text": "curious",
+          "start": 5.08,
+          "end": 5.46
+        },
+        {
+          "text": "effect.",
+          "start": 5.46,
+          "end": 5.92
+        },
+        {
+          "text": "She",
+          "start": 6.54,
+          "end": 6.62
+        },
+        {
+          "text": "clutched",
+          "start": 6.62,
+          "end": 7.08
+        },
+        {
+          "text": "Ermengarde's",
+          "start": 7.08,
+          "end": 7.68
+        },
+        {
+          "text": "arm.",
+          "start": 7.68,
+          "end": 7.96
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 0.8636363636363636,
+      "rejection_reasons": [],
+      "seconds": 0.31665050610899925
+    },
+    {
+      "asr_seconds": 0.3396921418607235,
+      "alignment_seconds": 0.0005340166389942169,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Sara, When, She, Ermengarde's"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Sara almost reeled. When one is faint with hunger, the mention of food has sometimes",
+          "start": 0.0,
+          "end": 4.84,
+          "words": [
+            {
+              "text": " Sara",
+              "start": 0.0,
+              "end": 0.62,
+              "probability": 0.1175537109375
+            },
+            {
+              "text": " almost",
+              "start": 0.62,
+              "end": 1.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " reeled.",
+              "start": 1.1,
+              "end": 1.66,
+              "probability": 0.925537109375
+            },
+            {
+              "text": " When",
+              "start": 2.2,
+              "end": 2.28,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " one",
+              "start": 2.28,
+              "end": 2.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 2.4,
+              "end": 2.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " faint",
+              "start": 2.54,
+              "end": 2.76,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " with",
+              "start": 2.76,
+              "end": 2.94,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " hunger,",
+              "start": 2.94,
+              "end": 3.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.42,
+              "end": 3.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " mention",
+              "start": 3.44,
+              "end": 3.66,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 3.66,
+              "end": 3.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " food",
+              "start": 3.88,
+              "end": 4.14,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " has",
+              "start": 4.14,
+              "end": 4.4,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " sometimes",
+              "start": 4.4,
+              "end": 4.84,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " a curious effect. She clutched Ermengarde's arm.",
+          "start": 4.84,
+          "end": 7.94,
+          "words": [
+            {
+              "text": " a",
+              "start": 4.84,
+              "end": 5.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " curious",
+              "start": 5.08,
+              "end": 5.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " effect.",
+              "start": 5.46,
+              "end": 5.9,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " She",
+              "start": 6.54,
+              "end": 6.64,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " clutched",
+              "start": 6.64,
+              "end": 7.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Ermengarde's",
+              "start": 7.08,
+              "end": 7.68,
+              "probability": 0.6486572265625
+            },
+            {
+              "text": " arm.",
+              "start": 7.68,
+              "end": 7.94,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sara",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "raw": "almost",
+          "start": 0.62,
+          "end": 1.1
+        },
+        {
+          "raw": "reeled.",
+          "start": 1.1,
+          "end": 1.66
+        },
+        {
+          "raw": "When",
+          "start": 2.2,
+          "end": 2.28
+        },
+        {
+          "raw": "one",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "raw": "is",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "raw": "faint",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "raw": "with",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "raw": "hunger,",
+          "start": 2.94,
+          "end": 3.22
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.44
+        },
+        {
+          "raw": "mention",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "raw": "of",
+          "start": 3.66,
+          "end": 3.88
+        },
+        {
+          "raw": "food",
+          "start": 3.88,
+          "end": 4.14
+        },
+        {
+          "raw": "has",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "raw": "sometimes",
+          "start": 4.4,
+          "end": 4.84
+        },
+        {
+          "raw": "a",
+          "start": 4.84,
+          "end": 5.08
+        },
+        {
+          "raw": "curious",
+          "start": 5.08,
+          "end": 5.46
+        },
+        {
+          "raw": "effect.",
+          "start": 5.46,
+          "end": 5.9
+        },
+        {
+          "raw": "She",
+          "start": 6.54,
+          "end": 6.64
+        },
+        {
+          "raw": "clutched",
+          "start": 6.64,
+          "end": 7.08
+        },
+        {
+          "raw": "Ermengarde's",
+          "start": 7.08,
+          "end": 7.68
+        },
+        {
+          "raw": "arm.",
+          "start": 7.68,
+          "end": 7.94
+        }
+      ],
+      "expected_tokens": [
+        "Sara",
+        "almost",
+        "reeled.",
+        "When",
+        "one",
+        "is",
+        "faint",
+        "with",
+        "hunger",
+        "the",
+        "mention",
+        "of",
+        "food",
+        "has",
+        "sometimes",
+        "a",
+        "curious",
+        "effect.",
+        "She",
+        "clutched",
+        "Ermengarde's",
+        "arm."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sara",
+          "start": 0.0,
+          "end": 0.62,
+          "key": "sara",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 0.62,
+          "end": 1.1,
+          "key": "almost",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "reeled.",
+          "start": 1.1,
+          "end": 1.66,
+          "key": "reeled",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 2.2,
+          "end": 2.28,
+          "key": "when",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.28,
+          "end": 2.4,
+          "key": "one",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.4,
+          "end": 2.54,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "faint",
+          "start": 2.54,
+          "end": 2.76,
+          "key": "faint",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.76,
+          "end": 2.94,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hunger,",
+          "start": 2.94,
+          "end": 3.22,
+          "key": "hunger",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.44,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mention",
+          "start": 3.44,
+          "end": 3.66,
+          "key": "mention",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.66,
+          "end": 3.88,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "food",
+          "start": 3.88,
+          "end": 4.14,
+          "key": "food",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 4.14,
+          "end": 4.4,
+          "key": "has",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sometimes",
+          "start": 4.4,
+          "end": 4.84,
+          "key": "sometimes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.84,
+          "end": 5.08,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "curious",
+          "start": 5.08,
+          "end": 5.46,
+          "key": "curious",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "effect.",
+          "start": 5.46,
+          "end": 5.9,
+          "key": "effect",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 6.54,
+          "end": 6.64,
+          "key": "she",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "clutched",
+          "start": 6.64,
+          "end": 7.08,
+          "key": "clutched",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Ermengarde's",
+          "start": 7.08,
+          "end": 7.68,
+          "key": "ermengardes",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "arm.",
+          "start": 7.68,
+          "end": 7.94,
+          "key": "arm",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sara",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "text": "almost",
+          "start": 0.62,
+          "end": 1.1
+        },
+        {
+          "text": "reeled.",
+          "start": 1.1,
+          "end": 1.66
+        },
+        {
+          "text": "When",
+          "start": 2.2,
+          "end": 2.28
+        },
+        {
+          "text": "one",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "text": "is",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "text": "faint",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "text": "with",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "text": "hunger",
+          "start": 2.94,
+          "end": 3.22
+        },
+        {
+          "text": "the",
+          "start": 3.42,
+          "end": 3.44
+        },
+        {
+          "text": "mention",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "text": "of",
+          "start": 3.66,
+          "end": 3.88
+        },
+        {
+          "text": "food",
+          "start": 3.88,
+          "end": 4.14
+        },
+        {
+          "text": "has",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "text": "sometimes",
+          "start": 4.4,
+          "end": 4.84
+        },
+        {
+          "text": "a",
+          "start": 4.84,
+          "end": 5.08
+        },
+        {
+          "text": "curious",
+          "start": 5.08,
+          "end": 5.46
+        },
+        {
+          "text": "effect.",
+          "start": 5.46,
+          "end": 5.9
+        },
+        {
+          "text": "She",
+          "start": 6.54,
+          "end": 6.64
+        },
+        {
+          "text": "clutched",
+          "start": 6.64,
+          "end": 7.08
+        },
+        {
+          "text": "Ermengarde's",
+          "start": 7.08,
+          "end": 7.68
+        },
+        {
+          "text": "arm.",
+          "start": 7.68,
+          "end": 7.94
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3404439650475979
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "b6fc9d32d8071f5c9832dc55ca7ed7dc2e1882c2e26ff39a182db272f691aa8b",
+  "selected_reasons": []
+}

@@ -1,0 +1,630 @@
+{
+  "complete": true,
+  "signature": "ef99daa96ac15077b2ed5e0e88c54dc4680e474eca465350bf42e9a8c985043a",
+  "attempts": [
+    {
+      "asr_seconds": 0.34772761538624763,
+      "alignment_seconds": 0.0004124566912651062,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " My dear Sarah, she said, Becky is the scullery maid.",
+          "start": 0.08,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.383544921875
+            },
+            {
+              "text": " dear",
+              "start": 0.54,
+              "end": 0.74,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " Sarah,",
+              "start": 0.74,
+              "end": 1.14,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " she",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " said,",
+              "start": 1.58,
+              "end": 1.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Becky",
+              "start": 2.54,
+              "end": 2.54,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " is",
+              "start": 2.54,
+              "end": 2.76,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 2.76,
+              "end": 2.92,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " scullery",
+              "start": 2.92,
+              "end": 3.32,
+              "probability": 0.8248697916666666
+            },
+            {
+              "text": " maid.",
+              "start": 3.32,
+              "end": 3.64,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " Scullery maids are our not little girls.",
+          "start": 4.34,
+          "end": 6.08,
+          "words": [
+            {
+              "text": " Scullery",
+              "start": 4.34,
+              "end": 4.64,
+              "probability": 0.9493815104166666
+            },
+            {
+              "text": " maids",
+              "start": 4.64,
+              "end": 5.02,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " are",
+              "start": 5.02,
+              "end": 5.16,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " our",
+              "start": 5.16,
+              "end": 5.32,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " not",
+              "start": 5.32,
+              "end": 5.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " little",
+              "start": 5.46,
+              "end": 5.7,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " girls.",
+              "start": 5.7,
+              "end": 6.08,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "dear",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "raw": "Sarah,",
+          "start": 0.74,
+          "end": 1.14
+        },
+        {
+          "raw": "she",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "said,",
+          "start": 1.58,
+          "end": 1.92
+        },
+        {
+          "raw": "Becky",
+          "start": 2.54,
+          "end": 2.54
+        },
+        {
+          "raw": "is",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "raw": "scullery",
+          "start": 2.92,
+          "end": 3.32
+        },
+        {
+          "raw": "maid.",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "raw": "Scullery",
+          "start": 4.34,
+          "end": 4.64
+        },
+        {
+          "raw": "maids",
+          "start": 4.64,
+          "end": 5.02
+        },
+        {
+          "raw": "are",
+          "start": 5.02,
+          "end": 5.16
+        },
+        {
+          "raw": "our",
+          "start": 5.16,
+          "end": 5.32
+        },
+        {
+          "raw": "not",
+          "start": 5.32,
+          "end": 5.46
+        },
+        {
+          "raw": "little",
+          "start": 5.46,
+          "end": 5.7
+        },
+        {
+          "raw": "girls.",
+          "start": 5.7,
+          "end": 6.08
+        }
+      ],
+      "expected_tokens": [
+        "\"My",
+        "dear",
+        "Sara,\"",
+        "she",
+        "said,",
+        "\"Becky",
+        "is",
+        "the",
+        "scullery",
+        "maid.",
+        "Scullery",
+        "maids--er--are",
+        "not",
+        "little",
+        "girls.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          11,
+          3,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          14
+        ],
+        [
+          "equal",
+          12,
+          15,
+          14,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 0.54,
+          "end": 0.74,
+          "key": "dear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sarah,",
+          "start": 0.74,
+          "end": 1.14,
+          "key": "sarah",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.58,
+          "end": 1.92,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Becky",
+          "start": 2.54,
+          "end": 2.54,
+          "key": "becky",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.54,
+          "end": 2.76,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.92,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "scullery",
+          "start": 2.92,
+          "end": 3.32,
+          "key": "scullery",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "maid.",
+          "start": 3.32,
+          "end": 3.64,
+          "key": "maid",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Scullery",
+          "start": 4.34,
+          "end": 4.64,
+          "key": "scullery",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "maids",
+          "start": 4.64,
+          "end": 5.02,
+          "key": "maids",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.02,
+          "end": 5.16,
+          "key": "are",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.16,
+          "end": 5.32,
+          "key": "our",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.32,
+          "end": 5.46,
+          "key": "not",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 5.46,
+          "end": 5.7,
+          "key": "little",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "girls.",
+          "start": 5.7,
+          "end": 6.08,
+          "key": "girls",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"My",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "dear",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "text": "Sara,\"",
+          "start": 0.74,
+          "end": 1.09
+        },
+        {
+          "text": "she",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "said,",
+          "start": 1.58,
+          "end": 1.92
+        },
+        {
+          "text": "\"Becky",
+          "start": 2.54,
+          "end": 2.54
+        },
+        {
+          "text": "is",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "text": "the",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "text": "scullery",
+          "start": 2.92,
+          "end": 3.32
+        },
+        {
+          "text": "maid.",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "text": "Scullery",
+          "start": 4.34,
+          "end": 4.64
+        },
+        {
+          "text": "maids--er--are",
+          "start": 4.64,
+          "end": 4.98
+        },
+        {
+          "text": "not",
+          "start": 5.32,
+          "end": 5.46
+        },
+        {
+          "text": "little",
+          "start": 5.46,
+          "end": 5.7
+        },
+        {
+          "text": "girls.\"",
+          "start": 5.7,
+          "end": 6.08
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 17,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.3482905961573124
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0e1278073c5c3b3b2bd20444904e63cede84c0a74bbb7232ebfdbf1a97cb4fe5",
+  "selected_reasons": []
+}

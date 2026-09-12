@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "358f69e996bd9e644cc79d65f66c82ad00606c2b084f93d381e118aac8289c74",
+  "attempts": [
+    {
+      "asr_seconds": 0.179079569876194,
+      "alignment_seconds": 0.0003930330276489258,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"My, ain't it lovely!\" whispered Becky.",
+        "hotwords": "My, Becky"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " My, ain't it lovely! whispered Becky.",
+          "start": 0.02,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " My,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.197265625
+            },
+            {
+              "text": " ain't",
+              "start": 0.72,
+              "end": 0.9,
+              "probability": 0.927734375
+            },
+            {
+              "text": " it",
+              "start": 0.9,
+              "end": 0.9,
+              "probability": 0.9921875
+            },
+            {
+              "text": " lovely!",
+              "start": 0.9,
+              "end": 1.26,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " whispered",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.84375
+            },
+            {
+              "text": " Becky.",
+              "start": 1.86,
+              "end": 2.2,
+              "probability": 0.91162109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "ain't",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "raw": "it",
+          "start": 0.9,
+          "end": 0.9
+        },
+        {
+          "raw": "lovely!",
+          "start": 0.9,
+          "end": 1.26
+        },
+        {
+          "raw": "whispered",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "Becky.",
+          "start": 1.86,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "\"My,",
+        "ain't",
+        "it",
+        "lovely!\"",
+        "whispered",
+        "Becky."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My,",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ain't",
+          "start": 0.72,
+          "end": 0.9,
+          "key": "aint",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.9,
+          "end": 0.9,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lovely!",
+          "start": 0.9,
+          "end": 1.26,
+          "key": "lovely",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "whispered",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "whispered",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Becky.",
+          "start": 1.86,
+          "end": 2.2,
+          "key": "becky",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"My,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "ain't",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "text": "it",
+          "start": 0.9,
+          "end": 0.9
+        },
+        {
+          "text": "lovely!\"",
+          "start": 0.9,
+          "end": 1.26
+        },
+        {
+          "text": "whispered",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "Becky.",
+          "start": 1.86,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17961221560835838
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3582f0fcaca64acbde0ac76c53951eb0aadcddf72c45fa5649d9fa06b90468ed",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "0930f916aa4eeb27ff6f25bbf681af1ae76597ad65dd43826a25aa6e2084905d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1000058464705944,
+      "alignment_seconds": 0.00020102038979530334,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She caught her breath",
+          "start": 0.02,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " caught",
+              "start": 0.52,
+              "end": 0.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 0.74,
+              "end": 0.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " breath",
+              "start": 0.88,
+              "end": 1.14,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "caught",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "raw": "her",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "raw": "breath",
+          "start": 0.88,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "caught",
+        "her",
+        "breath."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "caught",
+          "start": 0.52,
+          "end": 0.74,
+          "key": "caught",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.74,
+          "end": 0.88,
+          "key": "her",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "breath",
+          "start": 0.88,
+          "end": 1.14,
+          "key": "breath",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "caught",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "text": "her",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "text": "breath.",
+          "start": 0.88,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10028152167797089
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6930450a5a9a44708ef08119b77202faba692499ef7ca0165c4338c051ed0f10",
+  "selected_reasons": []
+}

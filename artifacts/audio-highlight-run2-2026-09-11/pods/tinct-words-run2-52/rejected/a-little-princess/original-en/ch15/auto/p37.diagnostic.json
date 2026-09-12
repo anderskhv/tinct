@@ -1,0 +1,641 @@
+{
+  "complete": true,
+  "signature": "9b683f070689b56b2446678cfa1409925bc244eb8d67e778dba790b408002fc7",
+  "attempts": [
+    {
+      "asr_seconds": 0.23316188156604767,
+      "alignment_seconds": 0.0004731789231300354,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sara stopped turning over the leaves and looked at her with an excited flush on her cheeks.",
+        "hotwords": "Sara"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sara Sara stopped turning over the leaves and looked at her with an excited flush on her cheeks.",
+          "start": 0.08,
+          "end": 4.92,
+          "words": [
+            {
+              "text": " Sara",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.167724609375
+            },
+            {
+              "text": " Sara",
+              "start": 0.62,
+              "end": 0.86,
+              "probability": 5.960464477539063e-08
+            },
+            {
+              "text": " stopped",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " turning",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " over",
+              "start": 1.32,
+              "end": 1.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " leaves",
+              "start": 1.72,
+              "end": 2.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 2.08,
+              "end": 2.62,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " looked",
+              "start": 2.62,
+              "end": 2.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at",
+              "start": 2.78,
+              "end": 2.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 2.92,
+              "end": 3.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 3.14,
+              "end": 3.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " an",
+              "start": 3.4,
+              "end": 3.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " excited",
+              "start": 3.5,
+              "end": 3.9,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " flush",
+              "start": 3.9,
+              "end": 4.32,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " on",
+              "start": 4.32,
+              "end": 4.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 4.48,
+              "end": 4.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " cheeks.",
+              "start": 4.62,
+              "end": 4.92,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sara",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Sara",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "raw": "stopped",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "turning",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "raw": "over",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "leaves",
+          "start": 1.72,
+          "end": 2.08
+        },
+        {
+          "raw": "and",
+          "start": 2.08,
+          "end": 2.62
+        },
+        {
+          "raw": "looked",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "raw": "at",
+          "start": 2.78,
+          "end": 2.92
+        },
+        {
+          "raw": "her",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "raw": "with",
+          "start": 3.14,
+          "end": 3.4
+        },
+        {
+          "raw": "an",
+          "start": 3.4,
+          "end": 3.5
+        },
+        {
+          "raw": "excited",
+          "start": 3.5,
+          "end": 3.9
+        },
+        {
+          "raw": "flush",
+          "start": 3.9,
+          "end": 4.32
+        },
+        {
+          "raw": "on",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "raw": "her",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "raw": "cheeks.",
+          "start": 4.62,
+          "end": 4.92
+        }
+      ],
+      "expected_tokens": [
+        "Sara",
+        "stopped",
+        "turning",
+        "over",
+        "the",
+        "leaves",
+        "and",
+        "looked",
+        "at",
+        "her",
+        "with",
+        "an",
+        "excited",
+        "flush",
+        "on",
+        "her",
+        "cheeks."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          17,
+          1,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sara",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "sara",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sara",
+          "start": 0.62,
+          "end": 0.86,
+          "key": "sara",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stopped",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "stopped",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "turning",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "turning",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 1.32,
+          "end": 1.58,
+          "key": "over",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "leaves",
+          "start": 1.72,
+          "end": 2.08,
+          "key": "leaves",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.08,
+          "end": 2.62,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 2.62,
+          "end": 2.78,
+          "key": "looked",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.78,
+          "end": 2.92,
+          "key": "at",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.92,
+          "end": 3.14,
+          "key": "her",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.14,
+          "end": 3.4,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.4,
+          "end": 3.5,
+          "key": "an",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "excited",
+          "start": 3.5,
+          "end": 3.9,
+          "key": "excited",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "flush",
+          "start": 3.9,
+          "end": 4.32,
+          "key": "flush",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.32,
+          "end": 4.48,
+          "key": "on",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.48,
+          "end": 4.62,
+          "key": "her",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "cheeks.",
+          "start": 4.62,
+          "end": 4.92,
+          "key": "cheeks",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sara",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "text": "stopped",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "turning",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "text": "over",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "text": "the",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "leaves",
+          "start": 1.72,
+          "end": 2.08
+        },
+        {
+          "text": "and",
+          "start": 2.08,
+          "end": 2.62
+        },
+        {
+          "text": "looked",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "text": "at",
+          "start": 2.78,
+          "end": 2.92
+        },
+        {
+          "text": "her",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "text": "with",
+          "start": 3.14,
+          "end": 3.4
+        },
+        {
+          "text": "an",
+          "start": 3.4,
+          "end": 3.5
+        },
+        {
+          "text": "excited",
+          "start": 3.5,
+          "end": 3.9
+        },
+        {
+          "text": "flush",
+          "start": 3.9,
+          "end": 4.32
+        },
+        {
+          "text": "on",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "text": "her",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "text": "cheeks.",
+          "start": 4.62,
+          "end": 4.92
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23383966460824013
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6cb5c4fb5d5a045aba5a54368c3aac5d907479b0e79da706e29114d70f6261e7",
+  "selected_reasons": []
+}

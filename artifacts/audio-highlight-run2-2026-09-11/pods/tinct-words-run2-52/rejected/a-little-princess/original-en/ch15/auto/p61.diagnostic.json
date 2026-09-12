@@ -1,0 +1,990 @@
+{
+  "complete": true,
+  "signature": "76f15593eb2d09b688e085d47efd42168fcefba8937af40663fc678d6694e893",
+  "attempts": [
+    {
+      "asr_seconds": 0.3622860014438629,
+      "alignment_seconds": 0.0005979053676128387,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "It was agreed that Mr. St. John was to be told the plan they had made, and for the present the books were to be left in the attic.",
+        "hotwords": "It, Mr, St, John"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It was agreed that Mr. St. John was to be told the plan they had made, and for the present the books were to be left in the attic.",
+          "start": 0.05,
+          "end": 7.79,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " was",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " agreed",
+              "start": 0.61,
+              "end": 0.99,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " that",
+              "start": 0.99,
+              "end": 1.27,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Mr.",
+              "start": 1.27,
+              "end": 1.65,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " St.",
+              "start": 1.95,
+              "end": 1.97,
+              "probability": 0.71484375
+            },
+            {
+              "text": " John",
+              "start": 2.37,
+              "end": 2.41,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " was",
+              "start": 2.41,
+              "end": 2.93,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " to",
+              "start": 2.93,
+              "end": 3.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 3.09,
+              "end": 3.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " told",
+              "start": 3.21,
+              "end": 3.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 3.41,
+              "end": 3.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " plan",
+              "start": 3.63,
+              "end": 3.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " they",
+              "start": 3.93,
+              "end": 4.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " had",
+              "start": 4.21,
+              "end": 4.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " made,",
+              "start": 4.39,
+              "end": 4.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 5.15,
+              "end": 5.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " for",
+              "start": 5.45,
+              "end": 5.57,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " the",
+              "start": 5.57,
+              "end": 5.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " present",
+              "start": 5.71,
+              "end": 5.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.97,
+              "end": 6.19,
+              "probability": 0.716796875
+            },
+            {
+              "text": " books",
+              "start": 6.19,
+              "end": 6.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " were",
+              "start": 6.41,
+              "end": 6.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 6.61,
+              "end": 6.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " be",
+              "start": 6.71,
+              "end": 6.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " left",
+              "start": 6.85,
+              "end": 7.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 7.11,
+              "end": 7.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.37,
+              "end": 7.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " attic.",
+              "start": 7.51,
+              "end": 7.79,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "was",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "agreed",
+          "start": 0.61,
+          "end": 0.99
+        },
+        {
+          "raw": "that",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.27,
+          "end": 1.65
+        },
+        {
+          "raw": "St.",
+          "start": 1.95,
+          "end": 1.97
+        },
+        {
+          "raw": "John",
+          "start": 2.37,
+          "end": 2.41
+        },
+        {
+          "raw": "was",
+          "start": 2.41,
+          "end": 2.93
+        },
+        {
+          "raw": "to",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "raw": "be",
+          "start": 3.09,
+          "end": 3.21
+        },
+        {
+          "raw": "told",
+          "start": 3.21,
+          "end": 3.41
+        },
+        {
+          "raw": "the",
+          "start": 3.41,
+          "end": 3.63
+        },
+        {
+          "raw": "plan",
+          "start": 3.63,
+          "end": 3.93
+        },
+        {
+          "raw": "they",
+          "start": 3.93,
+          "end": 4.21
+        },
+        {
+          "raw": "had",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "raw": "made,",
+          "start": 4.39,
+          "end": 4.81
+        },
+        {
+          "raw": "and",
+          "start": 5.15,
+          "end": 5.45
+        },
+        {
+          "raw": "for",
+          "start": 5.45,
+          "end": 5.57
+        },
+        {
+          "raw": "the",
+          "start": 5.57,
+          "end": 5.71
+        },
+        {
+          "raw": "present",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "raw": "the",
+          "start": 5.97,
+          "end": 6.19
+        },
+        {
+          "raw": "books",
+          "start": 6.19,
+          "end": 6.41
+        },
+        {
+          "raw": "were",
+          "start": 6.41,
+          "end": 6.61
+        },
+        {
+          "raw": "to",
+          "start": 6.61,
+          "end": 6.71
+        },
+        {
+          "raw": "be",
+          "start": 6.71,
+          "end": 6.85
+        },
+        {
+          "raw": "left",
+          "start": 6.85,
+          "end": 7.11
+        },
+        {
+          "raw": "in",
+          "start": 7.11,
+          "end": 7.37
+        },
+        {
+          "raw": "the",
+          "start": 7.37,
+          "end": 7.51
+        },
+        {
+          "raw": "attic.",
+          "start": 7.51,
+          "end": 7.79
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "was",
+        "agreed",
+        "that",
+        "Mr.",
+        "St.",
+        "John",
+        "was",
+        "to",
+        "be",
+        "told",
+        "the",
+        "plan",
+        "they",
+        "had",
+        "made,",
+        "and",
+        "for",
+        "the",
+        "present",
+        "the",
+        "books",
+        "were",
+        "to",
+        "be",
+        "left",
+        "in",
+        "the",
+        "attic."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          29,
+          0,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.51,
+          "end": 0.61,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "agreed",
+          "start": 0.61,
+          "end": 0.99,
+          "key": "agreed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.99,
+          "end": 1.27,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.27,
+          "end": 1.65,
+          "key": "mr",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "St.",
+          "start": 1.95,
+          "end": 1.97,
+          "key": "st",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 2.37,
+          "end": 2.41,
+          "key": "john",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.41,
+          "end": 2.93,
+          "key": "was",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.93,
+          "end": 3.09,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.09,
+          "end": 3.21,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 3.21,
+          "end": 3.41,
+          "key": "told",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.41,
+          "end": 3.63,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "plan",
+          "start": 3.63,
+          "end": 3.93,
+          "key": "plan",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.93,
+          "end": 4.21,
+          "key": "they",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.21,
+          "end": 4.39,
+          "key": "had",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "made,",
+          "start": 4.39,
+          "end": 4.81,
+          "key": "made",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.15,
+          "end": 5.45,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.45,
+          "end": 5.57,
+          "key": "for",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.57,
+          "end": 5.71,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 5.71,
+          "end": 5.97,
+          "key": "present",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.97,
+          "end": 6.19,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "books",
+          "start": 6.19,
+          "end": 6.41,
+          "key": "books",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 6.41,
+          "end": 6.61,
+          "key": "were",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.61,
+          "end": 6.71,
+          "key": "to",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 6.71,
+          "end": 6.85,
+          "key": "be",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 6.85,
+          "end": 7.11,
+          "key": "left",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.11,
+          "end": 7.37,
+          "key": "in",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.37,
+          "end": 7.51,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "attic.",
+          "start": 7.51,
+          "end": 7.79,
+          "key": "attic",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "was",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "agreed",
+          "start": 0.61,
+          "end": 0.99
+        },
+        {
+          "text": "that",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "text": "Mr.",
+          "start": 1.27,
+          "end": 1.65
+        },
+        {
+          "text": "St.",
+          "start": 1.95,
+          "end": 1.97
+        },
+        {
+          "text": "John",
+          "start": 2.37,
+          "end": 2.41
+        },
+        {
+          "text": "was",
+          "start": 2.41,
+          "end": 2.93
+        },
+        {
+          "text": "to",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "text": "be",
+          "start": 3.09,
+          "end": 3.21
+        },
+        {
+          "text": "told",
+          "start": 3.21,
+          "end": 3.41
+        },
+        {
+          "text": "the",
+          "start": 3.41,
+          "end": 3.63
+        },
+        {
+          "text": "plan",
+          "start": 3.63,
+          "end": 3.93
+        },
+        {
+          "text": "they",
+          "start": 3.93,
+          "end": 4.21
+        },
+        {
+          "text": "had",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "text": "made,",
+          "start": 4.39,
+          "end": 4.81
+        },
+        {
+          "text": "and",
+          "start": 5.15,
+          "end": 5.45
+        },
+        {
+          "text": "for",
+          "start": 5.45,
+          "end": 5.57
+        },
+        {
+          "text": "the",
+          "start": 5.57,
+          "end": 5.71
+        },
+        {
+          "text": "present",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "text": "the",
+          "start": 5.97,
+          "end": 6.19
+        },
+        {
+          "text": "books",
+          "start": 6.19,
+          "end": 6.41
+        },
+        {
+          "text": "were",
+          "start": 6.41,
+          "end": 6.61
+        },
+        {
+          "text": "to",
+          "start": 6.61,
+          "end": 6.71
+        },
+        {
+          "text": "be",
+          "start": 6.71,
+          "end": 6.85
+        },
+        {
+          "text": "left",
+          "start": 6.85,
+          "end": 7.11
+        },
+        {
+          "text": "in",
+          "start": 7.11,
+          "end": 7.37
+        },
+        {
+          "text": "the",
+          "start": 7.37,
+          "end": 7.51
+        },
+        {
+          "text": "attic.",
+          "start": 7.51,
+          "end": 7.79
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 29,
+        "matched_words": 29
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3631451353430748
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b3f0002490ece67e6b7cf2cc22087ae8c80d88968be0837f0a5b5f711b96fa45",
+  "selected_reasons": []
+}

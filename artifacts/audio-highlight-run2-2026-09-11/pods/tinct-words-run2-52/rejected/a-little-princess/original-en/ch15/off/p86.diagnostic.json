@@ -1,0 +1,386 @@
+{
+  "complete": true,
+  "signature": "380d657de3a2765d6ff75e2e1ab7f626e677c554286b6ddd43197e7e702a9511",
+  "attempts": [
+    {
+      "asr_seconds": 0.21620824933052063,
+      "alignment_seconds": 0.000504225492477417,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, she will think I'm in bed. Don't stir.",
+          "start": 0.05,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " she",
+              "start": 0.99,
+              "end": 1.15,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " will",
+              "start": 1.15,
+              "end": 1.25,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " think",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I'm",
+              "start": 1.39,
+              "end": 1.61,
+              "probability": 0.895263671875
+            },
+            {
+              "text": " in",
+              "start": 1.61,
+              "end": 1.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " bed.",
+              "start": 1.71,
+              "end": 1.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Don't",
+              "start": 2.19,
+              "end": 2.39,
+              "probability": 0.994384765625
+            },
+            {
+              "text": " stir.",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "she",
+          "start": 0.99,
+          "end": 1.15
+        },
+        {
+          "raw": "will",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "raw": "think",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "I'm",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "raw": "in",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "raw": "bed.",
+          "start": 1.71,
+          "end": 1.93
+        },
+        {
+          "raw": "Don't",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "raw": "stir.",
+          "start": 2.39,
+          "end": 2.67
+        }
+      ],
+      "expected_tokens": [
+        "\"No.",
+        "She",
+        "will",
+        "think",
+        "I",
+        "am",
+        "in",
+        "bed.",
+        "Don't",
+        "stir.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          5
+        ],
+        [
+          "equal",
+          6,
+          10,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          6,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.99,
+          "end": 1.15,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.15,
+          "end": 1.25,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "think",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.39,
+          "end": 1.61,
+          "key": "im",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.61,
+          "end": 1.71,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bed.",
+          "start": 1.71,
+          "end": 1.93,
+          "key": "bed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Don't",
+          "start": 2.19,
+          "end": 2.39,
+          "key": "dont",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "stir.",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "stir",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "She",
+          "start": 0.99,
+          "end": 1.15
+        },
+        {
+          "text": "will",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "text": "think",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "I",
+          "start": 1.39,
+          "end": 1.5
+        },
+        {
+          "text": "am",
+          "start": 1.5,
+          "end": 1.555
+        },
+        {
+          "text": "in",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "text": "bed.",
+          "start": 1.71,
+          "end": 1.93
+        },
+        {
+          "text": "Don't",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "text": "stir.\"",
+          "start": 2.39,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2168699875473976
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "788b0019b3b7cb54b26526f0aa76e0d49a9684b32b18a72de04dd56a1dda5f4b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

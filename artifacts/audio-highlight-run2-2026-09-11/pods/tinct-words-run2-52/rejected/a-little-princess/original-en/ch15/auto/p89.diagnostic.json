@@ -1,0 +1,1826 @@
+{
+  "complete": true,
+  "signature": "b525e937ec51c2cbb18ead4e6064949f9977725f039047480d6b09eee7b5396e",
+  "attempts": [
+    {
+      "asr_seconds": 0.43237921968102455,
+      "alignment_seconds": 0.0007498189806938171,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"'T warn't me, mum,\" said Becky sobbing. \"I was 'ungry enough, but 't warn't me--never!\"",
+        "hotwords": "T, Becky, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"'T warn't me, mum,\" said Becky sobbing.",
+          "start": 0.08,
+          "end": 2.72,
+          "words": [
+            {
+              "text": " \"'T",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.19714736938476562
+            },
+            {
+              "text": " warn't",
+              "start": 0.58,
+              "end": 0.98,
+              "probability": 0.474149227142334
+            },
+            {
+              "text": " me,",
+              "start": 0.98,
+              "end": 1.1,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " mum,\"",
+              "start": 1.22,
+              "end": 1.74,
+              "probability": 0.1436767578125
+            },
+            {
+              "text": " said",
+              "start": 1.74,
+              "end": 1.98,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Becky",
+              "start": 1.98,
+              "end": 2.24,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " sobbing.",
+              "start": 2.24,
+              "end": 2.72,
+              "probability": 0.657958984375
+            }
+          ]
+        },
+        {
+          "text": " \"'T warn't me, mum,\" said Becky sobbing.",
+          "start": 2.72,
+          "end": 6.08,
+          "words": [
+            {
+              "text": " \"'T",
+              "start": 2.72,
+              "end": 4.38,
+              "probability": 0.0006546974182128906
+            },
+            {
+              "text": " warn't",
+              "start": 4.38,
+              "end": 5.04,
+              "probability": 0.2367534637451172
+            },
+            {
+              "text": " me,",
+              "start": 5.04,
+              "end": 5.12,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " mum,\"",
+              "start": 5.52,
+              "end": 5.52,
+              "probability": 0.007999956607818604
+            },
+            {
+              "text": " said",
+              "start": 5.52,
+              "end": 5.52,
+              "probability": 0.185546875
+            },
+            {
+              "text": " Becky",
+              "start": 5.52,
+              "end": 6.08,
+              "probability": 0.00011086463928222656
+            },
+            {
+              "text": " sobbing.",
+              "start": 6.08,
+              "end": 6.08,
+              "probability": 0.49462997913360596
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"'T",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "warn't",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "raw": "me,",
+          "start": 0.98,
+          "end": 1.1
+        },
+        {
+          "raw": "mum,\"",
+          "start": 1.22,
+          "end": 1.74
+        },
+        {
+          "raw": "said",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "raw": "Becky",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "raw": "sobbing.",
+          "start": 2.24,
+          "end": 2.72
+        },
+        {
+          "raw": "\"'T",
+          "start": 2.72,
+          "end": 4.38
+        },
+        {
+          "raw": "warn't",
+          "start": 4.38,
+          "end": 5.04
+        },
+        {
+          "raw": "me,",
+          "start": 5.04,
+          "end": 5.12
+        },
+        {
+          "raw": "mum,\"",
+          "start": 5.52,
+          "end": 5.52
+        },
+        {
+          "raw": "said",
+          "start": 5.52,
+          "end": 5.52
+        },
+        {
+          "raw": "Becky",
+          "start": 5.52,
+          "end": 6.08
+        },
+        {
+          "raw": "sobbing.",
+          "start": 6.08,
+          "end": 6.08
+        }
+      ],
+      "expected_tokens": [
+        "\"'T",
+        "warn't",
+        "me,",
+        "mum,\"",
+        "said",
+        "Becky",
+        "sobbing.",
+        "\"I",
+        "was",
+        "'ungry",
+        "enough,",
+        "but",
+        "'t",
+        "warn't",
+        "me--never!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "delete",
+          7,
+          12,
+          7,
+          7
+        ],
+        [
+          "equal",
+          12,
+          14,
+          7,
+          9
+        ],
+        [
+          "replace",
+          14,
+          15,
+          9,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          7,
+          12,
+          7,
+          7
+        ],
+        [
+          "replace",
+          14,
+          15,
+          9,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"'T",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "t",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "warn't",
+          "start": 0.58,
+          "end": 0.98,
+          "key": "warnt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 0.98,
+          "end": 1.1,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mum,\"",
+          "start": 1.22,
+          "end": 1.74,
+          "key": "mum",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.74,
+          "end": 1.98,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Becky",
+          "start": 1.98,
+          "end": 2.24,
+          "key": "becky",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sobbing.",
+          "start": 2.24,
+          "end": 2.72,
+          "key": "sobbing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "\"'T",
+          "start": 2.72,
+          "end": 4.38,
+          "key": "t",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "warn't",
+          "start": 4.38,
+          "end": 5.04,
+          "key": "warnt",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 5.04,
+          "end": 5.12,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mum,\"",
+          "start": 5.52,
+          "end": 5.52,
+          "key": "mum",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 5.52,
+          "end": 5.52,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Becky",
+          "start": 5.52,
+          "end": 6.08,
+          "key": "becky",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sobbing.",
+          "start": 6.08,
+          "end": 6.08,
+          "key": "sobbing",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"'T",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "warn't",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "text": "me,",
+          "start": 0.98,
+          "end": 1.1
+        },
+        {
+          "text": "mum,\"",
+          "start": 1.22,
+          "end": 1.74
+        },
+        {
+          "text": "said",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "text": "Becky",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "text": "sobbing.",
+          "start": 2.24,
+          "end": 2.72
+        },
+        {
+          "text": "\"I",
+          "start": 2.72,
+          "end": 2.72
+        },
+        {
+          "text": "was",
+          "start": 2.72,
+          "end": 2.72
+        },
+        {
+          "text": "'ungry",
+          "start": 2.72,
+          "end": 2.72
+        },
+        {
+          "text": "enough,",
+          "start": 2.72,
+          "end": 2.72
+        },
+        {
+          "text": "but",
+          "start": 2.72,
+          "end": 2.72
+        },
+        {
+          "text": "'t",
+          "start": 2.72,
+          "end": 4.38
+        },
+        {
+          "text": "warn't",
+          "start": 4.38,
+          "end": 5.04
+        },
+        {
+          "text": "me--never!\"",
+          "start": 5.04,
+          "end": 5.56
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 14,
+        "matched_words": 9
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4333960898220539
+    },
+    {
+      "asr_seconds": 0.3025021590292454,
+      "alignment_seconds": 0.0006693005561828613,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "T, Becky, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " T warrant me mum said Becky sobbing. I was ungrigh enough, but T warrant me never",
+          "start": 0.08,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " T",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.06982421875
+            },
+            {
+              "text": " warrant",
+              "start": 0.58,
+              "end": 0.88,
+              "probability": 0.2890625
+            },
+            {
+              "text": " me",
+              "start": 0.88,
+              "end": 1.1,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " mum",
+              "start": 1.1,
+              "end": 1.46,
+              "probability": 0.420654296875
+            },
+            {
+              "text": " said",
+              "start": 1.46,
+              "end": 1.98,
+              "probability": 0.64892578125
+            },
+            {
+              "text": " Becky",
+              "start": 1.98,
+              "end": 2.24,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " sobbing.",
+              "start": 2.24,
+              "end": 2.82,
+              "probability": 0.92578125
+            },
+            {
+              "text": " I",
+              "start": 2.96,
+              "end": 3.38,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " was",
+              "start": 3.38,
+              "end": 3.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ungrigh",
+              "start": 3.54,
+              "end": 3.98,
+              "probability": 0.5015055338541666
+            },
+            {
+              "text": " enough,",
+              "start": 3.98,
+              "end": 4.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " but",
+              "start": 4.2,
+              "end": 4.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " T",
+              "start": 4.44,
+              "end": 4.66,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " warrant",
+              "start": 4.66,
+              "end": 4.94,
+              "probability": 0.818359375
+            },
+            {
+              "text": " me",
+              "start": 4.94,
+              "end": 5.12,
+              "probability": 0.990234375
+            },
+            {
+              "text": " never",
+              "start": 5.12,
+              "end": 5.4,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "T",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "warrant",
+          "start": 0.58,
+          "end": 0.88
+        },
+        {
+          "raw": "me",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "raw": "mum",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "raw": "said",
+          "start": 1.46,
+          "end": 1.98
+        },
+        {
+          "raw": "Becky",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "raw": "sobbing.",
+          "start": 2.24,
+          "end": 2.82
+        },
+        {
+          "raw": "I",
+          "start": 2.96,
+          "end": 3.38
+        },
+        {
+          "raw": "was",
+          "start": 3.38,
+          "end": 3.54
+        },
+        {
+          "raw": "ungrigh",
+          "start": 3.54,
+          "end": 3.98
+        },
+        {
+          "raw": "enough,",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "raw": "but",
+          "start": 4.2,
+          "end": 4.44
+        },
+        {
+          "raw": "T",
+          "start": 4.44,
+          "end": 4.66
+        },
+        {
+          "raw": "warrant",
+          "start": 4.66,
+          "end": 4.94
+        },
+        {
+          "raw": "me",
+          "start": 4.94,
+          "end": 5.12
+        },
+        {
+          "raw": "never",
+          "start": 5.12,
+          "end": 5.4
+        }
+      ],
+      "expected_tokens": [
+        "\"'T",
+        "warn't",
+        "me,",
+        "mum,\"",
+        "said",
+        "Becky",
+        "sobbing.",
+        "\"I",
+        "was",
+        "'ungry",
+        "enough,",
+        "but",
+        "'t",
+        "warn't",
+        "me--never!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          9,
+          2,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          13,
+          10,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "equal",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "T",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "t",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 0.58,
+          "end": 0.88,
+          "key": "warrant",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.88,
+          "end": 1.1,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mum",
+          "start": 1.1,
+          "end": 1.46,
+          "key": "mum",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.46,
+          "end": 1.98,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Becky",
+          "start": 1.98,
+          "end": 2.24,
+          "key": "becky",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sobbing.",
+          "start": 2.24,
+          "end": 2.82,
+          "key": "sobbing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.96,
+          "end": 3.38,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.38,
+          "end": 3.54,
+          "key": "was",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ungrigh",
+          "start": 3.54,
+          "end": 3.98,
+          "key": "ungrigh",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "enough,",
+          "start": 3.98,
+          "end": 4.2,
+          "key": "enough",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.2,
+          "end": 4.44,
+          "key": "but",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 4.44,
+          "end": 4.66,
+          "key": "t",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 4.66,
+          "end": 4.94,
+          "key": "warrant",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me never",
+          "start": 4.94,
+          "end": 5.4,
+          "key": "menever",
+          "pieces": [
+            14,
+            15
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 14,
+          "text": "me--never!\"",
+          "heard": "me never",
+          "heard_indexes": [
+            14,
+            15
+          ],
+          "start": 4.94,
+          "end": 5.4
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"'T",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "warn't",
+          "start": 0.58,
+          "end": 0.73
+        },
+        {
+          "text": "me,",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "text": "mum,\"",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "text": "said",
+          "start": 1.46,
+          "end": 1.98
+        },
+        {
+          "text": "Becky",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "text": "sobbing.",
+          "start": 2.24,
+          "end": 2.82
+        },
+        {
+          "text": "\"I",
+          "start": 2.96,
+          "end": 3.38
+        },
+        {
+          "text": "was",
+          "start": 3.38,
+          "end": 3.54
+        },
+        {
+          "text": "'ungry",
+          "start": 3.54,
+          "end": 3.76
+        },
+        {
+          "text": "enough,",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "text": "but",
+          "start": 4.2,
+          "end": 4.44
+        },
+        {
+          "text": "'t",
+          "start": 4.44,
+          "end": 4.66
+        },
+        {
+          "text": "warn't",
+          "start": 4.66,
+          "end": 4.8
+        },
+        {
+          "text": "me--never!\"",
+          "start": 4.94,
+          "end": 5.4
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.30337103828787804
+    },
+    {
+      "asr_seconds": 0.27319222688674927,
+      "alignment_seconds": 0.0006976164877414703,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tea warrant me mom said Becky sobbing. I was ungrigh enough, but tea warrant me never",
+          "start": 0.08,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " Tea",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.218505859375
+            },
+            {
+              "text": " warrant",
+              "start": 0.58,
+              "end": 0.9,
+              "probability": 0.76953125
+            },
+            {
+              "text": " me",
+              "start": 0.9,
+              "end": 1.1,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " mom",
+              "start": 1.1,
+              "end": 1.44,
+              "probability": 0.286865234375
+            },
+            {
+              "text": " said",
+              "start": 1.44,
+              "end": 1.98,
+              "probability": 0.81640625
+            },
+            {
+              "text": " Becky",
+              "start": 1.98,
+              "end": 2.24,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " sobbing.",
+              "start": 2.24,
+              "end": 2.82,
+              "probability": 0.930908203125
+            },
+            {
+              "text": " I",
+              "start": 2.88,
+              "end": 3.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 3.38,
+              "end": 3.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ungrigh",
+              "start": 3.54,
+              "end": 3.96,
+              "probability": 0.4936116536458333
+            },
+            {
+              "text": " enough,",
+              "start": 3.96,
+              "end": 4.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " but",
+              "start": 4.2,
+              "end": 4.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " tea",
+              "start": 4.44,
+              "end": 4.66,
+              "probability": 0.771484375
+            },
+            {
+              "text": " warrant",
+              "start": 4.66,
+              "end": 4.96,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " me",
+              "start": 4.96,
+              "end": 5.12,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " never",
+              "start": 5.12,
+              "end": 5.4,
+              "probability": 0.9501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tea",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "warrant",
+          "start": 0.58,
+          "end": 0.9
+        },
+        {
+          "raw": "me",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "raw": "mom",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "raw": "said",
+          "start": 1.44,
+          "end": 1.98
+        },
+        {
+          "raw": "Becky",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "raw": "sobbing.",
+          "start": 2.24,
+          "end": 2.82
+        },
+        {
+          "raw": "I",
+          "start": 2.88,
+          "end": 3.38
+        },
+        {
+          "raw": "was",
+          "start": 3.38,
+          "end": 3.54
+        },
+        {
+          "raw": "ungrigh",
+          "start": 3.54,
+          "end": 3.96
+        },
+        {
+          "raw": "enough,",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "raw": "but",
+          "start": 4.2,
+          "end": 4.44
+        },
+        {
+          "raw": "tea",
+          "start": 4.44,
+          "end": 4.66
+        },
+        {
+          "raw": "warrant",
+          "start": 4.66,
+          "end": 4.96
+        },
+        {
+          "raw": "me",
+          "start": 4.96,
+          "end": 5.12
+        },
+        {
+          "raw": "never",
+          "start": 5.12,
+          "end": 5.4
+        }
+      ],
+      "expected_tokens": [
+        "\"'T",
+        "warn't",
+        "me,",
+        "mum,\"",
+        "said",
+        "Becky",
+        "sobbing.",
+        "\"I",
+        "was",
+        "'ungry",
+        "enough,",
+        "but",
+        "'t",
+        "warn't",
+        "me--never!\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          12,
+          10,
+          12
+        ],
+        [
+          "replace",
+          12,
+          14,
+          12,
+          14
+        ],
+        [
+          "equal",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          12,
+          14,
+          12,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tea",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "tea",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 0.58,
+          "end": 0.9,
+          "key": "warrant",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.9,
+          "end": 1.1,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mom",
+          "start": 1.1,
+          "end": 1.44,
+          "key": "mom",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.44,
+          "end": 1.98,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Becky",
+          "start": 1.98,
+          "end": 2.24,
+          "key": "becky",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sobbing.",
+          "start": 2.24,
+          "end": 2.82,
+          "key": "sobbing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.88,
+          "end": 3.38,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.38,
+          "end": 3.54,
+          "key": "was",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ungrigh",
+          "start": 3.54,
+          "end": 3.96,
+          "key": "ungrigh",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "enough,",
+          "start": 3.96,
+          "end": 4.2,
+          "key": "enough",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.2,
+          "end": 4.44,
+          "key": "but",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "tea",
+          "start": 4.44,
+          "end": 4.66,
+          "key": "tea",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 4.66,
+          "end": 4.96,
+          "key": "warrant",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me never",
+          "start": 4.96,
+          "end": 5.4,
+          "key": "menever",
+          "pieces": [
+            14,
+            15
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 14,
+          "text": "me--never!\"",
+          "heard": "me never",
+          "heard_indexes": [
+            14,
+            15
+          ],
+          "start": 4.96,
+          "end": 5.4
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"'T",
+          "start": 0.0,
+          "end": 0.45
+        },
+        {
+          "text": "warn't",
+          "start": 0.45,
+          "end": 0.675
+        },
+        {
+          "text": "me,",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "text": "mum,\"",
+          "start": 1.1,
+          "end": 1.27
+        },
+        {
+          "text": "said",
+          "start": 1.44,
+          "end": 1.98
+        },
+        {
+          "text": "Becky",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "text": "sobbing.",
+          "start": 2.24,
+          "end": 2.82
+        },
+        {
+          "text": "\"I",
+          "start": 2.88,
+          "end": 3.38
+        },
+        {
+          "text": "was",
+          "start": 3.38,
+          "end": 3.54
+        },
+        {
+          "text": "'ungry",
+          "start": 3.54,
+          "end": 3.75
+        },
+        {
+          "text": "enough,",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "text": "but",
+          "start": 4.2,
+          "end": 4.44
+        },
+        {
+          "text": "'t",
+          "start": 4.44,
+          "end": 4.7
+        },
+        {
+          "text": "warn't",
+          "start": 4.7,
+          "end": 4.83
+        },
+        {
+          "text": "me--never!\"",
+          "start": 4.96,
+          "end": 5.4
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 9
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2740904986858368
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "be746dbb9d9bd9f85cddf03a86055bf89ea93766dec9cd6181d6802ab78825fc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

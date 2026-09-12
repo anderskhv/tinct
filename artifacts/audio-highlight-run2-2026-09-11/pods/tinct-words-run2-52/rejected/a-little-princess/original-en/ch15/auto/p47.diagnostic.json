@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "f533ebf2aa699ef1905c56f68a5e00614e83a350c0c181e2d8af3d172217770b",
+  "attempts": [
+    {
+      "asr_seconds": 0.29533668234944344,
+      "alignment_seconds": 0.0004027150571346283,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"He wants me to read them,\" said Ermengarde, a little discouraged by this unexpected turn of affairs.",
+        "hotwords": "He, Ermengarde"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He wants me to read them,\" said Ermengarde, a little discouraged by this unexpected turn of affairs.",
+          "start": 0.05,
+          "end": 6.01,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.14599609375
+            },
+            {
+              "text": " wants",
+              "start": 0.51,
+              "end": 0.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 0.71,
+              "end": 0.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 0.87,
+              "end": 0.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " read",
+              "start": 0.99,
+              "end": 1.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them,\"",
+              "start": 1.17,
+              "end": 1.65,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " said",
+              "start": 1.65,
+              "end": 2.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Ermengarde,",
+              "start": 2.07,
+              "end": 2.65,
+              "probability": 0.59613037109375
+            },
+            {
+              "text": " a",
+              "start": 3.23,
+              "end": 3.25,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " little",
+              "start": 3.25,
+              "end": 3.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " discouraged",
+              "start": 3.39,
+              "end": 3.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " by",
+              "start": 3.95,
+              "end": 4.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 4.25,
+              "end": 4.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " unexpected",
+              "start": 4.45,
+              "end": 5.05,
+              "probability": 0.994140625
+            },
+            {
+              "text": " turn",
+              "start": 5.05,
+              "end": 5.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 5.49,
+              "end": 5.65,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " affairs.",
+              "start": 5.65,
+              "end": 6.01,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "wants",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "raw": "me",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "raw": "to",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "raw": "read",
+          "start": 0.99,
+          "end": 1.17
+        },
+        {
+          "raw": "them,\"",
+          "start": 1.17,
+          "end": 1.65
+        },
+        {
+          "raw": "said",
+          "start": 1.65,
+          "end": 2.07
+        },
+        {
+          "raw": "Ermengarde,",
+          "start": 2.07,
+          "end": 2.65
+        },
+        {
+          "raw": "a",
+          "start": 3.23,
+          "end": 3.25
+        },
+        {
+          "raw": "little",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "raw": "discouraged",
+          "start": 3.39,
+          "end": 3.95
+        },
+        {
+          "raw": "by",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "raw": "this",
+          "start": 4.25,
+          "end": 4.45
+        },
+        {
+          "raw": "unexpected",
+          "start": 4.45,
+          "end": 5.05
+        },
+        {
+          "raw": "turn",
+          "start": 5.05,
+          "end": 5.49
+        },
+        {
+          "raw": "of",
+          "start": 5.49,
+          "end": 5.65
+        },
+        {
+          "raw": "affairs.",
+          "start": 5.65,
+          "end": 6.01
+        }
+      ],
+      "expected_tokens": [
+        "\"He",
+        "wants",
+        "me",
+        "to",
+        "read",
+        "them,\"",
+        "said",
+        "Ermengarde,",
+        "a",
+        "little",
+        "discouraged",
+        "by",
+        "this",
+        "unexpected",
+        "turn",
+        "of",
+        "affairs."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wants",
+          "start": 0.51,
+          "end": 0.71,
+          "key": "wants",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.71,
+          "end": 0.87,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.87,
+          "end": 0.99,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 0.99,
+          "end": 1.17,
+          "key": "read",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them,\"",
+          "start": 1.17,
+          "end": 1.65,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.65,
+          "end": 2.07,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ermengarde,",
+          "start": 2.07,
+          "end": 2.65,
+          "key": "ermengarde",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.23,
+          "end": 3.25,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 3.25,
+          "end": 3.39,
+          "key": "little",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "discouraged",
+          "start": 3.39,
+          "end": 3.95,
+          "key": "discouraged",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.95,
+          "end": 4.25,
+          "key": "by",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.25,
+          "end": 4.45,
+          "key": "this",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "unexpected",
+          "start": 4.45,
+          "end": 5.05,
+          "key": "unexpected",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 5.05,
+          "end": 5.49,
+          "key": "turn",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.49,
+          "end": 5.65,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "affairs.",
+          "start": 5.65,
+          "end": 6.01,
+          "key": "affairs",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "wants",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "text": "me",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "text": "to",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "text": "read",
+          "start": 0.99,
+          "end": 1.17
+        },
+        {
+          "text": "them,\"",
+          "start": 1.17,
+          "end": 1.65
+        },
+        {
+          "text": "said",
+          "start": 1.65,
+          "end": 2.07
+        },
+        {
+          "text": "Ermengarde,",
+          "start": 2.07,
+          "end": 2.65
+        },
+        {
+          "text": "a",
+          "start": 3.23,
+          "end": 3.25
+        },
+        {
+          "text": "little",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "text": "discouraged",
+          "start": 3.39,
+          "end": 3.95
+        },
+        {
+          "text": "by",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "text": "this",
+          "start": 4.25,
+          "end": 4.45
+        },
+        {
+          "text": "unexpected",
+          "start": 4.45,
+          "end": 5.05
+        },
+        {
+          "text": "turn",
+          "start": 5.05,
+          "end": 5.49
+        },
+        {
+          "text": "of",
+          "start": 5.49,
+          "end": 5.65
+        },
+        {
+          "text": "affairs.",
+          "start": 5.65,
+          "end": 6.01
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2958967313170433
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "01fc476597a8e3b7492a89661ba0fe48a6a992717e998acbda486bf46a1d93fc",
+  "selected_reasons": []
+}

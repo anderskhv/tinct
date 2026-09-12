@@ -1,0 +1,793 @@
+{
+  "complete": true,
+  "signature": "5c9d924f0ca3b004eb94a225585243f58f9fa57cff5156c4c454613b9030b385",
+  "attempts": [
+    {
+      "asr_seconds": 0.30147022381424904,
+      "alignment_seconds": 0.00040315836668014526,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ermingard gave a little jump backward.",
+          "start": 0.08,
+          "end": 2.26,
+          "words": [
+            {
+              "text": " Ermingard",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.591552734375
+            },
+            {
+              "text": " gave",
+              "start": 0.92,
+              "end": 1.14,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 1.14,
+              "end": 1.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " little",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " jump",
+              "start": 1.48,
+              "end": 1.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " backward.",
+              "start": 1.78,
+              "end": 2.26,
+              "probability": 0.98291015625
+            }
+          ]
+        },
+        {
+          "text": " The last sentences had recalled something to her troubled mind and given her a sudden",
+          "start": 2.94,
+          "end": 7.42,
+          "words": [
+            {
+              "text": " The",
+              "start": 2.94,
+              "end": 3.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " last",
+              "start": 3.04,
+              "end": 3.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sentences",
+              "start": 3.3,
+              "end": 3.84,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " had",
+              "start": 3.84,
+              "end": 4.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " recalled",
+              "start": 4.14,
+              "end": 4.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " something",
+              "start": 4.5,
+              "end": 4.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 4.82,
+              "end": 5.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 5.06,
+              "end": 5.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " troubled",
+              "start": 5.18,
+              "end": 5.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " mind",
+              "start": 5.54,
+              "end": 5.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 5.96,
+              "end": 6.52,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " given",
+              "start": 6.52,
+              "end": 6.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " her",
+              "start": 6.7,
+              "end": 6.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 6.98,
+              "end": 7.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sudden",
+              "start": 7.12,
+              "end": 7.42,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " inspiration.",
+          "start": 7.42,
+          "end": 8.0,
+          "words": [
+            {
+              "text": " inspiration.",
+              "start": 7.42,
+              "end": 8.0,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ermingard",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "gave",
+          "start": 0.92,
+          "end": 1.14
+        },
+        {
+          "raw": "a",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "raw": "little",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "jump",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "raw": "backward.",
+          "start": 1.78,
+          "end": 2.26
+        },
+        {
+          "raw": "The",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "raw": "last",
+          "start": 3.04,
+          "end": 3.3
+        },
+        {
+          "raw": "sentences",
+          "start": 3.3,
+          "end": 3.84
+        },
+        {
+          "raw": "had",
+          "start": 3.84,
+          "end": 4.14
+        },
+        {
+          "raw": "recalled",
+          "start": 4.14,
+          "end": 4.5
+        },
+        {
+          "raw": "something",
+          "start": 4.5,
+          "end": 4.82
+        },
+        {
+          "raw": "to",
+          "start": 4.82,
+          "end": 5.06
+        },
+        {
+          "raw": "her",
+          "start": 5.06,
+          "end": 5.18
+        },
+        {
+          "raw": "troubled",
+          "start": 5.18,
+          "end": 5.54
+        },
+        {
+          "raw": "mind",
+          "start": 5.54,
+          "end": 5.96
+        },
+        {
+          "raw": "and",
+          "start": 5.96,
+          "end": 6.52
+        },
+        {
+          "raw": "given",
+          "start": 6.52,
+          "end": 6.7
+        },
+        {
+          "raw": "her",
+          "start": 6.7,
+          "end": 6.98
+        },
+        {
+          "raw": "a",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "raw": "sudden",
+          "start": 7.12,
+          "end": 7.42
+        },
+        {
+          "raw": "inspiration.",
+          "start": 7.42,
+          "end": 8.0
+        }
+      ],
+      "expected_tokens": [
+        "Ermengarde",
+        "gave",
+        "a",
+        "little",
+        "jump",
+        "backward.",
+        "The",
+        "last",
+        "sentences",
+        "had",
+        "recalled",
+        "something",
+        "to",
+        "her",
+        "troubled",
+        "mind",
+        "and",
+        "given",
+        "her",
+        "a",
+        "sudden",
+        "inspiration."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          22,
+          1,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ermingard",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "ermingard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 0.92,
+          "end": 1.14,
+          "key": "gave",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.14,
+          "end": 1.3,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 1.3,
+          "end": 1.48,
+          "key": "little",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "jump",
+          "start": 1.48,
+          "end": 1.78,
+          "key": "jump",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "backward.",
+          "start": 1.78,
+          "end": 2.26,
+          "key": "backward",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.94,
+          "end": 3.04,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 3.04,
+          "end": 3.3,
+          "key": "last",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sentences",
+          "start": 3.3,
+          "end": 3.84,
+          "key": "sentences",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.84,
+          "end": 4.14,
+          "key": "had",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "recalled",
+          "start": 4.14,
+          "end": 4.5,
+          "key": "recalled",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 4.5,
+          "end": 4.82,
+          "key": "something",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.82,
+          "end": 5.06,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 5.06,
+          "end": 5.18,
+          "key": "her",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "troubled",
+          "start": 5.18,
+          "end": 5.54,
+          "key": "troubled",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 5.54,
+          "end": 5.96,
+          "key": "mind",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.96,
+          "end": 6.52,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "given",
+          "start": 6.52,
+          "end": 6.7,
+          "key": "given",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 6.7,
+          "end": 6.98,
+          "key": "her",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.98,
+          "end": 7.12,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "sudden",
+          "start": 7.12,
+          "end": 7.42,
+          "key": "sudden",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "inspiration.",
+          "start": 7.42,
+          "end": 8.0,
+          "key": "inspiration",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ermengarde",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "gave",
+          "start": 0.92,
+          "end": 1.14
+        },
+        {
+          "text": "a",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "text": "little",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "jump",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "text": "backward.",
+          "start": 1.78,
+          "end": 2.26
+        },
+        {
+          "text": "The",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "text": "last",
+          "start": 3.04,
+          "end": 3.3
+        },
+        {
+          "text": "sentences",
+          "start": 3.3,
+          "end": 3.84
+        },
+        {
+          "text": "had",
+          "start": 3.84,
+          "end": 4.14
+        },
+        {
+          "text": "recalled",
+          "start": 4.14,
+          "end": 4.5
+        },
+        {
+          "text": "something",
+          "start": 4.5,
+          "end": 4.82
+        },
+        {
+          "text": "to",
+          "start": 4.82,
+          "end": 5.06
+        },
+        {
+          "text": "her",
+          "start": 5.06,
+          "end": 5.18
+        },
+        {
+          "text": "troubled",
+          "start": 5.18,
+          "end": 5.54
+        },
+        {
+          "text": "mind",
+          "start": 5.54,
+          "end": 5.96
+        },
+        {
+          "text": "and",
+          "start": 5.96,
+          "end": 6.52
+        },
+        {
+          "text": "given",
+          "start": 6.52,
+          "end": 6.7
+        },
+        {
+          "text": "her",
+          "start": 6.7,
+          "end": 6.98
+        },
+        {
+          "text": "a",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "text": "sudden",
+          "start": 7.12,
+          "end": 7.42
+        },
+        {
+          "text": "inspiration.",
+          "start": 7.42,
+          "end": 8.0
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 21
+      },
+      "match_ratio": 0.9545454545454546,
+      "rejection_reasons": [],
+      "seconds": 0.3020257279276848
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0dd83573d14fe77215f4a3dcc94336f27ddbd53ca49b8571fa49b503ecef1e95",
+  "selected_reasons": []
+}

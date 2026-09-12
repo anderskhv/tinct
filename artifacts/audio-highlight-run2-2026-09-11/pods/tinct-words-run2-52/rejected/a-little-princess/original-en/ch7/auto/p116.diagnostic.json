@@ -1,0 +1,535 @@
+{
+  "complete": true,
+  "signature": "8fdb6eeef6321308591b858d554816f94b26fe5e0c670474c8e1973d3fc904e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.11333755403757095,
+      "alignment_seconds": 0.00033505260944366455,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Where is Sara Crewe?\"",
+        "hotwords": "Where, Sara, Crewe"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Where's Sara Crewe?",
+          "start": 0.02,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Where's",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " Sara",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.08056640625
+            },
+            {
+              "text": " Crewe?",
+              "start": 0.84,
+              "end": 1.32,
+              "probability": 0.503143310546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where's",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Sara",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "Crewe?",
+          "start": 0.84,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "\"Where",
+        "is",
+        "Sara",
+        "Crewe?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          4,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where's",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "wheres",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sara",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "sara",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Crewe?",
+          "start": 0.84,
+          "end": 1.32,
+          "key": "crewe",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Where",
+          "start": 0.0,
+          "end": 0.33
+        },
+        {
+          "text": "is",
+          "start": 0.33,
+          "end": 0.495
+        },
+        {
+          "text": "Sara",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "Crewe?\"",
+          "start": 0.84,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11378030478954315
+    },
+    {
+      "asr_seconds": 0.11932143196463585,
+      "alignment_seconds": 0.0003337152302265167,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Where, Sara, Crewe"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Where's Sara Crewe?",
+          "start": 0.02,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Where's",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " Sara",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.08056640625
+            },
+            {
+              "text": " Crewe?",
+              "start": 0.84,
+              "end": 1.32,
+              "probability": 0.503143310546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where's",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Sara",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "Crewe?",
+          "start": 0.84,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "\"Where",
+        "is",
+        "Sara",
+        "Crewe?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          4,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where's",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "wheres",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sara",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "sara",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Crewe?",
+          "start": 0.84,
+          "end": 1.32,
+          "key": "crewe",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Where",
+          "start": 0.0,
+          "end": 0.33
+        },
+        {
+          "text": "is",
+          "start": 0.33,
+          "end": 0.495
+        },
+        {
+          "text": "Sara",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "Crewe?\"",
+          "start": 0.84,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11975926905870438
+    },
+    {
+      "asr_seconds": 0.11891961470246315,
+      "alignment_seconds": 0.0003395751118659973,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Where's Sarah Crew?",
+          "start": 0.02,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Where's",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " Sarah",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " Crew?",
+              "start": 0.84,
+              "end": 1.14,
+              "probability": 0.3486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where's",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Sarah",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "Crew?",
+          "start": 0.84,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "\"Where",
+        "is",
+        "Sara",
+        "Crewe?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where's",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "wheres",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sarah",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "sarah",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Crew?",
+          "start": 0.84,
+          "end": 1.14,
+          "key": "crew",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Where",
+          "start": 0.0,
+          "end": 0.57
+        },
+        {
+          "text": "is",
+          "start": 0.57,
+          "end": 0.855
+        },
+        {
+          "text": "Sara",
+          "start": 0.855,
+          "end": 0.997
+        },
+        {
+          "text": "Crewe?\"",
+          "start": 0.997,
+          "end": 1.069
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11936060711741447
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "358af64606631e815ba4bf233117d589a8b95d53114d38f99fab0f430c21adaf",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

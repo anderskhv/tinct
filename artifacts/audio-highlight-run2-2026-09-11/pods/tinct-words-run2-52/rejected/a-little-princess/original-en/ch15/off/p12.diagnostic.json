@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "7a5342e2ce14547a9a83f46799d7ae1b1ac3b3e4f9f9e86e1087badd43856635",
+  "attempts": [
+    {
+      "asr_seconds": 0.17633262276649475,
+      "alignment_seconds": 0.00037448108196258545,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sarah laid her purchases on the table.",
+          "start": 0.11,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Sarah",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.833984375
+            },
+            {
+              "text": " laid",
+              "start": 0.65,
+              "end": 0.93,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " her",
+              "start": 0.93,
+              "end": 1.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " purchases",
+              "start": 1.13,
+              "end": 1.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 1.49,
+              "end": 1.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.77,
+              "end": 1.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " table.",
+              "start": 1.87,
+              "end": 2.17,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sarah",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "laid",
+          "start": 0.65,
+          "end": 0.93
+        },
+        {
+          "raw": "her",
+          "start": 0.93,
+          "end": 1.13
+        },
+        {
+          "raw": "purchases",
+          "start": 1.13,
+          "end": 1.49
+        },
+        {
+          "raw": "on",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "raw": "the",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "raw": "table.",
+          "start": 1.87,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "Sara",
+        "laid",
+        "her",
+        "purchases",
+        "on",
+        "the",
+        "table."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sarah",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "sarah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "laid",
+          "start": 0.65,
+          "end": 0.93,
+          "key": "laid",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.93,
+          "end": 1.13,
+          "key": "her",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "purchases",
+          "start": 1.13,
+          "end": 1.49,
+          "key": "purchases",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.49,
+          "end": 1.77,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.77,
+          "end": 1.87,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "table.",
+          "start": 1.87,
+          "end": 2.17,
+          "key": "table",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sara",
+          "start": 0.0,
+          "end": 0.325
+        },
+        {
+          "text": "laid",
+          "start": 0.65,
+          "end": 0.93
+        },
+        {
+          "text": "her",
+          "start": 0.93,
+          "end": 1.13
+        },
+        {
+          "text": "purchases",
+          "start": 1.13,
+          "end": 1.49
+        },
+        {
+          "text": "on",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "text": "the",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "text": "table.",
+          "start": 1.87,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.17684153094887733
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "be377c3fac0c7af51cc67cb5fece528c2762ae86b57c38e39887196f5ff25000",
+  "selected_reasons": []
+}

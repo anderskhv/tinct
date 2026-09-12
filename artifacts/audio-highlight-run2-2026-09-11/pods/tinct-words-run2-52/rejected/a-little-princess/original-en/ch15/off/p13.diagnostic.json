@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "e92c83a0b0567b60fe3da3a4e43eb8da36c85357e5d9734651b685f56a1760f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.17839166149497032,
+      "alignment_seconds": 0.0003899037837982178,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Here are the things she said",
+          "start": 0.05,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Here",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.268310546875
+            },
+            {
+              "text": " are",
+              "start": 0.55,
+              "end": 0.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 0.65,
+              "end": 0.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " things",
+              "start": 0.75,
+              "end": 1.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " she",
+              "start": 1.11,
+              "end": 1.53,
+              "probability": 0.4765625
+            },
+            {
+              "text": " said",
+              "start": 1.53,
+              "end": 1.81,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Here",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "are",
+          "start": 0.55,
+          "end": 0.65
+        },
+        {
+          "raw": "the",
+          "start": 0.65,
+          "end": 0.75
+        },
+        {
+          "raw": "things",
+          "start": 0.75,
+          "end": 1.11
+        },
+        {
+          "raw": "she",
+          "start": 1.11,
+          "end": 1.53
+        },
+        {
+          "raw": "said",
+          "start": 1.53,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "\"Here",
+        "are",
+        "the",
+        "things,\"",
+        "she",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Here",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "here",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.55,
+          "end": 0.65,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.65,
+          "end": 0.75,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 0.75,
+          "end": 1.11,
+          "key": "things",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.11,
+          "end": 1.53,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.53,
+          "end": 1.81,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Here",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "are",
+          "start": 0.55,
+          "end": 0.65
+        },
+        {
+          "text": "the",
+          "start": 0.65,
+          "end": 0.75
+        },
+        {
+          "text": "things,\"",
+          "start": 0.75,
+          "end": 1.11
+        },
+        {
+          "text": "she",
+          "start": 1.11,
+          "end": 1.53
+        },
+        {
+          "text": "said.",
+          "start": 1.53,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17892128974199295
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2ac0a97fae703d48f83026f433b3220b5e2b82550f46d57006921231a42a898e",
+  "selected_reasons": []
+}

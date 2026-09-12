@@ -1,0 +1,2056 @@
+{
+  "complete": true,
+  "signature": "5bf47f6aa707e12a4bb7d8e432ae0f3001f3879a40344cd965bace28af4765e6",
+  "attempts": [
+    {
+      "asr_seconds": 0.29009339585900307,
+      "alignment_seconds": 0.0007094331085681915,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"'T warn't me,\" wept Becky. \"I could 'ave eat a whole un--but I never laid a finger on it.\"",
+        "hotwords": "T, Becky, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " T, warrant me,\" wept Becky. I could \"'ave eat a whole un-but I never laid a finger on it.\"",
+          "start": 0.05,
+          "end": 5.55,
+          "words": [
+            {
+              "text": " T,",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.019134521484375
+            },
+            {
+              "text": " warrant",
+              "start": 0.67,
+              "end": 0.89,
+              "probability": 0.52587890625
+            },
+            {
+              "text": " me,\"",
+              "start": 0.89,
+              "end": 1.49,
+              "probability": 0.5123443603515625
+            },
+            {
+              "text": " wept",
+              "start": 1.49,
+              "end": 1.87,
+              "probability": 0.968505859375
+            },
+            {
+              "text": " Becky.",
+              "start": 1.87,
+              "end": 2.13,
+              "probability": 0.951171875
+            },
+            {
+              "text": " I",
+              "start": 2.77,
+              "end": 2.89,
+              "probability": 0.188720703125
+            },
+            {
+              "text": " could",
+              "start": 2.89,
+              "end": 3.03,
+              "probability": 0.9921875
+            },
+            {
+              "text": " \"'ave",
+              "start": 3.03,
+              "end": 3.21,
+              "probability": 0.42309871315956116
+            },
+            {
+              "text": " eat",
+              "start": 3.21,
+              "end": 3.45,
+              "probability": 0.19384765625
+            },
+            {
+              "text": " a",
+              "start": 3.45,
+              "end": 3.57,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " whole",
+              "start": 3.57,
+              "end": 3.79,
+              "probability": 0.55517578125
+            },
+            {
+              "text": " un",
+              "start": 3.79,
+              "end": 4.03,
+              "probability": 0.70556640625
+            },
+            {
+              "text": "-but",
+              "start": 4.03,
+              "end": 4.17,
+              "probability": 0.504241943359375
+            },
+            {
+              "text": " I",
+              "start": 4.17,
+              "end": 4.29,
+              "probability": 0.42041015625
+            },
+            {
+              "text": " never",
+              "start": 4.29,
+              "end": 4.47,
+              "probability": 0.958984375
+            },
+            {
+              "text": " laid",
+              "start": 4.47,
+              "end": 4.67,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " a",
+              "start": 4.67,
+              "end": 4.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " finger",
+              "start": 4.83,
+              "end": 4.99,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " on",
+              "start": 4.99,
+              "end": 5.31,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " it.\"",
+              "start": 5.31,
+              "end": 5.55,
+              "probability": 0.9013671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "T,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "warrant",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "raw": "me,\"",
+          "start": 0.89,
+          "end": 1.49
+        },
+        {
+          "raw": "wept",
+          "start": 1.49,
+          "end": 1.87
+        },
+        {
+          "raw": "Becky.",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "raw": "I",
+          "start": 2.77,
+          "end": 2.89
+        },
+        {
+          "raw": "could",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "raw": "\"'ave",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "raw": "eat",
+          "start": 3.21,
+          "end": 3.45
+        },
+        {
+          "raw": "a",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "raw": "whole",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "raw": "un",
+          "start": 3.79,
+          "end": 4.03
+        },
+        {
+          "raw": "-but",
+          "start": 4.03,
+          "end": 4.17
+        },
+        {
+          "raw": "I",
+          "start": 4.17,
+          "end": 4.29
+        },
+        {
+          "raw": "never",
+          "start": 4.29,
+          "end": 4.47
+        },
+        {
+          "raw": "laid",
+          "start": 4.47,
+          "end": 4.67
+        },
+        {
+          "raw": "a",
+          "start": 4.67,
+          "end": 4.83
+        },
+        {
+          "raw": "finger",
+          "start": 4.83,
+          "end": 4.99
+        },
+        {
+          "raw": "on",
+          "start": 4.99,
+          "end": 5.31
+        },
+        {
+          "raw": "it.\"",
+          "start": 5.31,
+          "end": 5.55
+        }
+      ],
+      "expected_tokens": [
+        "\"'T",
+        "warn't",
+        "me,\"",
+        "wept",
+        "Becky.",
+        "\"I",
+        "could",
+        "'ave",
+        "eat",
+        "a",
+        "whole",
+        "un--but",
+        "I",
+        "never",
+        "laid",
+        "a",
+        "finger",
+        "on",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          19,
+          2,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "T,",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "t",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 0.67,
+          "end": 0.89,
+          "key": "warrant",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me,\"",
+          "start": 0.89,
+          "end": 1.49,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wept",
+          "start": 1.49,
+          "end": 1.87,
+          "key": "wept",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Becky.",
+          "start": 1.87,
+          "end": 2.13,
+          "key": "becky",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.77,
+          "end": 2.89,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 2.89,
+          "end": 3.03,
+          "key": "could",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "\"'ave",
+          "start": 3.03,
+          "end": 3.21,
+          "key": "ave",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "eat",
+          "start": 3.21,
+          "end": 3.45,
+          "key": "eat",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.45,
+          "end": 3.57,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 3.57,
+          "end": 3.79,
+          "key": "whole",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "un -but",
+          "start": 3.79,
+          "end": 4.17,
+          "key": "unbut",
+          "pieces": [
+            11,
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.17,
+          "end": 4.29,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 4.29,
+          "end": 4.47,
+          "key": "never",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "laid",
+          "start": 4.47,
+          "end": 4.67,
+          "key": "laid",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.67,
+          "end": 4.83,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "finger",
+          "start": 4.83,
+          "end": 4.99,
+          "key": "finger",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.99,
+          "end": 5.31,
+          "key": "on",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "it.\"",
+          "start": 5.31,
+          "end": 5.55,
+          "key": "it",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 11,
+          "text": "un--but",
+          "heard": "un -but",
+          "heard_indexes": [
+            11,
+            12
+          ],
+          "start": 3.79,
+          "end": 4.17
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"'T",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "warn't",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "text": "me,\"",
+          "start": 0.89,
+          "end": 1.49
+        },
+        {
+          "text": "wept",
+          "start": 1.49,
+          "end": 1.87
+        },
+        {
+          "text": "Becky.",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "text": "\"I",
+          "start": 2.77,
+          "end": 2.89
+        },
+        {
+          "text": "could",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "text": "'ave",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "text": "eat",
+          "start": 3.21,
+          "end": 3.45
+        },
+        {
+          "text": "a",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "text": "whole",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "text": "un--but",
+          "start": 3.79,
+          "end": 4.17
+        },
+        {
+          "text": "I",
+          "start": 4.17,
+          "end": 4.29
+        },
+        {
+          "text": "never",
+          "start": 4.29,
+          "end": 4.47
+        },
+        {
+          "text": "laid",
+          "start": 4.47,
+          "end": 4.67
+        },
+        {
+          "text": "a",
+          "start": 4.67,
+          "end": 4.83
+        },
+        {
+          "text": "finger",
+          "start": 4.83,
+          "end": 4.99
+        },
+        {
+          "text": "on",
+          "start": 4.99,
+          "end": 5.31
+        },
+        {
+          "text": "it.\"",
+          "start": 5.31,
+          "end": 5.55
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.2910488322377205
+    },
+    {
+      "asr_seconds": 0.2492133006453514,
+      "alignment_seconds": 0.0005662329494953156,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "T, Becky, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " could have ate a whole on but I never laid a finger on it",
+          "start": 2.23,
+          "end": 5.59,
+          "words": [
+            {
+              "text": " could",
+              "start": 2.23,
+              "end": 2.69,
+              "probability": 4.0531158447265625e-06
+            },
+            {
+              "text": " have",
+              "start": 2.69,
+              "end": 3.15,
+              "probability": 0.54052734375
+            },
+            {
+              "text": " ate",
+              "start": 3.15,
+              "end": 3.41,
+              "probability": 0.58740234375
+            },
+            {
+              "text": " a",
+              "start": 3.41,
+              "end": 3.55,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " whole",
+              "start": 3.55,
+              "end": 3.79,
+              "probability": 0.7021484375
+            },
+            {
+              "text": " on",
+              "start": 3.79,
+              "end": 4.05,
+              "probability": 0.09405517578125
+            },
+            {
+              "text": " but",
+              "start": 4.05,
+              "end": 4.19,
+              "probability": 0.80078125
+            },
+            {
+              "text": " I",
+              "start": 4.19,
+              "end": 4.29,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " never",
+              "start": 4.29,
+              "end": 4.51,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " laid",
+              "start": 4.51,
+              "end": 4.69,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " a",
+              "start": 4.69,
+              "end": 4.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " finger",
+              "start": 4.83,
+              "end": 5.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " on",
+              "start": 5.03,
+              "end": 5.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it",
+              "start": 5.33,
+              "end": 5.59,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "could",
+          "start": 2.23,
+          "end": 2.69
+        },
+        {
+          "raw": "have",
+          "start": 2.69,
+          "end": 3.15
+        },
+        {
+          "raw": "ate",
+          "start": 3.15,
+          "end": 3.41
+        },
+        {
+          "raw": "a",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "raw": "whole",
+          "start": 3.55,
+          "end": 3.79
+        },
+        {
+          "raw": "on",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "raw": "but",
+          "start": 4.05,
+          "end": 4.19
+        },
+        {
+          "raw": "I",
+          "start": 4.19,
+          "end": 4.29
+        },
+        {
+          "raw": "never",
+          "start": 4.29,
+          "end": 4.51
+        },
+        {
+          "raw": "laid",
+          "start": 4.51,
+          "end": 4.69
+        },
+        {
+          "raw": "a",
+          "start": 4.69,
+          "end": 4.83
+        },
+        {
+          "raw": "finger",
+          "start": 4.83,
+          "end": 5.03
+        },
+        {
+          "raw": "on",
+          "start": 5.03,
+          "end": 5.33
+        },
+        {
+          "raw": "it",
+          "start": 5.33,
+          "end": 5.59
+        }
+      ],
+      "expected_tokens": [
+        "\"'T",
+        "warn't",
+        "me,\"",
+        "wept",
+        "Becky.",
+        "\"I",
+        "could",
+        "'ave",
+        "eat",
+        "a",
+        "whole",
+        "un--but",
+        "I",
+        "never",
+        "laid",
+        "a",
+        "finger",
+        "on",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          6,
+          0,
+          0
+        ],
+        [
+          "equal",
+          6,
+          7,
+          0,
+          1
+        ],
+        [
+          "replace",
+          7,
+          9,
+          1,
+          3
+        ],
+        [
+          "equal",
+          9,
+          11,
+          3,
+          5
+        ],
+        [
+          "replace",
+          11,
+          12,
+          5,
+          7
+        ],
+        [
+          "equal",
+          12,
+          19,
+          7,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          6,
+          0,
+          0
+        ],
+        [
+          "replace",
+          7,
+          9,
+          1,
+          3
+        ],
+        [
+          "replace",
+          11,
+          12,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "could",
+          "start": 2.23,
+          "end": 2.69,
+          "key": "could",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.69,
+          "end": 3.15,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ate",
+          "start": 3.15,
+          "end": 3.41,
+          "key": "ate",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.41,
+          "end": 3.55,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 3.55,
+          "end": 3.79,
+          "key": "whole",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.79,
+          "end": 4.05,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.05,
+          "end": 4.19,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.19,
+          "end": 4.29,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 4.29,
+          "end": 4.51,
+          "key": "never",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "laid",
+          "start": 4.51,
+          "end": 4.69,
+          "key": "laid",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.69,
+          "end": 4.83,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "finger",
+          "start": 4.83,
+          "end": 5.03,
+          "key": "finger",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.03,
+          "end": 5.33,
+          "key": "on",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.33,
+          "end": 5.59,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"'T",
+          "start": 0.0,
+          "end": 1.115
+        },
+        {
+          "text": "warn't",
+          "start": 1.115,
+          "end": 1.672
+        },
+        {
+          "text": "me,\"",
+          "start": 1.672,
+          "end": 1.951
+        },
+        {
+          "text": "wept",
+          "start": 1.951,
+          "end": 2.091
+        },
+        {
+          "text": "Becky.",
+          "start": 2.091,
+          "end": 2.16
+        },
+        {
+          "text": "\"I",
+          "start": 2.16,
+          "end": 2.195
+        },
+        {
+          "text": "could",
+          "start": 2.23,
+          "end": 2.69
+        },
+        {
+          "text": "'ave",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "text": "eat",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "text": "a",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "text": "whole",
+          "start": 3.55,
+          "end": 3.79
+        },
+        {
+          "text": "un--but",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "text": "I",
+          "start": 4.19,
+          "end": 4.29
+        },
+        {
+          "text": "never",
+          "start": 4.29,
+          "end": 4.51
+        },
+        {
+          "text": "laid",
+          "start": 4.51,
+          "end": 4.69
+        },
+        {
+          "text": "a",
+          "start": 4.69,
+          "end": 4.83
+        },
+        {
+          "text": "finger",
+          "start": 4.83,
+          "end": 5.03
+        },
+        {
+          "text": "on",
+          "start": 5.03,
+          "end": 5.33
+        },
+        {
+          "text": "it.\"",
+          "start": 5.33,
+          "end": 5.59
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 14,
+        "matched_words": 10
+      },
+      "match_ratio": 0.5263157894736842,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24994590505957603
+    },
+    {
+      "asr_seconds": 0.3227544166147709,
+      "alignment_seconds": 0.0007460787892341614,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tea warrant me wept Becky. I could have ate a whole un but I never laid a finger on it",
+          "start": 0.05,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " Tea",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.07806396484375
+            },
+            {
+              "text": " warrant",
+              "start": 0.57,
+              "end": 0.95,
+              "probability": 0.61181640625
+            },
+            {
+              "text": " me",
+              "start": 0.95,
+              "end": 1.31,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " wept",
+              "start": 1.31,
+              "end": 1.87,
+              "probability": 0.642822265625
+            },
+            {
+              "text": " Becky.",
+              "start": 1.87,
+              "end": 2.17,
+              "probability": 0.76025390625
+            },
+            {
+              "text": " I",
+              "start": 2.53,
+              "end": 2.89,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " could",
+              "start": 2.89,
+              "end": 3.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " have",
+              "start": 3.03,
+              "end": 3.19,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " ate",
+              "start": 3.19,
+              "end": 3.37,
+              "probability": 0.470947265625
+            },
+            {
+              "text": " a",
+              "start": 3.37,
+              "end": 3.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " whole",
+              "start": 3.55,
+              "end": 3.81,
+              "probability": 0.681640625
+            },
+            {
+              "text": " un",
+              "start": 3.81,
+              "end": 4.03,
+              "probability": 0.406005859375
+            },
+            {
+              "text": " but",
+              "start": 4.03,
+              "end": 4.19,
+              "probability": 0.720703125
+            },
+            {
+              "text": " I",
+              "start": 4.19,
+              "end": 4.29,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " never",
+              "start": 4.29,
+              "end": 4.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " laid",
+              "start": 4.49,
+              "end": 4.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 4.69,
+              "end": 4.81,
+              "probability": 1.0
+            },
+            {
+              "text": " finger",
+              "start": 4.81,
+              "end": 5.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 5.01,
+              "end": 5.31,
+              "probability": 1.0
+            },
+            {
+              "text": " it",
+              "start": 5.31,
+              "end": 5.73,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tea",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "warrant",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "raw": "me",
+          "start": 0.95,
+          "end": 1.31
+        },
+        {
+          "raw": "wept",
+          "start": 1.31,
+          "end": 1.87
+        },
+        {
+          "raw": "Becky.",
+          "start": 1.87,
+          "end": 2.17
+        },
+        {
+          "raw": "I",
+          "start": 2.53,
+          "end": 2.89
+        },
+        {
+          "raw": "could",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "raw": "have",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "raw": "ate",
+          "start": 3.19,
+          "end": 3.37
+        },
+        {
+          "raw": "a",
+          "start": 3.37,
+          "end": 3.55
+        },
+        {
+          "raw": "whole",
+          "start": 3.55,
+          "end": 3.81
+        },
+        {
+          "raw": "un",
+          "start": 3.81,
+          "end": 4.03
+        },
+        {
+          "raw": "but",
+          "start": 4.03,
+          "end": 4.19
+        },
+        {
+          "raw": "I",
+          "start": 4.19,
+          "end": 4.29
+        },
+        {
+          "raw": "never",
+          "start": 4.29,
+          "end": 4.49
+        },
+        {
+          "raw": "laid",
+          "start": 4.49,
+          "end": 4.69
+        },
+        {
+          "raw": "a",
+          "start": 4.69,
+          "end": 4.81
+        },
+        {
+          "raw": "finger",
+          "start": 4.81,
+          "end": 5.01
+        },
+        {
+          "raw": "on",
+          "start": 5.01,
+          "end": 5.31
+        },
+        {
+          "raw": "it",
+          "start": 5.31,
+          "end": 5.73
+        }
+      ],
+      "expected_tokens": [
+        "\"'T",
+        "warn't",
+        "me,\"",
+        "wept",
+        "Becky.",
+        "\"I",
+        "could",
+        "'ave",
+        "eat",
+        "a",
+        "whole",
+        "un--but",
+        "I",
+        "never",
+        "laid",
+        "a",
+        "finger",
+        "on",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          7,
+          2,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ],
+        [
+          "equal",
+          9,
+          19,
+          9,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tea",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "tea",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 0.57,
+          "end": 0.95,
+          "key": "warrant",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.95,
+          "end": 1.31,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wept",
+          "start": 1.31,
+          "end": 1.87,
+          "key": "wept",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Becky.",
+          "start": 1.87,
+          "end": 2.17,
+          "key": "becky",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.53,
+          "end": 2.89,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 2.89,
+          "end": 3.03,
+          "key": "could",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.03,
+          "end": 3.19,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ate",
+          "start": 3.19,
+          "end": 3.37,
+          "key": "ate",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.37,
+          "end": 3.55,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 3.55,
+          "end": 3.81,
+          "key": "whole",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "un but",
+          "start": 3.81,
+          "end": 4.19,
+          "key": "unbut",
+          "pieces": [
+            11,
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.19,
+          "end": 4.29,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 4.29,
+          "end": 4.49,
+          "key": "never",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "laid",
+          "start": 4.49,
+          "end": 4.69,
+          "key": "laid",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.69,
+          "end": 4.81,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "finger",
+          "start": 4.81,
+          "end": 5.01,
+          "key": "finger",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.01,
+          "end": 5.31,
+          "key": "on",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.31,
+          "end": 5.73,
+          "key": "it",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 11,
+          "text": "un--but",
+          "heard": "un but",
+          "heard_indexes": [
+            11,
+            12
+          ],
+          "start": 3.81,
+          "end": 4.19
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"'T",
+          "start": 0.0,
+          "end": 0.475
+        },
+        {
+          "text": "warn't",
+          "start": 0.475,
+          "end": 0.712
+        },
+        {
+          "text": "me,\"",
+          "start": 0.95,
+          "end": 1.31
+        },
+        {
+          "text": "wept",
+          "start": 1.31,
+          "end": 1.87
+        },
+        {
+          "text": "Becky.",
+          "start": 1.87,
+          "end": 2.17
+        },
+        {
+          "text": "\"I",
+          "start": 2.53,
+          "end": 2.89
+        },
+        {
+          "text": "could",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "text": "'ave",
+          "start": 3.03,
+          "end": 3.2
+        },
+        {
+          "text": "eat",
+          "start": 3.2,
+          "end": 3.285
+        },
+        {
+          "text": "a",
+          "start": 3.37,
+          "end": 3.55
+        },
+        {
+          "text": "whole",
+          "start": 3.55,
+          "end": 3.81
+        },
+        {
+          "text": "un--but",
+          "start": 3.81,
+          "end": 4.19
+        },
+        {
+          "text": "I",
+          "start": 4.19,
+          "end": 4.29
+        },
+        {
+          "text": "never",
+          "start": 4.29,
+          "end": 4.49
+        },
+        {
+          "text": "laid",
+          "start": 4.49,
+          "end": 4.69
+        },
+        {
+          "text": "a",
+          "start": 4.69,
+          "end": 4.81
+        },
+        {
+          "text": "finger",
+          "start": 4.81,
+          "end": 5.01
+        },
+        {
+          "text": "on",
+          "start": 5.01,
+          "end": 5.31
+        },
+        {
+          "text": "it.\"",
+          "start": 5.31,
+          "end": 5.73
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 15
+      },
+      "match_ratio": 0.7894736842105263,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.32373708114027977
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "64c8be5c342e474bee40c6251f4dcfcd03ccfe3ffea88dbb1b7ef70d398f90f1",
+  "selected_reasons": []
+}

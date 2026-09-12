@@ -1,0 +1,854 @@
+{
+  "complete": true,
+  "signature": "7c5a1fb574c14c949f7f2cdf4cbfa70c2df7b2c4d34d120a45b332e59eb5b739",
+  "attempts": [
+    {
+      "asr_seconds": 0.33866945281624794,
+      "alignment_seconds": 0.0006015785038471222,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, please, M,\" she said.",
+          "start": 0.02,
+          "end": 2.58,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.04766845703125
+            },
+            {
+              "text": " please,",
+              "start": 0.7,
+              "end": 1.1,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " M,\"",
+              "start": 1.72,
+              "end": 2.06,
+              "probability": 0.581787109375
+            },
+            {
+              "text": " she",
+              "start": 2.06,
+              "end": 2.28,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " said.",
+              "start": 2.28,
+              "end": 2.58,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " I dare say you'll give me warning, Mom, but I'm so sorry for poor Miss Sarah, I'm so sorry.",
+          "start": 3.1,
+          "end": 7.44,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.1,
+              "end": 3.28,
+              "probability": 0.06329345703125
+            },
+            {
+              "text": " dare",
+              "start": 3.28,
+              "end": 3.44,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " say",
+              "start": 3.44,
+              "end": 3.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you'll",
+              "start": 3.64,
+              "end": 3.84,
+              "probability": 0.983154296875
+            },
+            {
+              "text": " give",
+              "start": 3.84,
+              "end": 3.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me",
+              "start": 3.94,
+              "end": 4.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " warning,",
+              "start": 4.1,
+              "end": 4.38,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " Mom,",
+              "start": 4.86,
+              "end": 4.88,
+              "probability": 0.5380859375
+            },
+            {
+              "text": " but",
+              "start": 5.0,
+              "end": 5.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I'm",
+              "start": 5.04,
+              "end": 5.22,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " so",
+              "start": 5.22,
+              "end": 5.42,
+              "probability": 0.9921875
+            },
+            {
+              "text": " sorry",
+              "start": 5.42,
+              "end": 5.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " for",
+              "start": 5.76,
+              "end": 5.98,
+              "probability": 0.974609375
+            },
+            {
+              "text": " poor",
+              "start": 5.98,
+              "end": 6.18,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Miss",
+              "start": 6.18,
+              "end": 6.42,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " Sarah,",
+              "start": 6.42,
+              "end": 6.62,
+              "probability": 0.77197265625
+            },
+            {
+              "text": " I'm",
+              "start": 6.74,
+              "end": 6.86,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " so",
+              "start": 6.86,
+              "end": 7.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sorry.",
+              "start": 7.04,
+              "end": 7.44,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "please,",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "raw": "M,\"",
+          "start": 1.72,
+          "end": 2.06
+        },
+        {
+          "raw": "she",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "raw": "said.",
+          "start": 2.28,
+          "end": 2.58
+        },
+        {
+          "raw": "I",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "raw": "dare",
+          "start": 3.28,
+          "end": 3.44
+        },
+        {
+          "raw": "say",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "raw": "you'll",
+          "start": 3.64,
+          "end": 3.84
+        },
+        {
+          "raw": "give",
+          "start": 3.84,
+          "end": 3.94
+        },
+        {
+          "raw": "me",
+          "start": 3.94,
+          "end": 4.1
+        },
+        {
+          "raw": "warning,",
+          "start": 4.1,
+          "end": 4.38
+        },
+        {
+          "raw": "Mom,",
+          "start": 4.86,
+          "end": 4.88
+        },
+        {
+          "raw": "but",
+          "start": 5.0,
+          "end": 5.04
+        },
+        {
+          "raw": "I'm",
+          "start": 5.04,
+          "end": 5.22
+        },
+        {
+          "raw": "so",
+          "start": 5.22,
+          "end": 5.42
+        },
+        {
+          "raw": "sorry",
+          "start": 5.42,
+          "end": 5.76
+        },
+        {
+          "raw": "for",
+          "start": 5.76,
+          "end": 5.98
+        },
+        {
+          "raw": "poor",
+          "start": 5.98,
+          "end": 6.18
+        },
+        {
+          "raw": "Miss",
+          "start": 6.18,
+          "end": 6.42
+        },
+        {
+          "raw": "Sarah,",
+          "start": 6.42,
+          "end": 6.62
+        },
+        {
+          "raw": "I'm",
+          "start": 6.74,
+          "end": 6.86
+        },
+        {
+          "raw": "so",
+          "start": 6.86,
+          "end": 7.04
+        },
+        {
+          "raw": "sorry.",
+          "start": 7.04,
+          "end": 7.44
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "please,",
+        "'m,\"",
+        "she",
+        "said;",
+        "\"I",
+        "dare",
+        "say",
+        "you'll",
+        "give",
+        "me",
+        "warnin',",
+        "mum--but",
+        "I'm",
+        "so",
+        "sorry",
+        "for",
+        "poor",
+        "Miss",
+        "Sara--I'm",
+        "so",
+        "sorry!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          13,
+          11,
+          14
+        ],
+        [
+          "equal",
+          13,
+          19,
+          14,
+          20
+        ],
+        [
+          "replace",
+          19,
+          20,
+          20,
+          22
+        ],
+        [
+          "equal",
+          20,
+          22,
+          22,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          13,
+          11,
+          14
+        ],
+        [
+          "replace",
+          19,
+          20,
+          20,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "please,",
+          "start": 0.7,
+          "end": 1.1,
+          "key": "please",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "M,\"",
+          "start": 1.72,
+          "end": 2.06,
+          "key": "m",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.06,
+          "end": 2.28,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.28,
+          "end": 2.58,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.1,
+          "end": 3.28,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dare",
+          "start": 3.28,
+          "end": 3.44,
+          "key": "dare",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 3.44,
+          "end": 3.64,
+          "key": "say",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you'll",
+          "start": 3.64,
+          "end": 3.84,
+          "key": "youll",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 3.84,
+          "end": 3.94,
+          "key": "give",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.94,
+          "end": 4.1,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "warning,",
+          "start": 4.1,
+          "end": 4.38,
+          "key": "warning",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Mom,",
+          "start": 4.86,
+          "end": 4.88,
+          "key": "mom",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.0,
+          "end": 5.04,
+          "key": "but",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 5.04,
+          "end": 5.22,
+          "key": "im",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 5.22,
+          "end": 5.42,
+          "key": "so",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sorry",
+          "start": 5.42,
+          "end": 5.76,
+          "key": "sorry",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.76,
+          "end": 5.98,
+          "key": "for",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 5.98,
+          "end": 6.18,
+          "key": "poor",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 6.18,
+          "end": 6.42,
+          "key": "miss",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Sarah,",
+          "start": 6.42,
+          "end": 6.62,
+          "key": "sarah",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 6.74,
+          "end": 6.86,
+          "key": "im",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 6.86,
+          "end": 7.04,
+          "key": "so",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "sorry.",
+          "start": 7.04,
+          "end": 7.44,
+          "key": "sorry",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "please,",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "text": "'m,\"",
+          "start": 1.72,
+          "end": 2.06
+        },
+        {
+          "text": "she",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "text": "said;",
+          "start": 2.28,
+          "end": 2.58
+        },
+        {
+          "text": "\"I",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "text": "dare",
+          "start": 3.28,
+          "end": 3.44
+        },
+        {
+          "text": "say",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "text": "you'll",
+          "start": 3.64,
+          "end": 3.84
+        },
+        {
+          "text": "give",
+          "start": 3.84,
+          "end": 3.94
+        },
+        {
+          "text": "me",
+          "start": 3.94,
+          "end": 4.1
+        },
+        {
+          "text": "warnin',",
+          "start": 4.1,
+          "end": 4.57
+        },
+        {
+          "text": "mum--but",
+          "start": 4.57,
+          "end": 4.805
+        },
+        {
+          "text": "I'm",
+          "start": 5.04,
+          "end": 5.22
+        },
+        {
+          "text": "so",
+          "start": 5.22,
+          "end": 5.42
+        },
+        {
+          "text": "sorry",
+          "start": 5.42,
+          "end": 5.76
+        },
+        {
+          "text": "for",
+          "start": 5.76,
+          "end": 5.98
+        },
+        {
+          "text": "poor",
+          "start": 5.98,
+          "end": 6.18
+        },
+        {
+          "text": "Miss",
+          "start": 6.18,
+          "end": 6.42
+        },
+        {
+          "text": "Sara--I'm",
+          "start": 6.42,
+          "end": 6.64
+        },
+        {
+          "text": "so",
+          "start": 6.86,
+          "end": 7.04
+        },
+        {
+          "text": "sorry!\"",
+          "start": 7.04,
+          "end": 7.44
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 24,
+        "matched_words": 19
+      },
+      "match_ratio": 0.8636363636363636,
+      "rejection_reasons": [],
+      "seconds": 0.3394946716725826
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b293c4b96b1259b599b36b0b5f892aa4534ff372ea6f6e8772557e98fa31d17f",
+  "selected_reasons": []
+}

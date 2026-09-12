@@ -1,0 +1,726 @@
+{
+  "complete": true,
+  "signature": "5a49acbf56866021268d8e2a0baf3ec068d899adb6a631581346c1815fe40aa9",
+  "attempts": [
+    {
+      "asr_seconds": 0.28947146981954575,
+      "alignment_seconds": 0.0009167641401290894,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"That you can't learn things quickly,\" amended Sara. \"If you can't, you can't. If I can--why, I can; that's all.\"",
+        "hotwords": "That, Sara, If, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That you can't learn things quickly, amended Sara. If you can't, you can't. If I can why, I can. That's all.",
+          "start": 0.02,
+          "end": 6.74,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.041046142578125
+            },
+            {
+              "text": " you",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " can't",
+              "start": 0.66,
+              "end": 1.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " learn",
+              "start": 1.04,
+              "end": 1.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " things",
+              "start": 1.16,
+              "end": 1.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " quickly,",
+              "start": 1.58,
+              "end": 2.02,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " amended",
+              "start": 2.36,
+              "end": 2.6,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " Sara.",
+              "start": 2.6,
+              "end": 3.04,
+              "probability": 0.15185546875
+            },
+            {
+              "text": " If",
+              "start": 3.64,
+              "end": 3.8,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " you",
+              "start": 3.8,
+              "end": 3.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " can't,",
+              "start": 3.94,
+              "end": 4.34,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " you",
+              "start": 4.38,
+              "end": 4.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " can't.",
+              "start": 4.46,
+              "end": 4.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " If",
+              "start": 5.18,
+              "end": 5.26,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " I",
+              "start": 5.26,
+              "end": 5.36,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " can",
+              "start": 5.36,
+              "end": 5.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " why,",
+              "start": 5.56,
+              "end": 5.78,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " I",
+              "start": 5.88,
+              "end": 5.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " can.",
+              "start": 5.96,
+              "end": 6.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " That's",
+              "start": 6.38,
+              "end": 6.52,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " all.",
+              "start": 6.52,
+              "end": 6.74,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "you",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "can't",
+          "start": 0.66,
+          "end": 1.04
+        },
+        {
+          "raw": "learn",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "raw": "things",
+          "start": 1.16,
+          "end": 1.58
+        },
+        {
+          "raw": "quickly,",
+          "start": 1.58,
+          "end": 2.02
+        },
+        {
+          "raw": "amended",
+          "start": 2.36,
+          "end": 2.6
+        },
+        {
+          "raw": "Sara.",
+          "start": 2.6,
+          "end": 3.04
+        },
+        {
+          "raw": "If",
+          "start": 3.64,
+          "end": 3.8
+        },
+        {
+          "raw": "you",
+          "start": 3.8,
+          "end": 3.94
+        },
+        {
+          "raw": "can't,",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "raw": "you",
+          "start": 4.38,
+          "end": 4.46
+        },
+        {
+          "raw": "can't.",
+          "start": 4.46,
+          "end": 4.88
+        },
+        {
+          "raw": "If",
+          "start": 5.18,
+          "end": 5.26
+        },
+        {
+          "raw": "I",
+          "start": 5.26,
+          "end": 5.36
+        },
+        {
+          "raw": "can",
+          "start": 5.36,
+          "end": 5.56
+        },
+        {
+          "raw": "why,",
+          "start": 5.56,
+          "end": 5.78
+        },
+        {
+          "raw": "I",
+          "start": 5.88,
+          "end": 5.96
+        },
+        {
+          "raw": "can.",
+          "start": 5.96,
+          "end": 6.18
+        },
+        {
+          "raw": "That's",
+          "start": 6.38,
+          "end": 6.52
+        },
+        {
+          "raw": "all.",
+          "start": 6.52,
+          "end": 6.74
+        }
+      ],
+      "expected_tokens": [
+        "\"That",
+        "you",
+        "can't",
+        "learn",
+        "things",
+        "quickly,\"",
+        "amended",
+        "Sara.",
+        "\"If",
+        "you",
+        "can't,",
+        "you",
+        "can't.",
+        "If",
+        "I",
+        "can--why,",
+        "I",
+        "can;",
+        "that's",
+        "all.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can't",
+          "start": 0.66,
+          "end": 1.04,
+          "key": "cant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "learn",
+          "start": 1.04,
+          "end": 1.16,
+          "key": "learn",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 1.16,
+          "end": 1.58,
+          "key": "things",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "quickly,",
+          "start": 1.58,
+          "end": 2.02,
+          "key": "quickly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "amended",
+          "start": 2.36,
+          "end": 2.6,
+          "key": "amended",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Sara.",
+          "start": 2.6,
+          "end": 3.04,
+          "key": "sara",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 3.64,
+          "end": 3.8,
+          "key": "if",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.8,
+          "end": 3.94,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "can't,",
+          "start": 3.94,
+          "end": 4.34,
+          "key": "cant",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.38,
+          "end": 4.46,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "can't.",
+          "start": 4.46,
+          "end": 4.88,
+          "key": "cant",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 5.18,
+          "end": 5.26,
+          "key": "if",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.26,
+          "end": 5.36,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "can why,",
+          "start": 5.36,
+          "end": 5.78,
+          "key": "canwhy",
+          "pieces": [
+            15,
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.88,
+          "end": 5.96,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "can.",
+          "start": 5.96,
+          "end": 6.18,
+          "key": "can",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 6.38,
+          "end": 6.52,
+          "key": "thats",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 6.52,
+          "end": 6.74,
+          "key": "all",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 15,
+          "text": "can--why,",
+          "heard": "can why,",
+          "heard_indexes": [
+            15,
+            16
+          ],
+          "start": 5.36,
+          "end": 5.78
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"That",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "you",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "can't",
+          "start": 0.66,
+          "end": 1.04
+        },
+        {
+          "text": "learn",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "text": "things",
+          "start": 1.16,
+          "end": 1.58
+        },
+        {
+          "text": "quickly,\"",
+          "start": 1.58,
+          "end": 2.02
+        },
+        {
+          "text": "amended",
+          "start": 2.36,
+          "end": 2.6
+        },
+        {
+          "text": "Sara.",
+          "start": 2.6,
+          "end": 3.04
+        },
+        {
+          "text": "\"If",
+          "start": 3.64,
+          "end": 3.8
+        },
+        {
+          "text": "you",
+          "start": 3.8,
+          "end": 3.94
+        },
+        {
+          "text": "can't,",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "text": "you",
+          "start": 4.38,
+          "end": 4.46
+        },
+        {
+          "text": "can't.",
+          "start": 4.46,
+          "end": 4.88
+        },
+        {
+          "text": "If",
+          "start": 5.18,
+          "end": 5.26
+        },
+        {
+          "text": "I",
+          "start": 5.26,
+          "end": 5.36
+        },
+        {
+          "text": "can--why,",
+          "start": 5.36,
+          "end": 5.78
+        },
+        {
+          "text": "I",
+          "start": 5.88,
+          "end": 5.96
+        },
+        {
+          "text": "can;",
+          "start": 5.96,
+          "end": 6.18
+        },
+        {
+          "text": "that's",
+          "start": 6.38,
+          "end": 6.52
+        },
+        {
+          "text": "all.\"",
+          "start": 6.52,
+          "end": 6.74
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2906944826245308
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2c2aa78d92b2afa8204e4ec79a02d375456eb9c760e2ba59f2e0dc5c8b549217",
+  "selected_reasons": []
+}
