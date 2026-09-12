@@ -178,9 +178,9 @@ The second Corcyraean admiral.
 
 The third Corcyraean admiral.
 
-## Xenoclides · reference
+## Xenoclides · supporting
 
-Euthycles’s son, the Corinthian commander of the hundred and fifty ships, with four colleagues.
+Euthycles’s son, the Corinthian commander of the hundred and fifty ships at Sybota, with four colleagues — and, twenty years later, of the three hundred Corinthians who reached Ambracia by a hard march overland. The text spells him Xenoclides once and Xenocleides once.
 
 ## Euthycles · reference
 
@@ -1339,3 +1339,455 @@ Whose Eleusinian temple was one of the few places kept closed when the country p
 ## Dionysus · supporting
 
 Of the Marshes, in whose honour the older Dionysia are still held in Anthesterion — by the Athenians and by their Ionian descendants.
+
+## Cleippides · supporting
+
+Deinias’s son, in command of the forty ships sent to catch the Mitylenians at the festival of the Malean Apollo outside the town — and, if that failed, to order them to give up their ships and pull down their walls.
+
+## Deinias · reference
+
+Cleippides’s father.
+
+## Meleas · reference
+
+A Laconian who slipped into Mitylene by galley after the first battle and advised them to send more envoys to Lacedaemon.
+
+## Hermaeondas · reference
+
+A Theban, sent with Meleas before the insurrection and unable to get there before the Athenians.
+
+## Asopius · supporting
+
+Phormio’s son, whom the Acarnanians insisted on having because they would take no commander who was not some son or relative of Phormio — and who was cut off with most of his troops in the retreat from Nericus.
+
+## Dorieus · reference
+
+The Rhodian, in whose Olympiad — his second victory — the Mitylenian envoys made their case to the allies.
+
+## Alcidas · major
+
+The Lacedaemonian high admiral, and the most cautious man in the war. He took the relief fleet to Lesbos so slowly that Mitylene had fallen seven days before he heard of it; refused Teutiaplus’s advice to fall on Paches at night, refused the Ionian exiles’ advice to raise Ionia, butchered his prisoners at Myonnesus until Samian envoys told him this was no way to free Hellas, and fled home across the open sea. At Corcyra he would not attack the town even when Brasidas urged it. He was afterwards one of the three founders of Heraclea in Trachis.
+
+## Paches · major
+
+Epicurus’s son, who walled Mitylene in and took its surrender on terms — promising not to kill anyone until Athens had answered, and keeping it. He chased Alcidas as far as Patmos, trapped Hippias the Arcadian by a safe-conduct and shot him down inside his own fortification, and had the decree for the massacre in his hand when the second galley came into port.
+
+## Epicurus · reference
+
+Paches’s father.
+
+## Lysicles · supporting
+
+One of the five commanders of the twelve ships sent to levy subsidies from the allies, who went up country from Myus across the Meander plain to the hill of Sandius and was killed there with many of his men by the Carians and the people of Anaia. Not Abronichus’s father.
+
+## Theaenetus · supporting
+
+Tolmides’s son, a soothsayer, who with Eupompides thought of the escape over the Peloponnesian wall at Plataea.
+
+## Tolmides · reference
+
+Theaenetus the soothsayer’s father. Not Tolmaeus’s son.
+
+## Eupompides · supporting
+
+Daimachus’s son, one of the Plataean generals and joint author of the escape.
+
+## Daimachus · reference
+
+Eupompides’s father.
+
+## Ammias · supporting
+
+Coroebus’s son, first up the ladder and first on the Peloponnesian wall, at the head of twelve light-armed men with a dagger and a breastplate each.
+
+## Coroebus · reference
+
+Ammias’s father.
+
+## Androcrates · reference
+
+The hero whose chapel the escaping Plataeans kept on their right, taking the Thebes road because it was the last one the pursuers would think of.
+
+## Salaethus · major
+
+The Lacedaemonian who got into Mitylene along a torrent bed, told them the fleet was coming, and stopped them treating with Athens — then armed the commons for a sortie, and lost the city the moment they had weapons in their hands. Found in hiding, sent to Athens and killed at once, though he offered to get the Peloponnesians away from Plataea.
+
+## Cleomenes · supporting
+
+Who led the invasion of Attica in place of King Pausanias, his nephew, who was still a minor. Not the Cleomenes who drove the accursed out of Athens.
+
+## Pausanias · reference
+
+Pleistoanax’s son and king of Lacedaemon, a minor when Cleomenes invaded Attica for him. Neither the regent nor the Macedonian.
+
+## Teutiaplus · supporting
+
+An Elean, who told Alcidas to sail straight for Mitylene and fall on it at night, since men who have just taken a city are as careless as any in war, and that detecting the moment when an enemy is at this disadvantage is what makes a successful general. Alcidas was not moved.
+
+## Itamenes · reference
+
+Who took the upper town of Colophon with the barbarians, having been called in by one party in a quarrel.
+
+## Hippias · supporting
+
+Commander of the Arcadians in the fortified quarter at Notium, invited out to a parley by Paches on a promise of safe return, kept in custody, put back inside once the quarter had been stormed — as promised — and shot down as soon as he was in. Not the tyrant.
+
+## Cleon · central
+
+Cleaenetus’s son, the most violent man at Athens and at that time by far the most powerful with the commons, who carried the decree to kill every adult male in Mitylene and enslave the rest, and defended it the next day: a democracy is incapable of empire, your empire is a despotism, pity and sentiment and indulgence are the three failings most fatal to it, and the penalty of rebellion must be death. He lost the second vote by a show of hands that was almost equal, and got the thousand prisoners killed instead.
+
+## Cleaenetus · reference
+
+Cleon’s father.
+
+## Diodotus · major
+
+Eucrates’s son, who answered Cleon by refusing to argue about guilt at all: the question is not justice but the interest of Athens, and no penalty yet invented has ever stopped men from taking a risk they have set their minds on — so killing the Mitylenian commons, who had surrendered the town the moment they got arms, would only teach every future rebel to hold out to the last. His motion carried, and the second galley beat the first by the length of a meal eaten at the oar.
+
+## Eucrates · reference
+
+Diodotus’s father.
+
+## The Mitylenians · major
+
+Who wanted to revolt before the war and were refused, and then had to do it before their walls and moles and archers were ready. They told the allies at Olympia that fear, not friendship, had kept them in the Athenian alliance, and that the liberty of attacking being always Athens’s, the liberty of defending should be theirs. Starved out, they were sentenced to death in one assembly and reprieved in the next by a handful of votes.
+
+## The Methymnians · supporting
+
+The one city in Lesbos that did not revolt: they informed Athens of the preparations, fought on her side, and afterwards kept their land when the rest of the island was divided into three thousand allotments.
+
+## The Tenedians · reference
+
+At enmity with Mitylene, and among the first to tell Athens what was being prepared there.
+
+## The Imbrians · reference
+
+Who came to the aid of Athens at Mitylene with the Lemnians.
+
+## The Lemnians · reference
+
+Who came to the aid of Athens at Mitylene with the Imbrians.
+
+## The Antissians · reference
+
+Who beat the Methymnians in a sortie with their mercenaries, and were reduced by Paches afterwards.
+
+## The Colophonians · supporting
+
+Whose upper town was taken by Itamenes and the barbarians in a party quarrel, and who then split again at Notium; Paches gave the place to the party that had not Medized, and Athens sent out settlers and collected the rest of them from wherever they had gone.
+
+## Nicias · central
+
+Niceratus’s son, who took Minoa off Megara so that the blockade could be kept from a nearer station, and led sixty ships against Melos and the Locrian seaboard.
+
+## Niceratus · reference
+
+Nicias’s father.
+
+## Astymachus · supporting
+
+Asopolaus’s son, one of the two Plataeans deputed to answer the five Lacedaemonian judges — who put one question and no charge, and asked it again of each man before taking him out and killing him.
+
+## Asopolaus · reference
+
+Astymachus’s father.
+
+## Lacon · supporting
+
+Aeimnestus’s son and proxenus of the Lacedaemonians, the other Plataean speaker.
+
+## Aeimnestus · reference
+
+Lacon’s father.
+
+## Peithias · major
+
+A volunteer proxenus of Athens and leader of the commons at Corcyra, acquitted on a charge of enslaving the city and answering it by prosecuting five rich men for cutting stakes in the ground sacred to Zeus and Alcinous. They came into the senate house with daggers and killed him and sixty others.
+
+## Alcinous · reference
+
+In whose sacred ground, with Zeus’s, the stakes were cut — a stater a stake.
+
+## Nicostratus · major
+
+Diitrephes’s son, who came up from Naupactus with twelve ships and five hundred Messenians and very nearly settled Corcyra: he got both parties to agree to try ten ringleaders, stopped the commons from killing men in the street, and persuaded four hundred suppliants out of the temple of Hera — and then sailed on.
+
+## Diitrephes · reference
+
+Nicostratus’s father.
+
+## Eurymedon · major
+
+Thucles’s son, who came to Corcyra with sixty ships — and during the seven days he lay there the Corcyraeans went on butchering their fellow citizens, some for supposed conspiracy and some for money owed.
+
+## Thucles · reference
+
+Eurymedon’s father.
+
+## Laches · major
+
+Melanopus’s son, who took twenty ships to Sicily with Charoeades, was left in sole command when Charoeades was killed, took Mylae and Messina, and was relieved by Pythodorus.
+
+## Melanopus · reference
+
+Laches’s father.
+
+## Charoeades · supporting
+
+Euphiletus’s son, Laches’s colleague in Sicily, killed by the Syracusans in battle.
+
+## Euphiletus · reference
+
+Charoeades’s father.
+
+## The Dioscuri · reference
+
+In whose temple at Corcyra the men enrolled for the ships sat down as suppliants, fearing they were to be sent to Athens.
+
+## The Syracusans · major
+
+At war with Leontini, with all the Dorian cities of Sicily except Camarina for allies, and blockading the Leontines by land and sea when Athens first sent ships west.
+
+## The Leontines · supporting
+
+Who had Camarina and the Chalcidian cities, and who appealed to Athens on their ancient alliance and their Ionian origin.
+
+## The Camarinaeans · reference
+
+The one Dorian city of Sicily that took the Leontine side.
+
+## The Rhegians · supporting
+
+Of Italy, who were for their Leontine kinsmen, and whose town the Athenians made their base.
+
+## The Locrians of Italy · supporting
+
+Who were for the Syracusans, beat the Athenians at their fort on the Halex and again under Pythodorus, and were beaten on the Caicinus. Not the Ozolian or Opuntian Locrians of Greece.
+
+## Agis · major
+
+Archidamus’s son, who brought the army as far as the Isthmus and turned back without invading because of the earthquakes.
+
+## Demosthenes · central
+
+Alcisthenes’s son. Talked by the Messenians into invading Aetolia against the Acarnanians’ advice, he pushed on without waiting for his Locrian darters, lost his archers’ captain and then his guide, and watched a hundred and twenty Athenian hoplites — by far the best men of the city to fall in the war — die in trackless gullies and in a wood the Aetolians burned around them. He stayed at Naupactus afraid to face Athens; and then saved Naupactus, hid four hundred men in a hollow road at Olpae, broke Eurylochus’s wing from behind, and destroyed the Ambraciot relief at Idomene at dawn by putting Messenians in front to speak Doric to the sentries.
+
+## Alcisthenes · reference
+
+Demosthenes’s father.
+
+## Procles · supporting
+
+Theodorus’s son, Demosthenes’s colleague in the thirty ships, and among the slain in Aetolia.
+
+## Theodorus · reference
+
+Procles’s father.
+
+## Hipponicus · supporting
+
+Callias’s son, who brought the whole levy from Athens to meet the fleet at Tanagra by prearranged signal.
+
+## Callias · reference
+
+Hipponicus’s father. Neither the Corinthian admiral’s father nor the Athenian general killed at Potidaea.
+
+## Tisamenus · reference
+
+The ambassador the Trachinians chose to ask Lacedaemon for a colony, after suffering severely in a war with the Oetaeans.
+
+## Leon · reference
+
+One of the three Lacedaemonians who led out the colony to Heraclea in Trachis.
+
+## Damagon · reference
+
+The third founder of Heraclea, with Leon and Alcidas.
+
+## Hesiod · reference
+
+The poet, said to have been killed by the people of the country in the precinct of Nemean Zeus, in fulfilment of an oracle that he would die at Nemea — where Demosthenes’s army bivouacked on its way into Aetolia.
+
+## Chromon · supporting
+
+The Messenian who guided the army in Aetolia, and whose death left it in trackless country.
+
+## Tolophus · reference
+
+An Ophionian, one of the three Aetolian envoys who got an army out of Corinth and Lacedaemon against Naupactus.
+
+## Boriades · reference
+
+A Eurytanian, the second of the three Aetolian envoys.
+
+## Tisander · reference
+
+An Apodotian, the third of the three Aetolian envoys.
+
+## Eurylochus · major
+
+The Spartan who brought three thousand heavy infantry against Naupactus, took hostages from most of Ozolian Locris on the way, missed the town by a thousand men Demosthenes had got in, and then waited in Aetolia for the Ambraciots. At Olpae his own wing and his best troops were broken from behind by men out of a hollow road, and he was killed with them.
+
+## Macarius · supporting
+
+A Spartan, one of Eurylochus’s two colleagues, and killed with him at Olpae.
+
+## Menedaius · major
+
+The surviving Spartan commander at Olpae, who could neither stand a siege nor retreat, asked for a truce to take up the dead — and was quietly given leave to slip away with the Mantineans and the other leaders, which is exactly what Demosthenes wanted the Hellenes of those parts to hear about.
+
+## Proxenus · reference
+
+Capaton’s son, who led the Italian Locrians against the Athenians on the river Caicinus.
+
+## Capaton · reference
+
+Proxenus’s father.
+
+## Aristotle · reference
+
+Timocrates’s son, one of the two commanders of the twenty Athenian ships the Acarnanians sent for.
+
+## Timocrates · reference
+
+Aristotle the commander’s father. Neither Timoxenus’s father nor the Lacedaemonian who killed himself off Naupactus.
+
+## Hierophon · reference
+
+Antimnestus’s son, the other commander of the twenty ships.
+
+## Antimnestus · reference
+
+Hierophon’s father.
+
+## Salynthius · supporting
+
+The friendly king of the Agraeans, with whom the Ambraciots and Peloponnesians who got away from Olpae took refuge.
+
+## Pythodorus · supporting
+
+Isolochus’s son, sent out to relieve Laches in Sicily, and beaten by the Locrians at the fort Laches had taken. Not the archon of the year the war began.
+
+## Isolochus · reference
+
+Pythodorus the general’s father.
+
+## Sophocles · supporting
+
+Sostratides’s son, who was to follow Pythodorus to Sicily with the main body.
+
+## Sostratides · reference
+
+Sophocles’s father.
+
+## Hephaestus · reference
+
+Whose forge the people of those parts believe to be on Hiera, from the flame the island sends out by night and the smoke by day.
+
+## The Melians · supporting
+
+Islanders who refused to be subjects of Athens or even to join her confederacy, and whose land was devastated without bringing them to terms.
+
+## The Malians · reference
+
+Three tribes in all — the Paralians, the Hiereans and the Trachinians.
+
+## The Paralians · reference
+
+One of the three Malian tribes.
+
+## The Hiereans · reference
+
+One of the three Malian tribes.
+
+## The Trachinians · supporting
+
+The Malian tribe that had suffered severely from the Oetaeans, thought of putting themselves under Athens, and asked Lacedaemon for a colony instead — which became Heraclea, and which the Thessalians and Lacedaemon’s own governors between them wore down.
+
+## The Oetaeans · reference
+
+The neighbours whose war on the Trachinians brought Heraclea into existence.
+
+## The Apodotians · reference
+
+The Aetolian tribe the Messenians told Demosthenes to attack first.
+
+## The Ophionians · reference
+
+The Aetolian tribe to be attacked second; the most remote of them, the Bomiensians and Calliensians, came down to the rescue with the rest.
+
+## The Eurytanians · supporting
+
+The largest tribe in Aetolia, who speak, it is said, an extremely difficult language and eat their flesh raw.
+
+## The Bomiensians · reference
+
+The most remote of the Ophionians, who extend toward the Malian gulf.
+
+## The Calliensians · reference
+
+The other remote Ophionian tribe, who came down against Demosthenes with the rest.
+
+## The Amphissians · reference
+
+Eurylochus’s chief supporters in Ozolian Locris, alarmed at the hostility of the Phocians, who gave hostages first and talked the rest into it.
+
+## The Myonians · reference
+
+Who held the most difficult of the passes into Locris, and gave hostages after the Amphissians.
+
+## The Ipnians · reference
+
+One of the Ozolian Locrian towns that gave hostages and joined the expedition.
+
+## The Messapians · reference
+
+One of the Ozolian Locrian towns that gave hostages and joined the expedition.
+
+## The Tritaeans · reference
+
+One of the Ozolian Locrian towns that gave hostages and joined the expedition.
+
+## The Chalaeans · reference
+
+One of the Ozolian Locrian towns that gave hostages and joined the expedition.
+
+## The Tolophonians · reference
+
+One of the Ozolian Locrian towns that gave hostages and joined the expedition.
+
+## The Hessians · reference
+
+One of the Ozolian Locrian towns that gave hostages and joined the expedition.
+
+## The Oeanthians · reference
+
+The last of the Ozolian Locrian towns to give hostages and join the expedition.
+
+## The Olpaeans · reference
+
+Who gave hostages but would not join the invasion.
+
+## The Hyaeans · reference
+
+Who would do neither, until Eurylochus took one of their villages.
+
+## The Mantineans · supporting
+
+Massed on the left at Olpae, and the only unit that kept its ranks in the retreat — which is why Demosthenes and the Acarnanians quietly let them go, to discredit the Lacedaemonians with the Hellenes of those parts as traitors and self-seekers.
+
+## The Liparaeans · reference
+
+A Cnidian colony holding the islands of Aeolus from Lipara, and allies of Syracuse.
+
+## The Sicels · supporting
+
+Some of them subjects or allies of Syracuse and some in revolt from her; they invaded Himera from the interior while the Athenians landed on the coast.
+
+## The Catanians · reference
+
+Who live on Etna, the largest mountain in Sicily, and lost some of their land to the stream of fire.
+
+## The Cephallenians · supporting
+
+Whose four states — Pale, Crane, Same and Pronae — came over to Athens without force, and who joined the levy against Leucas and went with Demosthenes into Aetolia.

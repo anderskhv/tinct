@@ -1,14 +1,14 @@
 # The Peloponnesian War character package — IN PROGRESS
 
-**Books 1–2 (chapters 1–8, paragraphs 1–240) are authored. Chapters 9–26 are
+**Books 1–3 (chapters 1–11, paragraphs 1–362) are authored. Chapters 12–26 are
 not.** Status stays `in-progress` and the package must not be integrated until
 all eight of Thucydides's books are covered.
 
-Current state: 327 entities authored, all 327 bound in both editions, 4,931 and
-4,991 exact mentions. Of those, 946 and 975 fall inside Book 1's chapters and
-731 and 740 inside Book 2's; the rest are the nation cards, which are bound
-through all twenty-six chapters because a people is the same people in every
-book. Content revision 2026-09-12.2.
+Current state: 440 entities authored, all 440 bound in both editions, 5,824 and
+5,885 exact mentions. Of those, 946 and 975 fall inside Book 1's chapters, 731
+and 740 inside Book 2's, and 816 and 824 inside Book 3's; the rest are the
+nation cards, which are bound through all twenty-six chapters because a people
+is the same people in every book. Content revision 2026-09-12.3.
 
 ## What is hard about this book, and what is not
 
@@ -50,16 +50,44 @@ Aristeus of Potidaea — each with a gated update, and a test asserts that each
 appears in both halves on one card. The Plataeans, who are not named in Book 1
 at all, are cast here.
 
+## Book 3's namesakes
+
+| Entity | Where | Against |
+|---|---|---|
+| `asopius` / `asopius-son-of-phormio` | 2:33 / 9:6 | Phormio's father, and the son the Acarnanians insisted on because they would take no commander not of his family |
+| `pausanias-macedon` / `pausanias-sparta` / `pausanias-king` | 2:31 / 4:4–10:18 / 9:25 | three men: the Macedonian, the regent of Plataea, and Pleistoanax's boy son |
+| `nicias-father-of-hagnon` / `nicias-gortys` / `nicias-niceratus` | 7:13 / 8:14 / 10:0, 11:4 | three men, the third of them the Nicias of the rest of the war |
+| `callias-father-of-callicrates` / `callias-calliades` / `callias-father-of-hipponicus` | 2:4 / 2:31 / 11:4 | three men |
+| `timocrates-corinth` / `timocrates-sparta` / `timocrates-father-of-aristotle` | 6:33 / 8:14 / 11:24 | three men |
+| `tolmides` / `tolmides-soothsayer` | 4:13, 4:17 / 9:19 | Tolmaeus's son, and Theaenetus the Plataean soothsayer's father |
+| `cleomenes` / `cleomenes-commander` | 5:7 / 9:25 | the Lacedaemonian who drove out the accursed, and the regent for the boy king |
+| `lysicles` / `lysicles-general` | 4:1 / 9:18 | Abronichus's father, and the general killed on the Meander |
+| `hippias` / `hippias-arcadia` | 1:19 / 9:33 | the tyrant, and the Arcadian commander Paches trapped by a safe-conduct |
+| `pythodorus` / `pythodorus-isolochus` | 6:1 / 11:33 | the archon of the year the war began, and the general sent to relieve Laches |
+| `thucles` / `procles` / `leon-heraclea` / `dorieus` | Book 3 only | later men of the same name, in books not yet read |
+| `locrians` / `locrians-italy` | passim / 10:36, 11:13, 11:17, 11:33 | the Ozolian and Opuntian Locrians of Greece, and the Epizephyrian Locrians who were for Syracuse |
+
+**The river Eurymedon is water.** Book 1 fights a battle "at the river
+Eurymedon"; Book 3's Eurymedon is Thucles's son, the general who lay seven days
+off Corcyra while the city butchered itself. The river carries no card, and a
+test pins it.
+
+**Xenoclides is one man under two spellings.** Both editions print Xenoclides at
+2:21 and Xenocleides at 11:32, in each case son of Euthycles and in each case a
+Corinthian commander. One card, two aliases.
+
 ## How the unauthored books are handled
 
-Where a name in chapters 6–26 belongs to somebody this pass has not authored, it
-is **left unbound rather than defaulted to the Book 1 man of the same name.**
-That is why every person table in the builder has `None` for its default: 46
-tables, and the four in the list above are cases where the later man is
-positively known to be a different person. The others — Ramphias, Melesippus,
-Agesander, Theagenes, Gongylus, Artabazus, Aristides, Hagnon, Tolmides,
-Cleombrotus and the rest — are keyed to Book 1 because the later occurrences have
-not been read yet, and a coverage number is not worth a wrong card.
+The rule is this. A name that **has a namesake anywhere in the work** is bound
+by a position table keyed only to the chapters that have been authored, so that
+its later occurrences carry no card at all rather than the wrong one. A name
+that is **single-referent across the whole work** — Brasidas, Archidamus,
+Perdiccas, Phormio, Pericles, Sitalces, Cleon, Demosthenes, Laches — is bound by
+alias and therefore appears in chapters that have not been authored yet, with a
+card that says only what the authored chapters support. Every table has `None`
+for its default; there are 54 of them. Where the later man has not been read at
+all, the name is table-keyed anyway, because a coverage number is not worth a
+wrong card.
 
 The nations are the opposite case and are bound by alias throughout, because the
 Athenians of chapter 26 are the Athenians of chapter 1. A test pins both halves
@@ -105,9 +133,11 @@ treats him as a witness to be cross-examined.
 **goddess of the Brazen House**, whom Thucydides never names; and every name in
 chapters 6–26 belonging to a person this pass has not authored.
 
-**5. Spot-read and sweep.** Thirty-eight mentions drawn at random — ten per
-edition for Book 1 and nine per edition for Book 2 — read back against their
-paragraphs: all correct. The adjacency sweep over every
+**5. Spot-read and sweep.** Fifty-four mentions drawn at random — ten per
+edition for Book 1, nine for Book 2 and eight for Book 3 — read back against
+their paragraphs: all correct. The unbound-tabled-names audit over each
+authored range comes back with one line, the Cyrus of 7:20, who is the King's
+son and belongs to a book that has not been read. The adjacency sweep over every
 Book 1 mention whose matched text abuts a capitalised word produced a hundred
 and eighty-seven hits and no mis-binding — sentence-initial *The Athenians*,
 cult titles like *the Delian Apollo* and *Zeus Meilichios*, *King Xerxes*, *the
@@ -133,12 +163,13 @@ No edition byte was touched.
 
 ## Remaining work
 
-- **Chapters 9–11** (Thucydides's Book 3): Mytilene, the Mytilenian debate, the
-  fall of Plataea, the Corcyraean revolution, Demosthenes in the west. Brasidas,
-  Cnemus, Archidamus, Cleopompus, Sitalces, Phormio, Asopius, Pythodorus,
-  Lycophron, Tellis, Clinias, Euphamidas, Aristonymus and the nations all have
-  recurrences there that are currently unbound and must be keyed in.
-- **Chapters 12–26** after that, one of Thucydides's books per pass.
+- **Chapters 12–14** (Thucydides's Book 4): Pylos and Sphacteria, Delium,
+  Brasidas in Thrace, the fall of Amphipolis. Demosthenes, Cleon, Nicias,
+  Eurymedon, Sophocles, Pythodorus, Agis, Nicostratus, Laches, Thucles, Procles,
+  Leon, Salynthius, Clinias, Euphamidas, Aristonymus, Lycophron, Tellis and the
+  nations all have recurrences there; the table-bound ones are currently unbound
+  and must be keyed in.
+- **Chapters 15–26** after that, one of Thucydides's books per pass.
 - The person tables extended as each book is authored, and the `None` defaults
   replaced only where the later man is actually carded.
 - The six editorial checks re-run over the whole work, and a fresh spot-read.
@@ -146,7 +177,7 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_peloponnesian_war.py --check`, then
-`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Twenty-three
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Thirty-two
 focused tests so far. No edition changes, no network generation, no API spend:
 every card here was written in the authoring conversation and committed as a
 file.

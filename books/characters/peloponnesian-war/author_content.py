@@ -7,8 +7,8 @@ edition modernises the sentence rhythm; the transliterations are almost entirely
 the same, which is unusual in this library and means most of the work here is
 namesakes rather than spelling variants.
 
-AUTHORING IS IN PROGRESS. Books 1-2 (chapters 1-8) are authored. Chapters 9-26
-are not yet done and the package must not be integrated until they are.
+AUTHORING IS IN PROGRESS. Books 1-3 (chapters 1-11) are authored. Chapters
+12-26 are not yet done and the package must not be integrated until they are.
 
 Scope: named people and named peoples. Cities, rivers, mountains, seas and
 countries are not cast, even where Thucydides treats them as actors.
@@ -70,7 +70,7 @@ for row in [
 ('meikiades','Meikiades','First-named of the three admirals of the hundred and ten Corcyraean ships at Sybota, each commanding one squadron of the line.','Meikiades','reference'),
 ('aisimides','Aisimides','The second Corcyraean admiral.','Aisimides','reference'),
 ('eurybatus','Eurybatus','The third Corcyraean admiral.','Eurybatus','reference'),
-('xenoclides','Xenoclides','Euthycles’s son, the Corinthian commander of the hundred and fifty ships, with four colleagues.','Xenoclides','reference'),
+('xenoclides','Xenoclides','Euthycles’s son, the Corinthian commander of the hundred and fifty ships at Sybota, with four colleagues — and, twenty years later, of the three hundred Corinthians who reached Ambracia by a hard march overland. The text spells him Xenoclides once and Xenocleides once.','Xenoclides|Xenocleides','supporting'),
 ('euthycles','Euthycles','Xenoclides’s father.','','reference'),
 ('lacedaemonius','Lacedaemonius','Cimon’s son, first-named of the three commanders of the ten Athenian ships sent to Corcyra under orders not to collide with the Corinthian fleet — orders they kept until the rout made them impossible.','Lacedaemonius','reference'),
 ('cimon','Cimon','Miltiades’s son. He took Eion on the Strymon from the Medes and enslaved it, enslaved Scyros, won both battles at the Eurymedon on the same day and destroyed two hundred Phoenician ships, brought the Athenians to Ithome when Sparta asked for their siege-craft, and died at the siege of Kitium in Cyprus. Lacedaemonius was his son.','Cimon','major'),
@@ -210,7 +210,7 @@ for row in [
 ('medes','The Medes','The invader of the two invasions, and the measure Thucydides sets this war against: the Median War was the greatest event of past times and was settled in two sea-battles and two land-battles. The rock the barbarian was wrecked on, the Corinthians tell Sparta, was himself.','Medes|Mede|Median','major','group'),
 ('persians','The Persians','Whose grandees’ quarters were the few houses left standing in Athens, and who held the White Castle at Memphis and Sestos and Byzantium until they were taken.','Persians|Persian','supporting','group'),
 ('phocians','The Phocians','Who made an expedition against Doris, the original homeland of the Lacedaemonians, and were made to give the town back; Athens put the temple at Delphi into their hands.','Phocians','supporting','group'),
-('locrians','The Locrians','The Ozolian Locrians, who still carry weapons in the old piratical way and from whom Athens took Naupactus; and the Opuntian Locrians, a hundred of whose richest men were taken as hostages after Oenophyta.','Locrians','supporting','group'),
+('locrians','The Locrians','The Ozolian Locrians, who still carry weapons in the old piratical way and from whom Athens took Naupactus; and the Opuntian Locrians, a hundred of whose richest men were taken as hostages after Oenophyta.','','supporting','group'),
 ('aetolians','The Aetolians','Who still live in the old way, with the custom of carrying arms kept up.','Aetolians','reference','group'),
 ('acarnanians','The Acarnanians','Who still live in the old way, like the Aetolians and the Ozolian Locrians.','Acarnanians','supporting','group',[{'after':[8,11],'body':'Invaded by land and threatened by sea, they made no combined resistance but stayed to defend their own homes — and the Stratians alone broke the Chaonians with ambushes and then slung at the Hellenic divisions from a distance, which is the kind of warfare Thucydides says they excel at.'}]),
 ('carthaginians','The Carthaginians','Beaten in a sea-fight by the Phocaeans while they were founding Marseilles.','Carthaginians','reference','group'),
@@ -393,8 +393,135 @@ for row in [
 ('dionysus','Dionysus','Of the Marshes, in whose honour the older Dionysia are still held in Anthesterion — by the Athenians and by their Ionian descendants.','Dionysus','supporting','deity'),
 ]:add(*row)
 
-print(len(entities),'entities after Book 2')
+
+# ============================================ BOOK 3, CHAPTER 9 — Mytilene revolts
+for row in [
+('cleippides','Cleippides','Deinias’s son, in command of the forty ships sent to catch the Mitylenians at the festival of the Malean Apollo outside the town — and, if that failed, to order them to give up their ships and pull down their walls.','Cleippides','supporting'),
+('deinias','Deinias','Cleippides’s father.','Deinias','reference'),
+('meleas','Meleas','A Laconian who slipped into Mitylene by galley after the first battle and advised them to send more envoys to Lacedaemon.','Meleas','reference'),
+('hermaeondas','Hermaeondas','A Theban, sent with Meleas before the insurrection and unable to get there before the Athenians.','Hermaeondas','reference'),
+('asopius-son-of-phormio','Asopius','Phormio’s son, whom the Acarnanians insisted on having because they would take no commander who was not some son or relative of Phormio — and who was cut off with most of his troops in the retreat from Nericus.','','supporting'),
+('dorieus','Dorieus','The Rhodian, in whose Olympiad — his second victory — the Mitylenian envoys made their case to the allies.','','reference'),
+('alcidas','Alcidas','The Lacedaemonian high admiral, and the most cautious man in the war. He took the relief fleet to Lesbos so slowly that Mitylene had fallen seven days before he heard of it; refused Teutiaplus’s advice to fall on Paches at night, refused the Ionian exiles’ advice to raise Ionia, butchered his prisoners at Myonnesus until Samian envoys told him this was no way to free Hellas, and fled home across the open sea. At Corcyra he would not attack the town even when Brasidas urged it. He was afterwards one of the three founders of Heraclea in Trachis.','Alcidas','major'),
+('paches','Paches','Epicurus’s son, who walled Mitylene in and took its surrender on terms — promising not to kill anyone until Athens had answered, and keeping it. He chased Alcidas as far as Patmos, trapped Hippias the Arcadian by a safe-conduct and shot him down inside his own fortification, and had the decree for the massacre in his hand when the second galley came into port.','Paches','major'),
+('epicurus','Epicurus','Paches’s father.','Epicurus','reference'),
+('lysicles-general','Lysicles','One of the five commanders of the twelve ships sent to levy subsidies from the allies, who went up country from Myus across the Meander plain to the hill of Sandius and was killed there with many of his men by the Carians and the people of Anaia. Not Abronichus’s father.','','supporting'),
+('theaenetus','Theaenetus','Tolmides’s son, a soothsayer, who with Eupompides thought of the escape over the Peloponnesian wall at Plataea.','Theaenetus','supporting'),
+('tolmides-soothsayer','Tolmides','Theaenetus the soothsayer’s father. Not Tolmaeus’s son.','','reference'),
+('eupompides','Eupompides','Daimachus’s son, one of the Plataean generals and joint author of the escape.','Eupompides','supporting'),
+('daimachus','Daimachus','Eupompides’s father.','Daimachus','reference'),
+('ammias','Ammias','Coroebus’s son, first up the ladder and first on the Peloponnesian wall, at the head of twelve light-armed men with a dagger and a breastplate each.','Ammias','supporting'),
+('coroebus','Coroebus','Ammias’s father.','Coroebus','reference'),
+('androcrates','Androcrates','The hero whose chapel the escaping Plataeans kept on their right, taking the Thebes road because it was the last one the pursuers would think of.','Androcrates','reference','mythological-figure'),
+('salaethus','Salaethus','The Lacedaemonian who got into Mitylene along a torrent bed, told them the fleet was coming, and stopped them treating with Athens — then armed the commons for a sortie, and lost the city the moment they had weapons in their hands. Found in hiding, sent to Athens and killed at once, though he offered to get the Peloponnesians away from Plataea.','Salaethus','major'),
+('cleomenes-commander','Cleomenes','Who led the invasion of Attica in place of King Pausanias, his nephew, who was still a minor. Not the Cleomenes who drove the accursed out of Athens.','','supporting'),
+('pausanias-king','Pausanias','Pleistoanax’s son and king of Lacedaemon, a minor when Cleomenes invaded Attica for him. Neither the regent nor the Macedonian.','','reference'),
+('teutiaplus','Teutiaplus','An Elean, who told Alcidas to sail straight for Mitylene and fall on it at night, since men who have just taken a city are as careless as any in war, and that detecting the moment when an enemy is at this disadvantage is what makes a successful general. Alcidas was not moved.','Teutiaplus','supporting'),
+('itamenes','Itamenes','Who took the upper town of Colophon with the barbarians, having been called in by one party in a quarrel.','Itamenes','reference'),
+('hippias-arcadia','Hippias','Commander of the Arcadians in the fortified quarter at Notium, invited out to a parley by Paches on a promise of safe return, kept in custody, put back inside once the quarter had been stormed — as promised — and shot down as soon as he was in. Not the tyrant.','','supporting'),
+('cleon','Cleon','Cleaenetus’s son, the most violent man at Athens and at that time by far the most powerful with the commons, who carried the decree to kill every adult male in Mitylene and enslave the rest, and defended it the next day: a democracy is incapable of empire, your empire is a despotism, pity and sentiment and indulgence are the three failings most fatal to it, and the penalty of rebellion must be death. He lost the second vote by a show of hands that was almost equal, and got the thousand prisoners killed instead.','Cleon','central'),
+('cleaenetus','Cleaenetus','Cleon’s father.','Cleaenetus','reference'),
+('diodotus','Diodotus','Eucrates’s son, who answered Cleon by refusing to argue about guilt at all: the question is not justice but the interest of Athens, and no penalty yet invented has ever stopped men from taking a risk they have set their minds on — so killing the Mitylenian commons, who had surrendered the town the moment they got arms, would only teach every future rebel to hold out to the last. His motion carried, and the second galley beat the first by the length of a meal eaten at the oar.','Diodotus','major'),
+('eucrates','Eucrates','Diodotus’s father.','Eucrates','reference'),
+('mitylenians','The Mitylenians','Who wanted to revolt before the war and were refused, and then had to do it before their walls and moles and archers were ready. They told the allies at Olympia that fear, not friendship, had kept them in the Athenian alliance, and that the liberty of attacking being always Athens’s, the liberty of defending should be theirs. Starved out, they were sentenced to death in one assembly and reprieved in the next by a handful of votes.','Mitylenians|Mitylenian','major','group'),
+('methymnians','The Methymnians','The one city in Lesbos that did not revolt: they informed Athens of the preparations, fought on her side, and afterwards kept their land when the rest of the island was divided into three thousand allotments.','Methymnians','supporting','group'),
+('tenedians','The Tenedians','At enmity with Mitylene, and among the first to tell Athens what was being prepared there.','Tenedians','reference','group'),
+('imbrians','The Imbrians','Who came to the aid of Athens at Mitylene with the Lemnians.','Imbrians','reference','group'),
+('lemnians','The Lemnians','Who came to the aid of Athens at Mitylene with the Imbrians.','Lemnians','reference','group'),
+('antissians','The Antissians','Who beat the Methymnians in a sortie with their mercenaries, and were reduced by Paches afterwards.','Antissians','reference','group'),
+('colophonians','The Colophonians','Whose upper town was taken by Itamenes and the barbarians in a party quarrel, and who then split again at Notium; Paches gave the place to the party that had not Medized, and Athens sent out settlers and collected the rest of them from wherever they had gone.','Colophonians','supporting','group'),
+]:add(*row)
+
+# ================== BOOK 3, CHAPTER 10 — Plataea destroyed, and Corcyra tears itself apart
+for row in [
+('nicias-niceratus','Nicias','Niceratus’s son, who took Minoa off Megara so that the blockade could be kept from a nearer station, and led sixty ships against Melos and the Locrian seaboard.','','central'),
+('niceratus','Niceratus','Nicias’s father.','Niceratus','reference'),
+('astymachus','Astymachus','Asopolaus’s son, one of the two Plataeans deputed to answer the five Lacedaemonian judges — who put one question and no charge, and asked it again of each man before taking him out and killing him.','Astymachus','supporting'),
+('asopolaus','Asopolaus','Astymachus’s father.','Asopolaus','reference'),
+('lacon','Lacon','Aeimnestus’s son and proxenus of the Lacedaemonians, the other Plataean speaker.','Lacon','supporting'),
+('aeimnestus','Aeimnestus','Lacon’s father.','Aeimnestus','reference'),
+('peithias','Peithias','A volunteer proxenus of Athens and leader of the commons at Corcyra, acquitted on a charge of enslaving the city and answering it by prosecuting five rich men for cutting stakes in the ground sacred to Zeus and Alcinous. They came into the senate house with daggers and killed him and sixty others.','Peithias','major'),
+('alcinous','Alcinous','In whose sacred ground, with Zeus’s, the stakes were cut — a stater a stake.','Alcinous','reference','mythological-figure'),
+('nicostratus','Nicostratus','Diitrephes’s son, who came up from Naupactus with twelve ships and five hundred Messenians and very nearly settled Corcyra: he got both parties to agree to try ten ringleaders, stopped the commons from killing men in the street, and persuaded four hundred suppliants out of the temple of Hera — and then sailed on.','Nicostratus','major'),
+('diitrephes','Diitrephes','Nicostratus’s father.','Diitrephes','reference'),
+('eurymedon','Eurymedon','Thucles’s son, who came to Corcyra with sixty ships — and during the seven days he lay there the Corcyraeans went on butchering their fellow citizens, some for supposed conspiracy and some for money owed.','','major'),
+('thucles','Thucles','Eurymedon’s father.','','reference'),
+('laches','Laches','Melanopus’s son, who took twenty ships to Sicily with Charoeades, was left in sole command when Charoeades was killed, took Mylae and Messina, and was relieved by Pythodorus.','Laches','major'),
+('melanopus','Melanopus','Laches’s father.','Melanopus','reference'),
+('charoeades','Charoeades','Euphiletus’s son, Laches’s colleague in Sicily, killed by the Syracusans in battle.','Charoeades','supporting'),
+('euphiletus','Euphiletus','Charoeades’s father.','Euphiletus','reference'),
+('dioscuri','The Dioscuri','In whose temple at Corcyra the men enrolled for the ships sat down as suppliants, fearing they were to be sent to Athens.','Dioscuri','reference','deity'),
+('syracusans','The Syracusans','At war with Leontini, with all the Dorian cities of Sicily except Camarina for allies, and blockading the Leontines by land and sea when Athens first sent ships west.','Syracusans|Syracusan','major','group'),
+('leontines','The Leontines','Who had Camarina and the Chalcidian cities, and who appealed to Athens on their ancient alliance and their Ionian origin.','Leontines','supporting','group'),
+('camarinaeans','The Camarinaeans','The one Dorian city of Sicily that took the Leontine side.','Camarinaeans','reference','group'),
+('rhegians','The Rhegians','Of Italy, who were for their Leontine kinsmen, and whose town the Athenians made their base.','Rhegians','supporting','group'),
+('locrians-italy','The Locrians of Italy','Who were for the Syracusans, beat the Athenians at their fort on the Halex and again under Pythodorus, and were beaten on the Caicinus. Not the Ozolian or Opuntian Locrians of Greece.','','supporting','group'),
+]:add(*row)
+
+# ================= BOOK 3, CHAPTER 11 — Heraclea, Aetolia, and the ruin of Ambracia
+for row in [
+('agis','Agis','Archidamus’s son, who brought the army as far as the Isthmus and turned back without invading because of the earthquakes.','Agis','major'),
+('demosthenes','Demosthenes','Alcisthenes’s son. Talked by the Messenians into invading Aetolia against the Acarnanians’ advice, he pushed on without waiting for his Locrian darters, lost his archers’ captain and then his guide, and watched a hundred and twenty Athenian hoplites — by far the best men of the city to fall in the war — die in trackless gullies and in a wood the Aetolians burned around them. He stayed at Naupactus afraid to face Athens; and then saved Naupactus, hid four hundred men in a hollow road at Olpae, broke Eurylochus’s wing from behind, and destroyed the Ambraciot relief at Idomene at dawn by putting Messenians in front to speak Doric to the sentries.','Demosthenes','central'),
+('alcisthenes','Alcisthenes','Demosthenes’s father.','Alcisthenes','reference'),
+('procles','Procles','Theodorus’s son, Demosthenes’s colleague in the thirty ships, and among the slain in Aetolia.','','supporting'),
+('theodorus','Theodorus','Procles’s father.','Theodorus','reference'),
+('hipponicus','Hipponicus','Callias’s son, who brought the whole levy from Athens to meet the fleet at Tanagra by prearranged signal.','Hipponicus','supporting'),
+('callias-father-of-hipponicus','Callias','Hipponicus’s father. Neither the Corinthian admiral’s father nor the Athenian general killed at Potidaea.','','reference'),
+('tisamenus','Tisamenus','The ambassador the Trachinians chose to ask Lacedaemon for a colony, after suffering severely in a war with the Oetaeans.','Tisamenus','reference'),
+('leon-heraclea','Leon','One of the three Lacedaemonians who led out the colony to Heraclea in Trachis.','','reference'),
+('damagon','Damagon','The third founder of Heraclea, with Leon and Alcidas.','Damagon','reference'),
+('hesiod','Hesiod','The poet, said to have been killed by the people of the country in the precinct of Nemean Zeus, in fulfilment of an oracle that he would die at Nemea — where Demosthenes’s army bivouacked on its way into Aetolia.','Hesiod','reference'),
+('chromon','Chromon','The Messenian who guided the army in Aetolia, and whose death left it in trackless country.','Chromon','supporting'),
+('tolophus','Tolophus','An Ophionian, one of the three Aetolian envoys who got an army out of Corinth and Lacedaemon against Naupactus.','Tolophus','reference'),
+('boriades','Boriades','A Eurytanian, the second of the three Aetolian envoys.','Boriades','reference'),
+('tisander','Tisander','An Apodotian, the third of the three Aetolian envoys.','Tisander','reference'),
+('eurylochus','Eurylochus','The Spartan who brought three thousand heavy infantry against Naupactus, took hostages from most of Ozolian Locris on the way, missed the town by a thousand men Demosthenes had got in, and then waited in Aetolia for the Ambraciots. At Olpae his own wing and his best troops were broken from behind by men out of a hollow road, and he was killed with them.','Eurylochus','major'),
+('macarius','Macarius','A Spartan, one of Eurylochus’s two colleagues, and killed with him at Olpae.','Macarius','supporting'),
+('menedaius','Menedaius','The surviving Spartan commander at Olpae, who could neither stand a siege nor retreat, asked for a truce to take up the dead — and was quietly given leave to slip away with the Mantineans and the other leaders, which is exactly what Demosthenes wanted the Hellenes of those parts to hear about.','Menedaius','major'),
+('proxenus','Proxenus','Capaton’s son, who led the Italian Locrians against the Athenians on the river Caicinus.','Proxenus','reference'),
+('capaton','Capaton','Proxenus’s father.','Capaton','reference'),
+('aristotle','Aristotle','Timocrates’s son, one of the two commanders of the twenty Athenian ships the Acarnanians sent for.','Aristotle','reference'),
+('timocrates-father-of-aristotle','Timocrates','Aristotle the commander’s father. Neither Timoxenus’s father nor the Lacedaemonian who killed himself off Naupactus.','','reference'),
+('hierophon','Hierophon','Antimnestus’s son, the other commander of the twenty ships.','Hierophon','reference'),
+('antimnestus','Antimnestus','Hierophon’s father.','Antimnestus','reference'),
+('salynthius','Salynthius','The friendly king of the Agraeans, with whom the Ambraciots and Peloponnesians who got away from Olpae took refuge.','Salynthius','supporting'),
+('pythodorus-isolochus','Pythodorus','Isolochus’s son, sent out to relieve Laches in Sicily, and beaten by the Locrians at the fort Laches had taken. Not the archon of the year the war began.','','supporting'),
+('isolochus','Isolochus','Pythodorus the general’s father.','Isolochus','reference'),
+('sophocles','Sophocles','Sostratides’s son, who was to follow Pythodorus to Sicily with the main body.','Sophocles','supporting'),
+('sostratides','Sostratides','Sophocles’s father.','Sostratides','reference'),
+('hephaestus','Hephaestus','Whose forge the people of those parts believe to be on Hiera, from the flame the island sends out by night and the smoke by day.','Hephaestus','reference','deity'),
+# ----------------------------------------------------------- peoples of Book 3
+('melians','The Melians','Islanders who refused to be subjects of Athens or even to join her confederacy, and whose land was devastated without bringing them to terms.','Melians','supporting','group'),
+('malians','The Malians','Three tribes in all — the Paralians, the Hiereans and the Trachinians.','Malians','reference','group'),
+('paralians','The Paralians','One of the three Malian tribes.','Paralians','reference','group'),
+('hiereans','The Hiereans','One of the three Malian tribes.','Hiereans','reference','group'),
+('trachinians','The Trachinians','The Malian tribe that had suffered severely from the Oetaeans, thought of putting themselves under Athens, and asked Lacedaemon for a colony instead — which became Heraclea, and which the Thessalians and Lacedaemon’s own governors between them wore down.','Trachinians','supporting','group'),
+('oetaeans','The Oetaeans','The neighbours whose war on the Trachinians brought Heraclea into existence.','Oetaeans','reference','group'),
+('apodotians','The Apodotians','The Aetolian tribe the Messenians told Demosthenes to attack first.','Apodotians','reference','group'),
+('ophionians','The Ophionians','The Aetolian tribe to be attacked second; the most remote of them, the Bomiensians and Calliensians, came down to the rescue with the rest.','Ophionians','reference','group'),
+('eurytanians','The Eurytanians','The largest tribe in Aetolia, who speak, it is said, an extremely difficult language and eat their flesh raw.','Eurytanians','supporting','group'),
+('bomiensians','The Bomiensians','The most remote of the Ophionians, who extend toward the Malian gulf.','Bomiensians','reference','group'),
+('calliensians','The Calliensians','The other remote Ophionian tribe, who came down against Demosthenes with the rest.','Calliensians','reference','group'),
+('amphissians','The Amphissians','Eurylochus’s chief supporters in Ozolian Locris, alarmed at the hostility of the Phocians, who gave hostages first and talked the rest into it.','Amphissians','reference','group'),
+('myonians','The Myonians','Who held the most difficult of the passes into Locris, and gave hostages after the Amphissians.','Myonians','reference','group'),
+('ipnians','The Ipnians','One of the Ozolian Locrian towns that gave hostages and joined the expedition.','Ipnians','reference','group'),
+('messapians','The Messapians','One of the Ozolian Locrian towns that gave hostages and joined the expedition.','Messapians','reference','group'),
+('tritaeans','The Tritaeans','One of the Ozolian Locrian towns that gave hostages and joined the expedition.','Tritaeans','reference','group'),
+('chalaeans','The Chalaeans','One of the Ozolian Locrian towns that gave hostages and joined the expedition.','Chalaeans','reference','group'),
+('tolophonians','The Tolophonians','One of the Ozolian Locrian towns that gave hostages and joined the expedition.','Tolophonians','reference','group'),
+('hessians','The Hessians','One of the Ozolian Locrian towns that gave hostages and joined the expedition.','Hessians','reference','group'),
+('oeanthians','The Oeanthians','The last of the Ozolian Locrian towns to give hostages and join the expedition.','Oeanthians','reference','group'),
+('olpaeans','The Olpaeans','Who gave hostages but would not join the invasion.','Olpaeans','reference','group'),
+('hyaeans','The Hyaeans','Who would do neither, until Eurylochus took one of their villages.','Hyaeans','reference','group'),
+('mantineans','The Mantineans','Massed on the left at Olpae, and the only unit that kept its ranks in the retreat — which is why Demosthenes and the Acarnanians quietly let them go, to discredit the Lacedaemonians with the Hellenes of those parts as traitors and self-seekers.','Mantineans','supporting','group'),
+('liparaeans','The Liparaeans','A Cnidian colony holding the islands of Aeolus from Lipara, and allies of Syracuse.','Liparaeans','reference','group'),
+('sicels','The Sicels','Some of them subjects or allies of Syracuse and some in revolt from her; they invaded Himera from the interior while the Athenians landed on the coast.','Sicels','supporting','group'),
+('catanians','The Catanians','Who live on Etna, the largest mountain in Sicily, and lost some of their land to the stream of fire.','Catanians','reference','group'),
+('cephallenians','The Cephallenians','Whose four states — Pale, Crane, Same and Pronae — came over to Athens without force, and who joined the levy against Leucas and went with Demosthenes into Aetolia.','Cephallenians','supporting','group'),
+]:add(*row)
+
+print(len(entities),'entities after Book 3')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-12.2',
- coverage='Both full English editions. BOOKS 1-2 (chapters 1-8) are authored; chapters 9-26 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.',
+ contentVersion='2026-09-12.3',
+ coverage='Both full English editions. BOOKS 1-3 (chapters 1-11) are authored; chapters 12-26 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

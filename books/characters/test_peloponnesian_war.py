@@ -1,5 +1,5 @@
 """Focused checks for the History of the Peloponnesian War. AUTHORING IN
-PROGRESS: Books 1-2 (chapters 1-8) are authored; chapters 9-26 are not."""
+PROGRESS: Books 1-3 (chapters 1-11) are authored; chapters 12-26 are not."""
 import unittest
 from build_peloponnesian_war import compile_package
 
@@ -16,7 +16,7 @@ def snapshots(cid,ed='modern-en'):
 class PeloponnesianWar(unittest.TestCase):
     def test_the_author_names_himself_in_the_first_sentence(self):
         for ed in ['original-en','modern-en']:
-            self.assertEqual(where(ed,'thucydides'),[(1,0),(7,25),(8,33)],ed)
+            self.assertIn((1,0),where(ed,'thucydides'),ed)
 
     def test_the_thucydides_at_samos_is_a_separate_card(self):
         # Thucydides names a commander at the siege of Samos without a
@@ -46,7 +46,7 @@ class PeloponnesianWar(unittest.TestCase):
     def test_the_macedonian_pausanias_is_not_the_spartan_regent(self):
         for ed in ['original-en','modern-en']:
             self.assertEqual(where(ed,'pausanias-macedon'),[(2,31)],ed)
-            self.assertTrue(all(c in (4,5,6,8) for c,_ in where(ed,'pausanias-sparta')),ed)
+            self.assertTrue(all(c in (4,5,6,8,10) for c,_ in where(ed,'pausanias-sparta')),ed)
             self.assertNotIn('pausanias-sparta',ids(ed,2,31),ed)
             self.assertNotIn('pausanias-macedon',ids(ed,4,4),ed)
 
@@ -56,11 +56,12 @@ class PeloponnesianWar(unittest.TestCase):
         # of Artaxerxes all belong to books that are not yet authored, so their
         # names carry no card rather than the Book 1 man's.
         for ed in ['original-en','modern-en']:
-            for cid in ['cyrus','hippias','pisistratus','darius']:
+            for cid in ['cyrus','hippias','darius']:
                 self.assertTrue(all(c<=5 for c,_ in where(ed,cid)),(ed,cid))
+            self.assertTrue(all(c in (1,11) for c,_ in where(ed,'pisistratus')),ed)
             self.assertNotIn('cyrus',ids(ed,7,20),ed)
             self.assertNotIn('hippias',ids(ed,9,33),ed)
-            self.assertNotIn('pisistratus',ids(ed,11,18),ed)
+            self.assertNotIn('pisistratus',ids(ed,19,22),ed)
             self.assertNotIn('darius',ids(ed,24,4),ed)
 
     def test_the_hellenic_sea_is_water_and_carries_no_card(self):
@@ -172,6 +173,64 @@ class PeloponnesianWar(unittest.TestCase):
                               ('plataeans',[6]),('athenians',[1,7])]:
                 got=[s['availableAt']['chapterNumber'] for s in snapshots(cid,ed)]
                 self.assertEqual(got,gates,(ed,cid))
+
+    # ------------------------------------------------ Book 3 (chapters 9-11)
+    def test_the_two_men_called_asopius_are_father_and_son(self):
+        # Phormio's father, and the son the Acarnanians insisted on.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'asopius'),[(2,33)],ed)
+            self.assertEqual(sorted(set(where(ed,'asopius-son-of-phormio'))),[(9,6)],ed)
+
+    def test_the_three_men_called_pausanias(self):
+        # The Macedonian, the regent, and the boy king Pleistoanax's son.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'pausanias-macedon'),[(2,31)],ed)
+            self.assertEqual(where(ed,'pausanias-king'),[(9,25)],ed)
+            self.assertIn((10,18),where(ed,'pausanias-sparta'),ed)
+            self.assertNotIn('pausanias-sparta',ids(ed,9,25),ed)
+
+    def test_the_four_men_called_nicias_and_callias(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted({c for c,_ in where(ed,'nicias-niceratus')}),[10,11],ed)
+            self.assertEqual(where(ed,'callias-father-of-hipponicus'),[(11,4)],ed)
+            self.assertNotIn('nicias-gortys',ids(ed,10,0),ed)
+            self.assertNotIn('callias-calliades',ids(ed,11,4),ed)
+
+    def test_the_river_eurymedon_is_water_and_the_general_is_a_man(self):
+        # Book 1's Eurymedon is a river in Pamphylia and carries no card.
+        for ed in ['original-en','modern-en']:
+            self.assertNotIn('eurymedon',ids(ed,4,7),ed)
+            self.assertTrue(all(c in (10,11) for c,_ in where(ed,'eurymedon')),ed)
+
+    def test_the_locrians_of_italy_are_not_the_locrians_of_greece(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted({c for c,_ in where(ed,'locrians-italy')}),[10,11],ed)
+            self.assertIn((1,5),where(ed,'locrians'),ed)
+            self.assertNotIn('locrians',ids(ed,10,36),ed)
+
+    def test_the_soothsayer_and_the_general_called_tolmides(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'tolmides-soothsayer'),[(9,19)],ed)
+            self.assertEqual(sorted({p for _,p in where(ed,'tolmides')}),[13,17],ed)
+
+    def test_the_two_men_called_hippias_and_the_two_called_cleomenes(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'hippias'),[(1,19),(1,19)],ed)
+            self.assertTrue(all(c==9 for c,_ in where(ed,'hippias-arcadia')),ed)
+            self.assertEqual(where(ed,'cleomenes'),[(5,7)],ed)
+            self.assertEqual(where(ed,'cleomenes-commander'),[(9,25)],ed)
+
+    def test_xenoclides_is_one_man_under_two_spellings(self):
+        # Xenoclides at 2:21 and Xenocleides at 11:32, both son of Euthycles.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted({c for c,_ in where(ed,'xenoclides')}),[2,11],ed)
+            self.assertEqual(sorted({c for c,_ in where(ed,'euthycles')}),[2,11],ed)
+
+    def test_the_historian_signs_each_year(self):
+        # "of which Thucydides was the historian" closes years four, five and six.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'thucydides'),
+                             [(1,0),(7,25),(8,33),(9,24),(11,1),(11,34)],ed)
 
     def test_no_entity_is_missing_from_either_edition(self):
         for ed in ['original-en','modern-en']:

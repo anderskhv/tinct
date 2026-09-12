@@ -1,6 +1,6 @@
 {
-  "contentVersion": "2026-09-12.2",
-  "coverage": "Both full English editions. BOOKS 1-2 (chapters 1-8) are authored; chapters 9-26 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.",
+  "contentVersion": "2026-09-12.3",
+  "coverage": "Both full English editions. BOOKS 1-3 (chapters 1-11) are authored; chapters 12-26 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.",
   "entities": [
     {
       "id": "thucydides",
@@ -517,11 +517,12 @@
     {
       "id": "xenoclides",
       "name": "Xenoclides",
-      "body": "Euthycles’s son, the Corinthian commander of the hundred and fifty ships, with four colleagues.",
+      "body": "Euthycles’s son, the Corinthian commander of the hundred and fifty ships at Sybota, with four colleagues — and, twenty years later, of the three hundred Corinthians who reached Ambracia by a hard march overland. The text spells him Xenoclides once and Xenocleides once.",
       "aliases": [
-        "Xenoclides"
+        "Xenoclides",
+        "Xenocleides"
       ],
-      "category": "reference",
+      "category": "supporting",
       "kind": "person",
       "subtitle": "",
       "snapshots": []
@@ -2004,9 +2005,7 @@
       "id": "locrians",
       "name": "The Locrians",
       "body": "The Ozolian Locrians, who still carry weapons in the old piratical way and from whom Athens took Naupactus; and the Opuntian Locrians, a hundred of whose richest men were taken as hostages after Oenophyta.",
-      "aliases": [
-        "Locrians"
-      ],
+      "aliases": [],
       "category": "supporting",
       "kind": "group",
       "subtitle": "",
@@ -3992,6 +3991,1332 @@
       ],
       "category": "supporting",
       "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cleippides",
+      "name": "Cleippides",
+      "body": "Deinias’s son, in command of the forty ships sent to catch the Mitylenians at the festival of the Malean Apollo outside the town — and, if that failed, to order them to give up their ships and pull down their walls.",
+      "aliases": [
+        "Cleippides"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "deinias",
+      "name": "Deinias",
+      "body": "Cleippides’s father.",
+      "aliases": [
+        "Deinias"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "meleas",
+      "name": "Meleas",
+      "body": "A Laconian who slipped into Mitylene by galley after the first battle and advised them to send more envoys to Lacedaemon.",
+      "aliases": [
+        "Meleas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hermaeondas",
+      "name": "Hermaeondas",
+      "body": "A Theban, sent with Meleas before the insurrection and unable to get there before the Athenians.",
+      "aliases": [
+        "Hermaeondas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "asopius-son-of-phormio",
+      "name": "Asopius",
+      "body": "Phormio’s son, whom the Acarnanians insisted on having because they would take no commander who was not some son or relative of Phormio — and who was cut off with most of his troops in the retreat from Nericus.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dorieus",
+      "name": "Dorieus",
+      "body": "The Rhodian, in whose Olympiad — his second victory — the Mitylenian envoys made their case to the allies.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alcidas",
+      "name": "Alcidas",
+      "body": "The Lacedaemonian high admiral, and the most cautious man in the war. He took the relief fleet to Lesbos so slowly that Mitylene had fallen seven days before he heard of it; refused Teutiaplus’s advice to fall on Paches at night, refused the Ionian exiles’ advice to raise Ionia, butchered his prisoners at Myonnesus until Samian envoys told him this was no way to free Hellas, and fled home across the open sea. At Corcyra he would not attack the town even when Brasidas urged it. He was afterwards one of the three founders of Heraclea in Trachis.",
+      "aliases": [
+        "Alcidas"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "paches",
+      "name": "Paches",
+      "body": "Epicurus’s son, who walled Mitylene in and took its surrender on terms — promising not to kill anyone until Athens had answered, and keeping it. He chased Alcidas as far as Patmos, trapped Hippias the Arcadian by a safe-conduct and shot him down inside his own fortification, and had the decree for the massacre in his hand when the second galley came into port.",
+      "aliases": [
+        "Paches"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "epicurus",
+      "name": "Epicurus",
+      "body": "Paches’s father.",
+      "aliases": [
+        "Epicurus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lysicles-general",
+      "name": "Lysicles",
+      "body": "One of the five commanders of the twelve ships sent to levy subsidies from the allies, who went up country from Myus across the Meander plain to the hill of Sandius and was killed there with many of his men by the Carians and the people of Anaia. Not Abronichus’s father.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "theaenetus",
+      "name": "Theaenetus",
+      "body": "Tolmides’s son, a soothsayer, who with Eupompides thought of the escape over the Peloponnesian wall at Plataea.",
+      "aliases": [
+        "Theaenetus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tolmides-soothsayer",
+      "name": "Tolmides",
+      "body": "Theaenetus the soothsayer’s father. Not Tolmaeus’s son.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eupompides",
+      "name": "Eupompides",
+      "body": "Daimachus’s son, one of the Plataean generals and joint author of the escape.",
+      "aliases": [
+        "Eupompides"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "daimachus",
+      "name": "Daimachus",
+      "body": "Eupompides’s father.",
+      "aliases": [
+        "Daimachus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ammias",
+      "name": "Ammias",
+      "body": "Coroebus’s son, first up the ladder and first on the Peloponnesian wall, at the head of twelve light-armed men with a dagger and a breastplate each.",
+      "aliases": [
+        "Ammias"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "coroebus",
+      "name": "Coroebus",
+      "body": "Ammias’s father.",
+      "aliases": [
+        "Coroebus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "androcrates",
+      "name": "Androcrates",
+      "body": "The hero whose chapel the escaping Plataeans kept on their right, taking the Thebes road because it was the last one the pursuers would think of.",
+      "aliases": [
+        "Androcrates"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "salaethus",
+      "name": "Salaethus",
+      "body": "The Lacedaemonian who got into Mitylene along a torrent bed, told them the fleet was coming, and stopped them treating with Athens — then armed the commons for a sortie, and lost the city the moment they had weapons in their hands. Found in hiding, sent to Athens and killed at once, though he offered to get the Peloponnesians away from Plataea.",
+      "aliases": [
+        "Salaethus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cleomenes-commander",
+      "name": "Cleomenes",
+      "body": "Who led the invasion of Attica in place of King Pausanias, his nephew, who was still a minor. Not the Cleomenes who drove the accursed out of Athens.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pausanias-king",
+      "name": "Pausanias",
+      "body": "Pleistoanax’s son and king of Lacedaemon, a minor when Cleomenes invaded Attica for him. Neither the regent nor the Macedonian.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "teutiaplus",
+      "name": "Teutiaplus",
+      "body": "An Elean, who told Alcidas to sail straight for Mitylene and fall on it at night, since men who have just taken a city are as careless as any in war, and that detecting the moment when an enemy is at this disadvantage is what makes a successful general. Alcidas was not moved.",
+      "aliases": [
+        "Teutiaplus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "itamenes",
+      "name": "Itamenes",
+      "body": "Who took the upper town of Colophon with the barbarians, having been called in by one party in a quarrel.",
+      "aliases": [
+        "Itamenes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippias-arcadia",
+      "name": "Hippias",
+      "body": "Commander of the Arcadians in the fortified quarter at Notium, invited out to a parley by Paches on a promise of safe return, kept in custody, put back inside once the quarter had been stormed — as promised — and shot down as soon as he was in. Not the tyrant.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cleon",
+      "name": "Cleon",
+      "body": "Cleaenetus’s son, the most violent man at Athens and at that time by far the most powerful with the commons, who carried the decree to kill every adult male in Mitylene and enslave the rest, and defended it the next day: a democracy is incapable of empire, your empire is a despotism, pity and sentiment and indulgence are the three failings most fatal to it, and the penalty of rebellion must be death. He lost the second vote by a show of hands that was almost equal, and got the thousand prisoners killed instead.",
+      "aliases": [
+        "Cleon"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cleaenetus",
+      "name": "Cleaenetus",
+      "body": "Cleon’s father.",
+      "aliases": [
+        "Cleaenetus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diodotus",
+      "name": "Diodotus",
+      "body": "Eucrates’s son, who answered Cleon by refusing to argue about guilt at all: the question is not justice but the interest of Athens, and no penalty yet invented has ever stopped men from taking a risk they have set their minds on — so killing the Mitylenian commons, who had surrendered the town the moment they got arms, would only teach every future rebel to hold out to the last. His motion carried, and the second galley beat the first by the length of a meal eaten at the oar.",
+      "aliases": [
+        "Diodotus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eucrates",
+      "name": "Eucrates",
+      "body": "Diodotus’s father.",
+      "aliases": [
+        "Eucrates"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mitylenians",
+      "name": "The Mitylenians",
+      "body": "Who wanted to revolt before the war and were refused, and then had to do it before their walls and moles and archers were ready. They told the allies at Olympia that fear, not friendship, had kept them in the Athenian alliance, and that the liberty of attacking being always Athens’s, the liberty of defending should be theirs. Starved out, they were sentenced to death in one assembly and reprieved in the next by a handful of votes.",
+      "aliases": [
+        "Mitylenians",
+        "Mitylenian"
+      ],
+      "category": "major",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "methymnians",
+      "name": "The Methymnians",
+      "body": "The one city in Lesbos that did not revolt: they informed Athens of the preparations, fought on her side, and afterwards kept their land when the rest of the island was divided into three thousand allotments.",
+      "aliases": [
+        "Methymnians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tenedians",
+      "name": "The Tenedians",
+      "body": "At enmity with Mitylene, and among the first to tell Athens what was being prepared there.",
+      "aliases": [
+        "Tenedians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "imbrians",
+      "name": "The Imbrians",
+      "body": "Who came to the aid of Athens at Mitylene with the Lemnians.",
+      "aliases": [
+        "Imbrians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lemnians",
+      "name": "The Lemnians",
+      "body": "Who came to the aid of Athens at Mitylene with the Imbrians.",
+      "aliases": [
+        "Lemnians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antissians",
+      "name": "The Antissians",
+      "body": "Who beat the Methymnians in a sortie with their mercenaries, and were reduced by Paches afterwards.",
+      "aliases": [
+        "Antissians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "colophonians",
+      "name": "The Colophonians",
+      "body": "Whose upper town was taken by Itamenes and the barbarians in a party quarrel, and who then split again at Notium; Paches gave the place to the party that had not Medized, and Athens sent out settlers and collected the rest of them from wherever they had gone.",
+      "aliases": [
+        "Colophonians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nicias-niceratus",
+      "name": "Nicias",
+      "body": "Niceratus’s son, who took Minoa off Megara so that the blockade could be kept from a nearer station, and led sixty ships against Melos and the Locrian seaboard.",
+      "aliases": [],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "niceratus",
+      "name": "Niceratus",
+      "body": "Nicias’s father.",
+      "aliases": [
+        "Niceratus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "astymachus",
+      "name": "Astymachus",
+      "body": "Asopolaus’s son, one of the two Plataeans deputed to answer the five Lacedaemonian judges — who put one question and no charge, and asked it again of each man before taking him out and killing him.",
+      "aliases": [
+        "Astymachus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "asopolaus",
+      "name": "Asopolaus",
+      "body": "Astymachus’s father.",
+      "aliases": [
+        "Asopolaus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lacon",
+      "name": "Lacon",
+      "body": "Aeimnestus’s son and proxenus of the Lacedaemonians, the other Plataean speaker.",
+      "aliases": [
+        "Lacon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aeimnestus",
+      "name": "Aeimnestus",
+      "body": "Lacon’s father.",
+      "aliases": [
+        "Aeimnestus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "peithias",
+      "name": "Peithias",
+      "body": "A volunteer proxenus of Athens and leader of the commons at Corcyra, acquitted on a charge of enslaving the city and answering it by prosecuting five rich men for cutting stakes in the ground sacred to Zeus and Alcinous. They came into the senate house with daggers and killed him and sixty others.",
+      "aliases": [
+        "Peithias"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alcinous",
+      "name": "Alcinous",
+      "body": "In whose sacred ground, with Zeus’s, the stakes were cut — a stater a stake.",
+      "aliases": [
+        "Alcinous"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nicostratus",
+      "name": "Nicostratus",
+      "body": "Diitrephes’s son, who came up from Naupactus with twelve ships and five hundred Messenians and very nearly settled Corcyra: he got both parties to agree to try ten ringleaders, stopped the commons from killing men in the street, and persuaded four hundred suppliants out of the temple of Hera — and then sailed on.",
+      "aliases": [
+        "Nicostratus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diitrephes",
+      "name": "Diitrephes",
+      "body": "Nicostratus’s father.",
+      "aliases": [
+        "Diitrephes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurymedon",
+      "name": "Eurymedon",
+      "body": "Thucles’s son, who came to Corcyra with sixty ships — and during the seven days he lay there the Corcyraeans went on butchering their fellow citizens, some for supposed conspiracy and some for money owed.",
+      "aliases": [],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thucles",
+      "name": "Thucles",
+      "body": "Eurymedon’s father.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "laches",
+      "name": "Laches",
+      "body": "Melanopus’s son, who took twenty ships to Sicily with Charoeades, was left in sole command when Charoeades was killed, took Mylae and Messina, and was relieved by Pythodorus.",
+      "aliases": [
+        "Laches"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "melanopus",
+      "name": "Melanopus",
+      "body": "Laches’s father.",
+      "aliases": [
+        "Melanopus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charoeades",
+      "name": "Charoeades",
+      "body": "Euphiletus’s son, Laches’s colleague in Sicily, killed by the Syracusans in battle.",
+      "aliases": [
+        "Charoeades"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "euphiletus",
+      "name": "Euphiletus",
+      "body": "Charoeades’s father.",
+      "aliases": [
+        "Euphiletus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dioscuri",
+      "name": "The Dioscuri",
+      "body": "In whose temple at Corcyra the men enrolled for the ships sat down as suppliants, fearing they were to be sent to Athens.",
+      "aliases": [
+        "Dioscuri"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "syracusans",
+      "name": "The Syracusans",
+      "body": "At war with Leontini, with all the Dorian cities of Sicily except Camarina for allies, and blockading the Leontines by land and sea when Athens first sent ships west.",
+      "aliases": [
+        "Syracusans",
+        "Syracusan"
+      ],
+      "category": "major",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leontines",
+      "name": "The Leontines",
+      "body": "Who had Camarina and the Chalcidian cities, and who appealed to Athens on their ancient alliance and their Ionian origin.",
+      "aliases": [
+        "Leontines"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "camarinaeans",
+      "name": "The Camarinaeans",
+      "body": "The one Dorian city of Sicily that took the Leontine side.",
+      "aliases": [
+        "Camarinaeans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rhegians",
+      "name": "The Rhegians",
+      "body": "Of Italy, who were for their Leontine kinsmen, and whose town the Athenians made their base.",
+      "aliases": [
+        "Rhegians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "locrians-italy",
+      "name": "The Locrians of Italy",
+      "body": "Who were for the Syracusans, beat the Athenians at their fort on the Halex and again under Pythodorus, and were beaten on the Caicinus. Not the Ozolian or Opuntian Locrians of Greece.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "agis",
+      "name": "Agis",
+      "body": "Archidamus’s son, who brought the army as far as the Isthmus and turned back without invading because of the earthquakes.",
+      "aliases": [
+        "Agis"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demosthenes",
+      "name": "Demosthenes",
+      "body": "Alcisthenes’s son. Talked by the Messenians into invading Aetolia against the Acarnanians’ advice, he pushed on without waiting for his Locrian darters, lost his archers’ captain and then his guide, and watched a hundred and twenty Athenian hoplites — by far the best men of the city to fall in the war — die in trackless gullies and in a wood the Aetolians burned around them. He stayed at Naupactus afraid to face Athens; and then saved Naupactus, hid four hundred men in a hollow road at Olpae, broke Eurylochus’s wing from behind, and destroyed the Ambraciot relief at Idomene at dawn by putting Messenians in front to speak Doric to the sentries.",
+      "aliases": [
+        "Demosthenes"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alcisthenes",
+      "name": "Alcisthenes",
+      "body": "Demosthenes’s father.",
+      "aliases": [
+        "Alcisthenes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "procles",
+      "name": "Procles",
+      "body": "Theodorus’s son, Demosthenes’s colleague in the thirty ships, and among the slain in Aetolia.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "theodorus",
+      "name": "Theodorus",
+      "body": "Procles’s father.",
+      "aliases": [
+        "Theodorus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hipponicus",
+      "name": "Hipponicus",
+      "body": "Callias’s son, who brought the whole levy from Athens to meet the fleet at Tanagra by prearranged signal.",
+      "aliases": [
+        "Hipponicus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "callias-father-of-hipponicus",
+      "name": "Callias",
+      "body": "Hipponicus’s father. Neither the Corinthian admiral’s father nor the Athenian general killed at Potidaea.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tisamenus",
+      "name": "Tisamenus",
+      "body": "The ambassador the Trachinians chose to ask Lacedaemon for a colony, after suffering severely in a war with the Oetaeans.",
+      "aliases": [
+        "Tisamenus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leon-heraclea",
+      "name": "Leon",
+      "body": "One of the three Lacedaemonians who led out the colony to Heraclea in Trachis.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "damagon",
+      "name": "Damagon",
+      "body": "The third founder of Heraclea, with Leon and Alcidas.",
+      "aliases": [
+        "Damagon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hesiod",
+      "name": "Hesiod",
+      "body": "The poet, said to have been killed by the people of the country in the precinct of Nemean Zeus, in fulfilment of an oracle that he would die at Nemea — where Demosthenes’s army bivouacked on its way into Aetolia.",
+      "aliases": [
+        "Hesiod"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chromon",
+      "name": "Chromon",
+      "body": "The Messenian who guided the army in Aetolia, and whose death left it in trackless country.",
+      "aliases": [
+        "Chromon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tolophus",
+      "name": "Tolophus",
+      "body": "An Ophionian, one of the three Aetolian envoys who got an army out of Corinth and Lacedaemon against Naupactus.",
+      "aliases": [
+        "Tolophus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "boriades",
+      "name": "Boriades",
+      "body": "A Eurytanian, the second of the three Aetolian envoys.",
+      "aliases": [
+        "Boriades"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tisander",
+      "name": "Tisander",
+      "body": "An Apodotian, the third of the three Aetolian envoys.",
+      "aliases": [
+        "Tisander"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurylochus",
+      "name": "Eurylochus",
+      "body": "The Spartan who brought three thousand heavy infantry against Naupactus, took hostages from most of Ozolian Locris on the way, missed the town by a thousand men Demosthenes had got in, and then waited in Aetolia for the Ambraciots. At Olpae his own wing and his best troops were broken from behind by men out of a hollow road, and he was killed with them.",
+      "aliases": [
+        "Eurylochus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "macarius",
+      "name": "Macarius",
+      "body": "A Spartan, one of Eurylochus’s two colleagues, and killed with him at Olpae.",
+      "aliases": [
+        "Macarius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "menedaius",
+      "name": "Menedaius",
+      "body": "The surviving Spartan commander at Olpae, who could neither stand a siege nor retreat, asked for a truce to take up the dead — and was quietly given leave to slip away with the Mantineans and the other leaders, which is exactly what Demosthenes wanted the Hellenes of those parts to hear about.",
+      "aliases": [
+        "Menedaius"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "proxenus",
+      "name": "Proxenus",
+      "body": "Capaton’s son, who led the Italian Locrians against the Athenians on the river Caicinus.",
+      "aliases": [
+        "Proxenus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "capaton",
+      "name": "Capaton",
+      "body": "Proxenus’s father.",
+      "aliases": [
+        "Capaton"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aristotle",
+      "name": "Aristotle",
+      "body": "Timocrates’s son, one of the two commanders of the twenty Athenian ships the Acarnanians sent for.",
+      "aliases": [
+        "Aristotle"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "timocrates-father-of-aristotle",
+      "name": "Timocrates",
+      "body": "Aristotle the commander’s father. Neither Timoxenus’s father nor the Lacedaemonian who killed himself off Naupactus.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hierophon",
+      "name": "Hierophon",
+      "body": "Antimnestus’s son, the other commander of the twenty ships.",
+      "aliases": [
+        "Hierophon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antimnestus",
+      "name": "Antimnestus",
+      "body": "Hierophon’s father.",
+      "aliases": [
+        "Antimnestus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "salynthius",
+      "name": "Salynthius",
+      "body": "The friendly king of the Agraeans, with whom the Ambraciots and Peloponnesians who got away from Olpae took refuge.",
+      "aliases": [
+        "Salynthius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pythodorus-isolochus",
+      "name": "Pythodorus",
+      "body": "Isolochus’s son, sent out to relieve Laches in Sicily, and beaten by the Locrians at the fort Laches had taken. Not the archon of the year the war began.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "isolochus",
+      "name": "Isolochus",
+      "body": "Pythodorus the general’s father.",
+      "aliases": [
+        "Isolochus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sophocles",
+      "name": "Sophocles",
+      "body": "Sostratides’s son, who was to follow Pythodorus to Sicily with the main body.",
+      "aliases": [
+        "Sophocles"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sostratides",
+      "name": "Sostratides",
+      "body": "Sophocles’s father.",
+      "aliases": [
+        "Sostratides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hephaestus",
+      "name": "Hephaestus",
+      "body": "Whose forge the people of those parts believe to be on Hiera, from the flame the island sends out by night and the smoke by day.",
+      "aliases": [
+        "Hephaestus"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "melians",
+      "name": "The Melians",
+      "body": "Islanders who refused to be subjects of Athens or even to join her confederacy, and whose land was devastated without bringing them to terms.",
+      "aliases": [
+        "Melians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "malians",
+      "name": "The Malians",
+      "body": "Three tribes in all — the Paralians, the Hiereans and the Trachinians.",
+      "aliases": [
+        "Malians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "paralians",
+      "name": "The Paralians",
+      "body": "One of the three Malian tribes.",
+      "aliases": [
+        "Paralians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hiereans",
+      "name": "The Hiereans",
+      "body": "One of the three Malian tribes.",
+      "aliases": [
+        "Hiereans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "trachinians",
+      "name": "The Trachinians",
+      "body": "The Malian tribe that had suffered severely from the Oetaeans, thought of putting themselves under Athens, and asked Lacedaemon for a colony instead — which became Heraclea, and which the Thessalians and Lacedaemon’s own governors between them wore down.",
+      "aliases": [
+        "Trachinians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "oetaeans",
+      "name": "The Oetaeans",
+      "body": "The neighbours whose war on the Trachinians brought Heraclea into existence.",
+      "aliases": [
+        "Oetaeans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "apodotians",
+      "name": "The Apodotians",
+      "body": "The Aetolian tribe the Messenians told Demosthenes to attack first.",
+      "aliases": [
+        "Apodotians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ophionians",
+      "name": "The Ophionians",
+      "body": "The Aetolian tribe to be attacked second; the most remote of them, the Bomiensians and Calliensians, came down to the rescue with the rest.",
+      "aliases": [
+        "Ophionians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurytanians",
+      "name": "The Eurytanians",
+      "body": "The largest tribe in Aetolia, who speak, it is said, an extremely difficult language and eat their flesh raw.",
+      "aliases": [
+        "Eurytanians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bomiensians",
+      "name": "The Bomiensians",
+      "body": "The most remote of the Ophionians, who extend toward the Malian gulf.",
+      "aliases": [
+        "Bomiensians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "calliensians",
+      "name": "The Calliensians",
+      "body": "The other remote Ophionian tribe, who came down against Demosthenes with the rest.",
+      "aliases": [
+        "Calliensians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphissians",
+      "name": "The Amphissians",
+      "body": "Eurylochus’s chief supporters in Ozolian Locris, alarmed at the hostility of the Phocians, who gave hostages first and talked the rest into it.",
+      "aliases": [
+        "Amphissians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "myonians",
+      "name": "The Myonians",
+      "body": "Who held the most difficult of the passes into Locris, and gave hostages after the Amphissians.",
+      "aliases": [
+        "Myonians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ipnians",
+      "name": "The Ipnians",
+      "body": "One of the Ozolian Locrian towns that gave hostages and joined the expedition.",
+      "aliases": [
+        "Ipnians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "messapians",
+      "name": "The Messapians",
+      "body": "One of the Ozolian Locrian towns that gave hostages and joined the expedition.",
+      "aliases": [
+        "Messapians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tritaeans",
+      "name": "The Tritaeans",
+      "body": "One of the Ozolian Locrian towns that gave hostages and joined the expedition.",
+      "aliases": [
+        "Tritaeans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chalaeans",
+      "name": "The Chalaeans",
+      "body": "One of the Ozolian Locrian towns that gave hostages and joined the expedition.",
+      "aliases": [
+        "Chalaeans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tolophonians",
+      "name": "The Tolophonians",
+      "body": "One of the Ozolian Locrian towns that gave hostages and joined the expedition.",
+      "aliases": [
+        "Tolophonians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hessians",
+      "name": "The Hessians",
+      "body": "One of the Ozolian Locrian towns that gave hostages and joined the expedition.",
+      "aliases": [
+        "Hessians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "oeanthians",
+      "name": "The Oeanthians",
+      "body": "The last of the Ozolian Locrian towns to give hostages and join the expedition.",
+      "aliases": [
+        "Oeanthians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "olpaeans",
+      "name": "The Olpaeans",
+      "body": "Who gave hostages but would not join the invasion.",
+      "aliases": [
+        "Olpaeans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hyaeans",
+      "name": "The Hyaeans",
+      "body": "Who would do neither, until Eurylochus took one of their villages.",
+      "aliases": [
+        "Hyaeans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mantineans",
+      "name": "The Mantineans",
+      "body": "Massed on the left at Olpae, and the only unit that kept its ranks in the retreat — which is why Demosthenes and the Acarnanians quietly let them go, to discredit the Lacedaemonians with the Hellenes of those parts as traitors and self-seekers.",
+      "aliases": [
+        "Mantineans"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "liparaeans",
+      "name": "The Liparaeans",
+      "body": "A Cnidian colony holding the islands of Aeolus from Lipara, and allies of Syracuse.",
+      "aliases": [
+        "Liparaeans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sicels",
+      "name": "The Sicels",
+      "body": "Some of them subjects or allies of Syracuse and some in revolt from her; they invaded Himera from the interior while the Athenians landed on the coast.",
+      "aliases": [
+        "Sicels"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "catanians",
+      "name": "The Catanians",
+      "body": "Who live on Etna, the largest mountain in Sicily, and lost some of their land to the stream of fire.",
+      "aliases": [
+        "Catanians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cephallenians",
+      "name": "The Cephallenians",
+      "body": "Whose four states — Pale, Crane, Same and Pronae — came over to Athens without force, and who joined the levy against Leucas and went with Demosthenes into Aetolia.",
+      "aliases": [
+        "Cephallenians"
+      ],
+      "category": "supporting",
+      "kind": "group",
       "subtitle": "",
       "snapshots": []
     }
