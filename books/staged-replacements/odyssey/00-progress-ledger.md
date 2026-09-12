@@ -565,6 +565,58 @@ against Butler's (**D19**). Every control under **D18**; run
 
 ## Needs Anders (listed, not waited on)
 
+- **A5. `mountain tops`, and A4(ii)'s vendored word list — Book 7's round 1
+  recommends, and one of the two comes with evidence that changes the question.**
+  Full argument in `book07/review/findings-v1.md` §5.7.
+  **(a) `mountain tops`: close it — but inside one consolidated compound sweep,
+  not as a one-off.** D15 as written decides it (the standard American form is
+  closed) and cost is not a reason to decline, since `seashore` cost three
+  successors on a point D15 calls typographic. **Correction to the record
+  (records finding R-6):** `book06/ACCEPTANCE.md` O-6 states the cost as *"a
+  sixth successor"*, singular. The string is in **accepted Book 5** (`candidate-v2.json`)
+  **and accepted Book 6** (`candidate-v2.json`, B06-P011), so closing it costs a
+  successor to **each** — two, not one. And this is the *third* time the package
+  has paid successors for a compound found by a person reading (`mixing-bowl` at
+  Book 2, `seashore`/`low-lying`/`well-disposed` at Book 5); paying a third round
+  without closing the class guarantees a fourth.
+  **(b) A4(ii) — recommend AGAINST vendoring a word list. Unnecessary, and
+  insufficient.** *Unnecessary:* A4(ii)'s demonstration searched PG #1727 and the
+  twelve staged files, found zero hits and rightly concluded the corpus cannot be
+  its own dictionary — but `app/public/data/editions/*-modern-en.json` is **100
+  modern-English editions, 44.9 MB, 75,231 distinct word types**, already in this
+  repository and already a product dependency, and it **attests `mountaintop` and
+  `mountaintops`** along with `seashore`, `hilltop`, `bedchamber`, `storeroom`,
+  `townspeople`, `gatehouse`, `nightfall`, `daybreak` and `wineskin`, while
+  correctly attesting none of `landingplace`, `outercourt`, `chiefmen`,
+  `ninedays`, `winetubs`. *Insufficient:* a word list answers *"is `mountaintop`
+  a word?"*; D15 asks *"which of two forms?"*, and a list of single words cannot
+  represent the open form at all. A corpus can, and its answer here is worth
+  reading — `mountaintop` 10 against `mountain top` 1, but **`mountaintops` 7
+  against `mountain tops` 9**. The singular is decided and the plural is
+  contested, which is exactly what a binary list would have flattened into a
+  false verdict. *Caveat, stated:* the product corpus is machine-generated and a
+  commit on the default branch reports nine of the hundred editions are largely
+  the original text, so it needs a margin (closed form leading 3x AND appearing
+  in at least three distinct editions) and is never a sole authority.
+  **(c) The cheap fix is a register, not a dependency.** The H.1 head-noun filter
+  already reduces a Book to ~23 pairs. That is a checklist, not a blind spot;
+  what is missing is any record that someone went through it. **Require one
+  disposition line per H.1 pair in each Book's `continuity.md`** — `closed` /
+  `kept open, standard` / `not a compound`. Twenty lines a Book, no dependency,
+  and it would have caught `mountain tops` at Book 5 before a successor was owed.
+
+- **A6. `councillors` — ruled by Book 7's round 1, and it costs a successor to
+  Book 2.** §5.3. **D9 wins; write `councilors`.** Decisive fact the drafter did
+  not have: every accepted candidate was scanned for `-our`, `-ised`,
+  `-isation`, doubled-`l` inflections, `grey`, `plough`, `-ence`, `-re`,
+  `whilst`/`amongst`, `storey` and `travell-`, and **`councillors` is the only
+  British spelling in seven accepted Books** — so this is one word against a
+  named rule, not house style against a rule. Cost: a new successor to Book 2
+  changing two words (B02-P001, B02-P003), `book02/candidate-v2.json` and
+  `ACCEPTANCE.md` byte-unchanged, plus one word in Book 7 v2. **The exception is
+  NOT to be written into `PUNCTUATION.md` §1.** Listed here because it costs a
+  successor to an accepted Book, which is a coordinator matter.
+
 - **A4. A fifth successor, and a new dependency — both raised by Book 6's
   round 1.**
   **(i) is DONE 2026-09-12** — `book04/candidate-v4.json`, sha256
@@ -653,6 +705,47 @@ against Butler's (**D19**). Every control under **D18**; run
   comes in numerical order. Both are workable; no action taken on Book 10.
 
 ## Open, not blocking
+
+- **D20 clause (a) has an unstated corollary, and Book 7 v1 banks it six
+  times.** Substantive finding **S-1** of Book 7's round 1. NORM RATE adds each
+  text's own semicolon count to its own sentence count on both sides so that
+  **semicolon → period is worth zero**. By the same construction **comma →
+  semicolon is worth a full division**: it adds nothing to the sentence count,
+  adds one to the candidate's semicolon count, and scores exactly what a period
+  would — while leaving the clause chain inside one sentence, which is the thing
+  D17, D19 and D20 exist to detect the absence of. It is the mirror of the
+  operation D20 prices out and it is cheaper, because a period costs a recast and
+  a semicolon costs a keystroke. Book 7 v1 does it six times (B07-P011 ×2, P018,
+  P019, P026, P028) and its NORM RATE is **+7.5% published against +3.0% on
+  Butler's own pointing** — second in the package against fifth of seven.
+  **Three things to settle, none of them this review's to decide:** whether
+  `semicolons()` should report the pair *(Butler's kept, newly added)* rather
+  than a count; whether NORM RATE should score an added semicolon at all, in
+  writing, either way; and the missing `--audit` control — *a comma raised to a
+  semicolon must not move NORM RATE* — which is three lines and is the mirror of
+  the positive control already there.
+
+- **Three infrastructure repairs from Book 7's round 1, none of them Book 7's
+  and none of them waiting on it.** (1) **The manifest has no read side** (S-2):
+  `book07/manifest.json` already records a `checks-v1.md` sha256 that does not
+  match the frozen file, at trunk `f4d7fbcf7`, and nothing noticed because
+  nothing reads a manifest; a manifest saying `all_gates_passed: true` also
+  survives a candidate that fails the gates. `checks.py N` should verify the
+  manifest it finds, and `--manifests` should do it for every Book.
+  (2) **`MIN_PARA_RATIO` is a lowered threshold, not an enumeration** (S-3) —
+  `{1: 0.86}` lets Book 1 quietly acquire a sixth thin paragraph, which is the
+  case the disposition says is closed; rewrite it in `BYTE_IDENTICAL`'s shape,
+  the five indices with their ratios. (3) **`--all` re-asserts figures but never
+  evaluates the gates** (R-4), and **`LEGACY_GROWTH` compares membership rather
+  than multiplicity** (R-5).
+
+- **PG #1727 carries one transcription defect in its apparatus** (records
+  finding **R-3**). Footnote 29's opener is transposed — `29[] [ The geography of
+  the Ægean…` — where all 186 other entries read `[n] [ …`. Harmless here: the
+  served editions carry no apparatus and the defect is outside every Book's body.
+  Recorded so the next rule to read the FOOTNOTES section does not rediscover it
+  as its own bug; asserted by name in
+  `book07/review/verify_source_book7_review.py`.
 
 - **B01-P014's source crux is resolved on a stated reading, not settled by
   the source.** Butler prints `for he is not dead yet not on the mainland`,
