@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef } from 'react'
 import { tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
+import { labMeasureParagraphInto } from './labMeasureParagraph'
 
 /** Proportional word boundaries preserve all of each aligned paragraph, even
  * when the two editions have different lengths. No translated words are lost. */
@@ -39,9 +40,33 @@ export function measuredDesktopPages(lengths: number[], fits: (segments: Chapter
   return pages
 }
 
+/**
+ * How many words one leaf of this layout holds, measured rather than inferred
+ * from the chapter in front of the reader. A one-page Psalm has no full page,
+ * and its handful of words divided by its one page would claim a tiny leaf and
+ * throw off every book-wide figure built on it. Laying the chapter out as a
+ * single block gives words-per-line; the leaf's own height gives lines-per-leaf.
+ */
+export interface LabLeafCapacity {
+  /** Words one leaf of this layout holds. */
+  wordsPerPage: number
+  /** The leaf height it was measured at; the figure is only valid for that leaf. */
+  leafHeight: number
+}
+
+export function measuredLeafCapacity(page: HTMLElement, probe: HTMLElement, words: number): LabLeafCapacity | null {
+  const lineHeight = parseFloat(getComputedStyle(probe).lineHeight)
+  const leafHeight = page.getBoundingClientRect().height
+  const probeHeight = probe.getBoundingClientRect().height
+  if (!(lineHeight > 0) || !(leafHeight > 0) || !(probeHeight > 0) || words <= 0) return null
+  const lines = Math.max(1, Math.round(probeHeight / lineHeight))
+  const linesPerLeaf = Math.max(1, Math.floor(leafHeight / lineHeight))
+  return { wordsPerPage: Math.max(1, Math.round((words / lines) * linesPerLeaf)), leafHeight: Math.round(leafHeight) }
+}
+
 export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layoutKey, onPages }: {
   paragraphs: string[]; comparison?: string[]; chapterTitle: string; layoutKey: string
-  onPages: (pages: ChapterHearingPage[], content: string[], key: string) => void
+  onPages: (pages: ChapterHearingPage[], content: string[], key: string, capacity: LabLeafCapacity | null) => void
 }) {
   const hostRef = useRef<HTMLDivElement>(null)
   const callbackRef = useRef(onPages)
@@ -80,9 +105,12 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             const p = document.createElement('p')
             p.className = 'lab-hearing-line'
             // The measured and visible desktop pages both use ordinary word
-            // wrapping without hyphenation. Text nodes retain exact spacing.
-            p.textContent = (words[segment.paragraphIndex] || []).slice(segment.from, segment.to).map(w => w.text).join(' ')
-            return p
+            // wrapping without hyphenation, and both carry the painted word
+            // markup. A plain-text probe measured a verse number as full-size
+            // body digits in a strut-height line; painted it is a small
+            // superscript inside a taller inline-block, so pages were packed
+            // against a line box that was the wrong width and the wrong height.
+            return labMeasureParagraphInto(p, (words[segment.paragraphIndex] || []).slice(segment.from, segment.to))
           }
           const pages = measuredDesktopPages(source.map(words => words.length), (segments, first) => {
             header.hidden = !first
@@ -97,7 +125,19 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             const bottom = rows.getBoundingClientRect().bottom
             return bottom <= page.getBoundingClientRect().bottom + .1
           })
-          callbackRef.current(pages, paragraphs, layoutKey)
+          header.hidden = true
+          const capacityProbe = document.createElement('p')
+          capacityProbe.className = 'lab-hearing-line'
+          labMeasureParagraphInto(capacityProbe, source.flat())
+          // A paired measure row is a two-column grid; an unwrapped probe would
+          // run the full spread width and claim twice the words per line.
+          const capacityRow = document.createElement('div')
+          capacityRow.className = 'lab-desktop-measure-row'
+          capacityRow.append(capacityProbe)
+          rows.replaceChildren(capacityRow)
+          const capacity = measuredLeafCapacity(page, capacityProbe, source.reduce((total, words) => total + words.length, 0))
+          rows.replaceChildren()
+          callbackRef.current(pages, paragraphs, layoutKey, capacity)
         })
       })
     }

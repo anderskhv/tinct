@@ -22,6 +22,8 @@ import {
   labFootProgress,
   labFootProgressPages,
   labProgressKnobLive,
+  labBookPageEstimate,
+  labChapterWordWeights,
   labReaderProgressLabel,
   parseLabPrefs,
   parseLabStoredPrefs,
@@ -43,7 +45,7 @@ describe('lab prefs', () => {
   it('toggles between total-book and explicit chapter progress', () => {
     const shared = {
       currentPage: 4,
-      totalPages: 22,
+      totalPages: 10,
       chapterPercent: 18,
       chapterNumber: 2,
       chapterWordsRead: 180,
@@ -53,21 +55,84 @@ describe('lab prefs', () => {
       ],
       wordsPerPage: 100,
     }
-    expect(labReaderProgressLabel({ ...shared, mode: 'book' })).toBe('12 / 20 of book · 59%')
-    expect(labReaderProgressLabel({ ...shared, mode: 'chapter' })).toBe('4 / 22 of chapter · 18%')
+    // Ten pages of chapter one lie behind page four of chapter two.
+    expect(labReaderProgressLabel({ ...shared, mode: 'book' })).toBe('14 / 20 of book · 70%')
+    expect(labReaderProgressLabel({ ...shared, mode: 'chapter' })).toBe('4 / 10 of chapter · 18%')
   })
 
   it('adds thousands separators to reader page totals', () => {
     expect(labReaderProgressLabel({
       mode: 'book',
-      currentPage: 1,
-      totalPages: 10,
-      chapterPercent: 50,
-      chapterNumber: 1,
-      chapterWordsRead: 4_799,
-      chapterWordCounts: [{ number: 1, wordCount: 8_921 }],
-      wordsPerPage: 1,
-    })).toBe('4,799 / 8,921 of book · 54%')
+      currentPage: 3,
+      totalPages: 333,
+      chapterPercent: 1,
+      chapterNumber: 2,
+      chapterWordCounts: [
+        { number: 1, wordCount: 900_000 },
+        { number: 2, wordCount: 100_000 },
+      ],
+      wordsPerPage: 300,
+    })).toBe('3,003 / 3,333 of book · 90%')
+  })
+
+  it('numbers the book continuously: one page per page turn, and the percentage agrees', () => {
+    const chapterWeights = [
+      { number: 1, wordCount: 4_000 },
+      { number: 2, wordCount: 4_000 },
+      { number: 3, wordCount: 4_000 },
+    ]
+    const at = (currentPage: number) => labBookPageEstimate({
+      currentPage,
+      totalPages: 20,
+      chapterNumber: 2,
+      chapterWeights,
+      wordsPerPage: 200,
+    })
+    // Chapter one is 20 estimated pages, so chapter two opens on page 21.
+    expect(at(1).page).toBe(21)
+    for (let page = 1; page < 20; page += 1) {
+      expect(at(page + 1).page).toBe(at(page).page + 1)
+    }
+    // The spread's two leaves are always N and N+1, never a repeat.
+    expect(at(5).page + 1).toBe(at(6).page)
+    // The figure in the foot is the same quantity, so it cannot contradict it.
+    const mid = at(10)
+    expect(mid.percent).toBe(Math.round((mid.page / mid.totalPages) * 100))
+    expect(mid.totalPages).toBe(60)
+    expect(mid.honest).toBe(true)
+  })
+
+  it('weights Bible chapters by paragraph count when no per-chapter words ship', () => {
+    // The Bible manifest carries 1,189 chapters with paragraph counts only;
+    // laying them all out is never worth it, so the catalogue total is spread.
+    const chapterWeights = [
+      { number: 1, paragraphCount: 30 },
+      { number: 2, paragraphCount: 10 },
+      { number: 3, paragraphCount: 10 },
+    ]
+    const estimate = labBookPageEstimate({
+      currentPage: 2,
+      totalPages: 5,
+      chapterNumber: 2,
+      chapterWeights,
+      wordsPerPage: 300,
+      bookWordCount: 50_000,
+    })
+    // Chapter one holds 30/50 of 50,000 words = 30,000 words = 100 pages.
+    expect(estimate.page).toBe(102)
+    expect(estimate.honest).toBe(true)
+    expect(labChapterWordWeights(chapterWeights, 50_000).map(c => c.wordCount)).toEqual([30_000, 10_000, 10_000])
+  })
+
+  it('falls back to a chapter-shaped guess when nothing weights the chapters', () => {
+    const estimate = labBookPageEstimate({
+      currentPage: 2,
+      totalPages: 5,
+      chapterNumber: 3,
+      chapterWeights: [{ number: 1 }, { number: 2 }, { number: 3 }],
+      wordsPerPage: 300,
+    })
+    expect(estimate).toEqual({ page: 12, totalPages: 15, percent: 80, honest: false })
   })
 
   it('points Library at the lab library, never /app', () => {
