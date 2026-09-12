@@ -82,14 +82,14 @@ function wordSpacing(
   return previous && isLabVerseMarker(previous.text) ? '' : ' '
 }
 
-function renderWordText(text: string, hasFollowingWord = false) {
-  if (!isLabVerseMarker(text)) return text
-  return (
+function renderWordText(text: string, hasFollowingWord = false, emphasis = false) {
+  const content = isLabVerseMarker(text) ? (
     <span className="lab-verse-mark">
       {labVerseMarkerDisplay(text)}
       {hasFollowingWord ? '\u00a0' : ''}
     </span>
-  )
+  ) : text
+  return emphasis ? <em>{content}</em> : content
 }
 
 function renderWordGroups<T extends { text: string }>(
@@ -189,7 +189,7 @@ function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs
       {renderWordGroups(line.words, (word, wordIndex, spacing) => (
         <span key={`${lineIndex}-${wordIndex}`} className="lab-hearing-word">
           {spacing}
-          {renderWordText(word.text, wordIndex < line.words.length - 1)}
+          {renderWordText(word.text, wordIndex < line.words.length - 1, word.emphasis)}
         </span>
       ))}
     </p>
@@ -239,7 +239,7 @@ function renderHearingWords(
                 : undefined}
             >
               {spacing}
-              {renderWordText(word.text, wordIndex < line.words.length - 1)}
+              {renderWordText(word.text, wordIndex < line.words.length - 1, word.emphasis)}
             </span>
           )
         })}
@@ -631,7 +631,7 @@ export function LabPassage({
                             : undefined}
                         >
                           {spacing}
-                          {renderWordText(word.text, wordIndex < line.words.length - 1)}
+                          {renderWordText(word.text, wordIndex < line.words.length - 1, word.emphasis)}
                         </span>
                       )
                     })}
@@ -738,7 +738,7 @@ export function LabPassage({
               const segment = alignCompare ? comparisonSegment({ paragraphIndex, from, to: from + line.words.length }, paragraphs, source) : { from, to: from + line.words.length }
               const text = words.slice(segment.from, segment.to).map(word => word.text).join(' ')
               if (!alignCompare && !text) return null
-              return <p key={lineIndex} className="lab-hearing-line" style={alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{words.slice(segment.from, segment.to).map((word, index) => <span key={index} className={labHighlightCssClass(highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, segment.from + index), !!activeSelecting && !!(localSelecting ? dragRef.current?.comparison : selectingComparison) && wordInHighlightRange(activeSelecting, paragraphIndex, segment.from + index))} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={segment.from + index}>{index > 0 ? ' ' : ''}{word.text}</span>)}</p>
+              return <p key={lineIndex} className="lab-hearing-line" style={alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{words.slice(segment.from, segment.to).map((word, index) => <span key={index} className={labHighlightCssClass(highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, segment.from + index), !!activeSelecting && !!(localSelecting ? dragRef.current?.comparison : selectingComparison) && wordInHighlightRange(activeSelecting, paragraphIndex, segment.from + index))} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={segment.from + index}>{index > 0 ? ' ' : ''}{word.emphasis ? <em>{word.text}</em> : word.text}</span>)}</p>
             })}
           </div>
         )}
@@ -793,7 +793,7 @@ export function LabPageMeasurePaint(input: {
                       : 'lab-hearing-word'}
                   >
                     {spacing}
-                    {renderWordText(word.text, wordIndex < line.words.length - 1)}
+                    {renderWordText(word.text, wordIndex < line.words.length - 1, word.emphasis)}
                   </span>
                 ))}
               </p>

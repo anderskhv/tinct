@@ -214,6 +214,47 @@ describe('lab word follow', () => {
       wordIndex: 2,
     })
   })
+
+  it('aligns sidecar words to text carrying Gutenberg _..._ emphasis without shifting positions', () => {
+    // Crime and Punishment: "I want to attempt a thing _like that_ and am frightened by these trifles,"
+    const text = 'I want to attempt a thing _like that_ and am frightened by these trifles,'
+    const rawTokenCount = text.split(/\s+/).filter(Boolean).length
+    const sidecar: TimedWord[] = [
+      { text: 'I', start: 0, end: 0.2 },
+      { text: 'want', start: 0.2, end: 0.4 },
+      { text: 'to', start: 0.4, end: 0.5 },
+      { text: 'attempt', start: 0.5, end: 0.9 },
+      { text: 'a', start: 0.9, end: 1.0 },
+      { text: 'thing', start: 1.0, end: 1.3 },
+      { text: 'like', start: 1.3, end: 1.5 },
+      { text: 'that', start: 1.5, end: 1.8 },
+      { text: 'and', start: 1.8, end: 1.9 },
+      { text: 'am', start: 1.9, end: 2.0 },
+      { text: 'frightened', start: 2.0, end: 2.5 },
+      { text: 'by', start: 2.5, end: 2.6 },
+      { text: 'these', start: 2.6, end: 2.8 },
+      { text: 'trifles', start: 2.8, end: 3.2 },
+    ]
+    const words = alignTimedWordsToText(text, sidecar)!
+
+    // Same word count/order as a plain whitespace split of the raw text —
+    // this is the invariant the audio word-highlight sidecar depends on.
+    expect(words).toHaveLength(rawTokenCount)
+    expect(words.map(w => w.text)).toEqual([
+      'I', 'want', 'to', 'attempt', 'a', 'thing', 'like', 'that', 'and', 'am',
+      'frightened', 'by', 'these', 'trifles,',
+    ])
+    // No literal underscores make it into the displayed word text.
+    expect(words.some(w => w.text.includes('_'))).toBe(false)
+    // Exactly the two marked-up words carry the emphasis flag, at their
+    // original positions (6 and 7).
+    expect(words.map((w, i) => (w.emphasis ? i : null)).filter(i => i != null)).toEqual([6, 7])
+    expect(followFromPlayback({
+      paragraphs: [{ index: 0, text, words }],
+      paragraphIndex: 0,
+      currentTime: 1.4,
+    })).toEqual({ kind: 'word', paragraphIndex: 0, wordIndex: 6 })
+  })
 })
 
 describe('wordIndexAtTime', () => {

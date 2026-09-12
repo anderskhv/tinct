@@ -1,9 +1,12 @@
 import { tokenGroupCoverage, type GroupAlignment } from './tokenGroupCoverage'
+import { tokenizeWithEmphasis, type EmphasisWord } from './labEmphasis'
 
 export interface TimedWord {
   text: string
   start: number
   end: number
+  /** True when this word came from a Gutenberg `_..._` emphasis pair. */
+  emphasis?: boolean
 }
 
 export interface ManifestParagraph {
@@ -88,9 +91,15 @@ export function wordsFromManifestParagraph(paragraph: ManifestParagraph | undefi
   return words
 }
 
-/** Split on whitespace so validated manifest or sidecar times line up with hearing tokens. */
-export function chapterWordsFromText(text: string): string[] {
-  return text.split(/\s+/).map(part => part.trim()).filter(Boolean)
+/**
+ * Split on whitespace so validated manifest or sidecar times line up with
+ * hearing tokens. Matched `_..._` emphasis pairs are stripped per token (see
+ * labEmphasis.ts) — this never changes token count or order, only which
+ * characters a token's text carries, so alignment against sidecar words is
+ * unaffected.
+ */
+export function chapterWordsFromText(text: string): EmphasisWord[] {
+  return tokenizeWithEmphasis(text)
 }
 
 function isSilentVerseMarker(token: string): boolean {
@@ -112,20 +121,22 @@ function semanticToken(token: string): string {
 export function alignTimedWordsToText(text: string, words: TimedWord[] | undefined): TimedWord[] | undefined {
   if (!words?.length) return undefined
   const tokens = chapterWordsFromText(text)
-  const spokenTokens = tokens.filter(token => !isSilentVerseMarker(token))
+  const spokenTokens = tokens.filter(token => !isSilentVerseMarker(token.text))
   if (spokenTokens.length !== words.length) return undefined
-  if (spokenTokens.some((token, index) => semanticToken(token) !== semanticToken(words[index].text))) return undefined
+  if (spokenTokens.some((token, index) => semanticToken(token.text) !== semanticToken(words[index].text))) return undefined
   if (tokens.length === words.length) {
-    return words.map((word, index) => ({ ...word, text: tokens[index] }))
+    return words.map((word, index) => (
+      tokens[index].emphasis ? { ...word, text: tokens[index].text, emphasis: true } : { ...word, text: tokens[index].text }
+    ))
   }
   let spokenIndex = 0
   return tokens.map((token) => {
-    if (isSilentVerseMarker(token)) {
+    if (isSilentVerseMarker(token.text)) {
       const nextStart = words[spokenIndex]?.start ?? words[words.length - 1]?.end ?? 0
-      return { text: token, start: nextStart, end: nextStart }
+      return { text: token.text, start: nextStart, end: nextStart }
     }
     const word = words[spokenIndex++]
-    return { ...word, text: token }
+    return token.emphasis ? { ...word, text: token.text, emphasis: true } : { ...word, text: token.text }
   })
 }
 

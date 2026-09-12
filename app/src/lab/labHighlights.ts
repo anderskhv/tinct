@@ -1,4 +1,5 @@
 import type { HighlightColor } from '../types'
+import { tokenizeWithEmphasis } from './labEmphasis'
 
 export type LabHighlightColor = HighlightColor
 
@@ -143,10 +144,12 @@ export function buildHighlightRange(
   const toWord = last.wordIndex + 1
   const textParts: string[] = []
   for (let p = paragraphIndex; p <= endParagraphIndex; p += 1) {
-    const words = (paragraphs[p] || '').split(/\s+/).filter(Boolean)
+    // Same whitespace-token count/order as a plain split — emphasis
+    // delimiters are stripped so a selection copies clean text.
+    const words = tokenizeWithEmphasis(paragraphs[p] || '')
     const from = p === paragraphIndex ? fromWord : 0
     const to = p === endParagraphIndex ? toWord : words.length
-    if (to > from) textParts.push(words.slice(from, to).join(' '))
+    if (to > from) textParts.push(words.slice(from, to).map(word => word.text).join(' '))
   }
   const text = textParts.join(' ').trim()
   if (!text) return null

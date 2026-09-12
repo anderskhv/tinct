@@ -235,6 +235,49 @@ describe('sentence-level hearing follow', () => {
   })
 })
 
+describe('hearing follow paints the correct word through _..._ emphasis markup', () => {
+  // Crime and Punishment, Part 1 Chapter 1: the exact reported bug sentence.
+  const text = 'I want to attempt a thing _like that_ and am frightened by these trifles,'
+  const timed = (source: string): TimedWord[] => source.split(' ')
+    .map((word, index) => ({ text: word, start: index * 0.3, end: (index + 1) * 0.3 }))
+  const followParagraphs = mergeSidecarWords(
+    [{ index: 0, text, file: 'p0.mp3' }],
+    {
+      chapter: 1,
+      alignment: { minimumParagraphRatio: 0.85 },
+      paragraphs: [{ paragraph: 0, file: 'p0.mp3', words: timed(text), alignment: { matchRatio: 1 } }],
+    },
+    1,
+  )
+
+  it('marks "like" current at its spoken time, rendered as <em> with no literal underscore', () => {
+    const currentTime = 6 * 0.3 + 0.1 // word index 6 = "like"
+    const props = {
+      chapterTitle: 'Crime and Punishment',
+      paragraphs: [text],
+      compareParagraphs: [],
+      compare: false,
+      mode: 'hearing' as const,
+      playing: true,
+      clipIndex: 0,
+      currentTime,
+      follow: followFromPlayback({ paragraphs: followParagraphs, paragraphIndex: 0, currentTime }),
+      followParagraphs,
+      markedIndexes: new Set<number>(),
+    }
+    render(<LabPassage {...props} />)
+    const line = screen.getByTestId('lab-hearing-stage').querySelector('.lab-hearing-line')!
+    const current = [...line.querySelectorAll('.lab-hearing-word.is-current')]
+    expect(current).toHaveLength(1)
+    expect(current[0].textContent?.trim()).toBe('like')
+    expect(current[0].querySelector('em')?.textContent).toBe('like')
+    expect(line.textContent).not.toContain('_')
+    // Position check: the spoken-word count before "like" is unchanged by
+    // the emphasis fix (still 6 words: I want to attempt a thing).
+    expect(line.querySelectorAll('.lab-hearing-word.is-spoken')).toHaveLength(6)
+  })
+})
+
 describe('audio follow paint is layout-neutral', () => {
   const paragraphs = [
     'In the beginning God created the heaven and the earth. And the earth was without form, and void; and darkness was upon the face of the deep.',

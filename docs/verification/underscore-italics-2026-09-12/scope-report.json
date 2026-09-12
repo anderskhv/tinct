@@ -1,0 +1,1872 @@
+{
+  "generatedAt": "2026-09-12T05:48:16.059Z",
+  "note": "Read-only scope scan for the _underscore_ emphasis render bug. Counts use word-boundary matching (see src/lab/labEmphasis.ts) so snake_case / unmatched underscores are excluded.",
+  "totals": {
+    "wholeFile": {
+      "paragraphs": 14235,
+      "pairs": 18704
+    },
+    "shard": {
+      "paragraphs": 7363,
+      "pairs": 9808
+    },
+    "asRead": {
+      "paragraphs": 14289,
+      "pairs": 18770
+    }
+  },
+  "affectedBookCount": 60,
+  "affectedEditionCount": 113,
+  "perBook": [
+    {
+      "bookId": "ulysses",
+      "paragraphs": 4177,
+      "pairs": 5731,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "merry-wives-of-windsor",
+      "paragraphs": 1134,
+      "pairs": 1238,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "anna-karenina",
+      "paragraphs": 939,
+      "pairs": 1099,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "measure-for-measure",
+      "paragraphs": 982,
+      "pairs": 1063,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "pride-and-prejudice",
+      "paragraphs": 662,
+      "pairs": 952,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "hume-enquiry",
+      "paragraphs": 437,
+      "pairs": 864,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "brothers-karamazov",
+      "paragraphs": 623,
+      "pairs": 800,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "walden",
+      "paragraphs": 355,
+      "pairs": 721,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "essays-montaigne",
+      "paragraphs": 498,
+      "pairs": 675,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "taming-of-the-shrew",
+      "paragraphs": 373,
+      "pairs": 421,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "don-quixote",
+      "paragraphs": 300,
+      "pairs": 410,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "henry-v",
+      "paragraphs": 331,
+      "pairs": 406,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "social-contract",
+      "paragraphs": 189,
+      "pairs": 375,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "crime-and-punishment",
+      "paragraphs": 262,
+      "pairs": 371,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "moby-dick",
+      "paragraphs": 180,
+      "pairs": 271,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "great-expectations",
+      "paragraphs": 212,
+      "pairs": 245,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "jane-eyre",
+      "paragraphs": 172,
+      "pairs": 211,
+      "editions": [
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "twelfth-night",
+      "paragraphs": 189,
+      "pairs": 207,
+      "editions": [
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "notes-from-underground",
+      "paragraphs": 132,
+      "pairs": 192,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "king-lear",
+      "paragraphs": 188,
+      "pairs": 188,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "richard-iii",
+      "paragraphs": 167,
+      "pairs": 167,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "cymbeline",
+      "paragraphs": 159,
+      "pairs": 162,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "antony-and-cleopatra",
+      "paragraphs": 157,
+      "pairs": 157,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "nicomachean-ethics",
+      "paragraphs": 101,
+      "pairs": 146,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "coriolanus",
+      "paragraphs": 134,
+      "pairs": 134,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "winters-tale",
+      "paragraphs": 112,
+      "pairs": 112,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "around-the-world-80-days",
+      "paragraphs": 85,
+      "pairs": 111,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "julius-caesar",
+      "paragraphs": 111,
+      "pairs": 111,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "frederick-douglass",
+      "paragraphs": 68,
+      "pairs": 105,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "frankenstein",
+      "paragraphs": 71,
+      "pairs": 103,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "bacchae",
+      "paragraphs": 65,
+      "pairs": 100,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "henry-iv-part-2",
+      "paragraphs": 95,
+      "pairs": 100,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "niels-lyhne",
+      "paragraphs": 76,
+      "pairs": 96,
+      "editions": [
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "medea",
+      "paragraphs": 39,
+      "pairs": 82,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "merchant-of-venice",
+      "paragraphs": 81,
+      "pairs": 82,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "utilitarianism",
+      "paragraphs": 34,
+      "pairs": 69,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "jungle-book",
+      "paragraphs": 39,
+      "pairs": 66,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "macbeth",
+      "paragraphs": 35,
+      "pairs": 59,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "communist-manifesto",
+      "paragraphs": 50,
+      "pairs": 56,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "comedy-of-errors",
+      "paragraphs": 42,
+      "pairs": 43,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "oresteia",
+      "paragraphs": 34,
+      "pairs": 37,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "candide",
+      "paragraphs": 30,
+      "pairs": 36,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "imitation-of-christ",
+      "paragraphs": 21,
+      "pairs": 28,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "jerusalem",
+      "paragraphs": 21,
+      "pairs": 25,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "heart-of-darkness",
+      "paragraphs": 14,
+      "pairs": 19,
+      "editions": [
+        "modern-da",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "midsummer",
+      "paragraphs": 19,
+      "pairs": 19,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "the-prince",
+      "paragraphs": 9,
+      "pairs": 12,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "beowulf",
+      "paragraphs": 11,
+      "pairs": 11,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "wealth-of-nations",
+      "paragraphs": 11,
+      "pairs": 11,
+      "editions": [
+        "modern-da",
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "meditations",
+      "paragraphs": 8,
+      "pairs": 10,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "jekyll-and-hyde",
+      "paragraphs": 8,
+      "pairs": 9,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "oedipus-at-colonus",
+      "paragraphs": 7,
+      "pairs": 9,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "oedipus-rex",
+      "paragraphs": 7,
+      "pairs": 8,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "romeo-and-juliet",
+      "paragraphs": 7,
+      "pairs": 8,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "othello",
+      "paragraphs": 7,
+      "pairs": 7,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "treasure-island",
+      "paragraphs": 7,
+      "pairs": 7,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "antigone",
+      "paragraphs": 4,
+      "pairs": 5,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "a-little-princess",
+      "paragraphs": 4,
+      "pairs": 4,
+      "editions": [
+        "modern-en",
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "beyond-good-and-evil",
+      "paragraphs": 2,
+      "pairs": 2,
+      "editions": [
+        "original-en"
+      ]
+    },
+    {
+      "bookId": "leviathan",
+      "paragraphs": 2,
+      "pairs": 2,
+      "editions": [
+        "modern-da"
+      ]
+    }
+  ],
+  "perEdition": [
+    {
+      "edition": "a-little-princess-modern-en",
+      "bookId": "a-little-princess",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 1,
+        "pairs": 1
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "a-little-princess-original-en",
+      "bookId": "a-little-princess",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 3,
+        "pairs": 3
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "anna-karenina-modern-da",
+      "bookId": "anna-karenina",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 318,
+        "pairs": 372
+      },
+      "shard": {
+        "paragraphs": 318,
+        "pairs": 372
+      },
+      "divergent": false
+    },
+    {
+      "edition": "anna-karenina-modern-en",
+      "bookId": "anna-karenina",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 311,
+        "pairs": 364
+      },
+      "shard": {
+        "paragraphs": 311,
+        "pairs": 364
+      },
+      "divergent": false
+    },
+    {
+      "edition": "anna-karenina-original-en",
+      "bookId": "anna-karenina",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 310,
+        "pairs": 363
+      },
+      "shard": {
+        "paragraphs": 310,
+        "pairs": 363
+      },
+      "divergent": false
+    },
+    {
+      "edition": "antigone-original-en",
+      "bookId": "antigone",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 4,
+        "pairs": 5
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "antony-and-cleopatra-original-en",
+      "bookId": "antony-and-cleopatra",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 157,
+        "pairs": 157
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "around-the-world-80-days-modern-da",
+      "bookId": "around-the-world-80-days",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 28,
+        "pairs": 36
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "around-the-world-80-days-modern-en",
+      "bookId": "around-the-world-80-days",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 28,
+        "pairs": 36
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "around-the-world-80-days-original-en",
+      "bookId": "around-the-world-80-days",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 29,
+        "pairs": 39
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "bacchae-original-en",
+      "bookId": "bacchae",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 65,
+        "pairs": 100
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "beowulf-modern-da",
+      "bookId": "beowulf",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 1,
+        "pairs": 1
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "beowulf-modern-en",
+      "bookId": "beowulf",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 1,
+        "pairs": 1
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "beowulf-original-en",
+      "bookId": "beowulf",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 9,
+        "pairs": 9
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "beyond-good-and-evil-original-en",
+      "bookId": "beyond-good-and-evil",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 2,
+        "pairs": 2
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "brothers-karamazov-modern-da",
+      "bookId": "brothers-karamazov",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 186,
+        "pairs": 240
+      },
+      "shard": {
+        "paragraphs": 186,
+        "pairs": 240
+      },
+      "divergent": false
+    },
+    {
+      "edition": "brothers-karamazov-modern-en",
+      "bookId": "brothers-karamazov",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 188,
+        "pairs": 245
+      },
+      "shard": {
+        "paragraphs": 188,
+        "pairs": 245
+      },
+      "divergent": false
+    },
+    {
+      "edition": "brothers-karamazov-original-en",
+      "bookId": "brothers-karamazov",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 249,
+        "pairs": 315
+      },
+      "shard": {
+        "paragraphs": 249,
+        "pairs": 315
+      },
+      "divergent": false
+    },
+    {
+      "edition": "candide-original-en",
+      "bookId": "candide",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 30,
+        "pairs": 36
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "comedy-of-errors-original-en",
+      "bookId": "comedy-of-errors",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 42,
+        "pairs": 43
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "communist-manifesto-modern-da",
+      "bookId": "communist-manifesto",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 11,
+        "pairs": 13
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "communist-manifesto-modern-en",
+      "bookId": "communist-manifesto",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 20,
+        "pairs": 22
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "communist-manifesto-original-en",
+      "bookId": "communist-manifesto",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 19,
+        "pairs": 21
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "coriolanus-original-en",
+      "bookId": "coriolanus",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 134,
+        "pairs": 134
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "crime-and-punishment-modern-da",
+      "bookId": "crime-and-punishment",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 31,
+        "pairs": 48
+      },
+      "shard": {
+        "paragraphs": 31,
+        "pairs": 48
+      },
+      "divergent": false
+    },
+    {
+      "edition": "crime-and-punishment-modern-en",
+      "bookId": "crime-and-punishment",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 49,
+        "pairs": 70
+      },
+      "shard": {
+        "paragraphs": 49,
+        "pairs": 70
+      },
+      "divergent": false
+    },
+    {
+      "edition": "crime-and-punishment-original-en",
+      "bookId": "crime-and-punishment",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 182,
+        "pairs": 253
+      },
+      "shard": {
+        "paragraphs": 182,
+        "pairs": 253
+      },
+      "divergent": false
+    },
+    {
+      "edition": "cymbeline-original-en",
+      "bookId": "cymbeline",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 159,
+        "pairs": 162
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "don-quixote-modern-da",
+      "bookId": "don-quixote",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 104,
+        "pairs": 149
+      },
+      "shard": {
+        "paragraphs": 154,
+        "pairs": 211
+      },
+      "divergent": true
+    },
+    {
+      "edition": "don-quixote-modern-en",
+      "bookId": "don-quixote",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 82,
+        "pairs": 113
+      },
+      "shard": {
+        "paragraphs": 82,
+        "pairs": 113
+      },
+      "divergent": false
+    },
+    {
+      "edition": "don-quixote-original-en",
+      "bookId": "don-quixote",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 64,
+        "pairs": 86
+      },
+      "shard": {
+        "paragraphs": 64,
+        "pairs": 86
+      },
+      "divergent": false
+    },
+    {
+      "edition": "essays-montaigne-modern-da",
+      "bookId": "essays-montaigne",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 361,
+        "pairs": 453
+      },
+      "shard": {
+        "paragraphs": 361,
+        "pairs": 453
+      },
+      "divergent": false
+    },
+    {
+      "edition": "essays-montaigne-modern-en",
+      "bookId": "essays-montaigne",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 68,
+        "pairs": 116
+      },
+      "shard": {
+        "paragraphs": 68,
+        "pairs": 116
+      },
+      "divergent": false
+    },
+    {
+      "edition": "essays-montaigne-original-en",
+      "bookId": "essays-montaigne",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 69,
+        "pairs": 106
+      },
+      "shard": {
+        "paragraphs": 69,
+        "pairs": 106
+      },
+      "divergent": false
+    },
+    {
+      "edition": "frankenstein-modern-da",
+      "bookId": "frankenstein",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 20,
+        "pairs": 31
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "frankenstein-modern-en",
+      "bookId": "frankenstein",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 20,
+        "pairs": 30
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "frankenstein-original-en",
+      "bookId": "frankenstein",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 31,
+        "pairs": 42
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "frederick-douglass-modern-da",
+      "bookId": "frederick-douglass",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 20,
+        "pairs": 28
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "frederick-douglass-modern-en",
+      "bookId": "frederick-douglass",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 21,
+        "pairs": 31
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "frederick-douglass-original-en",
+      "bookId": "frederick-douglass",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 27,
+        "pairs": 46
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "great-expectations-original-en",
+      "bookId": "great-expectations",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 212,
+        "pairs": 245
+      },
+      "shard": {
+        "paragraphs": 212,
+        "pairs": 245
+      },
+      "divergent": false
+    },
+    {
+      "edition": "heart-of-darkness-modern-da",
+      "bookId": "heart-of-darkness",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 2,
+        "pairs": 2
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "heart-of-darkness-original-en",
+      "bookId": "heart-of-darkness",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 12,
+        "pairs": 17
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "henry-iv-part-2-modern-da",
+      "bookId": "henry-iv-part-2",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 4,
+        "pairs": 5
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "henry-iv-part-2-modern-en",
+      "bookId": "henry-iv-part-2",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 1,
+        "pairs": 1
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "henry-iv-part-2-original-en",
+      "bookId": "henry-iv-part-2",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 90,
+        "pairs": 94
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "henry-v-modern-da",
+      "bookId": "henry-v",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 88,
+        "pairs": 114
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "henry-v-modern-en",
+      "bookId": "henry-v",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 88,
+        "pairs": 114
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "henry-v-original-en",
+      "bookId": "henry-v",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 155,
+        "pairs": 178
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "hume-enquiry-modern-da",
+      "bookId": "hume-enquiry",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 147,
+        "pairs": 289
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "hume-enquiry-modern-en",
+      "bookId": "hume-enquiry",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 146,
+        "pairs": 288
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "hume-enquiry-original-en",
+      "bookId": "hume-enquiry",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 144,
+        "pairs": 287
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "imitation-of-christ-original-en",
+      "bookId": "imitation-of-christ",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 21,
+        "pairs": 28
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "jane-eyre-modern-en",
+      "bookId": "jane-eyre",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 12,
+        "pairs": 17
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "jane-eyre-original-en",
+      "bookId": "jane-eyre",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 160,
+        "pairs": 194
+      },
+      "shard": {
+        "paragraphs": 160,
+        "pairs": 194
+      },
+      "divergent": false
+    },
+    {
+      "edition": "jekyll-and-hyde-original-en",
+      "bookId": "jekyll-and-hyde",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 8,
+        "pairs": 9
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "jerusalem-modern-da",
+      "bookId": "jerusalem",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 2,
+        "pairs": 3
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "jerusalem-modern-en",
+      "bookId": "jerusalem",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 2,
+        "pairs": 3
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "jerusalem-original-en",
+      "bookId": "jerusalem",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 17,
+        "pairs": 19
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "julius-caesar-original-en",
+      "bookId": "julius-caesar",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 111,
+        "pairs": 111
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "jungle-book-modern-da",
+      "bookId": "jungle-book",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 13,
+        "pairs": 22
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "jungle-book-modern-en",
+      "bookId": "jungle-book",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 13,
+        "pairs": 22
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "jungle-book-original-en",
+      "bookId": "jungle-book",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 13,
+        "pairs": 22
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "king-lear-original-en",
+      "bookId": "king-lear",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 188,
+        "pairs": 188
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "leviathan-modern-da",
+      "bookId": "leviathan",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 2,
+        "pairs": 2
+      },
+      "shard": {
+        "paragraphs": 2,
+        "pairs": 2
+      },
+      "divergent": false
+    },
+    {
+      "edition": "macbeth-modern-da",
+      "bookId": "macbeth",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 12,
+        "pairs": 20
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "macbeth-modern-en",
+      "bookId": "macbeth",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 12,
+        "pairs": 20
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "macbeth-original-en",
+      "bookId": "macbeth",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 11,
+        "pairs": 19
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "measure-for-measure-original-en",
+      "bookId": "measure-for-measure",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 982,
+        "pairs": 1063
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "medea-original-en",
+      "bookId": "medea",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 39,
+        "pairs": 82
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "meditations-original-en",
+      "bookId": "meditations",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 8,
+        "pairs": 10
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "merchant-of-venice-original-en",
+      "bookId": "merchant-of-venice",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 81,
+        "pairs": 82
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "merry-wives-of-windsor-original-en",
+      "bookId": "merry-wives-of-windsor",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 1134,
+        "pairs": 1238
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "midsummer-modern-da",
+      "bookId": "midsummer",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 6,
+        "pairs": 6
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "midsummer-modern-en",
+      "bookId": "midsummer",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 6,
+        "pairs": 6
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "midsummer-original-en",
+      "bookId": "midsummer",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 7,
+        "pairs": 7
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "moby-dick-original-en",
+      "bookId": "moby-dick",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 180,
+        "pairs": 271
+      },
+      "shard": {
+        "paragraphs": 180,
+        "pairs": 271
+      },
+      "divergent": false
+    },
+    {
+      "edition": "nicomachean-ethics-original-en",
+      "bookId": "nicomachean-ethics",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 101,
+        "pairs": 146
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "niels-lyhne-modern-en",
+      "bookId": "niels-lyhne",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 20,
+        "pairs": 23
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "niels-lyhne-original-en",
+      "bookId": "niels-lyhne",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 56,
+        "pairs": 73
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "notes-from-underground-modern-da",
+      "bookId": "notes-from-underground",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 44,
+        "pairs": 64
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "notes-from-underground-modern-en",
+      "bookId": "notes-from-underground",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 44,
+        "pairs": 64
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "notes-from-underground-original-en",
+      "bookId": "notes-from-underground",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 44,
+        "pairs": 64
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "oedipus-at-colonus-original-en",
+      "bookId": "oedipus-at-colonus",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 7,
+        "pairs": 9
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "oedipus-rex-original-en",
+      "bookId": "oedipus-rex",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 7,
+        "pairs": 8
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "oresteia-original-en",
+      "bookId": "oresteia",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 34,
+        "pairs": 37
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "othello-original-en",
+      "bookId": "othello",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 7,
+        "pairs": 7
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "pride-and-prejudice-modern-da",
+      "bookId": "pride-and-prejudice",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 172,
+        "pairs": 241
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "pride-and-prejudice-modern-en",
+      "bookId": "pride-and-prejudice",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 173,
+        "pairs": 244
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "pride-and-prejudice-original-en",
+      "bookId": "pride-and-prejudice",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 317,
+        "pairs": 467
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "richard-iii-original-en",
+      "bookId": "richard-iii",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 167,
+        "pairs": 167
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "romeo-and-juliet-original-en",
+      "bookId": "romeo-and-juliet",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 7,
+        "pairs": 8
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "social-contract-modern-da",
+      "bookId": "social-contract",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 59,
+        "pairs": 121
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "social-contract-modern-en",
+      "bookId": "social-contract",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 59,
+        "pairs": 121
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "social-contract-original-en",
+      "bookId": "social-contract",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 71,
+        "pairs": 133
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "taming-of-the-shrew-modern-da",
+      "bookId": "taming-of-the-shrew",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 125,
+        "pairs": 141
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "taming-of-the-shrew-modern-en",
+      "bookId": "taming-of-the-shrew",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 125,
+        "pairs": 141
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "taming-of-the-shrew-original-en",
+      "bookId": "taming-of-the-shrew",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 123,
+        "pairs": 139
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "the-prince-original-en",
+      "bookId": "the-prince",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 9,
+        "pairs": 12
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "treasure-island-original-en",
+      "bookId": "treasure-island",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 7,
+        "pairs": 7
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "twelfth-night-modern-en",
+      "bookId": "twelfth-night",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 47,
+        "pairs": 48
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "twelfth-night-original-en",
+      "bookId": "twelfth-night",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 142,
+        "pairs": 159
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "ulysses-modern-da",
+      "bookId": "ulysses",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 1483,
+        "pairs": 2057
+      },
+      "shard": {
+        "paragraphs": 1483,
+        "pairs": 2057
+      },
+      "divergent": false
+    },
+    {
+      "edition": "ulysses-modern-en",
+      "bookId": "ulysses",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 1483,
+        "pairs": 2057
+      },
+      "shard": {
+        "paragraphs": 1483,
+        "pairs": 2057
+      },
+      "divergent": false
+    },
+    {
+      "edition": "ulysses-original-en",
+      "bookId": "ulysses",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 1211,
+        "pairs": 1617
+      },
+      "shard": {
+        "paragraphs": 1211,
+        "pairs": 1617
+      },
+      "divergent": false
+    },
+    {
+      "edition": "utilitarianism-original-en",
+      "bookId": "utilitarianism",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 34,
+        "pairs": 69
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "walden-modern-da",
+      "bookId": "walden",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 119,
+        "pairs": 241
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "walden-modern-en",
+      "bookId": "walden",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 118,
+        "pairs": 240
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "walden-original-en",
+      "bookId": "walden",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 118,
+        "pairs": 240
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "wealth-of-nations-modern-da",
+      "bookId": "wealth-of-nations",
+      "editionKey": "modern-da",
+      "wholeFile": {
+        "paragraphs": 1,
+        "pairs": 1
+      },
+      "shard": null,
+      "divergent": false
+    },
+    {
+      "edition": "wealth-of-nations-modern-en",
+      "bookId": "wealth-of-nations",
+      "editionKey": "modern-en",
+      "wholeFile": {
+        "paragraphs": 1,
+        "pairs": 1
+      },
+      "shard": {
+        "paragraphs": 5,
+        "pairs": 5
+      },
+      "divergent": true
+    },
+    {
+      "edition": "wealth-of-nations-original-en",
+      "bookId": "wealth-of-nations",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 5,
+        "pairs": 5
+      },
+      "shard": {
+        "paragraphs": 5,
+        "pairs": 5
+      },
+      "divergent": false
+    },
+    {
+      "edition": "winters-tale-original-en",
+      "bookId": "winters-tale",
+      "editionKey": "original-en",
+      "wholeFile": {
+        "paragraphs": 112,
+        "pairs": 112
+      },
+      "shard": null,
+      "divergent": false
+    }
+  ]
+}
