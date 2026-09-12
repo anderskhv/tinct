@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "7080f807aa97bbf66ff600ea958154ddc1fcca46f97f8f782dbac57677abdcb4",
+  "attempts": [
+    {
+      "asr_seconds": 0.11684417026117444,
+      "alignment_seconds": 0.0001244889572262764,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. Dost thou prate, rogue?",
+        "hotwords": "Cassio, Dost"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, Dost thou prate, rogue?",
+          "start": 0.49,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.49,
+              "end": 0.91,
+              "probability": 0.5748291015625
+            },
+            {
+              "text": " Dost",
+              "start": 1.11,
+              "end": 1.33,
+              "probability": 0.6756591796875
+            },
+            {
+              "text": " thou",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " prate,",
+              "start": 1.49,
+              "end": 1.75,
+              "probability": 0.29486083984375
+            },
+            {
+              "text": " rogue?",
+              "start": 1.91,
+              "end": 1.97,
+              "probability": 0.59423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.49,
+          "end": 0.91
+        },
+        {
+          "raw": "Dost",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "raw": "thou",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "raw": "prate,",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "raw": "rogue?",
+          "start": 1.91,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "Dost",
+        "thou",
+        "prate,",
+        "rogue?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.49,
+          "end": 0.91,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dost",
+          "start": 1.11,
+          "end": 1.33,
+          "key": "dost",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "prate,",
+          "start": 1.49,
+          "end": 1.75,
+          "key": "prate",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rogue?",
+          "start": 1.91,
+          "end": 1.97,
+          "key": "rogue",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.49,
+          "end": 0.91
+        },
+        {
+          "text": "Dost",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "text": "thou",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "text": "prate,",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "text": "rogue?",
+          "start": 1.91,
+          "end": 1.97
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11701303906738758
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "73a37c17b68b1913f8583c92a91ac2a8cf51f461ddf70544b1988d52535b5407",
+  "selected_reasons": []
+}

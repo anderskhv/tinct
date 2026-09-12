@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "8f94fac2ebbc46ac7a994a3c015aef2bb476b866174f6b22efcf1b40faa208f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.12095836736261845,
+      "alignment_seconds": 0.00016305875033140182,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, what dost thou say, Ego?",
+          "start": 0.08,
+          "end": 2.26,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.9109700520833334
+            },
+            {
+              "text": " what",
+              "start": 1.26,
+              "end": 1.34,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " dost",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " thou",
+              "start": 1.52,
+              "end": 1.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " say,",
+              "start": 1.66,
+              "end": 1.92,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Ego?",
+              "start": 2.0,
+              "end": 2.26,
+              "probability": 0.7392578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "what",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "raw": "dost",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "thou",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "raw": "say,",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "raw": "Ego?",
+          "start": 2.0,
+          "end": 2.26
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "What",
+        "dost",
+        "thou",
+        "say,",
+        "Iago?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.26,
+          "end": 1.34,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "dost",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.52,
+          "end": 1.66,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 1.66,
+          "end": 1.92,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ego?",
+          "start": 2.0,
+          "end": 2.26,
+          "key": "ego",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "What",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "text": "dost",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "text": "thou",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "text": "say,",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "text": "Iago?",
+          "start": 1.92,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12118307640776038
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d38687c1ee34d52572f628a6a1bc2de80a885b1de8268634a51b44ad5eb72253",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

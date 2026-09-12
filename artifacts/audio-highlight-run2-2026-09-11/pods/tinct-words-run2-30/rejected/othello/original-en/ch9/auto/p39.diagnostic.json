@@ -1,0 +1,1460 @@
+{
+  "complete": true,
+  "signature": "fa742fcb2c5b7be4438a268c40ae5b0534ce4fd9f3735b6708eb314079426bca",
+  "attempts": [
+    {
+      "asr_seconds": 0.1988474172540009,
+      "alignment_seconds": 0.0003529083915054798,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. Emilia, come. Be as your fancies teach you. Whate'er you be, I am obedient.",
+        "hotwords": "Desdemona, Emilia, Whate'er, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, Emilia, come. Be as your fancies teach you. Whate'er you be, I am obedient.",
+          "start": 0.05,
+          "end": 5.41,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.05,
+              "end": 1.11,
+              "probability": 0.6503645579020182
+            },
+            {
+              "text": " Emilia,",
+              "start": 1.51,
+              "end": 1.79,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " come.",
+              "start": 1.79,
+              "end": 2.11,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " Be",
+              "start": 2.65,
+              "end": 2.67,
+              "probability": 0.98046875
+            },
+            {
+              "text": " as",
+              "start": 2.67,
+              "end": 2.81,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " your",
+              "start": 2.81,
+              "end": 2.93,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " fancies",
+              "start": 2.93,
+              "end": 3.29,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " teach",
+              "start": 3.29,
+              "end": 3.61,
+              "probability": 0.97265625
+            },
+            {
+              "text": " you.",
+              "start": 3.61,
+              "end": 3.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Whate",
+              "start": 4.25,
+              "end": 4.33,
+              "probability": 0.4007568359375
+            },
+            {
+              "text": "'er",
+              "start": 4.33,
+              "end": 4.43,
+              "probability": 0.60235595703125
+            },
+            {
+              "text": " you",
+              "start": 4.43,
+              "end": 4.57,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " be,",
+              "start": 4.57,
+              "end": 4.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 4.85,
+              "end": 4.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " am",
+              "start": 4.99,
+              "end": 5.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " obedient.",
+              "start": 5.11,
+              "end": 5.41,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.05,
+          "end": 1.11
+        },
+        {
+          "raw": "Emilia,",
+          "start": 1.51,
+          "end": 1.79
+        },
+        {
+          "raw": "come.",
+          "start": 1.79,
+          "end": 2.11
+        },
+        {
+          "raw": "Be",
+          "start": 2.65,
+          "end": 2.67
+        },
+        {
+          "raw": "as",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "raw": "your",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "raw": "fancies",
+          "start": 2.93,
+          "end": 3.29
+        },
+        {
+          "raw": "teach",
+          "start": 3.29,
+          "end": 3.61
+        },
+        {
+          "raw": "you.",
+          "start": 3.61,
+          "end": 3.93
+        },
+        {
+          "raw": "Whate",
+          "start": 4.25,
+          "end": 4.33
+        },
+        {
+          "raw": "'er",
+          "start": 4.33,
+          "end": 4.43
+        },
+        {
+          "raw": "you",
+          "start": 4.43,
+          "end": 4.57
+        },
+        {
+          "raw": "be,",
+          "start": 4.57,
+          "end": 4.77
+        },
+        {
+          "raw": "I",
+          "start": 4.85,
+          "end": 4.99
+        },
+        {
+          "raw": "am",
+          "start": 4.99,
+          "end": 5.11
+        },
+        {
+          "raw": "obedient.",
+          "start": 5.11,
+          "end": 5.41
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Emilia,",
+        "come.",
+        "Be",
+        "as",
+        "your",
+        "fancies",
+        "teach",
+        "you.",
+        "Whate'er",
+        "you",
+        "be,",
+        "I",
+        "am",
+        "obedient."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          15,
+          11,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.05,
+          "end": 1.11,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Emilia,",
+          "start": 1.51,
+          "end": 1.79,
+          "key": "emilia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 1.79,
+          "end": 2.11,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 2.65,
+          "end": 2.67,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.67,
+          "end": 2.81,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.81,
+          "end": 2.93,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fancies",
+          "start": 2.93,
+          "end": 3.29,
+          "key": "fancies",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "teach",
+          "start": 3.29,
+          "end": 3.61,
+          "key": "teach",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 3.61,
+          "end": 3.93,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Whate",
+          "start": 4.25,
+          "end": 4.33,
+          "key": "whate",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 4.33,
+          "end": 4.43,
+          "key": "er",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.43,
+          "end": 4.57,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be,",
+          "start": 4.57,
+          "end": 4.77,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.85,
+          "end": 4.99,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.99,
+          "end": 5.11,
+          "key": "am",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "obedient.",
+          "start": 5.11,
+          "end": 5.41,
+          "key": "obedient",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.05,
+          "end": 1.11
+        },
+        {
+          "text": "Emilia,",
+          "start": 1.51,
+          "end": 1.79
+        },
+        {
+          "text": "come.",
+          "start": 1.79,
+          "end": 2.11
+        },
+        {
+          "text": "Be",
+          "start": 2.65,
+          "end": 2.67
+        },
+        {
+          "text": "as",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "text": "your",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "text": "fancies",
+          "start": 2.93,
+          "end": 3.29
+        },
+        {
+          "text": "teach",
+          "start": 3.29,
+          "end": 3.61
+        },
+        {
+          "text": "you.",
+          "start": 3.61,
+          "end": 3.93
+        },
+        {
+          "text": "Whate'er",
+          "start": 3.93,
+          "end": 4.18
+        },
+        {
+          "text": "you",
+          "start": 4.43,
+          "end": 4.57
+        },
+        {
+          "text": "be,",
+          "start": 4.57,
+          "end": 4.77
+        },
+        {
+          "text": "I",
+          "start": 4.85,
+          "end": 4.99
+        },
+        {
+          "text": "am",
+          "start": 4.99,
+          "end": 5.11
+        },
+        {
+          "text": "obedient.",
+          "start": 5.11,
+          "end": 5.41
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.1993157551623881
+    },
+    {
+      "asr_seconds": 0.10140808904543519,
+      "alignment_seconds": 0.00019567925482988358,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Desdemona, Emilia, Whate'er, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " am obedient.",
+          "start": 0.05,
+          "end": 3.71,
+          "words": [
+            {
+              "text": " am",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.00011223554611206055
+            },
+            {
+              "text": " obedient.",
+              "start": 0.69,
+              "end": 3.71,
+              "probability": 3.975629806518555e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "am",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "obedient.",
+          "start": 0.69,
+          "end": 3.71
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Emilia,",
+        "come.",
+        "Be",
+        "as",
+        "your",
+        "fancies",
+        "teach",
+        "you.",
+        "Whate'er",
+        "you",
+        "be,",
+        "I",
+        "am",
+        "obedient."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          13,
+          0,
+          0
+        ],
+        [
+          "equal",
+          13,
+          15,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          13,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "am",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "am",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "obedient.",
+          "start": 0.69,
+          "end": 3.71,
+          "key": "obedient",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Emilia,",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "come.",
+          "start": 0.038,
+          "end": 0.044
+        },
+        {
+          "text": "Be",
+          "start": 0.044,
+          "end": 0.047
+        },
+        {
+          "text": "as",
+          "start": 0.047,
+          "end": 0.049
+        },
+        {
+          "text": "your",
+          "start": 0.049,
+          "end": 0.05
+        },
+        {
+          "text": "fancies",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "teach",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "you.",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "Whate'er",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "you",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "be,",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "am",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "obedient.",
+          "start": 0.69,
+          "end": 3.71
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 0.13333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10163424722850323
+    },
+    {
+      "asr_seconds": 0.1846119612455368,
+      "alignment_seconds": 0.0003536478616297245,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, Emilia, come. Be as your fancies teach you. What dare you be? I am obedient.",
+          "start": 0.61,
+          "end": 5.41,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.61,
+              "end": 1.05,
+              "probability": 0.5528971354166666
+            },
+            {
+              "text": " Emilia,",
+              "start": 1.53,
+              "end": 1.79,
+              "probability": 0.6563720703125
+            },
+            {
+              "text": " come.",
+              "start": 1.81,
+              "end": 2.11,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " Be",
+              "start": 2.65,
+              "end": 2.67,
+              "probability": 0.982421875
+            },
+            {
+              "text": " as",
+              "start": 2.67,
+              "end": 2.81,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " your",
+              "start": 2.81,
+              "end": 2.93,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " fancies",
+              "start": 2.93,
+              "end": 3.29,
+              "probability": 0.936279296875
+            },
+            {
+              "text": " teach",
+              "start": 3.29,
+              "end": 3.61,
+              "probability": 0.966796875
+            },
+            {
+              "text": " you.",
+              "start": 3.61,
+              "end": 3.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " What",
+              "start": 4.23,
+              "end": 4.27,
+              "probability": 0.640625
+            },
+            {
+              "text": " dare",
+              "start": 4.27,
+              "end": 4.41,
+              "probability": 0.6162109375
+            },
+            {
+              "text": " you",
+              "start": 4.41,
+              "end": 4.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be?",
+              "start": 4.59,
+              "end": 4.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 4.93,
+              "end": 4.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " am",
+              "start": 4.99,
+              "end": 5.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " obedient.",
+              "start": 5.09,
+              "end": 5.41,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.61,
+          "end": 1.05
+        },
+        {
+          "raw": "Emilia,",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "raw": "come.",
+          "start": 1.81,
+          "end": 2.11
+        },
+        {
+          "raw": "Be",
+          "start": 2.65,
+          "end": 2.67
+        },
+        {
+          "raw": "as",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "raw": "your",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "raw": "fancies",
+          "start": 2.93,
+          "end": 3.29
+        },
+        {
+          "raw": "teach",
+          "start": 3.29,
+          "end": 3.61
+        },
+        {
+          "raw": "you.",
+          "start": 3.61,
+          "end": 3.95
+        },
+        {
+          "raw": "What",
+          "start": 4.23,
+          "end": 4.27
+        },
+        {
+          "raw": "dare",
+          "start": 4.27,
+          "end": 4.41
+        },
+        {
+          "raw": "you",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "raw": "be?",
+          "start": 4.59,
+          "end": 4.75
+        },
+        {
+          "raw": "I",
+          "start": 4.93,
+          "end": 4.99
+        },
+        {
+          "raw": "am",
+          "start": 4.99,
+          "end": 5.09
+        },
+        {
+          "raw": "obedient.",
+          "start": 5.09,
+          "end": 5.41
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Emilia,",
+        "come.",
+        "Be",
+        "as",
+        "your",
+        "fancies",
+        "teach",
+        "you.",
+        "Whate'er",
+        "you",
+        "be,",
+        "I",
+        "am",
+        "obedient."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          15,
+          11,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.61,
+          "end": 1.05,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Emilia,",
+          "start": 1.53,
+          "end": 1.79,
+          "key": "emilia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 1.81,
+          "end": 2.11,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 2.65,
+          "end": 2.67,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.67,
+          "end": 2.81,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.81,
+          "end": 2.93,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fancies",
+          "start": 2.93,
+          "end": 3.29,
+          "key": "fancies",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "teach",
+          "start": 3.29,
+          "end": 3.61,
+          "key": "teach",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 3.61,
+          "end": 3.95,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 4.23,
+          "end": 4.27,
+          "key": "what",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dare",
+          "start": 4.27,
+          "end": 4.41,
+          "key": "dare",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.41,
+          "end": 4.59,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be?",
+          "start": 4.59,
+          "end": 4.75,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.93,
+          "end": 4.99,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.99,
+          "end": 5.09,
+          "key": "am",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "obedient.",
+          "start": 5.09,
+          "end": 5.41,
+          "key": "obedient",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.765
+        },
+        {
+          "text": "Emilia,",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "text": "come.",
+          "start": 1.81,
+          "end": 2.11
+        },
+        {
+          "text": "Be",
+          "start": 2.65,
+          "end": 2.67
+        },
+        {
+          "text": "as",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "text": "your",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "text": "fancies",
+          "start": 2.93,
+          "end": 3.29
+        },
+        {
+          "text": "teach",
+          "start": 3.29,
+          "end": 3.61
+        },
+        {
+          "text": "you.",
+          "start": 3.61,
+          "end": 3.95
+        },
+        {
+          "text": "Whate'er",
+          "start": 3.95,
+          "end": 4.18
+        },
+        {
+          "text": "you",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "text": "be,",
+          "start": 4.59,
+          "end": 4.75
+        },
+        {
+          "text": "I",
+          "start": 4.93,
+          "end": 4.99
+        },
+        {
+          "text": "am",
+          "start": 4.99,
+          "end": 5.09
+        },
+        {
+          "text": "obedient.",
+          "start": 5.09,
+          "end": 5.41
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.18508902797475457
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "503b33f04b6ed96fab0f2d64d56d1961e47a0e8b24a14152f64742bc4e73f13f",
+  "selected_reasons": []
+}

@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "61ac23f1a0ea9e45af7656dfb95476852cc65938e1d81508de51fabbe8a35deb",
+  "attempts": [
+    {
+      "asr_seconds": 0.10906099108979106,
+      "alignment_seconds": 0.00014901906251907349,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Casio, to the health of our general.",
+          "start": 0.59,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Casio,",
+              "start": 0.59,
+              "end": 0.95,
+              "probability": 0.775390625
+            },
+            {
+              "text": " to",
+              "start": 1.27,
+              "end": 1.37,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " the",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " health",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.97265625
+            },
+            {
+              "text": " of",
+              "start": 1.63,
+              "end": 1.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " our",
+              "start": 1.81,
+              "end": 1.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " general.",
+              "start": 1.91,
+              "end": 2.29,
+              "probability": 0.62890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casio,",
+          "start": 0.59,
+          "end": 0.95
+        },
+        {
+          "raw": "to",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "raw": "the",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "health",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "of",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "raw": "our",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "raw": "general.",
+          "start": 1.91,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "To",
+        "the",
+        "health",
+        "of",
+        "our",
+        "general!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casio,",
+          "start": 0.59,
+          "end": 0.95,
+          "key": "casio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.27,
+          "end": 1.37,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "health",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "health",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.63,
+          "end": 1.81,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.81,
+          "end": 1.91,
+          "key": "our",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "general.",
+          "start": 1.91,
+          "end": 2.29,
+          "key": "general",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.0,
+          "end": 0.635
+        },
+        {
+          "text": "To",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "text": "the",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "text": "health",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "of",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "text": "our",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "text": "general!",
+          "start": 1.91,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.1092620100826025
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7055ef27cbab9c82310080a5eaf0c5673a334d5b20228a9cf43ca0e19ea1f905",
+  "selected_reasons": []
+}

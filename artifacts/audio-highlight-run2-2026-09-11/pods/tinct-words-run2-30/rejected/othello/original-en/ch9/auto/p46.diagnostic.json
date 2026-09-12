@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "e6269a3491e28ff8dd9c19887a813a49740b997019ceb7311a87091cfbc55f39",
+  "attempts": [
+    {
+      "asr_seconds": 0.1383508280850947,
+      "alignment_seconds": 0.00020035915076732635,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. But for a satisfaction of my thought. No further harm.",
+        "hotwords": "Iago, But, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, But for a satisfaction of my thought. No further harm.",
+          "start": 0.08,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.07366180419921875
+            },
+            {
+              "text": " But",
+              "start": 1.12,
+              "end": 1.2,
+              "probability": 0.011199951171875
+            },
+            {
+              "text": " for",
+              "start": 1.2,
+              "end": 1.36,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " a",
+              "start": 1.36,
+              "end": 1.44,
+              "probability": 0.505859375
+            },
+            {
+              "text": " satisfaction",
+              "start": 1.44,
+              "end": 1.86,
+              "probability": 0.767578125
+            },
+            {
+              "text": " of",
+              "start": 1.86,
+              "end": 2.24,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " my",
+              "start": 2.24,
+              "end": 2.38,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " thought.",
+              "start": 2.38,
+              "end": 2.66,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " No",
+              "start": 3.12,
+              "end": 3.28,
+              "probability": 0.91796875
+            },
+            {
+              "text": " further",
+              "start": 3.28,
+              "end": 3.5,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " harm.",
+              "start": 3.5,
+              "end": 3.92,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "But",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "raw": "for",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "raw": "a",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "raw": "satisfaction",
+          "start": 1.44,
+          "end": 1.86
+        },
+        {
+          "raw": "of",
+          "start": 1.86,
+          "end": 2.24
+        },
+        {
+          "raw": "my",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "raw": "thought.",
+          "start": 2.38,
+          "end": 2.66
+        },
+        {
+          "raw": "No",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "raw": "further",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "raw": "harm.",
+          "start": 3.5,
+          "end": 3.92
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "But",
+        "for",
+        "a",
+        "satisfaction",
+        "of",
+        "my",
+        "thought.",
+        "No",
+        "further",
+        "harm."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.12,
+          "end": 1.2,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.2,
+          "end": 1.36,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.36,
+          "end": 1.44,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "satisfaction",
+          "start": 1.44,
+          "end": 1.86,
+          "key": "satisfaction",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.86,
+          "end": 2.24,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.24,
+          "end": 2.38,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thought.",
+          "start": 2.38,
+          "end": 2.66,
+          "key": "thought",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 3.12,
+          "end": 3.28,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "further",
+          "start": 3.28,
+          "end": 3.5,
+          "key": "further",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "harm.",
+          "start": 3.5,
+          "end": 3.92,
+          "key": "harm",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "But",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "text": "for",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "text": "a",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "text": "satisfaction",
+          "start": 1.44,
+          "end": 1.86
+        },
+        {
+          "text": "of",
+          "start": 1.86,
+          "end": 2.24
+        },
+        {
+          "text": "my",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "text": "thought.",
+          "start": 2.38,
+          "end": 2.66
+        },
+        {
+          "text": "No",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "text": "further",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "text": "harm.",
+          "start": 3.5,
+          "end": 3.92
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13862598687410355
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2a38598d6539c5d8e4354bcb592df6031d9df37ac05ec7e9125f9f52fb34e2d4",
+  "selected_reasons": []
+}

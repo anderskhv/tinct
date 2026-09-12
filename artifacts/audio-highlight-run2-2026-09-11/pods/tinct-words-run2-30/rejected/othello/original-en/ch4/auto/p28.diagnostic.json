@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "780e52b96e31c064bb9bddb298ba73b69b2295f2ef582fb5a5f1ce51fcde3c4a",
+  "attempts": [
+    {
+      "asr_seconds": 0.13150917226448655,
+      "alignment_seconds": 0.00017159897834062576,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Montano. But, good lieutenant, is your general wiv'd?",
+        "hotwords": "Montano, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Montano, But good lieutenant, is your general wiv'd?",
+          "start": 0.05,
+          "end": 3.49,
+          "words": [
+            {
+              "text": " Montano,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.769287109375
+            },
+            {
+              "text": " But",
+              "start": 1.39,
+              "end": 1.63,
+              "probability": 0.01788330078125
+            },
+            {
+              "text": " good",
+              "start": 1.63,
+              "end": 1.87,
+              "probability": 0.65478515625
+            },
+            {
+              "text": " lieutenant,",
+              "start": 1.87,
+              "end": 2.23,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " is",
+              "start": 2.49,
+              "end": 2.51,
+              "probability": 0.826171875
+            },
+            {
+              "text": " your",
+              "start": 2.51,
+              "end": 2.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " general",
+              "start": 2.65,
+              "end": 2.99,
+              "probability": 0.9140625
+            },
+            {
+              "text": " wiv'd?",
+              "start": 2.99,
+              "end": 3.49,
+              "probability": 0.1690699259440104
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Montano,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "But",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "raw": "good",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "raw": "lieutenant,",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "raw": "is",
+          "start": 2.49,
+          "end": 2.51
+        },
+        {
+          "raw": "your",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "raw": "general",
+          "start": 2.65,
+          "end": 2.99
+        },
+        {
+          "raw": "wiv'd?",
+          "start": 2.99,
+          "end": 3.49
+        }
+      ],
+      "expected_tokens": [
+        "Montano.",
+        "But,",
+        "good",
+        "lieutenant,",
+        "is",
+        "your",
+        "general",
+        "wiv'd?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Montano,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "montano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.39,
+          "end": 1.63,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.63,
+          "end": 1.87,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lieutenant,",
+          "start": 1.87,
+          "end": 2.23,
+          "key": "lieutenant",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.49,
+          "end": 2.51,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.51,
+          "end": 2.65,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "general",
+          "start": 2.65,
+          "end": 2.99,
+          "key": "general",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wiv'd?",
+          "start": 2.99,
+          "end": 3.49,
+          "key": "wivd",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Montano.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "But,",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "text": "good",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "text": "lieutenant,",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "text": "is",
+          "start": 2.49,
+          "end": 2.51
+        },
+        {
+          "text": "your",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "text": "general",
+          "start": 2.65,
+          "end": 2.99
+        },
+        {
+          "text": "wiv'd?",
+          "start": 2.99,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13173897005617619
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e90f50e2c5310011ce8260ad4c140bca247beab05c053651cf4635bb7336ecb5",
+  "selected_reasons": []
+}

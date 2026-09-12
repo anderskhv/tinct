@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "8f483461fb998f1bccc2703823cf0419dad38eb5b42861ad785d5ffec507d9c4",
+  "attempts": [
+    {
+      "asr_seconds": 0.18828159105032682,
+      "alignment_seconds": 0.00025913817808032036,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Farewell, my Desdemona. I'll come to thee straight.",
+        "hotwords": "Othello, Farewell, Desdemona, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Farewell, my Desdemona, I'll come to thee straight.",
+          "start": 0.08,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.9178059895833334
+            },
+            {
+              "text": " Farewell,",
+              "start": 1.36,
+              "end": 1.7,
+              "probability": 0.54931640625
+            },
+            {
+              "text": " my",
+              "start": 1.84,
+              "end": 1.9,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " Desdemona,",
+              "start": 1.9,
+              "end": 2.44,
+              "probability": 0.6623586018880209
+            },
+            {
+              "text": " I'll",
+              "start": 2.86,
+              "end": 3.0,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " come",
+              "start": 3.0,
+              "end": 3.1,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " to",
+              "start": 3.1,
+              "end": 3.2,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " thee",
+              "start": 3.2,
+              "end": 3.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " straight.",
+              "start": 3.32,
+              "end": 3.64,
+              "probability": 0.91845703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "Farewell,",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "raw": "my",
+          "start": 1.84,
+          "end": 1.9
+        },
+        {
+          "raw": "Desdemona,",
+          "start": 1.9,
+          "end": 2.44
+        },
+        {
+          "raw": "I'll",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "raw": "come",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "raw": "to",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "raw": "thee",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "raw": "straight.",
+          "start": 3.32,
+          "end": 3.64
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Farewell,",
+        "my",
+        "Desdemona.",
+        "I'll",
+        "come",
+        "to",
+        "thee",
+        "straight."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Farewell,",
+          "start": 1.36,
+          "end": 1.7,
+          "key": "farewell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.84,
+          "end": 1.9,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Desdemona,",
+          "start": 1.9,
+          "end": 2.44,
+          "key": "desdemona",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.86,
+          "end": 3.0,
+          "key": "ill",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 3.0,
+          "end": 3.1,
+          "key": "come",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.1,
+          "end": 3.2,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 3.2,
+          "end": 3.32,
+          "key": "thee",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "straight.",
+          "start": 3.32,
+          "end": 3.64,
+          "key": "straight",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "Farewell,",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "text": "my",
+          "start": 1.84,
+          "end": 1.9
+        },
+        {
+          "text": "Desdemona.",
+          "start": 1.9,
+          "end": 2.44
+        },
+        {
+          "text": "I'll",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "text": "come",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "text": "to",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "text": "thee",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "text": "straight.",
+          "start": 3.32,
+          "end": 3.64
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18865496013313532
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "15061a7020febaec00c582fd749668ec8a8349d2919121c1406bd976a319b04d",
+  "selected_reasons": []
+}

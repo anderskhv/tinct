@@ -1,0 +1,2195 @@
+{
+  "complete": true,
+  "signature": "645571ddf8d88fe43b860e4d5c4cf60de86a2183d67bbcc9d84fbf55d6efbc82",
+  "attempts": [
+    {
+      "asr_seconds": 0.49367966735735536,
+      "alignment_seconds": 0.0005257870070636272,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. Why, this is not a boon; 'Tis as I should entreat you wear your gloves, Or feed on nourishing dishes, or keep you warm, Or sue to you to do a peculiar profit To your own person: nay, when I have a suit Wherein I mean to touch your love indeed, It shall be full of poise and difficult weight, And fearful to be granted.",
+        "hotwords": "Desdemona, Why, Tis, I, Wherein, It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, Why, this is not a boon. Tis as I should entreat you wear your gloves, Or feed",
+          "start": 0.67,
+          "end": 6.29,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.67,
+              "end": 1.07,
+              "probability": 0.6513271331787109
+            },
+            {
+              "text": " Why,",
+              "start": 1.53,
+              "end": 1.85,
+              "probability": 0.04339599609375
+            },
+            {
+              "text": " this",
+              "start": 1.97,
+              "end": 2.11,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " is",
+              "start": 2.11,
+              "end": 2.23,
+              "probability": 0.986328125
+            },
+            {
+              "text": " not",
+              "start": 2.23,
+              "end": 2.43,
+              "probability": 0.990234375
+            },
+            {
+              "text": " a",
+              "start": 2.43,
+              "end": 2.55,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " boon.",
+              "start": 2.55,
+              "end": 2.79,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Tis",
+              "start": 3.55,
+              "end": 3.79,
+              "probability": 0.095001220703125
+            },
+            {
+              "text": " as",
+              "start": 3.79,
+              "end": 3.93,
+              "probability": 0.625
+            },
+            {
+              "text": " I",
+              "start": 3.93,
+              "end": 4.09,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " should",
+              "start": 4.09,
+              "end": 4.25,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " entreat",
+              "start": 4.25,
+              "end": 4.59,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " you",
+              "start": 4.59,
+              "end": 4.83,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " wear",
+              "start": 4.83,
+              "end": 5.01,
+              "probability": 0.52197265625
+            },
+            {
+              "text": " your",
+              "start": 5.01,
+              "end": 5.21,
+              "probability": 0.94140625
+            },
+            {
+              "text": " gloves,",
+              "start": 5.21,
+              "end": 5.59,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Or",
+              "start": 5.95,
+              "end": 6.01,
+              "probability": 0.51220703125
+            },
+            {
+              "text": " feed",
+              "start": 6.01,
+              "end": 6.29,
+              "probability": 0.9853515625
+            }
+          ]
+        },
+        {
+          "text": " on nourishing dishes, or keep you warm, Or sue to you to do a peculiar profit to your",
+          "start": 6.29,
+          "end": 11.19,
+          "words": [
+            {
+              "text": " on",
+              "start": 6.29,
+              "end": 6.49,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " nourishing",
+              "start": 6.49,
+              "end": 6.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dishes,",
+              "start": 6.91,
+              "end": 7.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " or",
+              "start": 7.71,
+              "end": 7.85,
+              "probability": 0.3466796875
+            },
+            {
+              "text": " keep",
+              "start": 7.85,
+              "end": 8.03,
+              "probability": 0.98828125
+            },
+            {
+              "text": " you",
+              "start": 8.03,
+              "end": 8.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " warm,",
+              "start": 8.25,
+              "end": 8.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Or",
+              "start": 8.87,
+              "end": 8.97,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " sue",
+              "start": 8.97,
+              "end": 9.21,
+              "probability": 0.79638671875
+            },
+            {
+              "text": " to",
+              "start": 9.21,
+              "end": 9.39,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " you",
+              "start": 9.39,
+              "end": 9.51,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " to",
+              "start": 9.51,
+              "end": 9.67,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " do",
+              "start": 9.67,
+              "end": 9.83,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 9.83,
+              "end": 9.95,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " peculiar",
+              "start": 9.95,
+              "end": 10.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " profit",
+              "start": 10.35,
+              "end": 10.87,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " to",
+              "start": 10.87,
+              "end": 11.07,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " your",
+              "start": 11.07,
+              "end": 11.19,
+              "probability": 0.99072265625
+            }
+          ]
+        },
+        {
+          "text": " own person. nay, when I have a suit Wherein I mean to touch your love indeed,",
+          "start": 11.19,
+          "end": 15.67,
+          "words": [
+            {
+              "text": " own",
+              "start": 11.19,
+              "end": 11.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " person.",
+              "start": 11.43,
+              "end": 11.91,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " nay,",
+              "start": 12.75,
+              "end": 12.89,
+              "probability": 0.26482486724853516
+            },
+            {
+              "text": " when",
+              "start": 13.15,
+              "end": 13.29,
+              "probability": 0.6533203125
+            },
+            {
+              "text": " I",
+              "start": 13.29,
+              "end": 13.41,
+              "probability": 0.958984375
+            },
+            {
+              "text": " have",
+              "start": 13.41,
+              "end": 13.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 13.55,
+              "end": 13.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " suit",
+              "start": 13.67,
+              "end": 13.93,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Wherein",
+              "start": 13.93,
+              "end": 14.27,
+              "probability": 0.383056640625
+            },
+            {
+              "text": " I",
+              "start": 14.27,
+              "end": 14.41,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " mean",
+              "start": 14.41,
+              "end": 14.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 14.59,
+              "end": 14.79,
+              "probability": 0.990234375
+            },
+            {
+              "text": " touch",
+              "start": 14.79,
+              "end": 14.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 14.95,
+              "end": 15.13,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " love",
+              "start": 15.13,
+              "end": 15.29,
+              "probability": 0.9921875
+            },
+            {
+              "text": " indeed,",
+              "start": 15.29,
+              "end": 15.67,
+              "probability": 0.91455078125
+            }
+          ]
+        },
+        {
+          "text": " It shall be full of poise and difficult weight, And fearful to be granted.",
+          "start": 16.19,
+          "end": 19.91,
+          "words": [
+            {
+              "text": " It",
+              "start": 16.19,
+              "end": 16.29,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " shall",
+              "start": 16.29,
+              "end": 16.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " be",
+              "start": 16.43,
+              "end": 16.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " full",
+              "start": 16.61,
+              "end": 16.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 16.77,
+              "end": 16.95,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " poise",
+              "start": 16.95,
+              "end": 17.39,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " and",
+              "start": 17.39,
+              "end": 17.59,
+              "probability": 0.76611328125
+            },
+            {
+              "text": " difficult",
+              "start": 17.59,
+              "end": 17.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " weight,",
+              "start": 17.85,
+              "end": 18.27,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " And",
+              "start": 18.75,
+              "end": 18.87,
+              "probability": 0.876953125
+            },
+            {
+              "text": " fearful",
+              "start": 18.87,
+              "end": 19.19,
+              "probability": 0.982421875
+            },
+            {
+              "text": " to",
+              "start": 19.19,
+              "end": 19.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 19.45,
+              "end": 19.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " granted.",
+              "start": 19.57,
+              "end": 19.91,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.67,
+          "end": 1.07
+        },
+        {
+          "raw": "Why,",
+          "start": 1.53,
+          "end": 1.85
+        },
+        {
+          "raw": "this",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "raw": "is",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "raw": "not",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "raw": "a",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "raw": "boon.",
+          "start": 2.55,
+          "end": 2.79
+        },
+        {
+          "raw": "Tis",
+          "start": 3.55,
+          "end": 3.79
+        },
+        {
+          "raw": "as",
+          "start": 3.79,
+          "end": 3.93
+        },
+        {
+          "raw": "I",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "raw": "should",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "raw": "entreat",
+          "start": 4.25,
+          "end": 4.59
+        },
+        {
+          "raw": "you",
+          "start": 4.59,
+          "end": 4.83
+        },
+        {
+          "raw": "wear",
+          "start": 4.83,
+          "end": 5.01
+        },
+        {
+          "raw": "your",
+          "start": 5.01,
+          "end": 5.21
+        },
+        {
+          "raw": "gloves,",
+          "start": 5.21,
+          "end": 5.59
+        },
+        {
+          "raw": "Or",
+          "start": 5.95,
+          "end": 6.01
+        },
+        {
+          "raw": "feed",
+          "start": 6.01,
+          "end": 6.29
+        },
+        {
+          "raw": "on",
+          "start": 6.29,
+          "end": 6.49
+        },
+        {
+          "raw": "nourishing",
+          "start": 6.49,
+          "end": 6.91
+        },
+        {
+          "raw": "dishes,",
+          "start": 6.91,
+          "end": 7.25
+        },
+        {
+          "raw": "or",
+          "start": 7.71,
+          "end": 7.85
+        },
+        {
+          "raw": "keep",
+          "start": 7.85,
+          "end": 8.03
+        },
+        {
+          "raw": "you",
+          "start": 8.03,
+          "end": 8.25
+        },
+        {
+          "raw": "warm,",
+          "start": 8.25,
+          "end": 8.59
+        },
+        {
+          "raw": "Or",
+          "start": 8.87,
+          "end": 8.97
+        },
+        {
+          "raw": "sue",
+          "start": 8.97,
+          "end": 9.21
+        },
+        {
+          "raw": "to",
+          "start": 9.21,
+          "end": 9.39
+        },
+        {
+          "raw": "you",
+          "start": 9.39,
+          "end": 9.51
+        },
+        {
+          "raw": "to",
+          "start": 9.51,
+          "end": 9.67
+        },
+        {
+          "raw": "do",
+          "start": 9.67,
+          "end": 9.83
+        },
+        {
+          "raw": "a",
+          "start": 9.83,
+          "end": 9.95
+        },
+        {
+          "raw": "peculiar",
+          "start": 9.95,
+          "end": 10.35
+        },
+        {
+          "raw": "profit",
+          "start": 10.35,
+          "end": 10.87
+        },
+        {
+          "raw": "to",
+          "start": 10.87,
+          "end": 11.07
+        },
+        {
+          "raw": "your",
+          "start": 11.07,
+          "end": 11.19
+        },
+        {
+          "raw": "own",
+          "start": 11.19,
+          "end": 11.43
+        },
+        {
+          "raw": "person.",
+          "start": 11.43,
+          "end": 11.91
+        },
+        {
+          "raw": "nay,",
+          "start": 12.75,
+          "end": 12.89
+        },
+        {
+          "raw": "when",
+          "start": 13.15,
+          "end": 13.29
+        },
+        {
+          "raw": "I",
+          "start": 13.29,
+          "end": 13.41
+        },
+        {
+          "raw": "have",
+          "start": 13.41,
+          "end": 13.55
+        },
+        {
+          "raw": "a",
+          "start": 13.55,
+          "end": 13.67
+        },
+        {
+          "raw": "suit",
+          "start": 13.67,
+          "end": 13.93
+        },
+        {
+          "raw": "Wherein",
+          "start": 13.93,
+          "end": 14.27
+        },
+        {
+          "raw": "I",
+          "start": 14.27,
+          "end": 14.41
+        },
+        {
+          "raw": "mean",
+          "start": 14.41,
+          "end": 14.59
+        },
+        {
+          "raw": "to",
+          "start": 14.59,
+          "end": 14.79
+        },
+        {
+          "raw": "touch",
+          "start": 14.79,
+          "end": 14.95
+        },
+        {
+          "raw": "your",
+          "start": 14.95,
+          "end": 15.13
+        },
+        {
+          "raw": "love",
+          "start": 15.13,
+          "end": 15.29
+        },
+        {
+          "raw": "indeed,",
+          "start": 15.29,
+          "end": 15.67
+        },
+        {
+          "raw": "It",
+          "start": 16.19,
+          "end": 16.29
+        },
+        {
+          "raw": "shall",
+          "start": 16.29,
+          "end": 16.43
+        },
+        {
+          "raw": "be",
+          "start": 16.43,
+          "end": 16.61
+        },
+        {
+          "raw": "full",
+          "start": 16.61,
+          "end": 16.77
+        },
+        {
+          "raw": "of",
+          "start": 16.77,
+          "end": 16.95
+        },
+        {
+          "raw": "poise",
+          "start": 16.95,
+          "end": 17.39
+        },
+        {
+          "raw": "and",
+          "start": 17.39,
+          "end": 17.59
+        },
+        {
+          "raw": "difficult",
+          "start": 17.59,
+          "end": 17.85
+        },
+        {
+          "raw": "weight,",
+          "start": 17.85,
+          "end": 18.27
+        },
+        {
+          "raw": "And",
+          "start": 18.75,
+          "end": 18.87
+        },
+        {
+          "raw": "fearful",
+          "start": 18.87,
+          "end": 19.19
+        },
+        {
+          "raw": "to",
+          "start": 19.19,
+          "end": 19.45
+        },
+        {
+          "raw": "be",
+          "start": 19.45,
+          "end": 19.57
+        },
+        {
+          "raw": "granted.",
+          "start": 19.57,
+          "end": 19.91
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Why,",
+        "this",
+        "is",
+        "not",
+        "a",
+        "boon;",
+        "'Tis",
+        "as",
+        "I",
+        "should",
+        "entreat",
+        "you",
+        "wear",
+        "your",
+        "gloves,",
+        "Or",
+        "feed",
+        "on",
+        "nourishing",
+        "dishes,",
+        "or",
+        "keep",
+        "you",
+        "warm,",
+        "Or",
+        "sue",
+        "to",
+        "you",
+        "to",
+        "do",
+        "a",
+        "peculiar",
+        "profit",
+        "To",
+        "your",
+        "own",
+        "person:",
+        "nay,",
+        "when",
+        "I",
+        "have",
+        "a",
+        "suit",
+        "Wherein",
+        "I",
+        "mean",
+        "to",
+        "touch",
+        "your",
+        "love",
+        "indeed,",
+        "It",
+        "shall",
+        "be",
+        "full",
+        "of",
+        "poise",
+        "and",
+        "difficult",
+        "weight,",
+        "And",
+        "fearful",
+        "to",
+        "be",
+        "granted."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          66,
+          0,
+          66
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.67,
+          "end": 1.07,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.53,
+          "end": 1.85,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.97,
+          "end": 2.11,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.11,
+          "end": 2.23,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.23,
+          "end": 2.43,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.43,
+          "end": 2.55,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "boon.",
+          "start": 2.55,
+          "end": 2.79,
+          "key": "boon",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 3.55,
+          "end": 3.79,
+          "key": "tis",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.79,
+          "end": 3.93,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.93,
+          "end": 4.09,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 4.09,
+          "end": 4.25,
+          "key": "should",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "entreat",
+          "start": 4.25,
+          "end": 4.59,
+          "key": "entreat",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.59,
+          "end": 4.83,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 4.83,
+          "end": 5.01,
+          "key": "wear",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.01,
+          "end": 5.21,
+          "key": "your",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "gloves,",
+          "start": 5.21,
+          "end": 5.59,
+          "key": "gloves",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 5.95,
+          "end": 6.01,
+          "key": "or",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "feed",
+          "start": 6.01,
+          "end": 6.29,
+          "key": "feed",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 6.29,
+          "end": 6.49,
+          "key": "on",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "nourishing",
+          "start": 6.49,
+          "end": 6.91,
+          "key": "nourishing",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "dishes,",
+          "start": 6.91,
+          "end": 7.25,
+          "key": "dishes",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 7.71,
+          "end": 7.85,
+          "key": "or",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 7.85,
+          "end": 8.03,
+          "key": "keep",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.03,
+          "end": 8.25,
+          "key": "you",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "warm,",
+          "start": 8.25,
+          "end": 8.59,
+          "key": "warm",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 8.87,
+          "end": 8.97,
+          "key": "or",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "sue",
+          "start": 8.97,
+          "end": 9.21,
+          "key": "sue",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.21,
+          "end": 9.39,
+          "key": "to",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 9.39,
+          "end": 9.51,
+          "key": "you",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.51,
+          "end": 9.67,
+          "key": "to",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 9.67,
+          "end": 9.83,
+          "key": "do",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.83,
+          "end": 9.95,
+          "key": "a",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "peculiar",
+          "start": 9.95,
+          "end": 10.35,
+          "key": "peculiar",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "profit",
+          "start": 10.35,
+          "end": 10.87,
+          "key": "profit",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.87,
+          "end": 11.07,
+          "key": "to",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 11.07,
+          "end": 11.19,
+          "key": "your",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 11.19,
+          "end": 11.43,
+          "key": "own",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "person.",
+          "start": 11.43,
+          "end": 11.91,
+          "key": "person",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "nay,",
+          "start": 12.75,
+          "end": 12.89,
+          "key": "nay",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 13.15,
+          "end": 13.29,
+          "key": "when",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 13.29,
+          "end": 13.41,
+          "key": "i",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 13.41,
+          "end": 13.55,
+          "key": "have",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 13.55,
+          "end": 13.67,
+          "key": "a",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "suit",
+          "start": 13.67,
+          "end": 13.93,
+          "key": "suit",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Wherein",
+          "start": 13.93,
+          "end": 14.27,
+          "key": "wherein",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 14.27,
+          "end": 14.41,
+          "key": "i",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 14.41,
+          "end": 14.59,
+          "key": "mean",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.59,
+          "end": 14.79,
+          "key": "to",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "touch",
+          "start": 14.79,
+          "end": 14.95,
+          "key": "touch",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 14.95,
+          "end": 15.13,
+          "key": "your",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 15.13,
+          "end": 15.29,
+          "key": "love",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "indeed,",
+          "start": 15.29,
+          "end": 15.67,
+          "key": "indeed",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 16.19,
+          "end": 16.29,
+          "key": "it",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 16.29,
+          "end": 16.43,
+          "key": "shall",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 16.43,
+          "end": 16.61,
+          "key": "be",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "full",
+          "start": 16.61,
+          "end": 16.77,
+          "key": "full",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.77,
+          "end": 16.95,
+          "key": "of",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "poise",
+          "start": 16.95,
+          "end": 17.39,
+          "key": "poise",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.39,
+          "end": 17.59,
+          "key": "and",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "difficult",
+          "start": 17.59,
+          "end": 17.85,
+          "key": "difficult",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "weight,",
+          "start": 17.85,
+          "end": 18.27,
+          "key": "weight",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 18.75,
+          "end": 18.87,
+          "key": "and",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "fearful",
+          "start": 18.87,
+          "end": 19.19,
+          "key": "fearful",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 19.19,
+          "end": 19.45,
+          "key": "to",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 19.45,
+          "end": 19.57,
+          "key": "be",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "granted.",
+          "start": 19.57,
+          "end": 19.91,
+          "key": "granted",
+          "pieces": [
+            65
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.67,
+          "end": 1.07
+        },
+        {
+          "text": "Why,",
+          "start": 1.53,
+          "end": 1.85
+        },
+        {
+          "text": "this",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "text": "is",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "text": "not",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "text": "a",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "text": "boon;",
+          "start": 2.55,
+          "end": 2.79
+        },
+        {
+          "text": "'Tis",
+          "start": 3.55,
+          "end": 3.79
+        },
+        {
+          "text": "as",
+          "start": 3.79,
+          "end": 3.93
+        },
+        {
+          "text": "I",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "text": "should",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "text": "entreat",
+          "start": 4.25,
+          "end": 4.59
+        },
+        {
+          "text": "you",
+          "start": 4.59,
+          "end": 4.83
+        },
+        {
+          "text": "wear",
+          "start": 4.83,
+          "end": 5.01
+        },
+        {
+          "text": "your",
+          "start": 5.01,
+          "end": 5.21
+        },
+        {
+          "text": "gloves,",
+          "start": 5.21,
+          "end": 5.59
+        },
+        {
+          "text": "Or",
+          "start": 5.95,
+          "end": 6.01
+        },
+        {
+          "text": "feed",
+          "start": 6.01,
+          "end": 6.29
+        },
+        {
+          "text": "on",
+          "start": 6.29,
+          "end": 6.49
+        },
+        {
+          "text": "nourishing",
+          "start": 6.49,
+          "end": 6.91
+        },
+        {
+          "text": "dishes,",
+          "start": 6.91,
+          "end": 7.25
+        },
+        {
+          "text": "or",
+          "start": 7.71,
+          "end": 7.85
+        },
+        {
+          "text": "keep",
+          "start": 7.85,
+          "end": 8.03
+        },
+        {
+          "text": "you",
+          "start": 8.03,
+          "end": 8.25
+        },
+        {
+          "text": "warm,",
+          "start": 8.25,
+          "end": 8.59
+        },
+        {
+          "text": "Or",
+          "start": 8.87,
+          "end": 8.97
+        },
+        {
+          "text": "sue",
+          "start": 8.97,
+          "end": 9.21
+        },
+        {
+          "text": "to",
+          "start": 9.21,
+          "end": 9.39
+        },
+        {
+          "text": "you",
+          "start": 9.39,
+          "end": 9.51
+        },
+        {
+          "text": "to",
+          "start": 9.51,
+          "end": 9.67
+        },
+        {
+          "text": "do",
+          "start": 9.67,
+          "end": 9.83
+        },
+        {
+          "text": "a",
+          "start": 9.83,
+          "end": 9.95
+        },
+        {
+          "text": "peculiar",
+          "start": 9.95,
+          "end": 10.35
+        },
+        {
+          "text": "profit",
+          "start": 10.35,
+          "end": 10.87
+        },
+        {
+          "text": "To",
+          "start": 10.87,
+          "end": 11.07
+        },
+        {
+          "text": "your",
+          "start": 11.07,
+          "end": 11.19
+        },
+        {
+          "text": "own",
+          "start": 11.19,
+          "end": 11.43
+        },
+        {
+          "text": "person:",
+          "start": 11.43,
+          "end": 11.91
+        },
+        {
+          "text": "nay,",
+          "start": 12.75,
+          "end": 12.89
+        },
+        {
+          "text": "when",
+          "start": 13.15,
+          "end": 13.29
+        },
+        {
+          "text": "I",
+          "start": 13.29,
+          "end": 13.41
+        },
+        {
+          "text": "have",
+          "start": 13.41,
+          "end": 13.55
+        },
+        {
+          "text": "a",
+          "start": 13.55,
+          "end": 13.67
+        },
+        {
+          "text": "suit",
+          "start": 13.67,
+          "end": 13.93
+        },
+        {
+          "text": "Wherein",
+          "start": 13.93,
+          "end": 14.27
+        },
+        {
+          "text": "I",
+          "start": 14.27,
+          "end": 14.41
+        },
+        {
+          "text": "mean",
+          "start": 14.41,
+          "end": 14.59
+        },
+        {
+          "text": "to",
+          "start": 14.59,
+          "end": 14.79
+        },
+        {
+          "text": "touch",
+          "start": 14.79,
+          "end": 14.95
+        },
+        {
+          "text": "your",
+          "start": 14.95,
+          "end": 15.13
+        },
+        {
+          "text": "love",
+          "start": 15.13,
+          "end": 15.29
+        },
+        {
+          "text": "indeed,",
+          "start": 15.29,
+          "end": 15.67
+        },
+        {
+          "text": "It",
+          "start": 16.19,
+          "end": 16.29
+        },
+        {
+          "text": "shall",
+          "start": 16.29,
+          "end": 16.43
+        },
+        {
+          "text": "be",
+          "start": 16.43,
+          "end": 16.61
+        },
+        {
+          "text": "full",
+          "start": 16.61,
+          "end": 16.77
+        },
+        {
+          "text": "of",
+          "start": 16.77,
+          "end": 16.95
+        },
+        {
+          "text": "poise",
+          "start": 16.95,
+          "end": 17.39
+        },
+        {
+          "text": "and",
+          "start": 17.39,
+          "end": 17.59
+        },
+        {
+          "text": "difficult",
+          "start": 17.59,
+          "end": 17.85
+        },
+        {
+          "text": "weight,",
+          "start": 17.85,
+          "end": 18.27
+        },
+        {
+          "text": "And",
+          "start": 18.75,
+          "end": 18.87
+        },
+        {
+          "text": "fearful",
+          "start": 18.87,
+          "end": 19.19
+        },
+        {
+          "text": "to",
+          "start": 19.19,
+          "end": 19.45
+        },
+        {
+          "text": "be",
+          "start": 19.45,
+          "end": 19.57
+        },
+        {
+          "text": "granted.",
+          "start": 19.57,
+          "end": 19.91
+        }
+      ],
+      "stats": {
+        "expected_words": 66,
+        "heard_words": 66,
+        "matched_words": 66
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.49442740296944976
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "966bc00e2570beb0483be8c5dfd704b9d25f76493814339750934f8657662bf5",
+  "selected_reasons": []
+}

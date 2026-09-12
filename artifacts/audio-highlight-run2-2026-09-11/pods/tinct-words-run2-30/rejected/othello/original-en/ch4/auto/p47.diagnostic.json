@@ -1,0 +1,3119 @@
+{
+  "complete": true,
+  "signature": "87ea7daa06f05eee6c05a5bebcd6b11b697aa0c129f0651e3df151d9b313bc17",
+  "attempts": [
+    {
+      "asr_seconds": 0.4504711218178272,
+      "alignment_seconds": 0.0004686480388045311,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Good ancient, you are welcome. [_To Emilia._] Welcome, mistress. Let it not gall your patience, good Iago, That I extend my manners; 'tis my breeding That gives me this bold show of courtesy.]",
+        "hotwords": "Emilia._, Let, Iago, That, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Good ancient, you are welcome. To Emilia. Welcome, mistress. Let it not gall your patience, good Iago, That I extend my manners.",
+          "start": 0.05,
+          "end": 8.49,
+          "words": [
+            {
+              "text": " Good",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.31640625
+            },
+            {
+              "text": " ancient,",
+              "start": 0.51,
+              "end": 0.85,
+              "probability": 0.5185546875
+            },
+            {
+              "text": " you",
+              "start": 1.13,
+              "end": 1.21,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " are",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " welcome.",
+              "start": 1.37,
+              "end": 1.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " To",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " Emilia.",
+              "start": 2.35,
+              "end": 2.81,
+              "probability": 0.641357421875
+            },
+            {
+              "text": " Welcome,",
+              "start": 3.55,
+              "end": 3.87,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " mistress.",
+              "start": 4.07,
+              "end": 4.25,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " Let",
+              "start": 4.95,
+              "end": 5.03,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " it",
+              "start": 5.03,
+              "end": 5.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 5.13,
+              "end": 5.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " gall",
+              "start": 5.29,
+              "end": 5.43,
+              "probability": 0.7734375
+            },
+            {
+              "text": " your",
+              "start": 5.43,
+              "end": 5.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " patience,",
+              "start": 5.67,
+              "end": 6.11,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " good",
+              "start": 6.47,
+              "end": 6.51,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " Iago,",
+              "start": 6.51,
+              "end": 6.95,
+              "probability": 0.462158203125
+            },
+            {
+              "text": " That",
+              "start": 7.19,
+              "end": 7.31,
+              "probability": 0.01221466064453125
+            },
+            {
+              "text": " I",
+              "start": 7.31,
+              "end": 7.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " extend",
+              "start": 7.45,
+              "end": 7.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 7.81,
+              "end": 8.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " manners.",
+              "start": 8.11,
+              "end": 8.49,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Tease my breeding That gives me this bold show of courtesy.]",
+          "start": 8.49,
+          "end": 12.73,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 8.49,
+              "end": 9.41,
+              "probability": 0.63916015625
+            },
+            {
+              "text": " my",
+              "start": 9.41,
+              "end": 9.57,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " breeding",
+              "start": 9.57,
+              "end": 9.87,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " That",
+              "start": 9.87,
+              "end": 10.15,
+              "probability": 0.007709503173828125
+            },
+            {
+              "text": " gives",
+              "start": 10.15,
+              "end": 10.33,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " me",
+              "start": 10.33,
+              "end": 10.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 10.53,
+              "end": 10.73,
+              "probability": 0.931640625
+            },
+            {
+              "text": " bold",
+              "start": 10.73,
+              "end": 11.11,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " show",
+              "start": 11.11,
+              "end": 11.47,
+              "probability": 0.953125
+            },
+            {
+              "text": " of",
+              "start": 11.47,
+              "end": 11.65,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " courtesy.]",
+              "start": 11.65,
+              "end": 12.73,
+              "probability": 0.49862104654312134
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "ancient,",
+          "start": 0.51,
+          "end": 0.85
+        },
+        {
+          "raw": "you",
+          "start": 1.13,
+          "end": 1.21
+        },
+        {
+          "raw": "are",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "welcome.",
+          "start": 1.37,
+          "end": 1.71
+        },
+        {
+          "raw": "To",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "Emilia.",
+          "start": 2.35,
+          "end": 2.81
+        },
+        {
+          "raw": "Welcome,",
+          "start": 3.55,
+          "end": 3.87
+        },
+        {
+          "raw": "mistress.",
+          "start": 4.07,
+          "end": 4.25
+        },
+        {
+          "raw": "Let",
+          "start": 4.95,
+          "end": 5.03
+        },
+        {
+          "raw": "it",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "raw": "not",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "raw": "gall",
+          "start": 5.29,
+          "end": 5.43
+        },
+        {
+          "raw": "your",
+          "start": 5.43,
+          "end": 5.67
+        },
+        {
+          "raw": "patience,",
+          "start": 5.67,
+          "end": 6.11
+        },
+        {
+          "raw": "good",
+          "start": 6.47,
+          "end": 6.51
+        },
+        {
+          "raw": "Iago,",
+          "start": 6.51,
+          "end": 6.95
+        },
+        {
+          "raw": "That",
+          "start": 7.19,
+          "end": 7.31
+        },
+        {
+          "raw": "I",
+          "start": 7.31,
+          "end": 7.45
+        },
+        {
+          "raw": "extend",
+          "start": 7.45,
+          "end": 7.81
+        },
+        {
+          "raw": "my",
+          "start": 7.81,
+          "end": 8.11
+        },
+        {
+          "raw": "manners.",
+          "start": 8.11,
+          "end": 8.49
+        },
+        {
+          "raw": "Tease",
+          "start": 8.49,
+          "end": 9.41
+        },
+        {
+          "raw": "my",
+          "start": 9.41,
+          "end": 9.57
+        },
+        {
+          "raw": "breeding",
+          "start": 9.57,
+          "end": 9.87
+        },
+        {
+          "raw": "That",
+          "start": 9.87,
+          "end": 10.15
+        },
+        {
+          "raw": "gives",
+          "start": 10.15,
+          "end": 10.33
+        },
+        {
+          "raw": "me",
+          "start": 10.33,
+          "end": 10.53
+        },
+        {
+          "raw": "this",
+          "start": 10.53,
+          "end": 10.73
+        },
+        {
+          "raw": "bold",
+          "start": 10.73,
+          "end": 11.11
+        },
+        {
+          "raw": "show",
+          "start": 11.11,
+          "end": 11.47
+        },
+        {
+          "raw": "of",
+          "start": 11.47,
+          "end": 11.65
+        },
+        {
+          "raw": "courtesy.]",
+          "start": 11.65,
+          "end": 12.73
+        }
+      ],
+      "expected_tokens": [
+        "[Good",
+        "ancient,",
+        "you",
+        "are",
+        "welcome.",
+        "[_To",
+        "Emilia._]",
+        "Welcome,",
+        "mistress.",
+        "Let",
+        "it",
+        "not",
+        "gall",
+        "your",
+        "patience,",
+        "good",
+        "Iago,",
+        "That",
+        "I",
+        "extend",
+        "my",
+        "manners;",
+        "'tis",
+        "my",
+        "breeding",
+        "That",
+        "gives",
+        "me",
+        "this",
+        "bold",
+        "show",
+        "of",
+        "courtesy.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "equal",
+          23,
+          33,
+          23,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Good",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "good",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ancient,",
+          "start": 0.51,
+          "end": 0.85,
+          "key": "ancient",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.13,
+          "end": 1.21,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.21,
+          "end": 1.37,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "welcome.",
+          "start": 1.37,
+          "end": 1.71,
+          "key": "welcome",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Emilia.",
+          "start": 2.35,
+          "end": 2.81,
+          "key": "emilia",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Welcome,",
+          "start": 3.55,
+          "end": 3.87,
+          "key": "welcome",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mistress.",
+          "start": 4.07,
+          "end": 4.25,
+          "key": "mistress",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 4.95,
+          "end": 5.03,
+          "key": "let",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.03,
+          "end": 5.13,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.13,
+          "end": 5.29,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "gall",
+          "start": 5.29,
+          "end": 5.43,
+          "key": "gall",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.43,
+          "end": 5.67,
+          "key": "your",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "patience,",
+          "start": 5.67,
+          "end": 6.11,
+          "key": "patience",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 6.47,
+          "end": 6.51,
+          "key": "good",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 6.51,
+          "end": 6.95,
+          "key": "iago",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 7.19,
+          "end": 7.31,
+          "key": "that",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.31,
+          "end": 7.45,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "extend",
+          "start": 7.45,
+          "end": 7.81,
+          "key": "extend",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.81,
+          "end": 8.11,
+          "key": "my",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "manners.",
+          "start": 8.11,
+          "end": 8.49,
+          "key": "manners",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 8.49,
+          "end": 9.41,
+          "key": "tease",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 9.41,
+          "end": 9.57,
+          "key": "my",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "breeding",
+          "start": 9.57,
+          "end": 9.87,
+          "key": "breeding",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 9.87,
+          "end": 10.15,
+          "key": "that",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "gives",
+          "start": 10.15,
+          "end": 10.33,
+          "key": "gives",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 10.33,
+          "end": 10.53,
+          "key": "me",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 10.53,
+          "end": 10.73,
+          "key": "this",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "bold",
+          "start": 10.73,
+          "end": 11.11,
+          "key": "bold",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 11.11,
+          "end": 11.47,
+          "key": "show",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.47,
+          "end": 11.65,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "courtesy.]",
+          "start": 11.65,
+          "end": 12.73,
+          "key": "courtesy",
+          "pieces": [
+            32
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Good",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "ancient,",
+          "start": 0.51,
+          "end": 0.85
+        },
+        {
+          "text": "you",
+          "start": 1.13,
+          "end": 1.21
+        },
+        {
+          "text": "are",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "text": "welcome.",
+          "start": 1.37,
+          "end": 1.71
+        },
+        {
+          "text": "[_To",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "Emilia._]",
+          "start": 2.35,
+          "end": 2.81
+        },
+        {
+          "text": "Welcome,",
+          "start": 3.55,
+          "end": 3.87
+        },
+        {
+          "text": "mistress.",
+          "start": 4.07,
+          "end": 4.25
+        },
+        {
+          "text": "Let",
+          "start": 4.95,
+          "end": 5.03
+        },
+        {
+          "text": "it",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "text": "not",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "text": "gall",
+          "start": 5.29,
+          "end": 5.43
+        },
+        {
+          "text": "your",
+          "start": 5.43,
+          "end": 5.67
+        },
+        {
+          "text": "patience,",
+          "start": 5.67,
+          "end": 6.11
+        },
+        {
+          "text": "good",
+          "start": 6.47,
+          "end": 6.51
+        },
+        {
+          "text": "Iago,",
+          "start": 6.51,
+          "end": 6.95
+        },
+        {
+          "text": "That",
+          "start": 7.19,
+          "end": 7.31
+        },
+        {
+          "text": "I",
+          "start": 7.31,
+          "end": 7.45
+        },
+        {
+          "text": "extend",
+          "start": 7.45,
+          "end": 7.81
+        },
+        {
+          "text": "my",
+          "start": 7.81,
+          "end": 8.11
+        },
+        {
+          "text": "manners;",
+          "start": 8.11,
+          "end": 8.49
+        },
+        {
+          "text": "'tis",
+          "start": 8.49,
+          "end": 8.95
+        },
+        {
+          "text": "my",
+          "start": 9.41,
+          "end": 9.57
+        },
+        {
+          "text": "breeding",
+          "start": 9.57,
+          "end": 9.87
+        },
+        {
+          "text": "That",
+          "start": 9.87,
+          "end": 10.15
+        },
+        {
+          "text": "gives",
+          "start": 10.15,
+          "end": 10.33
+        },
+        {
+          "text": "me",
+          "start": 10.33,
+          "end": 10.53
+        },
+        {
+          "text": "this",
+          "start": 10.53,
+          "end": 10.73
+        },
+        {
+          "text": "bold",
+          "start": 10.73,
+          "end": 11.11
+        },
+        {
+          "text": "show",
+          "start": 11.11,
+          "end": 11.47
+        },
+        {
+          "text": "of",
+          "start": 11.47,
+          "end": 11.65
+        },
+        {
+          "text": "courtesy.]",
+          "start": 11.65,
+          "end": 12.73
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 33,
+        "matched_words": 32
+      },
+      "match_ratio": 0.9696969696969697,
+      "rejection_reasons": [],
+      "seconds": 0.4511220189742744
+    },
+    {
+      "asr_seconds": 0.24244595132768154,
+      "alignment_seconds": 0.00035723811015486717,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Emilia._, Let, Iago, That, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " extend my manners. Tease my breeding that gives me this bold show of courtesy.",
+          "start": 6.77,
+          "end": 12.07,
+          "words": [
+            {
+              "text": " extend",
+              "start": 6.77,
+              "end": 7.43,
+              "probability": 6.556510925292969e-07
+            },
+            {
+              "text": " my",
+              "start": 7.43,
+              "end": 8.09,
+              "probability": 0.845703125
+            },
+            {
+              "text": " manners.",
+              "start": 8.09,
+              "end": 8.57,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Tease",
+              "start": 9.13,
+              "end": 9.39,
+              "probability": 0.837646484375
+            },
+            {
+              "text": " my",
+              "start": 9.39,
+              "end": 9.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " breeding",
+              "start": 9.57,
+              "end": 9.87,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " that",
+              "start": 9.87,
+              "end": 10.15,
+              "probability": 0.63037109375
+            },
+            {
+              "text": " gives",
+              "start": 10.15,
+              "end": 10.33,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " me",
+              "start": 10.33,
+              "end": 10.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this",
+              "start": 10.53,
+              "end": 10.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bold",
+              "start": 10.73,
+              "end": 11.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " show",
+              "start": 11.11,
+              "end": 11.47,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " of",
+              "start": 11.47,
+              "end": 11.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " courtesy.",
+              "start": 11.67,
+              "end": 12.07,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "extend",
+          "start": 6.77,
+          "end": 7.43
+        },
+        {
+          "raw": "my",
+          "start": 7.43,
+          "end": 8.09
+        },
+        {
+          "raw": "manners.",
+          "start": 8.09,
+          "end": 8.57
+        },
+        {
+          "raw": "Tease",
+          "start": 9.13,
+          "end": 9.39
+        },
+        {
+          "raw": "my",
+          "start": 9.39,
+          "end": 9.57
+        },
+        {
+          "raw": "breeding",
+          "start": 9.57,
+          "end": 9.87
+        },
+        {
+          "raw": "that",
+          "start": 9.87,
+          "end": 10.15
+        },
+        {
+          "raw": "gives",
+          "start": 10.15,
+          "end": 10.33
+        },
+        {
+          "raw": "me",
+          "start": 10.33,
+          "end": 10.53
+        },
+        {
+          "raw": "this",
+          "start": 10.53,
+          "end": 10.73
+        },
+        {
+          "raw": "bold",
+          "start": 10.73,
+          "end": 11.11
+        },
+        {
+          "raw": "show",
+          "start": 11.11,
+          "end": 11.47
+        },
+        {
+          "raw": "of",
+          "start": 11.47,
+          "end": 11.67
+        },
+        {
+          "raw": "courtesy.",
+          "start": 11.67,
+          "end": 12.07
+        }
+      ],
+      "expected_tokens": [
+        "[Good",
+        "ancient,",
+        "you",
+        "are",
+        "welcome.",
+        "[_To",
+        "Emilia._]",
+        "Welcome,",
+        "mistress.",
+        "Let",
+        "it",
+        "not",
+        "gall",
+        "your",
+        "patience,",
+        "good",
+        "Iago,",
+        "That",
+        "I",
+        "extend",
+        "my",
+        "manners;",
+        "'tis",
+        "my",
+        "breeding",
+        "That",
+        "gives",
+        "me",
+        "this",
+        "bold",
+        "show",
+        "of",
+        "courtesy.]"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          19,
+          0,
+          0
+        ],
+        [
+          "equal",
+          19,
+          22,
+          0,
+          3
+        ],
+        [
+          "replace",
+          22,
+          23,
+          3,
+          4
+        ],
+        [
+          "equal",
+          23,
+          33,
+          4,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          19,
+          0,
+          0
+        ],
+        [
+          "replace",
+          22,
+          23,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "extend",
+          "start": 6.77,
+          "end": 7.43,
+          "key": "extend",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.43,
+          "end": 8.09,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "manners.",
+          "start": 8.09,
+          "end": 8.57,
+          "key": "manners",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 9.13,
+          "end": 9.39,
+          "key": "tease",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 9.39,
+          "end": 9.57,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "breeding",
+          "start": 9.57,
+          "end": 9.87,
+          "key": "breeding",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 9.87,
+          "end": 10.15,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gives",
+          "start": 10.15,
+          "end": 10.33,
+          "key": "gives",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 10.33,
+          "end": 10.53,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 10.53,
+          "end": 10.73,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bold",
+          "start": 10.73,
+          "end": 11.11,
+          "key": "bold",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 11.11,
+          "end": 11.47,
+          "key": "show",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.47,
+          "end": 11.67,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "courtesy.",
+          "start": 11.67,
+          "end": 12.07,
+          "key": "courtesy",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Good",
+          "start": 0.0,
+          "end": 3.385
+        },
+        {
+          "text": "ancient,",
+          "start": 3.385,
+          "end": 5.077
+        },
+        {
+          "text": "you",
+          "start": 5.077,
+          "end": 5.923
+        },
+        {
+          "text": "are",
+          "start": 5.923,
+          "end": 6.346
+        },
+        {
+          "text": "welcome.",
+          "start": 6.346,
+          "end": 6.558
+        },
+        {
+          "text": "[_To",
+          "start": 6.558,
+          "end": 6.664
+        },
+        {
+          "text": "Emilia._]",
+          "start": 6.664,
+          "end": 6.717
+        },
+        {
+          "text": "Welcome,",
+          "start": 6.717,
+          "end": 6.743
+        },
+        {
+          "text": "mistress.",
+          "start": 6.743,
+          "end": 6.756
+        },
+        {
+          "text": "Let",
+          "start": 6.756,
+          "end": 6.763
+        },
+        {
+          "text": "it",
+          "start": 6.763,
+          "end": 6.766
+        },
+        {
+          "text": "not",
+          "start": 6.766,
+          "end": 6.768
+        },
+        {
+          "text": "gall",
+          "start": 6.768,
+          "end": 6.769
+        },
+        {
+          "text": "your",
+          "start": 6.769,
+          "end": 6.769
+        },
+        {
+          "text": "patience,",
+          "start": 6.769,
+          "end": 6.769
+        },
+        {
+          "text": "good",
+          "start": 6.769,
+          "end": 6.769
+        },
+        {
+          "text": "Iago,",
+          "start": 6.769,
+          "end": 6.769
+        },
+        {
+          "text": "That",
+          "start": 6.769,
+          "end": 6.769
+        },
+        {
+          "text": "I",
+          "start": 6.769,
+          "end": 6.769
+        },
+        {
+          "text": "extend",
+          "start": 6.77,
+          "end": 7.43
+        },
+        {
+          "text": "my",
+          "start": 7.43,
+          "end": 8.09
+        },
+        {
+          "text": "manners;",
+          "start": 8.09,
+          "end": 8.57
+        },
+        {
+          "text": "'tis",
+          "start": 8.57,
+          "end": 8.98
+        },
+        {
+          "text": "my",
+          "start": 9.39,
+          "end": 9.57
+        },
+        {
+          "text": "breeding",
+          "start": 9.57,
+          "end": 9.87
+        },
+        {
+          "text": "That",
+          "start": 9.87,
+          "end": 10.15
+        },
+        {
+          "text": "gives",
+          "start": 10.15,
+          "end": 10.33
+        },
+        {
+          "text": "me",
+          "start": 10.33,
+          "end": 10.53
+        },
+        {
+          "text": "this",
+          "start": 10.53,
+          "end": 10.73
+        },
+        {
+          "text": "bold",
+          "start": 10.73,
+          "end": 11.11
+        },
+        {
+          "text": "show",
+          "start": 11.11,
+          "end": 11.47
+        },
+        {
+          "text": "of",
+          "start": 11.47,
+          "end": 11.67
+        },
+        {
+          "text": "courtesy.]",
+          "start": 11.67,
+          "end": 12.07
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.3939393939393939,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24288163939490914
+    },
+    {
+      "asr_seconds": 0.3635700671002269,
+      "alignment_seconds": 0.00040862802416086197,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Good ancient, you are welcome. To Amelia. Welcome, mistress. Let it not call your patience,",
+          "start": 0.05,
+          "end": 6.15,
+          "words": [
+            {
+              "text": " Good",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.31640625
+            },
+            {
+              "text": " ancient,",
+              "start": 0.51,
+              "end": 0.85,
+              "probability": 0.5185546875
+            },
+            {
+              "text": " you",
+              "start": 1.13,
+              "end": 1.21,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " are",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " welcome.",
+              "start": 1.37,
+              "end": 1.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " To",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " Amelia.",
+              "start": 2.35,
+              "end": 2.67,
+              "probability": 0.61083984375
+            },
+            {
+              "text": " Welcome,",
+              "start": 3.55,
+              "end": 3.87,
+              "probability": 0.896484375
+            },
+            {
+              "text": " mistress.",
+              "start": 4.07,
+              "end": 4.25,
+              "probability": 0.826171875
+            },
+            {
+              "text": " Let",
+              "start": 4.95,
+              "end": 5.03,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " it",
+              "start": 5.03,
+              "end": 5.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 5.13,
+              "end": 5.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " call",
+              "start": 5.29,
+              "end": 5.41,
+              "probability": 0.1165771484375
+            },
+            {
+              "text": " your",
+              "start": 5.41,
+              "end": 5.65,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " patience,",
+              "start": 5.65,
+              "end": 6.15,
+              "probability": 0.97705078125
+            }
+          ]
+        },
+        {
+          "text": " good Diego, that I extend my manners. Tease my breeding that gives me this bold show of",
+          "start": 6.45,
+          "end": 11.67,
+          "words": [
+            {
+              "text": " good",
+              "start": 6.45,
+              "end": 6.49,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " Diego,",
+              "start": 6.49,
+              "end": 6.83,
+              "probability": 0.26220703125
+            },
+            {
+              "text": " that",
+              "start": 7.21,
+              "end": 7.31,
+              "probability": 0.982421875
+            },
+            {
+              "text": " I",
+              "start": 7.31,
+              "end": 7.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " extend",
+              "start": 7.45,
+              "end": 7.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 7.83,
+              "end": 8.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " manners.",
+              "start": 8.11,
+              "end": 8.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Tease",
+              "start": 9.15,
+              "end": 9.41,
+              "probability": 0.866455078125
+            },
+            {
+              "text": " my",
+              "start": 9.41,
+              "end": 9.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " breeding",
+              "start": 9.57,
+              "end": 9.87,
+              "probability": 0.978515625
+            },
+            {
+              "text": " that",
+              "start": 9.87,
+              "end": 10.15,
+              "probability": 0.544921875
+            },
+            {
+              "text": " gives",
+              "start": 10.15,
+              "end": 10.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me",
+              "start": 10.33,
+              "end": 10.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " this",
+              "start": 10.53,
+              "end": 10.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bold",
+              "start": 10.75,
+              "end": 11.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " show",
+              "start": 11.11,
+              "end": 11.47,
+              "probability": 0.986328125
+            },
+            {
+              "text": " of",
+              "start": 11.47,
+              "end": 11.67,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " courtesy.",
+          "start": 11.67,
+          "end": 12.03,
+          "words": [
+            {
+              "text": " courtesy.",
+              "start": 11.67,
+              "end": 12.03,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "ancient,",
+          "start": 0.51,
+          "end": 0.85
+        },
+        {
+          "raw": "you",
+          "start": 1.13,
+          "end": 1.21
+        },
+        {
+          "raw": "are",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "welcome.",
+          "start": 1.37,
+          "end": 1.71
+        },
+        {
+          "raw": "To",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "Amelia.",
+          "start": 2.35,
+          "end": 2.67
+        },
+        {
+          "raw": "Welcome,",
+          "start": 3.55,
+          "end": 3.87
+        },
+        {
+          "raw": "mistress.",
+          "start": 4.07,
+          "end": 4.25
+        },
+        {
+          "raw": "Let",
+          "start": 4.95,
+          "end": 5.03
+        },
+        {
+          "raw": "it",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "raw": "not",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "raw": "call",
+          "start": 5.29,
+          "end": 5.41
+        },
+        {
+          "raw": "your",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "raw": "patience,",
+          "start": 5.65,
+          "end": 6.15
+        },
+        {
+          "raw": "good",
+          "start": 6.45,
+          "end": 6.49
+        },
+        {
+          "raw": "Diego,",
+          "start": 6.49,
+          "end": 6.83
+        },
+        {
+          "raw": "that",
+          "start": 7.21,
+          "end": 7.31
+        },
+        {
+          "raw": "I",
+          "start": 7.31,
+          "end": 7.45
+        },
+        {
+          "raw": "extend",
+          "start": 7.45,
+          "end": 7.83
+        },
+        {
+          "raw": "my",
+          "start": 7.83,
+          "end": 8.11
+        },
+        {
+          "raw": "manners.",
+          "start": 8.11,
+          "end": 8.51
+        },
+        {
+          "raw": "Tease",
+          "start": 9.15,
+          "end": 9.41
+        },
+        {
+          "raw": "my",
+          "start": 9.41,
+          "end": 9.57
+        },
+        {
+          "raw": "breeding",
+          "start": 9.57,
+          "end": 9.87
+        },
+        {
+          "raw": "that",
+          "start": 9.87,
+          "end": 10.15
+        },
+        {
+          "raw": "gives",
+          "start": 10.15,
+          "end": 10.33
+        },
+        {
+          "raw": "me",
+          "start": 10.33,
+          "end": 10.53
+        },
+        {
+          "raw": "this",
+          "start": 10.53,
+          "end": 10.75
+        },
+        {
+          "raw": "bold",
+          "start": 10.75,
+          "end": 11.11
+        },
+        {
+          "raw": "show",
+          "start": 11.11,
+          "end": 11.47
+        },
+        {
+          "raw": "of",
+          "start": 11.47,
+          "end": 11.67
+        },
+        {
+          "raw": "courtesy.",
+          "start": 11.67,
+          "end": 12.03
+        }
+      ],
+      "expected_tokens": [
+        "[Good",
+        "ancient,",
+        "you",
+        "are",
+        "welcome.",
+        "[_To",
+        "Emilia._]",
+        "Welcome,",
+        "mistress.",
+        "Let",
+        "it",
+        "not",
+        "gall",
+        "your",
+        "patience,",
+        "good",
+        "Iago,",
+        "That",
+        "I",
+        "extend",
+        "my",
+        "manners;",
+        "'tis",
+        "my",
+        "breeding",
+        "That",
+        "gives",
+        "me",
+        "this",
+        "bold",
+        "show",
+        "of",
+        "courtesy.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          12,
+          7,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          16,
+          13,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ],
+        [
+          "equal",
+          17,
+          22,
+          17,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "equal",
+          23,
+          33,
+          23,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Good",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "good",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ancient,",
+          "start": 0.51,
+          "end": 0.85,
+          "key": "ancient",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.13,
+          "end": 1.21,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.21,
+          "end": 1.37,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "welcome.",
+          "start": 1.37,
+          "end": 1.71,
+          "key": "welcome",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Amelia.",
+          "start": 2.35,
+          "end": 2.67,
+          "key": "amelia",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Welcome,",
+          "start": 3.55,
+          "end": 3.87,
+          "key": "welcome",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mistress.",
+          "start": 4.07,
+          "end": 4.25,
+          "key": "mistress",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 4.95,
+          "end": 5.03,
+          "key": "let",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.03,
+          "end": 5.13,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.13,
+          "end": 5.29,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 5.29,
+          "end": 5.41,
+          "key": "call",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.41,
+          "end": 5.65,
+          "key": "your",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "patience,",
+          "start": 5.65,
+          "end": 6.15,
+          "key": "patience",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 6.45,
+          "end": 6.49,
+          "key": "good",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Diego,",
+          "start": 6.49,
+          "end": 6.83,
+          "key": "diego",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.21,
+          "end": 7.31,
+          "key": "that",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.31,
+          "end": 7.45,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "extend",
+          "start": 7.45,
+          "end": 7.83,
+          "key": "extend",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.83,
+          "end": 8.11,
+          "key": "my",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "manners.",
+          "start": 8.11,
+          "end": 8.51,
+          "key": "manners",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 9.15,
+          "end": 9.41,
+          "key": "tease",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 9.41,
+          "end": 9.57,
+          "key": "my",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "breeding",
+          "start": 9.57,
+          "end": 9.87,
+          "key": "breeding",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 9.87,
+          "end": 10.15,
+          "key": "that",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "gives",
+          "start": 10.15,
+          "end": 10.33,
+          "key": "gives",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 10.33,
+          "end": 10.53,
+          "key": "me",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 10.53,
+          "end": 10.75,
+          "key": "this",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "bold",
+          "start": 10.75,
+          "end": 11.11,
+          "key": "bold",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 11.11,
+          "end": 11.47,
+          "key": "show",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.47,
+          "end": 11.67,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "courtesy.",
+          "start": 11.67,
+          "end": 12.03,
+          "key": "courtesy",
+          "pieces": [
+            32
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Good",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "ancient,",
+          "start": 0.51,
+          "end": 0.85
+        },
+        {
+          "text": "you",
+          "start": 1.13,
+          "end": 1.21
+        },
+        {
+          "text": "are",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "text": "welcome.",
+          "start": 1.37,
+          "end": 1.71
+        },
+        {
+          "text": "[_To",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "Emilia._]",
+          "start": 2.35,
+          "end": 2.95
+        },
+        {
+          "text": "Welcome,",
+          "start": 3.55,
+          "end": 3.87
+        },
+        {
+          "text": "mistress.",
+          "start": 4.07,
+          "end": 4.25
+        },
+        {
+          "text": "Let",
+          "start": 4.95,
+          "end": 5.03
+        },
+        {
+          "text": "it",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "text": "not",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "text": "gall",
+          "start": 5.29,
+          "end": 5.35
+        },
+        {
+          "text": "your",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "text": "patience,",
+          "start": 5.65,
+          "end": 6.15
+        },
+        {
+          "text": "good",
+          "start": 6.45,
+          "end": 6.49
+        },
+        {
+          "text": "Iago,",
+          "start": 6.49,
+          "end": 6.85
+        },
+        {
+          "text": "That",
+          "start": 7.21,
+          "end": 7.31
+        },
+        {
+          "text": "I",
+          "start": 7.31,
+          "end": 7.45
+        },
+        {
+          "text": "extend",
+          "start": 7.45,
+          "end": 7.83
+        },
+        {
+          "text": "my",
+          "start": 7.83,
+          "end": 8.11
+        },
+        {
+          "text": "manners;",
+          "start": 8.11,
+          "end": 8.51
+        },
+        {
+          "text": "'tis",
+          "start": 8.51,
+          "end": 8.96
+        },
+        {
+          "text": "my",
+          "start": 9.41,
+          "end": 9.57
+        },
+        {
+          "text": "breeding",
+          "start": 9.57,
+          "end": 9.87
+        },
+        {
+          "text": "That",
+          "start": 9.87,
+          "end": 10.15
+        },
+        {
+          "text": "gives",
+          "start": 10.15,
+          "end": 10.33
+        },
+        {
+          "text": "me",
+          "start": 10.33,
+          "end": 10.53
+        },
+        {
+          "text": "this",
+          "start": 10.53,
+          "end": 10.75
+        },
+        {
+          "text": "bold",
+          "start": 10.75,
+          "end": 11.11
+        },
+        {
+          "text": "show",
+          "start": 11.11,
+          "end": 11.47
+        },
+        {
+          "text": "of",
+          "start": 11.47,
+          "end": 11.67
+        },
+        {
+          "text": "courtesy.]",
+          "start": 11.67,
+          "end": 12.03
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 33,
+        "matched_words": 29
+      },
+      "match_ratio": 0.8787878787878788,
+      "rejection_reasons": [],
+      "seconds": 0.36414471408352256
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7e713a2bee017394410daeb8b041b7cc3f95ca1208ea60e182b8af8022d3cb94",
+  "selected_reasons": []
+}

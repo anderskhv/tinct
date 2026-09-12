@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "cc81254f48a9075e2a64fdbb9c068e1956e613b5203bce62517590bb43195322",
+  "attempts": [
+    {
+      "asr_seconds": 0.09139918396249413,
+      "alignment_seconds": 0.00014739017933607101,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit clown.",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " clown.",
+              "start": 0.65,
+              "end": 0.97,
+              "probability": 0.67041015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "clown.",
+          "start": 0.65,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "[Exit",
+        "Clown.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "clown.",
+          "start": 0.65,
+          "end": 0.97,
+          "key": "clown",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Clown.]",
+          "start": 0.65,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09160173311829567
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "94d83ee2751c6be2a715efd7a94cb59206db7203187d90cfdd1a3d130c8d471c",
+  "selected_reasons": []
+}

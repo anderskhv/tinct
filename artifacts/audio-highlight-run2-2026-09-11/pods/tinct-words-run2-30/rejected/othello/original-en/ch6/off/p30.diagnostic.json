@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "273c5c73cd381573def802dae84f3c863b7c365ce937bd0813d5868757192019",
+  "attempts": [
+    {
+      "asr_seconds": 0.07267958438023925,
+      "alignment_seconds": 0.00010751001536846161,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Some wine boys",
+          "start": 0.08,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " Some",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " wine",
+              "start": 0.56,
+              "end": 0.82,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " boys",
+              "start": 0.82,
+              "end": 1.1,
+              "probability": 0.6259765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Some",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "wine",
+          "start": 0.56,
+          "end": 0.82
+        },
+        {
+          "raw": "boys",
+          "start": 0.82,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "[Some",
+        "wine,",
+        "boys!]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Some",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "some",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wine",
+          "start": 0.56,
+          "end": 0.82,
+          "key": "wine",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "boys",
+          "start": 0.82,
+          "end": 1.1,
+          "key": "boys",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Some",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "wine,",
+          "start": 0.56,
+          "end": 0.82
+        },
+        {
+          "text": "boys!]",
+          "start": 0.82,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07282727304846048
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "15134258b5f44e01a5e8a8af215813f895ca5b82d851b4197202ff4350178cb3",
+  "selected_reasons": []
+}

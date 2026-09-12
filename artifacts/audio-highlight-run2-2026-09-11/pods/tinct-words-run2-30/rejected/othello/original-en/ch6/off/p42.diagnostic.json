@@ -1,0 +1,292 @@
+{
+  "complete": true,
+  "signature": "84dea509c835ba87d5865efac125feac64d483c2e5e1547952f66ce82d8710fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.09714030427858233,
+      "alignment_seconds": 0.0001424192450940609,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Zago, will you hear it again?",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Zago,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.530517578125
+            },
+            {
+              "text": " will",
+              "start": 1.14,
+              "end": 1.26,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " you",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hear",
+              "start": 1.38,
+              "end": 1.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " it",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " again?",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Zago,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "will",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "raw": "you",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "hear",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "raw": "it",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "again?",
+          "start": 1.64,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Will",
+        "you",
+        "hear",
+        "'t",
+        "again?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Zago,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "zago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.14,
+          "end": 1.26,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 1.38,
+          "end": 1.54,
+          "key": "hear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "again?",
+          "start": 1.64,
+          "end": 1.86,
+          "key": "again",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.57
+        },
+        {
+          "text": "Will",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "text": "you",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "hear",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "text": "'t",
+          "start": 1.54,
+          "end": 1.59
+        },
+        {
+          "text": "again?",
+          "start": 1.64,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09733217302709818
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "26ee4fecedc3cfe1210aaf3d4bccdc653f5838c262a67cabd6dfa3463665ec11",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

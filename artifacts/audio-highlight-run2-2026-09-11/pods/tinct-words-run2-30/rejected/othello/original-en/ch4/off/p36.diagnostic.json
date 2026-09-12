@@ -1,0 +1,292 @@
+{
+  "complete": true,
+  "signature": "96b086527f418f4e68bc45c79c840553108706e427bb72a485af7405ce9b3879",
+  "attempts": [
+    {
+      "asr_seconds": 0.13789089862257242,
+      "alignment_seconds": 0.00017049908638000488,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Distimona, Diego, Rodrigo, and Amelia.",
+          "start": 0.11,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.67,
+              "probability": 0.943359375
+            },
+            {
+              "text": " Distimona,",
+              "start": 0.67,
+              "end": 1.31,
+              "probability": 0.622406005859375
+            },
+            {
+              "text": " Diego,",
+              "start": 1.83,
+              "end": 1.97,
+              "probability": 0.59130859375
+            },
+            {
+              "text": " Rodrigo,",
+              "start": 2.49,
+              "end": 2.81,
+              "probability": 0.60107421875
+            },
+            {
+              "text": " and",
+              "start": 2.93,
+              "end": 3.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Amelia.",
+              "start": 3.01,
+              "end": 3.23,
+              "probability": 0.79248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "raw": "Distimona,",
+          "start": 0.67,
+          "end": 1.31
+        },
+        {
+          "raw": "Diego,",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "raw": "Rodrigo,",
+          "start": 2.49,
+          "end": 2.81
+        },
+        {
+          "raw": "and",
+          "start": 2.93,
+          "end": 3.01
+        },
+        {
+          "raw": "Amelia.",
+          "start": 3.01,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Desdemona,",
+        "Iago,",
+        "Roderigo,",
+        "and",
+        "Emilia.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.67,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Distimona,",
+          "start": 0.67,
+          "end": 1.31,
+          "key": "distimona",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Diego,",
+          "start": 1.83,
+          "end": 1.97,
+          "key": "diego",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Rodrigo,",
+          "start": 2.49,
+          "end": 2.81,
+          "key": "rodrigo",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.93,
+          "end": 3.01,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Amelia.",
+          "start": 3.01,
+          "end": 3.23,
+          "key": "amelia",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "text": "Desdemona,",
+          "start": 0.67,
+          "end": 1.8
+        },
+        {
+          "text": "Iago,",
+          "start": 1.8,
+          "end": 2.365
+        },
+        {
+          "text": "Roderigo,",
+          "start": 2.365,
+          "end": 2.647
+        },
+        {
+          "text": "and",
+          "start": 2.93,
+          "end": 3.01
+        },
+        {
+          "text": "Emilia.]",
+          "start": 3.01,
+          "end": 3.12
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1381135769188404
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "120ce3996faaba9cadce878eb152eabf016cf2abb1cd48460b4dedd71f01bbf9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

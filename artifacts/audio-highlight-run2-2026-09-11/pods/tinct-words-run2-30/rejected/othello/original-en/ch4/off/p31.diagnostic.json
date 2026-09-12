@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "100819e22ba5f26b6a1acb4fbf3892959925e525a8c17fe3ee4f7b173b49244c",
+  "attempts": [
+    {
+      "asr_seconds": 0.113616565708071,
+      "alignment_seconds": 0.0002307291142642498,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " How now who is put in?",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " now",
+              "start": 0.57,
+              "end": 0.85,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " who",
+              "start": 0.85,
+              "end": 1.25,
+              "probability": 0.513671875
+            },
+            {
+              "text": " is",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.4892578125
+            },
+            {
+              "text": " put",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in?",
+              "start": 1.55,
+              "end": 1.85,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "now",
+          "start": 0.57,
+          "end": 0.85
+        },
+        {
+          "raw": "who",
+          "start": 0.85,
+          "end": 1.25
+        },
+        {
+          "raw": "is",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "put",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "in?",
+          "start": 1.55,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "[How",
+        "now?",
+        "Who",
+        "has",
+        "put",
+        "in?]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.57,
+          "end": 0.85,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 0.85,
+          "end": 1.25,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "put",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in?",
+          "start": 1.55,
+          "end": 1.85,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[How",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "now?",
+          "start": 0.57,
+          "end": 0.85
+        },
+        {
+          "text": "Who",
+          "start": 0.85,
+          "end": 1.25
+        },
+        {
+          "text": "has",
+          "start": 1.25,
+          "end": 1.32
+        },
+        {
+          "text": "put",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "in?]",
+          "start": 1.55,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11391141405329108
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bae0c2ba3bfc08344706d2a4a111ece5f59d9fad1889a151b66849ccf268e884",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

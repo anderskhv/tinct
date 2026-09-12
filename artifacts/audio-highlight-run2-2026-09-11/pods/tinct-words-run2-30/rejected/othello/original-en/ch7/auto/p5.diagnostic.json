@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "c62f33e5246f6d1423d33f0c63fef09132e01a7fd151ccaef1850da37ae8f72c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11400981480255723,
+      "alignment_seconds": 0.00015251897275447845,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Musician. How, sir, how?",
+        "hotwords": "First, Musician"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Musician. How, sir, how?",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " Musician.",
+              "start": 0.63,
+              "end": 1.21,
+              "probability": 0.5716552734375
+            },
+            {
+              "text": " How,",
+              "start": 1.59,
+              "end": 1.67,
+              "probability": 0.501953125
+            },
+            {
+              "text": " sir,",
+              "start": 1.79,
+              "end": 1.85,
+              "probability": 0.671875
+            },
+            {
+              "text": " how?",
+              "start": 1.91,
+              "end": 2.09,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Musician.",
+          "start": 0.63,
+          "end": 1.21
+        },
+        {
+          "raw": "How,",
+          "start": 1.59,
+          "end": 1.67
+        },
+        {
+          "raw": "sir,",
+          "start": 1.79,
+          "end": 1.85
+        },
+        {
+          "raw": "how?",
+          "start": 1.91,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Musician.",
+        "How,",
+        "sir,",
+        "how?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Musician.",
+          "start": 0.63,
+          "end": 1.21,
+          "key": "musician",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "How,",
+          "start": 1.59,
+          "end": 1.67,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.79,
+          "end": 1.85,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "how?",
+          "start": 1.91,
+          "end": 2.09,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Musician.",
+          "start": 0.63,
+          "end": 1.21
+        },
+        {
+          "text": "How,",
+          "start": 1.59,
+          "end": 1.67
+        },
+        {
+          "text": "sir,",
+          "start": 1.79,
+          "end": 1.85
+        },
+        {
+          "text": "how?",
+          "start": 1.91,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11421369388699532
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "546a016983e67df85c80a059c9a860a658b4824dbd72a184a4ec9d9606340c4b",
+  "selected_reasons": []
+}

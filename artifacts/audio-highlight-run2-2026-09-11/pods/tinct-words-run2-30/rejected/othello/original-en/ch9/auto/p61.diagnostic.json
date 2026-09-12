@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "1c40e9502660f2055894b6f98359f03a7e9936acc0325d88f15f3651780216a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.11850880971178412,
+      "alignment_seconds": 0.00013524992391467094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. I think so too.",
+        "hotwords": "Othello, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, I think so too.",
+          "start": 0.08,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " I",
+              "start": 1.12,
+              "end": 1.22,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " think",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " so",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " too.",
+              "start": 1.54,
+              "end": 1.82,
+              "probability": 0.857421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "I",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "raw": "think",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "so",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "too.",
+          "start": 1.54,
+          "end": 1.82
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "I",
+        "think",
+        "so",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.12,
+          "end": 1.22,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "think",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 1.54,
+          "end": 1.82,
+          "key": "too",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "I",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "text": "think",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "so",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "too.",
+          "start": 1.54,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.118692128919065
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1d5357b3978e844c1cf3b920944239d96861e2ccf03b600094ba3b43003b7170",
+  "selected_reasons": []
+}

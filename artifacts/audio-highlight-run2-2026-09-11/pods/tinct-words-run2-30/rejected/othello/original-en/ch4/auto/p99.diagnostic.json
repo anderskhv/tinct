@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "96b1201597ff68acbe5a7ea27f05e2bd2e74b18efdce5241617014229051058e",
+  "attempts": [
+    {
+      "asr_seconds": 0.13161522103473544,
+      "alignment_seconds": 0.00017873896285891533,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Roderigo. Well.",
+        "hotwords": "Roderigo, Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Roderigo. Well.",
+          "start": 0.02,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " Roderigo.",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.13374837239583334
+            },
+            {
+              "text": " Well.",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.94140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Roderigo.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "Well.",
+          "start": 1.04,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "Roderigo.",
+        "Well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Roderigo.",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "roderigo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well.",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Roderigo.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "Well.",
+          "start": 1.04,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1318447799421847
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "44749922abdc8ee9f5be9bb46d92c7ce691a5761760566b9fbced34b4cd05de5",
+  "selected_reasons": []
+}

@@ -1,0 +1,168 @@
+{
+  "complete": true,
+  "signature": "6ed92d81006a0123ef3b5c350cba28461dafde14b26f2847ec26d8dbdd046324",
+  "attempts": [
+    {
+      "asr_seconds": 0.0936965886503458,
+      "alignment_seconds": 0.00010872911661863327,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yago, I'm Adam.",
+          "start": 0.08,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " Yago,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.31005859375
+            },
+            {
+              "text": " I'm",
+              "start": 1.04,
+              "end": 1.38,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Adam.",
+              "start": 1.38,
+              "end": 1.58,
+              "probability": 0.966796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yago,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "I'm",
+          "start": 1.04,
+          "end": 1.38
+        },
+        {
+          "raw": "Adam.",
+          "start": 1.38,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Ay,",
+        "madam."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yago,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "yago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.04,
+          "end": 1.38,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Adam.",
+          "start": 1.38,
+          "end": 1.58,
+          "key": "adam",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.79
+        },
+        {
+          "text": "Ay,",
+          "start": 0.79,
+          "end": 1.185
+        },
+        {
+          "text": "madam.",
+          "start": 1.185,
+          "end": 1.383
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09385181870311499
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c14a48d539d5708a299eb8840c509c1f51cdf1e723389937d9dc12a92fc5fba0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

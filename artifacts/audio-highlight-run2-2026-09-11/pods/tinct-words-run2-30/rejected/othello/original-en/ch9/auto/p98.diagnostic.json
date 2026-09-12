@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "267d56a7b471e7ca8bb7b3584fe379af6f904619b432792554a4b98def56c844",
+  "attempts": [
+    {
+      "asr_seconds": 0.10210988484323025,
+      "alignment_seconds": 0.00013613887131214142,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. I once more take my leave.",
+        "hotwords": "Iago, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, I once more take my leave.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.007231712341308594
+            },
+            {
+              "text": " I",
+              "start": 1.07,
+              "end": 1.25,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " once",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.697265625
+            },
+            {
+              "text": " more",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " take",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.9921875
+            },
+            {
+              "text": " my",
+              "start": 1.71,
+              "end": 1.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " leave.",
+              "start": 1.91,
+              "end": 2.25,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "I",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "raw": "once",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "more",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "take",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "my",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "raw": "leave.",
+          "start": 1.91,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "I",
+        "once",
+        "more",
+        "take",
+        "my",
+        "leave."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.07,
+          "end": 1.25,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "once",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "more",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "take",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.71,
+          "end": 1.91,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "leave.",
+          "start": 1.91,
+          "end": 2.25,
+          "key": "leave",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "I",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "text": "once",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "more",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "take",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "text": "my",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "text": "leave.",
+          "start": 1.91,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1022973139770329
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "205a304c04281ec070bc714bd46bb3c31f8d55e2c8988a6e2dcc37d09350d559",
+  "selected_reasons": []
+}

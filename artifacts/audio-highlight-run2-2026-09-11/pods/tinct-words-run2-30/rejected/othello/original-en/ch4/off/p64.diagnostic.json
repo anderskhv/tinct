@@ -1,0 +1,420 @@
+{
+  "complete": true,
+  "signature": "336cf6e575d4cef06a3015d5fb67926676d8cd4065323a1ec78432e1ac7f82e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.1339931790716946,
+      "alignment_seconds": 0.00022635888308286667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, well praised. How if she be black and witty?",
+          "start": 0.65,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.65,
+              "end": 1.01,
+              "probability": 0.606353759765625
+            },
+            {
+              "text": " well",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.94140625
+            },
+            {
+              "text": " praised.",
+              "start": 1.53,
+              "end": 2.01,
+              "probability": 0.74755859375
+            },
+            {
+              "text": " How",
+              "start": 2.43,
+              "end": 2.49,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " if",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.469482421875
+            },
+            {
+              "text": " she",
+              "start": 2.61,
+              "end": 2.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 2.67,
+              "end": 2.81,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " black",
+              "start": 2.81,
+              "end": 3.05,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " and",
+              "start": 3.05,
+              "end": 3.23,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " witty?",
+              "start": 3.23,
+              "end": 3.39,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.65,
+          "end": 1.01
+        },
+        {
+          "raw": "well",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "praised.",
+          "start": 1.53,
+          "end": 2.01
+        },
+        {
+          "raw": "How",
+          "start": 2.43,
+          "end": 2.49
+        },
+        {
+          "raw": "if",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "she",
+          "start": 2.61,
+          "end": 2.67
+        },
+        {
+          "raw": "be",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "raw": "black",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "raw": "and",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "raw": "witty?",
+          "start": 3.23,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Well",
+        "prais'd!",
+        "How",
+        "if",
+        "she",
+        "be",
+        "black",
+        "and",
+        "witty?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          10,
+          3,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.65,
+          "end": 1.01,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "praised.",
+          "start": 1.53,
+          "end": 2.01,
+          "key": "praised",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.43,
+          "end": 2.49,
+          "key": "how",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.49,
+          "end": 2.61,
+          "key": "if",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.61,
+          "end": 2.67,
+          "key": "she",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.67,
+          "end": 2.81,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "black",
+          "start": 2.81,
+          "end": 3.05,
+          "key": "black",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.05,
+          "end": 3.23,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "witty?",
+          "start": 3.23,
+          "end": 3.39,
+          "key": "witty",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.705
+        },
+        {
+          "text": "Well",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "prais'd!",
+          "start": 1.53,
+          "end": 1.98
+        },
+        {
+          "text": "How",
+          "start": 2.43,
+          "end": 2.49
+        },
+        {
+          "text": "if",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "text": "she",
+          "start": 2.61,
+          "end": 2.67
+        },
+        {
+          "text": "be",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "text": "black",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "text": "and",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "text": "witty?",
+          "start": 3.23,
+          "end": 3.39
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1343026771210134
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bc939354d82258ae47b5c7620112ddf9d31d28395627b47f6808c4433908a5fa",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "85796b5fda78e6c0377185c9eda4563e77cd8279cd0ca4d5d4c6de2dc397ead7",
+  "attempts": [
+    {
+      "asr_seconds": 0.09050980396568775,
+      "alignment_seconds": 0.00011845864355564117,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Yet be content.",
+        "hotwords": "Iago, Yet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, Yet be content.",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.098602294921875
+            },
+            {
+              "text": " Yet",
+              "start": 1.17,
+              "end": 1.25,
+              "probability": 0.01508331298828125
+            },
+            {
+              "text": " be",
+              "start": 1.25,
+              "end": 1.37,
+              "probability": 0.01345062255859375
+            },
+            {
+              "text": " content.",
+              "start": 1.37,
+              "end": 1.79,
+              "probability": 0.62109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Yet",
+          "start": 1.17,
+          "end": 1.25
+        },
+        {
+          "raw": "be",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "raw": "content.",
+          "start": 1.37,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Yet",
+        "be",
+        "content."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yet",
+          "start": 1.17,
+          "end": 1.25,
+          "key": "yet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.25,
+          "end": 1.37,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "content.",
+          "start": 1.37,
+          "end": 1.79,
+          "key": "content",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Yet",
+          "start": 1.17,
+          "end": 1.25
+        },
+        {
+          "text": "be",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "text": "content.",
+          "start": 1.37,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09066877281293273
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "470a0950f4eaa0a3f926a381b3ab35c7f392bcc7c53a76a6074241dac45a9623",
+  "selected_reasons": []
+}

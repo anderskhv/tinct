@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "8c9cd289f19c1294d6f35aa71404c2e8ba118022e10fafc3f01f54e51c44e38f",
+  "attempts": [
+    {
+      "asr_seconds": 0.09795562783256173,
+      "alignment_seconds": 0.00018668873235583305,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona is possible.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Distimona",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.66949462890625
+            },
+            {
+              "text": " is",
+              "start": 1.05,
+              "end": 1.45,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " possible.",
+              "start": 1.45,
+              "end": 1.95,
+              "probability": 0.7001953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "is",
+          "start": 1.05,
+          "end": 1.45
+        },
+        {
+          "raw": "possible.",
+          "start": 1.45,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Is't",
+        "possible?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.05,
+          "end": 1.45,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "possible.",
+          "start": 1.45,
+          "end": 1.95,
+          "key": "possible",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.725
+        },
+        {
+          "text": "Is't",
+          "start": 0.725,
+          "end": 1.087
+        },
+        {
+          "text": "possible?",
+          "start": 1.45,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09820230584591627
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5a0fad897e6911f846eefce21f40dc4e1e8e17d1f6211d723b74ee6336f014f5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "07a45db3848336ded1b8a5f708c5ff5282615241cfd616416741e2a397ff8872",
+  "attempts": [
+    {
+      "asr_seconds": 0.10895125102251768,
+      "alignment_seconds": 0.00020071817561984062,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. How if fair and foolish?",
+        "hotwords": "Emilia, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia, How if Fair and Foolish?",
+          "start": 0.05,
+          "end": 2.21,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.592041015625
+            },
+            {
+              "text": " How",
+              "start": 1.27,
+              "end": 1.31,
+              "probability": 0.045654296875
+            },
+            {
+              "text": " if",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.00919342041015625
+            },
+            {
+              "text": " Fair",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.11322021484375
+            },
+            {
+              "text": " and",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.931640625
+            },
+            {
+              "text": " Foolish?",
+              "start": 1.79,
+              "end": 2.21,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "How",
+          "start": 1.27,
+          "end": 1.31
+        },
+        {
+          "raw": "if",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "Fair",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "and",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "Foolish?",
+          "start": 1.79,
+          "end": 2.21
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "How",
+        "if",
+        "fair",
+        "and",
+        "foolish?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.27,
+          "end": 1.31,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Fair",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "fair",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Foolish?",
+          "start": 1.79,
+          "end": 2.21,
+          "key": "foolish",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "How",
+          "start": 1.27,
+          "end": 1.31
+        },
+        {
+          "text": "if",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "fair",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "and",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "foolish?",
+          "start": 1.79,
+          "end": 2.21
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10921724000945687
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cd54f91cee3d204efd8e4f87e1dc94c0206bc64baf7d4bac8845cfcb49d16968",
+  "selected_reasons": []
+}

@@ -1,0 +1,675 @@
+{
+  "complete": true,
+  "signature": "bcec9d3e542a8cd5aee6092cd06e3a524cff08f3352d6206204060a9b113ea1b",
+  "attempts": [
+    {
+      "asr_seconds": 0.18712790962308645,
+      "alignment_seconds": 0.0002777990885078907,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown, to do this is within the compass of man's wit, and therefore I will attempt the",
+          "start": 0.0,
+          "end": 5.24,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.466796875
+            },
+            {
+              "text": " to",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " do",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " this",
+              "start": 1.58,
+              "end": 1.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 1.76,
+              "end": 1.92,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " within",
+              "start": 1.92,
+              "end": 2.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.18,
+              "end": 2.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " compass",
+              "start": 2.34,
+              "end": 2.54,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " of",
+              "start": 2.54,
+              "end": 2.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " man's",
+              "start": 2.78,
+              "end": 3.22,
+              "probability": 0.970703125
+            },
+            {
+              "text": " wit,",
+              "start": 3.22,
+              "end": 3.44,
+              "probability": 0.984375
+            },
+            {
+              "text": " and",
+              "start": 3.9,
+              "end": 3.98,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " therefore",
+              "start": 3.98,
+              "end": 4.32,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " I",
+              "start": 4.32,
+              "end": 4.58,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " will",
+              "start": 4.58,
+              "end": 4.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " attempt",
+              "start": 4.7,
+              "end": 5.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.02,
+              "end": 5.24,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " doing it.",
+          "start": 5.24,
+          "end": 5.74,
+          "words": [
+            {
+              "text": " doing",
+              "start": 5.24,
+              "end": 5.44,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " it.",
+              "start": 5.44,
+              "end": 5.74,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "raw": "to",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "do",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "this",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "raw": "is",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "raw": "within",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.34
+        },
+        {
+          "raw": "compass",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "raw": "of",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "raw": "man's",
+          "start": 2.78,
+          "end": 3.22
+        },
+        {
+          "raw": "wit,",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "raw": "and",
+          "start": 3.9,
+          "end": 3.98
+        },
+        {
+          "raw": "therefore",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "raw": "I",
+          "start": 4.32,
+          "end": 4.58
+        },
+        {
+          "raw": "will",
+          "start": 4.58,
+          "end": 4.7
+        },
+        {
+          "raw": "attempt",
+          "start": 4.7,
+          "end": 5.02
+        },
+        {
+          "raw": "the",
+          "start": 5.02,
+          "end": 5.24
+        },
+        {
+          "raw": "doing",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "raw": "it.",
+          "start": 5.44,
+          "end": 5.74
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "To",
+        "do",
+        "this",
+        "is",
+        "within",
+        "the",
+        "compass",
+        "of",
+        "man's",
+        "wit,",
+        "and",
+        "therefore",
+        "I",
+        "will",
+        "attempt",
+        "the",
+        "doing",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.58,
+          "end": 1.76,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.76,
+          "end": 1.92,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 1.92,
+          "end": 2.18,
+          "key": "within",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.34,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "compass",
+          "start": 2.34,
+          "end": 2.54,
+          "key": "compass",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.54,
+          "end": 2.78,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "man's",
+          "start": 2.78,
+          "end": 3.22,
+          "key": "mans",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "wit,",
+          "start": 3.22,
+          "end": 3.44,
+          "key": "wit",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.9,
+          "end": 3.98,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "therefore",
+          "start": 3.98,
+          "end": 4.32,
+          "key": "therefore",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.32,
+          "end": 4.58,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.58,
+          "end": 4.7,
+          "key": "will",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "attempt",
+          "start": 4.7,
+          "end": 5.02,
+          "key": "attempt",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.02,
+          "end": 5.24,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "doing",
+          "start": 5.24,
+          "end": 5.44,
+          "key": "doing",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 5.44,
+          "end": 5.74,
+          "key": "it",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "text": "To",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "do",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "this",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "text": "is",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "text": "within",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "text": "the",
+          "start": 2.18,
+          "end": 2.34
+        },
+        {
+          "text": "compass",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "text": "of",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "text": "man's",
+          "start": 2.78,
+          "end": 3.22
+        },
+        {
+          "text": "wit,",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "text": "and",
+          "start": 3.9,
+          "end": 3.98
+        },
+        {
+          "text": "therefore",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "text": "I",
+          "start": 4.32,
+          "end": 4.58
+        },
+        {
+          "text": "will",
+          "start": 4.58,
+          "end": 4.7
+        },
+        {
+          "text": "attempt",
+          "start": 4.7,
+          "end": 5.02
+        },
+        {
+          "text": "the",
+          "start": 5.02,
+          "end": 5.24
+        },
+        {
+          "text": "doing",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "text": "it.",
+          "start": 5.44,
+          "end": 5.74
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18751415889710188
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bb38edbd30800f66a594d370dedb6eed23ccbe362cde6f4666209fe444b06a7c",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "c098b700903272423febd595168238ff3038379400e47b8041d6eb3672170fde",
+  "attempts": [
+    {
+      "asr_seconds": 0.11355543741956353,
+      "alignment_seconds": 0.00017786864191293716,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. You advise me well.",
+        "hotwords": "Cassio, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, You advise me well.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.7098388671875
+            },
+            {
+              "text": " You",
+              "start": 1.17,
+              "end": 1.25,
+              "probability": 0.00589752197265625
+            },
+            {
+              "text": " advise",
+              "start": 1.25,
+              "end": 1.47,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " me",
+              "start": 1.47,
+              "end": 1.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " well.",
+              "start": 1.71,
+              "end": 1.95,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "You",
+          "start": 1.17,
+          "end": 1.25
+        },
+        {
+          "raw": "advise",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "raw": "me",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "raw": "well.",
+          "start": 1.71,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "You",
+        "advise",
+        "me",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.17,
+          "end": 1.25,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "advise",
+          "start": 1.25,
+          "end": 1.47,
+          "key": "advise",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.47,
+          "end": 1.71,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.71,
+          "end": 1.95,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "You",
+          "start": 1.17,
+          "end": 1.25
+        },
+        {
+          "text": "advise",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "text": "me",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "text": "well.",
+          "start": 1.71,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11378607619553804
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "67d1a29114f5061b4deab8b89dd200dfd90c835c63aff02f5cfb2002eadca7a3",
+  "selected_reasons": []
+}

@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "b310e0087d550501c05e6d5cdfe30dd5e188ba99dcd52fab8cce88bf088a5557",
+  "attempts": [
+    {
+      "asr_seconds": 0.09387405076995492,
+      "alignment_seconds": 0.00010643014684319496,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Rodrigo.",
+          "start": 0.02,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " Rodrigo.",
+              "start": 0.68,
+              "end": 1.36,
+              "probability": 0.5351155598958334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Rodrigo.",
+          "start": 0.68,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Roderigo.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Rodrigo.",
+          "start": 0.68,
+          "end": 1.36,
+          "key": "rodrigo",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Roderigo.]",
+          "start": 0.68,
+          "end": 1.02
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.094014179892838
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a79d2f7a24492a60d6f2a214d039117f55664c557fb0468dfe1c1901d20e6fd0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

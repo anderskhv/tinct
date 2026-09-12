@@ -1,0 +1,607 @@
+{
+  "complete": true,
+  "signature": "eed0254d7043f2793878bc9be2dbfacf409869eabdd9fe484f83827188191ee9",
+  "attempts": [
+    {
+      "asr_seconds": 0.18740617902949452,
+      "alignment_seconds": 0.0003288988955318928,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassio, I pray you, sir, go forth, and give us truth who tis that is a-rived.",
+          "start": 0.48,
+          "end": 4.72,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.48,
+              "end": 0.86,
+              "probability": 0.57037353515625
+            },
+            {
+              "text": " I",
+              "start": 1.3,
+              "end": 1.5,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " pray",
+              "start": 1.5,
+              "end": 1.68,
+              "probability": 0.98828125
+            },
+            {
+              "text": " you,",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " sir,",
+              "start": 2.02,
+              "end": 2.06,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " go",
+              "start": 2.18,
+              "end": 2.28,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " forth,",
+              "start": 2.28,
+              "end": 2.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 2.84,
+              "end": 2.96,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " give",
+              "start": 2.96,
+              "end": 3.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " us",
+              "start": 3.08,
+              "end": 3.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " truth",
+              "start": 3.26,
+              "end": 3.48,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " who",
+              "start": 3.48,
+              "end": 3.68,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " tis",
+              "start": 3.68,
+              "end": 3.86,
+              "probability": 0.5162353515625
+            },
+            {
+              "text": " that",
+              "start": 3.86,
+              "end": 4.06,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 4.06,
+              "end": 4.22,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " a",
+              "start": 4.22,
+              "end": 4.34,
+              "probability": 0.86279296875
+            },
+            {
+              "text": "-rived.",
+              "start": 4.34,
+              "end": 4.72,
+              "probability": 0.6051432291666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "raw": "I",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "raw": "pray",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "raw": "you,",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "sir,",
+          "start": 2.02,
+          "end": 2.06
+        },
+        {
+          "raw": "go",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "raw": "forth,",
+          "start": 2.28,
+          "end": 2.58
+        },
+        {
+          "raw": "and",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "raw": "give",
+          "start": 2.96,
+          "end": 3.08
+        },
+        {
+          "raw": "us",
+          "start": 3.08,
+          "end": 3.26
+        },
+        {
+          "raw": "truth",
+          "start": 3.26,
+          "end": 3.48
+        },
+        {
+          "raw": "who",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "raw": "tis",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "raw": "that",
+          "start": 3.86,
+          "end": 4.06
+        },
+        {
+          "raw": "is",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "raw": "a",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "raw": "-rived.",
+          "start": 4.34,
+          "end": 4.72
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "I",
+        "pray",
+        "you,",
+        "sir,",
+        "go",
+        "forth,",
+        "And",
+        "give",
+        "us",
+        "truth",
+        "who",
+        "'tis",
+        "that",
+        "is",
+        "arriv'd."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          15,
+          16,
+          15,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.48,
+          "end": 0.86,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.3,
+          "end": 1.5,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.5,
+          "end": 1.68,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.02,
+          "end": 2.06,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 2.18,
+          "end": 2.28,
+          "key": "go",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "forth,",
+          "start": 2.28,
+          "end": 2.58,
+          "key": "forth",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.84,
+          "end": 2.96,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 2.96,
+          "end": 3.08,
+          "key": "give",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 3.08,
+          "end": 3.26,
+          "key": "us",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "truth",
+          "start": 3.26,
+          "end": 3.48,
+          "key": "truth",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 3.48,
+          "end": 3.68,
+          "key": "who",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "tis",
+          "start": 3.68,
+          "end": 3.86,
+          "key": "tis",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.86,
+          "end": 4.06,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.06,
+          "end": 4.22,
+          "key": "is",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.22,
+          "end": 4.34,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "-rived.",
+          "start": 4.34,
+          "end": 4.72,
+          "key": "rived",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "text": "I",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "text": "pray",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "text": "you,",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "sir,",
+          "start": 2.02,
+          "end": 2.06
+        },
+        {
+          "text": "go",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "text": "forth,",
+          "start": 2.28,
+          "end": 2.58
+        },
+        {
+          "text": "And",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "text": "give",
+          "start": 2.96,
+          "end": 3.08
+        },
+        {
+          "text": "us",
+          "start": 3.08,
+          "end": 3.26
+        },
+        {
+          "text": "truth",
+          "start": 3.26,
+          "end": 3.48
+        },
+        {
+          "text": "who",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "text": "'tis",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "text": "that",
+          "start": 3.86,
+          "end": 4.06
+        },
+        {
+          "text": "is",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "text": "arriv'd.",
+          "start": 4.22,
+          "end": 4.47
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.187857277225703
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "00edfd65cf6db63962a6cea9ede7b5f3fad97ea24b188d3b989890d93a70442d",
+  "selected_reasons": []
+}

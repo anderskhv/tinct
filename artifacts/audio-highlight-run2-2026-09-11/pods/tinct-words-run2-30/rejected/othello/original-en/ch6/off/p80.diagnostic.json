@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "b9932bed81a58935010c858e823e5e1a12edf77b63542890db194c8575af5200",
+  "attempts": [
+    {
+      "asr_seconds": 0.09594686003401875,
+      "alignment_seconds": 0.00012303004041314125,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, what is the matter here?",
+          "start": 0.08,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.9207356770833334
+            },
+            {
+              "text": " what",
+              "start": 1.18,
+              "end": 1.3,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " is",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " the",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " matter",
+              "start": 1.54,
+              "end": 1.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " here?",
+              "start": 1.78,
+              "end": 2.1,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "what",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "raw": "is",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "the",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "matter",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "raw": "here?",
+          "start": 1.78,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "What",
+        "is",
+        "the",
+        "matter",
+        "here?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.18,
+          "end": 1.3,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 1.54,
+          "end": 1.78,
+          "key": "matter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "here?",
+          "start": 1.78,
+          "end": 2.1,
+          "key": "here",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "What",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "text": "is",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "the",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "matter",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "text": "here?",
+          "start": 1.78,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09611863922327757
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "89a7880a0c64af432d1d7177cc8862afcf038ae3966000563bce82f9014660fb",
+  "selected_reasons": []
+}

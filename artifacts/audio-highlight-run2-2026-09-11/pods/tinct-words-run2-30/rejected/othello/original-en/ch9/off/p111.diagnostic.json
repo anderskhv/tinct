@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "57d42c1ee5fa003e82439c4e4ea67dcf58ef8f90250c7bedbb22813fb6dbfc55",
+  "attempts": [
+    {
+      "asr_seconds": 0.10135152190923691,
+      "alignment_seconds": 0.00019062869250774384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt Othello and Distimona",
+          "start": 0.05,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.7151692708333334
+            },
+            {
+              "text": " Othello",
+              "start": 0.77,
+              "end": 1.19,
+              "probability": 0.8003743489583334
+            },
+            {
+              "text": " and",
+              "start": 1.19,
+              "end": 1.41,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " Distimona",
+              "start": 1.41,
+              "end": 1.97,
+              "probability": 0.701751708984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Othello",
+          "start": 0.77,
+          "end": 1.19
+        },
+        {
+          "raw": "and",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "raw": "Distimona",
+          "start": 1.41,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt",
+        "Othello",
+        "and",
+        "Desdemona.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Othello",
+          "start": 0.77,
+          "end": 1.19,
+          "key": "othello",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.19,
+          "end": 1.41,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Distimona",
+          "start": 1.41,
+          "end": 1.97,
+          "key": "distimona",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Othello",
+          "start": 0.77,
+          "end": 1.19
+        },
+        {
+          "text": "and",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "text": "Desdemona.]",
+          "start": 1.41,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1016068602912128
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "68b22bee0e5f249bb85952680f076799c29eb81a9992398c8dd620001f1f572d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

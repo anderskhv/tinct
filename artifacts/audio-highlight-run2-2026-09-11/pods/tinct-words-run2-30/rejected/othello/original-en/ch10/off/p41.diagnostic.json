@@ -1,0 +1,228 @@
+{
+  "complete": true,
+  "signature": "ca9d333a73aa16d2982b434f99ad185d848295609d37bfa43c4e0779da9af6ca",
+  "attempts": [
+    {
+      "asr_seconds": 0.10358711704611778,
+      "alignment_seconds": 0.00016833888366818428,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, indeed, is true.",
+          "start": 0.05,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.67333984375
+            },
+            {
+              "text": " indeed,",
+              "start": 1.23,
+              "end": 1.59,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 1.99,
+              "end": 2.23,
+              "probability": 0.994140625
+            },
+            {
+              "text": " true.",
+              "start": 2.23,
+              "end": 2.59,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "indeed,",
+          "start": 1.23,
+          "end": 1.59
+        },
+        {
+          "raw": "is",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "raw": "true.",
+          "start": 2.23,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Indeed?",
+        "Is't",
+        "true?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "indeed,",
+          "start": 1.23,
+          "end": 1.59,
+          "key": "indeed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.99,
+          "end": 2.23,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 2.23,
+          "end": 2.59,
+          "key": "true",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.615
+        },
+        {
+          "text": "Indeed?",
+          "start": 1.23,
+          "end": 1.59
+        },
+        {
+          "text": "Is't",
+          "start": 1.59,
+          "end": 1.91
+        },
+        {
+          "text": "true?",
+          "start": 2.23,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10380449565127492
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f955c2a654166fbbcba27f73aca550726268155fc7f107a457539580554c0adb",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

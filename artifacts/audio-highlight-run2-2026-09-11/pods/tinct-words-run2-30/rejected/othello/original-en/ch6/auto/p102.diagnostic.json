@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "0fc9975fd930ec2555ab818aa1eef8958745cf52a658346eaaa0e4209f99865b",
+  "attempts": [
+    {
+      "asr_seconds": 0.10469223372638226,
+      "alignment_seconds": 0.00013153906911611557,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. Ay, past all surgery.",
+        "hotwords": "Cassio, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, Ay, past all surgery.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.6634521484375
+            },
+            {
+              "text": " Ay,",
+              "start": 1.17,
+              "end": 1.39,
+              "probability": 3.5762786865234375e-07
+            },
+            {
+              "text": " past",
+              "start": 1.47,
+              "end": 1.67,
+              "probability": 0.271484375
+            },
+            {
+              "text": " all",
+              "start": 1.67,
+              "end": 1.85,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " surgery.",
+              "start": 1.85,
+              "end": 2.23,
+              "probability": 0.96923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "raw": "past",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "raw": "all",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "raw": "surgery.",
+          "start": 1.85,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "Ay,",
+        "past",
+        "all",
+        "surgery."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.17,
+          "end": 1.39,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "past",
+          "start": 1.47,
+          "end": 1.67,
+          "key": "past",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.67,
+          "end": 1.85,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "surgery.",
+          "start": 1.85,
+          "end": 2.23,
+          "key": "surgery",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Ay,",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "text": "past",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "text": "all",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "text": "surgery.",
+          "start": 1.85,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10486888280138373
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8076a1002426b71d9e7053aee0a54aba02d920d6a744b42be861b80a01347676",
+  "selected_reasons": []
+}

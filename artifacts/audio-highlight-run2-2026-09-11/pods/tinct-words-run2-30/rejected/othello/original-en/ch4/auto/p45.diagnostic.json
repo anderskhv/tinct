@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "38dbe3a5d8684d00ff60be7f3f9b4c31ebed7cdfad856cf3131050bbc197c261",
+  "attempts": [
+    {
+      "asr_seconds": 0.11203826405107975,
+      "alignment_seconds": 0.0001321188174188137,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. See for the news.",
+        "hotwords": "Cassio, See"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, See for the News.",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.5855712890625
+            },
+            {
+              "text": " See",
+              "start": 1.23,
+              "end": 1.25,
+              "probability": 0.0154876708984375
+            },
+            {
+              "text": " for",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.69873046875
+            },
+            {
+              "text": " the",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " News.",
+              "start": 1.49,
+              "end": 1.73,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "See",
+          "start": 1.23,
+          "end": 1.25
+        },
+        {
+          "raw": "for",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "the",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "News.",
+          "start": 1.49,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "See",
+        "for",
+        "the",
+        "news."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 1.23,
+          "end": 1.25,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.39,
+          "end": 1.49,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "News.",
+          "start": 1.49,
+          "end": 1.73,
+          "key": "news",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "See",
+          "start": 1.23,
+          "end": 1.25
+        },
+        {
+          "text": "for",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "the",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "news.",
+          "start": 1.49,
+          "end": 1.73
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11221813270822167
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d8322b0c16d42f926edb96002f3e0d81458e6004c752052afd4eb64ca14f342f",
+  "selected_reasons": []
+}

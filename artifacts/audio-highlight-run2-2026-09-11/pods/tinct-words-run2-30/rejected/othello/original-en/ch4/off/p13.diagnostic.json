@@ -1,0 +1,543 @@
+{
+  "complete": true,
+  "signature": "ea5a1e9b6c60b9b7cd465f59c77617de4ee9686e00da139fce68959bc1de601a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1738991499878466,
+      "alignment_seconds": 0.00021867919713258743,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Third gentleman, come, let's do so, for every minute is expectancy of more a-rivance.",
+          "start": 0.05,
+          "end": 5.95,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.69287109375
+            },
+            {
+              "text": " gentleman,",
+              "start": 0.67,
+              "end": 1.17,
+              "probability": 0.4853515625
+            },
+            {
+              "text": " come,",
+              "start": 1.75,
+              "end": 2.11,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " let's",
+              "start": 2.41,
+              "end": 2.65,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " do",
+              "start": 2.65,
+              "end": 2.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " so,",
+              "start": 2.79,
+              "end": 3.07,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " for",
+              "start": 3.45,
+              "end": 3.55,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " every",
+              "start": 3.55,
+              "end": 3.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " minute",
+              "start": 3.87,
+              "end": 4.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 4.07,
+              "end": 4.29,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " expectancy",
+              "start": 4.29,
+              "end": 4.83,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " of",
+              "start": 4.83,
+              "end": 5.23,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " more",
+              "start": 5.23,
+              "end": 5.45,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " a",
+              "start": 5.45,
+              "end": 5.57,
+              "probability": 0.181640625
+            },
+            {
+              "text": "-rivance.",
+              "start": 5.57,
+              "end": 5.95,
+              "probability": 0.5686848958333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "gentleman,",
+          "start": 0.67,
+          "end": 1.17
+        },
+        {
+          "raw": "come,",
+          "start": 1.75,
+          "end": 2.11
+        },
+        {
+          "raw": "let's",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "raw": "do",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "raw": "so,",
+          "start": 2.79,
+          "end": 3.07
+        },
+        {
+          "raw": "for",
+          "start": 3.45,
+          "end": 3.55
+        },
+        {
+          "raw": "every",
+          "start": 3.55,
+          "end": 3.87
+        },
+        {
+          "raw": "minute",
+          "start": 3.87,
+          "end": 4.07
+        },
+        {
+          "raw": "is",
+          "start": 4.07,
+          "end": 4.29
+        },
+        {
+          "raw": "expectancy",
+          "start": 4.29,
+          "end": 4.83
+        },
+        {
+          "raw": "of",
+          "start": 4.83,
+          "end": 5.23
+        },
+        {
+          "raw": "more",
+          "start": 5.23,
+          "end": 5.45
+        },
+        {
+          "raw": "a",
+          "start": 5.45,
+          "end": 5.57
+        },
+        {
+          "raw": "-rivance.",
+          "start": 5.57,
+          "end": 5.95
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Gentleman.",
+        "Come,",
+        "let's",
+        "do",
+        "so;",
+        "For",
+        "every",
+        "minute",
+        "is",
+        "expectancy",
+        "Of",
+        "more",
+        "arrivance."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gentleman,",
+          "start": 0.67,
+          "end": 1.17,
+          "key": "gentleman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 1.75,
+          "end": 2.11,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "let's",
+          "start": 2.41,
+          "end": 2.65,
+          "key": "lets",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.65,
+          "end": 2.79,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 2.79,
+          "end": 3.07,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.45,
+          "end": 3.55,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 3.55,
+          "end": 3.87,
+          "key": "every",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "minute",
+          "start": 3.87,
+          "end": 4.07,
+          "key": "minute",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.07,
+          "end": 4.29,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "expectancy",
+          "start": 4.29,
+          "end": 4.83,
+          "key": "expectancy",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.83,
+          "end": 5.23,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 5.23,
+          "end": 5.45,
+          "key": "more",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.45,
+          "end": 5.57,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "-rivance.",
+          "start": 5.57,
+          "end": 5.95,
+          "key": "rivance",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Gentleman.",
+          "start": 0.67,
+          "end": 1.17
+        },
+        {
+          "text": "Come,",
+          "start": 1.75,
+          "end": 2.11
+        },
+        {
+          "text": "let's",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "text": "do",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "text": "so;",
+          "start": 2.79,
+          "end": 3.07
+        },
+        {
+          "text": "For",
+          "start": 3.45,
+          "end": 3.55
+        },
+        {
+          "text": "every",
+          "start": 3.55,
+          "end": 3.87
+        },
+        {
+          "text": "minute",
+          "start": 3.87,
+          "end": 4.07
+        },
+        {
+          "text": "is",
+          "start": 4.07,
+          "end": 4.29
+        },
+        {
+          "text": "expectancy",
+          "start": 4.29,
+          "end": 4.83
+        },
+        {
+          "text": "Of",
+          "start": 4.83,
+          "end": 5.23
+        },
+        {
+          "text": "more",
+          "start": 5.23,
+          "end": 5.45
+        },
+        {
+          "text": "arrivance.",
+          "start": 5.45,
+          "end": 5.7
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.17419711919501424
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "37495cce0a6c8d6b565937ead98639626c3f441ee52a6ec84736976b341f62c1",
+  "selected_reasons": []
+}

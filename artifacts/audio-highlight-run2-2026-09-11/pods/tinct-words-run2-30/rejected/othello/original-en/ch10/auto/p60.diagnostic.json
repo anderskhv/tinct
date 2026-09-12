@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "02480d0f27e723df9925280a28c4d8b6d786822bf3c9795e266e99126bcefc0e",
+  "attempts": [
+    {
+      "asr_seconds": 0.10627626394852996,
+      "alignment_seconds": 9.775860235095024e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. The handkerchief!",
+        "hotwords": "Othello, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, The handkerchief!",
+          "start": 0.08,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.4617055257161458
+            },
+            {
+              "text": " The",
+              "start": 1.14,
+              "end": 1.18,
+              "probability": 0.300048828125
+            },
+            {
+              "text": " handkerchief!",
+              "start": 1.18,
+              "end": 1.7,
+              "probability": 0.7125651041666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "The",
+          "start": 1.14,
+          "end": 1.18
+        },
+        {
+          "raw": "handkerchief!",
+          "start": 1.18,
+          "end": 1.7
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "The",
+        "handkerchief!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.14,
+          "end": 1.18,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "handkerchief!",
+          "start": 1.18,
+          "end": 1.7,
+          "key": "handkerchief",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "The",
+          "start": 1.14,
+          "end": 1.18
+        },
+        {
+          "text": "handkerchief!",
+          "start": 1.18,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10640724282711744
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "024d4fef6c52d8bb243fbbbf6b3761f960b089c96cb50b75ff7a71043ceb1cd2",
+  "selected_reasons": []
+}

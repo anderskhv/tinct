@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "f33696a19298f409fe5f8388243e8cf8f6558a0f2016ca6935635399e49eee36",
+  "attempts": [
+    {
+      "asr_seconds": 0.083544853143394,
+      "alignment_seconds": 0.00010160915553569794,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[A shot.]",
+        "hotwords": "A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A shot.",
+          "start": 0.02,
+          "end": 0.8,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.71337890625
+            },
+            {
+              "text": " shot.",
+              "start": 0.58,
+              "end": 0.8,
+              "probability": 0.70068359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "shot.",
+          "start": 0.58,
+          "end": 0.8
+        }
+      ],
+      "expected_tokens": [
+        "[A",
+        "shot.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shot.",
+          "start": 0.58,
+          "end": 0.8,
+          "key": "shot",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[A",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "shot.]",
+          "start": 0.58,
+          "end": 0.8
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08367513213306665
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0d2f9ade8aaaa19effd4c9772e96918c45185f943bd0879dedf68db250f03f03",
+  "selected_reasons": []
+}

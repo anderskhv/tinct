@@ -1,0 +1,228 @@
+{
+  "complete": true,
+  "signature": "63bc84facaea0946a155a765183a5dc8cc0e76932a9aaa9a1e59ab07057d1770",
+  "attempts": [
+    {
+      "asr_seconds": 0.09139380231499672,
+      "alignment_seconds": 0.00012572994455695152,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Casio and Diego.",
+          "start": 0.08,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " Casio",
+              "start": 0.66,
+              "end": 1.12,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " and",
+              "start": 1.12,
+              "end": 1.22,
+              "probability": 0.56103515625
+            },
+            {
+              "text": " Diego.",
+              "start": 1.22,
+              "end": 1.54,
+              "probability": 0.7900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Casio",
+          "start": 0.66,
+          "end": 1.12
+        },
+        {
+          "raw": "and",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "raw": "Diego.",
+          "start": 1.22,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Cassio",
+        "and",
+        "Iago.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Casio",
+          "start": 0.66,
+          "end": 1.12,
+          "key": "casio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.12,
+          "end": 1.22,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Diego.",
+          "start": 1.22,
+          "end": 1.54,
+          "key": "diego",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Cassio",
+          "start": 0.66,
+          "end": 0.89
+        },
+        {
+          "text": "and",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "text": "Iago.]",
+          "start": 1.22,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09156062128022313
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "20fcfac5cc4f876de603db29a0573636e4742bfaa84f64c4031d6d505804b4e4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

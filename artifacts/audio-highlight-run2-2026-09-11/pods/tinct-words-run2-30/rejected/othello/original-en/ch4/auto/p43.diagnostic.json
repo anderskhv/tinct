@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "066af10d1d6ab7e1a0a2ff1037b5b6cd2a0e1f1886d9d4eb32b91a2531cf51cb",
+  "attempts": [
+    {
+      "asr_seconds": 0.08334286417812109,
+      "alignment_seconds": 9.034015238285065e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Guns within.]",
+        "hotwords": "Guns"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Guns within.",
+          "start": 0.05,
+          "end": 0.93,
+          "words": [
+            {
+              "text": " Guns",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.701171875
+            },
+            {
+              "text": " within.",
+              "start": 0.65,
+              "end": 0.93,
+              "probability": 0.334716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guns",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "within.",
+          "start": 0.65,
+          "end": 0.93
+        }
+      ],
+      "expected_tokens": [
+        "[Guns",
+        "within.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guns",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "guns",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "within.",
+          "start": 0.65,
+          "end": 0.93,
+          "key": "within",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Guns",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "within.]",
+          "start": 0.65,
+          "end": 0.93
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08346367301419377
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b50e6522fa20f8b56bbe805f2abd18422bb50f818e2cd057a9fad0648c9c8ec0",
+  "selected_reasons": []
+}

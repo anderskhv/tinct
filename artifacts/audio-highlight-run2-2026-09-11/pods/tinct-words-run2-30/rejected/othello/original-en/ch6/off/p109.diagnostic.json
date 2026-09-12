@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "568ffac995c593b065fc58e9a2d2a671f66f7b0ff0b223a6da6ef47ba97151cb",
+  "attempts": [
+    {
+      "asr_seconds": 0.08962964406237006,
+      "alignment_seconds": 0.00010896986350417137,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " YEGO is possible.",
+          "start": 0.02,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " YEGO",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.6252034505208334
+            },
+            {
+              "text": " is",
+              "start": 0.84,
+              "end": 1.2,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " possible.",
+              "start": 1.2,
+              "end": 1.7,
+              "probability": 0.82373046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "YEGO",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "is",
+          "start": 0.84,
+          "end": 1.2
+        },
+        {
+          "raw": "possible.",
+          "start": 1.2,
+          "end": 1.7
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Is't",
+        "possible?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "YEGO",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "yego",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.84,
+          "end": 1.2,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "possible.",
+          "start": 1.2,
+          "end": 1.7,
+          "key": "possible",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "Is't",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "text": "possible?",
+          "start": 1.2,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08977275434881449
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e5277a0da70707a2d74e942c255486d8a7940b8c1bbd086e6879c81fa31b27f8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

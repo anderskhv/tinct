@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "4076ba67974a47e4daeebdc590c57624f0017b5a9e20380d5e86064430b77a5c",
+  "attempts": [
+    {
+      "asr_seconds": 0.10077508306130767,
+      "alignment_seconds": 0.00012204889208078384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Othello and attendance.",
+          "start": 0.11,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " Othello",
+              "start": 0.65,
+              "end": 1.11,
+              "probability": 0.9811197916666666
+            },
+            {
+              "text": " and",
+              "start": 1.11,
+              "end": 1.39,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " attendance.",
+              "start": 1.39,
+              "end": 1.81,
+              "probability": 0.70361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Othello",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "raw": "and",
+          "start": 1.11,
+          "end": 1.39
+        },
+        {
+          "raw": "attendance.",
+          "start": 1.39,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Othello",
+        "and",
+        "Attendants.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Othello",
+          "start": 0.65,
+          "end": 1.11,
+          "key": "othello",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.11,
+          "end": 1.39,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "attendance.",
+          "start": 1.39,
+          "end": 1.81,
+          "key": "attendance",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Othello",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "text": "and",
+          "start": 1.11,
+          "end": 1.39
+        },
+        {
+          "text": "Attendants.]",
+          "start": 1.39,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10093607194721699
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "877364b8f4f1dbdddd0948ade1d7c1f4bfeec99b2f1f397ac38339d6f28ae648",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

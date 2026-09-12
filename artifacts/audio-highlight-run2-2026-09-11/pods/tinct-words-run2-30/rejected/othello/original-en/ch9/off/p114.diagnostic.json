@@ -1,0 +1,376 @@
+{
+  "complete": true,
+  "signature": "e8a5350519425f7e376bcd949a46a3d1adfdf590cb33644e82841a088f092c54",
+  "attempts": [
+    {
+      "asr_seconds": 0.10628102486953139,
+      "alignment_seconds": 0.00022724922746419907,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hey, go how now what do you hear alone?",
+          "start": 0.08,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " Hey,",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.53857421875
+            },
+            {
+              "text": " go",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.75146484375
+            },
+            {
+              "text": " how",
+              "start": 0.76,
+              "end": 0.98,
+              "probability": 0.5380859375
+            },
+            {
+              "text": " now",
+              "start": 0.98,
+              "end": 1.34,
+              "probability": 0.986328125
+            },
+            {
+              "text": " what",
+              "start": 1.34,
+              "end": 1.7,
+              "probability": 0.70703125
+            },
+            {
+              "text": " do",
+              "start": 1.7,
+              "end": 1.82,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " you",
+              "start": 1.82,
+              "end": 1.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hear",
+              "start": 1.9,
+              "end": 2.04,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " alone?",
+              "start": 2.04,
+              "end": 2.34,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hey,",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "go",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "how",
+          "start": 0.76,
+          "end": 0.98
+        },
+        {
+          "raw": "now",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "raw": "what",
+          "start": 1.34,
+          "end": 1.7
+        },
+        {
+          "raw": "do",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "raw": "you",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "raw": "hear",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "raw": "alone?",
+          "start": 2.04,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "How",
+        "now?",
+        "What",
+        "do",
+        "you",
+        "here",
+        "alone?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          6,
+          2,
+          7
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "equal",
+          7,
+          8,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hey,",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "hey",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.62,
+          "end": 0.76,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 0.76,
+          "end": 0.98,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.98,
+          "end": 1.34,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.34,
+          "end": 1.7,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.7,
+          "end": 1.82,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.82,
+          "end": 1.9,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 1.9,
+          "end": 2.04,
+          "key": "hear",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "alone?",
+          "start": 2.04,
+          "end": 2.34,
+          "key": "alone",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "How",
+          "start": 0.76,
+          "end": 0.98
+        },
+        {
+          "text": "now?",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "text": "What",
+          "start": 1.34,
+          "end": 1.7
+        },
+        {
+          "text": "do",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "text": "you",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "text": "here",
+          "start": 1.9,
+          "end": 1.97
+        },
+        {
+          "text": "alone?",
+          "start": 2.04,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10659725405275822
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "22829dfe830e5a61e07e8e7b267a1d9b0c06f0b5d8298a3e20a8cfbc06bc1f0a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

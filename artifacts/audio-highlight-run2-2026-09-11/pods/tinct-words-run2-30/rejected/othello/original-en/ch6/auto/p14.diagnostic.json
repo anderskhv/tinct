@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "ddee586c9a904f21957429336265368dcbfc3fbb368637749be110e8eb76186d",
+  "attempts": [
+    {
+      "asr_seconds": 4.369414036162198,
+      "alignment_seconds": 0.0002611381933093071,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. She is indeed perfection.",
+        "hotwords": "Cassio, She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio. She is indeed perfection.",
+          "start": 0.05,
+          "end": 2.21,
+          "words": [
+            {
+              "text": " Cassio.",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.763671875
+            },
+            {
+              "text": " She",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " is",
+              "start": 1.37,
+              "end": 1.49,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " indeed",
+              "start": 1.49,
+              "end": 1.77,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " perfection.",
+              "start": 1.77,
+              "end": 2.21,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "She",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "is",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "raw": "indeed",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "raw": "perfection.",
+          "start": 1.77,
+          "end": 2.21
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "She",
+        "is",
+        "indeed",
+        "perfection."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio.",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 1.23,
+          "end": 1.37,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.37,
+          "end": 1.49,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "indeed",
+          "start": 1.49,
+          "end": 1.77,
+          "key": "indeed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "perfection.",
+          "start": 1.77,
+          "end": 2.21,
+          "key": "perfection",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "She",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "is",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "text": "indeed",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "text": "perfection.",
+          "start": 1.77,
+          "end": 2.21
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 4.369759733788669
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f45a62299cd487c6884840367ff5cf089e020042183d10ef32ff96c354ed7174",
+  "selected_reasons": []
+}

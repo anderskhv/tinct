@@ -1,0 +1,894 @@
+{
+  "complete": true,
+  "signature": "4a74603ee0a949666ab7e1af87295d4e236d133c1b2c191bf568dc867d78f6ad",
+  "attempts": [
+    {
+      "asr_seconds": 0.2684871950186789,
+      "alignment_seconds": 0.00032368768006563187,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. His bark is stoutly timber'd, and his pilot Of very expert and approv'd allowance; Therefore my hopes, not surfeited to death, Stand in bold cure.",
+        "hotwords": "Cassio, Of, Therefore, Stand"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, His bark is stoutly timber'd, and his pilot Of very expert and approv'd allowance, Therefore my hopes, not surfeited to death, Stand in bold cure.",
+          "start": 0.02,
+          "end": 10.26,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.7005615234375
+            },
+            {
+              "text": " His",
+              "start": 1.16,
+              "end": 1.38,
+              "probability": 0.019012451171875
+            },
+            {
+              "text": " bark",
+              "start": 1.38,
+              "end": 1.6,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " is",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.990234375
+            },
+            {
+              "text": " stoutly",
+              "start": 1.78,
+              "end": 2.18,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " timber'd,",
+              "start": 2.18,
+              "end": 2.76,
+              "probability": 0.40118980407714844
+            },
+            {
+              "text": " and",
+              "start": 3.02,
+              "end": 3.14,
+              "probability": 0.4619140625
+            },
+            {
+              "text": " his",
+              "start": 3.14,
+              "end": 3.28,
+              "probability": 0.494140625
+            },
+            {
+              "text": " pilot",
+              "start": 3.28,
+              "end": 3.62,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " Of",
+              "start": 3.62,
+              "end": 3.8,
+              "probability": 0.00014698505401611328
+            },
+            {
+              "text": " very",
+              "start": 3.8,
+              "end": 4.06,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " expert",
+              "start": 4.06,
+              "end": 4.56,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " and",
+              "start": 4.56,
+              "end": 4.82,
+              "probability": 0.810546875
+            },
+            {
+              "text": " approv'd",
+              "start": 4.82,
+              "end": 5.22,
+              "probability": 0.6649576822916666
+            },
+            {
+              "text": " allowance,",
+              "start": 5.22,
+              "end": 5.64,
+              "probability": 0.86328125
+            },
+            {
+              "text": " Therefore",
+              "start": 6.36,
+              "end": 6.56,
+              "probability": 0.6435546875
+            },
+            {
+              "text": " my",
+              "start": 6.56,
+              "end": 6.94,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " hopes,",
+              "start": 6.94,
+              "end": 7.28,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " not",
+              "start": 7.58,
+              "end": 7.76,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " surfeited",
+              "start": 7.76,
+              "end": 8.2,
+              "probability": 0.8229166666666666
+            },
+            {
+              "text": " to",
+              "start": 8.2,
+              "end": 8.38,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " death,",
+              "start": 8.38,
+              "end": 8.66,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " Stand",
+              "start": 8.98,
+              "end": 9.3,
+              "probability": 0.67431640625
+            },
+            {
+              "text": " in",
+              "start": 9.3,
+              "end": 9.56,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " bold",
+              "start": 9.56,
+              "end": 9.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " cure.",
+              "start": 9.86,
+              "end": 10.26,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "His",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "raw": "bark",
+          "start": 1.38,
+          "end": 1.6
+        },
+        {
+          "raw": "is",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "stoutly",
+          "start": 1.78,
+          "end": 2.18
+        },
+        {
+          "raw": "timber'd,",
+          "start": 2.18,
+          "end": 2.76
+        },
+        {
+          "raw": "and",
+          "start": 3.02,
+          "end": 3.14
+        },
+        {
+          "raw": "his",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "raw": "pilot",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "raw": "Of",
+          "start": 3.62,
+          "end": 3.8
+        },
+        {
+          "raw": "very",
+          "start": 3.8,
+          "end": 4.06
+        },
+        {
+          "raw": "expert",
+          "start": 4.06,
+          "end": 4.56
+        },
+        {
+          "raw": "and",
+          "start": 4.56,
+          "end": 4.82
+        },
+        {
+          "raw": "approv'd",
+          "start": 4.82,
+          "end": 5.22
+        },
+        {
+          "raw": "allowance,",
+          "start": 5.22,
+          "end": 5.64
+        },
+        {
+          "raw": "Therefore",
+          "start": 6.36,
+          "end": 6.56
+        },
+        {
+          "raw": "my",
+          "start": 6.56,
+          "end": 6.94
+        },
+        {
+          "raw": "hopes,",
+          "start": 6.94,
+          "end": 7.28
+        },
+        {
+          "raw": "not",
+          "start": 7.58,
+          "end": 7.76
+        },
+        {
+          "raw": "surfeited",
+          "start": 7.76,
+          "end": 8.2
+        },
+        {
+          "raw": "to",
+          "start": 8.2,
+          "end": 8.38
+        },
+        {
+          "raw": "death,",
+          "start": 8.38,
+          "end": 8.66
+        },
+        {
+          "raw": "Stand",
+          "start": 8.98,
+          "end": 9.3
+        },
+        {
+          "raw": "in",
+          "start": 9.3,
+          "end": 9.56
+        },
+        {
+          "raw": "bold",
+          "start": 9.56,
+          "end": 9.86
+        },
+        {
+          "raw": "cure.",
+          "start": 9.86,
+          "end": 10.26
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "His",
+        "bark",
+        "is",
+        "stoutly",
+        "timber'd,",
+        "and",
+        "his",
+        "pilot",
+        "Of",
+        "very",
+        "expert",
+        "and",
+        "approv'd",
+        "allowance;",
+        "Therefore",
+        "my",
+        "hopes,",
+        "not",
+        "surfeited",
+        "to",
+        "death,",
+        "Stand",
+        "in",
+        "bold",
+        "cure."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 1.16,
+          "end": 1.38,
+          "key": "his",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bark",
+          "start": 1.38,
+          "end": 1.6,
+          "key": "bark",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.6,
+          "end": 1.78,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stoutly",
+          "start": 1.78,
+          "end": 2.18,
+          "key": "stoutly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "timber'd,",
+          "start": 2.18,
+          "end": 2.76,
+          "key": "timberd",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.02,
+          "end": 3.14,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.14,
+          "end": 3.28,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pilot",
+          "start": 3.28,
+          "end": 3.62,
+          "key": "pilot",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 3.62,
+          "end": 3.8,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 3.8,
+          "end": 4.06,
+          "key": "very",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "expert",
+          "start": 4.06,
+          "end": 4.56,
+          "key": "expert",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.56,
+          "end": 4.82,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "approv'd",
+          "start": 4.82,
+          "end": 5.22,
+          "key": "approvd",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "allowance,",
+          "start": 5.22,
+          "end": 5.64,
+          "key": "allowance",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Therefore",
+          "start": 6.36,
+          "end": 6.56,
+          "key": "therefore",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 6.56,
+          "end": 6.94,
+          "key": "my",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "hopes,",
+          "start": 6.94,
+          "end": 7.28,
+          "key": "hopes",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.58,
+          "end": 7.76,
+          "key": "not",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "surfeited",
+          "start": 7.76,
+          "end": 8.2,
+          "key": "surfeited",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.2,
+          "end": 8.38,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "death,",
+          "start": 8.38,
+          "end": 8.66,
+          "key": "death",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Stand",
+          "start": 8.98,
+          "end": 9.3,
+          "key": "stand",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.3,
+          "end": 9.56,
+          "key": "in",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "bold",
+          "start": 9.56,
+          "end": 9.86,
+          "key": "bold",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "cure.",
+          "start": 9.86,
+          "end": 10.26,
+          "key": "cure",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "His",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "text": "bark",
+          "start": 1.38,
+          "end": 1.6
+        },
+        {
+          "text": "is",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "text": "stoutly",
+          "start": 1.78,
+          "end": 2.18
+        },
+        {
+          "text": "timber'd,",
+          "start": 2.18,
+          "end": 2.76
+        },
+        {
+          "text": "and",
+          "start": 3.02,
+          "end": 3.14
+        },
+        {
+          "text": "his",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "text": "pilot",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "text": "Of",
+          "start": 3.62,
+          "end": 3.8
+        },
+        {
+          "text": "very",
+          "start": 3.8,
+          "end": 4.06
+        },
+        {
+          "text": "expert",
+          "start": 4.06,
+          "end": 4.56
+        },
+        {
+          "text": "and",
+          "start": 4.56,
+          "end": 4.82
+        },
+        {
+          "text": "approv'd",
+          "start": 4.82,
+          "end": 5.22
+        },
+        {
+          "text": "allowance;",
+          "start": 5.22,
+          "end": 5.64
+        },
+        {
+          "text": "Therefore",
+          "start": 6.36,
+          "end": 6.56
+        },
+        {
+          "text": "my",
+          "start": 6.56,
+          "end": 6.94
+        },
+        {
+          "text": "hopes,",
+          "start": 6.94,
+          "end": 7.28
+        },
+        {
+          "text": "not",
+          "start": 7.58,
+          "end": 7.76
+        },
+        {
+          "text": "surfeited",
+          "start": 7.76,
+          "end": 8.2
+        },
+        {
+          "text": "to",
+          "start": 8.2,
+          "end": 8.38
+        },
+        {
+          "text": "death,",
+          "start": 8.38,
+          "end": 8.66
+        },
+        {
+          "text": "Stand",
+          "start": 8.98,
+          "end": 9.3
+        },
+        {
+          "text": "in",
+          "start": 9.3,
+          "end": 9.56
+        },
+        {
+          "text": "bold",
+          "start": 9.56,
+          "end": 9.86
+        },
+        {
+          "text": "cure.",
+          "start": 9.86,
+          "end": 10.26
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2689377130009234
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1d50b0a85d837dd93c78195ce89f2a4b14c715467f25a26988cd80887de372ee",
+  "selected_reasons": []
+}

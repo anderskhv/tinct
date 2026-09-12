@@ -1,0 +1,221 @@
+{
+  "complete": true,
+  "signature": "8cab01a3e1686d803488b5f9e0d1510323f78ac99e0bb170f1586b3a936a55db",
+  "attempts": [
+    {
+      "asr_seconds": 0.09984165010973811,
+      "alignment_seconds": 0.00019485875964164734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And Happy Time, Diego!",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.284912109375
+            },
+            {
+              "text": " Happy",
+              "start": 0.53,
+              "end": 0.79,
+              "probability": 0.45654296875
+            },
+            {
+              "text": " Time,",
+              "start": 0.79,
+              "end": 1.11,
+              "probability": 0.7158203125
+            },
+            {
+              "text": " Diego!",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.88671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Happy",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "raw": "Time,",
+          "start": 0.79,
+          "end": 1.11
+        },
+        {
+          "raw": "Diego!",
+          "start": 1.25,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "[In",
+        "happy",
+        "time,",
+        "Iago.]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Happy",
+          "start": 0.53,
+          "end": 0.79,
+          "key": "happy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Time,",
+          "start": 0.79,
+          "end": 1.11,
+          "key": "time",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Diego!",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "diego",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[In",
+          "start": 0.0,
+          "end": 0.265
+        },
+        {
+          "text": "happy",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "text": "time,",
+          "start": 0.79,
+          "end": 1.11
+        },
+        {
+          "text": "Iago.]",
+          "start": 1.11,
+          "end": 1.27
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10008862800896168
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a546c5aada2c1b7bd29243b4047c17eb15b3209a69641842f119abc5a28d7b3d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

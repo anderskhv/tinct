@@ -1,0 +1,743 @@
+{
+  "complete": true,
+  "signature": "236d873df118b5ee9e32861dcb81e05f03377b08ec66ec10b69092b0b896cb03",
+  "attempts": [
+    {
+      "asr_seconds": 0.2224050280638039,
+      "alignment_seconds": 0.0004018680192530155,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Amelia, what handkerchief? Why, that the moor first gave to Distimona, that which so often",
+          "start": 0.05,
+          "end": 6.05,
+          "words": [
+            {
+              "text": " Amelia,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.2705078125
+            },
+            {
+              "text": " what",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.970703125
+            },
+            {
+              "text": " handkerchief?",
+              "start": 1.49,
+              "end": 2.03,
+              "probability": 0.9609375
+            },
+            {
+              "text": " Why,",
+              "start": 2.69,
+              "end": 2.89,
+              "probability": 0.927734375
+            },
+            {
+              "text": " that",
+              "start": 3.05,
+              "end": 3.15,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 3.15,
+              "end": 3.31,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " moor",
+              "start": 3.31,
+              "end": 3.47,
+              "probability": 0.862548828125
+            },
+            {
+              "text": " first",
+              "start": 3.47,
+              "end": 3.75,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " gave",
+              "start": 3.75,
+              "end": 3.99,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " to",
+              "start": 3.99,
+              "end": 4.21,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Distimona,",
+              "start": 4.21,
+              "end": 4.79,
+              "probability": 0.607818603515625
+            },
+            {
+              "text": " that",
+              "start": 5.19,
+              "end": 5.31,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " which",
+              "start": 5.31,
+              "end": 5.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " so",
+              "start": 5.45,
+              "end": 5.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " often",
+              "start": 5.71,
+              "end": 6.05,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " you did bid me steal.",
+          "start": 6.05,
+          "end": 7.15,
+          "words": [
+            {
+              "text": " you",
+              "start": 6.05,
+              "end": 6.29,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " did",
+              "start": 6.29,
+              "end": 6.47,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " bid",
+              "start": 6.47,
+              "end": 6.67,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " me",
+              "start": 6.67,
+              "end": 6.87,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " steal.",
+              "start": 6.87,
+              "end": 7.15,
+              "probability": 0.85986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "what",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "raw": "handkerchief?",
+          "start": 1.49,
+          "end": 2.03
+        },
+        {
+          "raw": "Why,",
+          "start": 2.69,
+          "end": 2.89
+        },
+        {
+          "raw": "that",
+          "start": 3.05,
+          "end": 3.15
+        },
+        {
+          "raw": "the",
+          "start": 3.15,
+          "end": 3.31
+        },
+        {
+          "raw": "moor",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "raw": "first",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "raw": "gave",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "raw": "Distimona,",
+          "start": 4.21,
+          "end": 4.79
+        },
+        {
+          "raw": "that",
+          "start": 5.19,
+          "end": 5.31
+        },
+        {
+          "raw": "which",
+          "start": 5.31,
+          "end": 5.45
+        },
+        {
+          "raw": "so",
+          "start": 5.45,
+          "end": 5.71
+        },
+        {
+          "raw": "often",
+          "start": 5.71,
+          "end": 6.05
+        },
+        {
+          "raw": "you",
+          "start": 6.05,
+          "end": 6.29
+        },
+        {
+          "raw": "did",
+          "start": 6.29,
+          "end": 6.47
+        },
+        {
+          "raw": "bid",
+          "start": 6.47,
+          "end": 6.67
+        },
+        {
+          "raw": "me",
+          "start": 6.67,
+          "end": 6.87
+        },
+        {
+          "raw": "steal.",
+          "start": 6.87,
+          "end": 7.15
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "What",
+        "handkerchief?",
+        "Why,",
+        "that",
+        "the",
+        "Moor",
+        "first",
+        "gave",
+        "to",
+        "Desdemona,",
+        "That",
+        "which",
+        "so",
+        "often",
+        "you",
+        "did",
+        "bid",
+        "me",
+        "steal."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          10,
+          1,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          20,
+          11,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "amelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "handkerchief?",
+          "start": 1.49,
+          "end": 2.03,
+          "key": "handkerchief",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 2.69,
+          "end": 2.89,
+          "key": "why",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.05,
+          "end": 3.15,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.15,
+          "end": 3.31,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "moor",
+          "start": 3.31,
+          "end": 3.47,
+          "key": "moor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 3.47,
+          "end": 3.75,
+          "key": "first",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 3.75,
+          "end": 3.99,
+          "key": "gave",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.21,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Distimona,",
+          "start": 4.21,
+          "end": 4.79,
+          "key": "distimona",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.19,
+          "end": 5.31,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 5.31,
+          "end": 5.45,
+          "key": "which",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 5.45,
+          "end": 5.71,
+          "key": "so",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "often",
+          "start": 5.71,
+          "end": 6.05,
+          "key": "often",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.05,
+          "end": 6.29,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 6.29,
+          "end": 6.47,
+          "key": "did",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "bid",
+          "start": 6.47,
+          "end": 6.67,
+          "key": "bid",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 6.67,
+          "end": 6.87,
+          "key": "me",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "steal.",
+          "start": 6.87,
+          "end": 7.15,
+          "key": "steal",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.0,
+          "end": 0.665
+        },
+        {
+          "text": "What",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "text": "handkerchief?",
+          "start": 1.49,
+          "end": 2.03
+        },
+        {
+          "text": "Why,",
+          "start": 2.69,
+          "end": 2.89
+        },
+        {
+          "text": "that",
+          "start": 3.05,
+          "end": 3.15
+        },
+        {
+          "text": "the",
+          "start": 3.15,
+          "end": 3.31
+        },
+        {
+          "text": "Moor",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "text": "first",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "text": "gave",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "text": "to",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "text": "Desdemona,",
+          "start": 4.21,
+          "end": 4.7
+        },
+        {
+          "text": "That",
+          "start": 5.19,
+          "end": 5.31
+        },
+        {
+          "text": "which",
+          "start": 5.31,
+          "end": 5.45
+        },
+        {
+          "text": "so",
+          "start": 5.45,
+          "end": 5.71
+        },
+        {
+          "text": "often",
+          "start": 5.71,
+          "end": 6.05
+        },
+        {
+          "text": "you",
+          "start": 6.05,
+          "end": 6.29
+        },
+        {
+          "text": "did",
+          "start": 6.29,
+          "end": 6.47
+        },
+        {
+          "text": "bid",
+          "start": 6.47,
+          "end": 6.67
+        },
+        {
+          "text": "me",
+          "start": 6.67,
+          "end": 6.87
+        },
+        {
+          "text": "steal.",
+          "start": 6.87,
+          "end": 7.15
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.222946394700557
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8be25d818ab698a38282bdcef47c49277d0f4aab6100996aa4a11a18e6a34089",
+  "selected_reasons": []
+}

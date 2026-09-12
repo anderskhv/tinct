@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "a6dbf86584d384d4fa5604c95f8f071558e52cee9cdd713680766d70a7efe25c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1078031868673861,
+      "alignment_seconds": 0.0001327688805758953,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. Lo, where he comes!",
+        "hotwords": "Cassio, Lo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, Lo, where he comes!",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.6151123046875
+            },
+            {
+              "text": " Lo,",
+              "start": 1.31,
+              "end": 1.35,
+              "probability": 0.0030879974365234375
+            },
+            {
+              "text": " where",
+              "start": 1.45,
+              "end": 1.53,
+              "probability": 0.974609375
+            },
+            {
+              "text": " he",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " comes!",
+              "start": 1.65,
+              "end": 2.01,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Lo,",
+          "start": 1.31,
+          "end": 1.35
+        },
+        {
+          "raw": "where",
+          "start": 1.45,
+          "end": 1.53
+        },
+        {
+          "raw": "he",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "comes!",
+          "start": 1.65,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "Lo,",
+        "where",
+        "he",
+        "comes!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lo,",
+          "start": 1.31,
+          "end": 1.35,
+          "key": "lo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.45,
+          "end": 1.53,
+          "key": "where",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "comes!",
+          "start": 1.65,
+          "end": 2.01,
+          "key": "comes",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Lo,",
+          "start": 1.31,
+          "end": 1.35
+        },
+        {
+          "text": "where",
+          "start": 1.45,
+          "end": 1.53
+        },
+        {
+          "text": "he",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "comes!",
+          "start": 1.65,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10798186575993896
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "45e34c074924054f49d82c2ce3ee6c2ab08cc85f2038f34f25a5a4fd95a4ad55",
+  "selected_reasons": []
+}

@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "c964e0cb87b459e2d3a18ffb5dabef8e22e675b7b8c12523679b0f5ef56481d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.10133361211046576,
+      "alignment_seconds": 0.00013576867058873177,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, the Sooner Suite for you.",
+          "start": 0.08,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " the",
+              "start": 1.32,
+              "end": 1.38,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Sooner",
+              "start": 1.38,
+              "end": 1.68,
+              "probability": 0.841064453125
+            },
+            {
+              "text": " Suite",
+              "start": 1.68,
+              "end": 1.96,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " for",
+              "start": 1.96,
+              "end": 2.18,
+              "probability": 0.986328125
+            },
+            {
+              "text": " you.",
+              "start": 2.18,
+              "end": 2.38,
+              "probability": 0.92724609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.38
+        },
+        {
+          "raw": "Sooner",
+          "start": 1.38,
+          "end": 1.68
+        },
+        {
+          "raw": "Suite",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "raw": "for",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "raw": "you.",
+          "start": 2.18,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "The",
+        "sooner,",
+        "sweet,",
+        "for",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.38,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sooner",
+          "start": 1.38,
+          "end": 1.68,
+          "key": "sooner",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Suite",
+          "start": 1.68,
+          "end": 1.96,
+          "key": "suite",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.96,
+          "end": 2.18,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.18,
+          "end": 2.38,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "The",
+          "start": 1.32,
+          "end": 1.38
+        },
+        {
+          "text": "sooner,",
+          "start": 1.38,
+          "end": 1.68
+        },
+        {
+          "text": "sweet,",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "text": "for",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "text": "you.",
+          "start": 2.18,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10151666076853871
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4a5fff8f7bc922bb37217bf80823d0ede18fda403369aefa121562732f481e0a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

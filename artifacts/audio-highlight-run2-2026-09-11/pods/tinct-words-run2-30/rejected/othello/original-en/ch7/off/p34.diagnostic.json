@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "86ac0b2558eee56db2eee6f60918006c5ab73b7b1dd658cbfeb917ca3ffa670b",
+  "attempts": [
+    {
+      "asr_seconds": 0.11497381003573537,
+      "alignment_seconds": 0.0001411987468600273,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassio, I am much bound to you.",
+          "start": 0.05,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.759521484375
+            },
+            {
+              "text": " I",
+              "start": 1.11,
+              "end": 1.31,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " am",
+              "start": 1.31,
+              "end": 1.41,
+              "probability": 0.775390625
+            },
+            {
+              "text": " much",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.990234375
+            },
+            {
+              "text": " bound",
+              "start": 1.53,
+              "end": 1.75,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you.",
+              "start": 1.97,
+              "end": 2.17,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "raw": "am",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "raw": "much",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "bound",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "raw": "to",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "you.",
+          "start": 1.97,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "I",
+        "am",
+        "much",
+        "bound",
+        "to",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.31,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.31,
+          "end": 1.41,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "much",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bound",
+          "start": 1.53,
+          "end": 1.75,
+          "key": "bound",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.75,
+          "end": 1.97,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.97,
+          "end": 2.17,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "I",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "text": "am",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "text": "much",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "bound",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "text": "to",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "text": "you.",
+          "start": 1.97,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11516907811164856
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4cabfc5e3f1c81883517e6df5d8e2391269541448c8af1223a832e5af4ee4bfc",
+  "selected_reasons": []
+}

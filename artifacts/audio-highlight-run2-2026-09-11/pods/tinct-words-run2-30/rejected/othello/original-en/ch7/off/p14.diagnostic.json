@@ -1,0 +1,633 @@
+{
+  "complete": true,
+  "signature": "3978524d7852120a91ce47c6633d652dfc6b4138b544cafadad0beb05e38502b",
+  "attempts": [
+    {
+      "asr_seconds": 0.17592957569286227,
+      "alignment_seconds": 0.0005169468931853771,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown, then put up your pipes in your bag for all away.",
+          "start": 0.0,
+          "end": 3.1,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.0,
+              "end": 0.68,
+              "probability": 0.75634765625
+            },
+            {
+              "text": " then",
+              "start": 1.2,
+              "end": 1.32,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " put",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " up",
+              "start": 1.46,
+              "end": 1.56,
+              "probability": 0.943359375
+            },
+            {
+              "text": " your",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " pipes",
+              "start": 1.68,
+              "end": 1.88,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 1.88,
+              "end": 2.04,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " your",
+              "start": 2.04,
+              "end": 2.14,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " bag",
+              "start": 2.14,
+              "end": 2.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 2.44,
+              "end": 2.62,
+              "probability": 0.978515625
+            },
+            {
+              "text": " all",
+              "start": 2.62,
+              "end": 2.76,
+              "probability": 0.98046875
+            },
+            {
+              "text": " away.",
+              "start": 2.76,
+              "end": 3.1,
+              "probability": 0.91455078125
+            }
+          ]
+        },
+        {
+          "text": " Go vanish into air away.",
+          "start": 3.74,
+          "end": 5.28,
+          "words": [
+            {
+              "text": " Go",
+              "start": 3.74,
+              "end": 3.94,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " vanish",
+              "start": 3.94,
+              "end": 4.36,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " into",
+              "start": 4.36,
+              "end": 4.66,
+              "probability": 0.990234375
+            },
+            {
+              "text": " air",
+              "start": 4.66,
+              "end": 4.92,
+              "probability": 0.966796875
+            },
+            {
+              "text": " away.",
+              "start": 4.92,
+              "end": 5.28,
+              "probability": 0.94091796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "raw": "then",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "raw": "put",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "up",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "raw": "your",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "pipes",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "raw": "in",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "raw": "your",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "raw": "bag",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "raw": "for",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "raw": "all",
+          "start": 2.62,
+          "end": 2.76
+        },
+        {
+          "raw": "away.",
+          "start": 2.76,
+          "end": 3.1
+        },
+        {
+          "raw": "Go",
+          "start": 3.74,
+          "end": 3.94
+        },
+        {
+          "raw": "vanish",
+          "start": 3.94,
+          "end": 4.36
+        },
+        {
+          "raw": "into",
+          "start": 4.36,
+          "end": 4.66
+        },
+        {
+          "raw": "air",
+          "start": 4.66,
+          "end": 4.92
+        },
+        {
+          "raw": "away.",
+          "start": 4.92,
+          "end": 5.28
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Then",
+        "put",
+        "up",
+        "your",
+        "pipes",
+        "in",
+        "your",
+        "bag,",
+        "for",
+        "I'll",
+        "away.",
+        "Go,",
+        "vanish",
+        "into",
+        "air,",
+        "away!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          17,
+          11,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.68,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.2,
+          "end": 1.32,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "put",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 1.46,
+          "end": 1.56,
+          "key": "up",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.56,
+          "end": 1.68,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pipes",
+          "start": 1.68,
+          "end": 1.88,
+          "key": "pipes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.88,
+          "end": 2.04,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.04,
+          "end": 2.14,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bag",
+          "start": 2.14,
+          "end": 2.44,
+          "key": "bag",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.44,
+          "end": 2.62,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.62,
+          "end": 2.76,
+          "key": "all",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "away.",
+          "start": 2.76,
+          "end": 3.1,
+          "key": "away",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 3.74,
+          "end": 3.94,
+          "key": "go",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "vanish",
+          "start": 3.94,
+          "end": 4.36,
+          "key": "vanish",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 4.36,
+          "end": 4.66,
+          "key": "into",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "air",
+          "start": 4.66,
+          "end": 4.92,
+          "key": "air",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "away.",
+          "start": 4.92,
+          "end": 5.28,
+          "key": "away",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "text": "Then",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "text": "put",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "up",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "text": "your",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "pipes",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "text": "in",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "text": "your",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "text": "bag,",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "text": "for",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "text": "I'll",
+          "start": 2.62,
+          "end": 2.69
+        },
+        {
+          "text": "away.",
+          "start": 2.76,
+          "end": 3.1
+        },
+        {
+          "text": "Go,",
+          "start": 3.74,
+          "end": 3.94
+        },
+        {
+          "text": "vanish",
+          "start": 3.94,
+          "end": 4.36
+        },
+        {
+          "text": "into",
+          "start": 4.36,
+          "end": 4.66
+        },
+        {
+          "text": "air,",
+          "start": 4.66,
+          "end": 4.92
+        },
+        {
+          "text": "away!",
+          "start": 4.92,
+          "end": 5.28
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.17656699288636446
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4977a39e95d89537b6aca9437eb7bd478ff6d3532ad871a9a7ae789042361137",
+  "selected_reasons": []
+}

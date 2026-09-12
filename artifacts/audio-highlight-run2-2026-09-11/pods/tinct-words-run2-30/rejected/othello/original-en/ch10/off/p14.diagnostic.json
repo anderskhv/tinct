@@ -1,0 +1,349 @@
+{
+  "complete": true,
+  "signature": "8171a125e7792835f582625d35ef1a8f176ca1edc036269246dc186061911739",
+  "attempts": [
+    {
+      "asr_seconds": 0.1314846216700971,
+      "alignment_seconds": 0.00021138973534107208,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, where should I lose that handkerchief, Amelia?",
+          "start": 0.67,
+          "end": 3.01,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.67,
+              "end": 0.99,
+              "probability": 0.66986083984375
+            },
+            {
+              "text": " where",
+              "start": 1.47,
+              "end": 1.59,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " should",
+              "start": 1.59,
+              "end": 1.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 1.73,
+              "end": 1.85,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " lose",
+              "start": 1.85,
+              "end": 2.01,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " that",
+              "start": 2.01,
+              "end": 2.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " handkerchief,",
+              "start": 2.21,
+              "end": 2.73,
+              "probability": 0.9768880208333334
+            },
+            {
+              "text": " Amelia?",
+              "start": 2.87,
+              "end": 3.01,
+              "probability": 0.68310546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.67,
+          "end": 0.99
+        },
+        {
+          "raw": "where",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "raw": "should",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "raw": "I",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "raw": "lose",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "raw": "that",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "raw": "handkerchief,",
+          "start": 2.21,
+          "end": 2.73
+        },
+        {
+          "raw": "Amelia?",
+          "start": 2.87,
+          "end": 3.01
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Where",
+        "should",
+        "I",
+        "lose",
+        "that",
+        "handkerchief,",
+        "Emilia?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.67,
+          "end": 0.99,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.47,
+          "end": 1.59,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.59,
+          "end": 1.73,
+          "key": "should",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.73,
+          "end": 1.85,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lose",
+          "start": 1.85,
+          "end": 2.01,
+          "key": "lose",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.01,
+          "end": 2.21,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "handkerchief,",
+          "start": 2.21,
+          "end": 2.73,
+          "key": "handkerchief",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Amelia?",
+          "start": 2.87,
+          "end": 3.01,
+          "key": "amelia",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.735
+        },
+        {
+          "text": "Where",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "text": "should",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "text": "I",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "text": "lose",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "text": "that",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "text": "handkerchief,",
+          "start": 2.21,
+          "end": 2.73
+        },
+        {
+          "text": "Emilia?",
+          "start": 2.73,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13176333997398615
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2cdf7871460673b924e036d5b38cab7008afa26a3c052ca491c2e0ad1ebcfc85",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

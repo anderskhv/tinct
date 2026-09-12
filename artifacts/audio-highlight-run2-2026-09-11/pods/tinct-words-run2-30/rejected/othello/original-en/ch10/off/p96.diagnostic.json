@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "5e4e7bada12184ee3af5b68acb3dc176b45e0c720cbf0be4f589e918880120f3",
+  "attempts": [
+    {
+      "asr_seconds": 0.11485385010018945,
+      "alignment_seconds": 0.00014681974425911903,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bianca, why whose is it?",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Bianca,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.970458984375
+            },
+            {
+              "text": " why",
+              "start": 1.31,
+              "end": 1.37,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " whose",
+              "start": 1.37,
+              "end": 1.63,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " is",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " it?",
+              "start": 1.77,
+              "end": 2.03,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bianca,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "why",
+          "start": 1.31,
+          "end": 1.37
+        },
+        {
+          "raw": "whose",
+          "start": 1.37,
+          "end": 1.63
+        },
+        {
+          "raw": "is",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "it?",
+          "start": 1.77,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "Bianca.",
+        "Why,",
+        "whose",
+        "is",
+        "it?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bianca,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "bianca",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.31,
+          "end": 1.37,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 1.37,
+          "end": 1.63,
+          "key": "whose",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.63,
+          "end": 1.77,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 1.77,
+          "end": 2.03,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bianca.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Why,",
+          "start": 1.31,
+          "end": 1.37
+        },
+        {
+          "text": "whose",
+          "start": 1.37,
+          "end": 1.63
+        },
+        {
+          "text": "is",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "text": "it?",
+          "start": 1.77,
+          "end": 2.03
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.115043377969414
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ddc4fdf507d112759b9800382fb38f9ed8e156a2d88758110c5a35182ca3d13c",
+  "selected_reasons": []
+}

@@ -1,0 +1,576 @@
+{
+  "complete": true,
+  "signature": "3c38fe22f235156f2bb9a9aec8b3c94b48f7d027579b355952710a3f4d296d05",
+  "attempts": [
+    {
+      "asr_seconds": 0.16118862619623542,
+      "alignment_seconds": 0.00021834857761859894,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, I thank you, Valiant Casio. What tidings can you tell me of my lord?",
+          "start": 0.59,
+          "end": 5.15,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.59,
+              "end": 0.99,
+              "probability": 0.657684326171875
+            },
+            {
+              "text": " I",
+              "start": 1.51,
+              "end": 1.65,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " thank",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.98828125
+            },
+            {
+              "text": " you,",
+              "start": 1.85,
+              "end": 2.13,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Valiant",
+              "start": 2.33,
+              "end": 2.53,
+              "probability": 0.414306640625
+            },
+            {
+              "text": " Casio.",
+              "start": 2.53,
+              "end": 3.11,
+              "probability": 0.6783447265625
+            },
+            {
+              "text": " What",
+              "start": 3.55,
+              "end": 3.67,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " tidings",
+              "start": 3.67,
+              "end": 4.07,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " can",
+              "start": 4.07,
+              "end": 4.27,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 4.27,
+              "end": 4.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tell",
+              "start": 4.37,
+              "end": 4.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 4.53,
+              "end": 4.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 4.69,
+              "end": 4.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 4.77,
+              "end": 4.93,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " lord?",
+              "start": 4.93,
+              "end": 5.15,
+              "probability": 0.72509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.59,
+          "end": 0.99
+        },
+        {
+          "raw": "I",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "raw": "thank",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "you,",
+          "start": 1.85,
+          "end": 2.13
+        },
+        {
+          "raw": "Valiant",
+          "start": 2.33,
+          "end": 2.53
+        },
+        {
+          "raw": "Casio.",
+          "start": 2.53,
+          "end": 3.11
+        },
+        {
+          "raw": "What",
+          "start": 3.55,
+          "end": 3.67
+        },
+        {
+          "raw": "tidings",
+          "start": 3.67,
+          "end": 4.07
+        },
+        {
+          "raw": "can",
+          "start": 4.07,
+          "end": 4.27
+        },
+        {
+          "raw": "you",
+          "start": 4.27,
+          "end": 4.37
+        },
+        {
+          "raw": "tell",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "raw": "me",
+          "start": 4.53,
+          "end": 4.69
+        },
+        {
+          "raw": "of",
+          "start": 4.69,
+          "end": 4.77
+        },
+        {
+          "raw": "my",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "raw": "lord?",
+          "start": 4.93,
+          "end": 5.15
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "I",
+        "thank",
+        "you,",
+        "valiant",
+        "Cassio.",
+        "What",
+        "tidings",
+        "can",
+        "you",
+        "tell",
+        "me",
+        "of",
+        "my",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          15,
+          6,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.59,
+          "end": 0.99,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.51,
+          "end": 1.65,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "thank",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.85,
+          "end": 2.13,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Valiant",
+          "start": 2.33,
+          "end": 2.53,
+          "key": "valiant",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Casio.",
+          "start": 2.53,
+          "end": 3.11,
+          "key": "casio",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 3.55,
+          "end": 3.67,
+          "key": "what",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tidings",
+          "start": 3.67,
+          "end": 4.07,
+          "key": "tidings",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 4.07,
+          "end": 4.27,
+          "key": "can",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.27,
+          "end": 4.37,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 4.37,
+          "end": 4.53,
+          "key": "tell",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.53,
+          "end": 4.69,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.69,
+          "end": 4.77,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.77,
+          "end": 4.93,
+          "key": "my",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "lord?",
+          "start": 4.93,
+          "end": 5.15,
+          "key": "lord",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.755
+        },
+        {
+          "text": "I",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "text": "thank",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "you,",
+          "start": 1.85,
+          "end": 2.13
+        },
+        {
+          "text": "valiant",
+          "start": 2.33,
+          "end": 2.53
+        },
+        {
+          "text": "Cassio.",
+          "start": 2.53,
+          "end": 3.04
+        },
+        {
+          "text": "What",
+          "start": 3.55,
+          "end": 3.67
+        },
+        {
+          "text": "tidings",
+          "start": 3.67,
+          "end": 4.07
+        },
+        {
+          "text": "can",
+          "start": 4.07,
+          "end": 4.27
+        },
+        {
+          "text": "you",
+          "start": 4.27,
+          "end": 4.37
+        },
+        {
+          "text": "tell",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "text": "me",
+          "start": 4.53,
+          "end": 4.69
+        },
+        {
+          "text": "of",
+          "start": 4.69,
+          "end": 4.77
+        },
+        {
+          "text": "my",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "text": "lord?",
+          "start": 4.93,
+          "end": 5.15
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.16148495534434915
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d616905575a7fe222b61e945e65cf7d12ea54a8ced88f2184ad5b22a6b409b76",
+  "selected_reasons": []
+}

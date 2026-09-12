@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "e0cc4af56bb5abcbd0194b12134c1ae26325a8b446b379ba5ccbef24b4a017e6",
+  "attempts": [
+    {
+      "asr_seconds": 0.10571888880804181,
+      "alignment_seconds": 0.00014264928176999092,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Roderigo. Adieu.",
+        "hotwords": "Roderigo, Adieu"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Roderigo, Adieu.",
+          "start": 0.02,
+          "end": 1.48,
+          "words": [
+            {
+              "text": " Roderigo,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.16904703776041666
+            },
+            {
+              "text": " Adieu.",
+              "start": 1.18,
+              "end": 1.48,
+              "probability": 0.17987060546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Roderigo,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "Adieu.",
+          "start": 1.18,
+          "end": 1.48
+        }
+      ],
+      "expected_tokens": [
+        "Roderigo.",
+        "Adieu."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Roderigo,",
+          "start": 0.02,
+          "end": 0.94,
+          "key": "roderigo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Adieu.",
+          "start": 1.18,
+          "end": 1.48,
+          "key": "adieu",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Roderigo.",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "Adieu.",
+          "start": 1.18,
+          "end": 1.48
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10590332793071866
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "39b20e635f7b3213ca123c4d9c406ae30adabe99234845062724fef6284f4d8c",
+  "selected_reasons": []
+}

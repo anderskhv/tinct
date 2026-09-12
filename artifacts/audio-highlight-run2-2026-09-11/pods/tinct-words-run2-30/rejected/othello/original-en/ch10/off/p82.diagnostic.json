@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "ed11b6a3646b70127e6c138a9d64d9215cc766657bca517ce781832ae31424a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.13603522814810276,
+      "alignment_seconds": 0.00015689898282289505,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona. Heaven keep that monster from Othello's mind.",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Distimona.",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.71160888671875
+            },
+            {
+              "text": " Heaven",
+              "start": 1.61,
+              "end": 1.73,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " keep",
+              "start": 1.73,
+              "end": 2.01,
+              "probability": 0.8125
+            },
+            {
+              "text": " that",
+              "start": 2.01,
+              "end": 2.27,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " monster",
+              "start": 2.27,
+              "end": 2.63,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " from",
+              "start": 2.63,
+              "end": 2.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Othello's",
+              "start": 2.91,
+              "end": 3.41,
+              "probability": 0.9849853515625
+            },
+            {
+              "text": " mind.",
+              "start": 3.41,
+              "end": 3.63,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona.",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "Heaven",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "raw": "keep",
+          "start": 1.73,
+          "end": 2.01
+        },
+        {
+          "raw": "that",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "raw": "monster",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "raw": "from",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "raw": "Othello's",
+          "start": 2.91,
+          "end": 3.41
+        },
+        {
+          "raw": "mind.",
+          "start": 3.41,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Heaven",
+        "keep",
+        "that",
+        "monster",
+        "from",
+        "Othello's",
+        "mind!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona.",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Heaven",
+          "start": 1.61,
+          "end": 1.73,
+          "key": "heaven",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 1.73,
+          "end": 2.01,
+          "key": "keep",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.01,
+          "end": 2.27,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "monster",
+          "start": 2.27,
+          "end": 2.63,
+          "key": "monster",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.63,
+          "end": 2.91,
+          "key": "from",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Othello's",
+          "start": 2.91,
+          "end": 3.41,
+          "key": "othellos",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mind.",
+          "start": 3.41,
+          "end": 3.63,
+          "key": "mind",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.805
+        },
+        {
+          "text": "Heaven",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "text": "keep",
+          "start": 1.73,
+          "end": 2.01
+        },
+        {
+          "text": "that",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "text": "monster",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "text": "from",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "text": "Othello's",
+          "start": 2.91,
+          "end": 3.41
+        },
+        {
+          "text": "mind!",
+          "start": 3.41,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.13624742720276117
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e8f37e1134249821034ed9c2200483c6cf140698a86e987e9520b37ee5fba8a1",
+  "selected_reasons": []
+}

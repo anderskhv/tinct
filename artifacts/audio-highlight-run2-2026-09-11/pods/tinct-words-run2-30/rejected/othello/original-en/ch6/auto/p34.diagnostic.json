@@ -1,0 +1,1061 @@
+{
+  "complete": true,
+  "signature": "6cff261412e3565b45f05d5089a7b72a248b68243cad5deb5ab72a36f0f9d622",
+  "attempts": [
+    {
+      "asr_seconds": 0.31607751082628965,
+      "alignment_seconds": 0.0003161379136145115,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Why, he drinks you, with facility, your Dane dead drunk; he sweats not to overthrow your Almain; he gives your Hollander a vomit ere the next pottle can be filled.",
+        "hotwords": "Iago, Why, Dane, Almain, Hollander"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, Why, he drinks you, with facility, your Dane dead drunk. He sweats not to overthrow",
+          "start": 0.05,
+          "end": 6.11,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.2510414123535156
+            },
+            {
+              "text": " Why,",
+              "start": 1.15,
+              "end": 1.43,
+              "probability": 0.01120758056640625
+            },
+            {
+              "text": " he",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.775390625
+            },
+            {
+              "text": " drinks",
+              "start": 1.67,
+              "end": 1.87,
+              "probability": 0.775390625
+            },
+            {
+              "text": " you,",
+              "start": 1.87,
+              "end": 2.13,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " with",
+              "start": 2.13,
+              "end": 2.31,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " facility,",
+              "start": 2.31,
+              "end": 2.71,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " your",
+              "start": 3.15,
+              "end": 3.27,
+              "probability": 0.44677734375
+            },
+            {
+              "text": " Dane",
+              "start": 3.27,
+              "end": 3.61,
+              "probability": 0.28271484375
+            },
+            {
+              "text": " dead",
+              "start": 3.61,
+              "end": 3.97,
+              "probability": 0.6953125
+            },
+            {
+              "text": " drunk.",
+              "start": 3.97,
+              "end": 4.33,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " He",
+              "start": 4.85,
+              "end": 4.97,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " sweats",
+              "start": 4.97,
+              "end": 5.25,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " not",
+              "start": 5.25,
+              "end": 5.57,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " to",
+              "start": 5.57,
+              "end": 5.77,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " overthrow",
+              "start": 5.77,
+              "end": 6.11,
+              "probability": 0.9609375
+            }
+          ]
+        },
+        {
+          "text": " your Almain. He gives your Hollander a vomit ere the next pottle can be filled.",
+          "start": 6.11,
+          "end": 10.21,
+          "words": [
+            {
+              "text": " your",
+              "start": 6.11,
+              "end": 6.39,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " Almain.",
+              "start": 6.39,
+              "end": 6.79,
+              "probability": 0.229644775390625
+            },
+            {
+              "text": " He",
+              "start": 7.27,
+              "end": 7.41,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " gives",
+              "start": 7.41,
+              "end": 7.53,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " your",
+              "start": 7.53,
+              "end": 7.71,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Hollander",
+              "start": 7.71,
+              "end": 8.11,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " a",
+              "start": 8.11,
+              "end": 8.35,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " vomit",
+              "start": 8.35,
+              "end": 8.61,
+              "probability": 0.935546875
+            },
+            {
+              "text": " ere",
+              "start": 8.61,
+              "end": 8.89,
+              "probability": 0.517578125
+            },
+            {
+              "text": " the",
+              "start": 8.89,
+              "end": 9.01,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " next",
+              "start": 9.01,
+              "end": 9.25,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " pottle",
+              "start": 9.25,
+              "end": 9.63,
+              "probability": 0.64666748046875
+            },
+            {
+              "text": " can",
+              "start": 9.63,
+              "end": 9.77,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " be",
+              "start": 9.77,
+              "end": 9.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " filled.",
+              "start": 9.91,
+              "end": 10.21,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Why,",
+          "start": 1.15,
+          "end": 1.43
+        },
+        {
+          "raw": "he",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "drinks",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "raw": "you,",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "raw": "with",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "raw": "facility,",
+          "start": 2.31,
+          "end": 2.71
+        },
+        {
+          "raw": "your",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "raw": "Dane",
+          "start": 3.27,
+          "end": 3.61
+        },
+        {
+          "raw": "dead",
+          "start": 3.61,
+          "end": 3.97
+        },
+        {
+          "raw": "drunk.",
+          "start": 3.97,
+          "end": 4.33
+        },
+        {
+          "raw": "He",
+          "start": 4.85,
+          "end": 4.97
+        },
+        {
+          "raw": "sweats",
+          "start": 4.97,
+          "end": 5.25
+        },
+        {
+          "raw": "not",
+          "start": 5.25,
+          "end": 5.57
+        },
+        {
+          "raw": "to",
+          "start": 5.57,
+          "end": 5.77
+        },
+        {
+          "raw": "overthrow",
+          "start": 5.77,
+          "end": 6.11
+        },
+        {
+          "raw": "your",
+          "start": 6.11,
+          "end": 6.39
+        },
+        {
+          "raw": "Almain.",
+          "start": 6.39,
+          "end": 6.79
+        },
+        {
+          "raw": "He",
+          "start": 7.27,
+          "end": 7.41
+        },
+        {
+          "raw": "gives",
+          "start": 7.41,
+          "end": 7.53
+        },
+        {
+          "raw": "your",
+          "start": 7.53,
+          "end": 7.71
+        },
+        {
+          "raw": "Hollander",
+          "start": 7.71,
+          "end": 8.11
+        },
+        {
+          "raw": "a",
+          "start": 8.11,
+          "end": 8.35
+        },
+        {
+          "raw": "vomit",
+          "start": 8.35,
+          "end": 8.61
+        },
+        {
+          "raw": "ere",
+          "start": 8.61,
+          "end": 8.89
+        },
+        {
+          "raw": "the",
+          "start": 8.89,
+          "end": 9.01
+        },
+        {
+          "raw": "next",
+          "start": 9.01,
+          "end": 9.25
+        },
+        {
+          "raw": "pottle",
+          "start": 9.25,
+          "end": 9.63
+        },
+        {
+          "raw": "can",
+          "start": 9.63,
+          "end": 9.77
+        },
+        {
+          "raw": "be",
+          "start": 9.77,
+          "end": 9.91
+        },
+        {
+          "raw": "filled.",
+          "start": 9.91,
+          "end": 10.21
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Why,",
+        "he",
+        "drinks",
+        "you,",
+        "with",
+        "facility,",
+        "your",
+        "Dane",
+        "dead",
+        "drunk;",
+        "he",
+        "sweats",
+        "not",
+        "to",
+        "overthrow",
+        "your",
+        "Almain;",
+        "he",
+        "gives",
+        "your",
+        "Hollander",
+        "a",
+        "vomit",
+        "ere",
+        "the",
+        "next",
+        "pottle",
+        "can",
+        "be",
+        "filled."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          31,
+          0,
+          31
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.15,
+          "end": 1.43,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "drinks",
+          "start": 1.67,
+          "end": 1.87,
+          "key": "drinks",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.87,
+          "end": 2.13,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.13,
+          "end": 2.31,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "facility,",
+          "start": 2.31,
+          "end": 2.71,
+          "key": "facility",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.15,
+          "end": 3.27,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Dane",
+          "start": 3.27,
+          "end": 3.61,
+          "key": "dane",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 3.61,
+          "end": 3.97,
+          "key": "dead",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "drunk.",
+          "start": 3.97,
+          "end": 4.33,
+          "key": "drunk",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.85,
+          "end": 4.97,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sweats",
+          "start": 4.97,
+          "end": 5.25,
+          "key": "sweats",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.25,
+          "end": 5.57,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.57,
+          "end": 5.77,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "overthrow",
+          "start": 5.77,
+          "end": 6.11,
+          "key": "overthrow",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 6.11,
+          "end": 6.39,
+          "key": "your",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Almain.",
+          "start": 6.39,
+          "end": 6.79,
+          "key": "almain",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 7.27,
+          "end": 7.41,
+          "key": "he",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "gives",
+          "start": 7.41,
+          "end": 7.53,
+          "key": "gives",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 7.53,
+          "end": 7.71,
+          "key": "your",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Hollander",
+          "start": 7.71,
+          "end": 8.11,
+          "key": "hollander",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.11,
+          "end": 8.35,
+          "key": "a",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "vomit",
+          "start": 8.35,
+          "end": 8.61,
+          "key": "vomit",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 8.61,
+          "end": 8.89,
+          "key": "ere",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.89,
+          "end": 9.01,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 9.01,
+          "end": 9.25,
+          "key": "next",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "pottle",
+          "start": 9.25,
+          "end": 9.63,
+          "key": "pottle",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 9.63,
+          "end": 9.77,
+          "key": "can",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 9.77,
+          "end": 9.91,
+          "key": "be",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "filled.",
+          "start": 9.91,
+          "end": 10.21,
+          "key": "filled",
+          "pieces": [
+            30
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Why,",
+          "start": 1.15,
+          "end": 1.43
+        },
+        {
+          "text": "he",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "drinks",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "text": "you,",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "text": "with",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "text": "facility,",
+          "start": 2.31,
+          "end": 2.71
+        },
+        {
+          "text": "your",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "text": "Dane",
+          "start": 3.27,
+          "end": 3.61
+        },
+        {
+          "text": "dead",
+          "start": 3.61,
+          "end": 3.97
+        },
+        {
+          "text": "drunk;",
+          "start": 3.97,
+          "end": 4.33
+        },
+        {
+          "text": "he",
+          "start": 4.85,
+          "end": 4.97
+        },
+        {
+          "text": "sweats",
+          "start": 4.97,
+          "end": 5.25
+        },
+        {
+          "text": "not",
+          "start": 5.25,
+          "end": 5.57
+        },
+        {
+          "text": "to",
+          "start": 5.57,
+          "end": 5.77
+        },
+        {
+          "text": "overthrow",
+          "start": 5.77,
+          "end": 6.11
+        },
+        {
+          "text": "your",
+          "start": 6.11,
+          "end": 6.39
+        },
+        {
+          "text": "Almain;",
+          "start": 6.39,
+          "end": 6.79
+        },
+        {
+          "text": "he",
+          "start": 7.27,
+          "end": 7.41
+        },
+        {
+          "text": "gives",
+          "start": 7.41,
+          "end": 7.53
+        },
+        {
+          "text": "your",
+          "start": 7.53,
+          "end": 7.71
+        },
+        {
+          "text": "Hollander",
+          "start": 7.71,
+          "end": 8.11
+        },
+        {
+          "text": "a",
+          "start": 8.11,
+          "end": 8.35
+        },
+        {
+          "text": "vomit",
+          "start": 8.35,
+          "end": 8.61
+        },
+        {
+          "text": "ere",
+          "start": 8.61,
+          "end": 8.89
+        },
+        {
+          "text": "the",
+          "start": 8.89,
+          "end": 9.01
+        },
+        {
+          "text": "next",
+          "start": 9.01,
+          "end": 9.25
+        },
+        {
+          "text": "pottle",
+          "start": 9.25,
+          "end": 9.63
+        },
+        {
+          "text": "can",
+          "start": 9.63,
+          "end": 9.77
+        },
+        {
+          "text": "be",
+          "start": 9.77,
+          "end": 9.91
+        },
+        {
+          "text": "filled.",
+          "start": 9.91,
+          "end": 10.21
+        }
+      ],
+      "stats": {
+        "expected_words": 31,
+        "heard_words": 31,
+        "matched_words": 31
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3165215076878667
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6f476d1e36b15e2863f0ac826f0161d238f5e115bff71f55437403be6f6fb35f",
+  "selected_reasons": []
+}

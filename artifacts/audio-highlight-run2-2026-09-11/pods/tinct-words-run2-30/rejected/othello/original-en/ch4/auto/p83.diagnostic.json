@@ -1,0 +1,657 @@
+{
+  "complete": true,
+  "signature": "a3f8c12dd3c4c8c4341cb3138b043b995bd2be5b93d5cafe4eda362ed3890d7e",
+  "attempts": [
+    {
+      "asr_seconds": 0.17421103408560157,
+      "alignment_seconds": 0.00013175932690501213,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Othello and Attendants.]",
+        "hotwords": "Enter, Othello, Attendants"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Othello, Attendants",
+          "start": 0.11,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " Othello,",
+              "start": 0.73,
+              "end": 1.11,
+              "probability": 0.9835611979166666
+            },
+            {
+              "text": " Attendants",
+              "start": 1.31,
+              "end": 1.87,
+              "probability": 0.26050594449043274
+            }
+          ]
+        },
+        {
+          "text": " Enter, Othello, Attendants",
+          "start": 1.87,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 1.87,
+              "end": 1.87,
+              "probability": 8.106231689453125e-06
+            },
+            {
+              "text": " Othello,",
+              "start": 1.87,
+              "end": 1.87,
+              "probability": 0.04239447911580404
+            },
+            {
+              "text": " Attendants",
+              "start": 1.87,
+              "end": 2.03,
+              "probability": 0.00017330050468444824
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Othello,",
+          "start": 0.73,
+          "end": 1.11
+        },
+        {
+          "raw": "Attendants",
+          "start": 1.31,
+          "end": 1.87
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "raw": "Othello,",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "raw": "Attendants",
+          "start": 1.87,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Othello",
+        "and",
+        "Attendants.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ],
+        [
+          "equal",
+          3,
+          4,
+          2,
+          3
+        ],
+        [
+          "insert",
+          4,
+          4,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ],
+        [
+          "insert",
+          4,
+          4,
+          3,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Othello,",
+          "start": 0.73,
+          "end": 1.11,
+          "key": "othello",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Attendants",
+          "start": 1.31,
+          "end": 1.87,
+          "key": "attendants",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.87,
+          "end": 1.87,
+          "key": "enter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Othello,",
+          "start": 1.87,
+          "end": 1.87,
+          "key": "othello",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Attendants",
+          "start": 1.87,
+          "end": 2.03,
+          "key": "attendants",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Othello",
+          "start": 0.73,
+          "end": 1.11
+        },
+        {
+          "text": "and",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "text": "Attendants.]",
+          "start": 1.31,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17439243290573359
+    },
+    {
+      "asr_seconds": 0.0972023238427937,
+      "alignment_seconds": 0.0001172688789665699,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Enter, Othello, Attendants"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Enter, Othello, Attendants",
+          "start": 0.11,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " Othello,",
+              "start": 0.73,
+              "end": 1.11,
+              "probability": 0.9835611979166666
+            },
+            {
+              "text": " Attendants",
+              "start": 1.31,
+              "end": 1.87,
+              "probability": 0.26050594449043274
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Othello,",
+          "start": 0.73,
+          "end": 1.11
+        },
+        {
+          "raw": "Attendants",
+          "start": 1.31,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Othello",
+        "and",
+        "Attendants.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ],
+        [
+          "equal",
+          3,
+          4,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Othello,",
+          "start": 0.73,
+          "end": 1.11,
+          "key": "othello",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Attendants",
+          "start": 1.31,
+          "end": 1.87,
+          "key": "attendants",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Othello",
+          "start": 0.73,
+          "end": 1.11
+        },
+        {
+          "text": "and",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "text": "Attendants.]",
+          "start": 1.31,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09735549287870526
+    },
+    {
+      "asr_seconds": 0.09112124517560005,
+      "alignment_seconds": 0.00011349981650710106,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Othello and attendance.",
+          "start": 0.11,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " Othello",
+              "start": 0.65,
+              "end": 1.11,
+              "probability": 0.9811197916666666
+            },
+            {
+              "text": " and",
+              "start": 1.11,
+              "end": 1.39,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " attendance.",
+              "start": 1.39,
+              "end": 1.81,
+              "probability": 0.70361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Othello",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "raw": "and",
+          "start": 1.11,
+          "end": 1.39
+        },
+        {
+          "raw": "attendance.",
+          "start": 1.39,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Othello",
+        "and",
+        "Attendants.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Othello",
+          "start": 0.65,
+          "end": 1.11,
+          "key": "othello",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.11,
+          "end": 1.39,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "attendance.",
+          "start": 1.39,
+          "end": 1.81,
+          "key": "attendance",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Othello",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "text": "and",
+          "start": 1.11,
+          "end": 1.39
+        },
+        {
+          "text": "Attendants.]",
+          "start": 1.39,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09128542384132743
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "877364b8f4f1dbdddd0948ade1d7c1f4bfeec99b2f1f397ac38339d6f28ae648",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

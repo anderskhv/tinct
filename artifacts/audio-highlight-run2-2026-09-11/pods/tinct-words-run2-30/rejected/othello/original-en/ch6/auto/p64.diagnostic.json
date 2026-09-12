@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "36ae7656eea72e583f3b1fb27e6e0db4c97f288df585569d77204a4ff47735eb",
+  "attempts": [
+    {
+      "asr_seconds": 0.11296917870640755,
+      "alignment_seconds": 0.00016928883269429207,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Montano. What's the matter, lieutenant?",
+        "hotwords": "Montano, What's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Montano, What's the matter, lieutenant?",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Montano,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.824462890625
+            },
+            {
+              "text": " What's",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.5168914794921875
+            },
+            {
+              "text": " the",
+              "start": 1.59,
+              "end": 1.67,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " matter,",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.267333984375
+            },
+            {
+              "text": " lieutenant?",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 0.042144775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Montano,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "What's",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "the",
+          "start": 1.59,
+          "end": 1.67
+        },
+        {
+          "raw": "matter,",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "raw": "lieutenant?",
+          "start": 2.09,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Montano.",
+        "What's",
+        "the",
+        "matter,",
+        "lieutenant?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Montano,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "montano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.59,
+          "end": 1.67,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "matter,",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "matter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lieutenant?",
+          "start": 2.09,
+          "end": 2.33,
+          "key": "lieutenant",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Montano.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "What's",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "the",
+          "start": 1.59,
+          "end": 1.67
+        },
+        {
+          "text": "matter,",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "text": "lieutenant?",
+          "start": 2.09,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11318805767223239
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "70f675e151e0c324e1a39157ccfa970f49137e92270e819360957b2624b00162",
+  "selected_reasons": []
+}

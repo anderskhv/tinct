@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "5e6d1b341d98e5edad30f1d977534ed56b1778743b1ce319cea43ccf9f57cfe8",
+  "attempts": [
+    {
+      "asr_seconds": 0.07562872767448425,
+      "alignment_seconds": 0.00013672886416316032,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Diego.",
+          "start": 0.02,
+          "end": 1.02,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.865234375
+            },
+            {
+              "text": " Diego.",
+              "start": 0.66,
+              "end": 1.02,
+              "probability": 0.88525390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Diego.",
+          "start": 0.66,
+          "end": 1.02
+        }
+      ],
+      "expected_tokens": [
+        "[Exit",
+        "Iago.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Diego.",
+          "start": 0.66,
+          "end": 1.02,
+          "key": "diego",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Iago.]",
+          "start": 0.66,
+          "end": 0.84
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.07580400677397847
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5e5ac101025a880fcb9cc8e01cb3f051b6cab318553cbc59fd55257b58faf6d2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

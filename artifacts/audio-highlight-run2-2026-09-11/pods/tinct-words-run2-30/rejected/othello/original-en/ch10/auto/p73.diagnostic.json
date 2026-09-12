@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "d57c154717031bbcc54c3f5b64d99ea208b56d8e34f8b8e0d3c714d205f620f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.10811637481674552,
+      "alignment_seconds": 0.0001439289189875126,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Is my lord angry?",
+        "hotwords": "Iago, Is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, Is my lord angry?",
+          "start": 0.08,
+          "end": 1.88,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.241943359375
+            },
+            {
+              "text": " Is",
+              "start": 1.06,
+              "end": 1.22,
+              "probability": 0.0218048095703125
+            },
+            {
+              "text": " my",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " lord",
+              "start": 1.38,
+              "end": 1.56,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " angry?",
+              "start": 1.56,
+              "end": 1.88,
+              "probability": 0.94921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Is",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "raw": "my",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "lord",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "raw": "angry?",
+          "start": 1.56,
+          "end": 1.88
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Is",
+        "my",
+        "lord",
+        "angry?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 1.06,
+          "end": 1.22,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 1.38,
+          "end": 1.56,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "angry?",
+          "start": 1.56,
+          "end": 1.88,
+          "key": "angry",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Is",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "text": "my",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "text": "lord",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "text": "angry?",
+          "start": 1.56,
+          "end": 1.88
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10830549383535981
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7feb2a9f5780586d9c1d270e0dbe2f994d93c3d9e92bbbbf36f65a3c64feddea",
+  "selected_reasons": []
+}

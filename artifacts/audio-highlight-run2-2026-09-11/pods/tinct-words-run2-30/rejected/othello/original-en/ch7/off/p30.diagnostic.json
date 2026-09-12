@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "c3cda7457476af574233e9dd988e668333ddd7f1d82ff97428d5821b3b7f485e",
+  "attempts": [
+    {
+      "asr_seconds": 0.08112252876162529,
+      "alignment_seconds": 0.00022650882601737976,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Amelia.",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.923828125
+            },
+            {
+              "text": " Amelia.",
+              "start": 0.69,
+              "end": 0.97,
+              "probability": 0.79736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Amelia.",
+          "start": 0.69,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Emilia.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Amelia.",
+          "start": 0.69,
+          "end": 0.97,
+          "key": "amelia",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Emilia.]",
+          "start": 0.69,
+          "end": 0.83
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08140789764001966
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cd3951a97adb973b1520779292e079452475f25739ad39d477d5068348448be2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

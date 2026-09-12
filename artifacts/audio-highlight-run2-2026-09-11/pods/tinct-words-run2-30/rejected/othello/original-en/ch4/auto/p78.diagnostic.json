@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "6d1832ed920424e079a852c1c942144955ea9de569c4824fe5870e240e615ec2",
+  "attempts": [
+    {
+      "asr_seconds": 0.0796679868362844,
+      "alignment_seconds": 9.822892025113106e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Trumpets within.]",
+        "hotwords": "Trumpets"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Trumpets within.",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " Trumpets",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.904541015625
+            },
+            {
+              "text": " within.",
+              "start": 0.77,
+              "end": 0.99,
+              "probability": 0.56591796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Trumpets",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "within.",
+          "start": 0.77,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "[Trumpets",
+        "within.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Trumpets",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "trumpets",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "within.",
+          "start": 0.77,
+          "end": 0.99,
+          "key": "within",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Trumpets",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "within.]",
+          "start": 0.77,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07979875570163131
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b508a8cb1033e443f1449d45107ddffc15c1dd38de4954e5a02030c4e41d2ed8",
+  "selected_reasons": []
+}

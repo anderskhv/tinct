@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "a58848c69d631c7591ff606468f41154215111bbcb7214ed5a6906a8c1f724a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.10057639516890049,
+      "alignment_seconds": 0.00010039005428552628,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All excellent well.",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " excellent",
+              "start": 0.65,
+              "end": 1.25,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " well.",
+              "start": 1.25,
+              "end": 1.55,
+              "probability": 0.8037109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "excellent",
+          "start": 0.65,
+          "end": 1.25
+        },
+        {
+          "raw": "well.",
+          "start": 1.25,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Excellent",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "excellent",
+          "start": 0.65,
+          "end": 1.25,
+          "key": "excellent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.25,
+          "end": 1.55,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Excellent",
+          "start": 0.65,
+          "end": 1.25
+        },
+        {
+          "text": "well.",
+          "start": 1.25,
+          "end": 1.55
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10071354499086738
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "afd5f42c90a4060b90824dc1c4ba62839156e8e4409fd1daa99183257f29f160",
+  "selected_reasons": []
+}
