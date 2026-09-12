@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "942dcecbc46ba09bd7917e423709375cab9567d170eb84420d5fe6b4b9c0d98e",
+  "attempts": [
+    {
+      "asr_seconds": 0.08565771952271461,
+      "alignment_seconds": 0.0001589478924870491,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"At what?\"",
+        "hotwords": "At"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " At what?",
+          "start": 0.21,
+          "end": 0.83,
+          "words": [
+            {
+              "text": " At",
+              "start": 0.21,
+              "end": 0.57,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " what?",
+              "start": 0.57,
+              "end": 0.83,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "At",
+          "start": 0.21,
+          "end": 0.57
+        },
+        {
+          "raw": "what?",
+          "start": 0.57,
+          "end": 0.83
+        }
+      ],
+      "expected_tokens": [
+        "\"At",
+        "what?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "At",
+          "start": 0.21,
+          "end": 0.57,
+          "key": "at",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what?",
+          "start": 0.57,
+          "end": 0.83,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"At",
+          "start": 0.21,
+          "end": 0.57
+        },
+        {
+          "text": "what?\"",
+          "start": 0.57,
+          "end": 0.83
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08586880750954151
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fea93f5c575087c65153fb478f6573412de7c7010901ed1fb13337b0cc7ee827",
+  "selected_reasons": []
+}

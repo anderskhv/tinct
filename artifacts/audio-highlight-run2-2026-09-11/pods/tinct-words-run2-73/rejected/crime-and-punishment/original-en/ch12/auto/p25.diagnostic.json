@@ -1,0 +1,751 @@
+{
+  "complete": true,
+  "signature": "a5257f10c4fc207ccfa6cfaf69c3e8f96435be2956b15145bd524b4caa73d19d",
+  "attempts": [
+    {
+      "asr_seconds": 0.44592429138720036,
+      "alignment_seconds": 0.0011760648339986801,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I know, I know!\" Raskolnikov cried suddenly with impatient vexation. \"So you are the _fiancé_? I know, and that's enough!\"",
+        "hotwords": "I, Raskolnikov, So"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I know, I know!\" Raskolnikov cried suddenly with impatient vexation.",
+          "start": 0.08,
+          "end": 4.66,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.162109375
+            },
+            {
+              "text": " know,",
+              "start": 0.54,
+              "end": 0.76,
+              "probability": 0.98828125
+            },
+            {
+              "text": " I",
+              "start": 0.96,
+              "end": 1.0,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " know",
+              "start": 1.0,
+              "end": 1.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": "!\"",
+              "start": 1.32,
+              "end": 1.76,
+              "probability": 0.022613525390625
+            },
+            {
+              "text": " Raskolnikov",
+              "start": 1.76,
+              "end": 2.5,
+              "probability": 0.979296875
+            },
+            {
+              "text": " cried",
+              "start": 2.5,
+              "end": 2.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " suddenly",
+              "start": 2.74,
+              "end": 3.24,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " with",
+              "start": 3.24,
+              "end": 3.52,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " impatient",
+              "start": 3.52,
+              "end": 4.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " vexation.",
+              "start": 4.0,
+              "end": 4.66,
+              "probability": 0.92919921875
+            }
+          ]
+        },
+        {
+          "text": " So you are the fiancé. I know, and that's enough.",
+          "start": 5.06,
+          "end": 7.8,
+          "words": [
+            {
+              "text": " So",
+              "start": 5.06,
+              "end": 5.42,
+              "probability": 0.68798828125
+            },
+            {
+              "text": " you",
+              "start": 5.42,
+              "end": 5.6,
+              "probability": 0.8828125
+            },
+            {
+              "text": " are",
+              "start": 5.6,
+              "end": 5.74,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " the",
+              "start": 5.74,
+              "end": 5.86,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " fiancé.",
+              "start": 5.86,
+              "end": 6.44,
+              "probability": 0.3537190755208333
+            },
+            {
+              "text": " I",
+              "start": 6.9,
+              "end": 6.98,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " know,",
+              "start": 6.98,
+              "end": 7.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 7.3,
+              "end": 7.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that's",
+              "start": 7.34,
+              "end": 7.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " enough.",
+              "start": 7.58,
+              "end": 7.8,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "know,",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 0.96,
+          "end": 1.0
+        },
+        {
+          "raw": "know",
+          "start": 1.0,
+          "end": 1.32
+        },
+        {
+          "raw": "!\"",
+          "start": 1.32,
+          "end": 1.76
+        },
+        {
+          "raw": "Raskolnikov",
+          "start": 1.76,
+          "end": 2.5
+        },
+        {
+          "raw": "cried",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "raw": "suddenly",
+          "start": 2.74,
+          "end": 3.24
+        },
+        {
+          "raw": "with",
+          "start": 3.24,
+          "end": 3.52
+        },
+        {
+          "raw": "impatient",
+          "start": 3.52,
+          "end": 4.0
+        },
+        {
+          "raw": "vexation.",
+          "start": 4.0,
+          "end": 4.66
+        },
+        {
+          "raw": "So",
+          "start": 5.06,
+          "end": 5.42
+        },
+        {
+          "raw": "you",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "raw": "are",
+          "start": 5.6,
+          "end": 5.74
+        },
+        {
+          "raw": "the",
+          "start": 5.74,
+          "end": 5.86
+        },
+        {
+          "raw": "fiancé.",
+          "start": 5.86,
+          "end": 6.44
+        },
+        {
+          "raw": "I",
+          "start": 6.9,
+          "end": 6.98
+        },
+        {
+          "raw": "know,",
+          "start": 6.98,
+          "end": 7.16
+        },
+        {
+          "raw": "and",
+          "start": 7.3,
+          "end": 7.34
+        },
+        {
+          "raw": "that's",
+          "start": 7.34,
+          "end": 7.58
+        },
+        {
+          "raw": "enough.",
+          "start": 7.58,
+          "end": 7.8
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "know,",
+        "I",
+        "know!\"",
+        "Raskolnikov",
+        "cried",
+        "suddenly",
+        "with",
+        "impatient",
+        "vexation.",
+        "\"So",
+        "you",
+        "are",
+        "the",
+        "_fiancé_?",
+        "I",
+        "know,",
+        "and",
+        "that's",
+        "enough!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ],
+        [
+          "equal",
+          4,
+          20,
+          5,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 0.54,
+          "end": 0.76,
+          "key": "know",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.96,
+          "end": 1.0,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.0,
+          "end": 1.32,
+          "key": "know",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.32,
+          "end": 1.76,
+          "key": "",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Raskolnikov",
+          "start": 1.76,
+          "end": 2.5,
+          "key": "raskolnikov",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.5,
+          "end": 2.74,
+          "key": "cried",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 2.74,
+          "end": 3.24,
+          "key": "suddenly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.24,
+          "end": 3.52,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "impatient",
+          "start": 3.52,
+          "end": 4.0,
+          "key": "impatient",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "vexation.",
+          "start": 4.0,
+          "end": 4.66,
+          "key": "vexation",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 5.06,
+          "end": 5.42,
+          "key": "so",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.42,
+          "end": 5.6,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.6,
+          "end": 5.74,
+          "key": "are",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.74,
+          "end": 5.86,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "fiancé.",
+          "start": 5.86,
+          "end": 6.44,
+          "key": "fiancé",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.9,
+          "end": 6.98,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 6.98,
+          "end": 7.16,
+          "key": "know",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.3,
+          "end": 7.34,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 7.34,
+          "end": 7.58,
+          "key": "thats",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "enough.",
+          "start": 7.58,
+          "end": 7.8,
+          "key": "enough",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "know,",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "text": "I",
+          "start": 0.96,
+          "end": 1.0
+        },
+        {
+          "text": "know!\"",
+          "start": 1.0,
+          "end": 1.32
+        },
+        {
+          "text": "Raskolnikov",
+          "start": 1.76,
+          "end": 2.5
+        },
+        {
+          "text": "cried",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "text": "suddenly",
+          "start": 2.74,
+          "end": 3.24
+        },
+        {
+          "text": "with",
+          "start": 3.24,
+          "end": 3.52
+        },
+        {
+          "text": "impatient",
+          "start": 3.52,
+          "end": 4.0
+        },
+        {
+          "text": "vexation.",
+          "start": 4.0,
+          "end": 4.66
+        },
+        {
+          "text": "\"So",
+          "start": 5.06,
+          "end": 5.42
+        },
+        {
+          "text": "you",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "text": "are",
+          "start": 5.6,
+          "end": 5.74
+        },
+        {
+          "text": "the",
+          "start": 5.74,
+          "end": 5.86
+        },
+        {
+          "text": "_fiancé_?",
+          "start": 5.86,
+          "end": 6.44
+        },
+        {
+          "text": "I",
+          "start": 6.9,
+          "end": 6.98
+        },
+        {
+          "text": "know,",
+          "start": 6.98,
+          "end": 7.16
+        },
+        {
+          "text": "and",
+          "start": 7.3,
+          "end": 7.34
+        },
+        {
+          "text": "that's",
+          "start": 7.34,
+          "end": 7.58
+        },
+        {
+          "text": "enough!\"",
+          "start": 7.58,
+          "end": 7.8
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.44752011355012655
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "481767a1e558a5c68fa6be0bf7fc2dabc65df2b7cb2c4c702824bbf70a02e4ca",
+  "selected_reasons": []
+}

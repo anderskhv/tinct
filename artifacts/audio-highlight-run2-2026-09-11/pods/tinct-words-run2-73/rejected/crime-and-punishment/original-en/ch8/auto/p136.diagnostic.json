@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "47d133bb6000026792ca9058f395f194fc5db5e66a79a6d25a63e95e5ed43d14",
+  "attempts": [
+    {
+      "asr_seconds": 0.12863278482109308,
+      "alignment_seconds": 0.00035689957439899445,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I will dictate to you.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I will dictate to you.",
+          "start": 0.05,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " will",
+              "start": 0.51,
+              "end": 0.59,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " dictate",
+              "start": 0.59,
+              "end": 0.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 0.89,
+              "end": 1.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you.",
+              "start": 1.17,
+              "end": 1.37,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "will",
+          "start": 0.51,
+          "end": 0.59
+        },
+        {
+          "raw": "dictate",
+          "start": 0.59,
+          "end": 0.89
+        },
+        {
+          "raw": "to",
+          "start": 0.89,
+          "end": 1.17
+        },
+        {
+          "raw": "you.",
+          "start": 1.17,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "will",
+        "dictate",
+        "to",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.51,
+          "end": 0.59,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dictate",
+          "start": 0.59,
+          "end": 0.89,
+          "key": "dictate",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.89,
+          "end": 1.17,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.17,
+          "end": 1.37,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "will",
+          "start": 0.51,
+          "end": 0.59
+        },
+        {
+          "text": "dictate",
+          "start": 0.59,
+          "end": 0.89
+        },
+        {
+          "text": "to",
+          "start": 0.89,
+          "end": 1.17
+        },
+        {
+          "text": "you.\"",
+          "start": 1.17,
+          "end": 1.37
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1291283518075943
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d111ef7a625f9375f2bad740237dd3580e62698c63264592e245adcb0480874f",
+  "selected_reasons": []
+}

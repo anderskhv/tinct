@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "afa39599e5fb29100015cd47e304b8b7c3bae2661eeab13351b865c8185bd4d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.12668420933187008,
+      "alignment_seconds": 0.00011133868247270584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Then he was an author?\"",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then he was an author.",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " he",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.96484375
+            },
+            {
+              "text": " was",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " an",
+              "start": 0.78,
+              "end": 0.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " author.",
+              "start": 0.9,
+              "end": 1.18,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "he",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "was",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "an",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "raw": "author.",
+          "start": 0.9,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "\"Then",
+        "he",
+        "was",
+        "an",
+        "author?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.66,
+          "end": 0.78,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 0.78,
+          "end": 0.9,
+          "key": "an",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "author.",
+          "start": 0.9,
+          "end": 1.18,
+          "key": "author",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Then",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "he",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "was",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "an",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "text": "author?\"",
+          "start": 0.9,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12683498673141003
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "04ba57532f344a46871b7e867156fdec44b6ed0016ab96d9cedb850a55521ab6",
+  "selected_reasons": []
+}

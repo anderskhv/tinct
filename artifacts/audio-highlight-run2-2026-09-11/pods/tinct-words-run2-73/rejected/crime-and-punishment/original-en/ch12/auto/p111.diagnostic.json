@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "a7598b18f6f421e6046f18ca27970380b5aff3196eac2f0a490382af6f474ca2",
+  "attempts": [
+    {
+      "asr_seconds": 0.30809376761317253,
+      "alignment_seconds": 0.0006299903616309166,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Thanks! And I'll wait with Pashenka meantime and will keep watch on him through Nastasya....\"",
+        "hotwords": "Thanks, I'll, Pashenka, Nastasya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thanks, and I'll wait with Pashenka meantime and will keep watch on him through Nastasya....",
+          "start": 0.08,
+          "end": 5.08,
+          "words": [
+            {
+              "text": " Thanks,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " and",
+              "start": 1.2,
+              "end": 1.34,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " I'll",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " wait",
+              "start": 1.46,
+              "end": 1.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Pashenka",
+              "start": 1.8,
+              "end": 2.28,
+              "probability": 0.4057210286458333
+            },
+            {
+              "text": " meantime",
+              "start": 2.28,
+              "end": 2.7,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " and",
+              "start": 2.7,
+              "end": 3.1,
+              "probability": 0.6650390625
+            },
+            {
+              "text": " will",
+              "start": 3.1,
+              "end": 3.2,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " keep",
+              "start": 3.2,
+              "end": 3.38,
+              "probability": 0.9921875
+            },
+            {
+              "text": " watch",
+              "start": 3.38,
+              "end": 3.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 3.66,
+              "end": 3.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him",
+              "start": 3.86,
+              "end": 4.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " through",
+              "start": 4.02,
+              "end": 4.26,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Nastasya....",
+              "start": 4.26,
+              "end": 5.08,
+              "probability": 0.37055182456970215
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thanks,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "and",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "raw": "I'll",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "wait",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "raw": "with",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "Pashenka",
+          "start": 1.8,
+          "end": 2.28
+        },
+        {
+          "raw": "meantime",
+          "start": 2.28,
+          "end": 2.7
+        },
+        {
+          "raw": "and",
+          "start": 2.7,
+          "end": 3.1
+        },
+        {
+          "raw": "will",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "raw": "keep",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "raw": "watch",
+          "start": 3.38,
+          "end": 3.66
+        },
+        {
+          "raw": "on",
+          "start": 3.66,
+          "end": 3.86
+        },
+        {
+          "raw": "him",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "raw": "through",
+          "start": 4.02,
+          "end": 4.26
+        },
+        {
+          "raw": "Nastasya....",
+          "start": 4.26,
+          "end": 5.08
+        }
+      ],
+      "expected_tokens": [
+        "\"Thanks!",
+        "And",
+        "I'll",
+        "wait",
+        "with",
+        "Pashenka",
+        "meantime",
+        "and",
+        "will",
+        "keep",
+        "watch",
+        "on",
+        "him",
+        "through",
+        "Nastasya....\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thanks,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "thanks",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.2,
+          "end": 1.34,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "ill",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 1.46,
+          "end": 1.6,
+          "key": "wait",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Pashenka",
+          "start": 1.8,
+          "end": 2.28,
+          "key": "pashenka",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "meantime",
+          "start": 2.28,
+          "end": 2.7,
+          "key": "meantime",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.7,
+          "end": 3.1,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.1,
+          "end": 3.2,
+          "key": "will",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 3.2,
+          "end": 3.38,
+          "key": "keep",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 3.38,
+          "end": 3.66,
+          "key": "watch",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.66,
+          "end": 3.86,
+          "key": "on",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.86,
+          "end": 4.02,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 4.02,
+          "end": 4.26,
+          "key": "through",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Nastasya....",
+          "start": 4.26,
+          "end": 5.08,
+          "key": "nastasya",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Thanks!",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "And",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "I'll",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "wait",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "text": "with",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "text": "Pashenka",
+          "start": 1.8,
+          "end": 2.28
+        },
+        {
+          "text": "meantime",
+          "start": 2.28,
+          "end": 2.7
+        },
+        {
+          "text": "and",
+          "start": 2.7,
+          "end": 3.1
+        },
+        {
+          "text": "will",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "text": "keep",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "text": "watch",
+          "start": 3.38,
+          "end": 3.66
+        },
+        {
+          "text": "on",
+          "start": 3.66,
+          "end": 3.86
+        },
+        {
+          "text": "him",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "text": "through",
+          "start": 4.02,
+          "end": 4.26
+        },
+        {
+          "text": "Nastasya....\"",
+          "start": 4.26,
+          "end": 5.08
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3089572601020336
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "35a97c19d0cee67105fe87656534a8c4f25d37dfc466e669904d8f4d281aa0ab",
+  "selected_reasons": []
+}

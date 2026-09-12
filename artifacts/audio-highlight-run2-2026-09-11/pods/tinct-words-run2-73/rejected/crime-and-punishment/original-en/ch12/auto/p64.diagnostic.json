@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "15d3101648119446d82cec5b2fc42badcc72cb6c61e7ba018957a246bcc72881",
+  "attempts": [
+    {
+      "asr_seconds": 0.12248102761805058,
+      "alignment_seconds": 0.0003073178231716156,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes. What then?\"",
+        "hotwords": "Yes, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, What then?",
+          "start": 0.02,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " What",
+              "start": 0.98,
+              "end": 1.06,
+              "probability": 0.0204620361328125
+            },
+            {
+              "text": " then?",
+              "start": 1.06,
+              "end": 1.32,
+              "probability": 0.307373046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "What",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "raw": "then?",
+          "start": 1.06,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes.",
+        "What",
+        "then?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 0.98,
+          "end": 1.06,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then?",
+          "start": 1.06,
+          "end": 1.32,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "What",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "text": "then?\"",
+          "start": 1.06,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1228955453261733
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6a18610578c42366bd3f71e8be489d2fcda4b3581e834ac58f8f750ba62e8a36",
+  "selected_reasons": []
+}

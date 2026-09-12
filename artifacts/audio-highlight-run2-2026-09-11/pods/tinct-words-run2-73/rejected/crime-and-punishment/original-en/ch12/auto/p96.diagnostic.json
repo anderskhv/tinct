@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "e9ea16c18c3a99b97b9e32e11cb3c5222976ff9c532a733a11023c948bd385d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.11352168209850788,
+      "alignment_seconds": 0.00032685045152902603,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"So much the worse...\"",
+        "hotwords": "So"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " So much the worse...",
+          "start": 0.05,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " So",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " much",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 0.71,
+              "end": 0.87,
+              "probability": 0.96484375
+            },
+            {
+              "text": " worse...",
+              "start": 0.87,
+              "end": 1.57,
+              "probability": 0.435821533203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "much",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "the",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "raw": "worse...",
+          "start": 0.87,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "\"So",
+        "much",
+        "the",
+        "worse...\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "So",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "so",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 0.53,
+          "end": 0.71,
+          "key": "much",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.71,
+          "end": 0.87,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "worse...",
+          "start": 0.87,
+          "end": 1.57,
+          "key": "worse",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"So",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "much",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "the",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "text": "worse...\"",
+          "start": 0.87,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11400238238275051
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5b99c31d9aed21ed5ead8135bb9fb09a9eef298862fd9891a81b5cda433aafa0",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "fcb115a450f4125cb10c837a797af08dfb3b51eab3860933fc22d2cc273306aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.12539160065352917,
+      "alignment_seconds": 0.0004191240295767784,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That's all. Sign it.",
+          "start": 0.02,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.963623046875
+            },
+            {
+              "text": " all.",
+              "start": 0.68,
+              "end": 0.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Sign",
+              "start": 1.14,
+              "end": 1.24,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " it.",
+              "start": 1.24,
+              "end": 1.46,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "all.",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "raw": "Sign",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "raw": "it.",
+          "start": 1.24,
+          "end": 1.46
+        }
+      ],
+      "expected_tokens": [
+        "\"That's",
+        "all.",
+        "Sign",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 0.68,
+          "end": 0.86,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sign",
+          "start": 1.14,
+          "end": 1.24,
+          "key": "sign",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.24,
+          "end": 1.46,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That's",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "all.",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "text": "Sign",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "text": "it.\"",
+          "start": 1.24,
+          "end": 1.46
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1259455904364586
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "af48a518a588585da3f608742a31a69337d0344f40f9033d9c9420433f388f5d",
+  "selected_reasons": []
+}

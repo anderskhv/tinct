@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "bcdf8bf53d5d3e8059ef98a6befeb66f24a5fcbee7ddea5929f67c44848b78fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.21277945302426815,
+      "alignment_seconds": 0.00046184659004211426,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Right,\" said the head clerk to Raskolnikov.",
+          "start": 0.6,
+          "end": 2.76,
+          "words": [
+            {
+              "text": " Right,\"",
+              "start": 0.6,
+              "end": 1.04,
+              "probability": 0.23382568359375
+            },
+            {
+              "text": " said",
+              "start": 1.04,
+              "end": 1.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " head",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " clerk",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.96875
+            },
+            {
+              "text": " to",
+              "start": 1.74,
+              "end": 1.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Raskolnikov.",
+              "start": 1.94,
+              "end": 2.76,
+              "probability": 0.916796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Right,\"",
+          "start": 0.6,
+          "end": 1.04
+        },
+        {
+          "raw": "said",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "head",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "clerk",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "to",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "raw": "Raskolnikov.",
+          "start": 1.94,
+          "end": 2.76
+        }
+      ],
+      "expected_tokens": [
+        "\"Write!\"",
+        "said",
+        "the",
+        "head",
+        "clerk",
+        "to",
+        "Raskolnikov."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Right,\"",
+          "start": 0.6,
+          "end": 1.04,
+          "key": "right",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.04,
+          "end": 1.22,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "head",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "clerk",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "clerk",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.74,
+          "end": 1.94,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Raskolnikov.",
+          "start": 1.94,
+          "end": 2.76,
+          "key": "raskolnikov",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Write!\"",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "said",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "text": "the",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "head",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "clerk",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "text": "to",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "text": "Raskolnikov.",
+          "start": 1.94,
+          "end": 2.76
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.21339745819568634
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1ffef4ddab09ce013f033a30856a478d8f395f9fb2c685484f260e7c5dc1b37d",
+  "selected_reasons": []
+}

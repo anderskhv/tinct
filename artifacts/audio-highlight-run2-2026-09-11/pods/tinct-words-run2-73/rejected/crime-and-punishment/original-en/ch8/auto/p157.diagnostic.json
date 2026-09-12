@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "f6d0a05d876a1fac65d4939ad3f0595cae847af2b3c2e5e7cf41f9424dcf3690",
+  "attempts": [
+    {
+      "asr_seconds": 0.15665450412780046,
+      "alignment_seconds": 0.00038168299943208694,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Did you go out yesterday?\"",
+        "hotwords": "Did"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Did you go out yesterday?",
+          "start": 0.02,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Did",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " you",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " go",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " yesterday?",
+              "start": 1.04,
+              "end": 1.38,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Did",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "go",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "out",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "raw": "yesterday?",
+          "start": 1.04,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "\"Did",
+        "you",
+        "go",
+        "out",
+        "yesterday?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Did",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "did",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.66,
+          "end": 0.82,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 0.82,
+          "end": 1.04,
+          "key": "out",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "yesterday?",
+          "start": 1.04,
+          "end": 1.38,
+          "key": "yesterday",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Did",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "you",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "go",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "out",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "text": "yesterday?\"",
+          "start": 1.04,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15719842072576284
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1c25dee964c0a12aab0d401240d1c6799ae000651a7a11ff103b6093a3496b3d",
+  "selected_reasons": []
+}

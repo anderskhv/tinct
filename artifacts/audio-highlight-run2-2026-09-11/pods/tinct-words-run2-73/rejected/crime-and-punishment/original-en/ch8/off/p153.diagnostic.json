@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "6453ce2f43049408ed922f072a406da55d65b84c57f0fa5fab36a8e235800bf3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2517200894653797,
+      "alignment_seconds": 0.0004127761349081993,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What's this? Are you ill?\" Nikodim Fomich asked rather sharply.",
+          "start": 0.02,
+          "end": 4.18,
+          "words": [
+            {
+              "text": " What's",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.555389404296875
+            },
+            {
+              "text": " this?",
+              "start": 0.66,
+              "end": 0.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Are",
+              "start": 1.26,
+              "end": 1.36,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " you",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ill?\"",
+              "start": 1.5,
+              "end": 2.28,
+              "probability": 0.6068115234375
+            },
+            {
+              "text": " Nikodim",
+              "start": 2.28,
+              "end": 2.7,
+              "probability": 0.64990234375
+            },
+            {
+              "text": " Fomich",
+              "start": 2.7,
+              "end": 3.04,
+              "probability": 0.4912109375
+            },
+            {
+              "text": " asked",
+              "start": 3.04,
+              "end": 3.5,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " rather",
+              "start": 3.5,
+              "end": 3.74,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " sharply.",
+              "start": 3.74,
+              "end": 4.18,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What's",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "this?",
+          "start": 0.66,
+          "end": 0.9
+        },
+        {
+          "raw": "Are",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "raw": "you",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "ill?\"",
+          "start": 1.5,
+          "end": 2.28
+        },
+        {
+          "raw": "Nikodim",
+          "start": 2.28,
+          "end": 2.7
+        },
+        {
+          "raw": "Fomich",
+          "start": 2.7,
+          "end": 3.04
+        },
+        {
+          "raw": "asked",
+          "start": 3.04,
+          "end": 3.5
+        },
+        {
+          "raw": "rather",
+          "start": 3.5,
+          "end": 3.74
+        },
+        {
+          "raw": "sharply.",
+          "start": 3.74,
+          "end": 4.18
+        }
+      ],
+      "expected_tokens": [
+        "\"What's",
+        "this?",
+        "Are",
+        "you",
+        "ill?\"",
+        "Nikodim",
+        "Fomitch",
+        "asked,",
+        "rather",
+        "sharply."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          10,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What's",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "whats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this?",
+          "start": 0.66,
+          "end": 0.9,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 1.26,
+          "end": 1.36,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ill?\"",
+          "start": 1.5,
+          "end": 2.28,
+          "key": "ill",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Nikodim",
+          "start": 2.28,
+          "end": 2.7,
+          "key": "nikodim",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Fomich",
+          "start": 2.7,
+          "end": 3.04,
+          "key": "fomich",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 3.04,
+          "end": 3.5,
+          "key": "asked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 3.5,
+          "end": 3.74,
+          "key": "rather",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sharply.",
+          "start": 3.74,
+          "end": 4.18,
+          "key": "sharply",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What's",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "this?",
+          "start": 0.66,
+          "end": 0.9
+        },
+        {
+          "text": "Are",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "text": "you",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "ill?\"",
+          "start": 1.5,
+          "end": 2.28
+        },
+        {
+          "text": "Nikodim",
+          "start": 2.28,
+          "end": 2.7
+        },
+        {
+          "text": "Fomitch",
+          "start": 2.7,
+          "end": 2.87
+        },
+        {
+          "text": "asked,",
+          "start": 3.04,
+          "end": 3.5
+        },
+        {
+          "text": "rather",
+          "start": 3.5,
+          "end": 3.74
+        },
+        {
+          "text": "sharply.",
+          "start": 3.74,
+          "end": 4.18
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.2522815056145191
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2dfa2e3fad9f4bb8fc852d53d1efae5cd72dbe337a17230604ccf7f7e7a601ea",
+  "selected_reasons": []
+}

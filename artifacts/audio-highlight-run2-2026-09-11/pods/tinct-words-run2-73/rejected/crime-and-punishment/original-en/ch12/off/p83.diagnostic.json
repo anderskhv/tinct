@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "bfe344f8ac011fb390e683a0320e69a1dbcbf6b18b7d87b35d2497ff4a9493d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.27932028379291296,
+      "alignment_seconds": 0.00039794202893972397,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why carry out logically the theory you were advocating just now and it follows that people may be killed",
+          "start": 0.02,
+          "end": 6.22,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " carry",
+              "start": 0.68,
+              "end": 1.2,
+              "probability": 0.61767578125
+            },
+            {
+              "text": " out",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " logically",
+              "start": 1.48,
+              "end": 1.9,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " the",
+              "start": 1.9,
+              "end": 2.2,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " theory",
+              "start": 2.2,
+              "end": 2.48,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 2.48,
+              "end": 2.66,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " were",
+              "start": 2.66,
+              "end": 2.76,
+              "probability": 0.9921875
+            },
+            {
+              "text": " advocating",
+              "start": 2.76,
+              "end": 3.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " just",
+              "start": 3.26,
+              "end": 3.6,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " now",
+              "start": 3.6,
+              "end": 3.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 3.98,
+              "end": 4.5,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " it",
+              "start": 4.5,
+              "end": 4.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " follows",
+              "start": 4.62,
+              "end": 4.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 4.92,
+              "end": 5.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " people",
+              "start": 5.18,
+              "end": 5.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " may",
+              "start": 5.44,
+              "end": 5.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " be",
+              "start": 5.7,
+              "end": 5.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " killed",
+              "start": 5.9,
+              "end": 6.22,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "carry",
+          "start": 0.68,
+          "end": 1.2
+        },
+        {
+          "raw": "out",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "raw": "logically",
+          "start": 1.48,
+          "end": 1.9
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "raw": "theory",
+          "start": 2.2,
+          "end": 2.48
+        },
+        {
+          "raw": "you",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "raw": "were",
+          "start": 2.66,
+          "end": 2.76
+        },
+        {
+          "raw": "advocating",
+          "start": 2.76,
+          "end": 3.26
+        },
+        {
+          "raw": "just",
+          "start": 3.26,
+          "end": 3.6
+        },
+        {
+          "raw": "now",
+          "start": 3.6,
+          "end": 3.98
+        },
+        {
+          "raw": "and",
+          "start": 3.98,
+          "end": 4.5
+        },
+        {
+          "raw": "it",
+          "start": 4.5,
+          "end": 4.62
+        },
+        {
+          "raw": "follows",
+          "start": 4.62,
+          "end": 4.92
+        },
+        {
+          "raw": "that",
+          "start": 4.92,
+          "end": 5.18
+        },
+        {
+          "raw": "people",
+          "start": 5.18,
+          "end": 5.44
+        },
+        {
+          "raw": "may",
+          "start": 5.44,
+          "end": 5.7
+        },
+        {
+          "raw": "be",
+          "start": 5.7,
+          "end": 5.9
+        },
+        {
+          "raw": "killed",
+          "start": 5.9,
+          "end": 6.22
+        }
+      ],
+      "expected_tokens": [
+        "\"Why,",
+        "carry",
+        "out",
+        "logically",
+        "the",
+        "theory",
+        "you",
+        "were",
+        "advocating",
+        "just",
+        "now,",
+        "and",
+        "it",
+        "follows",
+        "that",
+        "people",
+        "may",
+        "be",
+        "killed...\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "carry",
+          "start": 0.68,
+          "end": 1.2,
+          "key": "carry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.2,
+          "end": 1.48,
+          "key": "out",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "logically",
+          "start": 1.48,
+          "end": 1.9,
+          "key": "logically",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 2.2,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "theory",
+          "start": 2.2,
+          "end": 2.48,
+          "key": "theory",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.48,
+          "end": 2.66,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.66,
+          "end": 2.76,
+          "key": "were",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "advocating",
+          "start": 2.76,
+          "end": 3.26,
+          "key": "advocating",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 3.26,
+          "end": 3.6,
+          "key": "just",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 3.6,
+          "end": 3.98,
+          "key": "now",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.98,
+          "end": 4.5,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.5,
+          "end": 4.62,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "follows",
+          "start": 4.62,
+          "end": 4.92,
+          "key": "follows",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.92,
+          "end": 5.18,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "people",
+          "start": 5.18,
+          "end": 5.44,
+          "key": "people",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 5.44,
+          "end": 5.7,
+          "key": "may",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.7,
+          "end": 5.9,
+          "key": "be",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "killed",
+          "start": 5.9,
+          "end": 6.22,
+          "key": "killed",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "carry",
+          "start": 0.68,
+          "end": 1.2
+        },
+        {
+          "text": "out",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "text": "logically",
+          "start": 1.48,
+          "end": 1.9
+        },
+        {
+          "text": "the",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "text": "theory",
+          "start": 2.2,
+          "end": 2.48
+        },
+        {
+          "text": "you",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "text": "were",
+          "start": 2.66,
+          "end": 2.76
+        },
+        {
+          "text": "advocating",
+          "start": 2.76,
+          "end": 3.26
+        },
+        {
+          "text": "just",
+          "start": 3.26,
+          "end": 3.6
+        },
+        {
+          "text": "now,",
+          "start": 3.6,
+          "end": 3.98
+        },
+        {
+          "text": "and",
+          "start": 3.98,
+          "end": 4.5
+        },
+        {
+          "text": "it",
+          "start": 4.5,
+          "end": 4.62
+        },
+        {
+          "text": "follows",
+          "start": 4.62,
+          "end": 4.92
+        },
+        {
+          "text": "that",
+          "start": 4.92,
+          "end": 5.18
+        },
+        {
+          "text": "people",
+          "start": 5.18,
+          "end": 5.44
+        },
+        {
+          "text": "may",
+          "start": 5.44,
+          "end": 5.7
+        },
+        {
+          "text": "be",
+          "start": 5.7,
+          "end": 5.9
+        },
+        {
+          "text": "killed...\"",
+          "start": 5.9,
+          "end": 6.22
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2798818163573742
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3ebbc4e093d356b8dbf67ad40185a484f254a90613db953316271787f09f74b2",
+  "selected_reasons": []
+}

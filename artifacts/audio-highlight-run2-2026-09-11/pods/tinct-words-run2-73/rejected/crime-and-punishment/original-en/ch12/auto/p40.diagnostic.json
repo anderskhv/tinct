@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "a68ddce948da5ba60049115ef26e2371f60758f2492f4d4041f5514875aadc07",
+  "attempts": [
+    {
+      "asr_seconds": 0.2158373650163412,
+      "alignment_seconds": 0.0003659399226307869,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes... no,\" Raskolnikov answered.",
+        "hotwords": "Yes, Raskolnikov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes... no,\" Raskolnikov answered.",
+          "start": 0.05,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Yes...",
+              "start": 0.05,
+              "end": 1.17,
+              "probability": 0.325042724609375
+            },
+            {
+              "text": " no,\"",
+              "start": 1.17,
+              "end": 1.65,
+              "probability": 0.17798614501953125
+            },
+            {
+              "text": " Raskolnikov",
+              "start": 1.65,
+              "end": 2.31,
+              "probability": 0.96259765625
+            },
+            {
+              "text": " answered.",
+              "start": 2.31,
+              "end": 2.63,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes...",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "raw": "no,\"",
+          "start": 1.17,
+          "end": 1.65
+        },
+        {
+          "raw": "Raskolnikov",
+          "start": 1.65,
+          "end": 2.31
+        },
+        {
+          "raw": "answered.",
+          "start": 2.31,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes...",
+        "no,\"",
+        "Raskolnikov",
+        "answered."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes...",
+          "start": 0.05,
+          "end": 1.17,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no,\"",
+          "start": 1.17,
+          "end": 1.65,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Raskolnikov",
+          "start": 1.65,
+          "end": 2.31,
+          "key": "raskolnikov",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "answered.",
+          "start": 2.31,
+          "end": 2.63,
+          "key": "answered",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes...",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "text": "no,\"",
+          "start": 1.17,
+          "end": 1.65
+        },
+        {
+          "text": "Raskolnikov",
+          "start": 1.65,
+          "end": 2.31
+        },
+        {
+          "text": "answered.",
+          "start": 2.31,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21632873453199863
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fe5a76c476719c66a21d1af9b87a16bda8c715c2899e59e26bbd44b33b874a5a",
+  "selected_reasons": []
+}

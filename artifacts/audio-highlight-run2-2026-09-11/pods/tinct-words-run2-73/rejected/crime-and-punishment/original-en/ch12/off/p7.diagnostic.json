@@ -1,0 +1,358 @@
+{
+  "complete": true,
+  "signature": "8c09addf953d937ce45621c2c61a664cb5dda9bf82a1e3d361cac79ebd9412a6",
+  "attempts": [
+    {
+      "asr_seconds": 0.22186400461941957,
+      "alignment_seconds": 0.0005676178261637688,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, I am Rascal Nikov. What do you want?",
+          "start": 0.05,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " I",
+              "start": 0.79,
+              "end": 0.87,
+              "probability": 0.9921875
+            },
+            {
+              "text": " am",
+              "start": 0.87,
+              "end": 0.99,
+              "probability": 0.681640625
+            },
+            {
+              "text": " Rascal",
+              "start": 0.99,
+              "end": 1.31,
+              "probability": 0.912841796875
+            },
+            {
+              "text": " Nikov.",
+              "start": 1.31,
+              "end": 1.67,
+              "probability": 0.613525390625
+            },
+            {
+              "text": " What",
+              "start": 2.07,
+              "end": 2.17,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " do",
+              "start": 2.17,
+              "end": 2.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 2.25,
+              "end": 2.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " want?",
+              "start": 2.37,
+              "end": 2.59,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "I",
+          "start": 0.79,
+          "end": 0.87
+        },
+        {
+          "raw": "am",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "raw": "Rascal",
+          "start": 0.99,
+          "end": 1.31
+        },
+        {
+          "raw": "Nikov.",
+          "start": 1.31,
+          "end": 1.67
+        },
+        {
+          "raw": "What",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "raw": "do",
+          "start": 2.17,
+          "end": 2.25
+        },
+        {
+          "raw": "you",
+          "start": 2.25,
+          "end": 2.37
+        },
+        {
+          "raw": "want?",
+          "start": 2.37,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "I",
+        "am",
+        "Raskolnikov!",
+        "What",
+        "do",
+        "you",
+        "want?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          8,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.79,
+          "end": 0.87,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.87,
+          "end": 0.99,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Rascal",
+          "start": 0.99,
+          "end": 1.31,
+          "key": "rascal",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Nikov.",
+          "start": 1.31,
+          "end": 1.67,
+          "key": "nikov",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.07,
+          "end": 2.17,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.17,
+          "end": 2.25,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.25,
+          "end": 2.37,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "want?",
+          "start": 2.37,
+          "end": 2.59,
+          "key": "want",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "I",
+          "start": 0.79,
+          "end": 0.87
+        },
+        {
+          "text": "am",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "text": "Raskolnikov!",
+          "start": 0.99,
+          "end": 1.53
+        },
+        {
+          "text": "What",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "text": "do",
+          "start": 2.17,
+          "end": 2.25
+        },
+        {
+          "text": "you",
+          "start": 2.25,
+          "end": 2.37
+        },
+        {
+          "text": "want?\"",
+          "start": 2.37,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2226181272417307
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5e7981d0708ee0645a4a2eb2f5ecddbcd531b6597e7ba5a589f00d78b72e4cda",
+  "selected_reasons": []
+}

@@ -1,0 +1,674 @@
+{
+  "complete": true,
+  "signature": "2330a490668c873b50ea0ebcbfd4524f4003acbd4a19f5556105a6bf2ed41c67",
+  "attempts": [
+    {
+      "asr_seconds": 0.3356636706739664,
+      "alignment_seconds": 0.000627448782324791,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But now, now, what am I glad of?",
+          "start": 0.08,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " now,",
+              "start": 0.52,
+              "end": 0.78,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " now,",
+              "start": 0.96,
+              "end": 1.1,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " what",
+              "start": 1.36,
+              "end": 1.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " am",
+              "start": 1.44,
+              "end": 1.54,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.994140625
+            },
+            {
+              "text": " glad",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of?",
+              "start": 1.9,
+              "end": 2.22,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " He thought, is that hiding things?",
+          "start": 2.62,
+          "end": 4.4,
+          "words": [
+            {
+              "text": " He",
+              "start": 2.62,
+              "end": 2.74,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " thought,",
+              "start": 2.74,
+              "end": 3.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is",
+              "start": 3.34,
+              "end": 3.46,
+              "probability": 0.34130859375
+            },
+            {
+              "text": " that",
+              "start": 3.46,
+              "end": 3.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hiding",
+              "start": 3.64,
+              "end": 3.92,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " things?",
+              "start": 3.92,
+              "end": 4.4,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " My reasons deserting me simply.",
+          "start": 4.82,
+          "end": 6.36,
+          "words": [
+            {
+              "text": " My",
+              "start": 4.82,
+              "end": 4.94,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " reasons",
+              "start": 4.94,
+              "end": 5.3,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " deserting",
+              "start": 5.3,
+              "end": 5.9,
+              "probability": 0.955810546875
+            },
+            {
+              "text": " me",
+              "start": 5.9,
+              "end": 6.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " simply.",
+              "start": 6.06,
+              "end": 6.36,
+              "probability": 0.95458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "now,",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "raw": "now,",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "raw": "what",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "raw": "am",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "raw": "I",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "glad",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "of?",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "raw": "He",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "raw": "thought,",
+          "start": 2.74,
+          "end": 3.0
+        },
+        {
+          "raw": "is",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "raw": "that",
+          "start": 3.46,
+          "end": 3.64
+        },
+        {
+          "raw": "hiding",
+          "start": 3.64,
+          "end": 3.92
+        },
+        {
+          "raw": "things?",
+          "start": 3.92,
+          "end": 4.4
+        },
+        {
+          "raw": "My",
+          "start": 4.82,
+          "end": 4.94
+        },
+        {
+          "raw": "reasons",
+          "start": 4.94,
+          "end": 5.3
+        },
+        {
+          "raw": "deserting",
+          "start": 5.3,
+          "end": 5.9
+        },
+        {
+          "raw": "me",
+          "start": 5.9,
+          "end": 6.06
+        },
+        {
+          "raw": "simply.",
+          "start": 6.06,
+          "end": 6.36
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "now,",
+        "now,",
+        "what",
+        "am",
+        "I",
+        "glad",
+        "of?\"",
+        "he",
+        "thought,",
+        "\"Is",
+        "that",
+        "hiding",
+        "things?",
+        "My",
+        "reason's",
+        "deserting",
+        "me--simply!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 0.52,
+          "end": 0.78,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 0.96,
+          "end": 1.1,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.36,
+          "end": 1.44,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.44,
+          "end": 1.54,
+          "key": "am",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "glad",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "glad",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of?",
+          "start": 1.9,
+          "end": 2.22,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.62,
+          "end": 2.74,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thought,",
+          "start": 2.74,
+          "end": 3.0,
+          "key": "thought",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.34,
+          "end": 3.46,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.46,
+          "end": 3.64,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hiding",
+          "start": 3.64,
+          "end": 3.92,
+          "key": "hiding",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "things?",
+          "start": 3.92,
+          "end": 4.4,
+          "key": "things",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 4.82,
+          "end": 4.94,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "reasons",
+          "start": 4.94,
+          "end": 5.3,
+          "key": "reasons",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "deserting",
+          "start": 5.3,
+          "end": 5.9,
+          "key": "deserting",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "me simply.",
+          "start": 5.9,
+          "end": 6.36,
+          "key": "mesimply",
+          "pieces": [
+            17,
+            18
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 17,
+          "text": "me--simply!\"",
+          "heard": "me simply.",
+          "heard_indexes": [
+            17,
+            18
+          ],
+          "start": 5.9,
+          "end": 6.36
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "now,",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "text": "now,",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "text": "what",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "text": "am",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "text": "I",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "glad",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "of?\"",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "text": "he",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "text": "thought,",
+          "start": 2.74,
+          "end": 3.0
+        },
+        {
+          "text": "\"Is",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "text": "that",
+          "start": 3.46,
+          "end": 3.64
+        },
+        {
+          "text": "hiding",
+          "start": 3.64,
+          "end": 3.92
+        },
+        {
+          "text": "things?",
+          "start": 3.92,
+          "end": 4.4
+        },
+        {
+          "text": "My",
+          "start": 4.82,
+          "end": 4.94
+        },
+        {
+          "text": "reason's",
+          "start": 4.94,
+          "end": 5.3
+        },
+        {
+          "text": "deserting",
+          "start": 5.3,
+          "end": 5.9
+        },
+        {
+          "text": "me--simply!\"",
+          "start": 5.9,
+          "end": 6.36
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3365459144115448
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2af9764b37bdcde8e14428c7bbc0cac1a3f5b37bb2f10cfef5586782c007c2f3",
+  "selected_reasons": []
+}

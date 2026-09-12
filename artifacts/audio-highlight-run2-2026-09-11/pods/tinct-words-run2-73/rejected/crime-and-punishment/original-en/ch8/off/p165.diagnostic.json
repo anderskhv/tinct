@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "db4bc6d01afade2bff0ddd75fbd01d0e19c908faa8df9040a4025373619502b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.09274107869714499,
+      "alignment_seconds": 0.00031193532049655914,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Short and clear.",
+          "start": 0.02,
+          "end": 1.04,
+          "words": [
+            {
+              "text": " Short",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.82763671875
+            },
+            {
+              "text": " and",
+              "start": 0.62,
+              "end": 0.8,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " clear.",
+              "start": 0.8,
+              "end": 1.04,
+              "probability": 0.890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Short",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "and",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "raw": "clear.",
+          "start": 0.8,
+          "end": 1.04
+        }
+      ],
+      "expected_tokens": [
+        "\"Short",
+        "and",
+        "clear.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Short",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "short",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.62,
+          "end": 0.8,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "clear.",
+          "start": 0.8,
+          "end": 1.04,
+          "key": "clear",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Short",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "and",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "text": "clear.\"",
+          "start": 0.8,
+          "end": 1.04
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09316503535956144
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8467d037895ef93c47c716155dfe82520bd26ab311412517a8981b90891778d3",
+  "selected_reasons": []
+}

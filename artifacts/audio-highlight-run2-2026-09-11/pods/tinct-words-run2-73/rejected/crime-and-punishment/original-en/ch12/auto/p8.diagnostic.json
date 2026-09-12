@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "7d7d834dac8a3185b0fea71b4f0b45814e1610bbaa7ff69aca7b39235a9d3072",
+  "attempts": [
+    {
+      "asr_seconds": 0.20592890214174986,
+      "alignment_seconds": 0.0004086829721927643,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The visitor scrutinised him and pronounced impressively:",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The visitor scrutinised him and pronounced impressively.",
+          "start": 0.05,
+          "end": 3.27,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " visitor",
+              "start": 0.49,
+              "end": 0.81,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " scrutinised",
+              "start": 0.81,
+              "end": 1.47,
+              "probability": 0.5160064697265625
+            },
+            {
+              "text": " him",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 1.65,
+              "end": 2.15,
+              "probability": 0.63427734375
+            },
+            {
+              "text": " pronounced",
+              "start": 2.15,
+              "end": 2.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " impressively.",
+              "start": 2.53,
+              "end": 3.27,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "visitor",
+          "start": 0.49,
+          "end": 0.81
+        },
+        {
+          "raw": "scrutinised",
+          "start": 0.81,
+          "end": 1.47
+        },
+        {
+          "raw": "him",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "and",
+          "start": 1.65,
+          "end": 2.15
+        },
+        {
+          "raw": "pronounced",
+          "start": 2.15,
+          "end": 2.53
+        },
+        {
+          "raw": "impressively.",
+          "start": 2.53,
+          "end": 3.27
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "visitor",
+        "scrutinised",
+        "him",
+        "and",
+        "pronounced",
+        "impressively:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "visitor",
+          "start": 0.49,
+          "end": 0.81,
+          "key": "visitor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "scrutinised",
+          "start": 0.81,
+          "end": 1.47,
+          "key": "scrutinised",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.47,
+          "end": 1.65,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.65,
+          "end": 2.15,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pronounced",
+          "start": 2.15,
+          "end": 2.53,
+          "key": "pronounced",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "impressively.",
+          "start": 2.53,
+          "end": 3.27,
+          "key": "impressively",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "visitor",
+          "start": 0.49,
+          "end": 0.81
+        },
+        {
+          "text": "scrutinised",
+          "start": 0.81,
+          "end": 1.47
+        },
+        {
+          "text": "him",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "text": "and",
+          "start": 1.65,
+          "end": 2.15
+        },
+        {
+          "text": "pronounced",
+          "start": 2.15,
+          "end": 2.53
+        },
+        {
+          "text": "impressively:",
+          "start": 2.53,
+          "end": 3.27
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20651360880583525
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5a55d2e811a3c443837151e88ad8f9062b724a71d4511bdbe7ff60ea2773c5ed",
+  "selected_reasons": []
+}

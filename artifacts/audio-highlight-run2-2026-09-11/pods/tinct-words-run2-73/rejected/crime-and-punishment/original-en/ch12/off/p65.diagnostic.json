@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "922a61b0f075d35a32af5083dd332442d389c8f5575ae45295ad20fb1d5d5ad5",
+  "attempts": [
+    {
+      "asr_seconds": 0.12294069491326809,
+      "alignment_seconds": 0.00020048115402460098,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nothing.",
+          "start": 0.02,
+          "end": 0.7,
+          "words": [
+            {
+              "text": " Nothing.",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nothing.",
+          "start": 0.02,
+          "end": 0.7
+        }
+      ],
+      "expected_tokens": [
+        "\"Nothing.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nothing.",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "nothing",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Nothing.\"",
+          "start": 0.02,
+          "end": 0.7
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12320560403168201
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ba61bd43b55f91bef43bd294c0c93055cb4c1f2e7093acbaa60280a928d90a12",
+  "selected_reasons": []
+}
