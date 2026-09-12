@@ -82,7 +82,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Heart of Darkness (`heart-of-darkness`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Discourse on the Origin of Inequality (`discourse-on-inequality`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Strange Case of Dr Jekyll and Mr Hyde (`jekyll-and-hyde`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Walden (`walden`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Walden (`walden`) | in-progress | Lane A authoring claimed: build entity inventory from both English editions, author cards, run editorial checks before validated-package |
 | A Vindication of the Rights of Woman (`vindication-rights-of-woman`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Comedy of Errors (`comedy-of-errors`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Merchant of Venice (`merchant-of-venice`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
