@@ -19,7 +19,7 @@
  * the same browser cache — and a shelf resolving reading places against an
  * older catalogue silently loses every book added since (2026-09-12).
  */
-export const LAB_CATALOGUE_URL = '/lab/catalogue.json?v=20260912-continue-1'
+export const LAB_CATALOGUE_URL = '/lab/catalogue.json?v=20260912-withheld-1'
 
 export const REVEAL_SESSION_KEY = 'tinct:lab-library-revealed'
 export const READING_MEMORY_DEVICE_KEY = 'tinct:reading-memory'
