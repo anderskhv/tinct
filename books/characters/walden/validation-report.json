@@ -1,0 +1,32 @@
+{
+  "bookId": "walden",
+  "scope": "Entities: 1 central (Thoreau, the narrator, never named -- no bindable alias), no major, 10 supporting (the real local cast of Chapters 10-12 and 14, plus the Hermit/Poet dialogue tags), the rest reference. Five namesake/common-word collisions: Cato (Elder vs. Ingraham, location-scoped), Nutting and Stratton (each a Chapter 14 family vs. a Chapter 15 named individual, location-scoped), Adam (biblical vs. Adam Smith, resolved by longest-span-first with no scoping needed), and Say (the economist Jean-Baptiste Say vs. the ordinary verb \"Say\" capitalized at two sentence-openings, bound only by a location-scoped match, no global alias). No footnote-apparatus contamination between editions, unlike Aristotle's Politics.",
+  "authoredEntries": 122,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "880a909fb8da73db303b4b2ea43be64a1800bdafd82ffcac7cb2847232ed5cb3",
+      "chapters": 18,
+      "paragraphs": 502,
+      "entries": 121,
+      "mentions": 206,
+      "omittedEntities": [
+        "thoreau"
+      ]
+    },
+    "modern-en": {
+      "sourceSha256": "d2d20614cb168f7dac5413213f98d41a9d21bd90ac3126fa592e52b58571f8ec",
+      "chapters": 18,
+      "paragraphs": 502,
+      "entries": 121,
+      "mentions": 206,
+      "omittedEntities": [
+        "thoreau"
+      ]
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}
