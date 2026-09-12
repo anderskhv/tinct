@@ -117,12 +117,13 @@ documented source.
 ## 4. Staged corrected `original-en`
 
 `meditations-original-en.staged.json`
-(sha256 `7bf2d1b175854b4adad90984a4bb61226e808a77148ad5f6d06041bacfaff443`),
+(sha256 `7798607dc6d8af0a25845b025405873c8a2597d44ed1f61eb5d803ba585e2830`,
+the twice-rebuilt file; see the two rebuild notes below),
 built by `scripts/build_original_en_from_pg15877.py` from
 `source/pg15877-long-1862.txt`. Same schema as the served editions
 (`{"chapters":[{"number","title","paragraphs":[…]}]}`), 12 chapters titled
 `Book 1` … `Book 12` (the served title style), **487 paragraphs, one per
-numbered section** (17, 17, 16, 51, 36, 59, 75, 61, 42, 38, 39, 36), 46,088
+numbered section** (17, 17, 16, 51, 36, 59, 75, 61, 42, 38, 39, 36), 46,058
 words. Every paragraph starts with its section number ("1. ", "2. ", …) so
 meditation numbering is visible and stable.
 
@@ -144,6 +145,17 @@ reproducible by running the script):
   IX.21; found at Book IV step 1 (2026-09-11) and fixed in the script, which
   changed the staged file's sha256 from `7bf2d1b1…` to `b0ecf3da…`. Only those
   three paragraphs changed; the count is still 487; chapters 1–3 byte-identical.
+- Long's footnotes removed. The build skipped footnotes by their indented
+  `[A]` opener, but three in Book VII are printed flush left in the PG text
+  ("See Aristophanes, Acharnenses, v. 661." and "From the Apologia, c. 16."
+  twice, PG lines 4600, 4602, 4604) and so were appended to VII.45 as if they
+  were Long's text. Found at Book VII step 1 (2026-09-12) and fixed in the
+  script, whose footnote test now matches unindented openers as well; this
+  changed the staged file's sha256 from `b0ecf3da…` to `7798607d…`. VII.45 is
+  the only paragraph that changed; the count is still 487; chapters 1–6 are
+  byte-identical, so Books I–VI's `source-bookN.json` files and acceptances
+  stand. 124 indented footnotes were already being stripped correctly; these
+  three were the only unindented ones in the body.
 - Long's own square-bracket supplements (e.g. "[I learned]", "[only]",
   "[the world]") are **kept**; they are part of his translation.
 - Long's in-text cross-references (e.g. "(vi. 28)" at II.12, "(vi. 44; ix. 28)"
@@ -183,5 +195,5 @@ Recorded for the coordinator and Anders; none of it is done or decided here.
 cd books/staged-replacements/meditations
 sha256sum source/pg15877-long-1862.txt    # 6584df7e…
 python3 scripts/build_original_en_from_pg15877.py
-sha256sum meditations-original-en.staged.json   # 7bf2d1b1…
+sha256sum meditations-original-en.staged.json   # 7798607d…
 ```

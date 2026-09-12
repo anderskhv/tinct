@@ -17,7 +17,7 @@ for l in body:
     if m: flush(); cur=roman[m.group(1)]; books[cur]=[]; in_fn=False; continue
     if cur is None: continue
     indented=bool(re.match(r'^\s{2,}\S', l)); blank=(l.strip()=='')
-    if re.match(r'^\s+\[[A-Z]\]', l): in_fn=True; continue
+    if re.match(r'^\s*\[[A-Z]\]', l): in_fn=True; continue
     if in_fn:
         if indented or blank: continue
         in_fn=False

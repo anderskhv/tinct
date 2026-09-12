@@ -204,6 +204,19 @@ session. Kept current at every push.
   per case. Flow read done, no further change. Acceptance recorded in
   `book6/ACCEPTANCE.md`. `continuity.md`, `provenance.json`, `manifest.json`
   and `README.md` updated. No new glossary row.
+- 2026-09-12 — **Staged original rebuilt, second time** (Book VII step 1, D12).
+  Three of Long's footnotes are printed flush left in the PG text ("See
+  Aristophanes, Acharnenses, v. 661." and "From the Apologia, c. 16." twice,
+  PG lines 4600, 4602, 4604), so the build's footnote filter — which tested
+  for an *indented* `[A]` opener — missed them and appended them to VII.45 as
+  if they were Long's text. `scripts/build_original_en_from_pg15877.py` now
+  matches unindented openers too; the file was rebuilt, sha256 `b0ecf3da…` →
+  `7798607d…`, 487 paragraphs before and after, VII.45 the only paragraph
+  changed, chapters 1–6 byte-identical (so Books I–VI's `source-bookN.json`
+  files and acceptances stand; a note was appended to each of their
+  `provenance.json` files). The other 124 footnotes in the body were already
+  being stripped correctly. Recorded in `PROVENANCE.md` §4.
+
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran

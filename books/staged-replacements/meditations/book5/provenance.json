@@ -3,7 +3,7 @@
  "branch": "claude/meditations-modern-en-20260911-v2",
  "staged_original_path": "books/staged-replacements/meditations/meditations-original-en.staged.json",
  "staged_original_sha256": "b0ecf3da6984c95a54ca36e1c60d20a01ad95fc6bb6e7544740e9c82717cf67f",
- "staged_original_note": "The rebuilt file (Book IV step 1, D12): three PG illustration captions stripped (IV.20, V.8, IX.21); previous sha256 7bf2d1b175854b4adad90984a4bb61226e808a77148ad5f6d06041bacfaff443. V.8 confirmed clean at Book V step 1: no '[Illustration' anywhere in the file.",
+ "staged_original_note": "The rebuilt file (Book IV step 1, D12): three PG illustration captions stripped (IV.20, V.8, IX.21); previous sha256 7bf2d1b175854b4adad90984a4bb61226e808a77148ad5f6d06041bacfaff443. V.8 confirmed clean at Book V step 1: no '[Illustration' anywhere in the file. Rebuilt a second time on 2026-09-12 at Book VII step 1 (D12): three of Long's footnotes (\"See Aristophanes, Acharnenses, v. 661.\", \"From the Apologia, c. 16.\" twice) printed unindented in the PG text had escaped the build's footnote filter and been appended to VII.45; the filter now matches unindented footnote openers too. New sha256 7798607dc6d8af0a25845b025405873c8a2597d44ed1f61eb5d803ba585e2830. 487 paragraphs before and after; VII.45 is the only paragraph that changed; chapters 1-6 are byte-identical, so this book's source and acceptance stand unchanged.",
  "chapter_extracted": {
   "number": 5,
   "title": "Book 5",
