@@ -1,5 +1,6 @@
 import type { Edition, Section, ThreadCharacter } from '../types'
 import { getBook } from '../data/bookRegistry'
+import { migrateWithheldEdition } from '../data/withheldEditions'
 import { loadEditionWindow, loadEditionChapterList } from '../data/editionLoader'
 import { followParagraphFromManifest, type FollowParagraph, type ManifestParagraph } from './labFollow'
 import { labAudioManifestUrl, type LabAudioTitleClip } from './labListen'
@@ -115,14 +116,22 @@ function sourceFromChapter(input: {
   chaptersProvisional?: boolean
   sections?: Section[]
   cast: LabCastMember[]
+  /** The edition actually loaded. Omitted only by the pre-network fixture. */
+  editionKey?: string
 }): LabSource {
   const parsed = parseBibleChapterTitle(input.chapterTitle)
+  const editions = getBook(LAB_BOOK_ID)?.editions
   return {
     bookId: LAB_BOOK_ID,
-    editions: getBook(LAB_BOOK_ID)?.editions,
+    editions,
     bookTitle: LAB_COPY.bookTitle,
     bookAuthor: LAB_COPY.bookAuthor,
-    editionLabel: LAB_COPY.editionLabel,
+    // The Bible loader used to name the KJV whatever was on the page. The
+    // companion is told which edition the reader is in, so a reader in the
+    // World English Bible must not have their questions answered as if they
+    // were looking at 1611 English.
+    editionLabel: editions?.find(edition => edition.key === input.editionKey)?.label
+      ?? LAB_COPY.editionLabel,
     chapterLabel: input.chapterTitle,
     chapterTitle: input.chapterTitle,
     chapterNumber: input.chapterNumber,
@@ -364,9 +373,13 @@ export async function loadLabSource(
   chapterNumber = 1,
   editions?: { primary?: string; compare?: string; audio?: string; readingFirst?: boolean },
 ): Promise<LabSource> {
-  const primary = editions?.primary || LAB_EDITION_KEY
-  const compare = editions?.compare || LAB_COMPARE_EDITION_KEY
-  const audio = editions?.audio || LAB_EDITION_KEY
+  // A withdrawn edition resolves to its successor before any fetch. Without
+  // this the manifest 404s and the whole chapter falls back to the two-verse
+  // Genesis placeholder, which looks like a network blip rather than a
+  // withdrawn edition.
+  const primary = migrateWithheldEdition(LAB_BOOK_ID, editions?.primary || LAB_EDITION_KEY)
+  const compare = migrateWithheldEdition(LAB_BOOK_ID, editions?.compare || LAB_COMPARE_EDITION_KEY)
+  const audio = migrateWithheldEdition(LAB_BOOK_ID, editions?.audio || LAB_EDITION_KEY)
   try {
     const threadsPromise = editions?.readingFirst ? undefined : loadThreadsJson().catch(() => ({ characters: [] }))
     const manifest = await loadBibleManifest(primary)
@@ -395,6 +408,7 @@ export async function loadLabSource(
     return { ...sourceFromChapter({
       chapterNumber: entry.number,
       chapterTitle: entry.title,
+      editionKey: primary,
       paragraphs,
       compareParagraphs,
       followParagraphs: supporting.followParagraphs,
@@ -422,7 +436,22 @@ export interface LabBookSourceSelection {
  * This deliberately returns the same LabSource shape as the Bible loader so
  * pagination, Compare, highlighting and navigation keep one state path.
  */
-export async function loadLabBookSource(selection: LabBookSourceSelection): Promise<LabSource> {
+export async function loadLabBookSource(input: LabBookSourceSelection): Promise<LabSource> {
+  // One migration for every caller, before the book id is even dispatched on:
+  // no reader of this function can aim it at a withdrawn edition.
+  const selection: LabBookSourceSelection = {
+    ...input,
+    primaryEditionKey: migrateWithheldEdition(input.bookId, input.primaryEditionKey),
+    // Both sides can migrate to the same successor; Compare then has nothing
+    // to show and is dropped rather than paired with itself.
+    compareEditionKey: input.compareEditionKey
+      && migrateWithheldEdition(input.bookId, input.compareEditionKey) !== migrateWithheldEdition(input.bookId, input.primaryEditionKey)
+      ? migrateWithheldEdition(input.bookId, input.compareEditionKey)
+      : undefined,
+    audioEditionKey: input.audioEditionKey
+      ? migrateWithheldEdition(input.bookId, input.audioEditionKey)
+      : undefined,
+  }
   if (selection.bookId === LAB_BOOK_ID) {
     return loadLabSource(selection.chapterNumber ?? 1, {
       primary: selection.primaryEditionKey,
@@ -502,7 +531,8 @@ export async function loadLabBookSource(selection: LabBookSourceSelection): Prom
 }
 
 /** Validate resume against the actual edition without waiting for audio/cast or chapter text. */
-export async function loadLabChapterList(bookId: string, editionKey: string): Promise<LabChapter[]> {
+export async function loadLabChapterList(bookId: string, requestedEditionKey: string): Promise<LabChapter[]> {
+  const editionKey = migrateWithheldEdition(bookId, requestedEditionKey)
   if (bookId === 'bible') return (await loadBibleManifest(editionKey)).chapters
   return loadEditionChapterList(bookId, editionKey)
 }

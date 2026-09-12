@@ -72,11 +72,13 @@ describe('findScanOrder', () => {
     const chapters = Array.from({ length: 1189 }, (_, i) => i + 1)
     const order = findScanOrder({ chapters, current: 782, trail: [12, 777], sections: BIBLE_SECTIONS })
     expect(order.length).toBeLessThanOrEqual(FIND_SCAN_CAP)
-    expect(order.slice(0, 5)).toEqual([782, 781, 783, 780, 784])
+    // Current chapter, then the chapters the reader actually visited, then the
+    // rest of the current biblical book outward. The trail goes before the
+    // section: Jeremiah alone is 52 chapters and would otherwise fill the cap.
+    expect(order.slice(0, 5)).toEqual([782, 777, 12, 781, 783])
     const jeremiah = new Set(Array.from({ length: 52 }, (_, i) => 746 + i))
-    expect(order.slice(0, 52).every(number => jeremiah.has(number))).toBe(true)
-    expect(order[52]).toBe(12)
-    expect(order.indexOf(12)).toBeLessThan(order.indexOf(798))
+    expect(order.slice(2).every(number => number === 12 || jeremiah.has(number))).toBe(true)
+    expect(order.indexOf(12)).toBeLessThan(order.indexOf(780))
     expect(new Set(order).size).toBe(order.length)
   })
 
@@ -171,5 +173,101 @@ describe('find_in_book', () => {
     expect((await retrieval.findInBook({})).isError).toBe(true)
     expect((await retrieval.findInBook({ query: 'a' })).isError).toBe(true)
     expect((await retrieval.findInBook({ query: 42 })).isError).toBe(true)
+  })
+})
+
+/**
+ * 2026-09-12 P0: the Bible's `modern-en` was withdrawn and its JSON deleted.
+ * A reader still holding that key in their lab preferences sent it to
+ * /api/chat, retrieval 404'd on every path, and the tool round died with
+ * `The book text is not available right now.` — which collapsed the turn and
+ * latched the Ask panel into "Ask is unavailable right now".
+ */
+describe('withheld and missing editions', () => {
+  beforeEach(() => resetBookRetrievalCache())
+
+  /** Serves only the edition ids listed; everything else 404s, as production does. */
+  function assetsForEditions(available: string[], total = 5) {
+    const fetches: string[] = []
+    const chapters = Array.from({ length: total }, (_, i) => ({ number: i + 1, title: `Chapter ${i + 1}` }))
+    const assets = {
+      fetch: async (request: Request) => {
+        const path = new URL(request.url).pathname
+        fetches.push(path)
+        const editionId = path.match(/\/data\/editions-chapters\/([^/]+)\//)?.[1]
+          ?? path.match(/\/data\/editions\/([^/]+)\.json$/)?.[1]
+        if (!editionId || !available.includes(editionId)) return new Response('nope', { status: 404 })
+        if (path.endsWith('/manifest.json')) return Response.json({ chapters })
+        const number = Number(path.match(/ch(\d{4})\.json$/)?.[1])
+        return Response.json({ number, title: `Chapter ${number}`, paragraphs: [`${editionId} paragraph one`] })
+      },
+    }
+    return { assets, fetches }
+  }
+
+  it('migrates a withheld edition key before it can reach retrieval', () => {
+    expect(parseBookRef({ bookId: 'bible', editionKey: 'modern-en', chapterNumber: 1 }))
+      .toEqual({ bookId: 'bible', editionKey: 'web-en', chapterNumber: 1 })
+    expect(parseBookRef({ bookId: 'bible', editionKey: 'modern-da' })?.editionKey).toBe('web-en')
+    // A published edition is untouched.
+    expect(parseBookRef({ bookId: 'bible', editionKey: 'kjv-en' })?.editionKey).toBe('kjv-en')
+    // The policy is per book: another book's modern-en is still its own.
+    expect(parseBookRef({ bookId: 'odyssey', editionKey: 'modern-en' })?.editionKey).toBe('modern-en')
+  })
+
+  it('reads the successor edition when the requested one 404s', async () => {
+    const { assets, fetches } = assetsForEditions(['bible-web-en'])
+    const retrieval = createBookRetrieval({
+      assets,
+      origin: 'https://tinct.app',
+      book: { bookId: 'bible', editionKey: 'modern-en', chapterNumber: 1 },
+    })
+    const outcome = await retrieval.readChapter({ chapter: '1' })
+    expect(outcome.isError).toBeUndefined()
+    expect(outcome.content).toContain('bible-web-en paragraph one')
+    expect(fetches.some(path => path.includes('bible-modern-en'))).toBe(false)
+  })
+
+  it('falls back to an available edition when the key was never published', async () => {
+    const { assets } = assetsForEditions(['bible-kjv-en'])
+    const retrieval = createBookRetrieval({
+      assets,
+      origin: 'https://tinct.app',
+      book: { bookId: 'bible', editionKey: 'made-up-en', chapterNumber: 2 },
+    })
+    const outcome = await retrieval.readChapter({ chapter: '2' })
+    expect(outcome.isError).toBeUndefined()
+    expect(outcome.content).toContain('bible-kjv-en paragraph one')
+    expect(outcome.content).toContain('no longer available')
+  })
+
+  it('searches the fallback edition and says so in the result', async () => {
+    const { assets } = assetsForEditions(['bible-kjv-en'])
+    const retrieval = createBookRetrieval({
+      assets,
+      origin: 'https://tinct.app',
+      book: { bookId: 'bible', editionKey: 'made-up-en', chapterNumber: 1 },
+    })
+    const outcome = await retrieval.findInBook({ query: 'paragraph one' })
+    expect(outcome.isError).toBeUndefined()
+    const result = JSON.parse(outcome.content) as { edition?: string; matches: unknown[] }
+    expect(result.edition).toBe('kjv-en')
+    expect(result.matches.length).toBeGreaterThan(0)
+  })
+
+  it('degrades without an error when no edition of the book can be read', async () => {
+    const { assets } = assetsForEditions([])
+    const retrieval = createBookRetrieval({
+      assets,
+      origin: 'https://tinct.app',
+      book: { bookId: 'bible', editionKey: 'modern-en', chapterNumber: 1 },
+    })
+    const read = await retrieval.readChapter({ chapter: '1' })
+    const find = await retrieval.findInBook({ query: 'anything' })
+    // Not an error: an error result collapses the round and latches the panel.
+    expect(read.isError).toBeUndefined()
+    expect(find.isError).toBeUndefined()
+    expect(read.content).toContain('could not')
+    expect(find.content).toContain('could not')
   })
 })

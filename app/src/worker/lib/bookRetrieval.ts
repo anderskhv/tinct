@@ -15,7 +15,42 @@
  * FIND_MAX_MATCHES hits.
  */
 
+import { isEditionWithheld, migrateWithheldEdition } from '../../data/withheldEditions'
+
 export type AssetsBinding = { fetch: (request: Request) => Promise<Response> }
+
+/**
+ * Editions to try when the requested one has no text on disk.
+ *
+ * A withdrawn edition names its successor in `withheldEditions`, and that is
+ * tried first. Everything after it is the conventional key set this library
+ * uses, so a client that asks for an edition this book never had (a stale
+ * preference, a renamed key) still gets the book rather than a dead round.
+ * Probing is one asset fetch per candidate and only happens when the
+ * requested edition is genuinely missing.
+ */
+export const RETRIEVAL_FALLBACK_EDITION_KEYS = ['original-en', 'kjv-en', 'web-en', 'modern-en'] as const
+
+/** The requested edition first (successor-migrated), then the generic fallbacks. */
+export function editionCandidates(book: BookRef): string[] {
+  const candidates = [migrateWithheldEdition(book.bookId, book.editionKey)]
+  for (const key of RETRIEVAL_FALLBACK_EDITION_KEYS) {
+    if (candidates.includes(key)) continue
+    if (isEditionWithheld(book.bookId, key)) continue
+    candidates.push(key)
+  }
+  return candidates
+}
+
+/**
+ * What the model is told when no edition of this book can be read. It is not a
+ * tool error: the companion still has the chapter in front of the reader in its
+ * system prompt, so it must answer from that and say what it could not check.
+ * Reporting this as an error collapses the turn and the client then latches the
+ * Ask panel into "unavailable".
+ */
+export const NO_EDITION_NOTICE =
+  'The full book text could not be loaded for this request. Answer from the chapter you already have in front of you, and say plainly that you could not open the rest of the book to check.'
 
 export interface BookRef {
   bookId: string
@@ -48,6 +83,14 @@ export interface EditionIndex {
   whole?: Map<number, ChapterText>
 }
 
+/** An index plus which edition actually served it. */
+export interface ResolvedEditionIndex {
+  index: EditionIndex
+  editionKey: string
+  /** True when the requested edition had no text and another one was read instead. */
+  substituted: boolean
+}
+
 export interface ToolOutcome {
   content: string
   isError?: boolean
@@ -55,7 +98,29 @@ export interface ToolOutcome {
 
 export const READ_CHAPTER_MAX_CHARS = 6_000
 export const FIND_MAX_MATCHES = 5
-export const FIND_SCAN_CAP = 80
+/**
+ * Chapters one search may look at, nearest-first.
+ *
+ * This was 80, which only ever bit in the Bible: every other book has fewer
+ * chapters than the cap, so the whole book was searched in well under a dozen
+ * fetches. In the Bible a query with no hits near the reader walked all 80
+ * shards — 81 asset subrequests in a single Worker request, measured against
+ * the shipped edition — which is over Cloudflare's 50-subrequest limit on the
+ * Workers Free plan. Past that limit every later `fetch` in the same request
+ * throws, including the tool loop's own call back to Anthropic, so the whole
+ * turn died and the client showed "Ask is unavailable right now". A search
+ * whose answer was near the reader (a recap, a name in the current book)
+ * finished in 8 chapters and worked, which is why it looked intermittent.
+ */
+export const FIND_SCAN_CAP = 24
+
+/**
+ * Asset subrequests one retrieval may spend, across every tool call in the
+ * request. The rest of the Worker's budget belongs to the tool loop's calls to
+ * Anthropic (up to MAX_TOOL_ROUNDS + 1) — running out there is what turns a
+ * bounded search into a dead turn, so retrieval stops well short.
+ */
+export const RETRIEVAL_ASSET_BUDGET = 32
 export const FIND_SNIPPET_CHARS = 280
 export const FIND_QUERY_MAX_CHARS = 120
 export const TRAIL_MAX_CHAPTERS = 10
@@ -73,7 +138,12 @@ export function parseBookRef(raw: unknown): BookRef | null {
   const value = raw as Record<string, unknown>
   if (typeof value.bookId !== 'string' || !ID_PATTERN.test(value.bookId)) return null
   if (typeof value.editionKey !== 'string' || !ID_PATTERN.test(value.editionKey)) return null
-  const ref: BookRef = { bookId: value.bookId, editionKey: value.editionKey }
+  // A client that kept a withdrawn edition in its preferences must not be able
+  // to aim retrieval at text that is no longer served.
+  const ref: BookRef = {
+    bookId: value.bookId,
+    editionKey: migrateWithheldEdition(value.bookId, value.editionKey),
+  }
   if (isChapterNumber(value.chapterNumber)) ref.chapterNumber = value.chapterNumber
   return ref
 }
@@ -147,8 +217,13 @@ export function findScanOrder(input: {
     order.push(chapterNumber)
   }
   const current = input.current
+  if (current != null) push(current)
+  // The trail comes before the rest of the section. Under a cap small enough
+  // to keep one search inside the Worker's subrequest budget, a long section
+  // (Jeremiah is 52 chapters) would otherwise fill the whole scan and the
+  // chapters the reader actually visited would never be looked at.
+  ;(input.trail ?? []).slice().reverse().forEach(push)
   if (current != null) {
-    push(current)
     const leaf = leafContaining(input.sections, current)
     if (leaf?.chapters) {
       // Walk the section outward from the current chapter so the nearest
@@ -157,7 +232,6 @@ export function findScanOrder(input: {
       sorted.forEach(push)
     }
   }
-  ;(input.trail ?? []).slice().reverse().forEach(push)
   if (current != null) {
     const sorted = [...input.chapters].sort((a, b) => Math.abs(a - current) - Math.abs(b - current) || a - b)
     for (const chapterNumber of sorted) {
@@ -207,8 +281,13 @@ export interface FindMatch {
 
 export interface FindResult {
   query: string
+  /** Present only when the requested edition was unavailable and another one was searched. */
+  edition?: string
+  editionNote?: string
   matches: FindMatch[]
   scanned: { chapters: number; ofChapters: number; complete: boolean }
+  /** Set when the scan was bounded, so the model can say what it did not cover. */
+  note?: string
 }
 
 /** Case-insensitive substring search over one chapter, at most two hits per chapter. */
@@ -272,11 +351,18 @@ export function createBookRetrieval(input: {
   trailChapters?: number[]
 }): BookRetrieval {
   const { assets, origin, book } = input
-  const editionId = `${book.bookId}-${book.editionKey}`
+  const requestedEditionId = `${book.bookId}-${book.editionKey}`
   const chapterCache = new Map<number, ChapterText | null>()
-  let indexPromise: Promise<EditionIndex | null> | null = null
+  let indexPromise: Promise<ResolvedEditionIndex | null> | null = null
+  /** Set once an edition resolves; every chapter read uses the edition that actually loaded. */
+  let editionId = requestedEditionId
+
+  let assetFetches = 0
+  const budgetSpent = () => assetFetches >= RETRIEVAL_ASSET_BUDGET
 
   const fetchJson = async (path: string): Promise<unknown | null> => {
+    if (budgetSpent()) return null
+    assetFetches += 1
     try {
       const response = await assets.fetch(new Request(new URL(path, origin)))
       if (!response.ok) return null
@@ -286,15 +372,11 @@ export function createBookRetrieval(input: {
     }
   }
 
-  const loadIndex = (): Promise<EditionIndex | null> => {
-    if (indexPromise) return indexPromise
-    const cached = indexCache.get(editionId)
-    if (cached) {
-      indexPromise = Promise.resolve(cached)
-      return indexPromise
-    }
-    indexPromise = (async () => {
-      const manifest = await fetchJson(`/data/editions-chapters/${editionId}/manifest.json`) as {
+  const loadEditionIndex = async (id: string): Promise<EditionIndex | null> => {
+    const cached = indexCache.get(id)
+    if (cached) return cached
+    {
+      const manifest = await fetchJson(`/data/editions-chapters/${id}/manifest.json`) as {
         chapters?: unknown
         sections?: unknown
       } | null
@@ -313,10 +395,10 @@ export function createBookRetrieval(input: {
           chapters,
           sections: Array.isArray(manifest.sections) ? manifest.sections as SectionNode[] : undefined,
         }
-        rememberIndex(editionId, index)
+        rememberIndex(id, index)
         return index
       }
-      const whole = await fetchJson(`/data/editions/${editionId}.json`) as { chapters?: unknown; sections?: unknown } | null
+      const whole = await fetchJson(`/data/editions/${id}.json`) as { chapters?: unknown; sections?: unknown } | null
       if (!whole || !Array.isArray(whole.chapters)) return null
       const map = new Map<number, ChapterText>()
       const chapters: ChapterEntry[] = []
@@ -328,14 +410,44 @@ export function createBookRetrieval(input: {
       })
       if (chapters.length === 0) return null
       return { chapters, sections: Array.isArray(whole.sections) ? whole.sections as SectionNode[] : undefined, whole: map }
+    }
+  }
+
+  /**
+   * The first candidate edition that actually has text. A reader whose stored
+   * edition was withdrawn (or never existed) still gets the book: retrieval
+   * degrades to an available edition instead of failing the round. Tinct's
+   * editions are paragraph-aligned, so chapter N is the same passage either way.
+   */
+  const loadIndex = (): Promise<ResolvedEditionIndex | null> => {
+    if (indexPromise) return indexPromise
+    indexPromise = (async () => {
+      for (const key of editionCandidates(book)) {
+        const id = `${book.bookId}-${key}`
+        const index = await loadEditionIndex(id)
+        if (!index) continue
+        editionId = id
+        return { index, editionKey: key, substituted: id !== requestedEditionId }
+      }
+      return null
     })()
     return indexPromise
   }
 
+  /** The index alone, for the many call sites that do not care which edition served it. */
+  const loadIndexOnly = async (): Promise<EditionIndex | null> => (await loadIndex())?.index ?? null
+
+  /** Prefix telling the model it is reading a stand-in for the edition it asked for. */
+  const substitutionNote = (resolved: ResolvedEditionIndex): string => (
+    resolved.substituted
+      ? `[The ${book.editionKey} edition of this book is no longer available. This is the ${resolved.editionKey} edition, paragraph-aligned with it.]\n\n`
+      : ''
+  )
+
   const loadChapter = async (chapterNumber: number): Promise<ChapterText | null> => {
     if (chapterCache.has(chapterNumber)) return chapterCache.get(chapterNumber) ?? null
     const pending = (async () => {
-      const index = await loadIndex()
+      const index = await loadIndexOnly()
       if (!index) return null
       const entry = index.chapters.find(item => item.number === chapterNumber)
       if (!entry) return null
@@ -352,7 +464,7 @@ export function createBookRetrieval(input: {
 
   const usage = 'read_chapter needs {"chapter": "<sequential number as digits or exact chapter label>"}.'
   const byLabel = async (label: string): Promise<{ chapterNumber: number } | { error: string }> => {
-    const index = await loadIndex()
+    const index = await loadIndexOnly()
     const wanted = label.replace(/\s+/g, ' ').trim().toLowerCase()
     const entry = index?.chapters.find(item => item.title.replace(/\s+/g, ' ').trim().toLowerCase() === wanted)
     if (!entry) return { error: `No chapter titled "${label.trim()}" in this edition. Pass the sequential chapter number as digits instead.` }
@@ -391,24 +503,24 @@ export function createBookRetrieval(input: {
       const resolved = await resolveChapterNumber(rawInput)
       if ('error' in resolved) return { content: resolved.error, isError: true }
       const chapter = await loadChapter(resolved.chapterNumber)
+      const edition = await loadIndex()
       if (!chapter) {
-        const index = await loadIndex()
-        const total = index?.chapters.length
+        const total = edition?.index.chapters.length
+        if (!total) return { content: NO_EDITION_NOTICE }
         return {
-          content: total
-            ? `Chapter ${resolved.chapterNumber} is not in this edition (it has ${total} chapters).`
-            : 'The book text is not available right now.',
+          content: `Chapter ${resolved.chapterNumber} is not in this edition (it has ${total} chapters).`,
           isError: true,
         }
       }
-      return { content: renderChapterForTool(chapter) }
+      return { content: `${edition ? substitutionNote(edition) : ''}${renderChapterForTool(chapter)}` }
     },
 
     async findInBook(rawInput: unknown): Promise<ToolOutcome> {
       const query = normalizeQuery(rawInput && typeof rawInput === 'object' ? (rawInput as { query?: unknown }).query : rawInput)
       if (!query) return { content: 'find_in_book needs {"query": "<two or more characters>"}.', isError: true }
-      const index = await loadIndex()
-      if (!index) return { content: 'The book text is not available right now.', isError: true }
+      const edition = await loadIndex()
+      if (!edition) return { content: NO_EDITION_NOTICE }
+      const index = edition.index
       const order = findScanOrder({
         chapters: index.chapters.map(item => item.number),
         current: book.chapterNumber,
@@ -420,7 +532,7 @@ export function createBookRetrieval(input: {
       let scanned = 0
       let cursor = 0
       const worker = async () => {
-        while (cursor < order.length && matches.length < FIND_MAX_MATCHES) {
+        while (cursor < order.length && matches.length < FIND_MAX_MATCHES && !budgetSpent()) {
           const chapterNumber = order[cursor++]
           const chapter = await loadChapter(chapterNumber)
           scanned += 1
@@ -435,12 +547,23 @@ export function createBookRetrieval(input: {
       matches.sort((a, b) => a.chapterNumber - b.chapterNumber || a.paragraph - b.paragraph)
       const result: FindResult = {
         query,
+        ...(edition.substituted
+          ? { edition: edition.editionKey, editionNote: `The ${book.editionKey} edition is no longer available; searched the paragraph-aligned ${edition.editionKey} edition instead.` }
+          : {}),
         matches: matches.slice(0, FIND_MAX_MATCHES),
         scanned: {
           chapters: scanned,
           ofChapters: index.chapters.length,
           complete: scanned >= index.chapters.length || matches.length >= FIND_MAX_MATCHES,
         },
+      }
+      // A partial search is a real answer, not a failure. Say so plainly so the
+      // model answers from what it found and from the chapter it already has,
+      // and tells the reader what it could not cover.
+      if (!result.scanned.complete) {
+        result.note = matches.length > 0
+          ? `Searched the ${scanned} chapters nearest the reader, not the whole book. There may be more elsewhere.`
+          : `Searched the ${scanned} chapters nearest the reader and found nothing; this book has ${index.chapters.length} chapters, so the whole book was not covered. Answer from the chapter in front of you and from what you know, and say you could not search the whole book.`
       }
       return { content: JSON.stringify(result) }
     },

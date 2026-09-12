@@ -1,4 +1,4 @@
-import { fullShelf, pairedSamples } from './entry-model.js?v=20260910-availability-1'
+import { fullShelf, pairedSamples } from './entry-model.js?v=20260912-withheld-1'
 import { wholeBookProgress } from './library-2-model.js'
 import {
   LAB_CATALOGUE_URL,
@@ -37,7 +37,7 @@ import {
   writeReaderOrigin,
   shelfScrollLeft,
   showPopularShelf,
-} from './library-model.js?v=20260912-figures-1'
+} from './library-model.js?v=20260912-withheld-1'
 
 {
   const root = document.querySelector('#tinct-onboarding-worlds-v5')

@@ -1,5 +1,6 @@
 import { isAudioHeld, isBookDiscoverable, isEditionDiscoverable } from '../data/audioAvailability'
 import { BOOKS } from '../data/bookRegistry'
+import { isEditionWithheld } from '../data/withheldEditions'
 import {
   LIBRARY_BOOK_META_BY_ID,
   LIBRARY_HOUSES,
@@ -291,7 +292,13 @@ function bookViewModel(book: Book, catalogueIndex: number): PreReaderBookViewMod
     .map(house => house.id)
   if (!houseIds.length) throw new Error(`Published book ${book.id} is not classified into a library house`)
 
-  const editions = editionViewModels(book.editions).map(edition => ({ ...edition, discoveryAvailable: isEditionDiscoverable(book.id, edition), audioHeld: isAudioHeld(book.id, edition.key) }))
+  // A withdrawn edition leaves the registry, but the catalogue is a built
+  // artifact served under a hand-maintained cache-busting version: a stale copy
+  // can keep offering an edition whose text is already 404. Filtering here
+  // means that even a catalogue built while the registry still listed one would
+  // not put it in front of a reader.
+  const publishedEditions = book.editions.filter(edition => !isEditionWithheld(book.id, edition.key))
+  const editions = editionViewModels(publishedEditions).map(edition => ({ ...edition, discoveryAvailable: isEditionDiscoverable(book.id, edition), audioHeld: isAudioHeld(book.id, edition.key) }))
   const summary = book.description?.trim() || meta.blurb?.trim() || `${book.title} by ${book.author}.`
   const blurb = meta.blurb?.trim() || firstSentence(summary)
   const cover = {

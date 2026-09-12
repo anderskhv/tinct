@@ -1,5 +1,6 @@
 import type { Edition, FontFamily, ProgressDisplay, ProgressMetric, ProgressScope } from '../types'
 import { BIBLE } from '../data/bookRegistry'
+import { isEditionWithheld, migrateWithheldEdition } from '../data/withheldEditions'
 import { LAB_COMPARE_EDITION_KEY, LAB_EDITION_KEY } from './labSource'
 
 /** Lab library route. Full navigation, never /app or a book id. */
@@ -156,8 +157,54 @@ export const DEFAULT_LAB_PREFS: LabPrefs = {
   compareOpen: false,
 }
 
+/**
+ * Stored edition choices, with any withdrawn edition rewritten to its successor.
+ *
+ * Reader preferences outlive the editions they name. When the Bible's
+ * `modern-en` was withdrawn on 2026-09-11 the reader kept reading — the loader
+ * silently substitutes a published edition for the text — but `primaryEdition`
+ * itself stayed `modern-en`, and that key is what the companion sends to
+ * `/api/chat` as the edition to retrieve. The request then pointed at JSON that
+ * no longer exists and every in-book lookup died. Migrating here means the key
+ * is corrected once, at the source, for every reader of it: text loading,
+ * Compare, audio, highlights and Ask.
+ */
+export function migrateLabPrefsEditions(prefs: LabPrefs, bookId: string): LabPrefs {
+  const primaryEdition = migrateWithheldEdition(bookId, prefs.primaryEdition)
+  const compareEdition = migrateWithheldEdition(bookId, prefs.compareEdition)
+  const audioEdition = migrateWithheldEdition(bookId, prefs.audioEdition)
+  if (
+    primaryEdition === prefs.primaryEdition
+    && compareEdition === prefs.compareEdition
+    && audioEdition === prefs.audioEdition
+  ) return prefs
+  return { ...prefs, primaryEdition, compareEdition, audioEdition }
+}
+
+/**
+ * The editions a reader may choose. A withdrawn edition is never offered —
+ * picking one is what writes the dead key into prefs in the first place.
+ *
+ * The identity of the returned array matters: it feeds React dependency arrays
+ * in the lab reader, and a fresh array on every render re-runs the source
+ * loader, which re-renders, which loads again. So an unfiltered list is
+ * returned as itself and a filtered one is cached per book.
+ */
+const selectableCache = new WeakMap<Edition[], Map<string, Edition[]>>()
+
+export function selectableLabEditions(bookId: string, editions: Edition[]): Edition[] {
+  const byBook = selectableCache.get(editions) ?? new Map<string, Edition[]>()
+  const cached = byBook.get(bookId)
+  if (cached) return cached
+  const filtered = editions.filter(edition => !isEditionWithheld(bookId, edition.key))
+  const result = filtered.length === editions.length ? editions : filtered
+  byBook.set(bookId, result)
+  selectableCache.set(editions, byBook)
+  return result
+}
+
 export function bibleEditions(): Edition[] {
-  return BIBLE.editions
+  return selectableLabEditions(BIBLE.id, BIBLE.editions)
 }
 
 export function bibleAudioEditions(): Edition[] {

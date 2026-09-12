@@ -10,6 +10,7 @@ import { useTinctVoiceTools } from '../hooks/useTinctVoiceTools'
 import { useVoiceSession } from '../hooks/useVoiceSession'
 import { COMPANION_EFFORT_TYPED, COMPANION_MODEL } from '../companionModel'
 import { apiUrl } from '../utils/apiUrl'
+import { migrateWithheldEdition } from '../data/withheldEditions'
 import type { TinctVoiceToolAdapter } from '../voice/tinctTools'
 import {
   affirmativeAnswersLookupOffer,
@@ -173,7 +174,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     try {
       return await buildLabReadingTrail({
         bookId: current.bookId,
-        editionKey: current.editionKey,
+        editionKey: migrateWithheldEdition(current.bookId, current.editionKey),
         currentChapter: current.chapterNumber,
         visits: trailVisitsRef.current,
         viewer: viewerId,
@@ -196,7 +197,12 @@ export function useLabAsk(options: UseLabAskOptions) {
       paragraphIndex: current.paragraphIndex,
       readingAngle: labReadingAngle(),
       bookId: current.bookId,
-      editionKey: current.editionKey,
+      // Last line of defence: whatever the reader carries, a withdrawn edition
+      // never leaves the client. The worker cannot retrieve text for one, and
+      // the failed tool round is what kills the whole answer.
+      editionKey: current.bookId && current.editionKey
+        ? migrateWithheldEdition(current.bookId, current.editionKey)
+        : current.editionKey,
       chapterCount: current.chapterCount,
       pageNumber: page?.pageNumber,
       totalPages: page?.totalPages,
@@ -278,6 +284,10 @@ export function useLabAsk(options: UseLabAskOptions) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chatBookId, cloudWriter, viewerId])
 
+  /** The reader's edition, with any withdrawn edition already resolved to its successor. */
+  const askEditionKey = options.bookId && options.editionKey
+    ? migrateWithheldEdition(options.bookId, options.editionKey)
+    : options.editionKey
   const askContext = useMemo(() => ({
     bookTitle: options.bookTitle,
     bookAuthor: options.bookAuthor,
@@ -288,7 +298,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     paragraphIndex: options.paragraphIndex,
     readingAngle: labReadingAngle(),
     bookId: options.bookId,
-    editionKey: options.editionKey,
+    editionKey: askEditionKey,
   }), [
     options.bookAuthor,
     options.bookTitle,
@@ -409,7 +419,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     isAnonymous: !liveToken,
     labGuest: true,
     bookId: options.voiceTrial ? (options.bookId || LAB_CHAT_BOOK_ID) : LAB_CHAT_BOOK_ID,
-    ...(options.voiceTrial ? { editionKey: options.editionKey, editionLabel: options.editionLabel } : {}),
+    ...(options.voiceTrial ? { editionKey: askEditionKey, editionLabel: options.editionLabel } : {}),
     bookTitle: options.bookTitle,
     bookAuthor: options.bookAuthor,
     chapterNumber: options.chapterNumber ?? 1,
@@ -519,7 +529,13 @@ export function useLabAsk(options: UseLabAskOptions) {
       options.onResumeListen?.()
       return
     }
-    if (!gateAiAction('chat', text)) { gatedChapterRef.current = chapterRequest; return }
+    // A retry is the same question again, not a new one. The account policy
+    // already allowed this turn and it never produced an answer; spending one
+    // of an anonymous reader's free actions on a request that failed sends
+    // "Try again" into the account sheet instead of the network, with the
+    // failure notice still on screen — the panel looks broken rather than
+    // gated, and on the last free action it can never recover.
+    if (!retry && !gateAiAction('chat', text)) { gatedChapterRef.current = chapterRequest; return }
     gatedChapterRef.current = undefined
     sendingRef.current = true
     setTypedLoading(true)
