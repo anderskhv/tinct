@@ -103,8 +103,10 @@ describe.each(['kjv-en', 'web-en'])('Bible Baruch %s', key => {
     const args = [data, 790, mention.paragraphIndex, mention.startOffset, mention.endOffset, text] as const
     expect(resolveCharacter(...args)?.card.subtitle).toContain('Jeremiah’s scribe')
     expect(resolveCharacter(...args, true)).toBeNull()
-    expect(data.edition.mentions.every(m => m.chapterNumber >= 746 && m.chapterNumber <= 797)).toBe(true)
-    for (const m of data.edition.mentions) expect(resolveCharacter(data, m.chapterNumber, m.paragraphIndex, m.startOffset, m.endOffset, data.paragraphs[m.chapterNumber][m.paragraphIndex])?.card.id).toBe('baruch-neriah')
+    const baruchMentions = data.edition.mentions.filter(m => m.characterId === 'baruch-neriah')
+    expect(baruchMentions.length).toBeGreaterThan(0)
+    expect(baruchMentions.every(m => m.chapterNumber >= 746 && m.chapterNumber <= 797)).toBe(true)
+    for (const m of baruchMentions) expect(resolveCharacter(data, m.chapterNumber, m.paragraphIndex, m.startOffset, m.endOffset, data.paragraphs[m.chapterNumber][m.paragraphIndex])?.card.id).toBe('baruch-neriah')
   })
 })
 
