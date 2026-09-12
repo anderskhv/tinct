@@ -70,16 +70,28 @@ function storedOnDevice(now) {
   ]
 }
 
+/** Pad a thread out to the per-book cap, to time a big Bible row against a small one. */
+function padToCap(conversations, now) {
+  const count = Number(process.env.CLOUD_MESSAGES || 0)
+  if (!count) return conversations
+  const filler = []
+  const body = 'The chapter turns on a single word, and the older translations disagree about which sense of it is meant here. '.repeat(5)
+  for (let i = 0; filler.reduce((sum, c) => sum + c.messages.length, 0) < count; i++) {
+    filler.push(conversation(`conv-fill-${i}`, 200 + i, now - (330 - i) * DAY, [[`Filler question ${i} about this chapter?`, body]]))
+  }
+  return [...filler, ...conversations]
+}
+
 /** What the account has: everything above, plus today's turns in Jeremiah. */
 function storedInCloud(now) {
-  return [
+  return padToCap([
     ...storedOnDevice(now),
     conversation('conv-jer', JEREMIAH_50, now - 30 * 60_000, [
       // Stored with no answer: the Bible search failure of 12 September.
       ['who was it that conquered the babylonnians?', null],
       ['and what happened to the city itself?', 'Cyrus took Babylon in 539 BC; the city was not sacked, and the exiles were sent home the next year.'],
     ]),
-  ]
+  ], now)
 }
 
 function authSession(now) {
@@ -188,14 +200,19 @@ async function run(browser, { phone, viewport }) {
   const name = `${LABEL}-${phone ? 'phone-393x852' : 'desktop-1440x900'}`
   await page.screenshot({ path: path.join(OUT, `${name}-on-open.png`) })
 
-  await page.waitForTimeout(CLOUD_DELAY_MS + 2500)
+  await page.getByText('Cyrus took Babylon in 539 BC', { exact: false }).waitFor()
+  const newestOnScreenAt = Date.now()
+  await page.waitForTimeout(600)
   const afterCloud = await firstVisibleTurn(page)
   await page.screenshot({ path: path.join(OUT, `${name}-after-cloud.png`) })
   await page.close()
 
   return {
     surface: phone ? 'phone 393x852' : 'desktop 1440x900',
+    cloudBytes: JSON.stringify(storedInCloud(now)).length,
     cloudLatencyMs: timings.cloudResolvedAt ? timings.cloudResolvedAt - openedAt : null,
+    /** Panel open → today's turn on screen. The stub's own delay is CLOUD_DELAY_MS of it. */
+    staleWindowMs: newestOnScreenAt - openedAt,
     onOpen,
     afterCloud,
   }
@@ -216,7 +233,7 @@ async function main() {
 
   if (LABEL !== 'before') {
     for (const result of results) {
-      assert.ok(result.onOpen.syncing, `${result.surface}: the panel must say the account history is still coming`)
+      if (CLOUD_DELAY_MS > 0) assert.ok(result.onOpen.syncing, `${result.surface}: the panel must say the account history is still coming`)
       assert.ok(!result.afterCloud.syncing, `${result.surface}: the notice must clear once it lands`)
       assert.match(result.afterCloud.lastInThread, /Cyrus took Babylon/, `${result.surface}: the thread must end on today's turn`)
       assert.ok(result.afterCloud.atBottom, `${result.surface}: the reader must be looking at the newest turn`)
