@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "f4e3a932038346ae780df90c096ae8ebc58cb046fc2339ca99f8e48cd25b689b",
+  "attempts": [
+    {
+      "asr_seconds": 0.33869378408417106,
+      "alignment_seconds": 0.0003971210680902004,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dionysus. Ye shall fly, All, and abase your shields of bronzen rim Before their wands.",
+        "hotwords": "Dionysus, Ye, All, Before"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dionysus, Ye shall fly, All, and abase your shields of bronzen rim Before their wands.",
+          "start": 0.05,
+          "end": 5.69,
+          "words": [
+            {
+              "text": " Dionysus,",
+              "start": 0.05,
+              "end": 1.17,
+              "probability": 0.9391276041666666
+            },
+            {
+              "text": " Ye",
+              "start": 1.67,
+              "end": 1.75,
+              "probability": 0.0139923095703125
+            },
+            {
+              "text": " shall",
+              "start": 1.75,
+              "end": 1.93,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " fly,",
+              "start": 1.93,
+              "end": 2.29,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " All,",
+              "start": 2.67,
+              "end": 2.69,
+              "probability": 0.11151123046875
+            },
+            {
+              "text": " and",
+              "start": 3.01,
+              "end": 3.05,
+              "probability": 0.6650390625
+            },
+            {
+              "text": " abase",
+              "start": 3.05,
+              "end": 3.35,
+              "probability": 0.5811767578125
+            },
+            {
+              "text": " your",
+              "start": 3.35,
+              "end": 3.51,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " shields",
+              "start": 3.51,
+              "end": 3.77,
+              "probability": 0.8828125
+            },
+            {
+              "text": " of",
+              "start": 3.77,
+              "end": 3.99,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " bronzen",
+              "start": 3.99,
+              "end": 4.47,
+              "probability": 0.1322011947631836
+            },
+            {
+              "text": " rim",
+              "start": 4.47,
+              "end": 4.79,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " Before",
+              "start": 4.79,
+              "end": 5.07,
+              "probability": 0.0233306884765625
+            },
+            {
+              "text": " their",
+              "start": 5.07,
+              "end": 5.31,
+              "probability": 0.96484375
+            },
+            {
+              "text": " wands.",
+              "start": 5.31,
+              "end": 5.69,
+              "probability": 0.97021484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "raw": "Ye",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "raw": "shall",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "raw": "fly,",
+          "start": 1.93,
+          "end": 2.29
+        },
+        {
+          "raw": "All,",
+          "start": 2.67,
+          "end": 2.69
+        },
+        {
+          "raw": "and",
+          "start": 3.01,
+          "end": 3.05
+        },
+        {
+          "raw": "abase",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "raw": "your",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "raw": "shields",
+          "start": 3.51,
+          "end": 3.77
+        },
+        {
+          "raw": "of",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "raw": "bronzen",
+          "start": 3.99,
+          "end": 4.47
+        },
+        {
+          "raw": "rim",
+          "start": 4.47,
+          "end": 4.79
+        },
+        {
+          "raw": "Before",
+          "start": 4.79,
+          "end": 5.07
+        },
+        {
+          "raw": "their",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "raw": "wands.",
+          "start": 5.31,
+          "end": 5.69
+        }
+      ],
+      "expected_tokens": [
+        "Dionysus.",
+        "Ye",
+        "shall",
+        "fly,",
+        "All,",
+        "and",
+        "abase",
+        "your",
+        "shields",
+        "of",
+        "bronzen",
+        "rim",
+        "Before",
+        "their",
+        "wands."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.05,
+          "end": 1.17,
+          "key": "dionysus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ye",
+          "start": 1.67,
+          "end": 1.75,
+          "key": "ye",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.75,
+          "end": 1.93,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fly,",
+          "start": 1.93,
+          "end": 2.29,
+          "key": "fly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "All,",
+          "start": 2.67,
+          "end": 2.69,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.01,
+          "end": 3.05,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "abase",
+          "start": 3.05,
+          "end": 3.35,
+          "key": "abase",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.35,
+          "end": 3.51,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shields",
+          "start": 3.51,
+          "end": 3.77,
+          "key": "shields",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.77,
+          "end": 3.99,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bronzen",
+          "start": 3.99,
+          "end": 4.47,
+          "key": "bronzen",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "rim",
+          "start": 4.47,
+          "end": 4.79,
+          "key": "rim",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Before",
+          "start": 4.79,
+          "end": 5.07,
+          "key": "before",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.07,
+          "end": 5.31,
+          "key": "their",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wands.",
+          "start": 5.31,
+          "end": 5.69,
+          "key": "wands",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dionysus.",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "text": "Ye",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "text": "shall",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "text": "fly,",
+          "start": 1.93,
+          "end": 2.29
+        },
+        {
+          "text": "All,",
+          "start": 2.67,
+          "end": 2.69
+        },
+        {
+          "text": "and",
+          "start": 3.01,
+          "end": 3.05
+        },
+        {
+          "text": "abase",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "text": "your",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "text": "shields",
+          "start": 3.51,
+          "end": 3.77
+        },
+        {
+          "text": "of",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "text": "bronzen",
+          "start": 3.99,
+          "end": 4.47
+        },
+        {
+          "text": "rim",
+          "start": 4.47,
+          "end": 4.79
+        },
+        {
+          "text": "Before",
+          "start": 4.79,
+          "end": 5.07
+        },
+        {
+          "text": "their",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "text": "wands.",
+          "start": 5.31,
+          "end": 5.69
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33926686900667846
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1e60c0867d138f6329b93f316dd60d79b0e939b9c570ed2749bdf3d835064b72",
+  "selected_reasons": []
+}

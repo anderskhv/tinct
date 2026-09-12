@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "c0506546c925276dc04d028c9c6e00bf714c066765e7ca4f51fe0c1ec8ea13e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2248667370295152,
+      "alignment_seconds": 0.00039862794801592827,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pentheus, and after hast thou up beyond?",
+          "start": 0.05,
+          "end": 2.81,
+          "words": [
+            {
+              "text": " Pentheus,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.8655598958333334
+            },
+            {
+              "text": " and",
+              "start": 1.33,
+              "end": 1.43,
+              "probability": 0.7138671875
+            },
+            {
+              "text": " after",
+              "start": 1.43,
+              "end": 1.77,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " hast",
+              "start": 1.77,
+              "end": 2.11,
+              "probability": 0.64990234375
+            },
+            {
+              "text": " thou",
+              "start": 2.11,
+              "end": 2.31,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " up",
+              "start": 2.31,
+              "end": 2.45,
+              "probability": 0.1912841796875
+            },
+            {
+              "text": " beyond?",
+              "start": 2.45,
+              "end": 2.81,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pentheus,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "and",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "raw": "after",
+          "start": 1.43,
+          "end": 1.77
+        },
+        {
+          "raw": "hast",
+          "start": 1.77,
+          "end": 2.11
+        },
+        {
+          "raw": "thou",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "raw": "up",
+          "start": 2.31,
+          "end": 2.45
+        },
+        {
+          "raw": "beyond?",
+          "start": 2.45,
+          "end": 2.81
+        }
+      ],
+      "expected_tokens": [
+        "Pentheus.",
+        "And",
+        "after?",
+        "Hast",
+        "thou",
+        "aught",
+        "beyond?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pentheus,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "pentheus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.33,
+          "end": 1.43,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 1.43,
+          "end": 1.77,
+          "key": "after",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 1.77,
+          "end": 2.11,
+          "key": "hast",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.11,
+          "end": 2.31,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.31,
+          "end": 2.45,
+          "key": "up",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "beyond?",
+          "start": 2.45,
+          "end": 2.81,
+          "key": "beyond",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pentheus.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "And",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "text": "after?",
+          "start": 1.43,
+          "end": 1.77
+        },
+        {
+          "text": "Hast",
+          "start": 1.77,
+          "end": 2.11
+        },
+        {
+          "text": "thou",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "text": "aught",
+          "start": 2.31,
+          "end": 2.38
+        },
+        {
+          "text": "beyond?",
+          "start": 2.45,
+          "end": 2.81
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.2254089090274647
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "959318c0315c2edf6be63525df9523c2062d1976418509a1a75f95b3281b4e7a",
+  "selected_reasons": []
+}

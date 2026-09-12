@@ -1,0 +1,397 @@
+{
+  "complete": true,
+  "signature": "7d4047e524b10a1654c6f999c230f4d0da10f6385593a1c69889ae08464a8af9",
+  "attempts": [
+    {
+      "asr_seconds": 0.18585261097177863,
+      "alignment_seconds": 0.000526060932315886,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cadmus. Turn to it now--'tis no long toil--and gaze.",
+        "hotwords": "Cadmus, Turn"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cadmus, Turn to it now-tis no long toil-and gaze.",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Cadmus,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.865234375
+            },
+            {
+              "text": " Turn",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.01546478271484375
+            },
+            {
+              "text": " to",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.888671875
+            },
+            {
+              "text": " it",
+              "start": 1.63,
+              "end": 1.71,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " now",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.87451171875
+            },
+            {
+              "text": "-tis",
+              "start": 1.89,
+              "end": 2.05,
+              "probability": 0.012298583984375
+            },
+            {
+              "text": " no",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " long",
+              "start": 2.29,
+              "end": 2.57,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " toil",
+              "start": 2.57,
+              "end": 2.87,
+              "probability": 0.656982421875
+            },
+            {
+              "text": "-and",
+              "start": 2.87,
+              "end": 3.05,
+              "probability": 0.5048980712890625
+            },
+            {
+              "text": " gaze.",
+              "start": 3.05,
+              "end": 3.33,
+              "probability": 0.37548828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Turn",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "to",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "it",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "raw": "now",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "-tis",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "raw": "no",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "raw": "long",
+          "start": 2.29,
+          "end": 2.57
+        },
+        {
+          "raw": "toil",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "raw": "-and",
+          "start": 2.87,
+          "end": 3.05
+        },
+        {
+          "raw": "gaze.",
+          "start": 3.05,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "Cadmus.",
+        "Turn",
+        "to",
+        "it",
+        "now--'tis",
+        "no",
+        "long",
+        "toil--and",
+        "gaze."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "cadmus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Turn",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "turn",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.63,
+          "end": 1.71,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "now -tis",
+          "start": 1.71,
+          "end": 2.05,
+          "key": "nowtis",
+          "pieces": [
+            4,
+            5
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "no",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 2.29,
+          "end": 2.57,
+          "key": "long",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "toil -and",
+          "start": 2.57,
+          "end": 3.05,
+          "key": "toiland",
+          "pieces": [
+            8,
+            9
+          ]
+        },
+        {
+          "raw": "gaze.",
+          "start": 3.05,
+          "end": 3.33,
+          "key": "gaze",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "now--'tis",
+          "heard": "now -tis",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 1.71,
+          "end": 2.05
+        },
+        {
+          "expected_index": 7,
+          "text": "toil--and",
+          "heard": "toil -and",
+          "heard_indexes": [
+            8,
+            9
+          ],
+          "start": 2.57,
+          "end": 3.05
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Cadmus.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Turn",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "to",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "text": "it",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "text": "now--'tis",
+          "start": 1.71,
+          "end": 2.05
+        },
+        {
+          "text": "no",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "text": "long",
+          "start": 2.29,
+          "end": 2.57
+        },
+        {
+          "text": "toil--and",
+          "start": 2.57,
+          "end": 3.05
+        },
+        {
+          "text": "gaze.",
+          "start": 3.05,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18653714400716126
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b0996eeb3f10abcf7ff616a54b98390860c31fb704c78f16299400940891d835",
+  "selected_reasons": []
+}

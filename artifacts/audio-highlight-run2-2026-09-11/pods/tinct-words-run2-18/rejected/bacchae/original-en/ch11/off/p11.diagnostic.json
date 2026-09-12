@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "906e255ace7416a98a54d09944febeadd610bb82cac97ba6b5d6d52b03a972cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.12523619004059583,
+      "alignment_seconds": 0.00022719998378306627,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The messenger departs into the castle, Chorus.",
+          "start": 0.02,
+          "end": 2.84,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.8828125
+            },
+            {
+              "text": " messenger",
+              "start": 0.48,
+              "end": 0.84,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " departs",
+              "start": 0.84,
+              "end": 1.32,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " into",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " castle,",
+              "start": 1.66,
+              "end": 2.0,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Chorus.",
+              "start": 2.66,
+              "end": 2.84,
+              "probability": 0.59539794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "messenger",
+          "start": 0.48,
+          "end": 0.84
+        },
+        {
+          "raw": "departs",
+          "start": 0.84,
+          "end": 1.32
+        },
+        {
+          "raw": "into",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "castle,",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "raw": "Chorus.",
+          "start": 2.66,
+          "end": 2.84
+        }
+      ],
+      "expected_tokens": [
+        "[_The_",
+        "Messenger",
+        "_departs",
+        "into",
+        "the",
+        "Castle_.",
+        "Chorus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "messenger",
+          "start": 0.48,
+          "end": 0.84,
+          "key": "messenger",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "departs",
+          "start": 0.84,
+          "end": 1.32,
+          "key": "departs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "into",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "castle,",
+          "start": 1.66,
+          "end": 2.0,
+          "key": "castle",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Chorus.",
+          "start": 2.66,
+          "end": 2.84,
+          "key": "chorus",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_The_",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "Messenger",
+          "start": 0.48,
+          "end": 0.84
+        },
+        {
+          "text": "_departs",
+          "start": 0.84,
+          "end": 1.32
+        },
+        {
+          "text": "into",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "the",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "Castle_.",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "text": "Chorus.",
+          "start": 2.66,
+          "end": 2.84
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12555678002536297
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d30b27e0c591955a5e153fcc88f39cc5a8fd5f0d5e5451e2d1c0620e46cf7e95",
+  "selected_reasons": []
+}

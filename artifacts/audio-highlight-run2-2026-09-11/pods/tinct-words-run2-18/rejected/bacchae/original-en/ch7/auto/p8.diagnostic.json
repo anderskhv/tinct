@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "c2a77d93eee4904e55ee5bf2808016016b2641e2c694d4ca71ae11b46455dca4",
+  "attempts": [
+    {
+      "asr_seconds": 0.33829782507382333,
+      "alignment_seconds": 0.0004358729347586632,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_He advances furiously upon him._ Dionysus. Softly thou! And set a quiet carriage to thy rage.",
+        "hotwords": "Dionysus, Softly, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He advances furiously upon him. Dionysus. Softly thou! And set a quiet carriage to thy rage.",
+          "start": 0.02,
+          "end": 6.88,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " advances",
+              "start": 0.5,
+              "end": 0.94,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " furiously",
+              "start": 0.94,
+              "end": 1.5,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " upon",
+              "start": 1.5,
+              "end": 1.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him.",
+              "start": 1.96,
+              "end": 2.38,
+              "probability": 0.943359375
+            },
+            {
+              "text": " Dionysus.",
+              "start": 2.84,
+              "end": 3.44,
+              "probability": 0.9215494791666666
+            },
+            {
+              "text": " Softly",
+              "start": 4.08,
+              "end": 4.38,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " thou!",
+              "start": 4.38,
+              "end": 4.64,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " And",
+              "start": 5.18,
+              "end": 5.22,
+              "probability": 0.5732421875
+            },
+            {
+              "text": " set",
+              "start": 5.22,
+              "end": 5.36,
+              "probability": 0.955078125
+            },
+            {
+              "text": " a",
+              "start": 5.36,
+              "end": 5.48,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " quiet",
+              "start": 5.48,
+              "end": 5.8,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " carriage",
+              "start": 5.8,
+              "end": 6.2,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 6.2,
+              "end": 6.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " thy",
+              "start": 6.42,
+              "end": 6.56,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " rage.",
+              "start": 6.56,
+              "end": 6.88,
+              "probability": 0.9619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "advances",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "raw": "furiously",
+          "start": 0.94,
+          "end": 1.5
+        },
+        {
+          "raw": "upon",
+          "start": 1.5,
+          "end": 1.96
+        },
+        {
+          "raw": "him.",
+          "start": 1.96,
+          "end": 2.38
+        },
+        {
+          "raw": "Dionysus.",
+          "start": 2.84,
+          "end": 3.44
+        },
+        {
+          "raw": "Softly",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "raw": "thou!",
+          "start": 4.38,
+          "end": 4.64
+        },
+        {
+          "raw": "And",
+          "start": 5.18,
+          "end": 5.22
+        },
+        {
+          "raw": "set",
+          "start": 5.22,
+          "end": 5.36
+        },
+        {
+          "raw": "a",
+          "start": 5.36,
+          "end": 5.48
+        },
+        {
+          "raw": "quiet",
+          "start": 5.48,
+          "end": 5.8
+        },
+        {
+          "raw": "carriage",
+          "start": 5.8,
+          "end": 6.2
+        },
+        {
+          "raw": "to",
+          "start": 6.2,
+          "end": 6.42
+        },
+        {
+          "raw": "thy",
+          "start": 6.42,
+          "end": 6.56
+        },
+        {
+          "raw": "rage.",
+          "start": 6.56,
+          "end": 6.88
+        }
+      ],
+      "expected_tokens": [
+        "[_He",
+        "advances",
+        "furiously",
+        "upon",
+        "him._",
+        "Dionysus.",
+        "Softly",
+        "thou!",
+        "And",
+        "set",
+        "a",
+        "quiet",
+        "carriage",
+        "to",
+        "thy",
+        "rage."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "advances",
+          "start": 0.5,
+          "end": 0.94,
+          "key": "advances",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "furiously",
+          "start": 0.94,
+          "end": 1.5,
+          "key": "furiously",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.5,
+          "end": 1.96,
+          "key": "upon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.96,
+          "end": 2.38,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Dionysus.",
+          "start": 2.84,
+          "end": 3.44,
+          "key": "dionysus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Softly",
+          "start": 4.08,
+          "end": 4.38,
+          "key": "softly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thou!",
+          "start": 4.38,
+          "end": 4.64,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.18,
+          "end": 5.22,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 5.22,
+          "end": 5.36,
+          "key": "set",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.36,
+          "end": 5.48,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "quiet",
+          "start": 5.48,
+          "end": 5.8,
+          "key": "quiet",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "carriage",
+          "start": 5.8,
+          "end": 6.2,
+          "key": "carriage",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.2,
+          "end": 6.42,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 6.42,
+          "end": 6.56,
+          "key": "thy",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "rage.",
+          "start": 6.56,
+          "end": 6.88,
+          "key": "rage",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "advances",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "text": "furiously",
+          "start": 0.94,
+          "end": 1.5
+        },
+        {
+          "text": "upon",
+          "start": 1.5,
+          "end": 1.96
+        },
+        {
+          "text": "him._",
+          "start": 1.96,
+          "end": 2.38
+        },
+        {
+          "text": "Dionysus.",
+          "start": 2.84,
+          "end": 3.44
+        },
+        {
+          "text": "Softly",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "text": "thou!",
+          "start": 4.38,
+          "end": 4.64
+        },
+        {
+          "text": "And",
+          "start": 5.18,
+          "end": 5.22
+        },
+        {
+          "text": "set",
+          "start": 5.22,
+          "end": 5.36
+        },
+        {
+          "text": "a",
+          "start": 5.36,
+          "end": 5.48
+        },
+        {
+          "text": "quiet",
+          "start": 5.48,
+          "end": 5.8
+        },
+        {
+          "text": "carriage",
+          "start": 5.8,
+          "end": 6.2
+        },
+        {
+          "text": "to",
+          "start": 6.2,
+          "end": 6.42
+        },
+        {
+          "text": "thy",
+          "start": 6.42,
+          "end": 6.56
+        },
+        {
+          "text": "rage.",
+          "start": 6.56,
+          "end": 6.88
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3389121090294793
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "51f6ace317e201d8943faed21c79bf763bb7a946ffa59c78a5fdb1a963416342",
+  "selected_reasons": []
+}

@@ -1,0 +1,731 @@
+{
+  "complete": true,
+  "signature": "d56091dce3ee172c99625079ca0d3cba679119f11d8bf0e4036a378945de0235",
+  "attempts": [
+    {
+      "asr_seconds": 0.395514591014944,
+      "alignment_seconds": 0.0006861400324851274,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cadmus, O child, why wilt thou reach thine arms to me, as yearns the milk-white swan",
+          "start": 0.02,
+          "end": 5.9,
+          "words": [
+            {
+              "text": " Cadmus,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.748779296875
+            },
+            {
+              "text": " O",
+              "start": 1.3,
+              "end": 1.58,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " child,",
+              "start": 1.58,
+              "end": 1.94,
+              "probability": 0.73779296875
+            },
+            {
+              "text": " why",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.9609375
+            },
+            {
+              "text": " wilt",
+              "start": 2.38,
+              "end": 2.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thou",
+              "start": 2.62,
+              "end": 2.88,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " reach",
+              "start": 2.88,
+              "end": 3.12,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " thine",
+              "start": 3.12,
+              "end": 3.38,
+              "probability": 0.98828125
+            },
+            {
+              "text": " arms",
+              "start": 3.38,
+              "end": 3.62,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " to",
+              "start": 3.62,
+              "end": 3.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me,",
+              "start": 3.82,
+              "end": 4.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 4.42,
+              "end": 4.54,
+              "probability": 0.66748046875
+            },
+            {
+              "text": " yearns",
+              "start": 4.54,
+              "end": 4.82,
+              "probability": 0.930908203125
+            },
+            {
+              "text": " the",
+              "start": 4.82,
+              "end": 4.94,
+              "probability": 0.9921875
+            },
+            {
+              "text": " milk",
+              "start": 4.94,
+              "end": 5.14,
+              "probability": 0.96728515625
+            },
+            {
+              "text": "-white",
+              "start": 5.14,
+              "end": 5.38,
+              "probability": 0.931640625
+            },
+            {
+              "text": " swan",
+              "start": 5.38,
+              "end": 5.9,
+              "probability": 0.996826171875
+            }
+          ]
+        },
+        {
+          "text": " when old swans die?",
+          "start": 5.9,
+          "end": 7.16,
+          "words": [
+            {
+              "text": " when",
+              "start": 5.9,
+              "end": 6.12,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " old",
+              "start": 6.12,
+              "end": 6.36,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " swans",
+              "start": 6.36,
+              "end": 6.82,
+              "probability": 0.97265625
+            },
+            {
+              "text": " die?",
+              "start": 6.82,
+              "end": 7.16,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "O",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "raw": "child,",
+          "start": 1.58,
+          "end": 1.94
+        },
+        {
+          "raw": "why",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "wilt",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "raw": "thou",
+          "start": 2.62,
+          "end": 2.88
+        },
+        {
+          "raw": "reach",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "raw": "thine",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "raw": "arms",
+          "start": 3.38,
+          "end": 3.62
+        },
+        {
+          "raw": "to",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "raw": "me,",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "raw": "as",
+          "start": 4.42,
+          "end": 4.54
+        },
+        {
+          "raw": "yearns",
+          "start": 4.54,
+          "end": 4.82
+        },
+        {
+          "raw": "the",
+          "start": 4.82,
+          "end": 4.94
+        },
+        {
+          "raw": "milk",
+          "start": 4.94,
+          "end": 5.14
+        },
+        {
+          "raw": "-white",
+          "start": 5.14,
+          "end": 5.38
+        },
+        {
+          "raw": "swan",
+          "start": 5.38,
+          "end": 5.9
+        },
+        {
+          "raw": "when",
+          "start": 5.9,
+          "end": 6.12
+        },
+        {
+          "raw": "old",
+          "start": 6.12,
+          "end": 6.36
+        },
+        {
+          "raw": "swans",
+          "start": 6.36,
+          "end": 6.82
+        },
+        {
+          "raw": "die?",
+          "start": 6.82,
+          "end": 7.16
+        }
+      ],
+      "expected_tokens": [
+        "Cadmus.",
+        "O",
+        "Child,",
+        "why",
+        "wilt",
+        "thou",
+        "reach",
+        "thine",
+        "arms",
+        "to",
+        "me,",
+        "As",
+        "yearns",
+        "the",
+        "milk-white",
+        "swan,",
+        "when",
+        "old",
+        "swans",
+        "die?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "cadmus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.3,
+          "end": 1.58,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "child,",
+          "start": 1.58,
+          "end": 1.94,
+          "key": "child",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "why",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wilt",
+          "start": 2.38,
+          "end": 2.62,
+          "key": "wilt",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.62,
+          "end": 2.88,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "reach",
+          "start": 2.88,
+          "end": 3.12,
+          "key": "reach",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 3.12,
+          "end": 3.38,
+          "key": "thine",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "arms",
+          "start": 3.38,
+          "end": 3.62,
+          "key": "arms",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.62,
+          "end": 3.82,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 3.82,
+          "end": 4.04,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.42,
+          "end": 4.54,
+          "key": "as",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "yearns",
+          "start": 4.54,
+          "end": 4.82,
+          "key": "yearns",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.82,
+          "end": 4.94,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "milk -white",
+          "start": 4.94,
+          "end": 5.38,
+          "key": "milkwhite",
+          "pieces": [
+            14,
+            15
+          ]
+        },
+        {
+          "raw": "swan",
+          "start": 5.38,
+          "end": 5.9,
+          "key": "swan",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 5.9,
+          "end": 6.12,
+          "key": "when",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 6.12,
+          "end": 6.36,
+          "key": "old",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "swans",
+          "start": 6.36,
+          "end": 6.82,
+          "key": "swans",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "die?",
+          "start": 6.82,
+          "end": 7.16,
+          "key": "die",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 14,
+          "text": "milk-white",
+          "heard": "milk -white",
+          "heard_indexes": [
+            14,
+            15
+          ],
+          "start": 4.94,
+          "end": 5.38
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Cadmus.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "O",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "text": "Child,",
+          "start": 1.58,
+          "end": 1.94
+        },
+        {
+          "text": "why",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "wilt",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "text": "thou",
+          "start": 2.62,
+          "end": 2.88
+        },
+        {
+          "text": "reach",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "text": "thine",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "text": "arms",
+          "start": 3.38,
+          "end": 3.62
+        },
+        {
+          "text": "to",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "text": "me,",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "text": "As",
+          "start": 4.42,
+          "end": 4.54
+        },
+        {
+          "text": "yearns",
+          "start": 4.54,
+          "end": 4.82
+        },
+        {
+          "text": "the",
+          "start": 4.82,
+          "end": 4.94
+        },
+        {
+          "text": "milk-white",
+          "start": 4.94,
+          "end": 5.38
+        },
+        {
+          "text": "swan,",
+          "start": 5.38,
+          "end": 5.9
+        },
+        {
+          "text": "when",
+          "start": 5.9,
+          "end": 6.12
+        },
+        {
+          "text": "old",
+          "start": 6.12,
+          "end": 6.36
+        },
+        {
+          "text": "swans",
+          "start": 6.36,
+          "end": 6.82
+        },
+        {
+          "text": "die?",
+          "start": 6.82,
+          "end": 7.16
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3964396700030193
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "29c32a77c97c6f094edf7ce9d0bdc0088d5fb3e4c29d8abb3b98bb5f2f1b62aa",
+  "selected_reasons": []
+}

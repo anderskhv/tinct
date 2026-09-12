@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "338fe9fe300c4f16a298fc3bde4d88efa7ac56f6eb34b4e90b89c646632d9d94",
+  "attempts": [
+    {
+      "asr_seconds": 0.17312560800928622,
+      "alignment_seconds": 0.00019224395509809256,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit_ Dionysus, _following_ Pentheus _into the Castle_.",
+        "hotwords": "Dionysus, Pentheus, Castle_"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Dionysus, following Pentheus into the Castle.",
+          "start": 0.05,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " Dionysus,",
+              "start": 0.69,
+              "end": 1.51,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " following",
+              "start": 1.83,
+              "end": 2.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Pentheus",
+              "start": 2.21,
+              "end": 2.79,
+              "probability": 0.9593098958333334
+            },
+            {
+              "text": " into",
+              "start": 2.79,
+              "end": 2.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.95,
+              "end": 3.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Castle.",
+              "start": 3.11,
+              "end": 3.39,
+              "probability": 0.041107177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Dionysus,",
+          "start": 0.69,
+          "end": 1.51
+        },
+        {
+          "raw": "following",
+          "start": 1.83,
+          "end": 2.21
+        },
+        {
+          "raw": "Pentheus",
+          "start": 2.21,
+          "end": 2.79
+        },
+        {
+          "raw": "into",
+          "start": 2.79,
+          "end": 2.95
+        },
+        {
+          "raw": "the",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "raw": "Castle.",
+          "start": 3.11,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit_",
+        "Dionysus,",
+        "_following_",
+        "Pentheus",
+        "_into",
+        "the",
+        "Castle_."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dionysus,",
+          "start": 0.69,
+          "end": 1.51,
+          "key": "dionysus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "following",
+          "start": 1.83,
+          "end": 2.21,
+          "key": "following",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Pentheus",
+          "start": 2.21,
+          "end": 2.79,
+          "key": "pentheus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 2.79,
+          "end": 2.95,
+          "key": "into",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.95,
+          "end": 3.11,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Castle.",
+          "start": 3.11,
+          "end": 3.39,
+          "key": "castle",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit_",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Dionysus,",
+          "start": 0.69,
+          "end": 1.51
+        },
+        {
+          "text": "_following_",
+          "start": 1.83,
+          "end": 2.21
+        },
+        {
+          "text": "Pentheus",
+          "start": 2.21,
+          "end": 2.79
+        },
+        {
+          "text": "_into",
+          "start": 2.79,
+          "end": 2.95
+        },
+        {
+          "text": "the",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "text": "Castle_.",
+          "start": 3.11,
+          "end": 3.39
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17338908498641104
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fee83927d9a69fc9a95446460457e62c6e91e4a445c778d6fe665c854a398347",
+  "selected_reasons": []
+}

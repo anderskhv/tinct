@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "783603938331d8fb03e9649254dfbd83f3accb35940175ff7b019aa3fd296185",
+  "attempts": [
+    {
+      "asr_seconds": 0.20330484001897275,
+      "alignment_seconds": 0.0003629610873758793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cadmus. Go forth, go forth to misery, The way Actaeon's father went!",
+        "hotwords": "Cadmus, The, Actaeon's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cadmus, Go forth, go forth to misery, The way Actaeon's father went!",
+          "start": 0.05,
+          "end": 4.47,
+          "words": [
+            {
+              "text": " Cadmus,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " Go",
+              "start": 1.25,
+              "end": 1.47,
+              "probability": 0.052886962890625
+            },
+            {
+              "text": " forth,",
+              "start": 1.47,
+              "end": 1.79,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " go",
+              "start": 2.01,
+              "end": 2.09,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " forth",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 2.33,
+              "end": 2.51,
+              "probability": 0.94140625
+            },
+            {
+              "text": " misery,",
+              "start": 2.51,
+              "end": 2.83,
+              "probability": 0.60546875
+            },
+            {
+              "text": " The",
+              "start": 3.05,
+              "end": 3.11,
+              "probability": 0.1744384765625
+            },
+            {
+              "text": " way",
+              "start": 3.11,
+              "end": 3.29,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Actaeon's",
+              "start": 3.29,
+              "end": 3.87,
+              "probability": 0.777587890625
+            },
+            {
+              "text": " father",
+              "start": 3.87,
+              "end": 4.09,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " went!",
+              "start": 4.09,
+              "end": 4.47,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Go",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "raw": "forth,",
+          "start": 1.47,
+          "end": 1.79
+        },
+        {
+          "raw": "go",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "raw": "forth",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "raw": "to",
+          "start": 2.33,
+          "end": 2.51
+        },
+        {
+          "raw": "misery,",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "raw": "The",
+          "start": 3.05,
+          "end": 3.11
+        },
+        {
+          "raw": "way",
+          "start": 3.11,
+          "end": 3.29
+        },
+        {
+          "raw": "Actaeon's",
+          "start": 3.29,
+          "end": 3.87
+        },
+        {
+          "raw": "father",
+          "start": 3.87,
+          "end": 4.09
+        },
+        {
+          "raw": "went!",
+          "start": 4.09,
+          "end": 4.47
+        }
+      ],
+      "expected_tokens": [
+        "Cadmus.",
+        "Go",
+        "forth,",
+        "go",
+        "forth",
+        "to",
+        "misery,",
+        "The",
+        "way",
+        "Actaeon's",
+        "father",
+        "went!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "cadmus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 1.25,
+          "end": 1.47,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "forth,",
+          "start": 1.47,
+          "end": 1.79,
+          "key": "forth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 2.01,
+          "end": 2.09,
+          "key": "go",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "forth",
+          "start": 2.09,
+          "end": 2.33,
+          "key": "forth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.33,
+          "end": 2.51,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "misery,",
+          "start": 2.51,
+          "end": 2.83,
+          "key": "misery",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.05,
+          "end": 3.11,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 3.11,
+          "end": 3.29,
+          "key": "way",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Actaeon's",
+          "start": 3.29,
+          "end": 3.87,
+          "key": "actaeons",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 3.87,
+          "end": 4.09,
+          "key": "father",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "went!",
+          "start": 4.09,
+          "end": 4.47,
+          "key": "went",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cadmus.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Go",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "text": "forth,",
+          "start": 1.47,
+          "end": 1.79
+        },
+        {
+          "text": "go",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "text": "forth",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "text": "to",
+          "start": 2.33,
+          "end": 2.51
+        },
+        {
+          "text": "misery,",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "text": "The",
+          "start": 3.05,
+          "end": 3.11
+        },
+        {
+          "text": "way",
+          "start": 3.11,
+          "end": 3.29
+        },
+        {
+          "text": "Actaeon's",
+          "start": 3.29,
+          "end": 3.87
+        },
+        {
+          "text": "father",
+          "start": 3.87,
+          "end": 4.09
+        },
+        {
+          "text": "went!",
+          "start": 4.09,
+          "end": 4.47
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2037958240834996
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ba6b478a926a056152fe960e47f57a1d58cbaf04bee7a38d76aba96b3f126eb9",
+  "selected_reasons": []
+}

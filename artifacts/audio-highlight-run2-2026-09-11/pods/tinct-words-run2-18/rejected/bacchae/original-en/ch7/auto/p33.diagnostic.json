@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "484ce32cbd781e4fa6f8db9d9841e0dabc9f4be6b27a3d2bc73826e984b9693a",
+  "attempts": [
+    {
+      "asr_seconds": 0.29083975590765476,
+      "alignment_seconds": 0.00037753803189843893,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dionysus. Myself will lead The damsels hither, without sword or steed.",
+        "hotwords": "Dionysus, Myself, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dionysus, Myself will lead The damsels hither, without sword or steed.",
+          "start": 0.05,
+          "end": 4.77,
+          "words": [
+            {
+              "text": " Dionysus,",
+              "start": 0.05,
+              "end": 1.21,
+              "probability": 0.9640299479166666
+            },
+            {
+              "text": " Myself",
+              "start": 1.61,
+              "end": 1.99,
+              "probability": 0.537139892578125
+            },
+            {
+              "text": " will",
+              "start": 1.99,
+              "end": 2.19,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " lead",
+              "start": 2.19,
+              "end": 2.33,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " The",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.03131103515625
+            },
+            {
+              "text": " damsels",
+              "start": 2.49,
+              "end": 2.83,
+              "probability": 0.170074462890625
+            },
+            {
+              "text": " hither,",
+              "start": 2.83,
+              "end": 3.11,
+              "probability": 0.87109375
+            },
+            {
+              "text": " without",
+              "start": 3.43,
+              "end": 3.63,
+              "probability": 0.64990234375
+            },
+            {
+              "text": " sword",
+              "start": 3.63,
+              "end": 4.05,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " or",
+              "start": 4.05,
+              "end": 4.31,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " steed.",
+              "start": 4.31,
+              "end": 4.77,
+              "probability": 0.979248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.05,
+          "end": 1.21
+        },
+        {
+          "raw": "Myself",
+          "start": 1.61,
+          "end": 1.99
+        },
+        {
+          "raw": "will",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "raw": "lead",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "raw": "The",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "damsels",
+          "start": 2.49,
+          "end": 2.83
+        },
+        {
+          "raw": "hither,",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "raw": "without",
+          "start": 3.43,
+          "end": 3.63
+        },
+        {
+          "raw": "sword",
+          "start": 3.63,
+          "end": 4.05
+        },
+        {
+          "raw": "or",
+          "start": 4.05,
+          "end": 4.31
+        },
+        {
+          "raw": "steed.",
+          "start": 4.31,
+          "end": 4.77
+        }
+      ],
+      "expected_tokens": [
+        "Dionysus.",
+        "Myself",
+        "will",
+        "lead",
+        "The",
+        "damsels",
+        "hither,",
+        "without",
+        "sword",
+        "or",
+        "steed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.05,
+          "end": 1.21,
+          "key": "dionysus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Myself",
+          "start": 1.61,
+          "end": 1.99,
+          "key": "myself",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.99,
+          "end": 2.19,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lead",
+          "start": 2.19,
+          "end": 2.33,
+          "key": "lead",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.33,
+          "end": 2.49,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "damsels",
+          "start": 2.49,
+          "end": 2.83,
+          "key": "damsels",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hither,",
+          "start": 2.83,
+          "end": 3.11,
+          "key": "hither",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 3.43,
+          "end": 3.63,
+          "key": "without",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sword",
+          "start": 3.63,
+          "end": 4.05,
+          "key": "sword",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 4.05,
+          "end": 4.31,
+          "key": "or",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "steed.",
+          "start": 4.31,
+          "end": 4.77,
+          "key": "steed",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dionysus.",
+          "start": 0.05,
+          "end": 1.21
+        },
+        {
+          "text": "Myself",
+          "start": 1.61,
+          "end": 1.99
+        },
+        {
+          "text": "will",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "text": "lead",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "text": "The",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "text": "damsels",
+          "start": 2.49,
+          "end": 2.83
+        },
+        {
+          "text": "hither,",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "text": "without",
+          "start": 3.43,
+          "end": 3.63
+        },
+        {
+          "text": "sword",
+          "start": 3.63,
+          "end": 4.05
+        },
+        {
+          "text": "or",
+          "start": 4.05,
+          "end": 4.31
+        },
+        {
+          "text": "steed.",
+          "start": 4.31,
+          "end": 4.77
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2913813180057332
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6d67d0ca1bcd4b022fb154de993a32acf3fadd388ba26b5d802ff31bd655fd5b",
+  "selected_reasons": []
+}

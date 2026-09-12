@@ -1,0 +1,1295 @@
+{
+  "complete": true,
+  "signature": "bdc3ee6d692f4b0317dcb67cfbdfef805589e9987fc5aa30c2d07bf406bcccdb",
+  "attempts": [
+    {
+      "asr_seconds": 0.25845639896579087,
+      "alignment_seconds": 0.0005717090098187327,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cadmus. Blood-drenched ere thou wouldst know him! Aye, 'tis his.",
+        "hotwords": "Cadmus, Blood-drenched, Aye"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cadmus, Blood-drenched ere thou wouldst know him! Aye, tease his.",
+          "start": 0.05,
+          "end": 3.81,
+          "words": [
+            {
+              "text": " Cadmus,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " Blood",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.03961181640625
+            },
+            {
+              "text": "-drenched",
+              "start": 1.31,
+              "end": 1.59,
+              "probability": 0.7542317708333334
+            },
+            {
+              "text": " ere",
+              "start": 1.59,
+              "end": 1.85,
+              "probability": 0.6649169921875
+            },
+            {
+              "text": " thou",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.9453125
+            },
+            {
+              "text": " wouldst",
+              "start": 1.99,
+              "end": 2.23,
+              "probability": 0.7052001953125
+            },
+            {
+              "text": " know",
+              "start": 2.23,
+              "end": 2.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him!",
+              "start": 2.33,
+              "end": 2.65,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " Aye,",
+              "start": 3.05,
+              "end": 3.25,
+              "probability": 0.2842349708080292
+            },
+            {
+              "text": " tease",
+              "start": 3.39,
+              "end": 3.55,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " his.",
+              "start": 3.55,
+              "end": 3.81,
+              "probability": 0.93994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Blood",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "-drenched",
+          "start": 1.31,
+          "end": 1.59
+        },
+        {
+          "raw": "ere",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "raw": "thou",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "wouldst",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "raw": "know",
+          "start": 2.23,
+          "end": 2.33
+        },
+        {
+          "raw": "him!",
+          "start": 2.33,
+          "end": 2.65
+        },
+        {
+          "raw": "Aye,",
+          "start": 3.05,
+          "end": 3.25
+        },
+        {
+          "raw": "tease",
+          "start": 3.39,
+          "end": 3.55
+        },
+        {
+          "raw": "his.",
+          "start": 3.55,
+          "end": 3.81
+        }
+      ],
+      "expected_tokens": [
+        "Cadmus.",
+        "Blood-drenched",
+        "ere",
+        "thou",
+        "wouldst",
+        "know",
+        "him!",
+        "Aye,",
+        "'tis",
+        "his."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "cadmus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Blood -drenched",
+          "start": 1.19,
+          "end": 1.59,
+          "key": "blooddrenched",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 1.59,
+          "end": 1.85,
+          "key": "ere",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wouldst",
+          "start": 1.99,
+          "end": 2.23,
+          "key": "wouldst",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 2.23,
+          "end": 2.33,
+          "key": "know",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him!",
+          "start": 2.33,
+          "end": 2.65,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Aye,",
+          "start": 3.05,
+          "end": 3.25,
+          "key": "aye",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 3.39,
+          "end": 3.55,
+          "key": "tease",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his.",
+          "start": 3.55,
+          "end": 3.81,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "Blood-drenched",
+          "heard": "Blood -drenched",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 1.19,
+          "end": 1.59
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Cadmus.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Blood-drenched",
+          "start": 1.19,
+          "end": 1.59
+        },
+        {
+          "text": "ere",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "text": "thou",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "wouldst",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "text": "know",
+          "start": 2.23,
+          "end": 2.33
+        },
+        {
+          "text": "him!",
+          "start": 2.33,
+          "end": 2.65
+        },
+        {
+          "text": "Aye,",
+          "start": 3.05,
+          "end": 3.25
+        },
+        {
+          "text": "'tis",
+          "start": 3.25,
+          "end": 3.4
+        },
+        {
+          "text": "his.",
+          "start": 3.55,
+          "end": 3.81
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.25921970803756267
+    },
+    {
+      "asr_seconds": 0.21953695092815906,
+      "alignment_seconds": 0.0005858479999005795,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Cadmus, Blood-drenched, Aye"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Cadmus, Blood-drenched, Aye, Thou wouldst know him. I tease his.",
+          "start": 0.05,
+          "end": 3.83,
+          "words": [
+            {
+              "text": " Cadmus,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " Blood",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.03961181640625
+            },
+            {
+              "text": "-drenched,",
+              "start": 1.31,
+              "end": 1.59,
+              "probability": 0.7542317708333334
+            },
+            {
+              "text": " Aye,",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.0028219223022460938
+            },
+            {
+              "text": " Thou",
+              "start": 1.85,
+              "end": 1.97,
+              "probability": 0.462646484375
+            },
+            {
+              "text": " wouldst",
+              "start": 1.97,
+              "end": 2.23,
+              "probability": 0.75341796875
+            },
+            {
+              "text": " know",
+              "start": 2.23,
+              "end": 2.33,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " him.",
+              "start": 2.33,
+              "end": 2.61,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " I",
+              "start": 3.05,
+              "end": 3.19,
+              "probability": 0.9609375
+            },
+            {
+              "text": " tease",
+              "start": 3.19,
+              "end": 3.53,
+              "probability": 0.923828125
+            },
+            {
+              "text": " his.",
+              "start": 3.53,
+              "end": 3.83,
+              "probability": 0.9599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Blood",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "-drenched,",
+          "start": 1.31,
+          "end": 1.59
+        },
+        {
+          "raw": "Aye,",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "Thou",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "raw": "wouldst",
+          "start": 1.97,
+          "end": 2.23
+        },
+        {
+          "raw": "know",
+          "start": 2.23,
+          "end": 2.33
+        },
+        {
+          "raw": "him.",
+          "start": 2.33,
+          "end": 2.61
+        },
+        {
+          "raw": "I",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "raw": "tease",
+          "start": 3.19,
+          "end": 3.53
+        },
+        {
+          "raw": "his.",
+          "start": 3.53,
+          "end": 3.83
+        }
+      ],
+      "expected_tokens": [
+        "Cadmus.",
+        "Blood-drenched",
+        "ere",
+        "thou",
+        "wouldst",
+        "know",
+        "him!",
+        "Aye,",
+        "'tis",
+        "his."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          7,
+          3,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ],
+        [
+          "equal",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "cadmus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Blood -drenched,",
+          "start": 1.19,
+          "end": 1.59,
+          "key": "blooddrenched",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "Aye,",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "aye",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 1.85,
+          "end": 1.97,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wouldst",
+          "start": 1.97,
+          "end": 2.23,
+          "key": "wouldst",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 2.23,
+          "end": 2.33,
+          "key": "know",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.33,
+          "end": 2.61,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.05,
+          "end": 3.19,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 3.19,
+          "end": 3.53,
+          "key": "tease",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his.",
+          "start": 3.53,
+          "end": 3.83,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "Blood-drenched",
+          "heard": "Blood -drenched,",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 1.19,
+          "end": 1.59
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Cadmus.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Blood-drenched",
+          "start": 1.19,
+          "end": 1.59
+        },
+        {
+          "text": "ere",
+          "start": 1.59,
+          "end": 1.72
+        },
+        {
+          "text": "thou",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "text": "wouldst",
+          "start": 1.97,
+          "end": 2.23
+        },
+        {
+          "text": "know",
+          "start": 2.23,
+          "end": 2.33
+        },
+        {
+          "text": "him!",
+          "start": 2.33,
+          "end": 2.61
+        },
+        {
+          "text": "Aye,",
+          "start": 2.61,
+          "end": 3.07
+        },
+        {
+          "text": "'tis",
+          "start": 3.07,
+          "end": 3.3
+        },
+        {
+          "text": "his.",
+          "start": 3.53,
+          "end": 3.83
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22030331194400787
+    },
+    {
+      "asr_seconds": 0.25592233205679804,
+      "alignment_seconds": 0.0005934310611337423,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cadmus, blood-drenched ere thou wouldst know him.",
+          "start": 0.05,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " Cadmus,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " blood",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.94482421875
+            },
+            {
+              "text": "-drenched",
+              "start": 1.31,
+              "end": 1.57,
+              "probability": 0.8767903645833334
+            },
+            {
+              "text": " ere",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " thou",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " wouldst",
+              "start": 1.99,
+              "end": 2.23,
+              "probability": 0.7188720703125
+            },
+            {
+              "text": " know",
+              "start": 2.23,
+              "end": 2.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him.",
+              "start": 2.33,
+              "end": 2.65,
+              "probability": 0.939453125
+            }
+          ]
+        },
+        {
+          "text": " I tease his.",
+          "start": 3.05,
+          "end": 3.83,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.05,
+              "end": 3.19,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " tease",
+              "start": 3.19,
+              "end": 3.53,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " his.",
+              "start": 3.53,
+              "end": 3.83,
+              "probability": 0.978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "blood",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "-drenched",
+          "start": 1.31,
+          "end": 1.57
+        },
+        {
+          "raw": "ere",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "thou",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "wouldst",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "raw": "know",
+          "start": 2.23,
+          "end": 2.33
+        },
+        {
+          "raw": "him.",
+          "start": 2.33,
+          "end": 2.65
+        },
+        {
+          "raw": "I",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "raw": "tease",
+          "start": 3.19,
+          "end": 3.53
+        },
+        {
+          "raw": "his.",
+          "start": 3.53,
+          "end": 3.83
+        }
+      ],
+      "expected_tokens": [
+        "Cadmus.",
+        "Blood-drenched",
+        "ere",
+        "thou",
+        "wouldst",
+        "know",
+        "him!",
+        "Aye,",
+        "'tis",
+        "his."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ],
+        [
+          "equal",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "cadmus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "blood -drenched",
+          "start": 1.19,
+          "end": 1.57,
+          "key": "blooddrenched",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 1.57,
+          "end": 1.85,
+          "key": "ere",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wouldst",
+          "start": 1.99,
+          "end": 2.23,
+          "key": "wouldst",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 2.23,
+          "end": 2.33,
+          "key": "know",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.33,
+          "end": 2.65,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.05,
+          "end": 3.19,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 3.19,
+          "end": 3.53,
+          "key": "tease",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his.",
+          "start": 3.53,
+          "end": 3.83,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "Blood-drenched",
+          "heard": "blood -drenched",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 1.19,
+          "end": 1.57
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Cadmus.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Blood-drenched",
+          "start": 1.19,
+          "end": 1.57
+        },
+        {
+          "text": "ere",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "thou",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "wouldst",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "text": "know",
+          "start": 2.23,
+          "end": 2.33
+        },
+        {
+          "text": "him!",
+          "start": 2.33,
+          "end": 2.65
+        },
+        {
+          "text": "Aye,",
+          "start": 2.65,
+          "end": 3.09
+        },
+        {
+          "text": "'tis",
+          "start": 3.09,
+          "end": 3.31
+        },
+        {
+          "text": "his.",
+          "start": 3.53,
+          "end": 3.83
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.25668385601602495
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "44c0f79c0e348a0767ece988c0275fe1567af012cc9f8929bcf14b3ee749125e",
+  "selected_reasons": []
+}

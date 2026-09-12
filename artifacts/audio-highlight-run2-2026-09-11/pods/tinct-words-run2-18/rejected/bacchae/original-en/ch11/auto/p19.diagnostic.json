@@ -1,0 +1,685 @@
+{
+  "complete": true,
+  "signature": "d70c4d7ef2059225c3e355141112f97c8b4e33e062cd5c5f1eacca99014337c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.3894624629756436,
+      "alignment_seconds": 0.000569154042750597,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Agave. Lo, from the trunk new-shorn Hither a Mountain Thorn Bear we! O Asia-born Bacchanals, bless this chase!",
+        "hotwords": "Agave, Lo, Hither, Mountain, Thorn, Bear, O, Asia-born, Bacchanals"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Agave. Lo, from the trunk new-shorn Hither a Mountain Thorn Bear we! O Asia-born Bacchanals, bless this chase!",
+          "start": 0.05,
+          "end": 6.91,
+          "words": [
+            {
+              "text": " Agave.",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.45904541015625
+            },
+            {
+              "text": " Lo,",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.175537109375
+            },
+            {
+              "text": " from",
+              "start": 1.63,
+              "end": 1.71,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " the",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " trunk",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " new",
+              "start": 2.03,
+              "end": 2.27,
+              "probability": 0.191650390625
+            },
+            {
+              "text": "-shorn",
+              "start": 2.27,
+              "end": 2.57,
+              "probability": 0.695068359375
+            },
+            {
+              "text": " Hither",
+              "start": 2.57,
+              "end": 2.81,
+              "probability": 0.4972991943359375
+            },
+            {
+              "text": " a",
+              "start": 2.81,
+              "end": 2.97,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " Mountain",
+              "start": 2.97,
+              "end": 3.19,
+              "probability": 0.058685302734375
+            },
+            {
+              "text": " Thorn",
+              "start": 3.19,
+              "end": 3.55,
+              "probability": 0.40771484375
+            },
+            {
+              "text": " Bear",
+              "start": 3.55,
+              "end": 3.81,
+              "probability": 0.32568359375
+            },
+            {
+              "text": " we!",
+              "start": 3.81,
+              "end": 4.03,
+              "probability": 0.2177734375
+            },
+            {
+              "text": " O",
+              "start": 4.73,
+              "end": 4.87,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " Asia",
+              "start": 4.87,
+              "end": 5.17,
+              "probability": 0.93359375
+            },
+            {
+              "text": "-born",
+              "start": 5.17,
+              "end": 5.41,
+              "probability": 0.817626953125
+            },
+            {
+              "text": " Bacchanals,",
+              "start": 5.41,
+              "end": 6.09,
+              "probability": 0.66436767578125
+            },
+            {
+              "text": " bless",
+              "start": 6.31,
+              "end": 6.39,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " this",
+              "start": 6.39,
+              "end": 6.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " chase!",
+              "start": 6.67,
+              "end": 6.91,
+              "probability": 0.96923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agave.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Lo,",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "from",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "raw": "the",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "raw": "trunk",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "new",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "raw": "-shorn",
+          "start": 2.27,
+          "end": 2.57
+        },
+        {
+          "raw": "Hither",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "raw": "a",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "raw": "Mountain",
+          "start": 2.97,
+          "end": 3.19
+        },
+        {
+          "raw": "Thorn",
+          "start": 3.19,
+          "end": 3.55
+        },
+        {
+          "raw": "Bear",
+          "start": 3.55,
+          "end": 3.81
+        },
+        {
+          "raw": "we!",
+          "start": 3.81,
+          "end": 4.03
+        },
+        {
+          "raw": "O",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "raw": "Asia",
+          "start": 4.87,
+          "end": 5.17
+        },
+        {
+          "raw": "-born",
+          "start": 5.17,
+          "end": 5.41
+        },
+        {
+          "raw": "Bacchanals,",
+          "start": 5.41,
+          "end": 6.09
+        },
+        {
+          "raw": "bless",
+          "start": 6.31,
+          "end": 6.39
+        },
+        {
+          "raw": "this",
+          "start": 6.39,
+          "end": 6.67
+        },
+        {
+          "raw": "chase!",
+          "start": 6.67,
+          "end": 6.91
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "Lo,",
+        "from",
+        "the",
+        "trunk",
+        "new-shorn",
+        "Hither",
+        "a",
+        "Mountain",
+        "Thorn",
+        "Bear",
+        "we!",
+        "O",
+        "Asia-born",
+        "Bacchanals,",
+        "bless",
+        "this",
+        "chase!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agave.",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "agave",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lo,",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "lo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.63,
+          "end": 1.71,
+          "key": "from",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "trunk",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "trunk",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "new -shorn",
+          "start": 2.03,
+          "end": 2.57,
+          "key": "newshorn",
+          "pieces": [
+            5,
+            6
+          ]
+        },
+        {
+          "raw": "Hither",
+          "start": 2.57,
+          "end": 2.81,
+          "key": "hither",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.81,
+          "end": 2.97,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Mountain",
+          "start": 2.97,
+          "end": 3.19,
+          "key": "mountain",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Thorn",
+          "start": 3.19,
+          "end": 3.55,
+          "key": "thorn",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Bear",
+          "start": 3.55,
+          "end": 3.81,
+          "key": "bear",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "we!",
+          "start": 3.81,
+          "end": 4.03,
+          "key": "we",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 4.73,
+          "end": 4.87,
+          "key": "o",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Asia -born",
+          "start": 4.87,
+          "end": 5.41,
+          "key": "asiaborn",
+          "pieces": [
+            14,
+            15
+          ]
+        },
+        {
+          "raw": "Bacchanals,",
+          "start": 5.41,
+          "end": 6.09,
+          "key": "bacchanals",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "bless",
+          "start": 6.31,
+          "end": 6.39,
+          "key": "bless",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 6.39,
+          "end": 6.67,
+          "key": "this",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "chase!",
+          "start": 6.67,
+          "end": 6.91,
+          "key": "chase",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 5,
+          "text": "new-shorn",
+          "heard": "new -shorn",
+          "heard_indexes": [
+            5,
+            6
+          ],
+          "start": 2.03,
+          "end": 2.57
+        },
+        {
+          "expected_index": 13,
+          "text": "Asia-born",
+          "heard": "Asia -born",
+          "heard_indexes": [
+            14,
+            15
+          ],
+          "start": 4.87,
+          "end": 5.41
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Lo,",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "from",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "text": "the",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "text": "trunk",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "new-shorn",
+          "start": 2.03,
+          "end": 2.57
+        },
+        {
+          "text": "Hither",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "text": "a",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "text": "Mountain",
+          "start": 2.97,
+          "end": 3.19
+        },
+        {
+          "text": "Thorn",
+          "start": 3.19,
+          "end": 3.55
+        },
+        {
+          "text": "Bear",
+          "start": 3.55,
+          "end": 3.81
+        },
+        {
+          "text": "we!",
+          "start": 3.81,
+          "end": 4.03
+        },
+        {
+          "text": "O",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "text": "Asia-born",
+          "start": 4.87,
+          "end": 5.41
+        },
+        {
+          "text": "Bacchanals,",
+          "start": 5.41,
+          "end": 6.09
+        },
+        {
+          "text": "bless",
+          "start": 6.31,
+          "end": 6.39
+        },
+        {
+          "text": "this",
+          "start": 6.39,
+          "end": 6.67
+        },
+        {
+          "text": "chase!",
+          "start": 6.67,
+          "end": 6.91
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.39021507394500077
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b65dce633bb62c9b9f2bf8166f04f880e6dbf616c25a169d6ea3f462e6d6136c",
+  "selected_reasons": []
+}

@@ -1,0 +1,388 @@
+{
+  "complete": true,
+  "signature": "4dba7f3d12f8c09938618dbb1db29b62df0715679123e2277028f398024ad3c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.20430152595508844,
+      "alignment_seconds": 0.00043334602378308773,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Agavi, why went he to Kithiran? What sought he?",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Agavi,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.599365234375
+            },
+            {
+              "text": " why",
+              "start": 1.11,
+              "end": 1.21,
+              "probability": 0.9296875
+            },
+            {
+              "text": " went",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.15380859375
+            },
+            {
+              "text": " he",
+              "start": 1.35,
+              "end": 1.45,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " to",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Kithiran?",
+              "start": 1.57,
+              "end": 1.93,
+              "probability": 0.5665283203125
+            },
+            {
+              "text": " What",
+              "start": 2.15,
+              "end": 2.25,
+              "probability": 0.966796875
+            },
+            {
+              "text": " sought",
+              "start": 2.25,
+              "end": 2.45,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " he?",
+              "start": 2.45,
+              "end": 2.73,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agavi,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "why",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "raw": "went",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "he",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "raw": "to",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "Kithiran?",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "raw": "What",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "raw": "sought",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "raw": "he?",
+          "start": 2.45,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "Why",
+        "went",
+        "he",
+        "to",
+        "Kithaeron?",
+        "What",
+        "sought",
+        "he?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          9,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agavi,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "agavi",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.11,
+          "end": 1.21,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "went",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.35,
+          "end": 1.45,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Kithiran?",
+          "start": 1.57,
+          "end": 1.93,
+          "key": "kithiran",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.15,
+          "end": 2.25,
+          "key": "what",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sought",
+          "start": 2.25,
+          "end": 2.45,
+          "key": "sought",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he?",
+          "start": 2.45,
+          "end": 2.73,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.0,
+          "end": 0.555
+        },
+        {
+          "text": "Why",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "text": "went",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "he",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "text": "to",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "Kithaeron?",
+          "start": 1.57,
+          "end": 1.86
+        },
+        {
+          "text": "What",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "text": "sought",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "text": "he?",
+          "start": 2.45,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20487227803096175
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cc691d079f4b6aa5d4a363f35a90d5def5985b17b6b075a99598a39b6e32121d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

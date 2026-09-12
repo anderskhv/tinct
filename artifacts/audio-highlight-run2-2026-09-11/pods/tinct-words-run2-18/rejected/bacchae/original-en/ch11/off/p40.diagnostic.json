@@ -1,0 +1,587 @@
+{
+  "complete": true,
+  "signature": "c81a1c02ed11e30c5c3b2a2742ca39537fb8e7177ebd7f81528d6ce0e36b30a5",
+  "attempts": [
+    {
+      "asr_seconds": 0.3358314329525456,
+      "alignment_seconds": 0.000576435006223619,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Agavi, he shall cry on my name as none other, bless the spoils of the lion.",
+          "start": 0.05,
+          "end": 4.47,
+          "words": [
+            {
+              "text": " Agavi,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.722900390625
+            },
+            {
+              "text": " he",
+              "start": 1.29,
+              "end": 1.45,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " shall",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cry",
+              "start": 1.59,
+              "end": 1.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 1.81,
+              "end": 1.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 1.97,
+              "end": 2.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " name",
+              "start": 2.11,
+              "end": 2.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " as",
+              "start": 2.33,
+              "end": 2.53,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " none",
+              "start": 2.53,
+              "end": 2.67,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " other,",
+              "start": 2.67,
+              "end": 2.93,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " bless",
+              "start": 3.25,
+              "end": 3.33,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " the",
+              "start": 3.33,
+              "end": 3.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " spoils",
+              "start": 3.57,
+              "end": 3.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 3.97,
+              "end": 4.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.09,
+              "end": 4.21,
+              "probability": 0.98828125
+            },
+            {
+              "text": " lion.",
+              "start": 4.21,
+              "end": 4.47,
+              "probability": 0.78759765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agavi,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "he",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "raw": "shall",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "cry",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "raw": "on",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "raw": "my",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "raw": "name",
+          "start": 2.11,
+          "end": 2.33
+        },
+        {
+          "raw": "as",
+          "start": 2.33,
+          "end": 2.53
+        },
+        {
+          "raw": "none",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "raw": "other,",
+          "start": 2.67,
+          "end": 2.93
+        },
+        {
+          "raw": "bless",
+          "start": 3.25,
+          "end": 3.33
+        },
+        {
+          "raw": "the",
+          "start": 3.33,
+          "end": 3.57
+        },
+        {
+          "raw": "spoils",
+          "start": 3.57,
+          "end": 3.97
+        },
+        {
+          "raw": "of",
+          "start": 3.97,
+          "end": 4.09
+        },
+        {
+          "raw": "the",
+          "start": 4.09,
+          "end": 4.21
+        },
+        {
+          "raw": "lion.",
+          "start": 4.21,
+          "end": 4.47
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "He",
+        "shall",
+        "cry",
+        "on",
+        "My",
+        "name",
+        "as",
+        "none",
+        "other,",
+        "Bless",
+        "the",
+        "spoils",
+        "of",
+        "the",
+        "Lion!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          16,
+          1,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agavi,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "agavi",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.29,
+          "end": 1.45,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 1.59,
+          "end": 1.81,
+          "key": "cry",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.81,
+          "end": 1.97,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.97,
+          "end": 2.11,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 2.11,
+          "end": 2.33,
+          "key": "name",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.33,
+          "end": 2.53,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 2.53,
+          "end": 2.67,
+          "key": "none",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "other,",
+          "start": 2.67,
+          "end": 2.93,
+          "key": "other",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bless",
+          "start": 3.25,
+          "end": 3.33,
+          "key": "bless",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.33,
+          "end": 3.57,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "spoils",
+          "start": 3.57,
+          "end": 3.97,
+          "key": "spoils",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.97,
+          "end": 4.09,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.09,
+          "end": 4.21,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "lion.",
+          "start": 4.21,
+          "end": 4.47,
+          "key": "lion",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.0,
+          "end": 0.645
+        },
+        {
+          "text": "He",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "text": "shall",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "cry",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "text": "on",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "text": "My",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "text": "name",
+          "start": 2.11,
+          "end": 2.33
+        },
+        {
+          "text": "as",
+          "start": 2.33,
+          "end": 2.53
+        },
+        {
+          "text": "none",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "text": "other,",
+          "start": 2.67,
+          "end": 2.93
+        },
+        {
+          "text": "Bless",
+          "start": 3.25,
+          "end": 3.33
+        },
+        {
+          "text": "the",
+          "start": 3.33,
+          "end": 3.57
+        },
+        {
+          "text": "spoils",
+          "start": 3.57,
+          "end": 3.97
+        },
+        {
+          "text": "of",
+          "start": 3.97,
+          "end": 4.09
+        },
+        {
+          "text": "the",
+          "start": 4.09,
+          "end": 4.21
+        },
+        {
+          "text": "Lion!",
+          "start": 4.21,
+          "end": 4.47
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.3366378709906712
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ff171a706004150e2e40ab40c3c4f584cceaf5709276019bc98fff47c5f68b77",
+  "selected_reasons": []
+}

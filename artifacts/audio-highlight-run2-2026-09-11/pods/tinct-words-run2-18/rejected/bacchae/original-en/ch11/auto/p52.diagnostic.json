@@ -1,0 +1,1821 @@
+{
+  "complete": true,
+  "signature": "046efff40b0fd06a5664572c005519ffbc5cd75d323c7784af0372e52a1bfc67",
+  "attempts": [
+    {
+      "asr_seconds": 0.5373248759424314,
+      "alignment_seconds": 0.0010075690224766731,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Agave. What seest thou here to chide, or not to bless? Cadmus (_after hesitation, resolving himself_). Raise me thine eyes to yon blue dome of air!",
+        "hotwords": "Agave, What, Cadmus, Raise"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Agave, What seest thou here to chide, or not to bless?",
+          "start": 0.02,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Agave,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.5374755859375
+            },
+            {
+              "text": " What",
+              "start": 1.02,
+              "end": 1.3,
+              "probability": 0.038787841796875
+            },
+            {
+              "text": " seest",
+              "start": 1.3,
+              "end": 1.6,
+              "probability": 0.6966552734375
+            },
+            {
+              "text": " thou",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " here",
+              "start": 1.76,
+              "end": 1.92,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " to",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " chide,",
+              "start": 2.08,
+              "end": 2.48,
+              "probability": 0.9375
+            },
+            {
+              "text": " or",
+              "start": 2.64,
+              "end": 2.72,
+              "probability": 0.8359375
+            },
+            {
+              "text": " not",
+              "start": 2.72,
+              "end": 2.92,
+              "probability": 0.990234375
+            },
+            {
+              "text": " to",
+              "start": 2.92,
+              "end": 3.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bless?",
+              "start": 3.08,
+              "end": 3.34,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Cadmus",
+          "start": 3.34,
+          "end": 4.48,
+          "words": [
+            {
+              "text": " Cadmus",
+              "start": 3.34,
+              "end": 4.48,
+              "probability": 0.845703125
+            }
+          ]
+        },
+        {
+          "text": " (_after hesitation, resolving himself, raise me thine eyes to yon blue dome of air!",
+          "start": 4.48,
+          "end": 9.8,
+          "words": [
+            {
+              "text": " (_after",
+              "start": 4.48,
+              "end": 5.0,
+              "probability": 1.4901161193847656e-06
+            },
+            {
+              "text": " hesitation,",
+              "start": 5.0,
+              "end": 5.54,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " resolving",
+              "start": 5.9,
+              "end": 6.22,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " himself,",
+              "start": 6.22,
+              "end": 6.74,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " raise",
+              "start": 7.38,
+              "end": 7.6,
+              "probability": 0.455322265625
+            },
+            {
+              "text": " me",
+              "start": 7.6,
+              "end": 7.82,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " thine",
+              "start": 7.82,
+              "end": 8.06,
+              "probability": 0.966552734375
+            },
+            {
+              "text": " eyes",
+              "start": 8.06,
+              "end": 8.34,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 8.34,
+              "end": 8.58,
+              "probability": 0.9296875
+            },
+            {
+              "text": " yon",
+              "start": 8.58,
+              "end": 8.88,
+              "probability": 0.6751708984375
+            },
+            {
+              "text": " blue",
+              "start": 8.88,
+              "end": 9.14,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " dome",
+              "start": 9.14,
+              "end": 9.38,
+              "probability": 0.95703125
+            },
+            {
+              "text": " of",
+              "start": 9.38,
+              "end": 9.52,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " air!",
+              "start": 9.52,
+              "end": 9.8,
+              "probability": 0.935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agave,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "What",
+          "start": 1.02,
+          "end": 1.3
+        },
+        {
+          "raw": "seest",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "raw": "thou",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "here",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "raw": "to",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "chide,",
+          "start": 2.08,
+          "end": 2.48
+        },
+        {
+          "raw": "or",
+          "start": 2.64,
+          "end": 2.72
+        },
+        {
+          "raw": "not",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "raw": "to",
+          "start": 2.92,
+          "end": 3.08
+        },
+        {
+          "raw": "bless?",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "raw": "Cadmus",
+          "start": 3.34,
+          "end": 4.48
+        },
+        {
+          "raw": "(_after",
+          "start": 4.48,
+          "end": 5.0
+        },
+        {
+          "raw": "hesitation,",
+          "start": 5.0,
+          "end": 5.54
+        },
+        {
+          "raw": "resolving",
+          "start": 5.9,
+          "end": 6.22
+        },
+        {
+          "raw": "himself,",
+          "start": 6.22,
+          "end": 6.74
+        },
+        {
+          "raw": "raise",
+          "start": 7.38,
+          "end": 7.6
+        },
+        {
+          "raw": "me",
+          "start": 7.6,
+          "end": 7.82
+        },
+        {
+          "raw": "thine",
+          "start": 7.82,
+          "end": 8.06
+        },
+        {
+          "raw": "eyes",
+          "start": 8.06,
+          "end": 8.34
+        },
+        {
+          "raw": "to",
+          "start": 8.34,
+          "end": 8.58
+        },
+        {
+          "raw": "yon",
+          "start": 8.58,
+          "end": 8.88
+        },
+        {
+          "raw": "blue",
+          "start": 8.88,
+          "end": 9.14
+        },
+        {
+          "raw": "dome",
+          "start": 9.14,
+          "end": 9.38
+        },
+        {
+          "raw": "of",
+          "start": 9.38,
+          "end": 9.52
+        },
+        {
+          "raw": "air!",
+          "start": 9.52,
+          "end": 9.8
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "What",
+        "seest",
+        "thou",
+        "here",
+        "to",
+        "chide,",
+        "or",
+        "not",
+        "to",
+        "bless?",
+        "Cadmus",
+        "(_after",
+        "hesitation,",
+        "resolving",
+        "himself_).",
+        "Raise",
+        "me",
+        "thine",
+        "eyes",
+        "to",
+        "yon",
+        "blue",
+        "dome",
+        "of",
+        "air!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          26,
+          13,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agave,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "agave",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.02,
+          "end": 1.3,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "seest",
+          "start": 1.3,
+          "end": 1.6,
+          "key": "seest",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.76,
+          "end": 1.92,
+          "key": "here",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "chide,",
+          "start": 2.08,
+          "end": 2.48,
+          "key": "chide",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 2.64,
+          "end": 2.72,
+          "key": "or",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.72,
+          "end": 2.92,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.92,
+          "end": 3.08,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bless?",
+          "start": 3.08,
+          "end": 3.34,
+          "key": "bless",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Cadmus",
+          "start": 3.34,
+          "end": 4.48,
+          "key": "cadmus",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "(_after",
+          "start": 4.48,
+          "end": 5.0,
+          "key": "_after",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hesitation,",
+          "start": 5.0,
+          "end": 5.54,
+          "key": "hesitation",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "resolving",
+          "start": 5.9,
+          "end": 6.22,
+          "key": "resolving",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "himself,",
+          "start": 6.22,
+          "end": 6.74,
+          "key": "himself",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "raise",
+          "start": 7.38,
+          "end": 7.6,
+          "key": "raise",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 7.6,
+          "end": 7.82,
+          "key": "me",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 7.82,
+          "end": 8.06,
+          "key": "thine",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 8.06,
+          "end": 8.34,
+          "key": "eyes",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.34,
+          "end": 8.58,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "yon",
+          "start": 8.58,
+          "end": 8.88,
+          "key": "yon",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "blue",
+          "start": 8.88,
+          "end": 9.14,
+          "key": "blue",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "dome",
+          "start": 9.14,
+          "end": 9.38,
+          "key": "dome",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.38,
+          "end": 9.52,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "air!",
+          "start": 9.52,
+          "end": 9.8,
+          "key": "air",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "What",
+          "start": 1.02,
+          "end": 1.3
+        },
+        {
+          "text": "seest",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "text": "thou",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "here",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "text": "to",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "chide,",
+          "start": 2.08,
+          "end": 2.48
+        },
+        {
+          "text": "or",
+          "start": 2.64,
+          "end": 2.72
+        },
+        {
+          "text": "not",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "text": "to",
+          "start": 2.92,
+          "end": 3.08
+        },
+        {
+          "text": "bless?",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "text": "Cadmus",
+          "start": 3.34,
+          "end": 4.48
+        },
+        {
+          "text": "(_after",
+          "start": 4.48,
+          "end": 4.74
+        },
+        {
+          "text": "hesitation,",
+          "start": 5.0,
+          "end": 5.54
+        },
+        {
+          "text": "resolving",
+          "start": 5.9,
+          "end": 6.22
+        },
+        {
+          "text": "himself_).",
+          "start": 6.22,
+          "end": 6.74
+        },
+        {
+          "text": "Raise",
+          "start": 7.38,
+          "end": 7.6
+        },
+        {
+          "text": "me",
+          "start": 7.6,
+          "end": 7.82
+        },
+        {
+          "text": "thine",
+          "start": 7.82,
+          "end": 8.06
+        },
+        {
+          "text": "eyes",
+          "start": 8.06,
+          "end": 8.34
+        },
+        {
+          "text": "to",
+          "start": 8.34,
+          "end": 8.58
+        },
+        {
+          "text": "yon",
+          "start": 8.58,
+          "end": 8.88
+        },
+        {
+          "text": "blue",
+          "start": 8.88,
+          "end": 9.14
+        },
+        {
+          "text": "dome",
+          "start": 9.14,
+          "end": 9.38
+        },
+        {
+          "text": "of",
+          "start": 9.38,
+          "end": 9.52
+        },
+        {
+          "text": "air!",
+          "start": 9.52,
+          "end": 9.8
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 25
+      },
+      "match_ratio": 0.9615384615384616,
+      "rejection_reasons": [],
+      "seconds": 0.5387602059636265
+    },
+    {
+      "asr_seconds": 0.41894511599093676,
+      "alignment_seconds": 0.0005743569927290082,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Agave, What, Cadmus, Raise"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Agave, What seest thou here to chide or not to bless?",
+          "start": 0.02,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Agave,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.537841796875
+            },
+            {
+              "text": " What",
+              "start": 1.04,
+              "end": 1.3,
+              "probability": 0.038787841796875
+            },
+            {
+              "text": " seest",
+              "start": 1.3,
+              "end": 1.6,
+              "probability": 0.6962890625
+            },
+            {
+              "text": " thou",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " here",
+              "start": 1.76,
+              "end": 1.92,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " to",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " chide",
+              "start": 2.08,
+              "end": 2.46,
+              "probability": 0.937255859375
+            },
+            {
+              "text": " or",
+              "start": 2.46,
+              "end": 2.7,
+              "probability": 0.55419921875
+            },
+            {
+              "text": " not",
+              "start": 2.7,
+              "end": 2.92,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " to",
+              "start": 2.92,
+              "end": 3.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bless?",
+              "start": 3.08,
+              "end": 3.34,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Cadmus, after hesitation, resolving himself, Raise me thine eyes to yon blue dome of air.",
+          "start": 4.22,
+          "end": 9.84,
+          "words": [
+            {
+              "text": " Cadmus,",
+              "start": 4.22,
+              "end": 4.48,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " after",
+              "start": 4.82,
+              "end": 5.04,
+              "probability": 0.50244140625
+            },
+            {
+              "text": " hesitation,",
+              "start": 5.04,
+              "end": 5.54,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " resolving",
+              "start": 6.22,
+              "end": 6.22,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " himself,",
+              "start": 6.22,
+              "end": 6.74,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " Raise",
+              "start": 7.5,
+              "end": 7.6,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " me",
+              "start": 7.6,
+              "end": 7.82,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " thine",
+              "start": 7.82,
+              "end": 8.04,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " eyes",
+              "start": 8.04,
+              "end": 8.34,
+              "probability": 0.986328125
+            },
+            {
+              "text": " to",
+              "start": 8.34,
+              "end": 8.58,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " yon",
+              "start": 8.58,
+              "end": 8.88,
+              "probability": 0.71875
+            },
+            {
+              "text": " blue",
+              "start": 8.88,
+              "end": 9.14,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " dome",
+              "start": 9.14,
+              "end": 9.36,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " of",
+              "start": 9.36,
+              "end": 9.52,
+              "probability": 0.990234375
+            },
+            {
+              "text": " air.",
+              "start": 9.52,
+              "end": 9.84,
+              "probability": 0.9326171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agave,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "What",
+          "start": 1.04,
+          "end": 1.3
+        },
+        {
+          "raw": "seest",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "raw": "thou",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "here",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "raw": "to",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "chide",
+          "start": 2.08,
+          "end": 2.46
+        },
+        {
+          "raw": "or",
+          "start": 2.46,
+          "end": 2.7
+        },
+        {
+          "raw": "not",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "raw": "to",
+          "start": 2.92,
+          "end": 3.08
+        },
+        {
+          "raw": "bless?",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "raw": "Cadmus,",
+          "start": 4.22,
+          "end": 4.48
+        },
+        {
+          "raw": "after",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "raw": "hesitation,",
+          "start": 5.04,
+          "end": 5.54
+        },
+        {
+          "raw": "resolving",
+          "start": 6.22,
+          "end": 6.22
+        },
+        {
+          "raw": "himself,",
+          "start": 6.22,
+          "end": 6.74
+        },
+        {
+          "raw": "Raise",
+          "start": 7.5,
+          "end": 7.6
+        },
+        {
+          "raw": "me",
+          "start": 7.6,
+          "end": 7.82
+        },
+        {
+          "raw": "thine",
+          "start": 7.82,
+          "end": 8.04
+        },
+        {
+          "raw": "eyes",
+          "start": 8.04,
+          "end": 8.34
+        },
+        {
+          "raw": "to",
+          "start": 8.34,
+          "end": 8.58
+        },
+        {
+          "raw": "yon",
+          "start": 8.58,
+          "end": 8.88
+        },
+        {
+          "raw": "blue",
+          "start": 8.88,
+          "end": 9.14
+        },
+        {
+          "raw": "dome",
+          "start": 9.14,
+          "end": 9.36
+        },
+        {
+          "raw": "of",
+          "start": 9.36,
+          "end": 9.52
+        },
+        {
+          "raw": "air.",
+          "start": 9.52,
+          "end": 9.84
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "What",
+        "seest",
+        "thou",
+        "here",
+        "to",
+        "chide,",
+        "or",
+        "not",
+        "to",
+        "bless?",
+        "Cadmus",
+        "(_after",
+        "hesitation,",
+        "resolving",
+        "himself_).",
+        "Raise",
+        "me",
+        "thine",
+        "eyes",
+        "to",
+        "yon",
+        "blue",
+        "dome",
+        "of",
+        "air!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agave,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "agave",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.04,
+          "end": 1.3,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "seest",
+          "start": 1.3,
+          "end": 1.6,
+          "key": "seest",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.76,
+          "end": 1.92,
+          "key": "here",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "chide",
+          "start": 2.08,
+          "end": 2.46,
+          "key": "chide",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 2.46,
+          "end": 2.7,
+          "key": "or",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.7,
+          "end": 2.92,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.92,
+          "end": 3.08,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bless?",
+          "start": 3.08,
+          "end": 3.34,
+          "key": "bless",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Cadmus,",
+          "start": 4.22,
+          "end": 4.48,
+          "key": "cadmus",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 4.82,
+          "end": 5.04,
+          "key": "after",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hesitation,",
+          "start": 5.04,
+          "end": 5.54,
+          "key": "hesitation",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "resolving",
+          "start": 6.22,
+          "end": 6.22,
+          "key": "resolving",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "himself,",
+          "start": 6.22,
+          "end": 6.74,
+          "key": "himself",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Raise",
+          "start": 7.5,
+          "end": 7.6,
+          "key": "raise",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 7.6,
+          "end": 7.82,
+          "key": "me",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 7.82,
+          "end": 8.04,
+          "key": "thine",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 8.04,
+          "end": 8.34,
+          "key": "eyes",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.34,
+          "end": 8.58,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "yon",
+          "start": 8.58,
+          "end": 8.88,
+          "key": "yon",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "blue",
+          "start": 8.88,
+          "end": 9.14,
+          "key": "blue",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "dome",
+          "start": 9.14,
+          "end": 9.36,
+          "key": "dome",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.36,
+          "end": 9.52,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "air.",
+          "start": 9.52,
+          "end": 9.84,
+          "key": "air",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "What",
+          "start": 1.04,
+          "end": 1.3
+        },
+        {
+          "text": "seest",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "text": "thou",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "here",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "text": "to",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "chide,",
+          "start": 2.08,
+          "end": 2.46
+        },
+        {
+          "text": "or",
+          "start": 2.46,
+          "end": 2.7
+        },
+        {
+          "text": "not",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "text": "to",
+          "start": 2.92,
+          "end": 3.08
+        },
+        {
+          "text": "bless?",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "text": "Cadmus",
+          "start": 4.22,
+          "end": 4.48
+        },
+        {
+          "text": "(_after",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "text": "hesitation,",
+          "start": 5.04,
+          "end": 5.54
+        },
+        {
+          "text": "resolving",
+          "start": 6.22,
+          "end": 6.22
+        },
+        {
+          "text": "himself_).",
+          "start": 6.22,
+          "end": 6.74
+        },
+        {
+          "text": "Raise",
+          "start": 7.5,
+          "end": 7.6
+        },
+        {
+          "text": "me",
+          "start": 7.6,
+          "end": 7.82
+        },
+        {
+          "text": "thine",
+          "start": 7.82,
+          "end": 8.04
+        },
+        {
+          "text": "eyes",
+          "start": 8.04,
+          "end": 8.34
+        },
+        {
+          "text": "to",
+          "start": 8.34,
+          "end": 8.58
+        },
+        {
+          "text": "yon",
+          "start": 8.58,
+          "end": 8.88
+        },
+        {
+          "text": "blue",
+          "start": 8.88,
+          "end": 9.14
+        },
+        {
+          "text": "dome",
+          "start": 9.14,
+          "end": 9.36
+        },
+        {
+          "text": "of",
+          "start": 9.36,
+          "end": 9.52
+        },
+        {
+          "text": "air!",
+          "start": 9.52,
+          "end": 9.84
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4197601869236678
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "e52726fc16fb625d0779b4eee18a0106ae8d00c23c1b901c5e5164815839a8f2",
+  "selected_reasons": []
+}
