@@ -269,3 +269,271 @@ No material issue found. (Identical to Long.)
 No material issue found.
 
 (Identical to Long, including the abrupt second sentence. The corn image is left as an image.)
+
+## VII.41 — B07-P041
+
+No material issue found.
+
+(The conditional and its bare conclusion — "There is a reason for it" — are kept, and kept as two verse lines with Long's capital at "There". Also noted, optional: "If gods care not for me" → "If the gods do not care for me" adds a definite article Long's verse line does without. The glossary directs "the gods; god — as Long has them", and "If gods do not care for me and my children" is perfectly current, so the article could be dropped; but the line scans awkwardly without it and nothing turns on it. No change proposed.)
+
+## VII.42 — B07-P042
+
+No material issue found. (Identical to Long. "The good … and the just" kept as two.)
+
+## VII.43 — B07-P043
+
+No material issue found.
+
+(Identical to Long, including "emotion", which the glossary leaves as Long's own word. Two prohibitions, kept as two.)
+
+## VII.44 — B07-P044
+
+No material issue found.
+
+(Long's whole conditional survives: a man good for anything at all ought not to compute the hazard of life or death, but should look only to whether what he does is just or unjust, and the works of a good or a bad man. "Thou sayest not well" → "You do not speak well" keeps the rebuke's flatness. The added "a" in "a good or a bad man" is grammar. Nothing here echoes a familiar English *Apology*; the sentence keeps Long's "compute the hazard", which no modern version has.)
+
+## VII.45 — B07-P045
+
+No material issue found.
+
+(This is the paragraph the step-1 rebuild fixed, and the candidate is drafted from the corrected source: it ends at "deserting his post" with the three footnotes gone, as it should. See the header for the independent verification. "[Of deserting his post]" is a supplement completing "the baseness", not a second rendering, and folding it is right — Standard Ebooks prints it as running text. "Baseness" → "disgrace" follows VII.37 and is consistent. The soldier-at-his-post argument keeps both its cases, self-chosen and commander-given, and its "taking nothing into the reckoning, either death or anything else".)
+
+## VII.46 — B07-P046
+
+No material issue found.
+
+(Both dagger-marked places stand as Long has them, including the unusual "consider if this is not—a thing to be dismissed from the thoughts:" with its dash and colon, which a tidier hand would have smoothed and which must not be smoothed. Only "intrust" → "entrust" and "the Deity" → "the divine" change. Also noted, optional: "a man must entrust them to the divine" is a slightly abstract recipient for an act of entrusting, and "the Deity" is the one place in Book VII where Long's capitalised abstract noun reads almost personally; but the glossary row is settled across six accepted books and consistency rightly wins. The women, the destiny no man escapes, and the closing inquiry are all kept.)
+
+## VII.47 — B07-P047
+
+No material issue found.
+
+("Terrene" → "earthly" is the rendering Book VI fixed at VI.30 and is applied consistently. The stars, the going along with them, and the changes of the elements are kept as images; "purge away the filth" is Long's and is not softened.)
+
+## VII.48 — B07-P048
+
+No material issue found.
+
+(Plato's list is kept item for item and in order — assemblies, armies, agricultural labors, marriages, treaties, births, deaths, the noise of the courts of justice, desert places, various nations of barbarians, feasts, lamentations, markets — thirteen items, closing on "a mixture of all things and an orderly combination of contraries", which is the point of the list and survives intact. "Discoursing" → "talking" is the plain word; the added "the" before "noise" is grammar. The view from a higher place is left as a view, not explained.)
+
+## VII.49 — B07-P049
+
+No material issue found.
+
+(Long's dash after "Consider the past," is kept. The argument's steps are all there: they will be of like form; they cannot deviate from the present order; therefore forty years contemplated is ten thousand contemplated; "For what more will you see?" Also noted, optional: "such great changes of political supremacies" → "of political power". Long's countable plural is not current and had to go, but "changes of political power" can be read as ordinary transfers of office, where Long means whole dominations rising and falling; "such great changes of political supremacy" or "such great changes of ruling powers" would keep more of that. The next sentence ("they will certainly be of like form") repairs the reading, so I do not press it.)
+
+## VII.50 — B07-P050
+
+No material issue found; the flagged expansion is upheld.
+
+(**Ruling on flag 5 of 6: "the unsentient elements" → "the elements that have no sensation".** **Upheld.** "Unsentient" is not current English; "insentient" is rare and formal and would fail the accessibility standard as squarely as the word it replaces; "unfeeling" now means callous, which inverts the sense — these are the elements that cannot feel, not elements indifferent to suffering. "Non-sentient" is jargon. That leaves a relative clause, and "the elements that have no sensation" is the shortest one available; it adds three words but not one idea, and the no-expansion rule is a rule against *explaining*, not against English needing more words than Greek-derived Latinate compounds. Standard Ebooks' Long confirms "unsentient" is Long's own word and not a PG corruption. **Keep it, and record it in `continuity.md` as the book's one licensed expansion**, so that a later book does not cite it as precedent for expansions that do carry an added idea. Confidence high.
+
+Also noted: the three verse lines keep Long's capitals ("That which has grown from the earth to the earth, But that which has sprung from heavenly seed, Back to the heavenly realms returns") and nothing in them drifts toward a familiar English Euripides. "Involution" → "entanglement" is the Book VI rendering at VI.10, applied consistently. The two-branch disjunction — dissolution of the atoms, or dispersion of the elements — is kept as two.)
+
+## VII.51 — B07-P051
+
+No material issue found.
+
+("'Scape" → "escape" is the only change; the two quotations stay two, with Long's capitals and his line starts. The magic arts, the channel's course and the breeze heaven sent are all kept as images.)
+
+## VII.52 — B07-P052
+
+No material issue found.
+
+("More expert in casting his opponent" → "more expert at throwing his opponent": Long's wrestling sense of "cast" is now opaque, and "throw" is the current wrestling word and the one VII.61's wrestler implies. The four-member "nor … nor … nor …" chain is kept as four and in order — social, modest, better disciplined to meet all that happens, more considerate about his neighbors' faults.)
+
+## VII.53 — B07-P053
+
+No material issue found.
+
+("Conformably to the reason" → "according to the reason" is the glossary family. Both halves of Long's argument, and his "for", are kept; "there no harm is to be suspected" is left as the understatement it is.)
+
+## VII.54 — B07-P054
+
+No material issue found.
+
+("Piously to acquiesce in" → "piously to accept" is right: "acquiesce in" is stiff and now carries reluctant consent, which "piously" contradicts. The three things that are always in your power — accept your condition, behave justly to those about you, work on your present thoughts so nothing steals in unexamined — are kept as three and in order. Long's stray comma after "behave" is a base-text slip and is rightly not reproduced; worth a line in `continuity.md`.)
+
+## VII.55 — B07-P055
+
+No material issue found; the flagged decision is upheld, with an optional alternative.
+
+(**Ruling on flag 6 of 6: "for both are animal".** **Upheld — keep it.** Long is using "animal" adjectivally against "intelligent", and the contrast is what the sentence is for; every unpacking the drafter names ("belong to the animal part", "are animal movements") supplies a noun Long does not have and nudges the reader toward a faculty psychology Marcus has not set up here. The reading is recoverable from the immediate context, which names "the motion of the senses or of the appetites" one clause earlier.
+
+**Optional alternative, offered and not pressed:** "for both are animal motions". English resists a bare predicative "are animal", and "motion" is Long's own noun, used twice in this same sentence ("the rational and intelligent motion", "the motion of the senses"); supplying it as the elided head is arguably restoring Long's ellipsis rather than expanding him. Standard Ebooks punctuates the clause "for both are animal;" with a semicolon rather than PG's colon, which does not affect the question. If the drafter takes it, it should be recorded as a fold of an ellipsis, not as an expansion. Confidence moderate: both routes are defensible and the no-expansion rule is a sound tie-breaker.
+
+Also noted: the three things in man's constitution are kept as three, in order, and the second keeps its reason ("for it is the peculiar office of the rational and intelligent motion to circumscribe itself…" and "And with good reason, for it is formed by nature to use all of them"). Long's "motion" is rightly kept as "motion" throughout and not swept into the glossary's "impulse" row, which covers his "movement" only. "Ruling principles" → "ruling parts" and the final "ruling principle" → "the ruling part" are the row. The subordination — irrational things for the sake of the superior, the rational for the sake of one another — survives whole.)
+
+## VII.56 — B07-P056
+
+No material issue found.
+
+(Twenty-eight words for twenty-eight; the two imperatives and "the remainder which is allowed you" are Long's, unexpanded.)
+
+## VII.57 — B07-P057
+
+No material issue found.
+
+(The thread of destiny is kept as an image and the closing question is kept as a question. Only the thou-forms change.)
+
+## VII.58 — B07-P058
+
+No material issue found.
+
+(**Ruling on base-text defect 2 of 2: the broken ending.** **Rightly handled.** Long's section stops mid-sentence at "and remember…"; Standard Ebooks' Long ends it the same way ("and remember⁠ …"), so this is Long's text and not a PG corruption. Keeping the ellipsis, on the V.29 precedent, is correct; completing the sentence would be inventing Marcus, and cutting the clause would hide a fact about the text. The candidate keeps it exactly.
+
+"How they were vexed" → "how they resented them" applies the row; the added object is required by the verb and its antecedent is unmistakable one clause back. "[To work on]" is a supplement the sentence needs and is rightly folded. The chain of questions — why choose to act the same way; why not leave the agitations to those who cause them; why not be intent on the right use — is kept as three, in order, with Long's "and why … and why".)
+
+## VII.59 — B07-P059
+
+No material issue found.
+
+("Look within. Within is the fountain of good, and it will ever bubble up, if you will ever dig." Twenty words for twenty, Long's repetition of "within" and his two "ever"s intact, and no drift toward the familiar shorter modern versions of this sentence.)
+
+## VII.60 — B07-P060
+
+No material issue found. (Identical to Long, fifty-four words; already current.)
+
+## VII.61 — B07-P061
+
+No material issue found.
+
+("In respect of this, that" → "in this respect, that" is word order only. The wrestler and the dancer are kept as the contrast, and the reason given — ready and firm against sudden and unexpected onsets — is Long's.)
+
+## VII.62 — B07-P062
+
+No material issue found.
+
+("Approbation" → "approval" follows VI.13 and is applied to both occurrences. The two consequences are kept as two ("neither blame … nor will you want their approval") and the condition that produces them — looking to the sources of their opinions and appetites — is kept last, where Long has it.)
+
+## VII.63 — B07-P063
+
+No material issue found.
+
+("Benevolence" → "kindness" is the Book VI row and sits naturally in the list. The inference — involuntarily deprived of truth, therefore of justice and temperance and kindness — is kept as an inference, with "consequently" and "in the same way" both present, and the conclusion drawn for oneself ("you will be more gentle towards all") is kept as Marcus's own.)
+
+## VII.64 — B07-P064
+
+No material issue found.
+
+(The reasoning is intact in order: no dishonor in pain; it does not make the governing intelligence worse; it does not damage the intelligence as rational or as social; then Epicurus's remark with both of its conditions ("if you bear in mind that it has its limits, and if you add nothing to it in imagination"); then the three non-pains — excessive drowsiness, being scorched by heat, having no appetite — kept as three; then the turn back on himself. "In imagination" is the row added for this book, and this is the paragraph that most needs it: "in impressions" would be unreadable here. Dropping the articles from "the being scorched", "the having no appetite" is grammar. "Aid thee" → "help you" is the plain word.)
+
+## VII.65 — B07-P065
+
+No material issue found. (Identical to Long, fourteen words. The bite of "as they feel towards men" is kept.)
+
+## VII.66 — B07-P066
+
+**Finding 66.1 — minor (worth improving).** Long: "How do we know **if** Telauges was not superior in character to Socrates?" Candidate: "How do we know **that** Telauges was not superior in character to Socrates?" Long's "if" is "whether", and the meditation is an open question — we are not in a position to know how the two men compared, which is why the rest of the paragraph asks what we would have to know. "How do we know *that* X was not superior" is read in current English as a challenge to someone who has asserted the contrary, which puts Marcus in a debate he is not having and makes the following "For it is not enough that…" read as a rebuttal rather than as the reason the question is open. The plain fix keeps every other word. **Proposed:** "How do we know whether Telauges was not superior in character to Socrates?" Confidence high; Standard Ebooks' Long has the same "if", so this is Long's word and not a PG variant.
+
+Also noted: Socrates' achievements are kept as a list and in order — the nobler death, the more skillful disputing with the sophists, the night in the cold, the refusal to arrest Leon of Salamis, the swaggering walk — with Long's own doubt about the last one attached to it. The five-member "neither … nor … nor … nor … nor" chain that closes the paragraph is kept as five. "Bid" → "ordered", "skilfully" → "skillfully" (base-text spelling), "idly vexed" → "idly resentful" (row), "out of the universal" → "out of the whole" (row as extended at VI.45) and "affects" → "feelings" (row) are each right, and none of them imports a psychological reading: "idly resentful on account of men's villainy" says what Long says.
+
+## VII.67 — B07-P067
+
+No material issue found.
+
+(The dagger sits immediately before "[the intelligence]", and the bracket is a supplement without which "has not so mingled … with the composition of the body" has no object; folding it is right and leaves the dagger-marked clause otherwise verbatim. Long's comma after "body" is dropped, which tightens "so … as not to" and changes nothing. The two things to bear in mind are kept as two, and the closing list — free and modest and social and obedient to God — keeps all four members and Long's capital. "Because you have despaired of becoming a dialectician" keeps the concession Long makes, which is easy to soften and is not softened.)
+
+## VII.68 — B07-P068
+
+No material issue found.
+
+("[Reality]" is Long glossing his own "substance" and is rightly dropped under D11 — "This you are in substance" stands unaided, and the contrast with "in men's opinion" carries it. "Members of this kneaded matter" → "limbs", consistently with VII.13. The two speeches are kept distinct and in Long's order — the judgment's, addressed to what falls under observation; the use's, addressed to what falls under the hand — and each keeps its own opening. "Tranquillity" → "calm" twice, per the row. The close — everything has a relationship to God or man, neither new nor difficult to handle, but usual and apt matter to work on — is Long's, with his capitals kept.)
+
+## VII.69 — B07-P069
+
+No material issue found.
+
+("Torpid" → "sluggish" is the plain current word; the three-member "neither … nor … nor" chain is kept as three, and "passing every day as the last" is left unexplained.)
+
+## VII.70 — B07-P070
+
+No material issue found.
+
+("Are not vexed because" → "do not resent that" applies the row and keeps the causal force. The gods' two acts are kept as two — they tolerate men as they are, and besides that they take care of them in all ways — and so is the double sting of the turn: "you, who are destined to end so soon" and "when you are one of them". Long's comma before "and this too" becomes a dash, which carries the turn better and adds nothing.)
+
+## VII.71 — B07-P071
+
+No material issue found.
+
+("Fly" → "flee" twice: Long's verb now reads as the other one, and the repetition is preserved, which matters because the sentence is built on the same verb with two objects. The possible/impossible contrast is kept.)
+
+## VII.72 — B07-P072
+
+No material issue found.
+
+("[Social]" is Long's second word for "political" and is rightly dropped under D11 — the sentence already ends on "neither intelligent nor social", so folding it would have produced "the rational and political social faculty" against "nor social" four words later. "Faculty" is rightly kept: this is not Long's *ruling* faculty and the word is current.)
+
+## VII.73 — B07-P073
+
+No material issue found.
+
+(Both of the third things fools look for — the reputation and the return — are kept as two, and the question stays a question.)
+
+## VII.74 — B07-P074
+
+No material issue found.
+
+(Thirty-four words for thirty-four. The three steps — no man tires of receiving what is useful; acting according to nature is useful; therefore do not tire of receiving what is useful by doing it to others — are kept as three, and the last one keeps its slightly knotted form, which is the meditation's point and not a defect to smooth.)
+
+## VII.75 — B07-P075
+
+No material issue found.
+
+("The nature of the All" → "The nature of the whole" is the row as fixed at IV.27. "[Continuity]" is Long's second word for "consequence" and is rightly dropped under D11; the real disjunction is the outer "either … or", and it is kept whole, with both branches intact — everything comes by way of consequence, or even the chief things the ruling power aims at are governed by no rational principle. "It will make thee more tranquil" → "it will make you calmer" is the row. Cross-reference dropped and listed.)
+
+---
+
+## Summary
+
+| Severity | Count | Paragraphs |
+|---|---|---|
+| **Substantive** (must fix) | **0** | — |
+| **Minor** (worth improving, drafter's discretion) | **5** | VII.2 (2.1), VII.9 (9.1 — documentation only, no change to the candidate), VII.14 (14.1), VII.20 (20.1), VII.66 (66.1) |
+| **Optional** (preference) | **1** | VII.8 (8.1) |
+| No material issue | 69 | VII.1, VII.3–VII.7, VII.10–VII.13, VII.15–VII.19, VII.21–VII.65 apart from those listed above, VII.67–VII.75 |
+
+Counted strictly: 6 numbered findings across 6 paragraphs (2.1, 8.1, 9.1, 14.1, 20.1, 66.1); of these 4 propose a wording change to the candidate (2.1, 14.1, 20.1, 66.1), 1 proposes a documentation change only (9.1), and 1 is a preference the drafter may decline (8.1). Classification, each counted once: dropped clause 0; dropped word 0; added content 1 (14.1, the inserted "it"); resolved ambiguity 0; expansion 0 beyond the one licensed and upheld at VII.50; voice drift 0; glossary inconsistency 0; imported rendering 0; archaism left 0; other 4 (2.1 word precision, 8.1 preference, 9.1 base-text record, 20.1 modal, 66.1 "if"/"that"). Nothing in Book VII rises to a must-fix.
+
+**Apparatus.** The word-level diff confirms that the only material absent from the candidate is the apparatus `continuity.md` lists and nothing else: 7 cross-references (VII.12, VII.19, VII.23, VII.25, VII.29, VII.30, VII.75), 6 D11 drops (VII.9 "[order]", VII.10 "[causal]", VII.29 "[formal]", VII.68 "[reality]", VII.72 "[social]", VII.75 "[continuity]") and 9 folds (VII.2, VII.3, VII.9, VII.13, VII.17, VII.34, VII.45, VII.58, VII.67). Fifteen brackets, all accounted for, and every one of them confirmed as Long's by Standard Ebooks. Each of the six drops is genuinely a second English word for the word beside it; each of the nine folds supplies something the sentence or the next sentence needs. I would move VII.2's "[thoughts]" and VII.17's "[happiness]" out of the flagged column and into the settled fold list (rulings above).
+
+**Dagger marks.** Seven, in four sections, located independently in the PG file at lines 4433, 4439 (VII.16), 4529, 4530 (VII.31), 4607, 4609 (VII.46) and 4788 (VII.67) — matching `PROVENANCE.md` §4, `provenance.json` and `review-instructions.md` exactly. All seven clauses stand in the candidate as Long has them, with pronouns modernised and glossary renderings applied; none is made clearer than the source, and none is smoothed (VII.31's dash and repetition, VII.46's dash-and-colon, and VII.67's "so mingled … as not to" all survive).
+
+**Short sections.** None is expanded. VII.32, VII.36, VII.39, VII.40, VII.42, VII.43, VII.60, VII.65 are identical to Long; VII.6, VII.7, VII.8, VII.11, VII.12, VII.14, VII.15, VII.20, VII.21, VII.28, VII.30, VII.37, VII.38, VII.41, VII.56, VII.57, VII.59, VII.61, VII.69, VII.71–VII.74 are at Long's length, within a word or two of grammar. The long run of one- and two-line meditations reads as bare as it does in Long.
+
+**Nothing imported.** No phrase in the candidate departs from Long in a way Long's own words do not explain, and the passages most at risk — VII.1 "There is nothing new", VII.15 the emerald, VII.29 "Wipe out the imagination", VII.47 the courses of the stars, VII.48 Plato's view from a higher place, VII.59 "Look within", VII.61 the wrestler and the dancer, VII.69 passing every day as the last, and the whole quotation cluster VII.35–VII.51 — each keeps a Long-specific turn that the familiar modern versions do not have ("the idle business of show", "compute the hazard", "abide the hazard", "the filth of the earthly life", "an orderly combination of contraries", "onsets which are sudden and unexpected"). I did not compare against other translations for wording and claim nothing about them; absence of such a finding is not proof.
+
+### Chapter-level findings (from the continuous read)
+
+1. **Voice.** Marcus is addressing himself from VII.1 to VII.75, and no sentence in the book turns outward. The imperatives stay bare and unexplained ("Stand upright, or be made upright."; "Retire into yourself."; "Wipe out the imagination."; "Look within."; "Love mankind. Follow God."; "Take care not to feel towards the inhuman as they feel towards men."), the questions stay questions ("Is any man afraid of change?"; "For what more will you see?"; "Why, then, am I disturbed?"), and the reproaches keep their edge ("are you wearied of enduring the bad—and this too when you are one of them?"). Not one motivational cadence, moral lesson, or explanation addressed to a modern reader anywhere in the book.
+2. **Connectives.** Long's inferential joints are carried throughout — "For" at VII.2, VII.5, VII.7, VII.11, VII.14, VII.16, VII.19, VII.22, VII.26, VII.44, VII.46, VII.49, VII.53, VII.55, VII.58, VII.63, VII.64, VII.67, VII.68, VII.74; "But" at every turn he makes (VII.2, VII.5, VII.14, VII.16, VII.26, VII.27, VII.33, VII.46, VII.50, VII.55, VII.66, VII.70); "then" wherever he has it, set between commas in the candidate's own sentences and left unpunctuated inside the verbatim dagger sentences. No connective is added and none is dropped.
+3. **Archaic syntax.** None left. Every thou-form, inverted question ("Dost thou", "canst thou", "wilt thou", "art thou"), "-est/-eth" verb and "not"-after-verb ("want thee not", "care not", "Be not ashamed", "Let not future things") is recast in Long's order of ideas. The inversions that remain are ones still current in the idiom ("Think not so much of what you do not have"; "Near is your forgetfulness of all things"). Long's already-current words are left alone where the glossary does not touch them ("propriety", "affectation", "circumscribe", "swaggering", "sophists", "dialectician", "hypocrite", "onsets", "kneaded matter").
+4. **Terminology.** The glossary is applied consistently across all 75 paragraphs: "the ruling part" for all three of Long's phrases (VII.16 ×2, VII.22, VII.33, VII.55 ×2, VII.62), with "the rational part which rules" at VII.28 rightly distinguished and "the rational and political faculty" at VII.72 rightly left alone; "the universal nature" (VII.5, VII.18 ×2, VII.23, VII.55) beside "the nature of the whole" (VII.75) and "the whole" (VII.9, VII.10, VII.19, VII.25, VII.66); "rational being" and its extensions to "intelligent beings" and "beings of the same stock" (VII.9, VII.11, VII.13, VII.55); "according to nature" / "against nature" / "against reason" (VII.11, VII.24 ×2, VII.53, VII.56, VII.74); "calm" for every "tranquillity" (VII.28, VII.33, VII.68 ×2, VII.75); "disturbance" at VII.16 beside Long's own verb "disturb" in the same paragraph; "resent / resentful" (VII.38, VII.58, VII.66, VII.70) beside "discontented" (VII.64), which is kept separate; "feelings" (VII.2, VII.66); "kindness" (VII.13, VII.63); "impressions" (VII.2) beside "imagination" (VII.17, VII.29, VII.64), kept apart as Long keeps them; "impulse" at VII.4 for his "movement", while "motion" stays "motion" at VII.55 and VII.60 and "movement" stays "movement" at VII.75. The three new/extended rows carry their weight: "imagination" is what makes VII.17 and VII.64 readable; "cause and matter" is consistent between VII.10 and VII.29; "resent" reads as an ordinary word in all four places and imposes no clinical sense.
+5. **Long's plain words replaced.** The rate is low and each replacement is the current word for what Long's word meant: "implicated" → "bound up", "involution" → "entanglement", "terrene" → "earthly", "comeliness" → "grace", "base/baseness" → "shameful/disgrace", "approbation" → "approval", "benevolence/beneficence" → "kindness", "torpid" → "sluggish", "fly" → "flee", "casting" → "throwing", "subsists" → "lasts", "acquiesce in" → "accept", "bid" → "ordered", "discoursing" → "talking", "'scape" → "escape", "intrust" → "entrust", "supremacies" → "power". Only two shade the sense at all, and both are noted above as optional (VII.49 "supremacies", VII.46 "the Deity").
+6. **The quotation cluster VII.35–VII.51.** Read as a run, it keeps the character of Long's commonplace book: attributions where Long has them ("From Plato", "From Antisthenes") and none where he has none, verse capitals at the head of every line he capitalises (VII.38, VII.40, VII.41, VII.42, VII.50, VII.51), and dialogue dashes at VII.35. The verse reads as verse set as prose, which is what the staged original makes of it, and no line has been smoothed into a sentence.
+
+### Flow judgement
+
+Read straight through, the candidate is Long's Book VII with the archaisms gone and nothing else changed. The long meditations carry his argument sentence by sentence in his order: VII.5's three-way choice with its exception intact; VII.9's chain of "one … one … one" closing on its conditional; VII.13's pun, which survives only because the Greek does; VII.16's separation of ruling part, body and soul; VII.18's bath and food and the turn onto himself; VII.26's two branches and the duty that follows from each; VII.48's thirteen-item view from a higher place; VII.55's three constitutional things with the second's reason; VII.64's argument from dishonor to damage to Epicurus to the three non-pains; VII.66's Socrates weighed item by item against a name we know nothing about; VII.68's two speeches; VII.75's disjunction. Between them, the short meditations land as hard as they do in Long — "There is nothing new: all things are both familiar and short-lived."; "Stand upright, or be made upright."; "Near is your forgetfulness of all things; and near the forgetfulness of you by all."; "It is royal to do good and to be abused."; "Look within."; "It is a ridiculous thing for a man not to flee from his own badness, which is indeed possible, but to flee from other men's badness, which is impossible." The images are all still images and none has been replaced by an explanation: the bone thrown to little dogs and the bread into fishponds; the ants and the frightened mice and the puppets on strings; the gold, the emerald and the purple; the wax molded into a horse and then a tree and then a man; the lame soldier on the battlements; the heaps of sand; the courses of the stars; the ripe ears of corn; the wrestler against the dancer; the fountain that bubbles up if you dig; the wild beasts tearing the limbs of this kneaded matter. The dagger clauses leave their sentences exactly as obscure as Long leaves them, and the one broken section stops where his stops.
+
+The weaknesses are four, and all small: one adverb narrowed where Long's was exact (2.1); one supplied object that sends a clause down a garden path (14.1); one modal that lets a fear be read as an obligation (20.1); and one "whether" turned into a "that", which converts an open question into a challenge (66.1). None removes a clause, an image or a qualification, and none changes what Marcus says. Apply the four and the book reads as Long's Book VII in modern dress, at the standard the accepted Books I–VI set.
+
+### Verdict
+
+**Accept after corrections.** There is no substantive finding. The book can be accepted once the drafter has applied or answered the 4 wording findings (2.1, 14.1, 20.1, 66.1) and added the two base-text records at 9.1; 8.1 is a preference the drafter may decline. Under D8 the pattern is to apply minor findings unless `continuity.md` already records a considered reason not to, and it records none for these four.
+
+**All six flagged decisions go the drafter's way**, and three of them should now be recorded as settled rather than open: VII.2 "[thoughts]" is a **fold**, not a D11 drop (the following sentence needs the antecedent — the VI.50 "[men]" ruling); VII.13's transliterated Greek is **kept** (the argument does not exist without it, and the glossary's no-Greek note governs its own Greek column, not Long's in-text words — worth writing into `GLOSSARY.md` as an explicit exception before VIII.57); VII.16's glossary renderings inside the dagger clauses are **right** (the daggers mark uncertain Greek, not uncertain English, and D10 would otherwise force the same Long word two ways in one book); VII.17's "Eudaemonia, happiness, is a good god within" is the **best of the available routes**, with the cost — "within" belongs to the glossary, not to the etymology — to be recorded in `continuity.md`; VII.50's "the elements that have no sensation" is **upheld** as the book's one licensed expansion, to be recorded as such so it is not cited as precedent for expansions that add an idea; VII.55's "for both are animal" is **rightly kept**, with "for both are animal motions" offered as an optional fold of Long's ellipsis and not pressed.
+
+**Both base-text defects are rightly handled**: VII.5's "what-soever" is a line-break hyphen (Standard Ebooks reads "whatsoever") and "whatever" is correct; VII.58's broken ending is Long's own (Standard Ebooks breaks off identically) and keeping the ellipsis on the V.29 precedent is correct.
+
+**The staged-original rebuild (D12) verifies clean** and should stand: 487 paragraphs before and after, VII.45 the only paragraph in the file that changed, chapters 1–6 (and 8–12) byte-identical, and the three removed sentences confirmed in the PG text at lines 4600, 4602 and 4604 as Long's flush-left footnotes carrying the reference letters of §44 and §45 — not translation. No accepted book is reopened.
+
+### Coverage and limitations
+
+- Every paragraph VII.1–VII.75 was read source-beside-candidate in packet order (25 packets, three paragraphs each) with the supplied context, then the whole candidate was read continuously. A word-level diff of each paragraph against Long was generated and read alongside, so every token present in one text and absent from the other was inspected individually. Every Long clause was checked for presence, including qualifiers, negations, quantifiers, the "neither … nor" chains (VII.26, VII.52, VII.55, VII.66, VII.69), and the length and order of every list (VII.3's ten items, VII.5's three choices, VII.9's six "one"s, VII.22's four reasons, VII.29's six imperatives, VII.48's thirteen items, VII.55's three constitutional things, VII.64's three non-pains, VII.66's five achievements and five-member chain, VII.67's four qualities).
+- The staged-original rebuild was verified independently, against the pre-rebuild file recovered from git and against the PG text at the cited lines; it was not taken on the drafter's word.
+- The review is against Long's English only, as instructed. I did not consult the Greek, and the candidate is not required to match the Greek over Long; where an alternative reading of Long exists (VII.17's etymology, VII.55's elided noun, VII.66's "if"), the confidence given reflects that.
+- Standard Ebooks' Long was consulted for text state only, by exact-phrase search of the fetched single-page edition, at VII.5, VII.9, VII.13, VII.17, VII.45, VII.50, VII.55, VII.58, VII.66, VII.67, VII.68, VII.72 and at each bracket the drafter lists; no wording was taken from it. No other translation was consulted.
+- The mechanical checks were re-run and passed; word ratios were used only as a screening signal and are not evidence of semantic completeness.
+- Attention was held to the end: the last packets (VII.64–VII.75) were read at the same pace as the first, and one of the findings falls in VII.66.
+- Errors can remain; this review does not claim otherwise, and it assigns no numerical score.
