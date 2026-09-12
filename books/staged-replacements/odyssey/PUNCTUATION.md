@@ -98,16 +98,45 @@ needs no record. If it does — or if it renames the object (`work-box` →
 *basket*) or moves its sense — it is a **rendering decision**, and it is
 recorded in the Book's `continuity.md` like any other.
 
-**A known gap in the check, found at Book 5 and not yet closed.**
+**The gap in the check, found at Book 5 and CLOSED there.**
 `scripts/build_book3_v2.py`'s `hyphen_drift()` compares a compound
-**hyphenated** in one accepted Book against the **open** form in another. It is
+**hyphenated** in one accepted Book against the **open** form in another. It was
 **blind to closed against open** — `seashore` in one Book beside `sea shore` in
-another passes it silently. Book 5 met exactly that: accepted Book 4 asserts
-the open `sea shore`, while this rule's *modern standard form* test arguably
-gives the closed `seashore`. Book 5 keeps the accepted Book's form and puts the
-question to its reviewer (`book05/review-instructions.md`, question 1) rather
-than creating the drift; if the ruling is `seashore`, a Book 4 successor
-answers it, as Book 3's finding 27.1 produced `book02/candidate-v3.json`.
+another passed it silently. Book 5's round 1 ruled for the closed **`seashore`**
+under this rule (D15 is about the *form*, not about precedent) and extended the
+check: `scripts/compound_drift.py` keys each compound on its letters with the
+separator stripped, so `seashore`, `sea-shore` and `sea shore` all key to
+`seashore`, and fails on any key carrying more than one setting across the
+Books. That subsumes the hyphenated-vs-open comparison, and adds closed-vs-open
+and hyphenated-vs-closed.
+
+**The open form was printed by three accepted Books, not one.** This paragraph
+used to say Book 4 alone asserts it, as did `RESUME.md` and
+`book05/review-instructions.md` — records finding **R-3** of Book 5's round 1.
+Accepted Books **2, 3 and 4** each print one instance. The ruling therefore cost
+**three successors** — `book02/candidate-v4.json`, `book03/candidate-v3.json`,
+`book04/candidate-v3.json`, built by `scripts/build_seashore_successors.py`,
+each leaving its accepted candidate and `ACCEPTANCE.md` byte-unchanged — plus
+the two instances in Book 5's own v2. Five words now against a fourth
+rediscovery later.
+
+**Running the extended check found two more drifts nobody had raised**, in the
+class the *original* `hyphen_drift()` could already see: `low-lying` hyphenated
+in Book 5 against open `low lying` in Book 4, and `well-disposed` hyphenated in
+Books 2 and 5 against open `well disposed` in Book 4. Butler sets both ways
+himself; the modern standard is hyphenated for both, and Book 4's successor
+carries them. The lesson is not about compounds: `hyphen_drift()` was written at
+Book 3 and **never run again** — Book 4's build script does not call it. An
+unrun check is worth what an absent one is worth, which is why
+`scripts/compound_drift.py` runs standalone and is called by every later build.
+
+**What the extended check still cannot see**, declared rather than waved away:
+a compound Butler sets **open** and every Book renders **open**. There is no
+disagreement for a drift check to find, and nothing in the package enumerates
+the candidate's two-word sequences and asks whether the closed or hyphenated
+form is the standard one. Book 5's round 1 found `half way`, `river bed`,
+`mid ocean` and `sweet smelling` that way — by reading. All four are corrected
+in Book 5 v2.
 
 **The failure mode the rule exists to prevent** is landing on a third form.
 `sea-side` → `sea side` is neither Butler's hyphen nor modern English's
@@ -122,7 +151,8 @@ Applied in Book 4, and asserted by `scripts/build_book04_v2.py`:
 |---|---|---|
 | closed | `maid-servant`, `man-servant`, `to-morrow`, `bath room`, `sea-side`, `broken hearted` | `maidservant`, `manservant`, `tomorrow`, `bathroom`, `seaside`, `heartbroken` |
 | hyphenated | `fine spun`, `violet coloured`, `mixing bowl` | `fine-spun`, `violet-colored`, `mixing-bowl` |
-| open, and kept open **with the reason recorded** | `drink-offering`, `thole-pins`, `work-box`/`work box`, `sea shore` | `drink offering` (the standard open form of the religious term), `thole pins` (an attested open setting of a nautical term the sentence itself explains), `work box` (Butler's own second setting in the same paragraph), `sea shore` |
+| open, and kept open **with the reason recorded** | `drink-offering`, `thole-pins`, `work-box`/`work box` | `drink offering` (the standard open form of the religious term), `thole pins` (an attested open setting of a nautical term the sentence itself explains), `work box` (Butler's own second setting in the same paragraph) |
+| **superseded at Book 5** | `sea-shore`, `low lying`, `well disposed` | `sea shore`, `low lying`, `well disposed` in accepted `book04/candidate-v2.json`; **`seashore`, `low-lying`, `well-disposed`** in the successor `book04/candidate-v3.json` |
 
 ## 5. One rule for Butler's punctuation slips (D16)
 
