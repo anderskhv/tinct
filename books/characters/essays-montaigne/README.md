@@ -1,15 +1,15 @@
 # Montaigne's Essays character package — IN PROGRESS
 
-**Chapters 1–20 of 107 are authored. The rest are not.** Status stays
+**Chapters 1–24 of 107 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole work is
 covered.
 
-Current state: 225 entities authored, all 225 bound in both editions, 2,110 and
-2,188 exact mentions. Of those, 161 and 179 fall inside chapters 1–10 and 205 and
-209 inside chapters 11–20; the remaining 1,744 and 1,800 are later occurrences of
-names that belong to one man through the whole book — Cicero, Plato, Horace,
-Seneca, Socrates, Plutarch, Aristotle and the other authorities Montaigne quotes
-on every page. Content revision 2026-09-12.2.
+Current state: 297 entities authored, all 297 bound in both editions, 2,495 and
+2,587 exact mentions. Of those, 161 and 179 fall inside chapters 1–10, 205 and 209
+inside chapters 11–20, and 168 and 178 inside chapters 21–24; the rest are later
+occurrences of names that belong to one man through the whole book — Cicero,
+Plato, Horace, Seneca, Socrates, Plutarch, Aristotle and the other authorities
+Montaigne quotes on every page. Content revision 2026-09-12.3.
 
 ## What is hard about this book
 
@@ -33,6 +33,12 @@ this scale:
 | Marcus. Emilius Lepidus | Marcus Aemilius Lepidus |
 | AEneid, AEneas, AEschylus | Aeneid, Aeneas, Aeschylus |
 | Pertander | Periander |
+| Jacques Amiot | Jacques Amyot |
+| OEdipus, OEdip | Oedipus, Oedip |
+| Gellium (accusative) | Gellius |
+| Ter. | Terence |
+| Paulus, Fabius (singular) | Paulli, Fabii (plural) |
+| **Aristo** | **Ariosto** (at 27:13 only) |
 | Dicarchus | Dicaearchus |
 | Propertious | Propertius |
 | Aeneius Fulvius | Cnaeus Fulvius |
@@ -51,8 +57,8 @@ kind of apostrophe, and an alias with the wrong one binds in one edition and not
 the other.
 
 **The namesakes.** An essayist who cites for eleven hundred pages repeats names
-constantly, and Montaigne almost never distinguishes them. In the first twenty
-chapters:
+constantly, and Montaigne almost never distinguishes them. In the first
+twenty-four chapters:
 
 | Entity | Where | Against |
 |---|---|---|
@@ -97,6 +103,16 @@ chapters:
 | `nassau` / `nassau-guise` | 5:9 / 15:5 | two Counts of Nassau, whom the Essays do not identify with each other |
 | `bourbon` | 17:2 | the rest of the house, later |
 | `ludovico-gonzaga` / `guido-di-gonzaga` | 19:24 | father and son, and the son's name is also Ludovico Sforza's |
+| `zeno-mamertine` / `zeno-of-citium` | 1:5 / 22:49, 24:55 | the citizen of Messina and the founder of the Stoa |
+| `metellus-scipio` / `publius-scipio-pontifex` / `scipio-africanus` | 18:12 / 22:49 / 23:10 | Pompey's father-in-law, the high priest in Cotta's list, and the Africanus who crossed to Syphax in two ships |
+| `lepidus-conspirator` | 23:1 | a fourth man of that name, in Livia's list of conspirators — and the only one who carries the bare surname |
+| `philip-physician` | 23:7 | a fourth Philip: Alexander's physician, accused of taking Darius's money |
+| `joachim-du-bellay` | 24:0, 24:2 | the third du Bellay, the poet |
+| `cato-the-younger` | 22:54 | Cato the Censor and the rest, unread |
+| `hippias-sophist` | 24:62 | the Hippias of 103:143, unread |
+| `aristo-of-chios` | 24:54 | a tragedian called Aristo at 25:152, and — in the older edition only — **Ariosto at 27:13**, where the modern edition prints the poet's name in full. Bound by his full name, so the bare form binds nothing |
+| `francis-brittany` / `john-v-brittany` / `charles-viii` | 24:49, 24:63 | four more men called Francis, two called John, three called Charles. All bound by their full names |
+| **`augustus` at 23:1** | 23:1 | Augustus calls himself Caesar when he asks Cinna what he means by undertaking Caesar. The Caesar table sends that paragraph to Augustus, not to Julius |
 
 **Two of those were live mis-bindings the sweep caught**, not hypotheticals. The
 bare surname *Lepidus* was binding the man who died of a stumble at 19:24 to the
@@ -116,12 +132,12 @@ that is single-referent across the whole work — the authorities and philosophe
 Montaigne quotes on every page — is bound by alias and therefore appears in
 chapters that have not been authored yet, with a card written to be true
 anywhere in the book rather than to gloss the paragraph it was first found in.
-Eighty-five entities bind beyond chapter 20 that way, and five of them — Cicero,
-Plato, Horace, Seneca and Socrates — account for most of it.
+A hundred and twenty-nine entities bind beyond chapter 24 that way, and five of
+them — Cicero, Plato, Horace, Seneca and Socrates — account for most of it.
 
-## Editorial checks — chapters 1–20
+## Editorial checks — chapters 1–24
 
-**1. Namesakes.** The forty-three in the table above, each pinned by a test.
+**1. Namesakes.** The fifty-four in the table above, each pinned by a test.
 
 **2. Person or not.** This is the check that does the most work in an essayist.
 Excluded:
@@ -175,9 +191,22 @@ Three traps in this range are deliberately left alone and pinned by tests:
 - **Names inside the Latin and Greek verse are not bound**; the English gloss
   that follows the quotation carries the card. *Tantalo* at 19:9 is unbound and
   *Tantalus* at 19:10 is bound; *Jovis* at 19:72 is unbound and *Jove* at 19:73
-  is bound. This keeps the package out of the business of Latin inflection.
+  is bound; and the six accusatives of 22:48 — *Coruncanium*, *Scipionem*,
+  *Scaevolam*, *Zenonem*, *Cleanthem*, *Chrysippum* — are unbound while all six
+  nominatives in the gloss at 22:49 are bound. This keeps the package out of the
+  business of Latin inflection.
+- **The editorial apparatus is not Montaigne.** Paragraph 18:0 is an editor's
+  note about Charron and Nodier; 24:51 credits a translation of Seneca to
+  Rousseau; 24:58 and 24:59 are a note about Cotton's version of the Cyrus story.
+  All four are printed as reading paragraphs in both editions and none of the
+  four people is cast. A test pins it, so that a later pass does not "complete"
+  them.
+- **Dionysius at 24:32 is left unbound.** "Dionysius laughed at the grammarians"
+  carries no qualifier, and the Essays have more than one Dionysius; the rule of
+  this lane is to leave such an occurrence alone rather than pick the likelier
+  man. A test pins the gap so it is not quietly filled in.
 
-**5. Spot-read and sweep.** Forty-eight mentions drawn at random, twelve per
+**5. Spot-read and sweep.** Seventy-two mentions drawn at random, twelve per
 edition per pass, read back against their paragraphs: all correct.
 
 The **unbound-tabled-names audit** — every pattern in `SPLIT` enumerated against
@@ -185,21 +214,25 @@ the text, which is the only audit that can see a table with no key, since such a
 table produces no mention — came back empty over chapters 1–10 and found two real
 gaps over chapters 11–20: *Alexander* at 18:3 and 19:21, and *Crassus* in the
 second half of 16:10, where the chapter comes back to him after naming him once.
-Both are now keyed. What the audit still reports over chapters 1–20 is four
-deliberate cases: *John* at 20:22 and *Francis* at 20:7, both covered by the
-longer aliases *St John the Baptist* and *St Francis*; *Francesco* at 9:8, covered
-by *Francesco Taverna* and *Francesco Sforza*; and *Caesar* at 4:10, covered by
-*Augustus Caesar*.
+Both are now keyed, and over chapters 21–24 it found three more: *Cyrus* at 24:57
+and 24:59, *Pliny* at 22:2, and *Caesar* at 23:1 — which turned out to be Augustus
+calling himself Caesar, not Julius. What the audit still reports over chapters
+1–24 is eight deliberate cases: *John* at 20:22 and 24:49, *Francis* at 20:7,
+*Charles* at 24:63, *Ludovico* at 18:3, *Lepidus* at 3:15 and 19:24, *Francesco*
+at 9:8 and *Caesar* at 4:10, every one of them already covered by a longer alias;
+plus *John* at 20:23, where John and Peter are nobody, and *Dionysius* at 24:32,
+which is deliberately unbound.
 
 The **adjacency sweep** over every mention whose matched text abuts a capitalised
-word produces forty-eight hits in chapters 1–10 and thirty in chapters 11–20, with
-no mis-binding: *the Emperor Conrad III*, *Pope Leo X*, *Captain Bayard*, *the now
+word produces forty-eight hits in chapters 1–10, thirty in chapters 11–20 and
+twenty-two in chapters 21–24, with no mis-binding: *the Emperor Conrad III*, *Pope Leo X*, *Captain Bayard*, *the now
 King Philip*, *Count Guido di Rangone*, *Signor Fabricio Colonna*, *the Counts
 Horn and Egmont*, *Cardinal du Bellay*, *Queen Margaret of Navarre*, *Captain
-Martin du Bellay*, *Poor Judge Bebius*, *King Dagobert*.
+Martin du Bellay*, *Poor Judge Bebius*, *King Dagobert*, *The Duke of Athens*, *Old Aristo of
+Chios*, *our King Charles VIII*.
 
 **6. Both editions independently.** No entity is missing from either edition. The
-mention counts differ by about three and a half percent (2,110 against 2,188),
+mention counts differ by about three and a half percent (2,495 against 2,587),
 partly because the modern edition resolves pronouns to names — it says *Dionysius*
 and *Scanderbeg* and *Betis* and *Ferdinand* where Cotton says *he* — and partly
 because it expands the citation abbreviations, so *Hor.* becomes *Horace* and
@@ -222,7 +255,7 @@ No edition byte was touched.
 
 ## Remaining work
 
-- **Chapters 21–107.** Book I runs to chapter 57, Book II to chapter 94, Book III
+- **Chapters 25–107.** Book I runs to chapter 57, Book II to chapter 94, Book III
   from 95. The heaviest chapters are 69 (*Apology for Raimond Sebond*, 660
   paragraphs), 99 (*Upon some verses of Virgil*, 374), 103 (*Of vanity*, 300),
   107 (*Of experience*, 240), 74 (*Of presumption*, 163) and 25 (*Of the
@@ -244,6 +277,6 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_essays_montaigne.py --check`, then
-`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Forty focused
-tests so far. No edition changes, no network generation, no API spend: every card
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Fifty-three
+focused tests so far. No edition changes, no network generation, no API spend: every card
 here was written in the authoring conversation and committed as a file.

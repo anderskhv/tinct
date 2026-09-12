@@ -901,3 +901,291 @@ Whose sheep are Montaigne’s scriptural instance that a mother’s fancy marks 
 ## Sallust · reference
 
 The Roman historian, whose glory Montaigne says he would not take the trouble to earn.
+
+## Demades the Athenian · reference
+
+Who condemned a fellow citizen for selling funeral necessaries at an unreasonable profit, on the ground that the profit could only come by the death of a great many people. Montaigne thinks the judgment ill grounded, since no gain whatever is made but at somebody’s expense.
+
+## Albertus · reference
+
+Who reports the maid that lived upon spiders — one of Montaigne’s instances that custom can carry the stomach anywhere.
+
+## Pindar · reference
+
+The Greek lyric poet, who calls custom the ruler of the world.
+
+## Isocrates · reference
+
+The Athenian rhetorician, who counselled his king to make his subjects’ trade free and their lawsuits expensive, and who says that defect is nearer allied to moderation than excess.
+
+## Charlemagne · reference
+
+Whom a Gascon gentleman, Montaigne’s countryman, was the first to oppose when he tried to impose Latin and imperial law on France — a thing Montaigne says he is obliged to fortune for.
+
+## Phrynis · reference
+
+The musician who added two strings to his instrument, and whose strings an ephor cut without stopping to ask whether they made better harmony: it was enough that they were new.
+
+## Thyestes · reference
+
+One of the three fables — with Oedipus and Macareus — by which, Montaigne says following Plato, the poets put a wholesome horror of incest into children’s heads.
+
+## Oedipus · reference
+
+One of the same three fables. The older edition prints him OEdipus, and Seneca’s play under the same spelling.
+
+## Macareus · reference
+
+The third of them.
+
+## Cotta · reference
+
+The speaker in Cicero whose rule Montaigne adopts: in a question of religion, follow the high priests and not the philosophers.
+
+## T. Coruncanius · reference
+
+One of the three high priests Cotta says he follows rather than the Stoics.
+
+## P. Scipio · reference
+
+Another of the three high priests in Cotta’s list. Not Scipio Africanus, nor Pompey’s father-in-law.
+
+## P. Scaevola · reference
+
+The third of the three high priests.
+
+## Zeno · reference
+
+The founder of the Stoa, and one of the three philosophers Cotta refuses to follow in a question of religion. Not the Zeno of Messina who took his city’s fault on himself.
+
+## Cleanthes · reference
+
+Zeno’s successor at the head of the Stoa, and the second of Cotta’s three philosophers.
+
+## Thucydides · supporting
+
+The historian of the Peloponnesian war, cited for what happens to language in a civil war: the parties give the public vices new and more plausible names to excuse them.
+
+## Terence · reference
+
+The Latin comic poet. The older edition abbreviates him Ter.
+
+## Octavius · reference
+
+Who with Cato is still reproached for having let his country go to the last extremity rather than relieve his fellow citizens at the expense of its laws.
+
+## Cato · reference
+
+Cato of Utica, who would rather see the Republic ruined than saved by an innovation. Montaigne devotes a whole chapter to him later.
+
+## Aratus · reference
+
+Made admiral of Sparta in name, because an edict forbade choosing the same man twice — while Lysander went out as general of the navy and commanded in fact.
+
+## Pericles · supporting
+
+The Athenian, who told a Spartan envoy that a law once engrossed on the tablet could not be taken away — and was advised to turn the tablet round instead, that being not forbidden.
+
+## Philopoemen · reference
+
+Whom Plutarch commends for knowing how to command not only according to the laws but over them, when the public necessity required it.
+
+## Apollo · supporting
+
+The god of the Delphic oracle, who told the people of Delphos, afraid of the Persians, to stir nothing of his treasure and to look to themselves — he was sufficient to look after what was his.
+
+## Jacques Amyot · reference
+
+Grand almoner of France, who told Montaigne the story of the prince who forgave the gentleman sent to murder him at the siege of Rouen. The older edition spells him Amiot.
+
+## L. Cinna · reference
+
+Pompey’s nephew, of an illustrious family, who conspired to kill Augustus at sacrifice — and was told the whole plot back to his face, place, day and company, and then given his life a second time. He was made consul afterwards, was Augustus’s great friend, and left him his whole estate.
+
+## Livia · supporting
+
+Augustus’s wife, who asked whether he would take a woman’s counsel and then gave the advice that ended the conspiracies: severity has got you nothing — Lepidus followed Salvidienus, Murena Lepidus, Caepio Murena, Egnatius Caepio — now try clemency.
+
+## Lepidus · reference
+
+One of the conspirators in Livia’s list, punished before Cinna and followed by another. Neither the Marcus Aemilius Lepidus of 3:15 nor the Aemilius Lepidus who died of a stumble.
+
+## Salvidienus · reference
+
+The first name in Livia’s list of conspirators punished to no purpose.
+
+## Murena · reference
+
+The third name in it.
+
+## Caepio · reference
+
+The fourth.
+
+## Egnatius · reference
+
+The last, and the proof that severity had settled nothing.
+
+## The Paulli · reference
+
+One of the great Roman houses Augustus names to Cinna as men who would never endure him. The older edition prints the family in the singular, Paulus, and the modern in the plural.
+
+## The Fabii · reference
+
+Another of them — Fabius in the older edition, Fabii in the modern.
+
+## The Cossii · reference
+
+Another.
+
+## The Servilii · reference
+
+The last of the four houses in Augustus’s list.
+
+## Dion · reference
+
+Warned that Callippus was watching for a chance to kill him, he would not inquire any further into it: he had rather die than live having to stand guard against his friends as well as his enemies.
+
+## Callippus · reference
+
+Who watched for the chance to kill Dion.
+
+## Parmenio · reference
+
+Whose letter warned Alexander that his physician Philip had been bribed by Darius to poison him.
+
+## Philip · reference
+
+Alexander’s most beloved physician, accused by Parmenio of taking Darius’s money to poison him — to whom Alexander handed the letter to read and then drank the potion he had brought. Montaigne knows nothing else in that life with so much firm courage in it.
+
+## Scipio · reference
+
+Who to sound Syphax’s intentions left his army and his unsettled conquest in Spain and crossed to Africa in two small ships, into an enemy country and a barbarian king’s power, with no hostage and no security but his own courage.
+
+## Syphax · reference
+
+The African king whose intentions Scipio crossed the sea in two ships to sound.
+
+## The Duke of Athens · reference
+
+Who did a great many foolish things in setting up his tyranny over Florence, and this the most notable: told of the conspiracy by one of the conspirators, he put the informer to death at once, so that nobody should think the city disliked his government.
+
+## Matteo di Morozzo · reference
+
+The conspirator who brought the Duke of Athens the first news of the plot, and was executed for it.
+
+## Du Bellay · reference
+
+Joachim du Bellay the poet, whom Montaigne calls our famous poet and quotes for the line that of all things he hates pedantic learning. Not Martin the memoirist, nor the cardinal.
+
+## Ulysses · supporting
+
+Whose miseries the grammarians inquire into, Dionysius said, while they know nothing of their own.
+
+## Rabelais · reference
+
+In whose Gargantua Montaigne found the proverb that the greatest clerks are not the wisest men.
+
+## Aulus Gellius · reference
+
+The compiler of the Attic Nights, through whom Pacuvius’s line about men who jabber philosophy and do nothing reaches the Essays. The older edition prints the citation in the accusative, Gellium.
+
+## Hercules · reference
+
+From whom, the philosophers say, you might be the fiftieth descendant and still have nothing but a gift of fortune to boast of.
+
+## Crates · reference
+
+Asked how long it was necessary to philosophise, he answered: till our armies are no more commanded by fools.
+
+## Heraclitus · supporting
+
+Who resigned the royalty to his brother, and told the Ephesians who reproached him with playing with children before the temple that it was better than sitting at the helm of affairs in their company.
+
+## Empedocles · supporting
+
+Who refused the royalty the Agrigentines offered him.
+
+## Anaxagoras · supporting
+
+One of the philosophers Aristotle reports were called wise but not prudent, for not applying their study to more profitable things.
+
+## Lucullus · supporting
+
+Whom letters alone, without any experience, made so great a captain — and who did not learn it, Montaigne says, in the perfunctory way we learn.
+
+## Euripides · supporting
+
+The tragedian, quoted through Cicero for the line that he hates the wise man who is not wise in his own concern.
+
+## Juvenal · supporting
+
+The Latin satirist.
+
+## Persius · supporting
+
+The Latin satirist of the crabbed style.
+
+## Protagoras · supporting
+
+The sophist who let his pupils either pay his demand or swear in the temple what they thought the teaching had been worth — a rule under which, Montaigne says, his own pedagogues would be sorely gravelled.
+
+## Galen · supporting
+
+The physician the pedants know thoroughly, Montaigne says, and the patient’s disease not at all.
+
+## Adrian Turnebus · supporting
+
+The one man of pure learning Montaigne exempts from the charge of pedantry, and in his opinion the greatest of the last thousand years: nothing of the pedant about him but the gown, and within, not a more polished soul upon earth. Montaigne says he put him on arguments far outside his profession and found him as quick as if he had spent his life in arms or affairs of state.
+
+## Prometheus · reference
+
+The Titan of Juvenal’s line, who framed the great natures of better clay.
+
+## Stobaeus · reference
+
+The anthologist through whom the Greek verse about learning without understanding reaches the Essays.
+
+## Francis, Duke of Brittany · reference
+
+John V’s son, who was told that Isabella of Scotland was homely bred and without learning, and answered that he liked her the better: a woman is wise enough if she can tell her husband’s shirt from his doublet.
+
+## John V · reference
+
+Francis of Brittany’s father.
+
+## Isabella of Scotland · reference
+
+Whose want of learning recommended her to Francis of Brittany.
+
+## Aristo of Chios · reference
+
+The Stoic who said that philosophers did their hearers harm, because most of them were incapable of turning the instruction to good and would certainly turn it to ill. Not the Aristo who is a tragedian at 25:152, nor the Ariosto the older edition spells Aristo at 27:13.
+
+## Aristippus · supporting
+
+The founder of the Cyrenaic school, out of whose school, Cicero says, came effeminate debauchees as cynics came out of Zeno’s.
+
+## Astyages · reference
+
+Cyrus’s grandfather in Xenophon, who asked him for an account of his last lesson and got the story of the two cassocks and the whipping.
+
+## Mandane · reference
+
+Cyrus’s mother, who in Cotton’s version of the story asks him how he would learn justice among the Medes with all his masters left behind in Persia.
+
+## Antipater · reference
+
+Who demanded fifty children of the Spartans for hostages and was told they would rather give him twice as many grown men, so much did they value the loss of their country’s education.
+
+## Hippias · reference
+
+The sophist Socrates rallies for having made a great deal of money teaching school in the villages of Sicily and never a penny at Sparta — where, Socrates says, they are so stupid as to make no account of grammar or poetry and study only the genealogies of their kings and the rise and fall of states.
+
+## Tamerlane · supporting
+
+One of Montaigne’s proofs that the most warlike nations are the most rude and ignorant.
+
+## King Charles VIII · reference
+
+Who saw himself possessed of Naples and a good part of Tuscany almost without striking a blow — which the nobles about him put down to the princes of Italy having studied to be ingenious and learned rather than vigorous and warlike.

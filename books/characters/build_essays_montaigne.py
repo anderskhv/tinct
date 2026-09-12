@@ -1,7 +1,7 @@
 """Reviewed bindings for Montaigne's Essays.
 
 Cotton in both editions, 107 chapters covering the three books, 4,897 paragraphs
-per edition. Chapters 1-20 are authored.
+per edition. Chapters 1-24 are authored.
 
 Two things make this book hard, and it has both of them at once. The first is
 spelling: the modern edition modernises the transliterations, so one man is
@@ -30,14 +30,16 @@ SPLIT={
  # chapters 41, 78 and 80.
  'Edward':({(1,1):'edward-black-prince',(3,11):'edward-i'},None),
  # The tyrant of Syracuse, named twice; the later Dionysiuses are not yet read.
- 'Dionysius':({(1,4):'dionysius-elder',(2,21):'dionysius-elder',(16,3):'dionysius-elder'},None),
+ 'Dionysius':({(1,4):'dionysius-elder',(2,21):'dionysius-elder',(16,3):'dionysius-elder',
+               (23,19):'dionysius-elder'},None),
  # Pompey the Great here; thirty-six later occurrences unread.
- 'Pompey':({(1,5):'pompey',(17,6):'pompey',(18,3):'pompey',(18,12):'pompey'},None),
+ 'Pompey':({(1,5):'pompey',(17,6):'pompey',(18,3):'pompey',(18,12):'pompey',
+            (23,1):'pompey'},None),
  # The citizen of Messina, not the founder of the Stoa.
- 'Zeno':({(1,5):'zeno-mamertine'},None),
+ 'Zeno':({(1,5):'zeno-mamertine',(22,49):'zeno-of-citium',(24,55):'zeno-of-citium'},None),
  # Alexander the Great in both authored places.
  'Alexander':({(1,6):'alexander',(6,8):'alexander',(18,3):'alexander',
-               (19,21):'alexander'},None),
+               (19,21):'alexander',(23,7):'alexander'},None),
  # Conrad III at 1:3; Conrad Marquis of Monteferrat at 86:19.
  'Conrad':({(1,3):'conrad-iii'},None),
  # The Ferdinand of the Buda campaign at 2:9; King Ferdinand of the Indies at
@@ -52,9 +54,10 @@ SPLIT={
  'Robert':({(3,11):'robert-bruce'},None),
  # Philip of Spain at 3:13; Don Philip at 7:0. Philip of Macedon and Alexander's
  # physician Philip wait in later chapters.
- 'Philip':({(3,13):'philip-ii-spain',(7,0):'don-philip'},None),
+ 'Philip':({(3,13):'philip-ii-spain',(7,0):'don-philip',(23,7):'philip-physician'},None),
  # Cyrus the Great in both authored places; Cyrus the Younger is not yet read.
- 'Cyrus':({(3,13):'cyrus-the-great',(4,9):'cyrus-the-great',(18,3):'cyrus-the-great'},None),
+ 'Cyrus':({(3,13):'cyrus-the-great',(4,9):'cyrus-the-great',(18,3):'cyrus-the-great',
+           (24,57):'cyrus-the-great',(24,59):'cyrus-the-great'},None),
  # Socrates's friend at 3:15; the Crito of 69:208 is somebody's brother in
  # another story.
  'Crito':({(3,15):'crito'},None),
@@ -66,7 +69,8 @@ SPLIT={
  # Martin the memoirist at 5:9; Cardinal Jean at 10:3; the poet Joachim in
  # chapters 24, 25 and 74.
  r'[Dd]u Bellay':({(5,9):'martin-du-bellay',(10,3):'jean-du-bellay',
-                   (14,1):'martin-du-bellay'},None),
+                   (14,1):'martin-du-bellay',(24,0):'joachim-du-bellay',
+                   (24,2):'joachim-du-bellay'},None),
  # Antigonus the besieger of Eumenes; the Antigonus of 37:0, who was displeased
  # at being brought Pyrrhus's head, is another.
  'Antigonus':({(5,10):'antigonus-i'},None),
@@ -76,7 +80,8 @@ SPLIT={
  # other Cleomenes.
  'Cleomenes':({(6,2):'cleomenes-i'},None),
  # Darius III at 6:8; Darius I at 9:2.
- 'Darius':({(6,8):'darius-iii',(9,2):'darius-i',(12,2):'darius-i'},None),
+ 'Darius':({(6,8):'darius-iii',(9,2):'darius-i',(12,2):'darius-i',
+            (22,21):'darius-i',(23,7):'darius-iii'},None),
  # Charles V, named to place his father; the later Charleses are unread.
  'Charles':({(7,0):'charles-v',(11,14):'charles-v',(12,3):'charles-v',(16,8):'charles-v',
              (20,22):'charles-iv'},None),
@@ -84,10 +89,10 @@ SPLIT={
  # 74:157 is a later head of the house.
  'Alva':({(7,0):'duke-of-alva'},None),
  # Pliny the Elder; the younger Pliny appears at 38:45 and 39:0.
- 'Pliny':({(9,6):'pliny-elder',(20,4):'pliny-elder'},None),
+ 'Pliny':({(9,6):'pliny-elder',(20,4):'pliny-elder',(22,2):'pliny-elder'},None),
  # Francis I in all three authored places.
  'Francis':({(9,8):'francis-i',(9,9):'francis-i',(10,3):'francis-i',(11,14):'francis-i',
-             (13,1):'francis-i'},None),
+             (13,1):'francis-i',(24,49):'francis-brittany'},None),
  # Francesco Sforza at 9:8; Ludovico Sforza at 18:3 is another Duke of Milan.
  'Sforza':({(9,8):'francesco-sforza',(18,3):'ludovico-sforza'},None),
  # The bare "Messire Francesco" of 9:8 is Taverna, not his master.
@@ -106,10 +111,13 @@ SPLIT={
  'Francesco':({(11,14):'francesco-saluzzo'},None),
  # Julius Caesar's Commentaries at 16:3 and his two sayings at 19:67 and 19:71.
  # "Augustus Caesar" at 4:10 is bound by the longer alias, not by this table.
- 'Caesar':({(16,3):'julius-caesar',(19,67):'julius-caesar',(19,71):'julius-caesar'},None),
+ 'Caesar':({(16,3):'julius-caesar',(19,67):'julius-caesar',(19,71):'julius-caesar',
+            (22,54):'julius-caesar',(23,13):'julius-caesar',(23,18):'julius-caesar',
+            (23,1):'augustus'},None),
  # Pompey's father-in-law at 18:12. Every other Scipio in the Essays belongs to
  # a chapter not yet authored, and the name runs through a whole family.
- 'Scipio':({(18,12):'metellus-scipio'},None),
+ 'Scipio':({(18,12):'metellus-scipio',(22,49):'publius-scipio-pontifex',
+            (23,10):'scipio-africanus'},None),
  # P. Crassus the consul in Asia — "Publius Crassus" in the modern edition. The
  # triumvir and his son are not yet read, so only 16:9 is keyed.
  'Crassus':({(16,9):'publius-crassus',(16,10):'publius-crassus'},None),
@@ -126,7 +134,19 @@ SPLIT={
  # Guido di Gonzaga's son at 19:24; Ludovico Sforza at 18:3 is bound by his own
  # longer alias, so only the Gonzaga paragraph is keyed here.
  'Ludovico':({(19,24):'ludovico-gonzaga'},None),
+ # ------------------------------------------------- added with chapters 21-24
+ # Cato of Utica at 22:54. Cato the Censor and the rest are unread.
+ 'Cato':({(22,54):'cato-the-younger'},None),
+ # The conspirator in Livia's list. The two Lepiduses already cast are bound by
+ # their full names, so the bare surname is free for this one.
+ 'Lepidus':({(23,1):'lepidus-conspirator'},None),
+ # The sophist Socrates rallies. Hippias returns at 103:143, unread.
+ 'Hippias':({(24,62):'hippias-sophist'},None),
 }
+# Aristo of Chios is bound by his full name rather than by a table, because the
+# bare "Aristo" is three different men in this book: the Stoic of 24:54, a
+# tragedian at 25:152, and — in the older edition only — Ariosto at 27:13, where
+# the modern edition prints the poet's name in full. Nothing binds the bare form.
 
 def bind(edition,ch,pi,text,entities):
  out=exact(edition,ch,pi,text,entities)
