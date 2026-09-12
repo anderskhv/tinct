@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "baff1c501156268a9235ffe506f8de7c69fb76c72fac08c0670acc987e746d80",
+  "attempts": [
+    {
+      "asr_seconds": 0.22551029548048973,
+      "alignment_seconds": 0.00039034802466630936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ghost what you are a baby after all you are afraid of ghosts",
+          "start": 0.08,
+          "end": 3.56,
+          "words": [
+            {
+              "text": " Ghost",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.81005859375
+            },
+            {
+              "text": " what",
+              "start": 0.7,
+              "end": 1.2,
+              "probability": 0.2203369140625
+            },
+            {
+              "text": " you",
+              "start": 1.2,
+              "end": 1.36,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " are",
+              "start": 1.36,
+              "end": 1.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " baby",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.98828125
+            },
+            {
+              "text": " after",
+              "start": 1.8,
+              "end": 2.1,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " all",
+              "start": 2.1,
+              "end": 2.4,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " you",
+              "start": 2.4,
+              "end": 2.68,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " are",
+              "start": 2.68,
+              "end": 2.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " afraid",
+              "start": 2.78,
+              "end": 3.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 3.04,
+              "end": 3.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ghosts",
+              "start": 3.2,
+              "end": 3.56,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ghost",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "what",
+          "start": 0.7,
+          "end": 1.2
+        },
+        {
+          "raw": "you",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "raw": "are",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "raw": "a",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "baby",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "after",
+          "start": 1.8,
+          "end": 2.1
+        },
+        {
+          "raw": "all",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "raw": "you",
+          "start": 2.4,
+          "end": 2.68
+        },
+        {
+          "raw": "are",
+          "start": 2.68,
+          "end": 2.78
+        },
+        {
+          "raw": "afraid",
+          "start": 2.78,
+          "end": 3.04
+        },
+        {
+          "raw": "of",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "raw": "ghosts",
+          "start": 3.2,
+          "end": 3.56
+        }
+      ],
+      "expected_tokens": [
+        "\"Ghost!",
+        "What,",
+        "you",
+        "are",
+        "a",
+        "baby",
+        "after",
+        "all!",
+        "You",
+        "are",
+        "afraid",
+        "of",
+        "ghosts?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ghost",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "ghost",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.7,
+          "end": 1.2,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.2,
+          "end": 1.36,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.36,
+          "end": 1.48,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "baby",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "baby",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 1.8,
+          "end": 2.1,
+          "key": "after",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.1,
+          "end": 2.4,
+          "key": "all",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.4,
+          "end": 2.68,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.68,
+          "end": 2.78,
+          "key": "are",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "afraid",
+          "start": 2.78,
+          "end": 3.04,
+          "key": "afraid",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.04,
+          "end": 3.2,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ghosts",
+          "start": 3.2,
+          "end": 3.56,
+          "key": "ghosts",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ghost!",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "What,",
+          "start": 0.7,
+          "end": 1.2
+        },
+        {
+          "text": "you",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "text": "are",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "text": "a",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "baby",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "text": "after",
+          "start": 1.8,
+          "end": 2.1
+        },
+        {
+          "text": "all!",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "text": "You",
+          "start": 2.4,
+          "end": 2.68
+        },
+        {
+          "text": "are",
+          "start": 2.68,
+          "end": 2.78
+        },
+        {
+          "text": "afraid",
+          "start": 2.78,
+          "end": 3.04
+        },
+        {
+          "text": "of",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "ghosts?\"",
+          "start": 3.2,
+          "end": 3.56
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22604808397591114
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9c4053d3eca212d9c989935dcb4cfb846b5f451c2216e7f2cca276720242f95a",
+  "selected_reasons": []
+}

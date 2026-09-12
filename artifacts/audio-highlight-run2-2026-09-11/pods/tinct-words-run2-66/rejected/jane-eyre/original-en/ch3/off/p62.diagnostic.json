@@ -1,0 +1,690 @@
+{
+  "complete": true,
+  "signature": "901e1269e4a9a675df52f4e7437ed808f07e5d7a127d23ed40534c9e2f38e9e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.34455928299576044,
+      "alignment_seconds": 0.0005477173253893852,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It is not my house, sir, and Abbott says I have less right to be here than a servant.",
+          "start": 0.05,
+          "end": 4.65,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " not",
+              "start": 0.63,
+              "end": 0.85,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " my",
+              "start": 0.85,
+              "end": 1.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " house,",
+              "start": 1.07,
+              "end": 1.43,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " sir,",
+              "start": 1.73,
+              "end": 1.77,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " and",
+              "start": 2.27,
+              "end": 2.35,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Abbott",
+              "start": 2.35,
+              "end": 2.61,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " says",
+              "start": 2.61,
+              "end": 2.85,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 2.85,
+              "end": 3.03,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " have",
+              "start": 3.03,
+              "end": 3.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " less",
+              "start": 3.17,
+              "end": 3.37,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " right",
+              "start": 3.37,
+              "end": 3.65,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " to",
+              "start": 3.65,
+              "end": 3.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 3.81,
+              "end": 3.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " here",
+              "start": 3.93,
+              "end": 4.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " than",
+              "start": 4.11,
+              "end": 4.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 4.25,
+              "end": 4.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " servant.",
+              "start": 4.39,
+              "end": 4.65,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "not",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "raw": "my",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "raw": "house,",
+          "start": 1.07,
+          "end": 1.43
+        },
+        {
+          "raw": "sir,",
+          "start": 1.73,
+          "end": 1.77
+        },
+        {
+          "raw": "and",
+          "start": 2.27,
+          "end": 2.35
+        },
+        {
+          "raw": "Abbott",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "raw": "says",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "raw": "I",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "raw": "have",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "raw": "less",
+          "start": 3.17,
+          "end": 3.37
+        },
+        {
+          "raw": "right",
+          "start": 3.37,
+          "end": 3.65
+        },
+        {
+          "raw": "to",
+          "start": 3.65,
+          "end": 3.81
+        },
+        {
+          "raw": "be",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "raw": "here",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "raw": "than",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "raw": "a",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "raw": "servant.",
+          "start": 4.39,
+          "end": 4.65
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "is",
+        "not",
+        "my",
+        "house,",
+        "sir;",
+        "and",
+        "Abbot",
+        "says",
+        "I",
+        "have",
+        "less",
+        "right",
+        "to",
+        "be",
+        "here",
+        "than",
+        "a",
+        "servant.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          19,
+          8,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.63,
+          "end": 0.85,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.85,
+          "end": 1.07,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "house,",
+          "start": 1.07,
+          "end": 1.43,
+          "key": "house",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.73,
+          "end": 1.77,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.27,
+          "end": 2.35,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Abbott",
+          "start": 2.35,
+          "end": 2.61,
+          "key": "abbott",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 2.61,
+          "end": 2.85,
+          "key": "says",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.85,
+          "end": 3.03,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.03,
+          "end": 3.17,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "less",
+          "start": 3.17,
+          "end": 3.37,
+          "key": "less",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "right",
+          "start": 3.37,
+          "end": 3.65,
+          "key": "right",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.65,
+          "end": 3.81,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.81,
+          "end": 3.93,
+          "key": "be",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 3.93,
+          "end": 4.11,
+          "key": "here",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 4.11,
+          "end": 4.25,
+          "key": "than",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.25,
+          "end": 4.39,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "servant.",
+          "start": 4.39,
+          "end": 4.65,
+          "key": "servant",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "is",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "not",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "text": "my",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "text": "house,",
+          "start": 1.07,
+          "end": 1.43
+        },
+        {
+          "text": "sir;",
+          "start": 1.73,
+          "end": 1.77
+        },
+        {
+          "text": "and",
+          "start": 2.27,
+          "end": 2.35
+        },
+        {
+          "text": "Abbot",
+          "start": 2.35,
+          "end": 2.48
+        },
+        {
+          "text": "says",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "text": "I",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "text": "have",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "text": "less",
+          "start": 3.17,
+          "end": 3.37
+        },
+        {
+          "text": "right",
+          "start": 3.37,
+          "end": 3.65
+        },
+        {
+          "text": "to",
+          "start": 3.65,
+          "end": 3.81
+        },
+        {
+          "text": "be",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "text": "here",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "text": "than",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "text": "a",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "text": "servant.\"",
+          "start": 4.39,
+          "end": 4.65
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.3453194163739681
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cb5fa892a97c2b5c08a20def13ff1ef322dbd0aaf4d508aef5ec01e5fd341845",
+  "selected_reasons": []
+}

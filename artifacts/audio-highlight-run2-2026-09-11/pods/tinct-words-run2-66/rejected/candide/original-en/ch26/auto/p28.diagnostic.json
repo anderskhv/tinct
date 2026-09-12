@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "994f85716b536ffeb9d97cbe9ba0625338fe252908e3a3d63f6c686ab732e2fa",
+  "attempts": [
+    {
+      "asr_seconds": 0.12348667345941067,
+      "alignment_seconds": 0.00012985151261091232,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The fifth said:",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The fifth said...",
+          "start": 0.0,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " fifth",
+              "start": 0.48,
+              "end": 0.66,
+              "probability": 0.873046875
+            },
+            {
+              "text": " said...",
+              "start": 0.66,
+              "end": 1.54,
+              "probability": 0.694091796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "fifth",
+          "start": 0.48,
+          "end": 0.66
+        },
+        {
+          "raw": "said...",
+          "start": 0.66,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "fifth",
+        "said:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fifth",
+          "start": 0.48,
+          "end": 0.66,
+          "key": "fifth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said...",
+          "start": 0.66,
+          "end": 1.54,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "fifth",
+          "start": 0.48,
+          "end": 0.66
+        },
+        {
+          "text": "said:",
+          "start": 0.66,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12366332206875086
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ef92299d03b8c3c1ce3d182ad3e4021f1b5b822de8a6e48ba2880888b42fcce8",
+  "selected_reasons": []
+}

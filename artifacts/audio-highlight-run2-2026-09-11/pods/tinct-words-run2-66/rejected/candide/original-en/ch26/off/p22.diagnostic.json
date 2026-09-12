@@ -1,0 +1,486 @@
+{
+  "complete": true,
+  "signature": "22d3c8f1b2e60802636fb04bbafb0c6f91c36e28b4442cf60d77d4634c0f77ff",
+  "attempts": [
+    {
+      "asr_seconds": 0.1636206330731511,
+      "alignment_seconds": 0.00037867389619350433,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A young man who sat next to each met spoke then as follows.",
+          "start": 0.05,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " young",
+              "start": 0.49,
+              "end": 0.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " man",
+              "start": 0.69,
+              "end": 0.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " who",
+              "start": 0.91,
+              "end": 1.09,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " sat",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " next",
+              "start": 1.25,
+              "end": 1.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " each",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.347900390625
+            },
+            {
+              "text": " met",
+              "start": 1.77,
+              "end": 2.07,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " spoke",
+              "start": 2.07,
+              "end": 2.65,
+              "probability": 0.68359375
+            },
+            {
+              "text": " then",
+              "start": 2.65,
+              "end": 2.91,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " as",
+              "start": 2.91,
+              "end": 3.09,
+              "probability": 0.951171875
+            },
+            {
+              "text": " follows.",
+              "start": 3.09,
+              "end": 3.47,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "young",
+          "start": 0.49,
+          "end": 0.69
+        },
+        {
+          "raw": "man",
+          "start": 0.69,
+          "end": 0.91
+        },
+        {
+          "raw": "who",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "raw": "sat",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "next",
+          "start": 1.25,
+          "end": 1.53
+        },
+        {
+          "raw": "to",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "each",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "met",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "raw": "spoke",
+          "start": 2.07,
+          "end": 2.65
+        },
+        {
+          "raw": "then",
+          "start": 2.65,
+          "end": 2.91
+        },
+        {
+          "raw": "as",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "raw": "follows.",
+          "start": 3.09,
+          "end": 3.47
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "young",
+        "man",
+        "who",
+        "sat",
+        "next",
+        "to",
+        "Achmet,",
+        "spoke",
+        "then",
+        "as",
+        "follows:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          12,
+          9,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 0.49,
+          "end": 0.69,
+          "key": "young",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 0.69,
+          "end": 0.91,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 0.91,
+          "end": 1.09,
+          "key": "who",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 1.09,
+          "end": 1.25,
+          "key": "sat",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 1.25,
+          "end": 1.53,
+          "key": "next",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 1.63,
+          "end": 1.77,
+          "key": "each",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "met",
+          "start": 1.77,
+          "end": 2.07,
+          "key": "met",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "spoke",
+          "start": 2.07,
+          "end": 2.65,
+          "key": "spoke",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 2.65,
+          "end": 2.91,
+          "key": "then",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.91,
+          "end": 3.09,
+          "key": "as",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "follows.",
+          "start": 3.09,
+          "end": 3.47,
+          "key": "follows",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "young",
+          "start": 0.49,
+          "end": 0.69
+        },
+        {
+          "text": "man",
+          "start": 0.69,
+          "end": 0.91
+        },
+        {
+          "text": "who",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "text": "sat",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "text": "next",
+          "start": 1.25,
+          "end": 1.53
+        },
+        {
+          "text": "to",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "Achmet,",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "text": "spoke",
+          "start": 2.07,
+          "end": 2.65
+        },
+        {
+          "text": "then",
+          "start": 2.65,
+          "end": 2.91
+        },
+        {
+          "text": "as",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "text": "follows:",
+          "start": 3.09,
+          "end": 3.47
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.16414151061326265
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c8dec49c3df36b6e2038efd138465743b7eddb8823e0aabc2a457a6dcdd045bd",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "a7c405b43c25435d12d345a63c06a86e9662174e8c4e9ec4d5792f7cdbb597a5",
+  "attempts": [
+    {
+      "asr_seconds": 0.25338760670274496,
+      "alignment_seconds": 0.000423443503677845,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Perhaps you may—who knows? Have you any relations besides Mrs. Reed?\"",
+        "hotwords": "Perhaps, Have, Mrs, Reed"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Perhaps you may—who knows? Have you any relations besides Mrs. Reed?",
+          "start": 0.02,
+          "end": 4.4,
+          "words": [
+            {
+              "text": " Perhaps",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " you",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " may—who",
+              "start": 0.94,
+              "end": 1.64,
+              "probability": 0.700927734375
+            },
+            {
+              "text": " knows?",
+              "start": 1.64,
+              "end": 2.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Have",
+              "start": 2.5,
+              "end": 2.58,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " you",
+              "start": 2.58,
+              "end": 2.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " any",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " relations",
+              "start": 2.84,
+              "end": 3.3,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " besides",
+              "start": 3.3,
+              "end": 3.74,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Mrs.",
+              "start": 3.74,
+              "end": 4.14,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Reed?",
+              "start": 4.38,
+              "end": 4.4,
+              "probability": 0.68408203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Perhaps",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "you",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "may—who",
+          "start": 0.94,
+          "end": 1.64
+        },
+        {
+          "raw": "knows?",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "raw": "Have",
+          "start": 2.5,
+          "end": 2.58
+        },
+        {
+          "raw": "you",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "raw": "any",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "relations",
+          "start": 2.84,
+          "end": 3.3
+        },
+        {
+          "raw": "besides",
+          "start": 3.3,
+          "end": 3.74
+        },
+        {
+          "raw": "Mrs.",
+          "start": 3.74,
+          "end": 4.14
+        },
+        {
+          "raw": "Reed?",
+          "start": 4.38,
+          "end": 4.4
+        }
+      ],
+      "expected_tokens": [
+        "\"Perhaps",
+        "you",
+        "may—who",
+        "knows?",
+        "Have",
+        "you",
+        "any",
+        "relations",
+        "besides",
+        "Mrs.",
+        "Reed?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Perhaps",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "perhaps",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.7,
+          "end": 0.94,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "may—who",
+          "start": 0.94,
+          "end": 1.64,
+          "key": "maywho",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "knows?",
+          "start": 1.64,
+          "end": 2.0,
+          "key": "knows",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 2.5,
+          "end": 2.58,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.58,
+          "end": 2.7,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 2.7,
+          "end": 2.84,
+          "key": "any",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "relations",
+          "start": 2.84,
+          "end": 3.3,
+          "key": "relations",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "besides",
+          "start": 3.3,
+          "end": 3.74,
+          "key": "besides",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 3.74,
+          "end": 4.14,
+          "key": "mrs",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Reed?",
+          "start": 4.38,
+          "end": 4.4,
+          "key": "reed",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Perhaps",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "you",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "may—who",
+          "start": 0.94,
+          "end": 1.64
+        },
+        {
+          "text": "knows?",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "text": "Have",
+          "start": 2.5,
+          "end": 2.58
+        },
+        {
+          "text": "you",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "text": "any",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "text": "relations",
+          "start": 2.84,
+          "end": 3.3
+        },
+        {
+          "text": "besides",
+          "start": 3.3,
+          "end": 3.74
+        },
+        {
+          "text": "Mrs.",
+          "start": 3.74,
+          "end": 4.14
+        },
+        {
+          "text": "Reed?\"",
+          "start": 4.38,
+          "end": 4.4
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2539632637053728
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "068f38a05b8d717e12eade594be00ad66bafb4b88193d2ef753f7b9fbb6f7292",
+  "selected_reasons": []
+}
