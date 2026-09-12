@@ -1,0 +1,735 @@
+{
+  "complete": true,
+  "signature": "23ece7f48a70f1b3fafdb37f2d98661a250158e136f1e73dd7cdd9098e96c58f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2870324086397886,
+      "alignment_seconds": 0.0005440060049295425,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Another alarm. The Valses re-enter and are driven back to the gates of Corioles, which open to admit them.",
+          "start": 0.08,
+          "end": 6.66,
+          "words": [
+            {
+              "text": " Another",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " alarm.",
+              "start": 0.76,
+              "end": 1.14,
+              "probability": 0.43310546875
+            },
+            {
+              "text": " The",
+              "start": 1.88,
+              "end": 2.0,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Valses",
+              "start": 2.0,
+              "end": 2.46,
+              "probability": 0.5237630208333334
+            },
+            {
+              "text": " re",
+              "start": 2.46,
+              "end": 2.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": "-enter",
+              "start": 2.64,
+              "end": 2.84,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " and",
+              "start": 2.84,
+              "end": 3.14,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " are",
+              "start": 3.14,
+              "end": 3.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " driven",
+              "start": 3.26,
+              "end": 3.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " back",
+              "start": 3.46,
+              "end": 3.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 3.8,
+              "end": 4.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.0,
+              "end": 4.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " gates",
+              "start": 4.12,
+              "end": 4.32,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " of",
+              "start": 4.32,
+              "end": 4.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Corioles,",
+              "start": 4.58,
+              "end": 5.18,
+              "probability": 0.7884114583333334
+            },
+            {
+              "text": " which",
+              "start": 5.42,
+              "end": 5.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " open",
+              "start": 5.54,
+              "end": 5.86,
+              "probability": 0.974609375
+            },
+            {
+              "text": " to",
+              "start": 5.86,
+              "end": 6.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " admit",
+              "start": 6.08,
+              "end": 6.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " them.",
+              "start": 6.34,
+              "end": 6.66,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Another",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "alarm.",
+          "start": 0.76,
+          "end": 1.14
+        },
+        {
+          "raw": "The",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "raw": "Valses",
+          "start": 2.0,
+          "end": 2.46
+        },
+        {
+          "raw": "re",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "raw": "-enter",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "raw": "and",
+          "start": 2.84,
+          "end": 3.14
+        },
+        {
+          "raw": "are",
+          "start": 3.14,
+          "end": 3.26
+        },
+        {
+          "raw": "driven",
+          "start": 3.26,
+          "end": 3.46
+        },
+        {
+          "raw": "back",
+          "start": 3.46,
+          "end": 3.8
+        },
+        {
+          "raw": "to",
+          "start": 3.8,
+          "end": 4.0
+        },
+        {
+          "raw": "the",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "raw": "gates",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "raw": "of",
+          "start": 4.32,
+          "end": 4.58
+        },
+        {
+          "raw": "Corioles,",
+          "start": 4.58,
+          "end": 5.18
+        },
+        {
+          "raw": "which",
+          "start": 5.42,
+          "end": 5.54
+        },
+        {
+          "raw": "open",
+          "start": 5.54,
+          "end": 5.86
+        },
+        {
+          "raw": "to",
+          "start": 5.86,
+          "end": 6.08
+        },
+        {
+          "raw": "admit",
+          "start": 6.08,
+          "end": 6.34
+        },
+        {
+          "raw": "them.",
+          "start": 6.34,
+          "end": 6.66
+        }
+      ],
+      "expected_tokens": [
+        "[_Another",
+        "alarum.",
+        "The",
+        "Volsces",
+        "re-enter",
+        "and",
+        "are",
+        "driven",
+        "back",
+        "to",
+        "the",
+        "gates",
+        "of",
+        "Corioles,",
+        "which",
+        "open",
+        "to",
+        "admit",
+        "them._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          19,
+          4,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Another",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "another",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "alarm.",
+          "start": 0.76,
+          "end": 1.14,
+          "key": "alarm",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.88,
+          "end": 2.0,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Valses",
+          "start": 2.0,
+          "end": 2.46,
+          "key": "valses",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "re -enter",
+          "start": 2.46,
+          "end": 2.84,
+          "key": "reenter",
+          "pieces": [
+            4,
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.84,
+          "end": 3.14,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.14,
+          "end": 3.26,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "driven",
+          "start": 3.26,
+          "end": 3.46,
+          "key": "driven",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 3.46,
+          "end": 3.8,
+          "key": "back",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.8,
+          "end": 4.0,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.0,
+          "end": 4.12,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "gates",
+          "start": 4.12,
+          "end": 4.32,
+          "key": "gates",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.32,
+          "end": 4.58,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Corioles,",
+          "start": 4.58,
+          "end": 5.18,
+          "key": "corioles",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 5.42,
+          "end": 5.54,
+          "key": "which",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "open",
+          "start": 5.54,
+          "end": 5.86,
+          "key": "open",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.86,
+          "end": 6.08,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "admit",
+          "start": 6.08,
+          "end": 6.34,
+          "key": "admit",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 6.34,
+          "end": 6.66,
+          "key": "them",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "re-enter",
+          "heard": "re -enter",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 2.46,
+          "end": 2.84
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "[_Another",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "alarum.",
+          "start": 0.76,
+          "end": 1.32
+        },
+        {
+          "text": "The",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "text": "Volsces",
+          "start": 2.0,
+          "end": 2.23
+        },
+        {
+          "text": "re-enter",
+          "start": 2.46,
+          "end": 2.84
+        },
+        {
+          "text": "and",
+          "start": 2.84,
+          "end": 3.14
+        },
+        {
+          "text": "are",
+          "start": 3.14,
+          "end": 3.26
+        },
+        {
+          "text": "driven",
+          "start": 3.26,
+          "end": 3.46
+        },
+        {
+          "text": "back",
+          "start": 3.46,
+          "end": 3.8
+        },
+        {
+          "text": "to",
+          "start": 3.8,
+          "end": 4.0
+        },
+        {
+          "text": "the",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "text": "gates",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "text": "of",
+          "start": 4.32,
+          "end": 4.58
+        },
+        {
+          "text": "Corioles,",
+          "start": 4.58,
+          "end": 5.18
+        },
+        {
+          "text": "which",
+          "start": 5.42,
+          "end": 5.54
+        },
+        {
+          "text": "open",
+          "start": 5.54,
+          "end": 5.86
+        },
+        {
+          "text": "to",
+          "start": 5.86,
+          "end": 6.08
+        },
+        {
+          "text": "admit",
+          "start": 6.08,
+          "end": 6.34
+        },
+        {
+          "text": "them._]",
+          "start": 6.34,
+          "end": 6.66
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8947368421052632,
+      "rejection_reasons": [],
+      "seconds": 0.2877731956541538
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e18c06bbf81f0dd7e90202eedffcc50e1d6bad3ecc8ef2ecafa584dd4131365e",
+  "selected_reasons": []
+}

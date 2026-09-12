@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "c85b90fa530546db80043ae50cd3760fe79ba085b757d2897e26d66dfaf671bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.11810282152146101,
+      "alignment_seconds": 0.00020041968673467636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Arvaragus",
+          "start": 0.14,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " Arvaragus",
+              "start": 0.14,
+              "end": 1.0,
+              "probability": 0.614990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Arvaragus",
+          "start": 0.14,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "Arviragus."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Arvaragus",
+          "start": 0.14,
+          "end": 1.0,
+          "key": "arvaragus",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Arviragus.",
+          "start": 0.0,
+          "end": 0.5
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11837042681872845
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d4aa71b5507707db520997a041e174b1ab9d5d005fd889ec67fb4d08193544ef",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

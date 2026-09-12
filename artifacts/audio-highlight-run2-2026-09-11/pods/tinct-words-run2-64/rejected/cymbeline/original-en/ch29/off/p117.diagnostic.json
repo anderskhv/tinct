@@ -1,0 +1,709 @@
+{
+  "complete": true,
+  "signature": "1879fa0e5fc1b5905f90b658ccf2f6fc97b8c6026dcc8d5acc2e431bb4add791",
+  "attempts": [
+    {
+      "asr_seconds": 0.29256138019263744,
+      "alignment_seconds": 0.0007206369191408157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He it is that hath assumed this age, indeed a banished man, I know not how a traitor.\"",
+          "start": 0.96,
+          "end": 6.02,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.96,
+              "end": 1.4,
+              "probability": 0.0219268798828125
+            },
+            {
+              "text": " it",
+              "start": 1.4,
+              "end": 1.84,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " is",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " that",
+              "start": 1.98,
+              "end": 2.16,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " hath",
+              "start": 2.16,
+              "end": 2.32,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " assumed",
+              "start": 2.32,
+              "end": 2.58,
+              "probability": 0.2384033203125
+            },
+            {
+              "text": " this",
+              "start": 2.58,
+              "end": 2.86,
+              "probability": 0.98828125
+            },
+            {
+              "text": " age,",
+              "start": 2.86,
+              "end": 3.2,
+              "probability": 0.955078125
+            },
+            {
+              "text": " indeed",
+              "start": 3.58,
+              "end": 3.76,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " a",
+              "start": 3.76,
+              "end": 3.94,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " banished",
+              "start": 3.94,
+              "end": 4.2,
+              "probability": 0.9765625
+            },
+            {
+              "text": " man,",
+              "start": 4.2,
+              "end": 4.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 4.9,
+              "end": 5.0,
+              "probability": 0.98046875
+            },
+            {
+              "text": " know",
+              "start": 5.0,
+              "end": 5.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 5.14,
+              "end": 5.3,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " how",
+              "start": 5.3,
+              "end": 5.46,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 5.46,
+              "end": 5.58,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " traitor.\"",
+              "start": 5.58,
+              "end": 6.02,
+              "probability": 0.51953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.96,
+          "end": 1.4
+        },
+        {
+          "raw": "it",
+          "start": 1.4,
+          "end": 1.84
+        },
+        {
+          "raw": "is",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "that",
+          "start": 1.98,
+          "end": 2.16
+        },
+        {
+          "raw": "hath",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "raw": "assumed",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "raw": "this",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "raw": "age,",
+          "start": 2.86,
+          "end": 3.2
+        },
+        {
+          "raw": "indeed",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "raw": "a",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "raw": "banished",
+          "start": 3.94,
+          "end": 4.2
+        },
+        {
+          "raw": "man,",
+          "start": 4.2,
+          "end": 4.64
+        },
+        {
+          "raw": "I",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "raw": "know",
+          "start": 5.0,
+          "end": 5.14
+        },
+        {
+          "raw": "not",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "raw": "how",
+          "start": 5.3,
+          "end": 5.46
+        },
+        {
+          "raw": "a",
+          "start": 5.46,
+          "end": 5.58
+        },
+        {
+          "raw": "traitor.\"",
+          "start": 5.58,
+          "end": 6.02
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "He",
+        "it",
+        "is",
+        "that",
+        "hath",
+        "Assum'd",
+        "this",
+        "age;",
+        "indeed",
+        "a",
+        "banish'd",
+        "man;",
+        "I",
+        "know",
+        "not",
+        "how",
+        "a",
+        "traitor."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          6,
+          0,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          6
+        ],
+        [
+          "equal",
+          7,
+          11,
+          6,
+          10
+        ],
+        [
+          "replace",
+          11,
+          12,
+          10,
+          11
+        ],
+        [
+          "equal",
+          12,
+          19,
+          11,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          6
+        ],
+        [
+          "replace",
+          11,
+          12,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.96,
+          "end": 1.4,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.4,
+          "end": 1.84,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.84,
+          "end": 1.98,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.98,
+          "end": 2.16,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 2.16,
+          "end": 2.32,
+          "key": "hath",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "assumed",
+          "start": 2.32,
+          "end": 2.58,
+          "key": "assumed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.58,
+          "end": 2.86,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "age,",
+          "start": 2.86,
+          "end": 3.2,
+          "key": "age",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "indeed",
+          "start": 3.58,
+          "end": 3.76,
+          "key": "indeed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.76,
+          "end": 3.94,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "banished",
+          "start": 3.94,
+          "end": 4.2,
+          "key": "banished",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 4.2,
+          "end": 4.64,
+          "key": "man",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.9,
+          "end": 5.0,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 5.0,
+          "end": 5.14,
+          "key": "know",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.14,
+          "end": 5.3,
+          "key": "not",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 5.3,
+          "end": 5.46,
+          "key": "how",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.46,
+          "end": 5.58,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "traitor.\"",
+          "start": 5.58,
+          "end": 6.02,
+          "key": "traitor",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "He",
+          "start": 0.96,
+          "end": 1.4
+        },
+        {
+          "text": "it",
+          "start": 1.4,
+          "end": 1.84
+        },
+        {
+          "text": "is",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "that",
+          "start": 1.98,
+          "end": 2.16
+        },
+        {
+          "text": "hath",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "text": "Assum'd",
+          "start": 2.32,
+          "end": 2.45
+        },
+        {
+          "text": "this",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "text": "age;",
+          "start": 2.86,
+          "end": 3.2
+        },
+        {
+          "text": "indeed",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "text": "a",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "text": "banish'd",
+          "start": 3.94,
+          "end": 4.07
+        },
+        {
+          "text": "man;",
+          "start": 4.2,
+          "end": 4.64
+        },
+        {
+          "text": "I",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "text": "know",
+          "start": 5.0,
+          "end": 5.14
+        },
+        {
+          "text": "not",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "text": "how",
+          "start": 5.3,
+          "end": 5.46
+        },
+        {
+          "text": "a",
+          "start": 5.46,
+          "end": 5.58
+        },
+        {
+          "text": "traitor.",
+          "start": 5.58,
+          "end": 6.02
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8421052631578947,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.29355253744870424
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3fd470aba2b38faa33b5186ed2ae550c2aed16ae7b743eb9f7868a9e85a18db5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

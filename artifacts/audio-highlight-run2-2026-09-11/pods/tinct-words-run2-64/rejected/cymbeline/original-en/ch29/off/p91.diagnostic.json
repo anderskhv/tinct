@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "01b6fb585abf649a7c955616ad3f862dad3ae2f960c6c2775502dd1d66c9fc5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.13550686556845903,
+      "alignment_seconds": 0.00015610456466674805,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Imogen",
+          "start": 0.05,
+          "end": 0.73,
+          "words": [
+            {
+              "text": " Imogen",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.79150390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen",
+          "start": 0.05,
+          "end": 0.73
+        }
+      ],
+      "expected_tokens": [
+        "Imogen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.05,
+          "end": 0.73
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13571312837302685
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "26979800e704c0e7e81224c50c32864313bf498136fd6bb5d640deca7a4f8e63",
+  "selected_reasons": []
+}

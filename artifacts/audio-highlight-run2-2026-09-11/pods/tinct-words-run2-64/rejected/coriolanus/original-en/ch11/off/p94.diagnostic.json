@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "b81545def222213f287f45f2bc75cf1224a359dc9f8f98be477e47cd415ea470",
+  "attempts": [
+    {
+      "asr_seconds": 0.20574049185961485,
+      "alignment_seconds": 0.00032673776149749756,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, in that there's comfort.",
+          "start": 0.02,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " in",
+              "start": 1.18,
+              "end": 1.26,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " that",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " there's",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " comfort.",
+              "start": 1.62,
+              "end": 1.96,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "in",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "raw": "that",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "there's",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "raw": "comfort.",
+          "start": 1.62,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "In",
+        "that",
+        "there's",
+        "comfort."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.18,
+          "end": 1.26,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "theres",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "comfort.",
+          "start": 1.62,
+          "end": 1.96,
+          "key": "comfort",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "In",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "text": "that",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "there's",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "text": "comfort.",
+          "start": 1.62,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2061862275004387
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1ce790c970e33e09a24ce397b1745ab4755ac4ee509d93351fde31dc4dae2dad",
+  "selected_reasons": []
+}

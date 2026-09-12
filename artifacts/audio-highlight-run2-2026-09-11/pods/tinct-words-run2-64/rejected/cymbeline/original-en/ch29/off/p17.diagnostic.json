@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "ecd0335641d081668b567731a68ffcf7cc03db2608487a7bfedf877840b50a51",
+  "attempts": [
+    {
+      "asr_seconds": 0.2770380498841405,
+      "alignment_seconds": 0.0004366440698504448,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, almost delicate fiend, who ist can read a woman, is there more?",
+          "start": 0.11,
+          "end": 4.63,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.11,
+              "end": 0.87,
+              "probability": 0.6311442057291666
+            },
+            {
+              "text": " almost",
+              "start": 1.21,
+              "end": 1.45,
+              "probability": 0.810546875
+            },
+            {
+              "text": " delicate",
+              "start": 1.45,
+              "end": 1.91,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " fiend,",
+              "start": 1.91,
+              "end": 2.43,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " who",
+              "start": 2.81,
+              "end": 2.89,
+              "probability": 0.52490234375
+            },
+            {
+              "text": " ist",
+              "start": 2.89,
+              "end": 3.21,
+              "probability": 0.6051025390625
+            },
+            {
+              "text": " can",
+              "start": 3.21,
+              "end": 3.33,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " read",
+              "start": 3.33,
+              "end": 3.47,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " a",
+              "start": 3.47,
+              "end": 3.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " woman,",
+              "start": 3.61,
+              "end": 3.81,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " is",
+              "start": 4.13,
+              "end": 4.23,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " there",
+              "start": 4.23,
+              "end": 4.39,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " more?",
+              "start": 4.39,
+              "end": 4.63,
+              "probability": 0.9619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.11,
+          "end": 0.87
+        },
+        {
+          "raw": "almost",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "raw": "delicate",
+          "start": 1.45,
+          "end": 1.91
+        },
+        {
+          "raw": "fiend,",
+          "start": 1.91,
+          "end": 2.43
+        },
+        {
+          "raw": "who",
+          "start": 2.81,
+          "end": 2.89
+        },
+        {
+          "raw": "ist",
+          "start": 2.89,
+          "end": 3.21
+        },
+        {
+          "raw": "can",
+          "start": 3.21,
+          "end": 3.33
+        },
+        {
+          "raw": "read",
+          "start": 3.33,
+          "end": 3.47
+        },
+        {
+          "raw": "a",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "raw": "woman,",
+          "start": 3.61,
+          "end": 3.81
+        },
+        {
+          "raw": "is",
+          "start": 4.13,
+          "end": 4.23
+        },
+        {
+          "raw": "there",
+          "start": 4.23,
+          "end": 4.39
+        },
+        {
+          "raw": "more?",
+          "start": 4.39,
+          "end": 4.63
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "O",
+        "most",
+        "delicate",
+        "fiend!",
+        "Who",
+        "is't",
+        "can",
+        "read",
+        "a",
+        "woman?",
+        "Is",
+        "there",
+        "more?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          14,
+          2,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.11,
+          "end": 0.87,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 1.21,
+          "end": 1.45,
+          "key": "almost",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "delicate",
+          "start": 1.45,
+          "end": 1.91,
+          "key": "delicate",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fiend,",
+          "start": 1.91,
+          "end": 2.43,
+          "key": "fiend",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 2.81,
+          "end": 2.89,
+          "key": "who",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ist",
+          "start": 2.89,
+          "end": 3.21,
+          "key": "ist",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 3.21,
+          "end": 3.33,
+          "key": "can",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 3.33,
+          "end": 3.47,
+          "key": "read",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.47,
+          "end": 3.61,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "woman,",
+          "start": 3.61,
+          "end": 3.81,
+          "key": "woman",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.13,
+          "end": 4.23,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 4.23,
+          "end": 4.39,
+          "key": "there",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "more?",
+          "start": 4.39,
+          "end": 4.63,
+          "key": "more",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.11,
+          "end": 0.87
+        },
+        {
+          "text": "O",
+          "start": 0.87,
+          "end": 1.16
+        },
+        {
+          "text": "most",
+          "start": 1.16,
+          "end": 1.305
+        },
+        {
+          "text": "delicate",
+          "start": 1.45,
+          "end": 1.91
+        },
+        {
+          "text": "fiend!",
+          "start": 1.91,
+          "end": 2.43
+        },
+        {
+          "text": "Who",
+          "start": 2.81,
+          "end": 2.89
+        },
+        {
+          "text": "is't",
+          "start": 2.89,
+          "end": 3.21
+        },
+        {
+          "text": "can",
+          "start": 3.21,
+          "end": 3.33
+        },
+        {
+          "text": "read",
+          "start": 3.33,
+          "end": 3.47
+        },
+        {
+          "text": "a",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "text": "woman?",
+          "start": 3.61,
+          "end": 3.81
+        },
+        {
+          "text": "Is",
+          "start": 4.13,
+          "end": 4.23
+        },
+        {
+          "text": "there",
+          "start": 4.23,
+          "end": 4.39
+        },
+        {
+          "text": "more?",
+          "start": 4.39,
+          "end": 4.63
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.2776497295126319
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f248fd30f4c3940405875fefc00c9e1d15dc0bd006ef31c9399dcfef0e5f19a3",
+  "selected_reasons": []
+}

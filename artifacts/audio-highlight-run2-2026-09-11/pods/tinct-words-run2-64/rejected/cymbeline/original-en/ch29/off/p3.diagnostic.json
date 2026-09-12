@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "6a8f56dcf61162e4c9e4659f4944f2424e1d3ba45192e3dc85ff5e5b3495ee8b",
+  "attempts": [
+    {
+      "asr_seconds": 0.20795727707445621,
+      "alignment_seconds": 0.0003112945705652237,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, no tidings of him.",
+          "start": 0.08,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.7428385416666666
+            },
+            {
+              "text": " no",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " tidings",
+              "start": 1.46,
+              "end": 1.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 1.84,
+              "end": 1.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him.",
+              "start": 1.96,
+              "end": 2.12,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "no",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "raw": "tidings",
+          "start": 1.46,
+          "end": 1.84
+        },
+        {
+          "raw": "of",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "raw": "him.",
+          "start": 1.96,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "No",
+        "tidings",
+        "of",
+        "him?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tidings",
+          "start": 1.46,
+          "end": 1.84,
+          "key": "tidings",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.84,
+          "end": 1.96,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.96,
+          "end": 2.12,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "No",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "text": "tidings",
+          "start": 1.46,
+          "end": 1.84
+        },
+        {
+          "text": "of",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "text": "him?",
+          "start": 1.96,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20838961470872164
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2164f7be4917ebce48c7ecd1a8db1d252cf01147265fe38cefa56de2dfc57179",
+  "selected_reasons": []
+}

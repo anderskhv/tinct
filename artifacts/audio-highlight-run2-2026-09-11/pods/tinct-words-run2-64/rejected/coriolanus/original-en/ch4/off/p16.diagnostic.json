@@ -1,0 +1,323 @@
+{
+  "complete": true,
+  "signature": "dba7a8ec045af98ffe27a24718831f1237362358de0b3528f5b65ab89c0612a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.24032434169203043,
+      "alignment_seconds": 0.0004496900364756584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tell us, Ophidias, is he within your walls?",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Tell",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.716796875
+            },
+            {
+              "text": " us,",
+              "start": 0.55,
+              "end": 0.73,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " Ophidias,",
+              "start": 0.79,
+              "end": 1.17,
+              "probability": 0.59368896484375
+            },
+            {
+              "text": " is",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " he",
+              "start": 1.67,
+              "end": 1.77,
+              "probability": 0.98828125
+            },
+            {
+              "text": " within",
+              "start": 1.77,
+              "end": 1.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 1.93,
+              "end": 2.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " walls?",
+              "start": 2.11,
+              "end": 2.37,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tell",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "us,",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "raw": "Ophidias,",
+          "start": 0.79,
+          "end": 1.17
+        },
+        {
+          "raw": "is",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "he",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "raw": "within",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "raw": "your",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "raw": "walls?",
+          "start": 2.11,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "Tullus",
+        "Aufidius,",
+        "is",
+        "he",
+        "within",
+        "your",
+        "walls?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          7,
+          3,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tell",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "tell",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "us,",
+          "start": 0.55,
+          "end": 0.73,
+          "key": "us",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ophidias,",
+          "start": 0.79,
+          "end": 1.17,
+          "key": "ophidias",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.55,
+          "end": 1.67,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.67,
+          "end": 1.77,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 1.77,
+          "end": 1.93,
+          "key": "within",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.93,
+          "end": 2.11,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "walls?",
+          "start": 2.11,
+          "end": 2.37,
+          "key": "walls",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tullus",
+          "start": 0.0,
+          "end": 0.775
+        },
+        {
+          "text": "Aufidius,",
+          "start": 0.775,
+          "end": 1.163
+        },
+        {
+          "text": "is",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "he",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "text": "within",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "text": "your",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "text": "walls?",
+          "start": 2.11,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24094048328697681
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9f0a316e9e869af78d94e11597e5a9c1537ff1a13bee2ac07016d7aac974d7d5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

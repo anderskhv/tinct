@@ -1,0 +1,536 @@
+{
+  "complete": true,
+  "signature": "57ca530d52a0a3584af132d35d1832d845b1f5ff8a3e2835028ff737b249ba3e",
+  "attempts": [
+    {
+      "asr_seconds": 0.30132457986474037,
+      "alignment_seconds": 0.0004303446039557457,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Arvaragus. Thus did he answer me, yet said her after I might know more.",
+          "start": 0.74,
+          "end": 4.84,
+          "words": [
+            {
+              "text": " Arvaragus.",
+              "start": 0.74,
+              "end": 1.22,
+              "probability": 0.5203857421875
+            },
+            {
+              "text": " Thus",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " did",
+              "start": 1.92,
+              "end": 2.16,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " he",
+              "start": 2.16,
+              "end": 2.3,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " answer",
+              "start": 2.3,
+              "end": 2.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me,",
+              "start": 2.6,
+              "end": 2.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " yet",
+              "start": 3.22,
+              "end": 3.34,
+              "probability": 0.990234375
+            },
+            {
+              "text": " said",
+              "start": 3.34,
+              "end": 3.56,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " her",
+              "start": 3.56,
+              "end": 3.66,
+              "probability": 0.1317138671875
+            },
+            {
+              "text": " after",
+              "start": 3.66,
+              "end": 3.94,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " I",
+              "start": 3.94,
+              "end": 4.18,
+              "probability": 0.7001953125
+            },
+            {
+              "text": " might",
+              "start": 4.18,
+              "end": 4.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " know",
+              "start": 4.34,
+              "end": 4.56,
+              "probability": 0.904296875
+            },
+            {
+              "text": " more.",
+              "start": 4.56,
+              "end": 4.84,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Arvaragus.",
+          "start": 0.74,
+          "end": 1.22
+        },
+        {
+          "raw": "Thus",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "raw": "did",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "raw": "he",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "raw": "answer",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "raw": "me,",
+          "start": 2.6,
+          "end": 2.94
+        },
+        {
+          "raw": "yet",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "raw": "said",
+          "start": 3.34,
+          "end": 3.56
+        },
+        {
+          "raw": "her",
+          "start": 3.56,
+          "end": 3.66
+        },
+        {
+          "raw": "after",
+          "start": 3.66,
+          "end": 3.94
+        },
+        {
+          "raw": "I",
+          "start": 3.94,
+          "end": 4.18
+        },
+        {
+          "raw": "might",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "raw": "know",
+          "start": 4.34,
+          "end": 4.56
+        },
+        {
+          "raw": "more.",
+          "start": 4.56,
+          "end": 4.84
+        }
+      ],
+      "expected_tokens": [
+        "Arviragus.",
+        "Thus",
+        "did",
+        "he",
+        "answer",
+        "me;",
+        "yet",
+        "said",
+        "hereafter",
+        "I",
+        "might",
+        "know",
+        "more."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          13,
+          10,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Arvaragus.",
+          "start": 0.74,
+          "end": 1.22,
+          "key": "arvaragus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thus",
+          "start": 1.72,
+          "end": 1.92,
+          "key": "thus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.92,
+          "end": 2.16,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.16,
+          "end": 2.3,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 2.3,
+          "end": 2.6,
+          "key": "answer",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.6,
+          "end": 2.94,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 3.22,
+          "end": 3.34,
+          "key": "yet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.34,
+          "end": 3.56,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.56,
+          "end": 3.66,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 3.66,
+          "end": 3.94,
+          "key": "after",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.94,
+          "end": 4.18,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 4.18,
+          "end": 4.34,
+          "key": "might",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 4.34,
+          "end": 4.56,
+          "key": "know",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 4.56,
+          "end": 4.84,
+          "key": "more",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Arviragus.",
+          "start": 0.0,
+          "end": 0.86
+        },
+        {
+          "text": "Thus",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "text": "did",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "text": "he",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "answer",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "text": "me;",
+          "start": 2.6,
+          "end": 2.94
+        },
+        {
+          "text": "yet",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "text": "said",
+          "start": 3.34,
+          "end": 3.56
+        },
+        {
+          "text": "hereafter",
+          "start": 3.56,
+          "end": 3.75
+        },
+        {
+          "text": "I",
+          "start": 3.94,
+          "end": 4.18
+        },
+        {
+          "text": "might",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "text": "know",
+          "start": 4.34,
+          "end": 4.56
+        },
+        {
+          "text": "more.",
+          "start": 4.56,
+          "end": 4.84
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3019211767241359
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5390a2492f84400c6b0ca755b3a9835d4499ccc12c04c58617178faa114be6ed",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

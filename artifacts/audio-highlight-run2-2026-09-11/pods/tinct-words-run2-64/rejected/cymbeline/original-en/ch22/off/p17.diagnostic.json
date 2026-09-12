@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "47e5893114ee886bc4902d8e07e9afd936766f2b5813921acd5d9e0479bb20c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.11990299075841904,
+      "alignment_seconds": 0.0004128189757466316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Imogen, I wish you sport.",
+          "start": 0.02,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Imogen,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " I",
+              "start": 1.14,
+              "end": 1.22,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " wish",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.88671875
+            },
+            {
+              "text": " sport.",
+              "start": 1.52,
+              "end": 1.84,
+              "probability": 0.8427734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.22
+        },
+        {
+          "raw": "wish",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "you",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "sport.",
+          "start": 1.52,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "Imogen.",
+        "I",
+        "wish",
+        "ye",
+        "sport."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.22,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "wish",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sport.",
+          "start": 1.52,
+          "end": 1.84,
+          "key": "sport",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "I",
+          "start": 1.14,
+          "end": 1.22
+        },
+        {
+          "text": "wish",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "ye",
+          "start": 1.34,
+          "end": 1.43
+        },
+        {
+          "text": "sport.",
+          "start": 1.52,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12044011987745762
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ad6c914b1296c88133be797bffff130160d1773f7062d138b30943083b4f9709",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

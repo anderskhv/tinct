@@ -1,0 +1,7477 @@
+{
+  "complete": true,
+  "signature": "fb364e4de42b88f5fef901147aa4b65c963888200c5308cb34b090ecf17759b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.7221146216616035,
+      "alignment_seconds": 0.001238279975950718,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Belarius. You, Polydore, have prov'd best woodman and Are master of the feast. Cadwal and I Will play the cook and servant; 'tis our match. The sweat of industry would dry and die But for the end it works to. Come, our stomachs Will make what's homely savoury; weariness Can snore upon the flint, when resty sloth Finds the down pillow hard. Now, peace be here, Poor house, that keep'st thyself!",
+        "hotwords": "Belarius, You, Polydore, Are, Cadwal, I, Will, But, Come, Can, Finds, Now, Poor"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Belarius, You, Polydore, have prov'd best woodman and Are master of the feast. Cadwal and I Will play the cook and servant.",
+          "start": 0.53,
+          "end": 7.03,
+          "words": [
+            {
+              "text": " Belarius,",
+              "start": 0.53,
+              "end": 0.97,
+              "probability": 0.0833740234375
+            },
+            {
+              "text": " You,",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.14453125
+            },
+            {
+              "text": " Polydore,",
+              "start": 1.77,
+              "end": 2.07,
+              "probability": 0.3221028645833333
+            },
+            {
+              "text": " have",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.74365234375
+            },
+            {
+              "text": " prov'd",
+              "start": 2.27,
+              "end": 2.67,
+              "probability": 0.4746589660644531
+            },
+            {
+              "text": " best",
+              "start": 2.67,
+              "end": 2.85,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " woodman",
+              "start": 2.85,
+              "end": 3.29,
+              "probability": 0.22210693359375
+            },
+            {
+              "text": " and",
+              "start": 3.29,
+              "end": 3.45,
+              "probability": 0.412841796875
+            },
+            {
+              "text": " Are",
+              "start": 3.45,
+              "end": 3.57,
+              "probability": 0.013885498046875
+            },
+            {
+              "text": " master",
+              "start": 3.57,
+              "end": 3.93,
+              "probability": 0.935546875
+            },
+            {
+              "text": " of",
+              "start": 3.93,
+              "end": 4.17,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 4.17,
+              "end": 4.31,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " feast.",
+              "start": 4.31,
+              "end": 4.55,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Cadwal",
+              "start": 5.33,
+              "end": 5.53,
+              "probability": 0.52899169921875
+            },
+            {
+              "text": " and",
+              "start": 5.53,
+              "end": 5.69,
+              "probability": 0.896484375
+            },
+            {
+              "text": " I",
+              "start": 5.69,
+              "end": 5.81,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Will",
+              "start": 5.81,
+              "end": 5.91,
+              "probability": 0.05303955078125
+            },
+            {
+              "text": " play",
+              "start": 5.91,
+              "end": 6.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 6.11,
+              "end": 6.27,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " cook",
+              "start": 6.27,
+              "end": 6.49,
+              "probability": 0.990234375
+            },
+            {
+              "text": " and",
+              "start": 6.49,
+              "end": 6.71,
+              "probability": 0.95703125
+            },
+            {
+              "text": " servant.",
+              "start": 6.71,
+              "end": 7.03,
+              "probability": 0.95068359375
+            }
+          ]
+        },
+        {
+          "text": " Tease our match. The sweat of industry would dry and die But for the end it works to. Come, our stomachs Will make what's homely savoury.",
+          "start": 7.67,
+          "end": 15.23,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 7.67,
+              "end": 7.85,
+              "probability": 0.6689453125
+            },
+            {
+              "text": " our",
+              "start": 7.85,
+              "end": 7.97,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " match.",
+              "start": 7.97,
+              "end": 8.29,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " The",
+              "start": 8.79,
+              "end": 8.95,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " sweat",
+              "start": 8.95,
+              "end": 9.11,
+              "probability": 0.96484375
+            },
+            {
+              "text": " of",
+              "start": 9.11,
+              "end": 9.23,
+              "probability": 0.974609375
+            },
+            {
+              "text": " industry",
+              "start": 9.23,
+              "end": 9.55,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " would",
+              "start": 9.55,
+              "end": 9.79,
+              "probability": 0.30615234375
+            },
+            {
+              "text": " dry",
+              "start": 9.79,
+              "end": 10.15,
+              "probability": 0.64794921875
+            },
+            {
+              "text": " and",
+              "start": 10.15,
+              "end": 10.39,
+              "probability": 0.7060546875
+            },
+            {
+              "text": " die",
+              "start": 10.39,
+              "end": 10.65,
+              "probability": 0.89453125
+            },
+            {
+              "text": " But",
+              "start": 10.65,
+              "end": 10.95,
+              "probability": 0.2012939453125
+            },
+            {
+              "text": " for",
+              "start": 10.95,
+              "end": 11.09,
+              "probability": 0.8984375
+            },
+            {
+              "text": " the",
+              "start": 11.09,
+              "end": 11.21,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " end",
+              "start": 11.21,
+              "end": 11.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 11.41,
+              "end": 11.57,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " works",
+              "start": 11.57,
+              "end": 11.73,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " to.",
+              "start": 11.73,
+              "end": 12.03,
+              "probability": 0.104736328125
+            },
+            {
+              "text": " Come,",
+              "start": 12.79,
+              "end": 12.97,
+              "probability": 0.83984375
+            },
+            {
+              "text": " our",
+              "start": 13.19,
+              "end": 13.33,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " stomachs",
+              "start": 13.33,
+              "end": 13.77,
+              "probability": 0.928466796875
+            },
+            {
+              "text": " Will",
+              "start": 13.77,
+              "end": 13.87,
+              "probability": 0.2744140625
+            },
+            {
+              "text": " make",
+              "start": 13.87,
+              "end": 14.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " what's",
+              "start": 14.01,
+              "end": 14.27,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " homely",
+              "start": 14.27,
+              "end": 14.69,
+              "probability": 0.901123046875
+            },
+            {
+              "text": " savoury.",
+              "start": 14.69,
+              "end": 15.23,
+              "probability": 0.9049479166666666
+            }
+          ]
+        },
+        {
+          "text": " Weariness Can snore upon the flint, when resty sloth Finds the down pillow hard. Now, peace be here, Poor house, that keep'st thyself!",
+          "start": 15.57,
+          "end": 23.21,
+          "words": [
+            {
+              "text": " Weariness",
+              "start": 15.57,
+              "end": 15.89,
+              "probability": 0.951171875
+            },
+            {
+              "text": " Can",
+              "start": 15.89,
+              "end": 16.11,
+              "probability": 0.07745361328125
+            },
+            {
+              "text": " snore",
+              "start": 16.11,
+              "end": 16.53,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " upon",
+              "start": 16.53,
+              "end": 16.79,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 16.79,
+              "end": 16.93,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " flint,",
+              "start": 16.93,
+              "end": 17.23,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " when",
+              "start": 17.43,
+              "end": 17.55,
+              "probability": 0.43896484375
+            },
+            {
+              "text": " resty",
+              "start": 17.55,
+              "end": 17.93,
+              "probability": 0.4117431640625
+            },
+            {
+              "text": " sloth",
+              "start": 17.93,
+              "end": 18.37,
+              "probability": 0.672607421875
+            },
+            {
+              "text": " Finds",
+              "start": 18.37,
+              "end": 18.69,
+              "probability": 0.910888671875
+            },
+            {
+              "text": " the",
+              "start": 18.69,
+              "end": 18.79,
+              "probability": 0.990234375
+            },
+            {
+              "text": " down",
+              "start": 18.79,
+              "end": 19.01,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " pillow",
+              "start": 19.01,
+              "end": 19.29,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " hard.",
+              "start": 19.29,
+              "end": 19.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Now,",
+              "start": 20.35,
+              "end": 20.59,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " peace",
+              "start": 20.87,
+              "end": 20.93,
+              "probability": 0.7421875
+            },
+            {
+              "text": " be",
+              "start": 20.93,
+              "end": 21.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " here,",
+              "start": 21.13,
+              "end": 21.35,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " Poor",
+              "start": 21.51,
+              "end": 21.59,
+              "probability": 0.1102294921875
+            },
+            {
+              "text": " house,",
+              "start": 21.59,
+              "end": 21.97,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " that",
+              "start": 22.15,
+              "end": 22.33,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " keep'st",
+              "start": 22.33,
+              "end": 22.69,
+              "probability": 0.35546875
+            },
+            {
+              "text": " thyself!",
+              "start": 22.69,
+              "end": 23.21,
+              "probability": 0.7169189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Belarius,",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "raw": "You,",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "Polydore,",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "raw": "have",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "prov'd",
+          "start": 2.27,
+          "end": 2.67
+        },
+        {
+          "raw": "best",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "raw": "woodman",
+          "start": 2.85,
+          "end": 3.29
+        },
+        {
+          "raw": "and",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "raw": "Are",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "raw": "master",
+          "start": 3.57,
+          "end": 3.93
+        },
+        {
+          "raw": "of",
+          "start": 3.93,
+          "end": 4.17
+        },
+        {
+          "raw": "the",
+          "start": 4.17,
+          "end": 4.31
+        },
+        {
+          "raw": "feast.",
+          "start": 4.31,
+          "end": 4.55
+        },
+        {
+          "raw": "Cadwal",
+          "start": 5.33,
+          "end": 5.53
+        },
+        {
+          "raw": "and",
+          "start": 5.53,
+          "end": 5.69
+        },
+        {
+          "raw": "I",
+          "start": 5.69,
+          "end": 5.81
+        },
+        {
+          "raw": "Will",
+          "start": 5.81,
+          "end": 5.91
+        },
+        {
+          "raw": "play",
+          "start": 5.91,
+          "end": 6.11
+        },
+        {
+          "raw": "the",
+          "start": 6.11,
+          "end": 6.27
+        },
+        {
+          "raw": "cook",
+          "start": 6.27,
+          "end": 6.49
+        },
+        {
+          "raw": "and",
+          "start": 6.49,
+          "end": 6.71
+        },
+        {
+          "raw": "servant.",
+          "start": 6.71,
+          "end": 7.03
+        },
+        {
+          "raw": "Tease",
+          "start": 7.67,
+          "end": 7.85
+        },
+        {
+          "raw": "our",
+          "start": 7.85,
+          "end": 7.97
+        },
+        {
+          "raw": "match.",
+          "start": 7.97,
+          "end": 8.29
+        },
+        {
+          "raw": "The",
+          "start": 8.79,
+          "end": 8.95
+        },
+        {
+          "raw": "sweat",
+          "start": 8.95,
+          "end": 9.11
+        },
+        {
+          "raw": "of",
+          "start": 9.11,
+          "end": 9.23
+        },
+        {
+          "raw": "industry",
+          "start": 9.23,
+          "end": 9.55
+        },
+        {
+          "raw": "would",
+          "start": 9.55,
+          "end": 9.79
+        },
+        {
+          "raw": "dry",
+          "start": 9.79,
+          "end": 10.15
+        },
+        {
+          "raw": "and",
+          "start": 10.15,
+          "end": 10.39
+        },
+        {
+          "raw": "die",
+          "start": 10.39,
+          "end": 10.65
+        },
+        {
+          "raw": "But",
+          "start": 10.65,
+          "end": 10.95
+        },
+        {
+          "raw": "for",
+          "start": 10.95,
+          "end": 11.09
+        },
+        {
+          "raw": "the",
+          "start": 11.09,
+          "end": 11.21
+        },
+        {
+          "raw": "end",
+          "start": 11.21,
+          "end": 11.41
+        },
+        {
+          "raw": "it",
+          "start": 11.41,
+          "end": 11.57
+        },
+        {
+          "raw": "works",
+          "start": 11.57,
+          "end": 11.73
+        },
+        {
+          "raw": "to.",
+          "start": 11.73,
+          "end": 12.03
+        },
+        {
+          "raw": "Come,",
+          "start": 12.79,
+          "end": 12.97
+        },
+        {
+          "raw": "our",
+          "start": 13.19,
+          "end": 13.33
+        },
+        {
+          "raw": "stomachs",
+          "start": 13.33,
+          "end": 13.77
+        },
+        {
+          "raw": "Will",
+          "start": 13.77,
+          "end": 13.87
+        },
+        {
+          "raw": "make",
+          "start": 13.87,
+          "end": 14.01
+        },
+        {
+          "raw": "what's",
+          "start": 14.01,
+          "end": 14.27
+        },
+        {
+          "raw": "homely",
+          "start": 14.27,
+          "end": 14.69
+        },
+        {
+          "raw": "savoury.",
+          "start": 14.69,
+          "end": 15.23
+        },
+        {
+          "raw": "Weariness",
+          "start": 15.57,
+          "end": 15.89
+        },
+        {
+          "raw": "Can",
+          "start": 15.89,
+          "end": 16.11
+        },
+        {
+          "raw": "snore",
+          "start": 16.11,
+          "end": 16.53
+        },
+        {
+          "raw": "upon",
+          "start": 16.53,
+          "end": 16.79
+        },
+        {
+          "raw": "the",
+          "start": 16.79,
+          "end": 16.93
+        },
+        {
+          "raw": "flint,",
+          "start": 16.93,
+          "end": 17.23
+        },
+        {
+          "raw": "when",
+          "start": 17.43,
+          "end": 17.55
+        },
+        {
+          "raw": "resty",
+          "start": 17.55,
+          "end": 17.93
+        },
+        {
+          "raw": "sloth",
+          "start": 17.93,
+          "end": 18.37
+        },
+        {
+          "raw": "Finds",
+          "start": 18.37,
+          "end": 18.69
+        },
+        {
+          "raw": "the",
+          "start": 18.69,
+          "end": 18.79
+        },
+        {
+          "raw": "down",
+          "start": 18.79,
+          "end": 19.01
+        },
+        {
+          "raw": "pillow",
+          "start": 19.01,
+          "end": 19.29
+        },
+        {
+          "raw": "hard.",
+          "start": 19.29,
+          "end": 19.69
+        },
+        {
+          "raw": "Now,",
+          "start": 20.35,
+          "end": 20.59
+        },
+        {
+          "raw": "peace",
+          "start": 20.87,
+          "end": 20.93
+        },
+        {
+          "raw": "be",
+          "start": 20.93,
+          "end": 21.13
+        },
+        {
+          "raw": "here,",
+          "start": 21.13,
+          "end": 21.35
+        },
+        {
+          "raw": "Poor",
+          "start": 21.51,
+          "end": 21.59
+        },
+        {
+          "raw": "house,",
+          "start": 21.59,
+          "end": 21.97
+        },
+        {
+          "raw": "that",
+          "start": 22.15,
+          "end": 22.33
+        },
+        {
+          "raw": "keep'st",
+          "start": 22.33,
+          "end": 22.69
+        },
+        {
+          "raw": "thyself!",
+          "start": 22.69,
+          "end": 23.21
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "You,",
+        "Polydore,",
+        "have",
+        "prov'd",
+        "best",
+        "woodman",
+        "and",
+        "Are",
+        "master",
+        "of",
+        "the",
+        "feast.",
+        "Cadwal",
+        "and",
+        "I",
+        "Will",
+        "play",
+        "the",
+        "cook",
+        "and",
+        "servant;",
+        "'tis",
+        "our",
+        "match.",
+        "The",
+        "sweat",
+        "of",
+        "industry",
+        "would",
+        "dry",
+        "and",
+        "die",
+        "But",
+        "for",
+        "the",
+        "end",
+        "it",
+        "works",
+        "to.",
+        "Come,",
+        "our",
+        "stomachs",
+        "Will",
+        "make",
+        "what's",
+        "homely",
+        "savoury;",
+        "weariness",
+        "Can",
+        "snore",
+        "upon",
+        "the",
+        "flint,",
+        "when",
+        "resty",
+        "sloth",
+        "Finds",
+        "the",
+        "down",
+        "pillow",
+        "hard.",
+        "Now,",
+        "peace",
+        "be",
+        "here,",
+        "Poor",
+        "house,",
+        "that",
+        "keep'st",
+        "thyself!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "equal",
+          23,
+          71,
+          23,
+          71
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Belarius,",
+          "start": 0.53,
+          "end": 0.97,
+          "key": "belarius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You,",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Polydore,",
+          "start": 1.77,
+          "end": 2.07,
+          "key": "polydore",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.07,
+          "end": 2.27,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "prov'd",
+          "start": 2.27,
+          "end": 2.67,
+          "key": "provd",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 2.67,
+          "end": 2.85,
+          "key": "best",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "woodman",
+          "start": 2.85,
+          "end": 3.29,
+          "key": "woodman",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.29,
+          "end": 3.45,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 3.45,
+          "end": 3.57,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 3.57,
+          "end": 3.93,
+          "key": "master",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.93,
+          "end": 4.17,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.17,
+          "end": 4.31,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "feast.",
+          "start": 4.31,
+          "end": 4.55,
+          "key": "feast",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Cadwal",
+          "start": 5.33,
+          "end": 5.53,
+          "key": "cadwal",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.53,
+          "end": 5.69,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.69,
+          "end": 5.81,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 5.81,
+          "end": 5.91,
+          "key": "will",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "play",
+          "start": 5.91,
+          "end": 6.11,
+          "key": "play",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.11,
+          "end": 6.27,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "cook",
+          "start": 6.27,
+          "end": 6.49,
+          "key": "cook",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.49,
+          "end": 6.71,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "servant.",
+          "start": 6.71,
+          "end": 7.03,
+          "key": "servant",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 7.67,
+          "end": 7.85,
+          "key": "tease",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 7.85,
+          "end": 7.97,
+          "key": "our",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "match.",
+          "start": 7.97,
+          "end": 8.29,
+          "key": "match",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 8.79,
+          "end": 8.95,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "sweat",
+          "start": 8.95,
+          "end": 9.11,
+          "key": "sweat",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.11,
+          "end": 9.23,
+          "key": "of",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "industry",
+          "start": 9.23,
+          "end": 9.55,
+          "key": "industry",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 9.55,
+          "end": 9.79,
+          "key": "would",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "dry",
+          "start": 9.79,
+          "end": 10.15,
+          "key": "dry",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.15,
+          "end": 10.39,
+          "key": "and",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "die",
+          "start": 10.39,
+          "end": 10.65,
+          "key": "die",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 10.65,
+          "end": 10.95,
+          "key": "but",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 10.95,
+          "end": 11.09,
+          "key": "for",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.09,
+          "end": 11.21,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 11.21,
+          "end": 11.41,
+          "key": "end",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 11.41,
+          "end": 11.57,
+          "key": "it",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "works",
+          "start": 11.57,
+          "end": 11.73,
+          "key": "works",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "to.",
+          "start": 11.73,
+          "end": 12.03,
+          "key": "to",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 12.79,
+          "end": 12.97,
+          "key": "come",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 13.19,
+          "end": 13.33,
+          "key": "our",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "stomachs",
+          "start": 13.33,
+          "end": 13.77,
+          "key": "stomachs",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 13.77,
+          "end": 13.87,
+          "key": "will",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 13.87,
+          "end": 14.01,
+          "key": "make",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 14.01,
+          "end": 14.27,
+          "key": "whats",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "homely",
+          "start": 14.27,
+          "end": 14.69,
+          "key": "homely",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "savoury.",
+          "start": 14.69,
+          "end": 15.23,
+          "key": "savoury",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Weariness",
+          "start": 15.57,
+          "end": 15.89,
+          "key": "weariness",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Can",
+          "start": 15.89,
+          "end": 16.11,
+          "key": "can",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "snore",
+          "start": 16.11,
+          "end": 16.53,
+          "key": "snore",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 16.53,
+          "end": 16.79,
+          "key": "upon",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.79,
+          "end": 16.93,
+          "key": "the",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "flint,",
+          "start": 16.93,
+          "end": 17.23,
+          "key": "flint",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 17.43,
+          "end": 17.55,
+          "key": "when",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "resty",
+          "start": 17.55,
+          "end": 17.93,
+          "key": "resty",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "sloth",
+          "start": 17.93,
+          "end": 18.37,
+          "key": "sloth",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "Finds",
+          "start": 18.37,
+          "end": 18.69,
+          "key": "finds",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.69,
+          "end": 18.79,
+          "key": "the",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 18.79,
+          "end": 19.01,
+          "key": "down",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "pillow",
+          "start": 19.01,
+          "end": 19.29,
+          "key": "pillow",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "hard.",
+          "start": 19.29,
+          "end": 19.69,
+          "key": "hard",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "Now,",
+          "start": 20.35,
+          "end": 20.59,
+          "key": "now",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "peace",
+          "start": 20.87,
+          "end": 20.93,
+          "key": "peace",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 20.93,
+          "end": 21.13,
+          "key": "be",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 21.13,
+          "end": 21.35,
+          "key": "here",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "Poor",
+          "start": 21.51,
+          "end": 21.59,
+          "key": "poor",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "house,",
+          "start": 21.59,
+          "end": 21.97,
+          "key": "house",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 22.15,
+          "end": 22.33,
+          "key": "that",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "keep'st",
+          "start": 22.33,
+          "end": 22.69,
+          "key": "keepst",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "thyself!",
+          "start": 22.69,
+          "end": 23.21,
+          "key": "thyself",
+          "pieces": [
+            70
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "text": "You,",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "Polydore,",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "text": "have",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "prov'd",
+          "start": 2.27,
+          "end": 2.67
+        },
+        {
+          "text": "best",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "text": "woodman",
+          "start": 2.85,
+          "end": 3.29
+        },
+        {
+          "text": "and",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "text": "Are",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "text": "master",
+          "start": 3.57,
+          "end": 3.93
+        },
+        {
+          "text": "of",
+          "start": 3.93,
+          "end": 4.17
+        },
+        {
+          "text": "the",
+          "start": 4.17,
+          "end": 4.31
+        },
+        {
+          "text": "feast.",
+          "start": 4.31,
+          "end": 4.55
+        },
+        {
+          "text": "Cadwal",
+          "start": 5.33,
+          "end": 5.53
+        },
+        {
+          "text": "and",
+          "start": 5.53,
+          "end": 5.69
+        },
+        {
+          "text": "I",
+          "start": 5.69,
+          "end": 5.81
+        },
+        {
+          "text": "Will",
+          "start": 5.81,
+          "end": 5.91
+        },
+        {
+          "text": "play",
+          "start": 5.91,
+          "end": 6.11
+        },
+        {
+          "text": "the",
+          "start": 6.11,
+          "end": 6.27
+        },
+        {
+          "text": "cook",
+          "start": 6.27,
+          "end": 6.49
+        },
+        {
+          "text": "and",
+          "start": 6.49,
+          "end": 6.71
+        },
+        {
+          "text": "servant;",
+          "start": 6.71,
+          "end": 7.03
+        },
+        {
+          "text": "'tis",
+          "start": 7.03,
+          "end": 7.44
+        },
+        {
+          "text": "our",
+          "start": 7.85,
+          "end": 7.97
+        },
+        {
+          "text": "match.",
+          "start": 7.97,
+          "end": 8.29
+        },
+        {
+          "text": "The",
+          "start": 8.79,
+          "end": 8.95
+        },
+        {
+          "text": "sweat",
+          "start": 8.95,
+          "end": 9.11
+        },
+        {
+          "text": "of",
+          "start": 9.11,
+          "end": 9.23
+        },
+        {
+          "text": "industry",
+          "start": 9.23,
+          "end": 9.55
+        },
+        {
+          "text": "would",
+          "start": 9.55,
+          "end": 9.79
+        },
+        {
+          "text": "dry",
+          "start": 9.79,
+          "end": 10.15
+        },
+        {
+          "text": "and",
+          "start": 10.15,
+          "end": 10.39
+        },
+        {
+          "text": "die",
+          "start": 10.39,
+          "end": 10.65
+        },
+        {
+          "text": "But",
+          "start": 10.65,
+          "end": 10.95
+        },
+        {
+          "text": "for",
+          "start": 10.95,
+          "end": 11.09
+        },
+        {
+          "text": "the",
+          "start": 11.09,
+          "end": 11.21
+        },
+        {
+          "text": "end",
+          "start": 11.21,
+          "end": 11.41
+        },
+        {
+          "text": "it",
+          "start": 11.41,
+          "end": 11.57
+        },
+        {
+          "text": "works",
+          "start": 11.57,
+          "end": 11.73
+        },
+        {
+          "text": "to.",
+          "start": 11.73,
+          "end": 12.03
+        },
+        {
+          "text": "Come,",
+          "start": 12.79,
+          "end": 12.97
+        },
+        {
+          "text": "our",
+          "start": 13.19,
+          "end": 13.33
+        },
+        {
+          "text": "stomachs",
+          "start": 13.33,
+          "end": 13.77
+        },
+        {
+          "text": "Will",
+          "start": 13.77,
+          "end": 13.87
+        },
+        {
+          "text": "make",
+          "start": 13.87,
+          "end": 14.01
+        },
+        {
+          "text": "what's",
+          "start": 14.01,
+          "end": 14.27
+        },
+        {
+          "text": "homely",
+          "start": 14.27,
+          "end": 14.69
+        },
+        {
+          "text": "savoury;",
+          "start": 14.69,
+          "end": 15.23
+        },
+        {
+          "text": "weariness",
+          "start": 15.57,
+          "end": 15.89
+        },
+        {
+          "text": "Can",
+          "start": 15.89,
+          "end": 16.11
+        },
+        {
+          "text": "snore",
+          "start": 16.11,
+          "end": 16.53
+        },
+        {
+          "text": "upon",
+          "start": 16.53,
+          "end": 16.79
+        },
+        {
+          "text": "the",
+          "start": 16.79,
+          "end": 16.93
+        },
+        {
+          "text": "flint,",
+          "start": 16.93,
+          "end": 17.23
+        },
+        {
+          "text": "when",
+          "start": 17.43,
+          "end": 17.55
+        },
+        {
+          "text": "resty",
+          "start": 17.55,
+          "end": 17.93
+        },
+        {
+          "text": "sloth",
+          "start": 17.93,
+          "end": 18.37
+        },
+        {
+          "text": "Finds",
+          "start": 18.37,
+          "end": 18.69
+        },
+        {
+          "text": "the",
+          "start": 18.69,
+          "end": 18.79
+        },
+        {
+          "text": "down",
+          "start": 18.79,
+          "end": 19.01
+        },
+        {
+          "text": "pillow",
+          "start": 19.01,
+          "end": 19.29
+        },
+        {
+          "text": "hard.",
+          "start": 19.29,
+          "end": 19.69
+        },
+        {
+          "text": "Now,",
+          "start": 20.35,
+          "end": 20.59
+        },
+        {
+          "text": "peace",
+          "start": 20.87,
+          "end": 20.93
+        },
+        {
+          "text": "be",
+          "start": 20.93,
+          "end": 21.13
+        },
+        {
+          "text": "here,",
+          "start": 21.13,
+          "end": 21.35
+        },
+        {
+          "text": "Poor",
+          "start": 21.51,
+          "end": 21.59
+        },
+        {
+          "text": "house,",
+          "start": 21.59,
+          "end": 21.97
+        },
+        {
+          "text": "that",
+          "start": 22.15,
+          "end": 22.33
+        },
+        {
+          "text": "keep'st",
+          "start": 22.33,
+          "end": 22.69
+        },
+        {
+          "text": "thyself!",
+          "start": 22.69,
+          "end": 23.21
+        }
+      ],
+      "stats": {
+        "expected_words": 71,
+        "heard_words": 71,
+        "matched_words": 70
+      },
+      "match_ratio": 0.9859154929577465,
+      "rejection_reasons": [],
+      "seconds": 0.7239607237279415
+    },
+    {
+      "asr_seconds": 2.941893014125526,
+      "alignment_seconds": 0.002550290897488594,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Belarius, You, Polydore, Are, Cadwal, I, Will, But, Come, Can, Finds, Now, Poor"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Belarius, You, Polydore, Have, Proved, Best, Woodman, And, Are, Master, Of, The Feast, Cadwal, And, I, Will, Play, The Cook, And Servant, Tease, Our Match, The Sweat of Industry, Would, Dry, And Die, But, For The End, It Works, Too, Come, Our Stomach, Will Make, What's, Homely, Savory, Weariness, Can, Snore, Upon, The Flint, When, Resty, Sloth, Finds, The Down, Pillow, Hard, Now, Peace Be Here, Poor House, That Keeps Thee Thyself,",
+          "start": 0.61,
+          "end": 23.21,
+          "words": [
+            {
+              "text": " Belarius,",
+              "start": 0.61,
+              "end": 0.97,
+              "probability": 0.0831298828125
+            },
+            {
+              "text": " You,",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.14453125
+            },
+            {
+              "text": " Polydore,",
+              "start": 1.77,
+              "end": 2.07,
+              "probability": 0.3227335611979167
+            },
+            {
+              "text": " Have,",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.251953125
+            },
+            {
+              "text": " Proved,",
+              "start": 2.27,
+              "end": 2.63,
+              "probability": 0.798583984375
+            },
+            {
+              "text": " Best,",
+              "start": 2.79,
+              "end": 2.85,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " Woodman,",
+              "start": 2.95,
+              "end": 3.27,
+              "probability": 0.868408203125
+            },
+            {
+              "text": " And,",
+              "start": 3.37,
+              "end": 3.47,
+              "probability": 0.833984375
+            },
+            {
+              "text": " Are,",
+              "start": 3.51,
+              "end": 3.59,
+              "probability": 0.2349853515625
+            },
+            {
+              "text": " Master,",
+              "start": 3.63,
+              "end": 3.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Of,",
+              "start": 4.11,
+              "end": 4.17,
+              "probability": 0.80859375
+            },
+            {
+              "text": " The",
+              "start": 4.23,
+              "end": 4.31,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " Feast,",
+              "start": 4.31,
+              "end": 4.55,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " Cadwal,",
+              "start": 5.29,
+              "end": 5.51,
+              "probability": 0.47003173828125
+            },
+            {
+              "text": " And,",
+              "start": 5.61,
+              "end": 5.69,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " I,",
+              "start": 5.71,
+              "end": 5.81,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " Will,",
+              "start": 5.81,
+              "end": 5.93,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Play,",
+              "start": 5.93,
+              "end": 6.11,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " The",
+              "start": 6.15,
+              "end": 6.35,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Cook,",
+              "start": 6.35,
+              "end": 6.49,
+              "probability": 0.70849609375
+            },
+            {
+              "text": " And",
+              "start": 6.61,
+              "end": 6.71,
+              "probability": 0.92578125
+            },
+            {
+              "text": " Servant,",
+              "start": 6.71,
+              "end": 7.17,
+              "probability": 0.83203125
+            },
+            {
+              "text": " Tease,",
+              "start": 7.65,
+              "end": 7.85,
+              "probability": 0.849609375
+            },
+            {
+              "text": " Our",
+              "start": 7.89,
+              "end": 7.99,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Match,",
+              "start": 7.99,
+              "end": 8.25,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " The",
+              "start": 8.81,
+              "end": 8.95,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Sweat",
+              "start": 8.95,
+              "end": 9.15,
+              "probability": 0.878662109375
+            },
+            {
+              "text": " of",
+              "start": 9.15,
+              "end": 9.23,
+              "probability": 0.458251953125
+            },
+            {
+              "text": " Industry,",
+              "start": 9.23,
+              "end": 9.53,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " Would,",
+              "start": 9.61,
+              "end": 9.79,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Dry,",
+              "start": 10.07,
+              "end": 10.15,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " And",
+              "start": 10.29,
+              "end": 10.39,
+              "probability": 0.9296875
+            },
+            {
+              "text": " Die,",
+              "start": 10.39,
+              "end": 10.65,
+              "probability": 0.951171875
+            },
+            {
+              "text": " But,",
+              "start": 10.89,
+              "end": 10.95,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " For",
+              "start": 11.07,
+              "end": 11.09,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " The",
+              "start": 11.09,
+              "end": 11.23,
+              "probability": 0.59326171875
+            },
+            {
+              "text": " End,",
+              "start": 11.23,
+              "end": 11.43,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " It",
+              "start": 11.43,
+              "end": 11.57,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Works,",
+              "start": 11.57,
+              "end": 11.73,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Too,",
+              "start": 12.03,
+              "end": 12.03,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " Come,",
+              "start": 12.79,
+              "end": 12.99,
+              "probability": 0.94921875
+            },
+            {
+              "text": " Our",
+              "start": 13.17,
+              "end": 13.33,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Stomach,",
+              "start": 13.33,
+              "end": 13.61,
+              "probability": 0.958251953125
+            },
+            {
+              "text": " Will",
+              "start": 13.73,
+              "end": 13.85,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " Make,",
+              "start": 13.85,
+              "end": 14.01,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " What's,",
+              "start": 14.11,
+              "end": 14.29,
+              "probability": 0.761474609375
+            },
+            {
+              "text": " Homely,",
+              "start": 14.37,
+              "end": 14.65,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " Savory,",
+              "start": 14.87,
+              "end": 15.15,
+              "probability": 0.833984375
+            },
+            {
+              "text": " Weariness,",
+              "start": 15.57,
+              "end": 15.87,
+              "probability": 0.908447265625
+            },
+            {
+              "text": " Can,",
+              "start": 15.89,
+              "end": 16.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Snore,",
+              "start": 16.35,
+              "end": 16.53,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Upon,",
+              "start": 16.55,
+              "end": 16.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " The",
+              "start": 16.89,
+              "end": 16.95,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Flint,",
+              "start": 16.95,
+              "end": 17.13,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " When,",
+              "start": 17.43,
+              "end": 17.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Resty,",
+              "start": 17.65,
+              "end": 17.93,
+              "probability": 0.633544921875
+            },
+            {
+              "text": " Sloth,",
+              "start": 18.19,
+              "end": 18.35,
+              "probability": 0.976806640625
+            },
+            {
+              "text": " Finds,",
+              "start": 18.55,
+              "end": 18.71,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " The",
+              "start": 18.73,
+              "end": 18.79,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Down,",
+              "start": 18.79,
+              "end": 19.01,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " Pillow,",
+              "start": 19.23,
+              "end": 19.41,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " Hard,",
+              "start": 19.41,
+              "end": 19.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Now,",
+              "start": 20.27,
+              "end": 20.59,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Peace",
+              "start": 20.93,
+              "end": 20.95,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Be",
+              "start": 20.95,
+              "end": 21.13,
+              "probability": 0.52490234375
+            },
+            {
+              "text": " Here,",
+              "start": 21.13,
+              "end": 21.35,
+              "probability": 0.935546875
+            },
+            {
+              "text": " Poor",
+              "start": 21.51,
+              "end": 21.61,
+              "probability": 0.96875
+            },
+            {
+              "text": " House,",
+              "start": 21.61,
+              "end": 21.95,
+              "probability": 0.91015625
+            },
+            {
+              "text": " That",
+              "start": 22.15,
+              "end": 22.31,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Keeps",
+              "start": 22.31,
+              "end": 22.65,
+              "probability": 0.785888671875
+            },
+            {
+              "text": " Thee",
+              "start": 22.65,
+              "end": 22.83,
+              "probability": 0.4747314453125
+            },
+            {
+              "text": " Thyself,",
+              "start": 22.83,
+              "end": 23.21,
+              "probability": 0.8642578125
+            }
+          ]
+        },
+        {
+          "text": " Subtitling by",
+          "start": 23.21,
+          "end": 23.79,
+          "words": [
+            {
+              "text": " Subtitling",
+              "start": 23.21,
+              "end": 23.79,
+              "probability": 0.4247997999191284
+            },
+            {
+              "text": " by",
+              "start": 23.79,
+              "end": 23.79,
+              "probability": 0.6845703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Belarius,",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "raw": "You,",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "Polydore,",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "raw": "Have,",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "Proved,",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "raw": "Best,",
+          "start": 2.79,
+          "end": 2.85
+        },
+        {
+          "raw": "Woodman,",
+          "start": 2.95,
+          "end": 3.27
+        },
+        {
+          "raw": "And,",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "raw": "Are,",
+          "start": 3.51,
+          "end": 3.59
+        },
+        {
+          "raw": "Master,",
+          "start": 3.63,
+          "end": 3.89
+        },
+        {
+          "raw": "Of,",
+          "start": 4.11,
+          "end": 4.17
+        },
+        {
+          "raw": "The",
+          "start": 4.23,
+          "end": 4.31
+        },
+        {
+          "raw": "Feast,",
+          "start": 4.31,
+          "end": 4.55
+        },
+        {
+          "raw": "Cadwal,",
+          "start": 5.29,
+          "end": 5.51
+        },
+        {
+          "raw": "And,",
+          "start": 5.61,
+          "end": 5.69
+        },
+        {
+          "raw": "I,",
+          "start": 5.71,
+          "end": 5.81
+        },
+        {
+          "raw": "Will,",
+          "start": 5.81,
+          "end": 5.93
+        },
+        {
+          "raw": "Play,",
+          "start": 5.93,
+          "end": 6.11
+        },
+        {
+          "raw": "The",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "raw": "Cook,",
+          "start": 6.35,
+          "end": 6.49
+        },
+        {
+          "raw": "And",
+          "start": 6.61,
+          "end": 6.71
+        },
+        {
+          "raw": "Servant,",
+          "start": 6.71,
+          "end": 7.17
+        },
+        {
+          "raw": "Tease,",
+          "start": 7.65,
+          "end": 7.85
+        },
+        {
+          "raw": "Our",
+          "start": 7.89,
+          "end": 7.99
+        },
+        {
+          "raw": "Match,",
+          "start": 7.99,
+          "end": 8.25
+        },
+        {
+          "raw": "The",
+          "start": 8.81,
+          "end": 8.95
+        },
+        {
+          "raw": "Sweat",
+          "start": 8.95,
+          "end": 9.15
+        },
+        {
+          "raw": "of",
+          "start": 9.15,
+          "end": 9.23
+        },
+        {
+          "raw": "Industry,",
+          "start": 9.23,
+          "end": 9.53
+        },
+        {
+          "raw": "Would,",
+          "start": 9.61,
+          "end": 9.79
+        },
+        {
+          "raw": "Dry,",
+          "start": 10.07,
+          "end": 10.15
+        },
+        {
+          "raw": "And",
+          "start": 10.29,
+          "end": 10.39
+        },
+        {
+          "raw": "Die,",
+          "start": 10.39,
+          "end": 10.65
+        },
+        {
+          "raw": "But,",
+          "start": 10.89,
+          "end": 10.95
+        },
+        {
+          "raw": "For",
+          "start": 11.07,
+          "end": 11.09
+        },
+        {
+          "raw": "The",
+          "start": 11.09,
+          "end": 11.23
+        },
+        {
+          "raw": "End,",
+          "start": 11.23,
+          "end": 11.43
+        },
+        {
+          "raw": "It",
+          "start": 11.43,
+          "end": 11.57
+        },
+        {
+          "raw": "Works,",
+          "start": 11.57,
+          "end": 11.73
+        },
+        {
+          "raw": "Too,",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "raw": "Come,",
+          "start": 12.79,
+          "end": 12.99
+        },
+        {
+          "raw": "Our",
+          "start": 13.17,
+          "end": 13.33
+        },
+        {
+          "raw": "Stomach,",
+          "start": 13.33,
+          "end": 13.61
+        },
+        {
+          "raw": "Will",
+          "start": 13.73,
+          "end": 13.85
+        },
+        {
+          "raw": "Make,",
+          "start": 13.85,
+          "end": 14.01
+        },
+        {
+          "raw": "What's,",
+          "start": 14.11,
+          "end": 14.29
+        },
+        {
+          "raw": "Homely,",
+          "start": 14.37,
+          "end": 14.65
+        },
+        {
+          "raw": "Savory,",
+          "start": 14.87,
+          "end": 15.15
+        },
+        {
+          "raw": "Weariness,",
+          "start": 15.57,
+          "end": 15.87
+        },
+        {
+          "raw": "Can,",
+          "start": 15.89,
+          "end": 16.11
+        },
+        {
+          "raw": "Snore,",
+          "start": 16.35,
+          "end": 16.53
+        },
+        {
+          "raw": "Upon,",
+          "start": 16.55,
+          "end": 16.77
+        },
+        {
+          "raw": "The",
+          "start": 16.89,
+          "end": 16.95
+        },
+        {
+          "raw": "Flint,",
+          "start": 16.95,
+          "end": 17.13
+        },
+        {
+          "raw": "When,",
+          "start": 17.43,
+          "end": 17.55
+        },
+        {
+          "raw": "Resty,",
+          "start": 17.65,
+          "end": 17.93
+        },
+        {
+          "raw": "Sloth,",
+          "start": 18.19,
+          "end": 18.35
+        },
+        {
+          "raw": "Finds,",
+          "start": 18.55,
+          "end": 18.71
+        },
+        {
+          "raw": "The",
+          "start": 18.73,
+          "end": 18.79
+        },
+        {
+          "raw": "Down,",
+          "start": 18.79,
+          "end": 19.01
+        },
+        {
+          "raw": "Pillow,",
+          "start": 19.23,
+          "end": 19.41
+        },
+        {
+          "raw": "Hard,",
+          "start": 19.41,
+          "end": 19.65
+        },
+        {
+          "raw": "Now,",
+          "start": 20.27,
+          "end": 20.59
+        },
+        {
+          "raw": "Peace",
+          "start": 20.93,
+          "end": 20.95
+        },
+        {
+          "raw": "Be",
+          "start": 20.95,
+          "end": 21.13
+        },
+        {
+          "raw": "Here,",
+          "start": 21.13,
+          "end": 21.35
+        },
+        {
+          "raw": "Poor",
+          "start": 21.51,
+          "end": 21.61
+        },
+        {
+          "raw": "House,",
+          "start": 21.61,
+          "end": 21.95
+        },
+        {
+          "raw": "That",
+          "start": 22.15,
+          "end": 22.31
+        },
+        {
+          "raw": "Keeps",
+          "start": 22.31,
+          "end": 22.65
+        },
+        {
+          "raw": "Thee",
+          "start": 22.65,
+          "end": 22.83
+        },
+        {
+          "raw": "Thyself,",
+          "start": 22.83,
+          "end": 23.21
+        },
+        {
+          "raw": "Subtitling",
+          "start": 23.21,
+          "end": 23.79
+        },
+        {
+          "raw": "by",
+          "start": 23.79,
+          "end": 23.79
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "You,",
+        "Polydore,",
+        "have",
+        "prov'd",
+        "best",
+        "woodman",
+        "and",
+        "Are",
+        "master",
+        "of",
+        "the",
+        "feast.",
+        "Cadwal",
+        "and",
+        "I",
+        "Will",
+        "play",
+        "the",
+        "cook",
+        "and",
+        "servant;",
+        "'tis",
+        "our",
+        "match.",
+        "The",
+        "sweat",
+        "of",
+        "industry",
+        "would",
+        "dry",
+        "and",
+        "die",
+        "But",
+        "for",
+        "the",
+        "end",
+        "it",
+        "works",
+        "to.",
+        "Come,",
+        "our",
+        "stomachs",
+        "Will",
+        "make",
+        "what's",
+        "homely",
+        "savoury;",
+        "weariness",
+        "Can",
+        "snore",
+        "upon",
+        "the",
+        "flint,",
+        "when",
+        "resty",
+        "sloth",
+        "Finds",
+        "the",
+        "down",
+        "pillow",
+        "hard.",
+        "Now,",
+        "peace",
+        "be",
+        "here,",
+        "Poor",
+        "house,",
+        "that",
+        "keep'st",
+        "thyself!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          22,
+          5,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "equal",
+          23,
+          39,
+          23,
+          39
+        ],
+        [
+          "replace",
+          39,
+          40,
+          39,
+          40
+        ],
+        [
+          "equal",
+          40,
+          42,
+          40,
+          42
+        ],
+        [
+          "replace",
+          42,
+          43,
+          42,
+          43
+        ],
+        [
+          "equal",
+          43,
+          47,
+          43,
+          47
+        ],
+        [
+          "replace",
+          47,
+          48,
+          47,
+          48
+        ],
+        [
+          "equal",
+          48,
+          69,
+          48,
+          69
+        ],
+        [
+          "replace",
+          69,
+          70,
+          69,
+          71
+        ],
+        [
+          "equal",
+          70,
+          71,
+          71,
+          72
+        ],
+        [
+          "insert",
+          71,
+          71,
+          72,
+          74
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "replace",
+          39,
+          40,
+          39,
+          40
+        ],
+        [
+          "replace",
+          42,
+          43,
+          42,
+          43
+        ],
+        [
+          "replace",
+          47,
+          48,
+          47,
+          48
+        ],
+        [
+          "replace",
+          69,
+          70,
+          69,
+          71
+        ],
+        [
+          "insert",
+          71,
+          71,
+          72,
+          74
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Belarius,",
+          "start": 0.61,
+          "end": 0.97,
+          "key": "belarius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You,",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Polydore,",
+          "start": 1.77,
+          "end": 2.07,
+          "key": "polydore",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Have,",
+          "start": 2.07,
+          "end": 2.27,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Proved,",
+          "start": 2.27,
+          "end": 2.63,
+          "key": "proved",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Best,",
+          "start": 2.79,
+          "end": 2.85,
+          "key": "best",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Woodman,",
+          "start": 2.95,
+          "end": 3.27,
+          "key": "woodman",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "And,",
+          "start": 3.37,
+          "end": 3.47,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Are,",
+          "start": 3.51,
+          "end": 3.59,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Master,",
+          "start": 3.63,
+          "end": 3.89,
+          "key": "master",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Of,",
+          "start": 4.11,
+          "end": 4.17,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.23,
+          "end": 4.31,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Feast,",
+          "start": 4.31,
+          "end": 4.55,
+          "key": "feast",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Cadwal,",
+          "start": 5.29,
+          "end": 5.51,
+          "key": "cadwal",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "And,",
+          "start": 5.61,
+          "end": 5.69,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 5.71,
+          "end": 5.81,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Will,",
+          "start": 5.81,
+          "end": 5.93,
+          "key": "will",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Play,",
+          "start": 5.93,
+          "end": 6.11,
+          "key": "play",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 6.15,
+          "end": 6.35,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Cook,",
+          "start": 6.35,
+          "end": 6.49,
+          "key": "cook",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 6.61,
+          "end": 6.71,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Servant,",
+          "start": 6.71,
+          "end": 7.17,
+          "key": "servant",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Tease,",
+          "start": 7.65,
+          "end": 7.85,
+          "key": "tease",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 7.89,
+          "end": 7.99,
+          "key": "our",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Match,",
+          "start": 7.99,
+          "end": 8.25,
+          "key": "match",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 8.81,
+          "end": 8.95,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Sweat",
+          "start": 8.95,
+          "end": 9.15,
+          "key": "sweat",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.15,
+          "end": 9.23,
+          "key": "of",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Industry,",
+          "start": 9.23,
+          "end": 9.53,
+          "key": "industry",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Would,",
+          "start": 9.61,
+          "end": 9.79,
+          "key": "would",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Dry,",
+          "start": 10.07,
+          "end": 10.15,
+          "key": "dry",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 10.29,
+          "end": 10.39,
+          "key": "and",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Die,",
+          "start": 10.39,
+          "end": 10.65,
+          "key": "die",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "But,",
+          "start": 10.89,
+          "end": 10.95,
+          "key": "but",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 11.07,
+          "end": 11.09,
+          "key": "for",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 11.09,
+          "end": 11.23,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "End,",
+          "start": 11.23,
+          "end": 11.43,
+          "key": "end",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 11.43,
+          "end": 11.57,
+          "key": "it",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Works,",
+          "start": 11.57,
+          "end": 11.73,
+          "key": "works",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Too,",
+          "start": 12.03,
+          "end": 12.03,
+          "key": "too",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 12.79,
+          "end": 12.99,
+          "key": "come",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 13.17,
+          "end": 13.33,
+          "key": "our",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Stomach,",
+          "start": 13.33,
+          "end": 13.61,
+          "key": "stomach",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 13.73,
+          "end": 13.85,
+          "key": "will",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Make,",
+          "start": 13.85,
+          "end": 14.01,
+          "key": "make",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "What's,",
+          "start": 14.11,
+          "end": 14.29,
+          "key": "whats",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Homely,",
+          "start": 14.37,
+          "end": 14.65,
+          "key": "homely",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Savory,",
+          "start": 14.87,
+          "end": 15.15,
+          "key": "savory",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Weariness,",
+          "start": 15.57,
+          "end": 15.87,
+          "key": "weariness",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Can,",
+          "start": 15.89,
+          "end": 16.11,
+          "key": "can",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Snore,",
+          "start": 16.35,
+          "end": 16.53,
+          "key": "snore",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Upon,",
+          "start": 16.55,
+          "end": 16.77,
+          "key": "upon",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 16.89,
+          "end": 16.95,
+          "key": "the",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Flint,",
+          "start": 16.95,
+          "end": 17.13,
+          "key": "flint",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "When,",
+          "start": 17.43,
+          "end": 17.55,
+          "key": "when",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Resty,",
+          "start": 17.65,
+          "end": 17.93,
+          "key": "resty",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Sloth,",
+          "start": 18.19,
+          "end": 18.35,
+          "key": "sloth",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "Finds,",
+          "start": 18.55,
+          "end": 18.71,
+          "key": "finds",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 18.73,
+          "end": 18.79,
+          "key": "the",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "Down,",
+          "start": 18.79,
+          "end": 19.01,
+          "key": "down",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Pillow,",
+          "start": 19.23,
+          "end": 19.41,
+          "key": "pillow",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "Hard,",
+          "start": 19.41,
+          "end": 19.65,
+          "key": "hard",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "Now,",
+          "start": 20.27,
+          "end": 20.59,
+          "key": "now",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Peace",
+          "start": 20.93,
+          "end": 20.95,
+          "key": "peace",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 20.95,
+          "end": 21.13,
+          "key": "be",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "Here,",
+          "start": 21.13,
+          "end": 21.35,
+          "key": "here",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "Poor",
+          "start": 21.51,
+          "end": 21.61,
+          "key": "poor",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "House,",
+          "start": 21.61,
+          "end": 21.95,
+          "key": "house",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 22.15,
+          "end": 22.31,
+          "key": "that",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "Keeps",
+          "start": 22.31,
+          "end": 22.65,
+          "key": "keeps",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "Thee",
+          "start": 22.65,
+          "end": 22.83,
+          "key": "thee",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "Thyself,",
+          "start": 22.83,
+          "end": 23.21,
+          "key": "thyself",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "Subtitling",
+          "start": 23.21,
+          "end": 23.79,
+          "key": "subtitling",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 23.79,
+          "end": 23.79,
+          "key": "by",
+          "pieces": [
+            73
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "text": "You,",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "Polydore,",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "text": "have",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "prov'd",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "text": "best",
+          "start": 2.79,
+          "end": 2.85
+        },
+        {
+          "text": "woodman",
+          "start": 2.95,
+          "end": 3.27
+        },
+        {
+          "text": "and",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "text": "Are",
+          "start": 3.51,
+          "end": 3.59
+        },
+        {
+          "text": "master",
+          "start": 3.63,
+          "end": 3.89
+        },
+        {
+          "text": "of",
+          "start": 4.11,
+          "end": 4.17
+        },
+        {
+          "text": "the",
+          "start": 4.23,
+          "end": 4.31
+        },
+        {
+          "text": "feast.",
+          "start": 4.31,
+          "end": 4.55
+        },
+        {
+          "text": "Cadwal",
+          "start": 5.29,
+          "end": 5.51
+        },
+        {
+          "text": "and",
+          "start": 5.61,
+          "end": 5.69
+        },
+        {
+          "text": "I",
+          "start": 5.71,
+          "end": 5.81
+        },
+        {
+          "text": "Will",
+          "start": 5.81,
+          "end": 5.93
+        },
+        {
+          "text": "play",
+          "start": 5.93,
+          "end": 6.11
+        },
+        {
+          "text": "the",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "text": "cook",
+          "start": 6.35,
+          "end": 6.49
+        },
+        {
+          "text": "and",
+          "start": 6.61,
+          "end": 6.71
+        },
+        {
+          "text": "servant;",
+          "start": 6.71,
+          "end": 7.17
+        },
+        {
+          "text": "'tis",
+          "start": 7.17,
+          "end": 7.53
+        },
+        {
+          "text": "our",
+          "start": 7.89,
+          "end": 7.99
+        },
+        {
+          "text": "match.",
+          "start": 7.99,
+          "end": 8.25
+        },
+        {
+          "text": "The",
+          "start": 8.81,
+          "end": 8.95
+        },
+        {
+          "text": "sweat",
+          "start": 8.95,
+          "end": 9.15
+        },
+        {
+          "text": "of",
+          "start": 9.15,
+          "end": 9.23
+        },
+        {
+          "text": "industry",
+          "start": 9.23,
+          "end": 9.53
+        },
+        {
+          "text": "would",
+          "start": 9.61,
+          "end": 9.79
+        },
+        {
+          "text": "dry",
+          "start": 10.07,
+          "end": 10.15
+        },
+        {
+          "text": "and",
+          "start": 10.29,
+          "end": 10.39
+        },
+        {
+          "text": "die",
+          "start": 10.39,
+          "end": 10.65
+        },
+        {
+          "text": "But",
+          "start": 10.89,
+          "end": 10.95
+        },
+        {
+          "text": "for",
+          "start": 11.07,
+          "end": 11.09
+        },
+        {
+          "text": "the",
+          "start": 11.09,
+          "end": 11.23
+        },
+        {
+          "text": "end",
+          "start": 11.23,
+          "end": 11.43
+        },
+        {
+          "text": "it",
+          "start": 11.43,
+          "end": 11.57
+        },
+        {
+          "text": "works",
+          "start": 11.57,
+          "end": 11.73
+        },
+        {
+          "text": "to.",
+          "start": 11.73,
+          "end": 12.26
+        },
+        {
+          "text": "Come,",
+          "start": 12.79,
+          "end": 12.99
+        },
+        {
+          "text": "our",
+          "start": 13.17,
+          "end": 13.33
+        },
+        {
+          "text": "stomachs",
+          "start": 13.33,
+          "end": 13.53
+        },
+        {
+          "text": "Will",
+          "start": 13.73,
+          "end": 13.85
+        },
+        {
+          "text": "make",
+          "start": 13.85,
+          "end": 14.01
+        },
+        {
+          "text": "what's",
+          "start": 14.11,
+          "end": 14.29
+        },
+        {
+          "text": "homely",
+          "start": 14.37,
+          "end": 14.65
+        },
+        {
+          "text": "savoury;",
+          "start": 14.65,
+          "end": 15.11
+        },
+        {
+          "text": "weariness",
+          "start": 15.57,
+          "end": 15.87
+        },
+        {
+          "text": "Can",
+          "start": 15.89,
+          "end": 16.11
+        },
+        {
+          "text": "snore",
+          "start": 16.35,
+          "end": 16.53
+        },
+        {
+          "text": "upon",
+          "start": 16.55,
+          "end": 16.77
+        },
+        {
+          "text": "the",
+          "start": 16.89,
+          "end": 16.95
+        },
+        {
+          "text": "flint,",
+          "start": 16.95,
+          "end": 17.13
+        },
+        {
+          "text": "when",
+          "start": 17.43,
+          "end": 17.55
+        },
+        {
+          "text": "resty",
+          "start": 17.65,
+          "end": 17.93
+        },
+        {
+          "text": "sloth",
+          "start": 18.19,
+          "end": 18.35
+        },
+        {
+          "text": "Finds",
+          "start": 18.55,
+          "end": 18.71
+        },
+        {
+          "text": "the",
+          "start": 18.73,
+          "end": 18.79
+        },
+        {
+          "text": "down",
+          "start": 18.79,
+          "end": 19.01
+        },
+        {
+          "text": "pillow",
+          "start": 19.23,
+          "end": 19.41
+        },
+        {
+          "text": "hard.",
+          "start": 19.41,
+          "end": 19.65
+        },
+        {
+          "text": "Now,",
+          "start": 20.27,
+          "end": 20.59
+        },
+        {
+          "text": "peace",
+          "start": 20.93,
+          "end": 20.95
+        },
+        {
+          "text": "be",
+          "start": 20.95,
+          "end": 21.13
+        },
+        {
+          "text": "here,",
+          "start": 21.13,
+          "end": 21.35
+        },
+        {
+          "text": "Poor",
+          "start": 21.51,
+          "end": 21.61
+        },
+        {
+          "text": "house,",
+          "start": 21.61,
+          "end": 21.95
+        },
+        {
+          "text": "that",
+          "start": 22.15,
+          "end": 22.31
+        },
+        {
+          "text": "keep'st",
+          "start": 22.31,
+          "end": 22.57
+        },
+        {
+          "text": "thyself!",
+          "start": 22.83,
+          "end": 23.21
+        }
+      ],
+      "stats": {
+        "expected_words": 71,
+        "heard_words": 74,
+        "matched_words": 65
+      },
+      "match_ratio": 0.9154929577464789,
+      "rejection_reasons": [],
+      "seconds": 2.945619192905724
+    },
+    {
+      "asr_seconds": 0.8313140012323856,
+      "alignment_seconds": 0.0010946346446871758,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Belarious!",
+          "start": 0.53,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " Belarious!",
+              "start": 0.53,
+              "end": 0.97,
+              "probability": 0.32513427734375
+            }
+          ]
+        },
+        {
+          "text": " You polador have proved best woodmen and are master of the feast.",
+          "start": 1.47,
+          "end": 4.57,
+          "words": [
+            {
+              "text": " You",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.76171875
+            },
+            {
+              "text": " polador",
+              "start": 1.63,
+              "end": 2.01,
+              "probability": 0.40301513671875
+            },
+            {
+              "text": " have",
+              "start": 2.01,
+              "end": 2.25,
+              "probability": 0.921875
+            },
+            {
+              "text": " proved",
+              "start": 2.25,
+              "end": 2.65,
+              "probability": 0.699462890625
+            },
+            {
+              "text": " best",
+              "start": 2.65,
+              "end": 2.85,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " woodmen",
+              "start": 2.85,
+              "end": 3.29,
+              "probability": 0.801025390625
+            },
+            {
+              "text": " and",
+              "start": 3.29,
+              "end": 3.45,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " are",
+              "start": 3.45,
+              "end": 3.57,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " master",
+              "start": 3.57,
+              "end": 3.93,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " of",
+              "start": 3.93,
+              "end": 4.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 4.17,
+              "end": 4.31,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " feast.",
+              "start": 4.31,
+              "end": 4.57,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " Cadwell and I will play the cook and servant.",
+          "start": 5.35,
+          "end": 7.01,
+          "words": [
+            {
+              "text": " Cadwell",
+              "start": 5.35,
+              "end": 5.53,
+              "probability": 0.6099853515625
+            },
+            {
+              "text": " and",
+              "start": 5.53,
+              "end": 5.69,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " I",
+              "start": 5.69,
+              "end": 5.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " will",
+              "start": 5.81,
+              "end": 5.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " play",
+              "start": 5.93,
+              "end": 6.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.11,
+              "end": 6.27,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " cook",
+              "start": 6.27,
+              "end": 6.49,
+              "probability": 0.990234375
+            },
+            {
+              "text": " and",
+              "start": 6.49,
+              "end": 6.71,
+              "probability": 0.982421875
+            },
+            {
+              "text": " servant.",
+              "start": 6.71,
+              "end": 7.01,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " Tease our match.",
+          "start": 7.67,
+          "end": 8.27,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 7.67,
+              "end": 7.85,
+              "probability": 0.7216796875
+            },
+            {
+              "text": " our",
+              "start": 7.85,
+              "end": 7.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " match.",
+              "start": 7.97,
+              "end": 8.27,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " The sweat of industry would dry and die, but for the end it works too.",
+          "start": 8.77,
+          "end": 12.05,
+          "words": [
+            {
+              "text": " The",
+              "start": 8.77,
+              "end": 8.93,
+              "probability": 0.990234375
+            },
+            {
+              "text": " sweat",
+              "start": 8.93,
+              "end": 9.11,
+              "probability": 0.98046875
+            },
+            {
+              "text": " of",
+              "start": 9.11,
+              "end": 9.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " industry",
+              "start": 9.23,
+              "end": 9.55,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " would",
+              "start": 9.55,
+              "end": 9.79,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " dry",
+              "start": 9.79,
+              "end": 10.15,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 10.15,
+              "end": 10.39,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " die,",
+              "start": 10.39,
+              "end": 10.65,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " but",
+              "start": 10.87,
+              "end": 10.95,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " for",
+              "start": 10.95,
+              "end": 11.09,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 11.09,
+              "end": 11.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " end",
+              "start": 11.23,
+              "end": 11.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 11.41,
+              "end": 11.55,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " works",
+              "start": 11.55,
+              "end": 11.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " too.",
+              "start": 11.73,
+              "end": 12.05,
+              "probability": 0.7822265625
+            }
+          ]
+        },
+        {
+          "text": " Come, our stomachs will make what's homely savory.",
+          "start": 12.81,
+          "end": 15.15,
+          "words": [
+            {
+              "text": " Come,",
+              "start": 12.81,
+              "end": 12.97,
+              "probability": 0.8828125
+            },
+            {
+              "text": " our",
+              "start": 13.19,
+              "end": 13.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " stomachs",
+              "start": 13.33,
+              "end": 13.77,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " will",
+              "start": 13.77,
+              "end": 13.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " make",
+              "start": 13.87,
+              "end": 14.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what's",
+              "start": 14.01,
+              "end": 14.27,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " homely",
+              "start": 14.27,
+              "end": 14.67,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " savory.",
+              "start": 14.67,
+              "end": 15.15,
+              "probability": 0.82568359375
+            }
+          ]
+        },
+        {
+          "text": " Weariness can snore upon the flint, when resty sloth finds the down pillow hard.",
+          "start": 15.57,
+          "end": 19.69,
+          "words": [
+            {
+              "text": " Weariness",
+              "start": 15.57,
+              "end": 15.87,
+              "probability": 0.953125
+            },
+            {
+              "text": " can",
+              "start": 15.87,
+              "end": 16.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " snore",
+              "start": 16.13,
+              "end": 16.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " upon",
+              "start": 16.53,
+              "end": 16.79,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 16.79,
+              "end": 16.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " flint,",
+              "start": 16.93,
+              "end": 17.23,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " when",
+              "start": 17.43,
+              "end": 17.55,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " resty",
+              "start": 17.55,
+              "end": 17.93,
+              "probability": 0.545654296875
+            },
+            {
+              "text": " sloth",
+              "start": 17.93,
+              "end": 18.33,
+              "probability": 0.714599609375
+            },
+            {
+              "text": " finds",
+              "start": 18.33,
+              "end": 18.59,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 18.59,
+              "end": 18.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " down",
+              "start": 18.79,
+              "end": 19.01,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " pillow",
+              "start": 19.01,
+              "end": 19.31,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " hard.",
+              "start": 19.31,
+              "end": 19.69,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " Now, peace be here, poor house, that keeps thee thyself.",
+          "start": 20.37,
+          "end": 23.21,
+          "words": [
+            {
+              "text": " Now,",
+              "start": 20.37,
+              "end": 20.59,
+              "probability": 0.98828125
+            },
+            {
+              "text": " peace",
+              "start": 20.87,
+              "end": 20.95,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " be",
+              "start": 20.95,
+              "end": 21.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " here,",
+              "start": 21.13,
+              "end": 21.35,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " poor",
+              "start": 21.53,
+              "end": 21.61,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " house,",
+              "start": 21.61,
+              "end": 21.95,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " that",
+              "start": 22.19,
+              "end": 22.31,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " keeps",
+              "start": 22.31,
+              "end": 22.53,
+              "probability": 0.779296875
+            },
+            {
+              "text": " thee",
+              "start": 22.53,
+              "end": 22.75,
+              "probability": 0.398193359375
+            },
+            {
+              "text": " thyself.",
+              "start": 22.75,
+              "end": 23.21,
+              "probability": 0.990478515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Belarious!",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "raw": "You",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "polador",
+          "start": 1.63,
+          "end": 2.01
+        },
+        {
+          "raw": "have",
+          "start": 2.01,
+          "end": 2.25
+        },
+        {
+          "raw": "proved",
+          "start": 2.25,
+          "end": 2.65
+        },
+        {
+          "raw": "best",
+          "start": 2.65,
+          "end": 2.85
+        },
+        {
+          "raw": "woodmen",
+          "start": 2.85,
+          "end": 3.29
+        },
+        {
+          "raw": "and",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "raw": "are",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "raw": "master",
+          "start": 3.57,
+          "end": 3.93
+        },
+        {
+          "raw": "of",
+          "start": 3.93,
+          "end": 4.17
+        },
+        {
+          "raw": "the",
+          "start": 4.17,
+          "end": 4.31
+        },
+        {
+          "raw": "feast.",
+          "start": 4.31,
+          "end": 4.57
+        },
+        {
+          "raw": "Cadwell",
+          "start": 5.35,
+          "end": 5.53
+        },
+        {
+          "raw": "and",
+          "start": 5.53,
+          "end": 5.69
+        },
+        {
+          "raw": "I",
+          "start": 5.69,
+          "end": 5.81
+        },
+        {
+          "raw": "will",
+          "start": 5.81,
+          "end": 5.93
+        },
+        {
+          "raw": "play",
+          "start": 5.93,
+          "end": 6.11
+        },
+        {
+          "raw": "the",
+          "start": 6.11,
+          "end": 6.27
+        },
+        {
+          "raw": "cook",
+          "start": 6.27,
+          "end": 6.49
+        },
+        {
+          "raw": "and",
+          "start": 6.49,
+          "end": 6.71
+        },
+        {
+          "raw": "servant.",
+          "start": 6.71,
+          "end": 7.01
+        },
+        {
+          "raw": "Tease",
+          "start": 7.67,
+          "end": 7.85
+        },
+        {
+          "raw": "our",
+          "start": 7.85,
+          "end": 7.97
+        },
+        {
+          "raw": "match.",
+          "start": 7.97,
+          "end": 8.27
+        },
+        {
+          "raw": "The",
+          "start": 8.77,
+          "end": 8.93
+        },
+        {
+          "raw": "sweat",
+          "start": 8.93,
+          "end": 9.11
+        },
+        {
+          "raw": "of",
+          "start": 9.11,
+          "end": 9.23
+        },
+        {
+          "raw": "industry",
+          "start": 9.23,
+          "end": 9.55
+        },
+        {
+          "raw": "would",
+          "start": 9.55,
+          "end": 9.79
+        },
+        {
+          "raw": "dry",
+          "start": 9.79,
+          "end": 10.15
+        },
+        {
+          "raw": "and",
+          "start": 10.15,
+          "end": 10.39
+        },
+        {
+          "raw": "die,",
+          "start": 10.39,
+          "end": 10.65
+        },
+        {
+          "raw": "but",
+          "start": 10.87,
+          "end": 10.95
+        },
+        {
+          "raw": "for",
+          "start": 10.95,
+          "end": 11.09
+        },
+        {
+          "raw": "the",
+          "start": 11.09,
+          "end": 11.23
+        },
+        {
+          "raw": "end",
+          "start": 11.23,
+          "end": 11.41
+        },
+        {
+          "raw": "it",
+          "start": 11.41,
+          "end": 11.55
+        },
+        {
+          "raw": "works",
+          "start": 11.55,
+          "end": 11.73
+        },
+        {
+          "raw": "too.",
+          "start": 11.73,
+          "end": 12.05
+        },
+        {
+          "raw": "Come,",
+          "start": 12.81,
+          "end": 12.97
+        },
+        {
+          "raw": "our",
+          "start": 13.19,
+          "end": 13.33
+        },
+        {
+          "raw": "stomachs",
+          "start": 13.33,
+          "end": 13.77
+        },
+        {
+          "raw": "will",
+          "start": 13.77,
+          "end": 13.87
+        },
+        {
+          "raw": "make",
+          "start": 13.87,
+          "end": 14.01
+        },
+        {
+          "raw": "what's",
+          "start": 14.01,
+          "end": 14.27
+        },
+        {
+          "raw": "homely",
+          "start": 14.27,
+          "end": 14.67
+        },
+        {
+          "raw": "savory.",
+          "start": 14.67,
+          "end": 15.15
+        },
+        {
+          "raw": "Weariness",
+          "start": 15.57,
+          "end": 15.87
+        },
+        {
+          "raw": "can",
+          "start": 15.87,
+          "end": 16.13
+        },
+        {
+          "raw": "snore",
+          "start": 16.13,
+          "end": 16.53
+        },
+        {
+          "raw": "upon",
+          "start": 16.53,
+          "end": 16.79
+        },
+        {
+          "raw": "the",
+          "start": 16.79,
+          "end": 16.93
+        },
+        {
+          "raw": "flint,",
+          "start": 16.93,
+          "end": 17.23
+        },
+        {
+          "raw": "when",
+          "start": 17.43,
+          "end": 17.55
+        },
+        {
+          "raw": "resty",
+          "start": 17.55,
+          "end": 17.93
+        },
+        {
+          "raw": "sloth",
+          "start": 17.93,
+          "end": 18.33
+        },
+        {
+          "raw": "finds",
+          "start": 18.33,
+          "end": 18.59
+        },
+        {
+          "raw": "the",
+          "start": 18.59,
+          "end": 18.79
+        },
+        {
+          "raw": "down",
+          "start": 18.79,
+          "end": 19.01
+        },
+        {
+          "raw": "pillow",
+          "start": 19.01,
+          "end": 19.31
+        },
+        {
+          "raw": "hard.",
+          "start": 19.31,
+          "end": 19.69
+        },
+        {
+          "raw": "Now,",
+          "start": 20.37,
+          "end": 20.59
+        },
+        {
+          "raw": "peace",
+          "start": 20.87,
+          "end": 20.95
+        },
+        {
+          "raw": "be",
+          "start": 20.95,
+          "end": 21.13
+        },
+        {
+          "raw": "here,",
+          "start": 21.13,
+          "end": 21.35
+        },
+        {
+          "raw": "poor",
+          "start": 21.53,
+          "end": 21.61
+        },
+        {
+          "raw": "house,",
+          "start": 21.61,
+          "end": 21.95
+        },
+        {
+          "raw": "that",
+          "start": 22.19,
+          "end": 22.31
+        },
+        {
+          "raw": "keeps",
+          "start": 22.31,
+          "end": 22.53
+        },
+        {
+          "raw": "thee",
+          "start": 22.53,
+          "end": 22.75
+        },
+        {
+          "raw": "thyself.",
+          "start": 22.75,
+          "end": 23.21
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "You,",
+        "Polydore,",
+        "have",
+        "prov'd",
+        "best",
+        "woodman",
+        "and",
+        "Are",
+        "master",
+        "of",
+        "the",
+        "feast.",
+        "Cadwal",
+        "and",
+        "I",
+        "Will",
+        "play",
+        "the",
+        "cook",
+        "and",
+        "servant;",
+        "'tis",
+        "our",
+        "match.",
+        "The",
+        "sweat",
+        "of",
+        "industry",
+        "would",
+        "dry",
+        "and",
+        "die",
+        "But",
+        "for",
+        "the",
+        "end",
+        "it",
+        "works",
+        "to.",
+        "Come,",
+        "our",
+        "stomachs",
+        "Will",
+        "make",
+        "what's",
+        "homely",
+        "savoury;",
+        "weariness",
+        "Can",
+        "snore",
+        "upon",
+        "the",
+        "flint,",
+        "when",
+        "resty",
+        "sloth",
+        "Finds",
+        "the",
+        "down",
+        "pillow",
+        "hard.",
+        "Now,",
+        "peace",
+        "be",
+        "here,",
+        "Poor",
+        "house,",
+        "that",
+        "keep'st",
+        "thyself!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          13,
+          7,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "equal",
+          14,
+          22,
+          14,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "equal",
+          23,
+          39,
+          23,
+          39
+        ],
+        [
+          "replace",
+          39,
+          40,
+          39,
+          40
+        ],
+        [
+          "equal",
+          40,
+          47,
+          40,
+          47
+        ],
+        [
+          "replace",
+          47,
+          48,
+          47,
+          48
+        ],
+        [
+          "equal",
+          48,
+          69,
+          48,
+          69
+        ],
+        [
+          "replace",
+          69,
+          70,
+          69,
+          71
+        ],
+        [
+          "equal",
+          70,
+          71,
+          71,
+          72
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "replace",
+          39,
+          40,
+          39,
+          40
+        ],
+        [
+          "replace",
+          47,
+          48,
+          47,
+          48
+        ],
+        [
+          "replace",
+          69,
+          70,
+          69,
+          71
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Belarious!",
+          "start": 0.53,
+          "end": 0.97,
+          "key": "belarious",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "polador",
+          "start": 1.63,
+          "end": 2.01,
+          "key": "polador",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.01,
+          "end": 2.25,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "proved",
+          "start": 2.25,
+          "end": 2.65,
+          "key": "proved",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 2.65,
+          "end": 2.85,
+          "key": "best",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "woodmen",
+          "start": 2.85,
+          "end": 3.29,
+          "key": "woodmen",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.29,
+          "end": 3.45,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.45,
+          "end": 3.57,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 3.57,
+          "end": 3.93,
+          "key": "master",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.93,
+          "end": 4.17,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.17,
+          "end": 4.31,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "feast.",
+          "start": 4.31,
+          "end": 4.57,
+          "key": "feast",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Cadwell",
+          "start": 5.35,
+          "end": 5.53,
+          "key": "cadwell",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.53,
+          "end": 5.69,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.69,
+          "end": 5.81,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.81,
+          "end": 5.93,
+          "key": "will",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "play",
+          "start": 5.93,
+          "end": 6.11,
+          "key": "play",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.11,
+          "end": 6.27,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "cook",
+          "start": 6.27,
+          "end": 6.49,
+          "key": "cook",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.49,
+          "end": 6.71,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "servant.",
+          "start": 6.71,
+          "end": 7.01,
+          "key": "servant",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 7.67,
+          "end": 7.85,
+          "key": "tease",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 7.85,
+          "end": 7.97,
+          "key": "our",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "match.",
+          "start": 7.97,
+          "end": 8.27,
+          "key": "match",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 8.77,
+          "end": 8.93,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "sweat",
+          "start": 8.93,
+          "end": 9.11,
+          "key": "sweat",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.11,
+          "end": 9.23,
+          "key": "of",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "industry",
+          "start": 9.23,
+          "end": 9.55,
+          "key": "industry",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 9.55,
+          "end": 9.79,
+          "key": "would",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "dry",
+          "start": 9.79,
+          "end": 10.15,
+          "key": "dry",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.15,
+          "end": 10.39,
+          "key": "and",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "die,",
+          "start": 10.39,
+          "end": 10.65,
+          "key": "die",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 10.87,
+          "end": 10.95,
+          "key": "but",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 10.95,
+          "end": 11.09,
+          "key": "for",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.09,
+          "end": 11.23,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 11.23,
+          "end": 11.41,
+          "key": "end",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 11.41,
+          "end": 11.55,
+          "key": "it",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "works",
+          "start": 11.55,
+          "end": 11.73,
+          "key": "works",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 11.73,
+          "end": 12.05,
+          "key": "too",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 12.81,
+          "end": 12.97,
+          "key": "come",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 13.19,
+          "end": 13.33,
+          "key": "our",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "stomachs",
+          "start": 13.33,
+          "end": 13.77,
+          "key": "stomachs",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 13.77,
+          "end": 13.87,
+          "key": "will",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 13.87,
+          "end": 14.01,
+          "key": "make",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 14.01,
+          "end": 14.27,
+          "key": "whats",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "homely",
+          "start": 14.27,
+          "end": 14.67,
+          "key": "homely",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "savory.",
+          "start": 14.67,
+          "end": 15.15,
+          "key": "savory",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Weariness",
+          "start": 15.57,
+          "end": 15.87,
+          "key": "weariness",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 15.87,
+          "end": 16.13,
+          "key": "can",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "snore",
+          "start": 16.13,
+          "end": 16.53,
+          "key": "snore",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 16.53,
+          "end": 16.79,
+          "key": "upon",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.79,
+          "end": 16.93,
+          "key": "the",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "flint,",
+          "start": 16.93,
+          "end": 17.23,
+          "key": "flint",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 17.43,
+          "end": 17.55,
+          "key": "when",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "resty",
+          "start": 17.55,
+          "end": 17.93,
+          "key": "resty",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "sloth",
+          "start": 17.93,
+          "end": 18.33,
+          "key": "sloth",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "finds",
+          "start": 18.33,
+          "end": 18.59,
+          "key": "finds",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.59,
+          "end": 18.79,
+          "key": "the",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 18.79,
+          "end": 19.01,
+          "key": "down",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "pillow",
+          "start": 19.01,
+          "end": 19.31,
+          "key": "pillow",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "hard.",
+          "start": 19.31,
+          "end": 19.69,
+          "key": "hard",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "Now,",
+          "start": 20.37,
+          "end": 20.59,
+          "key": "now",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "peace",
+          "start": 20.87,
+          "end": 20.95,
+          "key": "peace",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 20.95,
+          "end": 21.13,
+          "key": "be",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 21.13,
+          "end": 21.35,
+          "key": "here",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 21.53,
+          "end": 21.61,
+          "key": "poor",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "house,",
+          "start": 21.61,
+          "end": 21.95,
+          "key": "house",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 22.19,
+          "end": 22.31,
+          "key": "that",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "keeps",
+          "start": 22.31,
+          "end": 22.53,
+          "key": "keeps",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 22.53,
+          "end": 22.75,
+          "key": "thee",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "thyself.",
+          "start": 22.75,
+          "end": 23.21,
+          "key": "thyself",
+          "pieces": [
+            71
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.0,
+          "end": 0.735
+        },
+        {
+          "text": "You,",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "Polydore,",
+          "start": 1.63,
+          "end": 1.82
+        },
+        {
+          "text": "have",
+          "start": 2.01,
+          "end": 2.25
+        },
+        {
+          "text": "prov'd",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "text": "best",
+          "start": 2.65,
+          "end": 2.85
+        },
+        {
+          "text": "woodman",
+          "start": 2.85,
+          "end": 3.07
+        },
+        {
+          "text": "and",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "text": "Are",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "text": "master",
+          "start": 3.57,
+          "end": 3.93
+        },
+        {
+          "text": "of",
+          "start": 3.93,
+          "end": 4.17
+        },
+        {
+          "text": "the",
+          "start": 4.17,
+          "end": 4.31
+        },
+        {
+          "text": "feast.",
+          "start": 4.31,
+          "end": 4.57
+        },
+        {
+          "text": "Cadwal",
+          "start": 4.57,
+          "end": 5.05
+        },
+        {
+          "text": "and",
+          "start": 5.53,
+          "end": 5.69
+        },
+        {
+          "text": "I",
+          "start": 5.69,
+          "end": 5.81
+        },
+        {
+          "text": "Will",
+          "start": 5.81,
+          "end": 5.93
+        },
+        {
+          "text": "play",
+          "start": 5.93,
+          "end": 6.11
+        },
+        {
+          "text": "the",
+          "start": 6.11,
+          "end": 6.27
+        },
+        {
+          "text": "cook",
+          "start": 6.27,
+          "end": 6.49
+        },
+        {
+          "text": "and",
+          "start": 6.49,
+          "end": 6.71
+        },
+        {
+          "text": "servant;",
+          "start": 6.71,
+          "end": 7.01
+        },
+        {
+          "text": "'tis",
+          "start": 7.01,
+          "end": 7.43
+        },
+        {
+          "text": "our",
+          "start": 7.85,
+          "end": 7.97
+        },
+        {
+          "text": "match.",
+          "start": 7.97,
+          "end": 8.27
+        },
+        {
+          "text": "The",
+          "start": 8.77,
+          "end": 8.93
+        },
+        {
+          "text": "sweat",
+          "start": 8.93,
+          "end": 9.11
+        },
+        {
+          "text": "of",
+          "start": 9.11,
+          "end": 9.23
+        },
+        {
+          "text": "industry",
+          "start": 9.23,
+          "end": 9.55
+        },
+        {
+          "text": "would",
+          "start": 9.55,
+          "end": 9.79
+        },
+        {
+          "text": "dry",
+          "start": 9.79,
+          "end": 10.15
+        },
+        {
+          "text": "and",
+          "start": 10.15,
+          "end": 10.39
+        },
+        {
+          "text": "die",
+          "start": 10.39,
+          "end": 10.65
+        },
+        {
+          "text": "But",
+          "start": 10.87,
+          "end": 10.95
+        },
+        {
+          "text": "for",
+          "start": 10.95,
+          "end": 11.09
+        },
+        {
+          "text": "the",
+          "start": 11.09,
+          "end": 11.23
+        },
+        {
+          "text": "end",
+          "start": 11.23,
+          "end": 11.41
+        },
+        {
+          "text": "it",
+          "start": 11.41,
+          "end": 11.55
+        },
+        {
+          "text": "works",
+          "start": 11.55,
+          "end": 11.73
+        },
+        {
+          "text": "to.",
+          "start": 11.73,
+          "end": 12.27
+        },
+        {
+          "text": "Come,",
+          "start": 12.81,
+          "end": 12.97
+        },
+        {
+          "text": "our",
+          "start": 13.19,
+          "end": 13.33
+        },
+        {
+          "text": "stomachs",
+          "start": 13.33,
+          "end": 13.77
+        },
+        {
+          "text": "Will",
+          "start": 13.77,
+          "end": 13.87
+        },
+        {
+          "text": "make",
+          "start": 13.87,
+          "end": 14.01
+        },
+        {
+          "text": "what's",
+          "start": 14.01,
+          "end": 14.27
+        },
+        {
+          "text": "homely",
+          "start": 14.27,
+          "end": 14.67
+        },
+        {
+          "text": "savoury;",
+          "start": 14.67,
+          "end": 15.12
+        },
+        {
+          "text": "weariness",
+          "start": 15.57,
+          "end": 15.87
+        },
+        {
+          "text": "Can",
+          "start": 15.87,
+          "end": 16.13
+        },
+        {
+          "text": "snore",
+          "start": 16.13,
+          "end": 16.53
+        },
+        {
+          "text": "upon",
+          "start": 16.53,
+          "end": 16.79
+        },
+        {
+          "text": "the",
+          "start": 16.79,
+          "end": 16.93
+        },
+        {
+          "text": "flint,",
+          "start": 16.93,
+          "end": 17.23
+        },
+        {
+          "text": "when",
+          "start": 17.43,
+          "end": 17.55
+        },
+        {
+          "text": "resty",
+          "start": 17.55,
+          "end": 17.93
+        },
+        {
+          "text": "sloth",
+          "start": 17.93,
+          "end": 18.33
+        },
+        {
+          "text": "Finds",
+          "start": 18.33,
+          "end": 18.59
+        },
+        {
+          "text": "the",
+          "start": 18.59,
+          "end": 18.79
+        },
+        {
+          "text": "down",
+          "start": 18.79,
+          "end": 19.01
+        },
+        {
+          "text": "pillow",
+          "start": 19.01,
+          "end": 19.31
+        },
+        {
+          "text": "hard.",
+          "start": 19.31,
+          "end": 19.69
+        },
+        {
+          "text": "Now,",
+          "start": 20.37,
+          "end": 20.59
+        },
+        {
+          "text": "peace",
+          "start": 20.87,
+          "end": 20.95
+        },
+        {
+          "text": "be",
+          "start": 20.95,
+          "end": 21.13
+        },
+        {
+          "text": "here,",
+          "start": 21.13,
+          "end": 21.35
+        },
+        {
+          "text": "Poor",
+          "start": 21.53,
+          "end": 21.61
+        },
+        {
+          "text": "house,",
+          "start": 21.61,
+          "end": 21.95
+        },
+        {
+          "text": "that",
+          "start": 22.19,
+          "end": 22.31
+        },
+        {
+          "text": "keep'st",
+          "start": 22.31,
+          "end": 22.53
+        },
+        {
+          "text": "thyself!",
+          "start": 22.75,
+          "end": 23.21
+        }
+      ],
+      "stats": {
+        "expected_words": 71,
+        "heard_words": 72,
+        "matched_words": 62
+      },
+      "match_ratio": 0.8732394366197183,
+      "rejection_reasons": [],
+      "seconds": 0.832891196012497
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6db9c709f0a6a992229063c2106e69059111f73b63734efbdb4391010863eba9",
+  "selected_reasons": []
+}

@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "4fc9efb5acb414c91935e9b81d8cc46e7e686f489c0f22fb630bc7c5cd9186f1",
+  "attempts": [
+    {
+      "asr_seconds": 0.12523747328668833,
+      "alignment_seconds": 0.0001547299325466156,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sicinius. 'Tis right.",
+        "hotwords": "Sicinius, Tis"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicinius, Tis right.",
+          "start": 0.08,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.4740804036458333
+            },
+            {
+              "text": " Tis",
+              "start": 1.46,
+              "end": 1.62,
+              "probability": 0.22420501708984375
+            },
+            {
+              "text": " right.",
+              "start": 1.62,
+              "end": 1.84,
+              "probability": 0.1776123046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "Tis",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "raw": "right.",
+          "start": 1.62,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "'Tis",
+        "right."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "sicinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.46,
+          "end": 1.62,
+          "key": "tis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "right.",
+          "start": 1.62,
+          "end": 1.84,
+          "key": "right",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "text": "'Tis",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "text": "right.",
+          "start": 1.62,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12544353771954775
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b1e6627e82026382b6caecd7be7132eed37c4923b44c8e6db441242a546f69f5",
+  "selected_reasons": []
+}

@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "59e4a7ab60cde0714d76a70cf92f49e11fb7ccf8445a8c93932c41dac99a5821",
+  "attempts": [
+    {
+      "asr_seconds": 0.13991917204111814,
+      "alignment_seconds": 0.00029912590980529785,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cymbaling, help me.",
+          "start": 0.08,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " Cymbaling,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.5797119140625
+            },
+            {
+              "text": " help",
+              "start": 1.28,
+              "end": 1.34,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " me.",
+              "start": 1.34,
+              "end": 1.68,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbaling,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "help",
+          "start": 1.28,
+          "end": 1.34
+        },
+        {
+          "raw": "me.",
+          "start": 1.34,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "How?",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbaling,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "cymbaling",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 1.28,
+          "end": 1.34,
+          "key": "help",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 1.34,
+          "end": 1.68,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.0,
+          "end": 0.67
+        },
+        {
+          "text": "How?",
+          "start": 0.67,
+          "end": 1.005
+        },
+        {
+          "text": "me?",
+          "start": 1.34,
+          "end": 1.68
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14032041002064943
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "860072599d3ec3a037b14b32a4ff43e8eac9159a31ba4d5d220f6dd13a69326c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

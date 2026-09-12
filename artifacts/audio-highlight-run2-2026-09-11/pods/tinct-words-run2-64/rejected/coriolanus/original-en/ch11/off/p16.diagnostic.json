@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "b1fe2213cfee0a758dc08c72626a553e0cdac2c46b0b9406ffba976933a80e58",
+  "attempts": [
+    {
+      "asr_seconds": 0.2012850446626544,
+      "alignment_seconds": 0.0004099719226360321,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Both tribunes, why how are we censured?",
+          "start": 0.05,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Both",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " tribunes,",
+              "start": 0.61,
+              "end": 1.17,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " why",
+              "start": 1.53,
+              "end": 1.77,
+              "probability": 0.98828125
+            },
+            {
+              "text": " how",
+              "start": 1.77,
+              "end": 1.95,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " are",
+              "start": 1.95,
+              "end": 2.05,
+              "probability": 0.994140625
+            },
+            {
+              "text": " we",
+              "start": 2.05,
+              "end": 2.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " censured?",
+              "start": 2.19,
+              "end": 2.63,
+              "probability": 0.960693359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Both",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "tribunes,",
+          "start": 0.61,
+          "end": 1.17
+        },
+        {
+          "raw": "why",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "raw": "how",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "raw": "are",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "raw": "we",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "raw": "censured?",
+          "start": 2.19,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "Both",
+        "Tribunes.",
+        "Why,",
+        "how",
+        "are",
+        "we",
+        "censured?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Both",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "both",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tribunes,",
+          "start": 0.61,
+          "end": 1.17,
+          "key": "tribunes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.53,
+          "end": 1.77,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.77,
+          "end": 1.95,
+          "key": "how",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.95,
+          "end": 2.05,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.05,
+          "end": 2.19,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "censured?",
+          "start": 2.19,
+          "end": 2.63,
+          "key": "censured",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Both",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Tribunes.",
+          "start": 0.61,
+          "end": 1.17
+        },
+        {
+          "text": "Why,",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "text": "how",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "text": "are",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "text": "we",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "text": "censured?",
+          "start": 2.19,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20186512917280197
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b7897e72a0e8f53a27bc7ad2241b80ac3a13bf581bb47392a2952c7de7446f6a",
+  "selected_reasons": []
+}

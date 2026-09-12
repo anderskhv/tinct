@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "e441b93439d3b4040a62f60bf89da9b09013b9d0e906f31183867b77cbacef5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1366495992988348,
+      "alignment_seconds": 0.00014413334429264069,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Whispering, Hark, Boys.",
+          "start": 0.02,
+          "end": 1.88,
+          "words": [
+            {
+              "text": " Whispering,",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.873779296875
+            },
+            {
+              "text": " Hark,",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.838623046875
+            },
+            {
+              "text": " Boys.",
+              "start": 1.6,
+              "end": 1.88,
+              "probability": 0.71875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Whispering,",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "raw": "Hark,",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "Boys.",
+          "start": 1.6,
+          "end": 1.88
+        }
+      ],
+      "expected_tokens": [
+        "[_Whispering._]",
+        "Hark,",
+        "boys."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Whispering,",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "whispering",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hark,",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "hark",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Boys.",
+          "start": 1.6,
+          "end": 1.88,
+          "key": "boys",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Whispering._]",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "text": "Hark,",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "boys.",
+          "start": 1.6,
+          "end": 1.88
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13684369903057814
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "222753b3375d534873af43b1aa5a85327ff989e576a8aada2d357a447045281d",
+  "selected_reasons": []
+}

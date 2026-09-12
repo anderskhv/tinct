@@ -1,0 +1,234 @@
+{
+  "complete": true,
+  "signature": "038079099adbd9bac4101ffdba6e09dfa58891e53cd113268f85975b9a939843",
+  "attempts": [
+    {
+      "asr_seconds": 0.1969267027452588,
+      "alignment_seconds": 0.0002567274495959282,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All, K.S. Martius Coriolanus.",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.53515625
+            },
+            {
+              "text": " K",
+              "start": 1.13,
+              "end": 1.17,
+              "probability": 0.65380859375
+            },
+            {
+              "text": ".S.",
+              "start": 1.17,
+              "end": 1.29,
+              "probability": 0.5855712890625
+            },
+            {
+              "text": " Martius",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.638916015625
+            },
+            {
+              "text": " Coriolanus.",
+              "start": 1.69,
+              "end": 2.35,
+              "probability": 0.84375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "K",
+          "start": 1.13,
+          "end": 1.17
+        },
+        {
+          "raw": ".S.",
+          "start": 1.17,
+          "end": 1.29
+        },
+        {
+          "raw": "Martius",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "raw": "Coriolanus.",
+          "start": 1.69,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Caius",
+        "Martius",
+        "Coriolanus!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          4,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "K",
+          "start": 1.13,
+          "end": 1.17,
+          "key": "k",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": ".S.",
+          "start": 1.17,
+          "end": 1.29,
+          "key": "s",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Martius",
+          "start": 1.45,
+          "end": 1.69,
+          "key": "martius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Coriolanus.",
+          "start": 1.69,
+          "end": 2.35,
+          "key": "coriolanus",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Caius",
+          "start": 0.69,
+          "end": 1.07
+        },
+        {
+          "text": "Martius",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "text": "Coriolanus!",
+          "start": 1.69,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1972840204834938
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "03e86f1b6d2f5d1f0999cf0eef0eb6a5cf6ae98c7a9d5a8e967bfe1dc5f6fe96",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

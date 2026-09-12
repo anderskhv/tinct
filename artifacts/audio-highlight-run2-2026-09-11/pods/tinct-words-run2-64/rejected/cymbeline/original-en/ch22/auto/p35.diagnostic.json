@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "992f021b4f3268fb767b02dbcfea6eff906f2043fbaabcad46f07547556462f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.3190738931298256,
+      "alignment_seconds": 0.0005504153668880463,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Guiderius. I do note That grief and patience, rooted in him both, Mingle their spurs together.",
+        "hotwords": "Guiderius, I, That, Mingle"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Guiderius. I do note That grief and patience, rooted in him both, Mingle their spurs together.",
+          "start": 0.08,
+          "end": 5.88,
+          "words": [
+            {
+              "text": " Guiderius.",
+              "start": 0.08,
+              "end": 1.04,
+              "probability": 0.28058942159016925
+            },
+            {
+              "text": " I",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " do",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " note",
+              "start": 1.78,
+              "end": 1.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " That",
+              "start": 1.98,
+              "end": 2.18,
+              "probability": 0.0002262592315673828
+            },
+            {
+              "text": " grief",
+              "start": 2.18,
+              "end": 2.5,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " and",
+              "start": 2.5,
+              "end": 2.72,
+              "probability": 0.962890625
+            },
+            {
+              "text": " patience,",
+              "start": 2.72,
+              "end": 3.16,
+              "probability": 0.888671875
+            },
+            {
+              "text": " rooted",
+              "start": 3.62,
+              "end": 3.72,
+              "probability": 0.57177734375
+            },
+            {
+              "text": " in",
+              "start": 3.72,
+              "end": 3.94,
+              "probability": 0.94140625
+            },
+            {
+              "text": " him",
+              "start": 3.94,
+              "end": 4.08,
+              "probability": 0.9375
+            },
+            {
+              "text": " both,",
+              "start": 4.08,
+              "end": 4.38,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " Mingle",
+              "start": 4.68,
+              "end": 4.9,
+              "probability": 0.7119140625
+            },
+            {
+              "text": " their",
+              "start": 4.9,
+              "end": 5.16,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " spurs",
+              "start": 5.16,
+              "end": 5.5,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " together.",
+              "start": 5.5,
+              "end": 5.88,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guiderius.",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "raw": "I",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "do",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "note",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "raw": "That",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "raw": "grief",
+          "start": 2.18,
+          "end": 2.5
+        },
+        {
+          "raw": "and",
+          "start": 2.5,
+          "end": 2.72
+        },
+        {
+          "raw": "patience,",
+          "start": 2.72,
+          "end": 3.16
+        },
+        {
+          "raw": "rooted",
+          "start": 3.62,
+          "end": 3.72
+        },
+        {
+          "raw": "in",
+          "start": 3.72,
+          "end": 3.94
+        },
+        {
+          "raw": "him",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "raw": "both,",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "raw": "Mingle",
+          "start": 4.68,
+          "end": 4.9
+        },
+        {
+          "raw": "their",
+          "start": 4.9,
+          "end": 5.16
+        },
+        {
+          "raw": "spurs",
+          "start": 5.16,
+          "end": 5.5
+        },
+        {
+          "raw": "together.",
+          "start": 5.5,
+          "end": 5.88
+        }
+      ],
+      "expected_tokens": [
+        "Guiderius.",
+        "I",
+        "do",
+        "note",
+        "That",
+        "grief",
+        "and",
+        "patience,",
+        "rooted",
+        "in",
+        "him",
+        "both,",
+        "Mingle",
+        "their",
+        "spurs",
+        "together."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guiderius.",
+          "start": 0.08,
+          "end": 1.04,
+          "key": "guiderius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "note",
+          "start": 1.78,
+          "end": 1.98,
+          "key": "note",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 1.98,
+          "end": 2.18,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "grief",
+          "start": 2.18,
+          "end": 2.5,
+          "key": "grief",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.5,
+          "end": 2.72,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "patience,",
+          "start": 2.72,
+          "end": 3.16,
+          "key": "patience",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "rooted",
+          "start": 3.62,
+          "end": 3.72,
+          "key": "rooted",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.72,
+          "end": 3.94,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.94,
+          "end": 4.08,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "both,",
+          "start": 4.08,
+          "end": 4.38,
+          "key": "both",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Mingle",
+          "start": 4.68,
+          "end": 4.9,
+          "key": "mingle",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.9,
+          "end": 5.16,
+          "key": "their",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "spurs",
+          "start": 5.16,
+          "end": 5.5,
+          "key": "spurs",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "together.",
+          "start": 5.5,
+          "end": 5.88,
+          "key": "together",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guiderius.",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "text": "I",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "do",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "note",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "text": "That",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "text": "grief",
+          "start": 2.18,
+          "end": 2.5
+        },
+        {
+          "text": "and",
+          "start": 2.5,
+          "end": 2.72
+        },
+        {
+          "text": "patience,",
+          "start": 2.72,
+          "end": 3.16
+        },
+        {
+          "text": "rooted",
+          "start": 3.62,
+          "end": 3.72
+        },
+        {
+          "text": "in",
+          "start": 3.72,
+          "end": 3.94
+        },
+        {
+          "text": "him",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "text": "both,",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "text": "Mingle",
+          "start": 4.68,
+          "end": 4.9
+        },
+        {
+          "text": "their",
+          "start": 4.9,
+          "end": 5.16
+        },
+        {
+          "text": "spurs",
+          "start": 5.16,
+          "end": 5.5
+        },
+        {
+          "text": "together.",
+          "start": 5.5,
+          "end": 5.88
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3198442906141281
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fbb487516fbe2e0378c68f48519e93355cb685fea001bd53e60d92fcae23aced",
+  "selected_reasons": []
+}

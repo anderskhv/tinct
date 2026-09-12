@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "c7bf843e485f1799133a742d716c4500cfa30741be2a6cf2c7eb8176a584f1e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.11214251350611448,
+      "alignment_seconds": 0.00012366566807031631,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lucius, by name.",
+          "start": 0.05,
+          "end": 1.51,
+          "words": [
+            {
+              "text": " Lucius,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " by",
+              "start": 1.13,
+              "end": 1.23,
+              "probability": 0.8984375
+            },
+            {
+              "text": " name.",
+              "start": 1.23,
+              "end": 1.51,
+              "probability": 0.9521484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucius,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "by",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "raw": "name.",
+          "start": 1.23,
+          "end": 1.51
+        }
+      ],
+      "expected_tokens": [
+        "Lucius.",
+        "Thy",
+        "name?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucius,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "lucius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.13,
+          "end": 1.23,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "name.",
+          "start": 1.23,
+          "end": 1.51,
+          "key": "name",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lucius.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Thy",
+          "start": 0.79,
+          "end": 1.01
+        },
+        {
+          "text": "name?",
+          "start": 1.23,
+          "end": 1.51
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11230150610208511
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e4d9c2c8122e61add72705babc556deae13ef86784de88b2427a0786a260b59f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

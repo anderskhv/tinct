@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "6e90a349b93a30dafec1cc3bbbd26395c0033602e7cd97e43069b4982786d624",
+  "attempts": [
+    {
+      "asr_seconds": 0.12010259740054607,
+      "alignment_seconds": 0.00012809038162231445,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Guiderius. Where?",
+        "hotwords": "Guiderius, Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Guiderius, Where?",
+          "start": 0.05,
+          "end": 1.29,
+          "words": [
+            {
+              "text": " Guiderius,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.2736981709798177
+            },
+            {
+              "text": " Where?",
+              "start": 1.25,
+              "end": 1.29,
+              "probability": 0.0211944580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Where?",
+          "start": 1.25,
+          "end": 1.29
+        }
+      ],
+      "expected_tokens": [
+        "Guiderius.",
+        "Where?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "guiderius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where?",
+          "start": 1.25,
+          "end": 1.29,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guiderius.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Where?",
+          "start": 1.25,
+          "end": 1.29
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12027395144104958
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "02f205d1b66d93a32fbb1fdaaafd0a73083fd58cd5f3e5d6fe1f0ae9c09e8a80",
+  "selected_reasons": []
+}

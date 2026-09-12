@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "a88b86d013ac636c44df578256ad67dea17aa351a5b2200e3f1e45c23133a531",
+  "attempts": [
+    {
+      "asr_seconds": 0.36142996698617935,
+      "alignment_seconds": 0.0005942024290561676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Posthumus. Thou shalt be then freer than a gaoler; no bolts for the dead.",
+        "hotwords": "Posthumus, Thou"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Posthumus, Thou shalt be then freer than a gaoler, no bolts for the dead.",
+          "start": 0.79,
+          "end": 4.59,
+          "words": [
+            {
+              "text": " Posthumus,",
+              "start": 0.79,
+              "end": 1.19,
+              "probability": 0.6067708333333334
+            },
+            {
+              "text": " Thou",
+              "start": 1.63,
+              "end": 1.71,
+              "probability": 0.07696533203125
+            },
+            {
+              "text": " shalt",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " be",
+              "start": 1.87,
+              "end": 2.03,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " then",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " freer",
+              "start": 2.23,
+              "end": 2.61,
+              "probability": 0.948974609375
+            },
+            {
+              "text": " than",
+              "start": 2.61,
+              "end": 2.71,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " a",
+              "start": 2.71,
+              "end": 2.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " gaoler,",
+              "start": 2.83,
+              "end": 3.27,
+              "probability": 0.3429598808288574
+            },
+            {
+              "text": " no",
+              "start": 3.63,
+              "end": 3.75,
+              "probability": 0.65087890625
+            },
+            {
+              "text": " bolts",
+              "start": 3.75,
+              "end": 4.01,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " for",
+              "start": 4.01,
+              "end": 4.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 4.21,
+              "end": 4.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " dead.",
+              "start": 4.33,
+              "end": 4.59,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Posthumus,",
+          "start": 0.79,
+          "end": 1.19
+        },
+        {
+          "raw": "Thou",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "raw": "shalt",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "be",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "raw": "then",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "freer",
+          "start": 2.23,
+          "end": 2.61
+        },
+        {
+          "raw": "than",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "raw": "a",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "raw": "gaoler,",
+          "start": 2.83,
+          "end": 3.27
+        },
+        {
+          "raw": "no",
+          "start": 3.63,
+          "end": 3.75
+        },
+        {
+          "raw": "bolts",
+          "start": 3.75,
+          "end": 4.01
+        },
+        {
+          "raw": "for",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "raw": "the",
+          "start": 4.21,
+          "end": 4.33
+        },
+        {
+          "raw": "dead.",
+          "start": 4.33,
+          "end": 4.59
+        }
+      ],
+      "expected_tokens": [
+        "Posthumus.",
+        "Thou",
+        "shalt",
+        "be",
+        "then",
+        "freer",
+        "than",
+        "a",
+        "gaoler;",
+        "no",
+        "bolts",
+        "for",
+        "the",
+        "dead."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Posthumus,",
+          "start": 0.79,
+          "end": 1.19,
+          "key": "posthumus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 1.63,
+          "end": 1.71,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shalt",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "shalt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.87,
+          "end": 2.03,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "freer",
+          "start": 2.23,
+          "end": 2.61,
+          "key": "freer",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.61,
+          "end": 2.71,
+          "key": "than",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.71,
+          "end": 2.83,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "gaoler,",
+          "start": 2.83,
+          "end": 3.27,
+          "key": "gaoler",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.63,
+          "end": 3.75,
+          "key": "no",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bolts",
+          "start": 3.75,
+          "end": 4.01,
+          "key": "bolts",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.01,
+          "end": 4.21,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.21,
+          "end": 4.33,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "dead.",
+          "start": 4.33,
+          "end": 4.59,
+          "key": "dead",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Posthumus.",
+          "start": 0.79,
+          "end": 1.19
+        },
+        {
+          "text": "Thou",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "text": "shalt",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "be",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "text": "then",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "freer",
+          "start": 2.23,
+          "end": 2.61
+        },
+        {
+          "text": "than",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "text": "a",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "text": "gaoler;",
+          "start": 2.83,
+          "end": 3.27
+        },
+        {
+          "text": "no",
+          "start": 3.63,
+          "end": 3.75
+        },
+        {
+          "text": "bolts",
+          "start": 3.75,
+          "end": 4.01
+        },
+        {
+          "text": "for",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "text": "the",
+          "start": 4.21,
+          "end": 4.33
+        },
+        {
+          "text": "dead.",
+          "start": 4.33,
+          "end": 4.59
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3622805252671242
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f04b44b533fe8452dbcdcd409eae555dd5a587ee6a19e063c1d726844874e53e",
+  "selected_reasons": []
+}

@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "a1e69b3a16ebc9ea523972e6f9ab3325da1300d9cd6e3ae5df88e94144e50caa",
+  "attempts": [
+    {
+      "asr_seconds": 0.3661025380715728,
+      "alignment_seconds": 0.0006468864157795906,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Belarius. Have at it then by leave! Thou hadst, great King, a subject who Was call'd Belarius.",
+        "hotwords": "Belarius, Have, Thou, King, Was"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Belarius, Have at it then by leave! Thou hadst, great King, a subject who Was call'd Belarius.",
+          "start": 0.08,
+          "end": 6.06,
+          "words": [
+            {
+              "text": " Belarius,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.1080322265625
+            },
+            {
+              "text": " Have",
+              "start": 1.3,
+              "end": 1.54,
+              "probability": 0.06585693359375
+            },
+            {
+              "text": " at",
+              "start": 1.54,
+              "end": 1.66,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " it",
+              "start": 1.66,
+              "end": 1.76,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " then",
+              "start": 1.76,
+              "end": 1.9,
+              "probability": 0.9296875
+            },
+            {
+              "text": " by",
+              "start": 1.9,
+              "end": 2.08,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " leave!",
+              "start": 2.08,
+              "end": 2.44,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Thou",
+              "start": 2.96,
+              "end": 3.12,
+              "probability": 0.513671875
+            },
+            {
+              "text": " hadst,",
+              "start": 3.12,
+              "end": 3.66,
+              "probability": 0.835693359375
+            },
+            {
+              "text": " great",
+              "start": 3.72,
+              "end": 3.9,
+              "probability": 0.7109375
+            },
+            {
+              "text": " King,",
+              "start": 3.9,
+              "end": 4.2,
+              "probability": 0.40869140625
+            },
+            {
+              "text": " a",
+              "start": 4.48,
+              "end": 4.52,
+              "probability": 0.4775390625
+            },
+            {
+              "text": " subject",
+              "start": 4.52,
+              "end": 4.86,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " who",
+              "start": 4.86,
+              "end": 5.08,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " Was",
+              "start": 5.08,
+              "end": 5.2,
+              "probability": 0.0018739700317382812
+            },
+            {
+              "text": " call'd",
+              "start": 5.2,
+              "end": 5.58,
+              "probability": 0.48798298835754395
+            },
+            {
+              "text": " Belarius.",
+              "start": 5.58,
+              "end": 6.06,
+              "probability": 0.888671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Belarius,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "Have",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "raw": "at",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "raw": "it",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "raw": "then",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "raw": "by",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "raw": "leave!",
+          "start": 2.08,
+          "end": 2.44
+        },
+        {
+          "raw": "Thou",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "raw": "hadst,",
+          "start": 3.12,
+          "end": 3.66
+        },
+        {
+          "raw": "great",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "raw": "King,",
+          "start": 3.9,
+          "end": 4.2
+        },
+        {
+          "raw": "a",
+          "start": 4.48,
+          "end": 4.52
+        },
+        {
+          "raw": "subject",
+          "start": 4.52,
+          "end": 4.86
+        },
+        {
+          "raw": "who",
+          "start": 4.86,
+          "end": 5.08
+        },
+        {
+          "raw": "Was",
+          "start": 5.08,
+          "end": 5.2
+        },
+        {
+          "raw": "call'd",
+          "start": 5.2,
+          "end": 5.58
+        },
+        {
+          "raw": "Belarius.",
+          "start": 5.58,
+          "end": 6.06
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "Have",
+        "at",
+        "it",
+        "then",
+        "by",
+        "leave!",
+        "Thou",
+        "hadst,",
+        "great",
+        "King,",
+        "a",
+        "subject",
+        "who",
+        "Was",
+        "call'd",
+        "Belarius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Belarius,",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "belarius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 1.3,
+          "end": 1.54,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.54,
+          "end": 1.66,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.66,
+          "end": 1.76,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.76,
+          "end": 1.9,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.9,
+          "end": 2.08,
+          "key": "by",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "leave!",
+          "start": 2.08,
+          "end": 2.44,
+          "key": "leave",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 2.96,
+          "end": 3.12,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hadst,",
+          "start": 3.12,
+          "end": 3.66,
+          "key": "hadst",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 3.72,
+          "end": 3.9,
+          "key": "great",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "King,",
+          "start": 3.9,
+          "end": 4.2,
+          "key": "king",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.48,
+          "end": 4.52,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "subject",
+          "start": 4.52,
+          "end": 4.86,
+          "key": "subject",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 4.86,
+          "end": 5.08,
+          "key": "who",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Was",
+          "start": 5.08,
+          "end": 5.2,
+          "key": "was",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "call'd",
+          "start": 5.2,
+          "end": 5.58,
+          "key": "calld",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Belarius.",
+          "start": 5.58,
+          "end": 6.06,
+          "key": "belarius",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "text": "Have",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "text": "at",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "it",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "text": "then",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "text": "by",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "text": "leave!",
+          "start": 2.08,
+          "end": 2.44
+        },
+        {
+          "text": "Thou",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "text": "hadst,",
+          "start": 3.12,
+          "end": 3.66
+        },
+        {
+          "text": "great",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "text": "King,",
+          "start": 3.9,
+          "end": 4.2
+        },
+        {
+          "text": "a",
+          "start": 4.48,
+          "end": 4.52
+        },
+        {
+          "text": "subject",
+          "start": 4.52,
+          "end": 4.86
+        },
+        {
+          "text": "who",
+          "start": 4.86,
+          "end": 5.08
+        },
+        {
+          "text": "Was",
+          "start": 5.08,
+          "end": 5.2
+        },
+        {
+          "text": "call'd",
+          "start": 5.2,
+          "end": 5.58
+        },
+        {
+          "text": "Belarius.",
+          "start": 5.58,
+          "end": 6.06
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3670129058882594
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8c67a70bd87cb1434fa09ca56b7aa3a4fd810135903d6943af54e3c714f952e4",
+  "selected_reasons": []
+}

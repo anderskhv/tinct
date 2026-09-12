@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "8e27e303df00bf13fd750e11c583721aaaac37526cf20995b2edb4838e7a33c4",
+  "attempts": [
+    {
+      "asr_seconds": 0.1462760167196393,
+      "alignment_seconds": 0.00022184941917657852,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sesinius, the lamb.",
+          "start": 0.08,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " Sesinius,",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.509368896484375
+            },
+            {
+              "text": " the",
+              "start": 1.34,
+              "end": 1.44,
+              "probability": 0.7314453125
+            },
+            {
+              "text": " lamb.",
+              "start": 1.44,
+              "end": 1.7,
+              "probability": 0.5078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "raw": "lamb.",
+          "start": 1.44,
+          "end": 1.7
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "The",
+        "lamb."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "sesinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.44,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lamb.",
+          "start": 1.44,
+          "end": 1.7,
+          "key": "lamb",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.67
+        },
+        {
+          "text": "The",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "text": "lamb.",
+          "start": 1.44,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14659454952925444
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "55fccca2daa1e8287aea9622602b6b515fa6b479e12b091e451d8f245bdcff78",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

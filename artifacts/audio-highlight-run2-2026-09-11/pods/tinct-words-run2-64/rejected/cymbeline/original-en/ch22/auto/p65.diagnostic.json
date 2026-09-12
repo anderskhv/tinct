@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "a7c76198f4cb5ee78fb0e1e9af9aee3b3892c550cbd2752ea0880b5f0b6ade16",
+  "attempts": [
+    {
+      "asr_seconds": 0.40548394713550806,
+      "alignment_seconds": 0.00036032311618328094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Arviragus. In this place we left them. I wish my brother make good time with him, You say he is so fell.",
+        "hotwords": "Arviragus, In, I, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Arviragus, In this place we left them. I wish my brother make good time with him, You say he is so fell.",
+          "start": 0.6,
+          "end": 6.54,
+          "words": [
+            {
+              "text": " Arviragus,",
+              "start": 0.6,
+              "end": 1.06,
+              "probability": 0.3016560872395833
+            },
+            {
+              "text": " In",
+              "start": 1.48,
+              "end": 1.68,
+              "probability": 0.032440185546875
+            },
+            {
+              "text": " this",
+              "start": 1.68,
+              "end": 1.86,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " place",
+              "start": 1.86,
+              "end": 2.1,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " we",
+              "start": 2.1,
+              "end": 2.34,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " left",
+              "start": 2.34,
+              "end": 2.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " them.",
+              "start": 2.52,
+              "end": 2.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 3.32,
+              "end": 3.42,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " wish",
+              "start": 3.42,
+              "end": 3.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 3.58,
+              "end": 3.84,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " brother",
+              "start": 3.84,
+              "end": 4.02,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " make",
+              "start": 4.02,
+              "end": 4.26,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " good",
+              "start": 4.26,
+              "end": 4.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " time",
+              "start": 4.46,
+              "end": 4.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 4.76,
+              "end": 4.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him,",
+              "start": 4.94,
+              "end": 5.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " You",
+              "start": 5.4,
+              "end": 5.48,
+              "probability": 0.16552734375
+            },
+            {
+              "text": " say",
+              "start": 5.48,
+              "end": 5.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 5.72,
+              "end": 5.9,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " is",
+              "start": 5.9,
+              "end": 6.04,
+              "probability": 0.96875
+            },
+            {
+              "text": " so",
+              "start": 6.04,
+              "end": 6.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fell.",
+              "start": 6.24,
+              "end": 6.54,
+              "probability": 0.6787109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Arviragus,",
+          "start": 0.6,
+          "end": 1.06
+        },
+        {
+          "raw": "In",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "raw": "this",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "raw": "place",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "raw": "we",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "raw": "left",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "raw": "them.",
+          "start": 2.52,
+          "end": 2.82
+        },
+        {
+          "raw": "I",
+          "start": 3.32,
+          "end": 3.42
+        },
+        {
+          "raw": "wish",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "raw": "my",
+          "start": 3.58,
+          "end": 3.84
+        },
+        {
+          "raw": "brother",
+          "start": 3.84,
+          "end": 4.02
+        },
+        {
+          "raw": "make",
+          "start": 4.02,
+          "end": 4.26
+        },
+        {
+          "raw": "good",
+          "start": 4.26,
+          "end": 4.46
+        },
+        {
+          "raw": "time",
+          "start": 4.46,
+          "end": 4.76
+        },
+        {
+          "raw": "with",
+          "start": 4.76,
+          "end": 4.94
+        },
+        {
+          "raw": "him,",
+          "start": 4.94,
+          "end": 5.16
+        },
+        {
+          "raw": "You",
+          "start": 5.4,
+          "end": 5.48
+        },
+        {
+          "raw": "say",
+          "start": 5.48,
+          "end": 5.72
+        },
+        {
+          "raw": "he",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "raw": "is",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "raw": "so",
+          "start": 6.04,
+          "end": 6.24
+        },
+        {
+          "raw": "fell.",
+          "start": 6.24,
+          "end": 6.54
+        }
+      ],
+      "expected_tokens": [
+        "Arviragus.",
+        "In",
+        "this",
+        "place",
+        "we",
+        "left",
+        "them.",
+        "I",
+        "wish",
+        "my",
+        "brother",
+        "make",
+        "good",
+        "time",
+        "with",
+        "him,",
+        "You",
+        "say",
+        "he",
+        "is",
+        "so",
+        "fell."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Arviragus,",
+          "start": 0.6,
+          "end": 1.06,
+          "key": "arviragus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 1.48,
+          "end": 1.68,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.68,
+          "end": 1.86,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 1.86,
+          "end": 2.1,
+          "key": "place",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.1,
+          "end": 2.34,
+          "key": "we",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 2.34,
+          "end": 2.52,
+          "key": "left",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 2.52,
+          "end": 2.82,
+          "key": "them",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.32,
+          "end": 3.42,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 3.42,
+          "end": 3.58,
+          "key": "wish",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.58,
+          "end": 3.84,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 3.84,
+          "end": 4.02,
+          "key": "brother",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 4.02,
+          "end": 4.26,
+          "key": "make",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 4.26,
+          "end": 4.46,
+          "key": "good",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 4.46,
+          "end": 4.76,
+          "key": "time",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.76,
+          "end": 4.94,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 4.94,
+          "end": 5.16,
+          "key": "him",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 5.4,
+          "end": 5.48,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 5.48,
+          "end": 5.72,
+          "key": "say",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.72,
+          "end": 5.9,
+          "key": "he",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.9,
+          "end": 6.04,
+          "key": "is",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 6.04,
+          "end": 6.24,
+          "key": "so",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "fell.",
+          "start": 6.24,
+          "end": 6.54,
+          "key": "fell",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Arviragus.",
+          "start": 0.6,
+          "end": 1.06
+        },
+        {
+          "text": "In",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "text": "this",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "text": "place",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "text": "we",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "text": "left",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "text": "them.",
+          "start": 2.52,
+          "end": 2.82
+        },
+        {
+          "text": "I",
+          "start": 3.32,
+          "end": 3.42
+        },
+        {
+          "text": "wish",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "text": "my",
+          "start": 3.58,
+          "end": 3.84
+        },
+        {
+          "text": "brother",
+          "start": 3.84,
+          "end": 4.02
+        },
+        {
+          "text": "make",
+          "start": 4.02,
+          "end": 4.26
+        },
+        {
+          "text": "good",
+          "start": 4.26,
+          "end": 4.46
+        },
+        {
+          "text": "time",
+          "start": 4.46,
+          "end": 4.76
+        },
+        {
+          "text": "with",
+          "start": 4.76,
+          "end": 4.94
+        },
+        {
+          "text": "him,",
+          "start": 4.94,
+          "end": 5.16
+        },
+        {
+          "text": "You",
+          "start": 5.4,
+          "end": 5.48
+        },
+        {
+          "text": "say",
+          "start": 5.48,
+          "end": 5.72
+        },
+        {
+          "text": "he",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "text": "is",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "text": "so",
+          "start": 6.04,
+          "end": 6.24
+        },
+        {
+          "text": "fell.",
+          "start": 6.24,
+          "end": 6.54
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4059675866737962
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9485756427239a31ff2fbf39a77d17ba94c1c3bb3a415f9630985c91886dbfcb",
+  "selected_reasons": []
+}

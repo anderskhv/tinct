@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "167d2dc5d8a0d99358efd3e26337281d4fcc12d4559841aea6f94a3e48d4ff5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.17423600051552057,
+      "alignment_seconds": 0.00032271724194288254,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Arvaragus, so begin.",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Arvaragus,",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.482666015625
+            },
+            {
+              "text": " so",
+              "start": 1.25,
+              "end": 1.57,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " begin.",
+              "start": 1.57,
+              "end": 2.01,
+              "probability": 0.76708984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Arvaragus,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "so",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "raw": "begin.",
+          "start": 1.57,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Arviragus.",
+        "So.",
+        "Begin."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Arvaragus,",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "arvaragus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.25,
+          "end": 1.57,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "begin.",
+          "start": 1.57,
+          "end": 2.01,
+          "key": "begin",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Arviragus.",
+          "start": 0.0,
+          "end": 0.625
+        },
+        {
+          "text": "So.",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "text": "Begin.",
+          "start": 1.57,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17468574922531843
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f849c3c992b757de3f30fd79d6b4d7aa20e833bd47e706425f431da74ed28884",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "f981c61f9aafd16d8b6d8b91a2e3b1ee7ea9915dace3532a1ac11bc8d40a0915",
+  "attempts": [
+    {
+      "asr_seconds": 0.20400348585098982,
+      "alignment_seconds": 0.00035627279430627823,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Looking into the cave._] Stay, come not in.",
+        "hotwords": "Stay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Looking into the cave. Stay, come not in.",
+          "start": 0.02,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " Looking",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " into",
+              "start": 0.62,
+              "end": 0.82,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 0.82,
+              "end": 0.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " cave.",
+              "start": 0.96,
+              "end": 1.24,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Stay,",
+              "start": 1.96,
+              "end": 2.06,
+              "probability": 0.921875
+            },
+            {
+              "text": " come",
+              "start": 2.32,
+              "end": 2.38,
+              "probability": 0.9296875
+            },
+            {
+              "text": " not",
+              "start": 2.38,
+              "end": 2.58,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " in.",
+              "start": 2.58,
+              "end": 2.86,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Looking",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "into",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "raw": "the",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "raw": "cave.",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "raw": "Stay,",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "raw": "come",
+          "start": 2.32,
+          "end": 2.38
+        },
+        {
+          "raw": "not",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "raw": "in.",
+          "start": 2.58,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "[_Looking",
+        "into",
+        "the",
+        "cave._]",
+        "Stay,",
+        "come",
+        "not",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Looking",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "looking",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 0.62,
+          "end": 0.82,
+          "key": "into",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.82,
+          "end": 0.96,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cave.",
+          "start": 0.96,
+          "end": 1.24,
+          "key": "cave",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Stay,",
+          "start": 1.96,
+          "end": 2.06,
+          "key": "stay",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.32,
+          "end": 2.38,
+          "key": "come",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.38,
+          "end": 2.58,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 2.58,
+          "end": 2.86,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Looking",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "into",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "text": "the",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "text": "cave._]",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "text": "Stay,",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "text": "come",
+          "start": 2.32,
+          "end": 2.38
+        },
+        {
+          "text": "not",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "text": "in.",
+          "start": 2.58,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20448392443358898
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "326538b2850516405b7a09578af3baa38d3a877f14764dc224745c1b5f06546f",
+  "selected_reasons": []
+}

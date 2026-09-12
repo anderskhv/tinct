@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "fef7b168f11fbc2540f345a174db62dc06e1143fbcb8c1cfb246a0e6c95849f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.11999747809022665,
+      "alignment_seconds": 0.0002694660797715187,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt fighting.",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.6711018880208334
+            },
+            {
+              "text": " fighting.",
+              "start": 0.86,
+              "end": 1.22,
+              "probability": 0.81396484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "fighting.",
+          "start": 0.86,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt,",
+        "fighting._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fighting.",
+          "start": 0.86,
+          "end": 1.22,
+          "key": "fighting",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "fighting._]",
+          "start": 0.86,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1203573178499937
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ff06a7e05c5056bf1d38a479094f38798d80c59e202fc46b03c7015b5ce2bd63",
+  "selected_reasons": []
+}

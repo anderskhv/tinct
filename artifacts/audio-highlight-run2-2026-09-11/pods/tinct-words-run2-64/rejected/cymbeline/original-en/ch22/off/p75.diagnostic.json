@@ -1,0 +1,628 @@
+{
+  "complete": true,
+  "signature": "2bf0174da37c6ccc725080d95595660790a3d0c324ff84729b32dc90ea39a5ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.3143583247438073,
+      "alignment_seconds": 0.0005297064781188965,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Arvaragus, let ordnance come as the gods foresay it.",
+          "start": 0.62,
+          "end": 3.68,
+          "words": [
+            {
+              "text": " Arvaragus,",
+              "start": 0.62,
+              "end": 1.14,
+              "probability": 0.5838623046875
+            },
+            {
+              "text": " let",
+              "start": 1.52,
+              "end": 1.66,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " ordnance",
+              "start": 1.66,
+              "end": 2.06,
+              "probability": 0.6236572265625
+            },
+            {
+              "text": " come",
+              "start": 2.06,
+              "end": 2.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 2.32,
+              "end": 2.52,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " the",
+              "start": 2.52,
+              "end": 2.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " gods",
+              "start": 2.68,
+              "end": 2.92,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " foresay",
+              "start": 2.92,
+              "end": 3.42,
+              "probability": 0.459228515625
+            },
+            {
+              "text": " it.",
+              "start": 3.42,
+              "end": 3.68,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " How swear my brother hath done well?",
+          "start": 4.14,
+          "end": 5.66,
+          "words": [
+            {
+              "text": " How",
+              "start": 4.14,
+              "end": 4.22,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " swear",
+              "start": 4.22,
+              "end": 4.48,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " my",
+              "start": 4.48,
+              "end": 4.74,
+              "probability": 0.830078125
+            },
+            {
+              "text": " brother",
+              "start": 4.74,
+              "end": 4.94,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " hath",
+              "start": 4.94,
+              "end": 5.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " done",
+              "start": 5.16,
+              "end": 5.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " well?",
+              "start": 5.38,
+              "end": 5.66,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Arvaragus,",
+          "start": 0.62,
+          "end": 1.14
+        },
+        {
+          "raw": "let",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "raw": "ordnance",
+          "start": 1.66,
+          "end": 2.06
+        },
+        {
+          "raw": "come",
+          "start": 2.06,
+          "end": 2.32
+        },
+        {
+          "raw": "as",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "raw": "the",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "raw": "gods",
+          "start": 2.68,
+          "end": 2.92
+        },
+        {
+          "raw": "foresay",
+          "start": 2.92,
+          "end": 3.42
+        },
+        {
+          "raw": "it.",
+          "start": 3.42,
+          "end": 3.68
+        },
+        {
+          "raw": "How",
+          "start": 4.14,
+          "end": 4.22
+        },
+        {
+          "raw": "swear",
+          "start": 4.22,
+          "end": 4.48
+        },
+        {
+          "raw": "my",
+          "start": 4.48,
+          "end": 4.74
+        },
+        {
+          "raw": "brother",
+          "start": 4.74,
+          "end": 4.94
+        },
+        {
+          "raw": "hath",
+          "start": 4.94,
+          "end": 5.16
+        },
+        {
+          "raw": "done",
+          "start": 5.16,
+          "end": 5.38
+        },
+        {
+          "raw": "well?",
+          "start": 5.38,
+          "end": 5.66
+        }
+      ],
+      "expected_tokens": [
+        "Arviragus.",
+        "Let",
+        "ordinance",
+        "Come",
+        "as",
+        "the",
+        "gods",
+        "foresay",
+        "it.",
+        "Howsoe'er,",
+        "My",
+        "brother",
+        "hath",
+        "done",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          9,
+          3,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          15,
+          11,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Arvaragus,",
+          "start": 0.62,
+          "end": 1.14,
+          "key": "arvaragus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.52,
+          "end": 1.66,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ordnance",
+          "start": 1.66,
+          "end": 2.06,
+          "key": "ordnance",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.06,
+          "end": 2.32,
+          "key": "come",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.32,
+          "end": 2.52,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.52,
+          "end": 2.68,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gods",
+          "start": 2.68,
+          "end": 2.92,
+          "key": "gods",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "foresay",
+          "start": 2.92,
+          "end": 3.42,
+          "key": "foresay",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 3.42,
+          "end": 3.68,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 4.14,
+          "end": 4.22,
+          "key": "how",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "swear",
+          "start": 4.22,
+          "end": 4.48,
+          "key": "swear",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.48,
+          "end": 4.74,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 4.74,
+          "end": 4.94,
+          "key": "brother",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 4.94,
+          "end": 5.16,
+          "key": "hath",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 5.16,
+          "end": 5.38,
+          "key": "done",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "well?",
+          "start": 5.38,
+          "end": 5.66,
+          "key": "well",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Arviragus.",
+          "start": 0.0,
+          "end": 0.76
+        },
+        {
+          "text": "Let",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "text": "ordinance",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "text": "Come",
+          "start": 2.06,
+          "end": 2.32
+        },
+        {
+          "text": "as",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "text": "the",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "text": "gods",
+          "start": 2.68,
+          "end": 2.92
+        },
+        {
+          "text": "foresay",
+          "start": 2.92,
+          "end": 3.42
+        },
+        {
+          "text": "it.",
+          "start": 3.42,
+          "end": 3.68
+        },
+        {
+          "text": "Howsoe'er,",
+          "start": 3.68,
+          "end": 4.08
+        },
+        {
+          "text": "My",
+          "start": 4.48,
+          "end": 4.74
+        },
+        {
+          "text": "brother",
+          "start": 4.74,
+          "end": 4.94
+        },
+        {
+          "text": "hath",
+          "start": 4.94,
+          "end": 5.16
+        },
+        {
+          "text": "done",
+          "start": 5.16,
+          "end": 5.38
+        },
+        {
+          "text": "well.",
+          "start": 5.38,
+          "end": 5.66
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.31509198248386383
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c520d732aacad4101befbd28fac55ec02aca0daaf71572674a64ceaa57c53fa9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

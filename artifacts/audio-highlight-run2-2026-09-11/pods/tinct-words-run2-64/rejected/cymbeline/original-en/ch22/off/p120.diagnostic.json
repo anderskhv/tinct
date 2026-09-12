@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "f4c35a6572a48fd0c84ce1b1e07ede759efd5a701c192f715f665a069a5049df",
+  "attempts": [
+    {
+      "asr_seconds": 0.20420434791594744,
+      "alignment_seconds": 0.00042305421084165573,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Arvaragus, nor th, all dreaded thunderstone.",
+          "start": 0.14,
+          "end": 3.54,
+          "words": [
+            {
+              "text": " Arvaragus,",
+              "start": 0.14,
+              "end": 1.08,
+              "probability": 0.630615234375
+            },
+            {
+              "text": " nor",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.869140625
+            },
+            {
+              "text": " th,",
+              "start": 1.7,
+              "end": 2.1,
+              "probability": 0.376708984375
+            },
+            {
+              "text": " all",
+              "start": 2.5,
+              "end": 2.54,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " dreaded",
+              "start": 2.54,
+              "end": 2.76,
+              "probability": 0.978515625
+            },
+            {
+              "text": " thunderstone.",
+              "start": 2.76,
+              "end": 3.54,
+              "probability": 0.781005859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Arvaragus,",
+          "start": 0.14,
+          "end": 1.08
+        },
+        {
+          "raw": "nor",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "th,",
+          "start": 1.7,
+          "end": 2.1
+        },
+        {
+          "raw": "all",
+          "start": 2.5,
+          "end": 2.54
+        },
+        {
+          "raw": "dreaded",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "raw": "thunderstone.",
+          "start": 2.76,
+          "end": 3.54
+        }
+      ],
+      "expected_tokens": [
+        "Arviragus.",
+        "_",
+        "Nor",
+        "th'",
+        "all-dreaded",
+        "thunder-stone._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [
+        1
+      ],
+      "compared_heard": [
+        {
+          "raw": "Arvaragus,",
+          "start": 0.14,
+          "end": 1.08,
+          "key": "arvaragus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 1.5,
+          "end": 1.7,
+          "key": "nor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "th,",
+          "start": 1.7,
+          "end": 2.1,
+          "key": "th",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all dreaded",
+          "start": 2.5,
+          "end": 2.76,
+          "key": "alldreaded",
+          "pieces": [
+            3,
+            4
+          ]
+        },
+        {
+          "raw": "thunderstone.",
+          "start": 2.76,
+          "end": 3.54,
+          "key": "thunderstone",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "all-dreaded",
+          "heard": "all dreaded",
+          "heard_indexes": [
+            3,
+            4
+          ],
+          "start": 2.5,
+          "end": 2.76
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Arviragus.",
+          "start": 0.0,
+          "end": 0.75
+        },
+        {
+          "text": "_",
+          "start": 0.75,
+          "end": 1.125
+        },
+        {
+          "text": "Nor",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "text": "th'",
+          "start": 1.7,
+          "end": 2.1
+        },
+        {
+          "text": "all-dreaded",
+          "start": 2.5,
+          "end": 2.76
+        },
+        {
+          "text": "thunder-stone._",
+          "start": 2.76,
+          "end": 3.54
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20473435055464506
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b94a714c0a34affa8c924bd430de7b814fd3f8c68a99062b08d11eea7ac14e28",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

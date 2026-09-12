@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "f0299841efb5204f69426c62adfbf23b408ba3bc12c06ef4e75e1851dd84e139",
+  "attempts": [
+    {
+      "asr_seconds": 0.4565780218690634,
+      "alignment_seconds": 0.0006365450099110603,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Belarius. I fear 'twill be reveng'd. Would, Polydore, thou hadst not done't! though valour Becomes thee well enough.",
+        "hotwords": "Belarius, I, Would, Polydore, Becomes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Belarius, I fear, Twill be reveng'd. Would, Polydore, thou hadst not done't! though valour Becomes thee well enough.",
+          "start": 0.08,
+          "end": 7.24,
+          "words": [
+            {
+              "text": " Belarius,",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.0589447021484375
+            },
+            {
+              "text": " I",
+              "start": 1.36,
+              "end": 1.48,
+              "probability": 0.982421875
+            },
+            {
+              "text": " fear,",
+              "start": 1.48,
+              "end": 1.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Twill",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.5360107421875
+            },
+            {
+              "text": " be",
+              "start": 2.2,
+              "end": 2.36,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " reveng'd.",
+              "start": 2.36,
+              "end": 3.08,
+              "probability": 0.4838523864746094
+            },
+            {
+              "text": " Would,",
+              "start": 3.52,
+              "end": 3.66,
+              "probability": 0.38037109375
+            },
+            {
+              "text": " Polydore,",
+              "start": 3.88,
+              "end": 4.22,
+              "probability": 0.2779134114583333
+            },
+            {
+              "text": " thou",
+              "start": 4.34,
+              "end": 4.4,
+              "probability": 0.802734375
+            },
+            {
+              "text": " hadst",
+              "start": 4.4,
+              "end": 4.78,
+              "probability": 0.64453125
+            },
+            {
+              "text": " not",
+              "start": 4.78,
+              "end": 5.0,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " done't!",
+              "start": 5.0,
+              "end": 5.44,
+              "probability": 0.26821136474609375
+            },
+            {
+              "text": " though",
+              "start": 5.78,
+              "end": 5.92,
+              "probability": 0.273681640625
+            },
+            {
+              "text": " valour",
+              "start": 5.92,
+              "end": 6.26,
+              "probability": 0.280914306640625
+            },
+            {
+              "text": " Becomes",
+              "start": 6.26,
+              "end": 6.62,
+              "probability": 0.49846649169921875
+            },
+            {
+              "text": " thee",
+              "start": 6.62,
+              "end": 6.8,
+              "probability": 0.970703125
+            },
+            {
+              "text": " well",
+              "start": 6.8,
+              "end": 6.98,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " enough.",
+              "start": 6.98,
+              "end": 7.24,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Belarius,",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "raw": "fear,",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "raw": "Twill",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "be",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "raw": "reveng'd.",
+          "start": 2.36,
+          "end": 3.08
+        },
+        {
+          "raw": "Would,",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "raw": "Polydore,",
+          "start": 3.88,
+          "end": 4.22
+        },
+        {
+          "raw": "thou",
+          "start": 4.34,
+          "end": 4.4
+        },
+        {
+          "raw": "hadst",
+          "start": 4.4,
+          "end": 4.78
+        },
+        {
+          "raw": "not",
+          "start": 4.78,
+          "end": 5.0
+        },
+        {
+          "raw": "done't!",
+          "start": 5.0,
+          "end": 5.44
+        },
+        {
+          "raw": "though",
+          "start": 5.78,
+          "end": 5.92
+        },
+        {
+          "raw": "valour",
+          "start": 5.92,
+          "end": 6.26
+        },
+        {
+          "raw": "Becomes",
+          "start": 6.26,
+          "end": 6.62
+        },
+        {
+          "raw": "thee",
+          "start": 6.62,
+          "end": 6.8
+        },
+        {
+          "raw": "well",
+          "start": 6.8,
+          "end": 6.98
+        },
+        {
+          "raw": "enough.",
+          "start": 6.98,
+          "end": 7.24
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "I",
+        "fear",
+        "'twill",
+        "be",
+        "reveng'd.",
+        "Would,",
+        "Polydore,",
+        "thou",
+        "hadst",
+        "not",
+        "done't!",
+        "though",
+        "valour",
+        "Becomes",
+        "thee",
+        "well",
+        "enough."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Belarius,",
+          "start": 0.08,
+          "end": 0.96,
+          "key": "belarius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.48,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fear,",
+          "start": 1.48,
+          "end": 1.8,
+          "key": "fear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Twill",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "twill",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.2,
+          "end": 2.36,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "reveng'd.",
+          "start": 2.36,
+          "end": 3.08,
+          "key": "revengd",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Would,",
+          "start": 3.52,
+          "end": 3.66,
+          "key": "would",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Polydore,",
+          "start": 3.88,
+          "end": 4.22,
+          "key": "polydore",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 4.34,
+          "end": 4.4,
+          "key": "thou",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hadst",
+          "start": 4.4,
+          "end": 4.78,
+          "key": "hadst",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.78,
+          "end": 5.0,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "done't!",
+          "start": 5.0,
+          "end": 5.44,
+          "key": "donet",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 5.78,
+          "end": 5.92,
+          "key": "though",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "valour",
+          "start": 5.92,
+          "end": 6.26,
+          "key": "valour",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Becomes",
+          "start": 6.26,
+          "end": 6.62,
+          "key": "becomes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 6.62,
+          "end": 6.8,
+          "key": "thee",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 6.8,
+          "end": 6.98,
+          "key": "well",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "enough.",
+          "start": 6.98,
+          "end": 7.24,
+          "key": "enough",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "text": "I",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "text": "fear",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "text": "'twill",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "be",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "text": "reveng'd.",
+          "start": 2.36,
+          "end": 3.08
+        },
+        {
+          "text": "Would,",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "text": "Polydore,",
+          "start": 3.88,
+          "end": 4.22
+        },
+        {
+          "text": "thou",
+          "start": 4.34,
+          "end": 4.4
+        },
+        {
+          "text": "hadst",
+          "start": 4.4,
+          "end": 4.78
+        },
+        {
+          "text": "not",
+          "start": 4.78,
+          "end": 5.0
+        },
+        {
+          "text": "done't!",
+          "start": 5.0,
+          "end": 5.44
+        },
+        {
+          "text": "though",
+          "start": 5.78,
+          "end": 5.92
+        },
+        {
+          "text": "valour",
+          "start": 5.92,
+          "end": 6.26
+        },
+        {
+          "text": "Becomes",
+          "start": 6.26,
+          "end": 6.62
+        },
+        {
+          "text": "thee",
+          "start": 6.62,
+          "end": 6.8
+        },
+        {
+          "text": "well",
+          "start": 6.8,
+          "end": 6.98
+        },
+        {
+          "text": "enough.",
+          "start": 6.98,
+          "end": 7.24
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.45745672937482595
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ff8414a16a7d0935b92932d915f6f48c9afcb15ae194a8ac25499be179163fbd",
+  "selected_reasons": []
+}

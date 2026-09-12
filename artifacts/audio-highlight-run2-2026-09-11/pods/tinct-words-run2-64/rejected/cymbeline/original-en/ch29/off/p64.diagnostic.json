@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "f9a4c59a73336e5f48f705244b4a57ca092f77fd26fdf5a5dce7a606b29ee5e8",
+  "attempts": [
+    {
+      "asr_seconds": 0.09859385155141354,
+      "alignment_seconds": 0.00017703231424093246,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Posthumus",
+          "start": 0.05,
+          "end": 1.09,
+          "words": [
+            {
+              "text": " Posthumus",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.5430501302083334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Posthumus",
+          "start": 0.05,
+          "end": 1.09
+        }
+      ],
+      "expected_tokens": [
+        "Posthumus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Posthumus",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "posthumus",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Posthumus.",
+          "start": 0.05,
+          "end": 1.09
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09882767405360937
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2e1fc6c37becb78ef28fe5b77af11d1bf3219d4afa29e72688837c21bbfd45ee",
+  "selected_reasons": []
+}

@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "647b8b3deecbae98d91aabe49722bfdafc9aaab7fb6609dba96c54f05b5ef60c",
+  "attempts": [
+    {
+      "asr_seconds": 0.14523254986852407,
+      "alignment_seconds": 0.00037203356623649597,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lardius, Mardius his name.",
+          "start": 0.05,
+          "end": 2.21,
+          "words": [
+            {
+              "text": " Lardius,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.7132161458333334
+            },
+            {
+              "text": " Mardius",
+              "start": 1.41,
+              "end": 1.73,
+              "probability": 0.7916666666666666
+            },
+            {
+              "text": " his",
+              "start": 1.73,
+              "end": 1.91,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " name.",
+              "start": 1.91,
+              "end": 2.21,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lardius,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "Mardius",
+          "start": 1.41,
+          "end": 1.73
+        },
+        {
+          "raw": "his",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "raw": "name.",
+          "start": 1.91,
+          "end": 2.21
+        }
+      ],
+      "expected_tokens": [
+        "Lartius.",
+        "Martius,",
+        "his",
+        "name?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lardius,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "lardius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mardius",
+          "start": 1.41,
+          "end": 1.73,
+          "key": "mardius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.73,
+          "end": 1.91,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "name.",
+          "start": 1.91,
+          "end": 2.21,
+          "key": "name",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lartius.",
+          "start": 0.0,
+          "end": 0.865
+        },
+        {
+          "text": "Martius,",
+          "start": 0.865,
+          "end": 1.297
+        },
+        {
+          "text": "his",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "text": "name?",
+          "start": 1.91,
+          "end": 2.21
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14572550728917122
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6e0e03cb42540b8c825bd9800954e061d74e233d2055f99fcc2b82b295a6bc8d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

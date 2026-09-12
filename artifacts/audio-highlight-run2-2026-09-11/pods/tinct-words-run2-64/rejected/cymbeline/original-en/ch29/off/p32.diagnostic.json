@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "0d4b5bbe6b2a7e364b2a8232cc8b20ce57c93309f215f635e0a4216c0580dee9",
+  "attempts": [
+    {
+      "asr_seconds": 0.21746776532381773,
+      "alignment_seconds": 0.0005006678402423859,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, wherefore Iced him so.",
+          "start": 0.08,
+          "end": 2.3,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.6678059895833334
+            },
+            {
+              "text": " wherefore",
+              "start": 1.22,
+              "end": 1.6,
+              "probability": 0.850830078125
+            },
+            {
+              "text": " Iced",
+              "start": 1.6,
+              "end": 1.88,
+              "probability": 0.730224609375
+            },
+            {
+              "text": " him",
+              "start": 1.88,
+              "end": 2.02,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " so.",
+              "start": 2.02,
+              "end": 2.3,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "wherefore",
+          "start": 1.22,
+          "end": 1.6
+        },
+        {
+          "raw": "Iced",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "raw": "him",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "raw": "so.",
+          "start": 2.02,
+          "end": 2.3
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "Wherefore",
+        "ey'st",
+        "him",
+        "so?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wherefore",
+          "start": 1.22,
+          "end": 1.6,
+          "key": "wherefore",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Iced",
+          "start": 1.6,
+          "end": 1.88,
+          "key": "iced",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.88,
+          "end": 2.02,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 2.02,
+          "end": 2.3,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "Wherefore",
+          "start": 1.22,
+          "end": 1.6
+        },
+        {
+          "text": "ey'st",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "him",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "text": "so?",
+          "start": 2.02,
+          "end": 2.3
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21810299810022116
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "44afb478a920d700d60dc3f7611ad787b7f3b6a7739fa3beae3715d01aceebe7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

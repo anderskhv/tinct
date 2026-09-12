@@ -1,0 +1,707 @@
+{
+  "complete": true,
+  "signature": "4315d4f239cc78ada5d4f83ee7b5801e8ea8fd11350bc503201da1a700b9959e",
+  "attempts": [
+    {
+      "asr_seconds": 0.43284950125962496,
+      "alignment_seconds": 0.000489293597638607,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Menenius, why then you should discover a brace of unmeriting, proud, violent, testy magistrates,",
+          "start": 0.05,
+          "end": 6.39,
+          "words": [
+            {
+              "text": " Menenius,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.63671875
+            },
+            {
+              "text": " why",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.939453125
+            },
+            {
+              "text": " then",
+              "start": 1.75,
+              "end": 1.93,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " you",
+              "start": 1.93,
+              "end": 2.05,
+              "probability": 0.9296875
+            },
+            {
+              "text": " should",
+              "start": 2.05,
+              "end": 2.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " discover",
+              "start": 2.17,
+              "end": 2.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 2.51,
+              "end": 2.71,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " brace",
+              "start": 2.71,
+              "end": 2.93,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " of",
+              "start": 2.93,
+              "end": 3.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " unmeriting,",
+              "start": 3.11,
+              "end": 3.77,
+              "probability": 0.9475911458333334
+            },
+            {
+              "text": " proud,",
+              "start": 4.27,
+              "end": 4.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " violent,",
+              "start": 5.21,
+              "end": 5.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " testy",
+              "start": 5.55,
+              "end": 5.83,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " magistrates,",
+              "start": 5.83,
+              "end": 6.39,
+              "probability": 0.9765625
+            }
+          ]
+        },
+        {
+          "text": " alias fools as any in Rome?",
+          "start": 7.11,
+          "end": 8.47,
+          "words": [
+            {
+              "text": " alias",
+              "start": 7.11,
+              "end": 7.19,
+              "probability": 0.7880859375
+            },
+            {
+              "text": " fools",
+              "start": 7.19,
+              "end": 7.57,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " as",
+              "start": 7.57,
+              "end": 7.93,
+              "probability": 0.8046875
+            },
+            {
+              "text": " any",
+              "start": 7.93,
+              "end": 8.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 8.09,
+              "end": 8.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Rome?",
+              "start": 8.25,
+              "end": 8.47,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "why",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "then",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "raw": "you",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "raw": "should",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "raw": "discover",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "raw": "a",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "raw": "brace",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "raw": "of",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "raw": "unmeriting,",
+          "start": 3.11,
+          "end": 3.77
+        },
+        {
+          "raw": "proud,",
+          "start": 4.27,
+          "end": 4.49
+        },
+        {
+          "raw": "violent,",
+          "start": 5.21,
+          "end": 5.23
+        },
+        {
+          "raw": "testy",
+          "start": 5.55,
+          "end": 5.83
+        },
+        {
+          "raw": "magistrates,",
+          "start": 5.83,
+          "end": 6.39
+        },
+        {
+          "raw": "alias",
+          "start": 7.11,
+          "end": 7.19
+        },
+        {
+          "raw": "fools",
+          "start": 7.19,
+          "end": 7.57
+        },
+        {
+          "raw": "as",
+          "start": 7.57,
+          "end": 7.93
+        },
+        {
+          "raw": "any",
+          "start": 7.93,
+          "end": 8.09
+        },
+        {
+          "raw": "in",
+          "start": 8.09,
+          "end": 8.25
+        },
+        {
+          "raw": "Rome?",
+          "start": 8.25,
+          "end": 8.47
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "Why,",
+        "then",
+        "you",
+        "should",
+        "discover",
+        "a",
+        "brace",
+        "of",
+        "unmeriting,",
+        "proud,",
+        "violent,",
+        "testy",
+        "magistrates,",
+        "alias",
+        "fools,",
+        "as",
+        "any",
+        "in",
+        "Rome."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.75,
+          "end": 1.93,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.93,
+          "end": 2.05,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 2.05,
+          "end": 2.17,
+          "key": "should",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "discover",
+          "start": 2.17,
+          "end": 2.51,
+          "key": "discover",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.51,
+          "end": 2.71,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "brace",
+          "start": 2.71,
+          "end": 2.93,
+          "key": "brace",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.93,
+          "end": 3.11,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "unmeriting,",
+          "start": 3.11,
+          "end": 3.77,
+          "key": "unmeriting",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "proud,",
+          "start": 4.27,
+          "end": 4.49,
+          "key": "proud",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "violent,",
+          "start": 5.21,
+          "end": 5.23,
+          "key": "violent",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "testy",
+          "start": 5.55,
+          "end": 5.83,
+          "key": "testy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "magistrates,",
+          "start": 5.83,
+          "end": 6.39,
+          "key": "magistrates",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "alias",
+          "start": 7.11,
+          "end": 7.19,
+          "key": "alias",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "fools",
+          "start": 7.19,
+          "end": 7.57,
+          "key": "fools",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 7.57,
+          "end": 7.93,
+          "key": "as",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 7.93,
+          "end": 8.09,
+          "key": "any",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.09,
+          "end": 8.25,
+          "key": "in",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Rome?",
+          "start": 8.25,
+          "end": 8.47,
+          "key": "rome",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "Why,",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "then",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "text": "you",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "text": "should",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "text": "discover",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "text": "a",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "text": "brace",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "text": "of",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "text": "unmeriting,",
+          "start": 3.11,
+          "end": 3.77
+        },
+        {
+          "text": "proud,",
+          "start": 4.27,
+          "end": 4.49
+        },
+        {
+          "text": "violent,",
+          "start": 5.21,
+          "end": 5.23
+        },
+        {
+          "text": "testy",
+          "start": 5.55,
+          "end": 5.83
+        },
+        {
+          "text": "magistrates,",
+          "start": 5.83,
+          "end": 6.39
+        },
+        {
+          "text": "alias",
+          "start": 7.11,
+          "end": 7.19
+        },
+        {
+          "text": "fools,",
+          "start": 7.19,
+          "end": 7.57
+        },
+        {
+          "text": "as",
+          "start": 7.57,
+          "end": 7.93
+        },
+        {
+          "text": "any",
+          "start": 7.93,
+          "end": 8.09
+        },
+        {
+          "text": "in",
+          "start": 8.09,
+          "end": 8.25
+        },
+        {
+          "text": "Rome.",
+          "start": 8.25,
+          "end": 8.47
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4335408266633749
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f37f60ba6d6c2a942911f7360df327d66bc84e524380ba1da08705efa38e756d",
+  "selected_reasons": []
+}

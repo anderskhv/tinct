@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "1418952b996f30b91bf8a6bb7ebcaa2fb28c3bc6f8aa9c1992405a2fca2d0f79",
+  "attempts": [
+    {
+      "asr_seconds": 0.12057809438556433,
+      "alignment_seconds": 0.0002786582335829735,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gaidrius, where?",
+          "start": 0.05,
+          "end": 1.27,
+          "words": [
+            {
+              "text": " Gaidrius,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.3449300130208333
+            },
+            {
+              "text": " where?",
+              "start": 1.23,
+              "end": 1.27,
+              "probability": 0.7861328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gaidrius,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "where?",
+          "start": 1.23,
+          "end": 1.27
+        }
+      ],
+      "expected_tokens": [
+        "Guiderius.",
+        "Where?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gaidrius,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "gaidrius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "where?",
+          "start": 1.23,
+          "end": 1.27,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guiderius.",
+          "start": 0.0,
+          "end": 0.615
+        },
+        {
+          "text": "Where?",
+          "start": 1.23,
+          "end": 1.27
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12094885297119617
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "02f205d1b66d93a32fbb1fdaaafd0a73083fd58cd5f3e5d6fe1f0ae9c09e8a80",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

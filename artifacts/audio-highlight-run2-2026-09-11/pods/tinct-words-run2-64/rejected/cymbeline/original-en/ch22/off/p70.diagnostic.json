@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "976c45e9633d02f254a99a510626bdb1b9abc790528ce34d50765a0d86eb34d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.13945940881967545,
+      "alignment_seconds": 0.00038236845284700394,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Valerius, what hast thou done?",
+          "start": 0.08,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Valerius,",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.6562703450520834
+            },
+            {
+              "text": " what",
+              "start": 1.28,
+              "end": 1.36,
+              "probability": 0.853515625
+            },
+            {
+              "text": " hast",
+              "start": 1.36,
+              "end": 1.6,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " thou",
+              "start": 1.6,
+              "end": 1.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " done?",
+              "start": 1.84,
+              "end": 2.12,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Valerius,",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "raw": "what",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "raw": "hast",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "raw": "thou",
+          "start": 1.6,
+          "end": 1.84
+        },
+        {
+          "raw": "done?",
+          "start": 1.84,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "What",
+        "hast",
+        "thou",
+        "done?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Valerius,",
+          "start": 0.08,
+          "end": 0.96,
+          "key": "valerius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.28,
+          "end": 1.36,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 1.36,
+          "end": 1.6,
+          "key": "hast",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.6,
+          "end": 1.84,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "done?",
+          "start": 1.84,
+          "end": 2.12,
+          "key": "done",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "What",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "text": "hast",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "text": "thou",
+          "start": 1.6,
+          "end": 1.84
+        },
+        {
+          "text": "done?",
+          "start": 1.84,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1399647267535329
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d9968c068a7fb704e81317580f02d61487faba17ac3e84f99258df3d960f0189",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

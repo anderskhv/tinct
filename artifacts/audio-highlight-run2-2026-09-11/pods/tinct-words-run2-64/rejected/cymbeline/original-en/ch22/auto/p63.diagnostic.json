@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "ff26126671e0582f5022f96a1aa502c4ecaac040d5763847c76f220eeed47858",
+  "attempts": [
+    {
+      "asr_seconds": 0.23686591535806656,
+      "alignment_seconds": 0.0004473589360713959,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Arviragus. None in the world; you did mistake him, sure.",
+        "hotwords": "Arviragus, None"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Arviragus, None in the world, you did mistake him, sure.",
+          "start": 0.58,
+          "end": 3.48,
+          "words": [
+            {
+              "text": " Arviragus,",
+              "start": 0.58,
+              "end": 1.02,
+              "probability": 0.4922739664713542
+            },
+            {
+              "text": " None",
+              "start": 1.6,
+              "end": 1.68,
+              "probability": 0.0106201171875
+            },
+            {
+              "text": " in",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " the",
+              "start": 1.8,
+              "end": 1.9,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " world,",
+              "start": 1.9,
+              "end": 2.12,
+              "probability": 0.6875
+            },
+            {
+              "text": " you",
+              "start": 2.5,
+              "end": 2.52,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " did",
+              "start": 2.52,
+              "end": 2.66,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " mistake",
+              "start": 2.66,
+              "end": 2.98,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " him,",
+              "start": 2.98,
+              "end": 3.2,
+              "probability": 0.984375
+            },
+            {
+              "text": " sure.",
+              "start": 3.48,
+              "end": 3.48,
+              "probability": 0.546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Arviragus,",
+          "start": 0.58,
+          "end": 1.02
+        },
+        {
+          "raw": "None",
+          "start": 1.6,
+          "end": 1.68
+        },
+        {
+          "raw": "in",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "raw": "world,",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "raw": "you",
+          "start": 2.5,
+          "end": 2.52
+        },
+        {
+          "raw": "did",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "raw": "mistake",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "raw": "him,",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "raw": "sure.",
+          "start": 3.48,
+          "end": 3.48
+        }
+      ],
+      "expected_tokens": [
+        "Arviragus.",
+        "None",
+        "in",
+        "the",
+        "world;",
+        "you",
+        "did",
+        "mistake",
+        "him,",
+        "sure."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Arviragus,",
+          "start": 0.58,
+          "end": 1.02,
+          "key": "arviragus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "None",
+          "start": 1.6,
+          "end": 1.68,
+          "key": "none",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.9,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "world,",
+          "start": 1.9,
+          "end": 2.12,
+          "key": "world",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.5,
+          "end": 2.52,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 2.52,
+          "end": 2.66,
+          "key": "did",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mistake",
+          "start": 2.66,
+          "end": 2.98,
+          "key": "mistake",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 2.98,
+          "end": 3.2,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sure.",
+          "start": 3.48,
+          "end": 3.48,
+          "key": "sure",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Arviragus.",
+          "start": 0.58,
+          "end": 1.02
+        },
+        {
+          "text": "None",
+          "start": 1.6,
+          "end": 1.68
+        },
+        {
+          "text": "in",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "the",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "text": "world;",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "text": "you",
+          "start": 2.5,
+          "end": 2.52
+        },
+        {
+          "text": "did",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "text": "mistake",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "text": "him,",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "text": "sure.",
+          "start": 3.48,
+          "end": 3.48
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23748623672872782
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "de4b28759d5e788b7f784bd6460ac92eaea712ff380d39546a46e1eb749ecec5",
+  "selected_reasons": []
+}

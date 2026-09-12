@@ -1,0 +1,195 @@
+{
+  "complete": true,
+  "signature": "48817d0dd09c0376a8fe3e5c9f690b1ffaa6d9141252f2b9b049252d1617f348",
+  "attempts": [
+    {
+      "asr_seconds": 0.12034993525594473,
+      "alignment_seconds": 0.0003286190330982208,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Symboling, per they say.",
+          "start": 0.64,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " Symboling,",
+              "start": 0.64,
+              "end": 1.02,
+              "probability": 0.35284423828125
+            },
+            {
+              "text": " per",
+              "start": 1.1,
+              "end": 1.28,
+              "probability": 0.342041015625
+            },
+            {
+              "text": " they",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.271240234375
+            },
+            {
+              "text": " say.",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Symboling,",
+          "start": 0.64,
+          "end": 1.02
+        },
+        {
+          "raw": "per",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "raw": "they",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "say.",
+          "start": 1.4,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "Prithee",
+        "say."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Symboling,",
+          "start": 0.64,
+          "end": 1.02,
+          "key": "symboling",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "per",
+          "start": 1.1,
+          "end": 1.28,
+          "key": "per",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.28,
+          "end": 1.4,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "text": "Prithee",
+          "start": 0.7,
+          "end": 1.05
+        },
+        {
+          "text": "say.",
+          "start": 1.4,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12079379055649042
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a1eee480982994bdd734e05fa962ef777e960e54e13ade5d65ba9f40c6016efc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

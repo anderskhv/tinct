@@ -1,0 +1,719 @@
+{
+  "complete": true,
+  "signature": "62f1f157d673b46f723210befdfc12ece8ef217bd5ef6ccc437f96696af538cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.19634192436933517,
+      "alignment_seconds": 0.0004147626459598541,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_To Imogen._] Brother, stay here.",
+        "hotwords": "Imogen._, Brother"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To Imogen._, Brother, stay here.",
+          "start": 0.0,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " Imogen._,",
+              "start": 0.52,
+              "end": 1.32,
+              "probability": 0.63671875
+            },
+            {
+              "text": " Brother,",
+              "start": 1.32,
+              "end": 1.56,
+              "probability": 0.345947265625
+            },
+            {
+              "text": " stay",
+              "start": 1.82,
+              "end": 1.92,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " here.",
+              "start": 1.92,
+              "end": 2.24,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "raw": "Imogen._,",
+          "start": 0.52,
+          "end": 1.32
+        },
+        {
+          "raw": "Brother,",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "raw": "stay",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "raw": "here.",
+          "start": 1.92,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Imogen._]",
+        "Brother,",
+        "stay",
+        "here."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.52,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Imogen._,",
+          "start": 0.52,
+          "end": 1.32,
+          "key": "imogen_",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Brother,",
+          "start": 1.32,
+          "end": 1.56,
+          "key": "brother",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 1.82,
+          "end": 1.92,
+          "key": "stay",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 1.92,
+          "end": 2.24,
+          "key": "here",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "Imogen._]",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "text": "Brother,",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "text": "stay",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "text": "here.",
+          "start": 1.92,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1968857618048787
+    },
+    {
+      "asr_seconds": 0.19720676448196173,
+      "alignment_seconds": 0.0004319325089454651,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Imogen._, Brother"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " To Imogen._, Brother Stay Here.",
+          "start": 0.0,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " Imogen._,",
+              "start": 0.52,
+              "end": 1.32,
+              "probability": 0.63671875
+            },
+            {
+              "text": " Brother",
+              "start": 1.32,
+              "end": 1.56,
+              "probability": 0.345947265625
+            },
+            {
+              "text": " Stay",
+              "start": 1.56,
+              "end": 1.94,
+              "probability": 0.1072998046875
+            },
+            {
+              "text": " Here.",
+              "start": 1.94,
+              "end": 2.22,
+              "probability": 0.931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "raw": "Imogen._,",
+          "start": 0.52,
+          "end": 1.32
+        },
+        {
+          "raw": "Brother",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "raw": "Stay",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "raw": "Here.",
+          "start": 1.94,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Imogen._]",
+        "Brother,",
+        "stay",
+        "here."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.52,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Imogen._,",
+          "start": 0.52,
+          "end": 1.32,
+          "key": "imogen_",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Brother",
+          "start": 1.32,
+          "end": 1.56,
+          "key": "brother",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Stay",
+          "start": 1.56,
+          "end": 1.94,
+          "key": "stay",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Here.",
+          "start": 1.94,
+          "end": 2.22,
+          "key": "here",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "Imogen._]",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "text": "Brother,",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "text": "stay",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "text": "here.",
+          "start": 1.94,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1977657275274396
+    },
+    {
+      "asr_seconds": 0.18052532710134983,
+      "alignment_seconds": 0.00040739215910434723,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To Imogen, brothers stay here.",
+          "start": 0.0,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " Imogen,",
+              "start": 0.52,
+              "end": 0.94,
+              "probability": 0.955078125
+            },
+            {
+              "text": " brothers",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.6328125
+            },
+            {
+              "text": " stay",
+              "start": 1.64,
+              "end": 1.96,
+              "probability": 0.97265625
+            },
+            {
+              "text": " here.",
+              "start": 1.96,
+              "end": 2.24,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "raw": "Imogen,",
+          "start": 0.52,
+          "end": 0.94
+        },
+        {
+          "raw": "brothers",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "stay",
+          "start": 1.64,
+          "end": 1.96
+        },
+        {
+          "raw": "here.",
+          "start": 1.96,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Imogen._]",
+        "Brother,",
+        "stay",
+        "here."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.52,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Imogen,",
+          "start": 0.52,
+          "end": 0.94,
+          "key": "imogen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "brothers",
+          "start": 1.42,
+          "end": 1.64,
+          "key": "brothers",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 1.64,
+          "end": 1.96,
+          "key": "stay",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 1.96,
+          "end": 2.24,
+          "key": "here",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "Imogen._]",
+          "start": 0.52,
+          "end": 0.94
+        },
+        {
+          "text": "Brother,",
+          "start": 0.94,
+          "end": 1.29
+        },
+        {
+          "text": "stay",
+          "start": 1.64,
+          "end": 1.96
+        },
+        {
+          "text": "here.",
+          "start": 1.96,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18107033986598253
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9810c5cf42e35deda9174c4c90115d0b8348fc626c58fe48eec375c8c46a1b6d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "cbcea48c58431e1de9df3ac5dd41e4a480ecd8304344cb0560ce36a8226f6890",
+  "attempts": [
+    {
+      "asr_seconds": 0.14724654518067837,
+      "alignment_seconds": 0.0003324877470731735,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cymbeline. What's this, Cornelius?",
+        "hotwords": "Cymbeline, What's, Cornelius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, What's this, Cornelius?",
+          "start": 0.08,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.7232259114583334
+            },
+            {
+              "text": " What's",
+              "start": 1.26,
+              "end": 1.52,
+              "probability": 0.5068359375
+            },
+            {
+              "text": " this,",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.75341796875
+            },
+            {
+              "text": " Cornelius?",
+              "start": 1.88,
+              "end": 2.32,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "What's",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "raw": "this,",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "Cornelius?",
+          "start": 1.88,
+          "end": 2.32
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "What's",
+        "this,",
+        "Cornelius?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 1.26,
+          "end": 1.52,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cornelius?",
+          "start": 1.88,
+          "end": 2.32,
+          "key": "cornelius",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "What's",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "text": "this,",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "Cornelius?",
+          "start": 1.88,
+          "end": 2.32
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14769625663757324
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "055560f487819c62748bc7dd299412189d300028a843c6e7c62c0865fbbeccd6",
+  "selected_reasons": []
+}

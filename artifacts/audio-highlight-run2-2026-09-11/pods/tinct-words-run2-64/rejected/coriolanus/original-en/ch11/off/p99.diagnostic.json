@@ -1,0 +1,619 @@
+{
+  "complete": true,
+  "signature": "93306e867559866cc9664aabde4f9e350a1b06ff3ea984cb241d2b83cf75460a",
+  "attempts": [
+    {
+      "asr_seconds": 0.26837900932878256,
+      "alignment_seconds": 0.00042474735528230667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sesinius, I wish no better than have him hold that purpose and to put it in execution.",
+          "start": 0.56,
+          "end": 4.96,
+          "words": [
+            {
+              "text": " Sesinius,",
+              "start": 0.56,
+              "end": 1.0,
+              "probability": 0.5579833984375
+            },
+            {
+              "text": " I",
+              "start": 1.44,
+              "end": 1.7,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " wish",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " no",
+              "start": 1.84,
+              "end": 2.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " better",
+              "start": 2.06,
+              "end": 2.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 2.28,
+              "end": 2.5,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " have",
+              "start": 2.5,
+              "end": 2.66,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " him",
+              "start": 2.66,
+              "end": 2.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hold",
+              "start": 2.82,
+              "end": 3.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 3.02,
+              "end": 3.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " purpose",
+              "start": 3.28,
+              "end": 3.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 3.64,
+              "end": 4.04,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " to",
+              "start": 4.04,
+              "end": 4.16,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " put",
+              "start": 4.16,
+              "end": 4.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it",
+              "start": 4.28,
+              "end": 4.36,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " in",
+              "start": 4.36,
+              "end": 4.46,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " execution.",
+              "start": 4.46,
+              "end": 4.96,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "raw": "I",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "raw": "wish",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "no",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "raw": "better",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "raw": "than",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "raw": "have",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "raw": "him",
+          "start": 2.66,
+          "end": 2.82
+        },
+        {
+          "raw": "hold",
+          "start": 2.82,
+          "end": 3.02
+        },
+        {
+          "raw": "that",
+          "start": 3.02,
+          "end": 3.28
+        },
+        {
+          "raw": "purpose",
+          "start": 3.28,
+          "end": 3.64
+        },
+        {
+          "raw": "and",
+          "start": 3.64,
+          "end": 4.04
+        },
+        {
+          "raw": "to",
+          "start": 4.04,
+          "end": 4.16
+        },
+        {
+          "raw": "put",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "raw": "it",
+          "start": 4.28,
+          "end": 4.36
+        },
+        {
+          "raw": "in",
+          "start": 4.36,
+          "end": 4.46
+        },
+        {
+          "raw": "execution.",
+          "start": 4.46,
+          "end": 4.96
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "I",
+        "wish",
+        "no",
+        "better",
+        "Than",
+        "have",
+        "him",
+        "hold",
+        "that",
+        "purpose",
+        "and",
+        "to",
+        "put",
+        "it",
+        "In",
+        "execution."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          17,
+          1,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.56,
+          "end": 1.0,
+          "key": "sesinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.44,
+          "end": 1.7,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 1.7,
+          "end": 1.84,
+          "key": "wish",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.84,
+          "end": 2.06,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 2.06,
+          "end": 2.28,
+          "key": "better",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.28,
+          "end": 2.5,
+          "key": "than",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.5,
+          "end": 2.66,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.66,
+          "end": 2.82,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 2.82,
+          "end": 3.02,
+          "key": "hold",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.02,
+          "end": 3.28,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "purpose",
+          "start": 3.28,
+          "end": 3.64,
+          "key": "purpose",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.64,
+          "end": 4.04,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.04,
+          "end": 4.16,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 4.16,
+          "end": 4.28,
+          "key": "put",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.28,
+          "end": 4.36,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.36,
+          "end": 4.46,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "execution.",
+          "start": 4.46,
+          "end": 4.96,
+          "key": "execution",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "text": "I",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "text": "wish",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "no",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "text": "better",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "text": "Than",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "text": "have",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "text": "him",
+          "start": 2.66,
+          "end": 2.82
+        },
+        {
+          "text": "hold",
+          "start": 2.82,
+          "end": 3.02
+        },
+        {
+          "text": "that",
+          "start": 3.02,
+          "end": 3.28
+        },
+        {
+          "text": "purpose",
+          "start": 3.28,
+          "end": 3.64
+        },
+        {
+          "text": "and",
+          "start": 3.64,
+          "end": 4.04
+        },
+        {
+          "text": "to",
+          "start": 4.04,
+          "end": 4.16
+        },
+        {
+          "text": "put",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "text": "it",
+          "start": 4.28,
+          "end": 4.36
+        },
+        {
+          "text": "In",
+          "start": 4.36,
+          "end": 4.46
+        },
+        {
+          "text": "execution.",
+          "start": 4.46,
+          "end": 4.96
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.26897205226123333
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "44206d90a67ef19c4c174c586c7722f545a260fe0221d45d846fe33a833dd042",
+  "selected_reasons": []
+}

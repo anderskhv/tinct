@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "c566c004a618af227f954e6fa5bbebeb0220538ed949842e4a6a77ee07f84d6e",
+  "attempts": [
+    {
+      "asr_seconds": 0.20240436866879463,
+      "alignment_seconds": 0.00019656307995319366,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Arvaragus, your danger's ours.",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Arvaragus,",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.666748046875
+            },
+            {
+              "text": " your",
+              "start": 1.47,
+              "end": 1.55,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " danger's",
+              "start": 1.55,
+              "end": 2.05,
+              "probability": 0.8203125
+            },
+            {
+              "text": " ours.",
+              "start": 2.05,
+              "end": 2.37,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Arvaragus,",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "your",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "raw": "danger's",
+          "start": 1.55,
+          "end": 2.05
+        },
+        {
+          "raw": "ours.",
+          "start": 2.05,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "Arviragus.",
+        "Your",
+        "danger's",
+        "ours."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Arvaragus,",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "arvaragus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.47,
+          "end": 1.55,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "danger's",
+          "start": 1.55,
+          "end": 2.05,
+          "key": "dangers",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ours.",
+          "start": 2.05,
+          "end": 2.37,
+          "key": "ours",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Arviragus.",
+          "start": 0.0,
+          "end": 0.735
+        },
+        {
+          "text": "Your",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "text": "danger's",
+          "start": 1.55,
+          "end": 2.05
+        },
+        {
+          "text": "ours.",
+          "start": 2.05,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2026575757190585
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "55429f6596f9e1d774fe7aa1eef15c0f12f4e6daa8bee9ae98f60f3834ff837e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

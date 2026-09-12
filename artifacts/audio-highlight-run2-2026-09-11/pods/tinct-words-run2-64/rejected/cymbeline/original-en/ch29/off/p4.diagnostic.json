@@ -1,0 +1,562 @@
+{
+  "complete": true,
+  "signature": "822728f6aba04022d7fcffd1276af0a9344928d4ab353a0be56d42784c735b41",
+  "attempts": [
+    {
+      "asr_seconds": 0.23665195982903242,
+      "alignment_seconds": 0.0005471911281347275,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pisanio, he hath been searched among the dead and living, but no trace of him.",
+          "start": 0.11,
+          "end": 4.55,
+          "words": [
+            {
+              "text": " Pisanio,",
+              "start": 0.11,
+              "end": 0.99,
+              "probability": 0.6122233072916666
+            },
+            {
+              "text": " he",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " hath",
+              "start": 1.63,
+              "end": 1.71,
+              "probability": 0.697265625
+            },
+            {
+              "text": " been",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " searched",
+              "start": 1.87,
+              "end": 2.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " among",
+              "start": 2.17,
+              "end": 2.39,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 2.39,
+              "end": 2.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dead",
+              "start": 2.59,
+              "end": 2.85,
+              "probability": 0.986328125
+            },
+            {
+              "text": " and",
+              "start": 2.85,
+              "end": 3.03,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " living,",
+              "start": 3.03,
+              "end": 3.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " but",
+              "start": 3.59,
+              "end": 3.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " no",
+              "start": 3.67,
+              "end": 3.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " trace",
+              "start": 3.89,
+              "end": 4.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 4.13,
+              "end": 4.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him.",
+              "start": 4.33,
+              "end": 4.55,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pisanio,",
+          "start": 0.11,
+          "end": 0.99
+        },
+        {
+          "raw": "he",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "hath",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "raw": "been",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "searched",
+          "start": 1.87,
+          "end": 2.17
+        },
+        {
+          "raw": "among",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "raw": "the",
+          "start": 2.39,
+          "end": 2.59
+        },
+        {
+          "raw": "dead",
+          "start": 2.59,
+          "end": 2.85
+        },
+        {
+          "raw": "and",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "raw": "living,",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "raw": "but",
+          "start": 3.59,
+          "end": 3.67
+        },
+        {
+          "raw": "no",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "raw": "trace",
+          "start": 3.89,
+          "end": 4.13
+        },
+        {
+          "raw": "of",
+          "start": 4.13,
+          "end": 4.33
+        },
+        {
+          "raw": "him.",
+          "start": 4.33,
+          "end": 4.55
+        }
+      ],
+      "expected_tokens": [
+        "Pisanio.",
+        "He",
+        "hath",
+        "been",
+        "search'd",
+        "among",
+        "the",
+        "dead",
+        "and",
+        "living,",
+        "But",
+        "no",
+        "trace",
+        "of",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          15,
+          5,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pisanio,",
+          "start": 0.11,
+          "end": 0.99,
+          "key": "pisanio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.63,
+          "end": 1.71,
+          "key": "hath",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "been",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "searched",
+          "start": 1.87,
+          "end": 2.17,
+          "key": "searched",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "among",
+          "start": 2.17,
+          "end": 2.39,
+          "key": "among",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.39,
+          "end": 2.59,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 2.59,
+          "end": 2.85,
+          "key": "dead",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.85,
+          "end": 3.03,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "living,",
+          "start": 3.03,
+          "end": 3.29,
+          "key": "living",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.59,
+          "end": 3.67,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.67,
+          "end": 3.89,
+          "key": "no",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "trace",
+          "start": 3.89,
+          "end": 4.13,
+          "key": "trace",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.13,
+          "end": 4.33,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 4.33,
+          "end": 4.55,
+          "key": "him",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pisanio.",
+          "start": 0.11,
+          "end": 0.99
+        },
+        {
+          "text": "He",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "hath",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "text": "been",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "search'd",
+          "start": 1.87,
+          "end": 2.02
+        },
+        {
+          "text": "among",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "text": "the",
+          "start": 2.39,
+          "end": 2.59
+        },
+        {
+          "text": "dead",
+          "start": 2.59,
+          "end": 2.85
+        },
+        {
+          "text": "and",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "text": "living,",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "text": "But",
+          "start": 3.59,
+          "end": 3.67
+        },
+        {
+          "text": "no",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "text": "trace",
+          "start": 3.89,
+          "end": 4.13
+        },
+        {
+          "text": "of",
+          "start": 4.13,
+          "end": 4.33
+        },
+        {
+          "text": "him.",
+          "start": 4.33,
+          "end": 4.55
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.23740787245333195
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "67eb203e52c1563b019b9f580e2ff1a9f4e150b6c49ca5ef1dd6daa175dde448",
+  "selected_reasons": []
+}

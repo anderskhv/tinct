@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "1e5f8b5e1841121fba66cf3f31370ed1ef717769b408cc700530eb96bf125dcb",
+  "attempts": [
+    {
+      "asr_seconds": 0.11123766470700502,
+      "alignment_seconds": 0.00024736858904361725,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Imogen.",
+          "start": 0.05,
+          "end": 1.07,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " Imogen.",
+              "start": 0.67,
+              "end": 1.07,
+              "probability": 0.5723876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Imogen.",
+          "start": 0.67,
+          "end": 1.07
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Imogen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Imogen.",
+          "start": 0.67,
+          "end": 1.07,
+          "key": "imogen",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Imogen.",
+          "start": 0.67,
+          "end": 1.07
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11156069301068783
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b257ed43af239f47db84f7407dd5ddb88da11b5c6281e490c07ba4ca542ebe7a",
+  "selected_reasons": []
+}

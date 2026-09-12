@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "f0bc50914511dc129560e85ca8b02b848541f736ccb250fda0e348167480fac3",
+  "attempts": [
+    {
+      "asr_seconds": 0.20438359398394823,
+      "alignment_seconds": 0.00034992024302482605,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Martius. Yonder comes news. A wager they have met.",
+        "hotwords": "Martius, Yonder, A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Martius, Yonder comes news. A wager they have met.",
+          "start": 0.08,
+          "end": 3.52,
+          "words": [
+            {
+              "text": " Martius,",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.54931640625
+            },
+            {
+              "text": " Yonder",
+              "start": 1.32,
+              "end": 1.66,
+              "probability": 0.55780029296875
+            },
+            {
+              "text": " comes",
+              "start": 1.66,
+              "end": 1.88,
+              "probability": 0.62548828125
+            },
+            {
+              "text": " news.",
+              "start": 1.88,
+              "end": 2.22,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " A",
+              "start": 2.6,
+              "end": 2.64,
+              "probability": 0.986328125
+            },
+            {
+              "text": " wager",
+              "start": 2.64,
+              "end": 2.92,
+              "probability": 0.965087890625
+            },
+            {
+              "text": " they",
+              "start": 2.92,
+              "end": 3.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " have",
+              "start": 3.1,
+              "end": 3.2,
+              "probability": 0.986328125
+            },
+            {
+              "text": " met.",
+              "start": 3.2,
+              "end": 3.52,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Martius,",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "raw": "Yonder",
+          "start": 1.32,
+          "end": 1.66
+        },
+        {
+          "raw": "comes",
+          "start": 1.66,
+          "end": 1.88
+        },
+        {
+          "raw": "news.",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "raw": "A",
+          "start": 2.6,
+          "end": 2.64
+        },
+        {
+          "raw": "wager",
+          "start": 2.64,
+          "end": 2.92
+        },
+        {
+          "raw": "they",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "raw": "have",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "raw": "met.",
+          "start": 3.2,
+          "end": 3.52
+        }
+      ],
+      "expected_tokens": [
+        "Martius.",
+        "Yonder",
+        "comes",
+        "news.",
+        "A",
+        "wager",
+        "they",
+        "have",
+        "met."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Martius,",
+          "start": 0.08,
+          "end": 0.96,
+          "key": "martius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yonder",
+          "start": 1.32,
+          "end": 1.66,
+          "key": "yonder",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 1.66,
+          "end": 1.88,
+          "key": "comes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "news.",
+          "start": 1.88,
+          "end": 2.22,
+          "key": "news",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 2.6,
+          "end": 2.64,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wager",
+          "start": 2.64,
+          "end": 2.92,
+          "key": "wager",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 2.92,
+          "end": 3.1,
+          "key": "they",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.1,
+          "end": 3.2,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "met.",
+          "start": 3.2,
+          "end": 3.52,
+          "key": "met",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Martius.",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "text": "Yonder",
+          "start": 1.32,
+          "end": 1.66
+        },
+        {
+          "text": "comes",
+          "start": 1.66,
+          "end": 1.88
+        },
+        {
+          "text": "news.",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "text": "A",
+          "start": 2.6,
+          "end": 2.64
+        },
+        {
+          "text": "wager",
+          "start": 2.64,
+          "end": 2.92
+        },
+        {
+          "text": "they",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "text": "have",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "text": "met.",
+          "start": 3.2,
+          "end": 3.52
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2048594979569316
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ebe9139dc36e5e9772d410b02d78151a47fb9735d587787f66343fab286d1f0e",
+  "selected_reasons": []
+}

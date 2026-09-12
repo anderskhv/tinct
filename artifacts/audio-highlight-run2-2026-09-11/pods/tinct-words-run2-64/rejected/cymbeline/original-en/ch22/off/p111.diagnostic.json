@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "cf404511c6aaea675f92c460decd0796a5faa3a3998980f757ba1286653e724e",
+  "attempts": [
+    {
+      "asr_seconds": 0.12041735742241144,
+      "alignment_seconds": 0.00029868166893720627,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Balerius.",
+          "start": 0.02,
+          "end": 1.3,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.923828125
+            },
+            {
+              "text": " Balerius.",
+              "start": 0.64,
+              "end": 1.3,
+              "probability": 0.4881998697916667
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Balerius.",
+          "start": 0.64,
+          "end": 1.3
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Belarius._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Balerius.",
+          "start": 0.64,
+          "end": 1.3,
+          "key": "balerius",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Belarius._]",
+          "start": 0.64,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12082367669790983
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1b2a947c3192c145b3169a00acd4bb39507e6b126375059cb3fac170547be25b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

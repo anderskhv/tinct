@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "fa56a744c0dd531589b774f498628d8d73292873424d808958ee79c1e75e2e1a",
+  "attempts": [
+    {
+      "asr_seconds": 0.15399964340031147,
+      "alignment_seconds": 0.00041001755744218826,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Martius. How far off lie these armies?",
+        "hotwords": "Martius, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Martius, How far off lie these armies?",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Martius,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.634765625
+            },
+            {
+              "text": " How",
+              "start": 1.21,
+              "end": 1.43,
+              "probability": 0.009246826171875
+            },
+            {
+              "text": " far",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " off",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " lie",
+              "start": 1.73,
+              "end": 1.91,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " these",
+              "start": 1.91,
+              "end": 2.09,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " armies?",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Martius,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "How",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "raw": "far",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "off",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "lie",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "raw": "these",
+          "start": 1.91,
+          "end": 2.09
+        },
+        {
+          "raw": "armies?",
+          "start": 2.09,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Martius.",
+        "How",
+        "far",
+        "off",
+        "lie",
+        "these",
+        "armies?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Martius,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "martius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.21,
+          "end": 1.43,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "far",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "off",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lie",
+          "start": 1.73,
+          "end": 1.91,
+          "key": "lie",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 1.91,
+          "end": 2.09,
+          "key": "these",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "armies?",
+          "start": 2.09,
+          "end": 2.33,
+          "key": "armies",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Martius.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "How",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "text": "far",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "off",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "lie",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "text": "these",
+          "start": 1.91,
+          "end": 2.09
+        },
+        {
+          "text": "armies?",
+          "start": 2.09,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15459183510392904
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6c0828f5ed0077d41f4692825470a972c464ae0bf99cfea249d43ef353d2c8ae",
+  "selected_reasons": []
+}

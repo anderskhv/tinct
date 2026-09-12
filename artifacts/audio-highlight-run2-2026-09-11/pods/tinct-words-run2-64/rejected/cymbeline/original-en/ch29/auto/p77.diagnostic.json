@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "f33ce8814e18a8553262627858fa7b6fb18deb7673501200bb95fe864cddf049",
+  "attempts": [
+    {
+      "asr_seconds": 0.18755339179188013,
+      "alignment_seconds": 0.00044070184230804443,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cymbeline. The tune of Imogen!",
+        "hotwords": "Cymbeline, The, Imogen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, The tune of Imogen.",
+          "start": 0.08,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.5819498697916666
+            },
+            {
+              "text": " The",
+              "start": 1.26,
+              "end": 1.34,
+              "probability": 0.09423828125
+            },
+            {
+              "text": " tune",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.09100341796875
+            },
+            {
+              "text": " of",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Imogen.",
+              "start": 1.68,
+              "end": 2.04,
+              "probability": 0.89013671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "The",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "raw": "tune",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "of",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "Imogen.",
+          "start": 1.68,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "The",
+        "tune",
+        "of",
+        "Imogen!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.26,
+          "end": 1.34,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tune",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "tune",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Imogen.",
+          "start": 1.68,
+          "end": 2.04,
+          "key": "imogen",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "The",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "text": "tune",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "of",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "Imogen!",
+          "start": 1.68,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18819563556462526
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a9a4a0555ccd9bff411d5fdf5b0b8de690b4e20f7cb6f667761df2c20677f11e",
+  "selected_reasons": []
+}

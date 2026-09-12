@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "d187f565b40a443207f0c0adaad912184f33c10c0725750c7e0f42892cc7b649",
+  "attempts": [
+    {
+      "asr_seconds": 0.2097151130437851,
+      "alignment_seconds": 0.00043951161205768585,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Posthumus. How comes these staggers on me?",
+        "hotwords": "Posthumus, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Posthumus, How Comes These Staggers on Me?",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Posthumus,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.7395833333333334
+            },
+            {
+              "text": " How",
+              "start": 1.37,
+              "end": 1.49,
+              "probability": 0.01184844970703125
+            },
+            {
+              "text": " Comes",
+              "start": 1.49,
+              "end": 1.75,
+              "probability": 0.2391357421875
+            },
+            {
+              "text": " These",
+              "start": 1.75,
+              "end": 1.93,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " Staggers",
+              "start": 1.93,
+              "end": 2.37,
+              "probability": 0.9114583333333334
+            },
+            {
+              "text": " on",
+              "start": 2.37,
+              "end": 2.53,
+              "probability": 0.71337890625
+            },
+            {
+              "text": " Me?",
+              "start": 2.53,
+              "end": 2.73,
+              "probability": 0.7041015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Posthumus,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "How",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "raw": "Comes",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "raw": "These",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "raw": "Staggers",
+          "start": 1.93,
+          "end": 2.37
+        },
+        {
+          "raw": "on",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "raw": "Me?",
+          "start": 2.53,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "Posthumus.",
+        "How",
+        "comes",
+        "these",
+        "staggers",
+        "on",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Posthumus,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "posthumus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.37,
+          "end": 1.49,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Comes",
+          "start": 1.49,
+          "end": 1.75,
+          "key": "comes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 1.75,
+          "end": 1.93,
+          "key": "these",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Staggers",
+          "start": 1.93,
+          "end": 2.37,
+          "key": "staggers",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.37,
+          "end": 2.53,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Me?",
+          "start": 2.53,
+          "end": 2.73,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Posthumus.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "How",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "text": "comes",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "text": "these",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "text": "staggers",
+          "start": 1.93,
+          "end": 2.37
+        },
+        {
+          "text": "on",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "text": "me?",
+          "start": 2.53,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21040557883679867
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5836caa16671f845ac214b529360655263502951cb650e33cf18d340f2da8977",
+  "selected_reasons": []
+}

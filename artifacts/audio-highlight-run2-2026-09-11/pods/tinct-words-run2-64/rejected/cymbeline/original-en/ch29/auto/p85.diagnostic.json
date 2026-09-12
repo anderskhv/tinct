@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "f97774199e4dcd9f319074a85046ded8e1b0a8d2f5eff5b331a20cf0fcba0fb2",
+  "attempts": [
+    {
+      "asr_seconds": 0.22482933662831783,
+      "alignment_seconds": 0.00043823476880788803,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Belarius. My boys, There was our error.",
+        "hotwords": "Belarius, My, There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Belarius, My boys, There was our error.",
+          "start": 0.08,
+          "end": 2.58,
+          "words": [
+            {
+              "text": " Belarius,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.0501251220703125
+            },
+            {
+              "text": " My",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.00936126708984375
+            },
+            {
+              "text": " boys,",
+              "start": 1.48,
+              "end": 1.72,
+              "probability": 0.802734375
+            },
+            {
+              "text": " There",
+              "start": 2.02,
+              "end": 2.04,
+              "probability": 0.08819580078125
+            },
+            {
+              "text": " was",
+              "start": 2.04,
+              "end": 2.14,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " our",
+              "start": 2.14,
+              "end": 2.28,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " error.",
+              "start": 2.28,
+              "end": 2.58,
+              "probability": 0.85693359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Belarius,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "My",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "boys,",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "raw": "There",
+          "start": 2.02,
+          "end": 2.04
+        },
+        {
+          "raw": "was",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "raw": "our",
+          "start": 2.14,
+          "end": 2.28
+        },
+        {
+          "raw": "error.",
+          "start": 2.28,
+          "end": 2.58
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "My",
+        "boys,",
+        "There",
+        "was",
+        "our",
+        "error."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Belarius,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "belarius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.32,
+          "end": 1.48,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "boys,",
+          "start": 1.48,
+          "end": 1.72,
+          "key": "boys",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 2.02,
+          "end": 2.04,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.04,
+          "end": 2.14,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.14,
+          "end": 2.28,
+          "key": "our",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "error.",
+          "start": 2.28,
+          "end": 2.58,
+          "key": "error",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "My",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "boys,",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "text": "There",
+          "start": 2.02,
+          "end": 2.04
+        },
+        {
+          "text": "was",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "text": "our",
+          "start": 2.14,
+          "end": 2.28
+        },
+        {
+          "text": "error.",
+          "start": 2.28,
+          "end": 2.58
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22542228270322084
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "00609d3be68504005aaa3e96df747a93d34d42c54394efef7200c3809520cd5d",
+  "selected_reasons": []
+}

@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "f20198a7c5a63cf1a3af33d3179234c83f036fe288b8b3e8a2374bdbe3920d58",
+  "attempts": [
+    {
+      "asr_seconds": 0.1937916548922658,
+      "alignment_seconds": 0.0003321552649140358,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Menenias, now the gods crown thee.",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Menenias,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.5165201822916666
+            },
+            {
+              "text": " now",
+              "start": 1.29,
+              "end": 1.47,
+              "probability": 0.9296875
+            },
+            {
+              "text": " the",
+              "start": 1.47,
+              "end": 1.61,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " gods",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " crown",
+              "start": 1.85,
+              "end": 2.17,
+              "probability": 0.67236328125
+            },
+            {
+              "text": " thee.",
+              "start": 2.17,
+              "end": 2.43,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenias,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "now",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "raw": "the",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "raw": "gods",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "raw": "crown",
+          "start": 1.85,
+          "end": 2.17
+        },
+        {
+          "raw": "thee.",
+          "start": 2.17,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "Now",
+        "the",
+        "gods",
+        "crown",
+        "thee!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenias,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "menenias",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.29,
+          "end": 1.47,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.47,
+          "end": 1.61,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gods",
+          "start": 1.61,
+          "end": 1.85,
+          "key": "gods",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "crown",
+          "start": 1.85,
+          "end": 2.17,
+          "key": "crown",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 2.17,
+          "end": 2.43,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.0,
+          "end": 0.645
+        },
+        {
+          "text": "Now",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "text": "the",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "text": "gods",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "text": "crown",
+          "start": 1.85,
+          "end": 2.17
+        },
+        {
+          "text": "thee!",
+          "start": 2.17,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19424588605761528
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "43b7116f10707089abe478abe7d2e845bb7c6ff3df3b2972f764fa33ee5213b5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,575 @@
+{
+  "complete": true,
+  "signature": "8d82c41b2400b988252b7d44cac63c1744c1414fcc3fba5a8dd57d7c1e086693",
+  "attempts": [
+    {
+      "asr_seconds": 0.19449223298579454,
+      "alignment_seconds": 0.0004405081272125244,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_They fight, and all enter the city._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They fight, and all enter the city._",
+          "start": 0.05,
+          "end": 2.77,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.892578125
+            },
+            {
+              "text": " fight,",
+              "start": 0.53,
+              "end": 0.83,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " all",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " enter",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " city._",
+              "start": 1.83,
+              "end": 2.77,
+              "probability": 0.473876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "fight,",
+          "start": 0.53,
+          "end": 0.83
+        },
+        {
+          "raw": "and",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "all",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "raw": "enter",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "raw": "the",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "city._",
+          "start": 1.83,
+          "end": 2.77
+        }
+      ],
+      "expected_tokens": [
+        "[_They",
+        "fight,",
+        "and",
+        "all",
+        "enter",
+        "the",
+        "city._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fight,",
+          "start": 0.53,
+          "end": 0.83,
+          "key": "fight",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.09,
+          "end": 1.27,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.27,
+          "end": 1.43,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "enter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.67,
+          "end": 1.83,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "city._",
+          "start": 1.83,
+          "end": 2.77,
+          "key": "city_",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "fight,",
+          "start": 0.53,
+          "end": 0.83
+        },
+        {
+          "text": "and",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "all",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "text": "enter",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "text": "the",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "city._]",
+          "start": 1.83,
+          "end": 2.3
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.19508637860417366
+    },
+    {
+      "asr_seconds": 0.20370256807655096,
+      "alignment_seconds": 0.00045022740960121155,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " They fight, and all enter the city.",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.892578125
+            },
+            {
+              "text": " fight,",
+              "start": 0.53,
+              "end": 0.83,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " all",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " enter",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " city.",
+              "start": 1.83,
+              "end": 2.05,
+              "probability": 0.94775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "fight,",
+          "start": 0.53,
+          "end": 0.83
+        },
+        {
+          "raw": "and",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "all",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "raw": "enter",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "raw": "the",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "city.",
+          "start": 1.83,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "[_They",
+        "fight,",
+        "and",
+        "all",
+        "enter",
+        "the",
+        "city._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fight,",
+          "start": 0.53,
+          "end": 0.83,
+          "key": "fight",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.09,
+          "end": 1.27,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.27,
+          "end": 1.43,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "enter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.67,
+          "end": 1.83,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "city.",
+          "start": 1.83,
+          "end": 2.05,
+          "key": "city",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "fight,",
+          "start": 0.53,
+          "end": 0.83
+        },
+        {
+          "text": "and",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "all",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "text": "enter",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "text": "the",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "city._]",
+          "start": 1.83,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20430454704910517
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "55aa3447e7b522ae4732c4390f8a3f1060593705cff70995dc96fc32fdab9a5f",
+  "selected_reasons": []
+}

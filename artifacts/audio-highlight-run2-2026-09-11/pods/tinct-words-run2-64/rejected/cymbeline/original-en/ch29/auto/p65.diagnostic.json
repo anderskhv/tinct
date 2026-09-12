@@ -1,0 +1,1023 @@
+{
+  "complete": true,
+  "signature": "645bf4a3d5d06a0b7411f38919e5d223622a97b679d1eb19a1aaa4f0cced3b70",
+  "attempts": [
+    {
+      "asr_seconds": 3.834781684912741,
+      "alignment_seconds": 0.0005127154290676117,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Coming forward._] Ay, so thou dost,",
+        "hotwords": "Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ay, so thou dost,",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Ay,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 5.185604095458984e-06
+            },
+            {
+              "text": " so",
+              "start": 1.73,
+              "end": 1.73,
+              "probability": 0.18017578125
+            },
+            {
+              "text": " thou",
+              "start": 1.73,
+              "end": 1.93,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " dost,",
+              "start": 1.93,
+              "end": 2.37,
+              "probability": 0.695556640625
+            }
+          ]
+        },
+        {
+          "text": " Ay, so thou dost, Ay, so thou dost, Ay, so thou dost,",
+          "start": 2.37,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " Ay,",
+              "start": 2.37,
+              "end": 2.83,
+              "probability": 7.808208465576172e-06
+            },
+            {
+              "text": " so",
+              "start": 2.83,
+              "end": 2.83,
+              "probability": 0.0037975311279296875
+            },
+            {
+              "text": " thou",
+              "start": 2.83,
+              "end": 2.83,
+              "probability": 2.682209014892578e-06
+            },
+            {
+              "text": " dost,",
+              "start": 2.83,
+              "end": 2.83,
+              "probability": 0.1876220703125
+            },
+            {
+              "text": " Ay,",
+              "start": 2.83,
+              "end": 2.83,
+              "probability": 0.01335906982421875
+            },
+            {
+              "text": " so",
+              "start": 2.83,
+              "end": 2.83,
+              "probability": 0.362548828125
+            },
+            {
+              "text": " thou",
+              "start": 2.83,
+              "end": 2.83,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " dost,",
+              "start": 2.83,
+              "end": 2.83,
+              "probability": 0.969970703125
+            },
+            {
+              "text": " Ay,",
+              "start": 2.83,
+              "end": 2.83,
+              "probability": 0.6865234375
+            },
+            {
+              "text": " so",
+              "start": 2.83,
+              "end": 2.83,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " thou",
+              "start": 2.83,
+              "end": 2.83,
+              "probability": 0.931640625
+            },
+            {
+              "text": " dost,",
+              "start": 2.83,
+              "end": 2.83,
+              "probability": 0.982666015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ay,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "so",
+          "start": 1.73,
+          "end": 1.73
+        },
+        {
+          "raw": "thou",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "raw": "dost,",
+          "start": 1.93,
+          "end": 2.37
+        },
+        {
+          "raw": "Ay,",
+          "start": 2.37,
+          "end": 2.83
+        },
+        {
+          "raw": "so",
+          "start": 2.83,
+          "end": 2.83
+        },
+        {
+          "raw": "thou",
+          "start": 2.83,
+          "end": 2.83
+        },
+        {
+          "raw": "dost,",
+          "start": 2.83,
+          "end": 2.83
+        },
+        {
+          "raw": "Ay,",
+          "start": 2.83,
+          "end": 2.83
+        },
+        {
+          "raw": "so",
+          "start": 2.83,
+          "end": 2.83
+        },
+        {
+          "raw": "thou",
+          "start": 2.83,
+          "end": 2.83
+        },
+        {
+          "raw": "dost,",
+          "start": 2.83,
+          "end": 2.83
+        },
+        {
+          "raw": "Ay,",
+          "start": 2.83,
+          "end": 2.83
+        },
+        {
+          "raw": "so",
+          "start": 2.83,
+          "end": 2.83
+        },
+        {
+          "raw": "thou",
+          "start": 2.83,
+          "end": 2.83
+        },
+        {
+          "raw": "dost,",
+          "start": 2.83,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "[_Coming",
+        "forward._]",
+        "Ay,",
+        "so",
+        "thou",
+        "dost,"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          6,
+          0,
+          4
+        ],
+        [
+          "insert",
+          6,
+          6,
+          4,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "insert",
+          6,
+          6,
+          4,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ay,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "ay",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.73,
+          "end": 1.73,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.73,
+          "end": 1.93,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dost,",
+          "start": 1.93,
+          "end": 2.37,
+          "key": "dost",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 2.37,
+          "end": 2.83,
+          "key": "ay",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.83,
+          "end": 2.83,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.83,
+          "end": 2.83,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dost,",
+          "start": 2.83,
+          "end": 2.83,
+          "key": "dost",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 2.83,
+          "end": 2.83,
+          "key": "ay",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.83,
+          "end": 2.83,
+          "key": "so",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.83,
+          "end": 2.83,
+          "key": "thou",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "dost,",
+          "start": 2.83,
+          "end": 2.83,
+          "key": "dost",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 2.83,
+          "end": 2.83,
+          "key": "ay",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.83,
+          "end": 2.83,
+          "key": "so",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.83,
+          "end": 2.83,
+          "key": "thou",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "dost,",
+          "start": 2.83,
+          "end": 2.83,
+          "key": "dost",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Coming",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "forward._]",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "Ay,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "so",
+          "start": 1.73,
+          "end": 1.73
+        },
+        {
+          "text": "thou",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "text": "dost,",
+          "start": 1.93,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 16,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 3.835588039830327
+    },
+    {
+      "asr_seconds": 0.2121904930099845,
+      "alignment_seconds": 0.0004620179533958435,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Ay"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " coming forward I so thou dost",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " coming",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.06878662109375
+            },
+            {
+              "text": " forward",
+              "start": 0.59,
+              "end": 1.05,
+              "probability": 0.96875
+            },
+            {
+              "text": " I",
+              "start": 1.05,
+              "end": 1.55,
+              "probability": 0.27783203125
+            },
+            {
+              "text": " so",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.50048828125
+            },
+            {
+              "text": " thou",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " dost",
+              "start": 1.95,
+              "end": 2.37,
+              "probability": 0.745361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "coming",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "forward",
+          "start": 0.59,
+          "end": 1.05
+        },
+        {
+          "raw": "I",
+          "start": 1.05,
+          "end": 1.55
+        },
+        {
+          "raw": "so",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "thou",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "dost",
+          "start": 1.95,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "[_Coming",
+        "forward._]",
+        "Ay,",
+        "so",
+        "thou",
+        "dost,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "coming",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "coming",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "forward",
+          "start": 0.59,
+          "end": 1.05,
+          "key": "forward",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.05,
+          "end": 1.55,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.55,
+          "end": 1.75,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 1.95,
+          "end": 2.37,
+          "key": "dost",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Coming",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "forward._]",
+          "start": 0.59,
+          "end": 1.05
+        },
+        {
+          "text": "Ay,",
+          "start": 1.05,
+          "end": 1.3
+        },
+        {
+          "text": "so",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "text": "thou",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "dost,",
+          "start": 1.95,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21279006265103817
+    },
+    {
+      "asr_seconds": 0.20328675024211407,
+      "alignment_seconds": 0.0004545878618955612,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coming forward, ISO-thou dust.",
+          "start": 0.05,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Coming",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " forward,",
+              "start": 0.59,
+              "end": 1.01,
+              "probability": 0.8203125
+            },
+            {
+              "text": " ISO",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.7412109375
+            },
+            {
+              "text": "-thou",
+              "start": 1.71,
+              "end": 2.01,
+              "probability": 0.48602294921875
+            },
+            {
+              "text": " dust.",
+              "start": 2.01,
+              "end": 2.29,
+              "probability": 0.7109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coming",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "forward,",
+          "start": 0.59,
+          "end": 1.01
+        },
+        {
+          "raw": "ISO",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "-thou",
+          "start": 1.71,
+          "end": 2.01
+        },
+        {
+          "raw": "dust.",
+          "start": 2.01,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "[_Coming",
+        "forward._]",
+        "Ay,",
+        "so",
+        "thou",
+        "dost,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "equal",
+          4,
+          5,
+          3,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "replace",
+          5,
+          6,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coming",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "coming",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "forward,",
+          "start": 0.59,
+          "end": 1.01,
+          "key": "forward",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ISO",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "iso",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-thou",
+          "start": 1.71,
+          "end": 2.01,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dust.",
+          "start": 2.01,
+          "end": 2.29,
+          "key": "dust",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Coming",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "forward._]",
+          "start": 0.59,
+          "end": 1.01
+        },
+        {
+          "text": "Ay,",
+          "start": 1.01,
+          "end": 1.36
+        },
+        {
+          "text": "so",
+          "start": 1.36,
+          "end": 1.535
+        },
+        {
+          "text": "thou",
+          "start": 1.71,
+          "end": 2.01
+        },
+        {
+          "text": "dost,",
+          "start": 2.01,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20388036221265793
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "c44eace2ede4550a707bbc569ee49afcf802f729efed815428510e83b692aafb",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

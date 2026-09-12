@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "0474166e0b708bcf627a0a08c6cefc1237b0064ecf7ae8cba097cb934146439e",
+  "attempts": [
+    {
+      "asr_seconds": 0.17605695594102144,
+      "alignment_seconds": 0.0002036355435848236,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Guiderius. I am thoroughly weary.",
+        "hotwords": "Guiderius, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Guiderius, I am thoroughly weary.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Guiderius,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.24398231506347656
+            },
+            {
+              "text": " I",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " am",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.951171875
+            },
+            {
+              "text": " thoroughly",
+              "start": 1.47,
+              "end": 1.79,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " weary.",
+              "start": 1.79,
+              "end": 2.11,
+              "probability": 0.9443359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "am",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "thoroughly",
+          "start": 1.47,
+          "end": 1.79
+        },
+        {
+          "raw": "weary.",
+          "start": 1.79,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Guiderius.",
+        "I",
+        "am",
+        "thoroughly",
+        "weary."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "guiderius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thoroughly",
+          "start": 1.47,
+          "end": 1.79,
+          "key": "thoroughly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "weary.",
+          "start": 1.79,
+          "end": 2.11,
+          "key": "weary",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guiderius.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "I",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "am",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "text": "thoroughly",
+          "start": 1.47,
+          "end": 1.79
+        },
+        {
+          "text": "weary.",
+          "start": 1.79,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1763330064713955
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fdd0282b20821c16e9b90cc1fd8c48854355594acbe33be26ce04c63bc4292a6",
+  "selected_reasons": []
+}

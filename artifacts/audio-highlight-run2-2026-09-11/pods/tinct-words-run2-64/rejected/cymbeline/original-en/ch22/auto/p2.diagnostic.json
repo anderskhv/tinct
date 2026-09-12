@@ -1,0 +1,856 @@
+{
+  "complete": true,
+  "signature": "7bfcff06c539b8d497cfa0f010dda227b2ebc4638144bd52af39c232f51760f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.3690674379467964,
+      "alignment_seconds": 0.0005726227536797523,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_To Imogen._] You are not well. Remain here in the cave;",
+        "hotwords": "Imogen._, You, Remain"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To Imogen._, You are not well. Remain here in the cave._",
+          "start": 0.0,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " Imogen._,",
+              "start": 0.5,
+              "end": 1.44,
+              "probability": 0.6290690104166666
+            },
+            {
+              "text": " You",
+              "start": 1.44,
+              "end": 1.52,
+              "probability": 0.1070556640625
+            },
+            {
+              "text": " are",
+              "start": 1.52,
+              "end": 1.6,
+              "probability": 0.69921875
+            },
+            {
+              "text": " not",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " well.",
+              "start": 1.74,
+              "end": 2.04,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Remain",
+              "start": 2.3,
+              "end": 2.5,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " here",
+              "start": 2.5,
+              "end": 2.78,
+              "probability": 0.986328125
+            },
+            {
+              "text": " in",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " cave._",
+              "start": 3.02,
+              "end": 3.92,
+              "probability": 0.47072792053222656
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "Imogen._,",
+          "start": 0.5,
+          "end": 1.44
+        },
+        {
+          "raw": "You",
+          "start": 1.44,
+          "end": 1.52
+        },
+        {
+          "raw": "are",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "raw": "not",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "well.",
+          "start": 1.74,
+          "end": 2.04
+        },
+        {
+          "raw": "Remain",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "raw": "here",
+          "start": 2.5,
+          "end": 2.78
+        },
+        {
+          "raw": "in",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "cave._",
+          "start": 3.02,
+          "end": 3.92
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Imogen._]",
+        "You",
+        "are",
+        "not",
+        "well.",
+        "Remain",
+        "here",
+        "in",
+        "the",
+        "cave;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          10,
+          2,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Imogen._,",
+          "start": 0.5,
+          "end": 1.44,
+          "key": "imogen_",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.44,
+          "end": 1.52,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.52,
+          "end": 1.6,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.6,
+          "end": 1.74,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.74,
+          "end": 2.04,
+          "key": "well",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Remain",
+          "start": 2.3,
+          "end": 2.5,
+          "key": "remain",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.5,
+          "end": 2.78,
+          "key": "here",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.78,
+          "end": 2.9,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "cave._",
+          "start": 3.02,
+          "end": 3.92,
+          "key": "cave_",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "Imogen._]",
+          "start": 0.5,
+          "end": 0.97
+        },
+        {
+          "text": "You",
+          "start": 1.44,
+          "end": 1.52
+        },
+        {
+          "text": "are",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "text": "not",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "well.",
+          "start": 1.74,
+          "end": 2.04
+        },
+        {
+          "text": "Remain",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "text": "here",
+          "start": 2.5,
+          "end": 2.78
+        },
+        {
+          "text": "in",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "the",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "cave;",
+          "start": 3.02,
+          "end": 3.47
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3698606360703707
+    },
+    {
+      "asr_seconds": 0.19559640064835548,
+      "alignment_seconds": 0.0004893289878964424,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Imogen._, You, Remain"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " To Imogen. You are not well. Remain here in the cave.",
+          "start": 0.0,
+          "end": 3.22,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " Imogen.",
+              "start": 0.5,
+              "end": 0.92,
+              "probability": 0.943603515625
+            },
+            {
+              "text": " You",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " are",
+              "start": 1.52,
+              "end": 1.6,
+              "probability": 0.74658203125
+            },
+            {
+              "text": " not",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " well.",
+              "start": 1.74,
+              "end": 2.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Remain",
+              "start": 2.48,
+              "end": 2.5,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " here",
+              "start": 2.5,
+              "end": 2.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " cave.",
+              "start": 3.02,
+              "end": 3.22,
+              "probability": 0.95458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "Imogen.",
+          "start": 0.5,
+          "end": 0.92
+        },
+        {
+          "raw": "You",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "are",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "raw": "not",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "well.",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "raw": "Remain",
+          "start": 2.48,
+          "end": 2.5
+        },
+        {
+          "raw": "here",
+          "start": 2.5,
+          "end": 2.78
+        },
+        {
+          "raw": "in",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "cave.",
+          "start": 3.02,
+          "end": 3.22
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Imogen._]",
+        "You",
+        "are",
+        "not",
+        "well.",
+        "Remain",
+        "here",
+        "in",
+        "the",
+        "cave;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Imogen.",
+          "start": 0.5,
+          "end": 0.92,
+          "key": "imogen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.52,
+          "end": 1.6,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.6,
+          "end": 1.74,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.74,
+          "end": 2.02,
+          "key": "well",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Remain",
+          "start": 2.48,
+          "end": 2.5,
+          "key": "remain",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.5,
+          "end": 2.78,
+          "key": "here",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.78,
+          "end": 2.9,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "cave.",
+          "start": 3.02,
+          "end": 3.22,
+          "key": "cave",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "Imogen._]",
+          "start": 0.5,
+          "end": 0.92
+        },
+        {
+          "text": "You",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "are",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "text": "not",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "well.",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "text": "Remain",
+          "start": 2.48,
+          "end": 2.5
+        },
+        {
+          "text": "here",
+          "start": 2.5,
+          "end": 2.78
+        },
+        {
+          "text": "in",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "the",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "cave;",
+          "start": 3.02,
+          "end": 3.22
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1962717715650797
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "4aefebac41b88568dbe3a869a9bb7e9f5d8abcfd9eeb77ae7b48d93ffa3bbc60",
+  "selected_reasons": []
+}
