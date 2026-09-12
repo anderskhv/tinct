@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "95dd34bf95fcf4bfd1821828af8d748cb2873aebcd44dbe2680e661dbe47a386",
+  "attempts": [
+    {
+      "asr_seconds": 0.12522536801407114,
+      "alignment_seconds": 0.00019340700237080455,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. Prithee, peace.",
+        "hotwords": "Cleopatra, Prithee"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, Prithee, peace.",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.9313151041666666
+            },
+            {
+              "text": " Prithee,",
+              "start": 1.37,
+              "end": 1.53,
+              "probability": 0.379638671875
+            },
+            {
+              "text": " peace.",
+              "start": 1.63,
+              "end": 1.83,
+              "probability": 0.833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Prithee,",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "raw": "peace.",
+          "start": 1.63,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Prithee,",
+        "peace."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Prithee,",
+          "start": 1.37,
+          "end": 1.53,
+          "key": "prithee",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "peace.",
+          "start": 1.63,
+          "end": 1.83,
+          "key": "peace",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Prithee,",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "text": "peace.",
+          "start": 1.63,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12548675702419132
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3676da49f0b7be396d6f20dc239df599386fca4cbca9545079a87c33c5b3dd33",
+  "selected_reasons": []
+}

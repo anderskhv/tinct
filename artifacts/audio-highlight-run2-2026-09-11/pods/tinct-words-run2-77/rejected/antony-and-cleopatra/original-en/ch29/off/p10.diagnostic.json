@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "ecbbb4e71551dcca2152122d498984a0c8e50e08cc9554c8aee05fab6975a395",
+  "attempts": [
+    {
+      "asr_seconds": 0.1204957040026784,
+      "alignment_seconds": 0.0001699659915175289,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Eros, briefly, sir.",
+          "start": 0.18,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " Eros,",
+              "start": 0.18,
+              "end": 0.82,
+              "probability": 0.838134765625
+            },
+            {
+              "text": " briefly,",
+              "start": 1.12,
+              "end": 1.26,
+              "probability": 0.95703125
+            },
+            {
+              "text": " sir.",
+              "start": 1.6,
+              "end": 1.7,
+              "probability": 0.92041015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Eros,",
+          "start": 0.18,
+          "end": 0.82
+        },
+        {
+          "raw": "briefly,",
+          "start": 1.12,
+          "end": 1.26
+        },
+        {
+          "raw": "sir.",
+          "start": 1.6,
+          "end": 1.7
+        }
+      ],
+      "expected_tokens": [
+        "Eros.",
+        "Briefly,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Eros,",
+          "start": 0.18,
+          "end": 0.82,
+          "key": "eros",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "briefly,",
+          "start": 1.12,
+          "end": 1.26,
+          "key": "briefly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.6,
+          "end": 1.7,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Eros.",
+          "start": 0.18,
+          "end": 0.82
+        },
+        {
+          "text": "Briefly,",
+          "start": 1.12,
+          "end": 1.26
+        },
+        {
+          "text": "sir.",
+          "start": 1.6,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12072566201095469
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "792c00d7ec82091ed9c5195cb36c45509a1ab371a60f54cae008f39ffe2c97f4",
+  "selected_reasons": []
+}

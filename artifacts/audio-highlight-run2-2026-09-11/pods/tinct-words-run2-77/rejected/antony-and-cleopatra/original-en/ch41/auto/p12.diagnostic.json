@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "f3efcb96cf217a00514e1ba8f0bb028b059c3d5acedcc8c996c6ad106b373089",
+  "attempts": [
+    {
+      "asr_seconds": 0.20175778699922375,
+      "alignment_seconds": 0.00021354798809625208,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Agrippa. And strange it is That nature must compel us to lament Our most persisted deeds.",
+        "hotwords": "Agrippa, And, That, Our"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Agrippa, And strange it is That nature must compel us to lament Our most persisted deeds.",
+          "start": 0.02,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " Agrippa,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.8748372395833334
+            },
+            {
+              "text": " And",
+              "start": 1.34,
+              "end": 1.42,
+              "probability": 0.007373809814453125
+            },
+            {
+              "text": " strange",
+              "start": 1.42,
+              "end": 1.78,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " it",
+              "start": 1.78,
+              "end": 2.04,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " is",
+              "start": 2.04,
+              "end": 2.2,
+              "probability": 0.734375
+            },
+            {
+              "text": " That",
+              "start": 2.2,
+              "end": 2.42,
+              "probability": 0.037567138671875
+            },
+            {
+              "text": " nature",
+              "start": 2.42,
+              "end": 2.76,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " must",
+              "start": 2.76,
+              "end": 3.1,
+              "probability": 0.71630859375
+            },
+            {
+              "text": " compel",
+              "start": 3.1,
+              "end": 3.42,
+              "probability": 0.5087890625
+            },
+            {
+              "text": " us",
+              "start": 3.42,
+              "end": 3.68,
+              "probability": 0.64892578125
+            },
+            {
+              "text": " to",
+              "start": 3.68,
+              "end": 3.84,
+              "probability": 0.29736328125
+            },
+            {
+              "text": " lament",
+              "start": 3.84,
+              "end": 4.08,
+              "probability": 0.759765625
+            },
+            {
+              "text": " Our",
+              "start": 4.08,
+              "end": 4.32,
+              "probability": 0.28662109375
+            },
+            {
+              "text": " most",
+              "start": 4.32,
+              "end": 4.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " persisted",
+              "start": 4.62,
+              "end": 5.06,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " deeds.",
+              "start": 5.06,
+              "end": 5.48,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agrippa,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "And",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "raw": "strange",
+          "start": 1.42,
+          "end": 1.78
+        },
+        {
+          "raw": "it",
+          "start": 1.78,
+          "end": 2.04
+        },
+        {
+          "raw": "is",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "raw": "That",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "raw": "nature",
+          "start": 2.42,
+          "end": 2.76
+        },
+        {
+          "raw": "must",
+          "start": 2.76,
+          "end": 3.1
+        },
+        {
+          "raw": "compel",
+          "start": 3.1,
+          "end": 3.42
+        },
+        {
+          "raw": "us",
+          "start": 3.42,
+          "end": 3.68
+        },
+        {
+          "raw": "to",
+          "start": 3.68,
+          "end": 3.84
+        },
+        {
+          "raw": "lament",
+          "start": 3.84,
+          "end": 4.08
+        },
+        {
+          "raw": "Our",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "raw": "most",
+          "start": 4.32,
+          "end": 4.62
+        },
+        {
+          "raw": "persisted",
+          "start": 4.62,
+          "end": 5.06
+        },
+        {
+          "raw": "deeds.",
+          "start": 5.06,
+          "end": 5.48
+        }
+      ],
+      "expected_tokens": [
+        "Agrippa.",
+        "And",
+        "strange",
+        "it",
+        "is",
+        "That",
+        "nature",
+        "must",
+        "compel",
+        "us",
+        "to",
+        "lament",
+        "Our",
+        "most",
+        "persisted",
+        "deeds."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agrippa,",
+          "start": 0.02,
+          "end": 0.94,
+          "key": "agrippa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.34,
+          "end": 1.42,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 1.42,
+          "end": 1.78,
+          "key": "strange",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.78,
+          "end": 2.04,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.04,
+          "end": 2.2,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 2.2,
+          "end": 2.42,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "nature",
+          "start": 2.42,
+          "end": 2.76,
+          "key": "nature",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.76,
+          "end": 3.1,
+          "key": "must",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "compel",
+          "start": 3.1,
+          "end": 3.42,
+          "key": "compel",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 3.42,
+          "end": 3.68,
+          "key": "us",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.68,
+          "end": 3.84,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lament",
+          "start": 3.84,
+          "end": 4.08,
+          "key": "lament",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 4.08,
+          "end": 4.32,
+          "key": "our",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 4.32,
+          "end": 4.62,
+          "key": "most",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "persisted",
+          "start": 4.62,
+          "end": 5.06,
+          "key": "persisted",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "deeds.",
+          "start": 5.06,
+          "end": 5.48,
+          "key": "deeds",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agrippa.",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "And",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "text": "strange",
+          "start": 1.42,
+          "end": 1.78
+        },
+        {
+          "text": "it",
+          "start": 1.78,
+          "end": 2.04
+        },
+        {
+          "text": "is",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "text": "That",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "text": "nature",
+          "start": 2.42,
+          "end": 2.76
+        },
+        {
+          "text": "must",
+          "start": 2.76,
+          "end": 3.1
+        },
+        {
+          "text": "compel",
+          "start": 3.1,
+          "end": 3.42
+        },
+        {
+          "text": "us",
+          "start": 3.42,
+          "end": 3.68
+        },
+        {
+          "text": "to",
+          "start": 3.68,
+          "end": 3.84
+        },
+        {
+          "text": "lament",
+          "start": 3.84,
+          "end": 4.08
+        },
+        {
+          "text": "Our",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "text": "most",
+          "start": 4.32,
+          "end": 4.62
+        },
+        {
+          "text": "persisted",
+          "start": 4.62,
+          "end": 5.06
+        },
+        {
+          "text": "deeds.",
+          "start": 5.06,
+          "end": 5.48
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20205373800126836
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1daefe99831b0b56905e9bc3e9bee1c6eeefc685e8c4867d1f0571bfab18a8be",
+  "selected_reasons": []
+}

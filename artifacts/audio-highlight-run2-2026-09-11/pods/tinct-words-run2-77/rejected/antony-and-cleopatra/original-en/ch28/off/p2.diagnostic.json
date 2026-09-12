@@ -1,0 +1,665 @@
+{
+  "complete": true,
+  "signature": "98003abfaf73a91008d0a1e0a3dbea6e1ba3a133addef42c55850da314869074",
+  "attempts": [
+    {
+      "asr_seconds": 0.26217732299119234,
+      "alignment_seconds": 0.0002261580084450543,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second soldier, it will determine one way, fare you well, heard you have nothing strange",
+          "start": 0.08,
+          "end": 5.32,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.65087890625
+            },
+            {
+              "text": " soldier,",
+              "start": 0.72,
+              "end": 1.1,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " it",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " will",
+              "start": 1.64,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " determine",
+              "start": 1.74,
+              "end": 2.1,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " one",
+              "start": 2.1,
+              "end": 2.42,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " way,",
+              "start": 2.42,
+              "end": 2.78,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " fare",
+              "start": 3.26,
+              "end": 3.38,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " you",
+              "start": 3.38,
+              "end": 3.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " well,",
+              "start": 3.56,
+              "end": 3.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " heard",
+              "start": 4.22,
+              "end": 4.46,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " you",
+              "start": 4.46,
+              "end": 4.62,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " have",
+              "start": 4.62,
+              "end": 4.7,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " nothing",
+              "start": 4.7,
+              "end": 4.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " strange",
+              "start": 4.92,
+              "end": 5.32,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " about the streets.",
+          "start": 5.32,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " about",
+              "start": 5.32,
+              "end": 5.56,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 5.56,
+              "end": 5.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " streets.",
+              "start": 5.74,
+              "end": 6.0,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.72,
+          "end": 1.1
+        },
+        {
+          "raw": "it",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "will",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "raw": "determine",
+          "start": 1.74,
+          "end": 2.1
+        },
+        {
+          "raw": "one",
+          "start": 2.1,
+          "end": 2.42
+        },
+        {
+          "raw": "way,",
+          "start": 2.42,
+          "end": 2.78
+        },
+        {
+          "raw": "fare",
+          "start": 3.26,
+          "end": 3.38
+        },
+        {
+          "raw": "you",
+          "start": 3.38,
+          "end": 3.56
+        },
+        {
+          "raw": "well,",
+          "start": 3.56,
+          "end": 3.88
+        },
+        {
+          "raw": "heard",
+          "start": 4.22,
+          "end": 4.46
+        },
+        {
+          "raw": "you",
+          "start": 4.46,
+          "end": 4.62
+        },
+        {
+          "raw": "have",
+          "start": 4.62,
+          "end": 4.7
+        },
+        {
+          "raw": "nothing",
+          "start": 4.7,
+          "end": 4.92
+        },
+        {
+          "raw": "strange",
+          "start": 4.92,
+          "end": 5.32
+        },
+        {
+          "raw": "about",
+          "start": 5.32,
+          "end": 5.56
+        },
+        {
+          "raw": "the",
+          "start": 5.56,
+          "end": 5.74
+        },
+        {
+          "raw": "streets.",
+          "start": 5.74,
+          "end": 6.0
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Soldier.",
+        "It",
+        "will",
+        "determine",
+        "one",
+        "way.",
+        "Fare",
+        "you",
+        "well.",
+        "Heard",
+        "you",
+        "of",
+        "nothing",
+        "strange",
+        "about",
+        "the",
+        "streets?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          18,
+          13,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.72,
+          "end": 1.1,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.64,
+          "end": 1.74,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "determine",
+          "start": 1.74,
+          "end": 2.1,
+          "key": "determine",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.1,
+          "end": 2.42,
+          "key": "one",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "way,",
+          "start": 2.42,
+          "end": 2.78,
+          "key": "way",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fare",
+          "start": 3.26,
+          "end": 3.38,
+          "key": "fare",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.38,
+          "end": 3.56,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 3.56,
+          "end": 3.88,
+          "key": "well",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 4.22,
+          "end": 4.46,
+          "key": "heard",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.46,
+          "end": 4.62,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.62,
+          "end": 4.7,
+          "key": "have",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 4.7,
+          "end": 4.92,
+          "key": "nothing",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 4.92,
+          "end": 5.32,
+          "key": "strange",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 5.32,
+          "end": 5.56,
+          "key": "about",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.56,
+          "end": 5.74,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "streets.",
+          "start": 5.74,
+          "end": 6.0,
+          "key": "streets",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.72,
+          "end": 1.1
+        },
+        {
+          "text": "It",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "will",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "text": "determine",
+          "start": 1.74,
+          "end": 2.1
+        },
+        {
+          "text": "one",
+          "start": 2.1,
+          "end": 2.42
+        },
+        {
+          "text": "way.",
+          "start": 2.42,
+          "end": 2.78
+        },
+        {
+          "text": "Fare",
+          "start": 3.26,
+          "end": 3.38
+        },
+        {
+          "text": "you",
+          "start": 3.38,
+          "end": 3.56
+        },
+        {
+          "text": "well.",
+          "start": 3.56,
+          "end": 3.88
+        },
+        {
+          "text": "Heard",
+          "start": 4.22,
+          "end": 4.46
+        },
+        {
+          "text": "you",
+          "start": 4.46,
+          "end": 4.62
+        },
+        {
+          "text": "of",
+          "start": 4.62,
+          "end": 4.66
+        },
+        {
+          "text": "nothing",
+          "start": 4.7,
+          "end": 4.92
+        },
+        {
+          "text": "strange",
+          "start": 4.92,
+          "end": 5.32
+        },
+        {
+          "text": "about",
+          "start": 5.32,
+          "end": 5.56
+        },
+        {
+          "text": "the",
+          "start": 5.56,
+          "end": 5.74
+        },
+        {
+          "text": "streets?",
+          "start": 5.74,
+          "end": 6.0
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.26248926398693584
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "20973821fd5b946c6a047b1a1e7638751275d808ef8bc704c90c6f2247465040",
+  "selected_reasons": []
+}

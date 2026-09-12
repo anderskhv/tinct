@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "295d363cdf953b56a9e26da33ed03233c3e5db9e2ff181ced199b336a06a5329",
+  "attempts": [
+    {
+      "asr_seconds": 0.10524087600060739,
+      "alignment_seconds": 0.0001234749797731638,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Thidias. Mark Antony—",
+        "hotwords": "Thidias, Mark, Antony"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thidias, Mark Antony.",
+          "start": 0.08,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " Thidias,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.4736328125
+            },
+            {
+              "text": " Mark",
+              "start": 1.18,
+              "end": 1.44,
+              "probability": 0.87109375
+            },
+            {
+              "text": " Antony.",
+              "start": 1.44,
+              "end": 1.92,
+              "probability": 0.97216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thidias,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "Mark",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "raw": "Antony.",
+          "start": 1.44,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "Thidias.",
+        "Mark",
+        "Antony—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thidias,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "thidias",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mark",
+          "start": 1.18,
+          "end": 1.44,
+          "key": "mark",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Antony.",
+          "start": 1.44,
+          "end": 1.92,
+          "key": "antony",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Thidias.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Mark",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "text": "Antony—",
+          "start": 1.44,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10540628200396895
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dec53a1ebe89e9e409458b80448273fe8dc4ff1aae18e06dc4ee39020d4e721d",
+  "selected_reasons": []
+}

@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "6f0f6a6d5ef52ef31a9949fc94352c36a4a14f7c0c0b76be497f52077e7a3249",
+  "attempts": [
+    {
+      "asr_seconds": 0.1644929489993956,
+      "alignment_seconds": 0.00014709500828757882,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caesar. What, Octavia?",
+        "hotwords": "Caesar, What, Octavia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caesar, What, Octavia?",
+          "start": 0.11,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.11,
+              "end": 0.79,
+              "probability": 0.7490234375
+            },
+            {
+              "text": " What,",
+              "start": 1.15,
+              "end": 1.25,
+              "probability": 0.039703369140625
+            },
+            {
+              "text": " Octavia?",
+              "start": 1.37,
+              "end": 1.77,
+              "probability": 0.991455078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "raw": "What,",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "raw": "Octavia?",
+          "start": 1.37,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "What,",
+        "Octavia?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.79,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 1.15,
+          "end": 1.25,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Octavia?",
+          "start": 1.37,
+          "end": 1.77,
+          "key": "octavia",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "text": "What,",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "text": "Octavia?",
+          "start": 1.37,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1646908349939622
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "403046192b937717c8fb39d5a944717eb7287803c9182e867fb5518c0822f52b",
+  "selected_reasons": []
+}

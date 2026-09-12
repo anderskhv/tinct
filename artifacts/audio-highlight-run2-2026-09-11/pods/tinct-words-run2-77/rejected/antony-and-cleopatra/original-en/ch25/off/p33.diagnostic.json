@@ -1,0 +1,648 @@
+{
+  "complete": true,
+  "signature": "4eccfcb873ff86a5933dd49051901b1de3b2caab2466d1f56bf2e73221797d47",
+  "attempts": [
+    {
+      "asr_seconds": 0.24562823001178913,
+      "alignment_seconds": 0.0004464750236365944,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Did he is the scars upon your honor therefore he does pity as constrained blemishes not as deserved",
+          "start": 0.05,
+          "end": 6.49,
+          "words": [
+            {
+              "text": " Did",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.1988525390625
+            },
+            {
+              "text": " he",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.344482421875
+            },
+            {
+              "text": " is",
+              "start": 0.67,
+              "end": 0.97,
+              "probability": 0.7490234375
+            },
+            {
+              "text": " the",
+              "start": 0.97,
+              "end": 1.49,
+              "probability": 0.57568359375
+            },
+            {
+              "text": " scars",
+              "start": 1.49,
+              "end": 1.79,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " upon",
+              "start": 1.79,
+              "end": 2.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " your",
+              "start": 2.11,
+              "end": 2.29,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " honor",
+              "start": 2.29,
+              "end": 2.49,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " therefore",
+              "start": 2.49,
+              "end": 2.95,
+              "probability": 0.7314453125
+            },
+            {
+              "text": " he",
+              "start": 2.95,
+              "end": 3.47,
+              "probability": 0.76953125
+            },
+            {
+              "text": " does",
+              "start": 3.47,
+              "end": 3.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pity",
+              "start": 3.69,
+              "end": 3.95,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " as",
+              "start": 3.95,
+              "end": 4.19,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " constrained",
+              "start": 4.19,
+              "end": 4.79,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " blemishes",
+              "start": 4.79,
+              "end": 5.31,
+              "probability": 0.9954427083333334
+            },
+            {
+              "text": " not",
+              "start": 5.31,
+              "end": 5.85,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " as",
+              "start": 5.85,
+              "end": 6.03,
+              "probability": 0.982421875
+            },
+            {
+              "text": " deserved",
+              "start": 6.03,
+              "end": 6.49,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Did",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "he",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "is",
+          "start": 0.67,
+          "end": 0.97
+        },
+        {
+          "raw": "the",
+          "start": 0.97,
+          "end": 1.49
+        },
+        {
+          "raw": "scars",
+          "start": 1.49,
+          "end": 1.79
+        },
+        {
+          "raw": "upon",
+          "start": 1.79,
+          "end": 2.11
+        },
+        {
+          "raw": "your",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "raw": "honor",
+          "start": 2.29,
+          "end": 2.49
+        },
+        {
+          "raw": "therefore",
+          "start": 2.49,
+          "end": 2.95
+        },
+        {
+          "raw": "he",
+          "start": 2.95,
+          "end": 3.47
+        },
+        {
+          "raw": "does",
+          "start": 3.47,
+          "end": 3.69
+        },
+        {
+          "raw": "pity",
+          "start": 3.69,
+          "end": 3.95
+        },
+        {
+          "raw": "as",
+          "start": 3.95,
+          "end": 4.19
+        },
+        {
+          "raw": "constrained",
+          "start": 4.19,
+          "end": 4.79
+        },
+        {
+          "raw": "blemishes",
+          "start": 4.79,
+          "end": 5.31
+        },
+        {
+          "raw": "not",
+          "start": 5.31,
+          "end": 5.85
+        },
+        {
+          "raw": "as",
+          "start": 5.85,
+          "end": 6.03
+        },
+        {
+          "raw": "deserved",
+          "start": 6.03,
+          "end": 6.49
+        }
+      ],
+      "expected_tokens": [
+        "Thidias.",
+        "The",
+        "scars",
+        "upon",
+        "your",
+        "honour,",
+        "therefore,",
+        "he",
+        "Does",
+        "pity",
+        "as",
+        "constrained",
+        "blemishes,",
+        "Not",
+        "as",
+        "deserved."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          5,
+          3,
+          7
+        ],
+        [
+          "replace",
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          "equal",
+          6,
+          16,
+          8,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "replace",
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Did",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "did",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.67,
+          "end": 0.97,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.97,
+          "end": 1.49,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "scars",
+          "start": 1.49,
+          "end": 1.79,
+          "key": "scars",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.79,
+          "end": 2.11,
+          "key": "upon",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.11,
+          "end": 2.29,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 2.29,
+          "end": 2.49,
+          "key": "honor",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "therefore",
+          "start": 2.49,
+          "end": 2.95,
+          "key": "therefore",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.95,
+          "end": 3.47,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 3.47,
+          "end": 3.69,
+          "key": "does",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pity",
+          "start": 3.69,
+          "end": 3.95,
+          "key": "pity",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.95,
+          "end": 4.19,
+          "key": "as",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "constrained",
+          "start": 4.19,
+          "end": 4.79,
+          "key": "constrained",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "blemishes",
+          "start": 4.79,
+          "end": 5.31,
+          "key": "blemishes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.31,
+          "end": 5.85,
+          "key": "not",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.85,
+          "end": 6.03,
+          "key": "as",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "deserved",
+          "start": 6.03,
+          "end": 6.49,
+          "key": "deserved",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Thidias.",
+          "start": 0.0,
+          "end": 0.485
+        },
+        {
+          "text": "The",
+          "start": 0.97,
+          "end": 1.49
+        },
+        {
+          "text": "scars",
+          "start": 1.49,
+          "end": 1.79
+        },
+        {
+          "text": "upon",
+          "start": 1.79,
+          "end": 2.11
+        },
+        {
+          "text": "your",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "text": "honour,",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "text": "therefore,",
+          "start": 2.49,
+          "end": 2.95
+        },
+        {
+          "text": "he",
+          "start": 2.95,
+          "end": 3.47
+        },
+        {
+          "text": "Does",
+          "start": 3.47,
+          "end": 3.69
+        },
+        {
+          "text": "pity",
+          "start": 3.69,
+          "end": 3.95
+        },
+        {
+          "text": "as",
+          "start": 3.95,
+          "end": 4.19
+        },
+        {
+          "text": "constrained",
+          "start": 4.19,
+          "end": 4.79
+        },
+        {
+          "text": "blemishes,",
+          "start": 4.79,
+          "end": 5.31
+        },
+        {
+          "text": "Not",
+          "start": 5.31,
+          "end": 5.85
+        },
+        {
+          "text": "as",
+          "start": 5.85,
+          "end": 6.03
+        },
+        {
+          "text": "deserved.",
+          "start": 6.03,
+          "end": 6.49
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 18,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2462585520115681
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "48ed3a2902e0d44e029ebe262a6ea8894e724fe888bfb916eb6dad301094fa3e",
+  "selected_reasons": []
+}

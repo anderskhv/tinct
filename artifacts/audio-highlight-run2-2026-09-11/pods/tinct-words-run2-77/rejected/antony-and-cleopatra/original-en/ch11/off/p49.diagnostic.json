@@ -1,0 +1,678 @@
+{
+  "complete": true,
+  "signature": "8f23ab26b76294a206c95deb56ac81418e7a3b978b08df1605dc68e31139cc33",
+  "attempts": [
+    {
+      "asr_seconds": 0.2727653000038117,
+      "alignment_seconds": 0.0004499850037973374,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In Naborbis, yes, something you can deny for your own safety.",
+          "start": 0.05,
+          "end": 3.71,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.70849609375
+            },
+            {
+              "text": " Naborbis,",
+              "start": 0.53,
+              "end": 1.11,
+              "probability": 0.3630472819010417
+            },
+            {
+              "text": " yes,",
+              "start": 1.65,
+              "end": 1.81,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " something",
+              "start": 2.05,
+              "end": 2.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 2.15,
+              "end": 2.37,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " can",
+              "start": 2.37,
+              "end": 2.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " deny",
+              "start": 2.49,
+              "end": 2.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 2.77,
+              "end": 2.93,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " your",
+              "start": 2.93,
+              "end": 3.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " own",
+              "start": 3.05,
+              "end": 3.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " safety.",
+              "start": 3.27,
+              "end": 3.71,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " You have been a great thief by sea.",
+          "start": 4.27,
+          "end": 5.63,
+          "words": [
+            {
+              "text": " You",
+              "start": 4.27,
+              "end": 4.35,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " have",
+              "start": 4.35,
+              "end": 4.43,
+              "probability": 0.97265625
+            },
+            {
+              "text": " been",
+              "start": 4.43,
+              "end": 4.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 4.53,
+              "end": 4.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " great",
+              "start": 4.61,
+              "end": 4.81,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " thief",
+              "start": 4.81,
+              "end": 5.13,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " by",
+              "start": 5.13,
+              "end": 5.35,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " sea.",
+              "start": 5.35,
+              "end": 5.63,
+              "probability": 0.9658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Naborbis,",
+          "start": 0.53,
+          "end": 1.11
+        },
+        {
+          "raw": "yes,",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "raw": "something",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "raw": "you",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "raw": "can",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "raw": "deny",
+          "start": 2.49,
+          "end": 2.77
+        },
+        {
+          "raw": "for",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "raw": "your",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "raw": "own",
+          "start": 3.05,
+          "end": 3.27
+        },
+        {
+          "raw": "safety.",
+          "start": 3.27,
+          "end": 3.71
+        },
+        {
+          "raw": "You",
+          "start": 4.27,
+          "end": 4.35
+        },
+        {
+          "raw": "have",
+          "start": 4.35,
+          "end": 4.43
+        },
+        {
+          "raw": "been",
+          "start": 4.43,
+          "end": 4.53
+        },
+        {
+          "raw": "a",
+          "start": 4.53,
+          "end": 4.61
+        },
+        {
+          "raw": "great",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "raw": "thief",
+          "start": 4.81,
+          "end": 5.13
+        },
+        {
+          "raw": "by",
+          "start": 5.13,
+          "end": 5.35
+        },
+        {
+          "raw": "sea.",
+          "start": 5.35,
+          "end": 5.63
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "Yes,",
+        "something",
+        "you",
+        "can",
+        "deny",
+        "for",
+        "your",
+        "own",
+        "safety:",
+        "you",
+        "have",
+        "been",
+        "a",
+        "great",
+        "thief",
+        "by",
+        "sea."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          18,
+          2,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Naborbis,",
+          "start": 0.53,
+          "end": 1.11,
+          "key": "naborbis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yes,",
+          "start": 1.65,
+          "end": 1.81,
+          "key": "yes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 2.05,
+          "end": 2.15,
+          "key": "something",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.15,
+          "end": 2.37,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 2.37,
+          "end": 2.49,
+          "key": "can",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "deny",
+          "start": 2.49,
+          "end": 2.77,
+          "key": "deny",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.77,
+          "end": 2.93,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.93,
+          "end": 3.05,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 3.05,
+          "end": 3.27,
+          "key": "own",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "safety.",
+          "start": 3.27,
+          "end": 3.71,
+          "key": "safety",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 4.27,
+          "end": 4.35,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.35,
+          "end": 4.43,
+          "key": "have",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 4.43,
+          "end": 4.53,
+          "key": "been",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.53,
+          "end": 4.61,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 4.61,
+          "end": 4.81,
+          "key": "great",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "thief",
+          "start": 4.81,
+          "end": 5.13,
+          "key": "thief",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 5.13,
+          "end": 5.35,
+          "key": "by",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "sea.",
+          "start": 5.35,
+          "end": 5.63,
+          "key": "sea",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.0,
+          "end": 0.825
+        },
+        {
+          "text": "Yes,",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "text": "something",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "text": "you",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "text": "can",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "text": "deny",
+          "start": 2.49,
+          "end": 2.77
+        },
+        {
+          "text": "for",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "text": "your",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "text": "own",
+          "start": 3.05,
+          "end": 3.27
+        },
+        {
+          "text": "safety:",
+          "start": 3.27,
+          "end": 3.71
+        },
+        {
+          "text": "you",
+          "start": 4.27,
+          "end": 4.35
+        },
+        {
+          "text": "have",
+          "start": 4.35,
+          "end": 4.43
+        },
+        {
+          "text": "been",
+          "start": 4.43,
+          "end": 4.53
+        },
+        {
+          "text": "a",
+          "start": 4.53,
+          "end": 4.61
+        },
+        {
+          "text": "great",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "text": "thief",
+          "start": 4.81,
+          "end": 5.13
+        },
+        {
+          "text": "by",
+          "start": 5.13,
+          "end": 5.35
+        },
+        {
+          "text": "sea.",
+          "start": 5.35,
+          "end": 5.63
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.2734165620058775
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "06eff7b830d8e8a033fc72f4a3fb6ad4d869447aa681d46b456136e84ee1734f",
+  "selected_reasons": []
+}

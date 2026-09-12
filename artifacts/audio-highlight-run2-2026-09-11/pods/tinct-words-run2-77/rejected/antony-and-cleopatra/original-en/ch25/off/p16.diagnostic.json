@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "302fae002ad41118291976eb81fbf0cdf00dcbe57d35505ec4cc057f50a31435",
+  "attempts": [
+    {
+      "asr_seconds": 0.09082840601331554,
+      "alignment_seconds": 0.00010860399925149977,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter a servant.",
+          "start": 0.02,
+          "end": 1.12,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " a",
+              "start": 0.64,
+              "end": 0.82,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " servant.",
+              "start": 0.82,
+              "end": 1.12,
+              "probability": 0.89892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "a",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "raw": "servant.",
+          "start": 0.82,
+          "end": 1.12
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "a",
+        "Servant."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.64,
+          "end": 0.82,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "servant.",
+          "start": 0.82,
+          "end": 1.12,
+          "key": "servant",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "a",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "text": "Servant.",
+          "start": 0.82,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09097218100214377
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ab11630e5909193b6e5c68b2735f5ba28134f6a2dc2c3187ab8843cd236191a0",
+  "selected_reasons": []
+}

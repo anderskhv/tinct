@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "c774db163c8639cfc180d992fd3de7f05bec9503d8b725f3ffb893da9b8ff741",
+  "attempts": [
+    {
+      "asr_seconds": 0.11015099598444067,
+      "alignment_seconds": 0.00015817501116544008,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Minas, who, noble captain, come.",
+          "start": 0.05,
+          "end": 2.51,
+          "words": [
+            {
+              "text": " Minas,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.6767578125
+            },
+            {
+              "text": " who,",
+              "start": 1.15,
+              "end": 1.29,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " noble",
+              "start": 1.81,
+              "end": 1.81,
+              "probability": 0.626953125
+            },
+            {
+              "text": " captain,",
+              "start": 1.81,
+              "end": 2.17,
+              "probability": 0.66748046875
+            },
+            {
+              "text": " come.",
+              "start": 2.21,
+              "end": 2.51,
+              "probability": 0.96923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Minas,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "who,",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "raw": "noble",
+          "start": 1.81,
+          "end": 1.81
+        },
+        {
+          "raw": "captain,",
+          "start": 1.81,
+          "end": 2.17
+        },
+        {
+          "raw": "come.",
+          "start": 2.21,
+          "end": 2.51
+        }
+      ],
+      "expected_tokens": [
+        "Menas.",
+        "Hoo!",
+        "Noble",
+        "captain,",
+        "come."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Minas,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "minas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who,",
+          "start": 1.15,
+          "end": 1.29,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 1.81,
+          "end": 1.81,
+          "key": "noble",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "captain,",
+          "start": 1.81,
+          "end": 2.17,
+          "key": "captain",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 2.21,
+          "end": 2.51,
+          "key": "come",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menas.",
+          "start": 0.0,
+          "end": 0.905
+        },
+        {
+          "text": "Hoo!",
+          "start": 0.905,
+          "end": 1.357
+        },
+        {
+          "text": "Noble",
+          "start": 1.81,
+          "end": 1.81
+        },
+        {
+          "text": "captain,",
+          "start": 1.81,
+          "end": 2.17
+        },
+        {
+          "text": "come.",
+          "start": 2.21,
+          "end": 2.51
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11036175300250761
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "545767d5dbf7fb3bbac8841ec30f7b0ff4dc99a643e6d9be7af4ba64ecd4a787",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

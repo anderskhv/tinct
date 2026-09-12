@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "ce06d9c22d1af68abc621f33a0ff523a380a0d7cd8a8197ed3d241db598e0ff3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1079769310017582,
+      "alignment_seconds": 0.0001396950101479888,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Cleopatra and Enobarbus.",
+        "hotwords": "Enter, Cleopatra, Enobarbus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Cleopatra and Enobarbus.",
+          "start": 0.08,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " Cleopatra",
+              "start": 0.66,
+              "end": 1.3,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " and",
+              "start": 1.3,
+              "end": 1.64,
+              "probability": 0.67333984375
+            },
+            {
+              "text": " Enobarbus.",
+              "start": 1.64,
+              "end": 2.24,
+              "probability": 0.49193572998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Cleopatra",
+          "start": 0.66,
+          "end": 1.3
+        },
+        {
+          "raw": "and",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "raw": "Enobarbus.",
+          "start": 1.64,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Cleopatra",
+        "and",
+        "Enobarbus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cleopatra",
+          "start": 0.66,
+          "end": 1.3,
+          "key": "cleopatra",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.3,
+          "end": 1.64,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Enobarbus.",
+          "start": 1.64,
+          "end": 2.24,
+          "key": "enobarbus",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Cleopatra",
+          "start": 0.66,
+          "end": 1.3
+        },
+        {
+          "text": "and",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "text": "Enobarbus.",
+          "start": 1.64,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10816198700922541
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0ed4e499677fb20a6415cf2d0e3c7121d338166817fb2b4a022398e59ab63ec7",
+  "selected_reasons": []
+}

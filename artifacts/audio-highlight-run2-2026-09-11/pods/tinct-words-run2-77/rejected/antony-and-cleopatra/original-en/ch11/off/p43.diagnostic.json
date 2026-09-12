@@ -1,0 +1,259 @@
+{
+  "complete": true,
+  "signature": "c08b38ebf9dc8a7e60769ed47f599964dd583c51a6b6059af0d680c92829bde5",
+  "attempts": [
+    {
+      "asr_seconds": 0.1164987760130316,
+      "alignment_seconds": 0.00015632601571269333,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In Arbarbus, at sea, I think.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.306396484375
+            },
+            {
+              "text": " Arbarbus,",
+              "start": 0.55,
+              "end": 1.03,
+              "probability": 0.3399454752604167
+            },
+            {
+              "text": " at",
+              "start": 1.29,
+              "end": 1.47,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " sea,",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " I",
+              "start": 1.69,
+              "end": 1.81,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " think.",
+              "start": 1.81,
+              "end": 2.07,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Arbarbus,",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "raw": "at",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "raw": "sea,",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "I",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "raw": "think.",
+          "start": 1.81,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "At",
+        "sea,",
+        "I",
+        "think."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          5,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Arbarbus,",
+          "start": 0.55,
+          "end": 1.03,
+          "key": "arbarbus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.29,
+          "end": 1.47,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sea,",
+          "start": 1.47,
+          "end": 1.65,
+          "key": "sea",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.69,
+          "end": 1.81,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "think.",
+          "start": 1.81,
+          "end": 2.07,
+          "key": "think",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.0,
+          "end": 0.645
+        },
+        {
+          "text": "At",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "text": "sea,",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "text": "I",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "text": "think.",
+          "start": 1.81,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11671427401597612
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ff45407606880442269ec2d7d63b73c26473ad4693889cd919cab7b1091884ed",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

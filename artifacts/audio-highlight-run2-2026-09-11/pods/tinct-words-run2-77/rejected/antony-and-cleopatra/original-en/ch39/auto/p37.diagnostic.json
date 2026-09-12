@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "738d872310f538566cb01c569b40344814e823f2aafad3bd073f75ccdbe6b319",
+  "attempts": [
+    {
+      "asr_seconds": 0.10429092700360343,
+      "alignment_seconds": 0.0001271539949811995,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. Now, Eros.",
+        "hotwords": "Antony, Now, Eros"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Now, Eros.",
+          "start": 0.05,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.857421875
+            },
+            {
+              "text": " Now,",
+              "start": 1.33,
+              "end": 1.39,
+              "probability": 0.0305938720703125
+            },
+            {
+              "text": " Eros.",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.81396484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Now,",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "raw": "Eros.",
+          "start": 1.49,
+          "end": 1.71
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Now,",
+        "Eros."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Now,",
+          "start": 1.33,
+          "end": 1.39,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Eros.",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "eros",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Now,",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "text": "Eros.",
+          "start": 1.49,
+          "end": 1.71
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10445961300865747
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cb53e6d460ff111c3df5aff7cca2228ce9538268aa0eb42e3d52c000b70cc2fa",
+  "selected_reasons": []
+}

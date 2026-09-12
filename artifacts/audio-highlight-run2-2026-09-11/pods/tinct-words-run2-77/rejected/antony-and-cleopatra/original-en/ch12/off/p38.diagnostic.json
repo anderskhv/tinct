@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "7e3a60e7575101058873d395d0ebccdee9ba5318a8328a979541a6bc3385cbf8",
+  "attempts": [
+    {
+      "asr_seconds": 0.0806180129875429,
+      "alignment_seconds": 8.154299575835466e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pompey",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " Pompey",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.786865234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pompey",
+          "start": 0.05,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "Pompey."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pompey",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "pompey",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pompey.",
+          "start": 0.05,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08072530699428171
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "60a46b58322ee86d11841bf9d45d753df50f4d65ea82e8bdff370df914456b25",
+  "selected_reasons": []
+}

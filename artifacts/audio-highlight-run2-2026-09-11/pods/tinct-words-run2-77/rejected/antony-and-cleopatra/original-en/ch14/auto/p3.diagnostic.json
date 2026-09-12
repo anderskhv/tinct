@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "e64b39d28cee9366d557d44d896d2ad9db0880af37a11d6f4fc899b7f0414d7d",
+  "attempts": [
+    {
+      "asr_seconds": 0.12796175299445167,
+      "alignment_seconds": 0.0001373550039716065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Agrippa. 'Tis a noble Lepidus.",
+        "hotwords": "Agrippa, Tis, Lepidus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Agrippa, Tis a noble Lepidus.",
+          "start": 0.11,
+          "end": 2.53,
+          "words": [
+            {
+              "text": " Agrippa,",
+              "start": 0.11,
+              "end": 0.99,
+              "probability": 0.8562825520833334
+            },
+            {
+              "text": " Tis",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.031463623046875
+            },
+            {
+              "text": " a",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.3486328125
+            },
+            {
+              "text": " noble",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.6953125
+            },
+            {
+              "text": " Lepidus.",
+              "start": 1.89,
+              "end": 2.53,
+              "probability": 0.7987467447916666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agrippa,",
+          "start": 0.11,
+          "end": 0.99
+        },
+        {
+          "raw": "Tis",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "a",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "noble",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "raw": "Lepidus.",
+          "start": 1.89,
+          "end": 2.53
+        }
+      ],
+      "expected_tokens": [
+        "Agrippa.",
+        "'Tis",
+        "a",
+        "noble",
+        "Lepidus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agrippa,",
+          "start": 0.11,
+          "end": 0.99,
+          "key": "agrippa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "tis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.51,
+          "end": 1.63,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 1.63,
+          "end": 1.89,
+          "key": "noble",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lepidus.",
+          "start": 1.89,
+          "end": 2.53,
+          "key": "lepidus",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agrippa.",
+          "start": 0.11,
+          "end": 0.99
+        },
+        {
+          "text": "'Tis",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "a",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "noble",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "text": "Lepidus.",
+          "start": 1.89,
+          "end": 2.53
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1281504899961874
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d0d7dc11c3faee4fc7725ef3ae5e3c0a7f652b6cac58e9bda1a0ef015fce4772",
+  "selected_reasons": []
+}

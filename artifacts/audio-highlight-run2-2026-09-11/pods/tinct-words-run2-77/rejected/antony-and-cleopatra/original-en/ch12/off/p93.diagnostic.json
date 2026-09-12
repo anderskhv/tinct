@@ -1,0 +1,311 @@
+{
+  "complete": true,
+  "signature": "2d63b9e1ce25ac14412fc570021994f8be26be788fd5f93fb028f9e482da9dbb",
+  "attempts": [
+    {
+      "asr_seconds": 0.1212513110076543,
+      "alignment_seconds": 0.00016435599536634982,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In all purpose, take heed you fall not.",
+          "start": 0.05,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " all",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.1917724609375
+            },
+            {
+              "text": " purpose,",
+              "start": 0.65,
+              "end": 0.97,
+              "probability": 0.53662109375
+            },
+            {
+              "text": " take",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " heed",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " you",
+              "start": 1.65,
+              "end": 1.79,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " fall",
+              "start": 1.79,
+              "end": 1.99,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " not.",
+              "start": 1.99,
+              "end": 2.27,
+              "probability": 0.95556640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "all",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "purpose,",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "raw": "take",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "heed",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "you",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "raw": "fall",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "raw": "not.",
+          "start": 1.99,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "Take",
+        "heed",
+        "you",
+        "fall",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          6,
+          3,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "purpose,",
+          "start": 0.65,
+          "end": 0.97,
+          "key": "purpose",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "take",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heed",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "heed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.65,
+          "end": 1.79,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fall",
+          "start": 1.79,
+          "end": 1.99,
+          "key": "fall",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 1.99,
+          "end": 2.27,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.0,
+          "end": 0.655
+        },
+        {
+          "text": "Take",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "heed",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "you",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "text": "fall",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "text": "not.",
+          "start": 1.99,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12149497901555151
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "89d2008bbbb4e51d132a7388d00c697df05db97ab7206e231bf40d807a69a62f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

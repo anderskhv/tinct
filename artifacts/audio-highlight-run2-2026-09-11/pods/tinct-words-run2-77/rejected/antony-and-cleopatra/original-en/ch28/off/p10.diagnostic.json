@@ -1,0 +1,700 @@
+{
+  "complete": true,
+  "signature": "db33bf3d7a670640f4142bed8251c3552825980b5ad63b3caac25ee266c55dc9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2411401839926839,
+      "alignment_seconds": 0.00023582798894494772,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second soldier, here we, and if tomorrow our navy thrive, I have an absolute hope our landmen will stand up.",
+          "start": 0.08,
+          "end": 6.8,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.64208984375
+            },
+            {
+              "text": " soldier,",
+              "start": 0.7,
+              "end": 1.12,
+              "probability": 0.7841796875
+            },
+            {
+              "text": " here",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " we,",
+              "start": 1.86,
+              "end": 2.12,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 2.6,
+              "end": 2.66,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " if",
+              "start": 2.66,
+              "end": 2.78,
+              "probability": 0.978515625
+            },
+            {
+              "text": " tomorrow",
+              "start": 2.78,
+              "end": 3.08,
+              "probability": 0.9140625
+            },
+            {
+              "text": " our",
+              "start": 3.08,
+              "end": 3.34,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " navy",
+              "start": 3.34,
+              "end": 3.6,
+              "probability": 0.47021484375
+            },
+            {
+              "text": " thrive,",
+              "start": 3.6,
+              "end": 4.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 4.4,
+              "end": 4.46,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " have",
+              "start": 4.46,
+              "end": 4.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " an",
+              "start": 4.6,
+              "end": 4.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " absolute",
+              "start": 4.72,
+              "end": 5.2,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " hope",
+              "start": 5.2,
+              "end": 5.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " our",
+              "start": 5.52,
+              "end": 5.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " landmen",
+              "start": 5.68,
+              "end": 6.1,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " will",
+              "start": 6.1,
+              "end": 6.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " stand",
+              "start": 6.26,
+              "end": 6.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " up.",
+              "start": 6.52,
+              "end": 6.8,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.7,
+          "end": 1.12
+        },
+        {
+          "raw": "here",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "raw": "we,",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "raw": "and",
+          "start": 2.6,
+          "end": 2.66
+        },
+        {
+          "raw": "if",
+          "start": 2.66,
+          "end": 2.78
+        },
+        {
+          "raw": "tomorrow",
+          "start": 2.78,
+          "end": 3.08
+        },
+        {
+          "raw": "our",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "raw": "navy",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "raw": "thrive,",
+          "start": 3.6,
+          "end": 4.02
+        },
+        {
+          "raw": "I",
+          "start": 4.4,
+          "end": 4.46
+        },
+        {
+          "raw": "have",
+          "start": 4.46,
+          "end": 4.6
+        },
+        {
+          "raw": "an",
+          "start": 4.6,
+          "end": 4.72
+        },
+        {
+          "raw": "absolute",
+          "start": 4.72,
+          "end": 5.2
+        },
+        {
+          "raw": "hope",
+          "start": 5.2,
+          "end": 5.52
+        },
+        {
+          "raw": "our",
+          "start": 5.52,
+          "end": 5.68
+        },
+        {
+          "raw": "landmen",
+          "start": 5.68,
+          "end": 6.1
+        },
+        {
+          "raw": "will",
+          "start": 6.1,
+          "end": 6.26
+        },
+        {
+          "raw": "stand",
+          "start": 6.26,
+          "end": 6.52
+        },
+        {
+          "raw": "up.",
+          "start": 6.52,
+          "end": 6.8
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Soldier.",
+        "Here",
+        "we.",
+        "And",
+        "if",
+        "tomorrow",
+        "Our",
+        "navy",
+        "thrive,",
+        "I",
+        "have",
+        "an",
+        "absolute",
+        "hope",
+        "Our",
+        "landmen",
+        "will",
+        "stand",
+        "up."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.7,
+          "end": 1.12,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.66,
+          "end": 1.86,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we,",
+          "start": 1.86,
+          "end": 2.12,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.6,
+          "end": 2.66,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.66,
+          "end": 2.78,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tomorrow",
+          "start": 2.78,
+          "end": 3.08,
+          "key": "tomorrow",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 3.08,
+          "end": 3.34,
+          "key": "our",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "navy",
+          "start": 3.34,
+          "end": 3.6,
+          "key": "navy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thrive,",
+          "start": 3.6,
+          "end": 4.02,
+          "key": "thrive",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.4,
+          "end": 4.46,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.46,
+          "end": 4.6,
+          "key": "have",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 4.6,
+          "end": 4.72,
+          "key": "an",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "absolute",
+          "start": 4.72,
+          "end": 5.2,
+          "key": "absolute",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 5.2,
+          "end": 5.52,
+          "key": "hope",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.52,
+          "end": 5.68,
+          "key": "our",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "landmen",
+          "start": 5.68,
+          "end": 6.1,
+          "key": "landmen",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 6.1,
+          "end": 6.26,
+          "key": "will",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 6.26,
+          "end": 6.52,
+          "key": "stand",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 6.52,
+          "end": 6.8,
+          "key": "up",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.7,
+          "end": 1.12
+        },
+        {
+          "text": "Here",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "text": "we.",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "text": "And",
+          "start": 2.6,
+          "end": 2.66
+        },
+        {
+          "text": "if",
+          "start": 2.66,
+          "end": 2.78
+        },
+        {
+          "text": "tomorrow",
+          "start": 2.78,
+          "end": 3.08
+        },
+        {
+          "text": "Our",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "text": "navy",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "text": "thrive,",
+          "start": 3.6,
+          "end": 4.02
+        },
+        {
+          "text": "I",
+          "start": 4.4,
+          "end": 4.46
+        },
+        {
+          "text": "have",
+          "start": 4.46,
+          "end": 4.6
+        },
+        {
+          "text": "an",
+          "start": 4.6,
+          "end": 4.72
+        },
+        {
+          "text": "absolute",
+          "start": 4.72,
+          "end": 5.2
+        },
+        {
+          "text": "hope",
+          "start": 5.2,
+          "end": 5.52
+        },
+        {
+          "text": "Our",
+          "start": 5.52,
+          "end": 5.68
+        },
+        {
+          "text": "landmen",
+          "start": 5.68,
+          "end": 6.1
+        },
+        {
+          "text": "will",
+          "start": 6.1,
+          "end": 6.26
+        },
+        {
+          "text": "stand",
+          "start": 6.26,
+          "end": 6.52
+        },
+        {
+          "text": "up.",
+          "start": 6.52,
+          "end": 6.8
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24148351600160822
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c0fca9f79bb6766b39ba2583b29818a35e12ac11a8f7933894c2beeb9652065c",
+  "selected_reasons": []
+}

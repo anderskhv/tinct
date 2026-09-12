@@ -1,0 +1,523 @@
+{
+  "complete": true,
+  "signature": "f5fe38a53999ccf2da6cf1da5ca450e568ec335f53f0da8b6f14e663e541b8d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.21001638600137085,
+      "alignment_seconds": 0.00042310499702580273,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Canidius with news the times with labor and throws forth each minute some",
+          "start": 0.05,
+          "end": 4.61,
+          "words": [
+            {
+              "text": " Canidius",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.60302734375
+            },
+            {
+              "text": " with",
+              "start": 0.99,
+              "end": 1.53,
+              "probability": 0.259521484375
+            },
+            {
+              "text": " news",
+              "start": 1.53,
+              "end": 1.81,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " the",
+              "start": 1.81,
+              "end": 1.99,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " times",
+              "start": 1.99,
+              "end": 2.25,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " with",
+              "start": 2.25,
+              "end": 2.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " labor",
+              "start": 2.43,
+              "end": 2.81,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " and",
+              "start": 2.81,
+              "end": 3.11,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " throws",
+              "start": 3.11,
+              "end": 3.39,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " forth",
+              "start": 3.39,
+              "end": 3.73,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " each",
+              "start": 3.73,
+              "end": 4.01,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " minute",
+              "start": 4.01,
+              "end": 4.27,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " some",
+              "start": 4.27,
+              "end": 4.61,
+              "probability": 0.7099609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Canidius",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "with",
+          "start": 0.99,
+          "end": 1.53
+        },
+        {
+          "raw": "news",
+          "start": 1.53,
+          "end": 1.81
+        },
+        {
+          "raw": "the",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "raw": "times",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "raw": "with",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "raw": "labor",
+          "start": 2.43,
+          "end": 2.81
+        },
+        {
+          "raw": "and",
+          "start": 2.81,
+          "end": 3.11
+        },
+        {
+          "raw": "throws",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "raw": "forth",
+          "start": 3.39,
+          "end": 3.73
+        },
+        {
+          "raw": "each",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "raw": "minute",
+          "start": 4.01,
+          "end": 4.27
+        },
+        {
+          "raw": "some",
+          "start": 4.27,
+          "end": 4.61
+        }
+      ],
+      "expected_tokens": [
+        "Canidius.",
+        "With",
+        "news",
+        "the",
+        "time's",
+        "with",
+        "labour,",
+        "and",
+        "throes",
+        "forth",
+        "Each",
+        "minute",
+        "some."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          13,
+          9,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Canidius",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "canidius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.99,
+          "end": 1.53,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "news",
+          "start": 1.53,
+          "end": 1.81,
+          "key": "news",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.81,
+          "end": 1.99,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "times",
+          "start": 1.99,
+          "end": 2.25,
+          "key": "times",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.25,
+          "end": 2.43,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "labor",
+          "start": 2.43,
+          "end": 2.81,
+          "key": "labor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.81,
+          "end": 3.11,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "throws",
+          "start": 3.11,
+          "end": 3.39,
+          "key": "throws",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "forth",
+          "start": 3.39,
+          "end": 3.73,
+          "key": "forth",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 3.73,
+          "end": 4.01,
+          "key": "each",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "minute",
+          "start": 4.01,
+          "end": 4.27,
+          "key": "minute",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 4.27,
+          "end": 4.61,
+          "key": "some",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Canidius.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "With",
+          "start": 0.99,
+          "end": 1.53
+        },
+        {
+          "text": "news",
+          "start": 1.53,
+          "end": 1.81
+        },
+        {
+          "text": "the",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "text": "time's",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "text": "with",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "text": "labour,",
+          "start": 2.43,
+          "end": 2.62
+        },
+        {
+          "text": "and",
+          "start": 2.81,
+          "end": 3.11
+        },
+        {
+          "text": "throes",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "text": "forth",
+          "start": 3.39,
+          "end": 3.73
+        },
+        {
+          "text": "Each",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "text": "minute",
+          "start": 4.01,
+          "end": 4.27
+        },
+        {
+          "text": "some.",
+          "start": 4.27,
+          "end": 4.61
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21058312599780038
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5afe5e75b6b52fc1af61438f9d20d6f1131ffcc1eb3a9b31ae7c701efa6c5d6c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

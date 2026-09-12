@@ -1,0 +1,492 @@
+{
+  "complete": true,
+  "signature": "0fc96ec4b829de7a67228dcf6cf65e6b63d6de75914c99bf88662efc0fc5f66b",
+  "attempts": [
+    {
+      "asr_seconds": 0.24245454999618232,
+      "alignment_seconds": 0.00036815201747231185,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Aside to Enobarbus_.] Why, Enobarbus,",
+        "hotwords": "Enobarbus_, Why, Enobarbus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why, Enobarbus,",
+          "start": 0.02,
+          "end": 3.04,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.00010919570922851562
+            },
+            {
+              "text": " Enobarbus,",
+              "start": 2.54,
+              "end": 3.04,
+              "probability": 0.3112405141194661
+            }
+          ]
+        },
+        {
+          "text": " Why, Enobarbus, Why, Enobarbus.",
+          "start": 3.04,
+          "end": 3.1,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 3.04,
+              "end": 3.04,
+              "probability": 8.177757263183594e-05
+            },
+            {
+              "text": " Enobarbus,",
+              "start": 3.04,
+              "end": 3.04,
+              "probability": 1.154343287150065e-05
+            },
+            {
+              "text": " Why,",
+              "start": 3.04,
+              "end": 3.04,
+              "probability": 0.00205230712890625
+            },
+            {
+              "text": " Enobarbus.",
+              "start": 3.04,
+              "end": 3.1,
+              "probability": 0.6573079427083334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "Enobarbus,",
+          "start": 2.54,
+          "end": 3.04
+        },
+        {
+          "raw": "Why,",
+          "start": 3.04,
+          "end": 3.04
+        },
+        {
+          "raw": "Enobarbus,",
+          "start": 3.04,
+          "end": 3.04
+        },
+        {
+          "raw": "Why,",
+          "start": 3.04,
+          "end": 3.04
+        },
+        {
+          "raw": "Enobarbus.",
+          "start": 3.04,
+          "end": 3.1
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside",
+        "to",
+        "Enobarbus_.]",
+        "Why,",
+        "Enobarbus,"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          5,
+          1,
+          4
+        ],
+        [
+          "insert",
+          5,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "insert",
+          5,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Enobarbus,",
+          "start": 2.54,
+          "end": 3.04,
+          "key": "enobarbus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 3.04,
+          "end": 3.04,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Enobarbus,",
+          "start": 3.04,
+          "end": 3.04,
+          "key": "enobarbus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 3.04,
+          "end": 3.04,
+          "key": "why",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Enobarbus.",
+          "start": 3.04,
+          "end": 3.1,
+          "key": "enobarbus",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside",
+          "start": 0.0,
+          "end": 1.27
+        },
+        {
+          "text": "to",
+          "start": 1.27,
+          "end": 1.905
+        },
+        {
+          "text": "Enobarbus_.]",
+          "start": 2.54,
+          "end": 3.04
+        },
+        {
+          "text": "Why,",
+          "start": 3.04,
+          "end": 3.04
+        },
+        {
+          "text": "Enobarbus,",
+          "start": 3.04,
+          "end": 3.04
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24298633800935932
+    },
+    {
+      "asr_seconds": 0.136846820008941,
+      "alignment_seconds": 0.00021974800620228052,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Enobarbus_, Why, Enobarbus"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Aside to Enobarbus, Why, Enobarbus?",
+          "start": 0.02,
+          "end": 3.06,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.377685546875
+            },
+            {
+              "text": " to",
+              "start": 0.7,
+              "end": 1.0,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Enobarbus,",
+              "start": 1.0,
+              "end": 1.6,
+              "probability": 0.31620152791341144
+            },
+            {
+              "text": " Why,",
+              "start": 2.16,
+              "end": 2.3,
+              "probability": 0.09423828125
+            },
+            {
+              "text": " Enobarbus?",
+              "start": 2.52,
+              "end": 3.06,
+              "probability": 0.9111328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "to",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "raw": "Enobarbus,",
+          "start": 1.0,
+          "end": 1.6
+        },
+        {
+          "raw": "Why,",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "raw": "Enobarbus?",
+          "start": 2.52,
+          "end": 3.06
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside",
+        "to",
+        "Enobarbus_.]",
+        "Why,",
+        "Enobarbus,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.7,
+          "end": 1.0,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Enobarbus,",
+          "start": 1.0,
+          "end": 1.6,
+          "key": "enobarbus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 2.16,
+          "end": 2.3,
+          "key": "why",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Enobarbus?",
+          "start": 2.52,
+          "end": 3.06,
+          "key": "enobarbus",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "to",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "text": "Enobarbus_.]",
+          "start": 1.0,
+          "end": 1.6
+        },
+        {
+          "text": "Why,",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "Enobarbus,",
+          "start": 2.52,
+          "end": 3.06
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13714295098907314
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "ed2746886f3eb5e5481e7b24d723612160ed67346a1666e0632230845b391933",
+  "selected_reasons": []
+}

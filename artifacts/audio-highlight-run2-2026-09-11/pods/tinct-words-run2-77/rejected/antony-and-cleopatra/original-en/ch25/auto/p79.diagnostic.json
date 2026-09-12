@@ -1,0 +1,7602 @@
+{
+  "complete": true,
+  "signature": "c4a2b0b82458f9b49a146050f5ec9c5b0abd6f0bec2a2e85c31265cb69290d3a",
+  "attempts": [
+    {
+      "asr_seconds": 0.7296695490076672,
+      "alignment_seconds": 0.0007715070096310228,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. I am satisfied. Caesar sits down in Alexandria, where I will oppose his fate. Our force by land Hath nobly held; our severed navy too Have knit again, and fleet, threat'ning most sea-like. Where hast thou been, my heart? Dost thou hear, lady? If from the field I shall return once more To kiss these lips, I will appear in blood. I and my sword will earn our chronicle. There's hope in't yet.",
+        "hotwords": "Antony, I, Caesar, Alexandria, Hath, Have, Dost, If, To, There's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, I am satisfied. Caesar sits down in Alexandria, where I will oppose his fate. Our",
+          "start": 0.05,
+          "end": 6.01,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.7442626953125
+            },
+            {
+              "text": " I",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " am",
+              "start": 1.03,
+              "end": 1.15,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " satisfied.",
+              "start": 1.15,
+              "end": 1.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Caesar",
+              "start": 2.51,
+              "end": 2.65,
+              "probability": 0.984375
+            },
+            {
+              "text": " sits",
+              "start": 2.65,
+              "end": 2.93,
+              "probability": 0.98828125
+            },
+            {
+              "text": " down",
+              "start": 2.93,
+              "end": 3.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 3.27,
+              "end": 3.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Alexandria,",
+              "start": 3.41,
+              "end": 3.99,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " where",
+              "start": 4.03,
+              "end": 4.29,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " I",
+              "start": 4.29,
+              "end": 4.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " will",
+              "start": 4.41,
+              "end": 4.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " oppose",
+              "start": 4.49,
+              "end": 4.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " his",
+              "start": 4.77,
+              "end": 5.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " fate.",
+              "start": 5.01,
+              "end": 5.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Our",
+              "start": 5.89,
+              "end": 6.01,
+              "probability": 0.97314453125
+            }
+          ]
+        },
+        {
+          "text": " force by land Hath nobly held. Our severed navy too Have knit again, and fleet, threat'ning",
+          "start": 6.01,
+          "end": 10.91,
+          "words": [
+            {
+              "text": " force",
+              "start": 6.01,
+              "end": 6.23,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " by",
+              "start": 6.23,
+              "end": 6.45,
+              "probability": 0.982421875
+            },
+            {
+              "text": " land",
+              "start": 6.45,
+              "end": 6.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Hath",
+              "start": 6.73,
+              "end": 6.91,
+              "probability": 0.0021457672119140625
+            },
+            {
+              "text": " nobly",
+              "start": 6.91,
+              "end": 7.33,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " held.",
+              "start": 7.33,
+              "end": 7.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Our",
+              "start": 8.03,
+              "end": 8.13,
+              "probability": 0.98828125
+            },
+            {
+              "text": " severed",
+              "start": 8.13,
+              "end": 8.43,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " navy",
+              "start": 8.43,
+              "end": 8.73,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " too",
+              "start": 8.73,
+              "end": 9.05,
+              "probability": 0.72216796875
+            },
+            {
+              "text": " Have",
+              "start": 9.05,
+              "end": 9.23,
+              "probability": 0.461181640625
+            },
+            {
+              "text": " knit",
+              "start": 9.23,
+              "end": 9.41,
+              "probability": 0.896484375
+            },
+            {
+              "text": " again,",
+              "start": 9.41,
+              "end": 9.67,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " and",
+              "start": 9.81,
+              "end": 9.97,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " fleet,",
+              "start": 9.97,
+              "end": 10.21,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " threat",
+              "start": 10.57,
+              "end": 10.67,
+              "probability": 0.00542449951171875
+            },
+            {
+              "text": "'ning",
+              "start": 10.67,
+              "end": 10.91,
+              "probability": 0.684814453125
+            }
+          ]
+        },
+        {
+          "text": " most sea-like. Where hast thou been, my heart? Dost thou hear, lady? If from the field I",
+          "start": 10.91,
+          "end": 16.33,
+          "words": [
+            {
+              "text": " most",
+              "start": 10.91,
+              "end": 11.17,
+              "probability": 0.5849609375
+            },
+            {
+              "text": " sea",
+              "start": 11.17,
+              "end": 11.43,
+              "probability": 0.84228515625
+            },
+            {
+              "text": "-like.",
+              "start": 11.43,
+              "end": 11.69,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " Where",
+              "start": 12.35,
+              "end": 12.45,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " hast",
+              "start": 12.45,
+              "end": 12.67,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " thou",
+              "start": 12.67,
+              "end": 12.93,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " been,",
+              "start": 12.93,
+              "end": 13.11,
+              "probability": 0.96875
+            },
+            {
+              "text": " my",
+              "start": 13.25,
+              "end": 13.33,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " heart?",
+              "start": 13.33,
+              "end": 13.59,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Dost",
+              "start": 14.11,
+              "end": 14.19,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " thou",
+              "start": 14.19,
+              "end": 14.43,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " hear,",
+              "start": 14.43,
+              "end": 14.65,
+              "probability": 0.4482421875
+            },
+            {
+              "text": " lady?",
+              "start": 14.79,
+              "end": 14.89,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " If",
+              "start": 15.51,
+              "end": 15.65,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " from",
+              "start": 15.65,
+              "end": 15.79,
+              "probability": 0.974609375
+            },
+            {
+              "text": " the",
+              "start": 15.79,
+              "end": 15.93,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " field",
+              "start": 15.93,
+              "end": 16.13,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 16.13,
+              "end": 16.33,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " shall return once more To kiss these lips, I will appear in blood. I and my sword will",
+          "start": 16.33,
+          "end": 20.81,
+          "words": [
+            {
+              "text": " shall",
+              "start": 16.33,
+              "end": 16.49,
+              "probability": 0.923828125
+            },
+            {
+              "text": " return",
+              "start": 16.49,
+              "end": 16.81,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " once",
+              "start": 16.81,
+              "end": 17.07,
+              "probability": 0.5478515625
+            },
+            {
+              "text": " more",
+              "start": 17.07,
+              "end": 17.29,
+              "probability": 0.97265625
+            },
+            {
+              "text": " To",
+              "start": 17.29,
+              "end": 17.45,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " kiss",
+              "start": 17.45,
+              "end": 17.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " these",
+              "start": 17.61,
+              "end": 17.87,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " lips,",
+              "start": 17.87,
+              "end": 18.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 18.29,
+              "end": 18.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " will",
+              "start": 18.39,
+              "end": 18.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " appear",
+              "start": 18.49,
+              "end": 18.77,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " in",
+              "start": 18.77,
+              "end": 19.01,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " blood.",
+              "start": 19.01,
+              "end": 19.29,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " I",
+              "start": 19.89,
+              "end": 19.99,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " and",
+              "start": 19.99,
+              "end": 20.11,
+              "probability": 0.432373046875
+            },
+            {
+              "text": " my",
+              "start": 20.11,
+              "end": 20.31,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sword",
+              "start": 20.31,
+              "end": 20.61,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " will",
+              "start": 20.61,
+              "end": 20.81,
+              "probability": 0.397705078125
+            }
+          ]
+        },
+        {
+          "text": " earn our chronicle. There's hope in't yet.",
+          "start": 20.81,
+          "end": 22.91,
+          "words": [
+            {
+              "text": " earn",
+              "start": 20.81,
+              "end": 21.01,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " our",
+              "start": 21.01,
+              "end": 21.19,
+              "probability": 0.59521484375
+            },
+            {
+              "text": " chronicle.",
+              "start": 21.19,
+              "end": 21.65,
+              "probability": 0.965576171875
+            },
+            {
+              "text": " There's",
+              "start": 22.13,
+              "end": 22.29,
+              "probability": 0.965087890625
+            },
+            {
+              "text": " hope",
+              "start": 22.29,
+              "end": 22.45,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " in't",
+              "start": 22.45,
+              "end": 22.73,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " yet.",
+              "start": 22.73,
+              "end": 22.91,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "I",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "am",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "raw": "satisfied.",
+          "start": 1.15,
+          "end": 1.75
+        },
+        {
+          "raw": "Caesar",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "raw": "sits",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "raw": "down",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "raw": "in",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "raw": "Alexandria,",
+          "start": 3.41,
+          "end": 3.99
+        },
+        {
+          "raw": "where",
+          "start": 4.03,
+          "end": 4.29
+        },
+        {
+          "raw": "I",
+          "start": 4.29,
+          "end": 4.41
+        },
+        {
+          "raw": "will",
+          "start": 4.41,
+          "end": 4.49
+        },
+        {
+          "raw": "oppose",
+          "start": 4.49,
+          "end": 4.77
+        },
+        {
+          "raw": "his",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "raw": "fate.",
+          "start": 5.01,
+          "end": 5.25
+        },
+        {
+          "raw": "Our",
+          "start": 5.89,
+          "end": 6.01
+        },
+        {
+          "raw": "force",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "raw": "by",
+          "start": 6.23,
+          "end": 6.45
+        },
+        {
+          "raw": "land",
+          "start": 6.45,
+          "end": 6.73
+        },
+        {
+          "raw": "Hath",
+          "start": 6.73,
+          "end": 6.91
+        },
+        {
+          "raw": "nobly",
+          "start": 6.91,
+          "end": 7.33
+        },
+        {
+          "raw": "held.",
+          "start": 7.33,
+          "end": 7.59
+        },
+        {
+          "raw": "Our",
+          "start": 8.03,
+          "end": 8.13
+        },
+        {
+          "raw": "severed",
+          "start": 8.13,
+          "end": 8.43
+        },
+        {
+          "raw": "navy",
+          "start": 8.43,
+          "end": 8.73
+        },
+        {
+          "raw": "too",
+          "start": 8.73,
+          "end": 9.05
+        },
+        {
+          "raw": "Have",
+          "start": 9.05,
+          "end": 9.23
+        },
+        {
+          "raw": "knit",
+          "start": 9.23,
+          "end": 9.41
+        },
+        {
+          "raw": "again,",
+          "start": 9.41,
+          "end": 9.67
+        },
+        {
+          "raw": "and",
+          "start": 9.81,
+          "end": 9.97
+        },
+        {
+          "raw": "fleet,",
+          "start": 9.97,
+          "end": 10.21
+        },
+        {
+          "raw": "threat",
+          "start": 10.57,
+          "end": 10.67
+        },
+        {
+          "raw": "'ning",
+          "start": 10.67,
+          "end": 10.91
+        },
+        {
+          "raw": "most",
+          "start": 10.91,
+          "end": 11.17
+        },
+        {
+          "raw": "sea",
+          "start": 11.17,
+          "end": 11.43
+        },
+        {
+          "raw": "-like.",
+          "start": 11.43,
+          "end": 11.69
+        },
+        {
+          "raw": "Where",
+          "start": 12.35,
+          "end": 12.45
+        },
+        {
+          "raw": "hast",
+          "start": 12.45,
+          "end": 12.67
+        },
+        {
+          "raw": "thou",
+          "start": 12.67,
+          "end": 12.93
+        },
+        {
+          "raw": "been,",
+          "start": 12.93,
+          "end": 13.11
+        },
+        {
+          "raw": "my",
+          "start": 13.25,
+          "end": 13.33
+        },
+        {
+          "raw": "heart?",
+          "start": 13.33,
+          "end": 13.59
+        },
+        {
+          "raw": "Dost",
+          "start": 14.11,
+          "end": 14.19
+        },
+        {
+          "raw": "thou",
+          "start": 14.19,
+          "end": 14.43
+        },
+        {
+          "raw": "hear,",
+          "start": 14.43,
+          "end": 14.65
+        },
+        {
+          "raw": "lady?",
+          "start": 14.79,
+          "end": 14.89
+        },
+        {
+          "raw": "If",
+          "start": 15.51,
+          "end": 15.65
+        },
+        {
+          "raw": "from",
+          "start": 15.65,
+          "end": 15.79
+        },
+        {
+          "raw": "the",
+          "start": 15.79,
+          "end": 15.93
+        },
+        {
+          "raw": "field",
+          "start": 15.93,
+          "end": 16.13
+        },
+        {
+          "raw": "I",
+          "start": 16.13,
+          "end": 16.33
+        },
+        {
+          "raw": "shall",
+          "start": 16.33,
+          "end": 16.49
+        },
+        {
+          "raw": "return",
+          "start": 16.49,
+          "end": 16.81
+        },
+        {
+          "raw": "once",
+          "start": 16.81,
+          "end": 17.07
+        },
+        {
+          "raw": "more",
+          "start": 17.07,
+          "end": 17.29
+        },
+        {
+          "raw": "To",
+          "start": 17.29,
+          "end": 17.45
+        },
+        {
+          "raw": "kiss",
+          "start": 17.45,
+          "end": 17.61
+        },
+        {
+          "raw": "these",
+          "start": 17.61,
+          "end": 17.87
+        },
+        {
+          "raw": "lips,",
+          "start": 17.87,
+          "end": 18.11
+        },
+        {
+          "raw": "I",
+          "start": 18.29,
+          "end": 18.39
+        },
+        {
+          "raw": "will",
+          "start": 18.39,
+          "end": 18.49
+        },
+        {
+          "raw": "appear",
+          "start": 18.49,
+          "end": 18.77
+        },
+        {
+          "raw": "in",
+          "start": 18.77,
+          "end": 19.01
+        },
+        {
+          "raw": "blood.",
+          "start": 19.01,
+          "end": 19.29
+        },
+        {
+          "raw": "I",
+          "start": 19.89,
+          "end": 19.99
+        },
+        {
+          "raw": "and",
+          "start": 19.99,
+          "end": 20.11
+        },
+        {
+          "raw": "my",
+          "start": 20.11,
+          "end": 20.31
+        },
+        {
+          "raw": "sword",
+          "start": 20.31,
+          "end": 20.61
+        },
+        {
+          "raw": "will",
+          "start": 20.61,
+          "end": 20.81
+        },
+        {
+          "raw": "earn",
+          "start": 20.81,
+          "end": 21.01
+        },
+        {
+          "raw": "our",
+          "start": 21.01,
+          "end": 21.19
+        },
+        {
+          "raw": "chronicle.",
+          "start": 21.19,
+          "end": 21.65
+        },
+        {
+          "raw": "There's",
+          "start": 22.13,
+          "end": 22.29
+        },
+        {
+          "raw": "hope",
+          "start": 22.29,
+          "end": 22.45
+        },
+        {
+          "raw": "in't",
+          "start": 22.45,
+          "end": 22.73
+        },
+        {
+          "raw": "yet.",
+          "start": 22.73,
+          "end": 22.91
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "I",
+        "am",
+        "satisfied.",
+        "Caesar",
+        "sits",
+        "down",
+        "in",
+        "Alexandria,",
+        "where",
+        "I",
+        "will",
+        "oppose",
+        "his",
+        "fate.",
+        "Our",
+        "force",
+        "by",
+        "land",
+        "Hath",
+        "nobly",
+        "held;",
+        "our",
+        "severed",
+        "navy",
+        "too",
+        "Have",
+        "knit",
+        "again,",
+        "and",
+        "fleet,",
+        "threat'ning",
+        "most",
+        "sea-like.",
+        "Where",
+        "hast",
+        "thou",
+        "been,",
+        "my",
+        "heart?",
+        "Dost",
+        "thou",
+        "hear,",
+        "lady?",
+        "If",
+        "from",
+        "the",
+        "field",
+        "I",
+        "shall",
+        "return",
+        "once",
+        "more",
+        "To",
+        "kiss",
+        "these",
+        "lips,",
+        "I",
+        "will",
+        "appear",
+        "in",
+        "blood.",
+        "I",
+        "and",
+        "my",
+        "sword",
+        "will",
+        "earn",
+        "our",
+        "chronicle.",
+        "There's",
+        "hope",
+        "in't",
+        "yet."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          31,
+          0,
+          31
+        ],
+        [
+          "replace",
+          31,
+          32,
+          31,
+          33
+        ],
+        [
+          "equal",
+          32,
+          74,
+          33,
+          75
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          31,
+          32,
+          31,
+          33
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.85,
+          "end": 1.03,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.03,
+          "end": 1.15,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "satisfied.",
+          "start": 1.15,
+          "end": 1.75,
+          "key": "satisfied",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 2.51,
+          "end": 2.65,
+          "key": "caesar",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sits",
+          "start": 2.65,
+          "end": 2.93,
+          "key": "sits",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 2.93,
+          "end": 3.27,
+          "key": "down",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.27,
+          "end": 3.41,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Alexandria,",
+          "start": 3.41,
+          "end": 3.99,
+          "key": "alexandria",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 4.03,
+          "end": 4.29,
+          "key": "where",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.29,
+          "end": 4.41,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.41,
+          "end": 4.49,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "oppose",
+          "start": 4.49,
+          "end": 4.77,
+          "key": "oppose",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.77,
+          "end": 5.01,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fate.",
+          "start": 5.01,
+          "end": 5.25,
+          "key": "fate",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 5.89,
+          "end": 6.01,
+          "key": "our",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "force",
+          "start": 6.01,
+          "end": 6.23,
+          "key": "force",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.23,
+          "end": 6.45,
+          "key": "by",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "land",
+          "start": 6.45,
+          "end": 6.73,
+          "key": "land",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Hath",
+          "start": 6.73,
+          "end": 6.91,
+          "key": "hath",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "nobly",
+          "start": 6.91,
+          "end": 7.33,
+          "key": "nobly",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "held.",
+          "start": 7.33,
+          "end": 7.59,
+          "key": "held",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 8.03,
+          "end": 8.13,
+          "key": "our",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "severed",
+          "start": 8.13,
+          "end": 8.43,
+          "key": "severed",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "navy",
+          "start": 8.43,
+          "end": 8.73,
+          "key": "navy",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 8.73,
+          "end": 9.05,
+          "key": "too",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 9.05,
+          "end": 9.23,
+          "key": "have",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "knit",
+          "start": 9.23,
+          "end": 9.41,
+          "key": "knit",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 9.41,
+          "end": 9.67,
+          "key": "again",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.81,
+          "end": 9.97,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "fleet,",
+          "start": 9.97,
+          "end": 10.21,
+          "key": "fleet",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "threat",
+          "start": 10.57,
+          "end": 10.67,
+          "key": "threat",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "'ning",
+          "start": 10.67,
+          "end": 10.91,
+          "key": "ning",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 10.91,
+          "end": 11.17,
+          "key": "most",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "sea -like.",
+          "start": 11.17,
+          "end": 11.69,
+          "key": "sealike",
+          "pieces": [
+            34,
+            35
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 12.35,
+          "end": 12.45,
+          "key": "where",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 12.45,
+          "end": 12.67,
+          "key": "hast",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 12.67,
+          "end": 12.93,
+          "key": "thou",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "been,",
+          "start": 12.93,
+          "end": 13.11,
+          "key": "been",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.25,
+          "end": 13.33,
+          "key": "my",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "heart?",
+          "start": 13.33,
+          "end": 13.59,
+          "key": "heart",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Dost",
+          "start": 14.11,
+          "end": 14.19,
+          "key": "dost",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 14.19,
+          "end": 14.43,
+          "key": "thou",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "hear,",
+          "start": 14.43,
+          "end": 14.65,
+          "key": "hear",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "lady?",
+          "start": 14.79,
+          "end": 14.89,
+          "key": "lady",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 15.51,
+          "end": 15.65,
+          "key": "if",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 15.65,
+          "end": 15.79,
+          "key": "from",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.79,
+          "end": 15.93,
+          "key": "the",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "field",
+          "start": 15.93,
+          "end": 16.13,
+          "key": "field",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 16.13,
+          "end": 16.33,
+          "key": "i",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 16.33,
+          "end": 16.49,
+          "key": "shall",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "return",
+          "start": 16.49,
+          "end": 16.81,
+          "key": "return",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 16.81,
+          "end": 17.07,
+          "key": "once",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 17.07,
+          "end": 17.29,
+          "key": "more",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 17.29,
+          "end": 17.45,
+          "key": "to",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "kiss",
+          "start": 17.45,
+          "end": 17.61,
+          "key": "kiss",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 17.61,
+          "end": 17.87,
+          "key": "these",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "lips,",
+          "start": 17.87,
+          "end": 18.11,
+          "key": "lips",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 18.29,
+          "end": 18.39,
+          "key": "i",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 18.39,
+          "end": 18.49,
+          "key": "will",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "appear",
+          "start": 18.49,
+          "end": 18.77,
+          "key": "appear",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 18.77,
+          "end": 19.01,
+          "key": "in",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "blood.",
+          "start": 19.01,
+          "end": 19.29,
+          "key": "blood",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 19.89,
+          "end": 19.99,
+          "key": "i",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.99,
+          "end": 20.11,
+          "key": "and",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 20.11,
+          "end": 20.31,
+          "key": "my",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "sword",
+          "start": 20.31,
+          "end": 20.61,
+          "key": "sword",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 20.61,
+          "end": 20.81,
+          "key": "will",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "earn",
+          "start": 20.81,
+          "end": 21.01,
+          "key": "earn",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 21.01,
+          "end": 21.19,
+          "key": "our",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "chronicle.",
+          "start": 21.19,
+          "end": 21.65,
+          "key": "chronicle",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "There's",
+          "start": 22.13,
+          "end": 22.29,
+          "key": "theres",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 22.29,
+          "end": 22.45,
+          "key": "hope",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "in't",
+          "start": 22.45,
+          "end": 22.73,
+          "key": "int",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "yet.",
+          "start": 22.73,
+          "end": 22.91,
+          "key": "yet",
+          "pieces": [
+            75
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 33,
+          "text": "sea-like.",
+          "heard": "sea -like.",
+          "heard_indexes": [
+            34,
+            35
+          ],
+          "start": 11.17,
+          "end": 11.69
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "I",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "text": "am",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "text": "satisfied.",
+          "start": 1.15,
+          "end": 1.75
+        },
+        {
+          "text": "Caesar",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "text": "sits",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "text": "down",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "text": "in",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "text": "Alexandria,",
+          "start": 3.41,
+          "end": 3.99
+        },
+        {
+          "text": "where",
+          "start": 4.03,
+          "end": 4.29
+        },
+        {
+          "text": "I",
+          "start": 4.29,
+          "end": 4.41
+        },
+        {
+          "text": "will",
+          "start": 4.41,
+          "end": 4.49
+        },
+        {
+          "text": "oppose",
+          "start": 4.49,
+          "end": 4.77
+        },
+        {
+          "text": "his",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "text": "fate.",
+          "start": 5.01,
+          "end": 5.25
+        },
+        {
+          "text": "Our",
+          "start": 5.89,
+          "end": 6.01
+        },
+        {
+          "text": "force",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "text": "by",
+          "start": 6.23,
+          "end": 6.45
+        },
+        {
+          "text": "land",
+          "start": 6.45,
+          "end": 6.73
+        },
+        {
+          "text": "Hath",
+          "start": 6.73,
+          "end": 6.91
+        },
+        {
+          "text": "nobly",
+          "start": 6.91,
+          "end": 7.33
+        },
+        {
+          "text": "held;",
+          "start": 7.33,
+          "end": 7.59
+        },
+        {
+          "text": "our",
+          "start": 8.03,
+          "end": 8.13
+        },
+        {
+          "text": "severed",
+          "start": 8.13,
+          "end": 8.43
+        },
+        {
+          "text": "navy",
+          "start": 8.43,
+          "end": 8.73
+        },
+        {
+          "text": "too",
+          "start": 8.73,
+          "end": 9.05
+        },
+        {
+          "text": "Have",
+          "start": 9.05,
+          "end": 9.23
+        },
+        {
+          "text": "knit",
+          "start": 9.23,
+          "end": 9.41
+        },
+        {
+          "text": "again,",
+          "start": 9.41,
+          "end": 9.67
+        },
+        {
+          "text": "and",
+          "start": 9.81,
+          "end": 9.97
+        },
+        {
+          "text": "fleet,",
+          "start": 9.97,
+          "end": 10.21
+        },
+        {
+          "text": "threat'ning",
+          "start": 10.21,
+          "end": 10.56
+        },
+        {
+          "text": "most",
+          "start": 10.91,
+          "end": 11.17
+        },
+        {
+          "text": "sea-like.",
+          "start": 11.17,
+          "end": 11.69
+        },
+        {
+          "text": "Where",
+          "start": 12.35,
+          "end": 12.45
+        },
+        {
+          "text": "hast",
+          "start": 12.45,
+          "end": 12.67
+        },
+        {
+          "text": "thou",
+          "start": 12.67,
+          "end": 12.93
+        },
+        {
+          "text": "been,",
+          "start": 12.93,
+          "end": 13.11
+        },
+        {
+          "text": "my",
+          "start": 13.25,
+          "end": 13.33
+        },
+        {
+          "text": "heart?",
+          "start": 13.33,
+          "end": 13.59
+        },
+        {
+          "text": "Dost",
+          "start": 14.11,
+          "end": 14.19
+        },
+        {
+          "text": "thou",
+          "start": 14.19,
+          "end": 14.43
+        },
+        {
+          "text": "hear,",
+          "start": 14.43,
+          "end": 14.65
+        },
+        {
+          "text": "lady?",
+          "start": 14.79,
+          "end": 14.89
+        },
+        {
+          "text": "If",
+          "start": 15.51,
+          "end": 15.65
+        },
+        {
+          "text": "from",
+          "start": 15.65,
+          "end": 15.79
+        },
+        {
+          "text": "the",
+          "start": 15.79,
+          "end": 15.93
+        },
+        {
+          "text": "field",
+          "start": 15.93,
+          "end": 16.13
+        },
+        {
+          "text": "I",
+          "start": 16.13,
+          "end": 16.33
+        },
+        {
+          "text": "shall",
+          "start": 16.33,
+          "end": 16.49
+        },
+        {
+          "text": "return",
+          "start": 16.49,
+          "end": 16.81
+        },
+        {
+          "text": "once",
+          "start": 16.81,
+          "end": 17.07
+        },
+        {
+          "text": "more",
+          "start": 17.07,
+          "end": 17.29
+        },
+        {
+          "text": "To",
+          "start": 17.29,
+          "end": 17.45
+        },
+        {
+          "text": "kiss",
+          "start": 17.45,
+          "end": 17.61
+        },
+        {
+          "text": "these",
+          "start": 17.61,
+          "end": 17.87
+        },
+        {
+          "text": "lips,",
+          "start": 17.87,
+          "end": 18.11
+        },
+        {
+          "text": "I",
+          "start": 18.29,
+          "end": 18.39
+        },
+        {
+          "text": "will",
+          "start": 18.39,
+          "end": 18.49
+        },
+        {
+          "text": "appear",
+          "start": 18.49,
+          "end": 18.77
+        },
+        {
+          "text": "in",
+          "start": 18.77,
+          "end": 19.01
+        },
+        {
+          "text": "blood.",
+          "start": 19.01,
+          "end": 19.29
+        },
+        {
+          "text": "I",
+          "start": 19.89,
+          "end": 19.99
+        },
+        {
+          "text": "and",
+          "start": 19.99,
+          "end": 20.11
+        },
+        {
+          "text": "my",
+          "start": 20.11,
+          "end": 20.31
+        },
+        {
+          "text": "sword",
+          "start": 20.31,
+          "end": 20.61
+        },
+        {
+          "text": "will",
+          "start": 20.61,
+          "end": 20.81
+        },
+        {
+          "text": "earn",
+          "start": 20.81,
+          "end": 21.01
+        },
+        {
+          "text": "our",
+          "start": 21.01,
+          "end": 21.19
+        },
+        {
+          "text": "chronicle.",
+          "start": 21.19,
+          "end": 21.65
+        },
+        {
+          "text": "There's",
+          "start": 22.13,
+          "end": 22.29
+        },
+        {
+          "text": "hope",
+          "start": 22.29,
+          "end": 22.45
+        },
+        {
+          "text": "in't",
+          "start": 22.45,
+          "end": 22.73
+        },
+        {
+          "text": "yet.",
+          "start": 22.73,
+          "end": 22.91
+        }
+      ],
+      "stats": {
+        "expected_words": 74,
+        "heard_words": 75,
+        "matched_words": 73
+      },
+      "match_ratio": 0.9864864864864865,
+      "rejection_reasons": [],
+      "seconds": 0.7307572170102503
+    },
+    {
+      "asr_seconds": 0.6919902139925398,
+      "alignment_seconds": 0.0008184680191334337,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Antony, I, Caesar, Alexandria, Hath, Have, Dost, If, To, There's"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Antony, I am satisfied. Caesar sits down in Alexandria where I will oppose his fate.",
+          "start": 0.05,
+          "end": 5.25,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.7442626953125
+            },
+            {
+              "text": " I",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " am",
+              "start": 1.03,
+              "end": 1.15,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " satisfied.",
+              "start": 1.15,
+              "end": 1.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Caesar",
+              "start": 2.51,
+              "end": 2.65,
+              "probability": 0.984375
+            },
+            {
+              "text": " sits",
+              "start": 2.65,
+              "end": 2.93,
+              "probability": 0.98828125
+            },
+            {
+              "text": " down",
+              "start": 2.93,
+              "end": 3.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 3.27,
+              "end": 3.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Alexandria",
+              "start": 3.41,
+              "end": 3.97,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " where",
+              "start": 3.97,
+              "end": 4.27,
+              "probability": 0.488037109375
+            },
+            {
+              "text": " I",
+              "start": 4.27,
+              "end": 4.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " will",
+              "start": 4.41,
+              "end": 4.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " oppose",
+              "start": 4.49,
+              "end": 4.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 4.77,
+              "end": 5.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " fate.",
+              "start": 5.01,
+              "end": 5.25,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Our force by land hath nobly held. Our severed navy too have knit again and fleet, threatening",
+          "start": 5.89,
+          "end": 10.77,
+          "words": [
+            {
+              "text": " Our",
+              "start": 5.89,
+              "end": 6.01,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " force",
+              "start": 6.01,
+              "end": 6.23,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " by",
+              "start": 6.23,
+              "end": 6.45,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " land",
+              "start": 6.45,
+              "end": 6.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hath",
+              "start": 6.73,
+              "end": 6.91,
+              "probability": 0.994140625
+            },
+            {
+              "text": " nobly",
+              "start": 6.91,
+              "end": 7.33,
+              "probability": 0.968505859375
+            },
+            {
+              "text": " held.",
+              "start": 7.33,
+              "end": 7.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Our",
+              "start": 8.03,
+              "end": 8.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " severed",
+              "start": 8.13,
+              "end": 8.43,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " navy",
+              "start": 8.43,
+              "end": 8.73,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " too",
+              "start": 8.73,
+              "end": 9.03,
+              "probability": 0.66796875
+            },
+            {
+              "text": " have",
+              "start": 9.03,
+              "end": 9.23,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " knit",
+              "start": 9.23,
+              "end": 9.41,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " again",
+              "start": 9.41,
+              "end": 9.69,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 9.69,
+              "end": 9.93,
+              "probability": 0.67724609375
+            },
+            {
+              "text": " fleet,",
+              "start": 9.93,
+              "end": 10.23,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " threatening",
+              "start": 10.55,
+              "end": 10.77,
+              "probability": 0.98046875
+            }
+          ]
+        },
+        {
+          "text": " most sea-like. Where hast thou been my heart? Dost thou here, lady? If from the field I",
+          "start": 10.77,
+          "end": 16.33,
+          "words": [
+            {
+              "text": " most",
+              "start": 10.77,
+              "end": 11.17,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " sea",
+              "start": 11.17,
+              "end": 11.41,
+              "probability": 0.84130859375
+            },
+            {
+              "text": "-like.",
+              "start": 11.41,
+              "end": 11.69,
+              "probability": 0.955078125
+            },
+            {
+              "text": " Where",
+              "start": 12.35,
+              "end": 12.45,
+              "probability": 0.935546875
+            },
+            {
+              "text": " hast",
+              "start": 12.45,
+              "end": 12.67,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " thou",
+              "start": 12.67,
+              "end": 12.93,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " been",
+              "start": 12.93,
+              "end": 13.13,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " my",
+              "start": 13.13,
+              "end": 13.33,
+              "probability": 0.94140625
+            },
+            {
+              "text": " heart?",
+              "start": 13.33,
+              "end": 13.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Dost",
+              "start": 14.11,
+              "end": 14.19,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " thou",
+              "start": 14.19,
+              "end": 14.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " here,",
+              "start": 14.43,
+              "end": 14.67,
+              "probability": 0.5849609375
+            },
+            {
+              "text": " lady?",
+              "start": 14.73,
+              "end": 14.89,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " If",
+              "start": 15.53,
+              "end": 15.65,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " from",
+              "start": 15.65,
+              "end": 15.79,
+              "probability": 0.986328125
+            },
+            {
+              "text": " the",
+              "start": 15.79,
+              "end": 15.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " field",
+              "start": 15.93,
+              "end": 16.13,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 16.13,
+              "end": 16.33,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " shall return once more to kiss these lips, I will appear in blood. I and my sword will",
+          "start": 16.33,
+          "end": 20.81,
+          "words": [
+            {
+              "text": " shall",
+              "start": 16.33,
+              "end": 16.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " return",
+              "start": 16.49,
+              "end": 16.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " once",
+              "start": 16.83,
+              "end": 17.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " more",
+              "start": 17.07,
+              "end": 17.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 17.29,
+              "end": 17.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " kiss",
+              "start": 17.45,
+              "end": 17.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " these",
+              "start": 17.61,
+              "end": 17.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " lips,",
+              "start": 17.87,
+              "end": 18.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 18.29,
+              "end": 18.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " will",
+              "start": 18.39,
+              "end": 18.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " appear",
+              "start": 18.49,
+              "end": 18.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 18.77,
+              "end": 19.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " blood.",
+              "start": 19.01,
+              "end": 19.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 19.89,
+              "end": 19.99,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " and",
+              "start": 19.99,
+              "end": 20.11,
+              "probability": 0.50537109375
+            },
+            {
+              "text": " my",
+              "start": 20.11,
+              "end": 20.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sword",
+              "start": 20.31,
+              "end": 20.59,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " will",
+              "start": 20.59,
+              "end": 20.81,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " earn our chronicle. There's hope in't yet.",
+          "start": 20.81,
+          "end": 22.91,
+          "words": [
+            {
+              "text": " earn",
+              "start": 20.81,
+              "end": 21.01,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " our",
+              "start": 21.01,
+              "end": 21.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " chronicle.",
+              "start": 21.19,
+              "end": 21.63,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " There's",
+              "start": 22.11,
+              "end": 22.29,
+              "probability": 0.96484375
+            },
+            {
+              "text": " hope",
+              "start": 22.29,
+              "end": 22.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in't",
+              "start": 22.45,
+              "end": 22.73,
+              "probability": 0.778564453125
+            },
+            {
+              "text": " yet.",
+              "start": 22.73,
+              "end": 22.91,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "I",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "am",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "raw": "satisfied.",
+          "start": 1.15,
+          "end": 1.75
+        },
+        {
+          "raw": "Caesar",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "raw": "sits",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "raw": "down",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "raw": "in",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "raw": "Alexandria",
+          "start": 3.41,
+          "end": 3.97
+        },
+        {
+          "raw": "where",
+          "start": 3.97,
+          "end": 4.27
+        },
+        {
+          "raw": "I",
+          "start": 4.27,
+          "end": 4.41
+        },
+        {
+          "raw": "will",
+          "start": 4.41,
+          "end": 4.49
+        },
+        {
+          "raw": "oppose",
+          "start": 4.49,
+          "end": 4.77
+        },
+        {
+          "raw": "his",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "raw": "fate.",
+          "start": 5.01,
+          "end": 5.25
+        },
+        {
+          "raw": "Our",
+          "start": 5.89,
+          "end": 6.01
+        },
+        {
+          "raw": "force",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "raw": "by",
+          "start": 6.23,
+          "end": 6.45
+        },
+        {
+          "raw": "land",
+          "start": 6.45,
+          "end": 6.73
+        },
+        {
+          "raw": "hath",
+          "start": 6.73,
+          "end": 6.91
+        },
+        {
+          "raw": "nobly",
+          "start": 6.91,
+          "end": 7.33
+        },
+        {
+          "raw": "held.",
+          "start": 7.33,
+          "end": 7.63
+        },
+        {
+          "raw": "Our",
+          "start": 8.03,
+          "end": 8.13
+        },
+        {
+          "raw": "severed",
+          "start": 8.13,
+          "end": 8.43
+        },
+        {
+          "raw": "navy",
+          "start": 8.43,
+          "end": 8.73
+        },
+        {
+          "raw": "too",
+          "start": 8.73,
+          "end": 9.03
+        },
+        {
+          "raw": "have",
+          "start": 9.03,
+          "end": 9.23
+        },
+        {
+          "raw": "knit",
+          "start": 9.23,
+          "end": 9.41
+        },
+        {
+          "raw": "again",
+          "start": 9.41,
+          "end": 9.69
+        },
+        {
+          "raw": "and",
+          "start": 9.69,
+          "end": 9.93
+        },
+        {
+          "raw": "fleet,",
+          "start": 9.93,
+          "end": 10.23
+        },
+        {
+          "raw": "threatening",
+          "start": 10.55,
+          "end": 10.77
+        },
+        {
+          "raw": "most",
+          "start": 10.77,
+          "end": 11.17
+        },
+        {
+          "raw": "sea",
+          "start": 11.17,
+          "end": 11.41
+        },
+        {
+          "raw": "-like.",
+          "start": 11.41,
+          "end": 11.69
+        },
+        {
+          "raw": "Where",
+          "start": 12.35,
+          "end": 12.45
+        },
+        {
+          "raw": "hast",
+          "start": 12.45,
+          "end": 12.67
+        },
+        {
+          "raw": "thou",
+          "start": 12.67,
+          "end": 12.93
+        },
+        {
+          "raw": "been",
+          "start": 12.93,
+          "end": 13.13
+        },
+        {
+          "raw": "my",
+          "start": 13.13,
+          "end": 13.33
+        },
+        {
+          "raw": "heart?",
+          "start": 13.33,
+          "end": 13.59
+        },
+        {
+          "raw": "Dost",
+          "start": 14.11,
+          "end": 14.19
+        },
+        {
+          "raw": "thou",
+          "start": 14.19,
+          "end": 14.43
+        },
+        {
+          "raw": "here,",
+          "start": 14.43,
+          "end": 14.67
+        },
+        {
+          "raw": "lady?",
+          "start": 14.73,
+          "end": 14.89
+        },
+        {
+          "raw": "If",
+          "start": 15.53,
+          "end": 15.65
+        },
+        {
+          "raw": "from",
+          "start": 15.65,
+          "end": 15.79
+        },
+        {
+          "raw": "the",
+          "start": 15.79,
+          "end": 15.93
+        },
+        {
+          "raw": "field",
+          "start": 15.93,
+          "end": 16.13
+        },
+        {
+          "raw": "I",
+          "start": 16.13,
+          "end": 16.33
+        },
+        {
+          "raw": "shall",
+          "start": 16.33,
+          "end": 16.49
+        },
+        {
+          "raw": "return",
+          "start": 16.49,
+          "end": 16.83
+        },
+        {
+          "raw": "once",
+          "start": 16.83,
+          "end": 17.07
+        },
+        {
+          "raw": "more",
+          "start": 17.07,
+          "end": 17.29
+        },
+        {
+          "raw": "to",
+          "start": 17.29,
+          "end": 17.45
+        },
+        {
+          "raw": "kiss",
+          "start": 17.45,
+          "end": 17.61
+        },
+        {
+          "raw": "these",
+          "start": 17.61,
+          "end": 17.87
+        },
+        {
+          "raw": "lips,",
+          "start": 17.87,
+          "end": 18.13
+        },
+        {
+          "raw": "I",
+          "start": 18.29,
+          "end": 18.39
+        },
+        {
+          "raw": "will",
+          "start": 18.39,
+          "end": 18.49
+        },
+        {
+          "raw": "appear",
+          "start": 18.49,
+          "end": 18.77
+        },
+        {
+          "raw": "in",
+          "start": 18.77,
+          "end": 19.01
+        },
+        {
+          "raw": "blood.",
+          "start": 19.01,
+          "end": 19.29
+        },
+        {
+          "raw": "I",
+          "start": 19.89,
+          "end": 19.99
+        },
+        {
+          "raw": "and",
+          "start": 19.99,
+          "end": 20.11
+        },
+        {
+          "raw": "my",
+          "start": 20.11,
+          "end": 20.31
+        },
+        {
+          "raw": "sword",
+          "start": 20.31,
+          "end": 20.59
+        },
+        {
+          "raw": "will",
+          "start": 20.59,
+          "end": 20.81
+        },
+        {
+          "raw": "earn",
+          "start": 20.81,
+          "end": 21.01
+        },
+        {
+          "raw": "our",
+          "start": 21.01,
+          "end": 21.19
+        },
+        {
+          "raw": "chronicle.",
+          "start": 21.19,
+          "end": 21.63
+        },
+        {
+          "raw": "There's",
+          "start": 22.11,
+          "end": 22.29
+        },
+        {
+          "raw": "hope",
+          "start": 22.29,
+          "end": 22.45
+        },
+        {
+          "raw": "in't",
+          "start": 22.45,
+          "end": 22.73
+        },
+        {
+          "raw": "yet.",
+          "start": 22.73,
+          "end": 22.91
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "I",
+        "am",
+        "satisfied.",
+        "Caesar",
+        "sits",
+        "down",
+        "in",
+        "Alexandria,",
+        "where",
+        "I",
+        "will",
+        "oppose",
+        "his",
+        "fate.",
+        "Our",
+        "force",
+        "by",
+        "land",
+        "Hath",
+        "nobly",
+        "held;",
+        "our",
+        "severed",
+        "navy",
+        "too",
+        "Have",
+        "knit",
+        "again,",
+        "and",
+        "fleet,",
+        "threat'ning",
+        "most",
+        "sea-like.",
+        "Where",
+        "hast",
+        "thou",
+        "been,",
+        "my",
+        "heart?",
+        "Dost",
+        "thou",
+        "hear,",
+        "lady?",
+        "If",
+        "from",
+        "the",
+        "field",
+        "I",
+        "shall",
+        "return",
+        "once",
+        "more",
+        "To",
+        "kiss",
+        "these",
+        "lips,",
+        "I",
+        "will",
+        "appear",
+        "in",
+        "blood.",
+        "I",
+        "and",
+        "my",
+        "sword",
+        "will",
+        "earn",
+        "our",
+        "chronicle.",
+        "There's",
+        "hope",
+        "in't",
+        "yet."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          31,
+          0,
+          31
+        ],
+        [
+          "replace",
+          31,
+          32,
+          31,
+          32
+        ],
+        [
+          "equal",
+          32,
+          42,
+          32,
+          42
+        ],
+        [
+          "replace",
+          42,
+          43,
+          42,
+          43
+        ],
+        [
+          "equal",
+          43,
+          74,
+          43,
+          74
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          31,
+          32,
+          31,
+          32
+        ],
+        [
+          "replace",
+          42,
+          43,
+          42,
+          43
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.85,
+          "end": 1.03,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.03,
+          "end": 1.15,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "satisfied.",
+          "start": 1.15,
+          "end": 1.75,
+          "key": "satisfied",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 2.51,
+          "end": 2.65,
+          "key": "caesar",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sits",
+          "start": 2.65,
+          "end": 2.93,
+          "key": "sits",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 2.93,
+          "end": 3.27,
+          "key": "down",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.27,
+          "end": 3.41,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Alexandria",
+          "start": 3.41,
+          "end": 3.97,
+          "key": "alexandria",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 3.97,
+          "end": 4.27,
+          "key": "where",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.27,
+          "end": 4.41,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.41,
+          "end": 4.49,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "oppose",
+          "start": 4.49,
+          "end": 4.77,
+          "key": "oppose",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.77,
+          "end": 5.01,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fate.",
+          "start": 5.01,
+          "end": 5.25,
+          "key": "fate",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 5.89,
+          "end": 6.01,
+          "key": "our",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "force",
+          "start": 6.01,
+          "end": 6.23,
+          "key": "force",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.23,
+          "end": 6.45,
+          "key": "by",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "land",
+          "start": 6.45,
+          "end": 6.73,
+          "key": "land",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 6.73,
+          "end": 6.91,
+          "key": "hath",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "nobly",
+          "start": 6.91,
+          "end": 7.33,
+          "key": "nobly",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "held.",
+          "start": 7.33,
+          "end": 7.63,
+          "key": "held",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 8.03,
+          "end": 8.13,
+          "key": "our",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "severed",
+          "start": 8.13,
+          "end": 8.43,
+          "key": "severed",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "navy",
+          "start": 8.43,
+          "end": 8.73,
+          "key": "navy",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 8.73,
+          "end": 9.03,
+          "key": "too",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 9.03,
+          "end": 9.23,
+          "key": "have",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "knit",
+          "start": 9.23,
+          "end": 9.41,
+          "key": "knit",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 9.41,
+          "end": 9.69,
+          "key": "again",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.69,
+          "end": 9.93,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "fleet,",
+          "start": 9.93,
+          "end": 10.23,
+          "key": "fleet",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "threatening",
+          "start": 10.55,
+          "end": 10.77,
+          "key": "threatening",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 10.77,
+          "end": 11.17,
+          "key": "most",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "sea -like.",
+          "start": 11.17,
+          "end": 11.69,
+          "key": "sealike",
+          "pieces": [
+            33,
+            34
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 12.35,
+          "end": 12.45,
+          "key": "where",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 12.45,
+          "end": 12.67,
+          "key": "hast",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 12.67,
+          "end": 12.93,
+          "key": "thou",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 12.93,
+          "end": 13.13,
+          "key": "been",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.13,
+          "end": 13.33,
+          "key": "my",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "heart?",
+          "start": 13.33,
+          "end": 13.59,
+          "key": "heart",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Dost",
+          "start": 14.11,
+          "end": 14.19,
+          "key": "dost",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 14.19,
+          "end": 14.43,
+          "key": "thou",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 14.43,
+          "end": 14.67,
+          "key": "here",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "lady?",
+          "start": 14.73,
+          "end": 14.89,
+          "key": "lady",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 15.53,
+          "end": 15.65,
+          "key": "if",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 15.65,
+          "end": 15.79,
+          "key": "from",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.79,
+          "end": 15.93,
+          "key": "the",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "field",
+          "start": 15.93,
+          "end": 16.13,
+          "key": "field",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 16.13,
+          "end": 16.33,
+          "key": "i",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 16.33,
+          "end": 16.49,
+          "key": "shall",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "return",
+          "start": 16.49,
+          "end": 16.83,
+          "key": "return",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 16.83,
+          "end": 17.07,
+          "key": "once",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 17.07,
+          "end": 17.29,
+          "key": "more",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.29,
+          "end": 17.45,
+          "key": "to",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "kiss",
+          "start": 17.45,
+          "end": 17.61,
+          "key": "kiss",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 17.61,
+          "end": 17.87,
+          "key": "these",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "lips,",
+          "start": 17.87,
+          "end": 18.13,
+          "key": "lips",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 18.29,
+          "end": 18.39,
+          "key": "i",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 18.39,
+          "end": 18.49,
+          "key": "will",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "appear",
+          "start": 18.49,
+          "end": 18.77,
+          "key": "appear",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 18.77,
+          "end": 19.01,
+          "key": "in",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "blood.",
+          "start": 19.01,
+          "end": 19.29,
+          "key": "blood",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 19.89,
+          "end": 19.99,
+          "key": "i",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.99,
+          "end": 20.11,
+          "key": "and",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 20.11,
+          "end": 20.31,
+          "key": "my",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "sword",
+          "start": 20.31,
+          "end": 20.59,
+          "key": "sword",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 20.59,
+          "end": 20.81,
+          "key": "will",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "earn",
+          "start": 20.81,
+          "end": 21.01,
+          "key": "earn",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 21.01,
+          "end": 21.19,
+          "key": "our",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "chronicle.",
+          "start": 21.19,
+          "end": 21.63,
+          "key": "chronicle",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "There's",
+          "start": 22.11,
+          "end": 22.29,
+          "key": "theres",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 22.29,
+          "end": 22.45,
+          "key": "hope",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "in't",
+          "start": 22.45,
+          "end": 22.73,
+          "key": "int",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "yet.",
+          "start": 22.73,
+          "end": 22.91,
+          "key": "yet",
+          "pieces": [
+            74
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 33,
+          "text": "sea-like.",
+          "heard": "sea -like.",
+          "heard_indexes": [
+            33,
+            34
+          ],
+          "start": 11.17,
+          "end": 11.69
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "I",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "text": "am",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "text": "satisfied.",
+          "start": 1.15,
+          "end": 1.75
+        },
+        {
+          "text": "Caesar",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "text": "sits",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "text": "down",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "text": "in",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "text": "Alexandria,",
+          "start": 3.41,
+          "end": 3.97
+        },
+        {
+          "text": "where",
+          "start": 3.97,
+          "end": 4.27
+        },
+        {
+          "text": "I",
+          "start": 4.27,
+          "end": 4.41
+        },
+        {
+          "text": "will",
+          "start": 4.41,
+          "end": 4.49
+        },
+        {
+          "text": "oppose",
+          "start": 4.49,
+          "end": 4.77
+        },
+        {
+          "text": "his",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "text": "fate.",
+          "start": 5.01,
+          "end": 5.25
+        },
+        {
+          "text": "Our",
+          "start": 5.89,
+          "end": 6.01
+        },
+        {
+          "text": "force",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "text": "by",
+          "start": 6.23,
+          "end": 6.45
+        },
+        {
+          "text": "land",
+          "start": 6.45,
+          "end": 6.73
+        },
+        {
+          "text": "Hath",
+          "start": 6.73,
+          "end": 6.91
+        },
+        {
+          "text": "nobly",
+          "start": 6.91,
+          "end": 7.33
+        },
+        {
+          "text": "held;",
+          "start": 7.33,
+          "end": 7.63
+        },
+        {
+          "text": "our",
+          "start": 8.03,
+          "end": 8.13
+        },
+        {
+          "text": "severed",
+          "start": 8.13,
+          "end": 8.43
+        },
+        {
+          "text": "navy",
+          "start": 8.43,
+          "end": 8.73
+        },
+        {
+          "text": "too",
+          "start": 8.73,
+          "end": 9.03
+        },
+        {
+          "text": "Have",
+          "start": 9.03,
+          "end": 9.23
+        },
+        {
+          "text": "knit",
+          "start": 9.23,
+          "end": 9.41
+        },
+        {
+          "text": "again,",
+          "start": 9.41,
+          "end": 9.69
+        },
+        {
+          "text": "and",
+          "start": 9.69,
+          "end": 9.93
+        },
+        {
+          "text": "fleet,",
+          "start": 9.93,
+          "end": 10.23
+        },
+        {
+          "text": "threat'ning",
+          "start": 10.23,
+          "end": 10.5
+        },
+        {
+          "text": "most",
+          "start": 10.77,
+          "end": 11.17
+        },
+        {
+          "text": "sea-like.",
+          "start": 11.17,
+          "end": 11.69
+        },
+        {
+          "text": "Where",
+          "start": 12.35,
+          "end": 12.45
+        },
+        {
+          "text": "hast",
+          "start": 12.45,
+          "end": 12.67
+        },
+        {
+          "text": "thou",
+          "start": 12.67,
+          "end": 12.93
+        },
+        {
+          "text": "been,",
+          "start": 12.93,
+          "end": 13.13
+        },
+        {
+          "text": "my",
+          "start": 13.13,
+          "end": 13.33
+        },
+        {
+          "text": "heart?",
+          "start": 13.33,
+          "end": 13.59
+        },
+        {
+          "text": "Dost",
+          "start": 14.11,
+          "end": 14.19
+        },
+        {
+          "text": "thou",
+          "start": 14.19,
+          "end": 14.43
+        },
+        {
+          "text": "hear,",
+          "start": 14.43,
+          "end": 14.58
+        },
+        {
+          "text": "lady?",
+          "start": 14.73,
+          "end": 14.89
+        },
+        {
+          "text": "If",
+          "start": 15.53,
+          "end": 15.65
+        },
+        {
+          "text": "from",
+          "start": 15.65,
+          "end": 15.79
+        },
+        {
+          "text": "the",
+          "start": 15.79,
+          "end": 15.93
+        },
+        {
+          "text": "field",
+          "start": 15.93,
+          "end": 16.13
+        },
+        {
+          "text": "I",
+          "start": 16.13,
+          "end": 16.33
+        },
+        {
+          "text": "shall",
+          "start": 16.33,
+          "end": 16.49
+        },
+        {
+          "text": "return",
+          "start": 16.49,
+          "end": 16.83
+        },
+        {
+          "text": "once",
+          "start": 16.83,
+          "end": 17.07
+        },
+        {
+          "text": "more",
+          "start": 17.07,
+          "end": 17.29
+        },
+        {
+          "text": "To",
+          "start": 17.29,
+          "end": 17.45
+        },
+        {
+          "text": "kiss",
+          "start": 17.45,
+          "end": 17.61
+        },
+        {
+          "text": "these",
+          "start": 17.61,
+          "end": 17.87
+        },
+        {
+          "text": "lips,",
+          "start": 17.87,
+          "end": 18.13
+        },
+        {
+          "text": "I",
+          "start": 18.29,
+          "end": 18.39
+        },
+        {
+          "text": "will",
+          "start": 18.39,
+          "end": 18.49
+        },
+        {
+          "text": "appear",
+          "start": 18.49,
+          "end": 18.77
+        },
+        {
+          "text": "in",
+          "start": 18.77,
+          "end": 19.01
+        },
+        {
+          "text": "blood.",
+          "start": 19.01,
+          "end": 19.29
+        },
+        {
+          "text": "I",
+          "start": 19.89,
+          "end": 19.99
+        },
+        {
+          "text": "and",
+          "start": 19.99,
+          "end": 20.11
+        },
+        {
+          "text": "my",
+          "start": 20.11,
+          "end": 20.31
+        },
+        {
+          "text": "sword",
+          "start": 20.31,
+          "end": 20.59
+        },
+        {
+          "text": "will",
+          "start": 20.59,
+          "end": 20.81
+        },
+        {
+          "text": "earn",
+          "start": 20.81,
+          "end": 21.01
+        },
+        {
+          "text": "our",
+          "start": 21.01,
+          "end": 21.19
+        },
+        {
+          "text": "chronicle.",
+          "start": 21.19,
+          "end": 21.63
+        },
+        {
+          "text": "There's",
+          "start": 22.11,
+          "end": 22.29
+        },
+        {
+          "text": "hope",
+          "start": 22.29,
+          "end": 22.45
+        },
+        {
+          "text": "in't",
+          "start": 22.45,
+          "end": 22.73
+        },
+        {
+          "text": "yet.",
+          "start": 22.73,
+          "end": 22.91
+        }
+      ],
+      "stats": {
+        "expected_words": 74,
+        "heard_words": 74,
+        "matched_words": 72
+      },
+      "match_ratio": 0.972972972972973,
+      "rejection_reasons": [],
+      "seconds": 0.6931326630001422
+    },
+    {
+      "asr_seconds": 0.8122424489993136,
+      "alignment_seconds": 0.001449549978133291,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, I am satisfied.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.7442626953125
+            },
+            {
+              "text": " I",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " am",
+              "start": 1.03,
+              "end": 1.15,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " satisfied.",
+              "start": 1.15,
+              "end": 1.75,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " Caesar sits down in Alexandria where I will oppose his fate.",
+          "start": 2.51,
+          "end": 5.25,
+          "words": [
+            {
+              "text": " Caesar",
+              "start": 2.51,
+              "end": 2.65,
+              "probability": 0.984375
+            },
+            {
+              "text": " sits",
+              "start": 2.65,
+              "end": 2.93,
+              "probability": 0.98828125
+            },
+            {
+              "text": " down",
+              "start": 2.93,
+              "end": 3.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 3.27,
+              "end": 3.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Alexandria",
+              "start": 3.41,
+              "end": 3.97,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " where",
+              "start": 3.97,
+              "end": 4.27,
+              "probability": 0.488037109375
+            },
+            {
+              "text": " I",
+              "start": 4.27,
+              "end": 4.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " will",
+              "start": 4.41,
+              "end": 4.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " oppose",
+              "start": 4.49,
+              "end": 4.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 4.77,
+              "end": 5.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " fate.",
+              "start": 5.01,
+              "end": 5.25,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Our force by land hath nobly held, our severed navy too have knit again and fleet, threatening",
+          "start": 5.89,
+          "end": 10.77,
+          "words": [
+            {
+              "text": " Our",
+              "start": 5.89,
+              "end": 6.01,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " force",
+              "start": 6.01,
+              "end": 6.23,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " by",
+              "start": 6.23,
+              "end": 6.45,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " land",
+              "start": 6.45,
+              "end": 6.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hath",
+              "start": 6.73,
+              "end": 6.91,
+              "probability": 0.994140625
+            },
+            {
+              "text": " nobly",
+              "start": 6.91,
+              "end": 7.33,
+              "probability": 0.968505859375
+            },
+            {
+              "text": " held,",
+              "start": 7.33,
+              "end": 7.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " our",
+              "start": 8.03,
+              "end": 8.11,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " severed",
+              "start": 8.11,
+              "end": 8.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " navy",
+              "start": 8.43,
+              "end": 8.73,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " too",
+              "start": 8.73,
+              "end": 9.03,
+              "probability": 0.71044921875
+            },
+            {
+              "text": " have",
+              "start": 9.03,
+              "end": 9.23,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " knit",
+              "start": 9.23,
+              "end": 9.41,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " again",
+              "start": 9.41,
+              "end": 9.69,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 9.69,
+              "end": 9.93,
+              "probability": 0.71630859375
+            },
+            {
+              "text": " fleet,",
+              "start": 9.93,
+              "end": 10.23,
+              "probability": 0.98828125
+            },
+            {
+              "text": " threatening",
+              "start": 10.55,
+              "end": 10.77,
+              "probability": 0.99072265625
+            }
+          ]
+        },
+        {
+          "text": " most sea-like.",
+          "start": 10.77,
+          "end": 11.67,
+          "words": [
+            {
+              "text": " most",
+              "start": 10.77,
+              "end": 11.17,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " sea",
+              "start": 11.17,
+              "end": 11.41,
+              "probability": 0.833984375
+            },
+            {
+              "text": "-like.",
+              "start": 11.41,
+              "end": 11.67,
+              "probability": 0.951416015625
+            }
+          ]
+        },
+        {
+          "text": " Where hast thou been my heart?",
+          "start": 12.35,
+          "end": 13.59,
+          "words": [
+            {
+              "text": " Where",
+              "start": 12.35,
+              "end": 12.45,
+              "probability": 0.93359375
+            },
+            {
+              "text": " hast",
+              "start": 12.45,
+              "end": 12.67,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " thou",
+              "start": 12.67,
+              "end": 12.93,
+              "probability": 0.978515625
+            },
+            {
+              "text": " been",
+              "start": 12.93,
+              "end": 13.13,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " my",
+              "start": 13.13,
+              "end": 13.33,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " heart?",
+              "start": 13.33,
+              "end": 13.59,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " Dost thou here, lady?",
+          "start": 14.11,
+          "end": 14.91,
+          "words": [
+            {
+              "text": " Dost",
+              "start": 14.11,
+              "end": 14.19,
+              "probability": 0.820556640625
+            },
+            {
+              "text": " thou",
+              "start": 14.19,
+              "end": 14.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " here,",
+              "start": 14.43,
+              "end": 14.67,
+              "probability": 0.587890625
+            },
+            {
+              "text": " lady?",
+              "start": 14.73,
+              "end": 14.91,
+              "probability": 0.8603515625
+            }
+          ]
+        },
+        {
+          "text": " If from the field I shall return once more to kiss these lips I will appear in blood.",
+          "start": 15.53,
+          "end": 19.31,
+          "words": [
+            {
+              "text": " If",
+              "start": 15.53,
+              "end": 15.65,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " from",
+              "start": 15.65,
+              "end": 15.79,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 15.79,
+              "end": 15.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " field",
+              "start": 15.93,
+              "end": 16.13,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 16.13,
+              "end": 16.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shall",
+              "start": 16.33,
+              "end": 16.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " return",
+              "start": 16.47,
+              "end": 16.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " once",
+              "start": 16.83,
+              "end": 17.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " more",
+              "start": 17.07,
+              "end": 17.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 17.29,
+              "end": 17.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " kiss",
+              "start": 17.45,
+              "end": 17.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " these",
+              "start": 17.61,
+              "end": 17.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " lips",
+              "start": 17.87,
+              "end": 18.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 18.13,
+              "end": 18.37,
+              "probability": 0.42041015625
+            },
+            {
+              "text": " will",
+              "start": 18.37,
+              "end": 18.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " appear",
+              "start": 18.49,
+              "end": 18.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 18.77,
+              "end": 19.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " blood.",
+              "start": 19.01,
+              "end": 19.31,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " I in my sword will earn our chronicle.",
+          "start": 19.87,
+          "end": 21.65,
+          "words": [
+            {
+              "text": " I",
+              "start": 19.87,
+              "end": 19.99,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " in",
+              "start": 19.99,
+              "end": 20.11,
+              "probability": 0.53271484375
+            },
+            {
+              "text": " my",
+              "start": 20.11,
+              "end": 20.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sword",
+              "start": 20.29,
+              "end": 20.59,
+              "probability": 0.9921875
+            },
+            {
+              "text": " will",
+              "start": 20.59,
+              "end": 20.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " earn",
+              "start": 20.81,
+              "end": 21.01,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " our",
+              "start": 21.01,
+              "end": 21.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " chronicle.",
+              "start": 21.19,
+              "end": 21.65,
+              "probability": 0.960205078125
+            }
+          ]
+        },
+        {
+          "text": " There's hope in't yet.",
+          "start": 22.11,
+          "end": 22.91,
+          "words": [
+            {
+              "text": " There's",
+              "start": 22.11,
+              "end": 22.29,
+              "probability": 0.964111328125
+            },
+            {
+              "text": " hope",
+              "start": 22.29,
+              "end": 22.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in't",
+              "start": 22.45,
+              "end": 22.75,
+              "probability": 0.78759765625
+            },
+            {
+              "text": " yet.",
+              "start": 22.75,
+              "end": 22.91,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "I",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "am",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "raw": "satisfied.",
+          "start": 1.15,
+          "end": 1.75
+        },
+        {
+          "raw": "Caesar",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "raw": "sits",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "raw": "down",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "raw": "in",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "raw": "Alexandria",
+          "start": 3.41,
+          "end": 3.97
+        },
+        {
+          "raw": "where",
+          "start": 3.97,
+          "end": 4.27
+        },
+        {
+          "raw": "I",
+          "start": 4.27,
+          "end": 4.41
+        },
+        {
+          "raw": "will",
+          "start": 4.41,
+          "end": 4.49
+        },
+        {
+          "raw": "oppose",
+          "start": 4.49,
+          "end": 4.77
+        },
+        {
+          "raw": "his",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "raw": "fate.",
+          "start": 5.01,
+          "end": 5.25
+        },
+        {
+          "raw": "Our",
+          "start": 5.89,
+          "end": 6.01
+        },
+        {
+          "raw": "force",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "raw": "by",
+          "start": 6.23,
+          "end": 6.45
+        },
+        {
+          "raw": "land",
+          "start": 6.45,
+          "end": 6.73
+        },
+        {
+          "raw": "hath",
+          "start": 6.73,
+          "end": 6.91
+        },
+        {
+          "raw": "nobly",
+          "start": 6.91,
+          "end": 7.33
+        },
+        {
+          "raw": "held,",
+          "start": 7.33,
+          "end": 7.63
+        },
+        {
+          "raw": "our",
+          "start": 8.03,
+          "end": 8.11
+        },
+        {
+          "raw": "severed",
+          "start": 8.11,
+          "end": 8.43
+        },
+        {
+          "raw": "navy",
+          "start": 8.43,
+          "end": 8.73
+        },
+        {
+          "raw": "too",
+          "start": 8.73,
+          "end": 9.03
+        },
+        {
+          "raw": "have",
+          "start": 9.03,
+          "end": 9.23
+        },
+        {
+          "raw": "knit",
+          "start": 9.23,
+          "end": 9.41
+        },
+        {
+          "raw": "again",
+          "start": 9.41,
+          "end": 9.69
+        },
+        {
+          "raw": "and",
+          "start": 9.69,
+          "end": 9.93
+        },
+        {
+          "raw": "fleet,",
+          "start": 9.93,
+          "end": 10.23
+        },
+        {
+          "raw": "threatening",
+          "start": 10.55,
+          "end": 10.77
+        },
+        {
+          "raw": "most",
+          "start": 10.77,
+          "end": 11.17
+        },
+        {
+          "raw": "sea",
+          "start": 11.17,
+          "end": 11.41
+        },
+        {
+          "raw": "-like.",
+          "start": 11.41,
+          "end": 11.67
+        },
+        {
+          "raw": "Where",
+          "start": 12.35,
+          "end": 12.45
+        },
+        {
+          "raw": "hast",
+          "start": 12.45,
+          "end": 12.67
+        },
+        {
+          "raw": "thou",
+          "start": 12.67,
+          "end": 12.93
+        },
+        {
+          "raw": "been",
+          "start": 12.93,
+          "end": 13.13
+        },
+        {
+          "raw": "my",
+          "start": 13.13,
+          "end": 13.33
+        },
+        {
+          "raw": "heart?",
+          "start": 13.33,
+          "end": 13.59
+        },
+        {
+          "raw": "Dost",
+          "start": 14.11,
+          "end": 14.19
+        },
+        {
+          "raw": "thou",
+          "start": 14.19,
+          "end": 14.43
+        },
+        {
+          "raw": "here,",
+          "start": 14.43,
+          "end": 14.67
+        },
+        {
+          "raw": "lady?",
+          "start": 14.73,
+          "end": 14.91
+        },
+        {
+          "raw": "If",
+          "start": 15.53,
+          "end": 15.65
+        },
+        {
+          "raw": "from",
+          "start": 15.65,
+          "end": 15.79
+        },
+        {
+          "raw": "the",
+          "start": 15.79,
+          "end": 15.93
+        },
+        {
+          "raw": "field",
+          "start": 15.93,
+          "end": 16.13
+        },
+        {
+          "raw": "I",
+          "start": 16.13,
+          "end": 16.33
+        },
+        {
+          "raw": "shall",
+          "start": 16.33,
+          "end": 16.47
+        },
+        {
+          "raw": "return",
+          "start": 16.47,
+          "end": 16.83
+        },
+        {
+          "raw": "once",
+          "start": 16.83,
+          "end": 17.07
+        },
+        {
+          "raw": "more",
+          "start": 17.07,
+          "end": 17.29
+        },
+        {
+          "raw": "to",
+          "start": 17.29,
+          "end": 17.45
+        },
+        {
+          "raw": "kiss",
+          "start": 17.45,
+          "end": 17.61
+        },
+        {
+          "raw": "these",
+          "start": 17.61,
+          "end": 17.87
+        },
+        {
+          "raw": "lips",
+          "start": 17.87,
+          "end": 18.13
+        },
+        {
+          "raw": "I",
+          "start": 18.13,
+          "end": 18.37
+        },
+        {
+          "raw": "will",
+          "start": 18.37,
+          "end": 18.49
+        },
+        {
+          "raw": "appear",
+          "start": 18.49,
+          "end": 18.77
+        },
+        {
+          "raw": "in",
+          "start": 18.77,
+          "end": 19.01
+        },
+        {
+          "raw": "blood.",
+          "start": 19.01,
+          "end": 19.31
+        },
+        {
+          "raw": "I",
+          "start": 19.87,
+          "end": 19.99
+        },
+        {
+          "raw": "in",
+          "start": 19.99,
+          "end": 20.11
+        },
+        {
+          "raw": "my",
+          "start": 20.11,
+          "end": 20.29
+        },
+        {
+          "raw": "sword",
+          "start": 20.29,
+          "end": 20.59
+        },
+        {
+          "raw": "will",
+          "start": 20.59,
+          "end": 20.81
+        },
+        {
+          "raw": "earn",
+          "start": 20.81,
+          "end": 21.01
+        },
+        {
+          "raw": "our",
+          "start": 21.01,
+          "end": 21.19
+        },
+        {
+          "raw": "chronicle.",
+          "start": 21.19,
+          "end": 21.65
+        },
+        {
+          "raw": "There's",
+          "start": 22.11,
+          "end": 22.29
+        },
+        {
+          "raw": "hope",
+          "start": 22.29,
+          "end": 22.45
+        },
+        {
+          "raw": "in't",
+          "start": 22.45,
+          "end": 22.75
+        },
+        {
+          "raw": "yet.",
+          "start": 22.75,
+          "end": 22.91
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "I",
+        "am",
+        "satisfied.",
+        "Caesar",
+        "sits",
+        "down",
+        "in",
+        "Alexandria,",
+        "where",
+        "I",
+        "will",
+        "oppose",
+        "his",
+        "fate.",
+        "Our",
+        "force",
+        "by",
+        "land",
+        "Hath",
+        "nobly",
+        "held;",
+        "our",
+        "severed",
+        "navy",
+        "too",
+        "Have",
+        "knit",
+        "again,",
+        "and",
+        "fleet,",
+        "threat'ning",
+        "most",
+        "sea-like.",
+        "Where",
+        "hast",
+        "thou",
+        "been,",
+        "my",
+        "heart?",
+        "Dost",
+        "thou",
+        "hear,",
+        "lady?",
+        "If",
+        "from",
+        "the",
+        "field",
+        "I",
+        "shall",
+        "return",
+        "once",
+        "more",
+        "To",
+        "kiss",
+        "these",
+        "lips,",
+        "I",
+        "will",
+        "appear",
+        "in",
+        "blood.",
+        "I",
+        "and",
+        "my",
+        "sword",
+        "will",
+        "earn",
+        "our",
+        "chronicle.",
+        "There's",
+        "hope",
+        "in't",
+        "yet."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          31,
+          0,
+          31
+        ],
+        [
+          "replace",
+          31,
+          32,
+          31,
+          32
+        ],
+        [
+          "equal",
+          32,
+          42,
+          32,
+          42
+        ],
+        [
+          "replace",
+          42,
+          43,
+          42,
+          43
+        ],
+        [
+          "equal",
+          43,
+          63,
+          43,
+          63
+        ],
+        [
+          "replace",
+          63,
+          64,
+          63,
+          64
+        ],
+        [
+          "equal",
+          64,
+          74,
+          64,
+          74
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          31,
+          32,
+          31,
+          32
+        ],
+        [
+          "replace",
+          42,
+          43,
+          42,
+          43
+        ],
+        [
+          "replace",
+          63,
+          64,
+          63,
+          64
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.85,
+          "end": 1.03,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.03,
+          "end": 1.15,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "satisfied.",
+          "start": 1.15,
+          "end": 1.75,
+          "key": "satisfied",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 2.51,
+          "end": 2.65,
+          "key": "caesar",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sits",
+          "start": 2.65,
+          "end": 2.93,
+          "key": "sits",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 2.93,
+          "end": 3.27,
+          "key": "down",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.27,
+          "end": 3.41,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Alexandria",
+          "start": 3.41,
+          "end": 3.97,
+          "key": "alexandria",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 3.97,
+          "end": 4.27,
+          "key": "where",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.27,
+          "end": 4.41,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.41,
+          "end": 4.49,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "oppose",
+          "start": 4.49,
+          "end": 4.77,
+          "key": "oppose",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.77,
+          "end": 5.01,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fate.",
+          "start": 5.01,
+          "end": 5.25,
+          "key": "fate",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 5.89,
+          "end": 6.01,
+          "key": "our",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "force",
+          "start": 6.01,
+          "end": 6.23,
+          "key": "force",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.23,
+          "end": 6.45,
+          "key": "by",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "land",
+          "start": 6.45,
+          "end": 6.73,
+          "key": "land",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 6.73,
+          "end": 6.91,
+          "key": "hath",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "nobly",
+          "start": 6.91,
+          "end": 7.33,
+          "key": "nobly",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "held,",
+          "start": 7.33,
+          "end": 7.63,
+          "key": "held",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 8.03,
+          "end": 8.11,
+          "key": "our",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "severed",
+          "start": 8.11,
+          "end": 8.43,
+          "key": "severed",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "navy",
+          "start": 8.43,
+          "end": 8.73,
+          "key": "navy",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 8.73,
+          "end": 9.03,
+          "key": "too",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 9.03,
+          "end": 9.23,
+          "key": "have",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "knit",
+          "start": 9.23,
+          "end": 9.41,
+          "key": "knit",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 9.41,
+          "end": 9.69,
+          "key": "again",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.69,
+          "end": 9.93,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "fleet,",
+          "start": 9.93,
+          "end": 10.23,
+          "key": "fleet",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "threatening",
+          "start": 10.55,
+          "end": 10.77,
+          "key": "threatening",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 10.77,
+          "end": 11.17,
+          "key": "most",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "sea -like.",
+          "start": 11.17,
+          "end": 11.67,
+          "key": "sealike",
+          "pieces": [
+            33,
+            34
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 12.35,
+          "end": 12.45,
+          "key": "where",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 12.45,
+          "end": 12.67,
+          "key": "hast",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 12.67,
+          "end": 12.93,
+          "key": "thou",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 12.93,
+          "end": 13.13,
+          "key": "been",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.13,
+          "end": 13.33,
+          "key": "my",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "heart?",
+          "start": 13.33,
+          "end": 13.59,
+          "key": "heart",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Dost",
+          "start": 14.11,
+          "end": 14.19,
+          "key": "dost",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 14.19,
+          "end": 14.43,
+          "key": "thou",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 14.43,
+          "end": 14.67,
+          "key": "here",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "lady?",
+          "start": 14.73,
+          "end": 14.91,
+          "key": "lady",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 15.53,
+          "end": 15.65,
+          "key": "if",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 15.65,
+          "end": 15.79,
+          "key": "from",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.79,
+          "end": 15.93,
+          "key": "the",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "field",
+          "start": 15.93,
+          "end": 16.13,
+          "key": "field",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 16.13,
+          "end": 16.33,
+          "key": "i",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 16.33,
+          "end": 16.47,
+          "key": "shall",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "return",
+          "start": 16.47,
+          "end": 16.83,
+          "key": "return",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 16.83,
+          "end": 17.07,
+          "key": "once",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 17.07,
+          "end": 17.29,
+          "key": "more",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.29,
+          "end": 17.45,
+          "key": "to",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "kiss",
+          "start": 17.45,
+          "end": 17.61,
+          "key": "kiss",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 17.61,
+          "end": 17.87,
+          "key": "these",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "lips",
+          "start": 17.87,
+          "end": 18.13,
+          "key": "lips",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 18.13,
+          "end": 18.37,
+          "key": "i",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 18.37,
+          "end": 18.49,
+          "key": "will",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "appear",
+          "start": 18.49,
+          "end": 18.77,
+          "key": "appear",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 18.77,
+          "end": 19.01,
+          "key": "in",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "blood.",
+          "start": 19.01,
+          "end": 19.31,
+          "key": "blood",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 19.87,
+          "end": 19.99,
+          "key": "i",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 19.99,
+          "end": 20.11,
+          "key": "in",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 20.11,
+          "end": 20.29,
+          "key": "my",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "sword",
+          "start": 20.29,
+          "end": 20.59,
+          "key": "sword",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 20.59,
+          "end": 20.81,
+          "key": "will",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "earn",
+          "start": 20.81,
+          "end": 21.01,
+          "key": "earn",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 21.01,
+          "end": 21.19,
+          "key": "our",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "chronicle.",
+          "start": 21.19,
+          "end": 21.65,
+          "key": "chronicle",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "There's",
+          "start": 22.11,
+          "end": 22.29,
+          "key": "theres",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 22.29,
+          "end": 22.45,
+          "key": "hope",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "in't",
+          "start": 22.45,
+          "end": 22.75,
+          "key": "int",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "yet.",
+          "start": 22.75,
+          "end": 22.91,
+          "key": "yet",
+          "pieces": [
+            74
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 33,
+          "text": "sea-like.",
+          "heard": "sea -like.",
+          "heard_indexes": [
+            33,
+            34
+          ],
+          "start": 11.17,
+          "end": 11.67
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "I",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "text": "am",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "text": "satisfied.",
+          "start": 1.15,
+          "end": 1.75
+        },
+        {
+          "text": "Caesar",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "text": "sits",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "text": "down",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "text": "in",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "text": "Alexandria,",
+          "start": 3.41,
+          "end": 3.97
+        },
+        {
+          "text": "where",
+          "start": 3.97,
+          "end": 4.27
+        },
+        {
+          "text": "I",
+          "start": 4.27,
+          "end": 4.41
+        },
+        {
+          "text": "will",
+          "start": 4.41,
+          "end": 4.49
+        },
+        {
+          "text": "oppose",
+          "start": 4.49,
+          "end": 4.77
+        },
+        {
+          "text": "his",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "text": "fate.",
+          "start": 5.01,
+          "end": 5.25
+        },
+        {
+          "text": "Our",
+          "start": 5.89,
+          "end": 6.01
+        },
+        {
+          "text": "force",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "text": "by",
+          "start": 6.23,
+          "end": 6.45
+        },
+        {
+          "text": "land",
+          "start": 6.45,
+          "end": 6.73
+        },
+        {
+          "text": "Hath",
+          "start": 6.73,
+          "end": 6.91
+        },
+        {
+          "text": "nobly",
+          "start": 6.91,
+          "end": 7.33
+        },
+        {
+          "text": "held;",
+          "start": 7.33,
+          "end": 7.63
+        },
+        {
+          "text": "our",
+          "start": 8.03,
+          "end": 8.11
+        },
+        {
+          "text": "severed",
+          "start": 8.11,
+          "end": 8.43
+        },
+        {
+          "text": "navy",
+          "start": 8.43,
+          "end": 8.73
+        },
+        {
+          "text": "too",
+          "start": 8.73,
+          "end": 9.03
+        },
+        {
+          "text": "Have",
+          "start": 9.03,
+          "end": 9.23
+        },
+        {
+          "text": "knit",
+          "start": 9.23,
+          "end": 9.41
+        },
+        {
+          "text": "again,",
+          "start": 9.41,
+          "end": 9.69
+        },
+        {
+          "text": "and",
+          "start": 9.69,
+          "end": 9.93
+        },
+        {
+          "text": "fleet,",
+          "start": 9.93,
+          "end": 10.23
+        },
+        {
+          "text": "threat'ning",
+          "start": 10.23,
+          "end": 10.5
+        },
+        {
+          "text": "most",
+          "start": 10.77,
+          "end": 11.17
+        },
+        {
+          "text": "sea-like.",
+          "start": 11.17,
+          "end": 11.67
+        },
+        {
+          "text": "Where",
+          "start": 12.35,
+          "end": 12.45
+        },
+        {
+          "text": "hast",
+          "start": 12.45,
+          "end": 12.67
+        },
+        {
+          "text": "thou",
+          "start": 12.67,
+          "end": 12.93
+        },
+        {
+          "text": "been,",
+          "start": 12.93,
+          "end": 13.13
+        },
+        {
+          "text": "my",
+          "start": 13.13,
+          "end": 13.33
+        },
+        {
+          "text": "heart?",
+          "start": 13.33,
+          "end": 13.59
+        },
+        {
+          "text": "Dost",
+          "start": 14.11,
+          "end": 14.19
+        },
+        {
+          "text": "thou",
+          "start": 14.19,
+          "end": 14.43
+        },
+        {
+          "text": "hear,",
+          "start": 14.43,
+          "end": 14.58
+        },
+        {
+          "text": "lady?",
+          "start": 14.73,
+          "end": 14.91
+        },
+        {
+          "text": "If",
+          "start": 15.53,
+          "end": 15.65
+        },
+        {
+          "text": "from",
+          "start": 15.65,
+          "end": 15.79
+        },
+        {
+          "text": "the",
+          "start": 15.79,
+          "end": 15.93
+        },
+        {
+          "text": "field",
+          "start": 15.93,
+          "end": 16.13
+        },
+        {
+          "text": "I",
+          "start": 16.13,
+          "end": 16.33
+        },
+        {
+          "text": "shall",
+          "start": 16.33,
+          "end": 16.47
+        },
+        {
+          "text": "return",
+          "start": 16.47,
+          "end": 16.83
+        },
+        {
+          "text": "once",
+          "start": 16.83,
+          "end": 17.07
+        },
+        {
+          "text": "more",
+          "start": 17.07,
+          "end": 17.29
+        },
+        {
+          "text": "To",
+          "start": 17.29,
+          "end": 17.45
+        },
+        {
+          "text": "kiss",
+          "start": 17.45,
+          "end": 17.61
+        },
+        {
+          "text": "these",
+          "start": 17.61,
+          "end": 17.87
+        },
+        {
+          "text": "lips,",
+          "start": 17.87,
+          "end": 18.13
+        },
+        {
+          "text": "I",
+          "start": 18.13,
+          "end": 18.37
+        },
+        {
+          "text": "will",
+          "start": 18.37,
+          "end": 18.49
+        },
+        {
+          "text": "appear",
+          "start": 18.49,
+          "end": 18.77
+        },
+        {
+          "text": "in",
+          "start": 18.77,
+          "end": 19.01
+        },
+        {
+          "text": "blood.",
+          "start": 19.01,
+          "end": 19.31
+        },
+        {
+          "text": "I",
+          "start": 19.87,
+          "end": 19.99
+        },
+        {
+          "text": "and",
+          "start": 19.99,
+          "end": 20.05
+        },
+        {
+          "text": "my",
+          "start": 20.11,
+          "end": 20.29
+        },
+        {
+          "text": "sword",
+          "start": 20.29,
+          "end": 20.59
+        },
+        {
+          "text": "will",
+          "start": 20.59,
+          "end": 20.81
+        },
+        {
+          "text": "earn",
+          "start": 20.81,
+          "end": 21.01
+        },
+        {
+          "text": "our",
+          "start": 21.01,
+          "end": 21.19
+        },
+        {
+          "text": "chronicle.",
+          "start": 21.19,
+          "end": 21.65
+        },
+        {
+          "text": "There's",
+          "start": 22.11,
+          "end": 22.29
+        },
+        {
+          "text": "hope",
+          "start": 22.29,
+          "end": 22.45
+        },
+        {
+          "text": "in't",
+          "start": 22.45,
+          "end": 22.75
+        },
+        {
+          "text": "yet.",
+          "start": 22.75,
+          "end": 22.91
+        }
+      ],
+      "stats": {
+        "expected_words": 74,
+        "heard_words": 74,
+        "matched_words": 71
+      },
+      "match_ratio": 0.9594594594594594,
+      "rejection_reasons": [],
+      "seconds": 0.8143471419753041
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "83f149ee8799890b38ffa107af15058c36f716aeb03bebee4fb447736ae9aca7",
+  "selected_reasons": []
+}

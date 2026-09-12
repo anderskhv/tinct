@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "5447755980c1ddaa387d664e41c78a0f49c2c17c9d2f2cb3745f7a922578159c",
+  "attempts": [
+    {
+      "asr_seconds": 0.21060345601290464,
+      "alignment_seconds": 0.00013295499957166612,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Agrippa, O Antony, O thou Arabian bird!",
+          "start": 0.11,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Agrippa,",
+              "start": 0.11,
+              "end": 0.97,
+              "probability": 0.8898111979166666
+            },
+            {
+              "text": " O",
+              "start": 1.23,
+              "end": 1.27,
+              "probability": 0.65966796875
+            },
+            {
+              "text": " Antony,",
+              "start": 1.27,
+              "end": 1.77,
+              "probability": 0.966796875
+            },
+            {
+              "text": " O",
+              "start": 2.13,
+              "end": 2.21,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " thou",
+              "start": 2.21,
+              "end": 2.35,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " Arabian",
+              "start": 2.35,
+              "end": 2.75,
+              "probability": 0.96875
+            },
+            {
+              "text": " bird!",
+              "start": 2.75,
+              "end": 3.09,
+              "probability": 0.84521484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agrippa,",
+          "start": 0.11,
+          "end": 0.97
+        },
+        {
+          "raw": "O",
+          "start": 1.23,
+          "end": 1.27
+        },
+        {
+          "raw": "Antony,",
+          "start": 1.27,
+          "end": 1.77
+        },
+        {
+          "raw": "O",
+          "start": 2.13,
+          "end": 2.21
+        },
+        {
+          "raw": "thou",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "raw": "Arabian",
+          "start": 2.35,
+          "end": 2.75
+        },
+        {
+          "raw": "bird!",
+          "start": 2.75,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "Agrippa.",
+        "O,",
+        "Antony!",
+        "O",
+        "thou",
+        "Arabian",
+        "bird!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agrippa,",
+          "start": 0.11,
+          "end": 0.97,
+          "key": "agrippa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.23,
+          "end": 1.27,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Antony,",
+          "start": 1.27,
+          "end": 1.77,
+          "key": "antony",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 2.13,
+          "end": 2.21,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.21,
+          "end": 2.35,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Arabian",
+          "start": 2.35,
+          "end": 2.75,
+          "key": "arabian",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bird!",
+          "start": 2.75,
+          "end": 3.09,
+          "key": "bird",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agrippa.",
+          "start": 0.11,
+          "end": 0.97
+        },
+        {
+          "text": "O,",
+          "start": 1.23,
+          "end": 1.27
+        },
+        {
+          "text": "Antony!",
+          "start": 1.27,
+          "end": 1.77
+        },
+        {
+          "text": "O",
+          "start": 2.13,
+          "end": 2.21
+        },
+        {
+          "text": "thou",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "text": "Arabian",
+          "start": 2.35,
+          "end": 2.75
+        },
+        {
+          "text": "bird!",
+          "start": 2.75,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2107828620064538
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "619de3150a049c12e6340ab7c4204a794b87774115c3df93a6f33ff02346611b",
+  "selected_reasons": []
+}

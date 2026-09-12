@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "b692cd452570adfc889e92038a64a608be7c307275c267fb97a6f9ad161cd85f",
+  "attempts": [
+    {
+      "asr_seconds": 0.14883916598046198,
+      "alignment_seconds": 0.00020460700034163892,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Octavia. Sir, look well to my husband's house, and—",
+        "hotwords": "Octavia, Sir"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Octavia, Sir, look well to my husband's house, and—",
+          "start": 0.52,
+          "end": 3.98,
+          "words": [
+            {
+              "text": " Octavia,",
+              "start": 0.52,
+              "end": 0.94,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Sir,",
+              "start": 1.54,
+              "end": 1.58,
+              "probability": 0.43505859375
+            },
+            {
+              "text": " look",
+              "start": 1.84,
+              "end": 1.88,
+              "probability": 0.736328125
+            },
+            {
+              "text": " well",
+              "start": 1.88,
+              "end": 2.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 2.08,
+              "end": 2.24,
+              "probability": 0.98828125
+            },
+            {
+              "text": " my",
+              "start": 2.24,
+              "end": 2.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " husband's",
+              "start": 2.4,
+              "end": 2.86,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " house,",
+              "start": 2.86,
+              "end": 3.06,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " and—",
+              "start": 3.28,
+              "end": 3.98,
+              "probability": 0.58782958984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Octavia,",
+          "start": 0.52,
+          "end": 0.94
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.54,
+          "end": 1.58
+        },
+        {
+          "raw": "look",
+          "start": 1.84,
+          "end": 1.88
+        },
+        {
+          "raw": "well",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "raw": "to",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "raw": "my",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "raw": "husband's",
+          "start": 2.4,
+          "end": 2.86
+        },
+        {
+          "raw": "house,",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "raw": "and—",
+          "start": 3.28,
+          "end": 3.98
+        }
+      ],
+      "expected_tokens": [
+        "Octavia.",
+        "Sir,",
+        "look",
+        "well",
+        "to",
+        "my",
+        "husband's",
+        "house,",
+        "and—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Octavia,",
+          "start": 0.52,
+          "end": 0.94,
+          "key": "octavia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.54,
+          "end": 1.58,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.84,
+          "end": 1.88,
+          "key": "look",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.88,
+          "end": 2.08,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.08,
+          "end": 2.24,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.24,
+          "end": 2.4,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "husband's",
+          "start": 2.4,
+          "end": 2.86,
+          "key": "husbands",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "house,",
+          "start": 2.86,
+          "end": 3.06,
+          "key": "house",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and—",
+          "start": 3.28,
+          "end": 3.98,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Octavia.",
+          "start": 0.52,
+          "end": 0.94
+        },
+        {
+          "text": "Sir,",
+          "start": 1.54,
+          "end": 1.58
+        },
+        {
+          "text": "look",
+          "start": 1.84,
+          "end": 1.88
+        },
+        {
+          "text": "well",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "text": "to",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "text": "my",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "text": "husband's",
+          "start": 2.4,
+          "end": 2.86
+        },
+        {
+          "text": "house,",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "text": "and—",
+          "start": 3.28,
+          "end": 3.98
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14911775599466637
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "49008d2f25506e721d9c4e28c36c5bb75d464fc8c9ce811ec8ab888bdf7c6ac7",
+  "selected_reasons": []
+}

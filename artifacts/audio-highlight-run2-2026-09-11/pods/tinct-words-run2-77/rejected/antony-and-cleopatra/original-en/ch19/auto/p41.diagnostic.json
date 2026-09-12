@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "246005a3882adedc73f5ecf40da83034f5541365ac0f8bbaeae540c70eea2e40",
+  "attempts": [
+    {
+      "asr_seconds": 0.12758622999535874,
+      "alignment_seconds": 0.00014044498675502837,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Soldier. They say one Taurus.",
+        "hotwords": "Soldier, They, Taurus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Soldier, They say one Taurus.",
+          "start": 0.02,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " Soldier,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.64990234375
+            },
+            {
+              "text": " They",
+              "start": 1.2,
+              "end": 1.3,
+              "probability": 0.0196075439453125
+            },
+            {
+              "text": " say",
+              "start": 1.3,
+              "end": 1.46,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " one",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " Taurus.",
+              "start": 1.66,
+              "end": 2.04,
+              "probability": 0.810546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soldier,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "They",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "raw": "say",
+          "start": 1.3,
+          "end": 1.46
+        },
+        {
+          "raw": "one",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "Taurus.",
+          "start": 1.66,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "Soldier.",
+        "They",
+        "say",
+        "one",
+        "Taurus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soldier,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "soldier",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 1.2,
+          "end": 1.3,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.3,
+          "end": 1.46,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "one",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Taurus.",
+          "start": 1.66,
+          "end": 2.04,
+          "key": "taurus",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Soldier.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "They",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "text": "say",
+          "start": 1.3,
+          "end": 1.46
+        },
+        {
+          "text": "one",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "Taurus.",
+          "start": 1.66,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12777805599034764
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5c577b93f16e3d2ce042854750d5e9cc35c3af65b20ba535fddb92e534e41d9d",
+  "selected_reasons": []
+}

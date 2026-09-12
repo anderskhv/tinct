@@ -1,0 +1,1022 @@
+{
+  "complete": true,
+  "signature": "f2f3c11c3a1c5dbdc24e51bc21467e3a5321cae1ed3f6d83aa0d8e3ef147863d",
+  "attempts": [
+    {
+      "asr_seconds": 0.34654902599868365,
+      "alignment_seconds": 0.00032157101668417454,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Canidius. Ay, and to wage this battle at Pharsalia, Where Caesar fought with Pompey. But these offers, Which serve not for his vantage, he shakes off, And so should you.",
+        "hotwords": "Canidius, Ay, Pharsalia, Where, Caesar, Pompey, But, Which"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Canidius, Ay, and to wage this battle at Pharsalia, Where Caesar fought with Pompey. But these offers, Which serve not for his vantage, he shakes off, And so should you.",
+          "start": 0.86,
+          "end": 10.66,
+          "words": [
+            {
+              "text": " Canidius,",
+              "start": 0.86,
+              "end": 1.34,
+              "probability": 0.6371663411458334
+            },
+            {
+              "text": " Ay,",
+              "start": 1.34,
+              "end": 1.82,
+              "probability": 3.933906555175781e-05
+            },
+            {
+              "text": " and",
+              "start": 1.98,
+              "end": 2.08,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " to",
+              "start": 2.08,
+              "end": 2.22,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " wage",
+              "start": 2.22,
+              "end": 2.46,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " this",
+              "start": 2.46,
+              "end": 2.8,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " battle",
+              "start": 2.8,
+              "end": 3.08,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " at",
+              "start": 3.08,
+              "end": 3.32,
+              "probability": 0.984375
+            },
+            {
+              "text": " Pharsalia,",
+              "start": 3.32,
+              "end": 3.88,
+              "probability": 0.7809244791666666
+            },
+            {
+              "text": " Where",
+              "start": 4.24,
+              "end": 4.36,
+              "probability": 0.229736328125
+            },
+            {
+              "text": " Caesar",
+              "start": 4.36,
+              "end": 4.7,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " fought",
+              "start": 4.7,
+              "end": 5.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 5.02,
+              "end": 5.22,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Pompey.",
+              "start": 5.22,
+              "end": 5.82,
+              "probability": 0.982177734375
+            },
+            {
+              "text": " But",
+              "start": 6.24,
+              "end": 6.42,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " these",
+              "start": 6.42,
+              "end": 6.58,
+              "probability": 0.98046875
+            },
+            {
+              "text": " offers,",
+              "start": 6.58,
+              "end": 6.98,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " Which",
+              "start": 7.18,
+              "end": 7.36,
+              "probability": 0.2529296875
+            },
+            {
+              "text": " serve",
+              "start": 7.36,
+              "end": 7.62,
+              "probability": 0.96875
+            },
+            {
+              "text": " not",
+              "start": 7.62,
+              "end": 7.86,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " for",
+              "start": 7.86,
+              "end": 8.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 8.06,
+              "end": 8.18,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " vantage,",
+              "start": 8.18,
+              "end": 8.56,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " he",
+              "start": 8.94,
+              "end": 9.08,
+              "probability": 0.0144195556640625
+            },
+            {
+              "text": " shakes",
+              "start": 9.08,
+              "end": 9.3,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " off,",
+              "start": 9.3,
+              "end": 9.66,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " And",
+              "start": 9.84,
+              "end": 9.94,
+              "probability": 0.69140625
+            },
+            {
+              "text": " so",
+              "start": 9.94,
+              "end": 10.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " should",
+              "start": 10.14,
+              "end": 10.4,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you.",
+              "start": 10.4,
+              "end": 10.66,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Canidius,",
+          "start": 0.86,
+          "end": 1.34
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.34,
+          "end": 1.82
+        },
+        {
+          "raw": "and",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "raw": "to",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "raw": "wage",
+          "start": 2.22,
+          "end": 2.46
+        },
+        {
+          "raw": "this",
+          "start": 2.46,
+          "end": 2.8
+        },
+        {
+          "raw": "battle",
+          "start": 2.8,
+          "end": 3.08
+        },
+        {
+          "raw": "at",
+          "start": 3.08,
+          "end": 3.32
+        },
+        {
+          "raw": "Pharsalia,",
+          "start": 3.32,
+          "end": 3.88
+        },
+        {
+          "raw": "Where",
+          "start": 4.24,
+          "end": 4.36
+        },
+        {
+          "raw": "Caesar",
+          "start": 4.36,
+          "end": 4.7
+        },
+        {
+          "raw": "fought",
+          "start": 4.7,
+          "end": 5.02
+        },
+        {
+          "raw": "with",
+          "start": 5.02,
+          "end": 5.22
+        },
+        {
+          "raw": "Pompey.",
+          "start": 5.22,
+          "end": 5.82
+        },
+        {
+          "raw": "But",
+          "start": 6.24,
+          "end": 6.42
+        },
+        {
+          "raw": "these",
+          "start": 6.42,
+          "end": 6.58
+        },
+        {
+          "raw": "offers,",
+          "start": 6.58,
+          "end": 6.98
+        },
+        {
+          "raw": "Which",
+          "start": 7.18,
+          "end": 7.36
+        },
+        {
+          "raw": "serve",
+          "start": 7.36,
+          "end": 7.62
+        },
+        {
+          "raw": "not",
+          "start": 7.62,
+          "end": 7.86
+        },
+        {
+          "raw": "for",
+          "start": 7.86,
+          "end": 8.06
+        },
+        {
+          "raw": "his",
+          "start": 8.06,
+          "end": 8.18
+        },
+        {
+          "raw": "vantage,",
+          "start": 8.18,
+          "end": 8.56
+        },
+        {
+          "raw": "he",
+          "start": 8.94,
+          "end": 9.08
+        },
+        {
+          "raw": "shakes",
+          "start": 9.08,
+          "end": 9.3
+        },
+        {
+          "raw": "off,",
+          "start": 9.3,
+          "end": 9.66
+        },
+        {
+          "raw": "And",
+          "start": 9.84,
+          "end": 9.94
+        },
+        {
+          "raw": "so",
+          "start": 9.94,
+          "end": 10.14
+        },
+        {
+          "raw": "should",
+          "start": 10.14,
+          "end": 10.4
+        },
+        {
+          "raw": "you.",
+          "start": 10.4,
+          "end": 10.66
+        }
+      ],
+      "expected_tokens": [
+        "Canidius.",
+        "Ay,",
+        "and",
+        "to",
+        "wage",
+        "this",
+        "battle",
+        "at",
+        "Pharsalia,",
+        "Where",
+        "Caesar",
+        "fought",
+        "with",
+        "Pompey.",
+        "But",
+        "these",
+        "offers,",
+        "Which",
+        "serve",
+        "not",
+        "for",
+        "his",
+        "vantage,",
+        "he",
+        "shakes",
+        "off,",
+        "And",
+        "so",
+        "should",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          30,
+          0,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Canidius,",
+          "start": 0.86,
+          "end": 1.34,
+          "key": "canidius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.34,
+          "end": 1.82,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.98,
+          "end": 2.08,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.08,
+          "end": 2.22,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wage",
+          "start": 2.22,
+          "end": 2.46,
+          "key": "wage",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.46,
+          "end": 2.8,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "battle",
+          "start": 2.8,
+          "end": 3.08,
+          "key": "battle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.08,
+          "end": 3.32,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Pharsalia,",
+          "start": 3.32,
+          "end": 3.88,
+          "key": "pharsalia",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 4.24,
+          "end": 4.36,
+          "key": "where",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 4.36,
+          "end": 4.7,
+          "key": "caesar",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "fought",
+          "start": 4.7,
+          "end": 5.02,
+          "key": "fought",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.02,
+          "end": 5.22,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Pompey.",
+          "start": 5.22,
+          "end": 5.82,
+          "key": "pompey",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 6.24,
+          "end": 6.42,
+          "key": "but",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 6.42,
+          "end": 6.58,
+          "key": "these",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "offers,",
+          "start": 6.58,
+          "end": 6.98,
+          "key": "offers",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 7.18,
+          "end": 7.36,
+          "key": "which",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "serve",
+          "start": 7.36,
+          "end": 7.62,
+          "key": "serve",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.62,
+          "end": 7.86,
+          "key": "not",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.86,
+          "end": 8.06,
+          "key": "for",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 8.06,
+          "end": 8.18,
+          "key": "his",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "vantage,",
+          "start": 8.18,
+          "end": 8.56,
+          "key": "vantage",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 8.94,
+          "end": 9.08,
+          "key": "he",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "shakes",
+          "start": 9.08,
+          "end": 9.3,
+          "key": "shakes",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "off,",
+          "start": 9.3,
+          "end": 9.66,
+          "key": "off",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 9.84,
+          "end": 9.94,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 9.94,
+          "end": 10.14,
+          "key": "so",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 10.14,
+          "end": 10.4,
+          "key": "should",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 10.4,
+          "end": 10.66,
+          "key": "you",
+          "pieces": [
+            29
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Canidius.",
+          "start": 0.86,
+          "end": 1.34
+        },
+        {
+          "text": "Ay,",
+          "start": 1.34,
+          "end": 1.82
+        },
+        {
+          "text": "and",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "text": "to",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "text": "wage",
+          "start": 2.22,
+          "end": 2.46
+        },
+        {
+          "text": "this",
+          "start": 2.46,
+          "end": 2.8
+        },
+        {
+          "text": "battle",
+          "start": 2.8,
+          "end": 3.08
+        },
+        {
+          "text": "at",
+          "start": 3.08,
+          "end": 3.32
+        },
+        {
+          "text": "Pharsalia,",
+          "start": 3.32,
+          "end": 3.88
+        },
+        {
+          "text": "Where",
+          "start": 4.24,
+          "end": 4.36
+        },
+        {
+          "text": "Caesar",
+          "start": 4.36,
+          "end": 4.7
+        },
+        {
+          "text": "fought",
+          "start": 4.7,
+          "end": 5.02
+        },
+        {
+          "text": "with",
+          "start": 5.02,
+          "end": 5.22
+        },
+        {
+          "text": "Pompey.",
+          "start": 5.22,
+          "end": 5.82
+        },
+        {
+          "text": "But",
+          "start": 6.24,
+          "end": 6.42
+        },
+        {
+          "text": "these",
+          "start": 6.42,
+          "end": 6.58
+        },
+        {
+          "text": "offers,",
+          "start": 6.58,
+          "end": 6.98
+        },
+        {
+          "text": "Which",
+          "start": 7.18,
+          "end": 7.36
+        },
+        {
+          "text": "serve",
+          "start": 7.36,
+          "end": 7.62
+        },
+        {
+          "text": "not",
+          "start": 7.62,
+          "end": 7.86
+        },
+        {
+          "text": "for",
+          "start": 7.86,
+          "end": 8.06
+        },
+        {
+          "text": "his",
+          "start": 8.06,
+          "end": 8.18
+        },
+        {
+          "text": "vantage,",
+          "start": 8.18,
+          "end": 8.56
+        },
+        {
+          "text": "he",
+          "start": 8.94,
+          "end": 9.08
+        },
+        {
+          "text": "shakes",
+          "start": 9.08,
+          "end": 9.3
+        },
+        {
+          "text": "off,",
+          "start": 9.3,
+          "end": 9.66
+        },
+        {
+          "text": "And",
+          "start": 9.84,
+          "end": 9.94
+        },
+        {
+          "text": "so",
+          "start": 9.94,
+          "end": 10.14
+        },
+        {
+          "text": "should",
+          "start": 10.14,
+          "end": 10.4
+        },
+        {
+          "text": "you.",
+          "start": 10.4,
+          "end": 10.66
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 30,
+        "matched_words": 30
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3470046219881624
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "43d715c296e98c51cd8337b011431b124eb53cac8cf47bfa7c116aea232d55b0",
+  "selected_reasons": []
+}

@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "9447ad79f69e277851aae4a8bb436f827b251397ebe4abf21d7464c1b2f590fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.09285418700892478,
+      "alignment_seconds": 0.00011271398398093879,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Agrippa",
+          "start": 0.11,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " Agrippa",
+              "start": 0.11,
+              "end": 0.99,
+              "probability": 0.9060872395833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agrippa",
+          "start": 0.11,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "Agrippa."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agrippa",
+          "start": 0.11,
+          "end": 0.99,
+          "key": "agrippa",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agrippa.",
+          "start": 0.11,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0930031220195815
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "080689c5064650884bd379602bc7f05e9f5d9116da19dd2dac37cffffb76670f",
+  "selected_reasons": []
+}

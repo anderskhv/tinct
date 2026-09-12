@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "479b7e36ce02b7be087c04b68dba14ce78ee2b89df32fc7ec89e2ff8366e25be",
+  "attempts": [
+    {
+      "asr_seconds": 0.19604690201231278,
+      "alignment_seconds": 0.000193927000509575,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enobarbus. If I were bound to divine of this unity, I would not prophesy so.",
+        "hotwords": "Enobarbus, If, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enobarbus, If I were bound to divine of this unity, I would not prophesy so.",
+          "start": 0.65,
+          "end": 4.91,
+          "words": [
+            {
+              "text": " Enobarbus,",
+              "start": 0.65,
+              "end": 1.11,
+              "probability": 0.31716378529866535
+            },
+            {
+              "text": " If",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.04742431640625
+            },
+            {
+              "text": " I",
+              "start": 1.73,
+              "end": 1.85,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " were",
+              "start": 1.85,
+              "end": 1.95,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " bound",
+              "start": 1.95,
+              "end": 2.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 2.19,
+              "end": 2.41,
+              "probability": 0.9921875
+            },
+            {
+              "text": " divine",
+              "start": 2.41,
+              "end": 2.75,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " of",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.9921875
+            },
+            {
+              "text": " this",
+              "start": 2.93,
+              "end": 3.07,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " unity,",
+              "start": 3.07,
+              "end": 3.39,
+              "probability": 0.884765625
+            },
+            {
+              "text": " I",
+              "start": 3.73,
+              "end": 3.77,
+              "probability": 0.990234375
+            },
+            {
+              "text": " would",
+              "start": 3.77,
+              "end": 3.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 3.87,
+              "end": 4.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " prophesy",
+              "start": 4.05,
+              "end": 4.61,
+              "probability": 0.803466796875
+            },
+            {
+              "text": " so.",
+              "start": 4.61,
+              "end": 4.91,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enobarbus,",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "raw": "If",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "I",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "raw": "were",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "raw": "bound",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "raw": "divine",
+          "start": 2.41,
+          "end": 2.75
+        },
+        {
+          "raw": "of",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "this",
+          "start": 2.93,
+          "end": 3.07
+        },
+        {
+          "raw": "unity,",
+          "start": 3.07,
+          "end": 3.39
+        },
+        {
+          "raw": "I",
+          "start": 3.73,
+          "end": 3.77
+        },
+        {
+          "raw": "would",
+          "start": 3.77,
+          "end": 3.87
+        },
+        {
+          "raw": "not",
+          "start": 3.87,
+          "end": 4.05
+        },
+        {
+          "raw": "prophesy",
+          "start": 4.05,
+          "end": 4.61
+        },
+        {
+          "raw": "so.",
+          "start": 4.61,
+          "end": 4.91
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "If",
+        "I",
+        "were",
+        "bound",
+        "to",
+        "divine",
+        "of",
+        "this",
+        "unity,",
+        "I",
+        "would",
+        "not",
+        "prophesy",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enobarbus,",
+          "start": 0.65,
+          "end": 1.11,
+          "key": "enobarbus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.73,
+          "end": 1.85,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.85,
+          "end": 1.95,
+          "key": "were",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bound",
+          "start": 1.95,
+          "end": 2.19,
+          "key": "bound",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.41,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "divine",
+          "start": 2.41,
+          "end": 2.75,
+          "key": "divine",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.93,
+          "end": 3.07,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "unity,",
+          "start": 3.07,
+          "end": 3.39,
+          "key": "unity",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.73,
+          "end": 3.77,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 3.77,
+          "end": 3.87,
+          "key": "would",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.87,
+          "end": 4.05,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "prophesy",
+          "start": 4.05,
+          "end": 4.61,
+          "key": "prophesy",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 4.61,
+          "end": 4.91,
+          "key": "so",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "text": "If",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "text": "I",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "text": "were",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "text": "bound",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "text": "to",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "text": "divine",
+          "start": 2.41,
+          "end": 2.75
+        },
+        {
+          "text": "of",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "this",
+          "start": 2.93,
+          "end": 3.07
+        },
+        {
+          "text": "unity,",
+          "start": 3.07,
+          "end": 3.39
+        },
+        {
+          "text": "I",
+          "start": 3.73,
+          "end": 3.77
+        },
+        {
+          "text": "would",
+          "start": 3.77,
+          "end": 3.87
+        },
+        {
+          "text": "not",
+          "start": 3.87,
+          "end": 4.05
+        },
+        {
+          "text": "prophesy",
+          "start": 4.05,
+          "end": 4.61
+        },
+        {
+          "text": "so.",
+          "start": 4.61,
+          "end": 4.91
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1963150010269601
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4b5562d1e2cc75da7601717013669887c17ba12c51bbf1cac675c46ec00d7e00",
+  "selected_reasons": []
+}

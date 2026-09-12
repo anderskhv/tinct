@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "651320d45ad73cbd11d5ebeea0f768a87551ef7257aa1ef7658898768f3e62df",
+  "attempts": [
+    {
+      "asr_seconds": 0.23538900498533621,
+      "alignment_seconds": 0.00021603700588457286,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony. Alack. Our Terene moon is now eclipsed, and it portends alone the fall of Antony.",
+          "start": 0.05,
+          "end": 6.07,
+          "words": [
+            {
+              "text": " Antony.",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.944091796875
+            },
+            {
+              "text": " Alack.",
+              "start": 1.25,
+              "end": 1.69,
+              "probability": 0.60400390625
+            },
+            {
+              "text": " Our",
+              "start": 2.09,
+              "end": 2.19,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Terene",
+              "start": 2.19,
+              "end": 2.61,
+              "probability": 0.4990234375
+            },
+            {
+              "text": " moon",
+              "start": 2.61,
+              "end": 2.77,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " is",
+              "start": 2.77,
+              "end": 3.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " now",
+              "start": 3.01,
+              "end": 3.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " eclipsed,",
+              "start": 3.23,
+              "end": 3.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 4.15,
+              "end": 4.23,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " it",
+              "start": 4.23,
+              "end": 4.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " portends",
+              "start": 4.35,
+              "end": 4.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " alone",
+              "start": 4.83,
+              "end": 5.09,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " the",
+              "start": 5.09,
+              "end": 5.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fall",
+              "start": 5.29,
+              "end": 5.49,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " of",
+              "start": 5.49,
+              "end": 5.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Antony.",
+              "start": 5.67,
+              "end": 6.07,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Alack.",
+          "start": 1.25,
+          "end": 1.69
+        },
+        {
+          "raw": "Our",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "raw": "Terene",
+          "start": 2.19,
+          "end": 2.61
+        },
+        {
+          "raw": "moon",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "raw": "is",
+          "start": 2.77,
+          "end": 3.01
+        },
+        {
+          "raw": "now",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "raw": "eclipsed,",
+          "start": 3.23,
+          "end": 3.85
+        },
+        {
+          "raw": "and",
+          "start": 4.15,
+          "end": 4.23
+        },
+        {
+          "raw": "it",
+          "start": 4.23,
+          "end": 4.35
+        },
+        {
+          "raw": "portends",
+          "start": 4.35,
+          "end": 4.83
+        },
+        {
+          "raw": "alone",
+          "start": 4.83,
+          "end": 5.09
+        },
+        {
+          "raw": "the",
+          "start": 5.09,
+          "end": 5.29
+        },
+        {
+          "raw": "fall",
+          "start": 5.29,
+          "end": 5.49
+        },
+        {
+          "raw": "of",
+          "start": 5.49,
+          "end": 5.67
+        },
+        {
+          "raw": "Antony.",
+          "start": 5.67,
+          "end": 6.07
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Alack,",
+        "our",
+        "terrene",
+        "moon",
+        "is",
+        "now",
+        "eclipsed,",
+        "And",
+        "it",
+        "portends",
+        "alone",
+        "the",
+        "fall",
+        "of",
+        "Antony."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          16,
+          4,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony.",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alack.",
+          "start": 1.25,
+          "end": 1.69,
+          "key": "alack",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 2.09,
+          "end": 2.19,
+          "key": "our",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Terene",
+          "start": 2.19,
+          "end": 2.61,
+          "key": "terene",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "moon",
+          "start": 2.61,
+          "end": 2.77,
+          "key": "moon",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.77,
+          "end": 3.01,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 3.01,
+          "end": 3.23,
+          "key": "now",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "eclipsed,",
+          "start": 3.23,
+          "end": 3.85,
+          "key": "eclipsed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.15,
+          "end": 4.23,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.23,
+          "end": 4.35,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "portends",
+          "start": 4.35,
+          "end": 4.83,
+          "key": "portends",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "alone",
+          "start": 4.83,
+          "end": 5.09,
+          "key": "alone",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.09,
+          "end": 5.29,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fall",
+          "start": 5.29,
+          "end": 5.49,
+          "key": "fall",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.49,
+          "end": 5.67,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Antony.",
+          "start": 5.67,
+          "end": 6.07,
+          "key": "antony",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Alack,",
+          "start": 1.25,
+          "end": 1.69
+        },
+        {
+          "text": "our",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "text": "terrene",
+          "start": 2.19,
+          "end": 2.4
+        },
+        {
+          "text": "moon",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "text": "is",
+          "start": 2.77,
+          "end": 3.01
+        },
+        {
+          "text": "now",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "text": "eclipsed,",
+          "start": 3.23,
+          "end": 3.85
+        },
+        {
+          "text": "And",
+          "start": 4.15,
+          "end": 4.23
+        },
+        {
+          "text": "it",
+          "start": 4.23,
+          "end": 4.35
+        },
+        {
+          "text": "portends",
+          "start": 4.35,
+          "end": 4.83
+        },
+        {
+          "text": "alone",
+          "start": 4.83,
+          "end": 5.09
+        },
+        {
+          "text": "the",
+          "start": 5.09,
+          "end": 5.29
+        },
+        {
+          "text": "fall",
+          "start": 5.29,
+          "end": 5.49
+        },
+        {
+          "text": "of",
+          "start": 5.49,
+          "end": 5.67
+        },
+        {
+          "text": "Antony.",
+          "start": 5.67,
+          "end": 6.07
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.23568563497974537
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "98b170569c05b71f6057b070b926ac60e631533788876bebef899f3f04e71a9d",
+  "selected_reasons": []
+}

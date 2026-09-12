@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "411b960f443f0f85440022e17ab8e9f4ad8cee65e8c87e7d70ce91ab3112adf7",
+  "attempts": [
+    {
+      "asr_seconds": 0.22552985299262218,
+      "alignment_seconds": 0.00044237502152100205,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. Thou hast forspoke my being in these wars And say'st it is not fit.",
+        "hotwords": "Cleopatra, Thou, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, Thou hast forspoke my being in these wars And say'st it is not fit.",
+          "start": 0.05,
+          "end": 5.19,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Thou",
+              "start": 1.63,
+              "end": 1.69,
+              "probability": 0.148193359375
+            },
+            {
+              "text": " hast",
+              "start": 1.69,
+              "end": 1.99,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " forspoke",
+              "start": 1.99,
+              "end": 2.53,
+              "probability": 0.7671712239583334
+            },
+            {
+              "text": " my",
+              "start": 2.53,
+              "end": 2.73,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " being",
+              "start": 2.73,
+              "end": 2.95,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " in",
+              "start": 2.95,
+              "end": 3.09,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " these",
+              "start": 3.09,
+              "end": 3.25,
+              "probability": 0.986328125
+            },
+            {
+              "text": " wars",
+              "start": 3.25,
+              "end": 3.57,
+              "probability": 0.958984375
+            },
+            {
+              "text": " And",
+              "start": 3.57,
+              "end": 3.91,
+              "probability": 0.0244598388671875
+            },
+            {
+              "text": " say'st",
+              "start": 3.91,
+              "end": 4.35,
+              "probability": 0.588134765625
+            },
+            {
+              "text": " it",
+              "start": 4.35,
+              "end": 4.47,
+              "probability": 0.132080078125
+            },
+            {
+              "text": " is",
+              "start": 4.47,
+              "end": 4.67,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " not",
+              "start": 4.67,
+              "end": 4.87,
+              "probability": 0.986328125
+            },
+            {
+              "text": " fit.",
+              "start": 4.87,
+              "end": 5.19,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "Thou",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "raw": "hast",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "raw": "forspoke",
+          "start": 1.99,
+          "end": 2.53
+        },
+        {
+          "raw": "my",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "raw": "being",
+          "start": 2.73,
+          "end": 2.95
+        },
+        {
+          "raw": "in",
+          "start": 2.95,
+          "end": 3.09
+        },
+        {
+          "raw": "these",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "raw": "wars",
+          "start": 3.25,
+          "end": 3.57
+        },
+        {
+          "raw": "And",
+          "start": 3.57,
+          "end": 3.91
+        },
+        {
+          "raw": "say'st",
+          "start": 3.91,
+          "end": 4.35
+        },
+        {
+          "raw": "it",
+          "start": 4.35,
+          "end": 4.47
+        },
+        {
+          "raw": "is",
+          "start": 4.47,
+          "end": 4.67
+        },
+        {
+          "raw": "not",
+          "start": 4.67,
+          "end": 4.87
+        },
+        {
+          "raw": "fit.",
+          "start": 4.87,
+          "end": 5.19
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Thou",
+        "hast",
+        "forspoke",
+        "my",
+        "being",
+        "in",
+        "these",
+        "wars",
+        "And",
+        "say'st",
+        "it",
+        "is",
+        "not",
+        "fit."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 1.63,
+          "end": 1.69,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 1.69,
+          "end": 1.99,
+          "key": "hast",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "forspoke",
+          "start": 1.99,
+          "end": 2.53,
+          "key": "forspoke",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.53,
+          "end": 2.73,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 2.73,
+          "end": 2.95,
+          "key": "being",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.95,
+          "end": 3.09,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.09,
+          "end": 3.25,
+          "key": "these",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wars",
+          "start": 3.25,
+          "end": 3.57,
+          "key": "wars",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.57,
+          "end": 3.91,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "say'st",
+          "start": 3.91,
+          "end": 4.35,
+          "key": "sayst",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.35,
+          "end": 4.47,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.47,
+          "end": 4.67,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.67,
+          "end": 4.87,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fit.",
+          "start": 4.87,
+          "end": 5.19,
+          "key": "fit",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "Thou",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "text": "hast",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "text": "forspoke",
+          "start": 1.99,
+          "end": 2.53
+        },
+        {
+          "text": "my",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "text": "being",
+          "start": 2.73,
+          "end": 2.95
+        },
+        {
+          "text": "in",
+          "start": 2.95,
+          "end": 3.09
+        },
+        {
+          "text": "these",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "text": "wars",
+          "start": 3.25,
+          "end": 3.57
+        },
+        {
+          "text": "And",
+          "start": 3.57,
+          "end": 3.91
+        },
+        {
+          "text": "say'st",
+          "start": 3.91,
+          "end": 4.35
+        },
+        {
+          "text": "it",
+          "start": 4.35,
+          "end": 4.47
+        },
+        {
+          "text": "is",
+          "start": 4.47,
+          "end": 4.67
+        },
+        {
+          "text": "not",
+          "start": 4.67,
+          "end": 4.87
+        },
+        {
+          "text": "fit.",
+          "start": 4.87,
+          "end": 5.19
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22617340501165017
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "242eab688320fb4e728ab49df76658e106422a48af99dbe2d5e6468090e07c24",
+  "selected_reasons": []
+}

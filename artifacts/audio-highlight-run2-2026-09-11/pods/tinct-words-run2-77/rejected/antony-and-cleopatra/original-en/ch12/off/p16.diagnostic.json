@@ -1,0 +1,368 @@
+{
+  "complete": true,
+  "signature": "0302cad72b6bb1ef353b356b28a49ed1ee8f0f4deb5f1df1d27b28e97b4353e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.12340933497762308,
+      "alignment_seconds": 0.00022223798441700637,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pompey, sit in some wine, a health telepitus.",
+          "start": 0.05,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Pompey,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.827880859375
+            },
+            {
+              "text": " sit",
+              "start": 1.03,
+              "end": 1.25,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " in",
+              "start": 1.25,
+              "end": 1.41,
+              "probability": 0.6005859375
+            },
+            {
+              "text": " some",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wine,",
+              "start": 1.57,
+              "end": 1.87,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 2.09,
+              "end": 2.17,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " health",
+              "start": 2.17,
+              "end": 2.39,
+              "probability": 0.966796875
+            },
+            {
+              "text": " telepitus.",
+              "start": 2.39,
+              "end": 3.09,
+              "probability": 0.6298828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pompey,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "sit",
+          "start": 1.03,
+          "end": 1.25
+        },
+        {
+          "raw": "in",
+          "start": 1.25,
+          "end": 1.41
+        },
+        {
+          "raw": "some",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "wine,",
+          "start": 1.57,
+          "end": 1.87
+        },
+        {
+          "raw": "a",
+          "start": 2.09,
+          "end": 2.17
+        },
+        {
+          "raw": "health",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "raw": "telepitus.",
+          "start": 2.39,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "Pompey.",
+        "Sit,",
+        "and",
+        "some",
+        "wine!",
+        "A",
+        "health",
+        "to",
+        "Lepidus!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          7,
+          3,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pompey,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "pompey",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sit",
+          "start": 1.03,
+          "end": 1.25,
+          "key": "sit",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.25,
+          "end": 1.41,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "some",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wine,",
+          "start": 1.57,
+          "end": 1.87,
+          "key": "wine",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.09,
+          "end": 2.17,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "health",
+          "start": 2.17,
+          "end": 2.39,
+          "key": "health",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "telepitus.",
+          "start": 2.39,
+          "end": 3.09,
+          "key": "telepitus",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pompey.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Sit,",
+          "start": 1.03,
+          "end": 1.25
+        },
+        {
+          "text": "and",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "text": "some",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "wine!",
+          "start": 1.57,
+          "end": 1.87
+        },
+        {
+          "text": "A",
+          "start": 2.09,
+          "end": 2.17
+        },
+        {
+          "text": "health",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "text": "to",
+          "start": 2.39,
+          "end": 2.74
+        },
+        {
+          "text": "Lepidus!",
+          "start": 2.74,
+          "end": 2.915
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12369910499546677
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "17b45167593e6b294e7bee35a7828456aef299e684043b5f172fffdebaa3233b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

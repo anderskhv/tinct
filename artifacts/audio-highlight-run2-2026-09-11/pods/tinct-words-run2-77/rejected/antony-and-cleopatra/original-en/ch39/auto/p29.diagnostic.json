@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "9c77eaf92b0afe205b6079a39963f899ad19d76163ebbb72619e0ba8b5f9b8f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.22069032199215144,
+      "alignment_seconds": 0.00039176398422569036,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Eros. Turn from me then that noble countenance Wherein the worship of the whole world lies.",
+        "hotwords": "Eros, Turn, Wherein"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Eros, Turn from me then that noble countenance Wherein the worship of the whole world lies.",
+          "start": 0.05,
+          "end": 5.49,
+          "words": [
+            {
+              "text": " Eros,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " Turn",
+              "start": 1.33,
+              "end": 1.59,
+              "probability": 0.003787994384765625
+            },
+            {
+              "text": " from",
+              "start": 1.59,
+              "end": 1.79,
+              "probability": 0.293701171875
+            },
+            {
+              "text": " me",
+              "start": 1.79,
+              "end": 1.93,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " then",
+              "start": 1.93,
+              "end": 2.11,
+              "probability": 0.88671875
+            },
+            {
+              "text": " that",
+              "start": 2.11,
+              "end": 2.35,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " noble",
+              "start": 2.35,
+              "end": 2.73,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " countenance",
+              "start": 2.73,
+              "end": 3.37,
+              "probability": 0.961669921875
+            },
+            {
+              "text": " Wherein",
+              "start": 3.37,
+              "end": 3.79,
+              "probability": 0.224700927734375
+            },
+            {
+              "text": " the",
+              "start": 3.79,
+              "end": 3.89,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " worship",
+              "start": 3.89,
+              "end": 4.15,
+              "probability": 0.955078125
+            },
+            {
+              "text": " of",
+              "start": 4.15,
+              "end": 4.41,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 4.41,
+              "end": 4.51,
+              "probability": 0.98828125
+            },
+            {
+              "text": " whole",
+              "start": 4.51,
+              "end": 4.77,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " world",
+              "start": 4.77,
+              "end": 5.09,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " lies.",
+              "start": 5.09,
+              "end": 5.49,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Eros,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Turn",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "raw": "from",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "raw": "me",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "raw": "then",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "raw": "that",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "raw": "noble",
+          "start": 2.35,
+          "end": 2.73
+        },
+        {
+          "raw": "countenance",
+          "start": 2.73,
+          "end": 3.37
+        },
+        {
+          "raw": "Wherein",
+          "start": 3.37,
+          "end": 3.79
+        },
+        {
+          "raw": "the",
+          "start": 3.79,
+          "end": 3.89
+        },
+        {
+          "raw": "worship",
+          "start": 3.89,
+          "end": 4.15
+        },
+        {
+          "raw": "of",
+          "start": 4.15,
+          "end": 4.41
+        },
+        {
+          "raw": "the",
+          "start": 4.41,
+          "end": 4.51
+        },
+        {
+          "raw": "whole",
+          "start": 4.51,
+          "end": 4.77
+        },
+        {
+          "raw": "world",
+          "start": 4.77,
+          "end": 5.09
+        },
+        {
+          "raw": "lies.",
+          "start": 5.09,
+          "end": 5.49
+        }
+      ],
+      "expected_tokens": [
+        "Eros.",
+        "Turn",
+        "from",
+        "me",
+        "then",
+        "that",
+        "noble",
+        "countenance",
+        "Wherein",
+        "the",
+        "worship",
+        "of",
+        "the",
+        "whole",
+        "world",
+        "lies."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Eros,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "eros",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Turn",
+          "start": 1.33,
+          "end": 1.59,
+          "key": "turn",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.59,
+          "end": 1.79,
+          "key": "from",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.79,
+          "end": 1.93,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.93,
+          "end": 2.11,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.11,
+          "end": 2.35,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 2.35,
+          "end": 2.73,
+          "key": "noble",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "countenance",
+          "start": 2.73,
+          "end": 3.37,
+          "key": "countenance",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Wherein",
+          "start": 3.37,
+          "end": 3.79,
+          "key": "wherein",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.79,
+          "end": 3.89,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "worship",
+          "start": 3.89,
+          "end": 4.15,
+          "key": "worship",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.15,
+          "end": 4.41,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.41,
+          "end": 4.51,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 4.51,
+          "end": 4.77,
+          "key": "whole",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "world",
+          "start": 4.77,
+          "end": 5.09,
+          "key": "world",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "lies.",
+          "start": 5.09,
+          "end": 5.49,
+          "key": "lies",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Eros.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Turn",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "text": "from",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "text": "me",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "text": "then",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "text": "that",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "text": "noble",
+          "start": 2.35,
+          "end": 2.73
+        },
+        {
+          "text": "countenance",
+          "start": 2.73,
+          "end": 3.37
+        },
+        {
+          "text": "Wherein",
+          "start": 3.37,
+          "end": 3.79
+        },
+        {
+          "text": "the",
+          "start": 3.79,
+          "end": 3.89
+        },
+        {
+          "text": "worship",
+          "start": 3.89,
+          "end": 4.15
+        },
+        {
+          "text": "of",
+          "start": 4.15,
+          "end": 4.41
+        },
+        {
+          "text": "the",
+          "start": 4.41,
+          "end": 4.51
+        },
+        {
+          "text": "whole",
+          "start": 4.51,
+          "end": 4.77
+        },
+        {
+          "text": "world",
+          "start": 4.77,
+          "end": 5.09
+        },
+        {
+          "text": "lies.",
+          "start": 5.09,
+          "end": 5.49
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.221260671998607
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e016167b072d3ac404de1ecdca9ec39f4210139b0c0105fff005c99d1715d0ad",
+  "selected_reasons": []
+}

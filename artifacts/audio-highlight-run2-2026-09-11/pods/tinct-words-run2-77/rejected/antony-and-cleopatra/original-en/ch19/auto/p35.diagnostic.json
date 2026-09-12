@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "8a258ec5fe7e74a618679068d67962f23402584b7f1fbd49df409c9564feb88d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1719771979842335,
+      "alignment_seconds": 0.00016113501624204218,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Soldier. By Hercules, I think I am i' th' right.",
+        "hotwords": "Soldier, By, Hercules"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Soldier, By, Hercules, I think I am i' th' right.",
+          "start": 0.08,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " Soldier,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.35400390625
+            },
+            {
+              "text": " By,",
+              "start": 1.14,
+              "end": 1.34,
+              "probability": 0.027252197265625
+            },
+            {
+              "text": " Hercules,",
+              "start": 1.44,
+              "end": 1.64,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " I",
+              "start": 1.96,
+              "end": 2.06,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " think",
+              "start": 2.06,
+              "end": 2.16,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " I",
+              "start": 2.16,
+              "end": 2.3,
+              "probability": 0.6591796875
+            },
+            {
+              "text": " am",
+              "start": 2.3,
+              "end": 2.4,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " i'",
+              "start": 2.4,
+              "end": 2.58,
+              "probability": 0.03857421875
+            },
+            {
+              "text": " th'",
+              "start": 2.58,
+              "end": 2.86,
+              "probability": 0.65380859375
+            },
+            {
+              "text": " right.",
+              "start": 2.98,
+              "end": 3.36,
+              "probability": 0.95849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soldier,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "By,",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "raw": "Hercules,",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "raw": "I",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "raw": "think",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "raw": "I",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "raw": "am",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "raw": "i'",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "raw": "th'",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "raw": "right.",
+          "start": 2.98,
+          "end": 3.36
+        }
+      ],
+      "expected_tokens": [
+        "Soldier.",
+        "By",
+        "Hercules,",
+        "I",
+        "think",
+        "I",
+        "am",
+        "i'",
+        "th'",
+        "right."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soldier,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "soldier",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "By,",
+          "start": 1.14,
+          "end": 1.34,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hercules,",
+          "start": 1.44,
+          "end": 1.64,
+          "key": "hercules",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.96,
+          "end": 2.06,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 2.06,
+          "end": 2.16,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.16,
+          "end": 2.3,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.3,
+          "end": 2.4,
+          "key": "am",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "i'",
+          "start": 2.4,
+          "end": 2.58,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 2.58,
+          "end": 2.86,
+          "key": "th",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "right.",
+          "start": 2.98,
+          "end": 3.36,
+          "key": "right",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Soldier.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "By",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "text": "Hercules,",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "text": "I",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "text": "think",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "text": "I",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "am",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "text": "i'",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "text": "th'",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "text": "right.",
+          "start": 2.98,
+          "end": 3.36
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1721988049976062
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "78e977272a64e556172c22ac34eeb51e4331a01a348dc2e1714460531eb01208",
+  "selected_reasons": []
+}

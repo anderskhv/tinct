@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "f2455ddbc840cad9b23b3d61c6c289a37216548b790b702023b844858fd045f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.12428394801099785,
+      "alignment_seconds": 0.0001429850235581398,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, low thee.",
+          "start": 0.18,
+          "end": 1.48,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.18,
+              "end": 0.92,
+              "probability": 0.688232421875
+            },
+            {
+              "text": " low",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.3388671875
+            },
+            {
+              "text": " thee.",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.3740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.18,
+          "end": 0.92
+        },
+        {
+          "raw": "low",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "thee.",
+          "start": 1.26,
+          "end": 1.48
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Lo",
+        "thee!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.18,
+          "end": 0.92,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "low",
+          "start": 1.08,
+          "end": 1.26,
+          "key": "low",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 1.26,
+          "end": 1.48,
+          "key": "thee",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.18,
+          "end": 0.92
+        },
+        {
+          "text": "Lo",
+          "start": 0.92,
+          "end": 1.09
+        },
+        {
+          "text": "thee!",
+          "start": 1.26,
+          "end": 1.48
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12447077501565218
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "84d0034feed4ad5b91dfe304a3bd167697c25f0d1e5f7bb84cd43febbc59ff3f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

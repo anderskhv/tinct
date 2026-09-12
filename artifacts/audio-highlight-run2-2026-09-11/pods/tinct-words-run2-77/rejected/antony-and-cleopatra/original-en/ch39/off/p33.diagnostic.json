@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "61d7705ed64cb6725e2cb348d40953ff0c418ca076c82cb958438ff7df8ea0e8",
+  "attempts": [
+    {
+      "asr_seconds": 0.21319800199125893,
+      "alignment_seconds": 0.00036803301190957427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, then let it do at once the thing why thou hast drawn it.",
+          "start": 0.49,
+          "end": 3.87,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.49,
+              "end": 0.87,
+              "probability": 0.943359375
+            },
+            {
+              "text": " then",
+              "start": 1.19,
+              "end": 1.51,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " let",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.986328125
+            },
+            {
+              "text": " it",
+              "start": 1.69,
+              "end": 1.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " do",
+              "start": 1.79,
+              "end": 1.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " at",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " once",
+              "start": 2.05,
+              "end": 2.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.25,
+              "end": 2.41,
+              "probability": 0.984375
+            },
+            {
+              "text": " thing",
+              "start": 2.41,
+              "end": 2.59,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " why",
+              "start": 2.59,
+              "end": 2.77,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " thou",
+              "start": 2.77,
+              "end": 2.93,
+              "probability": 0.984375
+            },
+            {
+              "text": " hast",
+              "start": 2.93,
+              "end": 3.27,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " drawn",
+              "start": 3.27,
+              "end": 3.63,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " it.",
+              "start": 3.63,
+              "end": 3.87,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.49,
+          "end": 0.87
+        },
+        {
+          "raw": "then",
+          "start": 1.19,
+          "end": 1.51
+        },
+        {
+          "raw": "let",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "it",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "raw": "do",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "raw": "at",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "once",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "raw": "the",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "raw": "thing",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "raw": "why",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "raw": "thou",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "raw": "hast",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "raw": "drawn",
+          "start": 3.27,
+          "end": 3.63
+        },
+        {
+          "raw": "it.",
+          "start": 3.63,
+          "end": 3.87
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Then",
+        "let",
+        "it",
+        "do",
+        "at",
+        "once",
+        "The",
+        "thing",
+        "why",
+        "thou",
+        "hast",
+        "drawn",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.49,
+          "end": 0.87,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.19,
+          "end": 1.51,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.51,
+          "end": 1.69,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.69,
+          "end": 1.79,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.79,
+          "end": 1.91,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 2.05,
+          "end": 2.25,
+          "key": "once",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.25,
+          "end": 2.41,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 2.41,
+          "end": 2.59,
+          "key": "thing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 2.59,
+          "end": 2.77,
+          "key": "why",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.77,
+          "end": 2.93,
+          "key": "thou",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 2.93,
+          "end": 3.27,
+          "key": "hast",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "drawn",
+          "start": 3.27,
+          "end": 3.63,
+          "key": "drawn",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 3.63,
+          "end": 3.87,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.49,
+          "end": 0.87
+        },
+        {
+          "text": "Then",
+          "start": 1.19,
+          "end": 1.51
+        },
+        {
+          "text": "let",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "it",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "text": "do",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "text": "at",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "once",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "text": "The",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "text": "thing",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "text": "why",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "text": "thou",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "text": "hast",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "text": "drawn",
+          "start": 3.27,
+          "end": 3.63
+        },
+        {
+          "text": "it.",
+          "start": 3.63,
+          "end": 3.87
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21371680000447668
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "55baaaa100da1d9dbe7798d492abf11fb57efb0e7205d598c2a30e8a0a803761",
+  "selected_reasons": []
+}

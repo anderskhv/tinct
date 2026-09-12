@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "889bf30ede73983fb2785d74f68bc6f3f2161a92fcb7912b6fb680d87ea9ffa4",
+  "attempts": [
+    {
+      "asr_seconds": 0.09124128601979464,
+      "alignment_seconds": 0.00010318300337530673,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter an Egyptian",
+          "start": 0.18,
+          "end": 1.12,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.18,
+              "end": 0.68,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " an",
+              "start": 0.68,
+              "end": 0.82,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Egyptian",
+              "start": 0.82,
+              "end": 1.12,
+              "probability": 0.89208984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.68
+        },
+        {
+          "raw": "an",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "raw": "Egyptian",
+          "start": 0.82,
+          "end": 1.12
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "an",
+        "Egyptian."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 0.68,
+          "end": 0.82,
+          "key": "an",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Egyptian",
+          "start": 0.82,
+          "end": 1.12,
+          "key": "egyptian",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.18,
+          "end": 0.68
+        },
+        {
+          "text": "an",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "text": "Egyptian.",
+          "start": 0.82,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09137671001371928
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7290d17ae2085f2c8850e747f2144a729588f483433c296943725c571d935a6a",
+  "selected_reasons": []
+}

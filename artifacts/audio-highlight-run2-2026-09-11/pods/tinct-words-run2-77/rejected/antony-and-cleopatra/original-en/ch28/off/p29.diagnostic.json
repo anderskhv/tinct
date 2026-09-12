@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "2e930c243aa7e6d5e2b05df9eef2e37810ae401c9287f2be432094c084827973",
+  "attempts": [
+    {
+      "asr_seconds": 0.10835330400732346,
+      "alignment_seconds": 0.00021611800184473395,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All content. Tease strange.",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " content.",
+              "start": 0.61,
+              "end": 1.11,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " Tease",
+              "start": 1.75,
+              "end": 1.89,
+              "probability": 0.723388671875
+            },
+            {
+              "text": " strange.",
+              "start": 1.89,
+              "end": 2.19,
+              "probability": 0.5078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "content.",
+          "start": 0.61,
+          "end": 1.11
+        },
+        {
+          "raw": "Tease",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "raw": "strange.",
+          "start": 1.89,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Content.",
+        "'Tis",
+        "strange."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "content.",
+          "start": 0.61,
+          "end": 1.11,
+          "key": "content",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 1.75,
+          "end": 1.89,
+          "key": "tease",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "strange.",
+          "start": 1.89,
+          "end": 2.19,
+          "key": "strange",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Content.",
+          "start": 0.61,
+          "end": 1.11
+        },
+        {
+          "text": "'Tis",
+          "start": 1.11,
+          "end": 1.5
+        },
+        {
+          "text": "strange.",
+          "start": 1.89,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10863974402309395
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "26a432c4a405d71e0122506715f4b102b6ab9a5894406e04bdf249f14cae380f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

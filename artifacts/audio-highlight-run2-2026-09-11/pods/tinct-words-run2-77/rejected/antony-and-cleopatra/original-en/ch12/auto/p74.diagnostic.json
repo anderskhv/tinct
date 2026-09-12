@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "cd9b386c4e15260ad55fd093da7cdbbf369bc7ac23956e6baeb4326a078c5047",
+  "attempts": [
+    {
+      "asr_seconds": 0.14200055997935124,
+      "alignment_seconds": 0.00013839500024914742,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enobarbus. Drink thou. Increase the reels.",
+        "hotwords": "Enobarbus, Drink, Increase"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enobarbus, Drink thou. Increase the reels.",
+          "start": 0.05,
+          "end": 3.03,
+          "words": [
+            {
+              "text": " Enobarbus,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.3302561442057292
+            },
+            {
+              "text": " Drink",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.056304931640625
+            },
+            {
+              "text": " thou.",
+              "start": 1.61,
+              "end": 1.95,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " Increase",
+              "start": 2.19,
+              "end": 2.41,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " the",
+              "start": 2.41,
+              "end": 2.65,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " reels.",
+              "start": 2.65,
+              "end": 3.03,
+              "probability": 0.5662841796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enobarbus,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "Drink",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "thou.",
+          "start": 1.61,
+          "end": 1.95
+        },
+        {
+          "raw": "Increase",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "raw": "the",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "raw": "reels.",
+          "start": 2.65,
+          "end": 3.03
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "Drink",
+        "thou.",
+        "Increase",
+        "the",
+        "reels."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enobarbus,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "enobarbus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Drink",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "drink",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou.",
+          "start": 1.61,
+          "end": 1.95,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Increase",
+          "start": 2.19,
+          "end": 2.41,
+          "key": "increase",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.41,
+          "end": 2.65,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "reels.",
+          "start": 2.65,
+          "end": 3.03,
+          "key": "reels",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "Drink",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "thou.",
+          "start": 1.61,
+          "end": 1.95
+        },
+        {
+          "text": "Increase",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "text": "the",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "text": "reels.",
+          "start": 2.65,
+          "end": 3.03
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14218743599485606
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ad56b20065ff76b2434cc0ecb2422b08c29b52b694787560626f56bc31064770",
+  "selected_reasons": []
+}

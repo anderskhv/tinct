@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "ba10d55ce1051d8e81a84a132e8b4cd4a7a73465baffad26a87d588a1fce262b",
+  "attempts": [
+    {
+      "asr_seconds": 0.08482538899988867,
+      "alignment_seconds": 0.00015017500845715404,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Is he wept?",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.64599609375
+            },
+            {
+              "text": " he",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " wept?",
+              "start": 0.65,
+              "end": 0.99,
+              "probability": 0.6563720703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "he",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "wept?",
+          "start": 0.65,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "Is",
+        "he",
+        "whipped?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wept?",
+          "start": 0.65,
+          "end": 0.99,
+          "key": "wept",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Is",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "he",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "whipped?",
+          "start": 0.65,
+          "end": 0.82
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0850253859825898
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ce47dc18d212be6c87fa71ef6fb48aa333e71dcdf86e2c9a3cb0050151f8b9d4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

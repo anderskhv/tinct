@@ -1,0 +1,422 @@
+{
+  "complete": true,
+  "signature": "115b9affa2e4f5a69be488e7fd21073a4c1e37c399407a88d888e21b600951a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.20450749300653115,
+      "alignment_seconds": 0.00017308600945398211,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, too late, good, de-ommed. Call my guard, I prithee.",
+          "start": 0.05,
+          "end": 3.89,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.940185546875
+            },
+            {
+              "text": " too",
+              "start": 1.05,
+              "end": 1.25,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " late,",
+              "start": 1.25,
+              "end": 1.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " good,",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " de",
+              "start": 1.95,
+              "end": 1.95,
+              "probability": 0.90478515625
+            },
+            {
+              "text": "-ommed.",
+              "start": 1.95,
+              "end": 2.35,
+              "probability": 0.6256510416666666
+            },
+            {
+              "text": " Call",
+              "start": 2.85,
+              "end": 2.89,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " my",
+              "start": 2.89,
+              "end": 3.07,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " guard,",
+              "start": 3.07,
+              "end": 3.33,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " I",
+              "start": 3.51,
+              "end": 3.55,
+              "probability": 0.9296875
+            },
+            {
+              "text": " prithee.",
+              "start": 3.55,
+              "end": 3.89,
+              "probability": 0.78173828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "too",
+          "start": 1.05,
+          "end": 1.25
+        },
+        {
+          "raw": "late,",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "raw": "good,",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "de",
+          "start": 1.95,
+          "end": 1.95
+        },
+        {
+          "raw": "-ommed.",
+          "start": 1.95,
+          "end": 2.35
+        },
+        {
+          "raw": "Call",
+          "start": 2.85,
+          "end": 2.89
+        },
+        {
+          "raw": "my",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "raw": "guard,",
+          "start": 3.07,
+          "end": 3.33
+        },
+        {
+          "raw": "I",
+          "start": 3.51,
+          "end": 3.55
+        },
+        {
+          "raw": "prithee.",
+          "start": 3.55,
+          "end": 3.89
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Too",
+        "late,",
+        "good",
+        "Diomed.",
+        "Call",
+        "my",
+        "guard,",
+        "I",
+        "prithee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          10,
+          6,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 1.05,
+          "end": 1.25,
+          "key": "too",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "late,",
+          "start": 1.25,
+          "end": 1.49,
+          "key": "late",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good,",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 1.95,
+          "end": 1.95,
+          "key": "de",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "-ommed.",
+          "start": 1.95,
+          "end": 2.35,
+          "key": "ommed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Call",
+          "start": 2.85,
+          "end": 2.89,
+          "key": "call",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.89,
+          "end": 3.07,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "guard,",
+          "start": 3.07,
+          "end": 3.33,
+          "key": "guard",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.51,
+          "end": 3.55,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "prithee.",
+          "start": 3.55,
+          "end": 3.89,
+          "key": "prithee",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Too",
+          "start": 1.05,
+          "end": 1.25
+        },
+        {
+          "text": "late,",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "text": "good",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "text": "Diomed.",
+          "start": 1.75,
+          "end": 2.3
+        },
+        {
+          "text": "Call",
+          "start": 2.85,
+          "end": 2.89
+        },
+        {
+          "text": "my",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "text": "guard,",
+          "start": 3.07,
+          "end": 3.33
+        },
+        {
+          "text": "I",
+          "start": 3.51,
+          "end": 3.55
+        },
+        {
+          "text": "prithee.",
+          "start": 3.55,
+          "end": 3.89
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.20474264098447748
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "687756c29700f1e156f90ab10f452a8ca7c95154d8b9283ccd6affc137bcefc9",
+  "selected_reasons": []
+}

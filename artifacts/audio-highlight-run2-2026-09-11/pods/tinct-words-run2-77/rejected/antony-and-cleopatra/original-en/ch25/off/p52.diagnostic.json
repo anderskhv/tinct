@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "73d8c528ffda83fcc13089472e81470e408f5bd07bc6608dbddb28bb9876279f",
+  "attempts": [
+    {
+      "asr_seconds": 0.10970382098457776,
+      "alignment_seconds": 0.00026381900534033775,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Take hence this Jack and whip him",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Take",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " hence",
+              "start": 0.55,
+              "end": 0.77,
+              "probability": 0.176025390625
+            },
+            {
+              "text": " this",
+              "start": 0.77,
+              "end": 1.03,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Jack",
+              "start": 1.03,
+              "end": 1.27,
+              "probability": 0.57763671875
+            },
+            {
+              "text": " and",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " whip",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.974609375
+            },
+            {
+              "text": " him",
+              "start": 1.57,
+              "end": 1.83,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Take",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "hence",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "raw": "this",
+          "start": 0.77,
+          "end": 1.03
+        },
+        {
+          "raw": "Jack",
+          "start": 1.03,
+          "end": 1.27
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "raw": "whip",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "him",
+          "start": 1.57,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Take",
+        "hence",
+        "this",
+        "jack",
+        "and",
+        "whip",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Take",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "take",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hence",
+          "start": 0.55,
+          "end": 0.77,
+          "key": "hence",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.77,
+          "end": 1.03,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Jack",
+          "start": 1.03,
+          "end": 1.27,
+          "key": "jack",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.43,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whip",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "whip",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.57,
+          "end": 1.83,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Take",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "hence",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "text": "this",
+          "start": 0.77,
+          "end": 1.03
+        },
+        {
+          "text": "jack",
+          "start": 1.03,
+          "end": 1.27
+        },
+        {
+          "text": "and",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "text": "whip",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "him.",
+          "start": 1.57,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11007174398400821
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e4fb9697d4e3a5f8aabf8c1c68f230a19ced977d69e701cf51ac093e71b842a2",
+  "selected_reasons": []
+}

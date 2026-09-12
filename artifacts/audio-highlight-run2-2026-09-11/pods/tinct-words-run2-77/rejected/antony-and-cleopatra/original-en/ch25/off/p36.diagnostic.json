@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "a1dba6fc5208a82f39b54e32eef4fb2aacdf6e07655efd834586b2f7ef764e27",
+  "attempts": [
+    {
+      "asr_seconds": 0.13191222000750713,
+      "alignment_seconds": 0.00013409499661065638,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside to be sure of that",
+          "start": 0.18,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.18,
+              "end": 0.78,
+              "probability": 0.298095703125
+            },
+            {
+              "text": " to",
+              "start": 0.78,
+              "end": 1.32,
+              "probability": 0.3271484375
+            },
+            {
+              "text": " be",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sure",
+              "start": 1.46,
+              "end": 1.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 1.62,
+              "end": 1.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 1.76,
+              "end": 1.96,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "raw": "to",
+          "start": 0.78,
+          "end": 1.32
+        },
+        {
+          "raw": "be",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "sure",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "raw": "of",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "raw": "that",
+          "start": 1.76,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside_.]",
+        "To",
+        "be",
+        "sure",
+        "of",
+        "that,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside",
+          "start": 0.18,
+          "end": 0.78,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.78,
+          "end": 1.32,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 1.46,
+          "end": 1.62,
+          "key": "sure",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.62,
+          "end": 1.76,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.76,
+          "end": 1.96,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside_.]",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "text": "To",
+          "start": 0.78,
+          "end": 1.32
+        },
+        {
+          "text": "be",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "sure",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "text": "of",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "text": "that,",
+          "start": 1.76,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13209136598743498
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eb60a37659bcfd9561fde76f3f99e8308733d5d08056d900d0ee47765a883fe7",
+  "selected_reasons": []
+}

@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "eeace75d2238761436edd2adc86334059a6fac7f2d96483686d2d0865564cec1",
+  "attempts": [
+    {
+      "asr_seconds": 0.27153916101087816,
+      "alignment_seconds": 0.0003817830001935363,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. Art thou there, Diomed? Draw thy sword and give me Sufficing strokes for death.",
+        "hotwords": "Antony, Art, Diomed, Draw, Sufficing"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Art thou there, Diomed, Draw thy sword and give me Sufficing strokes for death.",
+          "start": 0.02,
+          "end": 5.26,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " Art",
+              "start": 1.1,
+              "end": 1.3,
+              "probability": 0.046600341796875
+            },
+            {
+              "text": " thou",
+              "start": 1.3,
+              "end": 1.5,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " there,",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " Diomed,",
+              "start": 1.88,
+              "end": 2.32,
+              "probability": 0.3456249237060547
+            },
+            {
+              "text": " Draw",
+              "start": 2.98,
+              "end": 3.0,
+              "probability": 0.4208984375
+            },
+            {
+              "text": " thy",
+              "start": 3.0,
+              "end": 3.2,
+              "probability": 0.984375
+            },
+            {
+              "text": " sword",
+              "start": 3.2,
+              "end": 3.48,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " and",
+              "start": 3.48,
+              "end": 3.68,
+              "probability": 0.708984375
+            },
+            {
+              "text": " give",
+              "start": 3.68,
+              "end": 3.8,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " me",
+              "start": 3.8,
+              "end": 3.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Sufficing",
+              "start": 3.96,
+              "end": 4.46,
+              "probability": 0.599609375
+            },
+            {
+              "text": " strokes",
+              "start": 4.46,
+              "end": 4.74,
+              "probability": 0.64794921875
+            },
+            {
+              "text": " for",
+              "start": 4.74,
+              "end": 5.0,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " death.",
+              "start": 5.0,
+              "end": 5.26,
+              "probability": 0.5673828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Art",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "raw": "thou",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "raw": "there,",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "Diomed,",
+          "start": 1.88,
+          "end": 2.32
+        },
+        {
+          "raw": "Draw",
+          "start": 2.98,
+          "end": 3.0
+        },
+        {
+          "raw": "thy",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "raw": "sword",
+          "start": 3.2,
+          "end": 3.48
+        },
+        {
+          "raw": "and",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "raw": "give",
+          "start": 3.68,
+          "end": 3.8
+        },
+        {
+          "raw": "me",
+          "start": 3.8,
+          "end": 3.96
+        },
+        {
+          "raw": "Sufficing",
+          "start": 3.96,
+          "end": 4.46
+        },
+        {
+          "raw": "strokes",
+          "start": 4.46,
+          "end": 4.74
+        },
+        {
+          "raw": "for",
+          "start": 4.74,
+          "end": 5.0
+        },
+        {
+          "raw": "death.",
+          "start": 5.0,
+          "end": 5.26
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Art",
+        "thou",
+        "there,",
+        "Diomed?",
+        "Draw",
+        "thy",
+        "sword",
+        "and",
+        "give",
+        "me",
+        "Sufficing",
+        "strokes",
+        "for",
+        "death."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Art",
+          "start": 1.1,
+          "end": 1.3,
+          "key": "art",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.3,
+          "end": 1.5,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Diomed,",
+          "start": 1.88,
+          "end": 2.32,
+          "key": "diomed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Draw",
+          "start": 2.98,
+          "end": 3.0,
+          "key": "draw",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.0,
+          "end": 3.2,
+          "key": "thy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sword",
+          "start": 3.2,
+          "end": 3.48,
+          "key": "sword",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.48,
+          "end": 3.68,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 3.68,
+          "end": 3.8,
+          "key": "give",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.8,
+          "end": 3.96,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Sufficing",
+          "start": 3.96,
+          "end": 4.46,
+          "key": "sufficing",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "strokes",
+          "start": 4.46,
+          "end": 4.74,
+          "key": "strokes",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.74,
+          "end": 5.0,
+          "key": "for",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "death.",
+          "start": 5.0,
+          "end": 5.26,
+          "key": "death",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Art",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "text": "thou",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "text": "there,",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "text": "Diomed?",
+          "start": 1.88,
+          "end": 2.32
+        },
+        {
+          "text": "Draw",
+          "start": 2.98,
+          "end": 3.0
+        },
+        {
+          "text": "thy",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "text": "sword",
+          "start": 3.2,
+          "end": 3.48
+        },
+        {
+          "text": "and",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "text": "give",
+          "start": 3.68,
+          "end": 3.8
+        },
+        {
+          "text": "me",
+          "start": 3.8,
+          "end": 3.96
+        },
+        {
+          "text": "Sufficing",
+          "start": 3.96,
+          "end": 4.46
+        },
+        {
+          "text": "strokes",
+          "start": 4.46,
+          "end": 4.74
+        },
+        {
+          "text": "for",
+          "start": 4.74,
+          "end": 5.0
+        },
+        {
+          "text": "death.",
+          "start": 5.0,
+          "end": 5.26
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2720856300147716
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5ab9c92e7573b84495d2459b2702032a6c58cb6f744a3504e6cd5b7293d3ba38",
+  "selected_reasons": []
+}

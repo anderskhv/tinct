@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "9e33b3dbed5cef100db57d9d93c8f47da9c76a0c75b212feb671a0d44a35903e",
+  "attempts": [
+    {
+      "asr_seconds": 0.07470993799506687,
+      "alignment_seconds": 9.390298509970307e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mina's",
+          "start": 0.08,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Mina's",
+              "start": 0.08,
+              "end": 1.14,
+              "probability": 0.6786295572916666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mina's",
+          "start": 0.08,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "Menas."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mina's",
+          "start": 0.08,
+          "end": 1.14,
+          "key": "minas",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menas.",
+          "start": 0.0,
+          "end": 0.57
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.07483339199097827
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8853368e5217ec0e1a170e68d5eeb122832312c5c2c0103e10ac92f60237fbb4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

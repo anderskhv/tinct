@@ -1,0 +1,212 @@
+{
+  "complete": true,
+  "signature": "47b81908e2b2997feacf268337825986c7cde31b63b5a6c5b7219971ee9fec91",
+  "attempts": [
+    {
+      "asr_seconds": 0.10778499400475994,
+      "alignment_seconds": 0.0002621089806780219,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony cold-hearted toward me.",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Antony",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " cold",
+              "start": 0.87,
+              "end": 1.37,
+              "probability": 0.53173828125
+            },
+            {
+              "text": "-hearted",
+              "start": 1.37,
+              "end": 1.59,
+              "probability": 0.902587890625
+            },
+            {
+              "text": " toward",
+              "start": 1.59,
+              "end": 1.89,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " me.",
+              "start": 1.89,
+              "end": 2.19,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "cold",
+          "start": 0.87,
+          "end": 1.37
+        },
+        {
+          "raw": "-hearted",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "raw": "toward",
+          "start": 1.59,
+          "end": 1.89
+        },
+        {
+          "raw": "me.",
+          "start": 1.89,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Cold-hearted",
+        "toward",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cold -hearted",
+          "start": 0.87,
+          "end": 1.59,
+          "key": "coldhearted",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "toward",
+          "start": 1.59,
+          "end": 1.89,
+          "key": "toward",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 1.89,
+          "end": 2.19,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "Cold-hearted",
+          "heard": "cold -hearted",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 0.87,
+          "end": 1.59
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Cold-hearted",
+          "start": 0.87,
+          "end": 1.59
+        },
+        {
+          "text": "toward",
+          "start": 1.59,
+          "end": 1.89
+        },
+        {
+          "text": "me?",
+          "start": 1.89,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10811433600611053
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "487c8d359c0f96b83c7a27ec49d6b90d668b199bd31281598b4b1cd12fc831e8",
+  "selected_reasons": []
+}

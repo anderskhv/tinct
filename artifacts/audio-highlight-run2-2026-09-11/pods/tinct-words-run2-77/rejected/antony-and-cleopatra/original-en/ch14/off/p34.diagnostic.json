@@ -1,0 +1,427 @@
+{
+  "complete": true,
+  "signature": "6df88f337cdea4618d00b980f82824a2d809ae29729b24326960e2e336102be0",
+  "attempts": [
+    {
+      "asr_seconds": 0.19136114997672848,
+      "alignment_seconds": 0.00018825597362592816,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside to Anobarbus, he has a cloud in his face.",
+          "start": 0.02,
+          "end": 3.16,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " to",
+              "start": 0.7,
+              "end": 0.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Anobarbus,",
+              "start": 0.98,
+              "end": 1.58,
+              "probability": 0.505859375
+            },
+            {
+              "text": " he",
+              "start": 2.02,
+              "end": 2.14,
+              "probability": 0.986328125
+            },
+            {
+              "text": " has",
+              "start": 2.14,
+              "end": 2.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " cloud",
+              "start": 2.38,
+              "end": 2.6,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 2.6,
+              "end": 2.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 2.8,
+              "end": 2.92,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " face.",
+              "start": 2.92,
+              "end": 3.16,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "to",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "raw": "Anobarbus,",
+          "start": 0.98,
+          "end": 1.58
+        },
+        {
+          "raw": "he",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "raw": "has",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "raw": "a",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "cloud",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "raw": "in",
+          "start": 2.6,
+          "end": 2.8
+        },
+        {
+          "raw": "his",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "raw": "face.",
+          "start": 2.92,
+          "end": 3.16
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside",
+        "to",
+        "Enobarbus_.]",
+        "He",
+        "has",
+        "a",
+        "cloud",
+        "in",
+        "'s",
+        "face."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          8,
+          3,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.7,
+          "end": 0.98,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Anobarbus,",
+          "start": 0.98,
+          "end": 1.58,
+          "key": "anobarbus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.02,
+          "end": 2.14,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 2.14,
+          "end": 2.26,
+          "key": "has",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cloud",
+          "start": 2.38,
+          "end": 2.6,
+          "key": "cloud",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.6,
+          "end": 2.8,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.8,
+          "end": 2.92,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "face.",
+          "start": 2.92,
+          "end": 3.16,
+          "key": "face",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "to",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "text": "Enobarbus_.]",
+          "start": 0.98,
+          "end": 1.5
+        },
+        {
+          "text": "He",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "text": "has",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "text": "a",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "cloud",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "text": "in",
+          "start": 2.6,
+          "end": 2.8
+        },
+        {
+          "text": "'s",
+          "start": 2.8,
+          "end": 2.86
+        },
+        {
+          "text": "face.",
+          "start": 2.92,
+          "end": 3.16
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19160975900013
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bb32dc907cf35ecc03cfb2e911e54c8208fa7fcd3f3cae6b304e8802305fdbed",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

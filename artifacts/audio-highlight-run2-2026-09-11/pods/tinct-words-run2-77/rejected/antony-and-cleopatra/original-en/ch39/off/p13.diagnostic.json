@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "98d3ccd7cded7f4e5922adf23ba78335c654f2807a6cb554c3e45f01cab6c0d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.09714200900634751,
+      "alignment_seconds": 0.0001424450019840151,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, dead then.",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.783447265625
+            },
+            {
+              "text": " dead",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " then.",
+              "start": 1.35,
+              "end": 1.67,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "dead",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "raw": "then.",
+          "start": 1.35,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Dead,",
+        "then?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "dead",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then.",
+          "start": 1.35,
+          "end": 1.67,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Dead,",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "text": "then?",
+          "start": 1.35,
+          "end": 1.67
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09733327600406483
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "601fb77da63ffe2880d16cfa95a3e15f462f4bb722a3c3b4df6657119d672d5c",
+  "selected_reasons": []
+}

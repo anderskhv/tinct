@@ -1,0 +1,677 @@
+{
+  "complete": true,
+  "signature": "f7aca736306b6692ad4f52ee15369fbeb2b2bce4725e21fe73dc635ae2a046bb",
+  "attempts": [
+    {
+      "asr_seconds": 0.2659619140031282,
+      "alignment_seconds": 0.0004894669982604682,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menas. You have said, sir. We looked not for Mark Antony here. Pray you, is he married to Cleopatra?",
+        "hotwords": "Menas, We, Mark, Antony, Pray, Cleopatra"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menas, you have said, sir. We looked not for Mark Antony here. Pray you, is he married",
+          "start": 0.51,
+          "end": 5.43,
+          "words": [
+            {
+              "text": " Menas,",
+              "start": 0.51,
+              "end": 0.91,
+              "probability": 0.4781341552734375
+            },
+            {
+              "text": " you",
+              "start": 1.05,
+              "end": 1.21,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " have",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " said,",
+              "start": 1.33,
+              "end": 1.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sir.",
+              "start": 1.73,
+              "end": 1.87,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " We",
+              "start": 2.35,
+              "end": 2.43,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " looked",
+              "start": 2.43,
+              "end": 2.55,
+              "probability": 0.036102294921875
+            },
+            {
+              "text": " not",
+              "start": 2.55,
+              "end": 2.75,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 2.75,
+              "end": 2.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Mark",
+              "start": 2.91,
+              "end": 3.13,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " Antony",
+              "start": 3.13,
+              "end": 3.55,
+              "probability": 0.959228515625
+            },
+            {
+              "text": " here.",
+              "start": 3.55,
+              "end": 3.85,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " Pray",
+              "start": 4.39,
+              "end": 4.55,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " you,",
+              "start": 4.55,
+              "end": 4.79,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " is",
+              "start": 4.97,
+              "end": 5.07,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " he",
+              "start": 5.07,
+              "end": 5.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " married",
+              "start": 5.19,
+              "end": 5.43,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " to Cleopatra?",
+          "start": 5.43,
+          "end": 6.21,
+          "words": [
+            {
+              "text": " to",
+              "start": 5.43,
+              "end": 5.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Cleopatra?",
+              "start": 5.63,
+              "end": 6.21,
+              "probability": 0.9959309895833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menas,",
+          "start": 0.51,
+          "end": 0.91
+        },
+        {
+          "raw": "you",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "raw": "have",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "said,",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "raw": "sir.",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "raw": "We",
+          "start": 2.35,
+          "end": 2.43
+        },
+        {
+          "raw": "looked",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "raw": "not",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "raw": "for",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "raw": "Mark",
+          "start": 2.91,
+          "end": 3.13
+        },
+        {
+          "raw": "Antony",
+          "start": 3.13,
+          "end": 3.55
+        },
+        {
+          "raw": "here.",
+          "start": 3.55,
+          "end": 3.85
+        },
+        {
+          "raw": "Pray",
+          "start": 4.39,
+          "end": 4.55
+        },
+        {
+          "raw": "you,",
+          "start": 4.55,
+          "end": 4.79
+        },
+        {
+          "raw": "is",
+          "start": 4.97,
+          "end": 5.07
+        },
+        {
+          "raw": "he",
+          "start": 5.07,
+          "end": 5.19
+        },
+        {
+          "raw": "married",
+          "start": 5.19,
+          "end": 5.43
+        },
+        {
+          "raw": "to",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "raw": "Cleopatra?",
+          "start": 5.63,
+          "end": 6.21
+        }
+      ],
+      "expected_tokens": [
+        "Menas.",
+        "You",
+        "have",
+        "said,",
+        "sir.",
+        "We",
+        "looked",
+        "not",
+        "for",
+        "Mark",
+        "Antony",
+        "here.",
+        "Pray",
+        "you,",
+        "is",
+        "he",
+        "married",
+        "to",
+        "Cleopatra?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menas,",
+          "start": 0.51,
+          "end": 0.91,
+          "key": "menas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.05,
+          "end": 1.21,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.33,
+          "end": 1.57,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.73,
+          "end": 1.87,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 2.35,
+          "end": 2.43,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 2.43,
+          "end": 2.55,
+          "key": "looked",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.55,
+          "end": 2.75,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.75,
+          "end": 2.91,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Mark",
+          "start": 2.91,
+          "end": 3.13,
+          "key": "mark",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Antony",
+          "start": 3.13,
+          "end": 3.55,
+          "key": "antony",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 3.55,
+          "end": 3.85,
+          "key": "here",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Pray",
+          "start": 4.39,
+          "end": 4.55,
+          "key": "pray",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 4.55,
+          "end": 4.79,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.97,
+          "end": 5.07,
+          "key": "is",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.07,
+          "end": 5.19,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "married",
+          "start": 5.19,
+          "end": 5.43,
+          "key": "married",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.43,
+          "end": 5.63,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Cleopatra?",
+          "start": 5.63,
+          "end": 6.21,
+          "key": "cleopatra",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menas.",
+          "start": 0.51,
+          "end": 0.91
+        },
+        {
+          "text": "You",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "text": "have",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "said,",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "text": "sir.",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "text": "We",
+          "start": 2.35,
+          "end": 2.43
+        },
+        {
+          "text": "looked",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "text": "not",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "text": "for",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "text": "Mark",
+          "start": 2.91,
+          "end": 3.13
+        },
+        {
+          "text": "Antony",
+          "start": 3.13,
+          "end": 3.55
+        },
+        {
+          "text": "here.",
+          "start": 3.55,
+          "end": 3.85
+        },
+        {
+          "text": "Pray",
+          "start": 4.39,
+          "end": 4.55
+        },
+        {
+          "text": "you,",
+          "start": 4.55,
+          "end": 4.79
+        },
+        {
+          "text": "is",
+          "start": 4.97,
+          "end": 5.07
+        },
+        {
+          "text": "he",
+          "start": 5.07,
+          "end": 5.19
+        },
+        {
+          "text": "married",
+          "start": 5.19,
+          "end": 5.43
+        },
+        {
+          "text": "to",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "text": "Cleopatra?",
+          "start": 5.63,
+          "end": 6.21
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26664260699180886
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "20cce1a7a98935a68c2ffa8c34ba1bfd9877b5ce7cfefbf23611c97756810f30",
+  "selected_reasons": []
+}

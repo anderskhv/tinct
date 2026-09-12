@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "cd4a33bf2d309260011258f05a92fc27ebb4c2110c7da06eda4d2f02a9934031",
+  "attempts": [
+    {
+      "asr_seconds": 0.14939519600011408,
+      "alignment_seconds": 0.0001346950011793524,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Agrippa. What, are the brothers parted?",
+        "hotwords": "Agrippa, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Agrippa, What, are the brothers parted?",
+          "start": 0.14,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Agrippa,",
+              "start": 0.14,
+              "end": 0.92,
+              "probability": 0.8839518229166666
+            },
+            {
+              "text": " What,",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.05157470703125
+            },
+            {
+              "text": " are",
+              "start": 1.46,
+              "end": 1.54,
+              "probability": 0.64794921875
+            },
+            {
+              "text": " the",
+              "start": 1.54,
+              "end": 1.66,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " brothers",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " parted?",
+              "start": 1.86,
+              "end": 2.24,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agrippa,",
+          "start": 0.14,
+          "end": 0.92
+        },
+        {
+          "raw": "What,",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "are",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "raw": "brothers",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "raw": "parted?",
+          "start": 1.86,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "Agrippa.",
+        "What,",
+        "are",
+        "the",
+        "brothers",
+        "parted?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agrippa,",
+          "start": 0.14,
+          "end": 0.92,
+          "key": "agrippa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.46,
+          "end": 1.54,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.66,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "brothers",
+          "start": 1.66,
+          "end": 1.86,
+          "key": "brothers",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "parted?",
+          "start": 1.86,
+          "end": 2.24,
+          "key": "parted",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agrippa.",
+          "start": 0.14,
+          "end": 0.92
+        },
+        {
+          "text": "What,",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "are",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "text": "the",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "brothers",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "text": "parted?",
+          "start": 1.86,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1495751519978512
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f4c5fa45a9a58c542ac4654b2ea65c4fa625ee791703a7eae4354e94055b7697",
+  "selected_reasons": []
+}

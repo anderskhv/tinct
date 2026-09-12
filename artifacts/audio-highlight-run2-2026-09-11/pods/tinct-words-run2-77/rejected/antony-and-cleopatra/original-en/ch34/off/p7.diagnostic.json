@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "707ea811f5c6129dfd9b9c1ab0460cf18c15213b75744051e3e8ba372a5f21cf",
+  "attempts": [
+    {
+      "asr_seconds": 0.11956839502090588,
+      "alignment_seconds": 0.00011628400534391403,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sentry, an arborbus.",
+          "start": 0.02,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Sentry,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.863525390625
+            },
+            {
+              "text": " an",
+              "start": 1.2,
+              "end": 1.24,
+              "probability": 0.607421875
+            },
+            {
+              "text": " arborbus.",
+              "start": 1.24,
+              "end": 1.72,
+              "probability": 0.375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sentry,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "an",
+          "start": 1.2,
+          "end": 1.24
+        },
+        {
+          "raw": "arborbus.",
+          "start": 1.24,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "Sentry.",
+        "Enobarbus?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sentry,",
+          "start": 0.02,
+          "end": 0.94,
+          "key": "sentry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.2,
+          "end": 1.24,
+          "key": "an",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "arborbus.",
+          "start": 1.24,
+          "end": 1.72,
+          "key": "arborbus",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sentry.",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "Enobarbus?",
+          "start": 0.94,
+          "end": 1.33
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11972607101779431
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e4b0ef53ad89d3fd9e2f1593fc71e8c8a1794bc6a36dd13879f3b7eb92d71d73",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

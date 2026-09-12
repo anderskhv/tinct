@@ -1,0 +1,410 @@
+{
+  "complete": true,
+  "signature": "cdf8fab517b5ab00c31a9ebd4cc92d301ee816e0b1c3eebed86fb8fcc3644153",
+  "attempts": [
+    {
+      "asr_seconds": 0.08599313901504502,
+      "alignment_seconds": 0.00010038301115855575,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Thidias._]",
+        "hotwords": "Thidias._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Thidias._",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " Thidias._",
+              "start": 0.67,
+              "end": 1.75,
+              "probability": 0.02657604217529297
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Thidias._",
+          "start": 0.67,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Thidias._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thidias._",
+          "start": 0.67,
+          "end": 1.75,
+          "key": "thidias_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Thidias._]",
+          "start": 0.67,
+          "end": 1.21
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0861228030116763
+    },
+    {
+      "asr_seconds": 0.0881462839897722,
+      "alignment_seconds": 0.0001439449843019247,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Thidias._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Thidias._",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " Thidias._",
+              "start": 0.67,
+              "end": 1.75,
+              "probability": 0.02657604217529297
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Thidias._",
+          "start": 0.67,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Thidias._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thidias._",
+          "start": 0.67,
+          "end": 1.75,
+          "key": "thidias_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Thidias._]",
+          "start": 0.67,
+          "end": 1.21
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08833344001322985
+    },
+    {
+      "asr_seconds": 0.08993780601304024,
+      "alignment_seconds": 0.00017648600623942912,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit videos.",
+          "start": 0.05,
+          "end": 1.07,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " videos.",
+              "start": 0.67,
+              "end": 1.07,
+              "probability": 0.85888671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "videos.",
+          "start": 0.67,
+          "end": 1.07
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Thidias._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "videos.",
+          "start": 0.67,
+          "end": 1.07,
+          "key": "videos",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Thidias._]",
+          "start": 0.67,
+          "end": 0.87
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09016766399145126
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eb2d859403ad34555df646908957ac4dee12702cb9a9e668450b177ca509670d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

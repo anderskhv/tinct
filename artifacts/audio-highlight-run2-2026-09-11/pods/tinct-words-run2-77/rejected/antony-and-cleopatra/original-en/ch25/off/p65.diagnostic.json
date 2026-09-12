@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "694c601424ff8a6112bfce791ed34bc0a09425a3500db4fb658a6af1988e52ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.11508655801299028,
+      "alignment_seconds": 0.00015513499965891242,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter a servant with videos",
+          "start": 0.11,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.87890625
+            },
+            {
+              "text": " a",
+              "start": 0.61,
+              "end": 0.79,
+              "probability": 0.9921875
+            },
+            {
+              "text": " servant",
+              "start": 0.79,
+              "end": 1.05,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " with",
+              "start": 1.05,
+              "end": 1.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " videos",
+              "start": 1.29,
+              "end": 1.59,
+              "probability": 0.640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "a",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "raw": "servant",
+          "start": 0.79,
+          "end": 1.05
+        },
+        {
+          "raw": "with",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "raw": "videos",
+          "start": 1.29,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "a",
+        "Servant",
+        "with",
+        "Thidias."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.61,
+          "end": 0.79,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "servant",
+          "start": 0.79,
+          "end": 1.05,
+          "key": "servant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.05,
+          "end": 1.29,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "videos",
+          "start": 1.29,
+          "end": 1.59,
+          "key": "videos",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "a",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "text": "Servant",
+          "start": 0.79,
+          "end": 1.05
+        },
+        {
+          "text": "with",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "text": "Thidias.",
+          "start": 1.29,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11529427499044687
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d88187c38f992dd0d554aa70985d429ab3ff489b53a7d458a9196d64ab8a55b3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

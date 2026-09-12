@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "e048cf45602875555e64d5dd9d6bb93bf6684c6e070617c833cc9434a6c85f8e",
+  "attempts": [
+    {
+      "asr_seconds": 0.12096389100770466,
+      "alignment_seconds": 0.00012962400796823204,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All. Content. 'Tis strange.",
+        "hotwords": "All, Content, Tis"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All, Content, Tis strange.",
+          "start": 0.05,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " Content,",
+              "start": 0.81,
+              "end": 1.11,
+              "probability": 0.09423828125
+            },
+            {
+              "text": " Tis",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.05419731140136719
+            },
+            {
+              "text": " strange.",
+              "start": 1.89,
+              "end": 2.17,
+              "probability": 0.057159423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Content,",
+          "start": 0.81,
+          "end": 1.11
+        },
+        {
+          "raw": "Tis",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "raw": "strange.",
+          "start": 1.89,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Content.",
+        "'Tis",
+        "strange."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Content,",
+          "start": 0.81,
+          "end": 1.11,
+          "key": "content",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.69,
+          "end": 1.89,
+          "key": "tis",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "strange.",
+          "start": 1.89,
+          "end": 2.17,
+          "key": "strange",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Content.",
+          "start": 0.81,
+          "end": 1.11
+        },
+        {
+          "text": "'Tis",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "text": "strange.",
+          "start": 1.89,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12113888701424003
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "26a432c4a405d71e0122506715f4b102b6ab9a5894406e04bdf249f14cae380f",
+  "selected_reasons": []
+}

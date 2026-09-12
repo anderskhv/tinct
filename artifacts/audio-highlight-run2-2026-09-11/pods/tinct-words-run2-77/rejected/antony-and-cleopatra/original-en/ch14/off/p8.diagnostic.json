@@ -1,0 +1,351 @@
+{
+  "complete": true,
+  "signature": "a39810354016143c5476416406fd104b6ad3e5550473a32038b68566ef758d9b",
+  "attempts": [
+    {
+      "asr_seconds": 0.23692153798765503,
+      "alignment_seconds": 0.00028325998573563993,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In Arbarbus, spake you of Caesar, how the nonpareil.",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " Arbarbus,",
+              "start": 0.55,
+              "end": 1.03,
+              "probability": 0.4032084147135417
+            },
+            {
+              "text": " spake",
+              "start": 1.33,
+              "end": 1.47,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " you",
+              "start": 1.47,
+              "end": 1.59,
+              "probability": 0.96875
+            },
+            {
+              "text": " of",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Caesar,",
+              "start": 1.71,
+              "end": 1.99,
+              "probability": 0.94921875
+            },
+            {
+              "text": " how",
+              "start": 2.55,
+              "end": 2.59,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " the",
+              "start": 2.59,
+              "end": 2.75,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " nonpareil.",
+              "start": 2.75,
+              "end": 3.41,
+              "probability": 0.8275146484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Arbarbus,",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "raw": "spake",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "raw": "you",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "raw": "of",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.71,
+          "end": 1.99
+        },
+        {
+          "raw": "how",
+          "start": 2.55,
+          "end": 2.59
+        },
+        {
+          "raw": "the",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "raw": "nonpareil.",
+          "start": 2.75,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "Spake",
+        "you",
+        "of",
+        "Caesar?",
+        "How,",
+        "the",
+        "nonpareil!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          8,
+          2,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Arbarbus,",
+          "start": 0.55,
+          "end": 1.03,
+          "key": "arbarbus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "spake",
+          "start": 1.33,
+          "end": 1.47,
+          "key": "spake",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.47,
+          "end": 1.59,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.59,
+          "end": 1.71,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.71,
+          "end": 1.99,
+          "key": "caesar",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.55,
+          "end": 2.59,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.59,
+          "end": 2.75,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "nonpareil.",
+          "start": 2.75,
+          "end": 3.41,
+          "key": "nonpareil",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.0,
+          "end": 0.665
+        },
+        {
+          "text": "Spake",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "text": "you",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "text": "of",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "text": "Caesar?",
+          "start": 1.71,
+          "end": 1.99
+        },
+        {
+          "text": "How,",
+          "start": 2.55,
+          "end": 2.59
+        },
+        {
+          "text": "the",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "text": "nonpareil!",
+          "start": 2.75,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2373170119826682
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "118737e94382d0c385ee01ea6dbad32a173cf7c8d63a6ac26e2811c27bd0ad46",
+  "selected_reasons": []
+}

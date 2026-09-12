@@ -1,0 +1,922 @@
+{
+  "complete": true,
+  "signature": "4c017425b39cdd136410341f5ff07662bea51598715d98c5c0a1dbc9bd137322",
+  "attempts": [
+    {
+      "asr_seconds": 0.11893451001378708,
+      "alignment_seconds": 0.00014499601093120873,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Aside to Menas_.] I think thou'rt mad.",
+        "hotwords": "Menas_, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aside to Menas, I think thou'rt mad.",
+          "start": 0.05,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.55126953125
+            },
+            {
+              "text": " to",
+              "start": 0.69,
+              "end": 0.93,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Menas,",
+              "start": 0.93,
+              "end": 1.31,
+              "probability": 0.487030029296875
+            },
+            {
+              "text": " I",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.986328125
+            },
+            {
+              "text": " think",
+              "start": 1.79,
+              "end": 1.95,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " thou",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.96533203125
+            },
+            {
+              "text": "'rt",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.19603538513183594
+            },
+            {
+              "text": " mad.",
+              "start": 2.29,
+              "end": 2.57,
+              "probability": 0.88427734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 0.93
+        },
+        {
+          "raw": "Menas,",
+          "start": 0.93,
+          "end": 1.31
+        },
+        {
+          "raw": "I",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "think",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "raw": "thou",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "raw": "'rt",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "mad.",
+          "start": 2.29,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside",
+        "to",
+        "Menas_.]",
+        "I",
+        "think",
+        "thou'rt",
+        "mad."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          7,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 0.93,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Menas,",
+          "start": 0.93,
+          "end": 1.31,
+          "key": "menas",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.79,
+          "end": 1.95,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.95,
+          "end": 2.15,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "'rt",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "rt",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mad.",
+          "start": 2.29,
+          "end": 2.57,
+          "key": "mad",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "to",
+          "start": 0.69,
+          "end": 0.93
+        },
+        {
+          "text": "Menas_.]",
+          "start": 0.93,
+          "end": 1.31
+        },
+        {
+          "text": "I",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "think",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "text": "thou'rt",
+          "start": 1.95,
+          "end": 2.12
+        },
+        {
+          "text": "mad.",
+          "start": 2.29,
+          "end": 2.57
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.11913135700160637
+    },
+    {
+      "asr_seconds": 0.0901231219759211,
+      "alignment_seconds": 0.00014142500003799796,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Menas_, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " think thou it mad.",
+          "start": 0.05,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " think",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 7.033348083496094e-06
+            },
+            {
+              "text": " thou",
+              "start": 0.75,
+              "end": 2.15,
+              "probability": 0.974609375
+            },
+            {
+              "text": " it",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.568359375
+            },
+            {
+              "text": " mad.",
+              "start": 2.29,
+              "end": 2.57,
+              "probability": 0.943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "think",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "thou",
+          "start": 0.75,
+          "end": 2.15
+        },
+        {
+          "raw": "it",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "mad.",
+          "start": 2.29,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside",
+        "to",
+        "Menas_.]",
+        "I",
+        "think",
+        "thou'rt",
+        "mad."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "equal",
+          4,
+          5,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          1,
+          3
+        ],
+        [
+          "equal",
+          6,
+          7,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "replace",
+          5,
+          6,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "think",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "think",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 0.75,
+          "end": 2.15,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mad.",
+          "start": 2.29,
+          "end": 2.57,
+          "key": "mad",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "to",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "Menas_.]",
+          "start": 0.038,
+          "end": 0.044
+        },
+        {
+          "text": "I",
+          "start": 0.044,
+          "end": 0.047
+        },
+        {
+          "text": "think",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "thou'rt",
+          "start": 0.75,
+          "end": 1.52
+        },
+        {
+          "text": "mad.",
+          "start": 2.29,
+          "end": 2.57
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.2857142857142857,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09030330899986438
+    },
+    {
+      "asr_seconds": 0.11977800002205186,
+      "alignment_seconds": 0.00015374500071629882,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside to Mina's, I think thou it mad.",
+          "start": 0.05,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.55126953125
+            },
+            {
+              "text": " to",
+              "start": 0.69,
+              "end": 0.93,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Mina's,",
+              "start": 0.93,
+              "end": 1.39,
+              "probability": 0.8221842447916666
+            },
+            {
+              "text": " I",
+              "start": 1.69,
+              "end": 1.79,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " think",
+              "start": 1.79,
+              "end": 1.95,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " thou",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " it",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.29248046875
+            },
+            {
+              "text": " mad.",
+              "start": 2.29,
+              "end": 2.57,
+              "probability": 0.9521484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 0.93
+        },
+        {
+          "raw": "Mina's,",
+          "start": 0.93,
+          "end": 1.39
+        },
+        {
+          "raw": "I",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "raw": "think",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "raw": "thou",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "raw": "it",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "mad.",
+          "start": 2.29,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside",
+        "to",
+        "Menas_.]",
+        "I",
+        "think",
+        "thou'rt",
+        "mad."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          7,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 0.93,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mina's,",
+          "start": 0.93,
+          "end": 1.39,
+          "key": "minas",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.69,
+          "end": 1.79,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.79,
+          "end": 1.95,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.95,
+          "end": 2.15,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mad.",
+          "start": 2.29,
+          "end": 2.57,
+          "key": "mad",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "to",
+          "start": 0.69,
+          "end": 0.93
+        },
+        {
+          "text": "Menas_.]",
+          "start": 0.93,
+          "end": 1.31
+        },
+        {
+          "text": "I",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "text": "think",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "text": "thou'rt",
+          "start": 1.95,
+          "end": 2.12
+        },
+        {
+          "text": "mad.",
+          "start": 2.29,
+          "end": 2.57
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11998038701131009
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d9fb1e4f40c7a24daedfedf9464ccce0b599676072a838a2e9d9935d8f3fa9b8",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "d6376cb158079ae9071d8328f8b222dd088eaef8a4c3e13229a3434d9243b24f",
+  "attempts": [
+    {
+      "asr_seconds": 0.11594558699289337,
+      "alignment_seconds": 0.0001920460199471563,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menas. Pray you, sir?",
+        "hotwords": "Menas, Pray"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menas, Pray you, sir?",
+          "start": 0.6,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " Menas,",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.52691650390625
+            },
+            {
+              "text": " Pray",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.53314208984375
+            },
+            {
+              "text": " you,",
+              "start": 1.2,
+              "end": 1.34,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " sir?",
+              "start": 1.44,
+              "end": 1.54,
+              "probability": 0.6494140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menas,",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "Pray",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "you,",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "raw": "sir?",
+          "start": 1.44,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "Menas.",
+        "Pray",
+        "you,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menas,",
+          "start": 0.6,
+          "end": 0.88,
+          "key": "menas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pray",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "pray",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.2,
+          "end": 1.34,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 1.44,
+          "end": 1.54,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menas.",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "text": "Pray",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "you,",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "sir?",
+          "start": 1.44,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1162226359883789
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bbf7f04ad5a7c505060c7367cd05317886dd7638725da809485c56862a1042ab",
+  "selected_reasons": []
+}

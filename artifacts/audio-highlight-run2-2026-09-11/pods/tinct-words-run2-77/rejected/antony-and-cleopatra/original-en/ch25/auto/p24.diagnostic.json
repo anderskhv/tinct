@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "faaf0afffc2eff54f855841dceb8506a99443dc77086b1638340a30aff02d94f",
+  "attempts": [
+    {
+      "asr_seconds": 0.10695340600796044,
+      "alignment_seconds": 0.00012282398529350758,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. Caesar's will?",
+        "hotwords": "Cleopatra, Caesar's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, Caesar's will?",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " Caesar's",
+              "start": 1.27,
+              "end": 1.69,
+              "probability": 0.56512451171875
+            },
+            {
+              "text": " will?",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.7021484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Caesar's",
+          "start": 1.27,
+          "end": 1.69
+        },
+        {
+          "raw": "will?",
+          "start": 1.69,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Caesar's",
+        "will?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Caesar's",
+          "start": 1.27,
+          "end": 1.69,
+          "key": "caesars",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will?",
+          "start": 1.69,
+          "end": 1.89,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Caesar's",
+          "start": 1.27,
+          "end": 1.69
+        },
+        {
+          "text": "will?",
+          "start": 1.69,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10713182200561278
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ba66e9b8065cf42ab11f9e21e9438e2852c033f8ab22c73ad53c7f24af23498a",
+  "selected_reasons": []
+}
