@@ -54,6 +54,18 @@ const MIC = '<svg viewBox="0 0 24 24" fill="none" stroke="#0b0b0b" stroke-width=
 const CHAT = '<svg viewBox="0 0 24 24" fill="none" stroke="#0b0b0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.7-4.6A8 8 0 1 1 21 12z"></path></svg>';
 const END = '<svg viewBox="0 0 24 24" fill="none" stroke="#ece7db" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>';
 
+// The e-reader's page: the opening of Moby-Dick, chapter 1, word for word from
+// public/data/editions/moby-dick-original-en.json, cut at the sentence that ends the first page.
+// A chapter's first page has no page-furniture to invent and no stage directions to strand at the
+// foot of the screen, and at this measure the sentences break without gaps.
+const EINK = `<div class="eink">
+  <div class="chrome">
+    <div class="book">Moby-Dick</div>
+    <div class="chapter"><span>Chapter 1 — Loomings</span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+  </div>
+  <p>Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation.</p>
+</div>`;
+
 const html = `<!doctype html><html><head><meta charset="utf-8">
 <link rel="stylesheet" href="http://tinct.local/fonts/tinct-fonts.css">
 <style>
@@ -74,12 +86,23 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
   .talk .controls i{width:42px;height:42px;border-radius:50%;border:1px solid #c8c0ae;box-sizing:border-box;display:grid;place-items:center;font-style:normal}
   .talk .controls i svg{width:17px;height:17px}
   .talk .controls .end i{background:#0b0b0b;border-color:#0b0b0b}
+  /* The e-reader page. Drawn at the layer's own size, so nothing is cropped, and in e-ink's
+     greys rather than the app's paper-and-ink: no backlight, no true black, low contrast. */
+  .eink{width:100%;height:100%;box-sizing:border-box;padding:26px 26px 30px;background:#d8d6d0;color:#46443f;display:flex;flex-direction:column;font-family:'EB Garamond',TinctSerif,Georgia,serif}
+  .eink .chrome{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+  .eink .book{font:600 20px/1 'Playfair Display',TinctSerif,Georgia,serif;color:#3b3935;white-space:nowrap}
+  .eink .chapter{flex:1;min-width:0;display:flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid #bbb8b1;border-radius:999px;color:#7d7a74;font:italic 16px/1 'EB Garamond',TinctSerif,Georgia,serif}
+  .eink .chapter span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .eink .chapter svg{width:11px;height:11px;flex:none;stroke:#9a978f;fill:none;stroke-width:1.6}
+  /* Ragged right: justification at this measure opens rivers between the words. */
+  .eink p{margin:0;text-align:left;hyphens:none;font-size:29px;line-height:1.5;letter-spacing:.004em}
+  .eink p+p{margin-top:.7em;text-indent:1.1em}
 </style></head><body>
 <div class="stage">
   <img class="base" src="http://tinct.local/assets/about-v20/assets/devices-transparent-v10.webp" alt="">
   ${SCREENS.map(s => `<div class="layer" data-kind="${s.kind}" style="width:${s.width}px;height:${s.height}px;border-radius:${s.radius}px;transform:${matrix3d(s.width, s.height, s.corners)}">${
     s.kind === 'desktop' ? '<img src="http://tinct.local/assets/about-v20/assets/library-desktop-v1.webp" alt="">'
-    : s.kind === 'eink' ? '<img src="http://tinct.local/assets/about-v20/assets/reader-page-v1.jpg" alt="">'
+    : s.kind === 'eink' ? EINK
     : `<div class="talk"><canvas width="500" height="500"></canvas><p class="word">Speaking.</p><p class="quote">“More honoured in the breach than the observance…”</p><div class="controls"><span><i>${MIC}</i>Mute</span><span><i>${CHAT}</i>Transcript</span><span class="end"><i>${END}</i>End</span></div></div>`
   }</div>`).join('')}
 </div>
