@@ -1000,6 +1000,42 @@ session. Kept current at every push.
   in four documents, with the conclusion kept verbatim. **Twelve of twelve books
   are accepted.**
 
+- 2026-09-12 — **CROSS-BOOK PASS over all twelve accepted candidates: done. The
+  text is finished.** Run in the order the Book XII reviewer set, and under its
+  caution (*eleven closed acceptances are the asset; work by class, not by book,
+  in one pass*). **(a) Mechanical first, while nothing was edited:**
+  `scripts/assemble_modern_en.py` assembles the twelve into
+  `meditations-modern-en.staged.json` (sha256 `e2cc6090…`, 12 chapters, **487
+  paragraphs**, profile 17, 17, 16, 51, 36, 59, 75, 61, 42, 38, 39, 36, 45,451
+  words, ratio 0.9868, 44 byte-identical to Long) and asserts the structure and
+  1:1 alignment with the staged original **as a pair**, the negative invariants
+  over the whole work, and **the apparatus arithmetic re-derived from Long's 135
+  brackets** — 89 whose words stand, 46 dropped (45 D11, one D13: X.23, still its
+  only instance) — reconciled book by book with the 15 screen/record
+  disagreements enumerated. Books I–V had never enumerated their bracket
+  dispositions with a total (that discipline began at Book X, finding C1); their
+  triples are now derived and recorded. **(b)**
+  `scripts/glossary_frequency.py` ran every glossary row and the dead-usage
+  classes over all twelve: three known items were larger than the ledger had
+  them, seven new classes turned up, and the rows extended at Books VIII–XI all
+  check out backwards. **(c) Record corrections that change no word:** new
+  `PUNCTUATION.md` collating the ten punctuation classes from eleven separate
+  sheets; the impressions/appearances row corrected to describe the edition; the
+  "shall" paragraph's closing claim replaced by the re-derived class; Long's
+  "wilt" given its own rule; three rendering rows added. **(d) ONE v3 pass,
+  eleven classes (A–L), one `candidate-v3.json` and one hash per touched book,
+  accepted v2 files unchanged on disk** — such like (3), several (2), the
+  third-person plain-future "shall" (4, including VII.68, which was on no list),
+  "adapted to" (3), Long's lowercase after his question mark (11), the vexation
+  row at I.15, his comma before an em dash (2), a formula repeated across books
+  (3), "toward" (27), II.5's dangling relative, one spelling per word (8), and
+  the last do-support negative (IX.30). **Two classes recorded and deliberately
+  NOT normalised** (the ~147 commas round postpositive "then" in Books IV–VIII;
+  the inherited spaced em dashes), with the reasoning in `PUNCTUATION.md`.
+  **(e) One continuous read of all 487 paragraphs**, which is what produced
+  classes H, I, K and L. **(f) Everything re-asserted** after the pass. The
+  package `README.md` is the completion record.
+
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -1034,38 +1070,34 @@ session. Kept current at every push.
 
 ## Next
 
-**Waiting on the coordinator: independent review of Book XII.**
-`book12/candidate-v1.json` (sha256 `8665adc8…`) is frozen, with twelve packets,
-`review-instructions.md` and `manifest.json` in place; findings go under
-`book12/review/`. **Five decisions are flagged there for an explicit ruling** —
-the **two** departures from PG's letters (XII.27 "Baiae" for "Briae"; XII.29
-"what" for "that"), where every earlier book had at most one; XII.3's "[to the
-god that is within thee]" dropped under D11, the one drop where the bracket is
-the glossary row's own wording and the row cites that very section as its
-authority; XII.17's "[For let thy efforts be—]" treated as a mark of textual
-doubt, the first application of the XI.26 class to a whole clause; XII.4's
-"shall" standing beside "will" in one comparison, which the rule produces; and
-XII.27's "[or Rufus at Velia]" dropped under D11 as an alternative *construal*
-rather than an alternative rendering — **and one is offered for confirmation**
-("pancratiast" kept untranslated at XII.9). Two further points are put to the
-reviewer with reasons: **XII.23's two resumptive repairs**, and whether the
-**five added commas** are each earned. The reviewer is also asked to test the
-step-1 no-rebuild finding **by the stronger method**, with rules of its own
-choosing, audited class by class — and, **because Book XII is the last book**, to
-say what a cross-book pass over all twelve would still owe. This agent does not
-review its own draft.
+**Nothing content-side. The text is finished, and what remains is not this
+package's to do.**
 
-Book XI is **accepted** (`book11/ACCEPTANCE.md`, `candidate-v2.json` sha256
-`1016c038…`). **Eleven of the twelve books are accepted.** After the Book XII
-review: Book XII steps 6–8 (candidate v2, changes log, flow read,
-`ACCEPTANCE.md`), and then **the package has no further book**. What would remain
-is the whole-work pass: the cross-book items under "Open, not blocking" below
-(three third-person "shall" futures in III.9, VII.8 and VII.24; the II.5 dangling
-relative; XI.12's "nor sinks down"; IX.1's "such like"; V.1's "several"), a
-terminology sweep across all twelve accepted candidates, a single assembled
-`modern-en` file built from the twelve accepted candidates and checked against
-the 487-paragraph alignment, and Anders's two standing decisions (A1, A2), which
-are the only things that stand between the finished text and integration.
+Twelve of twelve books are accepted (each `bookN/ACCEPTANCE.md`), the cross-book
+pass over all twelve is done, and the assembled edition exists at
+`meditations-modern-en.staged.json`, sha256
+`e2cc6090b4cde62db3f991dd5f6714c5d194232c499de3bbe8ddd04915803d10` — 487
+paragraphs, aligned 1:1 with `meditations-original-en.staged.json`. There is no
+thirteenth book, no unanswered review finding, and no open flagged decision in
+any of the twelve. `README.md` is the completion record.
+
+What genuinely remains, in order:
+
+1. **A1, for Anders** — the 412 → 487 paragraph re-basing, which every part of
+   this package assumes and which **nothing can be integrated without**. See
+   "Needs Anders" below.
+2. **A2, for Anders** — the registry's false attribution of a Casaubon text to
+   Long, which is app/registry work and outside this package.
+3. **If A1 is accepted, the integration work it implies**, all of it outside this
+   package and none of it this task's to do unilaterally: writing the assembled
+   file to `app/public/data/editions/`, regenerating `modern-da` and the R2 audio
+   against the 487-paragraph structure, rebuilding the static
+   `app/public/read/meditations/` chapter pages, and migrating or resetting saved
+   reading positions. `PROVENANCE.md` §5 lists the consequences in full.
+4. **If a later editor wants to reopen anything**, the two classes this pass
+   recorded and deliberately did not normalise are in `PUNCTUATION.md` with the
+   reasoning to argue against, and the route is a `candidate-v4.json` with the
+   same change-log discipline. Nothing is pending on them.
 
 ## Needs Anders (listed, not waited on)
 
@@ -1083,47 +1115,44 @@ are the only things that stand between the finished text and integration.
 
 ## Open, not blocking
 
+**Most of this section was closed by the cross-book pass on 2026-09-12** — by
+decision, not by silence. What each item became:
+
+- **Closed, applied in the v3 pass:** "such like" (three places, class A, and
+  larger than the one recorded here); the plural distributive "several" (two,
+  both in V.1, class B); the three third-person plain-future "shall" in III.9,
+  VII.8 and VII.24 — **plus VII.68, a fourth that was on no list** (class C);
+  and **II.5's dangling relative**, repaired in the wording two sessions had
+  logged for a whole-work touchpoint (class J).
+- **Closed, kept, with the reason recorded:** **XI.12's "nor sinks down"**. The
+  honest repair, "nor sunk down", would make a past participle in a series of
+  passives, so the soul's sinking would become something *done to it* where
+  Long's finite verb is intransitive and the sinking is the soul's own; and his
+  negation can be read as scoping over the whole verb phrase. Upheld at Book XI
+  acceptance and again at the cross-book read. **Not pending.**
+- **Closed, classified, and kept:** **VII.54** ("that nothing shall steal into
+  them", a negative final clause, the VIII.32 shape) and **IX.29** ("They
+  themselves shall judge", the emphatic third person, the V.29 class), which the
+  re-derivation of the "shall" class turned up as never having been classified
+  either way. Twenty-five "shall" stand in the work, every one licensed, and
+  `scripts/build_v3_crossbook.py` asserts the inventory.
+
+Still open, and not blocking:
+
 - Long's dagger-marked passages (textually uncertain Greek) are listed in
-  `PROVENANCE.md` §4; reviewers should weigh findings there accordingly.
-- II.14 PG reading "that which perish" vs Standard Ebooks "perishes"; kept as
-  PG has it in the staged original.
-- **Two cross-book wording inconsistencies, noticed while drafting Book XII, in
-  accepted books, not reopened.** (a) **"Such like"**: the accepted Book IX keeps
-  it at IX.1 ("of such like successions"), while Book XI rendered it "things of
-  that kind" at XI.1 and Book XII follows XI at XII.2. (b) **The plural
-  distributive "several"**: the accepted Book V keeps it at V.1 ("their several
-  parts of the universe"), while Book XI rendered it "separate" at XI.2 and Book
-  XII follows XI at XII.30. Both divergences are formal, not semantic, and those
-  acceptances are closed. Candidates for a v3 at a whole-work touchpoint, on the
-  II.5 precedent; and the first two items a cross-book terminology sweep should
-  settle.
-- **Book XI v2, XI.12**: Long's series shifts from three past participles to a
-  finite present verb — "when it is neither extended towards any object, nor
-  contracted inwards, nor dispersed, **nor sinks down**" — which is loose in
-  modern English. Kept as Long has it, and recorded here rather than repaired
-  (Book XI round-1 finding 12.1, optional; the reviewer offered this route
-  explicitly as the alternative to changing the word). "Nor sunk down" would make
-  a past participle in a series of passives, so the soul's sinking would become
-  something *done to it*, where Long's finite verb is intransitive and the sinking
-  is the soul's own; and the negation can in any case be read as scoping over the
-  whole verb phrase. Same class as the II.5 dangling relative below, and a
-  candidate for a v3 at a later touchpoint.
-- Book II v2, II.5: "You see how few things there are which, if a man lays hold
-  of them, he can live a life…" reproduces Long's dangling relative ("the
-  which if a man lays hold of, he is able to live"), ungrammatical in modern
-  English. Not a meaning defect; a candidate for a v3 at the next review
-  touchpoint (for example "You see how few the things are; and if a man lays
-  hold of them, he can live a life…"). Noted by the second content session,
-  not changed, per D9.
-- **Three third-person "shall" plain futures in already-accepted books** —
-  III.9 "whether there shall be in your ruling part any opinion", VII.8 "if it
-  shall be necessary", VII.24 "if even the perception of doing wrong shall
-  depart". They diverge from the "shall" rule fixed at Book VIII acceptance
-  (`GLOSSARY.md`, Voice and form). Not reopened: those acceptances are closed
-  and the divergence is formal, not semantic. Candidates for a v3 at a later
-  touchpoint, on the II.5 precedent. Recorded here because the Book VIII round-1
-  finding asserted there were none, and a later reader collating would find that
-  claim false; the finding's conclusion stands and was applied in full.
-- The three glossary rows formerly listed here ("in a manner → in a way",
-  "dissatisfied → discontented", plural "daemons → spirits") were added to
-  `GLOSSARY.md` at Book I acceptance. Done.
+  `PROVENANCE.md` §4; a reader of those passages should weigh them accordingly.
+  The candidate reproduces each clause as Long leaves it, his pointing included.
+- II.14 PG reading "that which perish" vs Standard Ebooks "perishes"; kept as PG
+  has it in the staged original.
+- **Two punctuation classes recorded and deliberately not normalised**
+  (`PUNCTUATION.md`): the ~147 commas Books IV–VIII add round Long's postpositive
+  connectives, where Books IX–XII follow him; and the spaced em dashes inherited
+  from verse joins at VII.31, X.34 and XI.6. Both are semantically null, both are
+  the edition's own pointing rather than Long's, and normalising either on the
+  ground of evenness alone is what Book IX's finding 7.1 rules against. A later
+  editor who disagrees has the table and the reasoning.
+- **"Perchance" at IX.3 and XI.34**, the two places the word stands, both inside
+  quoted utterances whose *form* is the point (the Book XI finding 34.1 test).
+  Asserted as exactly those two by `scripts/assemble_modern_en.py`.
+- Errors can remain. These records claim the process was followed, not that the
+  text is beyond correction.

@@ -37,6 +37,65 @@ relayed to this task by the coordinator session.
    instead of rewriting. Otherwise modernise from one documented source and
    use that source consistently. Do not combine familiar quotations from
    different translations.
+   **How to verify a staged source file — audit the rules, then diff.** This is
+   the package's main methodological result, arrived at by four reviewers in
+   succession and stated here so that it does not have to be rediscovered from
+   `PROVENANCE.md` §4's narrative. The question it answers is: *how do you know
+   the staged file contains the translator's text and nothing of the printed
+   edition's apparatus?*
+
+   a. **A re-run of the build proves nothing.** Byte-identity to a re-run shows
+      only that the file matches the script. That is exactly how three
+      illustration captions (Book IV) and three flush-left footnotes (Book VII)
+      survived the first build and reached accepted text. *(Book IX reviewer.)*
+   b. **So write an independent reconstruction of the range** — a second program
+      that extracts the same chapter from the raw source — and diff it against
+      the staged file.
+   c. **But a reconstruction that shares the build's blind spot proves nothing
+      either**, so the reconstruction must be **derived from a different property
+      of the text** than the build is. *(Book X and XI reviewers.)* Book XII's
+      range was reconstructed three times from three unrelated properties —
+      opener tokens, indentation magnitude, and sentence completion — and all
+      three reproduce the staged file to the byte. That is as strong as this
+      check gets, and the package does not ask for a fourth.
+   d. **Audit the reconstruction's own RULES against the raw text, class by
+      class, BEFORE looking at its output.** Enumerate every apparatus class in
+      the range and check each against the raw lines: footnote openers and their
+      in-text markers, reconciled as two counts that must agree; unmarked
+      continuations of a footnote body, checked by content; illustration
+      captions; verse runs and verse citations; in-text Greek; daggers;
+      standalone short flush-left lines (running heads, page numbers,
+      catchwords); and every typographic normalisation the build applies, which
+      the reconstruction must **reproduce** so that the two are compared on the
+      same rules (**D14**). An audit run against the reconstruction's output
+      instead of the raw text would find nothing: both real defects in this
+      package's history were invisible output-to-output and visible only in the
+      raw range.
+   e. **State every rule as a RELATION, never as a CONSTANT.** Every rule that
+      has failed in this package failed the same way — it encoded a contingent
+      fact about one range as if it were a property of the text. "Footnotes are
+      indented" (Book VII's three flush-left footnotes walked through it);
+      "apparatus does not look like body" (Book IV's captions); "footnote runs
+      are indented four spaces" (Book XII's nine-space continuation would have
+      leaked Greek into XII.4); "a finished sentence ends in a period" (Long's
+      broken clause at XII.17 walked through the Book XII reviewer's own first
+      rule). **A number taken from one book does not transfer; only the shape of
+      the rule does.** Where a class is defined by a threshold, the threshold is
+      part of the class's statement.
+   f. **Leave the documented defects IN the reconstruction** — Long's daggers,
+      for instance — so that each surfaces as a diff and is counted, rather than
+      being assumed away.
+   g. **Then, and only then, diff.** A reconstruction that matches except at the
+      documented dagger marks is evidence; a reconstruction that matches because
+      it was written to match is not.
+
+   If the diff shows apparatus still in the staged text, a rebuild is available
+   under **D12**, and its standard is the one Books IV and VII met: paragraph
+   count unchanged, only the affected paragraphs differing, every other chapter
+   byte-identical so that no accepted book reopens, and the hash change recorded
+   in `PROVENANCE.md` §4, in this file's ledger and in each affected
+   `provenance.json`.
+
 2. **Draft with full chapter context.** Read the whole book (chapter)
    before drafting any paragraph. Fix stable renderings for recurring
    concepts first (`GLOSSARY.md`).
@@ -112,6 +171,34 @@ preferable to an AI rewrite when it meets these criteria.
 - Replace archaic vocabulary and tangled syntax while retaining concise,
   memorable language that already works. Do not expand short reflections
   merely to make them easier.
+
+## After the last book: the whole-work pass
+
+The eight steps are per book, and a book-by-book process cannot see between
+books. When the last book is accepted, one more pass is owed, and its order
+matters (set out by the Book XII round-1 reviewer, followed in September 2026):
+
+1. **Mechanical checks first, while nothing is edited**, so that their output
+   describes a fixed state and becomes the worklist: assemble the accepted
+   candidates into one file and assert the whole-work structure and alignment as
+   a pair with the staged original; assert the negative invariants over the whole
+   work at once; re-derive the apparatus arithmetic for every book from the
+   source's own brackets; and run every glossary row's left column over every
+   candidate (`scripts/assemble_modern_en.py`, `scripts/glossary_frequency.py`,
+   `scripts/punctuation_classes.py`).
+2. **Then the record corrections that change no word** — the rows that
+   under-describe the edition, and the classes that were decided in one
+   `continuity.md` at a time and never collated (`PUNCTUATION.md`).
+3. **Then ONE v3 pass, ordered BY CLASS and not by book.** Accepted books are the
+   asset; a sequence of single-book reopenings dissolves it, while one change set
+   with one recorded decision per class does not. Each touched book gets one
+   `candidate-v3.json`, one `changes-v2-to-v3.md` and one hash; the accepted v2
+   files stay on disk unchanged.
+4. **Then one continuous read of the whole work for voice** — last, because it is
+   the only step that needs the text final, and the only one that finds what no
+   check can specify in advance (a formula Long repeats across books, rendered
+   two ways, is invisible to a per-book flow read and to a glossary sweep alike).
+5. **Then re-assert everything** and record the whole-work hash.
 
 ## Files in this package
 
