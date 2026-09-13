@@ -3,10 +3,9 @@
 Updated continuously. Read this first, then `WORKFLOW.md`.
 
 **Last updated:** 2026-09-13, session `session_01K5bL9oWzAagjTMExsyUADi`
-(worker 10, **collision-triage role**). **Books 1–7 are accepted. Book 8 is
-drafted and frozen at step 4** and needs an independent review. **The Books 1–6
-collision backlog is cleared — `collision_triage.py` now exits zero for every
-Book — and it cost two successors.**
+(worker 11). **Books 1–8 are accepted. Book 9 is drafted and frozen at step 4**
+and needs an independent review. **The manifest was attacked rather than
+asserted, and it held on the ninth attack; the one that still works is named.**
 
 ## State
 
@@ -15,305 +14,239 @@ is computed over is not a figure (R-1).** The one authoritative table is
 `00-progress-ledger.md`, *The comparability table*, produced by
 `python3 scripts/checks.py --all`, not typed.
 
-| Book | Step | file scored | basis | Retention | raw D17 | semicolons | **kept + ADDED** | **NORM RATE on Butler's pointing** | MOVE-GAP |
-|---|---|---|---|---|---|---|---|---|---|
-| 1 | 8 — accepted, successors v3, **v4** | `candidate-v2` | all 32 | 0.72703 | +20.5% | 47 → 13 | 12 + 1 | **−4.5%** | 0.05088 |
-| 2 | 8 — accepted, successors v3–**v6** | `candidate-v2` | all 35 | 0.90232 | +16.1% | 36 → 21 | 16 + 5 | **+1.2%** | 0.01632 |
-| 3 | 8 — accepted, successor v3 | `candidate-v2` | **37 of 38** | 0.89641 | +5.5% | 39 → 32 | 26 + 6 | **−2.0%** | 0.02156 |
-| 4 | 8 — accepted, successors v3, v4, **v5** | `candidate-v2` | all 81 | 0.95872 | +8.9% | 68 → 50 | **50 + 0** | **+2.0%** | 0.00431 |
-| 5 | 8 — accepted, **successor v3** | `candidate-v2` | all 37 | 0.93808 | +23.5% | 34 → 13 | 12 + 1 | **+7.5%** | 0.00891 |
-| 6 | 8 — accepted, **successor v3** | `candidate-v2` | all 26 | 0.93408 | +27.6% | 27 → 5 | 3 + 2 | **+5.6%** | 0.01156 |
-| **7** | **8 — ACCEPTED** | **`candidate-v2`** | all 29 | **0.93438** | **+34.0%** | **30 → 7** | **5 + 2** | **+7.5%** | **0.01217** |
-| **8** | **5 — ROUND 1 DELIVERED** | `candidate-v1` | all 50 | **0.93844** | **+27.1%** | **42 → 0** | **0 + 0** | **+4.3%** | **0.00692** |
+| Book | Step | file scored | basis | Retention | raw D17 | semicolons | dividing marks (D27) | **kept + ADDED** | **NORM RATE, D27, on Butler's pointing** | MOVE-GAP / displaced |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 8 — accepted, successors v3, v4 | `candidate-v2` | all 32 | 0.72703 | +20.5% | 47 → 13 | 55 → 39 | 20 + 19 | **−4.3%** | 0.05088 / 2 |
+| 2 | 8 — accepted, successors v3–v6 | `candidate-v2` | all 35 | 0.90232 | +16.1% | 36 → 21 | 58 → 61 | 36 + 25 | **+0.0%** | 0.01632 / 0 |
+| 3 | 8 — accepted, successor v3 | `candidate-v2` | **37 of 38** | 0.89641 | +5.5% | 39 → 32 | 53 → 47 | 39 + 8 | **−2.3%** | 0.02156 / 0 |
+| 4 | 8 — accepted, successors v3–v5 | `candidate-v2` | all 81 | 0.95872 | +8.9% | 68 → 50 | 103 → 81 | **80 + 0** | **+0.5%** | 0.00431 / 0 |
+| 5 | 8 — accepted, successor v3 | `candidate-v2` | all 37 | 0.93808 | +23.5% | 34 → 13 | 64 → 35 | 34 + 1 | **+2.8%** | 0.00891 / 1 |
+| 6 | 8 — accepted, successor v3 | `candidate-v2` | all 26 | 0.93408 | +27.6% | 27 → 5 | 38 → 16 | 14 + 2 | **+5.2%** | 0.01156 / 2 |
+| 7 | 8 — accepted | `candidate-v2` | all 29 | 0.93438 | +34.0% | 30 → 7 | 42 → 18 | 14 + 4 | **+4.8%** | 0.01217 / 1 |
+| **8** | **8 — ACCEPTED** | **`candidate-v2`** | all 50 | **0.93862** | **+22.4%** | **42 → 7** | **62 → 31** | **24 + 7** | **+2.0%** | **0.00692 / 0** |
+| **9** | **4 — FROZEN DRAFT** | `candidate-v1` | all 44 | **0.92164** | **+21.1%** | **54 → 24** | **71 → 41** | **41 + 0** | **+2.5%** | **0.01266 / 2** |
 
-Hashes: Book 7 accepted
-`e79eb82b5ce6051dc3c61ca39c4480406cf0e2a106c0d53f5182fafe1d3163ac`;
-Book 8 frozen v1
-`e758790c58e0ace5c97159b2fa4e6d0f987f0b0edeba9120542ed772ec6ce012`;
-successors `book02/candidate-v6.json` `a6fb8103…`,
-`book05/candidate-v3.json` `c8af4cc3…`, `book06/candidate-v3.json` `1ae67a52…`,
-and from the collision backlog `book01/candidate-v4.json` `6e5ecb0a…`,
-`book04/candidate-v5.json` `3c21549e…`.
+Hashes: Book 8 accepted
+`12f2904e6e40ac839a608797cf8f866d1f1e5227ae415f11aee6c0238f43de22`;
+Book 9 frozen v1
+`41f452ac577054aa820eba1cf1bb20cc24b382e6e3330b74af8c24f657c481fb`;
+Book 8's frozen draft `e758790c…`; Book 7 accepted `e79eb82b…`.
 
-## The column that is new, and why it replaces the old one
+## The column that is new — D27, and why every figure moved
 
-**Substantive finding S-1 of Book 7's round 1.** D20 clause (a) makes a
-semicolon→period worth exactly zero. **By the same construction it makes a
-comma→semicolon worth a full division** — and that corollary was never stated
-and nothing tested it. Six of Book 7 v1's fourteen semicolons were the
-drafter's own, so its published NORM RATE of +7.5% was 60% pointing.
+**Substantive finding S-1 of Book 8's round 1, with its census.** Of Book 8's
+52 new sentence boundaries, **44 were marks Butler had already written** — 40
+semicolons, **1 colon, 3 em dashes** — and 8 divided his prose. Commas moved
+410 → 407; MOVE-GAP 0.00692 with zero displaced runs. There was no clause
+movement to find and the +27.1% was bookkeeping.
 
-It is now a **measure**: `semicolon_provenance()`, `kept_added()` and
-`norm_rate_butler()` in `scripts/checks.py`, computed for every Book, pinned in
-`PUBLISHED`, and covered by four new `--audit` controls — including the one
-that was missing, *a comma raised to a semicolon must not move the compared
-figure*.
+**D20 priced the semicolon and nothing else**, so a colon or a sentence-internal
+em dash cashed for a period was free division under every measure the package
+had. **D27 widens clause (a) to all three**, and D21's construction rides on
+top: on the candidate's side only the marks of Butler's that survive count, so
+raising a comma to any of the three is worth nothing.
 
-**Every Book but 4 and 8 added some.** Book 4 added none; Book 8, the first
-drafted after the measure existed, added none.
+Every Book is republished on that basis in the ledger, **with the old column
+kept beside it** rather than overwritten, because replacing a column in place
+is R-1. Book 5 falls furthest (+7.5% → +2.8%); **Book 2 goes to zero** — it
+carries more dividing marks than Butler does and 25 of its 61 are its own.
+Books 6 and 7 remain the two that divided Butler's prose most.
 
-**A correction to the review, on the review's own principle.** Round 1 says
-Book 7 v1's +3.0% is *"fifth of seven"*. That compares one corrected figure
-against six uncorrected published ones — two bases in one column, which is
-**R-1**, the disease the package has been treating for two Books. On like
-against like, **v1 was third of seven**; accepted v2 is joint first.
+Eight new `--audit` controls, 22 in all. The sharpest: *cashing a colon leaves
+the extended measure exactly where it was, moves the raw D17 rate, **and moves
+D20 as it stood***.
 
-## The infrastructure, repaired
+## The manifest, for the third time — ATTACKED, not asserted
 
-**S-2 — the manifest was write-only and was already wrong.** It recorded
-`88952e2b…` for a `book07/checks-v1.md` hashing to `6ecfeeb4…`, and a manifest
-saying `all_gates_passed: true` survived a candidate that failed the gates.
-Now:
+**The defeat, reproduced before it was repaired.** Plant a gate-failing defect
+in `book07/candidate-v2.json`, edit **one field** (`checks.candidate_sha256`),
+and `--manifests` exits 0 while `checks.py 7` exits 1. `verify_manifest`'s
+`all_gates_passed` clause was guarded on `gate is not None` and `--manifests`
+never passed one, so on the path most people run **the clause did not exist**.
 
-* `Gate.evaluated` — an empty failure list is no longer a licence, because a
-  Gate that was never asked anything has one too.
-* `manifest_checks_block()` is the **only** writer in the package and raises
-  unless the gates both evaluated and passed.
-* `verify_manifest()` is the read side and runs on **every** `checks.py N`;
-  `checks.py --manifests` runs it for every Book. It rejects a stale checks
-  hash, a candidate whose bytes moved under the manifest, `all_gates_passed`
-  beside a failing run, and a post-rule Book with no `checks` block.
-* Manifest failures are kept apart from content gates so a stale manifest
-  cannot block its own repair.
-* **`scripts/prove_manifest.py` plants every one of these defects in a
-  throwaway copy and asserts the rejection — 15 assertions, and it hashes the
-  package before and after to prove nothing in it was written.**
+What is there now:
 
-**S-3 / R-1 / R-5 — one file-keyed table, `DECLARED`,** replaces
-`BYTE_IDENTICAL`, `MIN_PARA_RATIO` and `LEGACY_GROWTH`. `MIN_PARA_RATIO = {1:
-0.86}` was a lowered threshold wearing an enumeration's name; the floor is 0.90
-for every Book and Book 1's five thin paragraphs are enumerated with their
-ratios. Growth and compound drift are multiset and exact-list equalities, both
-directions. **Keying on the FILE surfaced a mixed basis nobody had seen:**
-`LEGACY_GROWTH[4]` declared `(18, 53, 54)`, which is the *successor's* figure;
-accepted v2 carries `(18, 53, 55)`.
+* **`--manifests` RUNS the gates**, over the candidate the *manifest* names,
+  and reports their failures whether or not the manifest claims a pass.
+  **Absence of gate evidence beside `all_gates_passed: true` is itself a
+  failure**, so a caller that forgets is caught rather than trusted.
+* **clause (b2)** — the manifest must name the file the Book stands behind.
+* **clause (b3)** — the **figures** it records must reproduce from that
+  candidate. The hashes proved the bytes had not moved and nothing proved the
+  numbers, which are the part a reader reads.
+* **`--declarations`** puts the full gates to **every key of `DECLARED`**, and
+  is folded into `--all`.
+* **`SUPERSEDED`** — every `bookNN/candidate-v*.json` on disk must be in
+  `DECLARED` or in `SUPERSEDED`, in exactly one, asserted as set equality both
+  ways. A row that declares anything must carry a written **reason**.
+* **`ACCEPTED`'s shipping column must be the highest declared candidate** —
+  the staleness class that had `compound_drift.py` reading Book 7's *rejected*
+  v1.
 
-**R-4 — `--all` now evaluates the gates** for every accepted Book and collects
-their manifest failures too.
+**`prove_manifest.py` is now nine attacks and 24 assertions.** The dead fifth
+case is gone; R-5 is proved end to end against `DECLARED` through the command
+line (a synthetic Book 99 with two identical growths in one paragraph, one
+declared) instead of against two hand-built `Counter`s. **It takes about nine
+minutes**, because every attack works on a fresh copy and several run the full
+gates over twenty files.
+
+**The attacks that were tried, in the order they became the cheapest next
+move** — each one is in the script, with its result:
+
+| | attack | result |
+|---|---|---|
+| A1 | defect + rewrite `candidate_sha256` (the one that landed) | rejected |
+| A2 | the same, with `all_gates_passed` withdrawn | rejected — the gates are run and reported regardless |
+| A3 | leave the defect, point `candidate_file` at a clean file | rejected by (b2) |
+| A4 | delete the whole `checks` block | rejected |
+| A5 | edit a FIGURE, leave every hash sound | rejected by (b3) |
+| A6 | plant the defect in `book02/candidate-v3.json`, which no invocation reached | rejected by `--declarations` |
+| A7 | a new candidate file in neither table | rejected by coverage |
+| A8 | write a successor, leave the shipping column stale | rejected by coverage |
+| **A9** | **declare the defect, then re-run `--write-manifest`** | **PASSES, and must** |
+
+**A9 is the residue and it is named, not claimed shut.** A declaration is a
+licence and no mechanical check can grade a reason. What the repair buys is
+that the reason must exist, be evaluated, and appear in a diff. Note also that
+declaring the defect *alone* now exits 1, because (b3) recomputes the figures.
+
+## The `DECLARED` shape, made impossible rather than absent
+
+**Three rows were wrong and they were exactly the three that nothing ran.**
+`book02/candidate-v3/v4/v5.json` each declared `compound=[]` and each carried
+drift; `ACCEPTED` names Book 2's v2 and v6, and `checks.py 2` takes the
+highest, so v3–v5 were reachable by no invocation anybody makes. They were not
+wrong by accident — they were wrong because being wrong had no consequence.
+
+Corrected against a run, and the successor chain is legible in them: **v3
+carries `seashore`, `storeroom` and `waterside`; v4 `storeroom` and
+`waterside`; v5 `storeroom`**. `book07/candidate-v1.json` — the *rejected*
+file — was moved out of `DECLARED`, where it had an empty declaration, into
+`SUPERSEDED`. `book01/candidate-v4.json` and `book04/candidate-v5.json` were
+added and `ACCEPTED` repointed at them. **20 declared files, 8 superseded, 28
+on disk.**
+
+## Book 8 is ACCEPTED
+
+`book08/ACCEPTANCE.md`. 16 substitutions in 12 of 50 paragraphs, 6 findings
+declined and asserted still present.
+
+* **Seven of Butler's semicolons restored** (S-2's six plus [35] at P044,
+  ruled at M-2). The build asserts the set of semicolon-bearing paragraphs
+  exactly, so an eighth anywhere fails it.
+* **The worst break was not one of the 42** — B08-P047's em dash, closing the
+  weeping-woman simile, so that `Even so` no longer reads first as
+  *nevertheless*. No instrument in the package could reach it. It rejoins
+  Butler's own 80-word sentence; the growth is declared with that reason.
+* **What a count cannot see.** The census reads `: 6 → 6` and calls the class
+  untouched; the draft had **cashed** Butler's colon at P020 and **added** one
+  at P008. Provenance can tell a swap from a standstill.
+* `hardly` at P042 removed — it inverted Butler's sense. `minstrelsy` → *the
+  song that goes with it*: Demodocus **sings**, and **arrow C's repair is a
+  constraint, not a direction.**
+* **D5 widened** (any Roman form, with the Book 11 list named), **D16 clause
+  (b)** for a word supplied to Butler's text, **`PUNCTUATION.md` §6** for the
+  colon and the parenthesis, and the **`butlerism`** class.
+* **The compared figure did not move, +2.0% to +2.0%.** Nine restored marks
+  removed nine sentence boundaries and added nine kept marks. The corrections
+  did not improve the number; they made the text match it.
+
+## Book 9 is FROZEN at step 4
+
+`book09/`. 44 paragraphs, 5,800 words. **41 dividing marks, every one Butler's
+own, none added** — on the semicolon, the colon or the dash.
+
+**The fourteenth source rule reads integers.** 44 per-paragraph word counts,
+matched as a contiguous run against every paragraph PG prints between its own
+structural markers, prefaces and footnotes included. Exactly one occurrence.
+**Its audit failed it once, for the instructive reason**: PG glues page numbers
+to words as well as setting them bare, and the *locating* clause still passed —
+for the wrong reason — while only the verifying clause caught it.
+
+Run over all 24 chapters it locates **22 uniquely** and fails on exactly
+**1 and 3**, the two recorded divergences a word count can see. It **locates
+chapter 4**, whose divergence is a capital letter.
+
+**The collision check ran BEFORE the freeze and cost fifteen repairs in the
+draft** — six from arrow B across paragraphs, one from arrow C. Eight rows that
+Book 9's arrival opened in the **accepted** Books are ruled too.
+
+**The compound check raised a FALSE POSITIVE**, and that is the expensive
+direction: **attributive hyphenation** (`an olive-wood handle` against `of
+green olive wood`) is a rule of English, not a compound with two settings. It
+is a named, declared blindness now, with a control. The next instance is
+already visible (`ivy-wood bowl`). **If `NOT_COMPOUNDS` ever carries more than
+a handful of these, the check has to become position-aware.**
+
+## A7 — and Butler settles it himself
+
+**A3 is WIDENED**, and the widened patch is prepared and hashed the way D14
+requires. Two of the served file's four divergences from PG are **not**
+normalizations: PG opens Books III and IV lower-case because Butler runs one
+sentence across the Book boundary.
+
+| | |
+|---|---|
+| before | `da03f6ac…` (637,591 bytes) |
+| A3 as prepared (truncation alone) | `0cc76350…` (636,440) — reproduced independently |
+| **A3 WIDENED** (truncation + the two capitals) | **`e45d6c4d…`** (636,440) |
+
+**And Butler says so in his own Preface to the First Edition**, in a region of
+the file no rule in this package had ever read: *"the Leipsic Teubner edition
+… makes Books ii. and iii. **end with a comma** … **I have preferred to do
+so**"*, and *"**No other Books … have initial capitals** except the three
+mentioned unless the first word of the Book is a proper name."* The
+half-sentence is the author's stated practice; the capitals overwrite a policy
+he wrote down. Full text in the ledger's A7.
+
+**What the fix costs** is stated there in full. The short form: two chapter
+openings will look like bugs to a reader who opens a chapter directly (which
+is why somebody capitalized them); **it costs this package two successors to
+accepted Books 3 and 4, one letter each, owed on the day A3 lands and
+deliberately not built before then** — a lower-case modern opening beside a
+capitalized original in split-pane view is worse than the state we are in; and
+it costs no alignment at all.
 
 ## The instruments, and what each is for
 
 ```
 python3 scripts/checks.py N              # writes bookNN/checks-vN.md; gates + manifest read side
-python3 scripts/checks.py --all          # every accepted Book's figures AND gates AND manifests
-python3 scripts/checks.py --manifests    # the S-2 read side alone
-python3 scripts/checks.py --audit        # 14 controls under D18, 2 declared blindnesses
+python3 scripts/checks.py --all          # every accepted Book's figures AND gates AND manifests AND declarations
+python3 scripts/checks.py --declarations # the gates, over every key of DECLARED; coverage both ways
+python3 scripts/checks.py --manifests    # the read side alone — and it RUNS THE GATES now
+python3 scripts/checks.py --audit        # 22 controls under D18, 2 declared blindnesses
 python3 scripts/checks.py N --write-manifest   # the only manifest writer
-python3 scripts/prove_manifest.py        # 15 planted defects, all rejected
+python3 scripts/prove_manifest.py        # 9 attacks, 24 assertions, ~9 minutes
 python3 scripts/rendering_collisions.py  # arrows A, B and C; 7 controls
 python3 scripts/collision_triage.py N    # every row touching Book N, with a disposition; fails if any lacks one
 python3 scripts/compound_register.py     # §H.1 in every continuity.md, from the served corpus
 python3 scripts/compound_drift.py        # cross-Book compound drift
+python3 scripts/verify_source_book9.py   # the fourteenth source rule, with its audit
 python3 scripts/controls.py              # D18's own self-test
 ```
 
-**ARROW C is new and it is the one that earns its keep.** Book 7's round 1
-showed that M-2, M-5 and M-10 — Butler's own discriminations flattened — are
-invisible to **every** instrument in the package. Its diagnosis (arrow B's
-rarity gate is on the wrong side) is wrong: arrow B *is* gated on Butler's
-side. The real reason is that `abode` occurs in six paragraphs and so is not
-rare. **Rarity is the wrong gate for this defect and proximity is the right
-one.** Arrow C looks inside one paragraph with no frequency gate at all, and it
-found all three of M-2, M-5 and M-10 in the frozen Book 7 candidate, one
-nobody had reported in **accepted Book 3**, and **six in Book 8 during
-drafting**, four of which were Butler's own discriminations the draft had lost.
-
-**THE TRIAGE IS A RECORD, not an appendix.** R-2 and blind spot 8: the check
-returned 72 rows touching Book 7, eleven were acted on, sixty-one were
-dismissed with no record. `collision_triage.py` now gives every row a
-disposition — five classes mechanical, and the hand-ruled ones in named classes
-including **`homograph`**, which is the class the review asked for by name
-(`issue` is *outcome* at B03-P007 and *offspring* at B07-P007: two words spelled
-alike, not a collision).
-
-## The thing the last session OPENED, now CLOSED
-
-**`collision_triage.py` exited non-zero for Books 1–6 — 96, 30, 27, 30, 26 and
-12 rows with no disposition, 221 in all.** Worker 9 deliberately did not rule
-them, on the grounds that writing 221 dispositions in the session that built the
-instrument would be the very defect the instrument exists to catch. It was
-right, and a separate worker ruled them. **Every Book now exits zero.**
-
-| Book | rows touching it | with no disposition |
-|---|---|---|
-| 1 | 158 | **0** |
-| 2 | 89 | **0** |
-| 3 | 118 | **0** |
-| 4 | 130 | **0** |
-| 5 | 89 | **0** |
-| 6 | 81 | **0** |
-| 7 | 77 | 0 |
-| 8 | 91 | 0 |
-
-(Row counts fell because the two successors below removed the rows they
-repaired.)
-
-**The backlog was mostly noise, and the noise had ONE cause — a defect in the
-instrument, not in anybody's ruling.** `kept` dismisses a row from the KEEPER's
-side: *"the decision in this row belongs to whichever Book moved"*. There was no
-class to dismiss it from the MOVER's side. So every row where one Book
-modernized Butler's word and another kept it — because in ITS context the word
-is current English — was closed for the keeper and open forever for the mover.
-`kept-elsewhere` is that missing mirror and it absorbs **104 of the 214 rows of
-that shape**, measured by running the triage with every hand ruling for Books
-1–6 switched off. **110 rows needed a person; 7 were live.** 103 reasoned
-dismissals for 7 repairs.
-
-**`RULINGS` was keyed by `(arrow, key)` alone and that is wrong for eight
-Books,** because the right disposition of a row depends on which Book you are
-asking about. `RULINGS_BY_BOOK` is keyed by Book as well and is consulted first,
-so ruling Books 1–6 cannot reach back and alter the accepted record of Books 7
-and 8 — both regenerate byte-identical under the change, asserted by running
-them.
-
-**Two dismissal classes are new and both are named so they can be audited.**
-`context-rendered` (the two contexts make each rendering wrong in the other's
-place — deixis, collocation, which half of a sense is in play; *not* a licence
-for any two synonyms, and where the reason cannot name the difference the row is
-`free-variation` instead) and `free-variation` (the honest residue, **used four
-times in six Books**; if it ever carries a dozen rows it has become the thing it
-was invented to avoid).
-
-**Six of the seven live rows came from ARROW C**, the proximity arrow added at
-Book 7 — its fourth independent vindication. The seventh, `smart looking` ->
-`capable-looking` at B01-P019, came from arrow B across paragraphs. That is
-**blind spot 6 brushed by accident, not closed**: a discrimination lost across
-paragraphs is still invisible by design, and this one was caught because the two
-words happened to be rare enough for arrow B's gate.
-
-**Two successors, in ONE pass** — `scripts/build_collision_backlog_sweep.py`,
-A5(a)'s argument applied:
-
-* `book01/candidate-v4.json`
-  `6e5ecb0a4b7a40d2ca2ccf17ef36408bb95c6980a2584b522d37526959a77de8` — five
-  repairs, all in the most heavily rewritten Book in the package.
-* `book04/candidate-v5.json`
-  `3c21549edf30a74d5f1a5bedfe01f53823267a46caae97f59e0ebf5ce6c9986d` — two.
-
-Every accepted candidate, every file built FROM, and both `ACCEPTANCE.md`
-records are hashed before and after and asserted byte-unchanged. So is the half
-a sweep usually forgets: **every word the repairs exist to PROTECT is asserted
-still present**, so a repair cannot silence the check by deleting Butler's own
-kept word.
-
-**And the instrument found something in ACCEPTED work for the THIRD consecutive
-run.** B04-P040 renders Butler's `holy hecatombs` as a bare `holy sacrifices`,
-one sentence from his own `sacrifices`; accepted Books 1 and 3 both pay for the
-lost SCALE with an adjective (`great sacrifice`, `fine sacrifice`) and Book 4
-did not. The `luscious` shape again. The sharpest finding is B04-P017 —
-`forenoon` -> `morning` beside Butler's own `Morning`, which makes Pisistratus
-say that morning will come and that when it has come it will be there, spending
-on the first word the deferral the sentence exists to ask for.
-
-**Three repairs were DECLINED and recorded instead**, because a successor to an
-accepted Book has to buy a reading: `a couple of`/`a pair of` in Book 1
-(`free-variation`), `dwells` -> `lives` in Book 4 against Book 7's kept `dwells`
-(both defensible), and `scion` -> `young woman` at B06-P013 — no word both reads
-as modern English and keeps the graft metaphor, and the young palm at Delos
-three sentences later carries it in Butler's own words.
-
-Per-Book records are in each `continuity.md`, section *"The collision backlog,
-ruled"*; the row-by-row tables are generated into `bookNN/collisions.md`.
-
-### ⚠ One file is knowingly STALE
-
-**`book08/collisions.md` is two rows out of date** and was deliberately left at
-its committed bytes. The successors above change what the arrows read for
-**every** Book, including 8 — but Book 8 was under independent review by another
-worker who owns `book08/`, and handing that round a merge conflict on its live
-file costs more than the staleness. **Book 8's round must regenerate it**
-(`python3 scripts/collision_triage.py 8`) and should expect the `morning` and
-`himself` rows to go. `book07/collisions.md` WAS regenerated for the same reason
-in reverse: nobody is working on it, and a stale generated file is the R-2
-disease.
-
-## The compound class, closed
-
-**A4(ii) — the vendored word list is DECLINED.** `scripts/compound_register.py`
-replaces it: one disposition line per H.1 pair in every `continuity.md` §H.1,
-187 pairs, evidence **read** from the 100 served modern-English editions, closed
-only when the closed form leads 3× **and** appears in 3+ editions.
-
-**It found a live compound the first time it ran** — `store-room` in accepted
-Book 2, closed 31 in 9 editions against 1 hyphenated and 1 open, named by no
-reader, no review round and no check in the package's history. It was folded
-into the successor Book 2 was already owed for `councillors`, so it cost
-nothing extra.
-
-**A correction to A5(c)'s own claim, with its evidence.** A5(c) says the
-register *"would have caught `mountain tops` at Book 5 before a successor was
-owed"*. **It would not have**: the corpus gives closed 7 in 7 editions against
-9 open, short of the margin on both counts. `PROBES` keeps the pair in
-`scripts/compound-corpus.json` after the Books stopped carrying it precisely so
-this is checkable. What it *would* have caught is `sea shore` (56 in 17 against
-0), which cost three successors, and `bed chamber` (28 in 11).
-
-**A5(a) and A6 are done, in ONE pass** (`scripts/build_compound_sweep.py`), and
-**R-6 is confirmed: the cost was TWO successors, not the "sixth successor"
-singular the record stated** — `mountain tops` is in accepted Book 5 *and*
-accepted Book 6.
-
-## Book 8's round 1 is IN — `book08/review/findings-v1.md`
-
-**Verdict: accept after corrections.** 3 substantive, 8 minor, 7 optional,
-5 records; all 50 paragraphs covered, 34 with no material issue. Every
-published figure recomputed independently and all eleven reproduce.
-
-* **S-1 — the +27.1% is 85% cashed pointing.** Of 52 new sentence boundaries,
-  **44 are marks Butler already wrote** (40 `;`, 1 `:`, 3 `—`) and **8 divide
-  his prose**. Blind spot 5 is written: `book08/review/mark_census.py`. D20
-  prices the semicolon and nothing else, so a **colon or a dash cashed for a
-  period is free division** — the review recommends extending D20 clause (a)
-  to `:` and sentence-internal `—`, which would put Book 8 at **+2.4%**.
-* **S-2 — six of the 42 semicolons should survive** (B08-P009, P034, P039,
-  P043, P046 ×2), and **the worst break in the Book is not one of them**:
-  B08-P047's em dash closes Butler's weeping-woman simile, and cashing it for
-  a period severs the correlative frame. Zero survivors is the shape of a
-  decision made once for a whole category.
-* **S-3 — `checks.py --manifests` is defeated by one field edit** and passes a
-  gate-failing candidate; `verify_manifest`'s `all_gates_passed` clause is
-  guarded on an argument `--manifests` never passes. `prove_manifest.py` never
-  tests that path, its fifth enumerated case is **dead code** (`cases[:4]`),
-  and its R-5 assertion tests `collections.Counter` rather than `DECLARED`.
-* **The `DECLARED` shape recurs:** `book02/candidate-v3/v4/v5.json` declare
-  `compound=[]` and all three carry drift. Nothing evaluates those keys.
-* **`compound_drift.py` keeps a second, stale copy of the accepted-file list**
-  and names `book07/candidate-v1.json` — the rejected file. Same verdict today;
-  it is one fact written twice and updated once.
-* **The register earns its place, with two conditions** — it is keyed on the
-  inflected bigram (`mountain top` closed, `mountain tops` open: one lexeme,
-  two verdicts), and it needs a disposition for *ruled closed against the
-  corpus*. A contamination attack using the nine flagged editions from
-  `d208051e9` **failed**: no verdict moves.
-* **Source holds** under a **thirteenth** rule — PG's marker-to-marker byte
-  tiling + the served file's own paragraph-count vector + three positional
-  streams. **Its audit failed it five times.** The three PG divergences are
-  confirmed independently, and **two of them are not normalizations**:
-  capitalizing B03-P001 and B04-P001 destroys Butler's run-on across the Book
-  boundary, which is the same defect as the A3 splice. **A3 should be widened.**
-
 ## Next, in order
 
-0. **Regenerate `book08/collisions.md`** as part of Book 8's round — see the
-   stale-file warning above.
-1. **Book 8 steps 5–8** — act on round 1 above, then acceptance.
-   `book08/review-instructions.md`, **four questions put
-   explicitly**. A **thirteenth** kind of source rule, audited before trusted,
-   with controls that clear Book 7's bar (the B03-P038 splice and a paragraph
-   of Butler's own from another Book, both made to fire).
-2. Then **Book 9**.
+1. **Book 9's round 1.** `book09/review-instructions.md`, **four questions put
+   explicitly**, and one instrument put up to be **attacked** rather than
+   checked. A **fifteenth** kind of source rule, audited before trusted, with
+   the B03-P038 splice and a paragraph of another Butler Book both made to
+   fire.
+2. Then **Book 10** — subject to A2.
 3. **Report five numbers with the basis on every one**: retention, raw D17
-   rate, **NORM RATE on Butler's own pointing**, semicolons **split into kept
-   and added**, and **MOVE-GAP** with displaced runs beside it.
+   rate, **NORM RATE on the D27 basis on Butler's own pointing**, **dividing
+   marks split into kept and added**, and **MOVE-GAP** with displaced runs
+   beside it.
 4. **Every control under D18.** Use `scripts/controls.py`; do not hand-roll.
-5. **Run every instrument above in any session that touches the package** — the
-   collision check and the compound register **before** freezing, not after.
+5. **Run every instrument above in any session that touches the package** —
+   the collision check and the compound register **before** freezing, not
+   after. Book 9 is the demonstration: fifteen repairs at draft time, which
+   would have been fifteen findings and a successor at review time.
 6. **Anders still owes two decisions**: `00-progress-ledger.md` **A2** (Book
-   10's disposition) and **A3** (the served Book 3 ¶38 splice, prepared as a
-   one-line patch and not this package's to apply). **A4(ii), A5 and A6 are
-   now answered and closed.**
+   10's disposition) and **A3-widened** (the served file patch, prepared,
+   hashed, and now supported by Butler's own preface).
 
-### The twelve source rules already used
+### The fourteen source rules already used
 
 1. **Book 2 drafter** — PG's footnote-entry list, positionally.
 2. **Book 3 drafter** — the `BOOK III`/`BOOK IV` headings, in bytes.
@@ -321,67 +254,64 @@ published figure recomputed independently and all eleven reproduce.
    occurring exactly once.
 4. **Book 4 drafter** — occurrence-unique needles and a derived region.
 5. **Book 4 reviewer** — global per-paragraph fingerprint alignment.
-6. **Book 5 drafter** — identification by **residue** (the other 23 chapters).
+6. **Book 5 drafter** — identification by **residue**.
 7. **Book 5 reviewer** — one global **monotone diff** of the whole file.
 8. **Book 6 drafter** — a **suffix-automaton resemblance profile**.
 9. **Book 6 reviewer** — **letter-blind typographic shape**.
 10. **Book 7 drafter** — **PG's own hard wrapping**, as line counts.
 11. **Book 7 reviewer** — the **capitalization bitstring**, one bit per token.
-12. **Book 8 drafter** — **PG's argument lines and its table of contents**.
-    The locating clause is **body-blind**: the served edition's 24 chapter
-    **titles** matched to PG's 24 argument lines, in order, each exactly once,
-    reading no character of any chapter's prose. Cross-checked against the
-    `Contents` block, two lists written in different places by different
-    conventions. **Its audit failed it twice** — it expected `[n]` footnote
-    anchors where PG has none in the whole body, and its clause 3 as first
-    written was tautological — and the second repair found **three divergences
-    of the served file from PG that nobody had recorded**.
+12. **Book 8 drafter** — PG's **argument lines and table of contents**,
+    body-blind. Its audit failed it twice.
+13. **Book 8 reviewer** — **marker-to-marker byte tiling** indexed by the
+    served file's per-chapter paragraph-count vector, three positional
+    streams. **Its audit failed it FIVE times.**
+14. **Book 9 drafter** — **the arithmetic-only word-count partition.** 44
+    integers, matched once against everything PG prints between its own
+    structural markers. **Its audit failed it once, and the failure was that
+    the locating clause passed for the wrong reason.**
 
-13. **Book 8 reviewer** — **PG's marker-to-marker byte tiling** (contiguous,
-    zero residue, body-blind) indexed by **the served file's own per-chapter
-    paragraph-count vector** (counts only), verified through three positional
-    streams: closed-class **function-word order** with a case bit,
-    **content-word anagram**, and **punctuation with whitespace-adjacency
-    bits**. 13 controls, 4 declared blindnesses. **Its audit failed it FIVE
-    times**: PG's argument line counted as prose (a uniform off-by-one in all
-    24 chapters), no case bit, a sum instead of a tiling, both word streams
-    punctuation-blind, and two controls inside the null space.
-
-**A fourteenth has to find another channel again.** Still unused: **Butler's
-own PREFACES** and their cross-references into the text; **the footnotes' own
-cross-references between one another**; **PG's licence and transcriber
-boilerplate as file arithmetic** (byte offsets, the `*** START` / `*** END`
-markers against the body's length); and **the served edition's own
-paragraph-count arithmetic per chapter** as an independent index.
+**A fifteenth has to find another channel again.** Still unused: **Butler's
+own PREFACES and their cross-references into the text** — note that the
+First Edition's preface has just proved decisive for A7, so this channel is
+now known to be load-bearing and not merely unused; **the footnotes'
+cross-references between one another**; and **the appendix's plan of
+Odysseus's house** and the paragraphs explanatory of it, which Butler says he
+reprinted there.
 
 ## What the checks would STILL not catch
 
-1. **A sentence divided at the wrong seam.** No carrier. **Book 8 is the
-   largest exposure the package has ever had to this**: 42 semicolons, every
-   one converted, and no measure can say whether any break is in the wrong
-   place.
-2. **A garden path the draft builds out of a mark** (B07-P020, made by deleting
-   one comma).
+1. **A sentence divided at the wrong seam.** B08-P047 is the package's clearest
+   instance and no measure reached it — not a semicolon, moves no clause,
+   lengthens nothing. **D27 does not close this.** It removes the reason there
+   was nothing to lose by dividing everywhere.
+2. **A garden path the draft builds out of a mark** (B07-P020; B08-P044 and
+   B08-P039 in Book 8's round).
 3. **Register.**
 4. **A figure carried by a single word.**
-5. **Every mark except the semicolon is unmeasured, in both directions.** S-1's
-   half of this is now closed — added semicolons are counted and priced — but
-   no comma, dash, colon or quotation mark is counted anywhere. A per-mark
-   census of source against candidate is still four lines and still unwritten.
+5. **Whether a mark that WAS cashed should have been.** D27 counts the marks
+   and prices them; it cannot say that any one of Book 9's thirty conversions
+   is right. A person ruled all 42 of Book 8's one at a time and nothing can
+   check the ruling.
 6. **A discrimination lost ACROSS paragraphs.** Arrow C closes the
-   same-paragraph case and only that case. **The Books 1–6 triage produced the
-   first live instance**: `smart looking` -> `capable-looking` at B01-P019
-   collides with the candidate's own `capable` for Odysseus thirteen paragraphs
-   away. Arrow B caught it only because both of Butler's words are rare enough
-   for its gate; had either been common it would have passed unseen. The blind
-   spot stands, and it now has a named example to be closed against.
-7. **Whether a disposition in `collisions.md` or §H.1 is RIGHT.** Both files
-   now guarantee that somebody wrote something down for every row. Neither can
-   tell you the ruling was good.
+   same-paragraph case only. **Book 9's draft produced six more instances**,
+   caught only because both of Butler's words happened to be rare enough for
+   arrow B's gate. The blind spot stands.
+7. **Whether an ARROW'S REPAIR is right.** New, from Book 8's M-4: arrow C
+   correctly found `minstrelsy` and `music` flattened, and the repair
+   (`the playing that goes with it`) misdescribed a bard who sings. Nothing in
+   the collision record asks whether the replacement is still accurate.
+8. **Whether a disposition in `collisions.md` or §H.1 is RIGHT.** Both files
+   guarantee somebody wrote something down for every row. Neither can tell you
+   the ruling was good.
+9. **A false positive in `compound_drift()` from attributive hyphenation.**
+   Declared, exempted by name, and the exemption list is itself the hazard —
+   see `book09/continuity.md` §8.
+10. **A defect PG and the served file SHARE.** Every source rule in the package
+    is blind to it by construction.
 
 ## Hard rules
 
 Content-only, under `books/staged-replacements/odyssey/` alone. Zero Anthropic
 API spend. English only. Nothing merged, deployed, registered, and the served
-`app/public/data/editions/**` is **read** (by `compound_register.py` and
-`verify_source_book8.py`) and **never written**.
+`app/public/data/editions/**` is **read** (by `compound_register.py` and the
+source verifiers) and **never written**.

@@ -518,7 +518,9 @@ accepted files, and every row carries its basis. Nothing here is typed by hand.
 | 6 v1 *(superseded)* | `candidate-v1` | **all 26 paragraphs** | 0.93669 | 116 → 148 | +27.6% | 7 → 1 | 27 → 4 | +6.3% | 0.00925 |
 | 7 v1 *(superseded)* | `candidate-v1` | all 29 paragraphs | 0.93943 | 103 → 129 | +25.2% | 7 → 0 | 30 → 14 | +7.5% | 0.01277 |
 | **7 v2 (ACCEPTED)** | **`candidate-v2`** | **all 29 paragraphs** | **0.93438** | **103 → 138** | **+34.0%** | **7 → 0** | **30 → 7** | **+9.0%** | **0.01217** |
-| **8 v1 (frozen draft)** | **`candidate-v1`** | **all 50 paragraphs** | **0.93844** | **192 → 244** | **+27.1%** | **11 → 0** | **42 → 0** | **+4.3%** | **0.00692** |
+| 8 v1 *(superseded)* | `candidate-v1` | all 50 paragraphs | 0.93844 | 192 → 244 | +27.1% | 11 → 0 | 42 → 0 | +4.3% | 0.00692 |
+| **8 v2 (ACCEPTED)** | **`candidate-v2`** | **all 50 paragraphs** | **0.93862** | **192 → 235** | **+22.4%** | **11 → 1** | **42 → 7** | **+3.4%** | **0.00692** |
+| **9 v1 (frozen draft)** | **`candidate-v1`** | **all 44 paragraphs** | **0.92164** | **171 → 207** | **+21.1%** | **16 → 0** | **54 → 24** | **+2.7%** | **0.01266** |
 
 **And the column that replaces the last-but-one, decided as D21.** The NORM
 RATE above is the published one, which credits a comma raised to a semicolon
@@ -563,7 +565,9 @@ replacing a column in place is exactly R-1.
 | 6 v2 | 116 → 148 | +27.6% | 27 → 5 | 38 → 16 | 14 + 2 | +5.6% | **+5.2%** |
 | 7 v1 *(superseded)* | 103 → 129 | +25.2% | 30 → 14 | 42 → 25 | 17 + 8 | +3.0% | **+0.7%** |
 | 7 v2 | 103 → 138 | +34.0% | 30 → 7 | 42 → 18 | 14 + 4 | +7.5% | **+4.8%** |
-| **8 v1 (frozen draft)** | **192 → 244** | **+27.1%** | **42 → 0** | **62 → 22** | **15 + 7** | **+4.3%** | **+2.0%** |
+| 8 v1 *(superseded)* | 192 → 244 | +27.1% | 42 → 0 | 62 → 22 | 15 + 7 | +4.3% | **+2.0%** |
+| **8 v2 (ACCEPTED)** | **192 → 235** | **+22.4%** | **42 → 7** | **62 → 31** | **24 + 7** | **+3.4%** | **+2.0%** |
+| **9 v1 (frozen draft)** | **171 → 207** | **+21.1%** | **54 → 24** | **71 → 41** | **41 + 0** | **+2.7%** | **+2.5%** |
 
 **What moves, and what the movement says.**
 
@@ -824,6 +828,43 @@ against Butler's (**D19**). Every control under **D18**; run
   Verified independently by two unlike methods in `book08/review/` (the
   thirteenth source rule's clause C, and a character-level `SequenceMatcher`
   pass), and the hashes above by a third, here.
+
+  **AND BUTLER SAYS SO HIMSELF, which nobody had looked for.** Found while
+  surveying the unused channels for Book 9's source rule, in **Preface to the
+  First Edition**, PG #1727 — a region of the file no rule in this package had
+  ever read, because every rule works inside the body:
+
+  > *"I observe that the Leipsic Teubner edition of 894 makes Books ii. and
+  > iii. **end with a comma**. Stops are things of such far more recent date
+  > than the “Odyssey,” that there does not seem much use in adhering to the
+  > text in so small a matter; still, from a spirit of mere conservatism, **I
+  > have preferred to do so**. … **No other Books of the “Odyssey” have
+  > initial capitals** except the three mentioned unless the first word of the
+  > Book is a proper name."*
+  >
+  > — S. Butler, *July* 25, 1900
+
+  Two sentences, and between them they settle A7 outright.
+
+  1. **Butler ends his Books II and III with a comma on purpose**, and says he
+     does. The half-sentence at the end of Book III is not a defect that
+     invited completion — it is the author's stated practice, and the served
+     file's ¶38 splice completes a sentence Butler deliberately left open.
+  2. **Butler states his own rule for initial capitals**, and Books III and IV
+     are not among the exceptions. `But` and `They` are therefore not
+     normalizations of an accident; they overwrite a typographic policy the
+     translator wrote down in his own preface.
+
+  This is the strongest evidence A7 will get, it is primary, and it is
+  verbatim in the package's own `source-texts/pg1727-butler-1900.txt` at lines
+  277–289. **It also raises a question for the whole edition**, which is put to
+  Book 9's reviewer: Butler's rule names Books **ii, vii and viii** as taking
+  initial capitals and **vi, xiii and xvii** as not, and the served file
+  capitalizes every Book. If A3-widened is applied, the natural scope is not
+  two Books but *whichever of the twenty-four Butler's own rule says should be
+  lower-case* — and that is a question about the Greek text he is describing,
+  not the English, so it needs a reader who can check it rather than a script
+  that can count.
 
 - **~~A5.~~ DONE 2026-09-13 — `mountain tops` closed, the vendored word list
   declined, and the register built. `book05/candidate-v3.json` `c8af4cc3…` and
