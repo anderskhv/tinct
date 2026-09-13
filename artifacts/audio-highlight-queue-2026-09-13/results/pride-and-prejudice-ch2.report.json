@@ -1,0 +1,49 @@
+[
+ {
+  "key": "pride-and-prejudice/original-en/ch2",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.986198243412798,
+    "reasons": [
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "paragraphCount": 27,
+    "paragraphsBelowThreshold": [
+     {
+      "paragraph": 10,
+      "ratio": 0.5
+     }
+    ]
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.973651191969887,
+    "reasons": [
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "paragraphCount": 27,
+    "paragraphsBelowThreshold": [
+     {
+      "paragraph": 10,
+      "ratio": 0.5
+     }
+    ]
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ }
+]
