@@ -20,7 +20,17 @@
      }
     ],
     "validationErrors": [],
-    "sidecar": "/tmp/claude-0/-home-user-tinct/dbfeb34a-8974-5863-807c-9aa54be344f7/scratchpad/work/jekyll-and-hyde-ch9/run/jekyll-and-hyde/original-en/ch9/auto/words.candidate.json"
+    "paragraphCount": 34,
+    "paragraphsBelowThreshold": [
+     {
+      "paragraph": 1,
+      "ratio": 0.3333333333333333
+     },
+     {
+      "paragraph": 7,
+      "ratio": 0.0
+     }
+    ]
    },
    "off": {
     "status": "rejected",
@@ -46,7 +56,21 @@
      }
     ],
     "validationErrors": [],
-    "sidecar": "/tmp/claude-0/-home-user-tinct/dbfeb34a-8974-5863-807c-9aa54be344f7/scratchpad/work/jekyll-and-hyde-ch9/run/jekyll-and-hyde/original-en/ch9/off/words.candidate.json"
+    "paragraphCount": 34,
+    "paragraphsBelowThreshold": [
+     {
+      "paragraph": 1,
+      "ratio": 0.3333333333333333
+     },
+     {
+      "paragraph": 7,
+      "ratio": 0.0
+     },
+     {
+      "paragraph": 33,
+      "ratio": 0.5
+     }
+    ]
    }
   },
   "outcome": "excluded",

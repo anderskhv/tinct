@@ -32,7 +32,25 @@
      }
     ],
     "validationErrors": [],
-    "sidecar": "/tmp/claude-0/-home-user-tinct/dbfeb34a-8974-5863-807c-9aa54be344f7/scratchpad/work/communist-manifesto-ch4/run/communist-manifesto/original-en/ch4/auto/words.candidate.json"
+    "paragraphCount": 62,
+    "paragraphsBelowThreshold": [
+     {
+      "paragraph": 1,
+      "ratio": 0.3333333333333333
+     },
+     {
+      "paragraph": 13,
+      "ratio": 0.0
+     },
+     {
+      "paragraph": 21,
+      "ratio": 0.6
+     },
+     {
+      "paragraph": 47,
+      "ratio": 0.8
+     }
+    ]
    },
    "off": {
     "status": "rejected",
@@ -64,7 +82,25 @@
      }
     ],
     "validationErrors": [],
-    "sidecar": "/tmp/claude-0/-home-user-tinct/dbfeb34a-8974-5863-807c-9aa54be344f7/scratchpad/work/communist-manifesto-ch4/run/communist-manifesto/original-en/ch4/off/words.candidate.json"
+    "paragraphCount": 62,
+    "paragraphsBelowThreshold": [
+     {
+      "paragraph": 1,
+      "ratio": 0.0
+     },
+     {
+      "paragraph": 13,
+      "ratio": 0.0
+     },
+     {
+      "paragraph": 21,
+      "ratio": 0.6
+     },
+     {
+      "paragraph": 47,
+      "ratio": 0.8
+     }
+    ]
    }
   },
   "outcome": "excluded",
