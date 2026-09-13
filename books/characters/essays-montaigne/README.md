@@ -1,21 +1,21 @@
 # Montaigne's Essays character package — IN PROGRESS
 
-**Chapters 1–100 of 107 are authored. The rest are not.** Status stays
+**Chapters 1–102 of 107 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole work is
 covered.
 
-Current state: 1,048 entities authored, all 1,048 bound in both editions, 4,348
-and 4,492 exact mentions. Of those, 162 and 180 fall inside chapters 1–10, 205 and 209
+Current state: 1,064 entities authored, all 1,064 bound in both editions, 4,383
+and 4,528 exact mentions. Of those, 162 and 180 fall inside chapters 1–10, 205 and 209
 inside chapters 11–20, 344 and 357 inside chapters 21–25, 136 and 142 inside
 chapters 26–30, 256 and 264 inside chapters 31–40, 278 and 288 inside
 chapters 41–50, 271 and 279 inside chapters 51–60, 272 and 278 inside
-chapters 61–68, 591 and 598 inside chapter 69 alone, 157 and 159 inside
+chapters 61–68, 592 and 599 inside chapter 69 alone, 157 and 159 inside
 chapters 70–73, 214 and 218 inside chapters 74–80, 286 and 310 inside
 chapters 81–90, 385 and 404 inside chapters 91–98, 253 and 260 inside
-chapter 99 alone, and 53 and 55 inside chapter 100; the rest — 485 and 491 —
+chapter 99 alone, and 150 and 154 inside chapters 100–102; the rest — 422 and 427 —
 are later occurrences of names that belong to one man through the whole book:
 Cicero, Plato, Horace, Seneca, Socrates, Plutarch, Aristotle and the other
-authorities Montaigne quotes on every page. Content revision 2026-09-13.9.
+authorities Montaigne quotes on every page. Content revision 2026-09-13.10.
 
 Chapter 69, the Apology for Raimond Sebond, is by itself the largest chapter in
 the work — 660 paragraphs, as much text as chapters 41–68 together, and more
@@ -137,6 +137,7 @@ this scale:
 | Panetius | Panaetius |
 | **Origeti** (69:476) | Origen |
 | Marc Antony (100:13) | Mark Antony |
+| Adrian (101:13) | Hadrian |
 | Lachez (100:7) | Lachez — both editions, against *Laches* at 12:1 and 84:22 |
 
 Both spellings sit on one card, and a test pins every pair. The last row is the
@@ -380,6 +381,10 @@ ninety-eight chapters:
 | **`catherine-de-medici`** | 100:16 | **St. Catherine's Mount at 23:0**, the battery position at the siege of Rouen. She binds by her title, *Queen Catherine*, which the hill does not carry |
 | `galba-emperor` | 100:17 | `sulpicius-galba` of 30:0 and the unbound third Galba of 99:199. 100:17 names him *the Emperor Galba*, so the sentence settles it |
 | `cytheris` | 100:14 | herself, under the name Gallus gave her in his elegies. One card carries *Cytheris* and *Lycoris*, because the note says in so many words that they are the same woman |
+| **`quintus-cicero`** | 102:78, 102:80 | **his brother**, the orator — and until chapter 102 was read the brother had his citation at 99:315 too. The longest-span rule gives *Q. Cicero* the two words and takes them off *Cicero* |
+| **`pausanias-writer`** | 102:5 | `pausanias-sparta` of 29:5, `pausanias-plataea` of 36:10 and `pausanias-assassin` of 59:21. A fourth of the name, and the only one of the four who *tells us* anything |
+| `hadrian` | 101:13 | `cardinal-adrian` of 33:2. The older edition writes the emperor *Adrian* here and the modern *Hadrian*, so both patterns are keyed to the same paragraph |
+| `albus`, `barrus` | 102:4 | nobody — but 102:3 is the same two lines in Horace's Latin, where Albus is *Albi* and Barrus is spelt alike. Barrus is keyed to the version for that reason |
 
 **Three of those were live mis-bindings the sweep caught**, not hypotheticals. The
 bare surname *Lepidus* was binding the man who died of a stumble at 19:24 to the
@@ -401,19 +406,19 @@ that is single-referent across the whole work — the authorities and philosophe
 Montaigne quotes on every page — is bound by alias and therefore appears in
 chapters that have not been authored yet, with a card written to be true
 anywhere in the book rather than to gloss the paragraph it was first found in.
-A hundred and twenty-three entities bind beyond chapter 100 that way, and five of
-them — Cicero, Seneca, Socrates, Plato and Horace — account for two-fifths of it. It
-is worth being plain about the size of this: 485 of the 4,348 mentions in the
-older edition fall in chapters that have not been read — seven chapters, two
+A hundred and thirteen entities bind beyond chapter 102 that way, and five of
+them — Cicero, Socrates, Seneca, Plato and Horace — account for two-fifths of it. It
+is worth being plain about the size of this: 422 of the 4,383 mentions in the
+older edition fall in chapters that have not been read — five chapters, two
 of them among the longest in the work. Those are bindings of names with
 one bearer, and the cards are written to be true anywhere; but they are not
 reviewed paragraph by paragraph, and the release owner should read the scope line
 as covering the *cast*, not every mention of it.
 
-## Editorial checks — chapters 1–100
+## Editorial checks — chapters 1–102
 
-**1. Namesakes.** The two hundred and forty-seven entities in the table above — a
-hundred and ninety-two rows — each pinned by a test.
+**1. Namesakes.** The two hundred and fifty-four entities in the table above — a
+hundred and ninety-six rows — each pinned by a test.
 
 **2. Person or not.** This is the check that does the most work in an essayist.
 Excluded:
@@ -623,6 +628,18 @@ Chapter 99 adds four, and one of them is the chapter's own hardest line:
   the authorship of an elegy, not a man — the same judgment already made at
   19:70. The Gallus of 99:232, set against Horace for speaking simply because he
   conceives simply, is the elegist and is bound.
+
+Chapters 101 and 102 add three:
+
+- **The tyrant Dionysius at 101:12**, whose flatterers ran against one another
+  and overturned whatever was under foot to shew they were as purblind as he,
+  and **the tragedy of Dionysius at 102:60**, which Melanthius could not see for
+  the language clouding it. Neither sentence carries a numeral. 101:13 is bound,
+  because that sentence names Philoxenus in the quarries and Plato sold at
+  Aegina, and those are the elder's acts.
+- **The old philosopher of 102:27** who never wanted an occasion for his tears
+  whilst he considered himself is Heraclitus, and the Essays name him elsewhere;
+  here they name him only by description.
 
 Chapter 100 adds four, and one of them is a class the modern edition settles by
 its own typography:
@@ -882,6 +899,13 @@ Pseudo-Gallus of 99:34, 99:95 and 99:257, and Achaemenes at 99:144, which is
 inside Horace's Latin and carries its card at 99:145 instead. That is the first
 pass in which the audit found nothing that needed fixing.
 
+Over chapters 101 and 102 it reported seventeen, and eleven were real: Regulus at
+101:2 and 101:3, Tiberius at 101:11 and 102:84, Adrian and Hadrian at 101:13,
+Alexander at 101:9 and 101:12, Cato at 102:5, Pausanias at 102:5, Marius and
+Pompey at 102:83, Cyrus at 102:66, and Dionysius at 101:13. Two of those matter
+beyond their own paragraph: the Cato of 102:5 is the censor and not the younger,
+and the Pausanias of 102:5 is a fourth man of the name.
+
 Over chapter 100 it reported ten, and six of them were real: Alexander at 100:61,
 Philip at 100:31, Cyrus at 100:27, Caesar at 100:60, Galba at 100:17 and Gallus at
 100:14, none of which any other check could have seen, because a table with no key
@@ -918,6 +942,17 @@ The **adjacency sweep** over chapters 81–90 produced forty-six hits, all sound
 *our late poor King Charles IX*, *the Praetor Lucius Piso*, *Caius Memmius* — and
 the range's **spot-read** of thirty-two mentions found no mis-binding.
 
+The **adjacency sweep** over chapters 101 and 102 produced fourteen hits, all
+sound, and the range's **spot-read** of twenty-eight mentions found no
+mis-binding. The catch in this pass came from neither: it came from **listing
+every occurrence of a new name across the whole work before giving it an alias**,
+which is now the first thing done with a new name and which found a live
+mis-binding in a chapter already signed off. *Q. Cicero* stands at 99:315 as well
+as at 102:78 and 102:80, and the orator's bare alias had been taking all three.
+No census could have seen it: both editions print *Q. Cicero* and both were wrong
+together. The same list also turned up **Philoxenus at 69:613**, breaking the
+earthen vessels in a chapter corrected twice already, and cast nowhere.
+
 The **adjacency sweep** over chapter 100 produced twelve hits, all sound and all
 of one kind — a title standing in front of the name: *the Emperor Firmus*, *Pope
 Gregory XIII*, *our Queen Catherine*, *the Emperor Galba*, *the Emperor Probus*.
@@ -950,7 +985,7 @@ Seneca's wife at 92:13. That is the second catch for the spot-read in twelve
 passes, and again it is the kind only reading the sentence finds.
 
 **6. Both editions independently.** No entity is missing from either edition. The
-mention counts differ by about three percent (4,348 against 4,492),
+mention counts differ by about three percent (4,383 against 4,528),
 partly because the modern edition resolves pronouns to names — it says *Dionysius*
 and *Scanderbeg* and *Betis* and *Ferdinand* where Cotton says *he* — and partly
 because it expands the citation abbreviations, so *Hor.* becomes *Horace* and
@@ -1034,6 +1069,8 @@ alias did not match, not because the man was somebody else.
 | **The older edition misprints three more names in chapters 69–80**: *Lactantms* for Lactantius at 74:156, *Zenocrates* for Xenocrates at 69:268 and 69:401, and *Metellius of Macedon* for Metellus at 74:91. | All carried as aliases or keyed patterns exactly as printed. The Zenocrates misprint is the same Z-for-X as *Zenophanes* for Xenophanes in the same chapter, and it hid Xenocrates from the chapter-69 pass altogether. |
 | **The older edition has a lacuna at 90:7.** It reads "he had no more written against him which he had as sharply answered"; the modern edition reads "Caius Memmius had written some very sharp speeches against him, which he had answered just as sharply". A name and a clause are missing from the older text. | Not repaired. `memmius` binds at 90:7 in the modern edition alone, and a test pins the asymmetry. Whether Lucretius's Memmius and Caesar's are one man the Essays do not say, and the two are on one card with that said on it. |
 | **The older edition misprints Origen *Origeti* at 69:476.** The modern edition reads *Origen*. | Carried as an alias exactly as printed. Like *Zenocrates*, the misprint is why no pass before chapter 99 cast the man at all, though he stands in the Apology. |
+| **The editor's note at 102:1 belongs to 101:13, one paragraph and one chapter earlier.** It begins "Diogenes Laertius, however, … says that Plato's offence was the speaking too freely to the tyrant" — an answer to chapter 101's claim that Dionysius sold Plato because he could not equal him in discourse. It has landed after 102:0, where Montaigne is quoting Plato on punishment. | Not repaired. Both editions carry it in the same place, so it belongs to the common source. Plato and Diogenes Laertius are bound in the note as they would be anywhere. |
+| **The sentence that names Brisson runs across an editor's note.** 101:7 ends on the bare word "Brisson," and 101:9 opens "running against Alexander"; 101:8 is the note between them. | Not repaired, and the same shape as the split sentence at 69:468/469. Brisson binds in 101:7 and again at 101:8, where the note gives his other name. |
 | **The Latin of chapter 100 is corrupt in both editions, identically.** 100:46 prints Horace's ode as *Vixere fortes ante Agamemnona Mufti … ignotique longs Nocte* for *multi … longa nocte*, and 100:43 prints *Auro quoque torts refulgent Retia* for *tortis*. | Not repaired, and it changes no binding: the Latin *Agamemnona* is unbound like every other name inside a quotation, and the English version at 100:47 carries the card. Since both editions share the corruption it belongs to the common source, not to either translation. |
 | **100:41 is the one Latin quotation in chapter 100 with no English version and no citation after it.** Both editions print Martial's couplet on Hermogenes the napkin-thief and then go straight on in prose. | Not repaired. Hermogenes is therefore unbound: the quoted-verse rule puts the card on the English version, and here there is none. |
 | **The two editions render the citation abbreviations differently in eighteen places** — the older writes *Hor.*, *Claud.*, *Quintil.*, *Lucret.*, *Propert.*, *Liv.*, *Cic.*, *Mart.*, *Aug.* and a bare *Annals* where the modern names the author. | Recorded, not repaired. Each is an author who already has a card; the effect is that his mention binds in the modern edition alone. Closing them is one sweep, and it is listed under **Remaining work**. |
@@ -1042,9 +1079,9 @@ No edition byte was touched.
 
 ## Remaining work
 
-- **Chapters 101–107.** Seven chapters, two of the longest in the work among
+- **Chapters 103–107.** Five chapters, two of the longest in the work among
   them: 103 (*Of vanity*, 300 paragraphs) and 107 (*Of experience*, 240), with
-  106 (142), 104 (123), 102 (95), 105 (60) and 101 (14).
+  106 (142), 104 (123) and 105 (60).
 - **Run the edition-asymmetry census on every chapter already authored.** It was
   written for chapter 69 and immediately found three gaps and one mis-binding in
   chapters 17, 65 and 67, which eight passes of other checks had gone past. The
@@ -1092,5 +1129,5 @@ No edition byte was touched.
 
 `python3 books/characters/build_essays_montaigne.py --check`, then
 `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Two hundred and
-forty-four focused tests so far. No edition changes, no network generation, no API spend: every card
+fifty-three focused tests so far. No edition changes, no network generation, no API spend: every card
 here was written in the authoring conversation and committed as a file.

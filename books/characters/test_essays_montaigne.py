@@ -1,5 +1,5 @@
 """Focused checks for Montaigne's Essays.
-Chapters 1-100 of 107 are authored."""
+Chapters 1-102 of 107 are authored."""
 import unittest
 from build_essays_montaigne import compile_package
 
@@ -230,8 +230,8 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual(w[0],(28,2),ed)
             self.assertLess(len(w),40,ed)
 
-    def test_only_the_first_hundred_chapters_are_authored(self):
-        self.assertIn('chapters 1-100 of 107',REPORT['scope'])
+    def test_only_the_first_hundred_and_two_chapters_are_authored(self):
+        self.assertIn('chapters 1-102 of 107',REPORT['scope'])
         self.assertEqual(REPORT['editions']['original-en']['chapters'],107)
         self.assertEqual(REPORT['editions']['original-en']['paragraphs'],4897)
         self.assertEqual(REPORT['editions']['modern-en']['paragraphs'],4897)
@@ -661,7 +661,7 @@ class EssaysMontaigne(unittest.TestCase):
 
     def test_the_censor_holds_both_of_his_paragraphs(self):
         for ed in ['original-en','modern-en']:
-            self.assertEqual([(40,52),(40,55),(52,1),(59,25),(59,27),(62,18),(65,28),(85,0),(94,26),(97,0)],
+            self.assertEqual([(40,52),(40,55),(52,1),(59,25),(59,27),(62,18),(65,28),(85,0),(94,26),(97,0),(102,5)],
                              where(ed,'cato-the-censor'),ed)
 
     def test_the_l_paulus_who_buried_both_sons_is_paulus_aemilius(self):
@@ -834,7 +834,7 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual([(44,0)],where(ed,'metellus-tribune'),ed)
             self.assertEqual([(48,47)],where(ed,'metellus-crete'),ed)
             self.assertEqual([(44,1),(58,0)],where(ed,'marius-younger'),ed)
-            self.assertEqual([(47,8),(66,13),(74,36)],where(ed,'marius-elder'),ed)
+            self.assertEqual([(47,8),(66,13),(74,36),(102,83)],where(ed,'marius-elder'),ed)
 
     def test_the_two_men_called_cyrus(self):
         # The founder of the empire, and the younger brother of that unnatural
@@ -980,7 +980,7 @@ class EssaysMontaigne(unittest.TestCase):
             # 95:5 is the modern edition alone, which names him where Cotton
             # writes "he".
             self.assertEqual([(59,13),(60,56),(65,39),(70,28),(74,94),(79,1),
-                              (94,66),(95,4),(97,38)],
+                              (94,66),(95,4),(97,38),(101,11),(102,84)],
                              [k for k in where(ed,'tiberius-emperor') if k!=(95,5)],ed)
 
     def test_the_god_of_wine_under_four_names(self):
@@ -1978,7 +1978,7 @@ class EssaysMontaigne(unittest.TestCase):
         # read; the Cardinal of Corneto at 33:2. The modern edition writes the
         # emperor Hadrian.
         for ed in ['original-en','modern-en']:
-            self.assertEqual([(70,28),(78,0),(94,28)],where(ed,'hadrian'),ed)
+            self.assertEqual([(70,28),(78,0),(94,28),(101,13)],where(ed,'hadrian'),ed)
             self.assertEqual([(33,2)],where(ed,'cardinal-adrian'),ed)
         self.assertIn('Adrian',said('original-en','hadrian'))
         self.assertIn('Hadrian',said('modern-en','hadrian'))
@@ -2209,6 +2209,93 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual([],ids(ed,100,41),ed)
             self.assertEqual([],ids(ed,100,59),ed)
         self.assertIn('Marc Antony',said('original-en','mark-antony'))
+
+
+    def test_the_fourth_pausanias_is_a_writer(self):
+        # Three Spartans and one author. 102:5 is "Pausanias tells us of an
+        # ancient player upon the harp", which is the only one of the four who
+        # tells us anything, and the sentence says nothing more about him.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(102,5)],where(ed,'pausanias-writer'),ed)
+            self.assertEqual([(29,5)],where(ed,'pausanias-sparta'),ed)
+            self.assertEqual([(36,10)],where(ed,'pausanias-plataea'),ed)
+            self.assertEqual([(59,21)],where(ed,'pausanias-assassin'),ed)
+
+    def test_quintus_cicero_takes_back_his_three_citations(self):
+        # The orator's brother, cited from the treatise on canvassing for the
+        # consulship. Until chapter 102 was read his citation at 99:315 was
+        # binding to his brother -- a live mis-binding in a chapter already
+        # signed off, and one no census could see, since both editions print
+        # "Q. Cicero" and both were wrong together.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(99,315),(102,78),(102,80)],where(ed,'quintus-cicero'),ed)
+            self.assertEqual({'Q. Cicero'},set(said(ed,'quintus-cicero')),ed)
+            for k in [(99,315),(102,78),(102,80)]:
+                self.assertNotIn('cicero',ids(ed,*k),(ed,k))
+            self.assertIn((102,64),where(ed,'cicero'),ed)
+
+    def test_brisson_under_both_his_names(self):
+        # The sentence that names him runs across the editor's note: "Brisson,"
+        # ends 101:7 and "running against Alexander" opens 101:9. The note
+        # between them says Plutarch calls him Chriso elsewhere.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(101,7),(101,8)],where(ed,'brisson'),ed)
+            self.assertEqual({'Brisson','Chriso'},set(said(ed,'brisson')),ed)
+            self.assertIn((101,9),where(ed,'alexander'),ed)
+
+    def test_philoxenus_reaches_back_into_the_apology(self):
+        # Cast nowhere until chapter 101 was read, though he breaks the earthen
+        # vessels at 69:613 in a chapter signed off long before.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(69,613),(101,13)],where(ed,'philoxenus'),ed)
+
+    def test_favorinus_and_the_emperor_of_thirty_legions(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(101,13),(107,155)],where(ed,'favorinus'),ed)
+            self.assertIn((101,13),where(ed,'hadrian'),ed)
+        self.assertIn('Adrian',said('original-en','hadrian'))
+        self.assertIn('Hadrian',said('modern-en','hadrian'))
+
+    def test_the_two_names_of_horaces_warning(self):
+        # 102:3 is Horace's Latin and 102:4 the English version. Albus is Albi
+        # in the Latin and needs no key; Barrus is spelt alike in both and is
+        # keyed to the version, so the Latin stays unbound.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(102,4)],where(ed,'albus'),ed)
+            self.assertEqual([(102,4)],where(ed,'barrus'),ed)
+            self.assertEqual([],ids(ed,102,3),ed)
+
+    def test_the_silent_visitor_and_the_painter(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(102,42)],where(ed,'megabyzus'),ed)
+            self.assertEqual([(102,42)],where(ed,'apelles'),ed)
+            self.assertEqual([(102,60)],where(ed,'melanthius'),ed)
+            self.assertEqual([(102,47)],where(ed,'seiramnes'),ed)
+            self.assertEqual([(102,27)],where(ed,'miso'),ed)
+            self.assertEqual([(102,21)],where(ed,'hobbes'),ed)
+            # Socrates's interlocutor in three chapters, and a man in all three
+            # -- checked before he was given an alias, which is the lesson
+            # Agamemnon taught.
+            self.assertEqual([(102,26),(106,115),(107,40)],where(ed,'euthydemus'),ed)
+
+    def test_thorius_balbus_against_regulus(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(101,2)],where(ed,'thorius-balbus'),ed)
+            self.assertEqual([(52,0),(60,11),(101,2),(101,3)],
+                             where(ed,'attilius-regulus'),ed)
+            self.assertEqual([(101,5)],where(ed,'otanes'),ed)
+
+    def test_the_deliberate_gaps_of_chapters_101_and_102(self):
+        # 101:13 names Philoxenus in the quarries and Plato sold at Aegina, and
+        # those are the elder Dionysius's acts, in the sentence. 101:12 and
+        # 102:60 give no qualifier at all, and the Essays hold two tyrants of
+        # the name. 102:27's "old philosopher" who never wanted an occasion for
+        # his tears is named only by description.
+        for ed in ['original-en','modern-en']:
+            self.assertIn((101,13),where(ed,'dionysius-elder'),ed)
+            for k in [(101,12),(102,60)]:
+                self.assertEqual([],[c for c in ids(ed,*k) if 'dionysius' in c],(ed,k))
+            self.assertEqual([],[c for c in ids(ed,102,27) if 'heraclitus' in c],ed)
 
 
 if __name__=='__main__':unittest.main()

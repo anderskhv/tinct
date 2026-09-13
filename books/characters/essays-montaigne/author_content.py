@@ -9,7 +9,7 @@ becomes Wycliffe, Zisca becomes Zizka, Trivulcio becomes Trivulzio, Fabricio
 becomes Fabrizio, Juliano becomes Giuliano, Fregosa becomes Fregoso, Sylla
 becomes Sulla, AEneid becomes Aeneid. Both spellings are carried on one card.
 
-Chapters 1-100 are authored. The rest are not.
+Chapters 1-102 are authored. The rest are not.
 
 Scope: named persons — historical, literary, mythological and scriptural — and
 the gods Montaigne treats as agents. Peoples, places, schools of philosophy and
@@ -1501,8 +1501,32 @@ for row in [
 ('agamemnon','Agamemnon','Before whom, Horace says, many brave men lived, and all are pressed by the long night unmourned and unknown — Montaigne’s instance of how short our knowledge is, both in extent of time and extent of matter. Not the Agamemnon of 74:68 and 74:78, which is the title of Seneca’s play.','',),
 ]:add(*row)
 
-print(len(entities),'entities authored: chapters 1-100')
+# ========================= CHAPTER 101 — of the inconvenience of greatness
+for row in [
+('thorius-balbus','L. Thorius Balbus','A brave man, handsome, learned, healthful, understanding, abounding in all sorts of conveniences and pleasures, leading a quiet life all his own, his mind well prepared against death, superstition and pain, and dying at last in battle with his sword in his hand for the defence of his country — and yet without name and without dignity. Cicero, comparing him with Regulus, gives Regulus the preference.','L. Thorius Balbus|Thorius Balbus'),
+('otanes','Otanes','One of the seven who had right to pretend to the kingdom of Persia, and who gave up to his competitors his right of being promoted to it, provided that he and his might live in the empire out of all authority and subjection — being, Montaigne says of himself too, as impatient of commanding as of being commanded.','Otanes'),
+('brisson','Brisson','Who, running against Alexander, purposely missed his blow and made a fault in his career; Alexander chid him for it, but ought to have had him whipped. Plutarch calls him Chriso in another of his essays, which the note beside the sentence records.','Brisson|Chriso'),
+('favorinus','Favorinus','The philosopher who, disputing with the Emperor Hadrian \u2014 whom the older edition writes Adrian \u2014 about the interpretation of some word, soon yielded him the victory, and answered his friends who rebuked him for it: would you not have him wiser than I, who commands thirty legions? The same man whose opinion of a feast — that they should snatch away the meat you like and set another sort before you — Montaigne says he is an enemy to.','Favorinus'),
+('philoxenus','Philoxenus','The poet whom Dionysius, because he could not equal him in poesy, condemned to the quarries; and who, hearing a man give an ill accent to a composition of his, spurned and broke certain earthen vessels of the man’s, saying: I break what is thine, because thou corruptest what is mine.','Philoxenus'),
+]:add(*row)
+
+# ========================= CHAPTER 102 — of the art of conference
+for row in [
+('albus','Albus','Whose son, in the verse of Horace that Montaigne turns against himself, lives so ill that he is a great warning to anyone inclining to dissipate his patrimony.','Albus'),
+('barrus','Barrus','The indigent man of the same verse, and the other half of the warning.','',),
+('pausanias-writer','Pausanias','The writer who tells of an ancient player upon the harp who used to make his scholars go and hear a neighbour who played very ill, that they might learn to hate his discords and false measures. Not the Spartan regent, nor the Pausanias of Plataea, nor Philip’s assassin: this one is named only as an author Montaigne cites.','',),
+('hobbes','Hobbes','Who said, the note beside the sentence records, that if he had read as much as the academical pedants he should have known as little — set beside Montaigne’s own judgment that being the more learned they are none the less fools.','Hobbes'),
+('euthydemus','Euthydemus','Whom Socrates disputes against in Plato and Xenophon, Montaigne says, more in favour of the disputant than of the dispute — to instruct him in the knowledge of his own impertinence rather than in the impertinence of his art; and to whom Socrates gives to understand that a man who thinks himself sufficiently intelligent knows nothing of the matter.','Euthydemus'),
+('miso','Miso','One of the seven sages, of a Timonian and Democritic humour, who being asked what he laughed at, being alone, answered: that I do laugh alone.','Miso'),
+('megabyzus','Megabyzus','Who went to see Apelles in his painting-room, stood a great while without speaking a word, and at last began to talk of the paintings — and got for it the rudest reproof in the chapter: whilst thou wast silent thou seemedst to be some great thing, by reason of thy chains and rich habit.','Megabyzus'),
+('apelles','Apelles','The painter who gave him it, and who told him there was not the meanest boy in his workshop that did not despise him now that he had heard him speak.','Apelles'),
+('seiramnes','Seiramnes','The Persian who answered those who wondered that his affairs succeeded so ill, considering that his deliberations were so wise, that he was sole master of his designs but that success was wholly in the power of fortune.','Seiramnes'),
+('melanthius','Melanthius','Who, being asked what he thought of the tragedy of Dionysius, said: I could not see it, it was so clouded with language — which is what Montaigne says most of those who judge the discourses of great men ought to say.','Melanthius'),
+('quintus-cicero','Q. Cicero','The orator’s brother, cited twice from the treatise on canvassing for the consulship: that a man who thinks himself behind in obligation can by no means be a friend, and that it is hard for a man to conform to such a variety of manners, discourses and wills. His citations had been binding to his brother until chapter 102 was read.','Q. Cicero'),
+]:add(*row)
+
+print(len(entities),'entities authored: chapters 1-102')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-13.9',
- coverage='Both full English editions, chapters 1-100 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
+ contentVersion='2026-09-13.10',
+ coverage='Both full English editions, chapters 1-102 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

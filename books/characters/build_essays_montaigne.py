@@ -1,7 +1,7 @@
 """Reviewed bindings for Montaigne's Essays.
 
 Cotton in both editions, 107 chapters covering the three books, 4,897 paragraphs
-per edition. Chapters 1-100 are authored.
+per edition. Chapters 1-102 are authored.
 
 Two things make this book hard, and it has both of them at once. The first is
 spelling: the modern edition modernises the transliterations, so one man is
@@ -32,7 +32,7 @@ SPLIT={
  # The tyrant of Syracuse, named twice; the later Dionysiuses are not yet read.
  'Dionysius':({(1,4):'dionysius-elder',(2,21):'dionysius-elder',(16,3):'dionysius-elder',
                (23,19):'dionysius-elder',(40,75):'dionysius-the-younger',
-               (48,34):'dionysius-elder',(74,17):'dionysius-elder',(78,6):'dionysius-the-younger'},None),
+               (48,34):'dionysius-elder',(74,17):'dionysius-elder',(78,6):'dionysius-the-younger',(101,13):'dionysius-elder'},None),
  # Pompey the Great here; thirty-six later occurrences unread. 40:13 is keyed
  # for the modern edition alone, which modernises the older text's "Pompeius".
  'Pompey':({(1,5):'pompey',(17,6):'pompey',(18,3):'pompey',(18,12):'pompey',
@@ -40,7 +40,7 @@ SPLIT={
             (37,3):'pompey',(40,13):'pompey',(44,0):'pompey',
             (46,12):[None,'pompey'],(47,7):'pompey',(47,17):'pompey',
             (48,5):'pompey',(51,1):'pompey',(65,39):'pompey',
-            (69,126):'pompey',(72,14):'pompey',(79,1):'pompey',(84,21):'pompey',(89,2):'pompey',(89,10):'pompey',(90,3):'pompey',(90,6):'pompey',(91,9):'pompey',(91,12):'pompey',(91,33):'pompey',(91,34):'pompey',(95,66):'pompey',(99,157):'pompey'},None),
+            (69,126):'pompey',(72,14):'pompey',(79,1):'pompey',(84,21):'pompey',(89,2):'pompey',(89,10):'pompey',(90,3):'pompey',(90,6):'pompey',(91,9):'pompey',(91,12):'pompey',(91,33):'pompey',(91,34):'pompey',(95,66):'pompey',(99,157):'pompey',(102,83):'pompey'},None),
  # The citizen of Messina, not the founder of the Stoa.
  'Zeno':({(1,5):'zeno-mamertine',(22,49):'zeno-of-citium',(24,55):'zeno-of-citium',
           (25,143):'zeno-of-citium',(30,28):'zeno-of-citium',
@@ -57,7 +57,7 @@ SPLIT={
                (60,53):'alexander',(62,21):'alexander',(65,40):'alexander',
                (66,6):'alexander',(68,55):'alexander',(69,78):'alexander',
                (69,139):'alexander',(69,300):'alexander',
-               (69,532):'alexander',(73,31):'alexander',(74,8):'alexander',(75,0):'alexander',(76,4):'alexander',(76,5):'alexander',(86,10):'alexander',(91,0):'alexander',(91,21):'alexander',(91,24):'alexander',(91,30):'alexander',(93,16):'alexander',(93,18):'alexander',(93,24):'alexander',(93,27):'alexander',(93,28):'alexander',(96,14):'alexander',(99,146):'alexander',(99,238):'alexander',(99,246):'alexander',(99,287):'alexander',(100,61):'alexander'},None),
+               (69,532):'alexander',(73,31):'alexander',(74,8):'alexander',(75,0):'alexander',(76,4):'alexander',(76,5):'alexander',(86,10):'alexander',(91,0):'alexander',(91,21):'alexander',(91,24):'alexander',(91,30):'alexander',(93,16):'alexander',(93,18):'alexander',(93,24):'alexander',(93,27):'alexander',(93,28):'alexander',(96,14):'alexander',(99,146):'alexander',(99,238):'alexander',(99,246):'alexander',(99,287):'alexander',(100,61):'alexander',(101,9):'alexander',(101,12):'alexander'},None),
  # Conrad III at 1:3; Conrad Marquis of Monteferrat at 86:19.
  'Conrad':({(1,3):'conrad-iii'},None),
  # The Ferdinand of the Buda campaign at 2:9; King Ferdinand of the Indies at
@@ -86,7 +86,7 @@ SPLIT={
            (42,50):'cyrus-the-great',(47,17):'cyrus-the-younger',
            (48,7):'cyrus-the-great',(48,44):'cyrus-the-great',
            (59,28):'cyrus-the-younger',(60,50):'cyrus-the-great',
-           (69,535):'cyrus-the-great',(79,0):'cyrus-the-great',(91,2):'cyrus-the-great',(91,26):'cyrus-the-great',(99,345):'cyrus-the-great',(100,27):'cyrus-the-great'},None),
+           (69,535):'cyrus-the-great',(79,0):'cyrus-the-great',(91,2):'cyrus-the-great',(91,26):'cyrus-the-great',(99,345):'cyrus-the-great',(100,27):'cyrus-the-great',(102,66):'cyrus-the-great'},None),
  # Socrates's friend at 3:15; the Crito of 69:208 is somebody's brother in
  # another story.
  'Crito':({(3,15):'crito',(69,208):'crito-brother'},None),
@@ -240,7 +240,7 @@ SPLIT={
           (65,28):'cato-the-censor',(69,22):'cato-the-younger',
           (69,452):'cato-the-younger',(68,8):'cato-the-younger',
           (68,14):'cato-the-younger',(68,16):'cato-the-younger',
-          (68,17):'cato-the-younger',(70,40):'cato-the-younger',(78,11):'cato-the-younger',(85,16):'cato-the-younger',(90,3):'cato-the-younger',(90,6):[None,'cato-the-younger','cato-the-younger','cato-the-younger','cato-the-younger','cato-the-younger','cato-the-younger'],(85,0):['cato-the-censor','cato-the-younger','cato-the-younger'],(94,26):'cato-the-censor',(97,0):'cato-the-censor',(99,157):'cato-the-younger'},None),
+          (68,17):'cato-the-younger',(70,40):'cato-the-younger',(78,11):'cato-the-younger',(85,16):'cato-the-younger',(90,3):'cato-the-younger',(90,6):[None,'cato-the-younger','cato-the-younger','cato-the-younger','cato-the-younger','cato-the-younger','cato-the-younger'],(85,0):['cato-the-censor','cato-the-younger','cato-the-younger'],(94,26):'cato-the-censor',(97,0):'cato-the-censor',(99,157):'cato-the-younger',(102,5):'cato-the-censor'},None),
  # The conspirator in Livia's list. The two Lepiduses already cast are bound by
  # their full names, so the bare surname is free for this one.
  'Lepidus':({(23,1):'lepidus-conspirator'},None),
@@ -269,7 +269,7 @@ SPLIT={
  # The Spartan commander at Plataea, whose mother threw the first stone towards
  # his death in the chapter on moderation.
  'Pausanias':({(29,5):'pausanias-sparta',(36,10):'pausanias-plataea',
-               (59,21):'pausanias-assassin'},None),
+               (59,21):'pausanias-assassin',(102,5):'pausanias-writer'},None),
  # Mucius Scaevola in the enemy camp at 40:45; P. Scaevola the high priest in
  # Cotta's list at 22:49.
  'Scaevola':({(22,49):'scaevola',(40,45):'mucius-scaevola',(69,370):'scaevola'},None),
@@ -303,7 +303,7 @@ SPLIT={
  # The young Marius who slept through his own rout at 44:1, and his father in the
  # social war at 47:8. Six later occurrences are unread.
  'Marius':({(44,1):'marius-younger',(47,8):'marius-elder',
-            (58,0):'marius-younger',(66,13):'marius-elder',(74,36):'marius-elder'},None),
+            (58,0):'marius-younger',(66,13):'marius-elder',(74,36):'marius-elder',(102,83):'marius-elder'},None),
  # Two kings called Alfonso, whom the Essays do not identify with each other: the
  # one who preferred the condition of asses, and the founder of the Order of the
  # Band. Neither passage says anything that would join them.
@@ -345,13 +345,13 @@ SPLIT={
  'Publius':({(58,0):'publius-syrus',(58,2):'publius-syrus'},None),
  # Attilius Regulus under his surname at 60:11, where Montaigne finds more
  # fortitude in his suffering than in Cato's breaking out. 101:2-3 are unread.
- 'Regulus':({(60,11):'attilius-regulus'},None),
+ 'Regulus':({(60,11):'attilius-regulus',(101,2):'attilius-regulus',(101,3):'attilius-regulus'},None),
  # The emperor Tiberius, whom the older edition misprints Tiberias at 59:13. Every
  # other Tiberius in the read chapters is Tiberius Gracchus, bound by his longer
  # name, and the later ones are unread.
  'Tiberias':({(59,13):'tiberius-emperor'},None),
  'Tiberius':({(59,13):'tiberius-emperor',(60,56):'tiberius-emperor',
-              (65,39):'tiberius-emperor',(70,28):'tiberius-emperor',(74,94):'tiberius-emperor',(79,1):'tiberius-emperor',(94,66):'tiberius-emperor',(95,4):'tiberius-emperor',(97,38):'tiberius-emperor',(95,5):'tiberius-emperor'},None),
+              (65,39):'tiberius-emperor',(70,28):'tiberius-emperor',(74,94):'tiberius-emperor',(79,1):'tiberius-emperor',(94,66):'tiberius-emperor',(95,4):'tiberius-emperor',(97,38):'tiberius-emperor',(95,5):'tiberius-emperor',(101,11):'tiberius-emperor',(102,84):'tiberius-emperor'},None),
  # The older edition misprints Pliny "Piny" at 60:43; the modern edition prints it
  # correctly, and the Pliny table carries that paragraph for the modern text.
  'Piny':({(60,43):'pliny-elder'},None),
@@ -543,8 +543,8 @@ SPLIT={
  'Lucifer':({(93,23):'lucifer'},None),
  # The emperor at 70:28, 78:0 and 94:28; the Cardinal of Corneto at 33:2, bound
  # by his own longer name. The modern edition writes the emperor Hadrian.
- 'Adrian':({(70,28):'hadrian',(78,0):'hadrian',(94,28):'hadrian'},None),
- 'Hadrian':({(70,28):'hadrian',(78,0):'hadrian',(94,28):'hadrian'},None),
+ 'Adrian':({(70,28):'hadrian',(78,0):'hadrian',(94,28):'hadrian',(101,13):'hadrian'},None),
+ 'Hadrian':({(70,28):'hadrian',(78,0):'hadrian',(94,28):'hadrian',(101,13):'hadrian'},None),
  # The physician's interlocutor at 94:28 and 94:36. 103:93 has not been read.
  'Nicocles':({(94,28):'nicocles',(94,36):'nicocles'},None),
  # Amurath I at 95:45. The Amurath of 29:17 and 86:13 is another sultan and
@@ -578,6 +578,10 @@ SPLIT={
  # 74:68 and 74:78 are "Seneca, Agamemnon" -- the title of the play. Only the
  # English version of Horace's ode at 100:47 means the man.
  'Agamemnon':({(100,47):'agamemnon'},None),
+ # 102:3 is Horace's Latin and 102:4 the English version of the same two lines.
+ # Albus is spelt Albi in the Latin and so needs no key; Barrus is spelt alike
+ # in both and is keyed to the version.
+ 'Barrus':({(102,4):'barrus'},None),
 
  # The Octavius of 99:181, who killed Pontia Posthumia for refusing him.
  'Octavius':({(22,54):'octavius',(91,34):'marcus-octavius',
