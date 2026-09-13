@@ -34,16 +34,28 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# The accepted text of each Book, newest accepted successor first. Successors
-# exist precisely because this check found something; the check reads the file
-# the edition would actually ship.
-ACCEPTED = [("book01", "book01/candidate-v3.json"),
-            ("book02", "book02/candidate-v5.json"),
-            ("book03", "book03/candidate-v3.json"),
-            ("book04", "book04/candidate-v4.json"),
-            ("book05", "book05/candidate-v2.json"),
-            ("book06", "book06/candidate-v2.json"),
-            ("book07", "book07/candidate-v1.json")]
+# The accepted text of each Book — the successor where one exists, because
+# successors exist precisely because this check found something and the check
+# must read the file the edition would actually ship.
+#
+# **It is DERIVED, not written here.** Book 8's round 1 (M-6) found this list
+# kept as a second, independent copy of `checks.ACCEPTED`, and found it stale
+# in six of its seven rows: it named `book01/candidate-v3.json` after v4
+# existed, `book02/candidate-v5.json` after v6, `book04/candidate-v4.json`
+# after v5, Books 5 and 6 at v2 after both had v3 successors, and — the one
+# that matters — **`book07/candidate-v1.json`, which is the REJECTED file**.
+# So the cross-Book compound report every session is told to run was being run
+# over a Book 7 no reviewer accepted. One fact written twice is one fact
+# updated once; it is now written once, in `checks.ACCEPTED`, and read from
+# there. `checks.declaration_coverage()` asserts that column is not itself
+# stale.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+
+def _accepted():
+    import checks
+    return [("book%02d" % bk, succ or acc)
+            for bk, (_src, acc, succ) in sorted(checks.ACCEPTED.items())]
 
 # Keys that are two different words, not two settings of one compound. Each is
 # named with its reason; the list is closed and short on purpose, because a
@@ -215,7 +227,7 @@ def _self_test():
 def main():
     _self_test()
     books = {}
-    for label, rel in ACCEPTED:
+    for label, rel in _accepted():
         p = ROOT / rel
         if p.exists():
             books[label] = json.loads(p.read_bytes().decode("utf-8"))["paragraphs"]

@@ -18,7 +18,28 @@ Everything happens in a throwaway copy under the system temp directory. **No
 file of the package is written by this script**, which it asserts at the end by
 hashing the whole package before and after.
 
-Run: `python3 scripts/prove_manifest.py`
+**WHAT THIS PROOF DOES NOT PROVE, so the next worker starts where this one
+stopped.**
+
+* **It cannot grade a reason.** Every gate in the package has a declared
+  escape — `DECLARED` — and a defect can still be legalized by declaring it
+  and re-running `--write-manifest`. Attack A9 does exactly that and passes,
+  because it must: that is the workflow. What the repair buys is that the
+  declaration has to exist, be evaluated (`--declarations`), carry a written
+  reason, and appear in a diff.
+* **It proves nothing about the CONTENT gates themselves** — only that they
+  are put to the files the package claims they were put to. Whether
+  byte-identity, thinness, growth and compound drift are the right four
+  measures is a different question and this file does not touch it.
+* **`SUPERSEDED` is a list of files nothing evaluates, by design.** They are
+  rejected drafts. If one of them were ever revived, nothing here would
+  notice that it had never been gated; reviving a superseded file means moving
+  its row into `DECLARED`, and only a person can do that.
+* **The package digest excludes `prove_manifest-output.txt`.** A defect
+  written only into that file would not be seen by the before/after hash.
+
+Run: `python3 scripts/prove_manifest.py`  (~9 minutes: every attack works on a
+fresh copy of the package and several run the full gates over twenty files)
 """
 import hashlib
 import json
@@ -154,7 +175,7 @@ def main():
                "failures=[])", "never evaluated" in str(e), str(e))
 
     # ---- 6. S-3 / R-5: the enumerations fail in BOTH directions. ----------
-    print("\n6. S-3 and R-5 — three enumerations, both directions")
+    print("\n6. S-3 and R-5 — the enumerations, both directions")
     cases = [
         ("byte-identical: an UNDECLARED instance appears (Book 7 declares none)",
          "book07/candidate-v2.json",
@@ -176,40 +197,194 @@ def main():
          lambda d, s: d["paragraphs"].__setitem__(
              16, d["paragraphs"][16] + (" and he spoke of it again" * 6)),
          1, "declares [1, 9, 11, 16, 17]"),
-        ("growth: a SECOND growth identical to a declared one — the R-5 hole",
-         "book04/candidate-v2.json",
-         lambda d, s: None,     # filled in below
-         4, "grew past 50 words"),
     ]
-    for name, rel, fn, book, needle in cases[:4]:
+    for name, rel, fn, book, needle in cases:
         w = fresh()
         s = json.loads((w / ("book%02d/source-book%d.json" % (book, book)))
                        .read_text(encoding="utf-8"))
         edit_json(w / rel, lambda d: fn(d, s))
         rc, out = run(w, str(book), "--no-write", "--version",
-                      int(rel.split("-v")[1][0]) and rel.split("-v")[1][0])
+                      rel.split("-v")[1][0])
         expect(name, rc != 0 and needle in out,
                "\n".join(l for l in out.splitlines() if "✗" in l))
         shutil.rmtree(w.parent)
 
-    # R-5: the hole was that the comparison was MEMBERSHIP, so a second growth
-    # identical to a declared one was absorbed by the declaration of the first.
-    # Demonstrated on the two comparisons themselves, over the same input, which
-    # is where the defect lived — the reviewer's example verbatim: a Book that
-    # declares one 49->50 growth at P5 and then acquires a second.
-    declared_growths = [(5, 49, 50), (30, 48, 52)]
-    acquired = [(5, 49, 50, "a"), (5, 49, 50, "b"), (30, 48, 52, "c")]
-    old_unexpected = [r for r in acquired
-                      if (r[0], r[1], r[2]) not in declared_growths]
-    got = Counter((a, b, d) for a, b, d, _ in acquired)
-    new_unexpected = sorted((got - Counter(declared_growths)).elements())
-    expect("R-5: membership missed the second identical growth; multiplicity "
-           "catches it",
-           old_unexpected == [] and new_unexpected == [(5, 49, 50)],
-           "membership -> %s (silent);  multiset -> %s (fires)"
-           % (old_unexpected, new_unexpected))
+    # ---- 6b. R-5, against DECLARED itself and not against a local Counter. -
+    #
+    # **The fifth enumerated case above used to be DEAD CODE.** It was written
+    # `("growth: a SECOND growth identical to a declared one — the R-5 hole",
+    # ..., lambda d, s: None,  # filled in below ...)` and the loop that ran
+    # the cases read `cases[:4]`. It was never filled in and never run, and
+    # what stood in its place was an assertion over two hand-built
+    # `collections.Counter`s — a demonstration that multisets behave like
+    # multisets, which is true of Python and says nothing about this package.
+    # **R-5 is a claim about `DECLARED` and the gate that reads it**, so it is
+    # proved against those, end to end, through the command line.
+    #
+    # The hole was that the comparison used to be MEMBERSHIP, so a second
+    # growth *in the same paragraph* identical to a declared one was absorbed
+    # by the declaration of the first. That needs a Book with two identical
+    # growths in one paragraph; no accepted Book has such a pair, so one is
+    # built — a synthetic Book 99, inside the throwaway copy, with two
+    # sentences in its single paragraph each grown 50 -> 51.
+    print("\n6b. R-5 — a SECOND identical growth, against DECLARED end to end")
+    filler_a, filler_b = " ".join(["alpha"] * 47), " ".join(["bravo"] * 47)
 
-    # ---- 7. nothing in the package was written. ---------------------------
+    def plant_book99(w, declared_growths):
+        (w / "book99").mkdir(exist_ok=True)
+        (w / "book99/source-book99.json").write_text(json.dumps(
+            {"paragraphs": ["He said %s now. She said %s now."
+                            % (filler_a, filler_b)]}, indent=1) + "\n",
+            encoding="utf-8")
+        (w / "book99/candidate-v1.json").write_text(json.dumps(
+            {"paragraphs": ["He said %s then indeed. She said %s then indeed."
+                            % (filler_a, filler_b)]}, indent=1) + "\n",
+            encoding="utf-8")
+        cp = w / "scripts/checks.py"
+        cp.write_text(cp.read_text(encoding="utf-8").replace(
+            "DECLARED = {",
+            'DECLARED = {\n    "book99/candidate-v1.json": _decl(growth=%r, '
+            'reason="planted by prove_manifest.py"),' % (declared_growths,),
+            1), encoding="utf-8")
+
+    needle = "a sentence grew past 50 words — P001 50→51"
+    w = fresh()
+    plant_book99(w, [(1, 50, 51), (1, 50, 51)])          # both declared
+    rc, out = run(w, "99", "--no-write")
+    control_silent = needle not in out
+    shutil.rmtree(w.parent)
+    w = fresh()
+    plant_book99(w, [(1, 50, 51)])                       # only ONE declared
+    rc, out = run(w, "99", "--no-write")
+    fires_once = out.count(needle) == 1
+    expect("R-5: two identical growths in one paragraph, ONE declared — the "
+           "gate fires exactly once; both declared — it is silent",
+           control_silent and fires_once and rc != 0,
+           "control silent=%s; one-declared fires once=%s"
+           % (control_silent, fires_once))
+    shutil.rmtree(w.parent)
+
+    # ---- 7. THE ATTACKS. --------------------------------------------------
+    #
+    # **This mechanism has been claimed fixed twice and been wrong twice**, and
+    # both times for the same reason: the proof exercised the paths the
+    # implementation happens to take. A proof of that shape cannot fail. So
+    # this section is written the other way round — as attacks, each one the
+    # cheapest next move available to somebody who wants a defective candidate
+    # to pass, and each one run against the repair rather than alongside it.
+    #
+    # The attack that actually landed, found by Book 8's round 1 and
+    # reproduced here before anything was changed: plant a gate-failing defect
+    # in an accepted candidate, then edit **one field** of the manifest —
+    # `checks.candidate_sha256` — so the bytes-moved clause is satisfied.
+    # `checks.py --manifests` exited 0 while `checks.py 7` exited 1. The
+    # `all_gates_passed` clause was guarded on `gate is not None`, and
+    # `--manifests` never passed one, so on the path most people run the clause
+    # did not exist.
+    print("\n7. the attacks — each is the cheapest next move after the last")
+
+    def defect(w, rel="book07/candidate-v2.json", book=7):
+        """Plant a gate-failing defect: a paragraph left byte-identical to
+        Butler in a Book that declares none."""
+        s = json.loads((w / ("book%02d/source-book%d.json" % (book, book)))
+                       .read_text(encoding="utf-8"))
+        edit_json(w / rel, lambda d: d["paragraphs"].__setitem__(
+            1, s["paragraphs"][1]))
+
+    def rehash(w, **fields):
+        mp = w / "book07/manifest.json"
+        m = json.loads(mp.read_text(encoding="utf-8"))
+        m["checks"].update(fields)
+        cf = w / m["checks"]["candidate_file"]
+        m["checks"]["candidate_sha256"] = hashlib.sha256(
+            cf.read_bytes()).hexdigest()
+        mp.write_text(json.dumps(m, indent=1, ensure_ascii=False) + "\n",
+                      encoding="utf-8")
+
+    def attack(name, build, mode="--manifests"):
+        w = fresh()
+        build(w)
+        rc, out = run(w, mode)
+        expect(name, rc != 0,
+               "\n".join(l for l in out.splitlines() if "✗" in l)[:400]
+               or out[-300:])
+        shutil.rmtree(w.parent)
+
+    # A1 — the reviewer's attack verbatim.
+    attack("A1  defect + rewrite candidate_sha256 (the attack that landed)",
+           lambda w: (defect(w), rehash(w)))
+    # A2 — withdraw the claim instead of backing it. If `all_gates_passed` is
+    #      what triggers the check, simply do not claim it.
+    attack("A2  the same, with all_gates_passed withdrawn (false)",
+           lambda w: (defect(w), rehash(w, all_gates_passed=False)))
+    # A3 — leave the defect where it is and point the manifest somewhere clean.
+    #      This is the move the repair of A1 creates, and it needed clause (b2).
+    attack("A3  defect left in place, candidate_file repointed at a clean file",
+           lambda w: (defect(w),
+                      rehash(w, candidate_file="book07/candidate-v1.json")))
+    # A4 — drop the block that carries the claim.
+    attack("A4  the whole `checks` block deleted",
+           lambda w: edit_json(w / "book07/manifest.json",
+                               lambda m: m.pop("checks", None)))
+    # A5 — the figures beside the hashes. The hashes prove the bytes did not
+    #      move; nothing used to prove the NUMBERS, which is what is read.
+    attack("A5  a figure edited in the manifest, every hash left sound",
+           lambda w: edit_json(w / "book07/manifest.json",
+                               lambda m: m["checks"].__setitem__(
+                                   "retention", 0.99999)))
+    # A6 — THE DECLARED SHAPE, which is the same attack one layer down: put the
+    #      defect in a file no invocation reaches. This is not hypothetical —
+    #      it is what `book02/candidate-v3/v4/v5.json` were actually doing.
+    attack("A6  defect planted in book02/candidate-v3.json, which no "
+           "invocation used to reach",
+           lambda w: defect(w, "book02/candidate-v3.json", 2),
+           mode="--declarations")
+    # A7 — and its complement: a new candidate file that declares nothing.
+    attack("A7  a new candidate file appears in neither table",
+           lambda w: shutil.copy(w / "book07/candidate-v2.json",
+                                 w / "book07/candidate-v3.json"),
+           mode="--declarations")
+    # A8 — a successor written and the shipping column left pointing behind it.
+    #      This is how `compound_drift.py` came to read Book 7's rejected v1.
+    def a8(w):
+        shutil.copy(w / "book02/candidate-v6.json", w / "book02/candidate-v7.json")
+        cp = w / "scripts/checks.py"
+        cp.write_text(cp.read_text(encoding="utf-8").replace(
+            '"book02/candidate-v6.json": _decl(',
+            '"book02/candidate-v7.json": _decl(growth=[(19, 49, 50), '
+            '(28, 57, 58)], reason="planted"),\n    '
+            '"book02/candidate-v6.json": _decl(', 1), encoding="utf-8")
+    attack("A8  a successor written, ACCEPTED's shipping column left stale",
+           a8, mode="--declarations")
+    # A9 — the residue, found by attacking the repair and being WRONG about
+    #      it. The first form of this attack — declare the defect, rewrite the
+    #      candidate hash — still EXITS 1, because clause (b3) recomputes the
+    #      figures and a declared byte-identical paragraph moves them. So
+    #      legalizing a defect now costs the full ceremony: declare it with a
+    #      written reason, and re-run `--write-manifest`, which re-runs the
+    #      gates. That is the intended workflow, and it passes, as it must.
+    #      **The residue is not a hole in the mechanism; it is that no
+    #      mechanism can grade a reason.** What the repair buys is that the
+    #      reason has to exist, in a table that is evaluated, in a diff.
+    w = fresh()
+    defect(w)
+    cp = w / "scripts/checks.py"
+    cp.write_text(cp.read_text(encoding="utf-8").replace(
+        '"book07/candidate-v2.json": _decl(',
+        '"book07/candidate-v2.json": _decl(byte_identical=[2], ', 1),
+        encoding="utf-8")
+    rc_before, _ = run(w, "--manifests")
+    run(w, "7", "--version", "2", "--write-manifest")
+    rc_after, out = run(w, "--manifests")
+    expect("A9  the residue: DECLARING the defect is not enough (exit 1 — the "
+           "figures move); declaring it AND re-writing the manifest passes, "
+           "as the intended workflow must",
+           rc_before != 0 and rc_after == 0,
+           "declared only -> exit %d;  declared + --write-manifest -> exit %d"
+           % (rc_before, rc_after))
+    shutil.rmtree(w.parent)
+
+    # ---- 8. nothing in the package was written. ---------------------------
     after = package_digest(ROOT)
     expect("the package itself is byte-unchanged by this proof",
            before == after, "%s == %s" % (before[:16], after[:16]))

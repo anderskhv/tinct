@@ -476,13 +476,13 @@ BASIS = {
 # carries the compound corrections and is what the edition would ship.
 ACCEPTED = {
     1: ("book01/source-book1.json", "book01/candidate-v2.json",
-        "book01/candidate-v3.json"),
+        "book01/candidate-v4.json"),
     2: ("book02/source-book2.json", "book02/candidate-v2.json",
         "book02/candidate-v6.json"),
     3: ("book03/source-book3.json", "book03/candidate-v2.json",
         "book03/candidate-v3.json"),
     4: ("book04/source-book4.json", "book04/candidate-v2.json",
-        "book04/candidate-v4.json"),
+        "book04/candidate-v5.json"),
     5: ("book05/source-book5.json", "book05/candidate-v2.json",
         "book05/candidate-v3.json"),
     6: ("book06/source-book6.json", "book06/candidate-v2.json",
@@ -569,6 +569,14 @@ DECLARED = {
               (17, 0.8621)],
         growth=[(5, 49, 50), (30, 48, 52)],
         reason="the compound successor; identical to v2 on all four measures."),
+    "book01/candidate-v4.json": _decl(
+        thin=[(1, 0.8850), (9, 0.8889), (11, 0.8659), (16, 0.8878),
+              (17, 0.8621)],
+        growth=[(5, 49, 50), (30, 48, 52)],
+        reason="the collision-backlog successor (five repairs). Its five "
+               "word-for-word substitutions move no sentence past 50 and no "
+               "paragraph across the 0.90 floor, so it declares exactly what "
+               "v2 and v3 declare."),
     "book02/candidate-v2.json": _decl(
         growth=[(19, 49, 50), (28, 57, 58)],
         compound=["mixingbowls", "seashore", "storeroom", "waterside"],
@@ -577,9 +585,32 @@ DECLARED = {
                "shipping corpus; that is the successor working, not drift "
                "arriving. Both growths are on sentences Butler wrote at 49 "
                "and 57."),
-    "book02/candidate-v3.json": _decl(growth=[(19, 49, 50), (28, 57, 58)]),
-    "book02/candidate-v4.json": _decl(growth=[(19, 49, 50), (28, 57, 58)]),
-    "book02/candidate-v5.json": _decl(growth=[(19, 49, 50), (28, 57, 58)]),
+    # **The three rows Book 8's round 1 found wrong, corrected against a run.**
+    # All three declared `compound=[]` and all three carried drift; nothing in
+    # the package reached them, so nothing could say so. Read down the three
+    # and the successor chain is legible: v3 repairs `sea shore`, v4 repairs
+    # `water side`, v5 repairs `store-room`, and each intermediate file is out
+    # of step with the corpus on exactly the compounds its successors had not
+    # yet reached. `--declarations` now evaluates each of them.
+    "book02/candidate-v3.json": _decl(
+        growth=[(19, 49, 50), (28, 57, 58)],
+        compound=["seashore", "storeroom", "waterside"],
+        reason="the FIRST of four successors to accepted Book 2, and an "
+               "intermediate file: it carries `sea shore` open, `store-room` "
+               "hyphenated and `water side` open against the corpus's closed "
+               "forms. v4, v5 and v6 close them one at a time. The two growths "
+               "are inherited from the accepted v2, on sentences Butler wrote "
+               "at 49 and 57."),
+    "book02/candidate-v4.json": _decl(
+        growth=[(19, 49, 50), (28, 57, 58)],
+        compound=["storeroom", "waterside"],
+        reason="`seashore` is closed here; `store-room` and `water side` are "
+               "not yet. Same inherited growths."),
+    "book02/candidate-v5.json": _decl(
+        growth=[(19, 49, 50), (28, 57, 58)],
+        compound=["storeroom"],
+        reason="only `store-room` remains, and v6 (ledger A5(c)) closes it. "
+               "Same inherited growths."),
     "book02/candidate-v6.json": _decl(
         growth=[(19, 49, 50), (28, 57, 58)],
         reason="ledger A6 (`councillors` -> `councilors`, two words, D9) and "
@@ -593,7 +624,11 @@ DECLARED = {
         reason="`seashore` is corrected in the successor v3. Every growth is "
                "on a sentence Butler already wrote between 56 and 73 words."),
     "book03/candidate-v3.json": _decl(
-        growth=[(11, 64, 66), (13, 69, 72), (24, 56, 58), (24, 73, 74)]),
+        growth=[(11, 64, 66), (13, 69, 72), (24, 56, 58), (24, 73, 74)],
+        reason="the `seashore` successor. `compound` is empty BECAUSE the "
+               "successor worked; the four growths are inherited unchanged "
+               "from the accepted v2, each on a sentence Butler already wrote "
+               "between 56 and 73 words."),
     "book04/candidate-v2.json": _decl(
         byte_identical=[39, 54, 61, 63, 70, 79, 80],
         growth=[(18, 53, 55), (28, 54, 56), (76, 61, 62)],
@@ -605,12 +640,24 @@ DECLARED = {
                "book-keyed table declared is the successor's figure."),
     "book04/candidate-v3.json": _decl(
         byte_identical=[39, 54, 61, 63, 70, 79, 80],
-        growth=[(18, 53, 54), (28, 54, 56), (76, 61, 62)]),
+        growth=[(18, 53, 54), (28, 54, 56), (76, 61, 62)],
+        reason="the compound successor. The seven byte-identical paragraphs "
+               "are inherited from the accepted v2 and examined there "
+               "(`book04/continuity.md` \u00a76). **P018 is 53 \u2192 54 in "
+               "this file and 53 \u2192 55 in v2** — the divergence records "
+               "finding R-1 was found by: the old book-keyed table declared "
+               "the successor's figure for the accepted file."),
     "book04/candidate-v4.json": _decl(
         byte_identical=[39, 54, 61, 63, 70, 79, 80],
         growth=[(18, 53, 54), (28, 54, 56), (76, 61, 62)],
         reason="the fifth successor (ledger A4(i)); the arrow-B repair at "
                "B04-P010 moves no sentence length."),
+    "book04/candidate-v5.json": _decl(
+        byte_identical=[39, 54, 61, 63, 70, 79, 80],
+        growth=[(18, 53, 54), (28, 54, 56), (76, 61, 62)],
+        reason="the collision-backlog successor (two repairs, B04-P017 "
+               "`forenoon` and B04-P040 `holy hecatombs`). Same declaration "
+               "as v4; neither repair changes a length."),
     "book05/candidate-v2.json": _decl(
         compound=["mountaintops"],
         reason="ledger A5(a): `mountain tops` is corrected in the successor "
@@ -639,12 +686,151 @@ DECLARED = {
                "declared-instance escape creates pressure to make a cosmetic "
                "edit. Book 7 made that edit and the reviewer called it a "
                "disimprovement. Book 8 declares instead."),
-    "book07/candidate-v1.json": _decl(),
     "book07/candidate-v2.json": _decl(
         reason="the accepted file. Declares nothing: no byte-identical "
                "paragraph, no paragraph under 0.90, no sentence grown past 50, "
                "no compound drift."),
 }
+
+
+# ------------------------------------- THE OTHER HALF OF THE TABLE (Book 8 S-3)
+# **A declaration keyed to a file nothing evaluates is a declaration that
+# cannot be wrong.**
+#
+# Book 8's round 1 found the shape recurring: `book02/candidate-v3.json`,
+# `-v4.json` and `-v5.json` each declare `compound=[]` while each carries
+# `seashore`, `storeroom` and `waterside` drift. Sixteen of the nineteen rows
+# were sound and the three wrong ones were **exactly the three that nothing
+# runs** — `ACCEPTED` names Book 2's accepted v2 and its successor v6, and
+# `run_book()` without `--version` takes the highest-numbered file, so v3, v4
+# and v5 were reachable by no invocation anybody makes. They were not wrong by
+# accident; they were wrong because being wrong had no consequence.
+#
+# Absence was the wrong repair — correcting three rows leaves the twentieth
+# free to go the same way. So the table is closed against the directory
+# instead:
+#
+# * **`--declarations` puts the full gates to EVERY key of `DECLARED`**, over
+#   that exact file. A row that is not evaluated by any other invocation is
+#   evaluated by this one, by construction. It is folded into `--all`.
+# * **Every `bookNN/candidate-v*.json` on disk must be in `DECLARED` or in
+#   `SUPERSEDED`, and in exactly one**, asserted as set equality in both
+#   directions. A new candidate file cannot appear undeclared, a declaration
+#   cannot name a file that is not there, and a file cannot be quietly moved
+#   out of reach of the gates by writing a higher-numbered successor.
+# * **A row that declares anything must say why.** The three wrong rows carried
+#   no `reason` between them. A declaration is a licence to fail a gate; a
+#   licence with no reason on it is the same defect one step earlier.
+#
+# `SUPERSEDED` is the round-1 drafts. They are kept in the package because the
+# review rounds and the change logs refer to them by name, and they are NOT
+# evaluated: every one of them is a file a reviewer rejected, and putting the
+# gates to a rejected draft would only assert that it is still rejected.
+
+SUPERSEDED = {
+    "book01/candidate-v1.json": "round-1 draft, superseded by v2 (accepted).",
+    "book02/candidate-v1.json": "round-1 draft, superseded by v2 (accepted).",
+    "book03/candidate-v1.json": "round-1 draft, superseded by v2 (accepted).",
+    "book04/candidate-v1.json": "round-1 draft, superseded by v2 (accepted).",
+    "book05/candidate-v1.json": "round-1 draft, superseded by v2 (accepted).",
+    "book06/candidate-v1.json": "round-1 draft, superseded by v2 (accepted).",
+    "book07/candidate-v1.json":
+        "round-1 draft, superseded by v2 (accepted). **It used to sit in "
+        "`DECLARED` with an empty declaration** — a licence issued to a "
+        "rejected file — and `compound_drift.py` named it as Book 7's "
+        "accepted text in a second, stale copy of the accepted-file list. "
+        "Both are repaired: the list is derived from `ACCEPTED` now, and this "
+        "file is declared for what it is.",
+}
+
+
+def candidate_files_on_disk():
+    return sorted(str(p.relative_to(ROOT))
+                  for p in ROOT.glob("book[0-9][0-9]/candidate-v*.json"))
+
+
+def declaration_coverage():
+    """Set equality, both directions, between the declarations and the
+    directory. Returns a list of failure messages."""
+    bad = []
+    disk = set(candidate_files_on_disk())
+    decl, sup = set(DECLARED), set(SUPERSEDED)
+    for rel in sorted(disk - decl - sup):
+        bad.append("coverage: %s is on disk and is in neither DECLARED nor "
+                   "SUPERSEDED — every candidate file is one or the other"
+                   % rel)
+    for rel in sorted((decl | sup) - disk):
+        bad.append("coverage: %s is declared but is not on disk" % rel)
+    for rel in sorted(decl & sup):
+        bad.append("coverage: %s is in DECLARED and in SUPERSEDED; it must be "
+                   "in exactly one" % rel)
+    # **The staleness class, closed.** `ACCEPTED`'s successor column is the
+    # file the edition would ship and the file `compound_drift` reads. Writing
+    # a successor and forgetting to point the column at it is how
+    # `compound_drift.py` came to read Book 7's REJECTED v1: the fault is not
+    # that a list was copied, it is that nothing said which file is latest.
+    for bk, (_src, acc, succ) in sorted(ACCEPTED.items()):
+        vs = [int(r.split("-v")[1].split(".")[0]) for r in decl
+              if r.startswith("book%02d/" % bk)]
+        if not vs:
+            continue
+        top = "book%02d/candidate-v%d.json" % (bk, max(vs))
+        if (succ or acc) != top:
+            bad.append("coverage: ACCEPTED[%d] ships %s, but the highest "
+                       "declared candidate for that Book is %s — the "
+                       "successor column is stale"
+                       % (bk, succ or acc, top))
+    for rel in sorted(decl):
+        d = DECLARED[rel]
+        if any(d[k] for k in ("byte_identical", "thin", "growth", "compound")) \
+                and not d["reason"].strip():
+            bad.append("coverage: %s declares a gate exception and gives no "
+                       "reason — a licence with no reason on it is the shape "
+                       "this table exists to prevent" % rel)
+    return bad
+
+
+def run_declarations(quiet=False):
+    """`--declarations`: put the full gates to **every key of `DECLARED`**, so
+    that no row of the table is a claim nothing tests."""
+    bad = declaration_coverage()
+    if not quiet:
+        print("checks.py --declarations — every declared file gets the gates, "
+              "and the table is closed against the directory\n")
+        for m in bad:
+            print("  \u2717 %s" % m)
+    for rel in sorted(DECLARED):
+        book = int(rel[4:6])
+        if not (ROOT / rel).exists():
+            continue
+        try:
+            _f, g = run_book(book, write=False, quiet=True, candidate=rel)
+        except Exception as e:                                # noqa: BLE001
+            bad.append("declarations: %s — the gates could not run: %s"
+                       % (rel, e))
+            if not quiet:
+                print("  \u2717 %-32s gates could not run" % rel)
+            continue
+        msgs = ["declarations: %s — %s" % (rel, m) for m in g.failures]
+        bad += msgs
+        if not quiet:
+            if msgs:
+                print("  \u2717 %-32s %d gate failure(s)" % (rel, len(msgs)))
+                for m in g.failures:
+                    print("        | %s" % m)
+            else:
+                print("  \u2713 %-32s every gate passes against its "
+                      "declaration" % rel)
+    if not quiet:
+        print()
+        if bad:
+            print("%d declaration failure(s)." % len(bad))
+        else:
+            print("%d declared files, %d superseded, %d on disk: every "
+                  "declaration is evaluated and the table is exactly the "
+                  "directory." % (len(DECLARED), len(SUPERSEDED),
+                                  len(candidate_files_on_disk())))
+    return bad
 
 
 def declared(cand_rel):
@@ -845,10 +1031,88 @@ def verify_manifest(book, figs=None, gate=None):
         bad.append("manifest: book%02d's checks block names no candidate, so "
                    "it asserts nothing about what was scored" % book)
 
-    # (c) `all_gates_passed: true` beside a run that failed.
-    if gate is not None and ck.get("all_gates_passed") and gate.failures:
-        bad.append("manifest: book%02d asserts all_gates_passed: true, and %d "
-                   "gate(s) just failed" % (book, len(gate.failures)))
+    # (b2) **the candidate it names must be the candidate the Book stands
+    # behind.** Found by attacking the repair of (c): once `--manifests` runs
+    # the gates over `ck["candidate_file"]`, the obvious next move is to leave
+    # the defect where it is and point the manifest at a *different, clean*
+    # file — one field again, and the gates then truthfully pass over a file
+    # nobody ships. The manifest must name the accepted file of an accepted
+    # Book, and otherwise the highest-numbered declared candidate.
+    if ck.get("candidate_file"):
+        if book in ACCEPTED:
+            want = ACCEPTED[book][1]
+        else:
+            vs = [int(r.split("-v")[1].split(".")[0]) for r in DECLARED
+                  if r.startswith("book%02d/" % book)]
+            want = ("book%02d/candidate-v%d.json" % (book, max(vs))) if vs else None
+        if want and ck["candidate_file"] != want:
+            bad.append("manifest: book%02d names %s, but the file this Book "
+                       "stands behind is %s — a manifest may not vouch for a "
+                       "file the package does not ship"
+                       % (book, ck["candidate_file"], want))
+
+    # (b3) **the figures it records must reproduce from that candidate.** The
+    # hashes prove the bytes did not move; they prove nothing about the numbers
+    # written beside them, which are the part a reader actually reads. They
+    # were typed once by a writer that is no longer the only writer.
+    if ck.get("candidate_file") and (ROOT / ck["candidate_file"]).exists() \
+            and book in BASIS:
+        try:
+            fr = figures(book, load("book%02d/source-book%d.json" % (book, book)),
+                         load(ck["candidate_file"]))
+        except Exception as e:                               # noqa: BLE001
+            bad.append("manifest: book%02d — its figures could not be "
+                       "recomputed: %s" % (book, e))
+        else:
+            for key, got, want in (
+                    ("retention", round(fr["retention"], 5), ck.get("retention")),
+                    ("sentences", list(fr["sent"]), ck.get("sentences")),
+                    ("splitting_rate_raw_pct", round(fr["raw"], 1),
+                     ck.get("splitting_rate_raw_pct")),
+                    ("norm_rate_pct", round(fr["norm"], 1),
+                     ck.get("norm_rate_pct")),
+                    ("norm_rate_butler_pct", round(fr["norm_butler"], 1),
+                     ck.get("norm_rate_butler_pct")),
+                    ("sixty_word", list(fr["sixty"]), ck.get("sixty_word")),
+                    ("semicolons", list(fr["semi"]), ck.get("semicolons")),
+                    ("semicolons_kept_added", list(fr["kept_added"]),
+                     ck.get("semicolons_kept_added")),
+                    ("move_gap", round(fr["movegap"], 5), ck.get("move_gap"))):
+                if want is not None and got != want:
+                    bad.append("manifest: book%02d records %s = %s, and %s "
+                               "gives %s" % (book, key, want,
+                                             ck["candidate_file"], got))
+
+    # (c) `all_gates_passed: true` must be BACKED BY AN EVALUATION.
+    #
+    # **The defeat, found by Book 8's round 1 (S-3) and reproduced here before
+    # it was repaired.** This clause used to read `if gate is not None and
+    # ck.get("all_gates_passed") and gate.failures`. `--manifests` never
+    # passes a gate, so on that path the clause was dead: plant a gate-failing
+    # defect in `book07/candidate-v2.json`, edit **one field** —
+    # `checks.candidate_sha256` — so clause (b) is satisfied, and
+    # `--manifests` exits 0 while `checks.py 7` exits 1. Two of the package's
+    # own instruments disagreed about the same bytes and the quiet one was the
+    # one people ran.
+    #
+    # The guard is inverted: **absence of evidence is now a failure.** A
+    # manifest asserting `all_gates_passed` and handed no evaluated Gate does
+    # not get the benefit of the doubt, so a caller that forgets to supply one
+    # is caught by this function rather than trusted by it. `run_manifests()`
+    # supplies the evidence the only way it can be supplied — by putting the
+    # gates to the candidate the manifest names.
+    if ck.get("all_gates_passed"):
+        if gate is None:
+            bad.append("manifest: book%02d asserts all_gates_passed: true and "
+                       "this caller supplied no evaluated Gate, so the "
+                       "assertion is unchecked — an unbacked claim is a "
+                       "failure, not a pass" % book)
+        elif not gate.evaluated:
+            bad.append("manifest: book%02d asserts all_gates_passed: true "
+                       "beside a Gate that was never evaluated" % book)
+        elif gate.failures:
+            bad.append("manifest: book%02d asserts all_gates_passed: true, and "
+                       "%d gate(s) just failed" % (book, len(gate.failures)))
     if figs is not None and ck.get("sha256") and figs.get("checks_md_sha256") \
             and ck["sha256"] != figs["checks_md_sha256"]:
         bad.append("manifest: book%02d records a checks hash that this run did "
@@ -865,23 +1129,58 @@ def run_manifests():
     bad = []
     for bkdir in sorted((ROOT).glob("book[0-9][0-9]")):
         book = int(bkdir.name[4:])
-        msgs = verify_manifest(book)
+        # **The repair of the defeat.** `--manifests` used to call
+        # `verify_manifest(book)` with no Gate, which made clause (c) dead on
+        # the one path most people run. A manifest that asserts
+        # `all_gates_passed` is a claim about the CONTENT of the candidate it
+        # names, and the only way to check a claim about content is to put the
+        # gates to that content. So this loop runs them, over the candidate
+        # the MANIFEST names rather than the latest file on disk — which is
+        # also what makes the edit-one-field attack fail: moving
+        # `candidate_sha256` to match a defective candidate now points the
+        # gates straight at the defect.
+        gate = None
+        mp = bkdir / "manifest.json"
+        named = None
+        if mp.exists():
+            try:
+                named = (json.loads(mp.read_text(encoding="utf-8"))
+                         .get("checks") or {}).get("candidate_file")
+            except Exception:                                # noqa: BLE001
+                named = None
+        if named and (ROOT / named).exists():
+            try:
+                _f, gate = run_book(book, write=False, quiet=True,
+                                    candidate=named)
+            except Exception as e:                           # noqa: BLE001
+                bad.append("manifest: book%02d — the gates could not be put to "
+                           "%s: %s" % (book, named, e))
+                print("  \u2717 book%02d  gates could not run over %s"
+                      % (book, named))
+                continue
+        msgs = verify_manifest(book, gate=gate)
+        if gate is not None and gate.failures:
+            msgs = msgs + ["manifest: book%02d — the candidate its manifest "
+                           "names fails a content gate: %s" % (book, m)
+                           for m in gate.failures]
         if msgs:
             bad += msgs
             for m in msgs:
                 print("  \u2717 %s" % m)
         else:
-            mp = json.loads((bkdir / "manifest.json").read_text(encoding="utf-8"))
-            ck = mp.get("checks")
+            mm = json.loads((bkdir / "manifest.json").read_text(encoding="utf-8"))
+            ck = mm.get("checks")
             print("  \u2713 book%02d  %s" % (
-                book, "checks %s over %s" % (ck["sha256"][:8],
-                                             ck.get("candidate_file", "?"))
+                book, "checks %s over %s, gates re-run and passing"
+                % (ck["sha256"][:8], ck.get("candidate_file", "?"))
                 if ck else "no checks block (predates the rule, declared)"))
     print()
     if bad:
         print("%d manifest failure(s)." % len(bad))
         return 1
-    print("Every manifest names files that exist and hash to what it recorded.")
+    print("Every manifest names files that exist and hash to what it recorded, "
+          "and every `all_gates_passed` is backed by a gate run that was made "
+          "to happen here.")
     return 0
 
 
@@ -1326,6 +1625,16 @@ def run_all():
     # precision while adding a byte-identical paragraph passed `--all` in
     # silence. Now every accepted Book's gates are put to it, and its manifest
     # with them.
+    # Every key of DECLARED gets the gates too, so `--all` can no longer pass
+    # while a row of the table is a claim nothing tests.
+    print("\ndeclarations — every file DECLARED names, gated:")
+    dbad = run_declarations(quiet=True)
+    bad += dbad
+    print("  %s %d declared files evaluated, %d superseded, %d on disk; "
+          "%d failure(s)"
+          % ("\u2717" if dbad else "\u2713", len(DECLARED), len(SUPERSEDED),
+             len(candidate_files_on_disk()), len(dbad)))
+
     print("\ngates and manifests, for every accepted Book:")
     for bk in sorted(ACCEPTED):
         _f, gg = run_book(bk, version=None, write=False, quiet=True,
@@ -1569,6 +1878,10 @@ def main():
     ap.add_argument("--version", type=int, default=None)
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--audit", action="store_true")
+    ap.add_argument("--declarations", action="store_true",
+                    help="put the full gates to every key of DECLARED, and "
+                         "assert the table is exactly the candidate files on "
+                         "disk (Book 8 round 1, S-3's second half)")
     ap.add_argument("--manifests", action="store_true",
                     help="verify every Book's manifest against the files it "
                          "names (the S-2 read side)")
@@ -1581,6 +1894,8 @@ def main():
     if a.audit:
         audit()
         return 0
+    if a.declarations:
+        return 1 if run_declarations() else 0
     if a.manifests:
         return run_manifests()
     if a.all:
