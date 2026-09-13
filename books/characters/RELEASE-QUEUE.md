@@ -1801,3 +1801,116 @@ on the fetched asset:
 
 Report live evidence back to the package `status.json` and the generated
 inventory only after those checks pass. Validated is not deployed.
+
+## Lane A automation batch 12: The Federalist Papers
+
+Authored on branch `claude/tinct-character-content-1n5iqq` by the Lane A
+automated author per `AUTOMATION-QUEUE.md`. Queued, not production
+verified; this lane never sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| The Federalist Papers | 76066bb5b | 80 / 80 | build_federalist_papers.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| The Federalist Papers | c733011184b5b42d48ac29dc73660ee631d039df0ff0572761724c7e0509d7e8 | 1974574ebce6859b2c7fdde48b524360b6348e0492e425861e8259076297278d |
+
+137 exact mentions in original-en, 138 in modern-en (one legitimate
+paraphrase variance, see below), across all 85 essays and 1279
+paragraphs per edition. No omitted entities on either side. Commands:
+`python3 books/characters/build_federalist_papers.py --check`, then
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`.
+Shared dependencies: `build_reviewed.py` and `reviewed_aliases.py`;
+neither was changed.
+
+### Release review points
+
+A political-essay treatise with no narrative or staged dialogue of its
+own, so **all 80 bound entries are Reference** per editorial policy's
+guidance for treatises.
+
+The automation queue explicitly flags this book's genre for a
+**"Brutus" namesake collision**: the historical Roman consul versus the
+pseudonymous Anti-Federalist essayist of the same pen name, who wrote
+in direct opposition to these papers. A full-text search of both
+editions turns up exactly one occurrence of "Brutus" in the whole book
+(38, 1), unambiguously the Roman consul, inside a plain historical list
+of ancient lawgivers (Minos, Zaleucus, Theseus, Draco, Solon, Lycurgus,
+Romulus, Numa, Tullius Hostilius, Brutus, Amphictyon, Achaeus, Aratus).
+Publius never names his Anti-Federalist opponent "Brutus" anywhere in
+the body text -- there is no collision to resolve, and this is pinned
+down by a dedicated test.
+
+A second, **unflagged namesake pair was found while reading**: essay
+No. 6's footnotes 6-8 name Madame de Maintenon, the **Duchess** of
+Marlborough, and Madame de Pompadour as royal mistresses/court
+favorites blamed for wars, while footnote 10 (four paragraphs later, a
+different sentence) names the **Duke** of Marlborough as a military
+commander who prolonged a war for personal gain. These are two
+different real people sharing a surname -- husband and wife -- bound as
+two separate entities with distinct aliases so they never merge.
+
+PUBLIUS is bound once (11, 14) as the shared pen name of Hamilton,
+Madison, and Jay. HAMILTON and MADISON are each bound once from the
+literal opening line of essays No. 18-20, "MADISON, with HAMILTON" -- a
+genuine editorial byline in the paragraph text of the source JSON
+itself (not app-side chapter-title metadata), marking the historically
+documented disputed joint authorship of those three specific essays.
+Three genuinely pseudonymous Anti-Federalist critics -- CATO, the
+"federal farmer," and TAMONY -- are bound under their pen names without
+asserting a disputed real-name identity the text does not give. One
+title-only reference, "the late king of Prussia," is resolved to
+Frederick II from the essay's 1787-88 publication date and Frederick's
+1786 death, following the same pattern used for the Bishop of Autun and
+the Empress of Russia in Vindication. Four named collective bodies
+(Ephori, Tribunes, Cosmi, Decemvirs) are bound with kind `group`.
+
+### Edition divergences, resolved rather than assumed
+
+- **Neckar / Necker**: original-en spells the French finance minister's
+  name "Neckar"; modern-en spells it "Necker" at the same location.
+  Aliased both.
+- **Cleomenes, one legitimate extra mention in modern-en**: at (18,
+  18), original-en uses the pronoun "who" where modern-en's paraphrase
+  names Cleomenes explicitly a second time in the same paragraph. This
+  is the one source of the 137-vs-138 mention-count difference,
+  confirmed and pinned down by a dedicated test rather than left as an
+  unexplained gap.
+
+No divergence was found in which edition names or omits a person
+outright.
+
+### Full suite note
+
+This book's own focused test suite (12 tests) passed cleanly and
+`--check` is clean. A full `python3 -m unittest discover` run was
+attempted twice and did not complete within a 300-second budget either
+time (killed by `timeout`), consistent with the environmental
+instability documented for the five prior books in this session (the
+shared test tree has grown large across concurrent Lane A/B sessions).
+This package was committed on the strength of its own focused suite, a
+clean `--check`, and exhaustive manual verification (full
+paragraph-by-paragraph read of both editions in full, every one of the
+80 entities' first-binding locations read in context during authoring,
+and a 12-mentions-per-edition random spot-read, all 24 confirmed
+correct) rather than an independently confirmed full-suite pass. Re-run
+the full suite before production integration.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the
+normal app gates and deploy, then open the production reader and confirm
+on the fetched asset:
+
+1. A first-encounter card in original-en and modern-en alike.
+2. That the Duchess of Marlborough and the Duke of Marlborough show two
+   distinct cards, never merging into one.
+3. That PUBLIUS, HAMILTON, and MADISON each show a distinct card, with
+   HAMILTON and MADISON's card appearing at the opening of essays No.
+   18-20.
+4. That "Neckar" (original-en) and "Necker" (modern-en) resolve to the
+   same card.
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
