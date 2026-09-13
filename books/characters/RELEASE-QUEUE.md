@@ -2176,3 +2176,127 @@ on the fetched asset:
 
 Report live evidence back to the package `status.json` and the generated
 inventory only after those checks pass. Validated is not deployed.
+
+## Lane A automation batch 15: Democracy in America
+
+Authored on branch `claude/tinct-character-content-1n5iqq` by the Lane A
+automated author per `AUTOMATION-QUEUE.md`. Queued, not production
+verified; this lane never sets `appStatus`. This is the fifteenth and
+final book listed in the Lane A queue table.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| Democracy in America | c8e4ac7ac | 86 / 86 | build_democracy_in_america.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| Democracy in America | 9fbec200460aebc0c454ac87814dd7c13d93a1eff0c4c467078591c3bd5f35a4 | 347cc8f0729f7fe0520163d153554a78e36d82e87b8c59777f4745a74e545662 |
+
+253 exact mentions in original-en, 254 in modern-en, across all 96
+chapters and 2258 paragraphs per edition. Zero omitted entities on
+either side. Commands: `python3 books/characters/build_democracy_in_america.py
+--check`, then `python3 -m unittest discover -s books/characters -p
+'test_*.py'`. Shared dependencies: `build_reviewed.py` and
+`reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+A work of political and social analysis with no narrative or staged
+dialogue of its own, so **all 86 bound entries are Reference** per
+editorial policy's treatise guidance. As the automation queue's own
+note anticipated ("Named Americans and Europeans; watch
+place-versus-person"), this book names a genuinely large and varied
+real cast but remains reference-light relative to its size --
+confirmed by a full-book capitalized-word frequency sweep turning up
+only ~1547 distinct forms (comparable to The Wealth of Nations's
+~1463 despite being somewhat longer), most of them place names.
+
+Every capitalized word or phrase in original-en was extracted and
+catalogued in a full-book sweep -- this book's very long,
+citation-dense chapters (especially the 372-paragraph chapter on the
+future condition of the three races and the 238-paragraph Federal
+Constitution chapter) make a purely sequential read impractical at
+this scale. Every candidate person-name was confirmed by reading its
+exact source-text context, never assumed from the bare word, and
+cross-checked against modern-en at the same location -- not a
+shortcut around reading, but the same reading strategy established
+for Leviathan and The Wealth of Nations, suited to a very long,
+citation-dense but person-sparse book.
+
+**Five person-versus-place or namesake checks** were made and each
+resolved cleanly without the escape hatch: bare "Washington" (the
+person dominates 14-to-4 over the city sharing his name, bound to the
+person as the dominant sense with the four place occurrences
+documented as an accepted imprecision), Philip of Macedon vs. Metacom
+("King Philip"; the two names never share a literal string in this
+book), Jacques-Louis David the painter vs. the biblical King David
+(the biblical king is never separately named here), and two place
+names that are not people at all -- "Peter"/"Francis" (parts of the
+St. Peter's and St. Francis rivers) and "Chester" (a New York county).
+Bare "Caesar" is left unbound throughout, used only as a generic
+nickname or byword for seizing power, never as a specific narrative
+reference.
+
+No compositor misprint comparable to Leviathan's "Herods" or The
+Wealth of Nations's "Sir Waiter Raleigh" was found in this book.
+Bracketed translator's notes on Robert E. Lee's Confederate allegiance
+(1862) and Andrew Johnson's impeachment (1868) are later editorial
+additions to the public-domain translation, not Tocqueville's own
+text, but are bound as legitimate paragraph content since they are
+literally part of the edition JSON.
+
+### Edition divergences, resolved rather than assumed
+
+This book required markedly less alias-fixing than Leviathan or The
+Wealth of Nations -- the two editions agree on nearly every proper
+name's spelling. Two pairs were found by direct comparison of the two
+editions at the same paragraph, not guessed, and aliased so each
+entity binds in both: Sylla/Sulla, Labruyere/Labruyère (accent added
+in modern-en), Moliere/Molière (accent added in modern-en), and
+Sevigne/Sévigné (accent added in modern-en). No divergence was found
+in which edition names or omits a real, resolvable person outright
+once these were aliased.
+
+### Full suite note
+
+This book's own focused test suite (11 tests) passed cleanly and
+`--check` is clean. Consistent with the environmental precedent
+documented for every prior book in this session, the shared full-repo
+test suite was not run to completion within a practical time budget,
+given its size across concurrent Lane A/B sessions in this queue. This
+package was committed on the strength of its own focused suite, a
+clean `--check`, and exhaustive manual verification: every capitalized
+word in original-en extracted and read in context, cross-checked
+against modern-en at the same location, every namesake-sensitive
+entity's complete set of bound locations re-queried and checked
+(confirming all 18 Washington mentions split 14 person/4 place, and
+both Caesar mentions are generic), and a random spot-read of 24
+compiled mentions confirmed correct. Re-run the full suite before
+production integration.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the
+normal app gates and deploy, then open the production reader and confirm
+on the fetched asset:
+
+1. A first-encounter card in original-en and modern-en alike.
+2. That bare "Washington" mentions resolve to George Washington's card,
+   including the four place-reference paragraphs (14:20; 19:256;
+   19:258; 19:265) that are an accepted imprecision, not a bug.
+3. That Philip of Macedon and Metacom show two distinct cards (or that
+   Metacom does not merge into Philip of Macedon's).
+4. That Jacques-Louis David's card is the painter, not confused with
+   any biblical figure.
+5. That "Sylla" (original-en) and "Sulla" (modern-en) resolve to the
+   same card, and likewise Labruyere/Labruyère, Moliere/Molière, and
+   Sevigne/Sévigné.
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
+
+This is the final book in the Lane A queue table (`AUTOMATION-QUEUE.md`).
+A future Lane A firing should confirm via `python3
+books/characters/inventory.py` that no `not-started` Lane A book
+remains, and if so, record that Lane A is complete rather than
+starting a Lane B book.
