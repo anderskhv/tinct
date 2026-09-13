@@ -2063,3 +2063,116 @@ on the fetched asset:
 
 Report live evidence back to the package `status.json` and the generated
 inventory only after those checks pass. Validated is not deployed.
+
+## Lane A automation batch 14: The Wealth of Nations
+
+Authored on branch `claude/tinct-character-content-1n5iqq` by the Lane A
+automated author per `AUTOMATION-QUEUE.md`. Queued, not production
+verified; this lane never sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| The Wealth of Nations | 61cc15bc3 | 176 / 176 | build_wealth_of_nations.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| The Wealth of Nations | 986785410f5c74e8e0d6efd4b963e93e80461eb2ec619788eb3e772d87f90c4b | d894aec39397bf2acd501fa3825eabbe0a60de6566bfee1b7a4272e3adf3f946 |
+
+417 exact mentions in original-en, 436 in modern-en, across all 32
+chapters and 2173 paragraphs per edition (the longest book in the Lane
+A queue to date by paragraph count). Zero omitted entities on either
+side. Commands: `python3 books/characters/build_wealth_of_nations.py
+--check`, then `python3 -m unittest discover -s books/characters -p
+'test_*.py'`. Shared dependencies: `build_reviewed.py` and
+`reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+An economic treatise with no narrative or staged dialogue of its own,
+so **all 176 bound entries are Reference** per editorial policy's
+treatise guidance. Despite being the longest book by paragraph count
+in this queue, it is markedly reference-light relative to its size --
+confirmed by a full-book capitalized-word frequency sweep turning up
+only ~1463 distinct forms (fewer than Leviathan's 4763, despite being
+60% longer), most of them place names -- exactly matching the
+automation queue's own description, "Large but reference-light;
+mostly named economists and rulers."
+
+Chapters 1-10 were read in full, sequentially, in both editions.
+Chapter 11 (298 paragraphs, a dense historical digression on the value
+of silver) and the historically dense passages of the remaining
+chapters (especially 19-20, 27, and 30) were covered instead by an
+exhaustive full-book proper-name extraction: every capitalized word or
+phrase in original-en was catalogued, every candidate confirmed by
+reading its exact context, and cross-checked against modern-en at the
+same location -- not a shortcut around reading, but a reading strategy
+suited to a very long, historically citation-dense but person-sparse
+book.
+
+**Five namesake collisions** were found and each resolved cleanly
+without the escape hatch, because the source text itself fully
+qualifies every occurrence: Zeno of Citium vs. Zeno of Elea (both
+carry their own city-epithet in the same paragraph, 30:179), King John
+of England vs. King John of France (both fully qualified by nation),
+Louis VI "the Fat" vs. Louis XIV (both fully qualified by epithet or
+numeral), Robert Bruce vs. Robert II of France vs. Sir Robert Walpole
+(three Roberts, no bare form), and Vasco da Gama vs. Vasco Núñez de
+Balboa (two explorers sharing a first name, always given in full).
+
+One **source defect** is kept as printed: "Sir Waiter Raleigh" (27,
+20 and 23), a probable compositor misprint for "Walter," confirmed by
+the modern-en edition's correction at the same locations, and bound
+under the printed spelling with the corrected spelling added as a
+second alias.
+
+### Edition divergences, resolved rather than assumed
+
+This book required more alias-fixing than any prior package in this
+queue to reach zero omissions on both sides, because modern-en
+systematically modernizes a large number of archaic original-en
+spellings: Annibal/Hannibal, Amilcar/Hamilcar, Asdrubal/Hasdrubal,
+Lewis/Louis (and its compounds, Lewis the Fat/Louis the Fat, Lewis
+XIV/Louis XIV), Christiern/Christian, Vasco de Gamo/Vasco da Gama,
+Vasco Nugnes de Balboa/Vasco Núñez de Balboa, Cortes/Cortés,
+Ovieda/Oviedo, Nicuessa/Nicuesa, Zuinglius/Zwingli, Machiavel/
+Machiavelli, Ramuzzini/Ramazzini, Carreri/Gemelli Careri,
+Cassendi/Gassendi, and Lorenzo of Medicis/Lorenzo de' Medici. Each pair
+was found by direct comparison of the two editions at the same
+paragraph, not guessed, and aliased so the single entity binds in
+both. No divergence was found in which edition names or omits a real,
+resolvable person outright once every spelling variant was found.
+
+### Full suite note
+
+This book's own focused test suite (11 tests) passed cleanly and
+`--check` is clean. Consistent with the environmental precedent
+documented for every prior book in this session, the shared full-repo
+test suite did not complete within a practical time budget (killed by
+timeout at 280 seconds, still running). This package was committed on
+the strength of its own focused suite, a clean `--check`, and
+exhaustive manual verification: chapters 1-10 read in full in both
+editions, remaining chapters' names extracted and individually
+context-verified, every namesake-pair entity's complete set of bound
+locations re-queried and checked, and two independent random
+spot-reads of compiled mentions confirmed correct. Re-run the full
+suite before production integration.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the
+normal app gates and deploy, then open the production reader and confirm
+on the fetched asset:
+
+1. A first-encounter card in original-en and modern-en alike.
+2. That Zeno of Citium and Zeno of Elea show two distinct cards; same
+   for King John of England/France, Louis the Fat/Louis XIV, and the
+   three Roberts (Bruce, of France, Walpole).
+3. That Vasco da Gama and Vasco Núñez de Balboa show two distinct
+   cards, never merging.
+4. That "Sir Waiter Raleigh" (original-en) and "Sir Walter Raleigh"
+   (modern-en) resolve to the same card.
+5. That Rev. John Smith (Memoirs of Wool) does not surface as, or
+   merge with, any card for the book's own author, Adam Smith.
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
