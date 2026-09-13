@@ -6,7 +6,7 @@ of `book07/review/findings-v1.md`: the check returned seventy-two rows touching
 Book 7, eleven were acted on, and sixty-one were dismissed with no record of
 having been read. This file is that record, and it is generated, not typed.
 
-**93 rows touch Book 8.**
+**90 rows touch Book 8.**
 
 | disposition | rows |
 |---|---|
@@ -14,10 +14,11 @@ having been read. This file is that record, and it is generated, not typed.
 | `common-rendering` | 2 |
 | `common-word` | 3 |
 | `discrimination` | 3 |
-| `homograph` | 2 |
-| `kept` | 64 |
+| `homograph` | 1 |
+| `kept` | 62 |
+| `kept-elsewhere` | 1 |
 | `matches-accepted` | 5 |
-| `unavoidable-merge` | 4 |
+| `unavoidable-merge` | 3 |
 | `variant` | 8 |
 
 The vocabulary is defined in the script's docstring. `homograph`,
@@ -26,7 +27,7 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW A — one Butler word, two or more renderings, across Books
 
-25 rows.
+26 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
@@ -38,6 +39,7 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `cease` | `cease` (B8-P048) | **`kept`** | every entry Book 8 contributes is Butler's own `cease` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `couple` | `couple` (B8-P009) | **`kept`** | every entry Book 8 contributes is Butler's own `couple` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `fleetest` | `fleetest` (B8-P024) | **`kept`** | every entry Book 8 contributes is Butler's own `fleetest` carried through unchanged; the decision in this row belongs to whichever Book moved |
+| `follow` | `follows all the more` (B8-P039) | **`kept-elsewhere`** | Book 8 supplies the row's only rendering (`follows all the more`); every other entry is Butler's own `follow` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `follow` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
 | `girded` | `girded` (B8-P038) | **`kept`** | every entry Book 8 contributes is Butler's own `girded` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `havoc` | `havoc` (B8-P009) | **`kept`** | every entry Book 8 contributes is Butler's own `havoc` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `hearers` | `hearers` (B8-P014) | **`kept`** | every entry Book 8 contributes is Butler's own `hearers` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -58,7 +60,7 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW B — one rendering, two or more Butler words, across Books
 
-65 rows.
+61 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
@@ -81,13 +83,11 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `cross` | `traverse` (B8-P049) | **`unavoidable-merge`** | `cross` carries Butler's `traverse` at B08-P049 and his own `cross` in four accepted Books. `traverse the sea` is not plain modern English and `cross` is its only ordinary equivalent. |
 | `decide` | `decide` (B8-P049) | **`kept`** | every entry Book 8 contributes is Butler's own `decide` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `enough` | `enough` (B8-P003), `enough` (B8-P006), `enough` (B8-P007) | **`kept`** | every entry Book 8 contributes is Butler's own `enough` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `entrance` | `vestibule` (B8-P021) | **`unavoidable-merge`** | `entrance` carries Butler's `vestibule` at B08-P021 and his own `entrance` at B06-P021 — the same part of the same kind of house. `doorway` was not available: Butler uses it himself two paragraphs later at B08-P023, where the gods stand in it. |
 | `escorted` | `escorted` (B8-P049) | **`kept`** | every entry Book 8 contributes is Butler's own `escorted` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `forward` | `forward` (B8-P009), `forward` (B8-P018), `forwards` (B8-P032) | **`variant`** | every rendering in the row reduces to `forward` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `going` | `going` (B8-P008), `going` (B8-P021), `going` (B8-P049) | **`kept`** | every entry Book 8 contributes is Butler's own `going` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `great` | `great` (B8-P004), `great` (B8-P014), `great` (B8-P019), `great` (B8-P032), `great` (B8-P035), `great` (B8-P043), `great` (B8-P048) | **`kept`** | every entry Book 8 contributes is Butler's own `great` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `halios` | `halios` (B8-P008), `halius` (B8-P032) | **`variant`** | **Butler spells one man's name two ways** — `Halios` at B08-P008 and `Halius` at B08-P032, for the same son of Alcinous, and the check found it. This is the **D13** shape with the opposite resolution: D13 split `Mycene` by *referent* because there were two people; here there is one man, so one spelling, and Butler's first is taken. Recorded in `continuity.md`, not silently regularized. |
-| `himself` | `himself` (B8-P008), `himself` (B8-P011), `himself` (B8-P032), `himself` (B8-P042), `himself` (B8-P044), `himself` (B8-P049) | **`kept`** | every entry Book 8 contributes is Butler's own `himself` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `hurried` | `hurried` (B8-P015), `hurried` (B8-P018), `hurried` (B8-P019) | **`kept`** | every entry Book 8 contributes is Butler's own `hurried` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `husband` | `husband` (B8-P043), `husband` (B8-P047) | **`kept`** | every entry Book 8 contributes is Butler's own `husband` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `leather` | `leather` (B8-P004) | **`kept`** | every entry Book 8 contributes is Butler's own `leather` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -95,12 +95,10 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `maids` | `maids` (B8-P040) | **`kept`** | every entry Book 8 contributes is Butler's own `maids` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `matter` | `matter` (B8-P003), `matter` (B8-P006), `matter` (B8-P016), `matter` (B8-P049) | **`variant`** | every rendering in the row reduces to `matter` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `meanwhile` | `meanwhile` (B8-P019), `meanwhile` (B8-P040) | **`kept`** | every entry Book 8 contributes is Butler's own `meanwhile` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `morning` | `morning` (B8-P001) | **`kept`** | every entry Book 8 contributes is Butler's own `morning` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `neighbor` | `neighbour saying` (B8-P023) | **`variant`** | D9, `neighbour` -> `neighbor`. The trailing `saying` in the row is Butler's participle, which the recast `and one would turn to his neighbor and say` absorbed; the diff attached it to the same span. |
 | `others` | `others` (B8-P003), `others` (B8-P004), `others` (B8-P008), `others` (B8-P009), `others` (B8-P035), `others` (B8-P046) | **`kept`** | every entry Book 8 contributes is Butler's own `others` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `ourselves` | `ourselves` (B8-P048) | **`variant`** | every rendering in the row reduces to `ourselv` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `people` | `people` (B8-P008), `people` (B8-P012), `people` (B8-P033), `people` (B8-P047), `people` (B8-P049) | **`kept`** | every entry Book 8 contributes is Butler's own `people` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `playing` | `minstrelsy` (B8-P007) | **`homograph`** | One spelling, two unrelated senses. `the playing that goes with it` at B08-P007 renders Butler's `minstrelsy`; his own `playing` elsewhere is children at play (B01-P008, B07-P023) and a flame playing about a tripod (B08-P040). No referent is shared. |
 | `quick` | `quick` (B8-P014) | **`kept`** | every entry Book 8 contributes is Butler's own `quick` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `robes` | `raiment` (B8-P030) | **`discrimination`** | See (A, raiment). `robes` carries Butler's `raiment` at B08-P030 and his own `robes` at B06-P003 — both are garments worn, and the merge is the correct reading rather than a loss. |
 | `seafaring` | `seafaring` (B8-P031) | **`variant`** | every rendering in the row reduces to `seafar` once inflection, D9 spelling and D15 compound spacing are normalized |

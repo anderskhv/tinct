@@ -485,7 +485,7 @@ is never a sole authority (ledger A5(b)).
 | `found ship` | **`not a compound`** | the closed form is attested nowhere in 100 editions |
 | `four days` | **`not a compound`** | the closed form is attested nowhere in 100 editions |
 | `good man` | **`kept open, standard`** | the candidate writes `good man`; corpus closed 7 in 5 editions against 0 hyphenated and 237 open — the closed form is attested but does not lead by the margin (3x and 3 editions required) |
-| `good night` | **`kept open, standard`** | the candidate writes `good night`; corpus closed 18 in 8 editions against 21 hyphenated and 151 open — the closed form is attested but does not lead by the margin (3x and 3 editions required) |
+| `good night` | **`kept open, standard`** | the candidate writes `good night`; corpus closed 18 in 8 editions against 22 hyphenated and 153 open — the closed form is attested but does not lead by the margin (3x and 3 editions required) |
 | `good way` | **`not a compound`** | the closed form is attested nowhere in 100 editions |
 | `got hold` | **`not a compound`** | the closed form is attested nowhere in 100 editions |
 | `keep house` | **`not a compound`** | the closed form is attested nowhere in 100 editions |
@@ -496,7 +496,7 @@ is never a sole authority (ledger A5(b)).
 | `mortal man` | **`not a compound`** | the closed form is attested nowhere in 100 editions |
 | `mortal woman` | **`not a compound`** | the closed form is attested nowhere in 100 editions |
 | `neither ships` | **`not a compound`** | the closed form is attested nowhere in 100 editions |
-| `over land` | **`kept open, standard`** | the candidate writes `over land`; corpus closed 15 in 5 editions against 0 hyphenated and 8 open — the closed form is attested but does not lead by the margin (3x and 3 editions required) |
+| `over land` | **`kept open, standard`** | the candidate writes `over land`; corpus closed 15 in 5 editions against 0 hyphenated and 12 open — the closed form is attested but does not lead by the margin (3x and 3 editions required) |
 | `saw land` | **`not a compound`** | the closed form is attested nowhere in 100 editions |
 | `seals men` | **`not a compound`** | the closed form is attested nowhere in 100 editions |
 | `see land` | **`not a compound`** | the closed form is attested nowhere in 100 editions |

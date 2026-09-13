@@ -78,6 +78,89 @@ from checks import compound_pairs, load                         # noqa: E402
 LEAD = 3.0          # the closed form must lead the open form this many times
 MIN_EDITIONS = 3    # and appear in at least this many distinct editions
 
+# ---------------------------------------------------- M-8: count the LEXEME
+# **Book 8's round 1, minor finding M-8.** The register was keyed on the
+# inflected surface bigram, and one lexeme therefore got two opposite verdicts:
+#
+#     mountain top    closed 10 in 6 editions against 1 open   -> `closed`, LIVE
+#     mountain tops   closed  7 in 7 editions against 9 open   -> `kept open`
+#
+# It would have told a Book to close the singular and leave the plural, in the
+# same paragraph. English compounding is a property of the LEXEME, not of the
+# inflected form, and the plural's 7-against-9 is thin data being read as a
+# contrary verdict where the singular's 10-against-1 is decisive.
+#
+# So singular and plural are merged before the margin is applied, and **both
+# figures are reported** — merged and split — because the case where they
+# disagree is exactly the case a reader needs to see. The review's own
+# arithmetic is confirmed by the merge rather than rescued by it: 17 closed
+# against 10 open is 1.7x, still short of the margin. What the evidence says
+# is that the corpus attests `mountaintop` decisively and `mountaintops`
+# weakly, and no arithmetic over these counts closes `mountain tops`.
+
+
+def siblings(pair):
+    """The pair's other number. `mountain top` <-> `mountain tops`; `sea
+    shore` <-> `sea shores`. Head-noun inflection only: the modifier is not
+    pluralized in English compounds."""
+    a, b = pair.split()
+    out = set()
+    if b.endswith("ies") and len(b) > 4:
+        out.add("%s %sy" % (a, b[:-3]))
+    elif b.endswith("es") and b[-3:-2] in "sxzh":
+        out.add("%s %s" % (a, b[:-2]))
+    elif b.endswith("s") and not b.endswith("ss"):
+        out.add("%s %s" % (a, b[:-1]))
+    else:
+        out.add("%s %ss" % (a, b))
+        if b.endswith("y"):
+            out.add("%s %sies" % (a, b[:-1]))
+        if b[-1:] in "sxzh":
+            out.add("%s %ses" % (a, b))
+    return {q for q in out if q != pair}
+
+
+def merged(ev, pair):
+    """Evidence for the LEXEME: this pair plus whichever of its siblings the
+    corpus was scanned for. Returns (counts, the sibling pairs folded in)."""
+    tot = {k: [ev[pair][k][0], ev[pair][k][1]] for k in ev[pair]}
+    folded = []
+    for q in sorted(siblings(pair)):
+        if q in ev:
+            folded.append(q)
+            for k in tot:
+                tot[k][0] += ev[q][k][0]
+                # editions are counted per form and are not disjoint across
+                # the two numbers, so the merged edition count is the LARGER
+                # of the two rather than the sum. Understating it is the safe
+                # direction for a margin that gates on it.
+                tot[k][1] = max(tot[k][1], ev[q][k][1])
+    return tot, folded
+
+
+# ------------------------------------- the disposition the register lacked
+# **Book 8's round 1, §6.3's second condition.** `mountain tops` was closed by
+# ledger **A5(a)**, on D15's own words, across two successors — and the
+# register, which knows nothing of the ledger, ruled it `kept open, standard`
+# and printed a margin that quietly contradicted an accepted decision. Neither
+# verdict was wrong on its own terms and the pair of them was unreadable.
+#
+# `RULED` is the missing disposition. A pair in it has been decided by a
+# coordinator ruling that is not the corpus's to overturn; the register
+# reports the ruling, prints the corpus evidence beside it, and says which
+# way the evidence goes. It is short and every row names its decision.
+RULED = {
+    "mountain tops": "ledger **A5(a)**, on D15's own words (the standard "
+                     "American form is closed), across `book05/candidate-v3` "
+                     "and `book06/candidate-v3`. The corpus does NOT reach "
+                     "the margin either split or merged, and A5(c)'s claim "
+                     "that this register would have caught it is withdrawn "
+                     "in the ledger. The ruling stands on the rule, not on "
+                     "the count.",
+    "mountain top": "the singular of a pair ruled closed at ledger **A5(a)**; "
+                    "here the corpus agrees decisively.",
+}
+
 
 def newest(bk):
     d = ROOT / ("book%02d" % bk)
@@ -153,25 +236,46 @@ def candidate_form(text, pair):
     return "open", a + " " + b
 
 
-def disposition(ev, mine):
-    """`mine` is (form-name, the literal form) the candidate writes."""
+def disposition(ev, mine, pair=None, allev=None):
+    """`mine` is (form-name, the literal form) the candidate writes.
+
+    The margin is applied to the LEXEME (M-8), and the split figures are
+    printed beside the merged ones whenever the two disagree."""
+    split = ev
+    note = ""
+    if pair is not None and allev is not None:
+        ev, folded = merged(allev, pair)
+        if folded:
+            note = (" — merged with %s for the lexeme (M-8): split, this form "
+                    "alone is closed %d in %d against %d open"
+                    % (", ".join("`%s`" % q for q in folded),
+                       split["closed"][0], split["closed"][1],
+                       split["open"][0]))
     c, ce = ev["closed"]
     h, _he = ev["hyphenated"]
     o, _oe = ev["open"]
     other = max(h, o)
+    if pair in RULED:
+        return ("ruled closed against the corpus",
+                "**%s** Corpus (lexeme): closed %d in %d editions against %d "
+                "hyphenated and %d open — %s the margin.%s"
+                % (RULED[pair], c, ce, h, o,
+                   "reaching" if (c >= LEAD * max(other, 1)
+                                  and ce >= MIN_EDITIONS) else "SHORT of",
+                   note))
     if c == 0:
         return ("not a compound",
                 "the closed form is attested nowhere in 100 editions")
     if mine[0] == "closed":
         return ("closed",
                 "the candidate already writes the closed form; corpus closed "
-                "%d in %d editions against %d hyphenated and %d open"
-                % (c, ce, h, o))
+                "%d in %d editions against %d hyphenated and %d open%s"
+                % (c, ce, h, o, note))
     if c >= LEAD * max(other, 1) and ce >= MIN_EDITIONS:
         return ("closed",
                 "the candidate writes `%s`; corpus closed %d in %d editions "
                 "against %d hyphenated and %d open — the closed form leads by "
-                "the margin" % (mine[1], c, ce, h, o))
+                "the margin%s" % (mine[1], c, ce, h, o, note))
     return ("kept open, standard",
             "the candidate writes `%s`; corpus closed %d in %d editions "
             "against %d hyphenated and %d open — the closed form is attested "
@@ -186,7 +290,10 @@ def main():
         allpairs[bk] = compound_pairs(load(f))
     texts = {bk: (ROOT / f).read_text(encoding="utf-8")
              for bk, f in bs.items()}
-    need = sorted({p for v in allpairs.values() for p in v} | set(PROBES))
+    need = {p for v in allpairs.values() for p in v} | set(PROBES)
+    # M-8: the lexeme needs both numbers scanned, whether or not any Book
+    # carries both.
+    need = sorted(need | {q for p in need for q in siblings(p)})
     if CACHE.exists():
         blob = json.loads(CACHE.read_text(encoding="utf-8"))
         if sorted(blob["evidence"]) == need:
@@ -217,7 +324,7 @@ def main():
         rows = []
         for p in pairs:
             mine = candidate_form(texts[bk], p)
-            klass, why = disposition(ev[p], mine)
+            klass, why = disposition(ev[p], mine, p, ev)
             rows.append((p, klass, why))
             if klass == "closed" and mine[0] != "closed":
                 live.append((bk, p, why))
@@ -234,6 +341,38 @@ def main():
             print("  ✗ book%02d  %-22s %s" % (bk, p, why))
         return 1
     print("\nEvery H.1 pair in every Book has a disposition, and none is live.")
+    # **The ruled pairs, printed whether or not a Book still carries them.**
+    # This is the half §6.3 asked for: the register used to rule
+    # `mountain tops` `kept open, standard` and print a margin that
+    # contradicted ledger A5(a), an accepted decision that cost two
+    # successors, and nothing on the page said the two were talking about the
+    # same pair.
+    print("\nruled against the corpus (ledger decisions the corpus does not "
+          "reach):")
+    for q in sorted(RULED):
+        if q not in ev:
+            print("  %-16s (not scanned)" % q)
+            continue
+        tot, folded = merged(ev, q)
+        sp = ev[q]
+        print("  %-16s lexeme: closed %d in %d editions | hyphenated %d | "
+              "open %d   %s"
+              % (q, tot["closed"][0], tot["closed"][1], tot["hyphenated"][0],
+                 tot["open"][0],
+                 "(merged with %s)" % ", ".join(folded) if folded
+                 else "(no sibling scanned)"))
+        print("  %-16s   this form alone: closed %d in %d | open %d"
+              % ("", sp["closed"][0], sp["closed"][1], sp["open"][0]))
+        lead = tot["closed"][0] / max(max(tot["hyphenated"][0],
+                                          tot["open"][0]), 1)
+        print("  %-16s   lead %.1fx against a required %.0fx, %d editions "
+              "against a required %d — %s"
+              % ("", lead, LEAD, tot["closed"][1], MIN_EDITIONS,
+                 "REACHES the margin" if (lead >= LEAD
+                                          and tot["closed"][1] >= MIN_EDITIONS)
+                 else "SHORT of the margin; the ruling stands on D15's words, "
+                      "not on the count"))
+
     print("\nprobes (recorded even where no Book still carries them):")
     for q in PROBES:
         e = ev[q]
