@@ -1,3 +1,15 @@
+# Odyssey Book 8 — ACCEPTED at `candidate-v2.json`
+
+> **Accepted 2026-09-13** at
+> `12f2904e6e40ac839a608797cf8f866d1f1e5227ae415f11aee6c0238f43de22`.
+> The record is `ACCEPTANCE.md`; the corrections are
+> `changes-v1-to-v2.md`; the figures below are **v1's** and are kept as the
+> frozen draft's. **The compared figure is now NORM RATE on the D27 basis:
+> v1 +2.0%, v2 +2.0%** — nine of Butler's marks restored, and the measure
+> scores that at zero, which is what it is for.
+>
+> The text below describes the frozen draft and is left as written.
+
 # Odyssey Book 8 — frozen draft v1, for independent review
 
 *Banquet in the house of Alcinous—the games.* 50 paragraphs, the

@@ -130,7 +130,51 @@ here, more than in any Book so far.
 | B08-P039 | *"“Wife,” said he, … “Go, fetch the best chest"* | *"“Wife,” he said, … “go, fetch the best chest"* | A capital after a comma inside one continuous address. |
 | B08-P014 | *"heaven has adorned **this** with such a good conversation"* | *"heaven has adorned **him** with such good conversation"* | `this` has no antecedent but the man, and a modern reader reads it as a printer's error, not as style. |
 
+### 5b. D16 clause (b) — the three WORDS supplied to Butler's text
+
+**Added at step 6 from round 1's M-3.** D16 as it stood governed marks; three
+of this Book's emendations are words, and none was recorded. The clause: *a
+word is supplied only where Butler's text is defective and only from Butler's
+own parallel, and every instance is tabulated here with the parallel named.*
+
+| ¶ | Butler | candidate | the parallel | ruling |
+|---|---|---|---|---|
+| **B08-P042** | *"He **had done so** before an upper servant told him"* | *"He had **hardly** done so before…"* | **none** | **REMOVED at v2.** `hardly … before` says he had *barely* finished the knot; Butler says he *had* finished it. A change of sense, not a repair. |
+| **B08-P045** | *"as soon as they had had to eat and drink"* | *"…had had **enough** to eat and drink"* | **B08-P006**, the identical formula eleven paragraphs earlier | **Kept.** Emendation from the author's own repetition, the strongest kind. |
+| **B08-P008** | a verbless fragment: *"Acroneos, Ocyalus, Elatreus, …"* | *"**There were** Acroneos, …"* | the **next sentence**, *"There was also Euryalus"* | **Kept.** |
+
+### 5c. The colon and the parenthesis — `PUNCTUATION.md` §6
+
+Round 1's census reads `: 6 → 6` and calls the class untouched. **It was not:**
+the draft cashed Butler's colon at **B08-P020** and added one at **B08-P008**.
+A count cannot tell a swap from a standstill; the provenance measure can.
+
+| ¶ | mark | disposition |
+|---|---|---|
+| **B08-P020** | Butler's explanatory colon, *"the couch of Hephaestus**:** he is not at home"* | **restored at v2** — the clause after it is a reason, not a new subject |
+| **B08-P008** | a colon ADDED to introduce a list | **upheld as a decision**, Book 7 §5.4's precedent. It adds no sentence boundary and is worth nothing under D27 + D21. |
+| **B08-P044** | Butler's only parentheses → em dashes | **upheld and recorded.** The aside is a whole clause with its own subject and verb, which is the condition §6 states. |
+| **B08-P047** | Butler's em dash closing the weeping-woman simile, cashed for a period | **RESTORED at v2 — the worst break in the Book.** See `ACCEPTANCE.md`. |
+
 ## 6. Renderings decided here
+
+### `butlerism` — a named class, from round 1's O-2
+
+**Butler's Victorian overlays, kept deliberately.** Round 1 ruled `guardian
+angel` at B08-P043 KEPT — the package's rule is that Butler's images are kept
+and nothing is added, this is Butler's image, the clause already ends *"for it
+was you who saved me"* so `my deliverer` is a tautology in place, and what the
+phrase supplies that no alternative does is the *continuing* relation, which is
+the point of `all my days`. It also asked that the flag be permanent rather
+than raised once.
+
+So they are a class, and this Book has five: **`guardian angel`** (P043),
+**`aldermen and town councilors`** (six occurrences), **`cast in heavy
+damages`**, **`a bad man's bond is bad security`** and **`father stranger`**.
+Each
+is a deliberate keep and none is a rendering nobody examined, which is what
+being unlisted made them indistinguishable from.
+
 
 * **`cloister` → `gallery`**, the Book 1 row, at B08-P003, B08-P008, B08-P042,
   B08-P044.
