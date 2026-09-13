@@ -591,6 +591,7 @@ BASIS = {
     6: (None, "all 26 paragraphs"),
     7: (None, "all 29 paragraphs"),
     8: (None, "all 50 paragraphs"),
+    9: (None, "all 44 paragraphs"),
 }
 
 # The accepted file of each Book, and its successor where one exists. The
@@ -818,6 +819,14 @@ DECLARED = {
     "book06/candidate-v3.json": _decl(
         reason="ledger A5(a) and records finding R-6: the SECOND successor the "
                "record said was one. Same one-word change as Book 5's."),
+    "book09/candidate-v1.json": _decl(
+        reason="the frozen draft. **Declares nothing**, which is the point: no "
+               "byte-identical paragraph, no paragraph under 0.90 of its "
+               "source's length, no sentence grown past 50 words, no compound "
+               "drift against the other eight Books — and, under D27, no "
+               "dividing mark that is not Butler's own. A file absent from "
+               "this table gets every gate at full strength; a file present "
+               "with an empty declaration says so out loud."),
     "book08/candidate-v2.json": _decl(
         byte_identical=[33],
         growth=[(47, 80, 81)],

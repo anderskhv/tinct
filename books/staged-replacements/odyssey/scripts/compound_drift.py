@@ -65,6 +65,15 @@ NOT_COMPOUNDS = {
     # is how a check stops being one.
     "sunset": "`the sun set` is a verb and its subject; `sunset` is a noun. "
               "Two different constructions, not two settings of one compound.",
+    "olivewood": "ATTRIBUTIVE HYPHENATION, which is a rule of English and not "
+                 "a setting of a compound. Book 5 writes `a beautiful "
+                 "**olive-wood** handle` — the pair premodifying a noun, "
+                 "where English hyphenates any two-word modifier — and Book 9 "
+                 "writes `it was of green **olive wood**`, the same two words "
+                 "as a noun phrase, where English does not. Butler sets both "
+                 "the same way and both Books follow him. Raised by this "
+                 "check at Book 9's draft; see the declared blindness in the "
+                 "self-test, which names the class rather than this pair.",
 }
 
 # A pair is not a compound if either element is a closed-class function word.
@@ -219,9 +228,30 @@ def _self_test():
     blind = {"A": ["he slept on the river bed"], "B": ["down by the river bed"]}
     if run(blind) != []:
         sys.exit("the declared blind spot behaves unexpectedly")
+
+    # A SECOND declared blindness, and this one is a FALSE POSITIVE rather
+    # than a false negative — the direction that costs somebody a successor
+    # for nothing. **ATTRIBUTIVE HYPHENATION.** English hyphenates a two-word
+    # modifier before the noun it modifies and does not hyphenate the same two
+    # words as a noun phrase: `an olive-wood handle`, `it was of olive wood`.
+    # The check keys on letters and cannot see syntactic position, so it reads
+    # one rule of English applied correctly in two places as a compound
+    # carrying two settings. It raised exactly this at Book 9's draft, against
+    # accepted Book 5.
+    #
+    # Named here rather than silently absorbed, because `NOT_COMPOUNDS` is a
+    # licence: **if that list ever carries more than a handful of these, the
+    # check needs to become position-aware instead.** The next instance is
+    # already visible — `ivy-wood bowl` against `ivy wood`.
+    attributive = {"A": ["he cut a fine olive-wood handle for it"],
+                   "B": ["the club was of green olive wood"]}
+    if [k for k, _ in compound_drift(attributive, attest=att)
+            if k == "olivewood"]:
+        sys.exit("the attributive-hyphenation exemption is not in force")
     print("compound_drift self-test: 4 controls fire on both clauses; "
-          "1 blindness declared (open everywhere, no closed or hyphenated "
-          "form in the corpus)")
+          "2 blindnesses declared — a compound open everywhere in the corpus, "
+          "and ATTRIBUTIVE HYPHENATION, which is a false positive and is the "
+          "expensive direction")
 
 
 def main():

@@ -395,6 +395,114 @@ def rule(books, arrow, key, klass, why):
         RULINGS_BY_BOOK[(b, arrow, key)] = (klass, why)
 
 
+# ---- BOOK 9, ruled at its draft (step 3), before the freeze --------------
+# `RESUME.md` asks that the collision check and the compound register run
+# **before** freezing and not after, and this is what that produced. The check
+# returned 123 rows touching Book 9 and 27 with no disposition; **fifteen of
+# the twenty-seven were live and were repaired in the draft**, which is the
+# instrument doing the job it was built for at the only moment it costs
+# nothing. Six of the fifteen came from arrow B across paragraphs — the blind
+# spot the record says arrow C does not close — and one from arrow C itself
+# (`subtlety` rendered `cunning` in the paragraph where Butler's own `cunning`
+# describes Circe, eleven words away). The repairs are listed in
+# `book09/continuity.md` §7. What follows is the residue, dismissed with a
+# reason apiece.
+
+rule([9], "A", "compassion", "common-rendering",
+     "`take compassion upon me` is an archaic construction, not an archaic "
+     "word: modern English keeps `compassion` as a noun and has lost `take "
+     "compassion upon`. `take pity on me` is the living form of the same "
+     "request and is what the sentence is doing.")
+rule([9], "A", "continue", "variant",
+     "`nor yet how to continue and conclude my tale` -> `nor how to go on and "
+     "end my tale`. Butler's `continue` is current English; the pair with "
+     "`conclude` is the Victorian doublet, and `go on and end` is the plain "
+     "modern form of the same two verbs. No discrimination of Butler's is "
+     "lost — he uses the word once in the Book.")
+rule([9], "A", "hence", "variant",
+     "`We sailed hence` -> `We sailed on from there`. `hence` in the spatial "
+     "sense is gone from modern English; the temporal and inferential senses "
+     "that survive are not what Butler means here.")
+rule([9], "A", "humour", "variant",
+     "`unless I am in the humour for doing so` -> `unless I am in the mood "
+     "for it`. Butler's sense of `humour` is the obsolete one; the modern "
+     "word means something else, which makes this a false friend rather than "
+     "a formal word.")
+rule([9], "A", "loose", "context-rendered",
+     "Two senses, and each rendering is wrong in the other's place. `when men "
+     "loose their oxen` (B09-P003) is unyoking at the day's end — the "
+     "Homeric time-of-day formula — and `loose the hawsers` (B09-P011, "
+     "B09-P044) is casting off, where `loose` is still the nautical word and "
+     "is KEPT. `unyoke the hawsers` and `loose their oxen` are both wrong.")
+rule([9], "A", "lotus", "common-rendering",
+     "`gave them to eat of the lotus, which was so delicious` -> `gave them "
+     "the lotus to eat. It was so delicious`. The second mention becomes a "
+     "pronoun because the sentence was divided; the word is kept where "
+     "Butler first writes it and three times after.")
+rule([9], "A", "numbers", "context-rendered",
+     "`great numbers of sheep and oxen` -> `a great many sheep and oxen` "
+     "(B09-P003), against `breed there in great numbers` KEPT (B09-P007). "
+     "The first counts a slaughter and takes the plain quantifier; the "
+     "second is the idiom for an animal population and has no plainer form.")
+rule([9], "A", "uncivilised", "variant",
+     "`uncivilised savages` -> `wild savages`. Butler's pair is tautologous "
+     "in modern English — a savage is by definition uncivilized — and the "
+     "contrast the sentence draws is with `a hospitable and civilized race`, "
+     "which KEEPS the root. One word of the pair carries it.")
+rule([9], "A", "vouchsafed", "variant",
+     "`vouchsafed me not one word of answer` -> `gave me not one word of "
+     "answer`. `vouchsafe` survives only in legal and liturgical registers; "
+     "the sentence's force is in `not one word`, which is kept exactly.")
+rule([9], "B", "someone", "artifact",
+     "`some one` -> `someone`, a typographic normalization of the kind D15 "
+     "calls silent. Not a rendering at all.")
+rule([9], "B", "times", "unavoidable-merge",
+     "`thrice invoked each one of the poor fellows` (B09-P004) and `three "
+     "times did I fill the bowl` (B09-P024). **Modern English has no "
+     "one-word `thrice`**, so both of Butler's expressions land on `three "
+     "times`. The merge is forced by the language, not chosen: the "
+     "alternatives (`three separate times`, `over and over`) either pad or "
+     "change the count.")
+
+# ---- the rows BOOK 9's arrival opened in the accepted Books ---------------
+# Every arrow compares across Books, so adding a ninth Book to `BOOKS` creates
+# rows in the other eight. Eight such rows appeared, all of them dismissals,
+# and they are ruled here rather than left for a later worker — a row with no
+# disposition is the R-2 disease whoever created it.
+
+rule([1, 2], "A", "direct", "context-rendered",
+     "Butler's `direct` in `the girl who was to direct him` (B01-P019, "
+     "B02-P012) is *show the way*, which modern `direct` has all but lost to "
+     "*instruct* and *manage*; `guide` is the surviving word for it. Book 9 "
+     "keeps `direct` at B09-P004, where `letting the wind and the steersmen "
+     "direct our ship` is the living sense. Two senses, each rendered right.")
+rule([1, 2], "B", "someone", "artifact",
+     "`some one` -> `someone`, a typographic normalization (D15, silent). Not "
+     "a rendering.")
+rule([2], "A", "continue", "variant",
+     "`continue eating` -> `go on eating`, the plain modern form. Same "
+     "disposition as Book 9's row: Butler's `continue` is current English, "
+     "but not in this construction.")
+rule([3], "A", "hence", "variant",
+     "`hence` in the inferential sense rendered `so` (B03-P013), against Book "
+     "9's spatial `sailed hence` rendered `sailed on from there`. Two senses "
+     "of one obsolete-in-place adverb; both plain modern equivalents.")
+rule([4], "A", "humour", "artifact",
+     "`humour` -> `humor` at B04-P020 is D9, the spelling rule, and nothing "
+     "else. Book 9's row is a different matter — there the SENSE is obsolete "
+     "and the word becomes `mood`.")
+rule([4], "A", "vouchsafed", "context-rendered",
+     "`vouchsafed` is *granted* at B04-P001, where a god bestows, and *gave* "
+     "at B09-P019, where a monster answers. The verb's two uses are a favour "
+     "conferred and a reply withheld; neither rendering works in the other's "
+     "place.")
+rule([6, 8], "A", "uncivilised", "artifact",
+     "`uncivilised` -> `uncivilized` is D9, the spelling rule. Book 9's row "
+     "is the separate question of Butler's tautologous `uncivilised savages`.")
+rule([5], "A", "compassion", "common-rendering",
+     "`take compassion upon` -> `take pity on`, the same disposition as Book "
+     "9's row and the same reason: the construction is archaic, not the noun.")
+
 # ---- arrow A ------------------------------------------------------------
 rule([3, 4], "A", "begin", "matches-accepted",
      "Both accepted Books render Butler's `begin` as `start` — `start "
