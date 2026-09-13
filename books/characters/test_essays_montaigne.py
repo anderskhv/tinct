@@ -1,5 +1,5 @@
 """Focused checks for Montaigne's Essays.
-Chapters 1-40 of 107 are authored."""
+Chapters 1-50 of 107 are authored."""
 import unittest
 from build_essays_montaigne import compile_package
 
@@ -82,7 +82,8 @@ class EssaysMontaigne(unittest.TestCase):
         # Pliny the Elder of the Natural History at 9:6; the younger Pliny of
         # the letters appears at 38:45 and 39:0 and is not yet authored.
         for ed in ['original-en','modern-en']:
-            self.assertEqual(where(ed,'pliny-elder'),[(9,6),(20,4),(22,2),(26,18)],ed)
+            self.assertEqual(where(ed,'pliny-elder'),
+                             [(9,6),(20,4),(22,2),(26,18),(44,1),(48,6)],ed)
             for k in [(38,45),(39,0)]:
                 self.assertNotIn('pliny-elder',ids(ed,*k),(ed,k))
 
@@ -98,7 +99,7 @@ class EssaysMontaigne(unittest.TestCase):
         # Darius III, whom Alexander would not attack by night, at 6:8; Darius I
         # and his prompter about the Athenians at 9:2.
         for ed in ['original-en','modern-en']:
-            self.assertEqual(where(ed,'darius-iii'),[(6,8),(23,7)],ed)
+            self.assertEqual(where(ed,'darius-iii'),[(6,8),(23,7),(44,0)],ed)
             self.assertEqual(where(ed,'darius-i'),[(9,2),(12,2),(22,21)],ed)
 
     def test_the_three_men_called_du_bellay(self):
@@ -120,9 +121,15 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual(where(ed,'alessandro-trivulcio'),[(5,9)],ed)
 
     def test_perseus_is_the_king_of_macedon_and_not_the_gorgon_slayer(self):
+        # Correction to the chapters 1-30 pass, which listed 44:1 among the
+        # Gorgon-slayer's paragraphs from a distance. 44:1 is "King Perseus of
+        # Macedon, being prisoner at Rome, was killed by being kept from sleep"
+        # -- the same king, and it is now bound. 69:268 and 107:53 have still not
+        # been read and carry no card either way.
         for ed in ['original-en','modern-en']:
-            self.assertEqual(where(ed,'perseus-macedon'),[(5,0)],ed)
-            for k in [(44,1),(69,268),(107,53)]:
+            self.assertEqual(where(ed,'perseus-macedon'),[(5,0),(44,1)],ed)
+            self.assertIn('Perseus of Macedon',said(ed,'perseus-macedon'),ed)
+            for k in [(69,268),(107,53)]:
                 self.assertNotIn('perseus-macedon',ids(ed,*k),(ed,k))
 
     def test_guelph_the_duke_is_not_guelph_the_faction(self):
@@ -208,8 +215,8 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual(w[0],(28,2),ed)
             self.assertLess(len(w),40,ed)
 
-    def test_only_the_first_forty_chapters_are_authored(self):
-        self.assertIn('chapters 1-40 of 107',REPORT['scope'])
+    def test_only_the_first_fifty_chapters_are_authored(self):
+        self.assertIn('chapters 1-50 of 107',REPORT['scope'])
         self.assertEqual(REPORT['editions']['original-en']['chapters'],107)
         self.assertEqual(REPORT['editions']['original-en']['paragraphs'],4897)
         self.assertEqual(REPORT['editions']['modern-en']['paragraphs'],4897)
@@ -253,7 +260,8 @@ class EssaysMontaigne(unittest.TestCase):
         # Charles V in four paragraphs; the Charles of 20:22 is the Emperor and
         # King of Bohemia, who was shown the hairy girl from near Pisa.
         for ed in ['original-en','modern-en']:
-            self.assertEqual(where(ed,'charles-v'),[(7,0),(11,14),(12,3),(16,8)],ed)
+            self.assertEqual(where(ed,'charles-v'),
+                             [(7,0),(11,14),(12,3),(16,8),(41,7),(47,18)],ed)
             self.assertEqual(where(ed,'charles-iv'),[(20,22)],ed)
 
     def test_julius_caesar_and_augustus_caesar_are_kept_apart(self):
@@ -361,7 +369,8 @@ class EssaysMontaigne(unittest.TestCase):
         for ed in ['original-en','modern-en']:
             self.assertEqual(where(ed,'metellus-scipio'),[(18,12)],ed)
             self.assertEqual(where(ed,'publius-scipio-pontifex'),[(22,49)],ed)
-            self.assertEqual(where(ed,'scipio-africanus'),[(23,10),(25,51)],ed)
+            self.assertEqual(where(ed,'scipio-africanus'),
+                             [(23,10),(25,51),(46,18),(47,19)],ed)
 
     def test_the_fourth_man_called_lepidus(self):
         # Livia's list of conspirators punished to no purpose supplies a fourth:
@@ -483,7 +492,7 @@ class EssaysMontaigne(unittest.TestCase):
     def test_the_two_men_called_diogenes(self):
         for ed in ['original-en','modern-en']:
             self.assertEqual(where(ed,'diogenes-the-atheist'),[(11,31)],ed)
-            self.assertEqual(where(ed,'diogenes-the-cynic'),[(25,103),(27,28)],ed)
+            self.assertEqual(where(ed,'diogenes-the-cynic'),[(25,103),(27,28),(50,7)],ed)
 
     def test_the_two_spartans_called_cleomenes(self):
         for ed in ['original-en','modern-en']:
@@ -720,5 +729,182 @@ class EssaysMontaigne(unittest.TestCase):
                                 ('duc-de-valentinois','Duc de Valentinois','Duke of Valentinois')]:
             self.assertIn(older,said('original-en',cid),cid)
             self.assertIn(newer,said('modern-en',cid),cid)
+
+    # ------------------------------------------------- chapters 41-50 bindings
+    def test_a_name_can_be_the_subject_of_the_sentence_and_not_its_referent(self):
+        # The chapter on names counts "three of the name of Socrates" among the
+        # proofs that a name is three or four dashes with a pen. The Athenian is
+        # not in that sentence; his alias would otherwise take it, so it is the
+        # one place in the package where an alias binding is suppressed. Two
+        # paragraphs later Montaigne does mean the man, and there it binds.
+        for ed in ['original-en','modern-en']:
+            self.assertNotIn('socrates',ids(ed,46,12),ed)
+            self.assertIn('socrates',ids(ed,46,3),ed)
+
+    def test_the_groom_who_calls_himself_pompey_is_not_pompey(self):
+        # 46:12 names Pompey twice: the groom who might call himself Pompey the
+        # Great, and "the other Pompey, who had his head cut off in Egypt".
+        # Only the second is the man, so the paragraph is keyed by occurrence.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(1,ids(ed,46,12).count('pompey'),ed)
+            for cid,text in spans(ed,46,12):
+                if cid=='pompey':
+                    self.assertEqual('Pompey',text,ed)
+
+    def test_the_names_used_as_names_carry_no_cards(self):
+        # John, William and Benedict at 46:1 are names taken in no good sense;
+        # Charles, Louis and Francis at 46:5 are baptismal names the reformation
+        # quarrelled with; Oppius and Caesar at 49:27 are a word-order example.
+        for ed in ['original-en','modern-en']:
+            # 46:1 ends on Plato's own crude derivations, so the man is there
+            # and binds; John, William and Benedict do not.
+            self.assertEqual(['plato'],ids(ed,46,1),ed)
+            self.assertEqual([],ids(ed,46,5),ed)
+            self.assertNotIn('julius-caesar',ids(ed,49,27),ed)
+
+    def test_the_three_spellings_of_one_constable(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(46,9)],where(ed,'du-guesclin'),ed)
+            self.assertEqual(['Guesquin','Glesquin','Gueaquin'],said(ed,'du-guesclin'),ed)
+
+    def test_the_men_who_carry_more_than_one_name_on_one_card(self):
+        # The chapter on names is built out of them: Bayard is Peter Terrail,
+        # Suetonius is Tranquillus, Denisot is the Count d'Alsinois by anagram,
+        # and Antonio Iscalin is also Captain Paulin and the Baron de la Garde.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(2,ids(ed,46,12).count('bayard'),ed)
+            self.assertIn('Peter Terrail',said(ed,'bayard'),ed)
+            self.assertIn('Tranquillus',said(ed,'suetonius'),ed)
+            self.assertEqual(2,ids(ed,46,12).count('nicholas-denisot'),ed)
+            self.assertEqual(3,ids(ed,46,12).count('antonio-iscalin'),ed)
+
+    def test_the_two_kings_called_henry_the_second(self):
+        # One of France and one of England, seven paragraphs apart, plus the
+        # English one's son. 46:2 names the son first and is keyed by occurrence.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(43,0),(46,3),(48,56)],where(ed,'henry-ii-france'),ed)
+            self.assertEqual([(46,2)],where(ed,'henry-ii-england'),ed)
+            self.assertEqual([(46,2)],where(ed,'henry-duke-of-normandy'),ed)
+            self.assertEqual(['henry-duke-of-normandy','henry-ii-england'],
+                             [c for c in ids(ed,46,2) if c.startswith('henry')],ed)
+
+    def test_the_two_kings_called_alfonso_are_not_joined(self):
+        # One preferred the condition of asses; the other founded the Order of
+        # the Band. Nothing in either passage joins them, so they get a card each.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(42,57)],where(ed,'alfonso-of-the-asses'),ed)
+            self.assertEqual([(48,43)],where(ed,'alfonso-of-the-band'),ed)
+
+    def test_the_two_metelluses_and_the_two_mariuses(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(44,0)],where(ed,'metellus-tribune'),ed)
+            self.assertEqual([(48,47)],where(ed,'metellus-crete'),ed)
+            self.assertEqual([(44,1)],where(ed,'marius-younger'),ed)
+            self.assertEqual([(47,8)],where(ed,'marius-elder'),ed)
+
+    def test_the_two_men_called_cyrus(self):
+        # The founder of the empire, and the younger brother of that unnatural
+        # battle whose Greeks Clearchus led. The chapters 1-30 pass said the
+        # younger Cyrus was not yet read; 47:17 is where he arrives.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(47,17)],where(ed,'cyrus-the-younger'),ed)
+            self.assertNotIn('cyrus-the-great',ids(ed,47,17),ed)
+            self.assertIn((48,44),where(ed,'cyrus-the-great'),ed)
+
+    def test_the_two_men_called_pompeius_are_neither_of_them_pompey(self):
+        # Sextus Pompeius at 44:1 and Trogus Pompeius at 48:7. The bare surname
+        # is table-bound, and both of these are covered by their longer names.
+        for ed in ['original-en','modern-en']:
+            # Both are bound by their full names, which are single-referent, so
+            # Sextus also binds at 60:59 in a chapter not yet read.
+            self.assertIn((44,1),where(ed,'sextus-pompeius'),ed)
+            self.assertIn((48,7),where(ed,'trogus-pompeius'),ed)
+            self.assertNotIn('pompey',ids(ed,44,1),ed)
+            self.assertNotIn('pompey',ids(ed,48,7),ed)
+
+    def test_the_three_men_called_fabius_or_maximus(self):
+        # The house in Augustus's list, the Q. Maximus who buried a consul son,
+        # and the Rullianus who unbridled his cavalry against the Samnites.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(48,51)],where(ed,'fabius-maximus-rullianus'),ed)
+            self.assertNotIn('fabii',ids(ed,48,51),ed)
+            self.assertNotIn('fabius-maximus',ids(ed,48,51),ed)
+
+    def test_the_two_men_called_fabricius(self):
+        # The Roman of 49:0, and the bibliographer of the epitaph on Lucan at
+        # 25:137, who is apparatus and carries no card.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(49,0)],where(ed,'fabricius-luscinus'),ed)
+            self.assertEqual([],[c for c,t in spans(ed,25,137) if t=='Fabricius'],ed)
+
+    def test_the_named_animals(self):
+        # Alexander's horse, and the horse that carried Charles VIII at Fornova.
+        # Savoy is the duchy at 25:52 and the horse only at 48:4.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(48,5)],where(ed,'bucephalus'),ed)
+            self.assertEqual([(48,4)],where(ed,'savoy-the-horse'),ed)
+            self.assertNotIn('savoy-the-horse',ids(ed,25,52),ed)
+        kinds={c['id']:c['kind'] for c in ASSET['editions']['original-en']['characters']}
+        self.assertEqual('animal',kinds['bucephalus'])
+        self.assertEqual('animal',kinds['savoy-the-horse'])
+
+    def test_the_duc_de_guise_is_not_the_town_of_guise(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(45,0),(45,1)],where(ed,'duc-de-guise'),ed)
+            self.assertNotIn('duc-de-guise',ids(ed,15,5),ed)
+            for k in [(74,157),(104,60)]:
+                self.assertNotIn('duc-de-guise',ids(ed,*k),(ed,k))
+
+    def test_the_editors_note_on_dreux_is_not_montaigne(self):
+        # 45:0 is a dated editorial headnote with a reference to Sismondi, printed
+        # as the chapter's first reading paragraph in both editions. The three
+        # commanders it names keep their cards; Sismondi is apparatus.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([],[c for c,t in spans(ed,45,0) if t=='Sismondi'],ed)
+            self.assertIn('prince-de-conde',ids(ed,45,0),ed)
+            self.assertIn('montmorency',ids(ed,45,0),ed)
+
+    def test_the_editors_note_on_fornova_is_not_montaigne(self):
+        # 48:4 is a bracketed editorial note quoting Commines. The historian and
+        # the horse both carry cards; the note itself is a recorded source defect.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(2,ids(ed,48,4).count('commines'),ed)
+            self.assertIn('savoy-the-horse',ids(ed,48,4),ed)
+
+    def test_the_deliberate_gaps_of_chapters_41_to_50(self):
+        # Four names the text does not resolve, left alone rather than guessed:
+        # the Scipio whose acts were in part due to Laelius (41:10), the Antigonus
+        # Hermodorus called the son of the sun (42:33), the Brutus in the list of
+        # captains who liked rich armour (47:14), and the Prince of Wales at
+        # Crecy, who is named by title only.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([],[c for c in ids(ed,41,10) if 'scipio' in c],ed)
+            self.assertEqual([],[c for c in ids(ed,42,33) if 'antigonus' in c],ed)
+            self.assertEqual([],[c for c in ids(ed,47,14) if 'brutus' in c],ed)
+            self.assertNotIn('edward-black-prince',ids(ed,41,7),ed)
+
+    def test_the_older_edition_misprints_philopoemen(self):
+        self.assertIn('Philopcemen',said('original-en','philopoemen'))
+        self.assertNotIn('Philopcemen',said('modern-en','philopoemen'))
+        # He is single-referent and bound by alias, so he also appears in the
+        # chapters that have not been read.
+        for ed in ['original-en','modern-en']:
+            for k in [(22,54),(45,1),(47,14)]:
+                self.assertIn(k,where(ed,'philopoemen'),(ed,k))
+
+    def test_the_chapters_41_to_50_transliterations(self):
+        for cid,older,newer in [('antonio-de-leyva','Antonio de Leva','Antonio de Leva'),
+                                ('sylla','Sylla','Sulla'),
+                                ('william-of-salisbury','William, Earl of Salisbury',
+                                 'Earl of Salisbury, William')]:
+            self.assertIn(older,said('original-en',cid),cid)
+            self.assertIn(newer,said('modern-en',cid),cid)
+
+    def test_the_three_marks_of_the_chapter_on_names(self):
+        # Geta's alphabet of meats, the hundred and ten Williams, and Lucian's
+        # letters at law are the three things the chapter is built out of.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(46,3)],where(ed,'geta'),ed)
+            self.assertEqual([(46,9)],where(ed,'lucian'),ed)
 
 if __name__=='__main__':unittest.main()

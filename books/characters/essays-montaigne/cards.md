@@ -168,7 +168,7 @@ The Athenian commander who lost the advantage he had visibly won over the Corint
 
 ## Agesilaus · supporting
 
-The Spartan king, one of Montaigne’s standing examples of plain living and hard command.
+The Spartan king, one of Montaigne’s standing examples of plain living and hard command — into a decrepit old age he wore the same clothes in winter that he wore in summer, and he fought obscurely armed, without imperial distinction. In the bloody battle against the Boeotians, the sharpest Xenophon says he ever saw, he waived the advantage fortune offered him of letting their battalions pass and charging the rear, judging that an effect of conduct rather than valour; he charged the front instead, was well beaten and well wounded for it, and was constrained at last to take the course he had neglected.
 
 ## Edward I, King of England · reference
 
@@ -188,7 +188,7 @@ The English reformer whose heresies, in Montaigne’s phrase, John Zisca took up
 
 ## Captain Bayard · reference
 
-Mortally wounded by a harquebuss shot and urged to retire, he answered that he would not begin at the last gasp to turn his back on the enemy, and had himself set down at the foot of a tree with his face to them.
+Mortally wounded by a harquebuss shot and urged to retire, he answered that he would not begin at the last gasp to turn his back on the enemy, and had himself set down at the foot of a tree with his face to them. Montaigne asks in the chapter on names who would believe that Captain Bayard should have no honour but what he derives from the deeds of Peter Terrail — the two names being one man.
 
 ## The Emperor Maximilian · supporting
 
@@ -276,7 +276,7 @@ The Roman legate against Perseus of Macedon, who opened sham overtures of accomm
 
 ## Perseus, King of Macedon · reference
 
-Lulled asleep by Quintus Marcius’s overtures into granting a truce, and so giving his enemy the leisure to recruit that ruined him in the end.
+Lulled asleep by Quintus Marcius’s overtures into granting a truce, and so giving his enemy the leisure to recruit that ruined him in the end. A prisoner at Rome afterwards, he was killed by being kept from sleep — which is why Montaigne turns to the physicians to ask whether our lives depend upon it.
 
 ## Pyrrhus · reference
 
@@ -564,7 +564,7 @@ Who held that a gentleman is rude to go out and meet a visitor, and that it is m
 
 ## The Constable Monsieur de Montmorenci · reference
 
-Who at the siege of Pavia hanged every man in the tower that had held up his crossing of the Ticino, and later trussed up the governor and ensign of the Castle of Villano for the same reason — the custom Montaigne is explaining, that a place not tenable by the rules of war may be defended only at the defenders’ own risk.
+General of the army at Dreux, where he was racked through and through with the enemy’s artillery, his battalion routed and himself taken prisoner, while the Duc de Guise halted with the forces he commanded; and who at the siege of Pavia hanged every man in the tower that had held up his crossing of the Ticino, and later trussed up the governor and ensign of the Castle of Villano for the same reason — the custom Montaigne is explaining, that a place not tenable by the rules of war may be defended only at the defenders’ own risk.
 
 ## Monsieur de Vervins · reference
 
@@ -584,7 +584,7 @@ The late Roman historian, cited for the Emperor Julian’s degrading and then ex
 
 ## The Emperor Julian · reference
 
-Who put ten of his own soldiers to death for flight according to the ancient laws, and elsewhere, for the same offence, only sent men to live among the prisoners under the baggage ensign.
+Who put ten of his own soldiers to death for flight according to the ancient laws, and elsewhere, for the same offence, only sent men to live among the prisoners under the baggage ensign. Applauded one day by his courtiers for his exact justice, he said he should be proud of the praise if it came from persons that durst condemn or disapprove the contrary in case he did it.
 
 ## Cnaeus Fulvius · reference
 
@@ -684,7 +684,7 @@ The consul commanding in the first pitched battle the Romans lost against Hannib
 
 ## Croesus · supporting
 
-The King of Lydia, taken by Cyrus and led out to execution crying “O Solon, Solon!” — because he had found what Solon told him true to his cost: that no man can be called happy until he has been seen to pass over the last day of his life.
+The King of Lydia, taken by Cyrus and led out to execution crying “O Solon, Solon!” — because he had found what Solon told him true to his cost: that no man can be called happy until he has been seen to pass over the last day of his life. Marching his army through the waste lands near Sardis he met an infinite number of serpents, which his horses devoured with great appetite; Herodotus calls it a prodigy of ominous portent to his affairs.
 
 ## Priam · reference
 
@@ -988,7 +988,7 @@ The Athenian, who told a Spartan envoy that a law once engrossed on the tablet c
 
 ## Philopoemen · reference
 
-Whom Plutarch commends for knowing how to command not only according to the laws but over them, when the public necessity required it.
+Whom Plutarch commends for knowing how to command not only according to the laws but over them, when the public necessity required it. Against Machanidas he let his own archers and slingers be chased and cut in pieces before his face rather than leave his post, and charged the enemy’s foot only once their horse had gone off in the pursuit — the case Montaigne sets beside the Duc de Guise’s at Dreux; and he is one of the captains who held that rich accoutrement inflames a soldier’s courage. The older edition misprints his name Philopcemen in that second place.
 
 ## Apollo · supporting
 
@@ -1052,7 +1052,7 @@ Who watched for the chance to kill Dion.
 
 ## Parmenio · reference
 
-Whose letter warned Alexander that his physician Philip had been bribed by Darius to poison him.
+Whose letter warned Alexander that his physician Philip had been bribed by Darius to poison him; and who, on the morning of the furious battle against Darius, was forced to enter the sleeping king’s chamber and call him several times by name, the time to go and fight compelling him to it.
 
 ## Philip · reference
 
@@ -1096,11 +1096,11 @@ From whom, the philosophers say, you might be the fiftieth descendant and still 
 
 ## Crates · reference
 
-Asked how long it was necessary to philosophise, he answered: till our armies are no more commanded by fools.
+Asked how long it was necessary to philosophise, he answered: till our armies are no more commanded by fools. He is also named to place his brother Pasicles, the philosopher who laid his hand in the wrong place in petitioning a great man.
 
 ## Heraclitus · supporting
 
-Who resigned the royalty to his brother, and told the Ephesians who reproached him with playing with children before the temple that it was better than sitting at the helm of affairs in their company.
+Who resigned the royalty to his brother, and told the Ephesians who reproached him with playing with children before the temple that it was better than sitting at the helm of affairs in their company. Commiserating the human condition, he appeared always with a sorrowful look and tears in his eyes, where Democritus found the same condition ridiculous and never appeared abroad but laughing. Montaigne is clearly for the laughing humour — not because laughing is pleasanter, but because it expresses the more contempt.
 
 ## Empedocles · supporting
 
@@ -1184,7 +1184,7 @@ The sophist Socrates rallies for having made a great deal of money teaching scho
 
 ## Tamerlane · supporting
 
-One of Montaigne’s proofs that the most warlike nations are the most rude and ignorant.
+One of Montaigne’s proofs that the most warlike nations are the most rude and ignorant, and the man who overthrew Bajazet in the furious battle after which Bajazet nearly escaped on an Arabian mare.
 
 ## King Charles VIII · reference
 
@@ -1332,7 +1332,7 @@ The Cynic, who when reproached that being ignorant he should pretend to philosop
 
 ## Hegesias · reference
 
-Who asked Diogenes to read him a book, and was asked in return why, since he chose figs that were true and natural rather than painted ones, he did not choose exercises that were naturally true rather than written.
+Who asked Diogenes to read him a book, and was asked in return why, since he chose figs that were true and natural rather than painted ones, he did not choose exercises that were naturally true rather than written. His doctrine, which Montaigne sets beside Theodorus’s, was that a wise man ought to do nothing but for himself, forasmuch as he only was worthy of it.
 
 ## Zeuxidamus · reference
 
@@ -1488,7 +1488,7 @@ With Aurelius, one of the two holy bishops St Augustine calls as witnesses to th
 
 ## Laelius · reference
 
-Who asked Caius Blosius, in front of the Roman consuls prosecuting everyone who had been familiar with Tiberius Gracchus, how much he would have done for him — and got the answer: all things.
+Who asked Caius Blosius, in front of the Roman consuls prosecuting everyone who had been familiar with Tiberius Gracchus, how much he would have done for him — and got the answer: all things. Many at Rome thought and would usually say that the greatest of Scipio’s acts were in part due to him, his constant practice being to advance and support Scipio’s grandeur and renown without any care of his own; and with Fabricius he is one of the two ancients whose countenance and behaviour Montaigne says our people would think barbarous.
 
 ## Tiberius Gracchus · reference
 
@@ -1572,7 +1572,7 @@ To whom the king of Mexico’s ambassadors boasted that their master was obliged
 
 ## Flaminius · reference
 
-Whose army the Greeks said the same of as Pyrrhus said of the Romans: that whatever these barbarians might be, the order of the army had nothing of barbarism in it.
+Whose army the Greeks said the same of as Pyrrhus said of the Romans: that whatever these barbarians might be, the order of the army had nothing of barbarism in it. Montaigne takes a passage from his life in the French Plutarch as his instance that the ancients made nothing of the order of names: the jealousy of honour between the AEtolians and the Romans over a battle their joined forces had won is made to turn on the AEtolians being put before the Romans in the Greek songs — if, Montaigne adds, there is no amphibology in the words of the French translation.
 
 ## Philip · reference
 
@@ -1884,7 +1884,7 @@ Philip of Macedon, who asked his son Alexander whether he was not ashamed to sin
 
 ## Theodorus · reference
 
-Who answered Lysimachus’s threat to kill him: thou wilt do a brave feat, to attain the force of a cantharides.
+Who answered Lysimachus’s threat to kill him: thou wilt do a brave feat, to attain the force of a cantharides. His saying, set beside Hegesias’s, is that it is not reasonable a wise man should hazard himself for his country and endanger wisdom for a company of fools.
 
 ## Lysimachus · reference
 
@@ -1977,3 +1977,343 @@ Sitalces’s father, who used to say that when he had no wars he fancied there w
 ## Sitalces · reference
 
 Son of Teres, the king who used to say that when he had no wars he fancied there was no difference between him and his groom. He is named only to place his father.
+
+## Tasso · reference
+
+The Italian poet of the Jerusalem Delivered, quoted for the line that fame, which charms proud mortals with so alluring a sound and seems so fair, is an echo, a dream, nay the shadow of a dream, that vanishes at every breath.
+
+## Catulus Luctatius · reference
+
+Who in the Cimbrian war, having done all that lay in him to make his flying soldiers face about, ran away with the rest and counterfeited the coward, so that his men might seem to follow their captain rather than to fly from the enemy — abandoning his own reputation to cover the shame of others.
+
+## Archileonida · reference
+
+Brasidas’s mother. When the Thracian ambassadors came to comfort her for her son’s death and commended him so far as to say he had left no one like him behind, she put the private commendation aside: the city of Sparta, she said, had many citizens both greater and of greater worth than he.
+
+## Brasidas · reference
+
+The Spartan whose death the Thracian ambassadors came to condole with his mother Archileonida over, and whom they praised above all his countrymen.
+
+## King Edward · reference
+
+Edward III, who at Crecy had the vanguard committed to his young son the Prince of Wales, and when the lords with him sent for relief and he heard the boy was alive and on horseback, would neither go nor send: he knew that whatever is last added seems to have accomplished the whole affair, and would not deprive his son of the honour of a battle he had so long and so bravely sustained.
+
+## Theopompus · reference
+
+King of Sparta, who answered the man who told him the republic could not miscarry since he knew so well how to command: it is rather because the people know so well how to obey.
+
+## The Bishop of Beauvais · reference
+
+Who was with Philip Augustus at Bouvines and had a notable share in the action, but did not think it fit for a churchman to share the fruit and glory of that bloody trade: he reduced several of the enemy with his own hand and delivered each to the first gentleman he met, to kill or to spare, referring the whole execution to another hand, and by the same subtlety of conscience fought always with a mace, so that he might kill but not wound.
+
+## William, Earl of Salisbury · reference
+
+One of the men the Bishop of Beauvais reduced to his mercy at Bouvines with his own hand, and gave up to Messire Jehan de Nesle rather than take the credit of taking him. The modern edition inverts his name, printing the Earl of Salisbury, William.
+
+## Messire Jehan de Nesle · reference
+
+The gentleman to whom the Bishop of Beauvais gave up the Earl of Salisbury at Bouvines.
+
+## Mercury · reference
+
+The god the king of Thrace kept to himself, having a religion by himself and a god all his own which his subjects were not to presume to adore.
+
+## Mars · reference
+
+With Bacchus and Diana, one of the gods of the Thracian people, whom their king disdained to have anything to do with.
+
+## Bacchus · reference
+
+The second of the three gods of the Thracian people that their king would have nothing to do with.
+
+## Diana · reference
+
+The third of them.
+
+## Hermodorus · reference
+
+The poet who wrote a poem in honour of Antigonus calling him the son of the sun, and was told that the man who has the emptying of the king’s close-stool knows the contrary.
+
+## Seleucus · reference
+
+The king of whose opinion Montaigne thinks a man of parts would be: that he who knew the weight of a sceptre would not stoop to pick it up if he saw it lying before him, so great and painful are the duties of a good king.
+
+## Hiero · reference
+
+The king in Xenophon’s dialogue, who complains of his own royalty: that princes are worse off than private men even in the fruition of pleasure, since commanding a thing at will takes off the delight of it; that he cannot look abroad or travel at liberty, being a prisoner in the bounds of his own dominion and evermore surrounded with an importunate crowd; and, what he is most concerned at, that he is stripped of all friendship, since nothing done for him is freely done.
+
+## Diocletian · reference
+
+Who wore a crown so fortunate and revered and resigned it for a private life; and who, when public affairs required him to take it up again, answered that they would not have offered to persuade him had they seen the fine order of the trees he had planted in his orchard and the fair melons he had sown in his garden.
+
+## Anacharsis · reference
+
+Whose opinion Montaigne reports of the happiest state of government: one where, all other things being equal, precedence is measured out by the virtues of men and repulses by their vices.
+
+## Cyneas · reference
+
+Pyrrhus’s wise counsellor, who asked him what he meant to do after Italy, and after Gaul and Spain, and after Africa; and when the king said he would then sit down and rest content at his own ease, asked for God’s sake what hindered him from being in that condition now.
+
+## Cornelius Nepos · reference
+
+The Roman biographer, quoted for the old versicle that every man frames his own fortune.
+
+## King Alfonso · reference
+
+Who used to say that in this asses were in a better condition than kings, their masters permitting them to feed at their own ease and pleasure, a favour that kings cannot obtain of their servants. The Essays do not identify him with the King Alfonso who instituted the Order of the Band.
+
+## Zeleucus · reference
+
+Who reclaimed the corrupted manners of the Locrians by an invention of exceptions: no free woman might have a second maid, go out by night, wear gold or an embroidered robe unless she were a public prostitute, and no man a gold ring or an effeminate Milesian robe unless he were a bravo. By those infamous exceptions he diverted his citizens from superfluity, and drew them to their duty by honour and ambition.
+
+## Henry II · reference
+
+The King of France for whose mourning the court wore cloth a year, so that silk fell into such contempt that a man so clad was concluded a citizen; whom Montaigne himself saw unable for his heart to hit on a Gascon gentleman’s name, and obliged to call one of the queen’s maids of honour by the general name of her race because her own was so hard to pronounce; and whom Monsieur de Carnavalet served. Not the Henry II of England whose son kept the feast of the hundred and ten Williams.
+
+## The Emperor Otho · reference
+
+Who, resolved to kill himself that night, settled his domestic affairs, divided his money among his servants, set a good edge on the sword he had chosen, waited only to be satisfied that his friends had got away safe, and then fell into so sound a sleep that the gentlemen of his chamber heard him snore. Vitellius’s insults to his soldiers afterwards did what their own captains could not, and made them fall upon the man who had offered them.
+
+## Metellus · reference
+
+The tribune who attempted to publish a decree calling Pompey and his army into the city at the time of Catiline’s conspiracy, and was opposed by Cato alone, stoutly and with very sharp language on both sides, the day before the controversy was to be decided.
+
+## Catiline · reference
+
+Whose conspiracy was the occasion of the tribune Metellus’s decree, and so of the night Cato slept through while his friends went without sleep, food or drink for the danger they saw him running into.
+
+## Sextus Pompeius · reference
+
+Whom Augustus beat in the naval engagement in Sicily that Augustus slept through, until his friends woke him to give the signal of battle.
+
+## Mark Antony · reference
+
+Who took that sleep as an occasion to reproach Augustus afterwards that he had not the courage so much as to behold the order of his own squadrons with open eyes, nor dared present himself to the soldiers until Agrippa had brought him news of the victory.
+
+## Agrippa · reference
+
+Who brought Augustus the news of the victory over Sextus Pompeius while the emperor was still out of sight of his own soldiers.
+
+## The young Marius · reference
+
+Who did much worse: on the day of his last battle against Sylla, having marshalled his army and given the word and signal, he lay down in the shade of a tree to repose himself and fell so fast asleep that the rout and flight of his men could hardly waken him, having seen nothing of the fight. He was said to be so spent with labour and want of sleep that nature could hold out no longer.
+
+## Epimenides · reference
+
+The sage whose biographers affirm that he slept seven-and-fifty years together.
+
+## The Duc de Guise · reference
+
+Who commanded at Dreux with the Constable, and whom those with no great kindness for him will have thought to blame for halting and delaying with his forces while the Constable was racked through with the enemy’s artillery, his battalion routed and himself taken. Montaigne answers that the aim of a captain, and of every private soldier, ought to regard the victory in general, and sets Philopoemen’s case beside his.
+
+## The Prince de Conde · reference
+
+Who commanded the Protestants at Dreux against the Duc de Guise and the Constable. He is named only in the editor’s dated note that both editions print as the chapter’s first paragraph.
+
+## Machanidas · reference
+
+Whom Philopoemen fought, and who let his own horse run off in pursuit past the battalion where Philopoemen stood: Philopoemen suffered his archers and slingers to be chased and cut in pieces before his face rather than leave his post, then charged the enemy’s foot when the horse had left it unprotected, and afterwards put himself in pursuit of Machanidas.
+
+## The Emperor Geta · reference
+
+Who distinguished the several courses of his meat by the first letters of the meats themselves, so that everything beginning with B was served up together — brawn, beef, bream, bustards, becca-ficos.
+
+## Henry, Duke of Normandy · reference
+
+Son of Henry II of England. An eyewitness records that at a great feast he made in France the concourse of nobility was so great that, the company being divided for sport into troops according to their names, a hundred and ten knights called William sat at the table of that name, without reckoning the ordinary gentlemen and servants.
+
+## Henry II · reference
+
+The King of England whose son the Duke of Normandy made that feast. Not the Henry II of France whose mourning put silk out of fashion.
+
+## Guesquin · reference
+
+The famous constable, to whom belong so many sieges, battles, wounds, imprisonments and services done to the crown of France — and whose name Montaigne spells three ways over, to ask which of the letters is to be rewarded for them.
+
+## Lucian · reference
+
+Whose dialogue has Sigma serve Tau with a process over a stolen letter. The question which spelling of a constable’s name earns his victories is of greater moment than that, Montaigne says, since there the chase is in very good earnest.
+
+## Nicholas Denisot · reference
+
+Who altered the whole contexture of the letters of his own name to build up the Count d’Alsinois by anagram, and then handsomely endowed that figure with the glory of his poetry and his painting.
+
+## Antonio Iscalin · reference
+
+One man under three names, who suffered himself to his face to be robbed of the honour of so many navigations and commands at sea and land by Captain Paulin and the Baron de la Garde — which are his own other names.
+
+## Monsieur de Foix · reference
+
+Whose ardour transported him so furiously in pursuit of the remains of the victory of Ravenna that he obscured it by his own death.
+
+## Monsieur d’Anguien · reference
+
+Whom the recent memory of that example preserved from the same misfortune at the battle of Serisoles.
+
+## Portius Latro · reference
+
+Cited for the line that irritated necessity bites deepest.
+
+## Pharax · reference
+
+Who withheld the King of Lacedaemon, after his victory over the Mantineans, from charging the thousand Argians who had escaped the defeat in an entire body, and let them steal off at liberty rather than have him encounter valour whetted and enraged by mischance.
+
+## Clodomir · reference
+
+King of Aquitaine, who after his victory pursued the beaten Gondemar so hard that he compelled him to face about and make head, and whose obstinacy deprived him of the fruit of his conquest and of his life.
+
+## Gondemar · reference
+
+King of Burgundy, beaten and making off as fast as he could for safety, whom Clodomir’s pursuit forced to turn and fight.
+
+## Sertorius · reference
+
+One of the captains of the opinion that a soldier richly and sumptuously accoutred is the more inflamed with courage and the more obstinate in fight, having his arms, which are in a manner his whole inheritance, to defend.
+
+## Antiochus · reference
+
+Who showed Hannibal the army he had raised, wonderfully splendid and rich in all sorts of equipage, and asked whether the Romans would be satisfied with it — satisfied, said Hannibal, yes doubtless, were their avarice never so great. Not the Antiochus whose fever Stratonice’s beauty gave him.
+
+## Vitellius · reference
+
+Who so nettled Otho’s soldiers with injurious language, reproaching them with cowardice and with the mistresses and entertainments they had left behind at Rome, that he inspired them with a resolution no exhortation had had the power to give them, and made them fall upon himself.
+
+## Levinus · reference
+
+The consul against whom Pyrrhus fought in Italy on the day the king shrouded his person in Megacles’s armour.
+
+## Megacles · reference
+
+Whose armour Pyrrhus wore in that battle while Megacles wore the king’s own — which undoubtedly preserved Pyrrhus’s life and came very near losing him the battle, his men taking their leader for dead.
+
+## Agis · reference
+
+With Agesilaus and the great Gilippus, one of the Spartans who fought obscurely armed, without any imperial attendance or distinction, where Alexander, Caesar and Lucullus loved to be known in a battle by rich accoutrements and armour of a particular lustre. The text gives him no other mark, and Sparta had more than one king of the name; this card claims no more than the text does.
+
+## Gilippus · reference
+
+The third of those Spartans, whom Montaigne calls that great Gilippus.
+
+## Clearchus · reference
+
+The Lacedaemonian who commanded the Greeks of Cyrus’s party in the unnatural battle between the two Persian brothers, and led them on softly and without precipitation until they came within fifty paces, and then hurried them full speed — hoping in so short a career to keep their order, husband their breath, and still give the advantage of impetuosity to their persons and their missile arms.
+
+## Cyrus · reference
+
+The younger of the two Persian brothers of that unnatural battle, whose Greeks Clearchus led. Not the Cyrus who founded the Persian empire.
+
+## Agathocles · reference
+
+King of Syracuse, who found fortune favourable to him when he went over into Africa and left the war at home — where the Athenians, leaving the enemy in their own dominions to go over into Sicily, were not favoured in their design.
+
+## Timaeus · reference
+
+The speaker in Plato who says that we argue rashly and adventurously, by reason that our discourses, as well as ourselves, have great participation in the temerity of chance.
+
+## Marius · reference
+
+Who with Sylla in the social war, having defeated the Marsians and seeing a body of reserve still coming on like enraged brutes prompted by despair, thought it not convenient to stand their charge. Not the young Marius who slept through his own rout.
+
+## Artybius · reference
+
+General of the Persian army, whose horse was trained to rear and fall with mouth and heels on whoever fronted it. Fighting man to man with Onesilus, that training was the occasion of his death, for it gave Onesilus’s squire the chance to cleave the horse down between the shoulders with a scythe as it reared over his master.
+
+## Onesilus · reference
+
+King of Salamis, whose squire did that.
+
+## Savoy · reference
+
+Charles VIII’s horse at Fornova, and the most beautiful horse Commines had ever seen. When the king was personally attacked with nobody near him but a small and ill-armed valet de chambre, Commines says it was having the best horse in the world under him that let him stand his ground until his men arrived at the critical minute.
+
+## Commines · reference
+
+Philip de Commines, who was present at Fornova and whose narrative of the battle the editor’s bracketed note quotes for the king’s horse.
+
+## Bucephalus · reference
+
+Alexander’s horse, with a head inclining to the shape of a bull, who would suffer himself to be mounted and governed by none but his master, and was so honoured after his death as to have a city erected to his name.
+
+## Trogus Pompeius · reference
+
+Who with Justin says the Parthians performed all offices and ceremonies on horseback, war and private business alike, made bargains, conferred and took the air so, and that the greatest distinction between their freemen and their slaves was that the one rode and the other went on foot.
+
+## Justin · reference
+
+Who says the same of the Parthians as Trogus Pompeius does.
+
+## Chrysanthes · reference
+
+Whose argument in Xenophon Montaigne sets aside: that a man on horseback stakes his own valour and fortune upon his horse’s, since the beast’s wounds bring his person into the same danger and its fear or fury will have him reputed rash or cowardly.
+
+## Maistre Pierre Pol · reference
+
+A doctor of divinity whom Monstrelet reports always to have ridden sideways through the streets of Paris on his mule, like a woman.
+
+## Monstrelet · reference
+
+The chronicler who reports that, and who says the Gascons had terrible horses that would wheel at their full speed, which the French, Picards, Flemings and Brabanters looked on as a miracle, having never seen the like before.
+
+## King Alfonso · reference
+
+He who first instituted the Order of the Band or Scarf in Spain, and gave the order this rule among others: that they should never ride mule or mulet, upon penalty of a mark of silver. The Essays do not identify him with the King Alfonso of the asses.
+
+## Guevara · reference
+
+Whose Letters Montaigne had that rule of the Order of the Band out of, and whoever gave them the title of Golden Epistles had another kind of opinion of them than he has.
+
+## Prester John · reference
+
+In whose presence the Abyssinians, contrary to the custom elsewhere, love the more to be mounted upon large mules the nearer they come, for the greatest dignity and grandeur.
+
+## Metellus · reference
+
+Who besieged those of Crete, and reduced them to so great a necessity for drink that they were fain to quench their thirst with their horses’ urine.
+
+## Bajazet · reference
+
+Whose army in Russia was overwhelmed by so dreadful a tempest of snow that many killed and embowelled their horses to creep into their bellies for the vital heat; and who, after the furious battle in which Tamerlane overthrew him, was in a hopeful way of escaping on an Arabian mare, had he not been constrained to let her drink her fill at a ford, which made her so heavy that his pursuers easily overtook him.
+
+## Quintus Fabius Maximus Rullianus · reference
+
+Who, his horse having failed after three or four charges to break into the Samnite battalion, made them unbridle all their horses and spur their hardest, so that having nothing to check their career they opened a way through weapons and men for his foot, and gave the enemy a bloody defeat. Not the Q. Maximus who buried his consul son dry-eyed.
+
+## Quintus Fulvius Flaccus · reference
+
+Who gave the same command against the Celtiberians.
+
+## Monsieur de Carnavalet · reference
+
+Of all the horsemen Montaigne ever saw, the most knowing in that art, with the best seat and the best method in breaking horses. He served King Henry II.
+
+## Fabricius · reference
+
+The Roman whose countenance and behaviour our people, seeing him neither clothed nor fashioned according to our mode, would look upon as barbarous — which Montaigne can pardon them, since it is a common vice to walk in the beaten road their ancestors trod. Not the bibliographer of the epitaph on Lucan.
+
+## Pasicles · reference
+
+Crates’s brother, the philosopher who, where the custom in petitioning a great man was to lay a hand on his knee, laid his upon another part; and when he was roughly repulsed for it, asked whether that part was not the man’s own as well as the other.
+
+## Sidonius Apollinaris · reference
+
+Who says the ancient Gauls wore their hair long before and shaved the hinder part of the head — a fashion, Montaigne notes, that begins to revive in this vicious and effeminate age.
+
+## Nicomedes · reference
+
+The king whose bed the Romans called Caesar, the women using to lie on the side of the bed next the wall.
+
+## Janus · reference
+
+The god Persius addresses as the one at whose back no crooked fingers simulate a stork, no quick hands imitate the white ears of an ass, and no mocking tongue is thrust out as the tongue of the thirsty Apulian dog.
+
+## Timon · reference
+
+Surnamed the Man-hater: an enemy to all mankind, who passionately desired our ruin and avoided our conversation as dangerous. Montaigne makes him a duller judge than Diogenes, who valued us so little that we could neither trouble nor infect him — for what a man hates he lays to heart.
+
+## Statilius · reference
+
+Who answered Brutus, courting him into the conspiracy against Caesar, that he was satisfied the enterprise was just, but did not think mankind worthy of a wise man’s concern.
+
+## Brutus · reference
+
+The Brutus who courted Statilius into the conspiracy against Caesar.

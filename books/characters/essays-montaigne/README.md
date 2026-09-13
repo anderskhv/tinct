@@ -1,16 +1,17 @@
 # Montaigne's Essays character package — IN PROGRESS
 
-**Chapters 1–40 of 107 are authored. The rest are not.** Status stays
+**Chapters 1–50 of 107 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole work is
 covered.
 
-Current state: 494 entities authored, all 494 bound in both editions, 3,047 and
-3,161 exact mentions. Of those, 162 and 180 fall inside chapters 1–10, 205 and 209
+Current state: 579 entities authored, all 579 bound in both editions, 3,257 and
+3,377 exact mentions. Of those, 162 and 180 fall inside chapters 1–10, 205 and 209
 inside chapters 11–20, 340 and 353 inside chapters 21–25, 136 and 142 inside
-chapters 26–30, and 255 and 263 inside chapters 31–40; the rest are later
-occurrences of names that belong to one man through the whole book — Cicero,
-Plato, Horace, Seneca, Socrates, Plutarch, Aristotle and the other authorities
-Montaigne quotes on every page. Content revision 2026-09-12.6.
+chapters 26–30, 255 and 263 inside chapters 31–40, and 278 and 288 inside
+chapters 41–50; the rest are later occurrences of names that belong to one man
+through the whole book — Cicero, Plato, Horace, Seneca, Socrates, Plutarch,
+Aristotle and the other authorities Montaigne quotes on every page. Content
+revision 2026-09-12.7.
 
 ## What is hard about this book
 
@@ -69,6 +70,12 @@ this scale:
 | d’Estrees, d’Ascot (curly) | d'Estrees, d'Ascot (straight) |
 | Pompeius (in the Posidonius story) | Pompey |
 | St. Louis | St Louis, and once Saint Louis |
+| Antonio de Leyva | Antonio de Leva (at 41:7 in **both**) |
+| **Philopcemen** (a broken œ) | Philopoemen |
+| William, Earl of Salisbury | **Earl of Salisbury, William** (the name inverted) |
+| d’Anguien (curly) | d'Anguien (straight) |
+| Goygias | Gorgias |
+| Mamalukes, Suabians, Dahas | Mamelukes, Suebi, Dahae |
 
 Both spellings sit on one card, and a test pins every pair. The last row is the
 one most likely to be undone by accident: the two editions differ only in the
@@ -76,7 +83,7 @@ kind of apostrophe, and an alias with the wrong one binds in one edition and not
 the other.
 
 **The namesakes.** An essayist who cites for eleven hundred pages repeats names
-constantly, and Montaigne almost never distinguishes them. In the first forty
+constantly, and Montaigne almost never distinguishes them. In the first fifty
 chapters:
 
 | Entity | Where | Against |
@@ -155,6 +162,27 @@ chapters:
 | `st-louis` / `louis-xi` | 40:51 / 40:5 | Louis IX, who binds book-wide, against the Louis pinned to the taking of Arras by his numeral |
 | **`paulus-aemilius` at 40:52** | 40:52 | **the Paulli of Augustus's list at 23:1**, whose family alias — "Paulus", the form the older edition prints — was taking this man's shorter name away from him. A live mis-binding, now pinned |
 | `democritus` | 38:44 | nobody. Single-referent across the work, so he is alias-bound and appears in the twenty-two later paragraphs that name him |
+| `edward-iii` | 41:7 | the Black Prince at 1:1 and Edward I at 3:11 — and the Black Prince is in this very paragraph, as *the Prince of Wales*, by title and not by name |
+| `hiero` | 42:50, 42:57, 42:60 | Syracuse had two kings of the name, and three later occurrences are unread, so only the three paragraphs of Xenophon's dialogue are keyed |
+| `alfonso-of-the-asses` / `alfonso-of-the-band` | 42:57 / 48:43 | **each other.** Two kings called Alfonso, and nothing in either passage joins them, so each gets a card that says so |
+| `henry-ii-france` / `henry-ii-england` / `henry-duke-of-normandy` | 43:0, 46:3, 48:56 / 46:2 / 46:2 | two kings called **Henry II**, one of France and one of England, seven paragraphs apart, plus the English one's son. 46:2 names the son and then the father, so it is keyed by occurrence — and 5:11's Henry de Vaux and 7:0's Henry VII are in the same table |
+| `metellus-tribune` / `metellus-crete` | 44:0 / 48:47 | each other, and Metellus Scipio at 18:12. Three later Metelluses are unread |
+| `marius-younger` / `marius-elder` | 44:1 / 47:8 | each other: the son who slept through his own rout, and the father in the social war. Six later occurrences are unread |
+| `sextus-pompeius` / `trogus-pompeius` | 44:1 / 48:7 | Pompey the Great, and each other. Neither is Pompey, and both are bound by their full names so the table-bound surname takes neither |
+| `mark-antony` | 44:1 | the Antony of 26:18, who lost a battle in Germany under Domitian |
+| `perseus-macedon` at 44:1 | 44:1 | **a correction to the chapters 1–30 pass**, which listed 44:1 among the Gorgon-slayer's paragraphs from a distance. It is the king: "King Perseus of Macedon, being prisoner at Rome, was killed by being kept from sleep." Now bound |
+| `duc-de-guise` | 45:0, 45:1 | **the town of Guise** at 15:5, which the Count of Nassau entered, and a Duc de Guise in two unread chapters — the house supplied more than one |
+| `du-guesclin` | 46:9 | himself. Montaigne spells the constable Guesquin, Glesquin and Gueaquin in one sentence, to ask which of the letters earns his victories; all three sit on one card |
+| `bayard` = `Peter Terrail` / `suetonius` = `Tranquillus` / `nicholas-denisot` = `Count d'Alsinois` / `antonio-iscalin` = `Captain Paulin` = `Baron de la Garde` | 46:12 | **themselves.** The chapter on names is built out of men who carry more than one, and every set sits on one card |
+| `fabius-maximus-rullianus` | 48:51 | the Q. Maximus of 40:52 and the house of the Fabii at 23:1, whose alias is the bare *Fabius*. His full name is long enough to win the span |
+| `fabricius-luscinus` | 49:0 | the bibliographer of the epitaph on Lucan at 25:137, who is apparatus and carries no card |
+| `nicomedes` | 49:38 | 90:3, unread |
+| `cyrus-the-younger` | 47:17 | Cyrus the Great, who holds nine other paragraphs. The chapters 1–30 pass said the younger Cyrus was not yet read; 47:17 is where he arrives |
+| `antiochus-iii` | 47:14 | the Antiochus whose fever Stratonice's beauty gave him, at 20:4 |
+| `marcus-brutus` | 50:8 | the Brutus who besieged the Xanthians at 40:6 — and the Brutus at 47:14, who carries no qualifier and so no card |
+| `timon` | 50:7 | Timon of Phlius the sceptic, and two unread occurrences |
+| `agis` | 47:16 | at least three later Agises, unread. The card says plainly that the text gives him no distinguishing mark |
+| `savoy-the-horse` | 48:4 | **the duchy of Savoy** at 25:52. The horse is a horse |
 
 **Three of those were live mis-bindings the sweep caught**, not hypotheticals. The
 bare surname *Lepidus* was binding the man who died of a stumble at 19:24 to the
@@ -176,17 +204,17 @@ that is single-referent across the whole work — the authorities and philosophe
 Montaigne quotes on every page — is bound by alias and therefore appears in
 chapters that have not been authored yet, with a card written to be true
 anywhere in the book rather than to gloss the paragraph it was first found in.
-A hundred and eighty-three entities bind beyond chapter 40 that way, and five of
+A hundred and ninety-six entities bind beyond chapter 50 that way, and five of
 them — Plato, Cicero, Seneca, Socrates and Horace — account for most of it. It is
-worth being plain about the size of this: 1,949 of the 3,047 mentions in the older
+worth being plain about the size of this: 1,881 of the 3,257 mentions in the older
 edition fall in chapters that have not been read. Those are bindings of names with
 one bearer, and the cards are written to be true anywhere; but they are not
 reviewed paragraph by paragraph, and the release owner should read the scope line
 as covering the *cast*, not every mention of it.
 
-## Editorial checks — chapters 1–40
+## Editorial checks — chapters 1–50
 
-**1. Namesakes.** The seventy-eight in the table above, each pinned by a test.
+**1. Namesakes.** The hundred in the table above, each pinned by a test.
 
 **2. Person or not.** This is the check that does the most work in an essayist.
 Excluded:
@@ -211,6 +239,32 @@ Cast although they are not historical persons: **Iphigenia** and **Niobe** as
 mythological figures, **Lesbia** and **Angelica** and **Bradamante** as literary
 figures, and **Neptune** as a god, because Augustus deposed his statue and
 Montaigne treats that as an act against a person.
+
+**A name is not always a man, and chapters 46 and 49 are about exactly that.**
+*Of names* is built on the claim that a name is three or four dashes with a pen,
+so the chapter is full of names with nobody behind them: *John, William,
+Benedict* at 46:1, taken in no good sense; *Charles, Louis, Francis* at 46:5,
+which the reformation quarrelled with; *Methuselahs, Ezekiels, Malachis*; the
+invented *Don Grumedan, Quedregan, Agesilan* against *Pierre, Guillot, Michel*;
+*Peter or William* at 46:9; *Vaudemont* turned into *Vallemontanus*; *Lenis*, the
+surname Suetonius dropped. None of them is cast. At 49:27 *Oppius and Caesar, as
+Caesar and Oppius* is a word-order example, and the Caesar table leaves it alone.
+
+Two places in this range need more than a table. At 46:12 Montaigne counts
+"three of the name of Socrates" among his proofs, and the Athenian's alias would
+otherwise take it: that is the **one suppressed alias binding in the package**,
+declared in `SUPPRESS` in the builder and pinned by a test. And at 46:12 *Pompey*
+appears twice — the groom who might call himself Pompey the Great, and "the other
+Pompey, who had his head cut off in Egypt" — so the paragraph is keyed by
+occurrence with the first slot empty. Two paragraphs earlier, at 46:3, "Socrates
+thinks it worthy a father's care to give fine names to his children" **is** the
+man, and binds.
+
+**The Blessed Virgin at 46:4 is left unbound.** The name in that paragraph is the
+wench's: "asking her name, and being answered that it was Mary". The reverence is
+to the Virgin, but the word *Mary* denotes the girl, and the Virgin herself is
+named only by title — *the Blessed Virgin*, *our Lady*. Binding either would be
+wrong in a different way, so neither is bound.
 
 **The Christian God, Nature and Fortune are not cast, and this is a decision, not
 an omission.** The named classical gods Montaigne treats as agents are cast —
@@ -278,11 +332,33 @@ Three traps in this range are deliberately left alone and pinned by tests:
   setting Cotton beside Florio's 1613 version, printed as reading text in both
   editions. Recorded as a source defect; the 1613 translator carries no card, on
   the same rule as Charron, Nodier, Cotton, Rousseau, Fabricius and Coste.
+- **Sismondi is apparatus too.** 45:0 is a dated editorial headnote to the battle
+  of Dreux with a page reference to Sismondi's *Histoire des Français*, printed as
+  the chapter's first reading paragraph in both editions. The three commanders it
+  names keep their cards — the Duc de Guise, the Constable de Montmorenci and the
+  Prince de Condé, who appears nowhere else in the chapter — and the modern
+  historian carries none. The same at 48:4, a bracketed note quoting Commines on
+  the battle of Fornova: Commines and the king's horse are cast, the note is not.
+- **Four names in chapters 41–50 are deliberately left unbound**, because the text
+  does not resolve them and the rule of this lane is to leave such an occurrence
+  alone rather than pick the likelier man:
+  - **Scipio at 41:10.** "The greatest of Scipio's acts were in part due to
+    Laelius" — the Essays do not say which Scipio, and the package already
+    carries four.
+  - **Antigonus at 42:33.** Hermodorus's poem called him the son of the sun.
+    Two Antigonuses are already cast and nothing here tells them apart.
+  - **Brutus at 47:14**, in the list of captains who liked rich armour. At 50:8
+    the text does resolve it — "when Brutus courted him into the conspiracy
+    against Caesar" — and there it binds.
+  - **The Prince of Wales at 41:7**, who is the Black Prince of 1:1 and is named
+    here by title only, in the same sentence as his father. Titles without a name
+    carry no card anywhere in this package; the Constable at 6:5 is the precedent.
 
-**5. Spot-read and sweep.** A hundred and forty-eight mentions drawn at random,
+**5. Spot-read and sweep.** A hundred and seventy-six mentions drawn at random,
 twelve to fourteen per edition per pass, read back against their paragraphs: all
 correct. The chapters 31–40 pass read twenty-eight and found no mis-binding, but
-it did find the card defect described in check 7.
+it did find the card defect described in check 7; the chapters 41–50 pass read
+twenty-eight more, all correct.
 
 The **unbound-tabled-names audit** — every pattern in `SPLIT` enumerated against
 the text, which is the only audit that can see a table with no key, since such a
@@ -311,19 +387,33 @@ modern edition alone, which writes the name where Cotton writes *Pompeius*;
 unkeyed hits over chapters 1–40 are the thirteen deliberate cases, every one of
 them either covered by a longer alias or pinned as an intentional gap.
 
+Over chapters 41–50 it found two more: the Pyrrhus of 42:67, preparing his
+expedition into Italy, and the Pyrrhus of 47:16, fighting the Consul Levinus in
+Megacles's armour — both of them the King of Epirus already cast at 5:0, and
+neither keyed until the audit said so. What the audit reports over chapters 1–50
+is twenty-three deliberate cases: the four unresolved names above, the names used
+as names at 46:1, 46:5, 49:27 and 49:38, the town of Guise at 15:5, the duchy of
+Savoy at 25:52, the bibliographer Fabricius at 25:137, and the rest already
+covered by a longer alias.
+
 **A new structural guard came out of this pass: no table key may match nothing.**
 Four keys did — *Cato* at 36:20, 36:23, 36:26 and 36:29, written against the Latin
 paragraphs instead of the English versions, and *Alexander*, *Caesar* and *Cyrus*
 one paragraph off their names. A key that matches nothing is invisible to every
 other check: the name it was meant to pin simply stays unbound, and the tests pass.
 `test_every_table_key_actually_matches_something` now enumerates every key against
-both editions.
+both editions. It earned its place immediately: the chapters 41–50 pass wrote
+`Alexander` against 50:3, where he is not named, and the guard caught it before
+the pass closed.
 
 The **adjacency sweep** over every mention whose matched text abuts a capitalised
 word produces forty-eight hits in chapters 1–10, thirty in chapters 11–20 and
 twenty-two in chapters 21–24, nine in chapter 25 and fifteen in chapters 26–30.
-It produces forty-five hits in chapters 31–40, all of them a bound name preceded
-by a title or a conjunction that is not part of it — *King Clovis*, *King
+It produces forty-five hits in chapters 31–40 and forty-nine in chapters 41–50,
+all of them a bound name preceded by a title or a conjunction that is not part of
+it — *King Edward*, *King Seleucus*, *King Hiero*, *King Alfonso*, *the Emperor
+Otho*, *the Consul Levinus*, *the Lacedaemonian Clearchus*, *Captain Bayard*,
+*the Bishop of Beauvais*, *Father AEneas*, *our French Plutarch* — *King Clovis*, *King
 Massinissa*, *Captain Rense*, *Captain Martin du Bellay*, *King St. Louis*, *King
 Emmanuel*, *the Duke of Valentinois*, *the Sieur de Licques*.
 It found one mis-binding, and a bad one: *King Philip Augustus* at 26:18 was
@@ -336,7 +426,7 @@ Martin du Bellay*, *Poor Judge Bebius*, *King Dagobert*, *The Duke of Athens*, *
 Chios*, *our King Charles VIII*.
 
 **6. Both editions independently.** No entity is missing from either edition. The
-mention counts differ by about four percent (3,047 against 3,161),
+mention counts differ by about four percent (3,257 against 3,377),
 partly because the modern edition resolves pronouns to names — it says *Dionysius*
 and *Scanderbeg* and *Betis* and *Ferdinand* where Cotton says *he* — and partly
 because it expands the citation abbreviations, so *Hor.* becomes *Horace* and
@@ -365,6 +455,16 @@ Phocion and Aristides before the imagination (38:66) had been credited to Seneca
 but Montaigne compounds it out of two philosophers of different sects, one writing
 to Idomeneus and the other to Lucilius, and does not say which sentence is whose.
 
+The chapters 41–50 pass found one card of the same kind (*Anacharsis*, whose body
+named nobody at all) and one claim made from a distance rather than from the page:
+the chapters 1–30 pass had listed 44:1 among the Gorgon-slayer's paragraphs, when
+it is "King Perseus of Macedon, being prisoner at Rome, was killed by being kept
+from sleep" — the Macedonian king, and now bound to him. A claim about a chapter
+nobody has read is exactly the class of error this lane exists to avoid, and it
+survived two passes because the test that pinned it asserted the right thing for
+the wrong reason: `perseus-macedon` was indeed not bound at 44:1, because the
+alias did not match, not because the man was somebody else.
+
 ## Source defects — recorded, not repaired
 
 | Defect | Effect |
@@ -385,20 +485,37 @@ to Idomeneus and the other to Lucilius, and does not say which sentence is whose
 | **The five verse quotations of chapter 36 are printed twice**, once in Latin (36:17, 20, 23, 26, 29) and once in a bracketed English version (36:18, 21, 24, 27, 30), with the poet's attribution inside the bracket. | Not repaired. Only the uninflected *Cato* of Martial's Latin binds; the English versions carry the cards. |
 | The older edition prints **Pompeius** in the Posidonius story at 40:13; the modern prints **Pompey**. | The older form is an alias; the modern form is position-tabled, because *Pompey* belongs to more than one man in this book. |
 | The modern edition drops the period from **St. Louis** and writes the name out in full once, as **Saint Louis** at 69:12. | All three forms are aliases on one card. |
+| **Paragraph 45:0 is an editorial headnote**, not Montaigne: both editions open the chapter on the battle of Dreux with "[December 19, 1562, in which the Catholics, under the command of the Duc de Guise and the Constable de Montmorenci, defeated the Protestants, commanded by the Prince de Conde. See Sismondi, Hist. des Francais, vol. xviii., p. 354.]" | Not repaired. The three commanders are cast, since they are people in the Essays; Sismondi is a nineteenth-century historian and is apparatus. The Prince de Condé is named nowhere else in the chapter, so his only mention is inside the note. A test pins it. |
+| **Paragraph 48:4 is an editorial note**, not Montaigne: a bracketed half-page quoting Philip de Commines's account of Fornova, naming the king's horse Savoy. | Not repaired. Commines and the horse carry cards; the note is not Montaigne's text. |
+| The older edition misprints **Philopcemen** at 47:14, with the œ ligature broken into *ce*; the modern edition prints Philopoemen. | Both forms are aliases on one card. |
+| The modern edition **inverts a name**: "William, Earl of Salisbury" at 41:10 becomes "the Earl of Salisbury, William". | Both orders are aliases. He was omitted from the modern edition until this was found, which is how it was caught. |
+| The older edition prints **Goygias** at 42:56 where the modern prints Gorgias. | Neither is cast — it is the dialogue, not the man — but the misprint is recorded so that nobody reads it as a name. |
+| The apostrophe split runs on through **d’Anguien** (curly) and **d'Anguien** (straight) at 47:8. | Both forms are aliases. |
 
 No edition byte was touched.
 
 ## Remaining work
 
-- **Chapters 41–107.** Book I runs to chapter 57, Book II to chapter 94, Book III
+- **Chapters 51–107.** Book I runs to chapter 57, Book II to chapter 94, Book III
   from 95. The heaviest chapters are 69 (*Apology for Raimond Sebond*, 660
   paragraphs), 99 (*Upon some verses of Virgil*, 374), 103 (*Of vanity*, 300),
   107 (*Of experience*, 240), 74 (*Of presumption*, 163) and 73 (101).
 - **Run the unbound-tabled-names audit before believing the tests** — enumerate
   every `SPLIT` pattern against the new chapters rather than reading the mention
   list, since a table with no key produces no mention to audit. It has now found
-  twenty-four real gaps, thirteen of them in chapters 31–40 alone, and it is the
+  twenty-six real gaps, thirteen of them in chapters 31–40 alone, and it is the
   only check that would have caught any of them.
+- **Check whether the name already has a card before writing one.** Three entities
+  in the chapters 41–50 pass were written from a reading of the text when they were
+  already in the package — Heraclitus, Hegesias and Crates, all cast in chapters 24
+  and 25 — and the duplicate-id assertion in the compiler is what caught them. Grep
+  `author_content.py` for the id first; the census of unknown capitalised tokens
+  filters out names that already have an alias, so a name missing from the census
+  is a name that is already cast.
+- **Re-read what earlier passes claimed about unread chapters.** One namesake row
+  in this file was wrong for twenty chapters because it assigned 44:1 to the
+  Gorgon-slayer without reading it. Claims of the form "the X of chapter N is
+  another man" are only as good as the chapter having been read.
 - **Check the keys as well as the gaps.** Four keys in this pass matched nothing,
   which is the same failure wearing the opposite mask. The guard test is in place;
   run it, do not re-derive it.
@@ -418,6 +535,6 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_essays_montaigne.py --check`, then
-`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Eighty-six
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. A hundred and six
 focused tests so far. No edition changes, no network generation, no API spend: every card
 here was written in the authoring conversation and committed as a file.
