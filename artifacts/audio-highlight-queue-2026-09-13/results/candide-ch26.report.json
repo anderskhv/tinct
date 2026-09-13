@@ -1,0 +1,59 @@
+[
+ {
+  "key": "candide/original-en/ch26",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9972850678733032,
+    "reasons": [
+     {
+      "paragraph": 15,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "paragraphCount": 35,
+    "paragraphsBelowThreshold": [
+     {
+      "paragraph": 15,
+      "ratio": 0.7142857142857143
+     }
+    ]
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9755656108597285,
+    "reasons": [
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 15,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "paragraphCount": 35,
+    "paragraphsBelowThreshold": [
+     {
+      "paragraph": 4,
+      "ratio": 0.8
+     },
+     {
+      "paragraph": 15,
+      "ratio": 0.7142857142857143
+     }
+    ]
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ }
+]
