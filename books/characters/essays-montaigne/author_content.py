@@ -364,7 +364,7 @@ for row in [
 ('cleanthes','Cleanthes','Zeno’s successor at the head of the Stoa, and the second of Cotta’s three philosophers.','Cleanthes'),
 ('thucydides','Thucydides','The historian of the Peloponnesian war, cited for what happens to language in a civil war: the parties give the public vices new and more plausible names to excuse them. It is he who told Archidamus that when he had thrown Pericles the man always persuaded the spectators he had had no fall.','Thucydides','supporting'),
 ('terence','Terence','The Latin comic poet. The older edition abbreviates him Ter.','Ter|Terence'),
-('octavius','Octavius','Who with Cato is still reproached for having let his country go to the last extremity rather than relieve his fellow citizens at the expense of its laws.','Octavius'),
+('octavius','Octavius','Who with Cato is still reproached for having let his country go to the last extremity rather than relieve his fellow citizens at the expense of its laws. Keyed rather than aliased, because the Octavius of 99:181 is another man.','',),
 ('cato-the-younger','Cato','Cato of Utica, who would rather see the Republic ruined than saved by an innovation. Montaigne devotes a whole chapter to him later.'),
 ('aratus','Aratus','Made admiral of Sparta in name, because an edict forbade choosing the same man twice — while Lysander went out as general of the navy and commanded in fact.','Aratus'),
 ('pericles','Pericles','The Athenian, who told a Spartan envoy that a law once engrossed on the tablet could not be taken away — and was advised to turn the tablet round instead, that being not forbidden. Montaigne’s instance of what rhetoric is for: thrown in the wrestling, he could still persuade the spectators he had had no fall and carry away the prize.','Pericles','supporting'),
@@ -376,7 +376,7 @@ for row in [
 for row in [
 ('jacques-amyot','Jacques Amyot','Grand almoner of France, who told Montaigne the story of the prince who forgave the gentleman sent to murder him at the siege of Rouen. The older edition spells him Amiot.','Jacques Amiot|Jacques Amyot'),
 ('l-cinna','L. Cinna','Pompey’s nephew, of an illustrious family, who conspired to kill Augustus at sacrifice — and was told the whole plot back to his face, place, day and company, and then given his life a second time. He was made consul afterwards, was Augustus’s great friend, and left him his whole estate.','Cinna'),
-('livia','Livia','Augustus’s wife, who asked whether he would take a woman’s counsel and then gave the advice that ended the conspiracies: severity has got you nothing — Lepidus followed Salvidienus, Murena Lepidus, Caepio Murena, Egnatius Caepio — now try clemency.','','supporting'),
+('livia','Livia','Augustus’s wife, who asked whether he would take a woman’s counsel and then gave the advice that ended the conspiracies: severity has got you nothing — Lepidus followed Salvidienus, Murena Lepidus, Caepio Murena, Egnatius Caepio — now try clemency. She is also the one who was wont to say that to a virtuous woman a naked man was but a statue.','','supporting'),
 ('lepidus-conspirator','Lepidus','One of the conspirators in Livia’s list, punished before Cinna and followed by another. Neither the Marcus Aemilius Lepidus of 3:15 nor the Aemilius Lepidus who died of a stumble.'),
 ('salvidienus','Salvidienus','The first name in Livia’s list of conspirators punished to no purpose.','Salvidienus'),
 ('murena','Murena','The third name in Livia’s list of the conspirators severity had not stopped, after Salvidienus and Lepidus and before Caepio and Egnatius.','Murena'),
@@ -1392,7 +1392,7 @@ for row in [
 
 # ============================ CHAPTER 93 — of the most excellent men
 for row in [
-('panaetius','Panaetius','Who called Plato the Homer of the philosophers, and left nothing unsaid in doing it.','Panaetius'),
+('panaetius','Panaetius','Who called Plato the Homer of the philosophers, and left nothing unsaid in doing it.','Panaetius|Panetius'),
 ('pope-pius-ii','Pope Pius II','To whom Mohammed the second wrote that he was astonished the Italians should appear against him, seeing they had their common descent from the Trojans and it concerned him as much as them to revenge the blood of Hector upon the Greeks.','Pope Pius II'),
 ('helen','Helen','Of whom, and of the war about her, nothing is so known and received — and perhaps, Montaigne says, there was never any such thing. Not the Helena and the Helen of 33:7, who are two mothers of two Constantines.','',),
 ('hector','Hector','Whose blood Mohammed the second claimed a common descent from the Trojans entitled him to revenge upon the Greeks. The Hector of 69:282 is in Ovid’s Latin and the Hector of 74:18 is the title of a play.','',),
@@ -1456,8 +1456,42 @@ for row in [
 ('gryllus','Gryllus','Xenophon’s son, slain in the battle of Mantinea, the news of whose death was brought to his father as he sacrificed with a crown upon his head; he took the crown from his head, and put it on again when he heard he had died valiantly.','Gryllus'),
 ]:add(*row)
 
-print(len(entities),'entities authored: chapters 1-98')
+# ========================= CHAPTER 99 — upon some verses of Virgil
+for row in [
+('archeanassa','Archeanassa','One of the four with whom Plato is said to have had intercourse, in the reading Montaigne calls a fine humour to strain his writings for.','Archeanassa'),
+('stella','Stella','Another of them.','Stella'),
+('phaedo','Phaedo','A third; and, at 99:200, the philosopher of birth who, after the taking of his country Elis, made it his trade to prostitute the beauty of his youth so long as it lasted, for money to live by. Keyed rather than aliased, because at 60:57 the same name is the title of Plato’s dialogue.','',),
+('origen','Origen','Who was put to the hard choice between idolatrising and suffering himself to be carnally abused, and who published the errors of his own opinions. The older edition misprints him Origeti at 99:57.','Origen|Origeti','supporting'),
+('clodia-laeta','Clodia Laeta','A vestal nun whom the Romans concluded violated because Caligula had approached her, though it was declared he did no more than approach her.','Clodia Laeta'),
+('boleslas-v','Boleslas','King of Poland, who with Kinge his wife vowed chastity by mutual consent, in bed together on their wedding day, and kept the vow in spite of all matrimonial conveniences. Not the Boleslaus of 95:39.','Boleslas'),
+('kinge','Kinge','His wife, who vowed it with him.','Kinge'),
+('strato','Strato','Whose book Of Carnal Conjunction Montaigne names among the grave writers on the subject; and who, in the Apology, makes God have neither sense nor form, and holds Nature to be the mistress of all things.','Strato'),
+('demetrius-phalereus','Demetrius Phalereus','Whose book was called The Lover. The modern edition writes him Demetrius of Phalerum.','Demetrius Phalereus|Demetrius of Phalerum'),
+('sphaereus','Sphaereus','Whose amorous dialogues Montaigne names in the same list. The modern edition writes him Sphaerus.','Sphaereus|Sphaerus'),
+('priapus','Priapus','The god to whom the most modest matrons of Rome thought it an honour to offer flowers and garlands.','Priapus','reference','deity'),
+('bona-dea','Bona Dea','In whose mysteries all masculine appearance was excluded — which Montaigne turns against the man who would geld the whole of nature.','Bona Dea','reference','deity'),
+('licymnia','Licymnia','For one ringlet of whose hair Horace would not exchange all that the wealthy Achaemenes had, nor the Mygdonian riches of fertile Phrygia.','',),
+('achaemenes','Achaemenes','The wealthy king of that comparison.','',),
+('pittacus','Pittacus','Who used to say that every one had his trouble, and that his was the jealous head of his wife.','Pittacus'),
+('messalina','Messalina','Whose behaviour Montaigne reads as a woman driven by the difficulty of the thing rather than by appetite; and who, at 94:42, is the instance of a lust that no number could satisfy.','Messalina','supporting'),
+('leo-hebraeus','Leo Hebraeus','One of the writers on love whom Montaigne says his page, who makes love and understands it, would not understand at all.','Leo Hebraeus'),
+('ficinus','Ficinus','Another of them. The modern edition writes him Ficino.','Ficinus|Ficino'),
+('bembo','Bembo','A third, whom Montaigne lets alone with Equicola.','Bembo'),
+('equicola','Equicola','The fourth.','Equicola'),
+('antigenides','Antigenides','The musician, who when he was asked to sing or play took care beforehand that the auditory should be satiated with some other ill musician before or after him — an invention Montaigne says he has need of himself.','Antigenides'),
+('cratippus','Cratippus','With Zeno, one of the two grave philosophers whose absurd, crack-brained, wild motions in that pleasure Montaigne sets against their austere and severe air.','Cratippus'),
+('the-essenes','The Essenes','Of whom Pliny speaks, who kept up their country for several ages without either nurse or baby-clouts, by the arrival of strangers who came continually to them. The modern edition writes them Essenes.','Essenians|Essenes','reference','group'),
+('lachesis','Lachesis','The Fate who spins: whilst there is still something left for her to spin, Juvenal says, and a man walks on his own legs and needs no staff.','',),
+('menon','Menon','Whom Xenophon accuses of never having made love to any but old women; and whom Socrates asks what virtue is, and who answers with a virtue of a man and of a woman and of a magistrate, until Socrates has three doubts where he had one. The modern edition writes him Meno.','Menon|Meno'),
+('galba-emperor','The Emperor Galba','To whom Montaigne leaves that fantastic appetite: he was only for old curried flesh. Not the Publius Sulpicius Galba of 30:0.','',),
+('crassus-agelastus','The elder Crassus',"Whom no one ever saw laugh — set against Socrates’s constant countenance, serene and smiling and not sourly austere. A fourth man of the name.",'',),
+('octavius-of-rome','Octavius','One Octavius at Rome, who having lain with Pontia Posthumia augmented love with fruition, and solicited with all importunity to marry her; and being refused, that extreme affection precipitated him into the effects of the most cruel and mortal hatred, and he killed her.','',),
+('pontia-posthumia','Pontia Posthumia','The woman he lay with, and killed. Not the Posthumia who was Servius Sulpitius’s wife.','Pontia Posthumia'),
+('hemon','Hemon','A young boy of Chios who, thinking by fine dressing to acquire the beauty nature had denied him, asked Arcesilaus whether a wise man could be in love — and was answered yes, if the beauty were not such as his own contrived one. Cotton’s later edition makes him Emonez, a young courtezan of Chios.','Hemon|Emonez'),
+]:add(*row)
+
+print(len(entities),'entities authored: chapters 1-99')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-13.7',
- coverage='Both full English editions, chapters 1-98 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
+ contentVersion='2026-09-13.8',
+ coverage='Both full English editions, chapters 1-99 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

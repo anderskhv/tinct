@@ -972,7 +972,7 @@ The Latin comic poet. The older edition abbreviates him Ter.
 
 ## Octavius · reference
 
-Who with Cato is still reproached for having let his country go to the last extremity rather than relieve his fellow citizens at the expense of its laws.
+Who with Cato is still reproached for having let his country go to the last extremity rather than relieve his fellow citizens at the expense of its laws. Keyed rather than aliased, because the Octavius of 99:181 is another man.
 
 ## Cato · reference
 
@@ -1004,7 +1004,7 @@ Pompey’s nephew, of an illustrious family, who conspired to kill Augustus at s
 
 ## Livia · supporting
 
-Augustus’s wife, who asked whether he would take a woman’s counsel and then gave the advice that ended the conspiracies: severity has got you nothing — Lepidus followed Salvidienus, Murena Lepidus, Caepio Murena, Egnatius Caepio — now try clemency.
+Augustus’s wife, who asked whether he would take a woman’s counsel and then gave the advice that ended the conspiracies: severity has got you nothing — Lepidus followed Salvidienus, Murena Lepidus, Caepio Murena, Egnatius Caepio — now try clemency. She is also the one who was wont to say that to a virtuous woman a naked man was but a statue.
 
 ## Lepidus · reference
 
@@ -4045,3 +4045,123 @@ Who hopes, if the pious gods have any power, that he will feel his punishment am
 ## Gryllus · reference
 
 Xenophon’s son, slain in the battle of Mantinea, the news of whose death was brought to his father as he sacrificed with a crown upon his head; he took the crown from his head, and put it on again when he heard he had died valiantly.
+
+## Archeanassa · reference
+
+One of the four with whom Plato is said to have had intercourse, in the reading Montaigne calls a fine humour to strain his writings for.
+
+## Stella · reference
+
+Another of them.
+
+## Phaedo · reference
+
+A third; and, at 99:200, the philosopher of birth who, after the taking of his country Elis, made it his trade to prostitute the beauty of his youth so long as it lasted, for money to live by. Keyed rather than aliased, because at 60:57 the same name is the title of Plato’s dialogue.
+
+## Origen · supporting
+
+Who was put to the hard choice between idolatrising and suffering himself to be carnally abused, and who published the errors of his own opinions. The older edition misprints him Origeti at 99:57.
+
+## Clodia Laeta · reference
+
+A vestal nun whom the Romans concluded violated because Caligula had approached her, though it was declared he did no more than approach her.
+
+## Boleslas · reference
+
+King of Poland, who with Kinge his wife vowed chastity by mutual consent, in bed together on their wedding day, and kept the vow in spite of all matrimonial conveniences. Not the Boleslaus of 95:39.
+
+## Kinge · reference
+
+His wife, who vowed it with him.
+
+## Strato · reference
+
+Whose book Of Carnal Conjunction Montaigne names among the grave writers on the subject; and who, in the Apology, makes God have neither sense nor form, and holds Nature to be the mistress of all things.
+
+## Demetrius Phalereus · reference
+
+Whose book was called The Lover. The modern edition writes him Demetrius of Phalerum.
+
+## Sphaereus · reference
+
+Whose amorous dialogues Montaigne names in the same list. The modern edition writes him Sphaerus.
+
+## Priapus · reference
+
+The god to whom the most modest matrons of Rome thought it an honour to offer flowers and garlands.
+
+## Bona Dea · reference
+
+In whose mysteries all masculine appearance was excluded — which Montaigne turns against the man who would geld the whole of nature.
+
+## Licymnia · reference
+
+For one ringlet of whose hair Horace would not exchange all that the wealthy Achaemenes had, nor the Mygdonian riches of fertile Phrygia.
+
+## Achaemenes · reference
+
+The wealthy king of that comparison.
+
+## Pittacus · reference
+
+Who used to say that every one had his trouble, and that his was the jealous head of his wife.
+
+## Messalina · supporting
+
+Whose behaviour Montaigne reads as a woman driven by the difficulty of the thing rather than by appetite; and who, at 94:42, is the instance of a lust that no number could satisfy.
+
+## Leo Hebraeus · reference
+
+One of the writers on love whom Montaigne says his page, who makes love and understands it, would not understand at all.
+
+## Ficinus · reference
+
+Another of them. The modern edition writes him Ficino.
+
+## Bembo · reference
+
+A third, whom Montaigne lets alone with Equicola.
+
+## Equicola · reference
+
+The fourth.
+
+## Antigenides · reference
+
+The musician, who when he was asked to sing or play took care beforehand that the auditory should be satiated with some other ill musician before or after him — an invention Montaigne says he has need of himself.
+
+## Cratippus · reference
+
+With Zeno, one of the two grave philosophers whose absurd, crack-brained, wild motions in that pleasure Montaigne sets against their austere and severe air.
+
+## The Essenes · reference
+
+Of whom Pliny speaks, who kept up their country for several ages without either nurse or baby-clouts, by the arrival of strangers who came continually to them. The modern edition writes them Essenes.
+
+## Lachesis · reference
+
+The Fate who spins: whilst there is still something left for her to spin, Juvenal says, and a man walks on his own legs and needs no staff.
+
+## Menon · reference
+
+Whom Xenophon accuses of never having made love to any but old women; and whom Socrates asks what virtue is, and who answers with a virtue of a man and of a woman and of a magistrate, until Socrates has three doubts where he had one. The modern edition writes him Meno.
+
+## The Emperor Galba · reference
+
+To whom Montaigne leaves that fantastic appetite: he was only for old curried flesh. Not the Publius Sulpicius Galba of 30:0.
+
+## The elder Crassus · reference
+
+Whom no one ever saw laugh — set against Socrates’s constant countenance, serene and smiling and not sourly austere. A fourth man of the name.
+
+## Octavius · reference
+
+One Octavius at Rome, who having lain with Pontia Posthumia augmented love with fruition, and solicited with all importunity to marry her; and being refused, that extreme affection precipitated him into the effects of the most cruel and mortal hatred, and he killed her.
+
+## Pontia Posthumia · reference
+
+The woman he lay with, and killed. Not the Posthumia who was Servius Sulpitius’s wife.
+
+## Hemon · reference
+
+A young boy of Chios who, thinking by fine dressing to acquire the beauty nature had denied him, asked Arcesilaus whether a wise man could be in love — and was answered yes, if the beauty were not such as his own contrived one. Cotton’s later edition makes him Emonez, a young courtezan of Chios.

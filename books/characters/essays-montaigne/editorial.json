@@ -1,6 +1,6 @@
 {
-  "contentVersion": "2026-09-13.7",
-  "coverage": "Both full English editions, chapters 1-98 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.",
+  "contentVersion": "2026-09-13.8",
+  "coverage": "Both full English editions, chapters 1-99 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.",
   "entities": [
     {
       "id": "montaigne",
@@ -2899,10 +2899,8 @@
     {
       "id": "octavius",
       "name": "Octavius",
-      "body": "Who with Cato is still reproached for having let his country go to the last extremity rather than relieve his fellow citizens at the expense of its laws.",
-      "aliases": [
-        "Octavius"
-      ],
+      "body": "Who with Cato is still reproached for having let his country go to the last extremity rather than relieve his fellow citizens at the expense of its laws. Keyed rather than aliased, because the Octavius of 99:181 is another man.",
+      "aliases": [],
       "category": "reference",
       "kind": "person",
       "subtitle": "",
@@ -2996,7 +2994,7 @@
     {
       "id": "livia",
       "name": "Livia",
-      "body": "Augustus’s wife, who asked whether he would take a woman’s counsel and then gave the advice that ended the conspiracies: severity has got you nothing — Lepidus followed Salvidienus, Murena Lepidus, Caepio Murena, Egnatius Caepio — now try clemency.",
+      "body": "Augustus’s wife, who asked whether he would take a woman’s counsel and then gave the advice that ended the conspiracies: severity has got you nothing — Lepidus followed Salvidienus, Murena Lepidus, Caepio Murena, Egnatius Caepio — now try clemency. She is also the one who was wont to say that to a virtuous woman a naked man was but a statue.",
       "aliases": [],
       "category": "supporting",
       "kind": "person",
@@ -11536,7 +11534,8 @@
       "name": "Panaetius",
       "body": "Who called Plato the Homer of the philosophers, and left nothing unsaid in doing it.",
       "aliases": [
-        "Panaetius"
+        "Panaetius",
+        "Panetius"
       ],
       "category": "reference",
       "kind": "person",
@@ -12023,6 +12022,359 @@
       "body": "Xenophon’s son, slain in the battle of Mantinea, the news of whose death was brought to his father as he sacrificed with a crown upon his head; he took the crown from his head, and put it on again when he heard he had died valiantly.",
       "aliases": [
         "Gryllus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "archeanassa",
+      "name": "Archeanassa",
+      "body": "One of the four with whom Plato is said to have had intercourse, in the reading Montaigne calls a fine humour to strain his writings for.",
+      "aliases": [
+        "Archeanassa"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "stella",
+      "name": "Stella",
+      "body": "Another of them.",
+      "aliases": [
+        "Stella"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phaedo",
+      "name": "Phaedo",
+      "body": "A third; and, at 99:200, the philosopher of birth who, after the taking of his country Elis, made it his trade to prostitute the beauty of his youth so long as it lasted, for money to live by. Keyed rather than aliased, because at 60:57 the same name is the title of Plato’s dialogue.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "origen",
+      "name": "Origen",
+      "body": "Who was put to the hard choice between idolatrising and suffering himself to be carnally abused, and who published the errors of his own opinions. The older edition misprints him Origeti at 99:57.",
+      "aliases": [
+        "Origen",
+        "Origeti"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clodia-laeta",
+      "name": "Clodia Laeta",
+      "body": "A vestal nun whom the Romans concluded violated because Caligula had approached her, though it was declared he did no more than approach her.",
+      "aliases": [
+        "Clodia Laeta"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "boleslas-v",
+      "name": "Boleslas",
+      "body": "King of Poland, who with Kinge his wife vowed chastity by mutual consent, in bed together on their wedding day, and kept the vow in spite of all matrimonial conveniences. Not the Boleslaus of 95:39.",
+      "aliases": [
+        "Boleslas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "kinge",
+      "name": "Kinge",
+      "body": "His wife, who vowed it with him.",
+      "aliases": [
+        "Kinge"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "strato",
+      "name": "Strato",
+      "body": "Whose book Of Carnal Conjunction Montaigne names among the grave writers on the subject; and who, in the Apology, makes God have neither sense nor form, and holds Nature to be the mistress of all things.",
+      "aliases": [
+        "Strato"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demetrius-phalereus",
+      "name": "Demetrius Phalereus",
+      "body": "Whose book was called The Lover. The modern edition writes him Demetrius of Phalerum.",
+      "aliases": [
+        "Demetrius Phalereus",
+        "Demetrius of Phalerum"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sphaereus",
+      "name": "Sphaereus",
+      "body": "Whose amorous dialogues Montaigne names in the same list. The modern edition writes him Sphaerus.",
+      "aliases": [
+        "Sphaereus",
+        "Sphaerus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "priapus",
+      "name": "Priapus",
+      "body": "The god to whom the most modest matrons of Rome thought it an honour to offer flowers and garlands.",
+      "aliases": [
+        "Priapus"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bona-dea",
+      "name": "Bona Dea",
+      "body": "In whose mysteries all masculine appearance was excluded — which Montaigne turns against the man who would geld the whole of nature.",
+      "aliases": [
+        "Bona Dea"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "licymnia",
+      "name": "Licymnia",
+      "body": "For one ringlet of whose hair Horace would not exchange all that the wealthy Achaemenes had, nor the Mygdonian riches of fertile Phrygia.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "achaemenes",
+      "name": "Achaemenes",
+      "body": "The wealthy king of that comparison.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pittacus",
+      "name": "Pittacus",
+      "body": "Who used to say that every one had his trouble, and that his was the jealous head of his wife.",
+      "aliases": [
+        "Pittacus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "messalina",
+      "name": "Messalina",
+      "body": "Whose behaviour Montaigne reads as a woman driven by the difficulty of the thing rather than by appetite; and who, at 94:42, is the instance of a lust that no number could satisfy.",
+      "aliases": [
+        "Messalina"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leo-hebraeus",
+      "name": "Leo Hebraeus",
+      "body": "One of the writers on love whom Montaigne says his page, who makes love and understands it, would not understand at all.",
+      "aliases": [
+        "Leo Hebraeus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ficinus",
+      "name": "Ficinus",
+      "body": "Another of them. The modern edition writes him Ficino.",
+      "aliases": [
+        "Ficinus",
+        "Ficino"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bembo",
+      "name": "Bembo",
+      "body": "A third, whom Montaigne lets alone with Equicola.",
+      "aliases": [
+        "Bembo"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "equicola",
+      "name": "Equicola",
+      "body": "The fourth.",
+      "aliases": [
+        "Equicola"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antigenides",
+      "name": "Antigenides",
+      "body": "The musician, who when he was asked to sing or play took care beforehand that the auditory should be satiated with some other ill musician before or after him — an invention Montaigne says he has need of himself.",
+      "aliases": [
+        "Antigenides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cratippus",
+      "name": "Cratippus",
+      "body": "With Zeno, one of the two grave philosophers whose absurd, crack-brained, wild motions in that pleasure Montaigne sets against their austere and severe air.",
+      "aliases": [
+        "Cratippus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "the-essenes",
+      "name": "The Essenes",
+      "body": "Of whom Pliny speaks, who kept up their country for several ages without either nurse or baby-clouts, by the arrival of strangers who came continually to them. The modern edition writes them Essenes.",
+      "aliases": [
+        "Essenians",
+        "Essenes"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lachesis",
+      "name": "Lachesis",
+      "body": "The Fate who spins: whilst there is still something left for her to spin, Juvenal says, and a man walks on his own legs and needs no staff.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "menon",
+      "name": "Menon",
+      "body": "Whom Xenophon accuses of never having made love to any but old women; and whom Socrates asks what virtue is, and who answers with a virtue of a man and of a woman and of a magistrate, until Socrates has three doubts where he had one. The modern edition writes him Meno.",
+      "aliases": [
+        "Menon",
+        "Meno"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "galba-emperor",
+      "name": "The Emperor Galba",
+      "body": "To whom Montaigne leaves that fantastic appetite: he was only for old curried flesh. Not the Publius Sulpicius Galba of 30:0.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "crassus-agelastus",
+      "name": "The elder Crassus",
+      "body": "Whom no one ever saw laugh — set against Socrates’s constant countenance, serene and smiling and not sourly austere. A fourth man of the name.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "octavius-of-rome",
+      "name": "Octavius",
+      "body": "One Octavius at Rome, who having lain with Pontia Posthumia augmented love with fruition, and solicited with all importunity to marry her; and being refused, that extreme affection precipitated him into the effects of the most cruel and mortal hatred, and he killed her.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pontia-posthumia",
+      "name": "Pontia Posthumia",
+      "body": "The woman he lay with, and killed. Not the Posthumia who was Servius Sulpitius’s wife.",
+      "aliases": [
+        "Pontia Posthumia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hemon",
+      "name": "Hemon",
+      "body": "A young boy of Chios who, thinking by fine dressing to acquire the beauty nature had denied him, asked Arcesilaus whether a wise man could be in love — and was answered yes, if the beauty were not such as his own contrived one. Cotton’s later edition makes him Emonez, a young courtezan of Chios.",
+      "aliases": [
+        "Hemon",
+        "Emonez"
       ],
       "category": "reference",
       "kind": "person",
