@@ -6,6 +6,39 @@ Kept current at every push.
 
 ## Done
 
+- 2026-09-13 — **The Books 1-6 collision backlog is cleared: 221 rows with no
+  disposition, now zero, by a worker that did not build the instrument.**
+  Ruling them found a defect in the INSTRUMENT before it found one in any
+  Book. `kept` dismissed a row from the KEEPER's side and there was no class to
+  dismiss it from the MOVER's side, so every row where one Book modernized a
+  word another Book could keep stayed open forever in whichever Book had done
+  the modernizing — **104 of 214 such rows fall to that one missing mirror,
+  `kept-elsewhere`**, measured by running the triage with every hand ruling
+  switched off. `RULINGS` was also keyed by `(arrow, key)` alone, which cannot
+  be right for eight Books because the correct disposition of a row depends on
+  which Book you are asking about; `RULINGS_BY_BOOK` fixes it and is consulted
+  first, so Books 7 and 8 regenerate byte-identical under the change.
+  **110 rows needed a person and 7 were live** — 103 reasoned dismissals for 7
+  repairs. Two new dismissal classes, both named so they can be audited:
+  `context-rendered` (the two contexts make each rendering wrong in the other's
+  place) and `free-variation` (the honest residue, used four times in six
+  Books). Six of the seven live rows came from **arrow C**, its fourth
+  independent vindication; the seventh came from arrow B across paragraphs and
+  is an accidental, not designed, brush with blind spot 6.
+  **Two successors, in ONE pass** (`scripts/build_collision_backlog_sweep.py`,
+  A5(a) applied): `book01/candidate-v4.json` `6e5ecb0a…` (five repairs) and
+  `book04/candidate-v5.json` `3c21549e…` (two). Every accepted candidate, every
+  file built FROM, and both `ACCEPTANCE.md` records hashed before and after and
+  asserted byte-unchanged; and, the half a sweep usually forgets, every word
+  the repairs exist to PROTECT asserted still present. **The third consecutive
+  run of this instrument to find something in ACCEPTED work**: B04-P040's
+  `holy hecatombs` -> a bare `holy sacrifices`, one sentence from Butler's own
+  `sacrifices`, where accepted Books 1 and 3 both pay for the lost scale with
+  an adjective and Book 4 did not — the `luscious` shape again. The sharpest
+  finding is B04-P017, `forenoon` -> `morning`, which makes Pisistratus say
+  that morning will come and that when it has come it will be there. Recorded
+  per Book in each `continuity.md`, "The collision backlog, ruled".
+
 - 2026-09-11 — Read the process templates: Meditations package
   (`WORKFLOW.md`, `GLOSSARY.md`, `PROVENANCE.md`, `00-progress-ledger.md`,
   and `book5/` in full) on `claude/meditations-modern-en-20260911-v2`, and

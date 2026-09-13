@@ -3,8 +3,10 @@
 Updated continuously. Read this first, then `WORKFLOW.md`.
 
 **Last updated:** 2026-09-13, session `session_01K5bL9oWzAagjTMExsyUADi`
-(worker 9, **drafting + infrastructure role**). **Books 1–7 are accepted.
-Book 8 is drafted and frozen at step 4** and needs an independent review.
+(worker 10, **collision-triage role**). **Books 1–7 are accepted. Book 8 is
+drafted and frozen at step 4** and needs an independent review. **The Books 1–6
+collision backlog is cleared — `collision_triage.py` now exits zero for every
+Book — and it cost two successors.**
 
 ## State
 
@@ -15,10 +17,10 @@ is computed over is not a figure (R-1).** The one authoritative table is
 
 | Book | Step | file scored | basis | Retention | raw D17 | semicolons | **kept + ADDED** | **NORM RATE on Butler's pointing** | MOVE-GAP |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | 8 — accepted, successor v3 | `candidate-v2` | all 32 | 0.72703 | +20.5% | 47 → 13 | 12 + 1 | **−4.5%** | 0.05088 |
+| 1 | 8 — accepted, successors v3, **v4** | `candidate-v2` | all 32 | 0.72703 | +20.5% | 47 → 13 | 12 + 1 | **−4.5%** | 0.05088 |
 | 2 | 8 — accepted, successors v3–**v6** | `candidate-v2` | all 35 | 0.90232 | +16.1% | 36 → 21 | 16 + 5 | **+1.2%** | 0.01632 |
 | 3 | 8 — accepted, successor v3 | `candidate-v2` | **37 of 38** | 0.89641 | +5.5% | 39 → 32 | 26 + 6 | **−2.0%** | 0.02156 |
-| 4 | 8 — accepted, successors v3, v4 | `candidate-v2` | all 81 | 0.95872 | +8.9% | 68 → 50 | **50 + 0** | **+2.0%** | 0.00431 |
+| 4 | 8 — accepted, successors v3, v4, **v5** | `candidate-v2` | all 81 | 0.95872 | +8.9% | 68 → 50 | **50 + 0** | **+2.0%** | 0.00431 |
 | 5 | 8 — accepted, **successor v3** | `candidate-v2` | all 37 | 0.93808 | +23.5% | 34 → 13 | 12 + 1 | **+7.5%** | 0.00891 |
 | 6 | 8 — accepted, **successor v3** | `candidate-v2` | all 26 | 0.93408 | +27.6% | 27 → 5 | 3 + 2 | **+5.6%** | 0.01156 |
 | **7** | **8 — ACCEPTED** | **`candidate-v2`** | all 29 | **0.93438** | **+34.0%** | **30 → 7** | **5 + 2** | **+7.5%** | **0.01217** |
@@ -29,7 +31,9 @@ Hashes: Book 7 accepted
 Book 8 frozen v1
 `e758790c58e0ace5c97159b2fa4e6d0f987f0b0edeba9120542ed772ec6ce012`;
 successors `book02/candidate-v6.json` `a6fb8103…`,
-`book05/candidate-v3.json` `c8af4cc3…`, `book06/candidate-v3.json` `1ae67a52…`.
+`book05/candidate-v3.json` `c8af4cc3…`, `book06/candidate-v3.json` `1ae67a52…`,
+and from the collision backlog `book01/candidate-v4.json` `6e5ecb0a…`,
+`book04/candidate-v5.json` `3c21549e…`.
 
 ## The column that is new, and why it replaces the old one
 
@@ -122,38 +126,106 @@ including **`homograph`**, which is the class the review asked for by name
 (`issue` is *outcome* at B03-P007 and *offspring* at B07-P007: two words spelled
 alike, not a collision).
 
-## One thing this session OPENED rather than closed
+## The thing the last session OPENED, now CLOSED
 
-**`collision_triage.py` exits non-zero for Books 1–6, and that is the
-instrument working, not a bug.** R-2 was reported as a Book 7 problem — 72 rows
-returned, eleven acted on, sixty-one dismissed with no record. It is not a Book
-7 problem. Running the triage over every accepted Book shows the same gap
-everywhere, and now it is counted:
+**`collision_triage.py` exited non-zero for Books 1–6 — 96, 30, 27, 30, 26 and
+12 rows with no disposition, 221 in all.** Worker 9 deliberately did not rule
+them, on the grounds that writing 221 dispositions in the session that built the
+instrument would be the very defect the instrument exists to catch. It was
+right, and a separate worker ruled them. **Every Book now exits zero.**
 
-| Book | rows touching it | **with no disposition** |
+| Book | rows touching it | with no disposition |
 |---|---|---|
-| 1 | 164 | **96** |
-| 2 | 93 | **30** |
-| 3 | 121 | **27** |
-| 4 | 133 | **30** |
-| 5 | 91 | **26** |
-| 6 | 84 | **12** |
-| 7 | 82 | 0 |
-| 8 | 93 | 0 |
+| 1 | 158 | **0** |
+| 2 | 89 | **0** |
+| 3 | 118 | **0** |
+| 4 | 130 | **0** |
+| 5 | 89 | **0** |
+| 6 | 81 | **0** |
+| 7 | 77 | 0 |
+| 8 | 91 | 0 |
 
-**These were deliberately NOT ruled here.** Writing 221 dispositions for six
-accepted Books in the session that built the instrument would be the same
-defect the instrument exists to catch — a record produced to make a script exit
-zero rather than because somebody read the rows. Books 7 and 8 are ruled
-because they were being worked on and every ruling was made against the text.
+(Row counts fell because the two successors below removed the rows they
+repaired.)
 
-**What the next worker should know:** most of these will fall into the
-mechanical classes on sight (`kept` alone took 48 of Book 7's 82 and 65 of Book
-8's 93), so the real work is small; and a `repair` found among them costs a
-successor to an accepted Book, which is a coordinator matter. Book 1 at 96 is
-the one to start with — it is the most heavily rewritten Book in the package
-(retention 0.72703) and therefore the one whose renderings were least
-constrained.
+**The backlog was mostly noise, and the noise had ONE cause — a defect in the
+instrument, not in anybody's ruling.** `kept` dismisses a row from the KEEPER's
+side: *"the decision in this row belongs to whichever Book moved"*. There was no
+class to dismiss it from the MOVER's side. So every row where one Book
+modernized Butler's word and another kept it — because in ITS context the word
+is current English — was closed for the keeper and open forever for the mover.
+`kept-elsewhere` is that missing mirror and it absorbs **104 of the 214 rows of
+that shape**, measured by running the triage with every hand ruling for Books
+1–6 switched off. **110 rows needed a person; 7 were live.** 103 reasoned
+dismissals for 7 repairs.
+
+**`RULINGS` was keyed by `(arrow, key)` alone and that is wrong for eight
+Books,** because the right disposition of a row depends on which Book you are
+asking about. `RULINGS_BY_BOOK` is keyed by Book as well and is consulted first,
+so ruling Books 1–6 cannot reach back and alter the accepted record of Books 7
+and 8 — both regenerate byte-identical under the change, asserted by running
+them.
+
+**Two dismissal classes are new and both are named so they can be audited.**
+`context-rendered` (the two contexts make each rendering wrong in the other's
+place — deixis, collocation, which half of a sense is in play; *not* a licence
+for any two synonyms, and where the reason cannot name the difference the row is
+`free-variation` instead) and `free-variation` (the honest residue, **used four
+times in six Books**; if it ever carries a dozen rows it has become the thing it
+was invented to avoid).
+
+**Six of the seven live rows came from ARROW C**, the proximity arrow added at
+Book 7 — its fourth independent vindication. The seventh, `smart looking` ->
+`capable-looking` at B01-P019, came from arrow B across paragraphs. That is
+**blind spot 6 brushed by accident, not closed**: a discrimination lost across
+paragraphs is still invisible by design, and this one was caught because the two
+words happened to be rare enough for arrow B's gate.
+
+**Two successors, in ONE pass** — `scripts/build_collision_backlog_sweep.py`,
+A5(a)'s argument applied:
+
+* `book01/candidate-v4.json`
+  `6e5ecb0a4b7a40d2ca2ccf17ef36408bb95c6980a2584b522d37526959a77de8` — five
+  repairs, all in the most heavily rewritten Book in the package.
+* `book04/candidate-v5.json`
+  `3c21549edf30a74d5f1a5bedfe01f53823267a46caae97f59e0ebf5ce6c9986d` — two.
+
+Every accepted candidate, every file built FROM, and both `ACCEPTANCE.md`
+records are hashed before and after and asserted byte-unchanged. So is the half
+a sweep usually forgets: **every word the repairs exist to PROTECT is asserted
+still present**, so a repair cannot silence the check by deleting Butler's own
+kept word.
+
+**And the instrument found something in ACCEPTED work for the THIRD consecutive
+run.** B04-P040 renders Butler's `holy hecatombs` as a bare `holy sacrifices`,
+one sentence from his own `sacrifices`; accepted Books 1 and 3 both pay for the
+lost SCALE with an adjective (`great sacrifice`, `fine sacrifice`) and Book 4
+did not. The `luscious` shape again. The sharpest finding is B04-P017 —
+`forenoon` -> `morning` beside Butler's own `Morning`, which makes Pisistratus
+say that morning will come and that when it has come it will be there, spending
+on the first word the deferral the sentence exists to ask for.
+
+**Three repairs were DECLINED and recorded instead**, because a successor to an
+accepted Book has to buy a reading: `a couple of`/`a pair of` in Book 1
+(`free-variation`), `dwells` -> `lives` in Book 4 against Book 7's kept `dwells`
+(both defensible), and `scion` -> `young woman` at B06-P013 — no word both reads
+as modern English and keeps the graft metaphor, and the young palm at Delos
+three sentences later carries it in Butler's own words.
+
+Per-Book records are in each `continuity.md`, section *"The collision backlog,
+ruled"*; the row-by-row tables are generated into `bookNN/collisions.md`.
+
+### ⚠ One file is knowingly STALE
+
+**`book08/collisions.md` is two rows out of date** and was deliberately left at
+its committed bytes. The successors above change what the arrows read for
+**every** Book, including 8 — but Book 8 was under independent review by another
+worker who owns `book08/`, and handing that round a merge conflict on its live
+file costs more than the staleness. **Book 8's round must regenerate it**
+(`python3 scripts/collision_triage.py 8`) and should expect the `morning` and
+`himself` rows to go. `book07/collisions.md` WAS regenerated for the same reason
+in reverse: nobody is working on it, and a stale generated file is the R-2
+disease.
 
 ## The compound class, closed
 
@@ -183,6 +255,8 @@ accepted Book 6.
 
 ## Next, in order
 
+0. **Regenerate `book08/collisions.md`** as part of Book 8's round — see the
+   stale-file warning above.
 1. **Book 8's round 1.** `book08/review-instructions.md`, **four questions put
    explicitly**. A **thirteenth** kind of source rule, audited before trusted,
    with controls that clear Book 7's bar (the B03-P038 splice and a paragraph
@@ -245,7 +319,12 @@ paragraph-count arithmetic per chapter** as an independent index.
    no comma, dash, colon or quotation mark is counted anywhere. A per-mark
    census of source against candidate is still four lines and still unwritten.
 6. **A discrimination lost ACROSS paragraphs.** Arrow C closes the
-   same-paragraph case and only that case.
+   same-paragraph case and only that case. **The Books 1–6 triage produced the
+   first live instance**: `smart looking` -> `capable-looking` at B01-P019
+   collides with the candidate's own `capable` for Odysseus thirteen paragraphs
+   away. Arrow B caught it only because both of Butler's words are rare enough
+   for its gate; had either been common it would have passed unseen. The blind
+   spot stands, and it now has a named example to be closed against.
 7. **Whether a disposition in `collisions.md` or §H.1 is RIGHT.** Both files
    now guarantee that somebody wrote something down for every row. Neither can
    tell you the ruling was good.
