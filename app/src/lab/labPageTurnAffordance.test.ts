@@ -27,6 +27,44 @@ describe('page-turn affordance', () => {
     expect(labTapTurnAllowed(both.tapZones, 'pen')).toBe(true)
   })
 
+  it('gives a stylus phone the finger treatment, not the desktop buttons', () => {
+    // A phone with stylus support answers the `any-*` union exactly as a
+    // touchscreen laptop does. The primary pointer is what tells them apart.
+    const stylusPhone = labPageTurnAffordance({
+      finePointer: true,
+      hover: true,
+      coarsePointer: true,
+      primaryCoarse: true,
+      primaryHoverNone: true,
+    })
+    expect(stylusPhone.buttons).toBe(false)
+    expect(stylusPhone.tapZones).toBe('all')
+  })
+
+  it('still gives a touchscreen laptop both — its primary pointer is the mouse', () => {
+    const laptop = labPageTurnAffordance({
+      finePointer: true,
+      hover: true,
+      coarsePointer: true,
+      primaryCoarse: false,
+      primaryHoverNone: false,
+    })
+    expect(laptop.buttons).toBe(true)
+    expect(laptop.tapZones).toBe('touch')
+  })
+
+  it('keeps the buttons for a narrow desktop window, which has no coarse pointer', () => {
+    const narrow = labPageTurnAffordance({
+      finePointer: true,
+      hover: true,
+      coarsePointer: false,
+      primaryCoarse: false,
+      primaryHoverNone: false,
+    })
+    expect(narrow.buttons).toBe(true)
+    expect(narrow.tapZones).toBe('none')
+  })
+
   it('offers both when the browser reports nothing, rather than neither', () => {
     const unknown = labPageTurnAffordance({})
     expect(unknown.buttons).toBe(true)

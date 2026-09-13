@@ -166,7 +166,13 @@ function readPhoneFooter(layoutOverride: ReturnType<typeof labLayoutOverride>, i
   })
 }
 
-const POINTER_QUERIES = ['(any-pointer: fine)', '(any-hover: hover)', '(any-pointer: coarse)'] as const
+const POINTER_QUERIES = [
+  '(any-pointer: fine)',
+  '(any-hover: hover)',
+  '(any-pointer: coarse)',
+  '(pointer: coarse)',
+  '(hover: none)',
+] as const
 
 /**
  * The pointer, not the window width, decides how pages are turned. A narrow
@@ -184,6 +190,8 @@ function readPageTurnAffordance(layoutOverride: ReturnType<typeof labLayoutOverr
     finePointer: matches(POINTER_QUERIES[0]),
     hover: matches(POINTER_QUERIES[1]),
     coarsePointer: matches(POINTER_QUERIES[2]),
+    primaryCoarse: matches(POINTER_QUERIES[3]),
+    primaryHoverNone: matches(POINTER_QUERIES[4]),
   })
 }
 

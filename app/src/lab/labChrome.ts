@@ -183,8 +183,16 @@ export function labPageTurnAffordance(input: {
   finePointer?: boolean
   coarsePointer?: boolean
   hover?: boolean
+  primaryCoarse?: boolean
+  primaryHoverNone?: boolean
 }): LabPageTurnAffordance {
   if (input.override === 'phone') return { buttons: false, tapZones: 'all' }
+  // The union above is the wrong question for a phone. A phone that supports
+  // a stylus answers `(any-pointer: fine)` and `(any-hover: hover)` true, so
+  // it used to read as a touchscreen laptop and take the desktop buttons.
+  // The primary pointer settles it: a finger with no hover is a hand-held
+  // surface whatever else the device can also be poked with.
+  if (input.primaryCoarse && input.primaryHoverNone) return { buttons: false, tapZones: 'all' }
   const fine = !!input.finePointer || !!input.hover
   const coarse = !!input.coarsePointer
   // Nothing known (an old browser, a test renderer): offer both rather than
