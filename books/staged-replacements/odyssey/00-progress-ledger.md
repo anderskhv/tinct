@@ -336,6 +336,8 @@ Kept current at every push.
 | **D11** | **A finding is answered either way, and an "optional" finding whose real subject is a rule for later Books is settled at the Book that raises it, not deferred.** | Applied at Book 1 to 3.1 (hecatomb, a rule for every later hecatomb) and 26.1 (the "in her heart" formula, which recurs through the poem). The alternative — carry it forward as a preference — means the same question is rediscovered at Book 6 with a rendering already in the file. All five of Book 1's optional findings were applied on this reading. |
 | **D12** | **Butler's square brackets are disposed of BY CLASS, and the class is decided by whose voice the bracket is in and what it is about — never by its length.** **Class A**, a supplement Butler makes because the Greek lacks the words and says in a note that he *supplied* them (PG 802, `[do not]`, footnote 18 — the poem's only instance): **the mark is dropped, the words stand**, and the pointing the bracket carried is supplied in ordinary modern punctuation. **Class B**, an unflagged explanatory supplement inside the line (eight instances, of which Book 3's `[on the embers]` at PG 1129 is the first): **the same disposition, on a weaker warrant, so every instance is recorded AND flagged as class B in the Book's `continuity.md`.** **Class C**, a passage set off by a bracket whose note argues about **when and by whom it was composed** (six instances, the first at **PG 1552** in Book 4, footnote 36): **SETTLED 2026-09-12 at Book 3's round 1 — the mark is dropped, every word stands, nothing is recast across the bracket's boundaries, and every instance is recorded, with Butler's note and with who bracketed it. The same disposition as A and B, on a third warrant, with obligations the other classes do not carry: never abridge, merge or compress a class-C passage (PG 4260 and PG 4884 are the same prophecy twice, which is fn 91's whole point); where the bracket is unclosed, record that and do not determine the extent; if the product ever gains a note layer, class C becomes a note. Book 4 is UNBLOCKED.** Enumeration, tests, the six instances and the four corrections are in `GLOSSARY.md`. | Ruling 1 of Book 2's round-1 review, plus records finding **R4**. The Book 2 disposition was right and its recorded *reason* was wrong: `continuity.md` classed `[do not]` as a textual mark "rather than a translator's supplement", and Butler's footnote 18 says in terms that it *is* a translator's supplement — *"without prefixing the necessary 'do not,' which I have supplied."* That makes the disposition **stronger**, since Butler himself calls the words necessary. But a one-line rule generalized from it is dangerous: for class C, "drop the mark, keep the words" **silently converts Butler's recorded editorial doubt into narration**, and the damage is invisible in the output, so a drafter cannot be expected to catch it. Written by class for the same reason the Meditations package needed **D11** and **D13**: one bracket character does at least three jobs, and the natural mistake is the damaging one. **Class C settled at Book 3's round 1 (ruling 2), on four facts checked against PG #1727 rather than on a default:** Butler's footnote 81 says *"lines enclosed in brackets are almost always genuine; all that brackets mean is that the bracketed passage puzzled some early editor"* — so there is no verdict of spuriousness to preserve; footnotes 36, 82, 91 and 107 claim **authorship history**, not doubt (107: the passage was *"written by the same hand as the rest of the poem"*), and footnote 122 shows the Book 13 brackets are **not Butler's** and that he argues against them; our edition carries **no apparatus**, so a bare bracket cannot transmit a claim that lives only in footnotes we will never print; and **four of the six class-C brackets are never closed** (PG's body holds 15 `[` against 11 `]`; PG 1552, 4260, 5691 and 6016 do not close), so keeping the mark means either a stray unclosed character on the first paragraph of Book 4 or the drafter inventing the passage's extent. **Four corrections to D12 as written** (records finding **R3**): class C is not recorded doubt that the passage belongs; **five** of six instances are footnoted about the bracket, not three; PG 6016's brackets are not Butler's; and the first opens at **PG 1552**, not 1551. The bracket-count imbalance is records finding **R4**. |
 | **D13** | **`Mycene` is two names in Butler and is split by referent: the WOMAN stays `Mycene`, the CITY becomes `Mycenae`.** Butler spells both `Mycene` — the woman at PG 843 (Book 2, in a list of women), the city at PG 1377 (Book 3) and PG 9326 (Book 21). The city moves under **D8**; the woman does not, because D8 is silent about her. | Records finding **R1** of Book 2's round-1 review, settled before Book 3 is drafted rather than after, per `WORKFLOW.md` step 2. The glossary row as written said "Mycene is the woman, not the city" and filed her under *names that change in no Book*; Book 3's drafter meets the **city** four hundred PG lines later holding that row. D8 applies exactly as written and only to the city: `odyssey-threads.json` gives Agamemnon the epithet **"Murdered King of Mycenae"** — its only occurrence of either spelling — so the Cast has a display name for the place and none for the woman. Confirmed independently: the served `modern-en` being replaced already draws this exact line (`Mycene` at its Book 2 ¶7, `Mycenae` at Book 3 ¶24 and Book 21 ¶6), without recording it. Deliberately narrow, and it sits beside the opposite ruling on `Ilius`, which is **not** flattened to *Troy* because the Cast has no display name for it. |
+| **D5 (widened 2026-09-13)** | **Any figure Butler names in a ROMAN form takes the Greek one**, not only the Olympians. First applied at B08-P016: `Hercules` → `Heracles`. | Book 8's round 1, **O-1**. The determining fact is on the page: the candidate's B08-P016 already reads `Ares`, `Aphrodite` and `Hephaestus` within a few hundred words, and the sentence itself continues *"…such as Heracles, or **Eurytus the Oechalian**"* — a Greek name in the same list, in apposition. `Hercules` beside `Eurytus` is not a rule observed, it is a visible inconsistency, and D8 is silent only because the Cast has no entry for him, which is an absence of evidence. The list Books 11 and 12 will force is nameable now — **Proserpine → Persephone, Pluto → Hades, Bacchus → Dionysus, Aurora → Eos**, and Aeolus, Tiresias, Castor and Pollux, Cerberus, Charybdis, Scylla. Widening now means Book 11 inherits a rule instead of re-arguing it. |
+| **D16 clause (b) (2026-09-13)** | **A WORD is supplied to Butler's text only where his text is defective and only from Butler's own parallel, and every instance is tabulated in the Book's `continuity.md` §5 with the parallel named.** D16 as written governs MARKS. | Book 8's round 1, **M-3**. Three words were supplied to Butler's text in Book 8 and none was recorded, because no rule covered them. On this clause two pass and one fails, which is the right outcome in all three: **B08-P045**'s `enough` is drawn from Butler's own identical formula eleven paragraphs earlier (B08-P006) and **B08-P008**'s `There were` from his own next clause, while **B08-P042**'s `hardly` has no parallel and **inverts the sense** — Butler says Odysseus *had finished* the knot before he was called, `hardly … before` says he had barely finished. `hardly` is removed in `book08/candidate-v2.json`; the other two stand and are tabulated. Books 9–24 will meet more: PG #1727 has at least two more verbless list-fragments of the B08-P008 kind. |
 | **D14** | **Where the served `original-en` is demonstrably not the base text, the candidate renders the BASE TEXT, never the served corruption — and the divergence is recorded, the cost stated plainly, and a repair to the served file escalated rather than performed.** The divergence is recorded per paragraph in the Book's `continuity.md` with the evidence; **paragraph alignment is preserved in every case** — the paragraph exists and is non-empty, because audio, Cast data and saved reading positions key on the paragraph index. **Written for the class, not for the paragraph.** First and so far only application: **B03-P038**, where 196 of the served paragraph's 208 words are the served `modern-en`'s own ¶38, spliced in to complete a half-sentence Butler leaves open at the end of his Book III. The candidate prints Butler's twelve words: `Now when the sun had set and darkness lay over the land,`. The repair text and the before/after hashes are in `book03/ACCEPTANCE.md` and in **A3**, so repairing the served file is a one-line patch rather than a research task. | Ruling 1 of Book 3's round-1 review, settled 2026-09-12. **The decisive argument is about the repair, not about the duplication:** A3 recommends repairing `odyssey-original-en.json` so ¶38 is Butler's clause alone, and that repair will very likely happen. If the modern edition had meanwhile rendered the splice, then on the day of the repair the modern column's ¶38 becomes 200 words with **no source at all** — a paragraph of the *replaced* file's prose aligned against twelve words of Butler, permanently, with nobody left who remembers why. Rendering the base text is correct both before and after the repair. Borrowing Book IV's opening words to complete the sentence was rejected for a second reason worth keeping: it would invent a Book-boundary policy for a 24-Book edition on the strength of one paragraph, and this is not the only place Butler runs a sentence across the join — his Book III opens the same way, on a lower-case `but`. The cost is real and not minimized: 208 words against 12 in split view will be read as a bug, and it **is** a bug, in the other file. A class-level row rather than a note on one paragraph because `scripts/scan_staged_original_vs_pg.py` shows no second instance in *this* file but does not cover the library's other books, and a drafter meeting a similar splice without a rule will do the natural thing — modernize what is in front of them — and will be right to, absent a rule. |
 | **D15** | **Compound spelling follows the modern standard form of the compound, in whichever direction that moves Butler's Victorian setting — closed, hyphenated or open. The change is typographic and silent. The test for whether it is typographic at all: *does it alter what a reader would say aloud?* If it does, or if it renames the object, it is a rendering decision and is recorded in the Book's `continuity.md`.** Written out with Book 4's twelve instances in `PUNCTUATION.md` §4. | Records finding **R4** of Book 4's round 1. The package had been running on a single precedent (`sweet meats` → `sweetmeats`, accepted at Book 3, upheld at Book 4 as normalization). One Book then moved compounds in **three directions at once** — four closed, three hyphenated, four opened, three of them recorded decisions and the rest silent — and two of the opened ones landed on a form that is **neither Butler's nor modern English's** (`sea side`, corrected to `seaside`; `drink offering`, which is in fact the standard open form and is kept, recorded). This is the class that already cost the package a whole successor version at Book 2 (`mixing bowl` → `mixing-bowl`, finding 27.1), and it is invisible to every check except the cross-Book `hyphen_drift()` scan, which only fires once a *second* accepted Book disagrees. A rule, written down, is cheaper than a third discovery. |
 | **D16** | **One rule for Butler's punctuation slips: a Victorian mark is REPAIRED when a modern reader reads it as an error, and KEPT when it is merely old-fashioned but correct.** `PUNCTUATION.md` §5, with Book 4's three instances: B04-P040's double opening mark repaired (it names the wrong speaker), B04-P046's lower-case opening after a question mark repaired, B04-P039's dated-but-correct terminal question mark kept. | Round 1 of Book 4, section E. The draft had repaired one of the three and kept another without ruling, and the reviewer's point was not about which disposition is right but that **one class had two dispositions**. Under **D4** this Book's opening quotation marks are load-bearing across twenty-one consecutive paragraphs, so a wrong mark is a wrong speaker, not a blemish — which is what separates "repair" from "preserve" and makes the rule decidable rather than a matter of taste. |
@@ -741,16 +743,87 @@ against Butler's (**D19**). Every control under **D18**; run
 
 ## Needs Anders (listed, not waited on)
 
-- **A7 (new, 2026-09-13, from Book 8's round 1 §1.3). Widen A3.** The served
-  `original-en` diverges from PG in four places, not one. The three besides
-  the D14 splice were called *normalizations that touch no word*; two of them
-  are not. PG opens Books III and IV lower-case because **Butler runs one
-  sentence across the Book boundary** (`…darkness was over the land,` /
-  `they reached the low lying city of Lacedaemon`), and capitalizing `But` and
-  `They` destroys that device — the same defect as the splice, one letter of
-  it. A3's one-line patch as prepared would restore the half-sentence and
-  leave the capital that made it look broken. Verified independently by two
-  unlike methods in `book08/review/`.
+- **A7 (2026-09-13, from Book 8's round 1 §1.3). A3 IS WIDENED, and the
+  widened patch is prepared and hashed the way D14 requires.** Still Anders's
+  to apply: it is a production file.
+
+  The served `original-en` diverges from PG in **four** places, not one. Three
+  were called *"normalizations that touch no word"*; **two of them are not
+  normalizations, and calling them that is the same mistake as the splice, one
+  letter of it.**
+
+  | ¶ | divergence | disposition |
+  |---|---|---|
+  | **B03-P038** | the D14 splice — 196 of 208 words are the served `modern-en`'s own ¶38 | **A3, unchanged** |
+  | **B03-P001** | PG opens Book III `but as the sun was rising`; the served file has `But` | **A3, WIDENED to it** |
+  | **B04-P001** | PG opens Book IV `they reached the low lying city`; the served file has `They` | **A3, WIDENED to it** |
+  | **B01-P025** | PG sets a space before an em dash; the served file closes it up | **a normalization, and left as one** — no word, no letter, no device |
+
+  **Why the two capitals are the splice again.** Butler runs one sentence
+  across the Book boundary. PG's Book III ¶38 is a protasis — *"Now when the
+  sun had set and darkness was over the land,"* — and PG's Book IV ¶1 is its
+  apodosis — *"they reached the low lying city of Lacedaemon"*. The same
+  construction joins Book II to Book III. Capitalizing `But` and `They`
+  destroys the device, and it destroys it in the direction that makes the
+  splice look necessary: with the capital in place, ¶38 reads as a broken
+  fragment, and somebody completed it with 196 words of the wrong file.
+  **A3's patch as prepared would restore the half-sentence and leave the
+  capital that made it look broken.**
+
+  **The widened patch.** Three substitutions in one file, each occurring
+  exactly once, computed in a scratch copy and re-parsed; **the served file
+  was not written.**
+
+  1. chapter 3 ¶38 truncated to Butler's clause, exactly:
+     `Now when the sun had set and darkness was over the land,`
+  2. chapter 3 ¶1 `But as the sun was rising` → `but as the sun was rising`
+  3. chapter 4 ¶1 `They reached the low lying city` → `they reached the low
+     lying city`
+
+  | | |
+  |---|---|
+  | File | `app/public/data/editions/odyssey-original-en.json` |
+  | sha256 **before** | `da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07` (637,591 bytes) |
+  | sha256 **after, A3 as prepared** (the truncation alone) | `0cc76350232962d4c4f1cf1eb7216f14515fc1910f94f666695d2a595d4e6980` (636,440 bytes) |
+  | sha256 **after, A3 WIDENED** (truncation + the two capitals) | `e45d6c4d1b35873555c8611b0047e707b909666181aa115ffaba8c3fe049a54e` (636,440 bytes) |
+  | Paragraph counts | unchanged, 1,027, and unchanged chapter by chapter |
+
+  The `0cc76350…` row reproduces the figure A3 recorded on 2026-09-12 from an
+  independent recomputation here, which is the point of recording it.
+
+  **WHAT THE FIX COSTS, plainly, because two of the three costs are real and
+  one of them is this package's.**
+
+  1. **Two chapters of the served original will open with a lower-case word.**
+     To a reader who opens Book III directly — which is how the app's library
+     works — that reads as a defect. It is not; it is Butler. But it is
+     indistinguishable from one without the previous chapter on the screen,
+     and *that* is why somebody capitalized it. The fix buys fidelity and pays
+     in something that looks like a bug, which is the same trade D14 accepted
+     for B03-P038 (208 words against 12) with its eyes open.
+  2. **It costs this package two successors — but not yet.** The accepted
+     modern Books inherited the capitals from the served file: `book03/…`
+     opens `But as the sun was rising` and `book04/…` opens `They reached the
+     low-lying city`, while accepted Book 3's own ¶38 already ends at Butler's
+     comma. So the modern column currently prints a half-sentence followed by
+     a capital, which is the defect with none of the compensation. **Under
+     D14 the candidate renders the base text, so the two openings should be
+     lower-case, one letter each, in successors to accepted Books 3 and 4.**
+     They are **deliberately not built here.** Applying them before the served
+     file is repaired would put a lower-case modern opening beside a
+     capitalized original in split-pane view, paragraph-aligned — a visible
+     mismatch between the two columns of the same screen, which is a worse
+     state than the one we are in and is the class D14 exists to prevent. The
+     successors are owed **on the day A3 lands**, and this row is the record
+     that they are owed.
+  3. **What it does NOT cost: alignment.** All three substitutions leave
+     1,027 paragraphs, the same count in every chapter. Audio, Cast data and
+     saved reading positions key on the paragraph index and none of them
+     moves.
+
+  Verified independently by two unlike methods in `book08/review/` (the
+  thirteenth source rule's clause C, and a character-level `SequenceMatcher`
+  pass), and the hashes above by a third, here.
 
 - **~~A5.~~ DONE 2026-09-13 — `mountain tops` closed, the vendored word list
   declined, and the register built. `book05/candidate-v3.json` `c8af4cc3…` and
@@ -846,7 +919,9 @@ against Butler's (**D19**). Every control under **D18**; run
   (iii) **D20 is proposed, not decided** — see the decisions table.
 
 - **A3. The served `original-en`'s Book 3 ¶38 is defective, and only a change
-  to a production file can really fix it.** 196 of its 208 words are the served
+  to a production file can really fix it. WIDENED 2026-09-13 to Book III's and
+  Book IV's lower-case openings — see A7 above for the widened patch, its
+  before/after hashes and what it costs. The text below is A3 as it stood.** 196 of its 208 words are the served
   `modern-en`'s own ¶38, spliced in to complete a half-sentence Butler leaves
   open at the end of his Book III, and they duplicate ¶37. Everything else in
   the file is sound — 1,027 paragraphs and 117,228 words checked against PG.

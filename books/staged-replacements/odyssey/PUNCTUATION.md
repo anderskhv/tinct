@@ -179,3 +179,43 @@ not any particular disposition but *two dispositions for one class*. The rule:
 This sits beside §2 and §3: a convention that carries information (D4's
 continuous speech) is preserved; a convention a modern reader would misread as
 an error is normalized; a mark that *is* an error is repaired and named.
+
+---
+
+## 6. The colon and the parenthesis — one rule each (Book 8's round 1, O-3)
+
+Two classes that no line of this file, `GLOSSARY.md` or the ledger governed,
+and that Book 8 disposed of silently in both directions. The state to avoid is
+not any particular disposition; it is **two dispositions for one class**, which
+is what §5 was written about.
+
+**Butler's colons are KEPT, unless the clause after the colon is a new
+sentence's subject.** Butler's colon does explanatory work — *here is why*, or
+*here is the list* — and modern English has kept it for both jobs. Book 8
+carries six of his and cashed exactly one, at **B08-P020** (*"Let us go to the
+couch of Hephaestus**:** he is not at home"*), where the clause after it is a
+reason and not a new subject. It is restored in `book08/candidate-v2.json`.
+
+**And a colon may be ADDED to introduce a list, and only for that.** This is
+the one job modern English reserves the mark for, and it is the Book 7 §5.4
+disposition for added semicolons applied to the other mark: an addition is a
+DECISION, recorded, not a silent gain. Book 8 has one, at **B08-P008** —
+Butler's four-comma appositive *"Three sons of Alcinous, Laodamas, Halios, and
+Clytoneus, competed also"* becomes *"Three sons of Alcinous competed as well:
+Laodamas, Halios, and Clytoneus"*. It adds no sentence boundary, and under
+**D27** + **D21** it is worth nothing in the compared figure, which is the
+measure working rather than a loophole.
+
+**A count could not have found either of these.** The round-1 mark census reads
+`: 6 → 6` and calls the class untouched; the draft had in fact cashed one of
+Butler's and added one of its own. Provenance can tell a swap from a
+standstill and a count cannot, which is why D27's measure is built on the
+alignment and not on the totals.
+
+**Butler's parentheses become em dashes only where the aside is a whole
+clause.** Parentheses lower an aside; dashes raise it, and the candidate's
+other dashes are Butler's own, so a converted pair reads as emphasis he did not
+write. Book 8 has his only parentheses at **B08-P044** — *"with plenty of fat
+(for there was abundance left on the joint)"* — and the aside is a full clause
+with its own subject and verb, so the conversion stands and is recorded here.
+An aside that is a phrase keeps its parentheses.
