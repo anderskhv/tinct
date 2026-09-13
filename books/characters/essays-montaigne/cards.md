@@ -4257,3 +4257,91 @@ Who, being asked what he thought of the tragedy of Dionysius, said: I could not 
 ## Q. Cicero · reference
 
 The orator’s brother, cited twice from the treatise on canvassing for the consulship: that a man who thinks himself behind in obligation can by no means be a friend, and that it is hard for a man to conform to such a variety of manners, discourses and wills. His citations had been binding to his brother until chapter 102 was read.
+
+## Diomedes · reference
+
+Who wrote six thousand books upon the sole subject of grammar, Montaigne says, asking when he shall have done representing the agitation of his own thoughts. The note beside the sentence says it was not Diomedes but Didymus.
+
+## Didymus · reference
+
+The grammarian who, as Seneca tells the note-writer, wrote four thousand books on questions of vain literature — which was the chief study of the ancient grammarians, and which the note offers in place of Montaigne’s six thousand.
+
+## Philotimus · reference
+
+The physician who said to one that presented him his finger to dress, and whom he perceived by his complexion and his breath to have an ulcer in his lungs: friend, it is not now time to play with your nails.
+
+## Pyrrha · reference
+
+Who begot a people by casting stones behind her — one of the two ways, with Cadmus’s, that Montaigne says we do not beget a state.
+
+## Cadmus · reference
+
+The other of them, who sowed the dragon’s teeth.
+
+## Monsieur de Pibrac · reference
+
+The good Monsieur de Pibrac, lately lost, a man of so excellent a wit, such sound opinions and such gentle manners; whose quatrain on loving the state as you find it Montaigne quotes in the French.
+
+## Monsieur de Foix · reference
+
+Lost at the same time, and the other of the two Gascons whom Montaigne doubts that France can replace in sincerity and wisdom in the council of her kings. Not the Monsieur de Foix whose ardour at Ravenna cost him his life at 47:8.
+
+## Pacuvius Calavius · reference
+
+Who, being a man of great authority in Capua when his fellow-citizens were in mutiny against their magistrates, shut the senators up in the palace and offered the people leave to condemn them one by one, provided they named an honest man to fill each place — and so quieted the sedition, since no name was proposed that the crowd could bear. Not the tragedian Pacuvius.
+
+## Salus · reference
+
+The goddess of safety, who in the verse of Terence could not save that family though she wished to.
+
+## Lyncestes · reference
+
+Accused of conspiracy against Alexander, and brought out before the army to say what he could for himself; he had learned a studied speech, hesitated and stammered through some words of it, and whilst he struggled with his memory the soldiers nearest him despatched him with their pikes — a story Montaigne says he never reads without a personal resentment.
+
+## Antiochus · reference
+
+Who in his youth wrote strongly in favour of the Academy and in his old age as much against it; and whom, Montaigne says, a man would still be following whichever of the two he followed. Not the Antiochus of 20:4, who was inflamed with the beauty of Stratonice.
+
+## Valerius Maximus · reference
+
+Cited for the line that whatever is compelled by power is more imputed to him that exacts it than to him that performs it.
+
+## Nonius · reference
+
+Cited for the line Montaigne turns to his own housekeeping: rather enough than costly — more wit than cost.
+
+## Portia · reference
+
+Cato’s daughter and Brutus’s wife, and the standard Montaigne sets against the woman who, having just now illicitly embraced, will presently inveigh more loudly against the same fault in her companion.
+
+## Clinias · reference
+
+In whose lap, Montaigne says, Xenophon wrote against the Aristippic virtue — his instance that the same teacher publishes rules of temperance and lessons of wantonness together. Not the Clinias of 99:133, which is the title of a book of Heraclides.
+
+## Olus · reference
+
+Whom Martial asks what it is to him what this man or that does with his own skin — which Montaigne applies to those who inquire into other men’s lives.
+
+## Ctesibius · reference
+
+Whom Arcesilaus went to visit sick, and finding him in a very poor condition very finely conveyed some money under his pillow, and by concealing it from him acquitted him of the acknowledgment due to such a benefit.
+
+## Tigellinus · reference
+
+With Petronius, one of the two men of little mark at Rome who, condemned to despatch themselves, rocked death asleep with the delicacy of their preparations, and made it slip away amongst girls and good fellows, with not a word of consolation nor any mention of a will.
+
+## Petronius · reference
+
+The other of them, and the author of the line that the mind wishes to have what it has lost and throws itself wholly into memories of the past. Not the Granius Petronius whom Scipio took in Africa.
+
+## Diogenes · reference
+
+The Stoic, named in the succession of the sourest sect — Chrysippus, Cleanthes, Diogenes, Zeno, Antipater — all of whom readily abandoned their country for the enjoyment of another air. Not the Cynic, nor the atheist, nor the Apolloniate.
+
+## Antipater · reference
+
+The last of that succession. Not the Antipater who demanded fifty children of the Spartans for hostages.
+
+## Saturninus · reference
+
+Who said to those that had conferred upon him the command in chief: companions, you have lost a good captain, to make of him a bad general — which Montaigne offers as the excuse of his own principal imperfections. A third man of the name.

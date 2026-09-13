@@ -1,21 +1,22 @@
 # Montaigne's Essays character package — IN PROGRESS
 
-**Chapters 1–102 of 107 are authored. The rest are not.** Status stays
+**Chapters 1–103 of 107 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole work is
 covered.
 
-Current state: 1,064 entities authored, all 1,064 bound in both editions, 4,383
-and 4,528 exact mentions. Of those, 162 and 180 fall inside chapters 1–10, 205 and 209
+Current state: 1,086 entities authored, all 1,086 bound in both editions, 4,421
+and 4,563 exact mentions. Of those, 162 and 180 fall inside chapters 1–10, 205 and 209
 inside chapters 11–20, 344 and 357 inside chapters 21–25, 136 and 142 inside
 chapters 26–30, 256 and 264 inside chapters 31–40, 278 and 288 inside
 chapters 41–50, 271 and 279 inside chapters 51–60, 272 and 278 inside
 chapters 61–68, 592 and 599 inside chapter 69 alone, 157 and 159 inside
 chapters 70–73, 214 and 218 inside chapters 74–80, 286 and 310 inside
 chapters 81–90, 385 and 404 inside chapters 91–98, 253 and 260 inside
-chapter 99 alone, and 150 and 154 inside chapters 100–102; the rest — 422 and 427 —
+chapter 99 alone, 150 and 154 inside chapters 100–102, and 162 and 162 inside
+chapter 103 alone; the rest — 295 and 298 —
 are later occurrences of names that belong to one man through the whole book:
 Cicero, Plato, Horace, Seneca, Socrates, Plutarch, Aristotle and the other
-authorities Montaigne quotes on every page. Content revision 2026-09-13.10.
+authorities Montaigne quotes on every page. Content revision 2026-09-13.11.
 
 Chapter 69, the Apology for Raimond Sebond, is by itself the largest chapter in
 the work — 660 paragraphs, as much text as chapters 41–68 together, and more
@@ -138,6 +139,10 @@ this scale:
 | **Origeti** (69:476) | Origen |
 | Marc Antony (100:13) | Mark Antony |
 | Adrian (101:13) | Hadrian |
+| Horatius (68:24, 103:13) | Horace |
+| Toyquatus (103:264) | Torquatus — and both are the title of a book, so neither binds |
+| Paulus Emilius (103:18) | Paulus Aemilius — likewise a title |
+| Architas (103:212) | Architas — both editions, against *Archytas* at 88:13 |
 | Lachez (100:7) | Lachez — both editions, against *Laches* at 12:1 and 84:22 |
 
 Both spellings sit on one card, and a test pins every pair. The last row is the
@@ -385,6 +390,15 @@ ninety-eight chapters:
 | **`pausanias-writer`** | 102:5 | `pausanias-sparta` of 29:5, `pausanias-plataea` of 36:10 and `pausanias-assassin` of 59:21. A fourth of the name, and the only one of the four who *tells us* anything |
 | `hadrian` | 101:13 | `cardinal-adrian` of 33:2. The older edition writes the emperor *Adrian* here and the modern *Hadrian*, so both patterns are keyed to the same paragraph |
 | `albus`, `barrus` | 102:4 | nobody — but 102:3 is the same two lines in Horace's Latin, where Albus is *Albi* and Barrus is spelt alike. Barrus is keyed to the version for that reason |
+| **`pacuvius-calavius`** | 103:84 | **`pacuvius` the tragedian**, whose bare alias was binding the man of Capua twice in one paragraph |
+| **`antipater-of-tarsus`** | 103:181 | **`antipater` the Macedonian regent**, whose bare alias was binding the last man of the Stoic succession. The regent now carries no alias either |
+| **`petronius-arbiter`** | 99:5, 103:195 | **`granius-petronius`** of 91:33, who is named in full once and by the bare surname once in the same sentence. Neither man holds the alias; both are keyed |
+| **`paul-de-foix`** | 103:79 | **`monsieur-de-foix`** of 47:8, dead in the pursuit at Ravenna. The Essays call both of them by the same three words, so neither carries an alias |
+| **`diogenes-of-babylon`** | 103:181 | `diogenes-the-cynic`, `diogenes-the-atheist` and `diogenes-apolloniates`. A fourth of the name, and the only Stoic among them |
+| `antiochus-of-ascalon` | 103:118 | `antiochus` of 20:4, who was inflamed with the beauty of Stratonice |
+| `saturninus-general` | 103:255 | `saturninus` the tribune of 68:7 and `saturninus-husband` of 69:345 |
+| **`clinias`** | 103:239 | **the title of a book of Heraclides at 99:133.** Keyed, not aliased, for that reason — the third time this trap has been found, after Hippolytus and Agamemnon |
+| `diomedes`, `didymus` | 103:0, 103:1 | each other: Montaigne names Diomedes and the note beside the sentence says it was Didymus |
 
 **Three of those were live mis-bindings the sweep caught**, not hypotheticals. The
 bare surname *Lepidus* was binding the man who died of a stumble at 19:24 to the
@@ -406,19 +420,19 @@ that is single-referent across the whole work — the authorities and philosophe
 Montaigne quotes on every page — is bound by alias and therefore appears in
 chapters that have not been authored yet, with a card written to be true
 anywhere in the book rather than to gloss the paragraph it was first found in.
-A hundred and thirteen entities bind beyond chapter 102 that way, and five of
-them — Cicero, Socrates, Seneca, Plato and Horace — account for two-fifths of it. It
-is worth being plain about the size of this: 422 of the 4,383 mentions in the
-older edition fall in chapters that have not been read — five chapters, two
+Ninety-one entities bind beyond chapter 103 that way, and five of
+them — Socrates, Seneca, Cicero, Plato and Horace — account for two-fifths of it. It
+is worth being plain about the size of this: 295 of the 4,421 mentions in the
+older edition fall in chapters that have not been read — four chapters, one
 of them among the longest in the work. Those are bindings of names with
 one bearer, and the cards are written to be true anywhere; but they are not
 reviewed paragraph by paragraph, and the release owner should read the scope line
 as covering the *cast*, not every mention of it.
 
-## Editorial checks — chapters 1–102
+## Editorial checks — chapters 1–103
 
-**1. Namesakes.** The two hundred and fifty-four entities in the table above — a
-hundred and ninety-six rows — each pinned by a test.
+**1. Namesakes.** The two hundred and seventy entities in the table above — two
+hundred and six rows — each pinned by a test.
 
 **2. Person or not.** This is the check that does the most work in an essayist.
 Excluded:
@@ -628,6 +642,31 @@ Chapter 99 adds four, and one of them is the chapter's own hardest line:
   the authorship of an elegy, not a man — the same judgment already made at
   19:70. The Gallus of 99:232, set against Horace for speaking simply because he
   conceives simply, is the elegist and is bound.
+
+Chapter 103 adds the largest single haul of titles in the package, and six more
+gaps:
+
+- **"as these others, Andria, Eunuchus; or these, Sylla, Cicero, Toyquatus" at
+  103:264** is a list of *titles* — books denoted by the name of the man they are
+  about — and four aliases were binding all four of them. The same paragraph's
+  **Daemon of Socrates** is Plutarch's title and was binding the man. Five
+  suppressions in one paragraph, and the largest instance yet of the rule that
+  took Hippolytus at 2:17 and Agamemnon at 74:68.
+- **"Plutarch's Life of Paulus Emilius" at 103:18** is the same thing, and the
+  two editions spell it differently, so both spellings are suppressed.
+- **"one Galba of old" at 103:2**, like the dog's master "one Pyrrhus" at 69:96.
+- **Antigonus at 103:184**, reproaching Bion with the meanness of his birth; the
+  Essays hold three of the name and the sentence settles none.
+- **Metellus and Scipio at 103:268**, whose qualities and fortunes ran in
+  Montaigne's head with Lucullus's: four of each name, no qualifier. Lucullus is
+  bound, because there is only one.
+- **Cato at 103:249**, whose virtue was vigorous beyond the reason of his age:
+  the sentence fits either Cato, and the Essays hold both. 103:195, where the man
+  stabs himself, is bound.
+- **Michael at 103:41.** "Leave our own business at random, and Michael much more
+  our concern than man" is Cotton's rendering of Montaigne's own Christian name,
+  *Michel*, and it has come out of the French unintelligible. Left unbound: a
+  reader meets the word *Michael* and nothing in the sentence makes it a man.
 
 Chapters 101 and 102 add three:
 
@@ -899,6 +938,13 @@ Pseudo-Gallus of 99:34, 99:95 and 99:257, and Achaemenes at 99:144, which is
 inside Horace's Latin and carries its card at 99:145 instead. That is the first
 pass in which the audit found nothing that needed fixing.
 
+Over chapter 103 it reported twenty-four, and fifteen were real: Pompey at
+103:261 and 103:268, Caesar at 103:83 and 103:261, Zeno and Diogenes at 103:181,
+Alexander at 103:109, Philip at 103:74, Cyrus and Scipio and Hippias at 103:143,
+Pliny at 103:280, Diogenes at 103:37 and 103:242, Antiochus at 103:118, Cato at
+103:195, Aristo at 103:239, Antony at 103:195, Brutus at 103:268, Nicocles at
+103:93 and Saturninus at 103:255.
+
 Over chapters 101 and 102 it reported seventeen, and eleven were real: Regulus at
 101:2 and 101:3, Tiberius at 101:11 and 102:84, Adrian and Hadrian at 101:13,
 Alexander at 101:9 and 101:12, Cato at 102:5, Pausanias at 102:5, Marius and
@@ -941,6 +987,21 @@ The **adjacency sweep** over chapters 81–90 produced forty-six hits, all sound
 *King Deiotarus*, *King Ptolemy*, *the Emperor Mauricius*, *the Emperor Mohammed*,
 *our late poor King Charles IX*, *the Praetor Lucius Piso*, *Caius Memmius* — and
 the range's **spot-read** of thirty-two mentions found no mis-binding.
+
+The **adjacency sweep** over chapter 103 earned its place twice in one chapter.
+It produced fourteen hits, and two of them were live mis-bindings that nothing
+else in the package could see: **"building at Montaigne" at 103:38**, which is
+the house he was born in, and **"Montaigne College at Paris" at 103:257**, which
+is an institution. The author's own alias was taking both — the third and fourth
+time it has done that, after *De La Montaigne* at 73:71. The chapter's
+**spot-read** of thirty-two mentions found no mis-binding, and the
+**edition-asymmetry census** over chapter 103 came back empty.
+
+Chapter 103 also produced the pass's other kind of catch, and it came from
+neither audit but from the occurrence list: giving the new `petronius-arbiter`
+the obvious alias would have taken the bare *Petronius* at 91:33, which is
+Granius Petronius, named in full once and by the surname once in the same
+sentence. The listing caught it before the first build; both men are keyed.
 
 The **adjacency sweep** over chapters 101 and 102 produced fourteen hits, all
 sound, and the range's **spot-read** of twenty-eight mentions found no
@@ -985,7 +1046,7 @@ Seneca's wife at 92:13. That is the second catch for the spot-read in twelve
 passes, and again it is the kind only reading the sentence finds.
 
 **6. Both editions independently.** No entity is missing from either edition. The
-mention counts differ by about three percent (4,383 against 4,528),
+mention counts differ by about three percent (4,421 against 4,563),
 partly because the modern edition resolves pronouns to names — it says *Dionysius*
 and *Scanderbeg* and *Betis* and *Ferdinand* where Cotton says *he* — and partly
 because it expands the citation abbreviations, so *Hor.* becomes *Horace* and
@@ -1079,8 +1140,7 @@ No edition byte was touched.
 
 ## Remaining work
 
-- **Chapters 103–107.** Five chapters, two of the longest in the work among
-  them: 103 (*Of vanity*, 300 paragraphs) and 107 (*Of experience*, 240), with
+- **Chapters 104–107.** Four chapters: 107 (*Of experience*, 240 paragraphs),
   106 (142), 104 (123) and 105 (60).
 - **Run the edition-asymmetry census on every chapter already authored.** It was
   written for chapter 69 and immediately found three gaps and one mis-binding in
@@ -1129,5 +1189,5 @@ No edition byte was touched.
 
 `python3 books/characters/build_essays_montaigne.py --check`, then
 `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Two hundred and
-fifty-three focused tests so far. No edition changes, no network generation, no API spend: every card
+sixty-eight focused tests so far. No edition changes, no network generation, no API spend: every card
 here was written in the authoring conversation and committed as a file.

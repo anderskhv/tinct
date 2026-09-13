@@ -9,7 +9,7 @@ becomes Wycliffe, Zisca becomes Zizka, Trivulcio becomes Trivulzio, Fabricio
 becomes Fabrizio, Juliano becomes Giuliano, Fregosa becomes Fregoso, Sylla
 becomes Sulla, AEneid becomes Aeneid. Both spellings are carried on one card.
 
-Chapters 1-102 are authored. The rest are not.
+Chapters 1-103 are authored. The rest are not.
 
 Scope: named persons — historical, literary, mythological and scriptural — and
 the gods Montaigne treats as agents. Peoples, places, schools of philosophy and
@@ -170,7 +170,7 @@ for row in [
 
 # =========================================== CHAPTER 8 — of idleness
 for row in [
-('horace','Horace','The Latin poet of the Odes and the Art of Poetry, and the verse Montaigne quotes most often. The older edition abbreviates the citations to “Hor.”','Hor|Horace','supporting'),
+('horace','Horace','The Latin poet of the Odes and the Art of Poetry, and the verse Montaigne quotes most often. The older edition abbreviates the citations to “Hor.”','Hor|Horace|Horatius','supporting'),
 ('martial','Martial','The Latin epigrammatist.','Martial','supporting'),
 ]:add(*row)
 
@@ -424,7 +424,7 @@ for row in [
 ('aristippus','Aristippus','The founder of the Cyrenaic school, out of whose school, Cicero says, came effeminate debauchees as cynics came out of Zeno’s.','Aristippus','supporting'),
 ('astyages','Astyages','Cyrus’s grandfather in Xenophon, who asked him for an account of his last lesson and got the story of the two cassocks and the whipping.','Astyages'),
 ('mandane','Mandane','Cyrus’s mother, who in Cotton’s version of the story asks him how he would learn justice among the Medes with all his masters left behind in Persia.','Mandane'),
-('antipater','Antipater','Who demanded fifty children of the Spartans for hostages and was told they would rather give him twice as many grown men, so much did they value the loss of their country’s education — and who, threatening them severely to bring them to a certain demand, was answered that if he threatened them with more than death they would die the more willingly.','Antipater'),
+('antipater','Antipater','Who demanded fifty children of the Spartans for hostages and was told they would rather give him twice as many grown men, so much did they value the loss of their country’s education — and who, threatening them severely to bring them to a certain demand, was answered that if he threatened them with more than death they would die the more willingly.',''),
 ('hippias-sophist','Hippias','The sophist Socrates rallies for having made a great deal of money teaching school in the villages of Sicily and never a penny at Sparta — where, Socrates says, they are so stupid as to make no account of grammar or poetry and study only the genealogies of their kings and the rise and fall of states.'),
 ('tamerlane','Tamerlane','One of Montaigne’s proofs that the most warlike nations are the most rude and ignorant, and the man who overthrew Bajazet in the furious battle after which Bajazet nearly escaped on an Arabian mare.','Tamerlane','supporting'),
 ('charles-viii','King Charles VIII','Who saw himself possessed of Naples and a good part of Tuscany almost without striking a blow — which the nobles about him put down to the princes of Italy having studied to be ingenious and learned rather than vigorous and warlike.','Charles VIII'),
@@ -767,7 +767,7 @@ for row in [
 
 # ======================= CHAPTER 47 — of the uncertainty of our judgment
 for row in [
-('monsieur-de-foix','Monsieur de Foix','Whose ardour transported him so furiously in pursuit of the remains of the victory of Ravenna that he obscured it by his own death.','Monsieur de Foix'),
+('monsieur-de-foix','Monsieur de Foix','Whose ardour transported him so furiously in pursuit of the remains of the victory of Ravenna that he obscured it by his own death.',''),
 ('monsieur-danguien','Monsieur d’Anguien','Whom the recent memory of that example preserved from the same misfortune at the battle of Serisoles.',"Monsieur d’Anguien|Monsieur d'Anguien"),
 ('portius-latro','Portius Latro','Cited for the line that irritated necessity bites deepest.','Portius Latro'),
 ('pharax','Pharax','Who withheld the King of Lacedaemon, after his victory over the Mantineans, from charging the thousand Argians who had escaped the defeat in an entire body, and let them steal off at liberty rather than have him encounter valour whetted and enraged by mischance.','Pharax'),
@@ -1323,7 +1323,7 @@ for row in [
 for row in [
 ('the-cyclopes','The Cyclopes','After whose manner, Aristotle says, most civil governments leave every man the ordering of his wives and children according to his own foolish and indiscreet fancy.','Cyclopes','reference','mythological-figure'),
 ('caius-rabirius','Caius Rabirius','Whom Caesar had condemned, and in whose favour the people determined the cause upon appeal — the thing that most prevailed upon them being the animosity and vehemence Caesar had shown in the sentence. Not the Rabirius of the inform style at 74:26.','Caius Rabirius'),
-('archytas-tarentinus','Archytas Tarentinus','Who, returning from a war he had commanded in, found his house in great disorder and his lands out of tillage through his receiver’s ill husbandry, and told the man he was fortunate that he was angry — for otherwise he should not have escaped being handled as he deserved. The modern edition writes him Archytas of Tarentum.','Archytas Tarentinus|Archytas of Tarentum','supporting'),
+('archytas-tarentinus','Archytas Tarentinus','Who, returning from a war he had commanded in, found his house in great disorder and his lands out of tillage through his receiver’s ill husbandry, and told the man he was fortunate that he was angry — for otherwise he should not have escaped being handled as he deserved. The modern edition writes him Archytas of Tarentum.','Archytas Tarentinus|Archytas of Tarentum|Architas','supporting'),
 ('carillus','Carillus','A Lacedaemonian, who said to a helot that carried himself insolently towards him: by the gods, if I were not angry I would presently cause thee to be put to death. The modern edition writes him Charillus.','Carillus|Charillus'),
 ('caelius-orator','Caelius','The orator, wonderfully choleric by nature, to whom a supper companion of a soft and gentle conversation contradicted nothing for fear of angering him — until Caelius cried out, contradict me in something, that we may be two. The older edition prints him Celius.','',),
 ]:add(*row)
@@ -1525,8 +1525,34 @@ for row in [
 ('quintus-cicero','Q. Cicero','The orator’s brother, cited twice from the treatise on canvassing for the consulship: that a man who thinks himself behind in obligation can by no means be a friend, and that it is hard for a man to conform to such a variety of manners, discourses and wills. His citations had been binding to his brother until chapter 102 was read.','Q. Cicero'),
 ]:add(*row)
 
-print(len(entities),'entities authored: chapters 1-102')
+# ========================= CHAPTER 103 — of vanity
+for row in [
+('diomedes','Diomedes','Who wrote six thousand books upon the sole subject of grammar, Montaigne says, asking when he shall have done representing the agitation of his own thoughts. The note beside the sentence says it was not Diomedes but Didymus.','Diomedes'),
+('didymus','Didymus','The grammarian who, as Seneca tells the note-writer, wrote four thousand books on questions of vain literature — which was the chief study of the ancient grammarians, and which the note offers in place of Montaigne’s six thousand.','Didymus'),
+('philotimus','Philotimus','The physician who said to one that presented him his finger to dress, and whom he perceived by his complexion and his breath to have an ulcer in his lungs: friend, it is not now time to play with your nails.','Philotimus'),
+('pyrrha','Pyrrha','Who begot a people by casting stones behind her — one of the two ways, with Cadmus’s, that Montaigne says we do not beget a state.','Pyrrha'),
+('cadmus','Cadmus','The other of them, who sowed the dragon’s teeth.','Cadmus'),
+('pibrac','Monsieur de Pibrac','The good Monsieur de Pibrac, lately lost, a man of so excellent a wit, such sound opinions and such gentle manners; whose quatrain on loving the state as you find it Montaigne quotes in the French.','Monsieur de Pibrac|Pibrac'),
+('paul-de-foix','Monsieur de Foix','Lost at the same time, and the other of the two Gascons whom Montaigne doubts that France can replace in sincerity and wisdom in the council of her kings. Not the Monsieur de Foix whose ardour at Ravenna cost him his life at 47:8.','',),
+('pacuvius-calavius','Pacuvius Calavius','Who, being a man of great authority in Capua when his fellow-citizens were in mutiny against their magistrates, shut the senators up in the palace and offered the people leave to condemn them one by one, provided they named an honest man to fill each place — and so quieted the sedition, since no name was proposed that the crowd could bear. Not the tragedian Pacuvius.','Pacuvius Calavius'),
+('salus','Salus','The goddess of safety, who in the verse of Terence could not save that family though she wished to.','',),
+('lyncestes','Lyncestes','Accused of conspiracy against Alexander, and brought out before the army to say what he could for himself; he had learned a studied speech, hesitated and stammered through some words of it, and whilst he struggled with his memory the soldiers nearest him despatched him with their pikes — a story Montaigne says he never reads without a personal resentment.','Lyncestes'),
+('antiochus-of-ascalon','Antiochus','Who in his youth wrote strongly in favour of the Academy and in his old age as much against it; and whom, Montaigne says, a man would still be following whichever of the two he followed. Not the Antiochus of 20:4, who was inflamed with the beauty of Stratonice.','',),
+('valerius-maximus','Valerius Maximus','Cited for the line that whatever is compelled by power is more imputed to him that exacts it than to him that performs it.','Valerius Maximus'),
+('nonius','Nonius','Cited for the line Montaigne turns to his own housekeeping: rather enough than costly — more wit than cost.','Nonius'),
+('portia','Portia','Cato’s daughter and Brutus’s wife, and the standard Montaigne sets against the woman who, having just now illicitly embraced, will presently inveigh more loudly against the same fault in her companion.','Portia'),
+('clinias','Clinias','In whose lap, Montaigne says, Xenophon wrote against the Aristippic virtue — his instance that the same teacher publishes rules of temperance and lessons of wantonness together. Not the Clinias of 99:133, which is the title of a book of Heraclides.','',),
+('olus','Olus','Whom Martial asks what it is to him what this man or that does with his own skin — which Montaigne applies to those who inquire into other men’s lives.','Olus'),
+('ctesibius','Ctesibius','Whom Arcesilaus went to visit sick, and finding him in a very poor condition very finely conveyed some money under his pillow, and by concealing it from him acquitted him of the acknowledgment due to such a benefit.','Ctesibius'),
+('tigellinus','Tigellinus','With Petronius, one of the two men of little mark at Rome who, condemned to despatch themselves, rocked death asleep with the delicacy of their preparations, and made it slip away amongst girls and good fellows, with not a word of consolation nor any mention of a will.','Tigellinus'),
+('petronius-arbiter','Petronius','The other of them, and the author of the line that the mind wishes to have what it has lost and throws itself wholly into memories of the past. Not the Granius Petronius whom Scipio took in Africa.',''),
+('diogenes-of-babylon','Diogenes','The Stoic, named in the succession of the sourest sect — Chrysippus, Cleanthes, Diogenes, Zeno, Antipater — all of whom readily abandoned their country for the enjoyment of another air. Not the Cynic, nor the atheist, nor the Apolloniate.','',),
+('antipater-of-tarsus','Antipater','The last of that succession. Not the Antipater who demanded fifty children of the Spartans for hostages.','',),
+('saturninus-general','Saturninus','Who said to those that had conferred upon him the command in chief: companions, you have lost a good captain, to make of him a bad general — which Montaigne offers as the excuse of his own principal imperfections. A third man of the name.','',),
+]:add(*row)
+
+print(len(entities),'entities authored: chapters 1-103')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-13.10',
- coverage='Both full English editions, chapters 1-102 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
+ contentVersion='2026-09-13.11',
+ coverage='Both full English editions, chapters 1-103 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

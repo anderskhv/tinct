@@ -1,6 +1,6 @@
 {
-  "contentVersion": "2026-09-13.10",
-  "coverage": "Both full English editions, chapters 1-102 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.",
+  "contentVersion": "2026-09-13.11",
+  "coverage": "Both full English editions, chapters 1-103 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.",
   "entities": [
     {
       "id": "montaigne",
@@ -1279,7 +1279,8 @@
       "body": "The Latin poet of the Odes and the Art of Poetry, and the verse Montaigne quotes most often. The older edition abbreviates the citations to “Hor.”",
       "aliases": [
         "Hor",
-        "Horace"
+        "Horace",
+        "Horatius"
       ],
       "category": "supporting",
       "kind": "person",
@@ -3505,9 +3506,7 @@
       "id": "antipater",
       "name": "Antipater",
       "body": "Who demanded fifty children of the Spartans for hostages and was told they would rather give him twice as many grown men, so much did they value the loss of their country’s education — and who, threatening them severely to bring them to a certain demand, was answered that if he threatened them with more than death they would die the more willingly.",
-      "aliases": [
-        "Antipater"
-      ],
+      "aliases": [],
       "category": "reference",
       "kind": "person",
       "subtitle": "",
@@ -6404,9 +6403,7 @@
       "id": "monsieur-de-foix",
       "name": "Monsieur de Foix",
       "body": "Whose ardour transported him so furiously in pursuit of the remains of the victory of Ravenna that he obscured it by his own death.",
-      "aliases": [
-        "Monsieur de Foix"
-      ],
+      "aliases": [],
       "category": "reference",
       "kind": "person",
       "subtitle": "",
@@ -10949,7 +10946,8 @@
       "body": "Who, returning from a war he had commanded in, found his house in great disorder and his lands out of tillage through his receiver’s ill husbandry, and told the man he was fortunate that he was angry — for otherwise he should not have escaped being handled as he deserved. The modern edition writes him Archytas of Tarentum.",
       "aliases": [
         "Archytas Tarentinus",
-        "Archytas of Tarentum"
+        "Archytas of Tarentum",
+        "Architas"
       ],
       "category": "supporting",
       "kind": "person",
@@ -12651,6 +12649,255 @@
       "aliases": [
         "Q. Cicero"
       ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diomedes",
+      "name": "Diomedes",
+      "body": "Who wrote six thousand books upon the sole subject of grammar, Montaigne says, asking when he shall have done representing the agitation of his own thoughts. The note beside the sentence says it was not Diomedes but Didymus.",
+      "aliases": [
+        "Diomedes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "didymus",
+      "name": "Didymus",
+      "body": "The grammarian who, as Seneca tells the note-writer, wrote four thousand books on questions of vain literature — which was the chief study of the ancient grammarians, and which the note offers in place of Montaigne’s six thousand.",
+      "aliases": [
+        "Didymus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philotimus",
+      "name": "Philotimus",
+      "body": "The physician who said to one that presented him his finger to dress, and whom he perceived by his complexion and his breath to have an ulcer in his lungs: friend, it is not now time to play with your nails.",
+      "aliases": [
+        "Philotimus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pyrrha",
+      "name": "Pyrrha",
+      "body": "Who begot a people by casting stones behind her — one of the two ways, with Cadmus’s, that Montaigne says we do not beget a state.",
+      "aliases": [
+        "Pyrrha"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cadmus",
+      "name": "Cadmus",
+      "body": "The other of them, who sowed the dragon’s teeth.",
+      "aliases": [
+        "Cadmus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pibrac",
+      "name": "Monsieur de Pibrac",
+      "body": "The good Monsieur de Pibrac, lately lost, a man of so excellent a wit, such sound opinions and such gentle manners; whose quatrain on loving the state as you find it Montaigne quotes in the French.",
+      "aliases": [
+        "Monsieur de Pibrac",
+        "Pibrac"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "paul-de-foix",
+      "name": "Monsieur de Foix",
+      "body": "Lost at the same time, and the other of the two Gascons whom Montaigne doubts that France can replace in sincerity and wisdom in the council of her kings. Not the Monsieur de Foix whose ardour at Ravenna cost him his life at 47:8.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pacuvius-calavius",
+      "name": "Pacuvius Calavius",
+      "body": "Who, being a man of great authority in Capua when his fellow-citizens were in mutiny against their magistrates, shut the senators up in the palace and offered the people leave to condemn them one by one, provided they named an honest man to fill each place — and so quieted the sedition, since no name was proposed that the crowd could bear. Not the tragedian Pacuvius.",
+      "aliases": [
+        "Pacuvius Calavius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "salus",
+      "name": "Salus",
+      "body": "The goddess of safety, who in the verse of Terence could not save that family though she wished to.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lyncestes",
+      "name": "Lyncestes",
+      "body": "Accused of conspiracy against Alexander, and brought out before the army to say what he could for himself; he had learned a studied speech, hesitated and stammered through some words of it, and whilst he struggled with his memory the soldiers nearest him despatched him with their pikes — a story Montaigne says he never reads without a personal resentment.",
+      "aliases": [
+        "Lyncestes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antiochus-of-ascalon",
+      "name": "Antiochus",
+      "body": "Who in his youth wrote strongly in favour of the Academy and in his old age as much against it; and whom, Montaigne says, a man would still be following whichever of the two he followed. Not the Antiochus of 20:4, who was inflamed with the beauty of Stratonice.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "valerius-maximus",
+      "name": "Valerius Maximus",
+      "body": "Cited for the line that whatever is compelled by power is more imputed to him that exacts it than to him that performs it.",
+      "aliases": [
+        "Valerius Maximus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nonius",
+      "name": "Nonius",
+      "body": "Cited for the line Montaigne turns to his own housekeeping: rather enough than costly — more wit than cost.",
+      "aliases": [
+        "Nonius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "portia",
+      "name": "Portia",
+      "body": "Cato’s daughter and Brutus’s wife, and the standard Montaigne sets against the woman who, having just now illicitly embraced, will presently inveigh more loudly against the same fault in her companion.",
+      "aliases": [
+        "Portia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clinias",
+      "name": "Clinias",
+      "body": "In whose lap, Montaigne says, Xenophon wrote against the Aristippic virtue — his instance that the same teacher publishes rules of temperance and lessons of wantonness together. Not the Clinias of 99:133, which is the title of a book of Heraclides.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "olus",
+      "name": "Olus",
+      "body": "Whom Martial asks what it is to him what this man or that does with his own skin — which Montaigne applies to those who inquire into other men’s lives.",
+      "aliases": [
+        "Olus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ctesibius",
+      "name": "Ctesibius",
+      "body": "Whom Arcesilaus went to visit sick, and finding him in a very poor condition very finely conveyed some money under his pillow, and by concealing it from him acquitted him of the acknowledgment due to such a benefit.",
+      "aliases": [
+        "Ctesibius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tigellinus",
+      "name": "Tigellinus",
+      "body": "With Petronius, one of the two men of little mark at Rome who, condemned to despatch themselves, rocked death asleep with the delicacy of their preparations, and made it slip away amongst girls and good fellows, with not a word of consolation nor any mention of a will.",
+      "aliases": [
+        "Tigellinus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "petronius-arbiter",
+      "name": "Petronius",
+      "body": "The other of them, and the author of the line that the mind wishes to have what it has lost and throws itself wholly into memories of the past. Not the Granius Petronius whom Scipio took in Africa.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diogenes-of-babylon",
+      "name": "Diogenes",
+      "body": "The Stoic, named in the succession of the sourest sect — Chrysippus, Cleanthes, Diogenes, Zeno, Antipater — all of whom readily abandoned their country for the enjoyment of another air. Not the Cynic, nor the atheist, nor the Apolloniate.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antipater-of-tarsus",
+      "name": "Antipater",
+      "body": "The last of that succession. Not the Antipater who demanded fifty children of the Spartans for hostages.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "saturninus-general",
+      "name": "Saturninus",
+      "body": "Who said to those that had conferred upon him the command in chief: companions, you have lost a good captain, to make of him a bad general — which Montaigne offers as the excuse of his own principal imperfections. A third man of the name.",
+      "aliases": [],
       "category": "reference",
       "kind": "person",
       "subtitle": "",
