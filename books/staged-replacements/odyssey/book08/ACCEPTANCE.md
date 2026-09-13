@@ -27,9 +27,9 @@ of `book08/changes-v1-to-v2.md`.
 | | v1 (frozen draft) | **v2 (accepted)** |
 |---|---|---|
 | paragraphs | 50 | **50** |
-| Butler token retention (aggregate-join) | 0.93844 | **0.93862** |
-| order retention (per paragraph) | 0.93844 | **0.93862** |
-| bag retention | 0.94536 | **0.94554** |
+| Butler token retention (aggregate-join) | 0.94075 | **0.94093** |
+| order retention (per paragraph) | 0.94075 | **0.94093** |
+| bag retention | 0.94767 | **0.94784** |
 | **MOVE-GAP** (bag − order), an UPPER BOUND | 0.00692 | **0.00692** |
 | displaced runs (the strict witness) | **0** | **0** |
 | sentences, source → candidate | 192 → 244 | **192 → 235** |
@@ -219,3 +219,30 @@ imperatives. *"And see to the careful packing"*.
    same-paragraph case only. `minstrelsy` was caught by arrow C and repaired
    wrongly, which is a fifth thing: **nothing asks whether an arrow's repair is
    right.**
+
+---
+
+## Postscript, 2026-09-13 — the retention figure moved, and no word did
+
+**Book 8's retention is republished from 0.93862 to 0.94093, and its bag
+retention from 0.94554 to 0.94784, without a character of the accepted file
+changing.** `checks.py`'s `NAME_MAP` — which folds Butler's Roman names onto
+the modern edition's Greek ones so that the **name policy does not read as a
+loss of retention** — was missing `Mars → Ares`. Row 13 of D5's table was
+added at Book 8 step 2 and written into `GLOSSARY.md`, and it was never added
+to the map the measure uses. Butler names Mars thirteen times in this Book, in
+the lay of Ares and Aphrodite, and this edition was **charged retention for
+obeying D5** on every one of them.
+
+Found at Book 10 step 2, when `Proserpine → Persephone` had to be added for
+Circe's instructions and the same omission was about to be made a second time.
+It is the package's own recurring disease in miniature — *a rule written in
+one place and applied in another* — and it is the reason the figure was wrong
+in a way nothing could catch: `--all` re-asserts the published figure against
+a recomputation that uses **the same** map on both sides, so an omission is
+invisible to it by construction. Only meeting a new name exposes it.
+
+**Nothing else moved**: sentences, the sixty-word figure, both censuses,
+MOVE-GAP and every NORM RATE are unchanged, because none of them reads a
+token's identity. The accepted file's sha256 is unchanged.
+

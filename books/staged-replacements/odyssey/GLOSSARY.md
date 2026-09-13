@@ -56,8 +56,19 @@ modern edition is not Butler and does not owe them.
 | 12 | **Ceres** | **Demeter** | 0 in Book 1 | *Added 2026-09-12 at Book 5 step 2, the first Book to meet her (B05-P010).* The first row added under the **corrected warrant**: it rests on D5's rule, not on a count. The product's corroboration is thin, exactly as R3 predicted for a figure outside the Cast — Cast `Ceres` 0 / `Demeter` 0, onboarding 0 / 0, served `modern-en` **Demeter 1 / Ceres 0**. |
 | **13** | **Mars** | **Ares** | 0 in Book 1 | *Added 2026-09-13 at Book 8 step 2, the first Book to meet him (B08-P019 to B08-P030, thirteen occurrences — the lay of Ares and Aphrodite).* Added on **D5's rule alone**, which is what the corrected warrant below says to do: the Cast is silent (`Ares` 0 / `Mars` 0) and so is the onboarding. Ares is an Olympian with a Roman name, which is the class D5 names. **The hazard here is `Arete`**, the Phaeacian queen, named six times in this Book and eleven in Book 7: a stem-based or case-insensitive `Ares` rule destroys her. The mapping is word-bounded and case-sensitive (D6) and the build asserts her count before and after. |
 
+| **14** | **Proserpine** | **Persephone** | 0 in Book 1 | *Added 2026-09-13 at Book 10 step 2, the first Book to meet her (B10-P041, B10-P043, B10-P045 — four occurrences, Circe's instructions for the descent).* Added on **D5's rule alone**, like `Mars`: she is one of the Olympians who has a Roman name, which is the class D5 names, and the corrected warrant says to apply the rule rather than to go looking for corroboration. **No hazard**: no other word in PG #1727 begins `Proserpin`, and the mapping is word-bounded and case-sensitive (D6). Books 11 and 12 will meet her again. |
+
 **The table is extended by enumeration when a Book meets a Roman name it does
 not yet carry, and never generated** (hazard 1).
+
+**`Mars` and `Proserpine` were in the prose table and NOT in `checks.py`'s
+`NAME_MAP` until 2026-09-13**, which is a small instance of the disease this
+package keeps finding: a rule written in one place and applied in another.
+`NAME_MAP` exists so that Butler's `Ulysses` and the candidate's `Odysseus`
+count as one token and the name policy does not read as a loss of retention; a
+row missing from it charges the edition retention for obeying D5. Both are in
+it now, and `Mars`'s omission cost Book 8 nothing measurable only because
+`--all` re-asserts a figure computed with the same omission on both sides.
 
 **One name is OUTSIDE the table and is flagged rather than added: `Hercules`
 (B08-P016).** Book 8's draft writes **`Heracles`** — but D5 as written covers

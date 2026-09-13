@@ -60,7 +60,8 @@ import pg_source                                     # noqa: E402
 NAME_MAP = {'ulysses': 'odysseus', 'minerva': 'athena', 'jove': 'zeus',
             'neptune': 'poseidon', 'mercury': 'hermes', 'saturn': 'cronus',
             'diana': 'artemis', 'euryclea': 'eurycleia', 'venus': 'aphrodite',
-            'juno': 'hera', 'vulcan': 'hephaestus', 'ceres': 'demeter'}
+            'juno': 'hera', 'vulcan': 'hephaestus', 'ceres': 'demeter',
+            'mars': 'ares', 'proserpine': 'persephone'}
 
 
 # ------------------------------------------------------------------ measures
@@ -723,7 +724,7 @@ PUBLISHED = {
             norm=+9.0, movegap=0.01217, norm_butler=+7.5, kept_added=(5, 2),
             div=(42, 18), kept_added_div=(14, 4), norm_ext=+7.6,
             norm_butler_ext=+4.8),
-    8: dict(retention=0.93862, sent=(192, 235), sixty=(11, 1), semi=(42, 7),
+    8: dict(retention=0.94093, sent=(192, 235), sixty=(11, 1), semi=(42, 7),
             norm=+3.4, movegap=0.00692, norm_butler=+3.4, kept_added=(7, 0),
             div=(62, 31), kept_added_div=(24, 7), norm_ext=+4.7,
             norm_butler_ext=+2.0),

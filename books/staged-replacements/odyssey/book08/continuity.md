@@ -12,9 +12,9 @@ in this file is typed by hand from memory.
 |---|---|
 | paragraphs | 50, one-to-one with the source |
 | source words → candidate words | 5,589 → 5,545 (ratio 0.992) |
-| Butler token retention (aggregate-join) | **0.93844** |
-| order retention (per paragraph) | 0.93844 |
-| bag retention | 0.94536 |
+| Butler token retention (aggregate-join) | **0.94075** |
+| order retention (per paragraph) | 0.94075 |
+| bag retention | 0.94767 |
 | **MOVE-GAP** (bag − order), an UPPER BOUND | **0.00692** |
 | **displaced runs** (the strict witness) | **0** |
 | sentences, source → candidate | 192 → 244 |

@@ -36,7 +36,7 @@ do itself.
 
 | | |
 |---|---|
-| Butler token retention | **0.93844** |
+| Butler token retention | **0.94075** |
 | **MOVE-GAP** (upper bound) / displaced runs (strict witness) | **0.00692 / 0** |
 | sentences, source → candidate | 192 → 244 |
 | raw splitting rate (D17) | +27.1% |

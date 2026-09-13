@@ -536,8 +536,8 @@ accepted files, and every row carries its basis. Nothing here is typed by hand.
 | 6 v1 *(superseded)* | `candidate-v1` | **all 26 paragraphs** | 0.93669 | 116 → 148 | +27.6% | 7 → 1 | 27 → 4 | +6.3% | 0.00925 |
 | 7 v1 *(superseded)* | `candidate-v1` | all 29 paragraphs | 0.93943 | 103 → 129 | +25.2% | 7 → 0 | 30 → 14 | +7.5% | 0.01277 |
 | **7 v2 (ACCEPTED)** | **`candidate-v2`** | **all 29 paragraphs** | **0.93438** | **103 → 138** | **+34.0%** | **7 → 0** | **30 → 7** | **+9.0%** | **0.01217** |
-| 8 v1 *(superseded)* | `candidate-v1` | all 50 paragraphs | 0.93844 | 192 → 244 | +27.1% | 11 → 0 | 42 → 0 | +4.3% | 0.00692 |
-| **8 v2 (ACCEPTED)** | **`candidate-v2`** | **all 50 paragraphs** | **0.93862** | **192 → 235** | **+22.4%** | **11 → 1** | **42 → 7** | **+3.4%** | **0.00692** |
+| 8 v1 *(superseded)* | `candidate-v1` | all 50 paragraphs | 0.94075 | 192 → 244 | +27.1% | 11 → 0 | 42 → 0 | +4.3% | 0.00692 |
+| **8 v2 (ACCEPTED)** | **`candidate-v2`** | **all 50 paragraphs** | **0.94093** | **192 → 235** | **+22.4%** | **11 → 1** | **42 → 7** | **+3.4%** | **0.00692** |
 | **9 v1 (round 1 done)** | **`candidate-v1`** | **all 44 paragraphs** | **0.92181** | **171 → 207** | **+21.1%** | **16 → 0** | **54 → 24** | **+2.7%** | **0.01266** |
 
 **And the column that replaces the last-but-one, decided as D21.** The NORM

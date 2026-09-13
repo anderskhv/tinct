@@ -23,9 +23,9 @@ one for three Books.
 |---|---|
 | paragraphs scored | 50 |
 | word ratio | 0.99159 |
-| Butler token retention (canonical, aggregate-join) | **0.93862** |
-| order retention (per paragraph, for MOVE-GAP) | 0.93862 |
-| bag retention (order-blind) | 0.94554 |
+| Butler token retention (canonical, aggregate-join) | **0.94093** |
+| order retention (per paragraph, for MOVE-GAP) | 0.94093 |
+| bag retention (order-blind) | 0.94784 |
 | **MOVE-GAP** (bag − order), D20 | **0.00692** |
 | sentences, source → candidate | 192 → 235 |
 | **splitting rate** (D17, raw) | **+22.4%** |
@@ -73,8 +73,8 @@ pointing**, +3.4% here against the +3.4% the unsplit measure gives.
 | Book 5 | all 37 paragraphs | 0.93808 | 153 → 189 | +23.5% | 34 → 13 | 64 → 35 | 34 + 1 | +8.0% | **+2.8%** | 0.00891 |
 | Book 6 | all 26 paragraphs | 0.93408 | 116 → 148 | +27.6% | 27 → 5 | 38 → 16 | 14 + 2 | +7.0% | **+5.2%** | 0.01156 |
 | Book 7 | all 29 paragraphs | 0.93438 | 103 → 138 | +34.0% | 30 → 7 | 42 → 18 | 14 + 4 | +9.0% | **+4.8%** | 0.01217 |
-| Book 8 | all 50 paragraphs | 0.93862 | 192 → 235 | +22.4% | 42 → 7 | 62 → 31 | 24 + 7 | +3.4% | **+2.0%** | 0.00692 |
-| Book 9 | all 44 paragraphs | 0.92284 | 171 → 204 | +19.3% | 54 → 25 | 71 → 44 | 44 + 0 | +1.8% | **+2.5%** | 0.01232 |
+| Book 8 | all 50 paragraphs | 0.94093 | 192 → 235 | +22.4% | 42 → 7 | 62 → 31 | 24 + 7 | +3.4% | **+2.0%** | 0.00692 |
+| Book 9 | all 44 paragraphs | 0.92284 | 171 → 203 | +18.7% | 54 → 26 | 71 → 45 | 45 + 0 | +1.8% | **+2.5%** | 0.01232 |
 
 Book 3's row is the reason this column exists. Its published figures
 are computed on **37 of its 38 paragraphs** — B03-P038, the **D14**
@@ -166,9 +166,9 @@ alignment. MOVE-GAP is an upper bound; this is the lower one.
 |---|---|---|---|
 | B08-P013 | 68 | 2 | 30 words |
 | B08-P021 | 95 | 4 | 49 words |
-| B08-P022 | 150 | 4 | 29 words |
+| B08-P022 | 150 | 3 | 29 words |
 | B08-P026 | 40 | 2 | 39 words |
-| B08-P027 | 54 | 2 | 28 words |
+| B08-P027 | 54 | 1 | 28 words |
 | B08-P034 | 114 | 3 | 28 words |
 | B08-P036 | 58 | 0 | 38 words |
 | B08-P043 | 41 | 0 | 41 words |

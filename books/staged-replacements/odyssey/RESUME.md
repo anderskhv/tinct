@@ -25,7 +25,7 @@ is computed over is not a figure (R-1).** The one authoritative table is
 | 5 | 8 — accepted, successor v3 | `candidate-v2` | all 37 | 0.93808 | +23.5% | 34 → 13 | 64 → 35 | 34 + 1 | **+2.8%** | 0.00891 / 1 |
 | 6 | 8 — accepted, successor v3 | `candidate-v2` | all 26 | 0.93408 | +27.6% | 27 → 5 | 38 → 16 | 14 + 2 | **+5.2%** | 0.01156 / 2 |
 | 7 | 8 — accepted | `candidate-v2` | all 29 | 0.93438 | +34.0% | 30 → 7 | 42 → 18 | 14 + 4 | **+4.8%** | 0.01217 / 1 |
-| **8** | **8 — ACCEPTED** | **`candidate-v2`** | all 50 | **0.93862** | **+22.4%** | **42 → 7** | **62 → 31** | **24 + 7** | **+2.0%** | **0.00692 / 0** |
+| **8** | **8 — ACCEPTED** | **`candidate-v2`** | all 50 | **0.94093** | **+22.4%** | **42 → 7** | **62 → 31** | **24 + 7** | **+2.0%** | **0.00692 / 0** |
 | **9** | **6 — ROUND 1 DONE** | `candidate-v1` | all 44 | **0.92181** | **+21.1%** | **54 → 24** | **71 → 41** | **41 + 0** | **+2.5%** | **0.01266 / 2** |
 
 **Book 9's retention was published as 0.92164 in four places and is
