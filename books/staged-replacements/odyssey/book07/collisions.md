@@ -6,7 +6,7 @@ of `book07/review/findings-v1.md`: the check returned seventy-two rows touching
 Book 7, eleven were acted on, and sixty-one were dismissed with no record of
 having been read. This file is that record, and it is generated, not typed.
 
-**81 rows touch Book 7.**
+**80 rows touch Book 7.**
 
 | disposition | rows |
 |---|---|
@@ -15,7 +15,7 @@ having been read. This file is that record, and it is generated, not typed.
 | `common-word` | 2 |
 | `discrimination` | 1 |
 | `homograph` | 1 |
-| `kept` | 47 |
+| `kept` | 46 |
 | `kept-elsewhere` | 1 |
 | `matches-accepted` | 1 |
 | `phrase-not-word` | 2 |
@@ -52,13 +52,13 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW B — one rendering, two or more Butler words, across Books
 
-60 rows.
+59 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
 | `after` | `after` (B7-P017), `after` (B7-P020) | **`kept`** | every entry Book 7 contributes is Butler's own `after` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `agreed` | `agreed` (B7-P020) | **`kept`** | every entry Book 7 contributes is Butler's own `agreed` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `begged` | `besought` (B7-P023) | **`kept-elsewhere`** | Book 7 supplies the row's only rendering (`besought`); every other entry is Butler's own `begged` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `begged` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
+| `begged` | `besought` (B7-P023) | **`kept-elsewhere`** | **The one rendering decision in this row is Book 7's `begged` → `besought`, and it is the thing to rule on.** Every other entry is Butler's own `begged` carried through unchanged by another Book, so there is no cross-Book inconsistency — which is a different question from whether `besought` is the right word here, and this class cannot answer that one. **Declared blind, twice:** it cannot say whether a Book that KEPT `begged` should also have moved it (ruled by hand in `RULINGS_BY_BOOK` where the kept word is not current English in context — see `luscious` at Book 5), and it cannot say whether the single rendering is accurate to Butler's sense (Book 9 S-4: `humane` is *merciful*, and `civilized` is not). |
 | `being` | `being` (B7-P011), `being` (B7-P025) | **`kept`** | every entry Book 7 contributes is Butler's own `being` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `beside` | `along with their husbands` (B7-P007), `beside` (B7-P016) | **`common-rendering`** | `beside` is a word Butler himself uses in 9 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `blossom` | `blossom` (B7-P011) | **`kept`** | every entry Book 7 contributes is Butler's own `blossom` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -100,7 +100,6 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `single` | `single` (B7-P026) | **`kept`** | every entry Book 7 contributes is Butler's own `single` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `sitting` | `sitting` (B7-P006), `sitting` (B7-P015), `sitting` (B7-P016) | **`kept`** | every entry Book 7 contributes is Butler's own `sitting` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `streams` | `streams` (B7-P011) | **`kept`** | every entry Book 7 contributes is Butler's own `streams` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `supper` | `supper` (B7-P001), `supper` (B7-P015), `supper` (B7-P018), `supper` (B7-P020) | **`kept`** | every entry Book 7 contributes is Butler's own `supper` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `talked` | `converse` (B7-P028) | **`unavoidable-merge`** | `talked` carries Butler's `converse` (B04-P052, B07-P028) and his own `talked` (B02-P025). `converse` as an intransitive verb is archaic and `talk` is its only plain modern equivalent; the alternative is a register difference Butler does not make. B07-P028 matches accepted B04-P052 word for word, which is the consistency the package asks for. |
 | `their` | `harbours` (B7-P005), `their` (B7-P005), `their` (B7-P008), `their` (B7-P010), `their` (B7-P011), `their` (B7-P012), `their` (B7-P013), `their` (B7-P014), `their` (B7-P017), `their` (B7-P018), `their` (B7-P020), `their` (B7-P028) | **`common-rendering`** | `their` is a word Butler himself uses in 105 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `there` | `there` (B7-P010), `there` (B7-P011), `there` (B7-P012), `there` (B7-P015), `there` (B7-P016), `there` (B7-P020), `there` (B7-P021), `there` (B7-P022), `there` (B7-P023) | **`kept`** | every entry Book 7 contributes is Butler's own `there` carried through unchanged; the decision in this row belongs to whichever Book moved |

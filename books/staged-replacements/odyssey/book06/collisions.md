@@ -29,7 +29,7 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW A — one Butler word, two or more renderings, across Books
 
-18 rows.
+17 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
@@ -42,10 +42,9 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `follow` | `follow` (B6-P021) | **`kept`** | every entry Book 6 contributes is Butler's own `follow` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `handmaids` | `handmaids` (B6-P009) | **`kept`** | every entry Book 6 contributes is Butler's own `handmaids` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `herbage` | `greenery` (B6-P009) | **`matches-accepted`** | **The row this whole check was built for, and it is now consistent.** The drafter of Book 6 named `herbage`/`grass` as a call no single-Book instrument could see. Both accepted Books now render `greenery` — B06-P009 plain, B05-P006 with `lush` carrying Butler's own `luscious`. One rendering in two Books. |
-| `humane` | `humane` (B6-P011) | **`kept`** | every entry Book 6 contributes is Butler's own `humane` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `immediately` | `immediately` (B6-P003) | **`kept`** | every entry Book 6 contributes is Butler's own `immediately` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `nation` | `nation` (B6-P021) | **`kept`** | every entry Book 6 contributes is Butler's own `nation` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `prepared` | `made` (B6-P008) | **`kept-elsewhere`** | Book 6 supplies the row's only rendering (`made`); every other entry is Butler's own `prepared` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `prepared` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
+| `prepared` | `made` (B6-P008) | **`kept-elsewhere`** | **The one rendering decision in this row is Book 6's `prepared` → `made`, and it is the thing to rule on.** Every other entry is Butler's own `prepared` carried through unchanged by another Book, so there is no cross-Book inconsistency — which is a different question from whether `made` is the right word here, and this class cannot answer that one. **Declared blind, twice:** it cannot say whether a Book that KEPT `prepared` should also have moved it (ruled by hand in `RULINGS_BY_BOOK` where the kept word is not current English in context — see `luscious` at Book 5), and it cannot say whether the single rendering is accurate to Butler's sense (Book 9 S-4: `humane` is *merciful*, and `civilized` is not). |
 | `pretty` | `pretty` (B6-P002) | **`kept`** | every entry Book 6 contributes is Butler's own `pretty` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `pulled` | `pulled` (B6-P008) | **`variant`** | every rendering in the row reduces to `pull` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `travel` | `travel` (B6-P021) | **`variant`** | every rendering in the row reduces to `travel` once inflection, D9 spelling and D15 compound spacing are normalized |
@@ -54,11 +53,12 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW B — one rendering, two or more Butler words, across Books
 
-54 rows.
+55 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
 | `after` | `after` (B6-P009), `after` (B6-P013) | **`kept`** | every entry Book 6 contributes is Butler's own `after` carried through unchanged; the decision in this row belongs to whichever Book moved |
+| `answer` | `answer` (B6-P022) | **`kept`** | every entry Book 6 contributes is Butler's own `answer` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `apart` | `apart` (B6-P016) | **`kept`** | every entry Book 6 contributes is Butler's own `apart` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `arrows` | `arrows` (B6-P021) | **`kept`** | every entry Book 6 contributes is Butler's own `arrows` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `blessed` | `blessed` (B6-P004) | **`kept`** | every entry Book 6 contributes is Butler's own `blessed` carried through unchanged; the decision in this row belongs to whichever Book moved |

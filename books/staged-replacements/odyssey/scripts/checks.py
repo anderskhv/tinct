@@ -727,9 +727,9 @@ PUBLISHED = {
             norm=+3.4, movegap=0.00692, norm_butler=+3.4, kept_added=(7, 0),
             div=(62, 31), kept_added_div=(24, 7), norm_ext=+4.7,
             norm_butler_ext=+2.0),
-    9: dict(retention=0.92284, sent=(171, 204), sixty=(16, 0), semi=(54, 25),
-            norm=+1.8, movegap=0.01232, norm_butler=+1.8, kept_added=(25, 0),
-            div=(71, 44), kept_added_div=(44, 0), norm_ext=+2.5,
+    9: dict(retention=0.92284, sent=(171, 203), sixty=(16, 1), semi=(54, 26),
+            norm=+1.8, movegap=0.01232, norm_butler=+1.8, kept_added=(26, 0),
+            div=(71, 45), kept_added_div=(45, 0), norm_ext=+2.5,
             norm_butler_ext=+2.5),
 }
 
@@ -904,17 +904,20 @@ DECLARED = {
                "this table gets every gate at full strength; a file present "
                "with an empty declaration says so out loud."),
     "book09/candidate-v2.json": _decl(
-        growth=[(12, 51, 52)],
+        growth=[(12, 51, 52), (34, 59, 61)],
         reason="**the accepted file.** Round 1's corrections: eight words "
                "restored to Butler's own (`sent`, `clutch`, `exclaimed`, "
                "`humane`, `whereas`, `besmirched`, `hard`, `very foolishly`), "
                "three of his MARKS restored — his colon at P012, his colon at "
                "P021 and his semicolon at P031, all three cashed by the draft "
                "where the sentence after them depends on the one before — and "
-               "six findings declined and asserted still present. **The one "
-               "growth is Butler's own sentence handed back**: restoring his "
-               "colon at P012 rejoins a 51-word sentence HE wrote, and the "
-               "candidate's is 52. That is the Book 1 shape (`(5, 49, 50)`, "
+               "six findings declined and asserted still present. **Both "
+               "growths are Butler's own sentences handed back**: restoring "
+               "his colon at P012 rejoins a 51-word sentence HE wrote (the "
+               "candidate's is 52), and restoring the semicolon the FLOW READ "
+               "found at P034 rejoins one he wrote at 59 (the candidate's is "
+               "61). A gate that fires on giving a sentence back to Butler is "
+               "firing on the repair. That is the Book 1 shape (`(5, 49, 50)`, "
                "`(30, 48, 52)`) and the same reason: a gate that fires on "
                "giving a sentence back to Butler is firing on the repair, not "
                "on the defect. Nothing else is declared — no byte-identical "

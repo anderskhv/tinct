@@ -408,6 +408,32 @@ def rule(books, arrow, key, klass, why):
 # `book09/continuity.md` §7. What follows is the residue, dismissed with a
 # reason apiece.
 
+# **The row Book 9's v2 OPENED, and it is the class round 1 named.** Round 1's
+# S-3 fixed six collisions, and one fix — `vouchsafed` → `did not answer me
+# with one word` — put the candidate's `answer` at P019 beside its `answer` at
+# P017, which arrow B reads as one rendering serving two Butler words.
+# **It is a false positive, and the evidence is in Butler's own sentence.**
+# Butler writes `vouchsafed me not one word **of answer**` at P019 and `a
+# pitiless **answer**` at P017: `answer` is HIS word in both places. The recast
+# promotes his own noun to a verb and drops `vouchsafed`, which is the verb the
+# noun was already the object of. Nothing is flattened; one Butler word becomes
+# one candidate word twice over.
+#
+# **It is ruled here rather than repaired, and that is the interesting part.**
+# Round 1's question 3 found that the P020 repair re-created its own collision
+# at P019, and item 15 of the blind-spot list is *a repair that re-creates its
+# own collision somewhere else in the same draft*. This is the first instance
+# caught **by running the check after the repairs** rather than by a reviewer
+# reading PG by hand — which is what the check should have been doing all
+# along, and is now what step 6 does.
+rule([9], "B", "answer", "variant",
+     "FALSE POSITIVE of arrow B's keying. Butler writes `answer` in both "
+     "paragraphs — `a pitiless answer` at P017 and `not one word of answer` "
+     "at P019 — so the candidate's `answer` at P019 renders HIS noun, not his "
+     "`vouchsafed`; the recast turns the noun into the verb it was already "
+     "the object of. The row exists because the arrow keys on the rarest word "
+     "in the aligned span and `vouchsafed` is rarer than `answer`.")
+
 rule([9], "A", "compassion", "common-rendering",
      "`take compassion upon me` is an archaic construction, not an archaic "
      "word: modern English keeps `compassion` as a noun and has lost `take "
@@ -1105,16 +1131,30 @@ def rows_for(book):
                   and any(not p.startswith(tag) for _, p in v)
                   and len({normal(x) for x, _ in mine}) == 1):
                 row["klass"], row["why"] = "kept-elsewhere", (
-                    "Book %d supplies the row's only rendering (`%s`); every "
+                    # **Round 1 of Book 9, S-4 and blind spot 8.** These two
+                    # sentences used to be word-for-word identical for
+                    # SIXTEEN rows, and one of the sixteen was
+                    # `humane → civilized` at B09-P010, where the rendering
+                    # was wrong and the disposition never asked. A generated
+                    # sentence shared by sixteen rows records that a script
+                    # ran, not that somebody ruled. The wording now NAMES the
+                    # one decision the row contains, so that the row says what
+                    # has to be ruled on rather than why there is nothing to
+                    # reconcile.
+                    "**The one rendering decision in this row is Book %d's "
+                    "`%s` → `%s`, and it is the thing to rule on.** Every "
                     "other entry is Butler's own `%s` carried through "
-                    "unchanged by another Book. There is one rendering "
-                    "decision in this row, not two, so there is nothing to "
-                    "reconcile. **Declared blind:** this class cannot say "
-                    "whether a Book that KEPT `%s` should also have moved it. "
-                    "That residue is ruled by hand in `RULINGS_BY_BOOK` "
-                    "wherever the kept word is not current English in its own "
-                    "context (see `luscious` at Book 5)."
-                    % (book, mine[0][0], key, key))
+                    "unchanged by another Book, so there is no cross-Book "
+                    "inconsistency — which is a different question from "
+                    "whether `%s` is the right word here, and this class "
+                    "cannot answer that one. **Declared blind, twice:** it "
+                    "cannot say whether a Book that KEPT `%s` should also "
+                    "have moved it (ruled by hand in `RULINGS_BY_BOOK` where "
+                    "the kept word is not current English in context — see "
+                    "`luscious` at Book 5), and it cannot say whether the "
+                    "single rendering is accurate to Butler's sense (Book 9 "
+                    "S-4: `humane` is *merciful*, and `civilized` is not)."
+                    % (book, key, mine[0][0], key, mine[0][0], key))
             else:
                 row["klass"], row["why"] = None, None
             out.append(row)

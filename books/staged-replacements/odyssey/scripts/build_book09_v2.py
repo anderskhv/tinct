@@ -157,6 +157,22 @@ CORRECTIONS = [
     # keeps the inversion AND the correlative (`Even so did we bore`, P026)
     # there is no hazard, so the fix is local.
 
+    # ------------------------------------------------ F-1, the FLOW READ
+    (33, "F-1", "and then freed my comrades. As for the sheep, which were "
+     "very fat, by heading them steadily in the right direction we managed",
+     "and then freed my comrades; as for the sheep, which were very fat, by "
+     "heading them steadily in the right direction we managed"),
+    # **Step 7, and the carrier for blind spot 1 — a sentence divided at the
+    # wrong seam.** Read straight through, B09-P034 opens two consecutive
+    # sentences on `As`: *"**As** he spoke he drove the ram outside…"* then
+    # *"**As** for the sheep, which were very fat…"*. Butler's mark there is a
+    # semicolon and it is doing the better job — getting out from under the
+    # ram and getting the sheep down to the ship are one movement, and his
+    # mark says so. This is Book 6's F-1 and Book 4's F-1 in a third place,
+    # and the disposition is the one Book 5's round 1 reached three times:
+    # **back to Butler's semicolon.** It is his mark, so it is KEPT, not
+    # added; no instrument in the package could reach it.
+
     # ---------------------------------------------------------------- O-1
     (18, "O-1", "So we stayed where we were, sobbing and sighing, till "
      "morning came.",
@@ -258,7 +274,8 @@ def main():
     # anywhere, or a different mark in one of these places, fails.
     for para, mark, frag in ((12, ":", "one housekeeper: when he drank"),
                              (21, ":", "the best plan: the Cyclops"),
-                             (31, ";", "would be the best; the male sheep")):
+                             (31, ";", "would be the best; the male sheep"),
+                             (34, ";", "freed my comrades; as for the sheep")):
         if frag not in paras[para - 1]:
             fail("M-1/Q2: the restored %s at B09-P%03d did not land"
                  % (mark, para))

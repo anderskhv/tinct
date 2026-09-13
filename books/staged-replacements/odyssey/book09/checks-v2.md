@@ -6,7 +6,7 @@ executed for a new Book by anything in the repository** — substantive
 finding **S-2** of `book06/review/findings-v1.md`. Every figure below
 is reproducible by running `python3 scripts/checks.py 9`.
 
-**Subject:** `book09/candidate-v2.json`, sha256 `0b6b8e25470522cd7d85a77474446c8175cc520ce620a93ce1a3485139f7ef85`.
+**Subject:** `book09/candidate-v2.json`, sha256 `f762b7a33e3517af11fe6113908e16318fbe26ad30dc17e6534854b643d36485`.
 
 **Basis — records finding R-1.** all 44 paragraphs. A figure without the paragraph
 set it is computed over is not a figure, and the package published
@@ -27,22 +27,22 @@ one for three Books.
 | order retention (per paragraph, for MOVE-GAP) | 0.92284 |
 | bag retention (order-blind) | 0.93516 |
 | **MOVE-GAP** (bag − order), D20 | **0.01232** |
-| sentences, source → candidate | 171 → 204 |
-| **splitting rate** (D17, raw) | **+19.3%** |
+| sentences, source → candidate | 171 → 203 |
+| **splitting rate** (D17, raw) | **+18.7%** |
 | semicolon-normalized sentences | 225 → 229 |
 | NORM RATE as published (D20) | +1.8% |
 | semicolon-normalized, on Butler's pointing | 225 → 229 |
 | **NORM RATE on Butler's own pointing** (D20, S-1) | **+1.8%** |
-| sixty-word sentences | 16 → 0 (100% broken) |
-| **semicolons, Butler → candidate** (D19) | **54 → 25** |
-| **of which KEPT of Butler's / ADDED by the draft** (S-1) | **25 kept + 0 added** |
-| **dividing marks, Butler → candidate** (D27: `;` `:` sentence-internal `—`) | **71 → 44** |
-| **of which KEPT / ADDED** (D27) | **44 kept + 0 added** |
+| sixty-word sentences | 16 → 1 (94% broken) |
+| **semicolons, Butler → candidate** (D19) | **54 → 26** |
+| **of which KEPT of Butler's / ADDED by the draft** (S-1) | **26 kept + 0 added** |
+| **dividing marks, Butler → candidate** (D27: `;` `:` sentence-internal `—`) | **71 → 45** |
+| **of which KEPT / ADDED** (D27) | **45 kept + 0 added** |
 | dividing-mark-normalized sentences | 242 → 248 |
 | NORM RATE, every dividing mark (D27) | +2.5% |
 | dividing-mark-normalized, on Butler's pointing | 242 → 248 |
 | NORM RATE, dividing marks on Butler's pointing (D27+D21, the compared figure for Books 1-8) | +2.5% |
-| **of which KEPT BY IDENTITY / CLASS-CHANGED / ADDED** (**D28**, Book 9 round 1 S-1) | **42 kept + 2 class-changed + 0 added** |
+| **of which KEPT BY IDENTITY / CLASS-CHANGED / ADDED** (**D28**, Book 9 round 1 S-1) | **43 kept + 2 class-changed + 0 added** |
 | dividing-mark-normalized, on Butler's pointing by identity | 242 → 246 |
 | **NORM RATE, dividing marks on Butler's pointing BY MARK IDENTITY** — **the compared figure from Book 9 forward** (D28) | **+1.7%** |
 
@@ -55,7 +55,7 @@ claim it was published to support.
 | B09-P009 | `;` | `:` | …sent us excellent sport |
 | B09-P013 | `;` | `:` | …kept in separate flocks |
 
-Of the +33 sentences added, at most **29** are a semicolon
+Of the +32 sentences added, at most **28** are a semicolon
 rewritten as a period — the operation that adds a sentence, moves no
 clause, drops no word and costs no retention. That is what NORM RATE
 prices out, and why **D19 is a rate and not a count** (D20).
@@ -66,7 +66,7 @@ semicolon adds nothing to the sentence count, adds one to the
 candidate's semicolon count, and therefore scores under D20 exactly
 what a real period scores — while leaving the clause chain inside one
 sentence. A period costs a recast; a semicolon costs a keystroke.
-**0 of this candidate's 25 semicolons are its own**, and the figure
+**0 of this candidate's 26 semicolons are its own**, and the figure
 that is COMPARED from Book 7 forward is **NORM RATE on Butler's own
 pointing**, +1.8% here against the +1.8% the unsplit measure gives.
 
@@ -83,7 +83,7 @@ pointing**, +1.8% here against the +1.8% the unsplit measure gives.
 | Book 6 | all 26 paragraphs | 0.93408 | 116 → 148 | +27.6% | 27 → 5 | 38 → 16 | 14 + 2 | +7.0% | **+5.2%** | 0.01156 |
 | Book 7 | all 29 paragraphs | 0.93438 | 103 → 138 | +34.0% | 30 → 7 | 42 → 18 | 14 + 4 | +9.0% | **+4.8%** | 0.01217 |
 | Book 8 | all 50 paragraphs | 0.93862 | 192 → 235 | +22.4% | 42 → 7 | 62 → 31 | 24 + 7 | +3.4% | **+2.0%** | 0.00692 |
-| Book 9 | all 44 paragraphs | 0.92284 | 171 → 204 | +19.3% | 54 → 25 | 71 → 44 | 44 + 0 | +1.8% | **+2.5%** | 0.01232 |
+| Book 9 | all 44 paragraphs | 0.92284 | 171 → 203 | +18.7% | 54 → 26 | 71 → 45 | 45 + 0 | +1.8% | **+2.5%** | 0.01232 |
 
 Book 3's row is the reason this column exists. Its published figures
 are computed on **37 of its 38 paragraphs** — B03-P038, the **D14**
@@ -96,8 +96,8 @@ vacuous. The exclusion is right; its silence was not.
 
 Floor **+2.7%**, half accepted Book 3's +5.5% — computed from
 the accepted files on each Book's own basis, never re-pasted from
-prose. This candidate: **+19.3%**. Sixty-word survival gate:
-0 of 16 survive, and the gate fails above 12.00.
+prose. This candidate: **+18.7%**. Sixty-word survival gate:
+1 of 16 survive, and the gate fails above 12.00.
 
 ## 5. The growth gate, aligned sentence to sentence (D20)
 
@@ -112,6 +112,7 @@ remains the failure; growth is reported from 40.
 **FAILURES:**
 
 - B09-P012 51 → 52 words: Not a man or maid in the house knew about it, but only himself, his wife, and one housekeeper: when he drank it he mixed twenty parts of water to one of wine, and even so the fragrance from the mixing-bowl was so exquisite that it was impossible to keep from drinking.
+- B09-P034 59 → 61 words: “As he spoke he drove the ram outside, but when we were a little way out from the cave and the yards, I first got out from under the ram’s belly, and then freed my comrades; as for the sheep, which were very fat, by heading them steadily in the right direction we managed to drive them down to the ship.
 
 Sentences grown to 40 words or more: **6**.
 
@@ -133,7 +134,7 @@ four-limb chain that Butler also wrote at 43 words passes all of
 them — which is how B06-P016 and B06-P018 reached a review
 untouched. This report is absolute.
 
-**40 sentences.**
+**41 sentences.**
 
 | paragraph | words | source paragraph's longest | sentence |
 |---|---|---|---|
@@ -171,6 +172,7 @@ untouched. This report is absolute.
 | B09-P031 | **46** | 49 | In the end I judged that this plan would be the best; the male sheep were well grown and carried a heavy black fleece, s… |
 | B09-P031 | **49** | 49 | As for myself, there was a ram finer than any of the others, so I caught hold of him by the back, wedged myself in the t… |
 | B09-P033 | **43** | 42 | You are not in the habit of letting the ewes go before you, but lead them at a run, whether to flowery meadow or bubblin… |
+| B09-P034 | **61** | 59 | “As he spoke he drove the ram outside, but when we were a little way out from the cave and the yards, I first got out fr… |
 | B09-P034 | **49** | 59 | However, I made signs to them by nodding and frowning that they were to hush their crying, and told them to get all the … |
 | B09-P036 | **42** | 43 | “He got more and more furious as he heard me, so he tore the top off a high mountain and flung it just in front of my sh… |
 | B09-P037 | **41** | 81 | If he had then heard any further sound of voices he would have pounded our heads and our ship’s timbers into a jelly wit… |

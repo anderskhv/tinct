@@ -138,7 +138,7 @@ And Odysseus answered, “King Alcinous, it is a good thing to hear a bard with 
 
 **B09-P034**
 
-“As he spoke he drove the ram outside, but when we were a little way out from the cave and the yards, I first got out from under the ram’s belly, and then freed my comrades. As for the sheep, which were very fat, by heading them steadily in the right direction we managed to drive them down to the ship. The crew rejoiced greatly at seeing those of us who had escaped death, but wept for the others whom the Cyclops had killed. However, I made signs to them by nodding and frowning that they were to hush their crying, and told them to get all the sheep on board at once and put out to sea; so they went aboard, took their places, and struck the gray sea with their oars. Then, when I had got as far out as my voice would reach, I began to jeer at the Cyclops.
+“As he spoke he drove the ram outside, but when we were a little way out from the cave and the yards, I first got out from under the ram’s belly, and then freed my comrades; as for the sheep, which were very fat, by heading them steadily in the right direction we managed to drive them down to the ship. The crew rejoiced greatly at seeing those of us who had escaped death, but wept for the others whom the Cyclops had killed. However, I made signs to them by nodding and frowning that they were to hush their crying, and told them to get all the sheep on board at once and put out to sea; so they went aboard, took their places, and struck the gray sea with their oars. Then, when I had got as far out as my voice would reach, I began to jeer at the Cyclops.
 
 **B09-P035**
 
