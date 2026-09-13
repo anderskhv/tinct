@@ -1,0 +1,49 @@
+[
+ {
+  "key": "hume-enquiry/original-en/ch7",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9575504523312457,
+    "reasons": [
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/dbfeb34a-8974-5863-807c-9aa54be344f7/scratchpad/work/hume-enquiry-ch7/run/hume-enquiry/original-en/ch7/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9551148225469729,
+    "reasons": [
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/dbfeb34a-8974-5863-807c-9aa54be344f7/scratchpad/work/hume-enquiry-ch7/run/hume-enquiry/original-en/ch7/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ }
+]
