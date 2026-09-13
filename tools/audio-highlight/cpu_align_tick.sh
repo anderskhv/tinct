@@ -8,6 +8,13 @@
 # never published — goes with it. The supervising session persists across ticks,
 # so the durable place to run this is there, one bounded slice at a time.
 #
+# Invoke this as a TRACKED background task, not with `nohup ... &`. An untracked
+# background process is reaped when the tool call that spawned it returns, which
+# is not obvious from the outside: the run simply stops, process.log is empty,
+# and there is no error anywhere. Three runs died that way on 2026-09-13 —
+# 76 alignments, then 22 — each stopping at exactly the length of the foreground
+# sleep that happened to be holding the call open.
+#
 # Bounded on purpose. trial.py gets a budget shorter than the gap between ticks
 # so it stops cleanly rather than being killed mid-paragraph, and --resume means
 # the next tick continues from the diagnostics already on disk instead of
