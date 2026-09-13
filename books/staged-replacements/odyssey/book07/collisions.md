@@ -6,15 +6,17 @@ of `book07/review/findings-v1.md`: the check returned seventy-two rows touching
 Book 7, eleven were acted on, and sixty-one were dismissed with no record of
 having been read. This file is that record, and it is generated, not typed.
 
-**81 rows touch Book 7.**
+**78 rows touch Book 7.**
 
 | disposition | rows |
 |---|---|
 | `artifact` | 3 |
-| `common-rendering` | 8 |
+| `common-rendering` | 7 |
 | `common-word` | 2 |
-| `homograph` | 1 |
-| `kept` | 48 |
+| `discrimination` | 1 |
+| `homograph` | 2 |
+| `kept` | 43 |
+| `matches-accepted` | 1 |
 | `phrase-not-word` | 2 |
 | `same-referent` | 2 |
 | `unavoidable-merge` | 3 |
@@ -26,15 +28,13 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW A — one Butler word, two or more renderings, across Books
 
-14 rows.
+13 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
-| `became` | `became` (B7-P012) | **`kept`** | every entry Book 7 contributes is Butler's own `became` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `closely` | `closely` (B7-P010) | **`kept`** | every entry Book 7 contributes is Butler's own `closely` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `depart` | `to leave` (B7-P022) | **`variant`** | every rendering in the row reduces to `leave` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `dwells` | `dwells` (B7-P021) | **`kept`** | every entry Book 7 contributes is Butler's own `dwells` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `endowed` | `endowed` (B7-P011) | **`kept`** | every entry Book 7 contributes is Butler's own `endowed` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `faring` | `seafaring` (B7-P004) | **`artifact`** | Butler writes `sea-faring` with a hyphen and the tokenizer splits it, so `faring` is not a word either text uses. D15 closes it to `seafaring`, matching accepted B06-P021. There is no rendering pair. |
 | `harbours` | `harbors their` (B7-P005) | **`variant`** | D9, `harbours` -> `harbors`. The trailing `their` in the row is the parallel possessive Butler dropped and B07-P005 restores, recorded in `continuity.md`; the diff attached it to the same span. |
 | `husbands` | `beside her husband` (B7-P007), `husbands` (B7-P008) | **`variant`** | One word, inflected for number. O-6's repair recasts Butler's comparison from *`honored of all those who keep house along with their husbands`* to *`honors more than any other woman who keeps house beside her husband`*, which is singular because the comparison now has one term. Butler's own plural at B07-P008 stands. |
@@ -42,12 +42,13 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `lighted` | `lighted` (B7-P010) | **`kept`** | every entry Book 7 contributes is Butler's own `lighted` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `luscious` | `luscious` (B7-P011) | **`kept`** | every entry Book 7 contributes is Butler's own `luscious` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `possessions` | `possessions` (B7-P013) | **`kept`** | every entry Book 7 contributes is Butler's own `possessions` carried through unchanged; the decision in this row belongs to whichever Book moved |
+| `precincts` | `courtyard` (B7-P012) | **`discrimination`** | **Ruled at Book 8, and the two renderings are deliberate.** B07-P012 is a man crossing a threshold into an enclosure, and there `precincts` was rendered `courtyard` for two reasons (finding M-1): `walls` was a sense change, and the Book's walls are literally bronze. B08-P004 is the plural grounds of a palace — *the outbuildings, the yards, and all the precincts were filled with crowds* — where `precincts` is current English and needs no change. Recorded in `book08/continuity.md` §6. |
 | `rejoicing` | `rejoicing` (B7-P018) | **`kept`** | every entry Book 7 contributes is Butler's own `rejoicing` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `storm` | `storm` (B7-P022) | **`variant`** | every rendering in the row reduces to `storm` once inflection, D9 spelling and D15 compound spacing are normalized |
 
 ## ARROW B — one rendering, two or more Butler words, across Books
 
-62 rows.
+60 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
@@ -55,13 +56,13 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `agreed` | `agreed` (B7-P020) | **`kept`** | every entry Book 7 contributes is Butler's own `agreed` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `among` | `among` (B7-P012), `among` (B7-P014), `among` (B7-P015), `among` (B7-P019), `among` (B7-P023), `among` (B7-P027) | **`variant`** | every rendering in the row reduces to `among` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `being` | `being` (B7-P011), `being` (B7-P025) | **`kept`** | every entry Book 7 contributes is Butler's own `being` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `beside` | `along with their husbands` (B7-P007), `beside` (B7-P016) | **`common-rendering`** | `beside` is a word Butler himself uses in 8 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
+| `beside` | `along with their husbands` (B7-P007), `beside` (B7-P016) | **`common-rendering`** | `beside` is a word Butler himself uses in 9 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `bondservants` | `property my bondsmen` (B7-P019) | **`artifact`** | Butler's `bondsmen` is rendered `bondservants` in BOTH accepted B04-P055 and B07-P019 — the row exists only because §8's reordering of `see my property once more` pulled `property` into the diff's span, so the two source sides read `bondsmen` and `property my bondsmen`. There is one rendering and it is consistent. |
 | `called` | `called` (B7-P021) | **`kept`** | every entry Book 7 contributes is Butler's own `called` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `carried` | `carried` (B7-P001), `carried` (B7-P011), `carried` (B7-P021) | **`kept`** | every entry Book 7 contributes is Butler's own `carried` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `children` | `children` (B7-P008), `children` (B7-P013) | **`kept`** | every entry Book 7 contributes is Butler's own `children` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `cloak` | `cloak` (B7-P012), `cloak` (B7-P020) | **`kept`** | every entry Book 7 contributes is Butler's own `cloak` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `clothing` | `clothing` (B7-P022) | **`kept`** | every entry Book 7 contributes is Butler's own `clothing` carried through unchanged; the decision in this row belongs to whichever Book moved |
+| `clothing` | `clothing` (B7-P022) | **`matches-accepted`** | See (A, raiment). B08-P040 uses accepted B05-P004's rendering exactly; B07-P022's `clothing` is Butler's own word kept. |
 | `content` | `content` (B7-P019) | **`variant`** | every rendering in the row reduces to `content` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `courtyard` | `precincts` (B7-P012) | **`same-referent`** | The M-1 repair. `courtyard` now carries Butler's own `courtyard` (accepted B04-P005) and his `precincts` (B07-P012) — and his `precincts` IS the courtyard: the next sentence has Odysseus going `straight through the court`. Using Butler's own word for the thing he is describing is what M-1 asked for, and it is what frees `walls` for the bronze. |
 | `enough` | `enough` (B7-P012) | **`kept`** | every entry Book 7 contributes is Butler's own `enough` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -72,38 +73,36 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `handed` | `handed` (B7-P017) | **`kept`** | every entry Book 7 contributes is Butler's own `handed` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `himself` | `himself` (B7-P008), `himself` (B7-P018) | **`kept`** | every entry Book 7 contributes is Butler's own `himself` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `housekeeper` | `housekeeper` (B7-P015) | **`variant`** | every rendering in the row reduces to `housekeeper` once inflection, D9 spelling and D15 compound spacing are normalized |
-| `husband` | `along with their husbands` (B7-P007), `husband` (B7-P006), `husband` (B7-P013) | **`common-rendering`** | `husband` is a word Butler himself uses in 13 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
+| `husband` | `along with their husbands` (B7-P007), `husband` (B7-P006), `husband` (B7-P013) | **`common-rendering`** | `husband` is a word Butler himself uses in 15 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `inner` | `inner` (B7-P029) | **`kept`** | every entry Book 7 contributes is Butler's own `inner` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `leave` | `depart` (B7-P022), `leave` (B7-P013) | **`common-rendering`** | `leave` is a word Butler himself uses in 20 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
+| `leave` | `depart` (B7-P022), `leave` (B7-P013) | **`common-rendering`** | `leave` is a word Butler himself uses in 23 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `lives` | `lives` (B7-P004), `lives` (B7-P021) | **`kept`** | every entry Book 7 contributes is Butler's own `lives` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `maids` | `maids` (B7-P020), `maids` (B7-P024), `maids` (B7-P025), `maids` (B7-P028) | **`kept`** | every entry Book 7 contributes is Butler's own `maids` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `matter` | `matter` (B7-P018), `matter` (B7-P019), `matter` (B7-P026) | **`variant`** | every rendering in the row reduces to `matter` once inflection, D9 spelling and D15 compound spacing are normalized |
-| `middle` | `midst` (B7-P005) | **`common-rendering`** | `middle` is a word Butler himself uses in 8 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `morning` | `morning` (B7-P018) | **`kept`** | every entry Book 7 contributes is Butler's own `morning` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `others` | `others` (B7-P010), `others` (B7-P011), `others` (B7-P026) | **`kept`** | every entry Book 7 contributes is Butler's own `others` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `ourselves` | `our selves` (B7-P018) | **`variant`** | every rendering in the row reduces to `ourselv` once inflection, D9 spelling and D15 compound spacing are normalized |
-| `people` | `people` (B7-P001), `people` (B7-P004), `people` (B7-P006), `people` (B7-P008), `people` (B7-P012), `people` (B7-P018), `people` (B7-P023), `people` (B7-P026), `persons` (B7-P010) | **`common-rendering`** | `people` is a word Butler himself uses in 49 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
-| `pillars` | `pillars` (B7-P009) | **`kept`** | every entry Book 7 contributes is Butler's own `pillars` carried through unchanged; the decision in this row belongs to whichever Book moved |
+| `people` | `people` (B7-P001), `people` (B7-P004), `people` (B7-P006), `people` (B7-P008), `people` (B7-P012), `people` (B7-P018), `people` (B7-P023), `people` (B7-P026), `persons` (B7-P010) | **`common-rendering`** | `people` is a word Butler himself uses in 54 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `plainly` | `plainly` (B7-P014) | **`kept`** | every entry Book 7 contributes is Butler's own `plainly` carried through unchanged; the decision in this row belongs to whichever Book moved |
+| `playing` | `playing` (B7-P023) | **`homograph`** | One spelling, two unrelated senses. `the playing that goes with it` at B08-P007 renders Butler's `minstrelsy`; his own `playing` elsewhere is children at play (B01-P008, B07-P023) and a flame playing about a tripod (B08-P040). No referent is shared. |
 | `proud` | `proud` (B7-P002) | **`kept`** | every entry Book 7 contributes is Butler's own `proud` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `scold` | `scold` (B7-P025) | **`kept`** | every entry Book 7 contributes is Butler's own `scold` carried through unchanged; the decision in this row belongs to whichever Book moved |
+| `seafaring` | `sea faring` (B7-P004) | **`variant`** | every rendering in the row reduces to `seafar` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `servant` | `servant` (B7-P001), `servant` (B7-P016) | **`kept`** | every entry Book 7 contributes is Butler's own `servant` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `settle` | `settle` (B7-P008) | **`kept`** | every entry Book 7 contributes is Butler's own `settle` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `sheltered` | `sheltered` (B7-P023) | **`kept`** | every entry Book 7 contributes is Butler's own `sheltered` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `since` | `inasmuch as` (B7-P020) | **`common-rendering`** | `since` is a word Butler himself uses in 8 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
+| `since` | `inasmuch as` (B7-P020) | **`common-rendering`** | `since` is a word Butler himself uses in 9 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `single` | `single` (B7-P026) | **`kept`** | every entry Book 7 contributes is Butler's own `single` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `sitting` | `sitting` (B7-P006), `sitting` (B7-P015), `sitting` (B7-P016) | **`kept`** | every entry Book 7 contributes is Butler's own `sitting` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `stayed` | `stayed` (B7-P022) | **`variant`** | every rendering in the row reduces to `stay` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `streams` | `streams` (B7-P011) | **`kept`** | every entry Book 7 contributes is Butler's own `streams` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `struck` | `struck` (B7-P021) | **`kept`** | every entry Book 7 contributes is Butler's own `struck` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `talked` | `converse` (B7-P028) | **`unavoidable-merge`** | `talked` carries Butler's `converse` (B04-P052, B07-P028) and his own `talked` (B02-P025). `converse` as an intransitive verb is archaic and `talk` is its only plain modern equivalent; the alternative is a register difference Butler does not make. B07-P028 matches accepted B04-P052 word for word, which is the consistency the package asks for. |
-| `their` | `harbours` (B7-P005), `their` (B7-P005), `their` (B7-P008), `their` (B7-P010), `their` (B7-P011), `their` (B7-P012), `their` (B7-P013), `their` (B7-P014), `their` (B7-P017), `their` (B7-P018), `their` (B7-P020), `their` (B7-P028) | **`common-rendering`** | `their` is a word Butler himself uses in 77 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
+| `their` | `harbours` (B7-P005), `their` (B7-P005), `their` (B7-P008), `their` (B7-P010), `their` (B7-P011), `their` (B7-P012), `their` (B7-P013), `their` (B7-P014), `their` (B7-P017), `their` (B7-P018), `their` (B7-P020), `their` (B7-P028) | **`common-rendering`** | `their` is a word Butler himself uses in 92 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `there` | `there` (B7-P010), `there` (B7-P011), `there` (B7-P012), `there` (B7-P015), `there` (B7-P016), `there` (B7-P020), `there` (B7-P021), `there` (B7-P022), `there` (B7-P023) | **`kept`** | every entry Book 7 contributes is Butler's own `there` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `those` | `those` (B7-P010), `those` (B7-P019), `those` (B7-P020) | **`kept`** | every entry Book 7 contributes is Butler's own `those` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `thought` | `thought` (B7-P004), `thought` (B7-P025) | **`kept`** | every entry Book 7 contributes is Butler's own `thought` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `together` | `converse` (B7-P028), `together` (B7-P023) | **`common-rendering`** | `together` is a word Butler himself uses in 11 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
+| `together` | `converse` (B7-P028), `together` (B7-P023) | **`common-rendering`** | `together` is a word Butler himself uses in 14 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `traveler` | `wayfarer` (B7-P018) | **`unavoidable-merge`** | **O-7, declined, and the reason is that the proposed repair does not repair anything.** `wayfarer` -> `traveler` at B07-P018 does land on the rendering of Butler's `traveller` at accepted B03-P011 and B04-P027. But O-7 offers `lone traveler` to keep the solitary sense without the merge, and the candidate **already writes `solitary traveler`** — the same repair in a different word, with the merge untouched either way, because `traveler` is the only plain modern equivalent of `wayfarer`. |
-| `trouble` | `trouble` (B7-P013), `trouble` (B7-P018), `trouble` (B7-P019), `trouble` (B7-P022) | **`kept`** | every entry Book 7 contributes is Butler's own `trouble` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `until` | `hitherto` (B7-P018) | **`phrase-not-word`** | `hitherto` -> `until now` at B07-P018, beside Butler's own `until` elsewhere. `until now` is a fixed adverbial phrase, not a second use of the preposition, and there is no second referent. Upheld. |
 | `water` | `water` (B7-P011), `water` (B7-P015), `water` (B7-P016), `water` (B7-P017), `water` (B7-P023) | **`kept`** | every entry Book 7 contributes is Butler's own `water` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `whatever` | `whatever` (B7-P015) | **`variant`** | every rendering in the row reduces to `whatever` once inflection, D9 spelling and D15 compound spacing are normalized |
@@ -124,5 +123,5 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `now` | `hitherto` (B7-P018) | **`phrase-not-word`** | `until now` again — see (B, until). Butler's other `now` is the discourse adverb in `so now go home to bed`, a different clause and a different part of speech. |
 | `nothing` | `itself` (B7-P019) | **`artifact`** | `dwell only on the due replenishing of itself` was recast to `think of nothing but being refilled`, a sound collision repair against accepted B04-P016's `filling`. The diff paired `itself` with `nothing` across the recast; Butler's other `nothing` is nine sentences away in `I have nothing of the immortal about me`. |
 | `said` | `his saying` (B7-P020) | **`common-word`** | `Every one approved his saying` -> `Everyone approved what he said`, beside `so she said` in a different clause two sentences later. `said` is one of the commonest words in the corpus and the two uses share no referent. |
-| `away` | `home` (B7-P020) | **`common-word`** | `away` is an ordinary word Butler uses in 37 paragraphs and the two uses share no referent |
+| `away` | `home` (B7-P020) | **`common-word`** | `away` is an ordinary word Butler uses in 41 paragraphs and the two uses share no referent |
 

@@ -7,10 +7,10 @@ Prove, by planting the defects, that the manifest and the three
       | of which kept / added      5 kept + 2 added  (S-1)
       | sentences grown to 40+     2 (0 may fail at 50+)
   ✓ --manifests verifies every Book
-      | ✓ book04  no checks block (predates the rule, declared)
       | ✓ book05  no checks block (predates the rule, declared)
       | ✓ book06  checks 34937f90 over book06/candidate-v2.json
       | ✓ book07  checks 54acaec8 over book07/candidate-v2.json
+      | ✓ book08  checks 6b870f80 over book08/candidate-v1.json
 
 2. S-2 — a stale checks hash (the defect that was actually there)
   ✓ --manifests rejects the stale hash and exits non-zero
@@ -35,12 +35,12 @@ Prove, by planting the defects, that the manifest and the three
       | in
       | block = manifest_checks_block(f, g)     # raises unless evaluated+passed
       | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-      | File "/tmp/odyssey-prove-7aseyiwq/odyssey/scripts/checks.py", line 754, in manifest_checks_block
+      | File "/tmp/odyssey-prove-627h5dfu/odyssey/scripts/checks.py", line 766, in manifest_checks_block
   ✓ the manifest already on disk no longer vouches for it
       | e, declared)
-      | ✓ book05  no checks block (predates the rule, declared)
       | ✓ book06  checks 34937f90 over book06/candidate-v2.json
       | ✗ manifest: book07 records checks.sha256 54acaec8 but book07/checks-v2.md hashes to f7f43e7c — STALE
+      | ✗ manifest: book07 records candidate_sha256 e79eb82b but book07/candidate-v2.json hashes to b3abe816 — the can
 
 5. S-2 — an empty failure list is not a pass
   ✓ a never-evaluated Gate is refused (evaluated=False, failures=[])
@@ -60,6 +60,6 @@ Prove, by planting the defects, that the manifest and the three
   ✓ R-5: membership missed the second identical growth; multiplicity catches it
       | membership -> [] (silent);  multiset -> [(5, 49, 50)] (fires)
   ✓ the package itself is byte-unchanged by this proof
-      | 0b3dff803d0c0551 == 0b3dff803d0c0551
+      | d54adb4a0bdc45ef == d54adb4a0bdc45ef
 
 15 assertions, 15 passed.

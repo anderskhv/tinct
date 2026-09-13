@@ -54,9 +54,20 @@ modern edition is not Butler and does not owe them.
 | 10 | **Juno** | **Hera** | 0 in Book 1 | *Added 2026-09-12 at Book 4 step 2 (B04-P043).* |
 | 11 | **Vulcan** | **Hephaestus** | 0 in Book 1 | *Added 2026-09-12 at Book 4 step 2 (B04-P051).* |
 | 12 | **Ceres** | **Demeter** | 0 in Book 1 | *Added 2026-09-12 at Book 5 step 2, the first Book to meet her (B05-P010).* The first row added under the **corrected warrant**: it rests on D5's rule, not on a count. The product's corroboration is thin, exactly as R3 predicted for a figure outside the Cast — Cast `Ceres` 0 / `Demeter` 0, onboarding 0 / 0, served `modern-en` **Demeter 1 / Ceres 0**. |
+| **13** | **Mars** | **Ares** | 0 in Book 1 | *Added 2026-09-13 at Book 8 step 2, the first Book to meet him (B08-P019 to B08-P030, thirteen occurrences — the lay of Ares and Aphrodite).* Added on **D5's rule alone**, which is what the corrected warrant below says to do: the Cast is silent (`Ares` 0 / `Mars` 0) and so is the onboarding. Ares is an Olympian with a Roman name, which is the class D5 names. **The hazard here is `Arete`**, the Phaeacian queen, named six times in this Book and eleven in Book 7: a stem-based or case-insensitive `Ares` rule destroys her. The mapping is word-bounded and case-sensitive (D6) and the build asserts her count before and after. |
 
 **The table is extended by enumeration when a Book meets a Roman name it does
-not yet carry, and never generated** (hazard 1). Each addition is recorded here
+not yet carry, and never generated** (hazard 1).
+
+**One name is OUTSIDE the table and is flagged rather than added: `Hercules`
+(B08-P016).** Book 8's draft writes **`Heracles`** — but D5 as written covers
+*"the Olympians who have Roman ones"*, and Heracles is a hero, not an Olympian,
+so the letter of the rule does not reach him and the Cast has no display name
+for him (**D8** is silent). The draft applies the rule's evident purpose and
+**puts the question to the reviewer** (`book08/review-instructions.md` question
+1) instead of adding a row on its own authority. If the ruling is that D5
+should read *any figure Butler names in a Roman form*, this becomes row 14 and
+Books 11 and 12 will meet more of them. Each addition is recorded here
 with the Book and paragraph that forced it, so the table's growth is legible
 and no row ever arrives from a general deity list.
 

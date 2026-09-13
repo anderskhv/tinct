@@ -64,6 +64,10 @@ Ruled by hand, in `RULINGS`:
 * `divergence-recorded` — this Book is right and another accepted Book is out
   of step. Recorded with its reason, not repaired: repairing costs a successor
   for no reading gain.
+* `matches-accepted` — this Book's rendering is word for word the one an
+  accepted Book already uses for the same Butler word. The row exists because
+  some *other* Book renders it differently, and that is that Book's decision,
+  not this one's.
 
 Run: `python3 scripts/collision_triage.py 7`
 """
@@ -162,6 +166,15 @@ RULINGS = {
         "`hitherto` -> `until now` at B07-P018, beside Butler's own `until` "
         "elsewhere. `until now` is a fixed adverbial phrase, not a second use "
         "of the preposition, and there is no second referent. Upheld."),
+    ("A", "precincts"): ("discrimination",
+        "**Ruled at Book 8, and the two renderings are deliberate.** B07-P012 "
+        "is a man crossing a threshold into an enclosure, and there "
+        "`precincts` was rendered `courtyard` for two reasons (finding M-1): "
+        "`walls` was a sense change, and the Book's walls are literally "
+        "bronze. B08-P004 is the plural grounds of a palace — *the "
+        "outbuildings, the yards, and all the precincts were filled with "
+        "crowds* — where `precincts` is current English and needs no change. "
+        "Recorded in `book08/continuity.md` \u00a76."),
     ("B", "walls"): ("repair",
         "**M-1, and the row nobody ruled on.** `precincts` -> `walls` at "
         "B07-P012, three paragraphs from B07-P009's literal bronze walls and "
@@ -175,6 +188,86 @@ RULINGS = {
         "own `wrapped` (B03-P035). `envelop` is not plain modern English of a "
         "mist, `wrap` is, and the two Books render it identically, which is "
         "the consistency the package asks for."),
+
+    # ---------------------------------------------------------------- Book 8
+    ("A", "ambuscade"): ("matches-accepted",
+        "`ambuscade` -> `ambush` at B08-P046 is word for word accepted "
+        "B04-P044's rendering of the same Butler word. The third rendering in "
+        "the row, `lying in wait there` at B04-P037, is Book 4's phrase-level "
+        "recast, where `ambuscade` has no word rendering at all."),
+    ("B", "ambush"): ("unavoidable-merge",
+        "`ambush` carries Butler's `ambuscade` and his own `ambush` "
+        "(B04-P034, B04-P081). `ambuscade` is archaic and `ambush` is its only "
+        "plain modern equivalent; both accepted Book 4 and Book 8 render it so."),
+    ("A", "appearance"): ("homograph",
+        "One Butler spelling, two senses. `the appearance of Odysseus` at "
+        "B08-P002 is how he looks; `the presents began to make their "
+        "appearance` at B08-P038 is an idiom meaning they arrived. Two words "
+        "that happen to be spelled alike, like `issue` at Book 7."),
+    ("A", "infinite"): ("matches-accepted",
+        "`infinite trouble` -> `endless trouble` at B08-P012 is word for word "
+        "accepted B05-P018's rendering. The other rendering in the row is "
+        "Book 2's, where B02-P002 keeps Butler's `infinite` because it is "
+        "current English in its own context; that is Book 2's decision."),
+    ("A", "mantle"): ("matches-accepted",
+        "`mantle` -> `cloak` at B08-P007 is accepted B04-P013's rendering. "
+        "B03-P036's `fine cloak` is the same rendering with Butler's own "
+        "adjective attached."),
+    ("A", "raiment"): ("discrimination",
+        "**Ruled, and the two renderings are deliberate.** Butler uses "
+        "`raiment` twice in this Book for two different things: the divine "
+        "dress the Graces put on Aphrodite at B08-P030, rendered `robes`, and "
+        "the gift-clothes the Phaeacians pack in Arete's chest at B08-P040, "
+        "rendered `clothing` — which is word for word accepted B05-P004's "
+        "rendering. `clothing of the most enchanting beauty` said of a goddess "
+        "is flat, and `robes` said of a chest of presents is wrong."),
+    ("B", "clothing"): ("matches-accepted",
+        "See (A, raiment). B08-P040 uses accepted B05-P004's rendering "
+        "exactly; B07-P022's `clothing` is Butler's own word kept."),
+    ("B", "robes"): ("discrimination",
+        "See (A, raiment). `robes` carries Butler's `raiment` at B08-P030 and "
+        "his own `robes` at B06-P003 — both are garments worn, and the merge "
+        "is the correct reading rather than a loss."),
+    ("A", "remained"): ("artifact",
+        "Butler's `who as long as he remained with her had taken as good care "
+        "of him` became `who for as long as he was with her` — a phrase-level "
+        "recast made to keep `stayed` free for Butler's own `staid`/`stayed` "
+        "(B03-P015, B04-P009, B07-P022). The diff paired `remained` with "
+        "`was`; there is no rendering pair to rule on."),
+    ("B", "appease"): ("artifact",
+        "Butler's `as an offering and propitiation for the gods` became `as an "
+        "offering to appease the gods`. `propitiation` is a noun and `appease` "
+        "a verb; the diff paired the spans across the recast."),
+    ("B", "aware"): ("matches-accepted",
+        "`perceived` -> `was aware of` at B08-P047 is the rendering accepted "
+        "B05-P018 already uses. It was chosen at this Book precisely to keep "
+        "`noticed` free for Butler's own `noticed` at B08-P007, which arrow C "
+        "caught flattened in the first draft."),
+    ("B", "cross"): ("unavoidable-merge",
+        "`cross` carries Butler's `traverse` at B08-P049 and his own `cross` "
+        "in four accepted Books. `traverse the sea` is not plain modern "
+        "English and `cross` is its only ordinary equivalent."),
+    ("B", "entrance"): ("unavoidable-merge",
+        "`entrance` carries Butler's `vestibule` at B08-P021 and his own "
+        "`entrance` at B06-P021 — the same part of the same kind of house. "
+        "`doorway` was not available: Butler uses it himself two paragraphs "
+        "later at B08-P023, where the gods stand in it."),
+    ("B", "halios"): ("variant",
+        "**Butler spells one man's name two ways** — `Halios` at B08-P008 and "
+        "`Halius` at B08-P032, for the same son of Alcinous, and the check "
+        "found it. This is the **D13** shape with the opposite resolution: "
+        "D13 split `Mycene` by *referent* because there were two people; here "
+        "there is one man, so one spelling, and Butler's first is taken. "
+        "Recorded in `continuity.md`, not silently regularized."),
+    ("B", "neighbor"): ("variant",
+        "D9, `neighbour` -> `neighbor`. The trailing `saying` in the row is "
+        "Butler's participle, which the recast `and one would turn to his "
+        "neighbor and say` absorbed; the diff attached it to the same span."),
+    ("B", "playing"): ("homograph",
+        "One spelling, two unrelated senses. `the playing that goes with it` "
+        "at B08-P007 renders Butler's `minstrelsy`; his own `playing` "
+        "elsewhere is children at play (B01-P008, B07-P023) and a flame "
+        "playing about a tripod (B08-P040). No referent is shared."),
 
     (7, 7, "male issue", "son"): ("same-referent",
         "Butler's `issue` here IS the son — Rhexenor left a daughter and no "

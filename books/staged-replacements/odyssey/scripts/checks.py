@@ -627,6 +627,18 @@ DECLARED = {
     "book06/candidate-v3.json": _decl(
         reason="ledger A5(a) and records finding R-6: the SECOND successor the "
                "record said was one. Same one-word change as Book 5's."),
+    "book08/candidate-v1.json": _decl(
+        byte_identical=[33],
+        reason="**B08-P033 is declared, not edited.** It is two short "
+               "sentences of Butler's that are already plain modern English, "
+               "with nothing archaic in the vocabulary, the syntax or the "
+               "pointing. This is the disposition accepted Book 4 takes for "
+               "seven paragraphs, and it is the one **M-9** of Book 7's round "
+               "1 says should have been taken there: the byte-identity gate is "
+               "a tripwire, not a floor to clear, and a tripwire with no "
+               "declared-instance escape creates pressure to make a cosmetic "
+               "edit. Book 7 made that edit and the reviewer called it a "
+               "disimprovement. Book 8 declares instead."),
     "book07/candidate-v1.json": _decl(),
     "book07/candidate-v2.json": _decl(
         reason="the accepted file. Declares nothing: no byte-identical "
