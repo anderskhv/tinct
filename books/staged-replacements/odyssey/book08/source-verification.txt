@@ -1,0 +1,24 @@
+Odyssey Book 8 — source verification, the TWELFTH kind of rule
+PG #1727 sha256 ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9
+served original-en sha256 da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07
+
+  ✓ clause 0 — served titles against PG's argument lines, in order, BODY-BLIND
+  ✓ clause 1 — PG's Contents block against its body headings
+  ✓ clause 2 — the located span reproduces the served chapter exactly
+  ✓ clause 3 — all 24 chapters reproduce, and the served file's divergences from PG in 1,027 paragraphs are EXACTLY the four enumerated (three normalizations and the D14 splice)
+
+  Book 8's argument line: 'BANQUET IN THE HOUSE OF ALCINOUS—THE GAMES.'
+  located at PG characters 187030..216657, 50 paragraphs, 5589 words
+
+  controls under D18: 10 fired on BOTH clauses
+    ✓ clause 2: one letter changed in a served paragraph
+    ✓ clause 2: **the B03-P038 splice** — the served modern-en's own ¶38, the defect this package actually found (A3/D14), planted into Book 8
+    ✓ clause 2: **a paragraph of Butler's own Book VI** substituted — every token his
+    ✓ clause 2: a paragraph of Butler's own Book VIII moved within Book VIII — the chapter's token multiset barely moves
+    ✓ clause 2: two paragraphs transposed
+    ✓ clause 2: a changed digit (fifty-two oarsmen)
+    ✓ clause 2: a paragraph deleted
+    ✓ clause 0: Book 8's own title altered — the LOCATING clause, which reads no prose
+    ✓ clause 0: two chapter titles transposed
+    ✓ clause 1: a Contents entry removed from PG
+    ! blind to a defect PG and the served file SHARE (both sides of every clause are read from the same two artefacts, so a corruption present in PG itself and faithfully carried into the served file cannot move any verdict here); carried by book07/review/verify_source_book7_review.py, whose clause 4 reads PG's FOOTNOTES section against its own internal structure and found exactly such a defect (records finding R-3, footnote 29's transposed opener)
