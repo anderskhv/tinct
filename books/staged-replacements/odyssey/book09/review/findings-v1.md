@@ -1,9 +1,21 @@
 # Odyssey Book 9, `candidate-v1.json` — round 1, independent review
 
-**Subject:** `book09/candidate-v1.json`, sha256
-`41f452ac577054aa820eba1cf1bb20cc24b382e6e3330b74af8c24f657c481fb`
-(recomputed here; it matches, and `scripts/draft_book09_v1.py` reproduces the
-file byte for byte on a fresh copy).
+**Subject:** `book09/candidate-v1.json`, sha256 recomputed here as
+`41f452ac577054aa820eba1cf1bb20cc24b382e6e3330b74af8c24f657c481fb` — the
+frozen hash, and `scripts/draft_book09_v1.py` reproduces the file byte for byte
+on a fresh copy. Source `book09/source-book9.json`, sha256 recomputed as
+`575f8c8693ccefbd4c2a3a9b36d5e61244ecba2f6cb042f65d257fd6aa77561f`.
+44 paragraphs, 15 packets; `manifest.json`'s coverage claim independently
+re-checked (44 assigned, 44 unique, none missing), and every packet quotes its
+source and candidate paragraphs verbatim.
+**Trunk:** `claude/odyssey-modern-en-20260911` @ `2c6931356`.
+**Review branch:** `claude/odyssey-book09-review-20260913`, own worktree.
+**Reviewer:** a separate session. Did not draft this Book.
+
+Nothing outside `book09/review/` and the final `RESUME.md` / ledger commit was
+written. `candidate-v1.json` is untouched (**D10**). `app/public/data/editions/**`
+was read and never written. Zero Anthropic API spend; no network call to
+`api.anthropic.com`; `generate-editions.cjs` not invoked. English only.
 
 **Basis: all 44 paragraphs** (R-1). Every figure below was recomputed by
 `book09/review/recompute.py`, which imports nothing from `scripts/` and
@@ -558,23 +570,63 @@ standalone. `--all` does not call them, `--manifests` does not call them,
 call them. Their evidence is a committed `.txt` that no clause re-derives, and
 `source-verification.txt` is not in any manifest either.
 
-### A11(a), the loud form
+### A11(a), the loud form — **it lands, on the Book under review**
 
-Turn twelve of Butler's full stops in `book08/source-book8.json` into
-semicolons — which raises the source's dividing-mark count, lowers its
-sentence count and flatters the candidate's division figures — then run the
-**ordinary workflow**, `python3 scripts/checks.py 8 --write-manifest`.
+Turn twelve of Butler's full stops in `book09/source-book9.json` into
+semicolons: the source's sentence count falls, its dividing-mark count rises,
+and the candidate looks as though it divided far more than it did. Then run the
+**ordinary workflow**, `python3 scripts/checks.py 9 --write-manifest`.
+
+```
+BEFORE regenerating, --manifests DOES catch it — clause (b3) is doing its job:
+  ✗ manifest: book09 records sentences = [171, 207], and
+    book09/candidate-v1.json gives [159, 207]
+
+after `checks.py 9 --write-manifest`:
+  ✓ checks.py 9 passes          ✓ --manifests exits 0
+  ✓ --all exits 0               ✓ --declarations exits 0
+  published raw D17   21.1%  ->  30.2%
+  published retention 0.92181 -> 0.92181     (no token moved)
+  and DECLARED is byte-identical — no declaration was needed
+```
+
+**A Book's headline rate is raised by nine points and every instrument in the
+package says the figures reproduce**, because they do: they reproduce against
+a Butler nobody holds.
+
+### A11(a) on an ACCEPTED Book — caught, and not by anything about the source
+
+The same attack on `book08/source-book8.json` **is** caught: `--manifests`
+fails afterwards. But the failures name **book01 … book07**, not book08. Book 8
+is accepted, so its figures are printed in the cross-Book table of every other
+Book's `checks-vN.md`, and those generated files stop reproducing — the **A10**
+clause, firing on an **accidental coupling**. Two things follow. **Book 9 is
+not in that table**, so an unaccepted Book has no such accident protecting it;
+and the documented remedy for A10 — *"accepting a Book now means re-running
+`checks.py N --write-manifest` for every Book"* — is also the attacker's next
+move, and it is one command.
 
 ### A11(b), the silent form, and it is the worse one
 
-Remove **one comma** from one paragraph of `book08/source-book8.json`. No
-token moves, so retention, bag retention and MOVE-GAP do not move. No sentence
-boundary moves, so D17, the sixty-word gate and both NORM RATEs do not move.
-No `;`, `:` or sentence-internal `—` moves, so neither census moves. Not one
-of the sixteen recorded figures changes, the `checks-vN.md` the code would
-render is byte-identical, **and nothing has to be regenerated at all.** The
-committed manifest stays untouched and every instrument passes over a
-corrupted Butler.
+Remove **one comma** from one paragraph of `book08/source-book8.json`
+(`Now when the child of morning, rosy-fingered Dawn, appeared,` →
+`Now when the child of morning rosy-fingered Dawn, appeared,`). No token moves,
+so retention, bag retention and MOVE-GAP do not move. No sentence boundary
+moves, so D17, the sixty-word gate and both NORM RATEs do not move. No `;`, `:`
+or sentence-internal `—` moves, so neither census moves. Not one of the sixteen
+recorded figures changes, the `checks-vN.md` the code would render is
+byte-identical, **and nothing has to be regenerated at all.**
+
+```
+  ✓ checks.py 8 still passes over a corrupted Butler   ("all gates pass")
+  ✓ --manifests still exits 0
+  ✓ --all still exits 0 — "every published figure reproduces"
+  ✓ and the source on disk really did change
+```
+
+The committed manifest is untouched, `checks.py` is untouched, `DECLARED` is
+untouched, and every instrument in the package passes over a Butler that is not
+Butler's. **13 of 13 assertions held**; the full output is beside the script.
 
 ### And A9's hatch is wider than the record says
 
