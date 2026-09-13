@@ -683,6 +683,7 @@ ACCEPTED = {
         "book06/candidate-v3.json"),
     7: ("book07/source-book7.json", "book07/candidate-v2.json", None),
     8: ("book08/source-book8.json", "book08/candidate-v2.json", None),
+    9: ("book09/source-book9.json", "book09/candidate-v2.json", None),
 }
 
 # Every figure the package publishes for an accepted Book, on that Book's own
@@ -726,6 +727,10 @@ PUBLISHED = {
             norm=+3.4, movegap=0.00692, norm_butler=+3.4, kept_added=(7, 0),
             div=(62, 31), kept_added_div=(24, 7), norm_ext=+4.7,
             norm_butler_ext=+2.0),
+    9: dict(retention=0.92284, sent=(171, 204), sixty=(16, 0), semi=(54, 25),
+            norm=+1.8, movegap=0.01232, norm_butler=+1.8, kept_added=(25, 0),
+            div=(71, 44), kept_added_div=(44, 0), norm_ext=+2.5,
+            norm_butler_ext=+2.5),
 }
 
 
@@ -898,6 +903,28 @@ DECLARED = {
                "dividing mark that is not Butler's own. A file absent from "
                "this table gets every gate at full strength; a file present "
                "with an empty declaration says so out loud."),
+    "book09/candidate-v2.json": _decl(
+        growth=[(12, 51, 52)],
+        reason="**the accepted file.** Round 1's corrections: eight words "
+               "restored to Butler's own (`sent`, `clutch`, `exclaimed`, "
+               "`humane`, `whereas`, `besmirched`, `hard`, `very foolishly`), "
+               "three of his MARKS restored — his colon at P012, his colon at "
+               "P021 and his semicolon at P031, all three cashed by the draft "
+               "where the sentence after them depends on the one before — and "
+               "six findings declined and asserted still present. **The one "
+               "growth is Butler's own sentence handed back**: restoring his "
+               "colon at P012 rejoins a 51-word sentence HE wrote, and the "
+               "candidate's is 52. That is the Book 1 shape (`(5, 49, 50)`, "
+               "`(30, 48, 52)`) and the same reason: a gate that fires on "
+               "giving a sentence back to Butler is firing on the repair, not "
+               "on the defect. Nothing else is declared — no byte-identical "
+               "paragraph, no paragraph under 0.90 of its source's length, no "
+               "compound drift, and under **D28** no dividing mark that is "
+               "not Butler's own. The two class changes at P009 and P013 "
+               "(his semicolon, the candidate's colon, both introducing a "
+               "list) are reported by `class_changed_rows()` and are neither "
+               "kept nor added: they are priced at zero, which is why the "
+               "compared figure is +1.7% and not +2.5%."),
     "book08/candidate-v2.json": _decl(
         byte_identical=[33],
         growth=[(47, 80, 81)],
@@ -968,6 +995,16 @@ SUPERSEDED = {
         "the frozen round-1 draft, superseded by v2 (accepted 2026-09-13). "
         "Its published figures are in `book08/ACCEPTANCE.md` and in the "
         "ledger's comparability table, on both the old and the D27 basis.",
+    "book09/candidate-v1.json":
+        "the frozen round-1 draft, superseded by v2 (accepted 2026-09-13). "
+        "**Its `DECLARED` row said it declared nothing and that was true of "
+        "every gate and false of the claim it was written to make** — the "
+        "row's reason ended *'under D27, no dividing mark that is not "
+        "Butler's own'*, and two of the 41 were colons written over Butler's "
+        "semicolons while two of his colons were spent. D28 is what can see "
+        "it; the figure moved 0.8 points. Round 1's findings are in "
+        "`book09/review/findings-v1.md` and the corrections in "
+        "`scripts/build_book09_v2.py`.",
     "book07/candidate-v1.json":
         "round-1 draft, superseded by v2 (accepted). **It used to sit in "
         "`DECLARED` with an empty declaration** — a licence issued to a "
@@ -2033,9 +2070,28 @@ def _render(book, version, cand_path, f, g, grown, grown_fail, near, tw,
           "| NORM RATE, every dividing mark (D27) | %+.1f%% |" % f["norm_ext"],
           "| dividing-mark-normalized, on Butler's pointing | %d → %d |"
           % f["norm_butler_ext_pair"],
-          "| **NORM RATE, dividing marks on Butler's pointing** — "
-          "**the compared figure from Book 8 forward** (D27+D21) | "
-          "**%+.1f%%** |" % f["norm_butler_ext"],
+          "| NORM RATE, dividing marks on Butler's pointing "
+          "(D27+D21, the compared figure for Books 1-8) | %+.1f%% |"
+          % f["norm_butler_ext"],
+          "| **of which KEPT BY IDENTITY / CLASS-CHANGED / ADDED** "
+          "(**D28**, Book 9 round 1 S-1) | **%d kept + %d class-changed + "
+          "%d added** |" % f["kept_class_added_div"],
+          "| dividing-mark-normalized, on Butler's pointing by identity "
+          "| %d → %d |" % f["norm_butler_ident_pair"],
+          "| **NORM RATE, dividing marks on Butler's pointing BY MARK "
+          "IDENTITY** — **the compared figure from Book 9 forward** (D28) | "
+          "**%+.1f%%** |" % f["norm_butler_ident"],]
+    if f["class_changed"]:
+        L += ["",
+              "**The class changes, named** (D28). A count that cannot be "
+              "pointed at is what",
+              "S-1 is about: `41 kept + 0 added` was true of the count and "
+              "false of the",
+              "claim it was published to support.", "",
+              "| ¶ | Butler | candidate | at |", "|---|---|---|---|"]
+        L += ["| B%02d-P%03d | `%s` | `%s` | …%s |" % (book, i, b, c, ctx)
+              for i, b, c, ctx in f["class_changed"]]
+    L += [
           "", "Of the %+d sentences added, at most **%d** are a semicolon"
           % (f["sent"][1] - f["sent"][0], max(0, f["semi"][0] - f["semi"][1])),
           "rewritten as a period — the operation that adds a sentence, moves no",
@@ -2099,7 +2155,7 @@ def _render(book, version, cand_path, f, g, grown, grown_fail, near, tw,
               "|---|---|---|"]
         L += ["| B%02d-P%03d | %d words | %d words |" % (book, a, b, d)
               for a, b, d, _ in grown]
-    L += ["", "## 6. Every candidate sentence over 40 words (absolute)", "",
+    L += ["", "## 6. Every candidate sentence of 40 words or more (absolute)", "",
           "Blind spot 2 of `findings-v1.md` §9, which had no carrier: *a",
           "sentence left long because it **is** long in Butler.* Every other",
           "length check in the package is relative to the source, so a 43-word",

@@ -311,6 +311,18 @@ def verify_all(books=range(1, 25)):
     for k in sorted(want - found):
         bad.append("source: SOURCE_DIVERGENCES enumerates chapter %d ¶%d and "
                    "the served file now reproduces there" % k)
+    # **The bound, and it is the A10 remedy applied to this register.**
+    # `SOURCE_DIVERGENCES` is the one declarable thing in the pin, so it is
+    # the one place an attacker with write access to this package could
+    # license an edit — *provided they also edited the served
+    # `original-en`, which is outside this package's permitted scope.* Four is
+    # the number the served file actually carries; a fifth row FAILS rather
+    # than being written, and A3-widened can only remove rows, never add them.
+    if len(SOURCE_DIVERGENCES) > 4:
+        bad.append("source: SOURCE_DIVERGENCES carries %d rows and the bound "
+                   "is 4. A fifth divergence from Project Gutenberg is not a "
+                   "row to write; it is an escalation (ledger A7)."
+                   % len(SOURCE_DIVERGENCES))
     for k, reason in SOURCE_DIVERGENCES.items():
         if not reason or len(reason.split()) < 8:
             bad.append("source: the divergence at chapter %d ¶%d carries no "
@@ -324,12 +336,101 @@ def source_sha256(book):
     ).hexdigest()
 
 
+# ------------------------------------------------------------------ controls
+# D18's two-clause rule: every control asserts (a) that its mutation actually
+# changed the input and (b) that the verdict changed. A control that "did not
+# fire" for a reason unrelated to the rule is the failure mode this package
+# has hit five times.
+def self_test():
+    import copy
+    ok = []
+
+    def fires(name, mutate):
+        pg = extract_books()
+        served = copy.deepcopy(served_chapters())
+        before = verify_source(9, pg=pg, served=served)
+        assert not before, "control %r: the unmutated input already fails" % name
+        mutate(pg, served)
+        after = verify_source(9, pg=pg, served=served)
+        assert after, ("control %r did NOT fire — the pin is blind to it"
+                       % name)
+        ok.append(name)
+
+    def _one_comma(pg, served):
+        # A11(b), the silent form, verbatim: no token, sentence, semicolon,
+        # colon or dash moves, so not one recorded figure can see it.
+        i = next(i for i, b in enumerate(pg[9]) if "," in b)
+        pg[9][i] = pg[9][i].replace(",", "", 1)
+    fires("A11(b) — ONE COMMA removed from Butler", _one_comma)
+
+    def _full_stops(pg, served):
+        # A11(a), the loud form: twelve full stops become semicolons.
+        n = 0
+        for i, b in enumerate(pg[9]):
+            while n < 12 and ". " in pg[9][i]:
+                pg[9][i] = pg[9][i].replace(". ", "; ", 1)
+                n += 1
+            if n >= 12:
+                break
+    fires("A11(a) — twelve of Butler's full stops rewritten as semicolons",
+          _full_stops)
+
+    def _one_letter(pg, served):
+        pg[9][0] = pg[9][0].replace("Alcinous", "Alcinons", 1)
+    fires("one letter changed", _one_letter)
+
+    def _served_only(pg, served):
+        # The source file is left alone and the SERVED chapter is edited: the
+        # attack that would be needed to make an edited source derive.
+        served[8]["paragraphs"][0] = served[8]["paragraphs"][0].replace(
+            "good thing", "fine thing", 1)
+    fires("the served chapter edited under a sound source", _served_only)
+
+    def _para_dropped(pg, served):
+        del pg[9][20]
+    fires("a paragraph of Butler deleted", _para_dropped)
+
+    def _transposed(pg, served):
+        pg[9][10], pg[9][11] = pg[9][11], pg[9][10]
+    fires("two paragraphs transposed", _transposed)
+
+    # **The control that answers *a file matching itself*.** Clause (d)
+    # compares the source with PG and clause (c) compares it with the served
+    # file; if the three were one object the rule would be a tautology. Replace
+    # PG's Book IX entirely and clause (d) must fail while clause (c) still
+    # passes — which shows the two clauses read two different things.
+    pg = extract_books()
+    served = served_chapters()
+    pg[9] = ["filler %d" % i for i in range(44)]
+    msgs = verify_source(9, pg=pg, served=served)
+    assert msgs and all("character-identical" not in m for m in msgs), \
+        "control: replacing PG's Book IX must fail clause (d) and not clause (c)"
+    ok.append("PG's Book IX replaced entirely — (d) fails, (c) still passes")
+
+    # And a digit planted in a source file cannot hide in the normalization's
+    # null space, because the anchor stream is asserted to be PG's own.
+    txt = pg_text().replace("towards dawn.75", "towards dawn.750", 1)
+    try:
+        extract_books(txt)
+    except RuntimeError as e:
+        assert "footnote anchors" in str(e)
+        ok.append("a digit changed in PG's anchor stream — refuses to run")
+    else:                                                    # pragma: no cover
+        raise AssertionError("control: the anchor stream did not fire")
+
+    assert len(SOURCE_DIVERGENCES) <= 4
+    return ok
+
+
 def main():
     import sys
     print("pg_source.py — the pin on Butler (A11)\n")
     print("  PG #1727   %s  %s" % (PG_SHA256[:16], PG_FILE))
     print("  re-downloaded from %s and identical, %s\n"
           % (PG_URL, PG_REDOWNLOAD_CONFIRMED))
+    for name in self_test():
+        print("  \u2713 control fires: %s" % name)
+    print()
     bad = verify_all()
     for n in range(1, 10):
         msgs = verify_source(n)

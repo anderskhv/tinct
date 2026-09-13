@@ -29,6 +29,7 @@ print the cross-Book report.
 """
 import json
 import re
+from collections import defaultdict
 import sys
 from pathlib import Path
 
@@ -63,17 +64,24 @@ def _accepted():
 NOT_COMPOUNDS = {
     # Closed, short, and every entry carries its reason. A long exemption list
     # is how a check stops being one.
+    #
+    # **`olivewood` was removed here, and this is what A10/Q4 cost.** It was
+    # exempted at Book 9's draft as a false positive, and the ruling was that
+    # exemption was the wrong KIND of remedy: the false positive was
+    # positional and the exemption was keyed on the compound, so it bought a
+    # permanent silent false negative. `_position()` below makes the
+    # comparison position-aware, the row stops forming on its own, and the
+    # exemption is unnecessary — which is the test of whether a diagnosis was
+    # right. `ivy-wood bowl`, already visible in Book 9 and due to have been
+    # the third row, never forms either.
+    #
+    # **`len(NOT_COMPOUNDS) <= 2` is asserted in the self-test.** *A handful is
+    # not a number and nothing counted it* — so the third exemption now FAILS
+    # THE CHECK and forces the next worker to fix the mechanism instead of
+    # naming another word. Exemption-by-name is how red gets cleared at no
+    # cost today by somebody who will not pay for it.
     "sunset": "`the sun set` is a verb and its subject; `sunset` is a noun. "
               "Two different constructions, not two settings of one compound.",
-    "olivewood": "ATTRIBUTIVE HYPHENATION, which is a rule of English and not "
-                 "a setting of a compound. Book 5 writes `a beautiful "
-                 "**olive-wood** handle` — the pair premodifying a noun, "
-                 "where English hyphenates any two-word modifier — and Book 9 "
-                 "writes `it was of green **olive wood**`, the same two words "
-                 "as a noun phrase, where English does not. Butler sets both "
-                 "the same way and both Books follow him. Raised by this "
-                 "check at Book 9's draft; see the declared blindness in the "
-                 "self-test, which names the class rather than this pair.",
 }
 
 # A pair is not a compound if either element is a closed-class function word.
@@ -89,6 +97,49 @@ some every each other another such same as if then than there here when where
 who whom whose which what how why now new own more most much many well ill
 too very just only also ever never both few own way
 """.split())
+
+
+# ------------------------------------------------- position, and why (A10/Q4)
+# **Question 4 of Book 9's round 1, ruled: the diagnosis was right and the
+# remedy was the wrong KIND of thing.**
+#
+# `an olive-wood handle` against `of green olive wood` is **attributive
+# hyphenation** — a rule of English, not a compound with two settings —
+# so the row was a false positive and `NOT_COMPOUNDS["olivewood"]` exempted
+# it. But the false positive is a property of the **position** and the
+# exemption is keyed on the **compound**, so it bought one noisy true
+# statement at the price of a permanent silent false negative: from that
+# moment, a Book writing `olivewood` closed, or writing `olive wood`
+# attributively against another Book's nominal `olive-wood`, would be met
+# with silence. *"A check that trades a noisy true statement for a quiet false
+# one has moved in the wrong direction."*
+#
+# The record half-knew it — *"the exemption list is itself the hazard"*,
+# *"if that list ever carries more than a handful, the check has to become
+# position-aware"* — and two things were wrong with that as a safeguard.
+# **A handful is not a number and nothing counted it**, so the threshold could
+# not be crossed observably; and `ivy-wood bowl` against `ivy wood` was
+# already visible in the same Book and would have made it three.
+#
+# Position-awareness needs no vendored word list (the new external dependency
+# ledger A4(ii) escalated). It needs one distinction the text already carries:
+# **is a content word being modified?** A pair immediately followed by a
+# content word is premodifying and English hyphenates it; a pair followed by
+# punctuation, by a function word, or by nothing is not. Compare settings
+# only inside one position and the olive-wood row never forms, while a real
+# drift — two Books setting the pair differently in the SAME position — still
+# fires.
+def _position(t, end):
+    """`attributive` if a content word follows immediately, else `nominal`.
+
+    Deliberately crude and deliberately parameter-free: the next token, and
+    whether it is a function word. The classifier does not need to be right
+    about English in general; it needs to separate the two positions that
+    English points differently, and those are exactly *modifier* and *head*."""
+    m = re.match(r"[ ]([a-z]+)\b", t[end:end + 40])
+    if not m:
+        return "nominal"
+    return "nominal" if m.group(1) in STOPWORDS else "attributive"
 
 
 def compound_drift(books, attest=()):
@@ -150,19 +201,27 @@ def compound_drift(books, attest=()):
     for key in sorted(parts):
         if key in NOT_COMPOUNDS:
             continue
-        found = {}
+        # **POSITION-AWARE, from question 4 of Book 9's round 1.** The
+        # occurrences are bucketed by grammatical POSITION first and by
+        # setting second, and a drift is reported only between occurrences in
+        # the SAME position.
+        found = defaultdict(lambda: defaultdict(set))     # pos -> setting -> labels
         for label, t in text.items():
             for a, b in parts[key]:
-                if re.search(r"(?<!-)\b%s-%s\b(?!-)" % (re.escape(a), re.escape(b)), t):
-                    found.setdefault("hyphenated", set()).add(label)
+                for m in re.finditer(
+                        r"(?<!-)\b%s-%s\b(?!-)" % (re.escape(a), re.escape(b)), t):
+                    found[_position(t, m.end())]["hyphenated"].add(label)
                 # lookahead, so adjacent pairs OVERLAP: "the sea shore" must
                 # yield `sea shore` and not be eaten by `the sea`.
-                if re.search(r"\b%s %s\b" % (re.escape(a), re.escape(b)), t):
-                    found.setdefault("open", set()).add(label)
-            if re.search(r"\b%s\b" % re.escape(key), t):
-                found.setdefault("closed", set()).add(label)
-        if len(found) > 1:
-            out.append((key, {s: sorted(v) for s, v in sorted(found.items())}))
+                for m in re.finditer(
+                        r"(?=\b(%s %s)\b)" % (re.escape(a), re.escape(b)), t):
+                    found[_position(t, m.start() + len(m.group(1)))]["open"].add(label)
+            for m in re.finditer(r"\b%s\b" % re.escape(key), t):
+                found[_position(t, m.end())]["closed"].add(label)
+        for pos in sorted(found):
+            if len(found[pos]) > 1:
+                out.append(("%s (%s)" % (key, pos) if pos != "nominal" else key,
+                            {st: sorted(v) for st, v in sorted(found[pos].items())}))
     return out
 
 
@@ -174,6 +233,15 @@ def compound_drift(books, attest=()):
 # fire, because the measure was blind to what it had changed.
 
 def _self_test():
+    # **The mechanical growth trigger (A10/Q4).** Not `a handful`; a number.
+    assert len(NOT_COMPOUNDS) <= 2, (
+        "compound_drift: NOT_COMPOUNDS carries %d exemptions. The list is the "
+        "hazard, not the false positives it names: every row converts a noisy "
+        "true statement into a silent false negative for that compound "
+        "FOREVER, in every position and every Book. Two is the bound. A third "
+        "means the check needs another axis — the way `_position()` was the "
+        "axis that dissolved `olivewood` — not another word.\n  %s"
+        % (len(NOT_COMPOUNDS), ", ".join(sorted(NOT_COMPOUNDS))))
     base = {"A": ["they walked by the sea shore at dawn"],
             "B": ["the sea shore was empty"]}
     att = [["butler wrote sea-shore and low-lying here"]]

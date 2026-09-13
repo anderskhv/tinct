@@ -132,42 +132,46 @@
  "candidate_v1_json_sha256": "41f452ac577054aa820eba1cf1bb20cc24b382e6e3330b74af8c24f657c481fb",
  "checks": {
   "written_by": "scripts/checks.py",
-  "file": "book09/checks-v1.md",
-  "sha256": "e7c4e70a22e48b8b8847fee83ee8df3bcb69ac1fed6d5267a285eb69d1e07293",
-  "candidate_file": "book09/candidate-v1.json",
-  "candidate_sha256": "41f452ac577054aa820eba1cf1bb20cc24b382e6e3330b74af8c24f657c481fb",
+  "file": "book09/checks-v2.md",
+  "sha256": "4a4ce2b9dbb6037ae0f193ae883a526a821508bf9394934e8cc2b4811538a543",
+  "candidate_file": "book09/candidate-v2.json",
+  "candidate_sha256": "0b6b8e25470522cd7d85a77474446c8175cc520ce620a93ce1a3485139f7ef85",
+  "source_file": "book09/source-book9.json",
+  "source_sha256": "575f8c8693ccefbd4c2a3a9b36d5e61244ecba2f6cb042f65d257fd6aa77561f",
+  "pg_file": "source-texts/pg1727-butler-1900.txt",
+  "pg_sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
   "basis": "all 44 paragraphs",
-  "retention": 0.92181,
+  "retention": 0.92284,
   "sentences": [
    171,
-   207
+   204
   ],
-  "splitting_rate_raw_pct": 21.1,
-  "norm_rate_pct": 2.7,
-  "norm_rate_butler_pct": 2.7,
+  "splitting_rate_raw_pct": 19.3,
+  "norm_rate_pct": 1.8,
+  "norm_rate_butler_pct": 1.8,
   "sixty_word": [
    16,
    0
   ],
   "semicolons": [
    54,
-   24
+   25
   ],
   "semicolons_kept_added": [
-   24,
+   25,
    0
   ],
   "dividing_marks": [
    71,
-   41
+   44
   ],
   "dividing_marks_kept_added": [
-   41,
+   44,
    0
   ],
   "norm_rate_ext_pct": 2.5,
   "norm_rate_butler_ext_pct": 2.5,
-  "move_gap": 0.01266,
+  "move_gap": 0.01232,
   "all_gates_passed": true
  }
 }

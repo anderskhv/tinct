@@ -1,4 +1,4 @@
-# Odyssey Book 4 — checks, candidate v2
+# Odyssey Book 4 — checks, candidate v5
 
 Written by `scripts/checks.py`, which is the only thing that computes
 these numbers. Before it existed, **none of the package's checks was
@@ -6,7 +6,7 @@ executed for a new Book by anything in the repository** — substantive
 finding **S-2** of `book06/review/findings-v1.md`. Every figure below
 is reproducible by running `python3 scripts/checks.py 4`.
 
-**Subject:** `book04/candidate-v2.json`, sha256 `b3bef2f3570009ef875a41567ecea85628b7883e3678e2bb226a51b49674c446`.
+**Subject:** `book04/candidate-v5.json`, sha256 `3c21549edf30a74d5f1a5bedfe01f53823267a46caae97f59e0ebf5ce6c9986d`.
 
 **Basis — records finding R-1.** all 81 paragraphs. A figure without the paragraph
 set it is computed over is not a figure, and the package published
@@ -14,19 +14,18 @@ one for three Books.
 
 ## 1. Verdict
 
-**GATES FAILED — this candidate cannot be frozen.**
+**All gates pass.**
 
-- cross-Book compound drift ['lowlying (attributive)', 'seashore', 'welldisposed'], but book04/candidate-v2.json declares ['lowlying', 'seashore', 'welldisposed'] — lowlying (attributive) {'hyphenated': ['book04', 'book05'], 'open': ['book04-v2']}; seashore {'closed': ['book02', 'book03', 'book04', 'book05', 'book08', 'book09'], 'open': ['book04-v2']}; welldisposed {'hyphenated': ['book04'], 'open': ['book04-v2']}
 
 ## 2. The figures
 
 | measure | value |
 |---|---|
 | paragraphs scored | 81 |
-| word ratio | 1.00037 |
-| Butler token retention (canonical, aggregate-join) | **0.95872** |
-| order retention (per paragraph, for MOVE-GAP) | 0.95872 |
-| bag retention (order-blind) | 0.96303 |
+| word ratio | 1.00025 |
+| Butler token retention (canonical, aggregate-join) | **0.95847** |
+| order retention (per paragraph, for MOVE-GAP) | 0.95847 |
+| bag retention (order-blind) | 0.96278 |
 | **MOVE-GAP** (bag − order), D20 | **0.00431** |
 | sentences, source → candidate | 281 → 306 |
 | **splitting rate** (D17, raw) | **+8.9%** |
@@ -84,6 +83,7 @@ pointing**, +2.0% here against the +2.0% the unsplit measure gives.
 | Book 7 | all 29 paragraphs | 0.93438 | 103 → 138 | +34.0% | 30 → 7 | 42 → 18 | 14 + 4 | +9.0% | **+4.8%** | 0.01217 |
 | Book 8 | all 50 paragraphs | 0.93862 | 192 → 235 | +22.4% | 42 → 7 | 62 → 31 | 24 + 7 | +3.4% | **+2.0%** | 0.00692 |
 | Book 9 | all 44 paragraphs | 0.92284 | 171 → 204 | +19.3% | 54 → 25 | 71 → 44 | 44 + 0 | +1.8% | **+2.5%** | 0.01232 |
+| Book 4 v5 — **this candidate** | all 81 paragraphs | 0.95847 | 281 → 306 | +8.9% | 68 → 50 | 103 → 81 | 80 + 0 | +2.0% | **+0.5%** | 0.00431 |
 
 Book 3's row is the reason this column exists. Its published figures
 are computed on **37 of its 38 paragraphs** — B03-P038, the **D14**
@@ -111,7 +111,7 @@ remains the failure; growth is reported from 40.
 
 **FAILURES:**
 
-- B04-P018 53 → 55 words: One can soon see when a man is son to one whom heaven has blessed both in his wife and in his children—and it has blessed Nestor from first to last all his days, giving him a green old age in his own house, with sons about him who are both well disposed and valiant.
+- B04-P018 53 → 54 words: One can soon see when a man is son to one whom heaven has blessed both in his wife and in his children—and it has blessed Nestor from first to last all his days, giving him a green old age in his own house, with sons about him who are both well-disposed and valiant.
 - B04-P028 54 → 56 words: By father Zeus, Athena, and Apollo, if Odysseus is still the man that he was when he wrestled with Philomeleides in Lesbos, and threw him so heavily that all the Achaeans cheered him—if he is still such a man and were to come near these suitors, they would have a short shrift and a sorry wedding.
 - B04-P076 61 → 62 words: I am even more anxious about him than about my husband; I am all in a tremble when I think of him, for fear something should happen to him, either from the people among whom he has gone, or by sea, for he has many enemies who are plotting against him, and are bent on killing him before he can return home.”
 
@@ -135,11 +135,11 @@ four-limb chain that Butler also wrote at 43 words passes all of
 them — which is how B06-P016 and B06-P018 reached a review
 untouched. This report is absolute.
 
-**52 sentences.**
+**53 sentences.**
 
 | paragraph | words | source paragraph's longest | sentence |
 |---|---|---|---|
-| B04-P001 | **54** | 54 | They reached the low lying city of Lacedaemon, where they drove straight to the home of Menelaus and found him in his ow… |
+| B04-P001 | **53** | 54 | They reached the low-lying city of Lacedaemon, where they drove straight to the home of Menelaus and found him in his ow… |
 | B04-P001 | **46** | 54 | He had given his consent and promised her to him while he was still at Troy, and now the gods were bringing the marriage… |
 | B04-P004 | **45** | 42 | Take their horses out, of course, and show the strangers in so that they may have supper; you and I have stayed often en… |
 | B04-P008 | **46** | 81 | As soon as they had had enough to eat and drink, Telemachus said to the son of Nestor, with his head so close that no on… |
@@ -149,7 +149,7 @@ untouched. This report is absolute.
 | B04-P014 | **44** | 45 | Then Pisistratus said, “Menelaus, son of Atreus, you are right in thinking that this young man is Telemachus, but he is … |
 | B04-P014 | **43** | 45 | A son always has trouble at home when his father has gone away leaving him without supporters; and this is how Telemachu… |
 | B04-P017 | **49** | 48 | I had a brother who died at Troy; he was by no means the worst man there; you are sure to have known him—his name was An… |
-| B04-P018 | **55** | 53 | One can soon see when a man is son to one whom heaven has blessed both in his wife and in his children—and it has blesse… |
+| B04-P018 | **54** | 53 | One can soon see when a man is son to one whom heaven has blessed both in his wife and in his children—and it has blesse… |
 | B04-P020 | **46** | 44 | Whoever drinks wine drugged in this way cannot shed a single tear all the rest of the day, not even though his father an… |
 | B04-P021 | **49** | 81 | “Menelaus, son of Atreus, and you my good friends, sons of honorable men (which is as Zeus wills, for he is the giver bo… |
 | B04-P021 | **52** | 81 | When, however, I had washed and anointed him and had given him clothes, and after I had sworn a solemn oath not to betra… |
@@ -163,8 +163,9 @@ untouched. This report is absolute.
 | B04-P030 | **46** | 46 | “She came to me one day when I was by myself, as I often was, for the men used to go with their barbed hooks, all over t… |
 | B04-P030 | **42** | 46 | ‘Stranger,’ she said, ‘it seems to me that you like starving in this way—at any rate it does not greatly trouble you, fo… |
 | B04-P034 | **54** | 54 | As soon as he has come up he lies down, and goes to sleep in a great sea cave, where the seals—Halosydne’s chickens, as … |
-| B04-P038 | **51** | 105 | “We waited the whole morning and made the best of it, watching the seals come up in hundreds to bask on the sea shore, t… |
+| B04-P038 | **50** | 105 | “We waited the whole morning and made the best of it, watching the seals come up in hundreds to bask on the seashore, ti… |
 | B04-P038 | **105** | 105 | Then we rushed on him with a shout and seized him; at that he began at once with his old tricks, and changed himself fir… |
+| B04-P040 | **41** | 68 | It is decreed that you shall not get back to your friends, and to your own house, till you have returned to the heaven-f… |
 | B04-P041 | **55** | 93 | But now tell me truly, whether all the Achaeans whom Nestor and I left behind us when we set sail from Troy have got hom… |
 | B04-P042 | **43** | 44 | Ajax was wrecked, for Poseidon drove him onto the great rocks of Gyrae; nevertheless, he let him get safe out of the wat… |
 | B04-P042 | **41** | 44 | He said the gods could not drown him even though they had tried to do so, and when Poseidon heard this big talk, he seiz… |
@@ -214,7 +215,7 @@ alignment. MOVE-GAP is an upper bound; this is the lower one.
 | B04-P031 | 72 | 2 | 37 words |
 | B04-P035 | 161 | 3 | 38 words |
 | B04-P039 | 80 | 0 | 39 words |
-| B04-P040 | 81 | 2 | 39 words |
+| B04-P040 | 81 | 4 | 41 words |
 | B04-P042 | 204 | 3 | 43 words |
 | B04-P046 | 56 | 1 | 42 words |
 | B04-P049 | 63 | 2 | 30 words |
@@ -238,7 +239,7 @@ alignment. MOVE-GAP is an upper bound; this is the lower one.
 
 ## 9. One Butler word rendered two ways (per Book, Butler-keyed)
 
-**104 rows.** This report's declared limits, which records finding
+**105 rows.** This report's declared limits, which records finding
 **R-5** is about: it keys on Butler's side only and runs inside one
 Book, so it cannot see one *rendering* made to carry two Butler
 words, and it cannot compare a word's renderings across Books. Both
@@ -314,11 +315,12 @@ arrows, across all Books, are `scripts/rendering_collisions.py`.
 | `regards` | 1 | 1 | P028 |
 | `room` | 1 | 8 | P011, P024, P024, P025, P060, P064 |
 | `saying` | 1 | 5 | P007, P012, P013, P022, P074 |
-| `sea` | 2 | 27 | P026, P028, P029, P029, P031, P032 |
+| `sea` | 3 | 26 | P026, P028, P029, P029, P031, P032 |
 | `servant` | 3 | 2 | P003, P006 |
 | `servants` | 1 | 5 | P005, P006, P019, P020, P072 |
 | `shall` | 1 | 6 | P003, P007, P012, P040, P047, P079 |
 | `she` | 5 | 27 | P001, P020, P020, P029, P030, P036 |
+| `shore` | 1 | 2 | P036, P072 |
 | `should` | 1 | 10 | P015, P015, P015, P015, P029, P037 |
 | `side` | 4 | 9 | P011, P024, P044, P044, P054, P065 |
 | `so` | 4 | 40 | P001, P002, P005, P008, P008, P009 |
@@ -356,7 +358,7 @@ arrows, across all Books, are `scripts/rendering_collisions.py`.
 `scripts/compound_drift.py`, keyed on separator-stripped letters so
 closed, hyphenated and open settings of one compound collide.
 
-Result over book01, book02, book03, book04, book05, book06, book07, book08, book09: **lowlying (attributive) {'hyphenated': ['book04', 'book05'], 'open': ['book04-v2']}; seashore {'closed': ['book02', 'book03', 'book04', 'book05', 'book08', 'book09'], 'open': ['book04-v2']}; welldisposed {'hyphenated': ['book04'], 'open': ['book04-v2']}**.
+Result over book01, book02, book03, book04, book05, book06, book07, book08, book09: **no drift**.
 
 ## 11. The closing-compound filter (H.1, interim)
 
@@ -371,7 +373,7 @@ coordinator as ledger item **A4**(ii), not taken here.
 
 The interim instrument needs no dependency: every adjacent
 content-word pair whose **second** element is a common compound
-head. **48 pairs.**
+head. **47 pairs.**
 
-> `after day` · `best men` · `brave man` · `chief men` · `either man` · `either side` · `end wall` · `fair fields` · `flashed fire` · `gray sea` · `great sea` · `head man` · `hiding place` · `honorable men` · `inner room` · `let water` · `like sea` · `little way` · `long sea` · `long time` · `long way` · `lost hold` · `mortal man` · `mortal men` · `old man` · `open fields` · `open sea` · `opposite side` · `outer court` · `perfumed room` · `pisistratus man` · `poured water` · `precious piece` · `running water` · `salt water` · `sea shore` · `set beds` · `short work` · `silver work` · `third man` · `till night` · `trojan women` · `twelve days` · `twenty days` · `twenty men` · `worst man` · `young man` · `young men`
+> `after day` · `best men` · `brave man` · `chief men` · `either man` · `either side` · `end wall` · `fair fields` · `flashed fire` · `gray sea` · `great sea` · `head man` · `hiding place` · `honorable men` · `inner room` · `let water` · `like sea` · `little way` · `long sea` · `long time` · `long way` · `lost hold` · `mortal man` · `mortal men` · `old man` · `open fields` · `open sea` · `opposite side` · `outer court` · `perfumed room` · `pisistratus man` · `poured water` · `precious piece` · `running water` · `salt water` · `set beds` · `short work` · `silver work` · `third man` · `till night` · `trojan women` · `twelve days` · `twenty days` · `twenty men` · `worst man` · `young man` · `young men`
 

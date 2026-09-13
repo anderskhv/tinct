@@ -1,4 +1,4 @@
-# Odyssey Book 5 — checks, candidate v2
+# Odyssey Book 5 — checks, candidate v3
 
 Written by `scripts/checks.py`, which is the only thing that computes
 these numbers. Before it existed, **none of the package's checks was
@@ -6,7 +6,7 @@ executed for a new Book by anything in the repository** — substantive
 finding **S-2** of `book06/review/findings-v1.md`. Every figure below
 is reproducible by running `python3 scripts/checks.py 5`.
 
-**Subject:** `book05/candidate-v2.json`, sha256 `acbfcb03f15e8244dc46ec7f29d14d48da9179443191016525636d30b51479e9`.
+**Subject:** `book05/candidate-v3.json`, sha256 `c8af4cc34217aba462a4f432d23382a61229ac35d54c44ffa01f24ce328cd3ff`.
 
 **Basis — records finding R-1.** all 37 paragraphs. A figure without the paragraph
 set it is computed over is not a figure, and the package published
@@ -22,10 +22,10 @@ one for three Books.
 | measure | value |
 |---|---|
 | paragraphs scored | 37 |
-| word ratio | 0.99700 |
-| Butler token retention (canonical, aggregate-join) | **0.93808** |
-| order retention (per paragraph, for MOVE-GAP) | 0.93808 |
-| bag retention (order-blind) | 0.94699 |
+| word ratio | 0.99679 |
+| Butler token retention (canonical, aggregate-join) | **0.93766** |
+| order retention (per paragraph, for MOVE-GAP) | 0.93766 |
+| bag retention (order-blind) | 0.94656 |
 | **MOVE-GAP** (bag − order), D20 | **0.00891** |
 | sentences, source → candidate | 153 → 189 |
 | **splitting rate** (D17, raw) | **+23.5%** |
@@ -75,6 +75,7 @@ pointing**, +7.5% here against the +8.0% the unsplit measure gives.
 | Book 7 | all 29 paragraphs | 0.93438 | 103 → 138 | +34.0% | 30 → 7 | 42 → 18 | 14 + 4 | +9.0% | **+4.8%** | 0.01217 |
 | Book 8 | all 50 paragraphs | 0.93862 | 192 → 235 | +22.4% | 42 → 7 | 62 → 31 | 24 + 7 | +3.4% | **+2.0%** | 0.00692 |
 | Book 9 | all 44 paragraphs | 0.92284 | 171 → 204 | +19.3% | 54 → 25 | 71 → 44 | 44 + 0 | +1.8% | **+2.5%** | 0.01232 |
+| Book 5 v3 — **this candidate** | all 37 paragraphs | 0.93766 | 153 → 189 | +23.5% | 34 → 13 | 64 → 35 | 34 + 1 | +8.0% | **+2.8%** | 0.00891 |
 
 Book 3's row is the reason this column exists. Its published figures
 are computed on **37 of its 38 paragraphs** — B03-P038, the **D14**
@@ -270,7 +271,7 @@ arrows, across all Books, are `scripts/rendering_collisions.py`.
 `scripts/compound_drift.py`, keyed on separator-stripped letters so
 closed, hyphenated and open settings of one compound collide.
 
-Result over book01, book02, book03, book04, book05, book06, book07, book08, book09: **mountaintops {'closed': ['book05', 'book06'], 'open': ['book05-v2']}**.
+Result over book01, book02, book03, book04, book05, book06, book07, book08, book09: **no drift**.
 
 ## 11. The closing-compound filter (H.1, interim)
 
@@ -285,7 +286,7 @@ coordinator as ledger item **A4**(ii), not taken here.
 
 The interim instrument needs no dependency: every adjacent
 content-word pair whose **second** element is a common compound
-head. **37 pairs.**
+head. **36 pairs.**
 
-> `above water` · `after day` · `bear men` · `best place` · `caught hold` · `chattering sea` · `deep water` · `earth sea` · `fallow field` · `found ship` · `four days` · `good man` · `good night` · `good way` · `got hold` · `keep house` · `landing place` · `large fire` · `long time` · `long way` · `mortal man` · `mortal woman` · `mountain tops` · `neither ships` · `over land` · `saw land` · `seals men` · `see land` · `seventeen days` · `third day` · `timbers hold` · `time day` · `touch land` · `tremendous sea` · `twenty days` · `under water` · `whole work`
+> `above water` · `after day` · `bear men` · `best place` · `caught hold` · `chattering sea` · `deep water` · `earth sea` · `fallow field` · `found ship` · `four days` · `good man` · `good night` · `good way` · `got hold` · `keep house` · `landing place` · `large fire` · `long time` · `long way` · `mortal man` · `mortal woman` · `neither ships` · `over land` · `saw land` · `seals men` · `see land` · `seventeen days` · `third day` · `timbers hold` · `time day` · `touch land` · `tremendous sea` · `twenty days` · `under water` · `whole work`
 

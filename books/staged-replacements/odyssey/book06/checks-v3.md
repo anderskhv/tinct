@@ -1,4 +1,4 @@
-# Odyssey Book 6 — checks, candidate v2
+# Odyssey Book 6 — checks, candidate v3
 
 Written by `scripts/checks.py`, which is the only thing that computes
 these numbers. Before it existed, **none of the package's checks was
@@ -6,7 +6,7 @@ executed for a new Book by anything in the repository** — substantive
 finding **S-2** of `book06/review/findings-v1.md`. Every figure below
 is reproducible by running `python3 scripts/checks.py 6`.
 
-**Subject:** `book06/candidate-v2.json`, sha256 `0e435458f6c30384415559af86b49ee01c402308bd9d36fdfea5462887bde2be`.
+**Subject:** `book06/candidate-v3.json`, sha256 `1ae67a524c88f3a3f51b3fdcfe5bb4966e020e5129f5860314440b07157c8541`.
 
 **Basis — records finding R-1.** all 26 paragraphs. A figure without the paragraph
 set it is computed over is not a figure, and the package published
@@ -22,10 +22,10 @@ one for three Books.
 | measure | value |
 |---|---|
 | paragraphs scored | 26 |
-| word ratio | 0.99884 |
-| Butler token retention (canonical, aggregate-join) | **0.93408** |
-| order retention (per paragraph, for MOVE-GAP) | 0.93408 |
-| bag retention (order-blind) | 0.94565 |
+| word ratio | 0.99854 |
+| Butler token retention (canonical, aggregate-join) | **0.93351** |
+| order retention (per paragraph, for MOVE-GAP) | 0.93351 |
+| bag retention (order-blind) | 0.94507 |
 | **MOVE-GAP** (bag − order), D20 | **0.01156** |
 | sentences, source → candidate | 116 → 148 |
 | **splitting rate** (D17, raw) | **+27.6%** |
@@ -83,6 +83,7 @@ pointing**, +5.6% here against the +7.0% the unsplit measure gives.
 | Book 7 | all 29 paragraphs | 0.93438 | 103 → 138 | +34.0% | 30 → 7 | 42 → 18 | 14 + 4 | +9.0% | **+4.8%** | 0.01217 |
 | Book 8 | all 50 paragraphs | 0.93862 | 192 → 235 | +22.4% | 42 → 7 | 62 → 31 | 24 + 7 | +3.4% | **+2.0%** | 0.00692 |
 | Book 9 | all 44 paragraphs | 0.92284 | 171 → 204 | +19.3% | 54 → 25 | 71 → 44 | 44 + 0 | +1.8% | **+2.5%** | 0.01232 |
+| Book 6 v3 — **this candidate** | all 26 paragraphs | 0.93351 | 116 → 148 | +27.6% | 27 → 5 | 38 → 16 | 14 + 2 | +7.0% | **+5.2%** | 0.01156 |
 
 Book 3's row is the reason this column exists. Its published figures
 are computed on **37 of its 38 paragraphs** — B03-P038, the **D14**
@@ -257,7 +258,7 @@ arrows, across all Books, are `scripts/rendering_collisions.py`.
 `scripts/compound_drift.py`, keyed on separator-stripped letters so
 closed, hyphenated and open settings of one compound collide.
 
-Result over book01, book02, book03, book04, book05, book06, book07, book08, book09: **mountaintops {'closed': ['book05', 'book06'], 'open': ['book06-v2']}**.
+Result over book01, book02, book03, book04, book05, book06, book07, book08, book09: **no drift**.
 
 ## 11. The closing-compound filter (H.1, interim)
 
@@ -272,7 +273,7 @@ coordinator as ledger item **A4**(ii), not taken here.
 
 The interim instrument needs no dependency: every adjacent
 content-word pair whose **second** element is a common compound
-head. **29 pairs.**
+head. **28 pairs.**
 
-> `bearing posts` · `built houses` · `chief man` · `deep water` · `either side` · `famous sea` · `fine house` · `folding doors` · `full head` · `high wall` · `husband house` · `inner court` · `large stones` · `linen room` · `little way` · `mortal woman` · `mountain tops` · `neither man` · `outer court` · `poor man` · `pure water` · `salt water` · `sounding sea` · `twentieth day` · `washing day` · `with men` · `young men` · `young woman` · `young women`
+> `bearing posts` · `built houses` · `chief man` · `deep water` · `either side` · `famous sea` · `fine house` · `folding doors` · `full head` · `high wall` · `husband house` · `inner court` · `large stones` · `linen room` · `little way` · `mortal woman` · `neither man` · `outer court` · `poor man` · `pure water` · `salt water` · `sounding sea` · `twentieth day` · `washing day` · `with men` · `young men` · `young woman` · `young women`
 

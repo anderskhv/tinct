@@ -41,7 +41,10 @@ one for three Books.
 | dividing-mark-normalized sentences | 145 → 156 |
 | NORM RATE, every dividing mark (D27) | +7.6% |
 | dividing-mark-normalized, on Butler's pointing | 145 → 152 |
-| **NORM RATE, dividing marks on Butler's pointing** — **the compared figure from Book 8 forward** (D27+D21) | **+4.8%** |
+| NORM RATE, dividing marks on Butler's pointing (D27+D21, the compared figure for Books 1-8) | +4.8% |
+| **of which KEPT BY IDENTITY / CLASS-CHANGED / ADDED** (**D28**, Book 9 round 1 S-1) | **14 kept + 0 class-changed + 4 added** |
+| dividing-mark-normalized, on Butler's pointing by identity | 145 → 152 |
+| **NORM RATE, dividing marks on Butler's pointing BY MARK IDENTITY** — **the compared figure from Book 9 forward** (D28) | **+4.8%** |
 
 Of the +35 sentences added, at most **23** are a semicolon
 rewritten as a period — the operation that adds a sentence, moves no
@@ -71,6 +74,7 @@ pointing**, +7.5% here against the +9.0% the unsplit measure gives.
 | Book 6 | all 26 paragraphs | 0.93408 | 116 → 148 | +27.6% | 27 → 5 | 38 → 16 | 14 + 2 | +7.0% | **+5.2%** | 0.01156 |
 | Book 7 | all 29 paragraphs | 0.93438 | 103 → 138 | +34.0% | 30 → 7 | 42 → 18 | 14 + 4 | +9.0% | **+4.8%** | 0.01217 |
 | Book 8 | all 50 paragraphs | 0.93862 | 192 → 235 | +22.4% | 42 → 7 | 62 → 31 | 24 + 7 | +3.4% | **+2.0%** | 0.00692 |
+| Book 9 | all 44 paragraphs | 0.92284 | 171 → 204 | +19.3% | 54 → 25 | 71 → 44 | 44 + 0 | +1.8% | **+2.5%** | 0.01232 |
 
 Book 3's row is the reason this column exists. Its published figures
 are computed on **37 of its 38 paragraphs** — B03-P038, the **D14**
@@ -104,7 +108,7 @@ Sentences grown to 40 words or more: **2**.
 | B07-P014 | 41 words | 43 words |
 | B07-P028 | 40 words | 41 words |
 
-## 6. Every candidate sentence over 40 words (absolute)
+## 6. Every candidate sentence of 40 words or more (absolute)
 
 Blind spot 2 of `findings-v1.md` §9, which had no carrier: *a
 sentence left long because it **is** long in Butler.* Every other
@@ -247,7 +251,7 @@ arrows, across all Books, are `scripts/rendering_collisions.py`.
 `scripts/compound_drift.py`, keyed on separator-stripped letters so
 closed, hyphenated and open settings of one compound collide.
 
-Result over book01, book02, book03, book04, book05, book06, book07, book08: **no drift**.
+Result over book01, book02, book03, book04, book05, book06, book07, book08, book09: **no drift**.
 
 ## 11. The closing-compound filter (H.1, interim)
 
