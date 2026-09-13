@@ -11,16 +11,24 @@ made by anything in this package (**the API rule**).
 **What was aimed at, and what the numbers say was hit.**
 
 * **Butler's words are kept wherever they are current English.** Retention
-  0.91976 on the canonical aggregate-join measure.
+  **0.92181** on the canonical aggregate-join measure. *(Corrected at round 1,
+  records finding R-2: this docstring published **0.91976**, a THIRD value for
+  one file — `checks-v1.md` and `manifest.json` gave 0.92181 and four prose
+  files gave 0.92164. Only the docstring is edited; the code below is frozen
+  and reproduces `candidate-v1.json` byte for byte, D10.)*
 * **His sentences are divided and his clauses are not moved.** MOVE-GAP
   0.01266 with 2 displaced runs; 16 sixty-word sentences become 0.
 * **His pointing is not manufactured.** 54 semicolons, 7 colons and 10
   sentence-internal em dashes — 71 dividing marks under **D27** — become 41,
-  and **every one of the 41 is Butler's own. The draft adds none**, on any of
-  the three marks. That is the S-1 corollary answered before a reviewer has
-  to raise it, and it is why the compared figure (**+2.5%**) is within a
-  fifth of a point of the unguarded one (+2.5%): there is nothing in it that
-  pointing paid for.
+  and **none of the 41 is written where Butler pointed with nothing stronger
+  than a comma**. *(Corrected at round 1, S-1. What this said was "every one
+  of the 41 is Butler's own", and that is true of the COUNT and false of the
+  IDENTITY: two of the 41 are colons written over Butler's semicolons, while
+  two of his colons were spent, and the class census read `: 7 → 7`. **D28**
+  is the measure that can see it and it gives **+1.7%**, not +2.5%. The
+  sentence that followed — "the compared figure is within a fifth of a point
+  of the unguarded one (+2.5%)" — then printed +2.5% for both, which is zero
+  points and not a fifth; R-2's second half.)*
 * **Nothing is declared.** No paragraph is byte-identical to Butler, none
   falls under 0.90 of its source's length, no sentence grows past 50 words,
   and no compound drifts against the other eight Books. `DECLARED` carries an

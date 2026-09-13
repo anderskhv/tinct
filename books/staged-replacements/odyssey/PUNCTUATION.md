@@ -52,6 +52,36 @@ a paragraph ending without a closing quote reads as a dropped mark rather
 than as a convention if the two paragraphs land on different pages. Recorded,
 not acted on; it is an app question, outside this package's scope.
 
+### And the largest instance is FOUR CHAPTERS long, not one Book
+
+**Substantive finding S-2 of Book 9's round 1**, and it corrects what Book 9's
+own records said about it. Odysseus's narrative to the Phaeacians is one
+speech, opened at **B09-P001** and closed at the **end of chapter 12**.
+Counted over the served `original-en`:
+
+| chapter | paragraphs | opening a quotation they do not close | chapter balance |
+|---|---|---|---|
+| 9 | 44 | 43 | +44 |
+| 10 | 49 | 49 | +49 |
+| 11 | 54 | 47 | +47 |
+| 12 | 39 | 38 | +38 |
+| 13 | 38 | 0 | 0 |
+
+**177 paragraphs open a quotation nobody closes**, across a span of 186.
+Chapter 12's last paragraph is the first since B09-P001 to end with `”`.
+
+Two things Book 9's `continuity.md` §4 got wrong and this record now fixes:
+**B09-P001 does not open with `“`** — it opens `And Odysseus answered, “King
+Alcinous, …`, the poet's frame and then the quotation — and **B09-P044 closes
+nothing**; all 44 of its paragraphs end at balance +1.
+
+**The app question is therefore not *forty-three paragraphs without a closing
+mark*.** It is: how does a reader who opens **chapter 11** directly, from a
+library or a share link, know who is speaking through 54 paragraphs of
+unattributed speech? The answer is an affordance — a persistent *"Odysseus is
+speaking"* attribution on chapters 9-12 — and **not** a punctuation change,
+because every punctuation change available here is a change to Butler.
+
 ## 3. Two Victorian quotation habits that ARE normalized
 
 Recorded at step 6 from optional finding **R5**, which asked only that these

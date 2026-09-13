@@ -806,6 +806,70 @@ against Butler's (**D19**). Every control under **D18**; run
   Book IV's opening alone and leave Book III's capital. **Anders's call, and
   the patch hashed as `e45d6c4d…` decides only one of the two.**
 
+  **THE PAIR, RESOLVED INTO THREE HASHED OPTIONS — 2026-09-13.** S-7 said the
+  two halves cannot be decided separately and left one of them unprepared, so
+  Anders was being asked to choose between a hashed patch and a described one.
+  All three are now prepared and hashed the way D14 requires, by raw
+  substitution in a scratch copy, each substitution asserted to occur exactly
+  once, each result re-parsed and its paragraph counts asserted unchanged
+  (1,027 in total, and chapter by chapter). **The served file was not
+  written.** `0cc76350…` and `e45d6c4d…` below were reproduced here
+  independently of the session that first computed them, which is the point of
+  recording them.
+
+  | option | what it does | sha256 | bytes |
+  |---|---|---|---|
+  | **A** — as prepared | the truncation alone | `0cc76350232962d4c4f1cf1eb7216f14515fc1910f94f666695d2a595d4e6980` | 636,440 |
+  | **B** — A3 WIDENED | truncation + **both** capitals | `e45d6c4d1b35873555c8611b0047e707b909666181aa115ffaba8c3fe049a54e` | 636,440 |
+  | **B+** — WIDENED **and the pair closed** | B, **plus Book II's terminal comma** | `483979795b333530a2bf17ae0f44a67d46a7d5b3bd8f5534168a1c5d76ceb1e3` | 636,440 |
+  | **C** — the half S-7 offers instead | truncation + **Book IV's capital only**, leaving Book III's `But` | `56a2a2589b9d6e66d487f9a4433a06ec53d188843916656a0983cdf132e7f473` | 636,440 |
+
+  **The recommendation is B+, and the argument is that it is the only option
+  that leaves the served text saying what Butler says he wrote.**
+
+  * **B alone is incoherent** and that is exactly S-7's finding: it prints
+    `… from dark till dawn.` and then `but as the sun was rising`, a
+    lower-case sentence opening after a full stop. Neither Butler's device nor
+    PG's intention.
+  * **C is coherent and it preserves a transcription slip.** Book III's
+    lower-case opening is internal evidence, independent of the Preface, that
+    something ending in a comma precedes it — and what precedes it in PG ends
+    in a full stop. C keeps the slip and capitalizes over the evidence of it.
+  * **B+ is what the Preface says.** *"the Leipsic Teubner edition of 894
+    makes **Books ii. and iii. end with a comma** … from a spirit of mere
+    conservatism, I have preferred to do so."* Two Books, and PG honours one.
+  * **B+ is one character**, in the paragraph PG itself points at by opening
+    the next Book lower-case.
+
+  **B+ departs from PG, and A, B and C do not — which the new source pin makes
+  a mechanical fact rather than a remark.** `scripts/pg_source.py` enumerates
+  every divergence between the served file and PG #1727 as
+  `SOURCE_DIVERGENCES`, asserts the set in both directions, and bounds it at
+  **four**. The arithmetic:
+
+  | | divergences from PG | rows |
+  |---|---|---|
+  | today | `(1,25)` `(3,1)` `(3,38)` `(4,1)` | 4 |
+  | after **A** | `(1,25)` `(3,1)` `(4,1)` | 3 |
+  | after **B** | `(1,25)` | 1 |
+  | after **B+** | `(1,25)` `(2,35)` | **2** |
+  | after **C** | `(1,25)` `(3,1)` | 2 |
+
+  So **B+ costs one row of the register and stays well inside the bound**, and
+  the row it costs is the one place in the edition where the package would be
+  deliberately printing something PG does not — **on Butler's own written
+  authority, which is a better warrant than any this register has ever
+  carried.** Whoever applies B+ must write that row, with the Preface quoted
+  in it, or `checks.py` fails; that is the pin doing its job. The bound is
+  four and B+ leaves two, so no bound has to be raised.
+
+  **What B+ does NOT do.** It does not touch this package's own files. Book 2
+  is accepted and its candidate ends in a full stop rendering Butler's; the
+  terminal mark of a chapter is not a dividing mark under D27 or D28, moves no
+  figure, and the successor it would owe is one character. It is owed on the
+  day A3 lands, with the two capital successors to Books 3 and 4, and is
+  deliberately not built before then (ledger R-6).
+
   **The widened patch.** Three substitutions in one file, each occurring
   exactly once, computed in a scratch copy and re-parsed; **the served file
   was not written.**

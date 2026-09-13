@@ -746,3 +746,78 @@ sixty-word sentences survive.
    retention was refused as grounds for a finding. A draft that divides Butler's
    sentences and leaves every clause in his order passes the gate. Only a
    continuous read sees that.
+
+---
+
+## D28 — the dividing marks, by MARK IDENTITY
+
+**From substantive finding S-1 of Book 9's round 1, which is S-1/M-4 of Book
+8's round recurring one Book later, inside the class D27 was widened to
+cover.**
+
+**D27** counts `;`, `:` and the sentence-internal em dash on both sides, and
+its provenance clause asks whether the strongest mark Butler wrote in the
+aligned span was **a member of** `{; : —}`. It does not ask whether it was
+**the same mark**. So a draft can cash one of Butler's colons for a period and
+write a colon of its own over one of his semicolons, and the census reads
+`: 7 → 7` and calls the class untouched.
+
+Book 9's frozen draft did exactly that, twice in each direction, and published
+*"not one of the 41 marks the candidate carries is its own — on the semicolon,
+the colon or the dash."* Its compared figure was **+2.5%**, and by identity it
+is **+1.7%**.
+
+**D28 splits the census three ways** —
+
+* **kept** — the candidate's mark is the mark Butler wrote there;
+* **class-changed** — Butler wrote a *different* dividing mark there;
+* **added** — Butler wrote nothing stronger than a comma there
+
+— names the class changes **by paragraph**, and makes the compared figure the
+strict one, `(cand_sentences + kept) / (src_sentences + src_marks)`.
+
+**A class change is priced at zero on the candidate's side, the same as an
+addition**, and the reason is not that the two are equally bad. Improving
+Butler's pointing is a real thing a modern edition does, and Book 9's two —
+his semicolon becoming a colon before a list, twice — are improvements. The
+reason is that **on the evidence of a count alone the two are the same
+event**, and the package's standing rule is that a figure may not be bought
+with a keystroke. So the count prices it at nothing and the **record** names
+it, which is where a judgement belongs.
+
+D27's column is kept beside D28's in every table rather than replaced (R-1).
+On the nine Books the two differ for six of them; the largest gap is Book 2
+(+0.0% → −2.1%) and Book 1 (−4.3% → −5.9%).
+
+---
+
+## D29 — a repair RESTORES; it does not paraphrase
+
+**From question 3 of Book 9's round 1, and it is free.**
+
+Arrow C's constraint (D26) says what a rendering repair may **not** be: it may
+not reuse a word Butler uses for something else in the same paragraph. Nothing
+said what it **should** be, and Book 8's `minstrelsy` → *the playing that goes
+with it* is what that costs: arrow C correctly found `minstrelsy` and `music`
+flattened, and the repair described a bard instead of naming what he does —
+and described him wrongly, because Demodocus **sings**.
+
+Book 9's fifteen pre-freeze repairs were checked one at a time against PG:
+
+* **eleven restore Butler's own word verbatim**;
+* **two keep Butler's phrasing** and modernize only the word that is not
+  current;
+* **two are new renderings and both are forced**, Butler's own words not being
+  current English at all — and both are still *a word for the thing*, not a
+  description of it;
+* **not one invents a paraphrase of the referent.**
+
+**So: an arrow's repair prefers Butler's own word. A third rendering requires
+a reason.** It costs nothing — the word is already in the source — and it
+removes the freedom that produced `minstrelsy`. Six of the eight word
+corrections in `candidate-v2.json` are Butler's own word put back, and D29 is
+what made each of them the obvious choice rather than one of several.
+
+**What D29 does not do.** It cannot say that a restored word is *right*, only
+that it is Butler's. Blind spot 7 — *whether an arrow's repair is right* —
+stands.
