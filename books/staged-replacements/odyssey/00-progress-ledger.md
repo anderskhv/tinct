@@ -274,6 +274,17 @@ Kept current at every push.
   had recorded**. Six collisions repaired **before** the freeze, four of them
   Butler's own discriminations. `GLOSSARY.md` gains one row, `Mars` → `Ares`;
   `Hercules` → `Heracles` is flagged to the reviewer rather than added.
+- **2026-09-13 — Book 8 round 1 delivered**, `book08/review/findings-v1.md`.
+  **Accept after corrections**: 3 substantive, 8 minor, 7 optional, 5 records,
+  all 50 paragraphs covered. Every published figure recomputed and reproduced.
+  **S-1**: the +27.1% is 85% cashed pointing — 44 of 52 new boundaries are
+  marks Butler already wrote, 8 divide his prose; blind spot 5 written as
+  `book08/review/mark_census.py`; D20 should price `:` and `—` as it prices
+  `;`. **S-2**: six semicolons should survive, and B08-P047's em dash (the
+  simile's correlative frame) is the worst break in the Book. **S-3**:
+  `--manifests` is defeated by one field edit and `prove_manifest.py` never
+  tests that path. Source verified by a **thirteenth** rule whose audit failed
+  it **five** times.
 
 ## Decided, and why
 
@@ -648,6 +659,17 @@ against Butler's (**D19**). Every control under **D18**; run
    now narrowed.
 
 ## Needs Anders (listed, not waited on)
+
+- **A7 (new, 2026-09-13, from Book 8's round 1 §1.3). Widen A3.** The served
+  `original-en` diverges from PG in four places, not one. The three besides
+  the D14 splice were called *normalizations that touch no word*; two of them
+  are not. PG opens Books III and IV lower-case because **Butler runs one
+  sentence across the Book boundary** (`…darkness was over the land,` /
+  `they reached the low lying city of Lacedaemon`), and capitalizing `But` and
+  `They` destroys that device — the same defect as the splice, one letter of
+  it. A3's one-line patch as prepared would restore the half-sentence and
+  leave the capital that made it look broken. Verified independently by two
+  unlike methods in `book08/review/`.
 
 - **~~A5.~~ DONE 2026-09-13 — `mountain tops` closed, the vendored word list
   declined, and the register built. `book05/candidate-v3.json` `c8af4cc3…` and
