@@ -135,9 +135,20 @@ Both variants are recorded rather than taken silently.
 - **O-6 declined and escalated.** `mountain tops` is the standard *closed* form
   in American English, which is the spelling standard **D15** names — but the
   form is consistent with accepted B05-P030 and recorded, closing it here would
-  put Book 6 in drift with accepted Book 5, and closing it there costs a **sixth
-  successor**. Coordinator decision, ledger **A4**(ii), where it sits beside the
+  put Book 6 in drift with accepted Book 5, and closing it there costs a ~~**sixth
+  successor**~~. Coordinator decision, ledger **A4**(ii), where it sits beside the
   vendored word list that would settle the class mechanically.
+
+  **CORRECTION, 2026-09-13 — records finding R-6 of `book07/review/findings-v1.md`,
+  and the cost is TWO successors, not one.** The sentence above counts only the
+  Book 5 successor. `mountain tops` is in **accepted Book 5** (`candidate-v2.json`,
+  B05-P030) **and in accepted Book 6** (`candidate-v2.json`, B06-P011) — Book 6 is
+  itself accepted, so changing it costs a successor too. **A5 is now decided and
+  both are built**: `book05/candidate-v3.json` and `book06/candidate-v3.json`,
+  closing it to `mountaintops`, with `book05/candidate-v2.json`,
+  `book06/candidate-v2.json` and this acceptance record **byte-unchanged**. The
+  vendored word list of A4(ii) is **declined**; the register in each Book's
+  `continuity.md` §H.1 is what closes the class. See `scripts/build_compound_sweep.py`.
 
   *A correction to the finding while declining it:* O-6 cites `B06-P009,
   B06-P011` and §8 repeats it against P009. **The string occurs at P011 only** —

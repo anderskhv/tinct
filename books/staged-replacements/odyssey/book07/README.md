@@ -1,5 +1,16 @@
 # The Odyssey, Book 7 — package (frozen at candidate v1)
 
+> **CORRECTION, 2026-09-13 — records finding R-1 of `review/findings-v1.md`.**
+> This file says *"fourteen of Butler's thirty semicolons are kept"*. **It is
+> eight kept and six added**, and under D20 a comma raised to a semicolon
+> scores as a full division, so **v1's NORM RATE on Butler's own pointing is
+> +3.0%, not the +7.5% quoted below**. The figures in this file are the frozen
+> v1 record and are left standing as what round 1 reviewed (**D10** in
+> spirit); the corrected figures, and the accepted v2, are in
+> `book07/ACCEPTANCE.md`. `scripts/checks.py` now computes
+> `semicolon_provenance()`, `kept_added()` and `norm_rate_butler()` for every
+> Book, so no later Book can publish this figure without splitting it.
+
 Steps 1–3 of `../WORKFLOW.md` are done for Book 7, and the step-4 artefacts
 (10 packets, manifest, review instructions) are built. **Step 4 itself — the
 independent review — has not run**: `candidate-v1.json` is frozen and the
@@ -15,8 +26,8 @@ packets are pushed. Book 7 was **not** self-reviewed.
 | Butler token retention | **0.93943** |
 | **MOVE-GAP (D20)** | **0.01277**, displaced runs **1** |
 | **Splitting rate, raw (D17)** | **103 → 129 sentences, +25.2%; sixty-word 7 → 0, 100% broken** |
-| **NORM RATE (D20)** | **+7.5%** |
-| **Semicolons against Butler's (D19)** | **30 → 14** |
+| **NORM RATE (D20)** | **+7.5%** — **R-1: on Butler's own pointing +3.0%; six of the fourteen marks are the draft's own** |
+| **Semicolons against Butler's (D19)** | **30 → 14** — **R-1: 8 kept + 6 ADDED** |
 | Packets | 10, coverage `B07-P001`…`B07-P029` |
 | Checks | `checks-v1.md`, written by `../scripts/checks.py`, **all gates pass** |
 

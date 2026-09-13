@@ -1,5 +1,16 @@
 # The Odyssey, Book 7 — continuity and decisions
 
+> **CORRECTION, 2026-09-13 — records finding R-1 of `review/findings-v1.md`.**
+> This file says *"fourteen of Butler's thirty semicolons are kept"*. **It is
+> eight kept and six added**, and under D20 a comma raised to a semicolon
+> scores as a full division, so **v1's NORM RATE on Butler's own pointing is
+> +3.0%, not the +7.5% quoted below**. The figures in this file are the frozen
+> v1 record and are left standing as what round 1 reviewed (**D10** in
+> spirit); the corrected figures, and the accepted v2, are in
+> `book07/ACCEPTANCE.md`. `scripts/checks.py` now computes
+> `semicolon_provenance()`, `kept_added()` and `norm_rate_butler()` for every
+> Book, so no later Book can publish this figure without splitting it.
+
 Every decision taken in drafting `candidate-v1.json`, by class and by
 paragraph. Written before the review, so the reviewer reads what was decided
 rather than reconstructing it.
@@ -14,9 +25,9 @@ over is not a figure.
 | bag retention / **MOVE-GAP** | 0.95220 / **0.01277** |
 | displaced runs (the strict witness) | **1** |
 | sentences | **103 → 129, +25.2% raw (D17)** |
-| **NORM RATE (D20)** | **+7.5%** |
+| **NORM RATE (D20)** | **+7.5%** — **R-1: on Butler's own pointing +3.0%** |
 | sixty-word sentences | **7 → 0, 100% broken** |
-| **semicolons (D19)** | **30 → 14** |
+| **semicolons (D19)** | **30 → 14** — **R-1: 8 kept + 6 ADDED** |
 | word ratio | 1.00538; lowest paragraph 0.976 at B07-P027 |
 
 ## 1. The source, and the tenth kind of rule
@@ -133,7 +144,11 @@ P026 is `Odysseus replied` / `Alcinous replied`.
   It is Homer's shift and it is reproduced exactly. **Not** normalized, and not
   flagged as a slip: the tense is doing work, holding the palace outside the
   night the narrative is in.
-- **B07-P011 — fourteen of Butler's thirty semicolons are kept, and five of them
+- **B07-P011 — ~~fourteen of Butler's thirty semicolons are kept, and five of them~~
+  **R-1: eight are kept and six are the draft's own; B07-P011 carries TWO of
+  Butler's, not five. Accepted v2 carries 5 kept + 2 added.** The original
+  sentence continues:
+  fourteen of Butler's thirty semicolons are kept, and five of them
   are here.** The vineyard is a serial list — raisins, gathering, treading,
   blossom, colour — and five periods would make five mechanically short
   sentences out of one survey of a garden, which the accessibility standard

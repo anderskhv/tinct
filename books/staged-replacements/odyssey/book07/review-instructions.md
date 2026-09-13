@@ -1,5 +1,16 @@
 # Odyssey Book 7 — instructions for the independent reviewer (round 1)
 
+> **CORRECTION, 2026-09-13 — records finding R-1 of `review/findings-v1.md`.**
+> This file says *"fourteen of Butler's thirty semicolons are kept"*. **It is
+> eight kept and six added**, and under D20 a comma raised to a semicolon
+> scores as a full division, so **v1's NORM RATE on Butler's own pointing is
+> +3.0%, not the +7.5% quoted below**. The figures in this file are the frozen
+> v1 record and are left standing as what round 1 reviewed (**D10** in
+> spirit); the corrected figures, and the accepted v2, are in
+> `book07/ACCEPTANCE.md`. `scripts/checks.py` now computes
+> `semicolon_provenance()`, `kept_added()` and `norm_rate_butler()` for every
+> Book, so no later Book can publish this figure without splitting it.
+
 You are reviewing `book07/candidate-v1.json`, frozen at sha256
 `bf8cf2f76f4670daab55daf1da265ba7b1839c0cd6680e3c5691fac8d382dc33`, against
 `book07/source-book7.json`. Work on your own branch and your own worktree, and
@@ -81,7 +92,9 @@ to accepted Book 2 and this Book's word changes too; if the accepted Book wins,
 `councillors` should be written into `PUNCTUATION.md` §1 as a named exception so
 the question is not rediscovered at Book 8.
 
-**4. Fourteen of Butler's thirty semicolons are kept, five of them in one
+**4. ~~Fourteen of Butler's thirty semicolons are kept~~ — R-1: EIGHT kept,
+SIX added; B07-P011 carries two of Butler's, not five. The question as put was:
+Fourteen of Butler's thirty semicolons are kept, five of them in one
 paragraph.** B07-P011's vineyard is a serial list — raisins, gathering,
 treading, blossom, colour. The drafter's argument is that converting them would
 add five sentences, raise the raw D17 rate by about five points, and leave

@@ -130,11 +130,34 @@ RULINGS = {
         "`talk` is its only plain modern equivalent; the alternative is a "
         "register difference Butler does not make. B07-P028 matches accepted "
         "B04-P052 word for word, which is the consistency the package asks for."),
-    ("B", "traveler"): ("repair",
-        "**O-7.** `wayfarer` -> `traveler` at B07-P018 lands on the rendering "
-        "of Butler's `traveller` at accepted B03-P011 and B04-P027. `wayfarer` "
-        "is genuinely archaic and had to move; `lone traveler` keeps Butler's "
-        "solitary sense without the merge. Applied in v2."),
+    ("B", "traveler"): ("unavoidable-merge",
+        "**O-7, declined, and the reason is that the proposed repair does not "
+        "repair anything.** `wayfarer` -> `traveler` at B07-P018 does land on "
+        "the rendering of Butler's `traveller` at accepted B03-P011 and "
+        "B04-P027. But O-7 offers `lone traveler` to keep the solitary sense "
+        "without the merge, and the candidate **already writes `solitary "
+        "traveler`** — the same repair in a different word, with the merge "
+        "untouched either way, because `traveler` is the only plain modern "
+        "equivalent of `wayfarer`."),
+    ("A", "husbands"): ("variant",
+        "One word, inflected for number. O-6's repair recasts Butler's "
+        "comparison from *`honored of all those who keep house along with "
+        "their husbands`* to *`honors more than any other woman who keeps "
+        "house beside her husband`*, which is singular because the comparison "
+        "now has one term. Butler's own plural at B07-P008 stands."),
+    ("B", "bondservants"): ("artifact",
+        "Butler's `bondsmen` is rendered `bondservants` in BOTH accepted "
+        "B04-P055 and B07-P019 — the row exists only because §8's reordering "
+        "of `see my property once more` pulled `property` into the diff's "
+        "span, so the two source sides read `bondsmen` and `property my "
+        "bondsmen`. There is one rendering and it is consistent."),
+    ("B", "courtyard"): ("same-referent",
+        "The M-1 repair. `courtyard` now carries Butler's own `courtyard` "
+        "(accepted B04-P005) and his `precincts` (B07-P012) — and his "
+        "`precincts` IS the courtyard: the next sentence has Odysseus going "
+        "`straight through the court`. Using Butler's own word for the thing "
+        "he is describing is what M-1 asked for, and it is what frees `walls` "
+        "for the bronze."),
     ("B", "until"): ("phrase-not-word",
         "`hitherto` -> `until now` at B07-P018, beside Butler's own `until` "
         "elsewhere. `until now` is a fixed adverbial phrase, not a second use "
