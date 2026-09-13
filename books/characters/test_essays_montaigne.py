@@ -1,5 +1,5 @@
 """Focused checks for Montaigne's Essays.
-Chapters 1-50 of 107 are authored."""
+Chapters 1-60 of 107 are authored."""
 import unittest
 from build_essays_montaigne import compile_package
 
@@ -83,7 +83,8 @@ class EssaysMontaigne(unittest.TestCase):
         # the letters appears at 38:45 and 39:0 and is not yet authored.
         for ed in ['original-en','modern-en']:
             self.assertEqual(where(ed,'pliny-elder'),
-                             [(9,6),(20,4),(22,2),(26,18),(44,1),(48,6)],ed)
+                             [(9,6),(20,4),(22,2),(26,18),(44,1),(48,6),
+                              (60,0),(60,43),(60,44),(60,60)],ed)
             for k in [(38,45),(39,0)]:
                 self.assertNotIn('pliny-elder',ids(ed,*k),(ed,k))
 
@@ -215,8 +216,8 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual(w[0],(28,2),ed)
             self.assertLess(len(w),40,ed)
 
-    def test_only_the_first_fifty_chapters_are_authored(self):
-        self.assertIn('chapters 1-50 of 107',REPORT['scope'])
+    def test_only_the_first_sixty_chapters_are_authored(self):
+        self.assertIn('chapters 1-60 of 107',REPORT['scope'])
         self.assertEqual(REPORT['editions']['original-en']['chapters'],107)
         self.assertEqual(REPORT['editions']['original-en']['paragraphs'],4897)
         self.assertEqual(REPORT['editions']['modern-en']['paragraphs'],4897)
@@ -261,7 +262,7 @@ class EssaysMontaigne(unittest.TestCase):
         # King of Bohemia, who was shown the hairy girl from near Pisa.
         for ed in ['original-en','modern-en']:
             self.assertEqual(where(ed,'charles-v'),
-                             [(7,0),(11,14),(12,3),(16,8),(41,7),(47,18)],ed)
+                             [(7,0),(11,14),(12,3),(16,8),(41,7),(47,18),(55,14)],ed)
             self.assertEqual(where(ed,'charles-iv'),[(20,22)],ed)
 
     def test_julius_caesar_and_augustus_caesar_are_kept_apart(self):
@@ -361,7 +362,8 @@ class EssaysMontaigne(unittest.TestCase):
         # 24:55, in both places named among the philosophers.
         for ed in ['original-en','modern-en']:
             self.assertEqual(where(ed,'zeno-mamertine'),[(1,5)],ed)
-            self.assertEqual(where(ed,'zeno-of-citium'),[(22,49),(24,55),(25,143),(30,28)],ed)
+            self.assertEqual(where(ed,'zeno-of-citium'),
+                             [(22,49),(24,55),(25,143),(30,28),(52,2)],ed)
 
     def test_the_three_men_called_scipio(self):
         # Pompey's father-in-law (18:12), the high priest in Cotta's list
@@ -370,7 +372,7 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual(where(ed,'metellus-scipio'),[(18,12)],ed)
             self.assertEqual(where(ed,'publius-scipio-pontifex'),[(22,49)],ed)
             self.assertEqual(where(ed,'scipio-africanus'),
-                             [(23,10),(25,51),(46,18),(47,19)],ed)
+                             [(23,10),(25,51),(46,18),(47,19),(57,7)],ed)
 
     def test_the_fourth_man_called_lepidus(self):
         # Livia's list of conspirators punished to no purpose supplies a fourth:
@@ -492,7 +494,8 @@ class EssaysMontaigne(unittest.TestCase):
     def test_the_two_men_called_diogenes(self):
         for ed in ['original-en','modern-en']:
             self.assertEqual(where(ed,'diogenes-the-atheist'),[(11,31)],ed)
-            self.assertEqual(where(ed,'diogenes-the-cynic'),[(25,103),(27,28),(50,7)],ed)
+            self.assertEqual(where(ed,'diogenes-the-cynic'),
+                             [(25,103),(27,28),(50,7),(60,6)],ed)
 
     def test_the_two_spartans_called_cleomenes(self):
         for ed in ['original-en','modern-en']:
@@ -555,7 +558,7 @@ class EssaysMontaigne(unittest.TestCase):
             # The full name is unambiguous, so it is an alias and binds at 41:10
             # as well, in a chapter not yet authored.
             self.assertEqual(where(ed,'philip-augustus'),[(26,18),(41,10)],ed)
-            self.assertEqual(where(ed,'philip-v-macedon'),[(30,0)],ed)
+            self.assertEqual(where(ed,'philip-v-macedon'),[(30,0),(60,55)],ed)
 
     def test_ariosto_is_one_poet_under_two_spellings(self):
         # The older edition prints him Aristo at 27:13 and Ariosto at 6:7; the
@@ -629,7 +632,8 @@ class EssaysMontaigne(unittest.TestCase):
 
     def test_the_censor_holds_both_of_his_paragraphs(self):
         for ed in ['original-en','modern-en']:
-            self.assertEqual([(40,52),(40,55)],where(ed,'cato-the-censor'),ed)
+            self.assertEqual([(40,52),(40,55),(52,1),(59,25),(59,27)],
+                             where(ed,'cato-the-censor'),ed)
 
     def test_the_l_paulus_who_buried_both_sons_is_paulus_aemilius(self):
         # The Paulli of Augustus's list at 23:1 -- "Paulus" in the older edition
@@ -669,7 +673,7 @@ class EssaysMontaigne(unittest.TestCase):
 
     def test_philip_of_macedon_holds_both_of_his_paragraphs(self):
         for ed in ['original-en','modern-en']:
-            self.assertEqual([(39,1),(39,7)],where(ed,'philip-ii-macedon'),ed)
+            self.assertEqual([(39,1),(39,7),(59,21),(60,3)],where(ed,'philip-ii-macedon'),ed)
             self.assertIn((39,1),where(ed,'cyrus-the-great'),ed)
 
     def test_democritus_binds_throughout_like_the_other_authorities(self):
@@ -799,7 +803,7 @@ class EssaysMontaigne(unittest.TestCase):
         for ed in ['original-en','modern-en']:
             self.assertEqual([(44,0)],where(ed,'metellus-tribune'),ed)
             self.assertEqual([(48,47)],where(ed,'metellus-crete'),ed)
-            self.assertEqual([(44,1)],where(ed,'marius-younger'),ed)
+            self.assertEqual([(44,1),(58,0)],where(ed,'marius-younger'),ed)
             self.assertEqual([(47,8)],where(ed,'marius-elder'),ed)
 
     def test_the_two_men_called_cyrus(self):
@@ -807,7 +811,7 @@ class EssaysMontaigne(unittest.TestCase):
         # battle whose Greeks Clearchus led. The chapters 1-30 pass said the
         # younger Cyrus was not yet read; 47:17 is where he arrives.
         for ed in ['original-en','modern-en']:
-            self.assertEqual([(47,17)],where(ed,'cyrus-the-younger'),ed)
+            self.assertEqual([(47,17),(59,28)],where(ed,'cyrus-the-younger'),ed)
             self.assertNotIn('cyrus-the-great',ids(ed,47,17),ed)
             self.assertIn((48,44),where(ed,'cyrus-the-great'),ed)
 
@@ -906,5 +910,163 @@ class EssaysMontaigne(unittest.TestCase):
         for ed in ['original-en','modern-en']:
             self.assertEqual([(46,3)],where(ed,'geta'),ed)
             self.assertEqual([(46,9)],where(ed,'lucian'),ed)
+
+    # ------------------------------------------------- chapters 51-60 bindings
+    def test_the_aetolian_general_is_not_the_philosopher_of_abdera(self):
+        # 60:45 is "Democritus, general of the AEtolians", dead on his own sword
+        # rather than be retaken. The philosopher's alias is single-referent
+        # everywhere else in the work and would otherwise have taken this too.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(60,45)],where(ed,'democritus-aetolian'),ed)
+            self.assertNotIn('democritus',ids(ed,60,45),ed)
+            self.assertIn((50,4),where(ed,'democritus'),ed)
+
+    def test_the_bishop_aurelius_is_not_marcus_aurelius(self):
+        # The bishop's bare alias was taking the last seven letters of "he whom
+        # they called Marcus Aurelius" at 59:32 -- the Spanish book Montaigne's
+        # father had always in his mouth, which is Guevara's and is called by the
+        # emperor's name. Neither the bishop nor the emperor is the referent, so
+        # nothing binds there now.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(26,18)],where(ed,'aurelius-bishop'),ed)
+            self.assertEqual([],ids(ed,59,32),ed)
+
+    def test_the_two_men_called_cornelius_gallus(self):
+        # The proctor of 19:24 and the elegist of the citation at 59:24. The
+        # older edition abbreviates the poet "Cornet." and the modern prints him
+        # in full, colliding exactly with the proctor's alias.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(59,24)],where(ed,'cornelius-gallus-poet'),ed)
+            self.assertEqual(['Gallus'],said(ed,'cornelius-gallus-poet'),ed)
+            self.assertNotIn('cornelius-gallus',ids(ed,59,24),ed)
+            self.assertIn((19,24),where(ed,'cornelius-gallus'),ed)
+
+    def test_the_older_edition_misprints_pliny_and_tiberius(self):
+        self.assertIn('Piny',said('original-en','pliny-elder'))
+        self.assertNotIn('Piny',said('modern-en','pliny-elder'))
+        self.assertIn('Tiberias',said('original-en','tiberius-emperor'))
+        self.assertIn('Tiberius',said('modern-en','tiberius-emperor'))
+        for ed in ['original-en','modern-en']:
+            self.assertIn((60,43),where(ed,'pliny-elder'),ed)
+            self.assertEqual([(59,13),(60,56)],where(ed,'tiberius-emperor'),ed)
+
+    def test_the_god_of_wine_under_four_names(self):
+        # Bacchus, Dionysos and Lyacus in the older edition; Bacchus, Dionysus and
+        # Lyaeus in the modern. The Latin ablative Lyaeo is left unbound.
+        for ed in ['original-en','modern-en']:
+            for k in [(42,18),(59,11),(59,12),(59,34)]:
+                self.assertIn('bacchus',ids(ed,*k),(ed,k))
+            self.assertNotIn('bacchus',ids(ed,59,10),ed)
+        self.assertIn('Dionysos',said('original-en','bacchus'))
+        self.assertIn('Dionysus',said('modern-en','bacchus'))
+        self.assertIn('Lyacus',said('original-en','bacchus'))
+        self.assertIn('Lyaeus',said('modern-en','bacchus'))
+
+    def test_the_apostle_paul_and_the_town_of_st_paul(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(60,57)],where(ed,'st-paul'),ed)
+            self.assertNotIn('st-paul',ids(ed,17,2),ed)
+
+    def test_the_two_fulviuses_of_one_paragraph(self):
+        # Augustus's favourite, whose wife ran herself through first, and the
+        # consul of the butchery at Capua, named twice after him.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(['fulvius-favourite','fulvius-consul','fulvius-consul'],
+                             [c for c in ids(ed,60,52) if c.startswith('fulvius')],ed)
+            self.assertNotIn('fulvius-flaccus',ids(ed,60,52),ed)
+            self.assertNotIn('cnaeus-fulvius',ids(ed,60,52),ed)
+
+    def test_vibius_virrius_is_not_gallus_vibius(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(60,52)],where(ed,'vibius-virrius'),ed)
+            self.assertNotIn('vibius-virrius',ids(ed,20,2),ed)
+            self.assertIn('gallus-vibius',ids(ed,20,2),ed)
+
+    def test_the_third_pausanias_and_the_third_antiochus(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(59,21)],where(ed,'pausanias-assassin'),ed)
+            self.assertEqual([(59,51)],where(ed,'antiochus-iv'),ed)
+            self.assertNotIn('pausanias-sparta',ids(ed,59,21),ed)
+            self.assertNotIn('antiochus',ids(ed,59,51),ed)
+
+    def test_the_fourth_brutus_and_the_second_cassius(self):
+        # The consul who killed his own children at 59:47, and the conspirator who
+        # drank nothing but water. Severus Cassius of 10:4 is another man.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(59,47)],where(ed,'brutus-consul'),ed)
+            self.assertEqual([(59,16),(59,17),(60,38)],where(ed,'cassius-conspirator'),ed)
+            self.assertNotIn('severus-cassius',ids(ed,59,16),ed)
+            self.assertIn((60,38),where(ed,'marcus-brutus'),ed)
+
+    def test_the_two_kings_called_philip_of_macedon(self):
+        # Philip II at 59:21 and 60:3, where Antipater in the same paragraph
+        # fixes the reign; Philip V at the siege of Abydos.
+        for ed in ['original-en','modern-en']:
+            for k in [(59,21),(60,3)]:
+                self.assertIn('philip-ii-macedon',ids(ed,*k),(ed,k))
+            self.assertIn('philip-v-macedon',ids(ed,60,55),ed)
+            self.assertIn('antipater',ids(ed,60,3),ed)
+
+    def test_the_younger_cyrus_and_his_brother(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(47,17),(59,28)],where(ed,'cyrus-the-younger'),ed)
+            self.assertEqual([(59,28)],where(ed,'artaxerxes'),ed)
+            self.assertIn((60,50),where(ed,'cyrus-the-great'),ed)
+
+    def test_the_third_spartan_called_cleomenes(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(60,35)],where(ed,'cleomenes-therykion'),ed)
+            self.assertEqual([(60,35)],where(ed,'therykion'),ed)
+            self.assertNotIn('cleomenes-i',ids(ed,60,35),ed)
+            self.assertNotIn('cleomenes-sparta',ids(ed,60,35),ed)
+
+    def test_the_second_spartan_called_agis(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(60,3)],where(ed,'agis-on-freedom'),ed)
+            self.assertEqual([(47,16)],where(ed,'agis'),ed)
+
+    def test_the_player_publius_is_publius_syrus(self):
+        # 58:0 names him "the player Publius"; the citation is Pub. Mim. in the
+        # older edition and Publius Mimus in the modern.
+        for ed in ['original-en','modern-en']:
+            self.assertIn((58,0),where(ed,'publius-syrus'),ed)
+        self.assertIn((58,2),where('modern-en','publius-syrus'))
+
+    def test_the_deliberate_gaps_of_chapters_51_to_60(self):
+        # Five names the text does not resolve: the Aristo who defined rhetoric
+        # (the book has three), the Crassus and the Metellus in the list of men
+        # who rose by eloquence, and the Antigonus of three separate anecdotes.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([],[c for c in ids(ed,51,0) if 'aristo' in c],ed)
+            self.assertEqual([],[c for c in ids(ed,51,1) if 'crassus' in c],ed)
+            self.assertEqual([],[c for c in ids(ed,51,1) if 'metellus' in c],ed)
+            for k in [(58,16),(60,3),(60,45)]:
+                self.assertEqual([],[c for c in ids(ed,*k) if 'antigonus' in c],(ed,k))
+
+    def test_the_editorial_notes_of_chapters_54_to_60_are_not_montaigne(self):
+        # Coste annotates 54:1, Ampere 54:6, an editor sets Cotton beside Florio
+        # at 57:11, and 60:0 and 60:44 are notes about Pliny's naming and about
+        # the 1588 quarto. The annotators carry no cards; Alexander, Quintilian
+        # and Pliny, named inside them, keep theirs.
+        for ed in ['original-en','modern-en']:
+            for pi,name in [(1,'Coste'),(6,'Ampere')]:
+                self.assertEqual([],[c for c,t in spans(ed,54,pi) if t==name],(ed,pi))
+            for name in ['Cotton','Florio']:
+                self.assertEqual([],[c for c,t in spans(ed,57,11) if t==name],(ed,name))
+            self.assertIn('alexander',ids(ed,54,1),ed)
+            self.assertIn('pliny-elder',ids(ed,60,0),ed)
+            self.assertIn('pliny-elder',ids(ed,60,44),ed)
+        # Coste abbreviates Quintilian "Quintil." in the older edition, which no
+        # alias matches; the modern edition prints the name and binds him.
+        self.assertNotIn('quintilian',ids('original-en',54,1))
+        self.assertIn('quintilian',ids('modern-en',54,1))
+
+    def test_the_chapters_51_to_60_transliterations(self):
+        for cid,older,newer in [('aretin','Aretin','Aretino'),
+                                ('decius','Pub. Decius','Publius Decius'),
+                                ('paulus-aemilius','Paulus AEmilius','Paulus Aemilius'),
+                                ('scipio-aemilianus','Scipio AEmilianus','Scipio Aemilianus')]:
+            self.assertIn(older,said('original-en',cid),cid)
+            self.assertIn(newer,said('modern-en',cid),cid)
 
 if __name__=='__main__':unittest.main()

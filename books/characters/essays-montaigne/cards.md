@@ -108,7 +108,7 @@ The Stoic philosopher and tragedian, Nero’s tutor. With Plutarch, one of the t
 
 ## Sophocles · reference
 
-The Athenian tragedian, and one of Montaigne’s examples of men who died of joy.
+The Athenian tragedian, and one of Montaigne’s examples of men who died of joy. Montaigne cannot acquiesce in the judgment of the man who, against the accusation of Sophocles’s son, concluded him capable of managing his domestic affairs from having read one of his tragedies.
 
 ## Thalna · reference
 
@@ -136,7 +136,7 @@ The Roman historian of the city from its foundation.
 
 ## Nero · supporting
 
-The emperor, Montaigne’s standing example of a prince whose reputation is fair game once he is dead: two of his own soldiers told him to his face why they hated him and why they had tried to kill him.
+The emperor, Montaigne’s standing example of a prince whose reputation is fair game once he is dead: two of his own soldiers told him to his face why they hated him and why they had tried to kill him. He is also the perfect image of all cruelty who, brought the sentence of a condemned man to sign, cried out that he wished he had never been taught to write — and the man whose pardon Granius Silvanus and Statius Proximus would not live under.
 
 ## Aristotle · major
 
@@ -252,7 +252,7 @@ The philosopher of the ready retort — it is he who asked of a king tearing his
 
 ## Xerxes · supporting
 
-The Persian king who invaded Greece, and who whipped the sea and sent a written challenge to Mount Athos.
+The Persian king who invaded Greece, and who whipped the sea and sent a written challenge to Mount Athos. Boges kept Eion for him, and would not survive the loss of it.
 
 ## Caligula · reference
 
@@ -616,7 +616,7 @@ The Latin elegiac poet. The older edition prints him Propertious in one citation
 
 ## Archidamus · reference
 
-The Spartan king who told Periander that he had given up the glory of being an excellent physician to gain the repute of a very bad poet.
+The Spartan king who told Periander that he had given up the glory of being an excellent physician to gain the repute of a very bad poet — and who was a little surprised, Montaigne fancies, at Thucydides’s answer when he asked which was the better wrestler, Pericles or himself: that it was hard to affirm, for when he had thrown him Pericles always persuaded the spectators he had had no fall, and carried away the prize.
 
 ## Periander · reference
 
@@ -756,7 +756,7 @@ Whose son Ludovico is one of the men Montaigne lists as having died between the 
 
 ## Speusippus · reference
 
-A Platonic philosopher, and of worse example, Montaigne says, than the rest of that list.
+A Platonic philosopher, and of worse example, Montaigne says, than the rest of that list — and whom Diogenes met so blown up with an inveterate dropsy that he had to be carried, and who, weary of so languishing a state of life, not long after found a means to die.
 
 ## Bebius · reference
 
@@ -964,7 +964,7 @@ Zeno’s successor at the head of the Stoa, and the second of Cotta’s three ph
 
 ## Thucydides · supporting
 
-The historian of the Peloponnesian war, cited for what happens to language in a civil war: the parties give the public vices new and more plausible names to excuse them.
+The historian of the Peloponnesian war, cited for what happens to language in a civil war: the parties give the public vices new and more plausible names to excuse them. It is he who told Archidamus that when he had thrown Pericles the man always persuaded the spectators he had had no fall.
 
 ## Terence · reference
 
@@ -984,7 +984,7 @@ Made admiral of Sparta in name, because an edict forbade choosing the same man t
 
 ## Pericles · supporting
 
-The Athenian, who told a Spartan envoy that a law once engrossed on the tablet could not be taken away — and was advised to turn the tablet round instead, that being not forbidden.
+The Athenian, who told a Spartan envoy that a law once engrossed on the tablet could not be taken away — and was advised to turn the tablet round instead, that being not forbidden. Montaigne’s instance of what rhetoric is for: thrown in the wrestling, he could still persuade the spectators he had had no fall and carry away the prize.
 
 ## Philopoemen · reference
 
@@ -1104,7 +1104,7 @@ Who resigned the royalty to his brother, and told the Ephesians who reproached h
 
 ## Empedocles · supporting
 
-Who refused the royalty the Agrigentines offered him.
+Who refused the royalty the Agrigentines offered him, and who observed the discrepancy in them of giving themselves up to delights as if every day were their last and building as if they were to live for ever.
 
 ## Anaxagoras · supporting
 
@@ -1176,7 +1176,7 @@ Cyrus’s mother, who in Cotton’s version of the story asks him how he would l
 
 ## Antipater · reference
 
-Who demanded fifty children of the Spartans for hostages and was told they would rather give him twice as many grown men, so much did they value the loss of their country’s education.
+Who demanded fifty children of the Spartans for hostages and was told they would rather give him twice as many grown men, so much did they value the loss of their country’s education — and who, threatening them severely to bring them to a certain demand, was answered that if he threatened them with more than death they would die the more willingly.
 
 ## Hippias · reference
 
@@ -1212,7 +1212,7 @@ Whose Politics Montaigne calls a learned and laborious contexture, and another h
 
 ## Cimon · reference
 
-With Themistocles, one of the thousand men who very much deceived the expectation others had of them — Montaigne’s warning against reading a child’s promise too early.
+With Themistocles, one of the thousand men who very much deceived the expectation others had of them — Montaigne’s warning against reading a child’s promise too early. It is he who besieged Boges in Eion and offered him a safe return into Asia with all his wealth.
 
 ## Themistocles · supporting
 
@@ -1224,7 +1224,7 @@ Diane de Foix’s uncle, who every day obliges the world with writings of his ow
 
 ## Arcesilaus · supporting
 
-Who, like Socrates before him, made his scholars speak first and then spoke to them.
+Who, like Socrates before him, made his scholars speak first and then spoke to them — and whom pure wine despatched as it did Stilpo, though in his case not by design.
 
 ## Dante · reference
 
@@ -1480,7 +1480,7 @@ Whose shrine a woman in a procession touched with a nosegay, and rubbing her eye
 
 ## Aurelius · reference
 
-One of the two holy bishops St Augustine calls as witnesses to those miracles.
+With Maximinus, one of the two holy bishops St Augustine calls as witnesses to the miracles he reports at Milan and Carthage.
 
 ## Maximinus · reference
 
@@ -1492,7 +1492,7 @@ Who asked Caius Blosius, in front of the Roman consuls prosecuting everyone who 
 
 ## Tiberius Gracchus · reference
 
-Whose friends the consuls prosecuted after sentencing him, and whose will Blosius says he had in his sleeve.
+Whose friends the consuls prosecuted after sentencing him, and whose will Blosius says he had in his sleeve. Montaigne’s last instance of ancient parsimony: he was allowed but fivepence halfpenny a day when employed about the public affairs, and was at that time the greatest man of Rome.
 
 ## Suidas · reference
 
@@ -1804,7 +1804,7 @@ The competitor, whose body Montfort grieved over.
 
 ## Publius Syrus · reference
 
-The Latin writer of maxims, quoted for the line that the heir’s tears behind the mask are smiles. The citation at 40:67 prints him P. Syrus.
+The Latin writer of maxims, quoted for the line that the heir’s tears behind the mask are smiles, and again, as the player Publius, for the famous verse that it is evil counsel which will admit no change. The citation at 40:67 prints him P. Syrus and the one at 58:2 Pub. Mim.
 
 ## Artabanus · reference
 
@@ -1812,7 +1812,7 @@ Who came on his nephew Xerxes by surprise and chid him for the sudden change in 
 
 ## Stilpo · reference
 
-Who escaped the burning of his town having lost wife, children and goods, and told Demetrius Poliorcetes that he had received no loss, since fortune had nothing of his.
+Who escaped the burning of his town having lost wife, children and goods, and told Demetrius Poliorcetes that he had received no loss, since fortune had nothing of his — and who, oppressed with age, is said to have purposely hastened his end by drinking pure wine.
 
 ## Demetrius Poliorcetes · reference
 
@@ -1870,9 +1870,9 @@ Whose printed letters Montaigne thinks the best of the hundred volumes of them h
 
 Commended for playing excellently well upon the flute, which Antisthenes took for an argument of little value.
 
-## Scipio · reference
+## Scipio Aemilianus · reference
 
-The Scipio who with Laelius is said to have resigned the honour of his comedies to an African — and who would never have done it, Montaigne says, if eloquence had added a lustre suitable to a great person. Not the Africanus who crossed to Syphax, nor Pompey’s father-in-law, nor the high priest.
+The Scipio who with Laelius is said to have resigned the honour of his comedies to an African — and who would never have done it, Montaigne says, if eloquence had added a lustre suitable to a great person. Not the Africanus who crossed to Syphax, nor Pompey’s father-in-law, nor the high priest. After two triumphs and two consulships he went an embassy with no more than seven servants in his train.
 
 ## Demosthenes · supporting
 
@@ -2024,7 +2024,7 @@ With Bacchus and Diana, one of the gods of the Thracian people, whom their king 
 
 ## Bacchus · reference
 
-The second of the three gods of the Thracian people that their king would have nothing to do with.
+The second of the three gods of the Thracian people that their king would have nothing to do with — and, under his other names, the good deity whose influence Plato would have men over forty mix liberally in their feasts, which restores gaiety to younger men and youth to old ones, and mollifies the passions of the soul as iron is softened by fire. The two editions spell his other names differently: the older one has Dionysos and Lyacus, the modern Dionysus and Lyaeus, and both carry the note that Lyaeus is a name given to Bacchus. The Latin ablative Lyaeo of the quotations is left unbound, like every other inflection.
 
 ## Diana · reference
 
@@ -2317,3 +2317,323 @@ Who answered Brutus, courting him into the conspiracy against Caesar, that he wa
 ## Brutus · reference
 
 The Brutus who courted Statilius into the conspiracy against Caesar.
+
+## Lentulus · reference
+
+One of the six Romans Montaigne names as having taken their chiefest spring from eloquence, and mounted by it to authority — making it of greater use to them than arms, contrary to the opinion of better times.
+
+## L. Volumnius · reference
+
+Who spoke publicly for the election of Q. Fabius and Publius Decius to the consulship: men born for war and great in execution, in the combat of the tongue altogether wanting, spirits truly consular — the subtle and eloquent being good only for the city, to make praetors of.
+
+## Publius Decius · reference
+
+The other of the two men Volumnius commended for being no orators.
+
+## Cardinal Caraffa · reference
+
+Whose clerk of the kitchen, taken into Montaigne’s service after his master’s death, discoursed of the palate-science with such settled gravity, and in such lofty and magnificent words, as men use when they talk of the government of an empire.
+
+## Apollidon · reference
+
+Whose palace is what Montaigne’s imagination is possessed with when he hears architects thunder out their pilasters, architraves and cornices — until he finds that what they are naming is the paltry woodwork of his own kitchen door.
+
+## Demea · reference
+
+The man addressed in the lines from Terence that Montaigne’s kitchen-clerk brought to his mind: this is too salt, that is burnt, remember to do so another time — and last of all, look into every dish as if it were a mirror.
+
+## Aretin · reference
+
+On whom the Italians have lately bestowed the surname of Divine, which Plato carried by so universal a consent that nobody ever repined at it. Montaigne finds in him nothing above the ordinary writers of his time but tumid phrases set out with smart periods, ingenious and far-fetched, and no approach at all to the ancient divinity. The modern edition prints his name Aretino.
+
+## Attilius Regulus · reference
+
+General of the Roman army in Africa, who in the height of his glory over the Carthaginians wrote home that the hind he had left in charge of his seven acres had run off with the instruments of husbandry, and asked leave to come and see to it lest his wife and children suffer — whereupon the Senate appointed another to manage his affairs, made his losses good, and maintained his family at the public charge. Montaigne finds more evidence of fortitude in his suffering the chain he was tied to than in Cato’s breaking it.
+
+## Sancho XII · reference
+
+King of Navarre, surnamed Trembling. Being armed for a fight and shaking, and being told by way of comfort that the danger was less than he thought: you understand me ill, he said — could my flesh know the danger my courage will presently carry it into, it would sink to the ground.
+
+## Coracinus · reference
+
+The man Martial answers in the epigram Montaigne quotes: you laugh at us because we are not scented; I would rather not smell at all than smell well.
+
+## Posthumus · reference
+
+The man of the other epigram: he who ever smells well does not smell well.
+
+## King David · reference
+
+With whose holy and divine Psalms the Holy Ghost inspired him, and whose promiscuous and irreverent use Montaigne thinks the Church does well to interdict: that poesy is too holy to be put to the exercising of the lungs.
+
+## Theodosius · reference
+
+The emperor whom an adviser told that disputation did not rock the schisms of the Church asleep but roused and animated heresies, and that men should acquiesce in the formulas of faith the ancients had established.
+
+## Andronicus · reference
+
+The emperor who, overhearing some great men at high words in his palace with Lapodius about a point of theology, checked them so severely as to threaten to have them thrown into the river if they did not desist.
+
+## Lapodius · reference
+
+The man they were at high words with.
+
+## St Chrysostom · reference
+
+Who says that philosophy has long been banished the holy schools as a handmaid altogether useless, and thought unworthy to look so much as in passing by the door into the sanctuary of the celestial doctrine.
+
+## Staius · reference
+
+The man Persius tells you to address the prayer to, if you dare: say to Staius what you whisper into Jupiter’s ear, and see whether Jupiter himself would not cry out upon it.
+
+## Marguerite, Queen of Navarre · reference
+
+Who tells of a young prince — easily enough known by his great qualities, though she does not name him — who on his way to an amorous assignation always knelt to pray in the church he passed through, and instances it for a testimony of singular devotion. Which is not the only proof, Montaigne says, that women are not very fit to treat of theological affairs.
+
+## Laverna · reference
+
+The goddess of thieves, to whom the man in Horace prays under his breath after saying Apollo out loud: grant me the talent to deceive, grant me to appear holy and just, shroud my sins with night.
+
+## Servius Tullius · reference
+
+Who superseded the knights above seven-and-forty years of age from the fatigues of war, where Augustus dismissed them at forty-five.
+
+## Pope Boniface VIII · reference
+
+Who entered into his Papacy like a fox, it is said, behaved himself in it like a lion, and died like a dog.
+
+## Lucretia · reference
+
+The Roman whom the maid of Montaigne’s neighbourhood appeared another of, having thrown herself from a window and then at her own throat to escape a soldier — until Montaigne was very well assured that both before and after she was not so difficult a piece.
+
+## Mahomet · reference
+
+Who so furiously rated Chasan for having let the Hungarians break into his squadrons, and behaved ill himself in the business.
+
+## Chasan · reference
+
+Bassa of the Janissaries, who instead of any other answer to that rating rushed alone, scimitar in hand, into the first body of the enemy, and was presently cut to pieces — not so much natural valour, Montaigne thinks, as a sudden despite.
+
+## Clytus · reference
+
+Whose murder Alexander’s excess of penitence for is one of Montaigne’s testimonies to the unevenness of that great courage.
+
+## Talebot · reference
+
+Whose motto, "Avau le dent," Montaigne borrows for the man who runs before the wind because the variety of occurrences makes him alter his path.
+
+## Josephus · reference
+
+Who wormed an ambassador’s secrets out of him by giving him his full dose of liquor; who, a whole people being violently bent against him and no visible means of escape left, was counselled by a friend to despatch himself and did well to keep his hope instead, fortune diverting the accident beyond all human expectation; and in whom Montaigne read of the child torn piecemeal with pincers who defied Antiochus.
+
+## Lucius Piso · reference
+
+Who conquered Thrace, and to whom Augustus committed the most inward secrets of his affairs and never found him faulty in the least — though he was so given to drink that they were often fain to carry him drunk out of the Senate.
+
+## Tiberius · reference
+
+The emperor, who trusted his whole counsels to Cossus as Augustus did his to Lucius Piso, and with as little cause for complaint. In his reign the condemned who would live to be executed forfeited their goods and were denied the rites of sepulture, while those who anticipated it by killing themselves were interred and could dispose of their estates by will. The older edition misprints his name Tiberias.
+
+## Cossus · reference
+
+The man he trusted them to, who was as hard a drinker as Piso.
+
+## Cimber · reference
+
+To whom the design of killing Caesar was as safely communicated as to Cassius, though he would often be drunk.
+
+## Cassius · reference
+
+Who drank nothing but water, and pleasantly said: what, shall I bear a tyrant, I who cannot bear wine? With Brutus he threw away the remains of the Roman liberty, of which the two of them were the sole protectors, by killing himself before the due time and a just occasion.
+
+## Attalus · reference
+
+Who, to put a notable affront upon Pausanias, invited him to supper and made him drink to such a pitch that he could afterwards abandon his beauty, as of a hedge strumpet, to the muleteers and servants of the basest office in the house.
+
+## Pausanias · reference
+
+Who suffered that affront at Attalus’s supper, and upon the very same occasion afterwards killed Philip of Macedon. Not the Pausanias of Sparta, nor the Pausanias who beat Mardonius at Plataea.
+
+## Cornelius Gallus · reference
+
+The Latin elegist, quoted for the line that in this trial of power the great Socrates deserved the palm. The older edition abbreviates him Cornet. Gallus, which is a misprint; the modern edition prints the name in full, where it collides with the Cornelius Gallus of 19:24, a proctor and another man.
+
+## Artaxerxes · reference
+
+The brother before whom the younger Cyrus claimed to be preferred, urging among his other excellences that he could drink a great deal more than he.
+
+## Silvius · reference
+
+An excellent physician of Paris, who said that lest the digestive faculties of the stomach should grow idle it were not amiss once a month to rouse them by this excess, and spur them lest they grow dull and rusty.
+
+## Brutus · reference
+
+The Brutus who killed his own children, and over whom Plutarch — seeing him and Torquatus do it — begins to doubt whether virtue could proceed so far, and to question whether they had not rather been stimulated by some other passion.
+
+## Torquatus · reference
+
+The other of that pair, whose killing of his own son Plutarch doubts along with Brutus’s.
+
+## Metrodorus · reference
+
+Whose rhodomontade Montaigne quotes from the sect reputed the quietest and gentlest: Fortune, I have got the better of thee, and have made all thy avenues so sure thou canst not come at me.
+
+## Anaxarchus · reference
+
+Who, put into a stone mortar by command of Nicocreon and laid upon with mauls of iron, did not cease to say: strike, batter, break — it is not Anaxarchus, it is but his sheath that you pound and bray so.
+
+## Nicocreon · reference
+
+The tyrant of Cyprus who gave that command.
+
+## Antiochus · reference
+
+The tyrant whom the child in Josephus defied while being torn piecemeal with pincers: thou losest thy labour, I am still at ease; my constancy torments thee more than thy cruelty does me. Neither the Antiochus of Stratonice’s beauty nor the one who showed Hannibal his splendid army.
+
+## Sextius · reference
+
+Who says he had rather be fettered with affliction than with pleasure.
+
+## Damidas · reference
+
+To whom someone said that the Lacedaemonians were likely to suffer much if they did not reconcile themselves to Philip in time: why, you pitiful fellow, he replied, what can they suffer who do not fear to die?
+
+## Agis · reference
+
+The Spartan asked which way a man might live free, who answered: by despising death. The Essays do not identify him with the Agis who fought obscurely armed, and give neither of them a numeral.
+
+## Boiocalus · reference
+
+Who answered the Romans, as Montaigne has it, that an occasion sufficient to die upon can never be wanting.
+
+## Therykion · reference
+
+Who tried to persuade Cleomenes to despatch himself after the battle he had lost, rather than give the conquerors leisure to make him undergo an ignominious death or an infamous life — and, his counsel being rejected as unmanly and mean, went and did his own business.
+
+## Cleomenes · reference
+
+Who rejected that counsel with a courage truly Stoic and Lacedaemonian: it is a remedy that can never be wanting, but which a man is never to use whilst there is an inch of hope remaining; it is sometimes constancy and valour to live. He did the same thing in the end, but not till he had first tried the utmost malevolence of fortune. The Essays do not identify him with either of the other two Spartans of the name.
+
+## Pentadius · reference
+
+Cited for the line that the gladiator conquered in the lists hopes on, though the spectators turn their thumbs and order him to die.
+
+## Democritus · reference
+
+General of the AEtolians, brought prisoner to Rome, who escaped by night and, closely pursued by his keepers, fell upon his own sword rather than be retaken. Not the philosopher of Abdera.
+
+## Antinous · reference
+
+Who with Theodotus, their city of Epirus being reduced by the Romans to the last extremity, counselled the people to kill themselves universally — and, the people preferring to give themselves up, went with his colleague to seek the death they desired, rushing on the enemy with intention to strike home but not to ward a blow.
+
+## Theodotus · reference
+
+The other of the two chiefs of Epirus who did that.
+
+## Scribonia · reference
+
+Who advised her nephew Libo to kill himself rather than await the stroke of justice: to preserve his life was to do other people’s business, since within three or four days they would fetch him to execution, and to keep his blood was to serve his enemies’ malice.
+
+## Libo · reference
+
+The nephew she advised.
+
+## Nicanor · reference
+
+The persecutor of the law of God who sent his soldiers to seize Razis.
+
+## Razis · reference
+
+Surnamed in honour of his virtue the father of the Jews. His gates burned down and the enemy ready to seize him, he stabbed himself; the blow not going home, he threw himself headlong from a wall among them; and feeling still some remains of life, started up all bloody, made his way to a precipitous rock, drew his bowels out through one of his wounds and threw them among his pursuers, invoking the divine vengeance on their cruelty.
+
+## Pelagia · reference
+
+Canonised, who precipitated herself with her mother and sisters into the river to avoid being forced by some soldiers.
+
+## Sophronia · reference
+
+Canonised with her, who killed herself to avoid being ravished by the Emperor Maxentius.
+
+## Maxentius · reference
+
+The emperor she killed herself to escape.
+
+## Marot · reference
+
+The good Marot, whose rule Montaigne says our air is well purged by: a sweet no, with a sweet smile, is so very honest.
+
+## Lucius Aruntius · reference
+
+Who killed himself to fly, he said, both the future and the past.
+
+## Granius Silvanus · reference
+
+Who with Statius Proximus, having been pardoned by Nero, killed himself all the same — either disdaining to live by the favour of so wicked a man, or not caring to be troubled another time to obtain a second pardon.
+
+## Statius Proximus · reference
+
+The other of the two pardoned men who did that.
+
+## Spargapises · reference
+
+Son of Queen Tomyris, and a prisoner of war to Cyrus, who used the first favour Cyrus showed him — an order to unbind him — to kill himself, having pretended to no other benefit of liberty than to be revenged on himself for the disgrace of being taken.
+
+## Queen Tomyris · reference
+
+His mother.
+
+## Boges · reference
+
+Governor in Eion for Xerxes. Besieged by Cimon and offered a safe return into Asia with all his wealth, he was too impatient of surviving the loss of a place his master had given him to keep: he defended the city to the last crust, threw the gold into the Strymon, cut the throats of all the women, children, concubines and servants and threw them on a pile he had set burning, and leapt into it himself.
+
+## Ninachetuen · reference
+
+An Indian lord who, hearing the first whisper that the Portuguese Viceroy meant to take his command in Malacca from him without apparent cause and give it to the King of Campar, built a scaffold hung with tapestry and strewn with flowers, came out in cloth of gold set with jewels, set out from it how much he had obliged the Portuguese nation and with how unspotted a fidelity, said that fortune denying him all means of opposing the affront his courage at least enjoined him to free himself from the sense of it, and leapt into the fire he had lighted at one corner.
+
+## Sextilia · reference
+
+Wife of Scaurus, who with Paxaea voluntarily sacrificed her own life to encourage her husband to avoid the dangers pressing upon him, in which she had no other share than conjugal affection.
+
+## Scaurus · reference
+
+Her husband.
+
+## Paxaea · reference
+
+Wife of Labeo, who did the same for him.
+
+## Labeo · reference
+
+Her husband.
+
+## Cocceius Nerva · reference
+
+A great lawyer, flourishing in health, riches, reputation and favour with the emperor, who killed himself for no other cause than the sole compassion of the miserable state of the Roman Republic — doing for his country, with less utility though with equal affection, what Sextilia and Paxaea did for their husbands.
+
+## Fulvius · reference
+
+A familiar favourite of Augustus, who vented an important secret entrusted to him, was received coldly and frowned upon one morning, and came home resolved to kill himself — to which his wife roundly replied that it was but reason he should, seeing he had so often experienced the incontinence of her tongue and would not take warning, but that she would kill herself first, and ran herself through the body with a sword without any more saying.
+
+## Vibius Virrius · reference
+
+Who told the senate of his besieged city that the noblest means of escaping fortune was by their own hands, and invited those who approved to a good supper with a beverage prepared after it. Seven-and-twenty senators followed him; the vapour of the wine deferred the poison so long that some of them were within an hour of seeing the enemy inside the walls of Capua.
+
+## Jubellius Taurea · reference
+
+Who called the Consul Fulvius back by name after the butchery of two hundred and twenty-five senators and asked him to give the word for his own despatch, that he might boast of having killed a much more valiant man than himself; and when the consul disdained him as a man out of his wits, ran a concealed short sword through his own bosom and expired at his feet.
+
+## The Consul Fulvius · reference
+
+Who made that butchery, and whose hands were tied by letters from Rome censuring the inhumanity of his execution.
+
+## Cleombrotus of Ambracia · reference
+
+Who, having read Plato’s Phaedo, entered into so great a desire of the life to come that without any other occasion he threw himself into the sea — which is why Montaigne says we call this voluntary dissolution despair improperly, the eagerness of hope often inclining us to it.
+
+## Jacques du Chastel · reference
+
+Bishop of Soissons, who in St Louis’s foreign expedition, seeing the king and the whole army on the point of returning into France and leaving the affairs of religion imperfect, took a resolution rather to go into Paradise: he took solemn leave of his friends and charged alone, in the sight of everyone, into the enemy’s army, where he was presently cut to pieces.
+
+## St Paul · reference
+
+The apostle, quoted for: I desire to be with Christ, and who shall rid me of these bands? The St Paul of 17:2 is a town in the Low Countries and not the apostle.
