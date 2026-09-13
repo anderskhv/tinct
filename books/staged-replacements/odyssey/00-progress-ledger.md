@@ -484,6 +484,7 @@ Kept current at every push.
 | **D24** | **A collision report and a compound report are TRIAGE RECORDS, not print-outs: every row touching a Book gets a disposition or an explicit dismissal reason, generated rather than typed, and the script exits non-zero if any row lacks one.** `scripts/collision_triage.py` writes `bookNN/collisions.md`; `scripts/compound_register.py` writes §H.1 into every `continuity.md`. Five collision classes are mechanical (`variant`, `kept`, `common-rendering`, `common-word`, `artifact`) and the rest are named and hand-ruled, including **`homograph`** — one Butler spelling, two unrelated senses, therefore two words that happen to be spelled alike (`issue`, `appearance`) — plus `same-referent`, `unavoidable-merge`, `phrase-not-word`, `matches-accepted` and `divergence-recorded`. A dismissal that leans on a class names the check that carries the residue, which is D18's `declare_blind` shape applied to a triage. | Records finding **R-2** and blind spot **8** of Book 7's round 1: the check returned **72 rows touching Book 7**, eleven were acted on and **sixty-one were dismissed with no record of having been read**, which is how `walls ← precincts` (M-1) — a sense change in a Book whose walls are literally bronze — passed through. *"This is not a gap in an instrument; it is a gap between an instrument and a record, and it is the cheaper half to close."* |
 | **D25** | **ARROW C: inside one paragraph, a rendering that reuses a word BUTLER HIMSELF KEEPS in that same paragraph for a different word of his.** No rarity gate at all and a three-letter minimum, because inside one paragraph proximity does the work rarity does across a corpus. Three controls under D18, all on both clauses, with three-way independence from arrows A and B asserted rather than claimed. | §9.7 of Book 7's round 1: M-2 (`abode` → `house`), M-5 (`sup` → `eat`) and M-10 (`chief persons` → `chief men`) are one defect and **every instrument in the package is blind to all three**. Its diagnosis — that arrow B's rarity gate is on the wrong side — is **wrong**; arrow B is already gated on Butler's side. The real reason is that `abode` occurs in six paragraphs and so is not rare. Arrow C finds all three in the frozen Book 7 candidate, one nobody had reported in **accepted Book 3**, and **six in Book 8 during drafting**, four of them Butler's own discriminations the draft had flattened. |
 | **D26** | **A4(ii) is answered: NO vendored word list. The instrument for D15 is the served corpus, and the real fix is the register.** `app/public/data/editions/*-modern-en.json` — 100 modern-English editions, already a product dependency — is READ (never written) and a pair is closed only when the closed form leads the open 3× **and** appears in 3+ distinct editions. The corpus is machine-generated and is never a sole authority. | Book 7's round 1 §5.7, recommending against, on both halves: *unnecessary*, because the corpus is already here and attests the forms; *insufficient*, because a word list answers *"is `mountaintop` a word?"* and **D15 asks which of two forms**, which a list of single words cannot represent. **The register found `store-room` in accepted Book 2 the first time it ran** — 31 closed in 9 editions against 1 open — which no reader, no review round and no check had ever named. **And a correction to A5(c)'s own claim:** it says the register *"would have caught `mountain tops` at Book 5"*. It would not have — closed 7 in 7 editions against 9 open, short of the margin on both counts. It would have caught `sea shore` (56 in 17 against 0), which cost three successors. |
+| **D27** | **DECIDED 2026-09-13 at Book 8's step 6. D20 clause (a) is widened from the semicolon to every DIVIDING MARK: `;`, `:`, and an em dash with a word on each side inside one sentence.** Both sides of the comparison add their own count, so cashing any of the three for a period is worth exactly zero, and **D21's construction rides on top of it** — on the candidate's side only the marks of Butler's that survive are counted, so raising a comma to a colon or a dash is worth nothing either. The compared figure from Book 8 forward is **NORM RATE, dividing marks, on Butler's own pointing**. Implemented as `dividing_marks()`, `internal_dash_offsets()`, `_provenance()`, `kept_added_div()`, `norm_rate_ext()` and `norm_rate_butler_ext()` in `scripts/checks.py`, pinned in `PUBLISHED`, recorded in every manifest, and covered by **eight** new `--audit` controls (22 in all). Every Book's figure is republished below on the stated basis; the old columns are kept beside them, because replacing a column in place is R-1. | Substantive finding **S-1** of Book 8's round 1, and its mark census (`book08/review/mark_census.py`). **Of Book 8's 52 new sentence boundaries, 44 are marks Butler already wrote** — 40 semicolons, 1 colon, 3 em dashes — and only 8 divide his prose. Commas move 410 → 407; MOVE-GAP is 0.00692 with **zero** displaced runs, the lowest movement in the package. There is no clause movement to find, and the +27.1% was bookkeeping. **D20 priced the semicolon and nothing else, so a colon or a sentence-internal dash cashed for a period was free division under every measure the package had.** The controls make the point mechanically: cashing a colon leaves the extended measure exactly where it is, moves the raw D17 rate, **and moves D20 as it stood**. On the new basis Book 8's headline **+27.1% is +2.0%**, and the eight genuine divisions are what is left. |
 
 ## The comparability table — one table, every basis stated (R-1)
 
@@ -535,6 +536,53 @@ first drafted after the measure existed. **Book 7 v1 was the worst at 6 of 14**,
 and the corrections at step 6 earned its published figure rather than pointing
 it: four added semicolons became periods, three of Butler's own became periods,
 and one of his that had been lowered to a comma came back.
+
+### The same column on the D27 basis — every dividing mark, republished
+
+**Decided 2026-09-13 at Book 8's step 6 (D27).** The column above prices the
+semicolon and nothing else, so Book 8's 1 colon and 3 em dashes cashed for
+periods were free division, and so were every other Book's. Below is the same
+construction over `;`, `:` and the **sentence-internal** em dash — a dash with a
+word on each side inside one sentence; a dash that opens or closes one is not a
+divider and is not counted. **This is the figure that is COMPARED from Book 8
+forward.** The old column is kept above rather than overwritten, because
+replacing a column in place is exactly R-1.
+
+| row | sentences | raw D17 | semicolons | **dividing marks (D27)** | **kept + ADDED** | NORM RATE, Butler's pointing (D21) | **NORM RATE, D27 on Butler's pointing** |
+|---|---|---|---|---|---|---|---|
+| 1 | 132 → 159 | +20.5% | 47 → 13 | 55 → 39 | 20 + 19 | −4.5% | **−4.3%** |
+| 2 | 137 → 159 | +16.1% | 36 → 21 | 58 → 61 | 36 + 25 | +1.2% | **+0.0%** |
+| 3 *(37 of 38)* | 164 → 173 | +5.5% | 39 → 32 | 53 → 47 | 39 + 8 | −2.0% | **−2.3%** |
+| 3 *(all 38, contrast only)* | 176 → 174 | −1.1% | 41 → 32 | 56 → 47 | 39 + 8 | −7.8% | **−8.2%** |
+| 4 | 281 → 306 | +8.9% | 68 → 50 | 103 → 81 | **80 + 0** | +2.0% | **+0.5%** |
+| 5 v1 *(superseded)* | 153 → 189 | +23.5% | 34 → 12 | 64 → 37 | 34 + 3 | +6.4% | **+2.8%** |
+| 5 | 153 → 189 | +23.5% | 34 → 13 | 64 → 35 | 34 + 1 | +7.5% | **+2.8%** |
+| 6 v1 *(superseded)* | 116 → 148 | +27.6% | 27 → 4 | 38 → 14 | 12 + 2 | +4.9% | **+3.9%** |
+| 6 v2 | 116 → 148 | +27.6% | 27 → 5 | 38 → 16 | 14 + 2 | +5.6% | **+5.2%** |
+| 7 v1 *(superseded)* | 103 → 129 | +25.2% | 30 → 14 | 42 → 25 | 17 + 8 | +3.0% | **+0.7%** |
+| 7 v2 | 103 → 138 | +34.0% | 30 → 7 | 42 → 18 | 14 + 4 | +7.5% | **+4.8%** |
+| **8 v1 (frozen draft)** | **192 → 244** | **+27.1%** | **42 → 0** | **62 → 22** | **15 + 7** | **+4.3%** | **+2.0%** |
+
+**What moves, and what the movement says.**
+
+* **Book 8's +27.1% becomes +2.0%**, which is the figure the review predicted
+  (it computed +2.4% from a kept-mark count of 16 where the mechanized
+  alignment gives 15; the one mark of difference is a dash whose Butler span
+  carries a stronger mark, and the arithmetic is otherwise the review's).
+* **Book 5 falls furthest, +7.5% → +2.8%**, and Book 4 next, +2.0% → +0.5%.
+  Both cash colons and dashes in quantity — Book 4 alone has 103 dividing
+  marks against 68 semicolons.
+* **Book 2 goes to zero.** It carries MORE dividing marks than Butler (58 →
+  61) and 25 of its 61 are its own. The old column already said +1.2%; this
+  one says the added pointing was paying for all of it.
+* **Book 1 barely moves** (−4.5% → −4.3%): it is the most heavily rewritten
+  Book and its figure was never carried by pointing.
+* **Nothing changes the ranking's top**: Books 6 and 7 remain the two Books
+  that divided Butler's prose most, at +5.2% and +4.8%.
+
+**A7 sits under this table too.** Every row is computed from the accepted files
+by `python3 scripts/checks.py --all`, which asserts each against `PUBLISHED`.
+Nothing here is typed.
 
 **A correction to Book 7's round 1, on its own principle.** §S-1 says +3.0%
 puts Book 7 *"fifth of seven"*. That ranks one corrected figure against six

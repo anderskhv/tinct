@@ -36,6 +36,12 @@ one for three Books.
 | sixty-word sentences | 7 → 1 (86% broken) |
 | **semicolons, Butler → candidate** (D19) | **27 → 5** |
 | **of which KEPT of Butler's / ADDED by the draft** (S-1) | **3 kept + 2 added** |
+| **dividing marks, Butler → candidate** (D27: `;` `:` sentence-internal `—`) | **38 → 16** |
+| **of which KEPT / ADDED** (D27) | **14 kept + 2 added** |
+| dividing-mark-normalized sentences | 154 → 164 |
+| NORM RATE, every dividing mark (D27) | +6.5% |
+| dividing-mark-normalized, on Butler's pointing | 154 → 162 |
+| **NORM RATE, dividing marks on Butler's pointing** — **the compared figure from Book 8 forward** (D27+D21) | **+5.2%** |
 
 Of the +32 sentences added, at most **22** are a semicolon
 rewritten as a period — the operation that adds a sentence, moves no
@@ -54,16 +60,16 @@ pointing**, +5.6% here against the +7.0% the unsplit measure gives.
 
 ## 3. The cross-Book table, with every basis stated (R-1)
 
-| Book | basis | retention | sentences | raw D17 | 60+ | semicolons | NORM RATE | MOVE-GAP |
-|---|---|---|---|---|---|---|---|---|
-| Book 1 | all 32 paragraphs | 0.72703 | 132 → 159 | +20.5% | 10 → 0 | 47 → 13 | -3.9% | 0.05088 |
-| Book 2 | all 35 paragraphs | 0.90232 | 137 → 159 | +16.1% | 7 → 4 | 36 → 21 | +4.0% | 0.01632 |
-| Book 3 | 37 of 38 | 0.89641 | 164 → 173 | +5.5% | 9 → 6 | 39 → 32 | +1.0% | 0.02156 |
-| Book 3 *(all 38)* | all 38 paragraphs (B03-P038 included) | 0.86053 | 176 → 174 | -1.1% | 9 → 6 | 41 → 32 | -5.1% | 0.02065 |
-| Book 4 | all 81 paragraphs | 0.95872 | 281 → 306 | +8.9% | 17 → 3 | 68 → 50 | +2.0% | 0.00431 |
-| Book 5 | all 37 paragraphs | 0.93808 | 153 → 189 | +23.5% | 9 → 1 | 34 → 13 | +8.0% | 0.00891 |
-| Book 6 | all 26 paragraphs | 0.93408 | 116 → 148 | +27.6% | 7 → 1 | 27 → 5 | +7.0% | 0.01156 |
-| Book 7 | all 29 paragraphs | 0.93438 | 103 → 138 | +34.0% | 7 → 0 | 30 → 7 | +9.0% | 0.01217 |
+| Book | basis | retention | sentences | raw D17 | semicolons | dividing marks (D27) | kept + added | NORM RATE (D20) | **NORM RATE, D27 on Butler's pointing** | MOVE-GAP |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Book 1 | all 32 paragraphs | 0.72703 | 132 → 159 | +20.5% | 47 → 13 | 55 → 39 | 20 + 19 | -3.9% | **-4.3%** | 0.05088 |
+| Book 2 | all 35 paragraphs | 0.90232 | 137 → 159 | +16.1% | 36 → 21 | 58 → 61 | 36 + 25 | +4.0% | **+0.0%** | 0.01632 |
+| Book 3 | 37 of 38 | 0.89641 | 164 → 173 | +5.5% | 39 → 32 | 53 → 47 | 39 + 8 | +1.0% | **-2.3%** | 0.02156 |
+| Book 3 *(all 38)* | all 38 paragraphs (B03-P038 included) | 0.86053 | 176 → 174 | -1.1% | 41 → 32 | 56 → 47 | 39 + 8 | -5.1% | **-8.2%** | 0.02065 |
+| Book 4 | all 81 paragraphs | 0.95872 | 281 → 306 | +8.9% | 68 → 50 | 103 → 81 | 80 + 0 | +2.0% | **+0.5%** | 0.00431 |
+| Book 5 | all 37 paragraphs | 0.93808 | 153 → 189 | +23.5% | 34 → 13 | 64 → 35 | 34 + 1 | +8.0% | **+2.8%** | 0.00891 |
+| Book 6 | all 26 paragraphs | 0.93408 | 116 → 148 | +27.6% | 27 → 5 | 38 → 16 | 14 + 2 | +7.0% | **+5.2%** | 0.01156 |
+| Book 7 | all 29 paragraphs | 0.93438 | 103 → 138 | +34.0% | 30 → 7 | 42 → 18 | 14 + 4 | +9.0% | **+4.8%** | 0.01217 |
 
 Book 3's row is the reason this column exists. Its published figures
 are computed on **37 of its 38 paragraphs** — B03-P038, the **D14**

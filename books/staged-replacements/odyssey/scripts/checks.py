@@ -156,6 +156,127 @@ def _mark_of(tail):
     return ""
 
 
+# ------------------------------------------------- D27: the dividing marks
+# **Substantive finding S-1 of Book 8's round 1.** D20 clause (a) adds each
+# text's own SEMICOLON count to its own sentence count, so that cashing a
+# semicolon for a period is worth exactly zero. Book 8's mark census showed
+# what the clause leaves free: of 52 new sentence boundaries, **44 were marks
+# Butler had already written** — 40 semicolons, **1 colon and 3 em dashes** —
+# and only 8 divided his prose. The colon and the sentence-internal em dash
+# bind clauses exactly as the semicolon does, a period separates them at the
+# same nil cost in recasting, and D20 priced both at a full division.
+#
+# So clause (a) is widened to all three: `;`, `:`, and an em dash with a word
+# on each side **inside one sentence**. A dash that opens or closes a sentence
+# is not a divider and is not counted.
+#
+# This is D27. It changes no published raw figure, and it changes the
+# COMPARED figure for every Book, which is republished on the stated basis
+# (R-1) rather than mixed with the old one.
+
+DIVIDING = (";", ":", "\u2014")
+
+
+def internal_dash_offsets(t):
+    """Character offsets of the sentence-internal em dashes of one paragraph.
+
+    `sentences()` splits on `.!?` only, so every em dash is inside some
+    sentence; what makes one a DIVIDER is having a word on each side of it
+    within that sentence. Butler's interrupted-speech dashes and the
+    paragraph-final dash are not dividers and are not counted."""
+    out, base = set(), 0
+    for sent in sentences(t):
+        i = t.find(sent, base)
+        if i < 0:
+            continue
+        base = i + len(sent)
+        for m in re.finditer("\u2014", sent):
+            if re.search(r"\w", sent[:m.start()]) \
+                    and re.search(r"\w", sent[m.end():]):
+                out.add(i + m.start())
+    return out
+
+
+def dividing_marks(paragraphs):
+    """D27's count: `;` + `:` + sentence-internal em dashes."""
+    return sum(p.count(";") + p.count(":") + len(internal_dash_offsets(p))
+               for p in paragraphs)
+
+
+def _provenance(src, cand, marks):
+    """For every mark of `marks` in the candidate, what Butler pointed at the
+    same place. Returns (paragraph, the candidate's mark, Butler's mark).
+
+    **The alignment is not a four-word anchor** — see `semicolon_provenance`
+    below, which is this function restricted to `;` and which reproduces the
+    package's published kept/added figures exactly."""
+    rows = []
+    wordre = _WORD
+    for i, (s, c) in enumerate(zip(src, cand), 1):
+        S, C = _marked(s), _marked(c)
+        sw = [w for w, _ in S]
+        cw = [w for w, _ in C]
+        sm = difflib.SequenceMatcher(a=cw, b=sw, autojunk=False)
+        c2s = {}
+        for a, b, n in sm.get_matching_blocks():
+            for k in range(n):
+                c2s[a + k] = b + k
+        idash = internal_dash_offsets(c) if "\u2014" in marks else set()
+        ends = [m.end() for m in wordre.finditer(c)]
+        for j, (w, tail) in enumerate(C):
+            mk = _mark_of(tail)
+            if mk not in marks:
+                continue
+            if mk == "\u2014":
+                pos = c.find("\u2014", ends[j], ends[j] + 5)
+                if pos not in idash:
+                    continue
+            before = [c2s[k] for k in range(j, -1, -1) if k in c2s]
+            after = [c2s[k] for k in range(j + 1, len(C)) if k in c2s]
+            A = before[0] if before else 0
+            B = after[0] if after else len(S) - 1
+            span = [_mark_of(S[k][1])
+                    for k in range(max(A, 0), min(B, len(S) - 1) + 1)]
+            best = max(span, key=lambda m: _MARK_RANK.get(m, 0)) if span else ""
+            rows.append((i, mk, best, " ".join(cw[max(0, j - 3):j + 1])))
+    return rows
+
+
+def kept_added_div(src, cand):
+    """(dividing marks of Butler's the candidate still carries, dividing marks
+    the candidate added where Butler wrote something weaker). D27's half of
+    D21."""
+    rows = _provenance(src, cand, DIVIDING)
+    kept = sum(1 for r in rows if r[2] in DIVIDING)
+    return kept, len(rows) - kept
+
+
+def norm_rate_ext(src, cand):
+    """**D27 — NORM RATE with every dividing mark normalized**, not the
+    semicolon alone. Both sides count their own `;` `:` and sentence-internal
+    `\u2014`. Returns (src_norm, cand_norm, pct)."""
+    sn, _ = sentence_profile(src)
+    cn, _ = sentence_profile(cand)
+    a = sn + dividing_marks(src)
+    b = cn + dividing_marks(cand)
+    return a, b, 100.0 * (b - a) / a
+
+
+def norm_rate_butler_ext(src, cand):
+    """**D27 + D21 — the figure that is COMPARED from Book 8 forward.**
+
+    Every dividing mark normalized, and on the candidate's side only the marks
+    of Butler's it KEPT, so that raising a comma to a semicolon — or to a
+    colon, or to a dash — is worth nothing. Returns (src_norm, cand_norm,
+    pct)."""
+    sn, _ = sentence_profile(src)
+    cn, _ = sentence_profile(cand)
+    kept, _added = kept_added_div(src, cand)
+    a = sn + dividing_marks(src)
+    b = cn + kept
+    return a, b, 100.0 * (b - a) / a
+
+
 def semicolon_provenance(src, cand):
     """**Substantive finding S-1 of Book 7's round 1, made mechanical.**
 
@@ -494,22 +615,39 @@ ACCEPTED = {
 # basis. `--all` recomputes each from the accepted file and fails on any
 # disagreement. Keys: retention (5 dp), sentences src, sentences cand, sixty
 # src, sixty cand, semicolons src, semicolons cand, norm rate (1 dp),
-# MOVE-GAP (5 dp).
+# MOVE-GAP (5 dp). **D27** adds `div` (dividing marks, source -> candidate),
+# `kept_added_div`, `norm_ext` (D20 widened to every dividing mark) and
+# `norm_butler_ext` (that, on Butler's own pointing — the figure COMPARED from
+# Book 8 forward).
 PUBLISHED = {
     1: dict(retention=0.72703, sent=(132, 159), sixty=(10, 0), semi=(47, 13),
-            norm=-3.9, movegap=0.05088, norm_butler=-4.5, kept_added=(12, 1)),
+            norm=-3.9, movegap=0.05088, norm_butler=-4.5, kept_added=(12, 1),
+            div=(55, 39), kept_added_div=(20, 19), norm_ext=+5.9,
+            norm_butler_ext=-4.3),
     2: dict(retention=0.90232, sent=(137, 159), sixty=(7, 4), semi=(36, 21),
-            norm=+4.0, movegap=0.01632, norm_butler=+1.2, kept_added=(16, 5)),
+            norm=+4.0, movegap=0.01632, norm_butler=+1.2, kept_added=(16, 5),
+            div=(58, 61), kept_added_div=(36, 25), norm_ext=+12.8,
+            norm_butler_ext=+0.0),
     3: dict(retention=0.89641, sent=(164, 173), sixty=(9, 6), semi=(39, 32),
-            norm=+1.0, movegap=0.02156, norm_butler=-2.0, kept_added=(26, 6)),
+            norm=+1.0, movegap=0.02156, norm_butler=-2.0, kept_added=(26, 6),
+            div=(53, 47), kept_added_div=(39, 8), norm_ext=+1.4,
+            norm_butler_ext=-2.3),
     4: dict(retention=0.95872, sent=(281, 306), sixty=(17, 3), semi=(68, 50),
-            norm=+2.0, movegap=0.00431, norm_butler=+2.0, kept_added=(50, 0)),
+            norm=+2.0, movegap=0.00431, norm_butler=+2.0, kept_added=(50, 0),
+            div=(103, 81), kept_added_div=(80, 0), norm_ext=+0.8,
+            norm_butler_ext=+0.5),
     5: dict(retention=0.93808, sent=(153, 189), sixty=(9, 1), semi=(34, 13),
-            norm=+8.0, movegap=0.00891, norm_butler=+7.5, kept_added=(12, 1)),
+            norm=+8.0, movegap=0.00891, norm_butler=+7.5, kept_added=(12, 1),
+            div=(64, 35), kept_added_div=(34, 1), norm_ext=+3.2,
+            norm_butler_ext=+2.8),
     6: dict(retention=0.93408, sent=(116, 148), sixty=(7, 1), semi=(27, 5),
-            norm=+7.0, movegap=0.01156, norm_butler=+5.6, kept_added=(3, 2)),
+            norm=+7.0, movegap=0.01156, norm_butler=+5.6, kept_added=(3, 2),
+            div=(38, 16), kept_added_div=(14, 2), norm_ext=+6.5,
+            norm_butler_ext=+5.2),
     7: dict(retention=0.93438, sent=(103, 138), sixty=(7, 0), semi=(30, 7),
-            norm=+9.0, movegap=0.01217, norm_butler=+7.5, kept_added=(5, 2)),
+            norm=+9.0, movegap=0.01217, norm_butler=+7.5, kept_added=(5, 2),
+            div=(42, 18), kept_added_div=(14, 4), norm_ext=+7.6,
+            norm_butler_ext=+4.8),
 }
 
 
@@ -853,6 +991,8 @@ def figures(book, src, cand):
     sn, cn, raw, s60, c60, broken = splitting_rate(s, c)
     nr = norm_rate(s, c)
     nb = norm_rate_butler(s, c)
+    ne = norm_rate_ext(s, c)
+    nbe = norm_rate_butler_ext(s, c)
     return dict(basis=BASIS[book][1], n=len(s),
                 retention=token_retention(s, c),
                 order=order_retention(s, c), bag=bag_retention(s, c),
@@ -861,7 +1001,13 @@ def figures(book, src, cand):
                 semi=(semicolons(s), semicolons(c)),
                 kept_added=kept_added(s, c),
                 norm=nr[5], normpair=(nr[3], nr[4]),
-                norm_butler=nb[2], norm_butler_pair=(nb[0], nb[1]))
+                norm_butler=nb[2], norm_butler_pair=(nb[0], nb[1]),
+                # D27 — every dividing mark, not the semicolon alone.
+                div=(dividing_marks(s), dividing_marks(c)),
+                kept_added_div=kept_added_div(s, c),
+                norm_ext=ne[2], norm_ext_pair=(ne[0], ne[1]),
+                norm_butler_ext=nbe[2],
+                norm_butler_ext_pair=(nbe[0], nbe[1]))
 
 
 # ------------------------------------------------------------------- the gates
@@ -967,6 +1113,10 @@ def manifest_checks_block(figs, gate):
         "sixty_word": list(figs["sixty"]),
         "semicolons": list(figs["semi"]),
         "semicolons_kept_added": list(figs["kept_added"]),
+        "dividing_marks": list(figs["div"]),
+        "dividing_marks_kept_added": list(figs["kept_added_div"]),
+        "norm_rate_ext_pct": round(figs["norm_ext"], 1),
+        "norm_rate_butler_ext_pct": round(figs["norm_butler_ext"], 1),
         "move_gap": round(figs["movegap"], 5),
         "all_gates_passed": True,
     }
@@ -1077,6 +1227,15 @@ def verify_manifest(book, figs=None, gate=None):
                     ("semicolons", list(fr["semi"]), ck.get("semicolons")),
                     ("semicolons_kept_added", list(fr["kept_added"]),
                      ck.get("semicolons_kept_added")),
+                    ("dividing_marks", list(fr["div"]),
+                     ck.get("dividing_marks")),
+                    ("dividing_marks_kept_added", list(fr["kept_added_div"]),
+                     ck.get("dividing_marks_kept_added")),
+                    ("norm_rate_ext_pct", round(fr["norm_ext"], 1),
+                     ck.get("norm_rate_ext_pct")),
+                    ("norm_rate_butler_ext_pct",
+                     round(fr["norm_butler_ext"], 1),
+                     ck.get("norm_rate_butler_ext_pct")),
                     ("move_gap", round(fr["movegap"], 5), ck.get("move_gap"))):
                 if want is not None and got != want:
                     bad.append("manifest: book%02d records %s = %s, and %s "
@@ -1358,11 +1517,12 @@ def run_book(book, version=None, write=True, quiet=False, candidate=None):
 
 def _row(bk, f):
     return ("| Book %s | %s | %.5f | %d → %d | %+.1f%% | %d → %d | %d → %d | "
-            "%+.1f%% | %.5f |"
+            "%d + %d | %+.1f%% | **%+.1f%%** | %.5f |"
             % (bk, f["basis"].split(" —")[0].split(",")[0], f["retention"],
-               f["sent"][0], f["sent"][1], f["raw"], f["sixty"][0],
-               f["sixty"][1], f["semi"][0], f["semi"][1], f["norm"],
-               f["movegap"]))
+               f["sent"][0], f["sent"][1], f["raw"], f["semi"][0],
+               f["semi"][1], f["div"][0], f["div"][1],
+               f["kept_added_div"][0], f["kept_added_div"][1], f["norm"],
+               f["norm_butler_ext"], f["movegap"]))
 
 
 def comparison_table():
@@ -1422,6 +1582,18 @@ def _render(book, version, cand_path, f, g, grown, grown_fail, near, tw,
           "| **semicolons, Butler → candidate** (D19) | **%d → %d** |" % f["semi"],
           "| **of which KEPT of Butler's / ADDED by the draft** (S-1) | "
           "**%d kept + %d added** |" % f["kept_added"],
+          "| **dividing marks, Butler → candidate** (D27: `;` `:` "
+          "sentence-internal `—`) | **%d → %d** |" % f["div"],
+          "| **of which KEPT / ADDED** (D27) | **%d kept + %d added** |"
+          % f["kept_added_div"],
+          "| dividing-mark-normalized sentences | %d → %d |"
+          % f["norm_ext_pair"],
+          "| NORM RATE, every dividing mark (D27) | %+.1f%% |" % f["norm_ext"],
+          "| dividing-mark-normalized, on Butler's pointing | %d → %d |"
+          % f["norm_butler_ext_pair"],
+          "| **NORM RATE, dividing marks on Butler's pointing** — "
+          "**the compared figure from Book 8 forward** (D27+D21) | "
+          "**%+.1f%%** |" % f["norm_butler_ext"],
           "", "Of the %+d sentences added, at most **%d** are a semicolon"
           % (f["sent"][1] - f["sent"][0], max(0, f["semi"][0] - f["semi"][1])),
           "rewritten as a period — the operation that adds a sentence, moves no",
@@ -1439,9 +1611,10 @@ def _render(book, version, cand_path, f, g, grown, grown_fail, near, tw,
           "pointing**, %+.1f%% here against the %+.1f%% the unsplit measure gives."
           % (f["norm_butler"], f["norm"]), "",
           "## 3. The cross-Book table, with every basis stated (R-1)", "",
-          "| Book | basis | retention | sentences | raw D17 | 60+ | semicolons "
-          "| NORM RATE | MOVE-GAP |",
-          "|---|---|---|---|---|---|---|---|---|"]
+          "| Book | basis | retention | sentences | raw D17 | semicolons "
+          "| dividing marks (D27) | kept + added | NORM RATE (D20) "
+          "| **NORM RATE, D27 on Butler's pointing** | MOVE-GAP |",
+          "|---|---|---|---|---|---|---|---|---|---|---|"]
     rows = comparison_table()
     for bk, ff in rows:
         L.append(_row(bk, ff))
@@ -1567,6 +1740,16 @@ def _print(book, version, f, g, grown, grown_fail, longs, pairs, dr):
     print("  NORM RATE on Butler's own  %+.1f%%  (%d → %d normalized, S-1)"
           % (f["norm_butler"], f["norm_butler_pair"][0],
              f["norm_butler_pair"][1]))
+    print("  dividing marks (D27)       %d → %d  (`;` `:` internal `—`)"
+          % f["div"])
+    print("  of which kept / added      %d kept + %d added  (D27)"
+          % f["kept_added_div"])
+    print("  NORM RATE, D27             %+.1f%%  (%d → %d normalized)"
+          % (f["norm_ext"], f["norm_ext_pair"][0], f["norm_ext_pair"][1]))
+    print("  ** NORM RATE, D27 on Butler's pointing  %+.1f%%  (%d → %d) — "
+          "THE COMPARED FIGURE"
+          % (f["norm_butler_ext"], f["norm_butler_ext_pair"][0],
+             f["norm_butler_ext_pair"][1]))
     print("  semicolons Butler → cand   %d → %d  (D19)" % f["semi"])
     print("  of which kept / added      %d kept + %d added  (S-1)"
           % f["kept_added"])
@@ -1593,17 +1776,17 @@ def run_all():
     bad = []
     print("checks.py --all — re-asserting every accepted Book's published "
           "figures\n")
-    print("%-8s %-24s %9s %12s %9s %10s %10s %9s"
-          % ("Book", "basis", "retention", "sentences", "60+", "semicolons",
-             "NORM RATE", "MOVE-GAP"))
+    print("%-8s %-20s %9s %12s %10s %11s %9s %9s"
+          % ("Book", "basis", "retention", "sentences", "semicolons",
+             "div marks", "NORM D27", "MOVE-GAP"))
     for bk in sorted(ACCEPTED):
         sf, cf, _ = ACCEPTED[bk]
         f = figures(bk, load(sf), load(cf))
         p = PUBLISHED[bk]
-        print("%-8d %-24s %9.5f %6d → %-3d %4d → %-3d %5d → %-3d %+8.1f%% %9.5f"
+        print("%-8d %-20s %9.5f %6d → %-3d %5d → %-3d %5d → %-3d %+8.1f%% %9.5f"
               % (bk, f["basis"].split(" —")[0], f["retention"], f["sent"][0],
-                 f["sent"][1], f["sixty"][0], f["sixty"][1], f["semi"][0],
-                 f["semi"][1], f["norm"], f["movegap"]))
+                 f["sent"][1], f["semi"][0], f["semi"][1], f["div"][0],
+                 f["div"][1], f["norm_butler_ext"], f["movegap"]))
         for key, got, want, fmt in (
                 ("retention", f["retention"], p["retention"], "%.5f"),
                 ("sentences", f["sent"], p["sent"], "%s"),
@@ -1613,6 +1796,13 @@ def run_all():
                 ("NORM RATE (Butler's pointing)",
                  round(f["norm_butler"], 1), p["norm_butler"], "%s"),
                 ("semicolons kept+added", f["kept_added"], p["kept_added"], "%s"),
+                ("dividing marks (D27)", f["div"], p["div"], "%s"),
+                ("dividing marks kept+added (D27)", f["kept_added_div"],
+                 p["kept_added_div"], "%s"),
+                ("NORM RATE, every dividing mark (D27)",
+                 round(f["norm_ext"], 1), p["norm_ext"], "%s"),
+                ("NORM RATE, dividing marks on Butler's pointing (D27+D21)",
+                 round(f["norm_butler_ext"], 1), p["norm_butler_ext"], "%s"),
                 ("MOVE-GAP", round(f["movegap"], 5), p["movegap"], "%.5f")):
             g = round(got, 5) if isinstance(got, float) else got
             if g != want:
@@ -1785,6 +1975,39 @@ def audit():
         assert grown_max <= max(cmax, smax) and grown_max < smax + 1, grown_max
         return out
 
+    # ---- D27's mutations. Book 8's round 1 (S-1): D20 prices the semicolon
+    # and nothing else, so a COLON or a sentence-internal EM DASH cashed for a
+    # period is free division under every measure the package had. Each gets
+    # the pair of controls the semicolon has — the positive one (the extended
+    # measure does not move) and its negative (the raw rate does).
+    def cash_a_colon(ps):
+        out = list(ps)
+        for i, para in enumerate(out):
+            if ": " in para:
+                head, tail = para.split(": ", 1)
+                out[i] = head + ". " + tail[0].upper() + tail[1:]
+                return out
+        raise AssertionError("no colon to cash in this candidate")
+
+    def cash_an_internal_dash(ps):
+        out = list(ps)
+        for i, para in enumerate(out):
+            for off in sorted(internal_dash_offsets(para)):
+                tail = para[off + 1:]
+                if tail[:1].isalpha():
+                    out[i] = (para[:off].rstrip() + ". " + tail[0].upper()
+                              + tail[1:])
+                    return out
+        raise AssertionError("no sentence-internal em dash to cash")
+
+    def raise_a_comma_to_a_colon(ps):
+        out = list(ps)
+        for i, para in enumerate(out):
+            if ", and " in para:
+                out[i] = para.replace(", and ", ": and ", 1)
+                return out
+        raise AssertionError("no `, and ` to raise")
+
     def open_a_compound(ps):
         out = list(ps)
         for i, p in enumerate(out):
@@ -1826,6 +2049,38 @@ def audit():
             "period as an addition — kept falls, added stays",
             cand, cash_a_semicolon(cand),
             verdict=lambda ps: kept_added(src, ps))
+    control("D27: cashing a COLON for a period leaves the extended NORM RATE "
+            "EXACTLY where it was (the positive control S-1 asked for)",
+            cand, cash_a_colon(cand),
+            verdict=lambda ps: r5(norm_rate_ext(src, ps)[2]), expect_same=True)
+    control("and the raw D17 rate DOES move under that same mutation — so a "
+            "cashed colon was free division before D27",
+            cand, cash_a_colon(cand),
+            verdict=lambda ps: r5(splitting_rate(src, ps)[2]))
+    control("D20 as it stood — semicolons only — ALSO moves under it, which "
+            "is the defect D27 repairs",
+            cand, cash_a_colon(cand),
+            verdict=lambda ps: r5(norm_rate(src, ps)[5]))
+    control("D27: cashing a sentence-internal EM DASH leaves the extended "
+            "NORM RATE exactly where it was",
+            cand, cash_an_internal_dash(cand),
+            verdict=lambda ps: r5(norm_rate_ext(src, ps)[2]), expect_same=True)
+    control("and the raw D17 rate DOES move under that one too",
+            cand, cash_an_internal_dash(cand),
+            verdict=lambda ps: r5(splitting_rate(src, ps)[2]))
+    control("D27 + D21: raising a comma to a COLON does not move the compared "
+            "figure — the S-1 corollary, on the marks D27 adds",
+            cand, raise_a_comma_to_a_colon(cand),
+            verdict=lambda ps: r5(norm_rate_butler_ext(src, ps)[2]),
+            expect_same=True)
+    control("...and the unguarded extended measure DOES move under it, which "
+            "is why the compared figure is the Butler-pointed one",
+            cand, raise_a_comma_to_a_colon(cand),
+            verdict=lambda ps: r5(norm_rate_ext(src, ps)[2]))
+    control("dividing-mark provenance names the added mark: kept stays, added "
+            "rises by one",
+            cand, raise_a_comma_to_a_colon(cand),
+            verdict=lambda ps: kept_added_div(src, ps))
     control("MOVE-GAP: moving a clause without changing a word raises it",
             cand, swap_two_clauses(cand),
             verdict=lambda ps: r5(move_gap(src, ps)))
