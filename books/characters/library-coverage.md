@@ -64,7 +64,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Second Treatise of Government (`second-treatise`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | An Enquiry Concerning Human Understanding (`hume-enquiry`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Social Contract (`social-contract`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| The Wealth of Nations (`wealth-of-nations`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The Wealth of Nations (`wealth-of-nations`) | validated-package | awaiting-integration: register both English editions, version the asset, run app gates, and verify in production before changing appStatus |
 | The Sorrows of Young Werther (`werther`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Faust, Part One (`faust-part-1`) | validated-package | Awaiting integration by the release owner. 97 entities across 28 scenes. The original edition is a damaged scan: see the source-defect table in the package README, including a duplicated scene opening at 25:32-35 / 26:0-3 that is worth fixing at source before any further offset work. |
 | The Oresteia (`oresteia`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |

@@ -1,6 +1,6 @@
 {
-  "contentStatus": "in-progress",
+  "contentStatus": "validated-package",
   "appStatus": "not-integrated",
-  "reviewedEditions": [],
-  "nextAction": "Lane A authoring claimed: build entity inventory from both English editions, author cards, run editorial checks before validated-package"
+  "reviewedEditions": ["original-en", "modern-en"],
+  "nextAction": "awaiting-integration: register both English editions, version the asset, run app gates, and verify in production before changing appStatus"
 }

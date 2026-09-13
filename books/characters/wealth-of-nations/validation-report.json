@@ -1,0 +1,28 @@
+{
+  "bookId": "wealth-of-nations",
+  "scope": "An economic treatise with no narrative cast of its own -- every entity is category Reference, per editorial policy's treatise guidance. Despite its size (2173 paragraphs, the largest book yet in this Lane A queue by paragraph count), this book is markedly reference-light relative to Leviathan or the Federalist Papers, as the automation queue itself anticipated: a full-book capitalized-word frequency sweep turned up only ~1463 distinct forms, most of them place names. Chapters 1-10 were read in full, sequentially, in both editions; the historically dense remainder (chapter 11's 298-paragraph digression on silver's historical value, and the historical passages of chapters 12-32, especially 19-20, 27, and 30) were covered by an exhaustive full-book proper-name extraction, with every candidate confirmed by reading its exact source-text context rather than assumed from the word alone. Five potential namesake collisions were checked and each resolved cleanly, without needing the escape hatch, because the text itself fully qualifies every occurrence: Zeno of Citium vs. Zeno of Elea (both carry their own city-epithet in the same paragraph), King John of England vs. King John of France, Louis VI \"the Fat\" vs. Louis XIV, Robert Bruce vs. Robert II of France vs. Sir Robert Walpole, and Vasco da Gama vs. Vasco Núñez de Balboa. One source defect is recorded and kept as printed: \"Sir Waiter Raleigh\" (a probable compositor misprint for \"Walter\", confirmed by the modern-en edition's correction at the same locations). The modern-en edition systematically modernizes several archaic spellings from the original (\"Annibal\"/\"Hannibal\", \"Amilcar\"/\"Hamilcar\", \"Lewis\"/\"Louis\", \"Christiern\"/\"Christian\", \"Vasco de Gamo\"/\"Vasco da Gama\"), each aliased under both spellings so the entity binds in both editions. Both editions were read and reviewed independently.",
+  "authoredEntries": 176,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "986785410f5c74e8e0d6efd4b963e93e80461eb2ec619788eb3e772d87f90c4b",
+      "chapters": 32,
+      "paragraphs": 2173,
+      "entries": 176,
+      "mentions": 417,
+      "omittedEntities": []
+    },
+    "modern-en": {
+      "sourceSha256": "d894aec39397bf2acd501fa3825eabbe0a60de6566bfee1b7a4272e3adf3f946",
+      "chapters": 32,
+      "paragraphs": 2173,
+      "entries": 176,
+      "mentions": 436,
+      "omittedEntities": []
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}
