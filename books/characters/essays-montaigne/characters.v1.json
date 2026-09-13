@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "bookId": "essays-montaigne",
   "language": "en",
-  "contentVersion": "2026-09-13.3",
+  "contentVersion": "2026-09-13.4",
   "normalization": "prose-reader-v1",
   "offsetUnit": "utf16",
   "reviewStatus": "authoring-agent-reviewed",
@@ -6302,7 +6302,7 @@
               },
               "name": "Livy",
               "subtitle": "",
-              "body": "The Roman historian of the city from its foundation.",
+              "body": "The Roman historian of the city from its foundation. The older edition writes him Titus Livius at 66:0 and 73:70, and misprints him Titius Livius at 62:18, where the modern edition has the name right.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
@@ -10313,7 +10313,7 @@
         {
           "id": "ammianus-marcellinus",
           "kind": "person",
-          "storyRole": "reference",
+          "storyRole": "supporting",
           "roleVisibleAt": {
             "chapterNumber": 15,
             "paragraphIndex": 4,
@@ -10334,7 +10334,7 @@
               },
               "name": "Ammianus Marcellinus",
               "subtitle": "",
-              "body": "The late Roman historian, cited for the Emperor Julian’s degrading and then executing ten soldiers who turned their backs on the Parthians.",
+              "body": "The historian, who says the Emperor Julian had ten soldiers that turned their backs against the Parthians first degraded and then put to death, and who observes the manner of the Parthians’ arming so curiously because it was so different from the Roman. Not the Tullius Marcellinus of chapter 70.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
@@ -16598,7 +16598,7 @@
               },
               "name": "Minerva",
               "subtitle": "",
-              "body": "The goddess of wisdom, set against Venus in that comparison, and one of the three to whom Plato gives the patronage of the young’s sports.",
+              "body": "The goddess of wisdom, set against Venus in that comparison, and one of the three to whom Plato gives the patronage of the young’s sports. Under her Greek name Pallas she is the goddess the Athenians adore, and the one who issued from her father’s head to communicate herself to the world — which the older edition misprints Balias. Draco and Solon gave out their laws under her name. She is not the Pallas of 69:302, who is a dead man.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
@@ -16706,7 +16706,7 @@
               },
               "name": "Flora",
               "subtitle": "",
-              "body": "With the Graces, one of the figures Speusippus painted his school with — and which Montaigne would paint a school with instead of birch and willow.",
+              "body": "With the Graces, one of the figures Speusippus painted his school with — and which Montaigne would paint a school with instead of birch and willow. Not the courtesan of 72:14 and 97:38, whose name she was taking until the census of the unkeyed table names ran over chapter 72.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
@@ -23366,7 +23366,7 @@
               },
               "name": "Diana",
               "subtitle": "",
-              "body": "The third of them.",
+              "body": "The third of the gods of the Thracian people, with Bacchus and Mars; and, under her Greek name Cynthia, the goddess Crete adores in Ovid’s list of the gods each nation worships.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
@@ -23942,7 +23942,7 @@
               },
               "name": "Agrippa",
               "subtitle": "",
-              "body": "Who brought Augustus the news of the victory over Sextus Pompeius while the emperor was still out of sight of his own soldiers.",
+              "body": "Pomponius Atticus’s son-in-law, called to his bedside with two or three friends to be told he had resolved to end his life and his pain together. Also the man who brought Augustus the news of the victory over Sextus Pompeius while the emperor was still out of sight of his own soldiers.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
@@ -31862,7 +31862,7 @@
               },
               "name": "Zamolxis",
               "subtitle": "",
-              "body": "The god of the Getae, who hold themselves immortal and their death nothing but a journey to him.",
+              "body": "The god of the Getae, who hold themselves immortal and their death nothing but a journey to him; and, at 73:90, the legislator of the Scythians, who gave out his laws under the name of Vesta. The older edition spells him Xamolxis there.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
@@ -33273,6 +33273,1302 @@
                   "chapterNumber": 69,
                   "paragraphIndex": 96,
                   "throughOffset": 454
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "vulcan",
+          "kind": "deity",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 69,
+            "paragraphIndex": 210,
+            "offset": 506
+          },
+          "firstMention": {
+            "chapterNumber": 69,
+            "paragraphIndex": 210,
+            "offset": 506
+          },
+          "snapshots": [
+            {
+              "id": "vulcan-identity",
+              "availableAt": {
+                "chapterNumber": 69,
+                "paragraphIndex": 210,
+                "offset": 506
+              },
+              "name": "Vulcan",
+              "subtitle": "",
+              "body": "The god to whom Tiberius Sempronius burnt the rich spoils and arms he had gained in Sardinia; whose arms stand in the Latin for fortitude — if thou art naked, present thy throat, if covered with Vulcan’s arms, resist; and who, in the line Montaigne quotes, stood against Troy where Apollo stood for it.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 69,
+                  "paragraphIndex": 210,
+                  "throughOffset": 506
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "juno",
+          "kind": "deity",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 69,
+            "paragraphIndex": 268,
+            "offset": 1322
+          },
+          "firstMention": {
+            "chapterNumber": 69,
+            "paragraphIndex": 268,
+            "offset": 1322
+          },
+          "snapshots": [
+            {
+              "id": "juno-identity",
+              "availableAt": {
+                "chapterNumber": 69,
+                "paragraphIndex": 268,
+                "offset": 1322
+              },
+              "name": "Juno",
+              "subtitle": "",
+              "body": "One of the accustomed gods Zeno takes away, with Jupiter and Vesta; the cruel Juno who stands in arms full in the Scæan gate while Neptune heaves the city from its base; and the goddess whose altars, in the list of the gods each nation adores, the Spartans feed.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 69,
+                  "paragraphIndex": 268,
+                  "throughOffset": 1322
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "vesta",
+          "kind": "deity",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 69,
+            "paragraphIndex": 268,
+            "offset": 1333
+          },
+          "firstMention": {
+            "chapterNumber": 69,
+            "paragraphIndex": 268,
+            "offset": 1333
+          },
+          "snapshots": [
+            {
+              "id": "vesta-identity",
+              "availableAt": {
+                "chapterNumber": 69,
+                "paragraphIndex": 268,
+                "offset": 1333
+              },
+              "name": "Vesta",
+              "subtitle": "",
+              "body": "One of the accustomed gods Zeno takes away, with Jupiter and Juno; and the goddess under whose name Zamolxis gave out his laws to the Scythians.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 69,
+                  "paragraphIndex": 268,
+                  "throughOffset": 1333
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "faunus",
+          "kind": "deity",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 69,
+            "paragraphIndex": 358,
+            "offset": 156
+          },
+          "firstMention": {
+            "chapterNumber": 69,
+            "paragraphIndex": 358,
+            "offset": 156
+          },
+          "snapshots": [
+            {
+              "id": "faunus-identity",
+              "availableAt": {
+                "chapterNumber": 69,
+                "paragraphIndex": 358,
+                "offset": 156
+              },
+              "name": "Faunus",
+              "subtitle": "",
+              "body": "The god the Arcadians worship, in the list of the gods each nation adores.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 69,
+                  "paragraphIndex": 358,
+                  "throughOffset": 156
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pallas-evander",
+          "kind": "mythological-figure",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 69,
+            "paragraphIndex": 302,
+            "offset": 115
+          },
+          "firstMention": {
+            "chapterNumber": 69,
+            "paragraphIndex": 302,
+            "offset": 115
+          },
+          "snapshots": [
+            {
+              "id": "pallas-evander-identity",
+              "availableAt": {
+                "chapterNumber": 69,
+                "paragraphIndex": 302,
+                "offset": 115
+              },
+              "name": "Pallas",
+              "subtitle": "",
+              "body": "The dead man to whose ghost the four sons of Sulmo and four more that Ufens bred were led as living victims, to expire in sacrifice before his funeral pyre. Evander’s son in the Aeneid, and not the goddess of 69:358 and 69:391.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 69,
+                  "paragraphIndex": 302,
+                  "throughOffset": 115
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "numa",
+          "kind": "person",
+          "storyRole": "supporting",
+          "roleVisibleAt": {
+            "chapterNumber": 69,
+            "paragraphIndex": 262,
+            "offset": 355
+          },
+          "firstMention": {
+            "chapterNumber": 69,
+            "paragraphIndex": 262,
+            "offset": 355
+          },
+          "snapshots": [
+            {
+              "id": "numa-identity",
+              "availableAt": {
+                "chapterNumber": 69,
+                "paragraphIndex": 262,
+                "offset": 355
+              },
+              "name": "Numa",
+              "subtitle": "",
+              "body": "Numa Pompilius, who fed his people with the foppery that the nymph Egeria brought him all his counsels from the gods, and gave his laws the title of her patronage; and who attempted to conform the devotion of his people to a religion purely mental, without any prefixed object or material mixture — which Montaigne says was to undertake a thing of no use.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 69,
+                  "paragraphIndex": 262,
+                  "throughOffset": 355
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "zoroaster",
+          "kind": "person",
+          "storyRole": "supporting",
+          "roleVisibleAt": {
+            "chapterNumber": 69,
+            "paragraphIndex": 532,
+            "offset": 2244
+          },
+          "firstMention": {
+            "chapterNumber": 69,
+            "paragraphIndex": 532,
+            "offset": 2244
+          },
+          "snapshots": [
+            {
+              "id": "zoroaster-identity",
+              "availableAt": {
+                "chapterNumber": 69,
+                "paragraphIndex": 532,
+                "offset": 2244
+              },
+              "name": "Zoroaster",
+              "subtitle": "",
+              "body": "Legislator of the Bactrians and Persians, who gave his laws the authority of the God Oromazis as Numa gave his the patronage of Egeria; and whom Aristotle, Pliny and others say flourished six thousand years before Plato’s time.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 69,
+                  "paragraphIndex": 532,
+                  "throughOffset": 2244
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lucius-domitius",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 44
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 44
+          },
+          "snapshots": [
+            {
+              "id": "lucius-domitius-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 28,
+                "offset": 44
+              },
+              "name": "Lucius Domitius",
+              "subtitle": "",
+              "body": "Taken in the Abruzzi in Caesar’s civil wars, who poisoned himself upon it and afterwards repented.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 28,
+                  "throughOffset": 44
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "plautius-silvanus",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 417
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 417
+          },
+          "snapshots": [
+            {
+              "id": "plautius-silvanus-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 28,
+                "offset": 417
+              },
+              "name": "Plautius Silvanus",
+              "subtitle": "",
+              "body": "Whose grandmother sent him a poniard while he was upon his trial; not being able to kill himself with it, he made his servants cut his veins.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 28,
+                  "throughOffset": 417
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "urgulania",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 447
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 447
+          },
+          "snapshots": [
+            {
+              "id": "urgulania-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 28,
+                "offset": 447
+              },
+              "name": "Urgulania",
+              "subtitle": "",
+              "body": "Plautius Silvanus’s grandmother, who sent him the poniard.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 28,
+                  "throughOffset": 447
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "albucilla",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 574
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 574
+          },
+          "snapshots": [
+            {
+              "id": "albucilla-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 28,
+                "offset": 574
+              },
+              "name": "Albucilla",
+              "subtitle": "",
+              "body": "One of the Romans Montaigne lists as having botched their own deaths: the blow was struck with too much tenderness, which gave the adversaries opportunity to imprison and put to death their own way.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 28,
+                  "throughOffset": 574
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "demosthenes-general",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 766
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 766
+          },
+          "snapshots": [
+            {
+              "id": "demosthenes-general-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 28,
+                "offset": 766
+              },
+              "name": "Demosthenes",
+              "subtitle": "",
+              "body": "The great leader who did the same after his rout in Sicily — the Athenian general of the Syracusan expedition, not the orator, whose alias was taking this paragraph until it was suppressed here.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 28,
+                  "throughOffset": 766
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "fimbria",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 822
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 822
+          },
+          "snapshots": [
+            {
+              "id": "fimbria-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 28,
+                "offset": 822
+              },
+              "name": "Fimbria",
+              "subtitle": "",
+              "body": "Who, having struck himself too weakly, entreated his servant to despatch him.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 28,
+                  "throughOffset": 822
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ostorius",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 922
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 922
+          },
+          "snapshots": [
+            {
+              "id": "ostorius-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 28,
+                "offset": 922
+              },
+              "name": "Ostorius",
+              "subtitle": "",
+              "body": "Who could not make use of his own arm, and disdained to employ his servant’s to any other use than to hold the poniard straight and firm.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 28,
+                  "throughOffset": 922
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pomponius-atticus",
+          "kind": "person",
+          "storyRole": "supporting",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 33,
+            "offset": 22
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 33,
+            "offset": 22
+          },
+          "snapshots": [
+            {
+              "id": "pomponius-atticus-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 33,
+                "offset": 22
+              },
+              "name": "Pomponius Atticus",
+              "subtitle": "",
+              "body": "Cicero’s correspondent, who being sick called Agrippa his son-in-law and two or three friends to tell them that since every means practised for his recovery was in vain, and all he did to prolong his life prolonged his pain, he had resolved to put an end to both. Having chosen abstinence as the means, he was cured by it — and refused to alter his purpose, saying that as he must one day die, and was now so far on his way, he would save himself the labour of beginning another time.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 33,
+                  "throughOffset": 22
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tullius-marcellinus",
+          "kind": "person",
+          "storyRole": "supporting",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 35,
+            "offset": 19
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 35,
+            "offset": 19
+          },
+          "snapshots": [
+            {
+              "id": "tullius-marcellinus-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 35,
+                "offset": 19
+              },
+              "name": "Tullius Marcellinus",
+              "subtitle": "",
+              "body": "A young man of Rome who had a mind to anticipate the hour of his destiny, to be rid of a disease that troubled him more than he was willing to endure, though his physicians assured him of a certain cure. He called a council of friends; some advised out of unmanliness, some out of flattery, and a Stoic told him it was no great matter to live, since his servants and his beasts lived, but a great thing to die handsomely, wisely and firmly. He divided a sum of money among his servants, forsook all nourishment, and on the third day, having caused himself to be sprinkled with warm water, fainted by degrees and not without some kind of pleasure, as he declared himself.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 35,
+                  "throughOffset": 19
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "danae",
+          "kind": "mythological-figure",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 72,
+            "paragraphIndex": 5,
+            "offset": 38
+          },
+          "firstMention": {
+            "chapterNumber": 72,
+            "paragraphIndex": 5,
+            "offset": 38
+          },
+          "snapshots": [
+            {
+              "id": "danae-identity",
+              "availableAt": {
+                "chapterNumber": 72,
+                "paragraphIndex": 5,
+                "offset": 38
+              },
+              "name": "Danae",
+              "subtitle": "",
+              "body": "Whom a brazen tower held: had it not, Ovid says, she would never have been made a mother by Jove.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 72,
+                  "paragraphIndex": 5,
+                  "throughOffset": 38
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "galla",
+          "kind": "literary-figure",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 72,
+            "paragraphIndex": 10,
+            "offset": 7
+          },
+          "firstMention": {
+            "chapterNumber": 72,
+            "paragraphIndex": 10,
+            "offset": 7
+          },
+          "snapshots": [
+            {
+              "id": "galla-identity",
+              "availableAt": {
+                "chapterNumber": 72,
+                "paragraphIndex": 10,
+                "offset": 7
+              },
+              "name": "Galla",
+              "subtitle": "",
+              "body": "Martial’s mistress, told to refuse him — love is glutted with joys that are not attended with trouble.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 72,
+                  "paragraphIndex": 10,
+                  "throughOffset": 7
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "st-james",
+          "kind": "religious-figure",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 72,
+            "paragraphIndex": 17,
+            "offset": 149
+          },
+          "firstMention": {
+            "chapterNumber": 72,
+            "paragraphIndex": 17,
+            "offset": 149
+          },
+          "snapshots": [
+            {
+              "id": "st-james-identity",
+              "availableAt": {
+                "chapterNumber": 72,
+                "paragraphIndex": 17,
+                "offset": 149
+              },
+              "name": "St James",
+              "subtitle": "",
+              "body": "The saint to whom the people of the march of Ancona more readily make their vows, while those of Galicia vow to Our Lady of Loreto: Montaigne’s instance that difficulty gives all things their estimation, and that what is near at hand is despised.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 72,
+                  "paragraphIndex": 17,
+                  "throughOffset": 149
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "poppaea",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 72,
+            "paragraphIndex": 31,
+            "offset": 14
+          },
+          "firstMention": {
+            "chapterNumber": 72,
+            "paragraphIndex": 31,
+            "offset": 14
+          },
+          "snapshots": [
+            {
+              "id": "poppaea-identity",
+              "availableAt": {
+                "chapterNumber": 72,
+                "paragraphIndex": 31,
+                "offset": 14
+              },
+              "name": "Poppaea",
+              "subtitle": "",
+              "body": "Who invented the use of a mask to hide the beauties of her face — to enhance it, Montaigne says, to her lovers.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 72,
+                  "paragraphIndex": 31,
+                  "throughOffset": 14
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "flora-courtesan",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 72,
+            "paragraphIndex": 14,
+            "offset": 285
+          },
+          "firstMention": {
+            "chapterNumber": 72,
+            "paragraphIndex": 14,
+            "offset": 285
+          },
+          "snapshots": [
+            {
+              "id": "flora-courtesan-identity",
+              "availableAt": {
+                "chapterNumber": 72,
+                "paragraphIndex": 14,
+                "offset": 285
+              },
+              "name": "Flora",
+              "subtitle": "",
+              "body": "The courtesan who said she never lay with Pompey but that she made him wear the prints of her teeth — Montaigne’s instance that pleasure is much sweeter when it smarts. At 97:38 she is the one who never lent herself to less than a dictator, a consul or a censor, and took pleasure in the dignity of her lovers. Not the Flora of the school walls at 25:90.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 72,
+                  "paragraphIndex": 14,
+                  "throughOffset": 285
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "rutilius-poet",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 72,
+            "paragraphIndex": 43,
+            "offset": 79
+          },
+          "firstMention": {
+            "chapterNumber": 72,
+            "paragraphIndex": 43,
+            "offset": 79
+          },
+          "snapshots": [
+            {
+              "id": "rutilius-poet-identity",
+              "availableAt": {
+                "chapterNumber": 72,
+                "paragraphIndex": 43,
+                "offset": 79
+              },
+              "name": "Rutilius",
+              "subtitle": "",
+              "body": "The author of the Itinerarium, quoted for the plague-sore that spreads the further for being lanced. Not the Rutilius of Tacitus’s Agricola at 74:7, nor the consul Publius Rutilius at 84:21.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 72,
+                  "paragraphIndex": 43,
+                  "throughOffset": 79
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "amynomachus",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 13,
+            "offset": 267
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 13,
+            "offset": 267
+          },
+          "snapshots": [
+            {
+              "id": "amynomachus-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 13,
+                "offset": 267
+              },
+              "name": "Amynomachus",
+              "subtitle": "",
+              "body": "One of Epicurus’s two heirs, ordered by the will to defray every January the expense of the celebration of his birthday, as Hermachus should appoint, and the expense of entertaining the philosophers on the twentieth of every moon.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 13,
+                  "throughOffset": 267
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "timocrates",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 13,
+            "offset": 282
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 13,
+            "offset": 282
+          },
+          "snapshots": [
+            {
+              "id": "timocrates-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 13,
+                "offset": 282
+              },
+              "name": "Timocrates",
+              "subtitle": "",
+              "body": "Epicurus’s other heir, under the same charge.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 13,
+                  "throughOffset": 282
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "hermachus",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 11,
+            "offset": 22
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 11,
+            "offset": 22
+          },
+          "snapshots": [
+            {
+              "id": "hermachus-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 11,
+                "offset": 22
+              },
+              "name": "Hermachus",
+              "subtitle": "",
+              "body": "The friend to whom Epicurus wrote on the happy and last day of his life, afflicted with such pain in the bladder and bowels that nothing could be greater, and recompensed by the pleasure the remembrance of his own inventions brought his soul; he asks him to take upon him the protection of Metrodorus’s children, and the will leaves him to appoint how the birthday should be kept. The older edition misprints the salutation HEYMACHUS.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 11,
+                  "throughOffset": 22
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sextus-peduceus",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 18,
+            "offset": 833
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 18,
+            "offset": 833
+          },
+          "snapshots": [
+            {
+              "id": "sextus-peduceus-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 18,
+                "offset": 833
+              },
+              "name": "Sextus Peduceus",
+              "subtitle": "",
+              "body": "Who faithfully restored the treasure C. Plotius had committed to his sole secrecy and trust — which Montaigne says he does not find so commendable, having often done it himself, as he would think it an execrable baseness to have done otherwise.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 18,
+                  "throughOffset": 833
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "plotius",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 18,
+            "offset": 891
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 18,
+            "offset": 891
+          },
+          "snapshots": [
+            {
+              "id": "plotius-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 18,
+                "offset": 891
+              },
+              "name": "C. Plotius",
+              "subtitle": "",
+              "body": "Who committed the treasure to Sextus Peduceus’s sole secrecy and trust.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 18,
+                  "throughOffset": 891
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sextilius-rufus",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 18,
+            "offset": 1141
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 18,
+            "offset": 1141
+          },
+          "snapshots": [
+            {
+              "id": "sextilius-rufus-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 18,
+                "offset": 1141
+              },
+              "name": "Sextilius Rufus",
+              "subtitle": "",
+              "body": "Whom Cicero accuses of having entered upon an inheritance against his conscience — not only not against law, but even by the determination of the laws themselves.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 18,
+                  "throughOffset": 1141
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "herostratus",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 70,
+            "offset": 362
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 70,
+            "offset": 362
+          },
+          "snapshots": [
+            {
+              "id": "herostratus-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 70,
+                "offset": 362
+              },
+              "name": "Herostratus",
+              "subtitle": "",
+              "body": "Of whom Trogus Pompeius says that he was more ambitious of a great reputation than of a good one.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 70,
+                  "throughOffset": 362
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "manlius-capitolinus",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 70,
+            "offset": 403
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 70,
+            "offset": 403
+          },
+          "snapshots": [
+            {
+              "id": "manlius-capitolinus-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 70,
+                "offset": 403
+              },
+              "name": "Manlius Capitolinus",
+              "subtitle": "",
+              "body": "Of whom Titus Livius says the same.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 70,
+                  "throughOffset": 403
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "trajan",
+          "kind": "person",
+          "storyRole": "supporting",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 87,
+            "offset": 210
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 87,
+            "offset": 210
+          },
+          "snapshots": [
+            {
+              "id": "trajan-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 87,
+                "offset": 210
+              },
+              "name": "Trajan",
+              "subtitle": "",
+              "body": "Whose memory the world blesses where it abominates Nero’s — the one use Montaigne allows the false opinion of glory, if it keeps princes and people in their duty.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 87,
+                  "throughOffset": 210
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "egeria",
+          "kind": "mythological-figure",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 90,
+            "offset": 837
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 90,
+            "offset": 837
+          },
+          "snapshots": [
+            {
+              "id": "egeria-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 90,
+                "offset": 837
+              },
+              "name": "Egeria",
+              "subtitle": "",
+              "body": "The nymph who, Numa gave out, brought him all his counsels from the gods, as Sertorius gave out of his white hind.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 90,
+                  "throughOffset": 837
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "oromazis",
+          "kind": "deity",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 90,
+            "offset": 1112
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 90,
+            "offset": 1112
+          },
+          "snapshots": [
+            {
+              "id": "oromazis-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 90,
+                "offset": 1112
+              },
+              "name": "Oromazis",
+              "subtitle": "",
+              "body": "The god under whose name Zoroaster gave out his laws to the Bactrians and Persians. The modern edition writes him Oromasdes.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 90,
+                  "throughOffset": 1112
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "draco",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 90,
+            "offset": 1437
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 90,
+            "offset": 1437
+          },
+          "snapshots": [
+            {
+              "id": "draco-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 90,
+                "offset": 1437
+              },
+              "name": "Draco",
+              "subtitle": "",
+              "body": "With Solon, legislator of the Athenians, who gave out his laws under the name of Minerva.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 90,
+                  "throughOffset": 1437
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sire-de-joinville",
+          "kind": "person",
+          "storyRole": "supporting",
+          "roleVisibleAt": {
+            "chapterNumber": 67,
+            "paragraphIndex": 31,
+            "offset": 351
+          },
+          "firstMention": {
+            "chapterNumber": 67,
+            "paragraphIndex": 31,
+            "offset": 351
+          },
+          "snapshots": [
+            {
+              "id": "sire-de-joinville-identity",
+              "availableAt": {
+                "chapterNumber": 67,
+                "paragraphIndex": 31,
+                "offset": 351
+              },
+              "name": "The Sire de Joinville",
+              "subtitle": "",
+              "body": "St Louis’s familiar companion, and with Eginhard and Philip de Commines one of the elder historians Montaigne trusts. He reports that the religion of the Bedouins enjoined a belief that the soul of him among them who died for his prince went into another body more happy, more beautiful and more robust than the former, by which means they much more willingly ventured their lives.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 67,
+                  "paragraphIndex": 31,
+                  "throughOffset": 351
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "orlando",
+          "kind": "literary-figure",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 37,
+            "offset": 167
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 37,
+            "offset": 167
+          },
+          "snapshots": [
+            {
+              "id": "orlando-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 37,
+                "offset": 167
+              },
+              "name": "Orlando",
+              "subtitle": "",
+              "body": "Ariosto’s hero, who was more bent to do great acts than to boast of them, so that no deeds of his were ever known but those that had witnesses. The bare name at 67:15 and in the citations is the title of the poem and not the man.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 37,
+                  "throughOffset": 167
                 }
               ]
             }
@@ -38984,7 +40280,7 @@
           "startOffset": 1985,
           "endOffset": 1990,
           "text": "Flora",
-          "resolution": "reviewed-name"
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "the-graces",
@@ -48374,6 +49670,15 @@
           "resolution": "reviewed-context"
         },
         {
+          "characterId": "livy",
+          "chapterNumber": 62,
+          "paragraphIndex": 18,
+          "startOffset": 1487,
+          "endOffset": 1500,
+          "text": "Titius Livius",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "publius-syrus",
           "chapterNumber": 62,
           "paragraphIndex": 20,
@@ -49114,6 +50419,15 @@
         {
           "characterId": "livy",
           "chapterNumber": 66,
+          "paragraphIndex": 0,
+          "startOffset": 736,
+          "endOffset": 748,
+          "text": "Titus Livius",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "livy",
+          "chapterNumber": 66,
           "paragraphIndex": 2,
           "startOffset": 95,
           "endOffset": 99,
@@ -49199,6 +50513,15 @@
           "startOffset": 111,
           "endOffset": 117,
           "text": "Scipio",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "ammianus-marcellinus",
+          "chapterNumber": 66,
+          "paragraphIndex": 15,
+          "startOffset": 20,
+          "endOffset": 31,
+          "text": "Marcellinus",
           "resolution": "reviewed-context"
         },
         {
@@ -49884,6 +51207,15 @@
           "endOffset": 38,
           "text": "du Bellay",
           "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "sire-de-joinville",
+          "chapterNumber": 67,
+          "paragraphIndex": 31,
+          "startOffset": 334,
+          "endOffset": 351,
+          "text": "Sire de Joinville",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "st-louis",
@@ -51749,6 +53081,15 @@
           "resolution": "reviewed-context"
         },
         {
+          "characterId": "vulcan",
+          "chapterNumber": 69,
+          "paragraphIndex": 210,
+          "startOffset": 500,
+          "endOffset": 506,
+          "text": "Vulcan",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "cicero",
           "chapterNumber": 69,
           "paragraphIndex": 210,
@@ -52523,6 +53864,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "numa",
+          "chapterNumber": 69,
+          "paragraphIndex": 262,
+          "startOffset": 351,
+          "endOffset": 355,
+          "text": "Numa",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "thales",
           "chapterNumber": 69,
           "paragraphIndex": 267,
@@ -52700,6 +54050,24 @@
           "startOffset": 1309,
           "endOffset": 1316,
           "text": "Jupiter",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "juno",
+          "chapterNumber": 69,
+          "paragraphIndex": 268,
+          "startOffset": 1318,
+          "endOffset": 1322,
+          "text": "Juno",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "vesta",
+          "chapterNumber": 69,
+          "paragraphIndex": 268,
+          "startOffset": 1328,
+          "endOffset": 1333,
+          "text": "Vesta",
           "resolution": "reviewed-name"
         },
         {
@@ -52982,6 +54350,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "vulcan",
+          "chapterNumber": 69,
+          "paragraphIndex": 300,
+          "startOffset": 1234,
+          "endOffset": 1240,
+          "text": "Vulcan",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "paulus-aemilius",
           "chapterNumber": 69,
           "paragraphIndex": 300,
@@ -53025,6 +54402,15 @@
           "endOffset": 1417,
           "text": "Thetes",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "pallas-evander",
+          "chapterNumber": 69,
+          "paragraphIndex": 302,
+          "startOffset": 109,
+          "endOffset": 115,
+          "text": "Pallas",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "zamolxis",
@@ -53477,6 +54863,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "juno",
+          "chapterNumber": 69,
+          "paragraphIndex": 352,
+          "startOffset": 160,
+          "endOffset": 164,
+          "text": "Juno",
+          "resolution": "reviewed-context"
+        },
+        {
           "characterId": "apollo",
           "chapterNumber": 69,
           "paragraphIndex": 355,
@@ -53492,6 +54887,51 @@
           "startOffset": 148,
           "endOffset": 152,
           "text": "Mars",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "minerva",
+          "chapterNumber": 69,
+          "paragraphIndex": 358,
+          "startOffset": 15,
+          "endOffset": 21,
+          "text": "Pallas",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "diana",
+          "chapterNumber": 69,
+          "paragraphIndex": 358,
+          "startOffset": 23,
+          "endOffset": 30,
+          "text": "Cynthia",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "vulcan",
+          "chapterNumber": 69,
+          "paragraphIndex": 358,
+          "startOffset": 44,
+          "endOffset": 50,
+          "text": "Vulcan",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "juno",
+          "chapterNumber": 69,
+          "paragraphIndex": 358,
+          "startOffset": 93,
+          "endOffset": 97,
+          "text": "Juno",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "faunus",
+          "chapterNumber": 69,
+          "paragraphIndex": 358,
+          "startOffset": 150,
+          "endOffset": 156,
+          "text": "Faunus",
           "resolution": "reviewed-name"
         },
         {
@@ -53916,6 +55356,15 @@
           "endOffset": 1057,
           "text": "Aristotle",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "minerva",
+          "chapterNumber": 69,
+          "paragraphIndex": 391,
+          "startOffset": 543,
+          "endOffset": 549,
+          "text": "Balias",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "thales",
@@ -54764,6 +56213,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "vulcan",
+          "chapterNumber": 69,
+          "paragraphIndex": 498,
+          "startOffset": 1,
+          "endOffset": 7,
+          "text": "Vulcan",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "apollo",
           "chapterNumber": 69,
           "paragraphIndex": 498,
@@ -54996,6 +56454,15 @@
           "endOffset": 2216,
           "text": "Pliny",
           "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "zoroaster",
+          "chapterNumber": 69,
+          "paragraphIndex": 532,
+          "startOffset": 2235,
+          "endOffset": 2244,
+          "text": "Zoroaster",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "plato",
@@ -55637,6 +57104,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "julius-caesar",
+          "chapterNumber": 70,
+          "paragraphIndex": 9,
+          "startOffset": 606,
+          "endOffset": 612,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
           "characterId": "lucan",
           "chapterNumber": 70,
           "paragraphIndex": 11,
@@ -55644,6 +57120,15 @@
           "endOffset": 199,
           "text": "Lucan",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "julius-caesar",
+          "chapterNumber": 70,
+          "paragraphIndex": 14,
+          "startOffset": 2,
+          "endOffset": 8,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "lucan",
@@ -55655,6 +57140,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "julius-caesar",
+          "chapterNumber": 70,
+          "paragraphIndex": 17,
+          "startOffset": 2,
+          "endOffset": 8,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
           "characterId": "virgil",
           "chapterNumber": 70,
           "paragraphIndex": 17,
@@ -55662,6 +57156,15 @@
           "endOffset": 88,
           "text": "Virgil",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "pliny-elder",
+          "chapterNumber": 70,
+          "paragraphIndex": 20,
+          "startOffset": 128,
+          "endOffset": 133,
+          "text": "Pliny",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "lucan",
@@ -55691,13 +57194,112 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "demosthenes",
+          "characterId": "julius-caesar",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 21,
+          "endOffset": 27,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "lucius-domitius",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 29,
+          "endOffset": 44,
+          "text": "Lucius Domitius",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "plautius-silvanus",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 400,
+          "endOffset": 417,
+          "text": "Plautius Silvanus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "urgulania",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 438,
+          "endOffset": 447,
+          "text": "Urgulania",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "albucilla",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 565,
+          "endOffset": 574,
+          "text": "Albucilla",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "tiberius-emperor",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 578,
+          "endOffset": 586,
+          "text": "Tiberius",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "demosthenes-general",
           "chapterNumber": 70,
           "paragraphIndex": 28,
           "startOffset": 755,
           "endOffset": 766,
           "text": "Demosthenes",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "fimbria",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 815,
+          "endOffset": 822,
+          "text": "Fimbria",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "ostorius",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 914,
+          "endOffset": 922,
+          "text": "Ostorius",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "julius-caesar",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 1410,
+          "endOffset": 1416,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "julius-caesar",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 1535,
+          "endOffset": 1541,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "pliny-elder",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 1621,
+          "endOffset": 1626,
+          "text": "Pliny",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "epicharmus",
@@ -55727,6 +57329,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "pomponius-atticus",
+          "chapterNumber": 70,
+          "paragraphIndex": 33,
+          "startOffset": 5,
+          "endOffset": 22,
+          "text": "Pomponius Atticus",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "cicero",
           "chapterNumber": 70,
           "paragraphIndex": 33,
@@ -55734,6 +57345,15 @@
           "endOffset": 38,
           "text": "Cicero",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "agrippa",
+          "chapterNumber": 70,
+          "paragraphIndex": 33,
+          "startOffset": 75,
+          "endOffset": 82,
+          "text": "Agrippa",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "cleanthes",
@@ -55745,6 +57365,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "tullius-marcellinus",
+          "chapterNumber": 70,
+          "paragraphIndex": 35,
+          "startOffset": 0,
+          "endOffset": 19,
+          "text": "Tullius Marcellinus",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "seneca",
           "chapterNumber": 70,
           "paragraphIndex": 35,
@@ -55752,6 +57381,60 @@
           "endOffset": 332,
           "text": "Seneca",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "tullius-marcellinus",
+          "chapterNumber": 70,
+          "paragraphIndex": 35,
+          "startOffset": 534,
+          "endOffset": 545,
+          "text": "Marcellinus",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "tullius-marcellinus",
+          "chapterNumber": 70,
+          "paragraphIndex": 35,
+          "startOffset": 973,
+          "endOffset": 984,
+          "text": "Marcellinus",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "tullius-marcellinus",
+          "chapterNumber": 70,
+          "paragraphIndex": 38,
+          "startOffset": 13,
+          "endOffset": 24,
+          "text": "Marcellinus",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "tullius-marcellinus",
+          "chapterNumber": 70,
+          "paragraphIndex": 38,
+          "startOffset": 222,
+          "endOffset": 233,
+          "text": "Marcellinus",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "cato-the-younger",
+          "chapterNumber": 70,
+          "paragraphIndex": 40,
+          "startOffset": 20,
+          "endOffset": 24,
+          "text": "Cato",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "pliny-elder",
+          "chapterNumber": 71,
+          "paragraphIndex": 0,
+          "startOffset": 1785,
+          "endOffset": 1790,
+          "text": "Pliny",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "seneca",
@@ -55770,6 +57453,24 @@
           "endOffset": 69,
           "text": "Jove",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "danae",
+          "chapterNumber": 72,
+          "paragraphIndex": 5,
+          "startOffset": 33,
+          "endOffset": 38,
+          "text": "Danae",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "danae",
+          "chapterNumber": 72,
+          "paragraphIndex": 5,
+          "startOffset": 55,
+          "endOffset": 60,
+          "text": "Danae",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "jove",
@@ -55799,6 +57500,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "galla",
+          "chapterNumber": 72,
+          "paragraphIndex": 10,
+          "startOffset": 2,
+          "endOffset": 7,
+          "text": "Galla",
+          "resolution": "reviewed-context"
+        },
+        {
           "characterId": "martial",
           "chapterNumber": 72,
           "paragraphIndex": 10,
@@ -55826,13 +57536,22 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "flora",
+          "characterId": "flora-courtesan",
           "chapterNumber": 72,
           "paragraphIndex": 14,
           "startOffset": 280,
           "endOffset": 285,
           "text": "Flora",
-          "resolution": "reviewed-name"
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "pompey",
+          "chapterNumber": 72,
+          "paragraphIndex": 14,
+          "startOffset": 310,
+          "endOffset": 316,
+          "text": "Pompey",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "lucretius",
@@ -55841,6 +57560,15 @@
           "startOffset": 156,
           "endOffset": 165,
           "text": "Lucretius",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "st-james",
+          "chapterNumber": 72,
+          "paragraphIndex": 17,
+          "startOffset": 140,
+          "endOffset": 149,
+          "text": "St. James",
           "resolution": "reviewed-name"
         },
         {
@@ -55889,6 +57617,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "poppaea",
+          "chapterNumber": 72,
+          "paragraphIndex": 31,
+          "startOffset": 8,
+          "endOffset": 14,
+          "text": "Poppea",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "virgil",
           "chapterNumber": 72,
           "paragraphIndex": 33,
@@ -55914,6 +57651,15 @@
           "endOffset": 77,
           "text": "Ovid",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "rutilius-poet",
+          "chapterNumber": 72,
+          "paragraphIndex": 43,
+          "startOffset": 71,
+          "endOffset": 79,
+          "text": "Rutilius",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "seneca",
@@ -55997,12 +57743,57 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "epicurus",
+          "chapterNumber": 73,
+          "paragraphIndex": 11,
+          "startOffset": 1,
+          "endOffset": 9,
+          "text": "EPICUYUS",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "hermachus",
+          "chapterNumber": 73,
+          "paragraphIndex": 11,
+          "startOffset": 13,
+          "endOffset": 22,
+          "text": "HEYMACHUS",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "metrodorus",
           "chapterNumber": 73,
           "paragraphIndex": 12,
           "startOffset": 415,
           "endOffset": 425,
           "text": "Metrodorus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "amynomachus",
+          "chapterNumber": 73,
+          "paragraphIndex": 13,
+          "startOffset": 256,
+          "endOffset": 267,
+          "text": "Amynomachus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "timocrates",
+          "chapterNumber": 73,
+          "paragraphIndex": 13,
+          "startOffset": 272,
+          "endOffset": 282,
+          "text": "Timocrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "hermachus",
+          "chapterNumber": 73,
+          "paragraphIndex": 13,
+          "startOffset": 375,
+          "endOffset": 384,
+          "text": "Hermachus",
           "resolution": "reviewed-name"
         },
         {
@@ -56060,6 +57851,33 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "sextus-peduceus",
+          "chapterNumber": 73,
+          "paragraphIndex": 18,
+          "startOffset": 818,
+          "endOffset": 833,
+          "text": "Sextus Peduceus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "plotius",
+          "chapterNumber": 73,
+          "paragraphIndex": 18,
+          "startOffset": 881,
+          "endOffset": 891,
+          "text": "C. Plotius",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "sextilius-rufus",
+          "chapterNumber": 73,
+          "paragraphIndex": 18,
+          "startOffset": 1126,
+          "endOffset": 1141,
+          "text": "Sextilius Rufus",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "cicero",
           "chapterNumber": 73,
           "paragraphIndex": 18,
@@ -56067,6 +57885,15 @@
           "endOffset": 1154,
           "text": "Cicero",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crassus-triumvir",
+          "chapterNumber": 73,
+          "paragraphIndex": 18,
+          "startOffset": 1314,
+          "endOffset": 1321,
+          "text": "Crassus",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "hortensius",
@@ -56139,6 +57966,42 @@
           "endOffset": 153,
           "text": "Aristippus",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "julius-caesar",
+          "chapterNumber": 73,
+          "paragraphIndex": 31,
+          "startOffset": 11,
+          "endOffset": 17,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "alexander",
+          "chapterNumber": 73,
+          "paragraphIndex": 31,
+          "startOffset": 22,
+          "endOffset": 31,
+          "text": "Alexander",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "julius-caesar",
+          "chapterNumber": 73,
+          "paragraphIndex": 31,
+          "startOffset": 396,
+          "endOffset": 402,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "orlando",
+          "chapterNumber": 73,
+          "paragraphIndex": 37,
+          "startOffset": 160,
+          "endOffset": 167,
+          "text": "Orlando",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "ariosto",
@@ -56285,21 +58148,30 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "montaigne",
+          "characterId": "herostratus",
           "chapterNumber": 73,
-          "paragraphIndex": 71,
-          "startOffset": 388,
-          "endOffset": 397,
-          "text": "Montaigne",
+          "paragraphIndex": 70,
+          "startOffset": 351,
+          "endOffset": 362,
+          "text": "Herostratus",
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "montaigne",
+          "characterId": "livy",
           "chapterNumber": 73,
-          "paragraphIndex": 71,
-          "startOffset": 448,
-          "endOffset": 457,
-          "text": "Montaigne",
+          "paragraphIndex": 70,
+          "startOffset": 368,
+          "endOffset": 380,
+          "text": "Titus Livius",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "manlius-capitolinus",
+          "chapterNumber": 73,
+          "paragraphIndex": 70,
+          "startOffset": 384,
+          "endOffset": 403,
+          "text": "Manlius Capitolinus",
           "resolution": "reviewed-name"
         },
         {
@@ -56321,12 +58193,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "julius-caesar",
+          "chapterNumber": 73,
+          "paragraphIndex": 80,
+          "startOffset": 1089,
+          "endOffset": 1095,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
           "characterId": "seneca",
           "chapterNumber": 73,
           "paragraphIndex": 85,
           "startOffset": 107,
           "endOffset": 113,
           "text": "Seneca",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "trajan",
+          "chapterNumber": 73,
+          "paragraphIndex": 87,
+          "startOffset": 204,
+          "endOffset": 210,
+          "text": "Trajan",
           "resolution": "reviewed-name"
         },
         {
@@ -56357,12 +58247,66 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "timon-of-phlius",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 46,
+          "endOffset": 51,
+          "text": "Timon",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "numa",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 711,
+          "endOffset": 715,
+          "text": "Numa",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "sertorius",
           "chapterNumber": 73,
           "paragraphIndex": 90,
           "startOffset": 720,
           "endOffset": 729,
           "text": "Sertorius",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "egeria",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 831,
+          "endOffset": 837,
+          "text": "Egeria",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "numa",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 940,
+          "endOffset": 944,
+          "text": "Numa",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "zoroaster",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 1013,
+          "endOffset": 1022,
+          "text": "Zoroaster",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "oromazis",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 1104,
+          "endOffset": 1112,
+          "text": "Oromazis",
           "resolution": "reviewed-name"
         },
         {
@@ -56381,6 +58325,24 @@
           "startOffset": 1171,
           "endOffset": 1178,
           "text": "Mercury",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "zamolxis",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 1180,
+          "endOffset": 1188,
+          "text": "Xamolxis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "vesta",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 1233,
+          "endOffset": 1238,
+          "text": "Vesta",
           "resolution": "reviewed-name"
         },
         {
@@ -56438,6 +58400,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "draco",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 1432,
+          "endOffset": 1437,
+          "text": "Draco",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "solon",
           "chapterNumber": 73,
           "paragraphIndex": 90,
@@ -56462,6 +58433,15 @@
           "startOffset": 1590,
           "endOffset": 1595,
           "text": "Moses",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "sire-de-joinville",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 1684,
+          "endOffset": 1701,
+          "text": "Sire de Joinville",
           "resolution": "reviewed-name"
         },
         {
@@ -58004,6 +59984,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "sire-de-joinville",
+          "chapterNumber": 86,
+          "paragraphIndex": 12,
+          "startOffset": 592,
+          "endOffset": 609,
+          "text": "Sire de Joinville",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "st-louis",
           "chapterNumber": 86,
           "paragraphIndex": 12,
@@ -58073,6 +60062,15 @@
           "startOffset": 133,
           "endOffset": 141,
           "text": "Lycurgus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "numa",
+          "chapterNumber": 88,
+          "paragraphIndex": 0,
+          "startOffset": 146,
+          "endOffset": 150,
+          "text": "Numa",
           "resolution": "reviewed-name"
         },
         {
@@ -58685,6 +60683,15 @@
           "startOffset": 2204,
           "endOffset": 2216,
           "text": "Themistocles",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "numa",
+          "chapterNumber": 89,
+          "paragraphIndex": 10,
+          "startOffset": 2257,
+          "endOffset": 2261,
+          "text": "Numa",
           "resolution": "reviewed-name"
         },
         {
@@ -60578,13 +62585,13 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "flora",
+          "characterId": "flora-courtesan",
           "chapterNumber": 97,
           "paragraphIndex": 38,
           "startOffset": 568,
           "endOffset": 573,
           "text": "Flora",
-          "resolution": "reviewed-name"
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "seneca",
@@ -61649,6 +63656,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "vulcan",
+          "chapterNumber": 99,
+          "paragraphIndex": 169,
+          "startOffset": 30,
+          "endOffset": 36,
+          "text": "Vulcan",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "aeneas",
           "chapterNumber": 99,
           "paragraphIndex": 169,
@@ -61727,6 +63743,15 @@
           "startOffset": 147,
           "endOffset": 160,
           "text": "St. Augustine",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "faunus",
+          "chapterNumber": 99,
+          "paragraphIndex": 198,
+          "startOffset": 354,
+          "endOffset": 360,
+          "text": "Faunus",
           "resolution": "reviewed-name"
         },
         {
@@ -61835,6 +63860,15 @@
           "startOffset": 20,
           "endOffset": 25,
           "text": "Venus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "vulcan",
+          "chapterNumber": 99,
+          "paragraphIndex": 223,
+          "startOffset": 30,
+          "endOffset": 36,
+          "text": "Vulcan",
           "resolution": "reviewed-name"
         },
         {
@@ -73310,7 +75344,7 @@
               },
               "name": "Livy",
               "subtitle": "",
-              "body": "The Roman historian of the city from its foundation.",
+              "body": "The Roman historian of the city from its foundation. The older edition writes him Titus Livius at 66:0 and 73:70, and misprints him Titius Livius at 62:18, where the modern edition has the name right.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
@@ -77321,7 +79355,7 @@
         {
           "id": "ammianus-marcellinus",
           "kind": "person",
-          "storyRole": "reference",
+          "storyRole": "supporting",
           "roleVisibleAt": {
             "chapterNumber": 15,
             "paragraphIndex": 4,
@@ -77342,7 +79376,7 @@
               },
               "name": "Ammianus Marcellinus",
               "subtitle": "",
-              "body": "The late Roman historian, cited for the Emperor Julian’s degrading and then executing ten soldiers who turned their backs on the Parthians.",
+              "body": "The historian, who says the Emperor Julian had ten soldiers that turned their backs against the Parthians first degraded and then put to death, and who observes the manner of the Parthians’ arming so curiously because it was so different from the Roman. Not the Tullius Marcellinus of chapter 70.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
@@ -83606,7 +85640,7 @@
               },
               "name": "Minerva",
               "subtitle": "",
-              "body": "The goddess of wisdom, set against Venus in that comparison, and one of the three to whom Plato gives the patronage of the young’s sports.",
+              "body": "The goddess of wisdom, set against Venus in that comparison, and one of the three to whom Plato gives the patronage of the young’s sports. Under her Greek name Pallas she is the goddess the Athenians adore, and the one who issued from her father’s head to communicate herself to the world — which the older edition misprints Balias. Draco and Solon gave out their laws under her name. She is not the Pallas of 69:302, who is a dead man.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
@@ -83714,7 +85748,7 @@
               },
               "name": "Flora",
               "subtitle": "",
-              "body": "With the Graces, one of the figures Speusippus painted his school with — and which Montaigne would paint a school with instead of birch and willow.",
+              "body": "With the Graces, one of the figures Speusippus painted his school with — and which Montaigne would paint a school with instead of birch and willow. Not the courtesan of 72:14 and 97:38, whose name she was taking until the census of the unkeyed table names ran over chapter 72.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
@@ -90374,7 +92408,7 @@
               },
               "name": "Diana",
               "subtitle": "",
-              "body": "The third of them.",
+              "body": "The third of the gods of the Thracian people, with Bacchus and Mars; and, under her Greek name Cynthia, the goddess Crete adores in Ovid’s list of the gods each nation worships.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
@@ -90950,7 +92984,7 @@
               },
               "name": "Agrippa",
               "subtitle": "",
-              "body": "Who brought Augustus the news of the victory over Sextus Pompeius while the emperor was still out of sight of his own soldiers.",
+              "body": "Pomponius Atticus’s son-in-law, called to his bedside with two or three friends to be told he had resolved to end his life and his pain together. Also the man who brought Augustus the news of the victory over Sextus Pompeius while the emperor was still out of sight of his own soldiers.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
@@ -98870,7 +100904,7 @@
               },
               "name": "Zamolxis",
               "subtitle": "",
-              "body": "The god of the Getae, who hold themselves immortal and their death nothing but a journey to him.",
+              "body": "The god of the Getae, who hold themselves immortal and their death nothing but a journey to him; and, at 73:90, the legislator of the Scythians, who gave out his laws under the name of Vesta. The older edition spells him Xamolxis there.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
@@ -100281,6 +102315,1302 @@
                   "chapterNumber": 69,
                   "paragraphIndex": 96,
                   "throughOffset": 425
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "vulcan",
+          "kind": "deity",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 69,
+            "paragraphIndex": 210,
+            "offset": 446
+          },
+          "firstMention": {
+            "chapterNumber": 69,
+            "paragraphIndex": 210,
+            "offset": 446
+          },
+          "snapshots": [
+            {
+              "id": "vulcan-identity",
+              "availableAt": {
+                "chapterNumber": 69,
+                "paragraphIndex": 210,
+                "offset": 446
+              },
+              "name": "Vulcan",
+              "subtitle": "",
+              "body": "The god to whom Tiberius Sempronius burnt the rich spoils and arms he had gained in Sardinia; whose arms stand in the Latin for fortitude — if thou art naked, present thy throat, if covered with Vulcan’s arms, resist; and who, in the line Montaigne quotes, stood against Troy where Apollo stood for it.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 69,
+                  "paragraphIndex": 210,
+                  "throughOffset": 446
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "juno",
+          "kind": "deity",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 69,
+            "paragraphIndex": 268,
+            "offset": 1281
+          },
+          "firstMention": {
+            "chapterNumber": 69,
+            "paragraphIndex": 268,
+            "offset": 1281
+          },
+          "snapshots": [
+            {
+              "id": "juno-identity",
+              "availableAt": {
+                "chapterNumber": 69,
+                "paragraphIndex": 268,
+                "offset": 1281
+              },
+              "name": "Juno",
+              "subtitle": "",
+              "body": "One of the accustomed gods Zeno takes away, with Jupiter and Vesta; the cruel Juno who stands in arms full in the Scæan gate while Neptune heaves the city from its base; and the goddess whose altars, in the list of the gods each nation adores, the Spartans feed.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 69,
+                  "paragraphIndex": 268,
+                  "throughOffset": 1281
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "vesta",
+          "kind": "deity",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 69,
+            "paragraphIndex": 268,
+            "offset": 1288
+          },
+          "firstMention": {
+            "chapterNumber": 69,
+            "paragraphIndex": 268,
+            "offset": 1288
+          },
+          "snapshots": [
+            {
+              "id": "vesta-identity",
+              "availableAt": {
+                "chapterNumber": 69,
+                "paragraphIndex": 268,
+                "offset": 1288
+              },
+              "name": "Vesta",
+              "subtitle": "",
+              "body": "One of the accustomed gods Zeno takes away, with Jupiter and Juno; and the goddess under whose name Zamolxis gave out his laws to the Scythians.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 69,
+                  "paragraphIndex": 268,
+                  "throughOffset": 1288
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "faunus",
+          "kind": "deity",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 69,
+            "paragraphIndex": 358,
+            "offset": 156
+          },
+          "firstMention": {
+            "chapterNumber": 69,
+            "paragraphIndex": 358,
+            "offset": 156
+          },
+          "snapshots": [
+            {
+              "id": "faunus-identity",
+              "availableAt": {
+                "chapterNumber": 69,
+                "paragraphIndex": 358,
+                "offset": 156
+              },
+              "name": "Faunus",
+              "subtitle": "",
+              "body": "The god the Arcadians worship, in the list of the gods each nation adores.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 69,
+                  "paragraphIndex": 358,
+                  "throughOffset": 156
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pallas-evander",
+          "kind": "mythological-figure",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 69,
+            "paragraphIndex": 302,
+            "offset": 115
+          },
+          "firstMention": {
+            "chapterNumber": 69,
+            "paragraphIndex": 302,
+            "offset": 115
+          },
+          "snapshots": [
+            {
+              "id": "pallas-evander-identity",
+              "availableAt": {
+                "chapterNumber": 69,
+                "paragraphIndex": 302,
+                "offset": 115
+              },
+              "name": "Pallas",
+              "subtitle": "",
+              "body": "The dead man to whose ghost the four sons of Sulmo and four more that Ufens bred were led as living victims, to expire in sacrifice before his funeral pyre. Evander’s son in the Aeneid, and not the goddess of 69:358 and 69:391.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 69,
+                  "paragraphIndex": 302,
+                  "throughOffset": 115
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "numa",
+          "kind": "person",
+          "storyRole": "supporting",
+          "roleVisibleAt": {
+            "chapterNumber": 69,
+            "paragraphIndex": 262,
+            "offset": 342
+          },
+          "firstMention": {
+            "chapterNumber": 69,
+            "paragraphIndex": 262,
+            "offset": 342
+          },
+          "snapshots": [
+            {
+              "id": "numa-identity",
+              "availableAt": {
+                "chapterNumber": 69,
+                "paragraphIndex": 262,
+                "offset": 342
+              },
+              "name": "Numa",
+              "subtitle": "",
+              "body": "Numa Pompilius, who fed his people with the foppery that the nymph Egeria brought him all his counsels from the gods, and gave his laws the title of her patronage; and who attempted to conform the devotion of his people to a religion purely mental, without any prefixed object or material mixture — which Montaigne says was to undertake a thing of no use.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 69,
+                  "paragraphIndex": 262,
+                  "throughOffset": 342
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "zoroaster",
+          "kind": "person",
+          "storyRole": "supporting",
+          "roleVisibleAt": {
+            "chapterNumber": 69,
+            "paragraphIndex": 532,
+            "offset": 2116
+          },
+          "firstMention": {
+            "chapterNumber": 69,
+            "paragraphIndex": 532,
+            "offset": 2116
+          },
+          "snapshots": [
+            {
+              "id": "zoroaster-identity",
+              "availableAt": {
+                "chapterNumber": 69,
+                "paragraphIndex": 532,
+                "offset": 2116
+              },
+              "name": "Zoroaster",
+              "subtitle": "",
+              "body": "Legislator of the Bactrians and Persians, who gave his laws the authority of the God Oromazis as Numa gave his the patronage of Egeria; and whom Aristotle, Pliny and others say flourished six thousand years before Plato’s time.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 69,
+                  "paragraphIndex": 532,
+                  "throughOffset": 2116
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lucius-domitius",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 44
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 44
+          },
+          "snapshots": [
+            {
+              "id": "lucius-domitius-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 28,
+                "offset": 44
+              },
+              "name": "Lucius Domitius",
+              "subtitle": "",
+              "body": "Taken in the Abruzzi in Caesar’s civil wars, who poisoned himself upon it and afterwards repented.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 28,
+                  "throughOffset": 44
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "plautius-silvanus",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 400
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 400
+          },
+          "snapshots": [
+            {
+              "id": "plautius-silvanus-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 28,
+                "offset": 400
+              },
+              "name": "Plautius Silvanus",
+              "subtitle": "",
+              "body": "Whose grandmother sent him a poniard while he was upon his trial; not being able to kill himself with it, he made his servants cut his veins.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 28,
+                  "throughOffset": 400
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "urgulania",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 424
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 424
+          },
+          "snapshots": [
+            {
+              "id": "urgulania-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 28,
+                "offset": 424
+              },
+              "name": "Urgulania",
+              "subtitle": "",
+              "body": "Plautius Silvanus’s grandmother, who sent him the poniard.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 28,
+                  "throughOffset": 424
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "albucilla",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 547
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 547
+          },
+          "snapshots": [
+            {
+              "id": "albucilla-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 28,
+                "offset": 547
+              },
+              "name": "Albucilla",
+              "subtitle": "",
+              "body": "One of the Romans Montaigne lists as having botched their own deaths: the blow was struck with too much tenderness, which gave the adversaries opportunity to imprison and put to death their own way.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 28,
+                  "throughOffset": 547
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "demosthenes-general",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 748
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 748
+          },
+          "snapshots": [
+            {
+              "id": "demosthenes-general-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 28,
+                "offset": 748
+              },
+              "name": "Demosthenes",
+              "subtitle": "",
+              "body": "The great leader who did the same after his rout in Sicily — the Athenian general of the Syracusan expedition, not the orator, whose alias was taking this paragraph until it was suppressed here.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 28,
+                  "throughOffset": 748
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "fimbria",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 804
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 804
+          },
+          "snapshots": [
+            {
+              "id": "fimbria-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 28,
+                "offset": 804
+              },
+              "name": "Fimbria",
+              "subtitle": "",
+              "body": "Who, having struck himself too weakly, entreated his servant to despatch him.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 28,
+                  "throughOffset": 804
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ostorius",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 903
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 28,
+            "offset": 903
+          },
+          "snapshots": [
+            {
+              "id": "ostorius-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 28,
+                "offset": 903
+              },
+              "name": "Ostorius",
+              "subtitle": "",
+              "body": "Who could not make use of his own arm, and disdained to employ his servant’s to any other use than to hold the poniard straight and firm.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 28,
+                  "throughOffset": 903
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pomponius-atticus",
+          "kind": "person",
+          "storyRole": "supporting",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 33,
+            "offset": 22
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 33,
+            "offset": 22
+          },
+          "snapshots": [
+            {
+              "id": "pomponius-atticus-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 33,
+                "offset": 22
+              },
+              "name": "Pomponius Atticus",
+              "subtitle": "",
+              "body": "Cicero’s correspondent, who being sick called Agrippa his son-in-law and two or three friends to tell them that since every means practised for his recovery was in vain, and all he did to prolong his life prolonged his pain, he had resolved to put an end to both. Having chosen abstinence as the means, he was cured by it — and refused to alter his purpose, saying that as he must one day die, and was now so far on his way, he would save himself the labour of beginning another time.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 33,
+                  "throughOffset": 22
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tullius-marcellinus",
+          "kind": "person",
+          "storyRole": "supporting",
+          "roleVisibleAt": {
+            "chapterNumber": 70,
+            "paragraphIndex": 35,
+            "offset": 19
+          },
+          "firstMention": {
+            "chapterNumber": 70,
+            "paragraphIndex": 35,
+            "offset": 19
+          },
+          "snapshots": [
+            {
+              "id": "tullius-marcellinus-identity",
+              "availableAt": {
+                "chapterNumber": 70,
+                "paragraphIndex": 35,
+                "offset": 19
+              },
+              "name": "Tullius Marcellinus",
+              "subtitle": "",
+              "body": "A young man of Rome who had a mind to anticipate the hour of his destiny, to be rid of a disease that troubled him more than he was willing to endure, though his physicians assured him of a certain cure. He called a council of friends; some advised out of unmanliness, some out of flattery, and a Stoic told him it was no great matter to live, since his servants and his beasts lived, but a great thing to die handsomely, wisely and firmly. He divided a sum of money among his servants, forsook all nourishment, and on the third day, having caused himself to be sprinkled with warm water, fainted by degrees and not without some kind of pleasure, as he declared himself.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 70,
+                  "paragraphIndex": 35,
+                  "throughOffset": 19
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "danae",
+          "kind": "mythological-figure",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 72,
+            "paragraphIndex": 5,
+            "offset": 38
+          },
+          "firstMention": {
+            "chapterNumber": 72,
+            "paragraphIndex": 5,
+            "offset": 38
+          },
+          "snapshots": [
+            {
+              "id": "danae-identity",
+              "availableAt": {
+                "chapterNumber": 72,
+                "paragraphIndex": 5,
+                "offset": 38
+              },
+              "name": "Danae",
+              "subtitle": "",
+              "body": "Whom a brazen tower held: had it not, Ovid says, she would never have been made a mother by Jove.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 72,
+                  "paragraphIndex": 5,
+                  "throughOffset": 38
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "galla",
+          "kind": "literary-figure",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 72,
+            "paragraphIndex": 10,
+            "offset": 7
+          },
+          "firstMention": {
+            "chapterNumber": 72,
+            "paragraphIndex": 10,
+            "offset": 7
+          },
+          "snapshots": [
+            {
+              "id": "galla-identity",
+              "availableAt": {
+                "chapterNumber": 72,
+                "paragraphIndex": 10,
+                "offset": 7
+              },
+              "name": "Galla",
+              "subtitle": "",
+              "body": "Martial’s mistress, told to refuse him — love is glutted with joys that are not attended with trouble.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 72,
+                  "paragraphIndex": 10,
+                  "throughOffset": 7
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "st-james",
+          "kind": "religious-figure",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 72,
+            "paragraphIndex": 17,
+            "offset": 143
+          },
+          "firstMention": {
+            "chapterNumber": 72,
+            "paragraphIndex": 17,
+            "offset": 143
+          },
+          "snapshots": [
+            {
+              "id": "st-james-identity",
+              "availableAt": {
+                "chapterNumber": 72,
+                "paragraphIndex": 17,
+                "offset": 143
+              },
+              "name": "St James",
+              "subtitle": "",
+              "body": "The saint to whom the people of the march of Ancona more readily make their vows, while those of Galicia vow to Our Lady of Loreto: Montaigne’s instance that difficulty gives all things their estimation, and that what is near at hand is despised.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 72,
+                  "paragraphIndex": 17,
+                  "throughOffset": 143
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "poppaea",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 72,
+            "paragraphIndex": 31,
+            "offset": 15
+          },
+          "firstMention": {
+            "chapterNumber": 72,
+            "paragraphIndex": 31,
+            "offset": 15
+          },
+          "snapshots": [
+            {
+              "id": "poppaea-identity",
+              "availableAt": {
+                "chapterNumber": 72,
+                "paragraphIndex": 31,
+                "offset": 15
+              },
+              "name": "Poppaea",
+              "subtitle": "",
+              "body": "Who invented the use of a mask to hide the beauties of her face — to enhance it, Montaigne says, to her lovers.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 72,
+                  "paragraphIndex": 31,
+                  "throughOffset": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "flora-courtesan",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 72,
+            "paragraphIndex": 14,
+            "offset": 289
+          },
+          "firstMention": {
+            "chapterNumber": 72,
+            "paragraphIndex": 14,
+            "offset": 289
+          },
+          "snapshots": [
+            {
+              "id": "flora-courtesan-identity",
+              "availableAt": {
+                "chapterNumber": 72,
+                "paragraphIndex": 14,
+                "offset": 289
+              },
+              "name": "Flora",
+              "subtitle": "",
+              "body": "The courtesan who said she never lay with Pompey but that she made him wear the prints of her teeth — Montaigne’s instance that pleasure is much sweeter when it smarts. At 97:38 she is the one who never lent herself to less than a dictator, a consul or a censor, and took pleasure in the dignity of her lovers. Not the Flora of the school walls at 25:90.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 72,
+                  "paragraphIndex": 14,
+                  "throughOffset": 289
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "rutilius-poet",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 72,
+            "paragraphIndex": 43,
+            "offset": 79
+          },
+          "firstMention": {
+            "chapterNumber": 72,
+            "paragraphIndex": 43,
+            "offset": 79
+          },
+          "snapshots": [
+            {
+              "id": "rutilius-poet-identity",
+              "availableAt": {
+                "chapterNumber": 72,
+                "paragraphIndex": 43,
+                "offset": 79
+              },
+              "name": "Rutilius",
+              "subtitle": "",
+              "body": "The author of the Itinerarium, quoted for the plague-sore that spreads the further for being lanced. Not the Rutilius of Tacitus’s Agricola at 74:7, nor the consul Publius Rutilius at 84:21.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 72,
+                  "paragraphIndex": 43,
+                  "throughOffset": 79
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "amynomachus",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 13,
+            "offset": 216
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 13,
+            "offset": 216
+          },
+          "snapshots": [
+            {
+              "id": "amynomachus-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 13,
+                "offset": 216
+              },
+              "name": "Amynomachus",
+              "subtitle": "",
+              "body": "One of Epicurus’s two heirs, ordered by the will to defray every January the expense of the celebration of his birthday, as Hermachus should appoint, and the expense of entertaining the philosophers on the twentieth of every moon.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 13,
+                  "throughOffset": 216
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "timocrates",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 13,
+            "offset": 231
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 13,
+            "offset": 231
+          },
+          "snapshots": [
+            {
+              "id": "timocrates-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 13,
+                "offset": 231
+              },
+              "name": "Timocrates",
+              "subtitle": "",
+              "body": "Epicurus’s other heir, under the same charge.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 13,
+                  "throughOffset": 231
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "hermachus",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 11,
+            "offset": 22
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 11,
+            "offset": 22
+          },
+          "snapshots": [
+            {
+              "id": "hermachus-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 11,
+                "offset": 22
+              },
+              "name": "Hermachus",
+              "subtitle": "",
+              "body": "The friend to whom Epicurus wrote on the happy and last day of his life, afflicted with such pain in the bladder and bowels that nothing could be greater, and recompensed by the pleasure the remembrance of his own inventions brought his soul; he asks him to take upon him the protection of Metrodorus’s children, and the will leaves him to appoint how the birthday should be kept. The older edition misprints the salutation HEYMACHUS.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 11,
+                  "throughOffset": 22
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sextus-peduceus",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 18,
+            "offset": 770
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 18,
+            "offset": 770
+          },
+          "snapshots": [
+            {
+              "id": "sextus-peduceus-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 18,
+                "offset": 770
+              },
+              "name": "Sextus Peduceus",
+              "subtitle": "",
+              "body": "Who faithfully restored the treasure C. Plotius had committed to his sole secrecy and trust — which Montaigne says he does not find so commendable, having often done it himself, as he would think it an execrable baseness to have done otherwise.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 18,
+                  "throughOffset": 770
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "plotius",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 18,
+            "offset": 826
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 18,
+            "offset": 826
+          },
+          "snapshots": [
+            {
+              "id": "plotius-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 18,
+                "offset": 826
+              },
+              "name": "C. Plotius",
+              "subtitle": "",
+              "body": "Who committed the treasure to Sextus Peduceus’s sole secrecy and trust.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 18,
+                  "throughOffset": 826
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sextilius-rufus",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 18,
+            "offset": 1066
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 18,
+            "offset": 1066
+          },
+          "snapshots": [
+            {
+              "id": "sextilius-rufus-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 18,
+                "offset": 1066
+              },
+              "name": "Sextilius Rufus",
+              "subtitle": "",
+              "body": "Whom Cicero accuses of having entered upon an inheritance against his conscience — not only not against law, but even by the determination of the laws themselves.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 18,
+                  "throughOffset": 1066
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "herostratus",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 70,
+            "offset": 339
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 70,
+            "offset": 339
+          },
+          "snapshots": [
+            {
+              "id": "herostratus-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 70,
+                "offset": 339
+              },
+              "name": "Herostratus",
+              "subtitle": "",
+              "body": "Of whom Trogus Pompeius says that he was more ambitious of a great reputation than of a good one.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 70,
+                  "throughOffset": 339
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "manlius-capitolinus",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 70,
+            "offset": 372
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 70,
+            "offset": 372
+          },
+          "snapshots": [
+            {
+              "id": "manlius-capitolinus-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 70,
+                "offset": 372
+              },
+              "name": "Manlius Capitolinus",
+              "subtitle": "",
+              "body": "Of whom Titus Livius says the same.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 70,
+                  "throughOffset": 372
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "trajan",
+          "kind": "person",
+          "storyRole": "supporting",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 87,
+            "offset": 202
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 87,
+            "offset": 202
+          },
+          "snapshots": [
+            {
+              "id": "trajan-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 87,
+                "offset": 202
+              },
+              "name": "Trajan",
+              "subtitle": "",
+              "body": "Whose memory the world blesses where it abominates Nero’s — the one use Montaigne allows the false opinion of glory, if it keeps princes and people in their duty.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 87,
+                  "throughOffset": 202
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "egeria",
+          "kind": "mythological-figure",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 90,
+            "offset": 715
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 90,
+            "offset": 715
+          },
+          "snapshots": [
+            {
+              "id": "egeria-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 90,
+                "offset": 715
+              },
+              "name": "Egeria",
+              "subtitle": "",
+              "body": "The nymph who, Numa gave out, brought him all his counsels from the gods, as Sertorius gave out of his white hind.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 90,
+                  "throughOffset": 715
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "oromazis",
+          "kind": "deity",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 90,
+            "offset": 963
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 90,
+            "offset": 963
+          },
+          "snapshots": [
+            {
+              "id": "oromazis-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 90,
+                "offset": 963
+              },
+              "name": "Oromazis",
+              "subtitle": "",
+              "body": "The god under whose name Zoroaster gave out his laws to the Bactrians and Persians. The modern edition writes him Oromasdes.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 90,
+                  "throughOffset": 963
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "draco",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 90,
+            "offset": 1271
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 90,
+            "offset": 1271
+          },
+          "snapshots": [
+            {
+              "id": "draco-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 90,
+                "offset": 1271
+              },
+              "name": "Draco",
+              "subtitle": "",
+              "body": "With Solon, legislator of the Athenians, who gave out his laws under the name of Minerva.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 90,
+                  "throughOffset": 1271
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sire-de-joinville",
+          "kind": "person",
+          "storyRole": "supporting",
+          "roleVisibleAt": {
+            "chapterNumber": 67,
+            "paragraphIndex": 31,
+            "offset": 345
+          },
+          "firstMention": {
+            "chapterNumber": 67,
+            "paragraphIndex": 31,
+            "offset": 345
+          },
+          "snapshots": [
+            {
+              "id": "sire-de-joinville-identity",
+              "availableAt": {
+                "chapterNumber": 67,
+                "paragraphIndex": 31,
+                "offset": 345
+              },
+              "name": "The Sire de Joinville",
+              "subtitle": "",
+              "body": "St Louis’s familiar companion, and with Eginhard and Philip de Commines one of the elder historians Montaigne trusts. He reports that the religion of the Bedouins enjoined a belief that the soul of him among them who died for his prince went into another body more happy, more beautiful and more robust than the former, by which means they much more willingly ventured their lives.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 67,
+                  "paragraphIndex": 31,
+                  "throughOffset": 345
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "orlando",
+          "kind": "literary-figure",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 73,
+            "paragraphIndex": 37,
+            "offset": 188
+          },
+          "firstMention": {
+            "chapterNumber": 73,
+            "paragraphIndex": 37,
+            "offset": 188
+          },
+          "snapshots": [
+            {
+              "id": "orlando-identity",
+              "availableAt": {
+                "chapterNumber": 73,
+                "paragraphIndex": 37,
+                "offset": 188
+              },
+              "name": "Orlando",
+              "subtitle": "",
+              "body": "Ariosto’s hero, who was more bent to do great acts than to boast of them, so that no deeds of his were ever known but those that had witnesses. The bare name at 67:15 and in the citations is the title of the poem and not the man.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 73,
+                  "paragraphIndex": 37,
+                  "throughOffset": 188
                 }
               ]
             }
@@ -106307,7 +109637,7 @@
           "startOffset": 1840,
           "endOffset": 1845,
           "text": "Flora",
-          "resolution": "reviewed-name"
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "the-graces",
@@ -115985,6 +119315,15 @@
           "resolution": "reviewed-context"
         },
         {
+          "characterId": "livy",
+          "chapterNumber": 62,
+          "paragraphIndex": 18,
+          "startOffset": 1445,
+          "endOffset": 1457,
+          "text": "Titus Livius",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "publius-syrus",
           "chapterNumber": 62,
           "paragraphIndex": 20,
@@ -116822,6 +120161,15 @@
           "resolution": "reviewed-context"
         },
         {
+          "characterId": "ammianus-marcellinus",
+          "chapterNumber": 66,
+          "paragraphIndex": 15,
+          "startOffset": 17,
+          "endOffset": 28,
+          "text": "Marcellinus",
+          "resolution": "reviewed-context"
+        },
+        {
           "characterId": "claudian",
           "chapterNumber": 66,
           "paragraphIndex": 17,
@@ -117522,6 +120870,15 @@
           "endOffset": 36,
           "text": "du Bellay",
           "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "sire-de-joinville",
+          "chapterNumber": 67,
+          "paragraphIndex": 31,
+          "startOffset": 336,
+          "endOffset": 345,
+          "text": "Joinville",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "st-louis",
@@ -119432,6 +122789,15 @@
           "resolution": "reviewed-context"
         },
         {
+          "characterId": "vulcan",
+          "chapterNumber": 69,
+          "paragraphIndex": 210,
+          "startOffset": 440,
+          "endOffset": 446,
+          "text": "Vulcan",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "cicero",
           "chapterNumber": 69,
           "paragraphIndex": 210,
@@ -120215,6 +123581,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "numa",
+          "chapterNumber": 69,
+          "paragraphIndex": 262,
+          "startOffset": 338,
+          "endOffset": 342,
+          "text": "Numa",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "thales",
           "chapterNumber": 69,
           "paragraphIndex": 267,
@@ -120392,6 +123767,24 @@
           "startOffset": 1268,
           "endOffset": 1275,
           "text": "Jupiter",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "juno",
+          "chapterNumber": 69,
+          "paragraphIndex": 268,
+          "startOffset": 1277,
+          "endOffset": 1281,
+          "text": "Juno",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "vesta",
+          "chapterNumber": 69,
+          "paragraphIndex": 268,
+          "startOffset": 1283,
+          "endOffset": 1288,
+          "text": "Vesta",
           "resolution": "reviewed-name"
         },
         {
@@ -120683,6 +124076,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "vulcan",
+          "chapterNumber": 69,
+          "paragraphIndex": 300,
+          "startOffset": 1195,
+          "endOffset": 1201,
+          "text": "Vulcan",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "paulus-aemilius",
           "chapterNumber": 69,
           "paragraphIndex": 300,
@@ -120726,6 +124128,15 @@
           "endOffset": 1392,
           "text": "Thetis",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "pallas-evander",
+          "chapterNumber": 69,
+          "paragraphIndex": 302,
+          "startOffset": 109,
+          "endOffset": 115,
+          "text": "Pallas",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "zamolxis",
@@ -121178,6 +124589,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "juno",
+          "chapterNumber": 69,
+          "paragraphIndex": 352,
+          "startOffset": 160,
+          "endOffset": 164,
+          "text": "Juno",
+          "resolution": "reviewed-context"
+        },
+        {
           "characterId": "apollo",
           "chapterNumber": 69,
           "paragraphIndex": 355,
@@ -121193,6 +124613,51 @@
           "startOffset": 148,
           "endOffset": 152,
           "text": "Mars",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "minerva",
+          "chapterNumber": 69,
+          "paragraphIndex": 358,
+          "startOffset": 15,
+          "endOffset": 21,
+          "text": "Pallas",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "diana",
+          "chapterNumber": 69,
+          "paragraphIndex": 358,
+          "startOffset": 23,
+          "endOffset": 30,
+          "text": "Cynthia",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "vulcan",
+          "chapterNumber": 69,
+          "paragraphIndex": 358,
+          "startOffset": 44,
+          "endOffset": 50,
+          "text": "Vulcan",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "juno",
+          "chapterNumber": 69,
+          "paragraphIndex": 358,
+          "startOffset": 93,
+          "endOffset": 97,
+          "text": "Juno",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "faunus",
+          "chapterNumber": 69,
+          "paragraphIndex": 358,
+          "startOffset": 150,
+          "endOffset": 156,
+          "text": "Faunus",
           "resolution": "reviewed-name"
         },
         {
@@ -121617,6 +125082,15 @@
           "endOffset": 1024,
           "text": "Aristotle",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "minerva",
+          "chapterNumber": 69,
+          "paragraphIndex": 391,
+          "startOffset": 549,
+          "endOffset": 555,
+          "text": "Pallas",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "thales",
@@ -122474,6 +125948,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "vulcan",
+          "chapterNumber": 69,
+          "paragraphIndex": 498,
+          "startOffset": 0,
+          "endOffset": 6,
+          "text": "Vulcan",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "apollo",
           "chapterNumber": 69,
           "paragraphIndex": 498,
@@ -122715,6 +126198,15 @@
           "endOffset": 2085,
           "text": "Pliny",
           "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "zoroaster",
+          "chapterNumber": 69,
+          "paragraphIndex": 532,
+          "startOffset": 2107,
+          "endOffset": 2116,
+          "text": "Zoroaster",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "plato",
@@ -123365,6 +126857,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "julius-caesar",
+          "chapterNumber": 70,
+          "paragraphIndex": 9,
+          "startOffset": 611,
+          "endOffset": 617,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
           "characterId": "lucan",
           "chapterNumber": 70,
           "paragraphIndex": 11,
@@ -123372,6 +126873,15 @@
           "endOffset": 211,
           "text": "Lucan",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "julius-caesar",
+          "chapterNumber": 70,
+          "paragraphIndex": 14,
+          "startOffset": 2,
+          "endOffset": 8,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "lucan",
@@ -123383,6 +126893,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "julius-caesar",
+          "chapterNumber": 70,
+          "paragraphIndex": 17,
+          "startOffset": 10,
+          "endOffset": 16,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
           "characterId": "virgil",
           "chapterNumber": 70,
           "paragraphIndex": 17,
@@ -123390,6 +126909,15 @@
           "endOffset": 93,
           "text": "Virgil",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "pliny-elder",
+          "chapterNumber": 70,
+          "paragraphIndex": 20,
+          "startOffset": 127,
+          "endOffset": 132,
+          "text": "Pliny",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "lucan",
@@ -123419,13 +126947,112 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "demosthenes",
+          "characterId": "julius-caesar",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 21,
+          "endOffset": 27,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "lucius-domitius",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 29,
+          "endOffset": 44,
+          "text": "Lucius Domitius",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "plautius-silvanus",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 383,
+          "endOffset": 400,
+          "text": "Plautius Silvanus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "urgulania",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 415,
+          "endOffset": 424,
+          "text": "Urgulania",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "albucilla",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 538,
+          "endOffset": 547,
+          "text": "Albucilla",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "tiberius-emperor",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 552,
+          "endOffset": 560,
+          "text": "Tiberius",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "demosthenes-general",
           "chapterNumber": 70,
           "paragraphIndex": 28,
           "startOffset": 737,
           "endOffset": 748,
           "text": "Demosthenes",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "fimbria",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 797,
+          "endOffset": 804,
+          "text": "Fimbria",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "ostorius",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 895,
+          "endOffset": 903,
+          "text": "Ostorius",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "julius-caesar",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 1369,
+          "endOffset": 1375,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "julius-caesar",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 1482,
+          "endOffset": 1488,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "pliny-elder",
+          "chapterNumber": 70,
+          "paragraphIndex": 28,
+          "startOffset": 1565,
+          "endOffset": 1570,
+          "text": "Pliny",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "epicharmus",
@@ -123455,6 +127082,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "pomponius-atticus",
+          "chapterNumber": 70,
+          "paragraphIndex": 33,
+          "startOffset": 5,
+          "endOffset": 22,
+          "text": "Pomponius Atticus",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "cicero",
           "chapterNumber": 70,
           "paragraphIndex": 33,
@@ -123462,6 +127098,15 @@
           "endOffset": 38,
           "text": "Cicero",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "agrippa",
+          "chapterNumber": 70,
+          "paragraphIndex": 33,
+          "startOffset": 72,
+          "endOffset": 79,
+          "text": "Agrippa",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "cleanthes",
@@ -123473,6 +127118,33 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "tullius-marcellinus",
+          "chapterNumber": 70,
+          "paragraphIndex": 35,
+          "startOffset": 0,
+          "endOffset": 19,
+          "text": "Tullius Marcellinus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "tullius-marcellinus",
+          "chapterNumber": 70,
+          "paragraphIndex": 35,
+          "startOffset": 526,
+          "endOffset": 537,
+          "text": "Marcellinus",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "tullius-marcellinus",
+          "chapterNumber": 70,
+          "paragraphIndex": 35,
+          "startOffset": 956,
+          "endOffset": 967,
+          "text": "Marcellinus",
+          "resolution": "reviewed-context"
+        },
+        {
           "characterId": "horace",
           "chapterNumber": 70,
           "paragraphIndex": 37,
@@ -123480,6 +127152,42 @@
           "endOffset": 82,
           "text": "Horace",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "tullius-marcellinus",
+          "chapterNumber": 70,
+          "paragraphIndex": 38,
+          "startOffset": 13,
+          "endOffset": 24,
+          "text": "Marcellinus",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "tullius-marcellinus",
+          "chapterNumber": 70,
+          "paragraphIndex": 38,
+          "startOffset": 228,
+          "endOffset": 239,
+          "text": "Marcellinus",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "cato-the-younger",
+          "chapterNumber": 70,
+          "paragraphIndex": 40,
+          "startOffset": 12,
+          "endOffset": 16,
+          "text": "Cato",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "pliny-elder",
+          "chapterNumber": 71,
+          "paragraphIndex": 0,
+          "startOffset": 1715,
+          "endOffset": 1720,
+          "text": "Pliny",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "seneca",
@@ -123498,6 +127206,24 @@
           "endOffset": 69,
           "text": "Jove",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "danae",
+          "chapterNumber": 72,
+          "paragraphIndex": 5,
+          "startOffset": 33,
+          "endOffset": 38,
+          "text": "Danae",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "danae",
+          "chapterNumber": 72,
+          "paragraphIndex": 5,
+          "startOffset": 55,
+          "endOffset": 60,
+          "text": "Danae",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "jove",
@@ -123527,6 +127253,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "galla",
+          "chapterNumber": 72,
+          "paragraphIndex": 10,
+          "startOffset": 2,
+          "endOffset": 7,
+          "text": "Galla",
+          "resolution": "reviewed-context"
+        },
+        {
           "characterId": "martial",
           "chapterNumber": 72,
           "paragraphIndex": 10,
@@ -123554,13 +127289,22 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "flora",
+          "characterId": "flora-courtesan",
           "chapterNumber": 72,
           "paragraphIndex": 14,
           "startOffset": 284,
           "endOffset": 289,
           "text": "Flora",
-          "resolution": "reviewed-name"
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "pompey",
+          "chapterNumber": 72,
+          "paragraphIndex": 14,
+          "startOffset": 314,
+          "endOffset": 320,
+          "text": "Pompey",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "lucretius",
@@ -123569,6 +127313,15 @@
           "startOffset": 187,
           "endOffset": 196,
           "text": "Lucretius",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "st-james",
+          "chapterNumber": 72,
+          "paragraphIndex": 17,
+          "startOffset": 135,
+          "endOffset": 143,
+          "text": "St James",
           "resolution": "reviewed-name"
         },
         {
@@ -123617,6 +127370,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "poppaea",
+          "chapterNumber": 72,
+          "paragraphIndex": 31,
+          "startOffset": 8,
+          "endOffset": 15,
+          "text": "Poppaea",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "virgil",
           "chapterNumber": 72,
           "paragraphIndex": 33,
@@ -123642,6 +127404,15 @@
           "endOffset": 87,
           "text": "Ovid",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "rutilius-poet",
+          "chapterNumber": 72,
+          "paragraphIndex": 43,
+          "startOffset": 71,
+          "endOffset": 79,
+          "text": "Rutilius",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "seneca",
@@ -123725,12 +127496,57 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "epicurus",
+          "chapterNumber": 73,
+          "paragraphIndex": 11,
+          "startOffset": 1,
+          "endOffset": 9,
+          "text": "EPICURUS",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "hermachus",
+          "chapterNumber": 73,
+          "paragraphIndex": 11,
+          "startOffset": 13,
+          "endOffset": 22,
+          "text": "HERMACHUS",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "metrodorus",
           "chapterNumber": 73,
           "paragraphIndex": 12,
           "startOffset": 390,
           "endOffset": 400,
           "text": "Metrodorus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "amynomachus",
+          "chapterNumber": 73,
+          "paragraphIndex": 13,
+          "startOffset": 205,
+          "endOffset": 216,
+          "text": "Amynomachus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "timocrates",
+          "chapterNumber": 73,
+          "paragraphIndex": 13,
+          "startOffset": 221,
+          "endOffset": 231,
+          "text": "Timocrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "hermachus",
+          "chapterNumber": 73,
+          "paragraphIndex": 13,
+          "startOffset": 309,
+          "endOffset": 318,
+          "text": "Hermachus",
           "resolution": "reviewed-name"
         },
         {
@@ -123788,6 +127604,33 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "sextus-peduceus",
+          "chapterNumber": 73,
+          "paragraphIndex": 18,
+          "startOffset": 755,
+          "endOffset": 770,
+          "text": "Sextus Peduceus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "plotius",
+          "chapterNumber": 73,
+          "paragraphIndex": 18,
+          "startOffset": 816,
+          "endOffset": 826,
+          "text": "C. Plotius",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "sextilius-rufus",
+          "chapterNumber": 73,
+          "paragraphIndex": 18,
+          "startOffset": 1051,
+          "endOffset": 1066,
+          "text": "Sextilius Rufus",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "cicero",
           "chapterNumber": 73,
           "paragraphIndex": 18,
@@ -123795,6 +127638,15 @@
           "endOffset": 1079,
           "text": "Cicero",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crassus-triumvir",
+          "chapterNumber": 73,
+          "paragraphIndex": 18,
+          "startOffset": 1228,
+          "endOffset": 1235,
+          "text": "Crassus",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "hortensius",
@@ -123867,6 +127719,42 @@
           "endOffset": 135,
           "text": "Aristippus",
           "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "julius-caesar",
+          "chapterNumber": 73,
+          "paragraphIndex": 31,
+          "startOffset": 8,
+          "endOffset": 14,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "alexander",
+          "chapterNumber": 73,
+          "paragraphIndex": 31,
+          "startOffset": 19,
+          "endOffset": 28,
+          "text": "Alexander",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "julius-caesar",
+          "chapterNumber": 73,
+          "paragraphIndex": 31,
+          "startOffset": 360,
+          "endOffset": 366,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "orlando",
+          "chapterNumber": 73,
+          "paragraphIndex": 37,
+          "startOffset": 181,
+          "endOffset": 188,
+          "text": "Orlando",
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "ariosto",
@@ -124022,6 +127910,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "herostratus",
+          "chapterNumber": 73,
+          "paragraphIndex": 70,
+          "startOffset": 328,
+          "endOffset": 339,
+          "text": "Herostratus",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "livy",
           "chapterNumber": 73,
           "paragraphIndex": 70,
@@ -124031,21 +127928,12 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "montaigne",
+          "characterId": "manlius-capitolinus",
           "chapterNumber": 73,
-          "paragraphIndex": 71,
-          "startOffset": 341,
-          "endOffset": 350,
-          "text": "Montaigne",
-          "resolution": "reviewed-name"
-        },
-        {
-          "characterId": "montaigne",
-          "chapterNumber": 73,
-          "paragraphIndex": 71,
-          "startOffset": 401,
-          "endOffset": 410,
-          "text": "Montaigne",
+          "paragraphIndex": 70,
+          "startOffset": 353,
+          "endOffset": 372,
+          "text": "Manlius Capitolinus",
           "resolution": "reviewed-name"
         },
         {
@@ -124067,12 +127955,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "julius-caesar",
+          "chapterNumber": 73,
+          "paragraphIndex": 80,
+          "startOffset": 1082,
+          "endOffset": 1088,
+          "text": "Caesar",
+          "resolution": "reviewed-context"
+        },
+        {
           "characterId": "seneca",
           "chapterNumber": 73,
           "paragraphIndex": 85,
           "startOffset": 96,
           "endOffset": 102,
           "text": "Seneca",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "trajan",
+          "chapterNumber": 73,
+          "paragraphIndex": 87,
+          "startOffset": 196,
+          "endOffset": 202,
+          "text": "Trajan",
           "resolution": "reviewed-name"
         },
         {
@@ -124112,12 +128018,66 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "timon-of-phlius",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 36,
+          "endOffset": 41,
+          "text": "Timon",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "numa",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 595,
+          "endOffset": 599,
+          "text": "Numa",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "sertorius",
           "chapterNumber": 73,
           "paragraphIndex": 90,
           "startOffset": 604,
           "endOffset": 613,
           "text": "Sertorius",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "egeria",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 709,
+          "endOffset": 715,
+          "text": "Egeria",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "numa",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 806,
+          "endOffset": 810,
+          "text": "Numa",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "zoroaster",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 865,
+          "endOffset": 874,
+          "text": "Zoroaster",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "oromazis",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 954,
+          "endOffset": 963,
+          "text": "Oromasdes",
           "resolution": "reviewed-name"
         },
         {
@@ -124145,6 +128105,15 @@
           "startOffset": 1029,
           "endOffset": 1037,
           "text": "Zamolxis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "vesta",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 1080,
+          "endOffset": 1085,
+          "text": "Vesta",
           "resolution": "reviewed-name"
         },
         {
@@ -124202,6 +128171,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "draco",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 1266,
+          "endOffset": 1271,
+          "text": "Draco",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "solon",
           "chapterNumber": 73,
           "paragraphIndex": 90,
@@ -124226,6 +128204,15 @@
           "startOffset": 1427,
           "endOffset": 1432,
           "text": "Moses",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "sire-de-joinville",
+          "chapterNumber": 73,
+          "paragraphIndex": 90,
+          "startOffset": 1521,
+          "endOffset": 1538,
+          "text": "Sire de Joinville",
           "resolution": "reviewed-name"
         },
         {
@@ -125804,6 +129791,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "sire-de-joinville",
+          "chapterNumber": 86,
+          "paragraphIndex": 12,
+          "startOffset": 585,
+          "endOffset": 602,
+          "text": "Sire de Joinville",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "st-louis",
           "chapterNumber": 86,
           "paragraphIndex": 12,
@@ -125855,6 +129851,15 @@
           "startOffset": 126,
           "endOffset": 134,
           "text": "Lycurgus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "numa",
+          "chapterNumber": 88,
+          "paragraphIndex": 0,
+          "startOffset": 139,
+          "endOffset": 143,
+          "text": "Numa",
           "resolution": "reviewed-name"
         },
         {
@@ -126575,6 +130580,15 @@
           "startOffset": 2066,
           "endOffset": 2078,
           "text": "Themistocles",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "numa",
+          "chapterNumber": 89,
+          "paragraphIndex": 10,
+          "startOffset": 2119,
+          "endOffset": 2123,
+          "text": "Numa",
           "resolution": "reviewed-name"
         },
         {
@@ -128531,13 +132545,13 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "flora",
+          "characterId": "flora-courtesan",
           "chapterNumber": 97,
           "paragraphIndex": 38,
           "startOffset": 569,
           "endOffset": 574,
           "text": "Flora",
-          "resolution": "reviewed-name"
+          "resolution": "reviewed-context"
         },
         {
           "characterId": "seneca",
@@ -129656,6 +133670,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "vulcan",
+          "chapterNumber": 99,
+          "paragraphIndex": 169,
+          "startOffset": 30,
+          "endOffset": 36,
+          "text": "Vulcan",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "aeneas",
           "chapterNumber": 99,
           "paragraphIndex": 169,
@@ -129734,6 +133757,15 @@
           "startOffset": 146,
           "endOffset": 158,
           "text": "St Augustine",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "faunus",
+          "chapterNumber": 99,
+          "paragraphIndex": 198,
+          "startOffset": 331,
+          "endOffset": 337,
+          "text": "Faunus",
           "resolution": "reviewed-name"
         },
         {
@@ -129842,6 +133874,15 @@
           "startOffset": 20,
           "endOffset": 25,
           "text": "Venus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "vulcan",
+          "chapterNumber": 99,
+          "paragraphIndex": 223,
+          "startOffset": 30,
+          "endOffset": 36,
+          "text": "Vulcan",
           "resolution": "reviewed-name"
         },
         {

@@ -72,8 +72,8 @@ for row in [
 # ============================= CHAPTER 3 — affections beyond ourselves
 for row in [
 ('plato','Plato','The Athenian philosopher, Socrates’s pupil, and with Cicero the writer Montaigne quotes most. He is an authority and an adversary in the same breath: Montaigne takes “Do thine own work, and know thyself” from him and calls a good deal of the rest of him poetry.','Plato','major'),
-('epicurus','Epicurus','The Greek philosopher of pleasure rightly understood, whom Montaigne quotes often and defends against the coarse reading of him. He dispenses his sages from all foresight and care of the future.','Epicurus','supporting'),
-('livy','Livy','The Roman historian of the city from its foundation.','Livy','supporting'),
+('epicurus','Epicurus','The Greek philosopher of pleasure rightly understood, whom Montaigne quotes often and defends against the coarse reading of him. He dispenses his sages from all foresight and care of the future.','Epicurus|EPICURUS|EPICUYUS','supporting'),
+('livy','Livy','The Roman historian of the city from its foundation. The older edition writes him Titus Livius at 66:0 and 73:70, and misprints him Titius Livius at 62:18, where the modern edition has the name right.','Livy|Titus Livius|Titius Livius','supporting'),
 ('nero','Nero','The emperor, Montaigne’s standing example of a prince whose reputation is fair game once he is dead: two of his own soldiers told him to his face why they hated him and why they had tried to kill him. He is also the perfect image of all cruelty who, brought the sentence of a condemned man to sign, cried out that he wished he had never been taught to write — and the man whose pardon Granius Silvanus and Statius Proximus would not live under.','Nero','supporting'),
 ('aristotle','Aristotle','The philosopher of the schools, whom Montaigne calls the god of scholastic learning and who, he says, will still have a hand in everything.','Aristotle','major'),
 ('solon','Solon','The Athenian lawgiver, and the author of the saying that no man can be called happy until he is dead — which Montaigne would rather put as that man is never happy, because never so till he is no more. With Lycurgus and Minos, one of the three whom Plato says their immortal children immortalise and deify.','Solon','supporting'),
@@ -236,7 +236,7 @@ for row in [
 ('vervins','Monsieur de Vervins','Sentenced to death for surrendering Boulogne to the English — the case that prompted a great captain to maintain, at table, that no soldier can justly be put to death for want of courage.','Vervins'),
 ('charondas','Charondas','The legislator who, Montaigne says, brought in ignominy instead of death for cowardice: before him Greek law killed the man who fled a battle, and he ordained instead that he be exposed three days in public in woman’s clothes, in hope of getting some service out of him afterwards.','Charondas'),
 ('tertullian','Tertullian','Quoted from the Apologetics for the maxim behind Charondas’s law: rather bring the blood into a man’s cheek than let it out of his body.','Tertullian'),
-('ammianus-marcellinus','Ammianus Marcellinus','The late Roman historian, cited for the Emperor Julian’s degrading and then executing ten soldiers who turned their backs on the Parthians.','Ammianus Marcellinus'),
+('ammianus-marcellinus','Ammianus Marcellinus','The historian, who says the Emperor Julian had ten soldiers that turned their backs against the Parthians first degraded and then put to death, and who observes the manner of the Parthians’ arming so curiously because it was so different from the Roman. Not the Tullius Marcellinus of chapter 70.','Ammianus Marcellinus','supporting'),
 ('julian','The Emperor Julian','Who put ten of his own soldiers to death for flight according to the ancient laws, and elsewhere, for the same offence, only sent men to live among the prisoners under the baggage ensign. Applauded one day by his courtiers for his exact justice, he said he should be proud of the praise if it came from persons that durst condemn or disapprove the contrary in case he did it.','Emperor Julian'),
 ('cnaeus-fulvius','Cnaeus Fulvius','Whose men ran away at his defeat and were punished, like those who fled at Cannae, with something short of death. The older edition prints him Aeneius Fulvius.','Aeneius Fulvius|Cnaeus Fulvius'),
 ('frauget','The Seigneur de Frauget','Lieutenant to the Mareschal de Chatillon’s company and put in command of Fuentarabia, who surrendered it to the Spaniard and was degraded from all nobility — himself and his posterity declared ignoble, taxable and for ever incapable of bearing arms, a sentence executed at Lyons.','Frauget|Franget'),
@@ -454,10 +454,10 @@ for row in [
 ('theodorus-gaza','Gaza','The grammarian whose method Montaigne sets against his own: precepts so intricate and harsh, and words so vain and lean, that there is no hold to be taken of them.','Gaza'),
 ('demetrius-grammarian','Demetrius the grammarian','Who found a knot of philosophers chatting in the temple at Delphos and told them that by their cheerful faces they could not be engaged in very deep discourse.','Demetrius the grammarian'),
 ('heracleon','Heracleon the Megarean','Who answered him: it is for men puzzling over how a future tense is spelt to knit their brows; philosophical discourse always cheers those who entertain it and never makes them sad.','Heracleon'),
-('minerva','Minerva','The goddess of wisdom, set against Venus in that comparison, and one of the three to whom Plato gives the patronage of the young’s sports.','Minerva','reference','deity'),
+('minerva','Minerva','The goddess of wisdom, set against Venus in that comparison, and one of the three to whom Plato gives the patronage of the young’s sports. Under her Greek name Pallas she is the goddess the Athenians adore, and the one who issued from her father’s head to communicate herself to the world — which the older edition misprints Balias. Draco and Solon gave out their laws under her name. She is not the Pallas of 69:302, who is a dead man.','Minerva','reference','deity'),
 ('bradamante','Bradamante','One of the two mistresses Montaigne would have the tutor hold up to the boy: a natural, active, generous, manly beauty in a glittering helmet, against Angelica tricked up in curls and ribbons.','Bradamante','reference','literary-figure'),
 ('angelica','Angelica','Set against Bradamante when a tutor first shows his pupil a mistress: the soft, delicate, artificial, simpering and affected form, tricked up in curls and ribbons like a wanton minx, against the manly beauty in a glittering helmet.','Angelica','reference','literary-figure'),
-('flora','Flora','With the Graces, one of the figures Speusippus painted his school with — and which Montaigne would paint a school with instead of birch and willow.','Flora','reference','deity'),
+('flora','Flora','With the Graces, one of the figures Speusippus painted his school with — and which Montaigne would paint a school with instead of birch and willow. Not the courtesan of 72:14 and 97:38, whose name she was taking until the census of the unkeyed table names ran over chapter 72.','','reference','deity'),
 ('demophoon-steward','Demophoon','Alexander the Great’s steward, who sweated in the shade and shivered in the sun. The modern edition spells him Demophoön.','Demophoon|Demophoön'),
 ('callisthenes','Callisthenes','Who forfeited Alexander’s favour by refusing to pledge him a cup of wine — and whom, Montaigne notes, not even the philosophers justify for it.','Callisthenes'),
 ('alcibiades','Alcibiades','Whose constitution Montaigne admires with wonder: he could transform himself to any fashion without hurting his health, outdoing Persian luxury one while and Lacedaemonian austerity the next — as reformed in Sparta as he was voluptuous in Ionia.','Alcibiades','supporting'),
@@ -717,7 +717,7 @@ for row in [
 ('mercury','Mercury','The god the king of Thrace kept to himself, having a religion by himself and a god all his own which his subjects were not to presume to adore.','Mercury','reference','deity'),
 ('mars','Mars','With Bacchus and Diana, one of the gods of the Thracian people, whom their king disdained to have anything to do with.','Mars','reference','deity'),
 ('bacchus','Bacchus','The second of the three gods of the Thracian people that their king would have nothing to do with — and, under his other names, the good deity whose influence Plato would have men over forty mix liberally in their feasts, which restores gaiety to younger men and youth to old ones, and mollifies the passions of the soul as iron is softened by fire. The two editions spell his other names differently: the older one has Dionysos and Lyacus, the modern Dionysus and Lyaeus, and both carry the note that Lyaeus is a name given to Bacchus. The Latin ablative Lyaeo of the quotations is left unbound, like every other inflection.','Bacchus|Dionysos|Dionysus|Lyacus|Lyaeus','reference','deity'),
-('diana','Diana','The third of them.','Diana','reference','deity'),
+('diana','Diana','The third of the gods of the Thracian people, with Bacchus and Mars; and, under her Greek name Cynthia, the goddess Crete adores in Ovid’s list of the gods each nation worships.','Diana|Cynthia','reference','deity'),
 ('hermodorus','Hermodorus','The poet who wrote a poem in honour of Antigonus calling him the son of the sun, and was told that the man who has the emptying of the king’s close-stool knows the contrary.','Hermodorus'),
 ('seleucus','Seleucus','The king of whose opinion Montaigne thinks a man of parts would be: that he who knew the weight of a sceptre would not stoop to pick it up if he saw it lying before him, so great and painful are the duties of a good king.','Seleucus'),
 ('hiero','Hiero','The king in Xenophon’s dialogue, who complains of his own royalty: that princes are worse off than private men even in the fruition of pleasure, since commanding a thing at will takes off the delight of it; that he cannot look abroad or travel at liberty, being a prisoner in the bounds of his own dominion and evermore surrounded with an importunate crowd; and, what he is most concerned at, that he is stripped of all friendship, since nothing done for him is freely done.'),
@@ -741,7 +741,7 @@ for row in [
 ('catiline','Catiline','Whose conspiracy was the occasion of the tribune Metellus’s decree, and so of the night Cato slept through while his friends went without sleep, food or drink for the danger they saw him running into.','Catiline'),
 ('sextus-pompeius','Sextus Pompeius','Whom Augustus beat in the naval engagement in Sicily that Augustus slept through, until his friends woke him to give the signal of battle.','Sextus Pompeius'),
 ('mark-antony','Mark Antony','Who took that sleep as an occasion to reproach Augustus afterwards that he had not the courage so much as to behold the order of his own squadrons with open eyes, nor dared present himself to the soldiers until Agrippa had brought him news of the victory.','Mark Antony'),
-('agrippa','Agrippa','Who brought Augustus the news of the victory over Sextus Pompeius while the emperor was still out of sight of his own soldiers.'),
+('agrippa','Agrippa','Pomponius Atticus’s son-in-law, called to his bedside with two or three friends to be told he had resolved to end his life and his pain together. Also the man who brought Augustus the news of the victory over Sextus Pompeius while the emperor was still out of sight of his own soldiers.'),
 ('marius-younger','The young Marius','Who did much worse: on the day of his last battle against Sylla, having marshalled his army and given the word and signal, he lay down in the shade of a tree to repose himself and fell so fast asleep that the rout and flight of his men could hardly waken him, having seen nothing of the fight. He was said to be so spent with labour and want of sleep that nature could hold out no longer.'),
 ('epimenides','Epimenides','The sage whose biographers affirm that he slept seven-and-fifty years together.','Epimenides'),
 ]:add(*row)
@@ -1064,7 +1064,7 @@ for row in [
 ('isis','Isis','With Serapis, one of the gods the Egyptians forbade anyone, on pain of hanging, to say had formerly been men.','Isis','reference','deity'),
 ('serapis','Serapis','The other of them — and the god in whose arms Paulina thought she lay when she was in her lover’s, through the panderism of the priests of his temple.','Serapis','reference','deity'),
 ('tiberius-sempronius','Tiberius Sempronius','Who burnt the rich spoils and arms he had gained from the enemy in Sardinia as a sacrifice to Vulcan, Montaigne’s first instance of flattering divine justice with the ruin of the things it made.','Tiberius Sempronius'),
-('zamolxis','Zamolxis','The god of the Getae, who hold themselves immortal and their death nothing but a journey to him.','Zamolxis','reference','deity'),
+('zamolxis','Zamolxis','The god of the Getae, who hold themselves immortal and their death nothing but a journey to him; and, at 73:90, the legislator of the Scythians, who gave out his laws under the name of Vesta. The older edition spells him Xamolxis there.','Zamolxis|Xamolxis','reference','deity'),
 ('amestris','Amestris','Xerxes’s mother, who being grown old caused fourteen young men of the best families of Persia to be buried alive at once, according to the religion of the country, to gratify some infernal deity.','Amestris'),
 ('trismegistus','Trismegistus','Whom Montaigne bids us hear in praise of our sufficiency, as the extreme of the presumption he is putting down.','Trismegistus'),
 ('paulina','Paulina','The wife of Saturninus, a matron of great reputation at Rome, who thought she lay with the god Serapis and found herself in the arms of an amoroso of hers.','Paulina'),
@@ -1111,8 +1111,60 @@ for row in [
 ('hyrcanus','Hyrcanus','King Lysimachus’s dog, who when his master was dead lay on his bed refusing either to eat or drink, and on the day the body was burnt took a run and leaped into the fire and was consumed — Montaigne’s instance, with the dog of one Pyrrhus, of a friendship in beasts more lively and constant than men have.','Hyrcanus','reference','animal'),
 ]:add(*row)
 
-print(len(entities),'entities authored: chapters 1-69')
+# ------------------- chapter 69, found by the census of the named gods
+for row in [
+('vulcan','Vulcan','The god to whom Tiberius Sempronius burnt the rich spoils and arms he had gained in Sardinia; whose arms stand in the Latin for fortitude — if thou art naked, present thy throat, if covered with Vulcan’s arms, resist; and who, in the line Montaigne quotes, stood against Troy where Apollo stood for it.','Vulcan','reference','deity'),
+('juno','Juno','One of the accustomed gods Zeno takes away, with Jupiter and Vesta; the cruel Juno who stands in arms full in the Scæan gate while Neptune heaves the city from its base; and the goddess whose altars, in the list of the gods each nation adores, the Spartans feed.','','reference','deity'),
+('vesta','Vesta','One of the accustomed gods Zeno takes away, with Jupiter and Juno; and the goddess under whose name Zamolxis gave out his laws to the Scythians.','Vesta','reference','deity'),
+('faunus','Faunus','The god the Arcadians worship, in the list of the gods each nation adores.','Faunus','reference','deity'),
+('pallas-evander','Pallas','The dead man to whose ghost the four sons of Sulmo and four more that Ufens bred were led as living victims, to expire in sacrifice before his funeral pyre. Evander’s son in the Aeneid, and not the goddess of 69:358 and 69:391.','','reference','mythological-figure'),
+('numa','Numa','Numa Pompilius, who fed his people with the foppery that the nymph Egeria brought him all his counsels from the gods, and gave his laws the title of her patronage; and who attempted to conform the devotion of his people to a religion purely mental, without any prefixed object or material mixture — which Montaigne says was to undertake a thing of no use.','Numa','supporting'),
+('zoroaster','Zoroaster','Legislator of the Bactrians and Persians, who gave his laws the authority of the God Oromazis as Numa gave his the patronage of Egeria; and whom Aristotle, Pliny and others say flourished six thousand years before Plato’s time.','Zoroaster','supporting'),
+]:add(*row)
+
+# ============================= CHAPTER 70 — of judging of the death of another
+for row in [
+('lucius-domitius','Lucius Domitius','Taken in the Abruzzi in Caesar’s civil wars, who poisoned himself upon it and afterwards repented.','Lucius Domitius'),
+('plautius-silvanus','Plautius Silvanus','Whose grandmother sent him a poniard while he was upon his trial; not being able to kill himself with it, he made his servants cut his veins.','Plautius Silvanus'),
+('urgulania','Urgulania','Plautius Silvanus’s grandmother, who sent him the poniard.','Urgulania'),
+('albucilla','Albucilla','One of the Romans Montaigne lists as having botched their own deaths: the blow was struck with too much tenderness, which gave the adversaries opportunity to imprison and put to death their own way.','Albucilla'),
+('demosthenes-general','Demosthenes','The great leader who did the same after his rout in Sicily — the Athenian general of the Syracusan expedition, not the orator, whose alias was taking this paragraph until it was suppressed here.','','reference'),
+('fimbria','Fimbria','Who, having struck himself too weakly, entreated his servant to despatch him.','Fimbria'),
+('ostorius','Ostorius','Who could not make use of his own arm, and disdained to employ his servant’s to any other use than to hold the poniard straight and firm.','Ostorius'),
+('pomponius-atticus','Pomponius Atticus','Cicero’s correspondent, who being sick called Agrippa his son-in-law and two or three friends to tell them that since every means practised for his recovery was in vain, and all he did to prolong his life prolonged his pain, he had resolved to put an end to both. Having chosen abstinence as the means, he was cured by it — and refused to alter his purpose, saying that as he must one day die, and was now so far on his way, he would save himself the labour of beginning another time.','Pomponius Atticus','supporting'),
+('tullius-marcellinus','Tullius Marcellinus','A young man of Rome who had a mind to anticipate the hour of his destiny, to be rid of a disease that troubled him more than he was willing to endure, though his physicians assured him of a certain cure. He called a council of friends; some advised out of unmanliness, some out of flattery, and a Stoic told him it was no great matter to live, since his servants and his beasts lived, but a great thing to die handsomely, wisely and firmly. He divided a sum of money among his servants, forsook all nourishment, and on the third day, having caused himself to be sprinkled with warm water, fainted by degrees and not without some kind of pleasure, as he declared himself.','Tullius Marcellinus','supporting'),
+]:add(*row)
+
+# ================ CHAPTER 72 — that our desires are augmented by difficulty
+for row in [
+('danae','Danae','Whom a brazen tower held: had it not, Ovid says, she would never have been made a mother by Jove.','','reference','mythological-figure'),
+('galla','Galla','Martial’s mistress, told to refuse him — love is glutted with joys that are not attended with trouble.','','reference','literary-figure'),
+('st-james','St James','The saint to whom the people of the march of Ancona more readily make their vows, while those of Galicia vow to Our Lady of Loreto: Montaigne’s instance that difficulty gives all things their estimation, and that what is near at hand is despised.','St. James|St James','reference','religious-figure'),
+('poppaea','Poppaea','Who invented the use of a mask to hide the beauties of her face — to enhance it, Montaigne says, to her lovers.','Poppea|Poppaea'),
+('flora-courtesan','Flora','The courtesan who said she never lay with Pompey but that she made him wear the prints of her teeth — Montaigne’s instance that pleasure is much sweeter when it smarts. At 97:38 she is the one who never lent herself to less than a dictator, a consul or a censor, and took pleasure in the dignity of her lovers. Not the Flora of the school walls at 25:90.','','reference'),
+('rutilius-poet','Rutilius','The author of the Itinerarium, quoted for the plague-sore that spreads the further for being lanced. Not the Rutilius of Tacitus’s Agricola at 74:7, nor the consul Publius Rutilius at 84:21.','','reference'),
+]:add(*row)
+
+# ==================================================== CHAPTER 73 — of glory
+for row in [
+('amynomachus','Amynomachus','One of Epicurus’s two heirs, ordered by the will to defray every January the expense of the celebration of his birthday, as Hermachus should appoint, and the expense of entertaining the philosophers on the twentieth of every moon.','Amynomachus'),
+('timocrates','Timocrates','Epicurus’s other heir, under the same charge.','Timocrates'),
+('hermachus','Hermachus','The friend to whom Epicurus wrote on the happy and last day of his life, afflicted with such pain in the bladder and bowels that nothing could be greater, and recompensed by the pleasure the remembrance of his own inventions brought his soul; he asks him to take upon him the protection of Metrodorus’s children, and the will leaves him to appoint how the birthday should be kept. The older edition misprints the salutation HEYMACHUS.','Hermachus|HERMACHUS|HEYMACHUS'),
+('sextus-peduceus','Sextus Peduceus','Who faithfully restored the treasure C. Plotius had committed to his sole secrecy and trust — which Montaigne says he does not find so commendable, having often done it himself, as he would think it an execrable baseness to have done otherwise.','Sextus Peduceus'),
+('plotius','C. Plotius','Who committed the treasure to Sextus Peduceus’s sole secrecy and trust.','C. Plotius|Plotius'),
+('sextilius-rufus','Sextilius Rufus','Whom Cicero accuses of having entered upon an inheritance against his conscience — not only not against law, but even by the determination of the laws themselves.','Sextilius Rufus'),
+('herostratus','Herostratus','Of whom Trogus Pompeius says that he was more ambitious of a great reputation than of a good one.','Herostratus'),
+('manlius-capitolinus','Manlius Capitolinus','Of whom Titus Livius says the same.','Manlius Capitolinus'),
+('trajan','Trajan','Whose memory the world blesses where it abominates Nero’s — the one use Montaigne allows the false opinion of glory, if it keeps princes and people in their duty.','Trajan','supporting'),
+('egeria','Egeria','The nymph who, Numa gave out, brought him all his counsels from the gods, as Sertorius gave out of his white hind.','Egeria','reference','mythological-figure'),
+('oromazis','Oromazis','The god under whose name Zoroaster gave out his laws to the Bactrians and Persians. The modern edition writes him Oromasdes.','Oromazis|Oromasdes','reference','deity'),
+('draco','Draco','With Solon, legislator of the Athenians, who gave out his laws under the name of Minerva.','Draco'),
+('sire-de-joinville','The Sire de Joinville','St Louis’s familiar companion, and with Eginhard and Philip de Commines one of the elder historians Montaigne trusts. He reports that the religion of the Bedouins enjoined a belief that the soul of him among them who died for his prince went into another body more happy, more beautiful and more robust than the former, by which means they much more willingly ventured their lives.','Sire de Joinville|Joinville','supporting'),
+('orlando','Orlando','Ariosto’s hero, who was more bent to do great acts than to boast of them, so that no deeds of his were ever known but those that had witnesses. The bare name at 67:15 and in the citations is the title of the poem and not the man.','','reference','literary-figure'),
+]:add(*row)
+
+print(len(entities),'entities authored: chapters 1-73')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-13.3',
- coverage='Both full English editions, chapters 1-69 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
+ contentVersion='2026-09-13.4',
+ coverage='Both full English editions, chapters 1-73 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

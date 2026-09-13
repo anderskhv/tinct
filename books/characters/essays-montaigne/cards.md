@@ -132,7 +132,7 @@ The Greek philosopher of pleasure rightly understood, whom Montaigne quotes ofte
 
 ## Livy · supporting
 
-The Roman historian of the city from its foundation.
+The Roman historian of the city from its foundation. The older edition writes him Titus Livius at 66:0 and 73:70, and misprints him Titius Livius at 62:18, where the modern edition has the name right.
 
 ## Nero · supporting
 
@@ -578,9 +578,9 @@ The legislator who, Montaigne says, brought in ignominy instead of death for cow
 
 Quoted from the Apologetics for the maxim behind Charondas’s law: rather bring the blood into a man’s cheek than let it out of his body.
 
-## Ammianus Marcellinus · reference
+## Ammianus Marcellinus · supporting
 
-The late Roman historian, cited for the Emperor Julian’s degrading and then executing ten soldiers who turned their backs on the Parthians.
+The historian, who says the Emperor Julian had ten soldiers that turned their backs against the Parthians first degraded and then put to death, and who observes the manner of the Parthians’ arming so curiously because it was so different from the Roman. Not the Tullius Marcellinus of chapter 70.
 
 ## The Emperor Julian · reference
 
@@ -1276,7 +1276,7 @@ Who answered him: it is for men puzzling over how a future tense is spelt to kni
 
 ## Minerva · reference
 
-The goddess of wisdom, set against Venus in that comparison, and one of the three to whom Plato gives the patronage of the young’s sports.
+The goddess of wisdom, set against Venus in that comparison, and one of the three to whom Plato gives the patronage of the young’s sports. Under her Greek name Pallas she is the goddess the Athenians adore, and the one who issued from her father’s head to communicate herself to the world — which the older edition misprints Balias. Draco and Solon gave out their laws under her name. She is not the Pallas of 69:302, who is a dead man.
 
 ## Bradamante · reference
 
@@ -1288,7 +1288,7 @@ Set against Bradamante when a tutor first shows his pupil a mistress: the soft, 
 
 ## Flora · reference
 
-With the Graces, one of the figures Speusippus painted his school with — and which Montaigne would paint a school with instead of birch and willow.
+With the Graces, one of the figures Speusippus painted his school with — and which Montaigne would paint a school with instead of birch and willow. Not the courtesan of 72:14 and 97:38, whose name she was taking until the census of the unkeyed table names ran over chapter 72.
 
 ## Demophoon · reference
 
@@ -2028,7 +2028,7 @@ The second of the three gods of the Thracian people that their king would have n
 
 ## Diana · reference
 
-The third of them.
+The third of the gods of the Thracian people, with Bacchus and Mars; and, under her Greek name Cynthia, the goddess Crete adores in Ovid’s list of the gods each nation worships.
 
 ## Hermodorus · reference
 
@@ -2092,7 +2092,7 @@ Who took that sleep as an occasion to reproach Augustus afterwards that he had n
 
 ## Agrippa · reference
 
-Who brought Augustus the news of the victory over Sextus Pompeius while the emperor was still out of sight of his own soldiers.
+Pomponius Atticus’s son-in-law, called to his bedside with two or three friends to be told he had resolved to end his life and his pain together. Also the man who brought Augustus the news of the victory over Sextus Pompeius while the emperor was still out of sight of his own soldiers.
 
 ## The young Marius · reference
 
@@ -2972,7 +2972,7 @@ Who burnt the rich spoils and arms he had gained from the enemy in Sardinia as a
 
 ## Zamolxis · reference
 
-The god of the Getae, who hold themselves immortal and their death nothing but a journey to him.
+The god of the Getae, who hold themselves immortal and their death nothing but a journey to him; and, at 73:90, the legislator of the Scythians, who gave out his laws under the name of Vesta. The older edition spells him Xamolxis there.
 
 ## Amestris · reference
 
@@ -3129,3 +3129,147 @@ Zeno’s disciple, who was of opinion that men have given the title of gods to s
 ## Hyrcanus · reference
 
 King Lysimachus’s dog, who when his master was dead lay on his bed refusing either to eat or drink, and on the day the body was burnt took a run and leaped into the fire and was consumed — Montaigne’s instance, with the dog of one Pyrrhus, of a friendship in beasts more lively and constant than men have.
+
+## Vulcan · reference
+
+The god to whom Tiberius Sempronius burnt the rich spoils and arms he had gained in Sardinia; whose arms stand in the Latin for fortitude — if thou art naked, present thy throat, if covered with Vulcan’s arms, resist; and who, in the line Montaigne quotes, stood against Troy where Apollo stood for it.
+
+## Juno · reference
+
+One of the accustomed gods Zeno takes away, with Jupiter and Vesta; the cruel Juno who stands in arms full in the Scæan gate while Neptune heaves the city from its base; and the goddess whose altars, in the list of the gods each nation adores, the Spartans feed.
+
+## Vesta · reference
+
+One of the accustomed gods Zeno takes away, with Jupiter and Juno; and the goddess under whose name Zamolxis gave out his laws to the Scythians.
+
+## Faunus · reference
+
+The god the Arcadians worship, in the list of the gods each nation adores.
+
+## Pallas · reference
+
+The dead man to whose ghost the four sons of Sulmo and four more that Ufens bred were led as living victims, to expire in sacrifice before his funeral pyre. Evander’s son in the Aeneid, and not the goddess of 69:358 and 69:391.
+
+## Numa · supporting
+
+Numa Pompilius, who fed his people with the foppery that the nymph Egeria brought him all his counsels from the gods, and gave his laws the title of her patronage; and who attempted to conform the devotion of his people to a religion purely mental, without any prefixed object or material mixture — which Montaigne says was to undertake a thing of no use.
+
+## Zoroaster · supporting
+
+Legislator of the Bactrians and Persians, who gave his laws the authority of the God Oromazis as Numa gave his the patronage of Egeria; and whom Aristotle, Pliny and others say flourished six thousand years before Plato’s time.
+
+## Lucius Domitius · reference
+
+Taken in the Abruzzi in Caesar’s civil wars, who poisoned himself upon it and afterwards repented.
+
+## Plautius Silvanus · reference
+
+Whose grandmother sent him a poniard while he was upon his trial; not being able to kill himself with it, he made his servants cut his veins.
+
+## Urgulania · reference
+
+Plautius Silvanus’s grandmother, who sent him the poniard.
+
+## Albucilla · reference
+
+One of the Romans Montaigne lists as having botched their own deaths: the blow was struck with too much tenderness, which gave the adversaries opportunity to imprison and put to death their own way.
+
+## Demosthenes · reference
+
+The great leader who did the same after his rout in Sicily — the Athenian general of the Syracusan expedition, not the orator, whose alias was taking this paragraph until it was suppressed here.
+
+## Fimbria · reference
+
+Who, having struck himself too weakly, entreated his servant to despatch him.
+
+## Ostorius · reference
+
+Who could not make use of his own arm, and disdained to employ his servant’s to any other use than to hold the poniard straight and firm.
+
+## Pomponius Atticus · supporting
+
+Cicero’s correspondent, who being sick called Agrippa his son-in-law and two or three friends to tell them that since every means practised for his recovery was in vain, and all he did to prolong his life prolonged his pain, he had resolved to put an end to both. Having chosen abstinence as the means, he was cured by it — and refused to alter his purpose, saying that as he must one day die, and was now so far on his way, he would save himself the labour of beginning another time.
+
+## Tullius Marcellinus · supporting
+
+A young man of Rome who had a mind to anticipate the hour of his destiny, to be rid of a disease that troubled him more than he was willing to endure, though his physicians assured him of a certain cure. He called a council of friends; some advised out of unmanliness, some out of flattery, and a Stoic told him it was no great matter to live, since his servants and his beasts lived, but a great thing to die handsomely, wisely and firmly. He divided a sum of money among his servants, forsook all nourishment, and on the third day, having caused himself to be sprinkled with warm water, fainted by degrees and not without some kind of pleasure, as he declared himself.
+
+## Danae · reference
+
+Whom a brazen tower held: had it not, Ovid says, she would never have been made a mother by Jove.
+
+## Galla · reference
+
+Martial’s mistress, told to refuse him — love is glutted with joys that are not attended with trouble.
+
+## St James · reference
+
+The saint to whom the people of the march of Ancona more readily make their vows, while those of Galicia vow to Our Lady of Loreto: Montaigne’s instance that difficulty gives all things their estimation, and that what is near at hand is despised.
+
+## Poppaea · reference
+
+Who invented the use of a mask to hide the beauties of her face — to enhance it, Montaigne says, to her lovers.
+
+## Flora · reference
+
+The courtesan who said she never lay with Pompey but that she made him wear the prints of her teeth — Montaigne’s instance that pleasure is much sweeter when it smarts. At 97:38 she is the one who never lent herself to less than a dictator, a consul or a censor, and took pleasure in the dignity of her lovers. Not the Flora of the school walls at 25:90.
+
+## Rutilius · reference
+
+The author of the Itinerarium, quoted for the plague-sore that spreads the further for being lanced. Not the Rutilius of Tacitus’s Agricola at 74:7, nor the consul Publius Rutilius at 84:21.
+
+## Amynomachus · reference
+
+One of Epicurus’s two heirs, ordered by the will to defray every January the expense of the celebration of his birthday, as Hermachus should appoint, and the expense of entertaining the philosophers on the twentieth of every moon.
+
+## Timocrates · reference
+
+Epicurus’s other heir, under the same charge.
+
+## Hermachus · reference
+
+The friend to whom Epicurus wrote on the happy and last day of his life, afflicted with such pain in the bladder and bowels that nothing could be greater, and recompensed by the pleasure the remembrance of his own inventions brought his soul; he asks him to take upon him the protection of Metrodorus’s children, and the will leaves him to appoint how the birthday should be kept. The older edition misprints the salutation HEYMACHUS.
+
+## Sextus Peduceus · reference
+
+Who faithfully restored the treasure C. Plotius had committed to his sole secrecy and trust — which Montaigne says he does not find so commendable, having often done it himself, as he would think it an execrable baseness to have done otherwise.
+
+## C. Plotius · reference
+
+Who committed the treasure to Sextus Peduceus’s sole secrecy and trust.
+
+## Sextilius Rufus · reference
+
+Whom Cicero accuses of having entered upon an inheritance against his conscience — not only not against law, but even by the determination of the laws themselves.
+
+## Herostratus · reference
+
+Of whom Trogus Pompeius says that he was more ambitious of a great reputation than of a good one.
+
+## Manlius Capitolinus · reference
+
+Of whom Titus Livius says the same.
+
+## Trajan · supporting
+
+Whose memory the world blesses where it abominates Nero’s — the one use Montaigne allows the false opinion of glory, if it keeps princes and people in their duty.
+
+## Egeria · reference
+
+The nymph who, Numa gave out, brought him all his counsels from the gods, as Sertorius gave out of his white hind.
+
+## Oromazis · reference
+
+The god under whose name Zoroaster gave out his laws to the Bactrians and Persians. The modern edition writes him Oromasdes.
+
+## Draco · reference
+
+With Solon, legislator of the Athenians, who gave out his laws under the name of Minerva.
+
+## The Sire de Joinville · supporting
+
+St Louis’s familiar companion, and with Eginhard and Philip de Commines one of the elder historians Montaigne trusts. He reports that the religion of the Bedouins enjoined a belief that the soul of him among them who died for his prince went into another body more happy, more beautiful and more robust than the former, by which means they much more willingly ventured their lives.
+
+## Orlando · reference
+
+Ariosto’s hero, who was more bent to do great acts than to boast of them, so that no deeds of his were ever known but those that had witnesses. The bare name at 67:15 and in the citations is the title of the poem and not the man.
