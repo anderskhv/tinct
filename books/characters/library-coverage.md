@@ -1,6 +1,6 @@
 # Character content: library coverage
 
-Snapshot: 2026-09-12. Regenerate with `python3 books/characters/inventory.py`.
+Snapshot: 2026-09-13. Regenerate with `python3 books/characters/inventory.py`.
 
 Only published BOOKS entries are included. Existing Threads content is not evidence of spoiler-safe character readiness.
 
@@ -74,7 +74,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Notes from Underground (`notes-from-underground`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Magna Carta (`magna-carta`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The US Founding Documents (`us-founding-documents`) | validated-package | Production verified September 11 in both English editions; preserve source fingerprints and contextual exclusions. |
-| The Federalist Papers (`federalist-papers`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The Federalist Papers (`federalist-papers`) | validated-package | awaiting-integration: register both English editions, version the asset, run app gates, and verify in production before changing appStatus |
 | Narrative of the Life of Frederick Douglass (`frederick-douglass`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | A Little Princess (`a-little-princess`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Jungle Book (`jungle-book`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |

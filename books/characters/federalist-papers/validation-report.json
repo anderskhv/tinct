@@ -1,0 +1,28 @@
+{
+  "bookId": "federalist-papers",
+  "scope": "80 entities, all Reference -- a political-essay treatise per editorial policy's guidance, with no narrative or staged dialogue of its own; Publius is bound once as the shared pseudonym, and Hamilton and Madison are each bound once from the literal 'MADISON, with HAMILTON' byline that opens essays No. 18-20 in the source text. The book's flagged namesake hazard, 'Brutus' (Roman consul vs. the Anti-Federalist pen name), resolved cleanly: only the Roman Brutus is ever named in the body text (38, 1); no genuine collision exists in this edition. A second, unflagged namesake pair was found and resolved instead: the Duchess of Marlborough and the Duke of Marlborough are two different real people cited in different footnotes of the same essay (No. 6), bound as two separate entities. Three genuinely pseudonymous Anti-Federalist critics (CATO, the federal farmer, TAMONY) are bound as reference entities under their pen names without asserting a real-name identity the text does not give. One title-only reference ('the late king of Prussia') is resolved to Frederick II from publication date and biography, following the Bishop-of-Autun pattern. Four named collective bodies (Ephori, Tribunes, Cosmi, Decemvirs) are bound as kind 'group'. Edition-specific spelling ('Neckar'/'Necker') is aliased under one entity.",
+  "authoredEntries": 80,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "c733011184b5b42d48ac29dc73660ee631d039df0ff0572761724c7e0509d7e8",
+      "chapters": 85,
+      "paragraphs": 1279,
+      "entries": 80,
+      "mentions": 137,
+      "omittedEntities": []
+    },
+    "modern-en": {
+      "sourceSha256": "1974574ebce6859b2c7fdde48b524360b6348e0492e425861e8259076297278d",
+      "chapters": 85,
+      "paragraphs": 1279,
+      "entries": 80,
+      "mentions": 138,
+      "omittedEntities": []
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}
