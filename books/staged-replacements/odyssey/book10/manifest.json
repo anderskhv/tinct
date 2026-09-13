@@ -1,0 +1,46 @@
+{
+ "checks": {
+  "written_by": "scripts/checks.py",
+  "file": "book10/checks-v1.md",
+  "sha256": "acb31a54df7b9f4ba968e7b509ed6feea545dbfc5da484d85225e5b4a872aa9a",
+  "candidate_file": "book10/candidate-v1.json",
+  "candidate_sha256": "eedb949e3a668acb03d3c52b2073c5b05125840ee509f79cb2db0ed9e864a038",
+  "source_file": "book10/source-book10.json",
+  "source_sha256": "15064e9ba044d246876933bcb7a3ca5cd3199e70e84e34feaeca825a6106455f",
+  "pg_file": "source-texts/pg1727-butler-1900.txt",
+  "pg_sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
+  "basis": "all 49 paragraphs",
+  "retention": 0.93645,
+  "sentences": [
+   175,
+   214
+  ],
+  "splitting_rate_raw_pct": 22.3,
+  "norm_rate_pct": 2.7,
+  "norm_rate_butler_pct": 2.7,
+  "sixty_word": [
+   12,
+   2
+  ],
+  "semicolons": [
+   44,
+   11
+  ],
+  "semicolons_kept_added": [
+   11,
+   0
+  ],
+  "dividing_marks": [
+   60,
+   26
+  ],
+  "dividing_marks_kept_added": [
+   26,
+   0
+  ],
+  "norm_rate_ext_pct": 2.1,
+  "norm_rate_butler_ext_pct": 2.1,
+  "move_gap": 0.00908,
+  "all_gates_passed": true
+ }
+}

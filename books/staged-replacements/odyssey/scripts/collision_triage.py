@@ -408,6 +408,133 @@ def rule(books, arrow, key, klass, why):
 # `book09/continuity.md` §7. What follows is the residue, dismissed with a
 # reason apiece.
 
+# ---- the six rows Book 10's ARRIVAL opened in the ACCEPTED Books ---------
+# Every arrow compares across Books, so drafting a tenth adds rows to all nine
+# earlier reports. Ruled here rather than left as a backlog for the next
+# worker (blind spot 10). None of the six is a defect in an accepted file.
+
+rule([2, 4], "B", "slung", "variant",
+     "Book 10 renders Butler's `slung it over my shoulders` as `slung`, and "
+     "Books 2 and 4 render his `girded` as `slung`. Two Butler words, one "
+     "candidate word — but they are the same act in the same formula (a sword "
+     "on a baldric over the shoulder), and `gird` survives in modern English "
+     "only in `gird oneself` and `girder`. The residue is Butler's own "
+     "`slung` in Book 10, and it is in the same place in the same line: this "
+     "is `unavoidable-merge`'s shape with the merge already made by English.")
+rule([1, 2], "B", "raise", "phrase-not-word",
+     "`raise your mast` (Book 10, Circe's sailing directions) against Book 2's "
+     "`build me a barrow ... with all due pomp`. `raise` is a common verb "
+     "doing two unrelated jobs — raising a mast and raising a mound — and the "
+     "row is keyed on the candidate's side alone. No Butler word is flattened.")
+rule([4], "A", "doubted", "variant",
+     "Butler's `doubted` in Book 4 is `I did not know whether`; in Book 10 it "
+     "is `I was uncertain whether`. Both render the same lost double-negative "
+     "construction and neither is the other's word; the row records that one "
+     "Butler word has two renderings across two Books, which is what arrow A "
+     "is for. **Not repaired**, and the reason is a rule: repairing it costs a "
+     "successor to an accepted Book (ledger R-6) for a synonym pair a reader "
+     "cannot notice, in two Books six apart.")
+rule([5], "A", "sufficiently", "variant",
+     "`enough` in Book 5, `long enough` in Book 10 — the same word, with Book "
+     "10's phrase carrying the duration its sentence needs (`when they had "
+     "feasted their eyes upon him sufficiently`). Consistent, not divergent.")
+rule([5], "B", "anyone", "common-rendering",
+     "`any one` -> `anyone` is a compound setting, not a rendering, and it is "
+     "the class §H.1 registers. Book 5's row and Book 10's are the same "
+     "function word.")
+
+rule([3], "B", "greeting", "common-rendering",
+     "Book 3's `saluting` renders Butler's `saluting` and Book 10's "
+     "`greeting` renders his `salutes`. One Butler word, and the two Books "
+     "differ only in whether the sentence wanted a participle or a noun.")
+rule([7], "A", "besought", "variant",
+     "`begged` in Book 7, `entreated` in Book 10 — and Book 10's was `begged` "
+     "until this check raised it, at which point the repair had to choose "
+     "between matching Book 7 and freeing `begged` for Butler's own use. It "
+     "freed `begged`. **Not repaired in Book 7**, which is accepted: the cost "
+     "is a successor (ledger R-6) for two synonyms three Books apart, and the "
+     "rule the package follows is that a cross-Book synonym divergence with "
+     "no flattening is recorded, not chased.")
+rule([8], "A", "neighbour", "variant",
+     "the -our/-or spelling normalization again, in the same formula (`would "
+     "one turn to his neighbour, saying`). Not a rendering decision.")
+rule([9], "A", "upwards", "variant",
+     "Book 9 renders Butler's `face upwards` as `face upward` — the adverb "
+     "without its -s, which is the edition's standing form — and Book 10 "
+     "drops `rising upwards` to `rising up out of`, where the -s form is "
+     "pleonastic after `rising`. Same word, two positions, no flattening.")
+
+# ---- BOOK 10, ruled at its draft (step 3), before the freeze -------------
+# The check returned 132 rows touching Book 10 with **18 undispositioned**, and
+# **nine of the eighteen were live and were repaired in the draft** — which is
+# the instrument doing its job at the only moment a repair is free. Every one
+# of the nine restored Butler's own word or removed a word the draft had
+# introduced, which is **D29** applied at drafting rather than at repair:
+#
+#   `sturdy`   -> `stalwart`  (P001) — `sturdy` is Butler's own at P011, P036
+#   `own land` -> `native land` (P003) — Butler's own `native`
+#   `in two minds` -> `uncertain` (P012) — `in two minds` is Butler's at P036
+#   `spring Artacia` -> `fountain Artacia` (P010) — Butler's own `fountain`
+#   `groves and springs` -> `groves and fountains` (P029) — the same
+#   `dressed` -> `clothed` (P029) — `dressed` is Butler's own at P046
+#   `agreed`  -> `assented` (P039, P040) — `agreed` is Butler's own at P033
+#   `begged`  -> `entreated` (P040) — so Butler's one `besought` has one
+#                rendering, not two
+#   `made my way` -> `fared onward` (P025) — Butler's own, and it frees
+#                `fared` at P038
+#
+# What follows is the residue, dismissed with a reason apiece.
+
+rule([10], "A", "besought", "variant",
+     "one Butler word with ONE rendering after the draft repair — `entreated` "
+     "at both P040 and P045. The row is printed because arrow A lists every "
+     "rendering of a rare Butler word across Books, not because the two "
+     "disagree; they agree, which is the state the arrow exists to produce.")
+rule([10], "A", "doubted", "variant",
+     "Butler's `I doubted whether ... I would not go on` is a double negative "
+     "in a construction modern English has lost; `I was uncertain whether to "
+     "go on` is the same hesitation without it. `uncertain` is free in this "
+     "Book and `in two minds` is NOT — it is Butler's own at P036, which is "
+     "why the draft's first rendering was repaired.")
+rule([10], "A", "neighbour", "variant",
+     "`neighbour` -> `neighbor` is the edition's spelling normalization "
+     "(D15's class: it does not change what a reader says aloud), not a "
+     "rendering decision. The same row will open for every -our/-or word in "
+     "every Book.")
+rule([10], "A", "sufficiently", "variant",
+     "`when they had feasted their eyes upon him sufficiently` -> `long "
+     "enough`. `sufficiently` survives in modern English only in formal and "
+     "technical registers; the sentence is a crew looking at a dead stag.")
+rule([10], "A", "upwards", "variant",
+     "`the smoke of Circe's house rising upwards amid a dense forest` -> "
+     "`rising up out of a dense forest`. `upwards` after `rising` is "
+     "pleonastic in modern English, and `amid` is the word that had to move: "
+     "the smoke rises OUT of the forest, not among it.")
+rule([10], "A", "youth", "variant",
+     "TWO SENSES, and this is the one place in the Book where one Butler word "
+     "must have two renderings. `a young man in the hey-day of his youth` "
+     "(P022) is the abstract noun and is kept as `youth`; `a certain youth "
+     "named Elpenor` (P047) is a person, and modern English does not call a "
+     "person a youth without sounding like a police report. `young man` there "
+     "is not a flattening: nothing else in the Book renders as `young man`, "
+     "and the two Butler occurrences are two words that happen to be spelled "
+     "alike.")
+rule([10], "B", "anyone", "common-rendering",
+     "`every conceivable kind of luxury` -> `every luxury anyone could think "
+     "of`. `anyone` is a function word, not a rendering: it carries no sense "
+     "of Butler's that another word carries, and arrow B is keyed on the "
+     "candidate's side without a stop-word filter on purpose.")
+rule([10], "B", "greeting", "common-rendering",
+     "Butler's `salutes` / `salute` in the Laestrygonian shepherds' passage "
+     "(P008), rendered `greets` / `greeting`. One Butler word, one rendering, "
+     "twice; `salute` in modern English is a military gesture and the "
+     "passage is two shepherds passing on a road.")
+rule([10], "B", "showed", "variant",
+     "FALSE POSITIVE of the same kind as Book 9's `answer` row. `shewed` "
+     "(P024) and `showed` (P003) are not two Butler words: `shewed` is "
+     "Butler's own archaic spelling of `showed`, and the edition normalizes "
+     "the spelling under D15. One word, one rendering.")
+
 # **The row Book 9's v2 OPENED, and it is the class round 1 named.** Round 1's
 # S-3 fixed six collisions, and one fix — `vouchsafed` → `did not answer me
 # with one word` — put the candidate's `answer` at P019 beside its `answer` at

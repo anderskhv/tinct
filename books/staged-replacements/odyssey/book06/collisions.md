@@ -6,7 +6,7 @@ of `book07/review/findings-v1.md`: the check returned seventy-two rows touching
 Book 7, eleven were acted on, and sixty-one were dismissed with no record of
 having been read. This file is that record, and it is generated, not typed.
 
-**82 rows touch Book 6.**
+**89 rows touch Book 6.**
 
 | disposition | rows |
 |---|---|
@@ -17,7 +17,7 @@ having been read. This file is that record, and it is generated, not typed.
 | `discrimination` | 1 |
 | `free-variation` | 1 |
 | `homograph` | 1 |
-| `kept` | 50 |
+| `kept` | 57 |
 | `kept-elsewhere` | 1 |
 | `matches-accepted` | 2 |
 | `unavoidable-merge` | 5 |
@@ -29,15 +29,16 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW A — one Butler word, two or more renderings, across Books
 
-17 rows.
+18 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
+| `apart` | `apart` (B6-P016) | **`kept`** | every entry Book 6 contributes is Butler's own `apart` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `appearance` | `appearance` (B6-P019) | **`homograph`** | One Butler spelling, two senses. `the appearance of Odysseus` at B08-P002 is how he looks; `the presents began to make their appearance` at B08-P038 is an idiom meaning they arrived. Two words that happen to be spelled alike, like `issue` at Book 7. |
 | `around` | `around` (B6-P005) | **`kept`** | every entry Book 6 contributes is Butler's own `around` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `conduct` | `guide` (B6-P010) | **`context-rendered`** | `the girl who was to conduct him to the city` -> `guide` (B06-P010) and `I will also conduct him to Sparta` -> `take` (B01-P007). Nausicaa shows Odysseus a way he does not know; Athena proposes to convey Telemachus on a voyage she is arranging. `guide him to Sparta` would say Telemachus cannot find it, and `take him to the city` would take the showing out of Nausicaa's hands. |
 | `counsels` | `counsels` (B6-P001) | **`kept`** | every entry Book 6 contributes is Butler's own `counsels` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `decorated` | `decorated` (B6-P002) | **`kept`** | every entry Book 6 contributes is Butler's own `decorated` carried through unchanged; the decision in this row belongs to whichever Book moved |
+| `desire` | `desire` (B6-P014) | **`kept`** | every entry Book 6 contributes is Butler's own `desire` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `faring` | `seafaring` (B6-P021) | **`artifact`** | Butler writes `sea-faring` with a hyphen and the tokenizer splits it, so `faring` is not a word either text uses. D15 closes it to `seafaring`, matching accepted B06-P021. There is no rendering pair. |
 | `follow` | `follow` (B6-P021) | **`kept`** | every entry Book 6 contributes is Butler's own `follow` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `handmaids` | `handmaids` (B6-P009) | **`kept`** | every entry Book 6 contributes is Butler's own `handmaids` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -53,18 +54,21 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW B — one rendering, two or more Butler words, across Books
 
-55 rows.
+61 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
+| `about` | `about` (B6-P005), `about` (B6-P006), `about` (B6-P007), `about` (B6-P009), `about` (B6-P012), `about` (B6-P013), `about` (B6-P014), `about` (B6-P018), `about` (B6-P021), `about` (B6-P022), `about` (B6-P023) | **`kept`** | every entry Book 6 contributes is Butler's own `about` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `after` | `after` (B6-P009), `after` (B6-P013) | **`kept`** | every entry Book 6 contributes is Butler's own `after` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `answer` | `answer` (B6-P022) | **`kept`** | every entry Book 6 contributes is Butler's own `answer` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `apart` | `apart` (B6-P016) | **`kept`** | every entry Book 6 contributes is Butler's own `apart` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `arrows` | `arrows` (B6-P021) | **`kept`** | every entry Book 6 contributes is Butler's own `arrows` carried through unchanged; the decision in this row belongs to whichever Book moved |
+| `before` | `before` (B6-P018), `before` (B6-P020) | **`kept`** | every entry Book 6 contributes is Butler's own `before` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `blessed` | `blessed` (B6-P004) | **`kept`** | every entry Book 6 contributes is Butler's own `blessed` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `called` | `called` (B6-P015), `called` (B6-P016), `called` (B6-P020), `convened` (B6-P005) | **`common-rendering`** | `called` is a word Butler himself uses in 16 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
+| `called` | `called` (B6-P015), `called` (B6-P016), `called` (B6-P020), `convened` (B6-P005) | **`common-rendering`** | `called` is a word Butler himself uses in 23 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `carried` | `carried` (B6-P008) | **`kept`** | every entry Book 6 contributes is Butler's own `carried` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `cloak` | `cloak` (B6-P017) | **`kept`** | every entry Book 6 contributes is Butler's own `cloak` carried through unchanged; the decision in this row belongs to whichever Book moved |
+| `could` | `could` (B6-P006), `could` (B6-P022) | **`kept`** | every entry Book 6 contributes is Butler's own `could` carried through unchanged; the decision in this row belongs to whichever Book moved |
+| `drink` | `drink` (B6-P016), `drink` (B6-P019) | **`kept`** | every entry Book 6 contributes is Butler's own `drink` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `enough` | `enough` (B6-P009), `enough` (B6-P012), `enough` (B6-P017) | **`kept`** | every entry Book 6 contributes is Butler's own `enough` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `first` | `first` (B6-P014), `first` (B6-P019) | **`kept`** | every entry Book 6 contributes is Butler's own `first` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `girls` | `girls` (B6-P016) | **`kept`** | every entry Book 6 contributes is Butler's own `girls` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -92,6 +96,7 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `search` | `quest` (B6-P012) | **`unavoidable-merge`** | **Butler himself alternates, inside one speech, which settles it.** He writes `sail the seas in search of my father who has so long been missing` at B02-P018 and `go to Sparta and to Pylos in quest of my father who has so long been missing` at B02-P012 — the same formula, six paragraphs apart, in his own two words. `quest` is archaic outside fixed phrases; `search` is what he means by both, and three accepted Books render it identically. |
 | `settled` | `settled` (B6-P001) | **`kept`** | every entry Book 6 contributes is Butler's own `settled` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `sheltered` | `sheltered` (B6-P016) | **`kept`** | every entry Book 6 contributes is Butler's own `sheltered` carried through unchanged; the decision in this row belongs to whichever Book moved |
+| `sight` | `sight` (B6-P023) | **`kept`** | every entry Book 6 contributes is Butler's own `sight` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `since` | `since` (B6-P017), `since` (B6-P020) | **`kept`** | every entry Book 6 contributes is Butler's own `since` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `sitting` | `sitting` (B6-P005), `sitting` (B6-P023) | **`kept`** | every entry Book 6 contributes is Butler's own `sitting` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `something` | `something` (B6-P016), `something` (B6-P019) | **`kept`** | every entry Book 6 contributes is Butler's own `something` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -102,16 +107,18 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `suppose` | `conjecture` (B6-P013), `suppose` (B6-P003), `suppose` (B6-P022) | **`unavoidable-merge`** | `I can only conjecture that you are Zeus's daughter` -> `suppose` (B06-P013), beside Butler's own `suppose` twice in the same Book and in four others. `conjecture` as a finite verb is formal to the point of stiffness in a castaway's plea, and `suppose` is what Butler himself writes elsewhere for exactly this hedged guess. |
 | `their` | `their` (B6-P001), `their` (B6-P005), `their` (B6-P008), `their` (B6-P009), `their` (B6-P014), `their` (B6-P021), `their` (B6-P024) | **`kept`** | every entry Book 6 contributes is Butler's own `their` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `there` | `there` (B6-P002), `there` (B6-P009), `there` (B6-P013), `there` (B6-P014), `there` (B6-P015), `there` (B6-P017), `there` (B6-P023), `there` (B6-P024) | **`kept`** | every entry Book 6 contributes is Butler's own `there` carried through unchanged; the decision in this row belongs to whichever Book moved |
+| `think` | `think` (B6-P013), `think` (B6-P023) | **`kept`** | every entry Book 6 contributes is Butler's own `think` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `those` | `those` (B6-P003), `those` (B6-P011) | **`kept`** | every entry Book 6 contributes is Butler's own `those` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `three` | `three` (B6-P006) | **`kept`** | every entry Book 6 contributes is Butler's own `three` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `times` | `times` (B6-P009) | **`kept`** | every entry Book 6 contributes is Butler's own `times` carried through unchanged; the decision in this row belongs to whichever Book moved |
+| `under` | `under` (B6-P012), `under` (B6-P016) | **`kept`** | every entry Book 6 contributes is Butler's own `under` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `water` | `water` (B6-P009), `water` (B6-P010), `water` (B6-P012) | **`kept`** | every entry Book 6 contributes is Butler's own `water` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `whatever` | `whatever` (B6-P007) | **`variant`** | every rendering in the row reduces to `whatever` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `where` | `where` (B6-P009), `where` (B6-P012), `where` (B6-P016), `where` (B6-P021), `where` (B6-P022) | **`kept`** | every entry Book 6 contributes is Butler's own `where` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `which` | `wherein` (B6-P004), `which` (B6-P002), `which` (B6-P003), `which` (B6-P004), `which` (B6-P005), `which` (B6-P009), `which` (B6-P010), `which` (B6-P021) | **`common-rendering`** | `which` is a word Butler himself uses in 95 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
+| `which` | `wherein` (B6-P004), `which` (B6-P002), `which` (B6-P003), `which` (B6-P004), `which` (B6-P005), `which` (B6-P009), `which` (B6-P010), `which` (B6-P021) | **`common-rendering`** | `which` is a word Butler himself uses in 103 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `without` | `without` (B6-P008), `without` (B6-P016), `without` (B6-P022) | **`kept`** | every entry Book 6 contributes is Butler's own `without` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `woman` | `scion` (B6-P013), `woman` (B6-P013) | **`common-rendering`** | `woman` is a word Butler himself uses in 17 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
-| `young` | `scion` (B6-P013), `young` (B6-P003), `young` (B6-P011), `young` (B6-P012), `young` (B6-P013), `young` (B6-P017), `young` (B6-P018), `young` (B6-P022) | **`common-rendering`** | `young` is a word Butler himself uses in 33 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
+| `woman` | `scion` (B6-P013), `woman` (B6-P013) | **`common-rendering`** | `woman` is a word Butler himself uses in 20 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
+| `young` | `scion` (B6-P013), `young` (B6-P003), `young` (B6-P011), `young` (B6-P012), `young` (B6-P013), `young` (B6-P017), `young` (B6-P018), `young` (B6-P022) | **`common-rendering`** | `young` is a word Butler himself uses in 35 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 
 ## ARROW C — one paragraph, one rendering ← a word Butler keeps in that same paragraph
 
@@ -119,14 +126,14 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
-| `from` | `thence` (B6-P001) | **`common-word`** | `from` is an ordinary word Butler uses in 153 paragraphs and the two uses share no referent |
-| `out` | `forth upon` (B6-P009) | **`common-word`** | `out` is an ordinary word Butler uses in 89 paragraphs and the two uses share no referent |
-| `among` | `amongst` (B6-P011) | **`common-word`** | `among` is an ordinary word Butler uses in 52 paragraphs and the two uses share no referent |
-| `great` | `much` (B6-P013) | **`common-word`** | `great` is an ordinary word Butler uses in 66 paragraphs and the two uses share no referent |
+| `from` | `thence` (B6-P001) | **`common-word`** | `from` is an ordinary word Butler uses in 170 paragraphs and the two uses share no referent |
+| `out` | `forth upon` (B6-P009) | **`common-word`** | `out` is an ordinary word Butler uses in 106 paragraphs and the two uses share no referent |
+| `among` | `amongst` (B6-P011) | **`common-word`** | `among` is an ordinary word Butler uses in 57 paragraphs and the two uses share no referent |
+| `great` | `much` (B6-P013) | **`common-word`** | `great` is an ordinary word Butler uses in 73 paragraphs and the two uses share no referent |
 | `woman` | `scion` (B6-P013) | **`unavoidable-merge`** | **The row the whole check was built to convict, ruled at last.** The drafter of Book 6 made this call by hand and refused `creature` because it is the edition's rendering of Butler's OWN `creature` in Books 4 and 5 — which is the defect arrow B exists to catch, avoided before arrow B existed. `so fair a scion as yourself` became `so fair a young woman as yourself`, beside Butler's own `a mortal woman` and `neither man nor woman` in the same paragraph. `scion` is a shoot of a plant and has no plain modern equivalent for a person; what it prefigures — the young palm at Delos, three sentences later — is carried by that simile itself, in Butler's own words, kept. Recorded rather than repaired: no available word both reads as modern English and keeps the graft metaphor. |
-| `young` | `scion` (B6-P013) | **`common-word`** | `young` is an ordinary word Butler uses in 33 paragraphs and the two uses share no referent |
-| `man` | `another` (B6-P019) | **`common-word`** | `man` is an ordinary word Butler uses in 100 paragraphs and the two uses share no referent |
-| `tell` | `bid` (B6-P021) | **`common-word`** | `tell` is an ordinary word Butler uses in 62 paragraphs and the two uses share no referent |
-| `over` | `and topes` (B6-P023) | **`common-word`** | `over` is an ordinary word Butler uses in 78 paragraphs and the two uses share no referent |
-| `far` | `distant` (B6-P023) | **`common-word`** | `far` is an ordinary word Butler uses in 37 paragraphs and the two uses share no referent |
+| `young` | `scion` (B6-P013) | **`common-word`** | `young` is an ordinary word Butler uses in 35 paragraphs and the two uses share no referent |
+| `man` | `another` (B6-P019) | **`common-word`** | `man` is an ordinary word Butler uses in 108 paragraphs and the two uses share no referent |
+| `tell` | `bid` (B6-P021) | **`common-word`** | `tell` is an ordinary word Butler uses in 69 paragraphs and the two uses share no referent |
+| `over` | `and topes` (B6-P023) | **`common-word`** | `over` is an ordinary word Butler uses in 89 paragraphs and the two uses share no referent |
+| `far` | `distant` (B6-P023) | **`common-word`** | `far` is an ordinary word Butler uses in 40 paragraphs and the two uses share no referent |
 

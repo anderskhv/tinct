@@ -62,7 +62,7 @@ from controls import control, summary                       # noqa: E402
 # is the failure mode a hand-maintained list has in this package: the review
 # copy of this script named `book04/candidate-v3.json` and would have gone on
 # naming it after the fifth successor was built.
-BOOKS = (1, 2, 3, 4, 5, 6, 7, 8, 9)
+BOOKS = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
 
 def newest(n):
@@ -73,10 +73,16 @@ def newest(n):
 
 ACCEPTED = [(n, newest(n)) for n in BOOKS]
 
-NAME_MAP = {'ulysses': 'odysseus', 'minerva': 'athena', 'jove': 'zeus',
-            'neptune': 'poseidon', 'mercury': 'hermes', 'saturn': 'cronus',
-            'diana': 'artemis', 'euryclea': 'eurycleia', 'venus': 'aphrodite',
-            'juno': 'hera', 'vulcan': 'hephaestus', 'ceres': 'demeter'}
+# **A SECOND COPY of D5's table, found at Book 10 step 3 and removed.** This
+# module carried its own `NAME_MAP` literal, and it was already two rows
+# behind `checks.py`'s — missing `Mars → Ares` (added at Book 8) and
+# `Proserpine → Persephone` (added here). That is the package's recurring
+# disease exactly: **a rule written in one place and applied in another.** In
+# `checks.py` the omission charged Book 8 retention for obeying D5; here it
+# made every `Mars`/`Ares` pair look like a rendering collision and every
+# `Proserpine`/`Persephone` pair too. There is now one table and this module
+# imports it.
+from checks import NAME_MAP                                  # noqa: E402
 RARE_MAX = 3          # paragraphs, across all six Books
 MIN_LEN = 5           # letters
 

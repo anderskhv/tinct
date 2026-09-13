@@ -664,6 +664,7 @@ BASIS = {
     7: (None, "all 29 paragraphs"),
     8: (None, "all 50 paragraphs"),
     9: (None, "all 44 paragraphs"),
+    10: (None, "all 49 paragraphs"),
 }
 
 # The accepted file of each Book, and its successor where one exists. The
@@ -904,6 +905,26 @@ DECLARED = {
                "dividing mark that is not Butler's own. A file absent from "
                "this table gets every gate at full strength; a file present "
                "with an empty declaration says so out loud."),
+    "book10/candidate-v1.json": _decl(
+        growth=[(44, 53, 54)],
+        reason="the frozen draft. **One declaration, and the compound check "
+               "bought it**: Butler writes `drink-offering` closed and Books "
+               "3, 4, 7, 8 and 9 all set it open, so `compound_drift()` fired "
+               "before the freeze and the draft opened it — which added one "
+               "word to a sentence **Butler already wrote at 53**, and the "
+               "D20 gate fires at 50. The growth is one word, on Butler's own "
+               "sentence, produced by obeying a different check. Declaring it "
+               "is cheaper and more honest than keeping a real cross-Book "
+               "drift or recasting Circe's instructions to protect a number. "
+               "Nothing else is declared, and under D28 rather "
+               "than D27: no byte-identical paragraph, no paragraph under "
+               "0.90 of its source's length, no sentence grown past 50 words, "
+               "no compound drift against the other nine Books — and every "
+               "one of the 26 dividing marks it carries is **the mark Butler "
+               "wrote in that place**, not merely a member of the class. "
+               "Book 9's S-1 is the reason that distinction is asserted here "
+               "and was not asserted there. A file present with an empty "
+               "declaration says out loud that it declares nothing."),
     "book09/candidate-v2.json": _decl(
         growth=[(12, 51, 52), (34, 59, 61)],
         reason="**the accepted file.** Round 1's corrections: eight words "
