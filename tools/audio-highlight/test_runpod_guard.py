@@ -62,7 +62,12 @@ class GuardTest(unittest.TestCase):
     def run_guard(self, *args):
         with tempfile.TemporaryDirectory() as directory:
             out = Path(directory) / "report.json"
-            argv = ["runpod_guard.py", *args, "--json-out", str(out)]
+            # Point the ledger at the temp dir. Without this the tests accrue
+            # their fixture pods into the real ledger and bill the live envelope
+            # for money nobody spent — which is exactly what happened the first
+            # time this ran, to the tune of $18.
+            argv = ["runpod_guard.py", *args, "--json-out", str(out),
+                    "--ledger", str(Path(directory) / "ledger.json")]
             old, sys.argv = sys.argv, argv
             try:
                 with contextlib.redirect_stdout(io.StringIO()) as captured:
@@ -198,6 +203,31 @@ class GuardTest(unittest.TestCase):
         with contextlib.redirect_stderr(io.StringIO()):
             self.assertEqual(runpod_guard.main(), 2)
         self.assertEqual(self.stopped, [])
+
+
+class LedgerTest(unittest.TestCase):
+    """The envelope is a total, so cost has to survive the pod that incurred it."""
+
+    def test_exited_pod_still_counts_against_the_envelope(self):
+        now = "2026-09-13T04:00:00Z"
+        running = [{"id": "pod-a", "name": "tinct-a", "costPerHr": 0.44,
+                    "uptimeSeconds": 3600, "uptimeSource": "runtime"}]
+        ledger = {}
+        self.assertAlmostEqual(runpod_guard.accrue(ledger, running, now), 0.44, places=3)
+        # Same pod, now gone: the next sweep sees nothing, and the spend must not
+        # silently fall back to zero the way it did before the ledger existed.
+        self.assertAlmostEqual(runpod_guard.accrue(ledger, [], now), 0.44, places=3)
+
+    def test_a_lower_later_reading_never_reduces_recorded_cost(self):
+        now = "2026-09-13T04:00:00Z"
+        ledger = {}
+        runpod_guard.accrue(ledger, [{"id": "pod-a", "name": "tinct-a", "costPerHr": 0.44,
+                                      "uptimeSeconds": 3600, "uptimeSource": "runtime"}], now)
+        # RunPod has returned uptime 0 for pods that were demonstrably running.
+        # Taking that at face value would erase real spend.
+        total = runpod_guard.accrue(ledger, [{"id": "pod-a", "name": "tinct-a", "costPerHr": 0.44,
+                                              "uptimeSeconds": 0, "uptimeSource": "unknown"}], now)
+        self.assertAlmostEqual(total, 0.44, places=3)
 
 
 if __name__ == "__main__":

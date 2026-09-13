@@ -98,6 +98,53 @@ def _age_seconds(pod: dict) -> float | None:
     return None
 
 
+# The envelope is a TOTAL, not a rate, so it cannot be read off the pods that
+# happen to be alive right now. Before this ledger existed the guard printed
+# "estimated spend $0.00" whenever nothing was running, which reads as "nothing
+# has ever been spent" and is not what it measured — run 1 billed ~19 pods and
+# every report after they exited still said $0.00. Cost is therefore accrued to
+# a file: each pod's highest observed (rate x uptime) is remembered under its
+# id, so a pod that has since exited still counts against the envelope.
+#
+# The known gap: a pod that starts and exits entirely between two guard runs is
+# never observed and never accrued. The five-minute schedule and the 50-minute
+# deadline make that unlikely, not impossible, so treat the total as a floor on
+# spend rather than a precise figure.
+DEFAULT_LEDGER = "artifacts/audio-highlight-spend-ledger.json"
+
+
+def load_ledger(path: str) -> dict:
+    try:
+        with open(path) as handle:
+            return json.load(handle)
+    except (FileNotFoundError, ValueError):
+        return {}
+
+
+def accrue(ledger: dict, pods: list[dict], now: str) -> float:
+    """Record each pod's highest observed cost and return the total accrued."""
+    for pod in pods:
+        rate = pod["costPerHr"] or 0
+        uptime = pod["uptimeSeconds"] or 0
+        entry = ledger.setdefault(pod["id"], {"name": pod["name"], "firstSeen": now})
+        cost = round(rate * uptime / 3600, 4)
+        # Uptime can reset or come back unmeasured; never let a later reading
+        # lower a cost we have already seen billed.
+        entry["estCost"] = max(entry.get("estCost", 0.0), cost)
+        entry["costPerHr"] = rate
+        entry["maxUptimeSeconds"] = max(entry.get("maxUptimeSeconds", 0), uptime)
+        entry["lastSeen"] = now
+    return round(sum(e.get("estCost", 0.0) for e in ledger.values()), 4)
+
+
+def save_ledger(path: str, ledger: dict) -> None:
+    directory = os.path.dirname(path)
+    if directory:
+        os.makedirs(directory, exist_ok=True)
+    with open(path, "w") as handle:
+        json.dump(ledger, handle, indent=1, sort_keys=True)
+
+
 def list_pods(key: str) -> list[dict]:
     status, body = _call("GET", "/pods", key)
     if status != 200:
@@ -141,7 +188,12 @@ def main() -> int:
     parser.add_argument("--max-rate", type=float, default=1.00, help="$/hr ceiling per pod")
     parser.add_argument("--max-minutes", type=float, default=50.0, help="wall-clock deadline per pod")
     parser.add_argument("--budget", type=float, default=25.00, help="total $ envelope")
-    parser.add_argument("--spent", type=float, default=0.0, help="$ already spent before this check")
+    parser.add_argument("--spent", type=float, default=0.0,
+                        help="$ spent before the ledger existed; added to the accrued total")
+    parser.add_argument("--ledger", default=DEFAULT_LEDGER,
+                        help="file accruing each pod's observed cost so exited pods still count")
+    parser.add_argument("--no-ledger", action="store_true",
+                        help="do not read or write the ledger (spend is then current burn only)")
     parser.add_argument("--terminate", action="store_true", help="delete rather than stop an owned pod")
     parser.add_argument("--apply", action="store_true", help="actually act; without it this is a dry run")
     parser.add_argument("--json-out")
@@ -158,7 +210,15 @@ def main() -> int:
 
     live = [p for p in owned if (p["uptimeSeconds"] or 0) > 0 or p["status"] == "RUNNING"]
     running_cost = sum((p["costPerHr"] or 0) * (p["uptimeSeconds"] or 0) / 3600 for p in live)
-    total_spend = args.spent + running_cost
+
+    now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    if args.no_ledger:
+        accrued = running_cost
+        ledger = {}
+    else:
+        ledger = load_ledger(args.ledger)
+        accrued = accrue(ledger, owned, now)
+    total_spend = args.spent + accrued
 
     actions = []
     for pod in owned:
@@ -188,6 +248,8 @@ def main() -> int:
         "foreignPodsLeftAlone": [{"id": p["id"], "name": p["name"], "status": p["status"]} for p in foreign],
         "estimatedRunningCost": round(running_cost, 4),
         "estimatedTotalSpend": round(total_spend, 4),
+        "ledger": args.ledger if not args.no_ledger else None,
+        "podsAccrued": len(ledger),
         "budget": args.budget,
         "actions": [{"id": a["pod"]["id"], "name": a["pod"]["name"], "reasons": a["reasons"]} for a in actions],
         "applied": bool(args.apply),
@@ -198,7 +260,10 @@ def main() -> int:
         print(f"  {pod['id']} {pod['name']} {pod['status']} "
               f"${pod['costPerHr']}/hr up {(pod['uptimeSeconds'] or 0)/60:.1f}m "
               f"({pod['uptimeSource']}) {pod['gpu']}")
-    print(f"estimated spend this envelope: ${total_spend:.2f} of ${args.budget:.2f}")
+    if not args.no_ledger:
+        save_ledger(args.ledger, ledger)
+    print(f"spend accrued to date: ${total_spend:.2f} of ${args.budget:.2f} "
+          f"(billing right now: ${running_cost:.2f})")
 
     # A pod we do not own but which is running and billing is the one case the
     # guard cannot act on. Say so loudly rather than leaving it in a list of
