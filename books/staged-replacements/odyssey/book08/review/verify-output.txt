@@ -1,0 +1,34 @@
+Odyssey Book 8 — source verification, the THIRTEENTH kind of rule
+PG #1727 sha256 ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9
+served original-en sha256 da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07
+
+  ✓ clause A — PG's marker-to-marker byte tiling, contiguous, BODY-BLIND
+  ✓ clause B — the served file's own per-chapter paragraph-count vector, COUNTS ONLY
+  ✓ clause C — the located span and all 24 chapters through the function-word and anagram streams
+
+  Book 8's tile: PG bytes 186975..216657, 50 paragraphs, 5589 words
+  the served count vector: [32, 35, 38, 81, 37, 26, 29, 50, 44, 49, 54, 39, 38, 35, 48, 45, 63, 41, 39, 36, 42, 52, 29, 45]
+
+  controls under D18: 13 fired on BOTH clauses
+    ✓ clause C: one letter changed in a served Book VIII paragraph
+    ✓ clause C: **the B03-P038 splice** — the served file's own spliced ¶38, planted into Book VIII
+    ✓ clause C: **a paragraph of Butler's own Book VI** substituted into Book VIII — every token his
+    ✓ clause C: a paragraph of Butler's own Book VIII moved within Book VIII
+    ✓ clause C: the FIRST letter's case changed and nothing else (audit defect 1 — the class of B03-P001 and B04-P001)
+    ✓ clause C: one function word deleted, every content word kept
+    ✓ clause C: a word replaced by its own ANAGRAM (`on`→`no`) — in the anagram stream's null space, caught because both are function words and the FUNCTION stream is positional
+    ✓ clause A: one tile grown by 400 bytes and a NON-adjacent tile shrunk by 400 — the SUM of the interval lengths is bit-for-bit UNCHANGED, and the repaired ordering assertion fires (audit defect 2: a sum is not a tiling)
+    ✓ clause B: a paragraph deleted from the served Book VIII — the count vector, which reads no word
+    ✓ clause C: two Book VIII paragraphs transposed
+    ✓ clause C: a changed number-word (fifty-two oarsmen)
+    ✓ clause C: POSITIVE — a footnote anchor stripped from PG's side is already how the rule reads it
+    ✓ clause C: a space inserted before an em dash and nothing else (audit defect 4 — the class of B01-P025)
+    ! blind to a tile BOUNDARY moved — tile k’s end and tile k+1’s start shifted together (clause A asserts contiguity, and a boundary moved in both tiles at once is still contiguous; no arithmetic over intervals can see it, which is a real limit of the channel and not a defect in the clause); carried by clause C of this rule, which reads the located span's own paragraphs and fires on the first word that moves across the boundary
+    ! blind to a pure letter REORDERING inside one content word (`answered` -> `adeenrsw`, computed above and shown not to move the verdict) (all three streams are anagram-, function-class- and mark-based; none reads letter ORDER inside a content word); carried by scripts/verify_source_book8.py clause 2, which compares the located span character for character
+    ! blind to a defect PG and the served file SHARE (both sides of every clause are read from the same two artefacts, so a corruption present in PG itself and carried faithfully into the served file cannot move any verdict); carried by book07/review/verify_source_book7_review.py clause 4, which reads PG's FOOTNOTES section against its own internal structure (records finding R-3)
+    ! blind to a content word replaced by a DIFFERENT word with the same letter multiset AND the same function-word neighbourhood AND the same pointing (the three streams' null spaces intersect only there); carried by scripts/verify_source_book8.py clause 2, which compares the located span character for character
+
+  the three divergences of the served file from PG that clause C reproduces independently, besides the D14 splice:
+    B01-P025 — PG sets a space before the em dash in `above all others —for it is I`; the served file closes it up. Whitespace only.
+    B03-P001 — PG opens Book III lower-case, `but as the sun was rising` — Butler's sentence runs on from the end of Book II. The served file capitalizes it. One letter's case.
+    B04-P001 — PG opens Book IV lower-case, `they reached the low lying city` — the same run-on, from PG's Book III ¶38. The served file capitalizes it. One letter's case.

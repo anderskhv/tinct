@@ -24,7 +24,7 @@ is computed over is not a figure (R-1).** The one authoritative table is
 | 5 | 8 — accepted, **successor v3** | `candidate-v2` | all 37 | 0.93808 | +23.5% | 34 → 13 | 12 + 1 | **+7.5%** | 0.00891 |
 | 6 | 8 — accepted, **successor v3** | `candidate-v2` | all 26 | 0.93408 | +27.6% | 27 → 5 | 3 + 2 | **+5.6%** | 0.01156 |
 | **7** | **8 — ACCEPTED** | **`candidate-v2`** | all 29 | **0.93438** | **+34.0%** | **30 → 7** | **5 + 2** | **+7.5%** | **0.01217** |
-| **8** | **4 — FROZEN, review owed** | `candidate-v1` | all 50 | **0.93844** | **+27.1%** | **42 → 0** | **0 + 0** | **+4.3%** | **0.00692** |
+| **8** | **5 — ROUND 1 DELIVERED** | `candidate-v1` | all 50 | **0.93844** | **+27.1%** | **42 → 0** | **0 + 0** | **+4.3%** | **0.00692** |
 
 Hashes: Book 7 accepted
 `e79eb82b5ce6051dc3c61ca39c4480406cf0e2a106c0d53f5182fafe1d3163ac`;
@@ -253,15 +253,55 @@ this is checkable. What it *would* have caught is `sea shore` (56 in 17 against
 singular the record stated** — `mountain tops` is in accepted Book 5 *and*
 accepted Book 6.
 
+## Book 8's round 1 is IN — `book08/review/findings-v1.md`
+
+**Verdict: accept after corrections.** 3 substantive, 8 minor, 7 optional,
+5 records; all 50 paragraphs covered, 34 with no material issue. Every
+published figure recomputed independently and all eleven reproduce.
+
+* **S-1 — the +27.1% is 85% cashed pointing.** Of 52 new sentence boundaries,
+  **44 are marks Butler already wrote** (40 `;`, 1 `:`, 3 `—`) and **8 divide
+  his prose**. Blind spot 5 is written: `book08/review/mark_census.py`. D20
+  prices the semicolon and nothing else, so a **colon or a dash cashed for a
+  period is free division** — the review recommends extending D20 clause (a)
+  to `:` and sentence-internal `—`, which would put Book 8 at **+2.4%**.
+* **S-2 — six of the 42 semicolons should survive** (B08-P009, P034, P039,
+  P043, P046 ×2), and **the worst break in the Book is not one of them**:
+  B08-P047's em dash closes Butler's weeping-woman simile, and cashing it for
+  a period severs the correlative frame. Zero survivors is the shape of a
+  decision made once for a whole category.
+* **S-3 — `checks.py --manifests` is defeated by one field edit** and passes a
+  gate-failing candidate; `verify_manifest`'s `all_gates_passed` clause is
+  guarded on an argument `--manifests` never passes. `prove_manifest.py` never
+  tests that path, its fifth enumerated case is **dead code** (`cases[:4]`),
+  and its R-5 assertion tests `collections.Counter` rather than `DECLARED`.
+* **The `DECLARED` shape recurs:** `book02/candidate-v3/v4/v5.json` declare
+  `compound=[]` and all three carry drift. Nothing evaluates those keys.
+* **`compound_drift.py` keeps a second, stale copy of the accepted-file list**
+  and names `book07/candidate-v1.json` — the rejected file. Same verdict today;
+  it is one fact written twice and updated once.
+* **The register earns its place, with two conditions** — it is keyed on the
+  inflected bigram (`mountain top` closed, `mountain tops` open: one lexeme,
+  two verdicts), and it needs a disposition for *ruled closed against the
+  corpus*. A contamination attack using the nine flagged editions from
+  `d208051e9` **failed**: no verdict moves.
+* **Source holds** under a **thirteenth** rule — PG's marker-to-marker byte
+  tiling + the served file's own paragraph-count vector + three positional
+  streams. **Its audit failed it five times.** The three PG divergences are
+  confirmed independently, and **two of them are not normalizations**:
+  capitalizing B03-P001 and B04-P001 destroys Butler's run-on across the Book
+  boundary, which is the same defect as the A3 splice. **A3 should be widened.**
+
 ## Next, in order
 
 0. **Regenerate `book08/collisions.md`** as part of Book 8's round — see the
    stale-file warning above.
-1. **Book 8's round 1.** `book08/review-instructions.md`, **four questions put
+1. **Book 8 steps 5–8** — act on round 1 above, then acceptance.
+   `book08/review-instructions.md`, **four questions put
    explicitly**. A **thirteenth** kind of source rule, audited before trusted,
    with controls that clear Book 7's bar (the B03-P038 splice and a paragraph
    of Butler's own from another Book, both made to fire).
-2. Then Book 8 steps 5–8, then **Book 9**.
+2. Then **Book 9**.
 3. **Report five numbers with the basis on every one**: retention, raw D17
    rate, **NORM RATE on Butler's own pointing**, semicolons **split into kept
    and added**, and **MOVE-GAP** with displaced runs beside it.
@@ -297,7 +337,17 @@ accepted Book 6.
     written was tautological — and the second repair found **three divergences
     of the served file from PG that nobody had recorded**.
 
-**A thirteenth has to find another channel again.** Still unused: **Butler's
+13. **Book 8 reviewer** — **PG's marker-to-marker byte tiling** (contiguous,
+    zero residue, body-blind) indexed by **the served file's own per-chapter
+    paragraph-count vector** (counts only), verified through three positional
+    streams: closed-class **function-word order** with a case bit,
+    **content-word anagram**, and **punctuation with whitespace-adjacency
+    bits**. 13 controls, 4 declared blindnesses. **Its audit failed it FIVE
+    times**: PG's argument line counted as prose (a uniform off-by-one in all
+    24 chapters), no case bit, a sum instead of a tiling, both word streams
+    punctuation-blind, and two controls inside the null space.
+
+**A fourteenth has to find another channel again.** Still unused: **Butler's
 own PREFACES** and their cross-references into the text; **the footnotes' own
 cross-references between one another**; **PG's licence and transcriber
 boilerplate as file arithmetic** (byte offsets, the `*** START` / `*** END`
