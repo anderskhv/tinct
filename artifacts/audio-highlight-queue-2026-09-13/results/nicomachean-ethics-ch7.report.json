@@ -1,0 +1,109 @@
+[
+ {
+  "key": "nicomachean-ethics/original-en/ch7",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9740186915887851,
+    "reasons": [
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 55,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 57,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "paragraphCount": 147,
+    "paragraphsBelowThreshold": [
+     {
+      "paragraph": 8,
+      "ratio": 0.8333333333333334
+     },
+     {
+      "paragraph": 55,
+      "ratio": 0.4
+     },
+     {
+      "paragraph": 57,
+      "ratio": 0.6666666666666666
+     }
+    ]
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9674766355140187,
+    "reasons": [
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 55,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 57,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 95,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "paragraphCount": 147,
+    "paragraphsBelowThreshold": [
+     {
+      "paragraph": 7,
+      "ratio": 0.8125
+     },
+     {
+      "paragraph": 8,
+      "ratio": 0.8333333333333334
+     },
+     {
+      "paragraph": 55,
+      "ratio": 0.4
+     },
+     {
+      "paragraph": 57,
+      "ratio": 0.6666666666666666
+     },
+     {
+      "paragraph": 95,
+      "ratio": 0.75
+     }
+    ]
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ }
+]
