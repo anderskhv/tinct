@@ -1,3 +1,19 @@
 A11 — the source file is the unheld end of every comparison
 
 0. control — the package as committed
+  ✓ --manifests exits 0 on the untouched package
+      | Every manifest names files that exist and hash to what it recorded, and every `all_gates_passed` is backed by 
+
+1. A11(b) — one comma removed from Butler, nothing regenerated
+      | B08-P001: 'Now when the child of morning, rosy-fingered Dawn, appeared,' -> 'Now when the child of morning rosy-fingered Dawn, appeared, '
+  ✓ checks.py 8 still passes over a corrupted Butler
+      | ['  all gates pass']
+  ✓ --manifests still exits 0
+  ✓ --all still exits 0 — every published figure 'reproduces'
+  ✓ and the source on disk really did change
+
+2. A11(a) — Butler rewritten to flatter the candidate, on the Book
+   under review, then the ordinary workflow: `checks.py 9 --write-manifest`
+      | 12 of Butler's full stops turned into semicolons
+  ✓ BEFORE regenerating, --manifests catches it — clause (b3) recomputes the figures
+      | ['  ✗ manifest: book09 records sentences = [171, 207], and book09/candidate-v1.json gives [159, 207]', '  ✗ ma

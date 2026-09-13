@@ -28,9 +28,9 @@ in the package produces.
 
 | severity | count |
 |---|---|
-| **substantive** | **6** |
+| **substantive** | **7** |
 | minor | 9 |
-| records | 7 |
+| records | 8 |
 | optional | 2 |
 | **paragraphs covered** | **44 of 44, each exactly once** |
 
@@ -129,10 +129,13 @@ one."* Measured (`recompute.py`, and trivially by hand):
   P044 included, ends with quote balance **+1**. Butler closes this quotation
   nowhere in Book IX.
 
-The served `original-en` corpus says where it does close: chapter 8 ends with
-`”`, chapters 9, 10 and 11 end unclosed, and **chapter 12's last paragraph is
-the first to close** one. Odysseus's speech is opened at B09-P001 and closed
-four chapters later.
+The served `original-en` corpus says where it does close. Counting paragraphs
+that open a quotation and do not close it: **chapter 9 has 43 of 44, chapter 10
+has 49 of 49, chapter 11 has 47 of 54, chapter 12 has 38 of 39**, and chapter
+12's last paragraph is the first since B09-P001 to end with `”`. Chapter 13's
+quote balance is zero. Odysseus's speech is opened at B09-P001 and closed four
+chapters later, and **177 paragraphs in between open a quotation nobody
+closes**.
 
 This changes the answer to question 1 rather than answering it. In a paginated
 reader the convention is not *43 paragraphs without a closing mark*; it is
@@ -148,10 +151,14 @@ quote.
 
 ### S-3 — six rendering collisions survived the check, all of them on words too common for arrow B's gate, and one of them is the repair's own doing
 
-`rendering_collisions.py` states its design in its docstring: **"only Butler's
-rare words count"** (`rare = {w for w, n in freq.items() if n <= RARE_MAX …}`).
-Every collision I can find in this Book is on a word that is not rare, which is
-why the check caught fifteen and left these:
+`rendering_collisions.py` states its design in its own docstring: **"only
+Butler's rare words count"** — `rare = {w for w, n in freq.items() if n <=
+RARE_MAX and len(w) >= MIN_LEN}`, with `RARE_MAX = 3` paragraphs and
+`MIN_LEN = 5` letters. Every collision below is on a word that clears neither
+bar. **Four of the six appear nowhere in the 110-row report**; `snatch`,
+`clutch`, `cried`, `exclaimed`, `drove`, `mob` and `flock` are absent from
+`book09/collisions.md` entirely. **Two were reported and dismissed**, and
+their dispositions are the subject of the note after the table.
 
 | ¶ | Butler | candidate | the word it collides with |
 |---|---|---|---|
@@ -177,6 +184,27 @@ nothing checks whether the draft creates the same collision somewhere the arrow
 cannot look.** Here the arrow could not look because `snatch` (5 letters,
 common) is under its own gate.
 
+**And the two that WERE reported were dismissed by a disposition that answers
+a different question.** This is blind spot 8 — *whether a disposition is
+right* — with two instances:
+
+* **`vouchsafed` → `gave`** is row 65, dispositioned `variant`: *"`vouchsafe`
+  survives only in legal and liturgical registers; the sentence's force is in
+  `not one word`, which is kept exactly."* True, and beside the point: the row
+  was raised by **arrow A**, which is keyed on Butler's word across Books, so
+  the disposition rules on whether `gave` is an acceptable modernization of
+  `vouchsafed` and never asks whether `gave` is free in Book 9. It is not —
+  Butler uses it four times.
+* **`supper`** is row 126, dispositioned `common-rendering`: *"`supper` is a
+  word Butler himself uses in 16 paragraphs across seven Books, so its reuse as
+  a rendering is not a decision; arrow B is ungated on this side on purpose and
+  **arrow C carries the residue**."* Arrow C is **same-paragraph only** — the
+  record says so in four places. P019's `made his supper of them` and P014's
+  and P021's `supper` are in different paragraphs, so the residue this
+  disposition hands to arrow C is residue arrow C cannot take. **The
+  disposition invokes a safety net that does not cover the row it is
+  dismissing.**
+
 **Fix:** P019 `a sudden clutch` (Butler's word, and current English);
 `would not give me one word of answer` → something that is not `gave`, e.g.
 `The cruel wretch did not answer me with one word`; P019 `ate them for his
@@ -190,7 +218,23 @@ Butler: *"I want to see if they are **uncivilised savages**, or a hospitable and
 Candidate: *"I want to see whether they are **wild savages**, or a hospitable
 and **civilized** race."*
 
-`continuity.md` §6 records only the first half and its reason:
+**And the collision check raised it.** Arrow A prints the row —
+`humane · civilized (B9-P010) | humane (B6-P011) | humane (B8-P050)` — and
+`book09/collisions.md` row 45 dismisses it, `kept-elsewhere`:
+
+> Book 9 supplies the row's only rendering (`civilized`); every other entry is
+> Butler's own `humane` carried through unchanged by another Book. **There is
+> one rendering decision in this row, not two, so there is nothing to
+> reconcile.**
+
+There is one rendering decision in the row and **that decision is the
+problem**. The disposition is boilerplate — the identical two sentences, word
+for word, dispose of `bloom`, `dozen`, `entered` and thirteen other rows — and
+it answers a cross-Book consistency question the row does not pose. A generated
+sentence that is the same for sixteen rows is a record that somebody ran a
+script, not a record that somebody ruled.
+
+`continuity.md` §6 records only the first half of the change and its reason:
 
 > `uncivilised savages` → `wild savages`. Butler's pair is tautologous in
 > modern English; the contrast the sentence draws is with `a hospitable and
@@ -237,6 +281,54 @@ neither is.
 (`come and see`, and Butler's own `go on board` at P005 and P044); and
 soften §5's closing sentence, which as written is a claim a reviewer disproved
 in one grep.
+
+### S-7 — A7 is incomplete, and Butler's Preface says so: PG's Book II does not end with the comma Butler says he preferred
+
+This is outside Book 9, and it is here because the round was asked to prefer
+**evidence from the source over inference from the package**, and because
+A3-widened is prepared and waiting on Anders.
+
+The same sentence of the Preface to the First Edition that settled the capitals
+settles something else beside them:
+
+> *"the Leipsic Teubner edition of 894 makes **Books ii. and iii. end with a
+> comma** … from a spirit of mere conservatism, **I have preferred to do so**."*
+
+**Two Books, ii and iii. PG honours it for iii only.** Verified in the file:
+
+| | PG #1727 | |
+|---|---|---|
+| end of **Book II** | `Thus, then, the ship sped on her way through the watches of the night from dark till dawn**.**` | a **full stop** |
+| opening of **Book III** | `**but** as the sun was rising from the fair sea…` | **lower case** |
+| end of **Book III** | `Now when the sun had set and darkness was over the land**,**` | a **comma** |
+| opening of **Book IV** | `**they** reached the low lying city of Lacedaemon…` | **lower case** |
+
+Book III's lower-case opening is internal evidence, independent of the
+Preface, that something ends in a comma before it — and what precedes it ends
+in a full stop. **PG's Book II terminal period is almost certainly a
+transcription slip**, and it is a third member of the register S-5's ruling
+asks for: a defect PG and the served file share.
+
+**What this costs A3-widened, which nobody has noticed.** A3-widened restores
+the lower-case openings of Books III and IV. Applied as prepared, the served
+edition would then read:
+
+> … from dark till dawn**.**
+>
+> **but** as the sun was rising from the fair sea …
+
+— a lower-case sentence opening after a full stop, which is not Butler's
+device, is not PG's intention, and looks like a bug for a reason A7's write-up
+does not mention. A7 argues the capitals destroy a half-sentence; restoring the
+capital's absence without restoring the comma leaves the half-sentence half
+restored.
+
+**Recommendation for Anders, with A7:** either widen A3 once more, to Book II's
+terminal comma — for which Butler's own stated preference is the authority, and
+which makes the served text match what Butler says he wrote — or leave Book
+III's opening capitalized and restore only Book IV's, whose protasis (Book
+III's comma) PG does carry. **The two cannot be decided separately**, and the
+patch as prepared and hashed (`e45d6c4d…`) decides only one of them.
 
 ### S-6 — the manifest, third attack: **nothing pins Butler** (A11)
 
@@ -389,7 +481,20 @@ available. Recommended: quote both in §5, and note that the new full stop it
 creates is counted as one of the Book's six net divisions although Butler wrote
 no prose there to divide (S-1).
 
-**R-7 — `README.md` over-reads the agreement of the two NORM RATEs.** *"the
+**R-7 — `collisions.md` is regenerated from the FROZEN candidate, so the
+fifteen repairs are invisible in it.** The generated report contains no row for
+`snatch`, `clutch`, `cried`, `exclaimed`, `drove`, `mob`, `flock`, `horrid`,
+`spring`, `growing`, `turns`, `belly`, `known`, `stayed` or `settled` — the
+words the repairs moved — because the repairs removed the rows. The only record
+that the fifteen repairs happened is `continuity.md` §7's **hand-typed** table,
+which nothing checks, over a draft state that no committed file preserves. A
+reviewer cannot verify a single one of the fifteen from the generated
+artefact; I verified them against PG by hand instead (§9, question 3).
+Recommended: have the drafter write the pre-repair report to
+`book09/collisions-predraft.md` and hash it into the manifest, so the claim
+"fifteen repairs, six of them arrow B" is evidence rather than testimony.
+
+**R-8 — `README.md` over-reads the agreement of the two NORM RATEs.** *"the
 two NORM RATEs (guarded and unguarded) agree to the decimal, which is what it
 looks like when a figure is not bought with pointing."* They agree because the
 **count** of Butler's marks the candidate carries equals the count of marks it
