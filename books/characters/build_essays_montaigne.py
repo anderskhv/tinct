@@ -1,7 +1,7 @@
 """Reviewed bindings for Montaigne's Essays.
 
 Cotton in both editions, 107 chapters covering the three books, 4,897 paragraphs
-per edition. Chapters 1-73 are authored.
+per edition. Chapters 1-80 are authored.
 
 Two things make this book hard, and it has both of them at once. The first is
 spelling: the modern edition modernises the transliterations, so one man is
@@ -28,11 +28,11 @@ BASE=Path(__file__).resolve().parent/'essays-montaigne'
 SPLIT={
  # Edward III's son at 1:1; Edward I at 3:11. Three more Edwards wait in
  # chapters 41, 78 and 80.
- 'Edward':({(1,1):'edward-black-prince',(3,11):'edward-i',(41,7):'edward-iii'},None),
+ 'Edward':({(1,1):'edward-black-prince',(3,11):'edward-i',(41,7):'edward-iii',(80,4):'edward-iii',(78,1):'edward-iii'},None),
  # The tyrant of Syracuse, named twice; the later Dionysiuses are not yet read.
  'Dionysius':({(1,4):'dionysius-elder',(2,21):'dionysius-elder',(16,3):'dionysius-elder',
                (23,19):'dionysius-elder',(40,75):'dionysius-the-younger',
-               (48,34):'dionysius-elder'},None),
+               (48,34):'dionysius-elder',(74,17):'dionysius-elder',(78,6):'dionysius-the-younger'},None),
  # Pompey the Great here; thirty-six later occurrences unread. 40:13 is keyed
  # for the modern edition alone, which modernises the older text's "Pompeius".
  'Pompey':({(1,5):'pompey',(17,6):'pompey',(18,3):'pompey',(18,12):'pompey',
@@ -40,12 +40,12 @@ SPLIT={
             (37,3):'pompey',(40,13):'pompey',(44,0):'pompey',
             (46,12):[None,'pompey'],(47,7):'pompey',(47,17):'pompey',
             (48,5):'pompey',(51,1):'pompey',(65,39):'pompey',
-            (69,126):'pompey',(72,14):'pompey'},None),
+            (69,126):'pompey',(72,14):'pompey',(79,1):'pompey'},None),
  # The citizen of Messina, not the founder of the Stoa.
  'Zeno':({(1,5):'zeno-mamertine',(22,49):'zeno-of-citium',(24,55):'zeno-of-citium',
           (25,143):'zeno-of-citium',(30,28):'zeno-of-citium',
           (52,2):'zeno-of-citium',(69,327):'zeno-of-elea',
-          (69,238):'zeno-of-citium',(69,246):'zeno-of-citium',(69,268):'zeno-of-citium',(69,370):'zeno-of-citium',(69,401):'zeno-of-citium',(69,414):'zeno-of-citium',(69,465):'zeno-of-citium',(69,613):'zeno-of-citium'},None),
+          (69,238):'zeno-of-citium',(69,246):'zeno-of-citium',(69,268):'zeno-of-citium',(69,370):'zeno-of-citium',(69,401):'zeno-of-citium',(69,414):'zeno-of-citium',(69,465):'zeno-of-citium',(69,613):'zeno-of-citium',(74,115):'zeno-of-citium'},None),
  # Alexander the Great in both authored places.
  'Alexander':({(1,6):'alexander',(6,8):'alexander',(18,3):'alexander',
                (19,21):'alexander',(23,7):'alexander',
@@ -57,7 +57,7 @@ SPLIT={
                (60,53):'alexander',(62,21):'alexander',(65,40):'alexander',
                (66,6):'alexander',(68,55):'alexander',(69,78):'alexander',
                (69,139):'alexander',(69,300):'alexander',
-               (69,532):'alexander',(73,31):'alexander'},None),
+               (69,532):'alexander',(73,31):'alexander',(74,8):'alexander',(75,0):'alexander',(76,4):'alexander',(76,5):'alexander'},None),
  # Conrad III at 1:3; Conrad Marquis of Monteferrat at 86:19.
  'Conrad':({(1,3):'conrad-iii'},None),
  # The Ferdinand of the Buda campaign at 2:9; King Ferdinand of the Indies at
@@ -68,7 +68,7 @@ SPLIT={
  'John':({(2,9):'john-of-hungary',(3,11):'john-zisca',(26,18):'john-of-castile',
           (40,8):'john-of-portugal'},None),
  # The dialectician at 2:21; Diodorus Siculus at 69:532 and 74:18.
- 'Diodorus':({(2,21):'diodorus-dialectician',(69,532):'diodorus-siculus'},None),
+ 'Diodorus':({(2,21):'diodorus-dialectician',(69,532):'diodorus-siculus',(74,18):'diodorus-siculus'},None),
  # Robert Bruce at 3:11; the King Robert of 33:7 is not identified with him.
  'Robert':({(3,11):'robert-bruce'},None),
  # Philip of Spain at 3:13; Don Philip at 7:0. Philip of Macedon and Alexander's
@@ -86,7 +86,7 @@ SPLIT={
            (42,50):'cyrus-the-great',(47,17):'cyrus-the-younger',
            (48,7):'cyrus-the-great',(48,44):'cyrus-the-great',
            (59,28):'cyrus-the-younger',(60,50):'cyrus-the-great',
-           (69,535):'cyrus-the-great'},None),
+           (69,535):'cyrus-the-great',(79,0):'cyrus-the-great'},None),
  # Socrates's friend at 3:15; the Crito of 69:208 is somebody's brother in
  # another story.
  'Crito':({(3,15):'crito',(69,208):'crito-brother'},None),
@@ -103,7 +103,7 @@ SPLIT={
  r'[Dd]u Bellay':({(67,31):'martin-du-bellay',(5,9):'martin-du-bellay',(10,3):'jean-du-bellay',
                    (14,1):'martin-du-bellay',(24,0):'joachim-du-bellay',
                    (24,2):'joachim-du-bellay',(25,123):'joachim-du-bellay',
-                   (35,6):'martin-du-bellay'},None),
+                   (35,6):'martin-du-bellay',(74,157):'joachim-du-bellay'},None),
  # Antigonus the besieger of Eumenes; the Antigonus of 37:0, who was displeased
  # at being brought Pyrrhus's head, is another.
  'Antigonus':({(5,10):'antigonus-i',(37,0):'antigonus-gonatas',
@@ -127,10 +127,10 @@ SPLIT={
  'Charles':({(7,0):'charles-v',(11,14):'charles-v',(12,3):'charles-v',(16,8):'charles-v',
              (20,22):'charles-iv',(30,43):'charles-ix',(41,7):'charles-v',
              (47,18):'charles-v',(55,14):'charles-v',(65,17):'charles-v',
-             (65,18):'charles-v',(67,31):'charles-v'},None),
+             (65,18):'charles-v',(67,31):'charles-v',(78,1):'charles-v-france'},None),
  # The Duke of Alva of the Brussels executions; "the last Duke of Alva" at
  # 74:157 is a later head of the house.
- 'Alva':({(7,0):'duke-of-alva'},None),
+ 'Alva':({(7,0):'duke-of-alva',(74,157):'duke-of-alva'},None),
  # Pliny the Elder; the younger Pliny holds 38:45, 38:60 and 39:0, and the
  # modern edition names him once more at 38:50 where the older text says only
  # "this advice".
@@ -142,7 +142,7 @@ SPLIT={
            (60,43):'pliny-elder',(60,44):'pliny-elder',
            (60,60):'pliny-elder',(69,47):'pliny-elder',(69,153):'pliny-elder',
            (69,326):'pliny-elder',(69,388):'pliny-elder',
-           (69,532):'pliny-elder',(69,638):'pliny-elder',(70,20):'pliny-elder',(70,28):'pliny-elder',(71,0):'pliny-elder'},None),
+           (69,532):'pliny-elder',(69,638):'pliny-elder',(70,20):'pliny-elder',(70,28):'pliny-elder',(71,0):'pliny-elder',(74,106):'pliny-the-younger'},None),
  # Francis I in all three authored places.
  'Francis':({(9,8):'francis-i',(9,9):'francis-i',(10,3):'francis-i',(11,14):'francis-i',
              (13,1):'francis-i',(24,49):'francis-brittany',(47,18):'francis-i',
@@ -186,20 +186,20 @@ SPLIT={
             (61,3):'julius-caesar',(65,39):'julius-caesar',
             (68,37):'julius-caesar',(65,32):'julius-caesar',(69,287):'julius-caesar',
             (65,40):'julius-caesar',(67,19):'julius-caesar',
-            (67,26):'julius-caesar',(67,28):'julius-caesar',(70,9):'julius-caesar',(70,14):'julius-caesar',(70,17):'julius-caesar',(70,28):'julius-caesar',(73,31):'julius-caesar',(73,80):'julius-caesar'},None),
+            (67,26):'julius-caesar',(67,28):'julius-caesar',(70,9):'julius-caesar',(70,14):'julius-caesar',(70,17):'julius-caesar',(70,28):'julius-caesar',(73,31):'julius-caesar',(73,80):'julius-caesar',(74,1):'julius-caesar',(74,30):'julius-caesar',(75,0):'julius-caesar',(75,18):'julius-caesar',(79,1):'julius-caesar'},None),
  # Pompey's father-in-law at 18:12. Every other Scipio in the Essays belongs to
  # a chapter not yet authored, and the name runs through a whole family.
  'Scipio':({(18,12):'metellus-scipio',(22,49):'publius-scipio-pontifex',
             (23,10):'scipio-africanus',(25,51):'scipio-africanus',
             (39,0):'scipio-aemilianus',(47,19):'scipio-africanus',
             (57,7):'scipio-africanus',(62,18):'scipio-africanus',
-            (66,7):'scipio-aemilianus',(66,14):'scipio-aemilianus'},None),
+            (66,7):'scipio-aemilianus',(66,14):'scipio-aemilianus',(76,4):'scipio-africanus'},None),
  # P. Crassus the consul in Asia — "Publius Crassus" in the modern edition. The
  # triumvir and his son are not yet read, so only 16:9 is keyed.
  'Crassus':({(16,9):'publius-crassus',(16,10):'publius-crassus',
              (69,87):'crassus-orator',(69,126):'crassus-triumvir',(73,18):'crassus-triumvir'},None),
  # Antiochus inflamed by Stratonice. The Essays name several Antiochuses.
- 'Antiochus':({(20,4):'antiochus',(47,14):'antiochus-iii',(59,51):'antiochus-iv'},None),
+ 'Antiochus':({(20,4):'antiochus',(47,14):'antiochus-iii',(59,51):'antiochus-iv',(79,1):'antiochus-iii'},None),
  # Monsieur de Bourbon, who took Rome. The house supplies more men later.
  'Bourbon':({(17,2):'bourbon'},None),
  # Diogenes the Atheist in the temple at Samothrace. Diogenes the Cynic fills
@@ -240,7 +240,7 @@ SPLIT={
           (65,28):'cato-the-censor',(69,22):'cato-the-younger',
           (69,452):'cato-the-younger',(68,8):'cato-the-younger',
           (68,14):'cato-the-younger',(68,16):'cato-the-younger',
-          (68,17):'cato-the-younger',(70,40):'cato-the-younger'},None),
+          (68,17):'cato-the-younger',(70,40):'cato-the-younger',(78,11):'cato-the-younger'},None),
  # The conspirator in Livia's list. The two Lepiduses already cast are bound by
  # their full names, so the bare surname is free for this one.
  'Lepidus':({(23,1):'lepidus-conspirator'},None),
@@ -279,7 +279,7 @@ SPLIT={
  'Brutus':({(40,6):'brutus-xanthus',(50,8):'marcus-brutus',
             (59,47):'brutus-consul',(60,38):'marcus-brutus',
             (65,39):'marcus-brutus',(67,20):'marcus-brutus',
-            (67,21):'marcus-brutus'},None),
+            (67,21):'marcus-brutus',(76,7):'marcus-brutus',(79,6):'decimus-brutus'},None),
  # Cotton prints Pompey's name Pompeius in the Posidonius story.
  'Pompeius':({(40,13):'pompey'},None),
  # Two Constantines in one sentence at 33:7, the founder of the empire and the
@@ -299,22 +299,22 @@ SPLIT={
  # the besieger of Crete. Metellus Scipio at 18:12 is bound by his longer name,
  # and chapters 51, 68 and 103 name a Metellus who has not been read.
  'Metellus':({(44,0):'metellus-tribune',(48,47):'metellus-crete',
-              (68,7):'metellus-numidicus'},None),
+              (68,7):'metellus-numidicus',(74,91):'metellus-macedonicus'},None),
  # The young Marius who slept through his own rout at 44:1, and his father in the
  # social war at 47:8. Six later occurrences are unread.
  'Marius':({(44,1):'marius-younger',(47,8):'marius-elder',
-            (58,0):'marius-younger',(66,13):'marius-elder'},None),
+            (58,0):'marius-younger',(66,13):'marius-elder',(74,36):'marius-elder'},None),
  # Two kings called Alfonso, whom the Essays do not identify with each other: the
  # one who preferred the condition of asses, and the founder of the Order of the
  # Band. Neither passage says anything that would join them.
  'Alfonso':({(42,57):'alfonso-of-the-asses',(48,43):'alfonso-of-the-band'},None),
  # Xenophon's Hiero, in the three paragraphs of chapter 42 that quote him. Three
  # later occurrences are unread, and Syracuse had two kings of the name.
- 'Hiero':({(42,50):'hiero',(42,57):'hiero',(42,60):'hiero'},None),
+ 'Hiero':({(42,50):'hiero',(42,57):'hiero',(42,60):'hiero',(77,25):'hiero'},None),
  # The Duc de Guise of Dreux. 15:5's Guise is the town the Count of Nassau
  # entered, and 74:157 and 104:60 name a Duc de Guise who has not been read --
  # the house supplied more than one.
- 'Guise':({(45,0):'duc-de-guise',(45,1):'duc-de-guise'},None),
+ 'Guise':({(45,0):'duc-de-guise',(45,1):'duc-de-guise',(74,157):'duc-de-guise'},None),
  # Scipio Africanus under his cognomen, in the epitaph Cicero quotes. Scipio
  # Aemilianus carried the same cognomen, and 91:0 and 104:111 are unread.
  'Africanus':({(46,18):'scipio-africanus'},None),
@@ -351,7 +351,7 @@ SPLIT={
  # name, and the later ones are unread.
  'Tiberias':({(59,13):'tiberius-emperor'},None),
  'Tiberius':({(59,13):'tiberius-emperor',(60,56):'tiberius-emperor',
-              (65,39):'tiberius-emperor',(70,28):'tiberius-emperor'},None),
+              (65,39):'tiberius-emperor',(70,28):'tiberius-emperor',(74,94):'tiberius-emperor',(79,1):'tiberius-emperor'},None),
  # The older edition misprints Pliny "Piny" at 60:43; the modern edition prints it
  # correctly, and the Pliny table carries that paragraph for the modern text.
  'Piny':({(60,43):'pliny-elder'},None),
@@ -448,7 +448,7 @@ SPLIT={
  # at 15:4 and who is bare at 66:15, and Tullius Marcellinus of chapter 70.
  # 76:5, 76:8 and 89:4 are not yet read and are deliberately unkeyed.
  'Marcellinus':({(66,15):'ammianus-marcellinus',(70,35):'tullius-marcellinus',
-                 (70,38):'tullius-marcellinus'},None),
+                 (70,38):'tullius-marcellinus',(76,5):'ammianus-marcellinus',(76,8):'ammianus-marcellinus'},None),
  # The English gloss at 72:5 carries the card; 72:4 is Ovid's Latin, where the
  # accusative Danaen and the vocative Danae both stand and neither is bound.
  'Danae':({(72,5):'danae'},None),
@@ -457,7 +457,7 @@ SPLIT={
  # The author of the Itinerarium at 72:43. The Rutilius of Tacitus's Agricola at
  # 74:7 and the consul Publius Rutilius at 84:21 are two other men, in chapters
  # not yet read, which is why the poet is keyed and not aliased.
- 'Rutilius':({(72,43):'rutilius-poet'},None),
+ 'Rutilius':({(72,43):'rutilius-poet',(74,7):'rutilius-rufus'},None),
  # Keyed rather than aliased because 69:351 is Virgil's Latin, where the name is
  # not bound; 69:352 is the English version of the same lines. Chapter 99 has
  # three more and is not yet read.
@@ -476,6 +476,33 @@ SPLIT={
  # the Graces, and the courtesan of 72:14 and 97:38, who is named as a courtesan
  # in both her paragraphs. The goddess's alias was taking both of hers.
  'Flora':({(25,90):'flora',(72,14):'flora-courtesan',(97,38):'flora-courtesan'},None),
+ # ------------------------------------------- added with chapters 74-80
+ # Two Scauruses the Essays do not join: Tacitus's pair of self-biographers at
+ # 74:7, and the husband whose wife Sextilia died with him at 60:52.
+ 'Scaurus':({(60,52):'scaurus',(74,7):'aemilius-scaurus'},None),
+ # The older edition misprints Metellus of Macedon at 74:91.
+ 'Metellius':({(74,91):'metellus-macedonicus'},None),
+ # The gloss at 74:38 carries the card; 74:37 is Virgil's Latin.
+ 'Turnus':({(74,38):'turnus'},None),
+ # The same, at 74:110 against Martial's Latin at 74:109.
+ 'Atlas':({(74,110):'atlas'},None),
+ # Rene of Sicily at 74:112. The Rene of 37:0 is the Duke of Lorraine, bound by
+ # his own longer alias; the modern edition accents them both.
+ 'Rene':({(74,112):'rene-of-sicily'},None),
+ r'Ren\u00e9':({(74,112):'rene-of-sicily'},None),
+ # The older edition's English version of Acts i. 26 misprints Matthias as
+ # Matthew at 74:120. St Matthew at 104:73 is another man, in a chapter not read.
+ 'Matthew':({(74,120):'matthias'},None),
+ # The rhetorician of 74:26. The Rabirius of 88:11 is not yet read.
+ 'Rabirius':({(74,26):'rabirius'},None),
+ # Cornelius Tacitus and the Emperor Tacitus in one sentence at 76:1, the
+ # historian first. The historian's alias would take both, so it is suppressed
+ # there and the paragraph keyed by occurrence.
+ 'Tacitus':({(76,1):['tacitus','emperor-tacitus']},None),
+ # Tiberius's brother at 79:1. The Drusus of 96:14 is not yet read.
+ 'Drusus':({(79,1):'drusus'},None),
+ # The Rhamnusian virgin of the gloss at 80:7; 80:6 is Catullus's Latin.
+ 'Rhamnusian':({(80,7):'nemesis'},None),
 }
 # A name that is the subject of the sentence rather than its referent. In the
 # chapter on names Montaigne counts "three of the name of Socrates" among the
@@ -512,7 +539,22 @@ SUPPRESS={('Socrates',46,12),
           # Montaigne, to make the point that the author has no name that is enough
           # his own. Neither occurrence is the man, and his alias was taking both --
           # the same trap as Socrates at 46:12, and in the same essay on glory.
-          ('Montaigne',73,71)}
+          ('Montaigne',73,71),
+          # 76:1 names Cornelius Tacitus and the Emperor Tacitus, his kinsman, in
+          # one sentence. The historian's alias was taking both.
+          ('Tacitus',76,1),
+          # Names inside quoted verse are not bound; the version that follows carries
+          # the card. Where the name has one bearer in the whole work it stays an alias
+          # and the verse paragraph is suppressed instead of keying every prose one:
+          # 74:152 is Persius's Latin (74:151 and 74:153 are Montaigne's own prose and
+          # the English version), and 75:14 is Marot's French against the English at
+          # 75:15.
+          ('Polemon',74,152),
+          ('Sagoin',75,14),
+          # 74:9 is "the epicycle of Mercury" -- the planet, not the god, whose alias
+          # was taking it. The only place in the first eighty chapters where one of the
+          # gods' names is an astronomical one.
+          ('Mercury',74,9)}
 # Aristo of Chios is bound by his full name rather than by a table, because the
 # bare "Aristo" is three different men in this book: the Stoic of 24:54, a
 # tragedian at 25:152, and — in the older edition only — Ariosto at 27:13, where

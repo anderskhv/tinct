@@ -1564,7 +1564,7 @@ Exiled to Lesbos and found to be living there as merry as the day was long, so t
 
 ## Amurath · reference
 
-Who at the taking of the Isthmus immolated six hundred young Greeks to his father’s soul as a propitiatory sacrifice for his sins.
+Who at the taking of the Isthmus immolated six hundred young Greeks to his father’s soul as a propitiatory sacrifice for his sins. Not the Amurath III of 78:1.
 
 ## Fernando Cortez · reference
 
@@ -2432,7 +2432,7 @@ Who conquered Thrace, and to whom Augustus committed the most inward secrets of 
 
 ## Tiberius · reference
 
-The emperor, who trusted his whole counsels to Cossus as Augustus did his to Lucius Piso, and with as little cause for complaint. In his reign the condemned who would live to be executed forfeited their goods and were denied the rites of sepulture, while those who anticipated it by killing themselves were interred and could dispose of their estates by will. The older edition misprints his name Tiberias.
+The emperor, who trusted his whole counsels to Cossus as Augustus did his to Lucius Piso, and with as little cause for complaint. In his reign the condemned who would live to be executed forfeited their goods and were denied the rites of sepulture, while those who anticipated it by killing themselves were interred and could dispose of their estates by will. The older edition misprints his name Tiberias. At 79:1 he is Tiberius Nero, before the adoption, and the emperor Nero’s alias was taking the second half of that name.
 
 ## Cossus · reference
 
@@ -2596,7 +2596,7 @@ Wife of Scaurus, who with Paxaea voluntarily sacrificed her own life to encourag
 
 ## Scaurus · reference
 
-Her husband.
+Sextilia’s husband, who with Labeo was pressed by dangers their wives had no share in but conjugal affection. Keyed rather than aliased, because the Scaurus of Tacitus’s pair of self-biographers at 74:7 is another man.
 
 ## Paxaea · reference
 
@@ -2852,7 +2852,7 @@ The third.
 
 ## Lactantius · reference
 
-Who seems to attribute to beasts not only speech but laughter, and who with Seneca and most of the Dogmatists confessed that the soul was a thing they did not understand.
+Who seems to attribute to beasts not only speech but laughter, and who with Seneca and most of the Dogmatists confessed that the soul was a thing they did not understand. The older edition misprints him Lactantms at 74:156.
 
 ## King Porus · reference
 
@@ -3273,3 +3273,219 @@ St Louis’s familiar companion, and with Eginhard and Philip de Commines one of
 ## Orlando · reference
 
 Ariosto’s hero, who was more bent to do great acts than to boast of them, so that no deeds of his were ever known but those that had witnesses. The bare name at 67:15 and in the citations is the title of the poem and not the man.
+
+## The Muses · reference
+
+The goddesses to whom antiquity gave the ordering and patronage of the young’s sports, with Apollo and Minerva; whose sacred inspiration stirs the poet up in the theatre; to whom the Lacedaemonians sacrificed as they entered battle, so that their actions might be well and worthily written; and by society with whom Montaigne says he would rather have begotten a very beautiful child than by lying with his wife.
+
+## The Sirens · reference
+
+Whose first charm to allure Ulysses was to wheedle and entertain him with his own praises — Montaigne’s instance that no panderism is so apt to corrupt as praise. The older edition spells them Syrens.
+
+## Xenocrates · supporting
+
+Plato’s successor at the Academy, who makes eight gods — five named among the planets, a sixth composed of all the fixed stars as of so many members, the seventh and eighth the sun and moon — and who with the Egyptians makes the soul a mobile number; and whose lecture, walked into by chance, reformed the debauched Polemon on the spot. The older edition prints him Zenocrates in the Apology, on the same misprint as Zenophanes for Xenophanes.
+
+## Rutilius · reference
+
+With Scaurus, one of the two Romans Tacitus says wrote their own lives without its being thought a breach of good faith or a disparagement. Not the author of the Itinerarium at 72:43, nor the consul Publius Rutilius at 84:21.
+
+## Scaurus · reference
+
+The other of the two. Not the Scaurus whose wife Sextilia died with him at 60:52; the Essays do not join them.
+
+## The Emperor Constantius · supporting
+
+Who always in public held his head upright and stiff, without bending or turning to either side, not so much as to look on those who saluted him — Montaigne’s instance of a haughty irregularity of deportment. Also Julian the Apostate’s predecessor, against whose party Julian was severe at the beginning of his reign.
+
+## Amafanius · reference
+
+With Rabirius, the pattern of the inform and irregular way of speaking Montaigne owns to: a popular jargon, proceeding without definition, division or conclusion.
+
+## Rabirius · reference
+
+The other of that pair.
+
+## Messalla · reference
+
+Who complains in Tacitus of the straitness of some garments in his time, and of the fashion of the benches where the orators were to declaim, as a disadvantage to their eloquence. Not Messala Corvinus of 74:99.
+
+## Messala Corvinus · reference
+
+Who was two years without any trace of memory — which Montaigne sets beside his own bad one, and beside Georgius Trapezuntius. Not the Messalla of Tacitus’s dialogue at 74:30.
+
+## Turnus · reference
+
+Who marches in the first rank brandishing his weapon, taller by a head than all the rest — the height Montaigne says is the only beauty of men.
+
+## Chancellor Olivier · supporting
+
+Author of the saying Montaigne calls to mind when he judges his own strength: that the French are like monkeys that swarm up a tree from branch to branch and never stop till they come to the highest, and there show their breech. One of the two Chancellors of France Montaigne names for great ability and no common virtue.
+
+## De l’Hospital · supporting
+
+The other of those two Chancellors, and one of the good artificers of poetry in Montaigne’s age.
+
+## Metellus of Macedon · reference
+
+Author of the saying some of our princes have bragged of since: that they would burn their shirts if they knew their true intentions. The older edition prints him Metellius.
+
+## Soliman · supporting
+
+Of the Ottoman race, a race not very solicitous of keeping their words or compacts — and yet, being told that Mercurino de’ Gattinara and the inhabitants of Castro were held prisoner against the articles of their capitulation, he took it ill. Also the Soliman who said that victories obtained without the master are never complete. The modern edition writes him Suleiman.
+
+## Mercurino de’ Gattinara · reference
+
+Held prisoner with the inhabitants of Castro after they had surrendered the place, contrary to the articles of their capitulation. The older edition prints him Gratinare.
+
+## Latinus · reference
+
+The scoffer Martial’s epigram asks whether the critic could excel — quoted by Montaigne against those who would carp at his book.
+
+## Atlas · reference
+
+Who, in the same epigram, would refuse to bear a nose so great.
+
+## King Francis II · supporting
+
+In whose presence at Barleduc Montaigne saw a self-portrait of Rene, king of Sicily, presented as a memorial — which is Montaigne’s warrant for drawing himself with a pen.
+
+## Rene, king of Sicily · reference
+
+Who had drawn the portrait of himself. Not the Rene, Duke of Lorraine, of 37:0.
+
+## Machiavelli · supporting
+
+Whose writings Montaigne calls solid enough for their subject and yet easy enough to be controverted — and those who controverted them no less easy to controvert.
+
+## Matthias · reference
+
+Upon whom the lot fell, in the verse of the Acts Montaigne quotes for the ancient way of leaving a doubtful choice to chance. The older edition’s English version misprints him Matthew.
+
+## Polemon · supporting
+
+A lewd and debauched young Greek who, going by chance to hear one of Xenocrates’s lectures, brought away not only the knowledge of some fine matter but a sudden reformation of his life — the instance Montaigne takes of an effect of philosophy that outlasts the hearing of it.
+
+## Ulpian · reference
+
+One of the four names Montaigne says the pedants honour alike, at the expense of their own understandings — with Cicero, Galen and St Jerome.
+
+## St Jerome · reference
+
+The fourth of them.
+
+## Marshal Strozzi · supporting
+
+With the Duc de Guise who died at Orleans, the most remarkable man Montaigne judged by outward appearance for soldiership and military conduct.
+
+## D’Aurat · reference
+
+One of the good artificers of poetry Montaigne names in his own age, with Beza, Buchanan, L’Hospital, Montdore and Turnebus.
+
+## Beza · reference
+
+Another of them.
+
+## Montdore · reference
+
+Another of them. The modern edition writes him Mondoré.
+
+## Monsieur de la Noue · supporting
+
+Whose constant goodness, sweetness of manners and conscientious facility, in so great an injustice of armed parties — the true school of treason, inhumanity and robbery — kept up the reputation of a great and experienced captain.
+
+## Marie de Gournay le Jars · supporting
+
+Whose judgment of Montaigne’s first Essays, being a woman, so young, and alone in her own country, he has taken delight to publish his hopes of in several places.
+
+## Sagoin · reference
+
+The butt of the verses Montaigne quotes for the way a lie should be answered — a slap on his eye, a slap on his snout, a slap on Sagoin’s back.
+
+## Fripelippes · reference
+
+Marot’s valet, in whose name the verses against Sagoin are written.
+
+## Salvianus · reference
+
+Of Marseilles, who lived in the time of the Emperor Valentinian, and says that lying and forswearing themselves is with the French not a vice but a way of speaking.
+
+## The Emperor Tacitus · supporting
+
+Cornelius Tacitus’s kinsman, who by express order furnished all the libraries in the world with the history — and not one entire copy escaped those who wanted it abolished for five or six idle clauses contrary to our belief. Not the historian.
+
+## Maris · reference
+
+Bishop of Chalcedon, in the story Montaigne’s own people tell of Julian the Apostate.
+
+## Eutropius · reference
+
+Montaigne’s other witness for Julian: an enemy to Christianity, but without putting his hand to blood.
+
+## Simonides · supporting
+
+Whose imagination, on the question King Hiero had put to him, suggested so many sharp and subtle considerations that, doubting which was likeliest, he totally despaired of the truth.
+
+## Bajazet II · supporting
+
+Who with his son swerved from the Ottoman opinion that a prince should lead his own wars, spending their time in science and other retired employments, and gave great blows to their empire. Not the Bajazet of the snow tempest at 48:53.
+
+## Charles V · supporting
+
+King Charles V of France, of whom Edward III of England said that there never was a king who so seldom put on his armour, and yet never a king who gave him so much to do. Not the Emperor Charles V.
+
+## Amurath III · supporting
+
+Now reigning, who follows Bajazet II’s example and begins to find the same effect: an Ottoman prince who does not lead his own wars. The modern edition writes him Murad III. Not the Amurath of 48:53.
+
+## Marcus Fabius · reference
+
+To whom the Roman legionary swore he would return a conqueror from the fight, invoking Father Jove, Mars Gradivus and the other angry gods if he failed. Not the house of the Fabii.
+
+## Philistus · supporting
+
+General of the naval army of Dionysius the younger against the Syracusans, who, when they drew about his galley to environ him and he could hope for no relief, took away with his own hand the life he had so liberally and in vain exposed to the enemy.
+
+## Mule Moloch · supporting
+
+King of Fez, who won against Sebastian of Portugal the battle famous for the death of three kings, being mortally sick throughout: he managed the continuance of his sickness in consuming the enemy, reserved the last day of his life for the battle, arranged his battalions in a circle, and dying had himself carried along the files to encourage the captains one after another. The modern edition writes him Moulay Mohammed.
+
+## Sebastian, king of Portugal · supporting
+
+The young invading king whose valour made the conflict very sharp, and whose death in it passed that great kingdom to the crown of Castile.
+
+## Lucius Vibullius Rufus · reference
+
+Who, being in great haste to carry intelligence to Pompey, rode night and day, still taking fresh horses for the greater speed.
+
+## Drusus · reference
+
+Tiberius Nero’s brother, sick in Germany, whom Tiberius travelled two hundred miles in four-and-twenty hours to see.
+
+## T. Sempronius Gracchus · reference
+
+Who, Livy says, came by pre-arranged relays of horses from Amphissa to Pella in three days, with an almost incredible speed. The Essays do not join him to the Tiberius Sempronius of 69:300 who burnt the Sardinian spoils, and give neither a numeral.
+
+## Brutus · reference
+
+Who used the same device — swallows carrying news — when besieged in Modena. A fifth Brutus, and none of the other four.
+
+## Cecina · reference
+
+Whose invention for sending news home was quicker than posting: he took swallows with him and turned them out towards their nests when he had anything to send back.
+
+## Brennus · supporting
+
+Under whose conduct, with others, that infinite deluge of men came into Italy — one of Montaigne’s instances of a state purging its own repletion by sending its excess abroad.
+
+## Nemesis · reference
+
+The Rhamnusian virgin of Catullus’s prayer: let nothing ever so greatly please me which is taken without justice from the unwilling owners.
+
+## Prudentius · supporting
+
+The Christian poet of the Contra Symmachum, quoted against the gladiators: what other end does the impious art propose to itself, what the slaughter of young men, what pleasure fed with blood.
+
+## Statius · supporting
+
+The Latin poet of the Silvae, quoted for the tender sex, unskilled in arms, immodestly engaged in manly fights amidst those tumults and new sports.

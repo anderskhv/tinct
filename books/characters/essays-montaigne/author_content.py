@@ -414,7 +414,7 @@ for row in [
 ('persius','Persius','The Latin satirist of the crabbed style.','Persius','supporting'),
 ('protagoras','Protagoras','The sophist who let his pupils either pay his demand or swear in the temple what they thought the teaching had been worth — a rule under which, Montaigne says, his own pedagogues would be sorely gravelled.','Protagoras|Proctagoras','supporting'),
 ('galen','Galen','The physician the pedants know thoroughly, Montaigne says, and the patient’s disease not at all.','Galen','supporting'),
-('adrian-turnebus','Adrian Turnebus','The one man of pure learning Montaigne exempts from the charge of pedantry, and in his opinion the greatest of the last thousand years: nothing of the pedant about him but the gown, and within, not a more polished soul upon earth. Montaigne says he put him on arguments far outside his profession and found him as quick as if he had spent his life in arms or affairs of state.','Adrian Turnebus|Turnebus','supporting'),
+('adrian-turnebus','Adrian Turnebus','The one man of pure learning Montaigne exempts from the charge of pedantry, and in his opinion the greatest of the last thousand years: nothing of the pedant about him but the gown, and within, not a more polished soul upon earth. Montaigne says he put him on arguments far outside his profession and found him as quick as if he had spent his life in arms or affairs of state.','Adrian Turnebus|Turnebus|Turnèbe','supporting'),
 ('prometheus','Prometheus','The Titan of Juvenal’s line, who framed the great natures of better clay.','Prometheus','reference','mythological-figure'),
 ('stobaeus','Stobaeus','The anthologist through whom the Greek verse about learning without understanding reaches the Essays.','Stobaeus'),
 ('francis-brittany','Francis, Duke of Brittany','John V’s son, who was told that Isabella of Scotland was homely bred and without learning, and answered that he liked her the better: a woman is wise enough if she can tell her husband’s shirt from his doublet.'),
@@ -448,7 +448,7 @@ for row in [
 ('pompey-the-dancer','Pompey','The other of the two noted dancers. Not Pompey the Great.'),
 ('signora-livia','Signora Livia','Whose petticoats are one of the things Montaigne says a young traveller ought not to come home able to describe. Not the Livia who was Augustus’s wife.'),
 ('marcellus','Marcellus','Whose death, Montaigne says, the pupil should be taught to judge rather than to locate: not so much where he died as why it was unworthy of his duty that he died there.','Marcellus'),
-('la-boetie','La Boetie','Étienne de La Boétie, Montaigne’s friend, whose “Voluntary Servitude” may have been prompted by a single sentence of Plutarch’s — that the people of Asia became the vassals of one man for not having been able to pronounce a single syllable, which is No. The modern edition spells him La Boétie.','Estienne de la Boetie|Estienne de la Boétie|La Boetie|La Boétie','major'),
+('la-boetie','La Boetie','Étienne de La Boétie, Montaigne’s friend, whose “Voluntary Servitude” may have been prompted by a single sentence of Plutarch’s — that the people of Asia became the vassals of one man for not having been able to pronounce a single syllable, which is No. The modern edition spells him La Boétie.','Estienne de la Boetie|Estienne de la Boétie|Etienne De la Boetie|Etienne de la Boétie|La Boetie|La Boétie','major'),
 ('alexandridas','Alexandridas','Who reproached a man for making very good but too long speeches to the Ephori: thou speakest the things thou shouldst speak, but not as thou shouldst speak them. The Essays do not identify him with the Anexandridas who was Cleomenes’s father, and spell the two names differently.','Alexandridas'),
 ('anaximenes','Anaximenes','Who asked Pythagoras what purpose there was in searching out the secrets of the stars with death or slavery continually before his eyes — the kings of Persia being at that moment preparing to invade his country; and who held that the air was God, procreate and immense, always moving. The older edition spells him Anaximines in the Apology.','Anaximenes|Anaximines'),
 ('theodorus-gaza','Gaza','The grammarian whose method Montaigne sets against his own: precepts so intricate and harsh, and words so vain and lean, that there is no hold to be taken of them.','Gaza'),
@@ -544,7 +544,7 @@ for row in [
 ('zenobia','Zenobia','Who would admit her husband for one encounter only and then left him to himself for the whole time of her conception — a brave and generous example, Montaigne says, of conjugal continence.','Zenobia'),
 ('aelius-verus','AElius Verus','The emperor who answered his wife’s reproaches about other women by saying that marriage was a name of honour and dignity, not of wanton desire. The modern edition spells him Aelius.','AElius Verus|Aelius Verus'),
 ('gallio','Gallio','Exiled to Lesbos and found to be living there as merry as the day was long, so that the Senate recalled him and confined him to his own house with his wife and family — to fit the punishment to his feeling.','Gallio'),
-('amurath','Amurath','Who at the taking of the Isthmus immolated six hundred young Greeks to his father’s soul as a propitiatory sacrifice for his sins.','Amurath'),
+('amurath','Amurath','Who at the taking of the Isthmus immolated six hundred young Greeks to his father’s soul as a propitiatory sacrifice for his sins. Not the Amurath III of 78:1.','Amurath'),
 ('fernando-cortez','Fernando Cortez','To whom the king of Mexico’s ambassadors boasted that their master was obliged to offer the gods fifty thousand men a year — and for whose welcome, at another town, they sacrificed fifty at once.','Fernando Cortez|Cortez'),
 ]:add(*row)
 
@@ -884,7 +884,7 @@ for row in [
 for row in [
 ('josephus','Josephus','Who wormed an ambassador’s secrets out of him by giving him his full dose of liquor; who, a whole people being violently bent against him and no visible means of escape left, was counselled by a friend to despatch himself and did well to keep his hope instead, fortune diverting the accident beyond all human expectation; and in whom Montaigne read of the child torn piecemeal with pincers who defied Antiochus.','Josephus'),
 ('lucius-piso','Lucius Piso','Who conquered Thrace, and to whom Augustus committed the most inward secrets of his affairs and never found him faulty in the least — though he was so given to drink that they were often fain to carry him drunk out of the Senate.','Lucius Piso'),
-('tiberius-emperor','Tiberius','The emperor, who trusted his whole counsels to Cossus as Augustus did his to Lucius Piso, and with as little cause for complaint. In his reign the condemned who would live to be executed forfeited their goods and were denied the rites of sepulture, while those who anticipated it by killing themselves were interred and could dispose of their estates by will. The older edition misprints his name Tiberias.'),
+('tiberius-emperor','Tiberius','The emperor, who trusted his whole counsels to Cossus as Augustus did his to Lucius Piso, and with as little cause for complaint. In his reign the condemned who would live to be executed forfeited their goods and were denied the rites of sepulture, while those who anticipated it by killing themselves were interred and could dispose of their estates by will. The older edition misprints his name Tiberias. At 79:1 he is Tiberius Nero, before the adoption, and the emperor Nero’s alias was taking the second half of that name.','Tiberius Nero'),
 ('cossus','Cossus','The man he trusted them to, who was as hard a drinker as Piso.','Cossus'),
 ('cimber','Cimber','To whom the design of killing Caesar was as safely communicated as to Cassius, though he would often be drunk.','Cimber'),
 ('cassius-conspirator','Cassius','Who drank nothing but water, and pleasantly said: what, shall I bear a tyrant, I who cannot bear wine? With Brutus he threw away the remains of the Roman liberty, of which the two of them were the sole protectors, by killing himself before the due time and a just occasion.'),
@@ -929,7 +929,7 @@ for row in [
 ('boges','Boges','Governor in Eion for Xerxes. Besieged by Cimon and offered a safe return into Asia with all his wealth, he was too impatient of surviving the loss of a place his master had given him to keep: he defended the city to the last crust, threw the gold into the Strymon, cut the throats of all the women, children, concubines and servants and threw them on a pile he had set burning, and leapt into it himself.','Boges'),
 ('ninachetuen','Ninachetuen','An Indian lord who, hearing the first whisper that the Portuguese Viceroy meant to take his command in Malacca from him without apparent cause and give it to the King of Campar, built a scaffold hung with tapestry and strewn with flowers, came out in cloth of gold set with jewels, set out from it how much he had obliged the Portuguese nation and with how unspotted a fidelity, said that fortune denying him all means of opposing the affront his courage at least enjoined him to free himself from the sense of it, and leapt into the fire he had lighted at one corner.','Ninachetuen'),
 ('sextilia','Sextilia','Wife of Scaurus, who with Paxaea voluntarily sacrificed her own life to encourage her husband to avoid the dangers pressing upon him, in which she had no other share than conjugal affection.','Sextilia'),
-('scaurus','Scaurus','Her husband.','Scaurus'),
+('scaurus','Scaurus','Sextilia’s husband, who with Labeo was pressed by dangers their wives had no share in but conjugal affection. Keyed rather than aliased, because the Scaurus of Tacitus’s pair of self-biographers at 74:7 is another man.','',),
 ('paxaea','Paxaea','Wife of Labeo, who did the same for him.','Paxaea'),
 ('labeo','Labeo','Her husband.','Labeo'),
 ('cocceius-nerva','Cocceius Nerva','A great lawyer, flourishing in health, riches, reputation and favour with the emperor, who killed himself for no other cause than the sole compassion of the miserable state of the Roman Republic — doing for his country, with less utility though with equal affection, what Sextilia and Paxaea did for their husbands.','Cocceius Nerva'),
@@ -1034,7 +1034,7 @@ for row in [
 ('apollonius-tyanaus','Apollonius Tyanaus','With Melampus, Tiresias and Thales, one of those who have boasted that they understood the speech of beasts.','Apollonius Tyanaus|Apollonius of Tyana'),
 ('melampus','Melampus','The second of them.','Melampus'),
 ('tiresias','Tiresias','The third.','Tiresias'),
-('lactantius','Lactantius','Who seems to attribute to beasts not only speech but laughter, and who with Seneca and most of the Dogmatists confessed that the soul was a thing they did not understand.','Lactantius'),
+('lactantius','Lactantius','Who seems to attribute to beasts not only speech but laughter, and who with Seneca and most of the Dogmatists confessed that the soul was a thing they did not understand. The older edition misprints him Lactantms at 74:156.','Lactantius|Lactantms'),
 ('king-porus','King Porus','Whose elephant, Montaigne’s instance among the beasts that physic themselves, drew the darts and javelins out of its own body and out of its master’s. Alexander defeated him.','King Porus'),
 ('trapezuntius','Trapezuntius','The logician from whom the dog does not need to learn the use of propositions divided and conjoined, since he uses them of himself.','Trapezuntius'),
 ('vespasian','Vespasian','The emperor in whose company at the theatre of Marcellus Plutarch says he saw the dog that counterfeited death.','Vespasian'),
@@ -1163,8 +1163,94 @@ for row in [
 ('orlando','Orlando','Ariosto’s hero, who was more bent to do great acts than to boast of them, so that no deeds of his were ever known but those that had witnesses. The bare name at 67:15 and in the citations is the title of the poem and not the man.','','reference','literary-figure'),
 ]:add(*row)
 
-print(len(entities),'entities authored: chapters 1-73')
+# --------------- chapters 1-73, found by a later census of the collectives
+for row in [
+('the-muses','The Muses','The goddesses to whom antiquity gave the ordering and patronage of the young\u2019s sports, with Apollo and Minerva; whose sacred inspiration stirs the poet up in the theatre; to whom the Lacedaemonians sacrificed as they entered battle, so that their actions might be well and worthily written; and by society with whom Montaigne says he would rather have begotten a very beautiful child than by lying with his wife.','the Muses','reference','deity'),
+('the-sirens','The Sirens','Whose first charm to allure Ulysses was to wheedle and entertain him with his own praises \u2014 Montaigne\u2019s instance that no panderism is so apt to corrupt as praise. The older edition spells them Syrens.','Syrens|Sirens','reference','mythological-figure'),
+('xenocrates','Xenocrates','Plato\u2019s successor at the Academy, who makes eight gods \u2014 five named among the planets, a sixth composed of all the fixed stars as of so many members, the seventh and eighth the sun and moon \u2014 and who with the Egyptians makes the soul a mobile number; and whose lecture, walked into by chance, reformed the debauched Polemon on the spot. The older edition prints him Zenocrates in the Apology, on the same misprint as Zenophanes for Xenophanes.','Xenocrates|Zenocrates','supporting'),
+]:add(*row)
+
+# ========================================= CHAPTER 74 \u2014 of presumption
+for row in [
+('rutilius-rufus','Rutilius','With Scaurus, one of the two Romans Tacitus says wrote their own lives without its being thought a breach of good faith or a disparagement. Not the author of the Itinerarium at 72:43, nor the consul Publius Rutilius at 84:21.','','reference'),
+('aemilius-scaurus','Scaurus','The other of the two. Not the Scaurus whose wife Sextilia died with him at 60:52; the Essays do not join them.','','reference'),
+('constantius','The Emperor Constantius','Who always in public held his head upright and stiff, without bending or turning to either side, not so much as to look on those who saluted him \u2014 Montaigne\u2019s instance of a haughty irregularity of deportment. Also Julian the Apostate\u2019s predecessor, against whose party Julian was severe at the beginning of his reign.','Constantius','supporting'),
+('amafanius','Amafanius','With Rabirius, the pattern of the inform and irregular way of speaking Montaigne owns to: a popular jargon, proceeding without definition, division or conclusion.','Amafanius'),
+('rabirius','Rabirius','The other of that pair.','',),
+('messalla','Messalla','Who complains in Tacitus of the straitness of some garments in his time, and of the fashion of the benches where the orators were to declaim, as a disadvantage to their eloquence. Not Messala Corvinus of 74:99.','Messalla'),
+('messala-corvinus','Messala Corvinus','Who was two years without any trace of memory \u2014 which Montaigne sets beside his own bad one, and beside Georgius Trapezuntius. Not the Messalla of Tacitus\u2019s dialogue at 74:30.','Messala Corvinus'),
+('turnus','Turnus','Who marches in the first rank brandishing his weapon, taller by a head than all the rest \u2014 the height Montaigne says is the only beauty of men.','','reference','literary-figure'),
+('chancellor-olivier','Chancellor Olivier','Author of the saying Montaigne calls to mind when he judges his own strength: that the French are like monkeys that swarm up a tree from branch to branch and never stop till they come to the highest, and there show their breech. One of the two Chancellors of France Montaigne names for great ability and no common virtue.','Olivier','supporting'),
+('de-lhospital','De l\u2019Hospital','The other of those two Chancellors, and one of the good artificers of poetry in Montaigne\u2019s age.','De l\u2019Hospital|de l\'Hospital|L\u2019Hospital|L\'Hospital','supporting'),
+('metellus-macedonicus','Metellus of Macedon','Author of the saying some of our princes have bragged of since: that they would burn their shirts if they knew their true intentions. The older edition prints him Metellius.','','reference'),
+('soliman','Soliman','Of the Ottoman race, a race not very solicitous of keeping their words or compacts \u2014 and yet, being told that Mercurino de\u2019 Gattinara and the inhabitants of Castro were held prisoner against the articles of their capitulation, he took it ill. Also the Soliman who said that victories obtained without the master are never complete. The modern edition writes him Suleiman.','Soliman|Suleiman','supporting'),
+('mercurino-de-gattinara','Mercurino de\u2019 Gattinara','Held prisoner with the inhabitants of Castro after they had surrendered the place, contrary to the articles of their capitulation. The older edition prints him Gratinare.','Mercurino de\u2019 Gratinare|Mercurino de\'Gattinara|Mercurino de\' Gattinara'),
+('latinus','Latinus','The scoffer Martial\u2019s epigram asks whether the critic could excel \u2014 quoted by Montaigne against those who would carp at his book.','Latinus','reference','literary-figure'),
+('atlas','Atlas','Who, in the same epigram, would refuse to bear a nose so great.','','reference','mythological-figure'),
+('francis-ii','King Francis II','In whose presence at Barleduc Montaigne saw a self-portrait of Rene, king of Sicily, presented as a memorial \u2014 which is Montaigne\u2019s warrant for drawing himself with a pen.','Francis II','supporting'),
+('rene-of-sicily','Rene, king of Sicily','Who had drawn the portrait of himself. Not the Rene, Duke of Lorraine, of 37:0.','','reference'),
+('machiavelli','Machiavelli','Whose writings Montaigne calls solid enough for their subject and yet easy enough to be controverted \u2014 and those who controverted them no less easy to controvert.','Machiavelli','supporting'),
+('matthias','Matthias','Upon whom the lot fell, in the verse of the Acts Montaigne quotes for the ancient way of leaving a doubtful choice to chance. The older edition\u2019s English version misprints him Matthew.','Matthias','reference','religious-figure'),
+('polemon','Polemon','A lewd and debauched young Greek who, going by chance to hear one of Xenocrates\u2019s lectures, brought away not only the knowledge of some fine matter but a sudden reformation of his life \u2014 the instance Montaigne takes of an effect of philosophy that outlasts the hearing of it.','Polemon','supporting'),
+('ulpian','Ulpian','One of the four names Montaigne says the pedants honour alike, at the expense of their own understandings \u2014 with Cicero, Galen and St Jerome.','Ulpian'),
+('st-jerome','St Jerome','The fourth of them.','St. Jerome|St Jerome','reference','religious-figure'),
+('marshal-strozzi','Marshal Strozzi','With the Duc de Guise who died at Orleans, the most remarkable man Montaigne judged by outward appearance for soldiership and military conduct.','Marshal Strozzi|Strozzi','supporting'),
+('daurat','D\u2019Aurat','One of the good artificers of poetry Montaigne names in his own age, with Beza, Buchanan, L\u2019Hospital, Montdore and Turnebus.','D\u2019Aurat|D\'Aurat'),
+('beza','Beza','Another of them.','Beza'),
+('montdore','Montdore','Another of them. The modern edition writes him Mondor\u00e9.','Montdore|Mondor\u00e9'),
+('monsieur-de-la-noue','Monsieur de la Noue','Whose constant goodness, sweetness of manners and conscientious facility, in so great an injustice of armed parties \u2014 the true school of treason, inhumanity and robbery \u2014 kept up the reputation of a great and experienced captain.','Monsieur de la Noue|la Noue','supporting'),
+('marie-de-gournay','Marie de Gournay le Jars','Whose judgment of Montaigne\u2019s first Essays, being a woman, so young, and alone in her own country, he has taken delight to publish his hopes of in several places.','Marie de Gournay le Jars|Gournay','supporting'),
+]:add(*row)
+
+# ====================================== CHAPTER 75 \u2014 of giving the lie
+for row in [
+('sagoin','Sagoin','The butt of the verses Montaigne quotes for the way a lie should be answered \u2014 a slap on his eye, a slap on his snout, a slap on Sagoin\u2019s back.','Sagoin','reference','literary-figure'),
+('fripelippes','Fripelippes','Marot\u2019s valet, in whose name the verses against Sagoin are written.','Fripelippes','reference','literary-figure'),
+('salvianus','Salvianus','Of Marseilles, who lived in the time of the Emperor Valentinian, and says that lying and forswearing themselves is with the French not a vice but a way of speaking.','Salvianus'),
+]:add(*row)
+
+# ================================ CHAPTER 76 \u2014 of liberty of conscience
+for row in [
+('emperor-tacitus','The Emperor Tacitus','Cornelius Tacitus\u2019s kinsman, who by express order furnished all the libraries in the world with the history \u2014 and not one entire copy escaped those who wanted it abolished for five or six idle clauses contrary to our belief. Not the historian.','','supporting'),
+('maris','Maris','Bishop of Chalcedon, in the story Montaigne\u2019s own people tell of Julian the Apostate.','Maris','reference','religious-figure'),
+('eutropius','Eutropius','Montaigne\u2019s other witness for Julian: an enemy to Christianity, but without putting his hand to blood.','Eutropius'),
+]:add(*row)
+
+# ============================ CHAPTER 77 \u2014 that we taste nothing pure
+for row in [
+('simonides','Simonides','Whose imagination, on the question King Hiero had put to him, suggested so many sharp and subtle considerations that, doubting which was likeliest, he totally despaired of the truth.','Simonides','supporting'),
+]:add(*row)
+
+# ==================================== CHAPTER 78 \u2014 against idleness
+for row in [
+('bajazet-ii','Bajazet II','Who with his son swerved from the Ottoman opinion that a prince should lead his own wars, spending their time in science and other retired employments, and gave great blows to their empire. Not the Bajazet of the snow tempest at 48:53.','Bajazet II','supporting'),
+('charles-v-france','Charles V','King Charles V of France, of whom Edward III of England said that there never was a king who so seldom put on his armour, and yet never a king who gave him so much to do. Not the Emperor Charles V.','','supporting'),
+('amurath-iii','Amurath III','Now reigning, who follows Bajazet II’s example and begins to find the same effect: an Ottoman prince who does not lead his own wars. The modern edition writes him Murad III. Not the Amurath of 48:53.','Amurath III|Murad III','supporting'),
+('marcus-fabius','Marcus Fabius','To whom the Roman legionary swore he would return a conqueror from the fight, invoking Father Jove, Mars Gradivus and the other angry gods if he failed. Not the house of the Fabii.','Marcus Fabius'),
+('philistus','Philistus','General of the naval army of Dionysius the younger against the Syracusans, who, when they drew about his galley to environ him and he could hope for no relief, took away with his own hand the life he had so liberally and in vain exposed to the enemy.','Philistus','supporting'),
+('mule-moloch','Mule Moloch','King of Fez, who won against Sebastian of Portugal the battle famous for the death of three kings, being mortally sick throughout: he managed the continuance of his sickness in consuming the enemy, reserved the last day of his life for the battle, arranged his battalions in a circle, and dying had himself carried along the files to encourage the captains one after another. The modern edition writes him Moulay Mohammed.','Mule Moloch|Moulay Mohammed','supporting'),
+('sebastian-of-portugal','Sebastian, king of Portugal','The young invading king whose valour made the conflict very sharp, and whose death in it passed that great kingdom to the crown of Castile.','Sebastian','supporting'),
+]:add(*row)
+
+# ======================================== CHAPTER 79 \u2014 of posting
+for row in [
+('lucius-vibullius-rufus','Lucius Vibullius Rufus','Who, being in great haste to carry intelligence to Pompey, rode night and day, still taking fresh horses for the greater speed.','Lucius Vibullius Rufus|Vibullius'),
+('drusus','Drusus','Tiberius Nero\u2019s brother, sick in Germany, whom Tiberius travelled two hundred miles in four-and-twenty hours to see.','',),
+('sempronius-gracchus-courier','T. Sempronius Gracchus','Who, Livy says, came by pre-arranged relays of horses from Amphissa to Pella in three days, with an almost incredible speed. The Essays do not join him to the Tiberius Sempronius of 69:300 who burnt the Sardinian spoils, and give neither a numeral.','T. Sempronius Gracchus'),
+('decimus-brutus','Brutus','Who used the same device — swallows carrying news — when besieged in Modena. A fifth Brutus, and none of the other four.','',),
+('caecina','Cecina','Whose invention for sending news home was quicker than posting: he took swallows with him and turned them out towards their nests when he had anything to send back.','Cecina'),
+]:add(*row)
+
+# ================= CHAPTER 80 \u2014 of ill means employed to a good end
+for row in [
+('brennus','Brennus','Under whose conduct, with others, that infinite deluge of men came into Italy \u2014 one of Montaigne\u2019s instances of a state purging its own repletion by sending its excess abroad.','Brennus','supporting'),
+('nemesis','Nemesis','The Rhamnusian virgin of Catullus\u2019s prayer: let nothing ever so greatly please me which is taken without justice from the unwilling owners.','','reference','deity'),
+('prudentius','Prudentius','The Christian poet of the Contra Symmachum, quoted against the gladiators: what other end does the impious art propose to itself, what the slaughter of young men, what pleasure fed with blood.','Prudentius','supporting'),
+('statius','Statius','The Latin poet of the Silvae, quoted for the tender sex, unskilled in arms, immodestly engaged in manly fights amidst those tumults and new sports.','Statius','supporting'),
+]:add(*row)
+
+print(len(entities),'entities authored: chapters 1-80')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-13.4',
- coverage='Both full English editions, chapters 1-73 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
+ contentVersion='2026-09-13.5',
+ coverage='Both full English editions, chapters 1-80 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

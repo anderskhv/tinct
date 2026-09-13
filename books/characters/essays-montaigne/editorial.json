@@ -1,6 +1,6 @@
 {
-  "contentVersion": "2026-09-13.4",
-  "coverage": "Both full English editions, chapters 1-73 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.",
+  "contentVersion": "2026-09-13.5",
+  "coverage": "Both full English editions, chapters 1-80 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.",
   "entities": [
     {
       "id": "montaigne",
@@ -3387,7 +3387,8 @@
       "body": "The one man of pure learning Montaigne exempts from the charge of pedantry, and in his opinion the greatest of the last thousand years: nothing of the pedant about him but the gown, and within, not a more polished soul upon earth. Montaigne says he put him on arguments far outside his profession and found him as quick as if he had spent his life in arms or affairs of state.",
       "aliases": [
         "Adrian Turnebus",
-        "Turnebus"
+        "Turnebus",
+        "Turnèbe"
       ],
       "category": "supporting",
       "kind": "person",
@@ -3731,6 +3732,8 @@
       "aliases": [
         "Estienne de la Boetie",
         "Estienne de la Boétie",
+        "Etienne De la Boetie",
+        "Etienne de la Boétie",
         "La Boetie",
         "La Boétie"
       ],
@@ -4672,7 +4675,7 @@
     {
       "id": "amurath",
       "name": "Amurath",
-      "body": "Who at the taking of the Isthmus immolated six hundred young Greeks to his father’s soul as a propitiatory sacrifice for his sins.",
+      "body": "Who at the taking of the Isthmus immolated six hundred young Greeks to his father’s soul as a propitiatory sacrifice for his sins. Not the Amurath III of 78:1.",
       "aliases": [
         "Amurath"
       ],
@@ -7245,8 +7248,10 @@
     {
       "id": "tiberius-emperor",
       "name": "Tiberius",
-      "body": "The emperor, who trusted his whole counsels to Cossus as Augustus did his to Lucius Piso, and with as little cause for complaint. In his reign the condemned who would live to be executed forfeited their goods and were denied the rites of sepulture, while those who anticipated it by killing themselves were interred and could dispose of their estates by will. The older edition misprints his name Tiberias.",
-      "aliases": [],
+      "body": "The emperor, who trusted his whole counsels to Cossus as Augustus did his to Lucius Piso, and with as little cause for complaint. In his reign the condemned who would live to be executed forfeited their goods and were denied the rites of sepulture, while those who anticipated it by killing themselves were interred and could dispose of their estates by will. The older edition misprints his name Tiberias. At 79:1 he is Tiberius Nero, before the adoption, and the emperor Nero’s alias was taking the second half of that name.",
+      "aliases": [
+        "Tiberius Nero"
+      ],
       "category": "reference",
       "kind": "person",
       "subtitle": "",
@@ -7718,10 +7723,8 @@
     {
       "id": "scaurus",
       "name": "Scaurus",
-      "body": "Her husband.",
-      "aliases": [
-        "Scaurus"
-      ],
+      "body": "Sextilia’s husband, who with Labeo was pressed by dangers their wives had no share in but conjugal affection. Keyed rather than aliased, because the Scaurus of Tacitus’s pair of self-biographers at 74:7 is another man.",
+      "aliases": [],
       "category": "reference",
       "kind": "person",
       "subtitle": "",
@@ -8469,9 +8472,10 @@
     {
       "id": "lactantius",
       "name": "Lactantius",
-      "body": "Who seems to attribute to beasts not only speech but laughter, and who with Seneca and most of the Dogmatists confessed that the soul was a thing they did not understand.",
+      "body": "Who seems to attribute to beasts not only speech but laughter, and who with Seneca and most of the Dogmatists confessed that the soul was a thing they did not understand. The older edition misprints him Lactantms at 74:156.",
       "aliases": [
-        "Lactantius"
+        "Lactantius",
+        "Lactantms"
       ],
       "category": "reference",
       "kind": "person",
@@ -9719,6 +9723,647 @@
       "aliases": [],
       "category": "reference",
       "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "the-muses",
+      "name": "The Muses",
+      "body": "The goddesses to whom antiquity gave the ordering and patronage of the young’s sports, with Apollo and Minerva; whose sacred inspiration stirs the poet up in the theatre; to whom the Lacedaemonians sacrificed as they entered battle, so that their actions might be well and worthily written; and by society with whom Montaigne says he would rather have begotten a very beautiful child than by lying with his wife.",
+      "aliases": [
+        "the Muses"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "the-sirens",
+      "name": "The Sirens",
+      "body": "Whose first charm to allure Ulysses was to wheedle and entertain him with his own praises — Montaigne’s instance that no panderism is so apt to corrupt as praise. The older edition spells them Syrens.",
+      "aliases": [
+        "Syrens",
+        "Sirens"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "xenocrates",
+      "name": "Xenocrates",
+      "body": "Plato’s successor at the Academy, who makes eight gods — five named among the planets, a sixth composed of all the fixed stars as of so many members, the seventh and eighth the sun and moon — and who with the Egyptians makes the soul a mobile number; and whose lecture, walked into by chance, reformed the debauched Polemon on the spot. The older edition prints him Zenocrates in the Apology, on the same misprint as Zenophanes for Xenophanes.",
+      "aliases": [
+        "Xenocrates",
+        "Zenocrates"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rutilius-rufus",
+      "name": "Rutilius",
+      "body": "With Scaurus, one of the two Romans Tacitus says wrote their own lives without its being thought a breach of good faith or a disparagement. Not the author of the Itinerarium at 72:43, nor the consul Publius Rutilius at 84:21.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aemilius-scaurus",
+      "name": "Scaurus",
+      "body": "The other of the two. Not the Scaurus whose wife Sextilia died with him at 60:52; the Essays do not join them.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "constantius",
+      "name": "The Emperor Constantius",
+      "body": "Who always in public held his head upright and stiff, without bending or turning to either side, not so much as to look on those who saluted him — Montaigne’s instance of a haughty irregularity of deportment. Also Julian the Apostate’s predecessor, against whose party Julian was severe at the beginning of his reign.",
+      "aliases": [
+        "Constantius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amafanius",
+      "name": "Amafanius",
+      "body": "With Rabirius, the pattern of the inform and irregular way of speaking Montaigne owns to: a popular jargon, proceeding without definition, division or conclusion.",
+      "aliases": [
+        "Amafanius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rabirius",
+      "name": "Rabirius",
+      "body": "The other of that pair.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "messalla",
+      "name": "Messalla",
+      "body": "Who complains in Tacitus of the straitness of some garments in his time, and of the fashion of the benches where the orators were to declaim, as a disadvantage to their eloquence. Not Messala Corvinus of 74:99.",
+      "aliases": [
+        "Messalla"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "messala-corvinus",
+      "name": "Messala Corvinus",
+      "body": "Who was two years without any trace of memory — which Montaigne sets beside his own bad one, and beside Georgius Trapezuntius. Not the Messalla of Tacitus’s dialogue at 74:30.",
+      "aliases": [
+        "Messala Corvinus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "turnus",
+      "name": "Turnus",
+      "body": "Who marches in the first rank brandishing his weapon, taller by a head than all the rest — the height Montaigne says is the only beauty of men.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chancellor-olivier",
+      "name": "Chancellor Olivier",
+      "body": "Author of the saying Montaigne calls to mind when he judges his own strength: that the French are like monkeys that swarm up a tree from branch to branch and never stop till they come to the highest, and there show their breech. One of the two Chancellors of France Montaigne names for great ability and no common virtue.",
+      "aliases": [
+        "Olivier"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "de-lhospital",
+      "name": "De l’Hospital",
+      "body": "The other of those two Chancellors, and one of the good artificers of poetry in Montaigne’s age.",
+      "aliases": [
+        "De l’Hospital",
+        "de l'Hospital",
+        "L’Hospital",
+        "L'Hospital"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "metellus-macedonicus",
+      "name": "Metellus of Macedon",
+      "body": "Author of the saying some of our princes have bragged of since: that they would burn their shirts if they knew their true intentions. The older edition prints him Metellius.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "soliman",
+      "name": "Soliman",
+      "body": "Of the Ottoman race, a race not very solicitous of keeping their words or compacts — and yet, being told that Mercurino de’ Gattinara and the inhabitants of Castro were held prisoner against the articles of their capitulation, he took it ill. Also the Soliman who said that victories obtained without the master are never complete. The modern edition writes him Suleiman.",
+      "aliases": [
+        "Soliman",
+        "Suleiman"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mercurino-de-gattinara",
+      "name": "Mercurino de’ Gattinara",
+      "body": "Held prisoner with the inhabitants of Castro after they had surrendered the place, contrary to the articles of their capitulation. The older edition prints him Gratinare.",
+      "aliases": [
+        "Mercurino de’ Gratinare",
+        "Mercurino de'Gattinara",
+        "Mercurino de' Gattinara"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "latinus",
+      "name": "Latinus",
+      "body": "The scoffer Martial’s epigram asks whether the critic could excel — quoted by Montaigne against those who would carp at his book.",
+      "aliases": [
+        "Latinus"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "atlas",
+      "name": "Atlas",
+      "body": "Who, in the same epigram, would refuse to bear a nose so great.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "francis-ii",
+      "name": "King Francis II",
+      "body": "In whose presence at Barleduc Montaigne saw a self-portrait of Rene, king of Sicily, presented as a memorial — which is Montaigne’s warrant for drawing himself with a pen.",
+      "aliases": [
+        "Francis II"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rene-of-sicily",
+      "name": "Rene, king of Sicily",
+      "body": "Who had drawn the portrait of himself. Not the Rene, Duke of Lorraine, of 37:0.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "machiavelli",
+      "name": "Machiavelli",
+      "body": "Whose writings Montaigne calls solid enough for their subject and yet easy enough to be controverted — and those who controverted them no less easy to controvert.",
+      "aliases": [
+        "Machiavelli"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "matthias",
+      "name": "Matthias",
+      "body": "Upon whom the lot fell, in the verse of the Acts Montaigne quotes for the ancient way of leaving a doubtful choice to chance. The older edition’s English version misprints him Matthew.",
+      "aliases": [
+        "Matthias"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polemon",
+      "name": "Polemon",
+      "body": "A lewd and debauched young Greek who, going by chance to hear one of Xenocrates’s lectures, brought away not only the knowledge of some fine matter but a sudden reformation of his life — the instance Montaigne takes of an effect of philosophy that outlasts the hearing of it.",
+      "aliases": [
+        "Polemon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ulpian",
+      "name": "Ulpian",
+      "body": "One of the four names Montaigne says the pedants honour alike, at the expense of their own understandings — with Cicero, Galen and St Jerome.",
+      "aliases": [
+        "Ulpian"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "st-jerome",
+      "name": "St Jerome",
+      "body": "The fourth of them.",
+      "aliases": [
+        "St. Jerome",
+        "St Jerome"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "marshal-strozzi",
+      "name": "Marshal Strozzi",
+      "body": "With the Duc de Guise who died at Orleans, the most remarkable man Montaigne judged by outward appearance for soldiership and military conduct.",
+      "aliases": [
+        "Marshal Strozzi",
+        "Strozzi"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "daurat",
+      "name": "D’Aurat",
+      "body": "One of the good artificers of poetry Montaigne names in his own age, with Beza, Buchanan, L’Hospital, Montdore and Turnebus.",
+      "aliases": [
+        "D’Aurat",
+        "D'Aurat"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "beza",
+      "name": "Beza",
+      "body": "Another of them.",
+      "aliases": [
+        "Beza"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "montdore",
+      "name": "Montdore",
+      "body": "Another of them. The modern edition writes him Mondoré.",
+      "aliases": [
+        "Montdore",
+        "Mondoré"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "monsieur-de-la-noue",
+      "name": "Monsieur de la Noue",
+      "body": "Whose constant goodness, sweetness of manners and conscientious facility, in so great an injustice of armed parties — the true school of treason, inhumanity and robbery — kept up the reputation of a great and experienced captain.",
+      "aliases": [
+        "Monsieur de la Noue",
+        "la Noue"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "marie-de-gournay",
+      "name": "Marie de Gournay le Jars",
+      "body": "Whose judgment of Montaigne’s first Essays, being a woman, so young, and alone in her own country, he has taken delight to publish his hopes of in several places.",
+      "aliases": [
+        "Marie de Gournay le Jars",
+        "Gournay"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sagoin",
+      "name": "Sagoin",
+      "body": "The butt of the verses Montaigne quotes for the way a lie should be answered — a slap on his eye, a slap on his snout, a slap on Sagoin’s back.",
+      "aliases": [
+        "Sagoin"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fripelippes",
+      "name": "Fripelippes",
+      "body": "Marot’s valet, in whose name the verses against Sagoin are written.",
+      "aliases": [
+        "Fripelippes"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "salvianus",
+      "name": "Salvianus",
+      "body": "Of Marseilles, who lived in the time of the Emperor Valentinian, and says that lying and forswearing themselves is with the French not a vice but a way of speaking.",
+      "aliases": [
+        "Salvianus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "emperor-tacitus",
+      "name": "The Emperor Tacitus",
+      "body": "Cornelius Tacitus’s kinsman, who by express order furnished all the libraries in the world with the history — and not one entire copy escaped those who wanted it abolished for five or six idle clauses contrary to our belief. Not the historian.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maris",
+      "name": "Maris",
+      "body": "Bishop of Chalcedon, in the story Montaigne’s own people tell of Julian the Apostate.",
+      "aliases": [
+        "Maris"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eutropius",
+      "name": "Eutropius",
+      "body": "Montaigne’s other witness for Julian: an enemy to Christianity, but without putting his hand to blood.",
+      "aliases": [
+        "Eutropius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "simonides",
+      "name": "Simonides",
+      "body": "Whose imagination, on the question King Hiero had put to him, suggested so many sharp and subtle considerations that, doubting which was likeliest, he totally despaired of the truth.",
+      "aliases": [
+        "Simonides"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bajazet-ii",
+      "name": "Bajazet II",
+      "body": "Who with his son swerved from the Ottoman opinion that a prince should lead his own wars, spending their time in science and other retired employments, and gave great blows to their empire. Not the Bajazet of the snow tempest at 48:53.",
+      "aliases": [
+        "Bajazet II"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charles-v-france",
+      "name": "Charles V",
+      "body": "King Charles V of France, of whom Edward III of England said that there never was a king who so seldom put on his armour, and yet never a king who gave him so much to do. Not the Emperor Charles V.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amurath-iii",
+      "name": "Amurath III",
+      "body": "Now reigning, who follows Bajazet II’s example and begins to find the same effect: an Ottoman prince who does not lead his own wars. The modern edition writes him Murad III. Not the Amurath of 48:53.",
+      "aliases": [
+        "Amurath III",
+        "Murad III"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "marcus-fabius",
+      "name": "Marcus Fabius",
+      "body": "To whom the Roman legionary swore he would return a conqueror from the fight, invoking Father Jove, Mars Gradivus and the other angry gods if he failed. Not the house of the Fabii.",
+      "aliases": [
+        "Marcus Fabius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philistus",
+      "name": "Philistus",
+      "body": "General of the naval army of Dionysius the younger against the Syracusans, who, when they drew about his galley to environ him and he could hope for no relief, took away with his own hand the life he had so liberally and in vain exposed to the enemy.",
+      "aliases": [
+        "Philistus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mule-moloch",
+      "name": "Mule Moloch",
+      "body": "King of Fez, who won against Sebastian of Portugal the battle famous for the death of three kings, being mortally sick throughout: he managed the continuance of his sickness in consuming the enemy, reserved the last day of his life for the battle, arranged his battalions in a circle, and dying had himself carried along the files to encourage the captains one after another. The modern edition writes him Moulay Mohammed.",
+      "aliases": [
+        "Mule Moloch",
+        "Moulay Mohammed"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sebastian-of-portugal",
+      "name": "Sebastian, king of Portugal",
+      "body": "The young invading king whose valour made the conflict very sharp, and whose death in it passed that great kingdom to the crown of Castile.",
+      "aliases": [
+        "Sebastian"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucius-vibullius-rufus",
+      "name": "Lucius Vibullius Rufus",
+      "body": "Who, being in great haste to carry intelligence to Pompey, rode night and day, still taking fresh horses for the greater speed.",
+      "aliases": [
+        "Lucius Vibullius Rufus",
+        "Vibullius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "drusus",
+      "name": "Drusus",
+      "body": "Tiberius Nero’s brother, sick in Germany, whom Tiberius travelled two hundred miles in four-and-twenty hours to see.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sempronius-gracchus-courier",
+      "name": "T. Sempronius Gracchus",
+      "body": "Who, Livy says, came by pre-arranged relays of horses from Amphissa to Pella in three days, with an almost incredible speed. The Essays do not join him to the Tiberius Sempronius of 69:300 who burnt the Sardinian spoils, and give neither a numeral.",
+      "aliases": [
+        "T. Sempronius Gracchus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "decimus-brutus",
+      "name": "Brutus",
+      "body": "Who used the same device — swallows carrying news — when besieged in Modena. A fifth Brutus, and none of the other four.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caecina",
+      "name": "Cecina",
+      "body": "Whose invention for sending news home was quicker than posting: he took swallows with him and turned them out towards their nests when he had anything to send back.",
+      "aliases": [
+        "Cecina"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "brennus",
+      "name": "Brennus",
+      "body": "Under whose conduct, with others, that infinite deluge of men came into Italy — one of Montaigne’s instances of a state purging its own repletion by sending its excess abroad.",
+      "aliases": [
+        "Brennus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nemesis",
+      "name": "Nemesis",
+      "body": "The Rhamnusian virgin of Catullus’s prayer: let nothing ever so greatly please me which is taken without justice from the unwilling owners.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "prudentius",
+      "name": "Prudentius",
+      "body": "The Christian poet of the Contra Symmachum, quoted against the gladiators: what other end does the impious art propose to itself, what the slaughter of young men, what pleasure fed with blood.",
+      "aliases": [
+        "Prudentius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "statius",
+      "name": "Statius",
+      "body": "The Latin poet of the Silvae, quoted for the tender sex, unskilled in arms, immodestly engaged in manly fights amidst those tumults and new sports.",
+      "aliases": [
+        "Statius"
+      ],
+      "category": "supporting",
+      "kind": "person",
       "subtitle": "",
       "snapshots": []
     }
