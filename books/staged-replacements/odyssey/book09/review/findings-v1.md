@@ -31,7 +31,7 @@ in the package produces.
 | **substantive** | **7** |
 | minor | 9 |
 | records | 8 |
-| optional | 2 |
+| optional | 3 |
 | **paragraphs covered** | **44 of 44, each exactly once** |
 
 Nothing here requires the candidate to be rebuilt from scratch. S-1, S-2, R-1
@@ -510,6 +510,14 @@ what happened.
 we were"* → *"So we stayed where we were, sobbing and sighing"*. Both read;
 Butler's puts the sobbing first, which is the point of the sentence.
 
+**O-3 — `checks-v1.md` §6 is headed *"Every candidate sentence over 40 words
+(absolute)"* and lists sentences of exactly 40.** Three of the 37 are 40-word
+sentences; the code's threshold is `>= 40` and the heading says *over*. The
+count 37 is right for the threshold the code uses; the sentence above it is
+wrong by three. Independently recomputed: 37 at `>= 40`, 34 at `> 40`. (§5's
+five growth rows and §8's seven near-identical paragraphs both reproduce
+exactly.)
+
 **O-2 — hyphenation drift in two directions.** `drink-offering` →
 `drink offering` (P022) opens a compound Butler closes; `bowl full` →
 `bowlful` (P023) closes one he opens. Neither is wrong; neither is recorded,
@@ -769,15 +777,25 @@ have been B08-P047 again.
 
 ### Question 3 — the fifteen repairs
 
-**The diagnoses are sound and fourteen of the fifteen repairs are better than
-Book 8's**, for a reason worth writing into the rules: **fourteen of them
-resolve toward Butler's own word.** `renowned`, `hazardous`, `the morning
-lasted`, `becomes fair`, `luscious`, `yield heavily at harvest time`, `the
-wrath of heaven`, `such a horrible sight`, `his huge paunch`, `clutched up`,
-`preventing us from sleeping`, `remained bleating`, `bubbling fountain` and
-`all manner of subtlety` are all Butler's, restored. Book 8's `minstrelsy` →
-*the playing that goes with it* went wrong precisely because it invented a
-third rendering instead of restoring one.
+**The diagnoses are sound and the repairs are better than Book 8's**, for a
+reason worth writing into the rules. Checked one at a time against PG:
+
+* **Eleven restore Butler's own word verbatim** — `all manner of subtlety`,
+  `renowned`, `hazardous adventures`, `becomes fair`, `luscious`, `yield
+  heavily at harvest time`, `the wrath of heaven`, `his huge paunch`,
+  `clutched up`, `remained bleating`, `bubbling fountain`.
+* **Two keep Butler's own phrasing and modernize only the word that is not
+  current** — `the morning lasted` (his `So long as the day waxed and it was
+  still morning`), `preventing us from sleeping` (his `preventing us from
+  being able to sleep`).
+* **Two are new renderings, and both are forced** — `such a horrible sight`
+  for `horrid`, `wedged` for `esconced`, neither of Butler's being current
+  English. Both are still *a word for the thing*, not a description of it.
+
+**Not one of the fifteen invents a paraphrase of the referent**, which is
+exactly what went wrong with Book 8's `minstrelsy` → *the playing that goes
+with it*: that repair described a bard instead of naming what he does, and
+described him wrongly.
 
 **Recommendation, and it is the general form of Book 8's M-4:** write it down
 as a rule — *an arrow's repair prefers Butler's own word; a third rendering
