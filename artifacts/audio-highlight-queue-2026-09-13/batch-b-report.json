@@ -1,0 +1,1066 @@
+[
+ {
+  "key": "anna-karenina/original-en/ch193",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.990506329113924,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/anna-karenina/original-en/ch193/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9580696202531646,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 31,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/anna-karenina/original-en/ch193/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.990506329113924
+ },
+ {
+  "key": "brothers-karamazov/original-en/ch32",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9866515837104073,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/brothers-karamazov/original-en/ch32/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9613122171945702,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 5,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 25,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 61,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 70,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 84,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/brothers-karamazov/original-en/ch32/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "cymbeline/original-en/ch1",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9541734860883797,
+    "reasons": [
+     {
+      "paragraph": 17,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 20,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/cymbeline/original-en/ch1/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9067103109656302,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 17,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 20,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/cymbeline/original-en/ch1/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "democracy-in-america/original-en/ch49",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9939898289412853,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/democracy-in-america/original-en/ch49/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9930651872399445,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/democracy-in-america/original-en/ch49/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9939898289412853
+ },
+ {
+  "key": "democracy-in-america/original-en/ch81",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9949238578680203,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/democracy-in-america/original-en/ch81/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9949238578680203,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/democracy-in-america/original-en/ch81/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 0.9949238578680203
+ },
+ {
+  "key": "imitation-of-christ/original-en/ch23",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9854469854469855,
+    "reasons": [
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/imitation-of-christ/original-en/ch23/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.975051975051975,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/imitation-of-christ/original-en/ch23/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "leviathan/original-en/ch48",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9605868814729575,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/leviathan/original-en/ch48/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.928078250863061,
+    "reasons": [
+     {
+      "paragraph": 26,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/leviathan/original-en/ch48/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9605868814729575
+ },
+ {
+  "key": "moby-dick/original-en/ch21",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9859022556390977,
+    "reasons": [
+     {
+      "paragraph": 28,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/moby-dick/original-en/ch21/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.956766917293233,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 5,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 23,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 28,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 30,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/moby-dick/original-en/ch21/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "moby-dick/original-en/ch81",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9726251754796443,
+    "reasons": [
+     {
+      "paragraph": 18,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/moby-dick/original-en/ch81/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9522695367337389,
+    "reasons": [
+     {
+      "paragraph": 17,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 18,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 20,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/moby-dick/original-en/ch81/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "richard-iii/original-en/ch24",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9850746268656716,
+    "reasons": [
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/richard-iii/original-en/ch24/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9328358208955224,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/richard-iii/original-en/ch24/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "taming-of-the-shrew/original-en/ch2",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9860050890585241,
+    "reasons": [
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 58,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 72,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 95,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/taming-of-the-shrew/original-en/ch2/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9253604749787956,
+    "reasons": [
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 41,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 46,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 47,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 51,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 55,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 57,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 58,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 65,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 66,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 72,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 88,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 95,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/taming-of-the-shrew/original-en/ch2/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "walden/original-en/ch7",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.971325238956342,
+    "reasons": [
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/walden/original-en/ch7/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9648669594420046,
+    "reasons": [
+     {
+      "paragraph": 12,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/walden/original-en/ch7/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch172",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9952038369304557,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/war-and-peace/original-en/ch172/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9460431654676259,
+    "reasons": [
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/war-and-peace/original-en/ch172/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9952038369304557
+ },
+ {
+  "key": "war-and-peace/original-en/ch213",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9957203994293866,
+    "reasons": [
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/war-and-peace/original-en/ch213/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9629101283880172,
+    "reasons": [
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/war-and-peace/original-en/ch213/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch246",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9900351699882767,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/war-and-peace/original-en/ch246/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9431418522860492,
+    "reasons": [
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 11,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 32,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 37,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/war-and-peace/original-en/ch246/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9900351699882767
+ },
+ {
+  "key": "war-and-peace/original-en/ch247",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9953560371517027,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/war-and-peace/original-en/ch247/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9589783281733746,
+    "reasons": [
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 21,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/war-and-peace/original-en/ch247/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9953560371517027
+ },
+ {
+  "key": "war-and-peace/original-en/ch276",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9900900900900901,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/war-and-peace/original-en/ch276/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9612612612612612,
+    "reasons": [
+     {
+      "paragraph": 6,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/war-and-peace/original-en/ch276/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9900900900900901
+ },
+ {
+  "key": "war-and-peace/original-en/ch295",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9938837920489296,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/war-and-peace/original-en/ch295/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9388379204892966,
+    "reasons": [
+     {
+      "paragraph": 5,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/war-and-peace/original-en/ch295/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9938837920489296
+ },
+ {
+  "key": "war-and-peace/original-en/ch64",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.98928238583411,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/war-and-peace/original-en/ch64/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9506057781919851,
+    "reasons": [
+     {
+      "paragraph": 6,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 17,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/war-and-peace/original-en/ch64/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.98928238583411
+ },
+ {
+  "key": "winters-tale/original-en/ch13",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9807399898631526,
+    "reasons": [
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 36,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 53,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 66,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/winters-tale/original-en/ch13/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9194120628484541,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 17,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 21,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 36,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 40,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 45,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 50,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 52,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 53,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 54,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 57,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 65,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 66,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/2b90c2a3-0c81-5fe8-8566-ae5ac61949d8/scratchpad/work-b/out/winters-tale/original-en/ch13/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ }
+]
