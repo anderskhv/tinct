@@ -1,0 +1,33 @@
+{
+  "bookId": "leviathan",
+  "scope": "A treatise with no narrative cast of its own -- every entity is category Reference, per editorial policy's treatise guidance. This is the largest, most citation-dense package in the Lane A queue so far, spanning classical history, mythology, church history, and an exhaustive scriptural survey (Parts III-IV, chapters 32-49 especially, where Hobbes works through who wrote each book of the Bible and cites prophets, kings, and apostles by name). Fifteen distinct namesake collisions were found and resolved by exact full-text search of the original-en edition, documented in full in this file's module docstring and in the package README: Jehu (king vs. prophet), Ananias (two, Acts 5 vs. Acts 9), Philip (Deacon vs. Apostle, self-disambiguated by the text), Herod (the Great vs. the Tetrarch), Joseph (three real people, one collision left as a documented, accepted imprecision), Saul (King vs. Paul-before-renaming, dominant-sense binding), Caesar (left unbound bare; Julius and Augustus bound only by full name), Innocent and Leo (heavily outnumbered by the common adjective \"innocent\"; only numbered Popes bind), Gregory (two numbered Popes bind cleanly; a third, unnumbered \"Gregory the Pope\" is left unbound), Zachary/Zacharias (Pope vs. prophet, spelling-variant and epithet resolved), Micaiah/Michaiah (same court prophet under two spellings, plus a fourth occurrence -- a different prophet, Micah -- left unbound because it shares the ambiguous spelling), Thomas (three real people: Aquinas-or-generic left unbound, Becket and the Apostle bound separately), William (Conqueror vs. Rufus, no ambiguity, distinct full names), Damascus/Damasus (a probable compositor misprint of the Pope's name, kept as printed and left unbound rather than conflated with the city), and Simon/Cephas/Petrus (explicitly equated by the text itself to St. Peter). One source-text quirk from Hobbes's own hand is carried over rather than corrected: chapter 31's myth of Jason's uncle Pelias is told under the name \"Peleus\" throughout, and chapter 39's \"except Enos and Elias\" most likely means Enoch (quoted correctly by name elsewhere, ch. 45) but is bound under the printed name Enos. A handful of purely rhetorical or etymological name-uses are excluded entirely: \"Publicola\" (ch. 32, a word-etymology illustration, not a person reference), \"Sadler\" (the common noun saddler), \"Gordian\" (the Gordian Knot, an object, not the later Emperor), and \"Arrian\" (the period spelling of \"Arian,\" describing Emperor Valens's faith, not the historian). Both editions were read in full and reviewed independently; no divergence in entity coverage was found between them beyond the routine paraphrase variance already expected from the modern-English rewrite.",
+  "authoredEntries": 223,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "3ec71396aaa6dd3717e75900cffb1ecdd457189a6e945ef2e2be6ca96b41deb5",
+      "chapters": 49,
+      "paragraphs": 1337,
+      "entries": 223,
+      "mentions": 1666,
+      "omittedEntities": []
+    },
+    "modern-en": {
+      "sourceSha256": "e3462f5d27dbc2f5af67dcc97ef4e37907d98977ab0c87730b9b13eea9fb0133",
+      "chapters": 49,
+      "paragraphs": 1337,
+      "entries": 219,
+      "mentions": 1762,
+      "omittedEntities": [
+        "enos",
+        "jehdo",
+        "serveiah",
+        "addo"
+      ]
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}
