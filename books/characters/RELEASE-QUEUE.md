@@ -1914,3 +1914,152 @@ on the fetched asset:
 
 Report live evidence back to the package `status.json` and the generated
 inventory only after those checks pass. Validated is not deployed.
+
+## Lane A automation batch 13: Leviathan
+
+Authored on branch `claude/tinct-character-content-1n5iqq` by the Lane A
+automated author per `AUTOMATION-QUEUE.md`. Queued, not production
+verified; this lane never sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| Leviathan | e9837dc2f | 223 / 219 | build_leviathan.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| Leviathan | 3ec71396aaa6dd3717e75900cffb1ecdd457189a6e945ef2e2be6ca96b41deb5 | e3462f5d27dbc2f5af67dcc97ef4e37907d98977ab0c87730b9b13eea9fb0133 |
+
+1666 exact mentions in original-en, 1762 in modern-en, across all 49
+chapters and 1337 paragraphs per edition. Zero omitted entities in
+original-en; 4 documented, deliberate edition-divergence omissions in
+modern-en (see below) -- not authoring gaps. Commands: `python3
+books/characters/build_leviathan.py --check`, then `python3 -m
+unittest discover -s books/characters -p 'test_*.py'`. Shared
+dependencies: `build_reviewed.py` and `reviewed_aliases.py`; neither
+was changed.
+
+### Release review points
+
+This is the largest and most citation-dense package in the Lane A
+queue to date: a philosophical/theological treatise with no narrative
+or staged dialogue of its own, so **every one of the 223 bound entries
+is Reference** per editorial policy's treatise guidance. Where the
+automation queue's own description of this book ("Scriptural and
+classical citation; Hobbes names few contemporaries") undersold the
+challenge, it was volume and multiplicity of real historical and
+scriptural namesakes, not any concealed identity, disguise, or
+spoiler -- so the escape hatch was never needed.
+
+**Fifteen genuine namesake collisions** were found and resolved by
+exact full-text search of the original-en edition, each documented in
+full in `author_content.py`'s module docstring and in the package
+README: Jehu (king, bare, vs. a later "Prophet Jehu," own epithet),
+Ananias (Acts 5's bare "Ananias" vs. Acts 9's "Ananias at Damascus"),
+Philip (the text disambiguates itself in the same paragraph -- "Philip
+the Deacon, not Philip the Apostle"), Herod (the Great, bare, vs.
+Antipas "the Tetrarch," own epithet), Joseph (three real people: the
+Genesis patriarch dominates bare "Joseph," a minority collision with
+Joseph the husband of Mary is documented rather than silently
+absorbed, and "Joseph the Just" carries its own epithet), Saul (King
+Saul dominates bare "Saul"; three Saul-of-Tarsus mentions are a
+documented, accepted imprecision), Caesar (bare, ~20 occurrences, left
+entirely unbound; only full names "Julius Caesar"/"Augustus Caesar"
+bind), Innocent/Leo (outnumbered 18-to-5 and 1-to-2 respectively by
+the ordinary adjective and an unnumbered pairing; only numbered Popes
+bind), Gregory (two numbered Popes bind; a third, unnumbered "Gregory
+the Pope" is left unbound rather than assumed on outside knowledge),
+Zachary/Zacharias/Zechariah (Pope vs. Old Testament prophet, resolved
+by epithet and by a genuine cross-edition spelling difference), Micaiah/
+Michaiah (the same 1 Kings 22 court prophet spelled two ways across
+three occurrences; a fourth, identically-spelled occurrence is a
+different person, the writing prophet Micah, and is left unbound
+rather than guessed), Thomas (three real people: a generic "a Thomas"
+left unbound, Thomas Becket and the Apostle Thomas each bound via
+their own distinguishing form), William (Conqueror vs. Rufus, no
+ambiguity, distinct full names), Damascus/Damasus (a probable
+compositor misprint for the Pope's name, kept exactly as printed and
+left unbound rather than conflated with the city), and Simon/Cephas/
+Petrus (explicitly equated by the text itself to St. Peter).
+
+Two **source-text quirks** are carried over rather than repaired, per
+"printed line numbers and compositor errors stay as printed": chapter
+31's telling of the Pelias/Medea myth names him "Peleus" throughout
+(likely conflated with Achilles's father of the same near-name), and
+chapter 43's "Damascus" (paragraph 57) is a probable misprint for
+"Damasus," confirmed by the same schism being correctly spelled two
+paragraphs later.
+
+An exhaustive scriptural survey (chapters 32-49, especially the canon
+survey at chapter 34) required binding essentially every prophet, king,
+patriarch, and apostle Hobbes names by name -- the OT prophetic canon in
+full, the Acts 13 Antioch teachers, the Corinthian converts Paul
+personally baptized, and the named women who ministered to Christ.
+Mythological and demigod figures are bound `cultural-figure`; monstrous
+beasts (the Hydra, Cerberus) are `animal`; legendary non-divine figures
+(Perseus, Andromeda, King Oberon) are `literary-figure`; three named
+collective bodies (the Sadducees, the Septuagint's seventy translators,
+Athens's Thirty Tyrants) are `group`.
+
+### Edition divergences, resolved rather than assumed
+
+Dozens of archaic original-en spellings required a matching modern-en
+alias to bind in both editions (e.g. "Brutus"/"Marcus Brutes,"
+"Sulla"/"Sylla," "Korah"/"Corah," "Charlemagne"/"Charlemaine," and the
+systematic "St [Name]" (modern-en, no period) vs. "St. [Name]"
+(original-en, with one) pattern across St. Peter, St. Paul, St. John,
+St. Matthew, St. Luke, St. Ambrose, St. Jerome, and St. Cyprian) --
+each confirmed by direct comparison of the two editions' text, not
+guessed. Four entities remain undocumented in modern-en as genuine,
+deliberate divergences rather than gaps:
+
+- **"enos"** -- chapter 39's original-en "except Enos and Elias" most
+  likely intends Enoch (ch. 45 elsewhere quotes Gen. 5:24 correctly
+  under that name); modern-en's translator apparently agreed and
+  renders the same passage "except Enoch and Elijah," correcting the
+  likely slip. The entity is bound under the printed name "Enos" in
+  original-en and simply does not occur in modern-en.
+- **"jehdo", "serveiah", "addo"** -- modern-en modernizes all three
+  obscure lost-prophet names from chapter 34's citation of unpreserved
+  source-texts; two of the three ("Jehdo" and "Addo") both modernize to
+  the identical spelling "Iddo," so none is given an additional
+  modern-en alias rather than risk an alias assertion conflict.
+
+No divergence was found in which edition names or omits a real,
+resolvable person outright beyond these four documented cases.
+
+### Full suite note
+
+This book's own focused test suite (19 tests) passed cleanly and
+`--check` is clean. A full `python3 -m unittest discover` run was
+attempted in the background during authoring and did not complete
+within budget, consistent with the environmental instability
+documented for every prior book in this session (the shared test tree
+has grown large across concurrent Lane A/B sessions). This package was
+committed on the strength of its own focused suite, a clean `--check`,
+and exhaustive manual verification: both full English editions read
+paragraph-by-paragraph across all 49 chapters and 1337 paragraphs,
+every namesake-flagged entity's complete set of bound locations
+individually re-queried and checked against source text (not merely
+sampled), and two independent random spot-reads of compiled mentions
+(12 and 15 per edition) confirmed correct. Re-run the full suite before
+production integration.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the
+normal app gates and deploy, then open the production reader and confirm
+on the fetched asset:
+
+1. A first-encounter card in original-en and modern-en alike.
+2. That King Jehu and the Prophet Jehu show two distinct cards; same for
+   Ananias/Ananias of Damascus, Philip the Deacon/Philip the Apostle,
+   and Herod the Great/Herod the Tetrarch.
+3. That Simon, Cephas, and St. Peter all resolve to one card, not three.
+4. That bare "Caesar" never surfaces a card, while "Julius Caesar" and
+   "Augustus Caesar" each show their own.
+5. That "Enos" (original-en) does not falsely merge with the Enoch card,
+   and that modern-en's "Enoch" at the same location shows the Enoch
+   card correctly.
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
