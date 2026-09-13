@@ -590,6 +590,7 @@ BASIS = {
     5: (None, "all 37 paragraphs"),
     6: (None, "all 26 paragraphs"),
     7: (None, "all 29 paragraphs"),
+    8: (None, "all 50 paragraphs"),
 }
 
 # The accepted file of each Book, and its successor where one exists. The
@@ -609,6 +610,7 @@ ACCEPTED = {
     6: ("book06/source-book6.json", "book06/candidate-v2.json",
         "book06/candidate-v3.json"),
     7: ("book07/source-book7.json", "book07/candidate-v2.json", None),
+    8: ("book08/source-book8.json", "book08/candidate-v2.json", None),
 }
 
 # Every figure the package publishes for an accepted Book, on that Book's own
@@ -648,6 +650,10 @@ PUBLISHED = {
             norm=+9.0, movegap=0.01217, norm_butler=+7.5, kept_added=(5, 2),
             div=(42, 18), kept_added_div=(14, 4), norm_ext=+7.6,
             norm_butler_ext=+4.8),
+    8: dict(retention=0.93862, sent=(192, 235), sixty=(11, 1), semi=(42, 7),
+            norm=+3.4, movegap=0.00692, norm_butler=+3.4, kept_added=(7, 0),
+            div=(62, 31), kept_added_div=(24, 7), norm_ext=+4.7,
+            norm_butler_ext=+2.0),
 }
 
 
@@ -812,18 +818,24 @@ DECLARED = {
     "book06/candidate-v3.json": _decl(
         reason="ledger A5(a) and records finding R-6: the SECOND successor the "
                "record said was one. Same one-word change as Book 5's."),
-    "book08/candidate-v1.json": _decl(
+    "book08/candidate-v2.json": _decl(
         byte_identical=[33],
-        reason="**B08-P033 is declared, not edited.** It is two short "
-               "sentences of Butler's that are already plain modern English, "
-               "with nothing archaic in the vocabulary, the syntax or the "
-               "pointing. This is the disposition accepted Book 4 takes for "
-               "seven paragraphs, and it is the one **M-9** of Book 7's round "
-               "1 says should have been taken there: the byte-identity gate is "
-               "a tripwire, not a floor to clear, and a tripwire with no "
-               "declared-instance escape creates pressure to make a cosmetic "
-               "edit. Book 7 made that edit and the reviewer called it a "
-               "disimprovement. Book 8 declares instead."),
+        growth=[(47, 80, 81)],
+        reason="**the accepted file.** B08-P033 is declared, not edited, and "
+               "the declaration is inherited unchanged from v1 below: two "
+               "short sentences of Butler's that are already plain modern "
+               "English. No paragraph falls under 0.90, no sentence grows past "
+               "50, and no compound drifts. Round 1's corrections restore "
+               "marks and change nine words. **The one growth is Butler's "
+               "own sentence handed back.** Round 1's worst finding (S-2/M-1) "
+               "is that the em dash closing the weeping-woman simile was "
+               "cashed for a period, severing a 48-word protasis from its "
+               "apodosis; restoring the dash rejoins Butler's own 80-word "
+               "sentence, and the candidate's is 81. The gate is reporting "
+               "that the draft now carries the sentence Butler wrote, which "
+               "is the repair, not a defect — and the alternative is to leave "
+               "the correlative severed in order to keep a number under a "
+               "threshold, which is the shape M-9 of Book 7's round 1 named."),
     "book07/candidate-v2.json": _decl(
         reason="the accepted file. Declares nothing: no byte-identical "
                "paragraph, no paragraph under 0.90, no sentence grown past 50, "
@@ -872,6 +884,10 @@ SUPERSEDED = {
     "book04/candidate-v1.json": "round-1 draft, superseded by v2 (accepted).",
     "book05/candidate-v1.json": "round-1 draft, superseded by v2 (accepted).",
     "book06/candidate-v1.json": "round-1 draft, superseded by v2 (accepted).",
+    "book08/candidate-v1.json":
+        "the frozen round-1 draft, superseded by v2 (accepted 2026-09-13). "
+        "Its published figures are in `book08/ACCEPTANCE.md` and in the "
+        "ledger's comparability table, on both the old and the D27 basis.",
     "book07/candidate-v1.json":
         "round-1 draft, superseded by v2 (accepted). **It used to sit in "
         "`DECLARED` with an empty declaration** — a licence issued to a "
