@@ -3,9 +3,11 @@
 Updated continuously. Read this first, then `WORKFLOW.md`.
 
 **Last updated:** 2026-09-13, session `session_01K5bL9oWzAagjTMExsyUADi`
-(worker 11). **Books 1–8 are accepted. Book 9 is drafted and frozen at step 4**
-and needs an independent review. **The manifest was attacked rather than
-asserted, and it held on the ninth attack; the one that still works is named.**
+(worker 12). **Books 1–8 are accepted. Book 9's ROUND 1 IS DONE** —
+`book09/review/findings-v1.md`, 7 substantive, 9 minor, 8 records, 3
+optional, all 44 paragraphs ruled — and Book 9 is at **step 6**, owing a
+`candidate-v2`. **The manifest was attacked a third time and DEFEATED: no
+clause pins the SOURCE file** (A11).
 
 ## State
 
@@ -24,7 +26,14 @@ is computed over is not a figure (R-1).** The one authoritative table is
 | 6 | 8 — accepted, successor v3 | `candidate-v2` | all 26 | 0.93408 | +27.6% | 27 → 5 | 38 → 16 | 14 + 2 | **+5.2%** | 0.01156 / 2 |
 | 7 | 8 — accepted | `candidate-v2` | all 29 | 0.93438 | +34.0% | 30 → 7 | 42 → 18 | 14 + 4 | **+4.8%** | 0.01217 / 1 |
 | **8** | **8 — ACCEPTED** | **`candidate-v2`** | all 50 | **0.93862** | **+22.4%** | **42 → 7** | **62 → 31** | **24 + 7** | **+2.0%** | **0.00692 / 0** |
-| **9** | **4 — FROZEN DRAFT** | `candidate-v1` | all 44 | **0.92164** | **+21.1%** | **54 → 24** | **71 → 41** | **41 + 0** | **+2.5%** | **0.01266 / 2** |
+| **9** | **6 — ROUND 1 DONE** | `candidate-v1` | all 44 | **0.92181** | **+21.1%** | **54 → 24** | **71 → 41** | **41 + 0** | **+2.5%** | **0.01266 / 2** |
+
+**Book 9's retention was published as 0.92164 in four places and is
+0.92181** — records finding R-1 of `book09/review/findings-v1.md`. The
+difference is exactly one matched token, so the prose figures were computed
+over a pre-freeze candidate; `checks-v1.md` and `manifest.json` were right
+and the four prose copies were not, because nothing checks prose.
+`scripts/draft_book09_v1.py`'s docstring publishes a third value, 0.91976.
 
 Hashes: Book 8 accepted
 `12f2904e6e40ac839a608797cf8f866d1f1e5227ae415f11aee6c0238f43de22`;
@@ -114,6 +123,22 @@ move** — each one is in the script, with its result:
 | A8 | write a successor, leave the shipping column stale | rejected by coverage |
 | A10 | change the RENDERER so the generated `checks-vN.md` no longer reproduces — no candidate touched, every hash internally consistent | rejected — **this class was found by the proof's own CONTROL** |
 | **A9** | **declare the defect, then re-run `--write-manifest`** | **PASSES, and must** |
+
+**A11 — AND IT IS DEFEATED AGAIN. Nothing pins the SOURCE.** Book 9's round
+1, `book09/review/attack_manifest_a11.py`. Every one of the nine attacks
+moves the candidate, a manifest field, the renderer or a declaration.
+Clause (b3) recomputes every figure from
+`bookNN/source-bookN.json` — a file loaded by naming convention whose
+sha256 is in no manifest, no `ACCEPTED` row, no `DECLARED` row, no
+`SUPERSEDED` row and no assertion of `prove_manifest.py`. **Remove one comma
+from Butler and `checks.py N`, `--manifests` and `--all` all exit 0 with
+nothing regenerated**, because no recorded figure can see a comma. Rewrite
+Butler so the figures move, re-run `checks.py N --write-manifest`, and the
+package is internally consistent again **with no declaration at all** — so
+it is not A9. The `verify_source_bookN.py` scripts do tie the file to PG,
+and no aggregate command runs them. **Fix: record `source_sha256` in the
+manifest, and assert the file is character-identical to the served
+`odyssey-original-en.json` chapter.**
 
 **A9 is the residue and it is named, not claimed shut.** A declaration is a
 licence and no mechanical check can grade a reason. What the repair buys is
@@ -237,11 +262,14 @@ python3 scripts/controls.py              # D18's own self-test
 
 ## Next, in order
 
-1. **Book 9's round 1.** `book09/review-instructions.md`, **four questions put
-   explicitly**, and one instrument put up to be **attacked** rather than
-   checked. A **fifteenth** kind of source rule, audited before trusted, with
-   the B03-P038 splice and a paragraph of another Butler Book both made to
-   fire.
+1. **Book 9's step 6 — `candidate-v2`.** `book09/review/findings-v1.md`.
+   Eleven word changes in nine paragraphs (S-3, S-4, S-5), two marks NOT to
+   cash (M-1 at P021 and P031), and four records corrections that are text
+   edits to `continuity.md`, `README.md`, `RESUME.md` and the ledger, not to
+   the candidate. **Three package fixes fall out of it**: pin the source
+   (A11); split `kept_added_div()` into kept / class-changed / added (S-1);
+   and make `NOT_COMPOUNDS`'s growth trigger mechanical instead of the word
+   *handful* (question 4).
 2. Then **Book 10** — subject to A2.
 3. **Report five numbers with the basis on every one**: retention, raw D17
    rate, **NORM RATE on the D27 basis on Butler's own pointing**, **dividing
@@ -256,7 +284,7 @@ python3 scripts/controls.py              # D18's own self-test
    10's disposition) and **A3-widened** (the served file patch, prepared,
    hashed, and now supported by Butler's own preface).
 
-### The fourteen source rules already used
+### The fifteen source rules already used
 
 1. **Book 2 drafter** — PG's footnote-entry list, positionally.
 2. **Book 3 drafter** — the `BOOK III`/`BOOK IV` headings, in bytes.
@@ -280,7 +308,18 @@ python3 scripts/controls.py              # D18's own self-test
     structural markers. **Its audit failed it once, and the failure was that
     the locating clause passed for the wrong reason.**
 
-**A fifteenth has to find another channel again.** Still unused: **Butler's
+15. **Book 9 reviewer** — **Butler's own PREFACE**, and it reads two
+    characters. The Preface to the First Edition names Books ix.–xii. as
+    Odysseus's own narrative; D4's convention makes that region a run of
+    paragraphs opening a quotation they do not close, and a **parameter-free
+    maximum-subarray** over that ±1 stream locates it. Nine controls. Its
+    audit failed it **twice**: a control inside the rule's null space, and a
+    locating clause failing for the wrong reason. **C6 replaces chapter 9
+    entirely and asserts the interval does not move** — the answer to *a
+    chapter matching itself*. 22 of 24 chapters locate; the two that fail
+    are 3 and 4, the A7 capitals.
+
+**A sixteenth has to find another channel again.** Still unused: **Butler's
 own PREFACES and their cross-references into the text** — note that the
 First Edition's preface has just proved decisive for A7, so this channel is
 now known to be load-bearing and not merely unused; **the footnotes'
@@ -323,7 +362,32 @@ reprinted there.
     an `ACCEPTANCE.md` goes out of date silently, and Book 8's did within the
     hour (91 → 90 → 97, all dispositioned throughout).
 11. **A defect PG and the served file SHARE.** Every source rule in the package
-    is blind to it by construction.
+    is blind to it by construction. **Three concrete instances now, all found
+    in Book 9's round 1**: `Where do sail from?` (B09-P015), `come see you`
+    (B09-P022), and PG's Book II ending in a full stop where Butler's own
+    Preface says he preferred a comma (S-7 — and it changes what A3-widened
+    should patch). The blindness is demonstrated rather than assumed now, and
+    the package needs a register for it: A7 cannot hold these, because A7 is
+    served-file-against-PG and here the two agree.
+12. **A mark EXCHANGED for another mark of the same class.** D27 asks whether
+    Butler's mark in the span was in `{; : —}`, not whether it was the SAME
+    mark. Book 9 cashes two of his colons and writes two new ones over his
+    semicolons; the census reads `: 7 → 7` and `41 kept + 0 added`, and the
+    compared figure is +2.5% where strict identity gives +1.7%.
+13. **A figure that is right in the manifest and wrong in the prose.** (b3)
+    recomputes sixteen figures against `manifest.json`. Four committed files
+    carry the same figures and nothing reads any of them.
+14. **A rendering collision on a word Butler uses OFTEN.** All three arrows
+    gate on rarity (`RARE_MAX = 3`, `MIN_LEN = 5`). Book 9 carries six that
+    the 110-row report does not contain, on `gave`, `drove`, `cried`,
+    `supper`, `flock` and `snatch`.
+15. **A repair that re-creates its own collision somewhere else in the same
+    draft.** B09-P020's repair restored Butler's `clutched up` to protect his
+    `snatched` at P036, while the draft wrote `snatch` at P019.
+16. **A generated DISPOSITION that answers a different question from the one
+    its row poses.** `collisions.md` row 45 disposes of `humane → civilized`
+    with boilerplate shared by sixteen rows; the rendering is wrong and the
+    disposition never asks.
 
 ## Hard rules
 

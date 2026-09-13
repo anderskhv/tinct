@@ -6,6 +6,24 @@ Kept current at every push.
 
 ## Done
 
+- 2026-09-13 — **Book 9's round 1 is done and the package's own retention
+  figure was wrong in four places.** `book09/review/findings-v1.md`: 7
+  substantive, 9 minor, 8 records, 3 optional, all 44 paragraphs ruled
+  exactly once. Recomputed independently of `scripts/`: eleven of the twelve
+  published figures reproduce; **retention does not** — 0.92164 in
+  `README.md`, `continuity.md`, `RESUME.md` and this table against 0.92181
+  in `checks-v1.md` and `manifest.json`, a difference of exactly one matched
+  token, i.e. the prose was computed over a pre-freeze candidate. The
+  drafter's docstring publishes a third value. **Clause (b3) covers the
+  manifest and nothing covers the prose**, which is how it survived.
+  Substantively: `41 kept + 0 added` is false on the colon (two of Butler's
+  cashed, two written over his semicolons, compared figure +2.5% against
+  +1.7% on strict identity); the D4 paragraph is wrong at both ends (P001
+  opens with the poet's frame, P044 closes nothing, and the speech closes at
+  the end of chapter **12**); six rendering collisions survived arrow B's
+  rarity gate; and `prove_manifest.py` was **defeated a third time** — no
+  clause pins `source-bookN.json` (A11).
+
 - 2026-09-13 — **The Books 1-6 collision backlog is cleared: 221 rows with no
   disposition, now zero, by a worker that did not build the instrument.**
   Ruling them found a defect in the INSTRUMENT before it found one in any
@@ -520,7 +538,7 @@ accepted files, and every row carries its basis. Nothing here is typed by hand.
 | **7 v2 (ACCEPTED)** | **`candidate-v2`** | **all 29 paragraphs** | **0.93438** | **103 → 138** | **+34.0%** | **7 → 0** | **30 → 7** | **+9.0%** | **0.01217** |
 | 8 v1 *(superseded)* | `candidate-v1` | all 50 paragraphs | 0.93844 | 192 → 244 | +27.1% | 11 → 0 | 42 → 0 | +4.3% | 0.00692 |
 | **8 v2 (ACCEPTED)** | **`candidate-v2`** | **all 50 paragraphs** | **0.93862** | **192 → 235** | **+22.4%** | **11 → 1** | **42 → 7** | **+3.4%** | **0.00692** |
-| **9 v1 (frozen draft)** | **`candidate-v1`** | **all 44 paragraphs** | **0.92164** | **171 → 207** | **+21.1%** | **16 → 0** | **54 → 24** | **+2.7%** | **0.01266** |
+| **9 v1 (round 1 done)** | **`candidate-v1`** | **all 44 paragraphs** | **0.92181** | **171 → 207** | **+21.1%** | **16 → 0** | **54 → 24** | **+2.7%** | **0.01266** |
 
 **And the column that replaces the last-but-one, decided as D21.** The NORM
 RATE above is the published one, which credits a comma raised to a semicolon
@@ -773,6 +791,20 @@ against Butler's (**D19**). Every control under **D18**; run
   fragment, and somebody completed it with 196 words of the wrong file.
   **A3's patch as prepared would restore the half-sentence and leave the
   capital that made it look broken.**
+
+  **A7 IS INCOMPLETE, and Butler's Preface says so** (Book 9's round 1, S-7).
+  The same sentence that settles the capitals settles a second thing beside
+  them: *"the Leipsic Teubner edition of 894 makes **Books ii. AND iii.** end
+  with a comma … I have preferred to do so."* **PG honours it for iii only.**
+  PG's Book II ends `from dark till dawn.` — a full stop — and PG's Book III
+  still opens lower-case `but as the sun was rising`, which is internal
+  evidence, independent of the Preface, that a comma belongs there. So A3
+  as prepared would give the served edition a lower-case sentence opening
+  **after a full stop**, which is neither Butler's device nor PG's intention.
+  The two halves cannot be decided separately: either widen A3 once more to
+  Book II's terminal comma, on Butler's own stated authority, or restore
+  Book IV's opening alone and leave Book III's capital. **Anders's call, and
+  the patch hashed as `e45d6c4d…` decides only one of the two.**
 
   **The widened patch.** Three substitutions in one file, each occurring
   exactly once, computed in a scratch copy and re-parsed; **the served file
