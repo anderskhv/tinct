@@ -82,6 +82,15 @@ What is there now:
 * **`ACCEPTED`'s shipping column must be the highest declared candidate** —
   the staleness class that had `compound_drift.py` reading Book 7's *rejected*
   v1.
+* **The generated `checks-vN.md` must still reproduce from the code.**
+  `--manifests` now renders what the code *would* write and compares its hash
+  with the manifest's. **This class was found by `prove_manifest.py`'s own
+  control**, not by an instrument: accepting Book 8 put a ninth row in the
+  cross-Book table every checks file prints, so every earlier Book's file
+  stopped reproducing — while its recorded hash and the file on disk still
+  agreed, because both were the same stale pair. **Accepting a Book now means
+  re-running `checks.py N --write-manifest` for every Book that has a checks
+  block**, and `--manifests` says so by name when you forget.
 
 **`prove_manifest.py` is now nine attacks and 24 assertions.** The dead fifth
 case is gone; R-5 is proved end to end against `DECLARED` through the command
@@ -103,6 +112,7 @@ move** — each one is in the script, with its result:
 | A6 | plant the defect in `book02/candidate-v3.json`, which no invocation reached | rejected by `--declarations` |
 | A7 | a new candidate file in neither table | rejected by coverage |
 | A8 | write a successor, leave the shipping column stale | rejected by coverage |
+| A10 | change the RENDERER so the generated `checks-vN.md` no longer reproduces — no candidate touched, every hash internally consistent | rejected — **this class was found by the proof's own CONTROL** |
 | **A9** | **declare the defect, then re-run `--write-manifest`** | **PASSES, and must** |
 
 **A9 is the residue and it is named, not claimed shut.** A declaration is a
@@ -306,7 +316,13 @@ reprinted there.
 9. **A false positive in `compound_drift()` from attributive hyphenation.**
    Declared, exempted by name, and the exemption list is itself the hazard —
    see `book09/continuity.md` §8.
-10. **A defect PG and the served file SHARE.** Every source rule in the package
+10. **Whether a cross-Book instrument's ROW COUNT in a record is current.**
+    Every arrow compares across Books, so drafting a ninth Book adds rows to
+    all eight earlier `collisions.md` files. The check exits non-zero when a
+    row lacks a disposition, so nothing goes unruled — but a count typed into
+    an `ACCEPTANCE.md` goes out of date silently, and Book 8's did within the
+    hour (91 → 90 → 97, all dispositioned throughout).
+11. **A defect PG and the served file SHARE.** Every source rule in the package
     is blind to it by construction.
 
 ## Hard rules

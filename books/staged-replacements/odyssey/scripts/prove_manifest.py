@@ -38,8 +38,9 @@ stopped.**
 * **The package digest excludes `prove_manifest-output.txt`.** A defect
   written only into that file would not be seen by the before/after hash.
 
-Run: `python3 scripts/prove_manifest.py`  (~9 minutes: every attack works on a
-fresh copy of the package and several run the full gates over twenty files)
+Run: `python3 scripts/prove_manifest.py`  (**about twenty minutes**: every
+attack works on a fresh copy of the package, and several run the full gates
+over twenty declared files across nine Books)
 """
 import hashlib
 import json
@@ -356,6 +357,25 @@ def main():
             '"book02/candidate-v6.json": _decl(', 1), encoding="utf-8")
     attack("A8  a successor written, ACCEPTED's shipping column left stale",
            a8, mode="--declarations")
+    # A10 — THE CLASS THIS SCRIPT'S OWN CONTROL FOUND, at Book 9. Accepting
+    #       Book 8 added a ninth row to the cross-Book table every
+    #       `checks-vN.md` prints, so every earlier Book's checks file stopped
+    #       reproducing from the code that writes it — and `--manifests`
+    #       passed, because the recorded hash and the file on disk were the
+    #       same stale pair and nothing compared either against the CODE.
+    #       Found because section 1 here re-runs `checks.py 7` in a fresh copy
+    #       and the rewritten file no longer matched, which is the one thing
+    #       this script does that no instrument does.
+    def a10(w):
+        cp = w / "scripts/checks.py"
+        cp.write_text(cp.read_text(encoding="utf-8").replace(
+            '"| bag retention (order-blind) | %.5f |" % f["bag"],',
+            '"| bag retention (order-blind, revised) | %.5f |" % f["bag"],'),
+            encoding="utf-8")
+    attack("A10 the renderer changes and the generated checks file no longer "
+           "reproduces — no candidate touched, every hash internally "
+           "consistent", a10)
+
     # A9 — the residue, found by attacking the repair and being WRONG about
     #      it. The first form of this attack — declare the defect, rewrite the
     #      candidate hash — still EXITS 1, because clause (b3) recomputes the
@@ -374,13 +394,21 @@ def main():
         '"book07/candidate-v2.json": _decl(byte_identical=[2], ', 1),
         encoding="utf-8")
     rc_before, _ = run(w, "--manifests")
-    run(w, "7", "--version", "2", "--write-manifest")
+    # The full ceremony, and it is larger than it was: A10's clause compares
+    # the RENDERED checks file against the manifest, and every Book's checks
+    # file prints the cross-Book table, so changing one Book's retention makes
+    # every other Book's generated file stop reproducing. Legalizing a defect
+    # therefore costs a regeneration of every Book that has a checks block —
+    # which is a large, visible diff, and that is the point.
+    for book, ver in ((6, 2), (7, 2), (8, 2), (9, 1)):
+        run(w, str(book), "--version", str(ver), "--write-manifest")
     rc_after, out = run(w, "--manifests")
     expect("A9  the residue: DECLARING the defect is not enough (exit 1 — the "
-           "figures move); declaring it AND re-writing the manifest passes, "
-           "as the intended workflow must",
+           "figures and every generated checks file move); declaring it AND "
+           "regenerating EVERY Book's manifest passes, as the intended "
+           "workflow must",
            rc_before != 0 and rc_after == 0,
-           "declared only -> exit %d;  declared + --write-manifest -> exit %d"
+           "declared only -> exit %d;  declared + the full ceremony -> exit %d"
            % (rc_before, rc_after))
     shutil.rmtree(w.parent)
 

@@ -51,6 +51,13 @@ data, and saved reading positions all key on that same paragraph index.
    paragraph. Fix stable renderings for names, epithets, and recurring
    formulas first (`GLOSSARY.md`), consistent with any earlier accepted
    Books.
+   **Before freezing, run `scripts/collision_triage.py N` and
+   `scripts/compound_register.py`, and act on what they say** — not after.
+   Book 9 is the demonstration: fifteen live collisions repaired in the draft,
+   which at a review round would have been fifteen findings and a successor.
+   Adding a Book also creates rows in every earlier Book's `collisions.md`;
+   rule those too rather than leaving a backlog.
+
 3. **Freeze the draft.** Write `bookNN/candidate-v1.json` and the readable
    copy, record hashes in `bookNN/provenance.json`, and do not edit
    `candidate-v1.json` afterwards. Corrections go to `candidate-v2.json`.
@@ -73,6 +80,16 @@ data, and saved reading positions all key on that same paragraph index.
 8. **Accept only when no substantive issue remains.** Record acceptance in
    `bookNN/ACCEPTANCE.md` with the accepted file's hash, the review rounds
    applied, and what remains open. Then move to the next Book.
+
+   **And regenerate EVERY Book's `checks-vN.md` and manifest** —
+   `python3 scripts/checks.py N --version V --write-manifest` for each Book
+   that has a `checks` block. Every checks file prints the cross-Book
+   comparability table, so accepting a Book makes every earlier Book's
+   generated file stop reproducing from the code that writes it, while its
+   recorded hash and the file on disk still agree because both are the same
+   stale pair. `checks.py --manifests` names this by Book when you forget;
+   it was found by `prove_manifest.py`'s own control at Book 9, not by an
+   instrument.
 
 Order of Books: this task drafted Book 1 only, per instruction. Later Books
 proceed in numerical order unless a coordinator says otherwise; Book 10's

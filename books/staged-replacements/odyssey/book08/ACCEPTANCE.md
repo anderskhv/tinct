@@ -48,13 +48,18 @@ of `book08/changes-v1-to-v2.md`.
 | word ratio | 0.992 | **0.992** |
 | paragraphs byte-identical to Butler | 1 (B08-P033, **declared**) | **1 (B08-P033, declared)** |
 | H.1 compound pairs, all dispositioned | 28 | **28** |
-| collision rows touching this Book, all dispositioned | 91 | **90** |
+| collision rows touching this Book, all dispositioned | 91 | **97** |
 
 `book08/checks-v2.md`, written by `scripts/checks.py`, is the only thing that
 computes these. `book08/manifest.json`'s `checks` block names
 `candidate-v2.json`, its sha256 and all sixteen figures, and
 `scripts/checks.py --manifests` now **re-runs the gates over it** and checks
 every figure back against the file.
+
+*(The collision row count is as of Book 9 joining the corpus: every arrow
+compares across Books, so a new Book adds rows to every other one. It was 90
+immediately after this Book's corrections and 97 once Book 9 was drafted;
+every one of the 97 has a disposition.)*
 
 **Read the last four rows of the mark block together, because they are the
 Book's whole argument.** The raw rate fell from +27.1% to +22.4% and the

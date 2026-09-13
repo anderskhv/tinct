@@ -1332,9 +1332,10 @@ def run_manifests():
                          .get("checks") or {}).get("candidate_file")
             except Exception:                                # noqa: BLE001
                 named = None
+        fr = None
         if named and (ROOT / named).exists():
             try:
-                _f, gate = run_book(book, write=False, quiet=True,
+                fr, gate = run_book(book, write=False, quiet=True,
                                     candidate=named)
             except Exception as e:                           # noqa: BLE001
                 bad.append("manifest: book%02d — the gates could not be put to "
@@ -1343,6 +1344,17 @@ def run_manifests():
                       % (book, named))
                 continue
         msgs = verify_manifest(book, gate=gate)
+        if fr is not None and fr.get("render_sha256") and named:
+            ck = (json.loads(mp.read_text(encoding="utf-8")).get("checks")
+                  or {})
+            if ck.get("sha256") and ck["sha256"] != fr["render_sha256"]:
+                msgs = msgs + [
+                    "manifest: book%02d records checks.sha256 %s, and the "
+                    "checks file the CODE would write now hashes to %s — the "
+                    "generated file no longer reproduces (re-run "
+                    "`checks.py %d --write-manifest`)"
+                    % (book, str(ck["sha256"])[:8], fr["render_sha256"][:8],
+                       book)]
         if gate is not None and gate.failures:
             msgs = msgs + ["manifest: book%02d — the candidate its manifest "
                            "names fails a content gate: %s" % (book, m)
@@ -1519,12 +1531,21 @@ def run_book(book, version=None, write=True, quiet=False, candidate=None):
 
     g.evaluated = True                       # every gate above has now run
 
+    rendered = _render(book, version, cand_path, f, g, grown, grown_fail, near,
+                       tw, longs, pairs, dr, drift, floor, worst, worst_bk,
+                       ratio)
+    # **The staleness class `--manifests` could not see, found by
+    # `prove_manifest.py`'s own CONTROL at Book 9.** Accepting Book 8 put a
+    # ninth row in the cross-Book table every `checks-vN.md` prints, so every
+    # earlier Book's checks file stopped reproducing from the code that writes
+    # it — while its recorded hash and the file on disk still agreed, because
+    # both were the stale pair. `f["render_sha256"]` is the hash of what this
+    # run WOULD write, so the manifest can be checked against the code rather
+    # than against a file that was written once.
+    f["render_sha256"] = hashlib.sha256(rendered.encode("utf-8")).hexdigest()
     if write:
         path = bd / ("checks-v%d.md" % version)
-        path.write_text(_render(book, version, cand_path, f, g, grown,
-                                grown_fail, near, tw, longs, pairs, dr, drift,
-                                floor, worst, worst_bk, ratio),
-                        encoding="utf-8")
+        path.write_text(rendered, encoding="utf-8")
         f["checks_md"] = str(path.relative_to(ROOT))
         f["checks_md_sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
     f["candidate_sha256"] = hashlib.sha256(cand_path.read_bytes()).hexdigest()
