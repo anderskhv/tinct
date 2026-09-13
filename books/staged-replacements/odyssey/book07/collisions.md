@@ -6,7 +6,7 @@ of `book07/review/findings-v1.md`: the check returned seventy-two rows touching
 Book 7, eleven were acted on, and sixty-one were dismissed with no record of
 having been read. This file is that record, and it is generated, not typed.
 
-**78 rows touch Book 7.**
+**77 rows touch Book 7.**
 
 | disposition | rows |
 |---|---|
@@ -15,7 +15,7 @@ having been read. This file is that record, and it is generated, not typed.
 | `common-word` | 2 |
 | `discrimination` | 1 |
 | `homograph` | 2 |
-| `kept` | 43 |
+| `kept` | 42 |
 | `matches-accepted` | 1 |
 | `phrase-not-word` | 2 |
 | `same-referent` | 2 |
@@ -48,7 +48,7 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW B — one rendering, two or more Butler words, across Books
 
-60 rows.
+59 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
@@ -71,7 +71,6 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `going` | `going` (B7-P012) | **`kept`** | every entry Book 7 contributes is Butler's own `going` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `great` | `great` (B7-P005), `great` (B7-P006), `great` (B7-P007), `great` (B7-P013), `great` (B7-P019), `great` (B7-P021), `great` (B7-P022) | **`kept`** | every entry Book 7 contributes is Butler's own `great` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `handed` | `handed` (B7-P017) | **`kept`** | every entry Book 7 contributes is Butler's own `handed` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `himself` | `himself` (B7-P008), `himself` (B7-P018) | **`kept`** | every entry Book 7 contributes is Butler's own `himself` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `housekeeper` | `housekeeper` (B7-P015) | **`variant`** | every rendering in the row reduces to `housekeeper` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `husband` | `along with their husbands` (B7-P007), `husband` (B7-P006), `husband` (B7-P013) | **`common-rendering`** | `husband` is a word Butler himself uses in 15 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `inner` | `inner` (B7-P029) | **`kept`** | every entry Book 7 contributes is Butler's own `inner` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -79,10 +78,10 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `lives` | `lives` (B7-P004), `lives` (B7-P021) | **`kept`** | every entry Book 7 contributes is Butler's own `lives` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `maids` | `maids` (B7-P020), `maids` (B7-P024), `maids` (B7-P025), `maids` (B7-P028) | **`kept`** | every entry Book 7 contributes is Butler's own `maids` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `matter` | `matter` (B7-P018), `matter` (B7-P019), `matter` (B7-P026) | **`variant`** | every rendering in the row reduces to `matter` once inflection, D9 spelling and D15 compound spacing are normalized |
-| `morning` | `morning` (B7-P018) | **`kept`** | every entry Book 7 contributes is Butler's own `morning` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `others` | `others` (B7-P010), `others` (B7-P011), `others` (B7-P026) | **`kept`** | every entry Book 7 contributes is Butler's own `others` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `ourselves` | `our selves` (B7-P018) | **`variant`** | every rendering in the row reduces to `ourselv` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `people` | `people` (B7-P001), `people` (B7-P004), `people` (B7-P006), `people` (B7-P008), `people` (B7-P012), `people` (B7-P018), `people` (B7-P023), `people` (B7-P026), `persons` (B7-P010) | **`common-rendering`** | `people` is a word Butler himself uses in 54 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
+| `persuade` | `persuade` (B7-P021) | **`kept`** | every entry Book 7 contributes is Butler's own `persuade` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `plainly` | `plainly` (B7-P014) | **`kept`** | every entry Book 7 contributes is Butler's own `plainly` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `playing` | `playing` (B7-P023) | **`homograph`** | One spelling, two unrelated senses. `the playing that goes with it` at B08-P007 renders Butler's `minstrelsy`; his own `playing` elsewhere is children at play (B01-P008, B07-P023) and a flame playing about a tripod (B08-P040). No referent is shared. |
 | `proud` | `proud` (B7-P002) | **`kept`** | every entry Book 7 contributes is Butler's own `proud` carried through unchanged; the decision in this row belongs to whichever Book moved |

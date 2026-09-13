@@ -6,22 +6,21 @@ of `book07/review/findings-v1.md`: the check returned seventy-two rows touching
 Book 7, eleven were acted on, and sixty-one were dismissed with no record of
 having been read. This file is that record, and it is generated, not typed.
 
-**133 rows touch Book 4.**
+**130 rows touch Book 4.**
 
 | disposition | rows |
 |---|---|
 | `artifact` | 2 |
-| `common-rendering` | 9 |
+| `common-rendering` | 8 |
 | `common-word` | 7 |
 | `context-rendered` | 2 |
 | `discrimination` | 1 |
 | `free-variation` | 1 |
 | `homograph` | 3 |
-| `kept` | 70 |
+| `kept` | 69 |
 | `kept-elsewhere` | 10 |
 | `matches-accepted` | 5 |
 | `phrase-not-word` | 3 |
-| `repair` | 1 |
 | `same-referent` | 2 |
 | `unavoidable-merge` | 9 |
 | `variant` | 8 |
@@ -72,7 +71,7 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW B — one rendering, two or more Butler words, across Books
 
-89 rows.
+87 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
@@ -110,7 +109,6 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `harshly` | `harshly` (B4-P060) | **`kept`** | every entry Book 4 contributes is Butler's own `harshly` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `headland` | `foreland` (B4-P043) | **`kept-elsewhere`** | Book 4 supplies the row's only rendering (`foreland`); every other entry is Butler's own `headland` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `headland` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
 | `heads` | `heads` (B4-P017) | **`kept`** | every entry Book 4 contributes is Butler's own `heads` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `himself` | `himself` (B4-P021), `himself` (B4-P035), `himself` (B4-P038), `himself` (B4-P042), `himself` (B4-P043) | **`kept`** | every entry Book 4 contributes is Butler's own `himself` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `hurrying` | `hurrying` (B4-P003) | **`kept`** | every entry Book 4 contributes is Butler's own `hurrying` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `husband` | `husband` (B4-P011), `husband` (B4-P021), `husband` (B4-P065), `husband` (B4-P076) | **`kept`** | every entry Book 4 contributes is Butler's own `husband` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `inner` | `inner` (B4-P024) | **`kept`** | every entry Book 4 contributes is Butler's own `inner` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -124,7 +122,6 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `maids` | `maids` (B4-P024), `maids` (B4-P060), `maids` (B4-P064), `maids` (B4-P066), `maids` (B4-P067) | **`kept`** | every entry Book 4 contributes is Butler's own `maids` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `matter` | `matter` (B4-P020), `matter` (B4-P046), `matter` (B4-P058), `matter` (B4-P065), `matter` (B4-P074) | **`variant`** | every rendering in the row reduces to `matter` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `meanwhile` | `meanwhile` (B4-P037), `meanwhile` (B4-P053), `meanwhile` (B4-P069) | **`kept`** | every entry Book 4 contributes is Butler's own `meanwhile` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `morning` | `forenoon` (B4-P017), `morning` (B4-P017), `morning` (B4-P018), `morning` (B4-P025), `morning` (B4-P034), `morning` (B4-P037), `morning` (B4-P038), `morning` (B4-P048), `morning` (B4-P056) | **`common-rendering`** | `morning` is a word Butler himself uses in 18 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `others` | `others` (B4-P020), `others` (B4-P057), `others` (B4-P059) | **`kept`** | every entry Book 4 contributes is Butler's own `others` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `ourselves` | `ourselves` (B4-P048) | **`variant`** | every rendering in the row reduces to `ourselv` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `people` | `people` (B4-P004), `people` (B4-P007), `people` (B4-P009), `people` (B4-P014), `people` (B4-P015), `people` (B4-P021), `people` (B4-P032), `people` (B4-P076) | **`kept`** | every entry Book 4 contributes is Butler's own `people` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -168,7 +165,7 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW C — one paragraph, one rendering ← a word Butler keeps in that same paragraph
 
-11 rows.
+10 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
@@ -176,7 +173,6 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `beside` | `by the side of` (B4-P006) | **`variant`** | Butler uses three surface forms of one preposition in this paragraph — `by the side of Menelaus`, `beside them`, `by their side` — and the candidate uses `beside` for all three. One preposition, not three words. |
 | `brought` | `fetched them` (B4-P006) | **`common-word`** | `brought` is an ordinary word Butler uses in 29 paragraphs and the two uses share no referent |
 | `set` | `offered` (B4-P006) | **`common-word`** | `set` is an ordinary word Butler uses in 45 paragraphs and the two uses share no referent |
-| `morning` | `forenoon` (B4-P017) | **`repair`** | **Live, and the sharpest finding of this backlog, because the candidate's own sentence is tautological.** Butler: `Morning will come in due course, and in the forenoon I care not how much I cry for those that are dead and gone.` Pisistratus is refusing to weep at the evening meal and naming the hours when weeping is proper. The candidate writes `Morning will come in its own time, and in the morning I do not care how much I cry`, which says a thing will come and that when it has come it will be there. The whole point of the sentence — the deferral — is carried by the second word and the candidate spent it on the first. Repaired in `book04/candidate-v5.json` to `and later in the day`, which keeps the deferral; it widens Butler's pre-noon hours slightly and that is recorded in `book04/continuity.md` rather than hidden. |
 | `man` | `person` (B4-P017) | **`common-word`** | `man` is an ordinary word Butler uses in 86 paragraphs and the two uses share no referent |
 | `great` | `hecatombs` (B4-P029) | **`common-word`** | `great` is an ordinary word Butler uses in 54 paragraphs and the two uses share no referent |
 | `wait` | `our ambuscade` (B4-P037) | **`phrase-not-word`** | `Our ambuscade would have been intolerable` -> `Lying in wait there would have been unbearable`, beside Butler's own `sat down to wait till we should come up`. `lie in wait` is a fixed idiom and `wait` in it is not a second use of the verb Butler kept. Ruled the same way from the other side at (4, B, `lying`). |

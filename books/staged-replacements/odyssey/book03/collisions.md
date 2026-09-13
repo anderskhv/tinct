@@ -6,7 +6,7 @@ of `book07/review/findings-v1.md`: the check returned seventy-two rows touching
 Book 7, eleven were acted on, and sixty-one were dismissed with no record of
 having been read. This file is that record, and it is generated, not typed.
 
-**121 rows touch Book 3.**
+**118 rows touch Book 3.**
 
 | disposition | rows |
 |---|---|
@@ -15,9 +15,9 @@ having been read. This file is that record, and it is generated, not typed.
 | `common-word` | 13 |
 | `context-rendered` | 2 |
 | `homograph` | 3 |
-| `kept` | 62 |
+| `kept` | 60 |
 | `kept-elsewhere` | 8 |
-| `matches-accepted` | 5 |
+| `matches-accepted` | 4 |
 | `phrase-not-word` | 2 |
 | `same-referent` | 3 |
 | `unavoidable-merge` | 6 |
@@ -61,7 +61,7 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW B — one rendering, two or more Butler words, across Books
 
-79 rows.
+76 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
@@ -92,7 +92,6 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `handed` | `handed` (B3-P007), `handed` (B3-P008), `handed` (B3-P018), `handed` (B3-P027) | **`kept`** | every entry Book 3 contributes is Butler's own `handed` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `headland` | `headland` (B3-P015), `headland` (B3-P024) | **`kept`** | every entry Book 3 contributes is Butler's own `headland` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `heads` | `heads` (B3-P024) | **`kept`** | every entry Book 3 contributes is Butler's own `heads` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `himself` | `himself` (B3-P010), `himself` (B3-P021), `himself` (B3-P031) | **`kept`** | every entry Book 3 contributes is Butler's own `himself` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `holding` | `holding` (B3-P003) | **`kept`** | every entry Book 3 contributes is Butler's own `holding` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `housekeeper` | `housekeeper` (B3-P031), `housekeeper` (B3-P037) | **`variant`** | every rendering in the row reduces to `housekeeper` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `hurried` | `hurried` (B3-P034) | **`kept`** | every entry Book 3 contributes is Butler's own `hurried` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -102,10 +101,8 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `lives` | `lives` (B3-P025) | **`kept`** | every entry Book 3 contributes is Butler's own `lives` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `lying` | `lying` (B3-P005) | **`kept`** | every entry Book 3 contributes is Butler's own `lying` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `maids` | `maids` (B3-P033) | **`kept`** | every entry Book 3 contributes is Butler's own `maids` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `marveled` | `all marvelled` (B3-P030) | **`matches-accepted`** | B02-P001 and B03-P030 both render Butler's `all marvelled` as `everyone marveled` — his own word, D9-respelled. The row exists because a THIRD Book put `marveled` where Butler wrote something else; that is Book 1's decision and it is ruled at (1, B, `marveled`). |
 | `matter` | `matter` (B3-P007), `matter` (B3-P011) | **`variant`** | every rendering in the row reduces to `matter` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `meanwhile` | `meanwhile` (B3-P024), `meanwhile` (B3-P036) | **`kept`** | every entry Book 3 contributes is Butler's own `meanwhile` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `morning` | `morning` (B3-P015), `morning` (B3-P032), `morning` (B3-P037) | **`kept`** | every entry Book 3 contributes is Butler's own `morning` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `others` | `others` (B3-P016), `others` (B3-P031) | **`kept`** | every entry Book 3 contributes is Butler's own `others` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `people` | `people` (B3-P001), `people` (B3-P003), `people` (B3-P005), `people` (B3-P007), `people` (B3-P012), `people` (B3-P014), `people` (B3-P024), `people` (B3-P025), `people` (B3-P026) | **`kept`** | every entry Book 3 contributes is Butler's own `people` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `plainly` | `in all plainness` (B3-P011) | **`unavoidable-merge`** | `tell me in all plainness exactly what you saw` -> `tell me plainly and exactly`, identical in both accepted Books, beside Butler's own `plainly` in Books 2 and 7. His `in all plainness` is an adverbial periphrasis for exactly the adverb he uses elsewhere; modern English has the adverb and not the periphrasis, so the merge is what modernizing this phrase means. |

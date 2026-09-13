@@ -756,6 +756,16 @@ rule([1, 2], "B", "settle", "phrase-not-word",
      "The other head of the same idiom — see (1/2, B, `account`). `settle the "
      "account` renders Butler's `reckon with you`, and `settle` in it is not "
      "a second use of his own `settle` at B05-P013 and B07-P008.")
+rule([1], "B", "showed", "phrase-not-word",
+     "**Introduced by this package's own repair, and ruled rather than left "
+     "to be rediscovered.** The B01-P010 repair renders Butler's `he "
+     "conducted her to a richly decorated seat` as `showed her to a richly "
+     "worked seat`. `show someone to a seat` is a fixed idiom for conducting "
+     "them to it; it is not a second use of the simple verb that renders "
+     "Butler's `shewed`, `manifested` and `displayed` in Books 3 and 4 (see "
+     "(3/4, B, `showed`)). A repair that trades one collision for another "
+     "unruled row is not a repair, so the row is ruled here in the same pass "
+     "that created it.")
 rule([3, 4], "B", "plainly", "unavoidable-merge",
      "`tell me in all plainness exactly what you saw` -> `tell me plainly and "
      "exactly`, identical in both accepted Books, beside Butler's own "

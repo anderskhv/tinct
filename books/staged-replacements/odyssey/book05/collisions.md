@@ -6,7 +6,7 @@ of `book07/review/findings-v1.md`: the check returned seventy-two rows touching
 Book 7, eleven were acted on, and sixty-one were dismissed with no record of
 having been read. This file is that record, and it is generated, not typed.
 
-**91 rows touch Book 5.**
+**89 rows touch Book 5.**
 
 | disposition | rows |
 |---|---|
@@ -16,7 +16,7 @@ having been read. This file is that record, and it is generated, not typed.
 | `discrimination` | 1 |
 | `free-variation` | 1 |
 | `homograph` | 2 |
-| `kept` | 47 |
+| `kept` | 45 |
 | `kept-elsewhere` | 13 |
 | `matches-accepted` | 5 |
 | `unavoidable-merge` | 4 |
@@ -53,7 +53,7 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW B — one rendering, two or more Butler words, across Books
 
-67 rows.
+65 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
@@ -85,7 +85,6 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `grieving` | `grieving` (B5-P013) | **`kept`** | every entry Book 5 contributes is Butler's own `grieving` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `guide` | `guide` (B5-P005) | **`kept`** | every entry Book 5 contributes is Butler's own `guide` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `herald` | `harbinger` (B5-P001) | **`kept-elsewhere`** | Book 5 supplies the row's only rendering (`harbinger`); every other entry is Butler's own `herald` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `herald` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
-| `himself` | `himself` (B5-P010), `himself` (B5-P022), `himself` (B5-P023), `himself` (B5-P027), `himself` (B5-P028), `himself` (B5-P031), `himself` (B5-P035), `himself` (B5-P036), `himself` (B5-P037) | **`kept`** | every entry Book 5 contributes is Butler's own `himself` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `holding` | `holding` (B5-P005) | **`kept`** | every entry Book 5 contributes is Butler's own `holding` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `hurrying` | `hurry skurrying` (B5-P003) | **`kept-elsewhere`** | Book 5 supplies the row's only rendering (`hurry skurrying`); every other entry is Butler's own `hurrying` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `hurrying` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
 | `inner` | `inner` (B5-P019) | **`kept`** | every entry Book 5 contributes is Butler's own `inner` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -96,7 +95,6 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `maids` | `maids` (B5-P016) | **`kept`** | every entry Book 5 contributes is Butler's own `maids` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `matter` | `matter` (B5-P007), `matter` (B5-P027) | **`variant`** | every rendering in the row reduces to `matter` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `meanwhile` | `meanwhile` (B5-P020) | **`kept`** | every entry Book 5 contributes is Butler's own `meanwhile` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `morning` | `morning` (B5-P020) | **`kept`** | every entry Book 5 contributes is Butler's own `morning` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `neighbor` | `neighbor` (B5-P037) | **`variant`** | D9, `neighbour` -> `neighbor`. The trailing `saying` in the row is Butler's participle, which the recast `and one would turn to his neighbor and say` absorbed; the diff attached it to the same span. |
 | `ourselves` | `ourselves` (B5-P004) | **`variant`** | every rendering in the row reduces to `ourselv` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `people` | `people` (B5-P002), `people` (B5-P009), `people` (B5-P028) | **`kept`** | every entry Book 5 contributes is Butler's own `people` carried through unchanged; the decision in this row belongs to whichever Book moved |

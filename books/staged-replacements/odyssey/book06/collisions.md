@@ -6,7 +6,7 @@ of `book07/review/findings-v1.md`: the check returned seventy-two rows touching
 Book 7, eleven were acted on, and sixty-one were dismissed with no record of
 having been read. This file is that record, and it is generated, not typed.
 
-**84 rows touch Book 6.**
+**81 rows touch Book 6.**
 
 | disposition | rows |
 |---|---|
@@ -17,7 +17,7 @@ having been read. This file is that record, and it is generated, not typed.
 | `discrimination` | 1 |
 | `free-variation` | 1 |
 | `homograph` | 1 |
-| `kept` | 47 |
+| `kept` | 44 |
 | `kept-elsewhere` | 2 |
 | `matches-accepted` | 2 |
 | `unavoidable-merge` | 6 |
@@ -29,7 +29,7 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW A — one Butler word, two or more renderings, across Books
 
-19 rows.
+18 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
@@ -51,11 +51,10 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `travel` | `travel` (B6-P021) | **`variant`** | every rendering in the row reduces to `travel` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `wherein` | `in which` (B6-P004) | **`free-variation`** | `in which` at B05-P006 and B06-P004, `where` at B04-P022, all rendering Butler's relative `wherein`, all after a concrete place noun (a wood, a peacefulness of light, a wooden horse). No sense, register or referent separates them. Recorded, not repaired: three accepted Books would have to move to close a difference no reader can act on. |
 | `wilderness` | `wilderness` (B6-P012) | **`kept`** | every entry Book 6 contributes is Butler's own `wilderness` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `wondered` | `wondered` (B6-P013) | **`kept`** | every entry Book 6 contributes is Butler's own `wondered` carried through unchanged; the decision in this row belongs to whichever Book moved |
 
 ## ARROW B — one rendering, two or more Butler words, across Books
 
-55 rows.
+53 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
@@ -77,14 +76,12 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `greenery` | `herbage` (B6-P009) | **`matches-accepted`** | The mirror of (5/6, A, `herbage`). Both accepted Books render Butler's `herbage` as `greenery`; B05-P006's longer span is his `luscious herbage` taken together. |
 | `guide` | `conduct` (B6-P010) | **`unavoidable-merge`** | `guide` carries Butler's `conduct` (B06-P010), his `direct` (B01-P019 and B02-P012 — the same sentence in two Books, rendered identically) and his own `guide` (B05-P005). All three are Butler's free variants for showing somebody a way; `some heaven-sent message may direct you` and `may guide you` are the same sentence in his own idiom, and no discrimination exists to lose. |
 | `heads` | `heads` (B6-P009) | **`kept`** | every entry Book 6 contributes is Butler's own `heads` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `himself` | `himself` (B6-P011), `himself` (B6-P012), `himself` (B6-P018) | **`kept`** | every entry Book 6 contributes is Butler's own `himself` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `husband` | `husband` (B6-P014), `husband` (B6-P019), `husband` (B6-P022) | **`kept`** | every entry Book 6 contributes is Butler's own `husband` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `inner` | `inner` (B6-P023) | **`kept`** | every entry Book 6 contributes is Butler's own `inner` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `lying` | `lying` (B6-P003) | **`kept`** | every entry Book 6 contributes is Butler's own `lying` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `maids` | `maids` (B6-P005), `maids` (B6-P008), `maids` (B6-P010), `maids` (B6-P016), `maids` (B6-P017), `maids` (B6-P018), `maids` (B6-P021), `maids` (B6-P023), `maids` (B6-P024) | **`kept`** | every entry Book 6 contributes is Butler's own `maids` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `matter` | `matter` (B6-P009), `matter` (B6-P020), `matter` (B6-P023) | **`variant`** | every rendering in the row reduces to `matter` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `meanwhile` | `meanwhile` (B6-P020) | **`kept`** | every entry Book 6 contributes is Butler's own `meanwhile` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `morning` | `morning` (B6-P005) | **`kept`** | every entry Book 6 contributes is Butler's own `morning` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `offense` | `offence` (B6-P012) | **`unavoidable-merge`** | D9, `offence` -> `offense`, plus one recast: Butler's `you will not be offended with what I am going to say` (B01-P013) becomes `you will not take offense at what I am about to say`, which is the idiom Butler HIMSELF uses at B02-P008 and B06-P012 (`take offence at`). The merge makes Book 1 agree with two accepted Books on one speech act. |
 | `others` | `others` (B6-P012) | **`kept`** | every entry Book 6 contributes is Butler's own `others` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `people` | `people` (B6-P001), `people` (B6-P003), `people` (B6-P011), `people` (B6-P013), `people` (B6-P015), `people` (B6-P016), `people` (B6-P021), `people` (B6-P022) | **`kept`** | every entry Book 6 contributes is Butler's own `people` carried through unchanged; the decision in this row belongs to whichever Book moved |

@@ -6,7 +6,7 @@ of `book07/review/findings-v1.md`: the check returned seventy-two rows touching
 Book 7, eleven were acted on, and sixty-one were dismissed with no record of
 having been read. This file is that record, and it is generated, not typed.
 
-**93 rows touch Book 2.**
+**89 rows touch Book 2.**
 
 | disposition | rows |
 |---|---|
@@ -14,9 +14,9 @@ having been read. This file is that record, and it is generated, not typed.
 | `common-word` | 9 |
 | `context-rendered` | 1 |
 | `homograph` | 3 |
-| `kept` | 41 |
+| `kept` | 38 |
 | `kept-elsewhere` | 13 |
-| `matches-accepted` | 4 |
+| `matches-accepted` | 3 |
 | `phrase-not-word` | 4 |
 | `unavoidable-merge` | 7 |
 | `variant` | 6 |
@@ -27,7 +27,7 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW A — one Butler word, two or more renderings, across Books
 
-17 rows.
+16 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
@@ -47,11 +47,10 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `rejoicing` | `to rejoice` (B2-P015) | **`kept-elsewhere`** | Book 2 supplies the row's only rendering (`to rejoice`); every other entry is Butler's own `rejoicing` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `rejoicing` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
 | `scheme` | `plan` (B2-P028) | **`kept-elsewhere`** | Book 2 supplies the row's only rendering (`plan`); every other entry is Butler's own `scheme` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `scheme` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
 | `serve` | `serve` (B2-P004) | **`kept`** | every entry Book 2 contributes is Butler's own `serve` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `wondered` | `wondered` (B2-P009) | **`kept`** | every entry Book 2 contributes is Butler's own `wondered` carried through unchanged; the decision in this row belongs to whichever Book moved |
 
 ## ARROW B — one rendering, two or more Butler words, across Books
 
-66 rows.
+63 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
@@ -78,17 +77,14 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `harshly` | `rigorously` (B2-P008) | **`kept-elsewhere`** | Book 2 supplies the row's only rendering (`rigorously`); every other entry is Butler's own `harshly` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `harshly` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
 | `heads` | `fuddle them` (B2-P031), `heads` (B2-P014) | **`phrase-not-word`** | `She caused their drink to fuddle them` -> `made their drink go to their heads` (B02-P031). `go to someone's head` is a fixed idiom whose head noun coincides with Butler's own `heads` elsewhere (`wager their heads`, `the Malean heads`); there is no second referent. |
 | `herald` | `herald` (B2-P004) | **`kept`** | every entry Book 2 contributes is Butler's own `herald` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `himself` | `himself` (B2-P015) | **`kept`** | every entry Book 2 contributes is Butler's own `himself` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `housekeeper` | `house keeper` (B2-P025) | **`variant`** | every rendering in the row reduces to `housekeeper` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `husband` | `husband` (B2-P011) | **`kept`** | every entry Book 2 contributes is Butler's own `husband` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `keeping` | `keeping` (B2-P011), `keeping` (B2-P026) | **`kept`** | every entry Book 2 contributes is Butler's own `keeping` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `leather` | `leathern` (B2-P019), `leathern` (B2-P026) | **`kept-elsewhere`** | Book 2 supplies the row's only rendering (`leathern`); every other entry is Butler's own `leather` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `leather` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
 | `leave` | `leave` (B2-P004), `leave` (B2-P008) | **`kept`** | every entry Book 2 contributes is Butler's own `leave` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `maids` | `maids` (B2-P007) | **`kept`** | every entry Book 2 contributes is Butler's own `maids` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `marveled` | `all marvelled` (B2-P001) | **`matches-accepted`** | B02-P001 and B03-P030 both render Butler's `all marvelled` as `everyone marveled` — his own word, D9-respelled. The row exists because a THIRD Book put `marveled` where Butler wrote something else; that is Book 1's decision and it is ruled at (1, B, `marveled`). |
 | `matter` | `matter` (B2-P003), `matter` (B2-P004) | **`variant`** | every rendering in the row reduces to `matter` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `meanwhile` | `meanwhile` (B2-P022) | **`kept`** | every entry Book 2 contributes is Butler's own `meanwhile` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `morning` | `morning` (B2-P001) | **`kept`** | every entry Book 2 contributes is Butler's own `morning` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `offense` | `offence` (B2-P008) | **`unavoidable-merge`** | D9, `offence` -> `offense`, plus one recast: Butler's `you will not be offended with what I am going to say` (B01-P013) becomes `you will not take offense at what I am about to say`, which is the idiom Butler HIMSELF uses at B02-P008 and B06-P012 (`take offence at`). The merge makes Book 1 agree with two accepted Books on one speech act. |
 | `opened` | `opening` (B2-P025) | **`variant`** | every rendering in the row reduces to `open` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `others` | `others` (B2-P022), `others` (B2-P034) | **`kept`** | every entry Book 2 contributes is Butler's own `others` carried through unchanged; the decision in this row belongs to whichever Book moved |
