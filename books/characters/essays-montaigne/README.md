@@ -1,22 +1,22 @@
 # Montaigne's Essays character package — IN PROGRESS
 
-**Chapters 1–103 of 107 are authored. The rest are not.** Status stays
+**Chapters 1–105 of 107 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole work is
 covered.
 
-Current state: 1,086 entities authored, all 1,086 bound in both editions, 4,421
-and 4,563 exact mentions. Of those, 162 and 180 fall inside chapters 1–10, 205 and 209
+Current state: 1,104 entities authored, all 1,104 bound in both editions, 4,463
+and 4,605 exact mentions. Of those, 162 and 180 fall inside chapters 1–10, 205 and 209
 inside chapters 11–20, 344 and 357 inside chapters 21–25, 136 and 142 inside
 chapters 26–30, 256 and 264 inside chapters 31–40, 278 and 288 inside
 chapters 41–50, 271 and 279 inside chapters 51–60, 272 and 278 inside
-chapters 61–68, 592 and 599 inside chapter 69 alone, 157 and 159 inside
+chapters 61–68, 594 and 600 inside chapter 69 alone, 157 and 159 inside
 chapters 70–73, 214 and 218 inside chapters 74–80, 286 and 310 inside
 chapters 81–90, 385 and 404 inside chapters 91–98, 253 and 260 inside
-chapter 99 alone, 150 and 154 inside chapters 100–102, and 162 and 162 inside
-chapter 103 alone; the rest — 295 and 298 —
+chapter 99 alone, 150 and 154 inside chapters 100–102, 162 and 162 inside
+chapter 103 alone, and 106 and 106 inside chapters 104–105; the rest — 227 and 231 —
 are later occurrences of names that belong to one man through the whole book:
 Cicero, Plato, Horace, Seneca, Socrates, Plutarch, Aristotle and the other
-authorities Montaigne quotes on every page. Content revision 2026-09-13.11.
+authorities Montaigne quotes on every page. Content revision 2026-09-13.12.
 
 Chapter 69, the Apology for Raimond Sebond, is by itself the largest chapter in
 the work — 660 paragraphs, as much text as chapters 41–68 together, and more
@@ -143,6 +143,12 @@ this scale:
 | Toyquatus (103:264) | Torquatus — and both are the title of a book, so neither binds |
 | Paulus Emilius (103:18) | Paulus Aemilius — likewise a title |
 | Architas (103:212) | Architas — both editions, against *Archytas* at 88:13 |
+| Panætius (69:239) | Panaetius — the older edition sets the ae-ligature |
+| Diogeries (104:63) | Diogenes |
+| Thamus (105:30) | Thaumas |
+| Perrete (104:107) | Perrette |
+| Matthew (74:120) | Matthias — a mistranslation, not a spelling |
+| Mahomet (104:61) | Mohammed |
 | Lachez (100:7) | Lachez — both editions, against *Laches* at 12:1 and 84:22 |
 
 Both spellings sit on one card, and a test pins every pair. The last row is the
@@ -399,6 +405,10 @@ ninety-eight chapters:
 | `saturninus-general` | 103:255 | `saturninus` the tribune of 68:7 and `saturninus-husband` of 69:345 |
 | **`clinias`** | 103:239 | **the title of a book of Heraclides at 99:133.** Keyed, not aliased, for that reason — the third time this trap has been found, after Hippolytus and Agamemnon |
 | `diomedes`, `didymus` | 103:0, 103:1 | each other: Montaigne names Diomedes and the note beside the sentence says it was Didymus |
+| **`st-matthew`** | 104:73 | **`matthias`** of 74:120 — where the older edition prints *Matthew* for the apostle chosen by lot and the modern prints *Matthias*, which is what Acts says. Both men are keyed, and the misprint is the reason |
+| **`henri-de-guise`** | 104:60 | **`duc-de-guise`** of 45:0, 45:1 and 74:157, who commanded at Dreux. 15:5 is the town |
+| **`pan`** | 104:96 | **nothing — and that is the point.** The older edition prints *Panætius* with the ae-ligature at 69:239, and the word-boundary matcher treats a ligature as a boundary, so a bare *Pan* alias binds inside it. The god is keyed; the ligature spelling is an alias on Panaetius instead, which also closed a recorded asymmetry |
+| `lansac`, `matignon` | 104:10 | `biron`, the third of the mayors of Bordeaux named in that sentence |
 
 **Three of those were live mis-bindings the sweep caught**, not hypotheticals. The
 bare surname *Lepidus* was binding the man who died of a stumble at 19:24 to the
@@ -420,19 +430,19 @@ that is single-referent across the whole work — the authorities and philosophe
 Montaigne quotes on every page — is bound by alias and therefore appears in
 chapters that have not been authored yet, with a card written to be true
 anywhere in the book rather than to gloss the paragraph it was first found in.
-Ninety-one entities bind beyond chapter 103 that way, and five of
-them — Socrates, Seneca, Cicero, Plato and Horace — account for two-fifths of it. It
-is worth being plain about the size of this: 295 of the 4,421 mentions in the
-older edition fall in chapters that have not been read — four chapters, one
-of them among the longest in the work. Those are bindings of names with
+Seventy-five entities bind beyond chapter 105 that way, and five of
+them — Socrates, Seneca, Plato, Cicero and Horace — account for nearly half of it. It
+is worth being plain about the size of this: 227 of the 4,463 mentions in the
+older edition fall in the two chapters that have not been read, one of them
+*Of experience*, the longest of the four that were left. Those are bindings of names with
 one bearer, and the cards are written to be true anywhere; but they are not
 reviewed paragraph by paragraph, and the release owner should read the scope line
 as covering the *cast*, not every mention of it.
 
-## Editorial checks — chapters 1–103
+## Editorial checks — chapters 1–105
 
-**1. Namesakes.** The two hundred and seventy entities in the table above — two
-hundred and six rows — each pinned by a test.
+**1. Namesakes.** The two hundred and seventy-six entities in the table above —
+two hundred and eleven rows — each pinned by a test.
 
 **2. Person or not.** This is the check that does the most work in an essayist.
 Excluded:
@@ -642,6 +652,19 @@ Chapter 99 adds four, and one of them is the chapter's own hardest line:
   the authorship of an elegy, not a man — the same judgment already made at
   19:70. The Gallus of 99:232, set against Horace for speaking simply because he
   conceives simply, is the elegist and is bound.
+
+Chapters 104 and 105 add four:
+
+- **The Temple of Pallas at 104:19** is a temple named for the goddess, like the
+  order of St Michael at 64:1 and the cross of St Andrew at 69:533.
+- **Antigonus at 105:54** — "said a Cynic philosopher to Antigonus" — carries no
+  numeral, and the Essays hold three.
+- **The Gordian knot at 105:46** is named for Gordius, who is not in the
+  sentence; Alexander, who cuts it, is bound.
+- **Lefevre at 105:9** is the editor of the volume the note cites, which is
+  apparatus, like Coste, Leclerc, Florio and Fabricius. Voltaire, whom the same
+  note *quotes*, is cast: the distinction the package draws is between the writer
+  of the apparatus and a man the apparatus reports.
 
 Chapter 103 adds the largest single haul of titles in the package, and six more
 gaps:
@@ -938,6 +961,10 @@ Pseudo-Gallus of 99:34, 99:95 and 99:257, and Achaemenes at 99:144, which is
 inside Horace's Latin and carries its card at 99:145 instead. That is the first
 pass in which the audit found nothing that needed fixing.
 
+Over chapters 104 and 105 it reported seventeen, and thirteen were real, among
+them the Diogenes the older edition misprints *Diogeries* at 104:63, which no
+spelling in the Diogenes table would have matched.
+
 Over chapter 103 it reported twenty-four, and fifteen were real: Pompey at
 103:261 and 103:268, Caesar at 103:83 and 103:261, Zeno and Diogenes at 103:181,
 Alexander at 103:109, Philip at 103:74, Cyrus and Scipio and Hippias at 103:143,
@@ -987,6 +1014,15 @@ The **adjacency sweep** over chapters 81–90 produced forty-six hits, all sound
 *King Deiotarus*, *King Ptolemy*, *the Emperor Mauricius*, *the Emperor Mohammed*,
 *our late poor King Charles IX*, *the Praetor Lucius Piso*, *Caius Memmius* — and
 the range's **spot-read** of thirty-two mentions found no mis-binding.
+
+The **adjacency sweep** over chapters 104 and 105 produced nine hits, all sound,
+and the range's **spot-read** of twenty-eight mentions found no mis-binding. The
+catch in this pass came again from the occurrence list: **"Scipio Africanus" at
+91:0**, in the sentence naming the books great leaders esteemed, was cast nowhere
+at all, in a chapter authored fourteen passes earlier. One alias closed it and
+gave 104:111 a single clean span in place of two adjacent ones. **Metrocles at
+69:574** and **Voltaire at 76:3** were the same kind of gap, and the same list
+found them.
 
 The **adjacency sweep** over chapter 103 earned its place twice in one chapter.
 It produced fourteen hits, and two of them were live mis-bindings that nothing
@@ -1046,7 +1082,7 @@ Seneca's wife at 92:13. That is the second catch for the spot-read in twelve
 passes, and again it is the kind only reading the sentence finds.
 
 **6. Both editions independently.** No entity is missing from either edition. The
-mention counts differ by about three percent (4,421 against 4,563),
+mention counts differ by about three percent (4,463 against 4,605),
 partly because the modern edition resolves pronouns to names — it says *Dionysius*
 and *Scanderbeg* and *Betis* and *Ferdinand* where Cotton says *he* — and partly
 because it expands the citation abbreviations, so *Hor.* becomes *Horace* and
@@ -1140,8 +1176,8 @@ No edition byte was touched.
 
 ## Remaining work
 
-- **Chapters 104–107.** Four chapters: 107 (*Of experience*, 240 paragraphs),
-  106 (142), 104 (123) and 105 (60).
+- **Chapters 106 and 107.** Two chapters: 107 (*Of experience*, 240 paragraphs)
+  and 106 (*Of physiognomy*, 142).
 - **Run the edition-asymmetry census on every chapter already authored.** It was
   written for chapter 69 and immediately found three gaps and one mis-binding in
   chapters 17, 65 and 67, which eight passes of other checks had gone past. The
@@ -1189,5 +1225,5 @@ No edition byte was touched.
 
 `python3 books/characters/build_essays_montaigne.py --check`, then
 `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Two hundred and
-sixty-eight focused tests so far. No edition changes, no network generation, no API spend: every card
+seventy-eight focused tests so far. No edition changes, no network generation, no API spend: every card
 here was written in the authoring conversation and committed as a file.

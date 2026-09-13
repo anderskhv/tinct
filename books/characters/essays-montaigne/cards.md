@@ -3248,7 +3248,7 @@ Of whom Trogus Pompeius says that he was more ambitious of a great reputation th
 
 ## Manlius Capitolinus · reference
 
-Of whom Titus Livius says the same.
+On whom the title of Capitolinus had been conferred as conservator of religion and the public liberty, and who was afterwards thrown from the rock for aspiring to the sovereignty. Livy says of him, as Trogus Pompeius says of Herostratus, that he was more ambitious of a great reputation than of a good one.
 
 ## Trajan · supporting
 
@@ -4345,3 +4345,75 @@ The last of that succession. Not the Antipater who demanded fifty children of th
 ## Saturninus · reference
 
 Who said to those that had conferred upon him the command in chief: companions, you have lost a good captain, to make of him a bad general — which Montaigne offers as the excuse of his own principal imperfections. A third man of the name.
+
+## Monsieur de Lansac · reference
+
+Mayor of Bordeaux some years before Montaigne, and one of the two who had held the office twice before him.
+
+## Monsieur de Matignon · reference
+
+Marshal of France, to whom Montaigne left the mayoralty of Bordeaux as he had received it from Biron — proud, he says, of so noble a fraternity.
+
+## Metrocles · reference
+
+Who broke wind backwards somewhat indiscreetly while disputing before a great auditory in his school, and kept himself hid at home for shame until Crates came to visit him; and who slept in winter abroad amongst sheep and in summer in the cloisters of churches.
+
+## King Cotys · reference
+
+Who, having bought a great quantity of very fine earthenware, paid liberally for it and then broke it all himself immediately, to take away betimes the occasion of being angry with his servants.
+
+## Chremonides · reference
+
+The young man Zeno loved, at whose drawing near to sit down by him Zeno suddenly started up — and told Cleanthes, who asked why, that he heard the physicians prescribe rest above all things and forbid emotion.
+
+## Panthea · reference
+
+Cyrus’s captive, of whose divine beauty Xenophon makes him so distrustful of his own strength that he commits her visiting and keeping to another.
+
+## Perrete · reference
+
+The chambermaid to whom an old fellow, having no other auditor of his praises, boasted: O Perrete, what a brave, clever man hast thou for thy master! The modern edition spells her Perrette.
+
+## Pan · reference
+
+One of the country gods whom Virgil calls the second man blest, with old Sylvanus and the sister nymphs.
+
+## Sylvanus · reference
+
+Old Sylvanus, the other of them.
+
+## Matthew · reference
+
+The evangelist, cited for the prayer that asks to be delivered from evil.
+
+## Monsieur de Guise · reference
+
+Whose graciousness a man may admire, Montaigne complains, and be called of the League for it — his instance of the vicious form of opinion that makes every judgment a party badge. Not the Duc de Guise who commanded at Dreux.
+
+## Voltaire · reference
+
+Who said of this chapter, the note records, that he who would learn to doubt should read the whole of it — Montaigne being the least methodical of philosophers but the wisest and most amiable; and who took the greater part of his praise of the Emperor Julian out of chapter 76.
+
+## Iris · reference
+
+The rainbow, said to be the daughter of Thaumas — that is, of Admiration — because she has a face to be admired: Montaigne’s figure for wonder being the foundation of all philosophy.
+
+## Thaumas · reference
+
+Admiration, her father. The older edition prints him Thamus in the gloss.
+
+## Corras · reference
+
+The councillor of Toulouse who printed the trial of the strange incident of two men who presented themselves the one for the other, and whose account, Montaigne says, left the judges more freely perplexed than the Areopagites were. A Calvinist lawyer, born at Toulouse and assassinated there in 1572.
+
+## Praestantius · reference
+
+Who tells of his father that, being more profoundly asleep than men usually are, he fancied himself to be a mare and served the soldiers for a sumpter — and was what he fancied himself to be.
+
+## Theramenes · reference
+
+Whose shoe fits all feet, which is Montaigne’s figure for an understanding so supple and erratic that nothing is fixed in it.
+
+## Boreas · reference
+
+The north wind, whose penetrable cold the vine-dresser guards his vines against in Virgil.

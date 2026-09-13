@@ -1,5 +1,5 @@
 """Focused checks for Montaigne's Essays.
-Chapters 1-103 of 107 are authored."""
+Chapters 1-105 of 107 are authored."""
 import unittest
 from build_essays_montaigne import compile_package
 
@@ -230,8 +230,8 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual(w[0],(28,2),ed)
             self.assertLess(len(w),40,ed)
 
-    def test_only_the_first_hundred_and_three_chapters_are_authored(self):
-        self.assertIn('chapters 1-103 of 107',REPORT['scope'])
+    def test_only_the_first_hundred_and_five_chapters_are_authored(self):
+        self.assertIn('chapters 1-105 of 107',REPORT['scope'])
         self.assertEqual(REPORT['editions']['original-en']['chapters'],107)
         self.assertEqual(REPORT['editions']['original-en']['paragraphs'],4897)
         self.assertEqual(REPORT['editions']['modern-en']['paragraphs'],4897)
@@ -382,7 +382,7 @@ class EssaysMontaigne(unittest.TestCase):
                               (69,238),(69,246),(69,268),(69,370),(69,401),
                               (69,414),(69,465),(69,613),(74,115),(98,25),
                               (99,133),(99,238),(99,240),(99,247),(99,248),
-                              (103,181)],ed)
+                              (103,181),(104,71)],ed)
 
     def test_the_three_men_called_scipio(self):
         # Pompey's father-in-law (18:12), the high priest in Cotta's list
@@ -392,7 +392,7 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual(where(ed,'publius-scipio-pontifex'),[(22,49)],ed)
             self.assertEqual(where(ed,'scipio-africanus'),
                              [(23,10),(25,51),(46,18),(47,19),(57,7),(62,18),(76,4),
-                              (85,0),(103,143)],ed)
+                              (85,0),(91,0),(103,143),(104,111)],ed)
 
     def test_the_fourth_man_called_lepidus(self):
         # Livia's list of conspirators punished to no purpose supplies a fourth:
@@ -526,7 +526,8 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual(where(ed,'diogenes-the-cynic'),
                              [(25,103),(27,28),(50,7),(60,6),
                               (69,15),(69,74),(69,565),(69,579),(88,21),(90,15),
-                              (94,3),(94,28),(95,32),(103,37),(103,242)],ed)
+                              (94,3),(94,28),(95,32),(103,37),(103,242),
+                              (104,63)],ed)
 
     def test_the_two_spartans_called_cleomenes(self):
         for ed in ['original-en','modern-en']:
@@ -836,7 +837,8 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual([(44,0)],where(ed,'metellus-tribune'),ed)
             self.assertEqual([(48,47)],where(ed,'metellus-crete'),ed)
             self.assertEqual([(44,1),(58,0)],where(ed,'marius-younger'),ed)
-            self.assertEqual([(47,8),(66,13),(74,36),(102,83)],where(ed,'marius-elder'),ed)
+            self.assertEqual([(47,8),(66,13),(74,36),(102,83),(104,62)],
+                             where(ed,'marius-elder'),ed)
 
     def test_the_two_men_called_cyrus(self):
         # The founder of the empire, and the younger brother of that unnatural
@@ -1550,7 +1552,7 @@ class EssaysMontaigne(unittest.TestCase):
     def test_the_two_men_ambitious_of_a_great_name(self):
         for ed in ['original-en','modern-en']:
             self.assertEqual([(73,70)],where(ed,'herostratus'),ed)
-            self.assertEqual([(73,70)],where(ed,'manlius-capitolinus'),ed)
+            self.assertEqual([(73,70),(104,60)],where(ed,'manlius-capitolinus'),ed)
             self.assertIn((73,70),where(ed,'trogus-pompeius'),ed)
             self.assertIn((73,70),where(ed,'livy'),ed)
 
@@ -2412,7 +2414,7 @@ class EssaysMontaigne(unittest.TestCase):
         for ed in ['original-en','modern-en']:
             for cid,k in [('philotimus',(103,3)),('pyrrha',(103,75)),
                           ('cadmus',(103,75)),('lyncestes',(103,109)),
-                          ('valerius-maximus',(103,130)),('nonius',(103,203)),
+                          ('valerius-maximus',(103,130)),
                           ('olus',(103,247)),('ctesibius',(103,268)),
                           ('tigellinus',(103,195))]:
                 self.assertEqual([k],where(ed,cid),(ed,cid))
@@ -2436,6 +2438,103 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual([],ids(ed,103,41),ed)
             self.assertIn((103,184),where(ed,'bion'),ed)
             self.assertIn((103,268),where(ed,'lucullus'),ed)
+
+
+    def test_the_two_apostles_the_older_edition_confuses(self):
+        # 74:120 is "The lot fell upon Matthew" where the modern edition reads
+        # Matthias, which is what Acts says; 104:73 is the evangelist, cited for
+        # the prayer. Two men, one of them a misprint, so both are keyed.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(104,73)],where(ed,'st-matthew'),ed)
+            self.assertEqual([(74,120)],where(ed,'matthias'),ed)
+        self.assertIn('Matthew',said('original-en','matthias'))
+        self.assertIn('Matthias',said('modern-en','matthias'))
+
+    def test_pan_is_keyed_because_of_a_ligature(self):
+        # The older edition prints Panaetius with the ae-ligature at 69:239, and
+        # the word-boundary matcher treats the ligature as a boundary, so a bare
+        # "Pan" alias would bind inside it. The god is keyed to 104:96, the
+        # English version of Virgil's Latin at 104:95, and the ligature spelling
+        # is carried as an alias on Panaetius instead.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(104,96)],where(ed,'pan'),ed)
+            self.assertEqual([(104,96)],where(ed,'sylvanus'),ed)
+            self.assertEqual([],ids(ed,104,95),ed)
+            self.assertIn((69,239),where(ed,'panaetius'),ed)
+        self.assertIn('Panætius',said('original-en','panaetius'))
+
+    def test_the_two_dukes_of_guise(self):
+        # 45:0, 45:1 and 74:157 are the Duc de Guise who commanded at Dreux;
+        # 104:60 is the Monsieur de Guise of the League. 15:5 is the town.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(45,0),(45,1),(74,157)],where(ed,'duc-de-guise'),ed)
+            self.assertEqual([(104,60)],where(ed,'henri-de-guise'),ed)
+            for c in ['duc-de-guise','henri-de-guise']:
+                self.assertNotIn(c,ids(ed,15,5),(ed,c))
+            self.assertIn('nassau-guise',ids(ed,15,5),ed)
+
+    def test_scipio_africanus_reaches_back_to_the_book_list(self):
+        # 91:0 names the books great leaders esteemed -- Alexander, Homer; Scipio
+        # Africanus, Xenophon -- and he was cast nowhere in that paragraph until
+        # chapter 104 was read. One alias binds the full name in both places.
+        for ed in ['original-en','modern-en']:
+            w=where(ed,'scipio-africanus')
+            self.assertIn((91,0),w,ed)
+            self.assertIn((104,111),w,ed)
+            self.assertIn('Scipio Africanus',said(ed,'scipio-africanus'),ed)
+            self.assertIn((104,111),where(ed,'panaetius'),ed)
+
+    def test_metrocles_and_voltaire_reach_back(self):
+        # Both were cast nowhere until chapters 104 and 105 were read, though
+        # each also stands in a chapter authored long before.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(69,574),(104,37)],where(ed,'metrocles'),ed)
+            self.assertEqual([(76,3),(105,9)],where(ed,'voltaire'),ed)
+            self.assertIn((104,37),where(ed,'metrodorus'),ed)
+
+    def test_the_mayors_of_bordeaux(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(104,10)],where(ed,'lansac'),ed)
+            self.assertEqual([(104,10)],where(ed,'matignon'),ed)
+            self.assertEqual([(67,31),(104,10)],where(ed,'biron'),ed)
+
+    def test_the_diogenes_the_older_edition_misprints(self):
+        # 104:63 is Diogenes embracing an image of snow; the older edition prints
+        # him Diogeries, which no spelling of the Diogenes table would match.
+        for ed in ['original-en','modern-en']:
+            self.assertIn((104,63),where(ed,'diogenes-the-cynic'),ed)
+        self.assertIn('Diogeries',said('original-en','diogenes-the-cynic'))
+        self.assertNotIn('Diogeries',said('modern-en','diogenes-the-cynic'))
+
+    def test_manlius_capitolinus_holds_both_of_his_paragraphs(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(73,70),(104,60)],where(ed,'manlius-capitolinus'),ed)
+
+    def test_the_rest_of_the_chapter_104_and_105_cast(self):
+        for ed in ['original-en','modern-en']:
+            for cid,k in [('cotys',(104,64)),('chremonides',(104,71)),
+                          ('panthea',(104,71)),('perrete',(104,107)),
+                          ('iris',(105,29)),('corras',(105,31)),
+                          ('praestantius',(105,47)),('boreas',(105,56))]:
+                self.assertIn(k,where(ed,cid),(ed,cid))
+            self.assertEqual([(105,29),(105,30)],where(ed,'thaumas'),ed)
+            self.assertEqual([(105,54),(107,200)],where(ed,'theramenes'),ed)
+            self.assertEqual([(103,203),(104,36)],where(ed,'nonius'),ed)
+        self.assertIn('Thamus',said('original-en','thaumas'))
+        self.assertNotIn('Thamus',said('modern-en','thaumas'))
+        self.assertIn('Nonium Marcellinum',said('original-en','nonius'))
+
+    def test_the_deliberate_gaps_of_chapters_104_and_105(self):
+        # The Temple of Pallas at 104:19 is a temple named for the goddess, like
+        # the order of St Michael at 64:1; Antigonus at 105:54 carries no
+        # numeral; the Gordian knot at 105:46 is named for Gordius and he is not
+        # in the sentence; and Lefevre at 105:9 is the editor of the volume the
+        # note cites, which is apparatus, like Coste and Leclerc.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([],[c for c in ids(ed,104,19) if 'pallas' in c],ed)
+            self.assertEqual([],[c for c in ids(ed,105,54) if 'antigonus' in c],ed)
+            self.assertEqual([],[c for c in ids(ed,105,9) if 'lefevre' in c],ed)
+            self.assertIn((105,46),where(ed,'alexander'),ed)
 
 
 if __name__=='__main__':unittest.main()

@@ -9,7 +9,7 @@ becomes Wycliffe, Zisca becomes Zizka, Trivulcio becomes Trivulzio, Fabricio
 becomes Fabrizio, Juliano becomes Giuliano, Fregosa becomes Fregoso, Sylla
 becomes Sulla, AEneid becomes Aeneid. Both spellings are carried on one card.
 
-Chapters 1-103 are authored. The rest are not.
+Chapters 1-105 are authored. The rest are not.
 
 Scope: named persons — historical, literary, mythological and scriptural — and
 the gods Montaigne treats as agents. Peoples, places, schools of philosophy and
@@ -390,7 +390,7 @@ for row in [
 ('callippus','Callippus','Who watched for the chance to kill Dion.','Callippus'),
 ('parmenio','Parmenio','Whose letter warned Alexander that his physician Philip had been bribed by Darius to poison him; and who, on the morning of the furious battle against Darius, was forced to enter the sleeping king’s chamber and call him several times by name, the time to go and fight compelling him to it.','Parmenio'),
 ('philip-physician','Philip','Alexander’s most beloved physician, accused by Parmenio of taking Darius’s money to poison him — to whom Alexander handed the letter to read and then drank the potion he had brought. Montaigne knows nothing else in that life with so much firm courage in it.'),
-('scipio-africanus','Scipio','Who to sound Syphax’s intentions left his army and his unsettled conquest in Spain and crossed to Africa in two small ships, into an enemy country and a barbarian king’s power, with no hostage and no security but his own courage.'),
+('scipio-africanus','Scipio','Who to sound Syphax’s intentions left his army and his unsettled conquest in Spain and crossed to Africa in two small ships, into an enemy country and a barbarian king’s power, with no hostage and no security but his own courage.','Scipio Africanus'),
 ('syphax','Syphax','The African king whose intentions Scipio crossed the sea in two ships to sound.','Syphax'),
 ('duke-of-athens','The Duke of Athens','Who did a great many foolish things in setting up his tyranny over Florence, and this the most notable: told of the conspiracy by one of the conspirators, he put the informer to death at once, so that nobody should think the city disliked his government.','Duke of Athens'),
 ('matteo-di-morozzo','Matteo di Morozzo','The conspirator who brought the Duke of Athens the first news of the plot, and was executed for it.','Matteo di Morozzo'),
@@ -1154,7 +1154,7 @@ for row in [
 ('plotius','C. Plotius','Who committed the treasure to Sextus Peduceus’s sole secrecy and trust.','C. Plotius|Plotius'),
 ('sextilius-rufus','Sextilius Rufus','Whom Cicero accuses of having entered upon an inheritance against his conscience — not only not against law, but even by the determination of the laws themselves.','Sextilius Rufus'),
 ('herostratus','Herostratus','Of whom Trogus Pompeius says that he was more ambitious of a great reputation than of a good one.','Herostratus'),
-('manlius-capitolinus','Manlius Capitolinus','Of whom Titus Livius says the same.','Manlius Capitolinus'),
+('manlius-capitolinus','Manlius Capitolinus','On whom the title of Capitolinus had been conferred as conservator of religion and the public liberty, and who was afterwards thrown from the rock for aspiring to the sovereignty. Livy says of him, as Trogus Pompeius says of Herostratus, that he was more ambitious of a great reputation than of a good one.','Manlius Capitolinus|Marcus Manlius'),
 ('trajan','Trajan','Whose memory the world blesses where it abominates Nero’s — the one use Montaigne allows the false opinion of glory, if it keeps princes and people in their duty.','Trajan','supporting'),
 ('egeria','Egeria','The nymph who, Numa gave out, brought him all his counsels from the gods, as Sertorius gave out of his white hind.','Egeria','reference','mythological-figure'),
 ('oromazis','Oromazis','The god under whose name Zoroaster gave out his laws to the Bactrians and Persians. The modern edition writes him Oromasdes.','Oromazis|Oromasdes','reference','deity'),
@@ -1392,7 +1392,7 @@ for row in [
 
 # ============================ CHAPTER 93 — of the most excellent men
 for row in [
-('panaetius','Panaetius','Who called Plato the Homer of the philosophers, and left nothing unsaid in doing it.','Panaetius|Panetius'),
+('panaetius','Panaetius','Who called Plato the Homer of the philosophers, and left nothing unsaid in doing it.','Panaetius|Panetius|Panætius'),
 ('pope-pius-ii','Pope Pius II','To whom Mohammed the second wrote that he was astonished the Italians should appear against him, seeing they had their common descent from the Trojans and it concerned him as much as them to revenge the blood of Hector upon the Greeks.','Pope Pius II'),
 ('helen','Helen','Of whom, and of the war about her, nothing is so known and received — and perhaps, Montaigne says, there was never any such thing. Not the Helena and the Helen of 33:7, who are two mothers of two Constantines.','',),
 ('hector','Hector','Whose blood Mohammed the second claimed a common descent from the Trojans entitled him to revenge upon the Greeks. The Hector of 69:282 is in Ovid’s Latin and the Hector of 74:18 is the title of a play.','',),
@@ -1539,7 +1539,7 @@ for row in [
 ('lyncestes','Lyncestes','Accused of conspiracy against Alexander, and brought out before the army to say what he could for himself; he had learned a studied speech, hesitated and stammered through some words of it, and whilst he struggled with his memory the soldiers nearest him despatched him with their pikes — a story Montaigne says he never reads without a personal resentment.','Lyncestes'),
 ('antiochus-of-ascalon','Antiochus','Who in his youth wrote strongly in favour of the Academy and in his old age as much against it; and whom, Montaigne says, a man would still be following whichever of the two he followed. Not the Antiochus of 20:4, who was inflamed with the beauty of Stratonice.','',),
 ('valerius-maximus','Valerius Maximus','Cited for the line that whatever is compelled by power is more imputed to him that exacts it than to him that performs it.','Valerius Maximus'),
-('nonius','Nonius','Cited for the line Montaigne turns to his own housekeeping: rather enough than costly — more wit than cost.','Nonius'),
+('nonius','Nonius','Cited for the line Montaigne turns to his own housekeeping: rather enough than costly — more wit than cost.','Nonius|Nonium Marcellinum'),
 ('portia','Portia','Cato’s daughter and Brutus’s wife, and the standard Montaigne sets against the woman who, having just now illicitly embraced, will presently inveigh more loudly against the same fault in her companion.','Portia'),
 ('clinias','Clinias','In whose lap, Montaigne says, Xenophon wrote against the Aristippic virtue — his instance that the same teacher publishes rules of temperance and lessons of wantonness together. Not the Clinias of 99:133, which is the title of a book of Heraclides.','',),
 ('olus','Olus','Whom Martial asks what it is to him what this man or that does with his own skin — which Montaigne applies to those who inquire into other men’s lives.','Olus'),
@@ -1551,8 +1551,34 @@ for row in [
 ('saturninus-general','Saturninus','Who said to those that had conferred upon him the command in chief: companions, you have lost a good captain, to make of him a bad general — which Montaigne offers as the excuse of his own principal imperfections. A third man of the name.','',),
 ]:add(*row)
 
-print(len(entities),'entities authored: chapters 1-103')
+# ========================= CHAPTER 104 — of managing the will
+for row in [
+('lansac','Monsieur de Lansac','Mayor of Bordeaux some years before Montaigne, and one of the two who had held the office twice before him.','Monsieur de Lansac|Lansac'),
+('matignon','Monsieur de Matignon','Marshal of France, to whom Montaigne left the mayoralty of Bordeaux as he had received it from Biron — proud, he says, of so noble a fraternity.','Monsieur de Matignon|Matignon'),
+('metrocles','Metrocles','Who broke wind backwards somewhat indiscreetly while disputing before a great auditory in his school, and kept himself hid at home for shame until Crates came to visit him; and who slept in winter abroad amongst sheep and in summer in the cloisters of churches.','Metrocles'),
+('cotys','King Cotys','Who, having bought a great quantity of very fine earthenware, paid liberally for it and then broke it all himself immediately, to take away betimes the occasion of being angry with his servants.','King Cotys|Cotys'),
+('chremonides','Chremonides','The young man Zeno loved, at whose drawing near to sit down by him Zeno suddenly started up — and told Cleanthes, who asked why, that he heard the physicians prescribe rest above all things and forbid emotion.','Chremonides'),
+('panthea','Panthea','Cyrus’s captive, of whose divine beauty Xenophon makes him so distrustful of his own strength that he commits her visiting and keeping to another.','Panthea'),
+('perrete','Perrete','The chambermaid to whom an old fellow, having no other auditor of his praises, boasted: O Perrete, what a brave, clever man hast thou for thy master! The modern edition spells her Perrette.','Perrete|Perrette'),
+('pan','Pan','One of the country gods whom Virgil calls the second man blest, with old Sylvanus and the sister nymphs.','',),
+('sylvanus','Sylvanus','Old Sylvanus, the other of them.','Sylvanus'),
+('st-matthew','Matthew','The evangelist, cited for the prayer that asks to be delivered from evil.','',),
+('henri-de-guise','Monsieur de Guise','Whose graciousness a man may admire, Montaigne complains, and be called of the League for it — his instance of the vicious form of opinion that makes every judgment a party badge. Not the Duc de Guise who commanded at Dreux.','',),
+]:add(*row)
+
+# ========================= CHAPTER 105 — of cripples
+for row in [
+('voltaire','Voltaire','Who said of this chapter, the note records, that he who would learn to doubt should read the whole of it — Montaigne being the least methodical of philosophers but the wisest and most amiable; and who took the greater part of his praise of the Emperor Julian out of chapter 76.','Voltaire'),
+('iris','Iris','The rainbow, said to be the daughter of Thaumas — that is, of Admiration — because she has a face to be admired: Montaigne’s figure for wonder being the foundation of all philosophy.','Iris'),
+('thaumas','Thaumas','Admiration, her father. The older edition prints him Thamus in the gloss.','Thaumas|Thamus'),
+('corras','Corras','The councillor of Toulouse who printed the trial of the strange incident of two men who presented themselves the one for the other, and whose account, Montaigne says, left the judges more freely perplexed than the Areopagites were. A Calvinist lawyer, born at Toulouse and assassinated there in 1572.','Corras'),
+('praestantius','Praestantius','Who tells of his father that, being more profoundly asleep than men usually are, he fancied himself to be a mare and served the soldiers for a sumpter — and was what he fancied himself to be.','Praestantius'),
+('theramenes','Theramenes','Whose shoe fits all feet, which is Montaigne’s figure for an understanding so supple and erratic that nothing is fixed in it.','Theramenes'),
+('boreas','Boreas','The north wind, whose penetrable cold the vine-dresser guards his vines against in Virgil.','Boreas'),
+]:add(*row)
+
+print(len(entities),'entities authored: chapters 1-105')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-13.11',
- coverage='Both full English editions, chapters 1-103 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
+ contentVersion='2026-09-13.12',
+ coverage='Both full English editions, chapters 1-105 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')
