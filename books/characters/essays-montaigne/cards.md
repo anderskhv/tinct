@@ -1224,7 +1224,7 @@ Diane de Foix’s uncle, who every day obliges the world with writings of his ow
 
 ## Arcesilaus · supporting
 
-Who, like Socrates before him, made his scholars speak first and then spoke to them — and whom pure wine despatched as it did Stilpo, though in his case not by design.
+Who, like Socrates before him, made his scholars speak first and then spoke to them — and whom pure wine despatched as it did Stilpo, though in his case not by design. The older edition prints him Arcesilas in the Apology.
 
 ## Dante · reference
 
@@ -1256,11 +1256,11 @@ Whose death, Montaigne says, the pupil should be taught to judge rather than to 
 
 ## Alexandridas · reference
 
-Who reproached a man for making very good but too long speeches to the Ephori: thou speakest the things thou shouldst speak, but not as thou shouldst speak them.
+Who reproached a man for making very good but too long speeches to the Ephori: thou speakest the things thou shouldst speak, but not as thou shouldst speak them. The Essays do not identify him with the Anexandridas who was Cleomenes’s father, and spell the two names differently.
 
 ## Anaximenes · reference
 
-Who asked Pythagoras what purpose there was in searching out the secrets of the stars with death or slavery continually before his eyes — the kings of Persia being at that moment preparing to invade his country.
+Who asked Pythagoras what purpose there was in searching out the secrets of the stars with death or slavery continually before his eyes — the kings of Persia being at that moment preparing to invade his country; and who held that the air was God, procreate and immense, always moving. The older edition spells him Anaximines in the Apology.
 
 ## Gaza · reference
 
@@ -1884,7 +1884,7 @@ Philip of Macedon, who asked his son Alexander whether he was not ashamed to sin
 
 ## Theodorus · reference
 
-Who answered Lysimachus’s threat to kill him: thou wilt do a brave feat, to attain the force of a cantharides. His saying, set beside Hegesias’s, is that it is not reasonable a wise man should hazard himself for his country and endanger wisdom for a company of fools.
+Who answered Lysimachus’s threat to kill him: thou wilt do a brave feat, to attain the force of a cantharides. His saying, set beside Hegesias’s, is that it is not reasonable a wise man should hazard himself for his country and endanger wisdom for a company of fools. He is the Theodorus whose atheism Bion caught, and who with Diagoras flatly denied that there were any gods at all.
 
 ## Lysimachus · reference
 
@@ -2388,7 +2388,7 @@ The man Persius tells you to address the prayer to, if you dare: say to Staius w
 
 ## Marguerite, Queen of Navarre · reference
 
-Who tells of a young prince — easily enough known by his great qualities, though she does not name him — who on his way to an amorous assignation always knelt to pray in the church he passed through, and instances it for a testimony of singular devotion. Which is not the only proof, Montaigne says, that women are not very fit to treat of theological affairs.
+Not the Margaret de Valois to whom the Apology is addressed. Who tells of a young prince — easily enough known by his great qualities, though she does not name him — who on his way to an amorous assignation always knelt to pray in the church he passed through, and instances it for a testimony of singular devotion. Which is not the only proof, Montaigne says, that women are not very fit to treat of theological affairs.
 
 ## Laverna · reference
 
@@ -2817,3 +2817,315 @@ The tribune whose violence Metellus alone withstood.
 ## Artaxerxes · reference
 
 Who moderated the severity of the ancient laws of Persia, ordaining that the nobility who had failed in their duty should be laid on the ground and their clothes beaten instead of their bodies. The Essays do not identify him with the Artaxerxes whose brother claimed to outdrink him.
+
+## Raimond Sebond · central
+
+The Spaniard, practising physic at Toulouse two hundred years before, whose Theologia naturalis Peter Bunel gave Montaigne’s father and Montaigne translated at his father’s command. He undertakes to establish every article of the Christian religion against the atheists by human and natural reason, and Montaigne, who thinks nobody has done better on that subject, gives the whole chapter to answering the two objections made to him. The older edition prints his name Sehond once, and the Latin title has him as Raimondi de Sebonde.
+
+## Peter Bunel · reference
+
+A man of great reputation for knowledge in his time, who stayed some days at Montaigne in the father’s company and at his departure presented him with Sebond’s book — wisely, Montaigne thinks, foreseeing that the new doctrines would run into an execrable atheism.
+
+## Luther · reference
+
+Whose novel doctrines were beginning to be in vogue, and in many places to stagger the ancient belief, when Bunel gave the book.
+
+## Herillus · reference
+
+The philosopher who placed the sovereign good in learning, and maintained that it was only in her to render us wise and contented — which Montaigne does not believe.
+
+## Orpheus · reference
+
+In whose mysteries Antisthenes was being initiated when the priest told him that those who professed that religion were certain of perfect and eternal felicity after death, and was asked why, believing it, he did not die himself.
+
+## Apollonius Tyanaus · reference
+
+With Melampus, Tiresias and Thales, one of those who have boasted that they understood the speech of beasts.
+
+## Melampus · reference
+
+The second of them.
+
+## Tiresias · reference
+
+The third.
+
+## Lactantius · reference
+
+Who seems to attribute to beasts not only speech but laughter, and who with Seneca and most of the Dogmatists confessed that the soul was a thing they did not understand.
+
+## King Porus · reference
+
+Whose elephant, Montaigne’s instance among the beasts that physic themselves, drew the darts and javelins out of its own body and out of its master’s. Alexander defeated him.
+
+## Trapezuntius · reference
+
+The logician from whom the dog does not need to learn the use of propositions divided and conjoined, since he uses them of himself.
+
+## Vespasian · reference
+
+The emperor in whose company at the theatre of Marcellus Plutarch says he saw the dog that counterfeited death.
+
+## Arrian · reference
+
+Who reports the elephant with a cymbal hung at each leg and another on his trunk, at whose sound the others danced round about him, rising and bending at certain cadences.
+
+## Juba · reference
+
+A king of their nation, who relates of the elephants that they pull the darts out of one another.
+
+## Androdus · reference
+
+The runaway slave who drew a thorn from a lion’s foot in an African cave and lived with the beast three years on the game it brought him; and who, condemned long afterwards to the beasts at Rome, was recognised by that same lion and spared, and afterwards led him about the taverns on a small leash while the people threw flowers on him.
+
+## Apion · reference
+
+Who says he saw that, and tells the story of Androdus and the lion.
+
+## Surena · reference
+
+Against whom the same fine arms served that Sertorius was beaten with in Spain and Eumenes used against Antigonus — and who used them against Crassus.
+
+## Epictetus · reference
+
+Who says that man has nothing properly his own but the use of his opinion.
+
+## Memmius · reference
+
+The great Memmius whom Lucretius addresses in the verses on the god who first found out the reason now called wisdom. The older edition prints the name Memmus; the Latin vocative Memmi of the quotation is left unbound like every other inflection.
+
+## Eusebius · reference
+
+Whose Chronicon Montaigne cites for the account of the philosopher whose order afforded him only a few lucid intervals, in which he composed his book, and who at last killed himself.
+
+## Dionysius Heracleotes · reference
+
+Who, afflicted with a vehement smarting in his eyes, was reduced to quit his Stoical resolutions.
+
+## Crantor · reference
+
+Who had very good reason, Montaigne thinks, to controvert the insensibility of Epicurus, if it were founded so deep that the first attack and birth of evils were not to be perceived.
+
+## Thrasylaus · reference
+
+The son of Pythodorus, who made himself believe that all the ships weighing anchor from the Piraeus and coming into the haven made their voyages only for his profit — and who was very sorry when his brother cured him of it.
+
+## Pythodorus · reference
+
+His father.
+
+## Tyrtaeus · reference
+
+The poet upon whose saying Chrysippus alleged what Montaigne quotes.
+
+## Valentinian · reference
+
+A professed enemy to all learning and letters, and with Licinius one of the two Roman emperors who called them the poison and pest of all political government. Montaigne says he is swayed by neither.
+
+## Licinius · reference
+
+The other of them.
+
+## Velleius · reference
+
+Who reproaches Cotta and Cicero with having learned of Philo that they had learned nothing.
+
+## Philo · reference
+
+From whom they had learned it.
+
+## Pherecydes · reference
+
+One of the seven sages, who wrote to Thales on his death-bed to have his books given to his friends, and to be buried if they approved them; and, on Cicero’s testimony, the first to introduce the immortality of the soul, in the time of King Tullus. The older edition calls him Syrius where the modern says of Syros — the epithet, not another man, though the sentence is broken across the paragraph boundary at 69:468 and reads like one.
+
+## Clitomachus · reference
+
+Who with Carneades and the Academics despaired in the search for truth, and concluded that it could not be conceived by our understandings.
+
+## Anaximander · reference
+
+Who held that the gods were always dying and entering into life again; and, with Hesiod, that the soul was a thing composed of earth and water.
+
+## Parmenides · reference
+
+Who made God a circle surrounding the heaven and supporting the world by the ardour of light; and who, alone of all the philosophers before Heraclitus, would not allow things to have motion.
+
+## Theophrastus · reference
+
+Who says the ears are the most dangerous instruments about us for receiving violent impressions, and who attributes to Nicetas of Syracuse the opinion that it is the earth that moves.
+
+## Diogenes Apolloniates · reference
+
+Who held that God is air. Not the Cynic, nor the Atheist, nor the biographer.
+
+## Isis · reference
+
+With Serapis, one of the gods the Egyptians forbade anyone, on pain of hanging, to say had formerly been men.
+
+## Serapis · reference
+
+The other of them — and the god in whose arms Paulina thought she lay when she was in her lover’s, through the panderism of the priests of his temple.
+
+## Tiberius Sempronius · reference
+
+Who burnt the rich spoils and arms he had gained from the enemy in Sardinia as a sacrifice to Vulcan, Montaigne’s first instance of flattering divine justice with the ruin of the things it made.
+
+## Zamolxis · reference
+
+The god of the Getae, who hold themselves immortal and their death nothing but a journey to him.
+
+## Amestris · reference
+
+Xerxes’s mother, who being grown old caused fourteen young men of the best families of Persia to be buried alive at once, according to the religion of the country, to gratify some infernal deity.
+
+## Trismegistus · reference
+
+Whom Montaigne bids us hear in praise of our sufficiency, as the extreme of the presumption he is putting down.
+
+## Paulina · reference
+
+The wife of Saturninus, a matron of great reputation at Rome, who thought she lay with the god Serapis and found herself in the arms of an amoroso of hers.
+
+## Saturninus · reference
+
+Paulina’s husband. Not the tribune whose violence Metellus withstood. The older edition misprints the name Satuminus.
+
+## Taruncius · reference
+
+The rich young man who won the temple-servant’s wench at dice from Hercules, took her home, and in time left her his inheritrix.
+
+## Nausiphanes · reference
+
+Who held that of things which seem to be, nothing is more than it is not.
+
+## Hippocrates · reference
+
+Who made the soul a spirit diffused all over the body.
+
+## Erasistratus · reference
+
+Who lodged the soul adjoining the membrane of the epicranium.
+
+## Moses · reference
+
+Who, like the Stoics, seated the soul in the blood — which Montaigne gives as the reason he interdicted eating the blood of beasts.
+
+## St Bernard · reference
+
+Who asks how he should comprehend how incomprehensible God is, seeing he cannot comprehend the parts of his own being.
+
+## Archelaus · reference
+
+The physician whose disciple and favourite Socrates was, according to Aristoxenus, and who said that both men and beasts were made of a lacteous slime expressed by the heat of the earth.
+
+## Aristoxenus · reference
+
+Who reports that Socrates was his disciple.
+
+## Alcmeon · reference
+
+Who held the seed to be part of the substance of the brain, and proved it, he said, by the weakness of the eyes in those immoderate in that exercise. The editions spell him Alcmæon, Alcmeon and Alcmaeon between them.
+
+## Aethalides · reference
+
+The first of the men Pythagoras remembered having been, before Euphorbus, Hermotimus and Pyrrhus.
+
+## Hermotimus · reference
+
+The third of them.
+
+## Gobrias · reference
+
+Who, closely grappled in combat with a lord of Persia and seeing Darius come up sword in hand and fear to strike lest he kill him, called out boldly to fall on though he ran them both through. Montaigne tells his reader not to die to be revenged, as he did.
+
+## Margaret de Valois · reference
+
+The reader the chapter is addressed to, whom Montaigne charges not to refuse to support her Sebond by the ordinary forms of arguing she is every day instructed in — named only in an editor’s note. Not the Marguerite, Queen of Navarre, of the Heptameron, who is another woman and an earlier one. The modern edition spells her Marguerite de Valois.
+
+## Nicetas · reference
+
+Of Syracuse, who according to Theophrastus took it into his head to maintain that it was the earth that moved, turning about its axis by the oblique circle of the zodiac — where Cleanthes the Samian is the other name given for it.
+
+## Anexandridas · reference
+
+Cleomenes’s father, named to place the Cleomenes whose friends reproached him with new and unaccustomed humours when he was sick. The Essays do not identify him with the Alexandridas of the long speeches to the Ephori. The modern edition spells him Anaxandridas.
+
+## Tyridates · reference
+
+The king Montaigne says he does not care what northern clime reveres, in the verses on indifference to what is far off. The modern edition spells him Tiridates, and the Latin accusative Tyridatem of the quotation is left unbound.
+
+## King Tullus · reference
+
+In whose time Pherecydes is said to have first introduced the immortality of the soul — though some attribute it to Thales and some to others.
+
+## King Midas · reference
+
+Whose inconvenience the poet feigns, and into which Montaigne says Christians would fall if their prayers were granted as they ask them.
+
+## Thrasymachus · reference
+
+Who in Plato is of opinion that there is no other right but the convenience of the superior.
+
+## Bartolus · reference
+
+With Aldus, one of the two authorities between whom a judge found a sharp conflict and many contrarieties, and wrote in the margin of his book: a question for a friend.
+
+## Aldus · reference
+
+The other of them.
+
+## Hipparchia · reference
+
+Who was not received into Crates’s society but upon condition that she should in all things follow the practice and customs of his rule.
+
+## Thetis · reference
+
+The sea-goddess in whose honour Alexander, arriving at the Indian Ocean, threw several great vessels of gold into the sea; and who, in Aristotle’s instance of flattery, flatters Jupiter. The older edition spells her Thetes at the Indian Ocean and Thetis in Aristotle.
+
+## Tethys · reference
+
+Whom Homer made, with the Ocean, father and mother of the gods — Plato’s evidence, in Montaigne’s report of him, that bodies never had any existence but only birth, and that all things are in perpetual fluctuation, motion and variation. The older edition prints her as Thetis, which is the sea-goddess’s name and not hers.
+
+## Zeno · reference
+
+Who held, in the doxography Montaigne runs through, that one same is not and that there is nothing — the Eleatic thesis, beside Parmenides’s that there is but one thing. Not the founder of the Stoa, whose opinions fill the rest of the chapter, nor the citizen of Messina.
+
+## Aristo · reference
+
+Plato’s father, who having a mind to enjoy the fair Perictione could not, and was warned by Apollo in a dream to leave her untouched until she had been delivered — which is how it came to be believed at Athens that Plato was of divine generation. Not Aristo of Chios, nor the tragedian, nor Ariosto.
+
+## Pyrrhus · reference
+
+The man Pythagoras remembered having been last, after Aethalides, Euphorbus and Hermotimus, before passing into Pythagoras himself. Not the King of Epirus.
+
+## Crassus · reference
+
+Whom Surena beat with the same fine arms — the Parthian bow — that had beaten Sertorius in Spain and served Eumenes against Antigonus.
+
+## Crassus · reference
+
+Whose lamprey knew his voice and came when he called it — Montaigne’s instance, with the eels of the lake Arethusa, of beasts that suffer themselves to be governed by our voices. Not the Crassus whom Surena beat, nor the P. Crassus of the Asian consulship.
+
+## Crito · reference
+
+Thrasylaus’s brother, who restored him to his better understanding — for which Thrasylaus was very sorry, having infinitely enjoyed believing that every ship that came into the Piraeus sailed for his profit. Not Socrates’s friend.
+
+## Agis, King of Sparta · reference
+
+Who, after a long conference with an ambassador of Abdera, was asked what answer he should return to his fellow-citizens, and said: that thou hast said all thou wouldst and as long as thou wouldst, without my saying one word. The Essays do not join him to either of the other two Agises, and give none of the three a numeral.
+
+## Timon · reference
+
+Who calls Plato, insultingly, a monstrous forger of miracles. Not Timon surnamed the Man-hater.
+
+## Diodorus · reference
+
+Diodorus Siculus, who with Cicero says that in their time the Chaldees kept a register of four hundred thousand and odd years. Not the dialectician who died of shame.
+
+## Perseus · reference
+
+Zeno’s disciple, who was of opinion that men have given the title of gods to such as have been useful to human life. Neither the King of Macedon nor the Gorgon-slayer — and this, not 44:1, is the 69:268 the earlier passes of this package were pointing at.
+
+## Hyrcanus · reference
+
+King Lysimachus’s dog, who when his master was dead lay on his bed refusing either to eat or drink, and on the day the body was burnt took a run and leaped into the fire and was consumed — Montaigne’s instance, with the dog of one Pyrrhus, of a friendship in beasts more lively and constant than men have.

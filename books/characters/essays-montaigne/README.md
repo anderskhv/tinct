@@ -1,18 +1,27 @@
 # Montaigne's Essays character package — IN PROGRESS
 
-**Chapters 1–68 of 107 are authored. The rest are not.** Status stays
+**Chapters 1–69 of 107 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole work is
 covered.
 
-Current state: 704 entities authored, all 704 bound in both editions, 3,531 and
-3,655 exact mentions. Of those, 162 and 180 fall inside chapters 1–10, 205 and 209
-inside chapters 11–20, 340 and 353 inside chapters 21–25, 136 and 142 inside
+Current state: 782 entities authored, all 782 bound in both editions, 3,748 and
+3,869 exact mentions. Of those, 162 and 180 fall inside chapters 1–10, 205 and 209
+inside chapters 11–20, 341 and 354 inside chapters 21–25, 136 and 142 inside
 chapters 26–30, 255 and 263 inside chapters 31–40, 278 and 288 inside
-chapters 41–50, 271 and 279 inside
-chapters 51–60, and 267 and 270 inside chapters 61–68; the rest are later occurrences of names that belong to one man
-through the whole book — Cicero, Plato, Horace, Seneca, Socrates, Plutarch,
+chapters 41–50, 271 and 279 inside chapters 51–60, 266 and 273 inside
+chapters 61–68, and 568 and 574 inside chapter 69 alone; the rest — 1,266 and
+1,307 — are later occurrences of names that belong to one man
+through the whole book: Cicero, Plato, Horace, Seneca, Socrates, Plutarch,
 Aristotle and the other authorities Montaigne quotes on every page. Content
-revision 2026-09-13.2.
+revision 2026-09-13.3.
+
+Chapter 69, the Apology for Raimond Sebond, is by itself the largest chapter in
+the work — 660 paragraphs, as much text as chapters 41–68 together, and more
+mentions than any other chapter by a factor of three. It is also a doxography,
+which is the worst possible case for this kind of package: page after page of
+"Zeno says, Aristo thinks, Crassus reports", where the same name is two or three
+different men and the only evidence of which is the sentence it stands in. The
+method that worked is written up under **Editorial checks** below.
 
 ## What is hard about this book
 
@@ -92,9 +101,48 @@ one most likely to be undone by accident: the two editions differ only in the
 kind of apostrophe, and an alias with the wrong one binds in one edition and not
 the other.
 
+**Chapter 69 is worse than the rest of the book put together.** The Apology is
+where the older edition's typesetting breaks down, and the misprints there are
+not older transliterations but plain compositor's errors — an *rn* set as *m*, a
+*V* set as *Y*, a line-break hyphen left standing in the middle of a word:
+
+| Older edition | Modern edition | What went wrong |
+|---|---|---|
+| **Cameades** (69:243, 69:590), **Car-neades** (69:182) | Carneades | *rn* set as *m*; a line-break hyphen kept |
+| **Epichar-mus** (69:656), **Ætha-lides** (69:473) | Epicharmus, Aethalides | line-break hyphens kept |
+| **Yarro** (69:167) | Varro | *V* set as *Y* |
+| **Satuminus** (69:345) | Saturninus | *rn* set as *m* |
+| **Lucurgus** (69:388) | Lycurgus | |
+| **Proctagoras** (69:558) | Protagoras | |
+| **Pytagoras** (69:253) | Pythagoras | |
+| **Sertorious** (69:126) | Sertorius | |
+| **Theodoras** (69:19, 69:268) | Theodorus | |
+| **Zenophanes** (69:268) | Xenophanes | *X* set as *Z*, in a paragraph that also names Xenophanes correctly |
+| **Arcesilas** (69:182) | Arcesilaus | an older form, beside *Arcesilaus* in the same chapter |
+| **Sehond** (69:22, beside *Sebond* in the same paragraph) | Sebond | the book's own subject misprinted |
+| Cæsar (69:287), Timæus (69:243), Scævola (69:370), Dicæarchus (69:395, 572), Tyrtæus, Alcmæon, Paulus Æmilius | Caesar, Timaeus, Scaevola, Dicaearchus, Tyrtaeus, Alcmaeon, Paulus Aemilius | real æ ligatures, not the *AE* digraph the rest of the older edition uses |
+| Anaximines, Anexandridas, Tyridates, Memmus, Apollonius Tyanaus, Margaret de Valois, Diogenes Apolloniates | Anaximenes, Anaxandridas, Tiridates, Memmius, Apollonius of Tyana, Marguerite de Valois, Diogenes of Apollonia | older forms the modern edition corrects |
+| St. Austin (69:225), St Augustin (69:388), St. Thomas d'Aquin (69:5), St. Paul (69:20), St. Louis (69:12) | Saint Augustine, St. Augustine, St Thomas Aquinas, Saint Paul, Saint Louis | both editions are inconsistent about *St.*, *St* and *Saint*, in both directions |
+
+A census of the saint names, run because of that last row, found two things
+outside chapter 69 that eight earlier passes had missed: the modern edition
+writes *Saint Augustine* at 65:40 and *St Paul* at 17:2, and **the "dean of
+St. Hilary of Poitiers" at 65:22 is a church, not the bishop** — a live
+mis-binding. The modern edition prints it *Saint-Hilaire in Poitiers*, which is
+how the place gives itself away. It is the third place in this package where an
+alias had to be suppressed.
+
+**How chapter 69 was actually read.** Paragraph dumps are the wrong instrument
+for a doxography: at 660 paragraphs of "Zeno says, Aristo thinks, Crassus
+reports", the identification evidence is never the paragraph, it is the sentence.
+The pass that worked built a *sentence-level identification sheet* — one line per
+new capitalised name, carrying only the sentence it stands in — and worked down
+it. Two of the three cards this package has had to correct for being written from
+memory rather than from the page were written before that sheet existed.
+
 **The namesakes.** An essayist who cites for eleven hundred pages repeats names
 constantly, and Montaigne almost never distinguishes them. In the first
-sixty-eight chapters:
+sixty-nine chapters:
 
 | Entity | Where | Against |
 |---|---|---|
@@ -220,6 +268,20 @@ sixty-eight chapters:
 | `artaxerxes-lawgiver` | 68:42 | the Artaxerxes of 59:28, whose brother claimed to outdrink him. Nothing joins the two acts, so each has a card that says so |
 | `diogenes-laertius` | 68:61 | Diogenes the Cynic and Diogenes the Atheist. His full name is long enough to win the span from the Diogenes table |
 | `scipio-aemilianus` as "the younger Scipio" | 66:7, 66:14 | the three other Scipios, and the unqualified one at 63:43 |
+| `zeno-of-elea` | 69:327 | `zeno-of-citium`, who fills the rest of the chapter, and `zeno-mamertine` of 1:5. 69:327 is "one same is not, and there is nothing", beside Parmenides's "there is but one thing" — the Eleatic thesis and nobody else's |
+| **`persaeus`** | 69:268 | **both other Perseuses**. Zeno's disciple, of opinion that men gave the title of gods to such as had been useful to human life. Not the King of Macedon of 5:0 and 44:1, and not the Gorgon-slayer. This is the paragraph two earlier passes of this package were pointing at when they wrote 44:1 |
+| `crassus-orator` / `crassus-triumvir` | 69:87 / 69:126 | each other and `publius-crassus` of 16:9. The orator's lamprey knew his voice and came when he called it; the triumvir is the one Surena beat with the Parthian bow |
+| `aristo-of-chios` / `ariston-plato-father` | 69:268, 69:558 / 69:345 | each other, the tragedian of 25:152 and Ariosto at 27:13. Plato's father is the Aristo who could not enjoy Perictione and was warned off her in a dream by Apollo; the Stoic is the one who thinks the form of God incomprehensible. The modern edition writes the Stoic *Ariston* at 69:558 and Plato's father *Aristo* at 69:345, which is the reverse of what a reader would guess |
+| `crito-brother` | 69:208 | `crito`, Socrates's friend at 3:15. Thrasylaus's brother, who restored him to his better understanding — for which Thrasylaus was very sorry, having enjoyed believing that every ship into the Piraeus sailed for his profit |
+| `timon-of-phlius` | 69:378 | `timon` the Man-hater of 50:7. The one who calls Plato a monstrous forger of miracles |
+| `diodorus-siculus` | 69:532 | `diodorus-dialectician` of 2:21, who died of shame. The historian who kept the Chaldees' register of four hundred thousand years |
+| `saturninus-husband` | 69:345 | `saturninus` the seditious tribune of 68:7. The older edition misprints the husband **Satuminus** |
+| `pyrrhus-transmigration` | 69:473 | the King of Epirus. The man Pythagoras remembered having been, after Aethalides, Euphorbus and Hermotimus |
+| `agis-king-of-sparta` | 69:47 | the two other Agises, at 47:16 and 60:3. The Essays give none of the three a numeral and join none of them to another; three cards, each saying so |
+| **`tethys`** | 69:656 | **`thetis`**. Homer's Ocean and Tethys, father and mother of the gods, are not the sea-goddess Alexander sacrificed to at the Indian Ocean. The older edition prints the Titaness *Thetis*, which is the other one's name; the modern edition corrects it. Found by a census of the edition-asymmetric bindings, after the two had been merged onto one card in error |
+| `antigonus-i` | 69:126 | `antigonus-gonatas` of 37:0, and the unqualified Antigonus of 5:10 |
+| `mark-antony` | 69:89 | `antony-germany` of 26:18 |
+| `scaevola` | 69:370 | `mucius-scaevola` of 40:45. The older edition prints the ligature **Scævola** here and *Scaevola* at 22:49, so one man has two spellings inside one package |
 
 **Three of those were live mis-bindings the sweep caught**, not hypotheticals. The
 bare surname *Lepidus* was binding the man who died of a stumble at 19:24 to the
@@ -241,17 +303,18 @@ that is single-referent across the whole work — the authorities and philosophe
 Montaigne quotes on every page — is bound by alias and therefore appears in
 chapters that have not been authored yet, with a card written to be true
 anywhere in the book rather than to gloss the paragraph it was first found in.
-Two hundred and four entities bind beyond chapter 68 that way, and five of
-them — Plato, Cicero, Seneca, Socrates and Horace — account for most of it. It is
-worth being plain about the size of this: 1,616 of the 3,531 mentions in the older
-edition fall in chapters that have not been read. Those are bindings of names with
+Two hundred and four entities bind beyond chapter 69 that way, and five of
+them — Cicero, Seneca, Plato, Socrates and Horace — account for a quarter of it. It
+is worth being plain about the size of this: 1,266 of the 3,748 mentions in the
+older edition fall in chapters that have not been read. Those are bindings of names with
 one bearer, and the cards are written to be true anywhere; but they are not
 reviewed paragraph by paragraph, and the release owner should read the scope line
 as covering the *cast*, not every mention of it.
 
-## Editorial checks — chapters 1–68
+## Editorial checks — chapters 1–69
 
-**1. Namesakes.** The hundred and twenty-nine in the table above, each pinned by a test.
+**1. Namesakes.** The hundred and fifty-nine entities in the table above — a
+hundred and thirty-six rows — each pinned by a test.
 
 **2. Person or not.** This is the check that does the most work in an essayist.
 Excluded:
@@ -297,7 +360,7 @@ occurrence with the first slot empty. Two paragraphs earlier, at 46:3, "Socrates
 thinks it worthy a father's care to give fine names to his children" **is** the
 man, and binds.
 
-**The suppression list has grown to four, and each entry is a different kind of
+**The suppression list has grown to six, and each entry is a different kind of
 collision.** *Socrates* at 46:12 is the name and not the man. *Democritus* at
 60:45 is a different man from the philosopher whose alias is single-referent
 everywhere else in the work: "Democritus, general of the AEtolians", brought
@@ -307,8 +370,11 @@ Latin elegist of the citation, where that exact alias belongs to the proctor of
 And *Cicero* at 67:21 is both men at once: the orator once, and then "the younger
 Cicero, who resembled his father in nothing but in name" for the remaining three
 occurrences, including the whipping of Cestius. All four are in `SUPPRESS` in the
-builder with the reason written out, and each is pinned by a test. Nothing else in
-sixty-eight chapters has needed it.
+builder with the reason written out, and each is pinned by a test. Two more have
+been added since, both found by the edition-asymmetry census: the sea-goddess
+*Thetis* at 69:656, where the referent is the Titaness Tethys, and *St. Hilary* at
+65:22, where the referent is the church of Saint-Hilaire in Poitiers. Nothing else
+in sixty-nine chapters has needed it.
 
 **The Blessed Virgin at 46:4 is left unbound.** The name in that paragraph is the
 wench's: "asking her name, and being answered that it was Mary". The reverence is
@@ -348,7 +414,27 @@ death in the crowd at 19:24; the bare **Mary** at 20:6, because Montaigne is
 reporting what the town used to call the man now called Germain and the name
 belongs to somebody else everywhere else in the book.
 
-Three traps in this range are deliberately left alone and pinned by tests:
+Chapter 69 adds four of its own, and they are the hardest kind, because in a
+doxography an unqualified name is the norm rather than the exception:
+
+- **Zeno at 69:235** stands in a list of the sceptics' forerunners — "Homer, the
+  seven sages, Archilochus and Euripides, with Zeno, Democritus and Xenophanes
+  added" — which does not settle Elea from Citium. Elea is the likelier reading
+  and likelier is not enough.
+- **Dionysius at 69:565** is "the tyrant", which fits either Syracusan.
+- **"The dog of one Pyrrhus" at 69:96** has a master who is a private person, not
+  the King of Epirus, and the dog has no name of its own. Hyrcanus, King
+  Lysimachus's dog in the same paragraph, does, and is cast.
+- **Apollodorus at 69:388** is a third man of the name, unqualified, beside the
+  Apollodorus of 25:3 and the dreamer of 62:12.
+
+Two more names in chapter 69 look like people and are not: **the order of St
+Michael** at 69:545 (and at 64:1) and **"that of St Andrew"** at 69:533, which is
+a cross. An institution or an object named after a saint is not the saint, on the
+same rule that leaves the town of St Paul and the *Life of Caesar* uncast. Both
+are pinned by a test.
+
+Three traps in the early range are deliberately left alone and pinned by tests:
 
 - **St Paul at 17:2 is a town.** "When St. Paul was taken from us by the Comte de
   Bures" is Saint-Paul in the Low Countries, not the apostle.
@@ -421,7 +507,7 @@ Three traps in this range are deliberately left alone and pinned by tests:
     Letters. Neither the emperor nor Guevara is what the sentence points at, so
     nothing is bound — and the bishop Aurelius, who was taking it, has been
     keyed off.
-- **Four more in chapters 61–68:**
+- **Three more in chapters 61–68:**
   - **Dionysius "the tyrant" at 68:28**, who presented Epicurus with three
     beautiful women. The epithet fits either Syracusan.
   - **Pliny at 63:38 and 67:20**, neither qualified, and the book has two.
@@ -432,7 +518,8 @@ Three traps in this range are deliberately left alone and pinned by tests:
 twelve to fourteen per edition per pass, read back against their paragraphs: all
 correct. The chapters 31–40 pass read twenty-eight and found no mis-binding, but
 it did find the card defect described in check 7; the chapters 41–50 and 51–60
-passes read twenty-eight each, all correct, and so did the chapters 61–68 pass.
+passes read twenty-eight each, all correct, and so did the chapters 61–68 pass;
+chapter 69 had a pass to itself and read thirty-two, all correct.
 
 The **unbound-tabled-names audit** — every pattern in `SPLIT` enumerated against
 the text, which is the only audit that can see a table with no key, since such a
@@ -508,8 +595,44 @@ Horn and Egmont*, *Cardinal du Bellay*, *Queen Margaret of Navarre*, *Captain
 Martin du Bellay*, *Poor Judge Bebius*, *King Dagobert*, *The Duke of Athens*, *Old Aristo of
 Chios*, *our King Charles VIII*.
 
+Over chapter 69 alone the audit found ten names the chapter introduces as
+namesakes, in nineteen paragraphs, and nothing else would have caught any of
+them: *Zeno* in eight paragraphs, *Perseus* at 69:268,
+*Antony* at 69:89, *Crassus* at 69:87 and 69:126, *Aristo* at 69:268, 69:345 and
+69:558, *Crito* at 69:208, *Antigonus* at 69:126, *Timon* at 69:378, *Diodorus*
+at 69:532 and *Scaevola* at 69:370. What it still reports there is the five
+deliberate cases above plus the runs of alias-bound Cicero and Democritus, and
+four subspans of longer names — *Dionysius* inside *Dionysius Heracleotes*,
+*Diogenes* inside *Diogenes Apolloniates*, *Paulus* inside *Paulus Æmilius* and
+*Tiberius* inside *Tiberius Sempronius*.
+
+**The edition-asymmetry census is the audit that closed chapter 69.** Listing
+every binding present in one edition and absent from the other reduced 660
+paragraphs to twenty-four cases, and twenty-two of them were real: the misprints
+tabled under **What is hard about this book**, plus the *Ariston* / *Aristo*
+inversion and the two saints written out in full. The two that remain are not
+defects to fix:
+
+- **`pherecydes` at 69:469, older edition only.** The older edition's sentence
+  runs across the paragraph break, and *Syrius* — his epithet, of Syros — is left
+  standing alone at the head of 469. The modern edition writes "of Syros" and
+  keeps the man in 468. This was nearly cast as a separate person called Syrius.
+- **`jove` at 69:508, modern edition only.** The two editions translate the same
+  Latin verse differently: the modern names "Father Jupiter... with his
+  fertilising lamp", the older writes "Men's minds are influenc'd by th' external
+  air". There is nothing in the older edition to bind.
+
+The census is cheap, it is mechanical, and it should be run on every book in this
+library. It is the only check that found the Tethys/Thetis merge, which four
+other audits, a spot-read and an adjacency sweep all passed over.
+
+The **adjacency sweep** over chapter 69 produced twenty-eight hits, all sound —
+*dat Rome with the Emperor Vespasian*, *King Lysimachus's dog*, *either some other
+or Justus Lipsius* — and the chapter's **spot-read** of thirty-two mentions found
+no mis-binding.
+
 **6. Both editions independently.** No entity is missing from either edition. The
-mention counts differ by about three percent (3,531 against 3,655),
+mention counts differ by about three percent (3,748 against 3,869),
 partly because the modern edition resolves pronouns to names — it says *Dionysius*
 and *Scanderbeg* and *Betis* and *Ferdinand* where Cotton says *he* — and partly
 because it expands the citation abbreviations, so *Hor.* becomes *Horace* and
@@ -579,15 +702,31 @@ alias did not match, not because the man was somebody else.
 | The citation at 19:70 reads **"Maximian, vel Pseudo-Gallus"** — an editorial doubt about the attribution, not a person. | Nothing is bound to *Gallus* there; the Gallus table is keyed to 59:24 alone. |
 | The older edition prints the name of one man both ways round: **Severus Cassius** at 10:4 and **Cassius Severus** at 65:39. | Both orders are aliases on one card. He was omitted from 65:39 until this was found. |
 | The older edition spells three names differently from the modern: **Boutieres/Boutières**, **Muley Hassam/Hassan**, **Pantheus/Panthus**. | Both forms are aliases. All three were omitted from the modern edition until this was found. |
+| **The older edition's sentence at 69:468 runs across the paragraph break.** It ends "…first introduced by Pherecydes" and 69:469 opens with the single word *Syrius* — his epithet, of Syros — before continuing. | Not repaired. *Syrius* is an alias of Pherecydes, so the orphaned word still binds to the right man. This was within one commit of being cast as a separate philosopher called Syrius, on the strength of the older edition's "Syrius, in the time of King Tullus"; the modern edition reads "of Syros", which is what gave it away. |
+| **Chapter 69's compositor's errors**: *Cameades* and *Car-neades* for Carneades, *Epichar-mus* for Epicharmus, *Ætha-lides* for Aethalides, *Yarro* for Varro, *Satuminus* for Saturninus, *Lucurgus*, *Proctagoras*, *Pytagoras*, *Sertorious*, *Theodoras*, *Zenophanes*, and *Sehond* for the book's own Sebond. | All carried as aliases exactly as printed, so every mention binds. Tabled in full under **What is hard about this book**. Not repaired: the older edition is the reading text and editing it would move every UTF-16 offset after the change. |
+| **Chapter 69 uses real æ ligatures** where the rest of the older edition uses the *AE* digraph: *Cæsar*, *Timæus*, *Scævola*, *Dicæarchus*, *Tyrtæus*, *Alcmæon*, *Paulus Æmilius*. | Carried as aliases or as keyed patterns, depending on whether the name belongs to one man in the work or to several. The ligature forms are easy to lose in an editor that normalises them, which would silently unbind seven people. |
+| **The two editions translate the verse at 69:508 differently.** The modern edition names "Father Jupiter… with his fertilising lamp"; the older writes "Men's minds are influenc'd by th' external air" and names no god. | Not a defect and not repaired. `jove` binds in the modern edition alone at that paragraph, and a test pins the asymmetry so that a later pass does not "fix" it. |
+| **The older edition prints *Thetis* at 69:656 where the modern prints *Tethys*.** Homer's Ocean and Tethys are the parents of the gods; Thetis is the sea-goddess of the Indian Ocean sacrifice at 69:300. | Two cards, not one, and the older edition's spelling is keyed to the Titaness in that one paragraph with the sea-goddess's alias suppressed there. The two had been merged onto one card in error until the edition-asymmetry census caught it. |
+| **Both editions are inconsistent about *St.*, *St* and *Saint*, in both directions.** The older edition writes *St. Austin* at 69:225, *St Augustin* at 69:388 and *St. Augustin* elsewhere; the modern writes *Saint Augustine* at 65:40 and 69:25, *St Augustine* in chapter 99 and *St. Augustine* elsewhere. The same split runs through Paul, Louis, Michael, Bernard, Andrew and Thomas. | All forms are aliases on one card per saint. A census of the saint names, run because of chapter 69, found that the modern edition's *Saint Augustine* at 65:40 and *St Paul* at 17:2 had been left unbound by eight earlier passes. |
+| **"A dean of St. Hilary of Poitiers" at 65:22 is a church, not the bishop.** The modern edition writes it *Saint-Hilaire in Poitiers*. | A live mis-binding, now suppressed — the third suppression in this package. Recorded here because the older edition gives the reader no way to tell the church from the man. |
+| **The older edition writes *Philip de Commines* where the modern writes *Philippe de Commines*** at 67:30 and 67:31. | Both forms are aliases. He was omitted from the modern edition in those two paragraphs until the edition-asymmetry census found it. |
 
 No edition byte was touched.
 
 ## Remaining work
 
-- **Chapters 69–107.** Book I runs to chapter 57, Book II to chapter 94, Book III
-  from 95. The heaviest chapters are 69 (*Apology for Raimond Sebond*, 660
-  paragraphs), 99 (*Upon some verses of Virgil*, 374), 103 (*Of vanity*, 300),
-  107 (*Of experience*, 240), 74 (*Of presumption*, 163) and 73 (101).
+- **Chapters 70–107.** Book I runs to chapter 57, Book II to chapter 94, Book III
+  from 95. With the Apology done, the heaviest chapters remaining are 99 (*Upon
+  some verses of Virgil*, 374 paragraphs), 103 (*Of vanity*, 300), 107 (*Of
+  experience*, 240), 74 (*Of presumption*, 163) and 73 (101).
+- **Run the edition-asymmetry census on every chapter already authored.** It was
+  written for chapter 69 and immediately found three gaps and one mis-binding in
+  chapters 17, 65 and 67, which eight passes of other checks had gone past. The
+  eighteen asymmetries it still reports over chapters 1–68 are the citation
+  abbreviations — *Hor.*, *Claud.*, *Quintil.*, *Lucret.*, *Propert.*, *Liv.*,
+  *Cic.* — which the modern edition expands and no alias in the older edition
+  matches. They are recorded, not repaired, but they should be read once more by
+  whoever finishes the book.
 - **Run the unbound-tabled-names audit before believing the tests** — enumerate
   every `SPLIT` pattern against the new chapters rather than reading the mention
   list, since a table with no key produces no mention to audit. It has now found
@@ -624,5 +763,5 @@ No edition byte was touched.
 
 `python3 books/characters/build_essays_montaigne.py --check`, then
 `python3 -m unittest discover -s books/characters -p 'test_*.py'`. A hundred and
-thirty-six focused tests so far. No edition changes, no network generation, no API spend: every card
+fifty-seven focused tests so far. No edition changes, no network generation, no API spend: every card
 here was written in the authoring conversation and committed as a file.
