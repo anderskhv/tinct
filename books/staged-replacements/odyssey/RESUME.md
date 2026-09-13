@@ -122,6 +122,39 @@ including **`homograph`**, which is the class the review asked for by name
 (`issue` is *outcome* at B03-P007 and *offspring* at B07-P007: two words spelled
 alike, not a collision).
 
+## One thing this session OPENED rather than closed
+
+**`collision_triage.py` exits non-zero for Books 1–6, and that is the
+instrument working, not a bug.** R-2 was reported as a Book 7 problem — 72 rows
+returned, eleven acted on, sixty-one dismissed with no record. It is not a Book
+7 problem. Running the triage over every accepted Book shows the same gap
+everywhere, and now it is counted:
+
+| Book | rows touching it | **with no disposition** |
+|---|---|---|
+| 1 | 164 | **96** |
+| 2 | 93 | **30** |
+| 3 | 121 | **27** |
+| 4 | 133 | **30** |
+| 5 | 91 | **26** |
+| 6 | 84 | **12** |
+| 7 | 82 | 0 |
+| 8 | 93 | 0 |
+
+**These were deliberately NOT ruled here.** Writing 221 dispositions for six
+accepted Books in the session that built the instrument would be the same
+defect the instrument exists to catch — a record produced to make a script exit
+zero rather than because somebody read the rows. Books 7 and 8 are ruled
+because they were being worked on and every ruling was made against the text.
+
+**What the next worker should know:** most of these will fall into the
+mechanical classes on sight (`kept` alone took 48 of Book 7's 82 and 65 of Book
+8's 93), so the real work is small; and a `repair` found among them costs a
+successor to an accepted Book, which is a coordinator matter. Book 1 at 96 is
+the one to start with — it is the most heavily rewritten Book in the package
+(retention 0.72703) and therefore the one whose renderings were least
+constrained.
+
 ## The compound class, closed
 
 **A4(ii) — the vendored word list is DECLINED.** `scripts/compound_register.py`
