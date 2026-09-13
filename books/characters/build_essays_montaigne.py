@@ -40,12 +40,12 @@ SPLIT={
             (37,3):'pompey',(40,13):'pompey',(44,0):'pompey',
             (46,12):[None,'pompey'],(47,7):'pompey',(47,17):'pompey',
             (48,5):'pompey',(51,1):'pompey',(65,39):'pompey',
-            (69,126):'pompey',(72,14):'pompey',(79,1):'pompey',(84,21):'pompey',(89,2):'pompey',(89,10):'pompey',(90,3):'pompey',(90,6):'pompey'},None),
+            (69,126):'pompey',(72,14):'pompey',(79,1):'pompey',(84,21):'pompey',(89,2):'pompey',(89,10):'pompey',(90,3):'pompey',(90,6):'pompey',(91,9):'pompey',(91,12):'pompey',(91,33):'pompey',(91,34):'pompey',(95,66):'pompey'},None),
  # The citizen of Messina, not the founder of the Stoa.
  'Zeno':({(1,5):'zeno-mamertine',(22,49):'zeno-of-citium',(24,55):'zeno-of-citium',
           (25,143):'zeno-of-citium',(30,28):'zeno-of-citium',
           (52,2):'zeno-of-citium',(69,327):'zeno-of-elea',
-          (69,238):'zeno-of-citium',(69,246):'zeno-of-citium',(69,268):'zeno-of-citium',(69,370):'zeno-of-citium',(69,401):'zeno-of-citium',(69,414):'zeno-of-citium',(69,465):'zeno-of-citium',(69,613):'zeno-of-citium',(74,115):'zeno-of-citium'},None),
+          (69,238):'zeno-of-citium',(69,246):'zeno-of-citium',(69,268):'zeno-of-citium',(69,370):'zeno-of-citium',(69,401):'zeno-of-citium',(69,414):'zeno-of-citium',(69,465):'zeno-of-citium',(69,613):'zeno-of-citium',(74,115):'zeno-of-citium',(98,25):'zeno-of-citium'},None),
  # Alexander the Great in both authored places.
  'Alexander':({(1,6):'alexander',(6,8):'alexander',(18,3):'alexander',
                (19,21):'alexander',(23,7):'alexander',
@@ -57,7 +57,7 @@ SPLIT={
                (60,53):'alexander',(62,21):'alexander',(65,40):'alexander',
                (66,6):'alexander',(68,55):'alexander',(69,78):'alexander',
                (69,139):'alexander',(69,300):'alexander',
-               (69,532):'alexander',(73,31):'alexander',(74,8):'alexander',(75,0):'alexander',(76,4):'alexander',(76,5):'alexander',(86,10):'alexander'},None),
+               (69,532):'alexander',(73,31):'alexander',(74,8):'alexander',(75,0):'alexander',(76,4):'alexander',(76,5):'alexander',(86,10):'alexander',(91,0):'alexander',(91,21):'alexander',(91,24):'alexander',(91,30):'alexander',(93,16):'alexander',(93,18):'alexander',(93,24):'alexander',(93,27):'alexander',(93,28):'alexander',(96,14):'alexander'},None),
  # Conrad III at 1:3; Conrad Marquis of Monteferrat at 86:19.
  'Conrad':({(1,3):'conrad-iii'},None),
  # The Ferdinand of the Buda campaign at 2:9; King Ferdinand of the Indies at
@@ -86,7 +86,7 @@ SPLIT={
            (42,50):'cyrus-the-great',(47,17):'cyrus-the-younger',
            (48,7):'cyrus-the-great',(48,44):'cyrus-the-great',
            (59,28):'cyrus-the-younger',(60,50):'cyrus-the-great',
-           (69,535):'cyrus-the-great',(79,0):'cyrus-the-great'},None),
+           (69,535):'cyrus-the-great',(79,0):'cyrus-the-great',(91,2):'cyrus-the-great',(91,26):'cyrus-the-great'},None),
  # Socrates's friend at 3:15; the Crito of 69:208 is somebody's brother in
  # another story.
  'Crito':({(3,15):'crito',(69,208):'crito-brother'},None),
@@ -97,7 +97,7 @@ SPLIT={
  'Pyrrhus':({(5,0):'pyrrhus-epirus',(30,0):'pyrrhus-epirus',(37,0):'pyrrhus-epirus',
              (42,67):'pyrrhus-epirus',(47,16):'pyrrhus-epirus',
              (69,85):'pyrrhus-epirus',(69,131):'pyrrhus-epirus',
-             (69,473):'pyrrhus-transmigration'},None),
+             (69,473):'pyrrhus-transmigration',(95,38):'pyrrhus-epirus'},None),
  # Martin the memoirist at 5:9; Cardinal Jean at 10:3; the poet Joachim in
  # chapters 24, 25 and 74.
  r'[Dd]u Bellay':({(67,31):'martin-du-bellay',(5,9):'martin-du-bellay',(10,3):'jean-du-bellay',
@@ -107,7 +107,7 @@ SPLIT={
  # Antigonus the besieger of Eumenes; the Antigonus of 37:0, who was displeased
  # at being brought Pyrrhus's head, is another.
  'Antigonus':({(5,10):'antigonus-i',(37,0):'antigonus-gonatas',
-               (69,126):'antigonus-i'},None),
+               (69,126):'antigonus-i',(95,40):'antigonus-i'},None),
  # Henry de Vaux at 5:11, spelled Henri in the modern edition; Henry VII at 7:0.
  # Then two kings called Henry II within seven paragraphs of each other, one of
  # France and one of England, and the English one's son: 46:2 names the son and
@@ -118,16 +118,16 @@ SPLIT={
  # The Spartan who broke the truce with Argos. Later chapters have at least one
  # other Cleomenes.
  'Cleomenes':({(6,2):'cleomenes-i',(25,117):'cleomenes-sparta',
-               (60,35):'cleomenes-therykion',(69,506):'cleomenes-i'},None),
+               (60,35):'cleomenes-therykion',(69,506):'cleomenes-i',(93,16):'cleomenes-i'},None),
  # Darius III at 6:8; Darius I at 9:2.
  'Darius':({(6,8):'darius-iii',(9,2):'darius-i',(12,2):'darius-i',
             (22,21):'darius-i',(23,7):'darius-iii',(44,0):'darius-iii',
-            (69,483):'darius-i'},None),
+            (69,483):'darius-i',(93,16):'darius-iii'},None),
  # Charles V, named to place his father; the later Charleses are unread.
  'Charles':({(7,0):'charles-v',(11,14):'charles-v',(12,3):'charles-v',(16,8):'charles-v',
              (20,22):'charles-iv',(30,43):'charles-ix',(41,7):'charles-v',
              (47,18):'charles-v',(55,14):'charles-v',(65,17):'charles-v',
-             (65,18):'charles-v',(67,31):'charles-v',(78,1):'charles-v-france',(89,1):'charles-ix'},None),
+             (65,18):'charles-v',(67,31):'charles-v',(78,1):'charles-v-france',(89,1):'charles-ix',(91,0):'charles-v'},None),
  # The Duke of Alva of the Brussels executions; "the last Duke of Alva" at
  # 74:157 is a later head of the house.
  'Alva':({(7,0):'duke-of-alva',(74,157):'duke-of-alva'},None),
@@ -142,7 +142,7 @@ SPLIT={
            (60,43):'pliny-elder',(60,44):'pliny-elder',
            (60,60):'pliny-elder',(69,47):'pliny-elder',(69,153):'pliny-elder',
            (69,326):'pliny-elder',(69,388):'pliny-elder',
-           (69,532):'pliny-elder',(69,638):'pliny-elder',(70,20):'pliny-elder',(70,28):'pliny-elder',(71,0):'pliny-elder',(74,106):'pliny-the-younger',(82,6):'pliny-elder'},None),
+           (69,532):'pliny-elder',(69,638):'pliny-elder',(70,20):'pliny-elder',(70,28):'pliny-elder',(71,0):'pliny-elder',(74,106):'pliny-the-younger',(82,6):'pliny-elder',(92,5):'pliny-the-younger',(94,26):'pliny-elder',(94,40):'pliny-elder',(94,42):'pliny-elder',(94,67):'pliny-elder'},None),
  # Francis I in all three authored places.
  'Francis':({(9,8):'francis-i',(9,9):'francis-i',(10,3):'francis-i',(11,14):'francis-i',
              (13,1):'francis-i',(24,49):'francis-brittany',(47,18):'francis-i',
@@ -186,14 +186,14 @@ SPLIT={
             (61,3):'julius-caesar',(65,39):'julius-caesar',
             (68,37):'julius-caesar',(65,32):'julius-caesar',(69,287):'julius-caesar',
             (65,40):'julius-caesar',(67,19):'julius-caesar',
-            (67,26):'julius-caesar',(67,28):'julius-caesar',(70,9):'julius-caesar',(70,14):'julius-caesar',(70,17):'julius-caesar',(70,28):'julius-caesar',(73,31):'julius-caesar',(73,80):'julius-caesar',(74,1):'julius-caesar',(74,30):'julius-caesar',(75,0):'julius-caesar',(75,18):'julius-caesar',(79,1):'julius-caesar',(84,21):'julius-caesar',(90,7):'julius-caesar',(81,0):[None,'julius-caesar','julius-caesar','julius-caesar'],(88,11):'julius-caesar',(90,3):'julius-caesar',(90,6):'julius-caesar',(90,8):'julius-caesar'},None),
+            (67,26):'julius-caesar',(67,28):'julius-caesar',(70,9):'julius-caesar',(70,14):'julius-caesar',(70,17):'julius-caesar',(70,28):'julius-caesar',(73,31):'julius-caesar',(73,80):'julius-caesar',(74,1):'julius-caesar',(74,30):'julius-caesar',(75,0):'julius-caesar',(75,18):'julius-caesar',(79,1):'julius-caesar',(84,21):'julius-caesar',(90,7):'julius-caesar',(81,0):[None,'julius-caesar','julius-caesar','julius-caesar'],(88,11):'julius-caesar',(90,3):'julius-caesar',(90,6):'julius-caesar',(90,8):'julius-caesar',(91,0):'julius-caesar',(91,5):'julius-caesar',(91,7):'julius-caesar',(91,9):'julius-caesar',(91,11):'julius-caesar',(91,12):'julius-caesar',(91,24):'julius-caesar',(91,25):'julius-caesar',(91,26):'julius-caesar',(91,27):'julius-caesar',(91,28):'julius-caesar',(91,30):'julius-caesar',(91,33):'julius-caesar',(91,34):'julius-caesar',(93,24):'julius-caesar',(93,27):'julius-caesar',(93,28):'julius-caesar',(98,42):'julius-caesar'},None),
  # Pompey's father-in-law at 18:12. Every other Scipio in the Essays belongs to
  # a chapter not yet authored, and the name runs through a whole family.
  'Scipio':({(18,12):'metellus-scipio',(22,49):'publius-scipio-pontifex',
             (23,10):'scipio-africanus',(25,51):'scipio-africanus',
             (39,0):'scipio-aemilianus',(47,19):'scipio-africanus',
             (57,7):'scipio-africanus',(62,18):'scipio-africanus',
-            (66,7):'scipio-aemilianus',(66,14):'scipio-aemilianus',(76,4):'scipio-africanus',(85,0):'scipio-africanus'},None),
+            (66,7):'scipio-aemilianus',(66,14):'scipio-aemilianus',(76,4):'scipio-africanus',(85,0):'scipio-africanus',(91,12):'metellus-scipio',(91,25):'metellus-scipio',(91,33):'metellus-scipio'},None),
  # P. Crassus the consul in Asia — "Publius Crassus" in the modern edition. The
  # triumvir and his son are not yet read, so only 16:9 is keyed.
  'Crassus':({(16,9):'publius-crassus',(16,10):'publius-crassus',
@@ -208,12 +208,12 @@ SPLIT={
               (27,28):'diogenes-the-cynic',(50,7):'diogenes-the-cynic',
               (60,6):'diogenes-the-cynic',(69,15):'diogenes-the-cynic',
               (69,74):'diogenes-the-cynic',(69,565):'diogenes-the-cynic',
-              (69,579):'diogenes-the-cynic',(69,388):'diogenes-apolloniates',(88,21):'diogenes-the-cynic',(90,15):'diogenes-the-cynic'},None),
+              (69,579):'diogenes-the-cynic',(69,388):'diogenes-apolloniates',(88,21):'diogenes-the-cynic',(90,15):'diogenes-the-cynic',(94,3):'diogenes-the-cynic',(94,28):'diogenes-the-cynic',(95,32):'diogenes-the-cynic'},None),
  # Xenophanes of Colophon, the one philosopher Cicero says tried to root out
  # divination. The later Xenophanes passages have not been read.
  'Xenophanes':({(11,32):'xenophanes-colophon',(69,235):'xenophanes-colophon',
                 (69,249):'xenophanes-colophon',(69,268):'xenophanes-colophon',
-                (69,346):'xenophanes-colophon'},None),
+                (69,346):'xenophanes-colophon',(93,16):'xenophanes-colophon'},None),
  # Guido di Gonzaga's son at 19:24; Ludovico Sforza at 18:3 is bound by his own
  # longer alias, so only the Gonzaga paragraph is keyed here.
  'Ludovico':({(19,24):'ludovico-gonzaga'},None),
@@ -240,7 +240,7 @@ SPLIT={
           (65,28):'cato-the-censor',(69,22):'cato-the-younger',
           (69,452):'cato-the-younger',(68,8):'cato-the-younger',
           (68,14):'cato-the-younger',(68,16):'cato-the-younger',
-          (68,17):'cato-the-younger',(70,40):'cato-the-younger',(78,11):'cato-the-younger',(85,16):'cato-the-younger',(90,3):'cato-the-younger',(90,6):[None,'cato-the-younger','cato-the-younger','cato-the-younger','cato-the-younger','cato-the-younger','cato-the-younger'],(85,0):['cato-the-censor','cato-the-younger','cato-the-younger']},None),
+          (68,17):'cato-the-younger',(70,40):'cato-the-younger',(78,11):'cato-the-younger',(85,16):'cato-the-younger',(90,3):'cato-the-younger',(90,6):[None,'cato-the-younger','cato-the-younger','cato-the-younger','cato-the-younger','cato-the-younger','cato-the-younger'],(85,0):['cato-the-censor','cato-the-younger','cato-the-younger'],(94,26):'cato-the-censor',(97,0):'cato-the-censor'},None),
  # The conspirator in Livia's list. The two Lepiduses already cast are bound by
  # their full names, so the bare surname is free for this one.
  'Lepidus':({(23,1):'lepidus-conspirator'},None),
@@ -257,7 +257,7 @@ SPLIT={
             (69,558):'aristo-of-chios'},None),
  # ---------------------------------------------- added with chapters 26-30
  # Antony who lost a battle in Germany under Domitian, not Mark Antony.
- 'Antony':({(26,18):'antony-germany',(69,89):'mark-antony',(89,2):'mark-antony'},None),
+ 'Antony':({(26,18):'antony-germany',(69,89):'mark-antony',(89,2):'mark-antony',(91,25):'mark-antony'},None),
  # King Deiotarus's wife at 30:39; the Stratonice whose beauty gave Antiochus
  # his fever at 20:4.
  'Stratonice':({(20,4):'stratonice',(30,39):'stratonice-deiotarus'},None),
@@ -310,7 +310,7 @@ SPLIT={
  'Alfonso':({(42,57):'alfonso-of-the-asses',(48,43):'alfonso-of-the-band'},None),
  # Xenophon's Hiero, in the three paragraphs of chapter 42 that quote him. Three
  # later occurrences are unread, and Syracuse had two kings of the name.
- 'Hiero':({(42,50):'hiero',(42,57):'hiero',(42,60):'hiero',(77,25):'hiero'},None),
+ 'Hiero':({(42,50):'hiero',(42,57):'hiero',(42,60):'hiero',(77,25):'hiero',(93,16):'hiero'},None),
  # The Duc de Guise of Dreux. 15:5's Guise is the town the Count of Nassau
  # entered, and 74:157 and 104:60 name a Duc de Guise who has not been read --
  # the house supplied more than one.
@@ -329,7 +329,7 @@ SPLIT={
  # The Roman whose plainness our people would think barbarous. The Fabricius of
  # 25:137 is the bibliographer of the epitaph on Lucan, who is apparatus and
  # carries no card, and 95:38 is unread.
- 'Fabricius':({(49,0):'fabricius-luscinus'},None),
+ 'Fabricius':({(49,0):'fabricius-luscinus',(95,38):'fabricius-luscinus'},None),
  # The king whose bed the Romans called Caesar. 90:3 is unread.
  'Nicomedes':({(49,38):'nicomedes',(90,3):'nicomedes'},None),
  # The man-hater. Timon of Phlius the sceptic is another man, and 69:378 and
@@ -351,7 +351,7 @@ SPLIT={
  # name, and the later ones are unread.
  'Tiberias':({(59,13):'tiberius-emperor'},None),
  'Tiberius':({(59,13):'tiberius-emperor',(60,56):'tiberius-emperor',
-              (65,39):'tiberius-emperor',(70,28):'tiberius-emperor',(74,94):'tiberius-emperor',(79,1):'tiberius-emperor'},None),
+              (65,39):'tiberius-emperor',(70,28):'tiberius-emperor',(74,94):'tiberius-emperor',(79,1):'tiberius-emperor',(94,66):'tiberius-emperor',(95,4):'tiberius-emperor',(97,38):'tiberius-emperor',(95,5):'tiberius-emperor'},None),
  # The older edition misprints Pliny "Piny" at 60:43; the modern edition prints it
  # correctly, and the Pliny table carries that paragraph for the modern text.
  'Piny':({(60,43):'pliny-elder'},None),
@@ -513,7 +513,7 @@ SPLIT={
  # 81:0, the astronomer whose bounds of the world were wrong at 69:528 and
  # 69:531, and the king Philopoemen would not have exercising himself at 85:4.
  'Ptolemy':({(81,0):'ptolemy',(69,528):'ptolemy-astronomer',
-             (69,531):'ptolemy-astronomer',(85,4):'ptolemy-of-the-exercises'},None),
+             (69,531):'ptolemy-astronomer',(85,4):'ptolemy-of-the-exercises',(98,12):'ptolemy-of-hegesias'},None),
  # Martial's gouty man at 82:0 and 82:2 -- 82:1 is the Latin -- and the choleric
  # orator at 88:15, whom the older edition prints Celius.
  'Caelius':({(82,0):'caelius-gout',(82,2):'caelius-gout',
@@ -521,14 +521,45 @@ SPLIT={
  'Celius':({(88,15):'caelius-orator'},None),
  # Mehmed II at 84:31 and 90:4. Chapters 93, 95 and 104 name Mohammeds that have
  # not been read.
- 'Mohammed':({(84,31):'mohammed-ii',(90,4):'mohammed-ii'},None),
- 'Mehmed':({(90,4):'mohammed-ii'},None),
+ 'Mohammed':({(84,31):'mohammed-ii',(90,4):'mohammed-ii',(93,16):'mohammed-ii',(95,43):'mohammed-ii'},None),
+ 'Mehmed':({(90,4):'mohammed-ii',(93,16):'mohammed-ii'},None),
  # Servius Sulpitius's wife at 90:3. 99:181 has not been read.
  'Posthumia':({(90,3):'posthumia'},None),
  'Postumia':({(90,3):'posthumia'},None),
  # Caesar's companion under his bare surname at 90:6. At 49:27 the same word is a
  # name and not a man, and 91:27 has not been read.
- 'Oppius':({(90,6):'caius-oppius'},None),
+ 'Oppius':({(90,6):'caius-oppius',(91,27):'caius-oppius'},None),
+ # ------------------------------------------- added with chapters 91-98
+ # Arria the elder at 92:9 and her daughter, the wife of Thrasea Paetus, in the
+ # same sentence. The mother holds the alias; the daughter is keyed by
+ # occurrence, second in that paragraph.
+ 'Arria':({(92,9):['arria','arria-younger','arria','arria'],(92,11):'arria'},None),
+ # Helen of Troy at 93:16. The Helena and the Helen of 33:7 are two mothers of
+ # two Constantines and not she.
+ 'Helen':({(93,16):'helen'},None),
+ # Hector at 93:16. 69:282 is Ovid's Latin and 74:18 the title of a play.
+ 'Hector':({(93,16):'hector'},None),
+ # The morning star at 93:23; 93:22 is Virgil's Latin.
+ 'Lucifer':({(93,23):'lucifer'},None),
+ # The emperor at 70:28, 78:0 and 94:28; the Cardinal of Corneto at 33:2, bound
+ # by his own longer name. The modern edition writes the emperor Hadrian.
+ 'Adrian':({(70,28):'hadrian',(78,0):'hadrian',(94,28):'hadrian'},None),
+ 'Hadrian':({(70,28):'hadrian',(78,0):'hadrian',(94,28):'hadrian'},None),
+ # The physician's interlocutor at 94:28 and 94:36. 103:93 has not been read.
+ 'Nicocles':({(94,28):'nicocles',(94,36):'nicocles'},None),
+ # Amurath I at 95:45. The Amurath of 29:17 and 86:13 is another sultan and
+ # Amurath III a third; the numeral is keyed rather than aliased because the
+ # bare name belongs to the second.
+ 'Amurath':({(29,17):'amurath',(86,13):'amurath',(95,45):'amurath-i'},None),
+ # Two women of the name: Saturninus's wife, who thought she lay with the god
+ # Serapis, and Seneca's wife Pompeia Paulina, whose full name binds at 92:13 and
+ # who holds the bare form in her own chapter.
+ 'Paulina':({(69,345):'paulina',(92,13):'pompeia-paulina',
+             (92,15):'pompeia-paulina'},None),
+ # AEsculapius's patient at 94:33. At 2:17 the same name is the title of Seneca's
+ # play, in both editions; titles are not cast.
+ 'Hippolytus':({(94,33):'hippolytus'},None),
+ 'Hippolitus':({(94,33):'hippolytus'},None),
 }
 # A name that is the subject of the sentence rather than its referent. In the
 # chapter on names Montaigne counts "three of the name of Socrates" among the
@@ -583,7 +614,22 @@ SUPPRESS={('Socrates',46,12),
           ('Mercury',74,9),
           # 81:0 is the gentleman of Pergamus called Mithridates, to whom Caesar
           # gave away King Deiotarus's kingdom. The king's alias was taking him.
-          ('Mithridates',81,0)}
+          ('Mithridates',81,0),
+          # 92:9 names Arria the elder and, in the same sentence, 'another Arria,
+          # the wife of Thrasea Paetus'. The mother's alias would take the daughter,
+          # so the paragraph is keyed by occurrence instead.
+          ('Arria',92,9),
+          # 93:16 is Helen of Troy. The Helena of 33:7 -- the first Constantine's
+          # mother, whose name the last Constantine's mother also carried -- holds
+          # the alias Helen, and was taking her.
+          ('Helen',93,16),
+          # Three more names inside quoted verse, each with one bearer in the work,
+          # so the alias stays and the verse paragraph is suppressed: Martial's
+          # Latin at 92:10 against the English at 92:11, Virgil's at 93:22 against
+          # 93:23, and Virgil's again at 98:17 against 98:18.
+          ('Arria',92,10),
+          ('Venus',93,22),
+          ('Dido',98,17)}
 # Aristo of Chios is bound by his full name rather than by a table, because the
 # bare "Aristo" is three different men in this book: the Stoic of 24:54, a
 # tragedian at 25:152, and — in the older edition only — Ariosto at 27:13, where

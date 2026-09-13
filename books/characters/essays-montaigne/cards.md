@@ -266,9 +266,9 @@ The first Roman emperor, Julius Caesar’s heir. Among Montaigne’s examples of
 
 The sea-god whose statue Augustus deposed from among the deities in revenge for a storm.
 
-## Quintilius Varus · reference
+## Quintilius Varus · supporting
 
-The commander under whom Augustus lost his legions in Germany.
+The commander under whom Augustus lost his legions in Germany, running his head against the wall and crying O Varus, give me back my legions; and under whom, at 95:4, Arminius had defeated the Romans so ignominiously.
 
 ## Quintus Marcius · reference
 
@@ -1700,7 +1700,7 @@ Who so many ages later put an end to the empire the first Constantine founded �
 
 ## Helena · reference
 
-The first Constantine’s mother, whose name the last Constantine’s mother also carried.
+The first Constantine’s mother, whose name the last Constantine’s mother also carried. Not Helen of Troy, whose alias hers was taking at 93:16.
 
 ## King Clovis · reference
 
@@ -2984,7 +2984,7 @@ Whom Montaigne bids us hear in praise of our sufficiency, as the extreme of the 
 
 ## Paulina · reference
 
-The wife of Saturninus, a matron of great reputation at Rome, who thought she lay with the god Serapis and found herself in the arms of an amoroso of hers.
+The wife of Saturninus, a matron of great reputation at Rome, who thought she lay with the god Serapis and found herself in the arms of an amoroso of hers. Keyed rather than aliased, because the Paulina of chapter 92 is Seneca’s wife and hers was taking that name too.
 
 ## Saturninus · reference
 
@@ -3789,3 +3789,259 @@ Caesar’s companion on a journey, who finding himself ill was left the only lod
 ## Spurina · central
 
 A young man of Tuscany, so endowed with singular beauty and so excessive that the chastest eyes could not chastely behold it — who, rather than let that beauty inflame others, wounded and disfigured the perfect proportion and order of his features with his own hand. Montaigne says he has met with few examples of a man who would condemn his own beauty for his neighbour’s interest, and that this is one.
+
+## Afranius · reference
+
+With Petreius, the general Caesar surmounted extreme difficulties against in the very heart of Spain — and against whom, fortune offering him a manifest advantage, he declined it, saying he hoped with a little more time but less hazard to overthrow them.
+
+## Petreius · reference
+
+The other of that pair.
+
+## Pharnaces · reference
+
+Whom Caesar fought in the territories of Pontus, on that course from Gaul to Brundusium to Spain to Macedonia to Egypt to Syria to Africa that Montaigne sets down to show his promptitude.
+
+## Vercingetorix · supporting
+
+Made general of all the parts of the revolted Gaul, and who — against both the custom and the rules of war, Montaigne says — went and shut himself up in Alexia with fourscore thousand men.
+
+## King Tigranes · reference
+
+Against whom Lucullus lay at the siege of Tigranocerta in the same posture Caesar was in at Alexia — save that the condition of the enemy was not the same, considering the effeminacy of those Lucullus had to deal with.
+
+## Ariovistus · supporting
+
+In the parley with whom a commotion arose between the horsemen, by the fault of Ariovistus’s light horse; Caesar saw he had a very great advantage of the enemy by it and would make no use of it, lest he should be reproached with a treacherous proceeding.
+
+## The late Admiral Chastillon · supporting
+
+Whose soldiers, Montaigne says, would rather have paid for the service than take pay for it — the only modern he sets beside Caesar for credit with an army.
+
+## Gaspard de Coligny · reference
+
+Assassinated in the St Bartholomew massacre. Montaigne names him only as the late Admiral Chastillon; the editor’s bracketed note gives the name.
+
+## Scaeva · supporting
+
+The soldier who commanded at one of the avenues and invincibly maintained his ground, having lost an eye, with one shoulder and one thigh shot through, and his shield hit in two hundred and thirty places.
+
+## Granius Petronius · reference
+
+Taken by Scipio in Africa, and sent word that his life was given him; he sent answer back that Caesar’s soldiers were wont to give others their life and not to receive it, and killed himself with his own sword.
+
+## Marcus Octavius · reference
+
+Who kept Salona close besieged for Pompey, and grew so negligent by the length of it that the besieged sallied at noon and routed his whole camp.
+
+## Lucius Cassius · reference
+
+Whom Caesar met at sea with ten tall men-of-war while passing the Hellespont in one single vessel — and had the courage not only to stay his coming but to sail up to him and summon him to yield, which he did.
+
+## Daunus · reference
+
+The Apulian king through whose realm the biforked Aufidus flows, in the ode Montaigne quotes for Caesar’s impetuosity.
+
+## Arria · central
+
+The wife of Caecina Paetus, who followed her husband from Sclavonia in a hired fisher-boat when they would not take her into the ship; who told Junia, the widow of Scribonianus, that she would not hear a word from the woman in whose lap Scribonianus was slain and who was yet alive; and who, her husband wanting resolution to despatch himself as the emperor had enjoined, snatched the poniard from his side, stabbed herself, drew it out and presented it to him with the three words nobody forgets: Paetus, it does not hurt.
+
+## Arria · reference
+
+Her daughter, the wife of Thrasea Paetus, and by that marriage the mother of Fannia.
+
+## Caecina Paetus · reference
+
+A consular person, taken prisoner after Scribonianus’s defeat, whose party he had embraced; her husband.
+
+## Thrasea Paetus · supporting
+
+Her son-in-law, whose virtue was so renowned in the time of Nero, and who besought her not to throw herself away — to which she answered that she would have her daughter do the same, having lived so long in such union with him.
+
+## Fannia · reference
+
+Their daughter, and the first Arria’s granddaughter.
+
+## Scribonianus · reference
+
+In whose defeated party Caecina Paetus had been taken, and in whose widow’s lap he was slain.
+
+## Junia · reference
+
+His widow, whom the first Arria would not so much as hear speak.
+
+## Pompeia Paulina · central
+
+A young and very noble Roman lady who had married Seneca in his extreme old age, and who, when Nero sent him word to choose his death, would not be left behind: they opened the veins of both their arms at once, and Nero’s order that her wounds be bound up saved her against her will.
+
+## Statius Anneus · reference
+
+Seneca’s physician, commanded to give him a draught of poison when the incisions were not enough to make him die — which had not much better effect. The modern edition writes him Statius Annaeus.
+
+## Panaetius · reference
+
+Who called Plato the Homer of the philosophers, and left nothing unsaid in doing it.
+
+## Pope Pius II · reference
+
+To whom Mohammed the second wrote that he was astonished the Italians should appear against him, seeing they had their common descent from the Trojans and it concerned him as much as them to revenge the blood of Hector upon the Greeks.
+
+## Helen · reference
+
+Of whom, and of the war about her, nothing is so known and received — and perhaps, Montaigne says, there was never any such thing. Not the Helena and the Helen of 33:7, who are two mothers of two Constantines.
+
+## Hector · reference
+
+Whose blood Mohammed the second claimed a common descent from the Trojans entitled him to revenge upon the Greeks. The Hector of 69:282 is in Ovid’s Latin and the Hector of 74:18 is the title of a play.
+
+## Ephistion · reference
+
+Whose physician Alexander murdered — one of the sallies Montaigne says are not well to be excused, with the ruin of Thebes and Persepolis and the massacre of the Cossians to the very children. The modern edition writes him Hephaestion.
+
+## Lucifer · reference
+
+The morning star, whom Venus loves beyond the other fires of heaven, and who displays his sacred countenance and disperses the darkness — the figure Montaigne takes for Alexander’s excess of splendour.
+
+## Maecenas · supporting
+
+Who would have his hand, foot and hip crippled and his teeth shaken, so long as life remained — the saying Montaigne sets at the head of his chapter on holding to life at any price.
+
+## Attius · reference
+
+The poet of the Philoctetes, whose wailing verses Cicero quotes for the relief a man finds in howling out his pain.
+
+## The Seigneur de Gaviac · supporting
+
+Montaigne’s uncle by the father’s side, a churchman and a valetudinary from his birth, who made that crazy life hold out to sixty-seven years — and who, told plainly by the physicians that he must take help or die, answered that he was then a dead man, and whom God soon after proved them wrong about.
+
+## The Sieur de Bussaguet · supporting
+
+The last of the four brothers, and the only one of the family who made use of medicine — by reason, Montaigne supposes, of his concern with the other arts, being a councillor of Parliament — and it succeeded so ill with him that it visibly shortened his life.
+
+## The Emperor Adrian · reference
+
+Who made his physician mark and encircle on his breast the mortal place where he was to be stabbed; who said that an emperor must die standing; and who, dying, continually exclaimed that the crowd of physicians had killed him. The modern edition writes him Hadrian.
+
+## Nicocles · reference
+
+To whom a physician boasted that his art was of great authority: it is so indeed, said Nicocles, that can with impunity kill so many people.
+
+## AEsculapius · reference
+
+The physicians’ patron, struck with thunder for restoring Hippolytus from death to life — and whose secret ceremonies Montaigne sets beside the physicians’ own closed consultations. The modern edition writes him Aesculapius.
+
+## Hippolytus · reference
+
+Whom AEsculapius restored from death to life, and was struck with thunder for it. Keyed rather than aliased: at 2:17 the same name is the title of Seneca’s play, and titles are not cast. The older edition prints him Hippolitus at 94:33.
+
+## Arminius · supporting
+
+The most potent enemy the Romans had, who had defeated them so ignominiously under Varus and alone prevented their aggrandisement in those parts — and whom Tiberius refused to have rid out of the way by poison.
+
+## Hyperides · reference
+
+Who answered the Athenians, when they complained of his blunt way of speaking: do not consider whether or no I am free, but whether I am so without a bribe.
+
+## Gelo · supporting
+
+The tyrant of Syracuse, who suspended his inclination in the war betwixt the Greeks and the barbarians, keeping a resident ambassador with presents at Delphos to watch which way fortune would incline and then fall in with the victors.
+
+## The Sieur de Morvilliers · supporting
+
+The late Bishop of Orleans, an able negotiator who, though protected by the Guises and strongly supporting them, was yet very far from persecuting the Reformists — in whose person Montaigne says we had reason to hope for an honest issue.
+
+## Philippides · reference
+
+Who, asked by King Lysimachus what of his estate he should bestow upon him, answered: what thou wilt, so it be none of thy secrets.
+
+## Dandamis · reference
+
+The sage who, hearing the lives of Socrates, Pythagoras and Diogenes read, judged them great men every way excepting that they were too much subjected to the reverence of the laws.
+
+## Pomponius Flaccus · reference
+
+Found to be a fit instrument for the business: he lured one of the two pretenders to the kingdom of Thrace out with fair words and promises, and delivered him bound and fettered.
+
+## Jaropelk · supporting
+
+Duke of Russia, who tampered with a gentleman of Hungary to betray Boleslaus — and, his revenge satisfied and his anger appeased, came to consider the fulness of the treachery with a sound judgment clear of passion, and had the traitor’s eyes put out and worse.
+
+## Boleslaus · reference
+
+King of Poland, whose city Vislicza the traitor betrayed to the Russians, sacked and burned, with all the inhabitants of both sexes put to the sword.
+
+## The Argyraspides · reference
+
+Whom Antigonus persuaded to betray Eumenes, their own general, into his hands — and whom, having had Eumenes slain, he then committed to the governor of the province with express command to destroy them all by whatever means.
+
+## Cararie · reference
+
+Whose three servants King Clovis caused to be hanged after they had betrayed their master to him, though he had debauched them to it — and instead of the arms of gold he had promised them.
+
+## Sejanus · supporting
+
+Whose daughter could not be put to death by the law of Rome because she was a virgin, and so was first ravished by the hangman and then strangled, to make it lawful.
+
+## Amurath I · supporting
+
+Who, to punish his subjects the more grievously for their part in the parricide rebellion of his son, ordained that their nearest kindred should assist in the execution. Not the Amurath of 29:17 and 86:13, nor Amurath III.
+
+## Witold · reference
+
+Prince of Lithuania, who is said to have introduced the practice that the condemned should with his own hand execute the sentence, thinking it strange that a third person, innocent of the fault, should be made guilty of homicide.
+
+## Julius Drusus · reference
+
+Who answered the masons offering, for three thousand crowns, to put his house where his neighbours could no longer overlook it: I will give you six thousand, and make it so that everybody may see into every room of it.
+
+## Erasmus · supporting
+
+Whom, had anyone formerly brought Montaigne to, he says he should hardly have believed but that all was adage and apothegm that he spoke to his man or his hostess.
+
+## King Ptolemy · reference
+
+Who ordered that Hegesias should be forbidden to entertain his followers with those homicidal doctrines, so many of them having starved themselves to death, animated by his fine lectures. A fourth Ptolemy, and the Essays join him to none of the others.
+
+## Hippomachus · reference
+
+Who said very well that he could know the good wrestlers by only seeing them walk in the street.
+
+## Lysias · reference
+
+By whose persuasion in Plato women may with more utility surrender themselves up to us the less we love them.
+
+## James, King of Naples and Sicily · reference
+
+Who, handsome, young and healthful, caused himself to be carried about on a barrow, extended on a pitiful mattress in a poor robe of grey cloth, and yet attended by a royal train — the last degree, Montaigne says, of the pomp he pretended to despise.
+
+## Monseigneur d’Hempricourt · supporting
+
+Who saved both himself and others in the city of Liege by an ingenious evasion, the Duke of Burgundy having sent him in to execute the articles of the promised surrender.
+
+## Atalanta · reference
+
+A virgin of excelling beauty and of wonderful disposition of body, who to disengage herself from a thousand suitors proposed to accept the man who could equal her in running, on condition that those who failed should lose their lives — and whom Hippomenes beat by dropping three golden apples.
+
+## Hippomenes · reference
+
+Who, about to make trial after the rest, begged the goddess of love’s assistance and was given three golden apples to drop one after another in the race — a diversion that won him the wife.
+
+## Subrius Flavius · reference
+
+Being by Nero’s command to be put to death by the hand of Niger, and seeing the grave Niger had caused to be hollowed for him ill-made, said to the soldiers: this is not according to military discipline. The modern edition writes him Subrius Flavus.
+
+## Niger · reference
+
+The captain who was to execute him, and who exhorted him to keep his head firm — to which he answered: do thou but strike as firm.
+
+## Silanus · reference
+
+To whom the tribune, having brought the sentence of death and received his answer that he was well prepared to die but not by base hands, did a very great kindness: he ran upon him with his soldiers to force him, and Silanus, unarmed, defended himself with his fists and feet until he lost his life in the contest.
+
+## Dido · reference
+
+Who hopes, if the pious gods have any power, that he will feel his punishment amid the rocks and call upon her name — and that the fame of it will reach her among the shades.
+
+## Gryllus · reference
+
+Xenophon’s son, slain in the battle of Mantinea, the news of whose death was brought to his father as he sacrificed with a crown upon his head; he took the crown from his head, and put it on again when he heard he had died valiantly.

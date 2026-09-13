@@ -111,7 +111,7 @@ for row in [
 ('caligula','Caligula','The emperor, Montaigne’s example of a fury that destroys a thing for what happened in it: he demolished a very beautiful palace because his mother had once been happy there. It is he who condemned Julius Canus to die, and whom Montaigne calls a worthless fellow for it.','Caligula'),
 ('augustus','Augustus','The first Roman emperor, Julius Caesar’s heir. Among Montaigne’s examples of him: he defied Neptune after a storm at sea and had the god’s statue taken down from among the deities at the games, and after losing the legions under Quintilius Varus in Germany he ran his head against the wall crying “O Varus! give me back my legions!”','Augustus Caesar|Augustus','supporting'),
 ('neptune','Neptune','The sea-god whose statue Augustus deposed from among the deities in revenge for a storm.','Neptune','reference','deity'),
-('quintilius-varus','Quintilius Varus','The commander under whom Augustus lost his legions in Germany.','Quintilius Varus|Varus'),
+('quintilius-varus','Quintilius Varus','The commander under whom Augustus lost his legions in Germany, running his head against the wall and crying O Varus, give me back my legions; and under whom, at 95:4, Arminius had defeated the Romans so ignominiously.','Quintilius Varus|Varus','supporting'),
 ]:add(*row)
 
 
@@ -595,7 +595,7 @@ for row in [
 ('fougueselles','The Sieur de Fougueselles','The Sieur de Fougueselles, whose sister Monsieur d’Estrees and Monsieur de Licques were both pretenders to.','Sieur de Fougueselles'),
 ('constantine-founder','Constantine, son of Helena','Who founded the empire of Constantinople.'),
 ('constantine-last','Constantine, son of Helen','Who so many ages later put an end to the empire the first Constantine founded — the same name and the same mother’s name at both ends of it, which Montaigne calls Fortune playing the artist.'),
-('helena','Helena','The first Constantine’s mother, whose name the last Constantine’s mother also carried.','Helena|Helen'),
+('helena','Helena','The first Constantine’s mother, whose name the last Constantine’s mother also carried. Not Helen of Troy, whose alias hers was taking at 93:16.','Helena|Helen'),
 ('clovis','King Clovis','Before whose siege of Angouleme the walls fell down of themselves by divine favour.','Clovis'),
 ('king-robert','King Robert','Who left his siege to keep the feast of St Aignan at Orleans, and at a certain part of the Mass the walls of the besieged city fell down of themselves. Bouchet has it from some author; the Essays do not identify him with Robert of Scotland.'),
 ('st-aignan','St Aignan','Whose feast King Robert left the siege to keep at Orleans.','St. Aignan','reference','religious-figure'),
@@ -792,7 +792,7 @@ for row in [
 ('artybius','Artybius','General of the Persian army, whose horse was trained to rear and fall with mouth and heels on whoever fronted it. Fighting man to man with Onesilus, that training was the occasion of his death, for it gave Onesilus’s squire the chance to cleave the horse down between the shoulders with a scythe as it reared over his master.','Artybius'),
 ('onesilus','Onesilus','King of Salamis, whose squire did that.','Onesilus'),
 ('savoy-the-horse','Savoy','Charles VIII’s horse at Fornova, and the most beautiful horse Commines had ever seen. When the king was personally attacked with nobody near him but a small and ill-armed valet de chambre, Commines says it was having the best horse in the world under him that let him stand his ground until his men arrived at the critical minute.','','reference','animal'),
-('commines','Commines','Philip de Commines, who was present at Fornova and whose narrative of the battle the editor’s bracketed note quotes for the king’s horse.','Philip de Commines|Philippe de Commines'),
+('commines','Commines','Philip de Commines, who was present at Fornova and whose narrative of the battle the editor’s bracketed note quotes for the king’s horse.','Philip de Commines|Philippe de Commines|Philip’de Comines'),
 ('bucephalus','Bucephalus','Alexander’s horse, with a head inclining to the shape of a bull, who would suffer himself to be mounted and governed by none but his master, and was so honoured after his death as to have a city erected to his name.','Bucephalus','reference','animal'),
 ('trogus-pompeius','Trogus Pompeius','Who with Justin says the Parthians performed all offices and ceremonies on horseback, war and private business alike, made bargains, conferred and took the air so, and that the greatest distinction between their freemen and their slaves was that the one rode and the other went on foot.','Trogus Pompeius'),
 ('justin','Justin','Who says the same of the Parthians as Trogus Pompeius does.','Justin'),
@@ -803,7 +803,7 @@ for row in [
 ('guevara','Guevara','Whose Letters Montaigne had that rule of the Order of the Band out of, and whoever gave them the title of Golden Epistles had another kind of opinion of them than he has.','Guevara'),
 ('prester-john','Prester John','In whose presence the Abyssinians, contrary to the custom elsewhere, love the more to be mounted upon large mules the nearer they come, for the greatest dignity and grandeur.','Prester John'),
 ('metellus-crete','Metellus','Who besieged those of Crete, and reduced them to so great a necessity for drink that they were fain to quench their thirst with their horses’ urine.'),
-('bajazet','Bajazet','Whose army in Russia was overwhelmed by so dreadful a tempest of snow that many killed and embowelled their horses to creep into their bellies for the vital heat; and who, after the furious battle in which Tamerlane overthrew him, was in a hopeful way of escaping on an Arabian mare, had he not been constrained to let her drink her fill at a ford, which made her so heavy that his pursuers easily overtook him.','Bajazet'),
+('bajazet','Bajazet','Whose army in Russia was overwhelmed by so dreadful a tempest of snow that many killed and embowelled their horses to creep into their bellies for the vital heat; and who, after the furious battle in which Tamerlane overthrew him, was in a hopeful way of escaping on an Arabian mare, had he not been constrained to let her drink her fill at a ford, which made her so heavy that his pursuers easily overtook him.','Bajazet|Bayezid'),
 ('fabius-maximus-rullianus','Quintus Fabius Maximus Rullianus','Who, his horse having failed after three or four charges to break into the Samnite battalion, made them unbridle all their horses and spur their hardest, so that having nothing to check their career they opened a way through weapons and men for his foot, and gave the enemy a bloody defeat. Not the Q. Maximus who buried his consul son dry-eyed.','Quintus Fabius Maximus Rullianus'),
 ('fulvius-flaccus','Quintus Fulvius Flaccus','Who gave the same command against the Celtiberians.','Quintus Fulvius Flaccus'),
 ('carnavalet','Monsieur de Carnavalet','Of all the horsemen Montaigne ever saw, the most knowing in that art, with the best seat and the best method in breaking horses. He served King Henry II.','Monsieur de Carnavalet'),
@@ -876,7 +876,7 @@ for row in [
 ('lucretia','Lucretia','The Roman whom the maid of Montaigne’s neighbourhood appeared another of, having thrown herself from a window and then at her own throat to escape a soldier — until Montaigne was very well assured that both before and after she was not so difficult a piece.','Lucretia'),
 ('mahomet','Mahomet','Who so furiously rated Chasan for having let the Hungarians break into his squadrons, and behaved ill himself in the business.','Mahomet'),
 ('chasan','Chasan','Bassa of the Janissaries, who instead of any other answer to that rating rushed alone, scimitar in hand, into the first body of the enemy, and was presently cut to pieces — not so much natural valour, Montaigne thinks, as a sudden despite.','Chasan'),
-('clytus','Clytus','Whose murder Alexander’s excess of penitence for is one of Montaigne’s testimonies to the unevenness of that great courage.','Clytus'),
+('clytus','Clytus','Whose murder Alexander’s excess of penitence for is one of Montaigne’s testimonies to the unevenness of that great courage.','Clytus|Cleitus'),
 ('talebot','Talebot','Whose motto, "Avau le dent," Montaigne borrows for the man who runs before the wind because the variety of occurrences makes him alter his path.','Talebot'),
 ]:add(*row)
 
@@ -1067,7 +1067,7 @@ for row in [
 ('zamolxis','Zamolxis','The god of the Getae, who hold themselves immortal and their death nothing but a journey to him; and, at 73:90, the legislator of the Scythians, who gave out his laws under the name of Vesta. The older edition spells him Xamolxis there.','Zamolxis|Xamolxis','reference','deity'),
 ('amestris','Amestris','Xerxes’s mother, who being grown old caused fourteen young men of the best families of Persia to be buried alive at once, according to the religion of the country, to gratify some infernal deity.','Amestris'),
 ('trismegistus','Trismegistus','Whom Montaigne bids us hear in praise of our sufficiency, as the extreme of the presumption he is putting down.','Trismegistus'),
-('paulina','Paulina','The wife of Saturninus, a matron of great reputation at Rome, who thought she lay with the god Serapis and found herself in the arms of an amoroso of hers.','Paulina'),
+('paulina','Paulina','The wife of Saturninus, a matron of great reputation at Rome, who thought she lay with the god Serapis and found herself in the arms of an amoroso of hers. Keyed rather than aliased, because the Paulina of chapter 92 is Seneca’s wife and hers was taking that name too.','',),
 ('saturninus-husband','Saturninus','Paulina’s husband. Not the tribune whose violence Metellus withstood. The older edition misprints the name Satuminus.'),
 ('taruncius','Taruncius','The rich young man who won the temple-servant’s wench at dice from Hercules, took her home, and in time left her his inheritrix.','Taruncius'),
 ('nausiphanes','Nausiphanes','Who held that of things which seem to be, nothing is more than it is not.','Nausiphanes'),
@@ -1360,8 +1360,104 @@ for row in [
 ('spurina','Spurina','A young man of Tuscany, so endowed with singular beauty and so excessive that the chastest eyes could not chastely behold it — who, rather than let that beauty inflame others, wounded and disfigured the perfect proportion and order of his features with his own hand. Montaigne says he has met with few examples of a man who would condemn his own beauty for his neighbour’s interest, and that this is one.','Spurina','central'),
 ]:add(*row)
 
-print(len(entities),'entities authored: chapters 1-90')
+# ============ CHAPTER 91 — observation on the means to carry on a war
+for row in [
+('afranius','Afranius','With Petreius, the general Caesar surmounted extreme difficulties against in the very heart of Spain — and against whom, fortune offering him a manifest advantage, he declined it, saying he hoped with a little more time but less hazard to overthrow them.','Afranius'),
+('petreius','Petreius','The other of that pair.','Petreius'),
+('pharnaces','Pharnaces','Whom Caesar fought in the territories of Pontus, on that course from Gaul to Brundusium to Spain to Macedonia to Egypt to Syria to Africa that Montaigne sets down to show his promptitude.','Pharnaces'),
+('vercingetorix','Vercingetorix','Made general of all the parts of the revolted Gaul, and who — against both the custom and the rules of war, Montaigne says — went and shut himself up in Alexia with fourscore thousand men.','Vercingetorix','supporting'),
+('tigranes','King Tigranes','Against whom Lucullus lay at the siege of Tigranocerta in the same posture Caesar was in at Alexia — save that the condition of the enemy was not the same, considering the effeminacy of those Lucullus had to deal with.','King Tigranes'),
+('ariovistus','Ariovistus','In the parley with whom a commotion arose between the horsemen, by the fault of Ariovistus’s light horse; Caesar saw he had a very great advantage of the enemy by it and would make no use of it, lest he should be reproached with a treacherous proceeding.','Ariovistus','supporting'),
+('admiral-chastillon','The late Admiral Chastillon','Whose soldiers, Montaigne says, would rather have paid for the service than take pay for it — the only modern he sets beside Caesar for credit with an army.','Admiral Chastillon','supporting'),
+('gaspard-de-coligny','Gaspard de Coligny','Assassinated in the St Bartholomew massacre. Montaigne names him only as the late Admiral Chastillon; the editor’s bracketed note gives the name.','Gaspard de Coligny'),
+('scaeva','Scaeva','The soldier who commanded at one of the avenues and invincibly maintained his ground, having lost an eye, with one shoulder and one thigh shot through, and his shield hit in two hundred and thirty places.','Scaeva','supporting'),
+('granius-petronius','Granius Petronius','Taken by Scipio in Africa, and sent word that his life was given him; he sent answer back that Caesar’s soldiers were wont to give others their life and not to receive it, and killed himself with his own sword.','Granius Petronius'),
+('marcus-octavius','Marcus Octavius','Who kept Salona close besieged for Pompey, and grew so negligent by the length of it that the besieged sallied at noon and routed his whole camp.','Marcus Octavius'),
+('lucius-cassius','Lucius Cassius','Whom Caesar met at sea with ten tall men-of-war while passing the Hellespont in one single vessel — and had the courage not only to stay his coming but to sail up to him and summon him to yield, which he did.','Lucius Cassius'),
+('daunus','Daunus','The Apulian king through whose realm the biforked Aufidus flows, in the ode Montaigne quotes for Caesar’s impetuosity.','Daunus','reference','mythological-figure'),
+]:add(*row)
+
+# ================================== CHAPTER 92 — of three good women
+for row in [
+('arria','Arria','The wife of Caecina Paetus, who followed her husband from Sclavonia in a hired fisher-boat when they would not take her into the ship; who told Junia, the widow of Scribonianus, that she would not hear a word from the woman in whose lap Scribonianus was slain and who was yet alive; and who, her husband wanting resolution to despatch himself as the emperor had enjoined, snatched the poniard from his side, stabbed herself, drew it out and presented it to him with the three words nobody forgets: Paetus, it does not hurt.','Arria','central'),
+('arria-younger','Arria','Her daughter, the wife of Thrasea Paetus, and by that marriage the mother of Fannia.','',),
+('caecina-paetus','Caecina Paetus','A consular person, taken prisoner after Scribonianus’s defeat, whose party he had embraced; her husband.','Caecina Paetus'),
+('thrasea-paetus','Thrasea Paetus','Her son-in-law, whose virtue was so renowned in the time of Nero, and who besought her not to throw herself away — to which she answered that she would have her daughter do the same, having lived so long in such union with him.','Thrasea Paetus|Thrasea','supporting'),
+('fannia','Fannia','Their daughter, and the first Arria’s granddaughter.','Fannia'),
+('scribonianus','Scribonianus','In whose defeated party Caecina Paetus had been taken, and in whose widow’s lap he was slain.','Scribonianus'),
+('junia','Junia','His widow, whom the first Arria would not so much as hear speak.','Junia'),
+('pompeia-paulina','Pompeia Paulina','A young and very noble Roman lady who had married Seneca in his extreme old age, and who, when Nero sent him word to choose his death, would not be left behind: they opened the veins of both their arms at once, and Nero’s order that her wounds be bound up saved her against her will.','Pompeia Paulina','central'),
+('statius-anneus','Statius Anneus','Seneca’s physician, commanded to give him a draught of poison when the incisions were not enough to make him die — which had not much better effect. The modern edition writes him Statius Annaeus.','Statius Anneus|Statius Annaeus'),
+]:add(*row)
+
+# ============================ CHAPTER 93 — of the most excellent men
+for row in [
+('panaetius','Panaetius','Who called Plato the Homer of the philosophers, and left nothing unsaid in doing it.','Panaetius'),
+('pope-pius-ii','Pope Pius II','To whom Mohammed the second wrote that he was astonished the Italians should appear against him, seeing they had their common descent from the Trojans and it concerned him as much as them to revenge the blood of Hector upon the Greeks.','Pope Pius II'),
+('helen','Helen','Of whom, and of the war about her, nothing is so known and received — and perhaps, Montaigne says, there was never any such thing. Not the Helena and the Helen of 33:7, who are two mothers of two Constantines.','',),
+('hector','Hector','Whose blood Mohammed the second claimed a common descent from the Trojans entitled him to revenge upon the Greeks. The Hector of 69:282 is in Ovid’s Latin and the Hector of 74:18 is the title of a play.','',),
+('hephaestion','Ephistion','Whose physician Alexander murdered — one of the sallies Montaigne says are not well to be excused, with the ruin of Thebes and Persepolis and the massacre of the Cossians to the very children. The modern edition writes him Hephaestion.','Ephistion|Hephaestion'),
+('lucifer','Lucifer','The morning star, whom Venus loves beyond the other fires of heaven, and who displays his sacred countenance and disperses the darkness — the figure Montaigne takes for Alexander’s excess of splendour.','',),
+]:add(*row)
+
+# ============= CHAPTER 94 — of the resemblance of children to their fathers
+for row in [
+('maecenas','Maecenas','Who would have his hand, foot and hip crippled and his teeth shaken, so long as life remained — the saying Montaigne sets at the head of his chapter on holding to life at any price.','Maecenas','supporting'),
+('attius','Attius','The poet of the Philoctetes, whose wailing verses Cicero quotes for the relief a man finds in howling out his pain.','Attius'),
+('gaviac','The Seigneur de Gaviac','Montaigne’s uncle by the father’s side, a churchman and a valetudinary from his birth, who made that crazy life hold out to sixty-seven years — and who, told plainly by the physicians that he must take help or die, answered that he was then a dead man, and whom God soon after proved them wrong about.','Seigneur de Gaviac|Gaviac','supporting'),
+('bussaguet','The Sieur de Bussaguet','The last of the four brothers, and the only one of the family who made use of medicine — by reason, Montaigne supposes, of his concern with the other arts, being a councillor of Parliament — and it succeeded so ill with him that it visibly shortened his life.','Sieur de Bussaguet|Bussaguet','supporting'),
+('hadrian','The Emperor Adrian','Who made his physician mark and encircle on his breast the mortal place where he was to be stabbed; who said that an emperor must die standing; and who, dying, continually exclaimed that the crowd of physicians had killed him. The modern edition writes him Hadrian.','',),
+('nicocles','Nicocles','To whom a physician boasted that his art was of great authority: it is so indeed, said Nicocles, that can with impunity kill so many people.','',),
+('aesculapius','AEsculapius','The physicians’ patron, struck with thunder for restoring Hippolytus from death to life — and whose secret ceremonies Montaigne sets beside the physicians’ own closed consultations. The modern edition writes him Aesculapius.','AEsculapius|Aesculapius','reference','deity'),
+('hippolytus','Hippolytus','Whom AEsculapius restored from death to life, and was struck with thunder for it. Keyed rather than aliased: at 2:17 the same name is the title of Seneca’s play, and titles are not cast. The older edition prints him Hippolitus at 94:33.','',),
+]:add(*row)
+
+# ============================== CHAPTER 95 — of profit and honesty
+for row in [
+('arminius','Arminius','The most potent enemy the Romans had, who had defeated them so ignominiously under Varus and alone prevented their aggrandisement in those parts — and whom Tiberius refused to have rid out of the way by poison.','Arminius','supporting'),
+('hyperides','Hyperides','Who answered the Athenians, when they complained of his blunt way of speaking: do not consider whether or no I am free, but whether I am so without a bribe.','Hyperides'),
+('gelo','Gelo','The tyrant of Syracuse, who suspended his inclination in the war betwixt the Greeks and the barbarians, keeping a resident ambassador with presents at Delphos to watch which way fortune would incline and then fall in with the victors.','Gelo','supporting'),
+('morvilliers','The Sieur de Morvilliers','The late Bishop of Orleans, an able negotiator who, though protected by the Guises and strongly supporting them, was yet very far from persecuting the Reformists — in whose person Montaigne says we had reason to hope for an honest issue.','Sieur de Morvilliers|Morvilliers','supporting'),
+('philippides','Philippides','Who, asked by King Lysimachus what of his estate he should bestow upon him, answered: what thou wilt, so it be none of thy secrets.','Philippides'),
+('dandamis','Dandamis','The sage who, hearing the lives of Socrates, Pythagoras and Diogenes read, judged them great men every way excepting that they were too much subjected to the reverence of the laws.','Dandamis'),
+('pomponius-flaccus','Pomponius Flaccus','Found to be a fit instrument for the business: he lured one of the two pretenders to the kingdom of Thrace out with fair words and promises, and delivered him bound and fettered.','Pomponius Flaccus'),
+('jaropelk','Jaropelk','Duke of Russia, who tampered with a gentleman of Hungary to betray Boleslaus — and, his revenge satisfied and his anger appeased, came to consider the fulness of the treachery with a sound judgment clear of passion, and had the traitor’s eyes put out and worse.','Jaropelk','supporting'),
+('boleslaus','Boleslaus','King of Poland, whose city Vislicza the traitor betrayed to the Russians, sacked and burned, with all the inhabitants of both sexes put to the sword.','Boleslaus'),
+('argyraspides','The Argyraspides','Whom Antigonus persuaded to betray Eumenes, their own general, into his hands — and whom, having had Eumenes slain, he then committed to the governor of the province with express command to destroy them all by whatever means.','Argyraspides','reference','group'),
+('cararie','Cararie','Whose three servants King Clovis caused to be hanged after they had betrayed their master to him, though he had debauched them to it — and instead of the arms of gold he had promised them.','Cararie'),
+('sejanus','Sejanus','Whose daughter could not be put to death by the law of Rome because she was a virgin, and so was first ravished by the hangman and then strangled, to make it lawful.','Sejanus','supporting'),
+('amurath-i','Amurath I','Who, to punish his subjects the more grievously for their part in the parricide rebellion of his son, ordained that their nearest kindred should assist in the execution. Not the Amurath of 29:17 and 86:13, nor Amurath III.','Amurath I','supporting'),
+('witold','Witold','Prince of Lithuania, who is said to have introduced the practice that the condemned should with his own hand execute the sentence, thinking it strange that a third person, innocent of the fault, should be made guilty of homicide.','Witold'),
+]:add(*row)
+
+# ==================================== CHAPTER 96 — of repentance
+for row in [
+('julius-drusus','Julius Drusus','Who answered the masons offering, for three thousand crowns, to put his house where his neighbours could no longer overlook it: I will give you six thousand, and make it so that everybody may see into every room of it.','Julius Drusus'),
+('erasmus','Erasmus','Whom, had anyone formerly brought Montaigne to, he says he should hardly have believed but that all was adage and apothegm that he spoke to his man or his hostess.','Erasmus','supporting'),
+]:add(*row)
+
+# =================================== CHAPTER 97 — of three commerces
+for row in [
+('ptolemy-of-hegesias','King Ptolemy','Who ordered that Hegesias should be forbidden to entertain his followers with those homicidal doctrines, so many of them having starved themselves to death, animated by his fine lectures. A fourth Ptolemy, and the Essays join him to none of the others.','',),
+('hippomachus','Hippomachus','Who said very well that he could know the good wrestlers by only seeing them walk in the street.','Hippomachus'),
+('lysias','Lysias','By whose persuasion in Plato women may with more utility surrender themselves up to us the less we love them.','Lysias'),
+('james-of-naples','James, King of Naples and Sicily','Who, handsome, young and healthful, caused himself to be carried about on a barrow, extended on a pitiful mattress in a poor robe of grey cloth, and yet attended by a royal train — the last degree, Montaigne says, of the pomp he pretended to despise.','James, King of Naples and Sicily'),
+]:add(*row)
+
+# ======================================= CHAPTER 98 — of diversion
+for row in [
+('hempricourt','Monseigneur d’Hempricourt','Who saved both himself and others in the city of Liege by an ingenious evasion, the Duke of Burgundy having sent him in to execute the articles of the promised surrender.','Monseigneur d’Hempricourt|d’Hempricourt|Hempricourt','supporting'),
+('atalanta','Atalanta','A virgin of excelling beauty and of wonderful disposition of body, who to disengage herself from a thousand suitors proposed to accept the man who could equal her in running, on condition that those who failed should lose their lives — and whom Hippomenes beat by dropping three golden apples.','Atalanta','reference','mythological-figure'),
+('hippomenes','Hippomenes','Who, about to make trial after the rest, begged the goddess of love’s assistance and was given three golden apples to drop one after another in the race — a diversion that won him the wife.','Hippomenes','reference','mythological-figure'),
+('subrius-flavius','Subrius Flavius','Being by Nero’s command to be put to death by the hand of Niger, and seeing the grave Niger had caused to be hollowed for him ill-made, said to the soldiers: this is not according to military discipline. The modern edition writes him Subrius Flavus.','Subrius Flavius|Subrius Flavus'),
+('niger','Niger','The captain who was to execute him, and who exhorted him to keep his head firm — to which he answered: do thou but strike as firm.','Niger'),
+('silanus','Silanus','To whom the tribune, having brought the sentence of death and received his answer that he was well prepared to die but not by base hands, did a very great kindness: he ran upon him with his soldiers to force him, and Silanus, unarmed, defended himself with his fists and feet until he lost his life in the contest.','Silanus'),
+('dido','Dido','Who hopes, if the pious gods have any power, that he will feel his punishment amid the rocks and call upon her name — and that the fame of it will reach her among the shades.','Dido','reference','literary-figure'),
+('gryllus','Gryllus','Xenophon’s son, slain in the battle of Mantinea, the news of whose death was brought to his father as he sacrificed with a crown upon his head; he took the crown from his head, and put it on again when he heard he had died valiantly.','Gryllus'),
+]:add(*row)
+
+print(len(entities),'entities authored: chapters 1-98')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-13.6',
- coverage='Both full English editions, chapters 1-90 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
+ contentVersion='2026-09-13.7',
+ coverage='Both full English editions, chapters 1-98 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

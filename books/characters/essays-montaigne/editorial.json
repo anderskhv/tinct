@@ -1,6 +1,6 @@
 {
-  "contentVersion": "2026-09-13.6",
-  "coverage": "Both full English editions, chapters 1-90 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.",
+  "contentVersion": "2026-09-13.7",
+  "coverage": "Both full English editions, chapters 1-98 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.",
   "entities": [
     {
       "id": "montaigne",
@@ -787,12 +787,12 @@
     {
       "id": "quintilius-varus",
       "name": "Quintilius Varus",
-      "body": "The commander under whom Augustus lost his legions in Germany.",
+      "body": "The commander under whom Augustus lost his legions in Germany, running his head against the wall and crying O Varus, give me back my legions; and under whom, at 95:4, Arminius had defeated the Romans so ignominiously.",
       "aliases": [
         "Quintilius Varus",
         "Varus"
       ],
-      "category": "reference",
+      "category": "supporting",
       "kind": "person",
       "subtitle": "",
       "snapshots": []
@@ -5082,7 +5082,7 @@
     {
       "id": "helena",
       "name": "Helena",
-      "body": "The first Constantine’s mother, whose name the last Constantine’s mother also carried.",
+      "body": "The first Constantine’s mother, whose name the last Constantine’s mother also carried. Not Helen of Troy, whose alias hers was taking at 93:16.",
       "aliases": [
         "Helena",
         "Helen"
@@ -6650,7 +6650,8 @@
       "body": "Philip de Commines, who was present at Fornova and whose narrative of the battle the editor’s bracketed note quotes for the king’s horse.",
       "aliases": [
         "Philip de Commines",
-        "Philippe de Commines"
+        "Philippe de Commines",
+        "Philip’de Comines"
       ],
       "category": "reference",
       "kind": "person",
@@ -6778,7 +6779,8 @@
       "name": "Bajazet",
       "body": "Whose army in Russia was overwhelmed by so dreadful a tempest of snow that many killed and embowelled their horses to creep into their bellies for the vital heat; and who, after the furious battle in which Tamerlane overthrew him, was in a hopeful way of escaping on an Arabian mare, had he not been constrained to let her drink her fill at a ford, which made her so heavy that his pursuers easily overtook him.",
       "aliases": [
-        "Bajazet"
+        "Bajazet",
+        "Bayezid"
       ],
       "category": "reference",
       "kind": "person",
@@ -7205,7 +7207,8 @@
       "name": "Clytus",
       "body": "Whose murder Alexander’s excess of penitence for is one of Montaigne’s testimonies to the unevenness of that great courage.",
       "aliases": [
-        "Clytus"
+        "Clytus",
+        "Cleitus"
       ],
       "category": "reference",
       "kind": "person",
@@ -8879,10 +8882,8 @@
     {
       "id": "paulina",
       "name": "Paulina",
-      "body": "The wife of Saturninus, a matron of great reputation at Rome, who thought she lay with the god Serapis and found herself in the arms of an amoroso of hers.",
-      "aliases": [
-        "Paulina"
-      ],
+      "body": "The wife of Saturninus, a matron of great reputation at Rome, who thought she lay with the god Serapis and found herself in the arms of an amoroso of hers. Keyed rather than aliased, because the Paulina of chapter 92 is Seneca’s wife and hers was taking that name too.",
+      "aliases": [],
       "category": "reference",
       "kind": "person",
       "subtitle": "",
@@ -11262,6 +11263,768 @@
         "Spurina"
       ],
       "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "afranius",
+      "name": "Afranius",
+      "body": "With Petreius, the general Caesar surmounted extreme difficulties against in the very heart of Spain — and against whom, fortune offering him a manifest advantage, he declined it, saying he hoped with a little more time but less hazard to overthrow them.",
+      "aliases": [
+        "Afranius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "petreius",
+      "name": "Petreius",
+      "body": "The other of that pair.",
+      "aliases": [
+        "Petreius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pharnaces",
+      "name": "Pharnaces",
+      "body": "Whom Caesar fought in the territories of Pontus, on that course from Gaul to Brundusium to Spain to Macedonia to Egypt to Syria to Africa that Montaigne sets down to show his promptitude.",
+      "aliases": [
+        "Pharnaces"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vercingetorix",
+      "name": "Vercingetorix",
+      "body": "Made general of all the parts of the revolted Gaul, and who — against both the custom and the rules of war, Montaigne says — went and shut himself up in Alexia with fourscore thousand men.",
+      "aliases": [
+        "Vercingetorix"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tigranes",
+      "name": "King Tigranes",
+      "body": "Against whom Lucullus lay at the siege of Tigranocerta in the same posture Caesar was in at Alexia — save that the condition of the enemy was not the same, considering the effeminacy of those Lucullus had to deal with.",
+      "aliases": [
+        "King Tigranes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ariovistus",
+      "name": "Ariovistus",
+      "body": "In the parley with whom a commotion arose between the horsemen, by the fault of Ariovistus’s light horse; Caesar saw he had a very great advantage of the enemy by it and would make no use of it, lest he should be reproached with a treacherous proceeding.",
+      "aliases": [
+        "Ariovistus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "admiral-chastillon",
+      "name": "The late Admiral Chastillon",
+      "body": "Whose soldiers, Montaigne says, would rather have paid for the service than take pay for it — the only modern he sets beside Caesar for credit with an army.",
+      "aliases": [
+        "Admiral Chastillon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gaspard-de-coligny",
+      "name": "Gaspard de Coligny",
+      "body": "Assassinated in the St Bartholomew massacre. Montaigne names him only as the late Admiral Chastillon; the editor’s bracketed note gives the name.",
+      "aliases": [
+        "Gaspard de Coligny"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "scaeva",
+      "name": "Scaeva",
+      "body": "The soldier who commanded at one of the avenues and invincibly maintained his ground, having lost an eye, with one shoulder and one thigh shot through, and his shield hit in two hundred and thirty places.",
+      "aliases": [
+        "Scaeva"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "granius-petronius",
+      "name": "Granius Petronius",
+      "body": "Taken by Scipio in Africa, and sent word that his life was given him; he sent answer back that Caesar’s soldiers were wont to give others their life and not to receive it, and killed himself with his own sword.",
+      "aliases": [
+        "Granius Petronius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "marcus-octavius",
+      "name": "Marcus Octavius",
+      "body": "Who kept Salona close besieged for Pompey, and grew so negligent by the length of it that the besieged sallied at noon and routed his whole camp.",
+      "aliases": [
+        "Marcus Octavius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucius-cassius",
+      "name": "Lucius Cassius",
+      "body": "Whom Caesar met at sea with ten tall men-of-war while passing the Hellespont in one single vessel — and had the courage not only to stay his coming but to sail up to him and summon him to yield, which he did.",
+      "aliases": [
+        "Lucius Cassius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "daunus",
+      "name": "Daunus",
+      "body": "The Apulian king through whose realm the biforked Aufidus flows, in the ode Montaigne quotes for Caesar’s impetuosity.",
+      "aliases": [
+        "Daunus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arria",
+      "name": "Arria",
+      "body": "The wife of Caecina Paetus, who followed her husband from Sclavonia in a hired fisher-boat when they would not take her into the ship; who told Junia, the widow of Scribonianus, that she would not hear a word from the woman in whose lap Scribonianus was slain and who was yet alive; and who, her husband wanting resolution to despatch himself as the emperor had enjoined, snatched the poniard from his side, stabbed herself, drew it out and presented it to him with the three words nobody forgets: Paetus, it does not hurt.",
+      "aliases": [
+        "Arria"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arria-younger",
+      "name": "Arria",
+      "body": "Her daughter, the wife of Thrasea Paetus, and by that marriage the mother of Fannia.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caecina-paetus",
+      "name": "Caecina Paetus",
+      "body": "A consular person, taken prisoner after Scribonianus’s defeat, whose party he had embraced; her husband.",
+      "aliases": [
+        "Caecina Paetus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thrasea-paetus",
+      "name": "Thrasea Paetus",
+      "body": "Her son-in-law, whose virtue was so renowned in the time of Nero, and who besought her not to throw herself away — to which she answered that she would have her daughter do the same, having lived so long in such union with him.",
+      "aliases": [
+        "Thrasea Paetus",
+        "Thrasea"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fannia",
+      "name": "Fannia",
+      "body": "Their daughter, and the first Arria’s granddaughter.",
+      "aliases": [
+        "Fannia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "scribonianus",
+      "name": "Scribonianus",
+      "body": "In whose defeated party Caecina Paetus had been taken, and in whose widow’s lap he was slain.",
+      "aliases": [
+        "Scribonianus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "junia",
+      "name": "Junia",
+      "body": "His widow, whom the first Arria would not so much as hear speak.",
+      "aliases": [
+        "Junia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pompeia-paulina",
+      "name": "Pompeia Paulina",
+      "body": "A young and very noble Roman lady who had married Seneca in his extreme old age, and who, when Nero sent him word to choose his death, would not be left behind: they opened the veins of both their arms at once, and Nero’s order that her wounds be bound up saved her against her will.",
+      "aliases": [
+        "Pompeia Paulina"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "statius-anneus",
+      "name": "Statius Anneus",
+      "body": "Seneca’s physician, commanded to give him a draught of poison when the incisions were not enough to make him die — which had not much better effect. The modern edition writes him Statius Annaeus.",
+      "aliases": [
+        "Statius Anneus",
+        "Statius Annaeus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "panaetius",
+      "name": "Panaetius",
+      "body": "Who called Plato the Homer of the philosophers, and left nothing unsaid in doing it.",
+      "aliases": [
+        "Panaetius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pope-pius-ii",
+      "name": "Pope Pius II",
+      "body": "To whom Mohammed the second wrote that he was astonished the Italians should appear against him, seeing they had their common descent from the Trojans and it concerned him as much as them to revenge the blood of Hector upon the Greeks.",
+      "aliases": [
+        "Pope Pius II"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "helen",
+      "name": "Helen",
+      "body": "Of whom, and of the war about her, nothing is so known and received — and perhaps, Montaigne says, there was never any such thing. Not the Helena and the Helen of 33:7, who are two mothers of two Constantines.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hector",
+      "name": "Hector",
+      "body": "Whose blood Mohammed the second claimed a common descent from the Trojans entitled him to revenge upon the Greeks. The Hector of 69:282 is in Ovid’s Latin and the Hector of 74:18 is the title of a play.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hephaestion",
+      "name": "Ephistion",
+      "body": "Whose physician Alexander murdered — one of the sallies Montaigne says are not well to be excused, with the ruin of Thebes and Persepolis and the massacre of the Cossians to the very children. The modern edition writes him Hephaestion.",
+      "aliases": [
+        "Ephistion",
+        "Hephaestion"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucifer",
+      "name": "Lucifer",
+      "body": "The morning star, whom Venus loves beyond the other fires of heaven, and who displays his sacred countenance and disperses the darkness — the figure Montaigne takes for Alexander’s excess of splendour.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maecenas",
+      "name": "Maecenas",
+      "body": "Who would have his hand, foot and hip crippled and his teeth shaken, so long as life remained — the saying Montaigne sets at the head of his chapter on holding to life at any price.",
+      "aliases": [
+        "Maecenas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "attius",
+      "name": "Attius",
+      "body": "The poet of the Philoctetes, whose wailing verses Cicero quotes for the relief a man finds in howling out his pain.",
+      "aliases": [
+        "Attius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gaviac",
+      "name": "The Seigneur de Gaviac",
+      "body": "Montaigne’s uncle by the father’s side, a churchman and a valetudinary from his birth, who made that crazy life hold out to sixty-seven years — and who, told plainly by the physicians that he must take help or die, answered that he was then a dead man, and whom God soon after proved them wrong about.",
+      "aliases": [
+        "Seigneur de Gaviac",
+        "Gaviac"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bussaguet",
+      "name": "The Sieur de Bussaguet",
+      "body": "The last of the four brothers, and the only one of the family who made use of medicine — by reason, Montaigne supposes, of his concern with the other arts, being a councillor of Parliament — and it succeeded so ill with him that it visibly shortened his life.",
+      "aliases": [
+        "Sieur de Bussaguet",
+        "Bussaguet"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hadrian",
+      "name": "The Emperor Adrian",
+      "body": "Who made his physician mark and encircle on his breast the mortal place where he was to be stabbed; who said that an emperor must die standing; and who, dying, continually exclaimed that the crowd of physicians had killed him. The modern edition writes him Hadrian.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nicocles",
+      "name": "Nicocles",
+      "body": "To whom a physician boasted that his art was of great authority: it is so indeed, said Nicocles, that can with impunity kill so many people.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aesculapius",
+      "name": "AEsculapius",
+      "body": "The physicians’ patron, struck with thunder for restoring Hippolytus from death to life — and whose secret ceremonies Montaigne sets beside the physicians’ own closed consultations. The modern edition writes him Aesculapius.",
+      "aliases": [
+        "AEsculapius",
+        "Aesculapius"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippolytus",
+      "name": "Hippolytus",
+      "body": "Whom AEsculapius restored from death to life, and was struck with thunder for it. Keyed rather than aliased: at 2:17 the same name is the title of Seneca’s play, and titles are not cast. The older edition prints him Hippolitus at 94:33.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arminius",
+      "name": "Arminius",
+      "body": "The most potent enemy the Romans had, who had defeated them so ignominiously under Varus and alone prevented their aggrandisement in those parts — and whom Tiberius refused to have rid out of the way by poison.",
+      "aliases": [
+        "Arminius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hyperides",
+      "name": "Hyperides",
+      "body": "Who answered the Athenians, when they complained of his blunt way of speaking: do not consider whether or no I am free, but whether I am so without a bribe.",
+      "aliases": [
+        "Hyperides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gelo",
+      "name": "Gelo",
+      "body": "The tyrant of Syracuse, who suspended his inclination in the war betwixt the Greeks and the barbarians, keeping a resident ambassador with presents at Delphos to watch which way fortune would incline and then fall in with the victors.",
+      "aliases": [
+        "Gelo"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "morvilliers",
+      "name": "The Sieur de Morvilliers",
+      "body": "The late Bishop of Orleans, an able negotiator who, though protected by the Guises and strongly supporting them, was yet very far from persecuting the Reformists — in whose person Montaigne says we had reason to hope for an honest issue.",
+      "aliases": [
+        "Sieur de Morvilliers",
+        "Morvilliers"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philippides",
+      "name": "Philippides",
+      "body": "Who, asked by King Lysimachus what of his estate he should bestow upon him, answered: what thou wilt, so it be none of thy secrets.",
+      "aliases": [
+        "Philippides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dandamis",
+      "name": "Dandamis",
+      "body": "The sage who, hearing the lives of Socrates, Pythagoras and Diogenes read, judged them great men every way excepting that they were too much subjected to the reverence of the laws.",
+      "aliases": [
+        "Dandamis"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pomponius-flaccus",
+      "name": "Pomponius Flaccus",
+      "body": "Found to be a fit instrument for the business: he lured one of the two pretenders to the kingdom of Thrace out with fair words and promises, and delivered him bound and fettered.",
+      "aliases": [
+        "Pomponius Flaccus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jaropelk",
+      "name": "Jaropelk",
+      "body": "Duke of Russia, who tampered with a gentleman of Hungary to betray Boleslaus — and, his revenge satisfied and his anger appeased, came to consider the fulness of the treachery with a sound judgment clear of passion, and had the traitor’s eyes put out and worse.",
+      "aliases": [
+        "Jaropelk"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "boleslaus",
+      "name": "Boleslaus",
+      "body": "King of Poland, whose city Vislicza the traitor betrayed to the Russians, sacked and burned, with all the inhabitants of both sexes put to the sword.",
+      "aliases": [
+        "Boleslaus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "argyraspides",
+      "name": "The Argyraspides",
+      "body": "Whom Antigonus persuaded to betray Eumenes, their own general, into his hands — and whom, having had Eumenes slain, he then committed to the governor of the province with express command to destroy them all by whatever means.",
+      "aliases": [
+        "Argyraspides"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cararie",
+      "name": "Cararie",
+      "body": "Whose three servants King Clovis caused to be hanged after they had betrayed their master to him, though he had debauched them to it — and instead of the arms of gold he had promised them.",
+      "aliases": [
+        "Cararie"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sejanus",
+      "name": "Sejanus",
+      "body": "Whose daughter could not be put to death by the law of Rome because she was a virgin, and so was first ravished by the hangman and then strangled, to make it lawful.",
+      "aliases": [
+        "Sejanus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amurath-i",
+      "name": "Amurath I",
+      "body": "Who, to punish his subjects the more grievously for their part in the parricide rebellion of his son, ordained that their nearest kindred should assist in the execution. Not the Amurath of 29:17 and 86:13, nor Amurath III.",
+      "aliases": [
+        "Amurath I"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "witold",
+      "name": "Witold",
+      "body": "Prince of Lithuania, who is said to have introduced the practice that the condemned should with his own hand execute the sentence, thinking it strange that a third person, innocent of the fault, should be made guilty of homicide.",
+      "aliases": [
+        "Witold"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "julius-drusus",
+      "name": "Julius Drusus",
+      "body": "Who answered the masons offering, for three thousand crowns, to put his house where his neighbours could no longer overlook it: I will give you six thousand, and make it so that everybody may see into every room of it.",
+      "aliases": [
+        "Julius Drusus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "erasmus",
+      "name": "Erasmus",
+      "body": "Whom, had anyone formerly brought Montaigne to, he says he should hardly have believed but that all was adage and apothegm that he spoke to his man or his hostess.",
+      "aliases": [
+        "Erasmus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ptolemy-of-hegesias",
+      "name": "King Ptolemy",
+      "body": "Who ordered that Hegesias should be forbidden to entertain his followers with those homicidal doctrines, so many of them having starved themselves to death, animated by his fine lectures. A fourth Ptolemy, and the Essays join him to none of the others.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippomachus",
+      "name": "Hippomachus",
+      "body": "Who said very well that he could know the good wrestlers by only seeing them walk in the street.",
+      "aliases": [
+        "Hippomachus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lysias",
+      "name": "Lysias",
+      "body": "By whose persuasion in Plato women may with more utility surrender themselves up to us the less we love them.",
+      "aliases": [
+        "Lysias"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "james-of-naples",
+      "name": "James, King of Naples and Sicily",
+      "body": "Who, handsome, young and healthful, caused himself to be carried about on a barrow, extended on a pitiful mattress in a poor robe of grey cloth, and yet attended by a royal train — the last degree, Montaigne says, of the pomp he pretended to despise.",
+      "aliases": [
+        "James, King of Naples and Sicily"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hempricourt",
+      "name": "Monseigneur d’Hempricourt",
+      "body": "Who saved both himself and others in the city of Liege by an ingenious evasion, the Duke of Burgundy having sent him in to execute the articles of the promised surrender.",
+      "aliases": [
+        "Monseigneur d’Hempricourt",
+        "d’Hempricourt",
+        "Hempricourt"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "atalanta",
+      "name": "Atalanta",
+      "body": "A virgin of excelling beauty and of wonderful disposition of body, who to disengage herself from a thousand suitors proposed to accept the man who could equal her in running, on condition that those who failed should lose their lives — and whom Hippomenes beat by dropping three golden apples.",
+      "aliases": [
+        "Atalanta"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippomenes",
+      "name": "Hippomenes",
+      "body": "Who, about to make trial after the rest, begged the goddess of love’s assistance and was given three golden apples to drop one after another in the race — a diversion that won him the wife.",
+      "aliases": [
+        "Hippomenes"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "subrius-flavius",
+      "name": "Subrius Flavius",
+      "body": "Being by Nero’s command to be put to death by the hand of Niger, and seeing the grave Niger had caused to be hollowed for him ill-made, said to the soldiers: this is not according to military discipline. The modern edition writes him Subrius Flavus.",
+      "aliases": [
+        "Subrius Flavius",
+        "Subrius Flavus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "niger",
+      "name": "Niger",
+      "body": "The captain who was to execute him, and who exhorted him to keep his head firm — to which he answered: do thou but strike as firm.",
+      "aliases": [
+        "Niger"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "silanus",
+      "name": "Silanus",
+      "body": "To whom the tribune, having brought the sentence of death and received his answer that he was well prepared to die but not by base hands, did a very great kindness: he ran upon him with his soldiers to force him, and Silanus, unarmed, defended himself with his fists and feet until he lost his life in the contest.",
+      "aliases": [
+        "Silanus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dido",
+      "name": "Dido",
+      "body": "Who hopes, if the pious gods have any power, that he will feel his punishment amid the rocks and call upon her name — and that the fame of it will reach her among the shades.",
+      "aliases": [
+        "Dido"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gryllus",
+      "name": "Gryllus",
+      "body": "Xenophon’s son, slain in the battle of Mantinea, the news of whose death was brought to his father as he sacrificed with a crown upon his head; he took the crown from his head, and put it on again when he heard he had died valiantly.",
+      "aliases": [
+        "Gryllus"
+      ],
+      "category": "reference",
       "kind": "person",
       "subtitle": "",
       "snapshots": []

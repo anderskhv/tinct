@@ -1,20 +1,20 @@
 # Montaigne's Essays character package — IN PROGRESS
 
-**Chapters 1–90 of 107 are authored. The rest are not.** Status stays
+**Chapters 1–98 of 107 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole work is
 covered.
 
-Current state: 947 entities authored, all 947 bound in both editions, 4,095 and
-4,224 exact mentions. Of those, 162 and 180 fall inside chapters 1–10, 205 and 209
+Current state: 1,011 entities authored, all 1,011 bound in both editions, 4,258
+and 4,403 exact mentions. Of those, 162 and 180 fall inside chapters 1–10, 205 and 209
 inside chapters 11–20, 344 and 357 inside chapters 21–25, 136 and 142 inside
 chapters 26–30, 256 and 264 inside chapters 31–40, 278 and 288 inside
 chapters 41–50, 271 and 279 inside chapters 51–60, 272 and 278 inside
 chapters 61–68, 587 and 593 inside chapter 69 alone, 156 and 158 inside
-chapters 70–73, 213 and 217 inside chapters 74–80, and 285 and 309 inside
-chapters 81–90; the rest — 930 and 950 — are later occurrences of names that
-belong to one man through the whole book: Cicero, Plato, Horace, Seneca,
-Socrates, Plutarch, Aristotle and the other authorities Montaigne quotes on every
-page. Content revision 2026-09-13.6.
+chapters 70–73, 213 and 217 inside chapters 74–80, 285 and 309 inside
+chapters 81–90, and 383 and 402 inside chapters 91–98; the rest — 706 and 722 —
+are later occurrences of names that belong to one man through the whole book:
+Cicero, Plato, Horace, Seneca, Socrates, Plutarch, Aristotle and the other
+authorities Montaigne quotes on every page. Content revision 2026-09-13.7.
 
 Chapter 69, the Apology for Raimond Sebond, is by itself the largest chapter in
 the work — 660 paragraphs, as much text as chapters 41–68 together, and more
@@ -174,8 +174,8 @@ it. Two of the three cards this package has had to correct for being written fro
 memory rather than from the page were written before that sheet existed.
 
 **The namesakes.** An essayist who cites for eleven hundred pages repeats names
-constantly, and Montaigne almost never distinguishes them. In the first ninety
-chapters:
+constantly, and Montaigne almost never distinguishes them. In the first
+ninety-eight chapters:
 
 | Entity | Where | Against |
 |---|---|---|
@@ -348,6 +348,16 @@ chapters:
 | `mohammed-ii` | 84:31, 90:4 | the Mohammeds of chapters 93, 95 and 104, which are not yet read. The modern edition writes him Mehmed |
 | `caius-oppius` | 90:6, 90:8 | the bare *Oppius* of 49:27, which is a name and not a man |
 | `the-curios`, `the-gracchi`, `the-cyclopes`, `the-assassins` | 90:3, 89:10, 88:0, 86:18 | nothing — but each is a named collective, cast on the same footing as the Graces, the Muses and the Sirens |
+| **`pompeia-paulina`** | 92:13, 92:15 | **`paulina`**, Saturninus's wife of 69:345, who thought she lay with the god Serapis and whose alias was taking Seneca's wife in her own chapter. A live mis-binding |
+| `arria` / `arria-younger` | 92:9, 92:11 / 92:9 | each other, in one sentence: "Arria, the wife of Caecina Paetus… was the mother of another Arria, the wife of Thrasea Paetus". Keyed by occurrence |
+| `ptolemy-of-hegesias` | 98:12 | the three other Ptolemys. A fourth, and no numeral among them |
+| `amurath-i` | 95:45 | `amurath` of 29:17 and 86:13 and `amurath-iii` of 78:1 — three sultans of the name |
+| **`helen`** | 93:16 | **`helena`**, the first Constantine's mother of 33:7, whose alias was taking Helen of Troy |
+| **`hadrian`** | 70:28, 78:0, 94:28 | **`cardinal-adrian`** of 33:2 — and the emperor was cast nowhere at all until chapter 94 was read, though he stands in two chapters authored before it. The modern edition writes him Hadrian |
+| `hippolytus` | 94:33 | the title of Seneca's play at 2:17, which is what the bare alias was binding until the citation-titles test caught it |
+| `metellus-scipio` | 91:12, 91:25, 91:33 | the three other Scipios. The Scipio Caesar defeated in Africa with Juba |
+| `fabricius-luscinus` | 95:38 | the bibliographer Fabricius of 25:137, who is apparatus and not cast |
+| `caelius-orator`, `caius-rabirius`, `publius-rutilius-consul`, `labienus-general` | 88:15, 88:11, 84:21, 89:10 | their namesakes in chapters 82, 74, 72, 74 and 65 |
 
 **Three of those were live mis-bindings the sweep caught**, not hypotheticals. The
 bare surname *Lepidus* was binding the man who died of a stumble at 19:24 to the
@@ -369,18 +379,19 @@ that is single-referent across the whole work — the authorities and philosophe
 Montaigne quotes on every page — is bound by alias and therefore appears in
 chapters that have not been authored yet, with a card written to be true
 anywhere in the book rather than to gloss the paragraph it was first found in.
-A hundred and seventy entities bind beyond chapter 90 that way, and five of
+A hundred and forty-four entities bind beyond chapter 98 that way, and five of
 them — Cicero, Seneca, Plato, Socrates and Horace — account for a quarter of it. It
-is worth being plain about the size of this: 930 of the 4,095 mentions in the
-older edition fall in chapters that have not been read. Those are bindings of names with
+is worth being plain about the size of this: 706 of the 4,258 mentions in the
+older edition fall in chapters that have not been read — and nine chapters, three
+of them the longest in the work. Those are bindings of names with
 one bearer, and the cards are written to be true anywhere; but they are not
 reviewed paragraph by paragraph, and the release owner should read the scope line
 as covering the *cast*, not every mention of it.
 
-## Editorial checks — chapters 1–90
+## Editorial checks — chapters 1–98
 
-**1. Namesakes.** The two hundred and four entities in the table above — a
-hundred and sixty-eight rows — each pinned by a test.
+**1. Namesakes.** The two hundred and twenty entities in the table above — a
+hundred and eighty rows — each pinned by a test.
 
 **2. Person or not.** This is the check that does the most work in an essayist.
 Excluded:
@@ -565,6 +576,15 @@ pairings:
 - **The Lives of Flamininus and of Pyrrhus at 89:3** are Plutarch's titles, and
   titles are not cast — nor is **Cicero's own *Cato***, the book at the head of
   90:6, where the same six letters mean the man six times afterwards.
+
+Chapters 91–98 add two, and a lesson about titles:
+
+- **"The family of Lepidus at Rome" at 94:19** is a house, named for the three of
+  them born with the same membrane over one eye. The man is not in the sentence.
+- **"Not an angel or Cato" at 96:25** gives no qualifier, and the Essays have two.
+- And **Hippolytus at 2:17 is the title of Seneca's play**, which the bare alias
+  was binding to AEsculapius's patient until `test_the_works_named_in_the_citations_are_not_cast`
+  caught it — the first time that test has found anything, eleven passes in.
 
 Three traps in the early range are deliberately left alone and pinned by tests:
 
@@ -793,6 +813,11 @@ first is Cicero's book. A bare-string key would have bound both titles to the ma
 The audit also found *Nicomedes* at 90:3 and *Mithridates* at 81:0, which is how
 the king's alias was caught on the gentleman of Pergamus.
 
+Over chapters 91–98 the unkeyed-table audit found seventy-one gaps, which is the
+largest haul of any pass and the reason for it is chapter 91: the essay on
+Caesar's conduct of war names him in nineteen paragraphs and the *Caesar* table
+had a key for none of them.
+
 **The census of unbound capitalised names should be run over a chapter even after
 it is declared authored.** Run again over chapter 69 after the fact, it found a
 whole class the chapter's own pass had gone past: the named gods of the theology
@@ -822,8 +847,16 @@ The **adjacency sweep** over chapters 81–90 produced forty-six hits, all sound
 *our late poor King Charles IX*, *the Praetor Lucius Piso*, *Caius Memmius* — and
 the range's **spot-read** of thirty-two mentions found no mis-binding.
 
+The **adjacency sweep** over chapters 91–98 produced forty-six hits, of which
+**three were the quoted-verse rule again** — Arria in Martial's Latin at 92:10,
+Venus in Virgil's at 93:22 and Dido in Virgil's at 98:17, each with the English
+version in the next paragraph — and the rest sound. The range's **spot-read** of
+thirty-two mentions found **one mis-binding**: the Paulina of the Serapis story on
+Seneca's wife at 92:13. That is the second catch for the spot-read in twelve
+passes, and again it is the kind only reading the sentence finds.
+
 **6. Both editions independently.** No entity is missing from either edition. The
-mention counts differ by about three percent (4,095 against 4,224),
+mention counts differ by about three percent (4,258 against 4,403),
 partly because the modern edition resolves pronouns to names — it says *Dionysius*
 and *Scanderbeg* and *Betis* and *Ferdinand* where Cotton says *he* — and partly
 because it expands the citation abbreviations, so *Hor.* becomes *Horace* and
@@ -912,11 +945,10 @@ No edition byte was touched.
 
 ## Remaining work
 
-- **Chapters 91–107.** Book I runs to chapter 57, Book II to chapter 94, Book III
-  from 95. The heaviest chapters remaining are 99 (*Upon some verses of Virgil*,
-  374 paragraphs), 103 (*Of vanity*, 300), 107 (*Of experience*, 240), 106, 105 and
-  94 (*Of the resemblance of children to their fathers*, 70) — seventeen chapters,
-  and between them more than half the mentions still unread.
+- **Chapters 99–107.** Nine chapters, and the three longest in the work are among
+  them: 99 (*Upon some verses of Virgil*, 374 paragraphs), 103 (*Of vanity*, 300)
+  and 107 (*Of experience*, 240), with 106 (142), 104 (123), 102 (95), 100 (70),
+  105 (60) and 101 (14).
 - **Run the edition-asymmetry census on every chapter already authored.** It was
   written for chapter 69 and immediately found three gaps and one mis-binding in
   chapters 17, 65 and 67, which eight passes of other checks had gone past. The
@@ -961,5 +993,5 @@ No edition byte was touched.
 
 `python3 books/characters/build_essays_montaigne.py --check`, then
 `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Two hundred and
-fourteen focused tests so far. No edition changes, no network generation, no API spend: every card
+twenty-six focused tests so far. No edition changes, no network generation, no API spend: every card
 here was written in the authoring conversation and committed as a file.
