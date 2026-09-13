@@ -423,6 +423,103 @@ carry the accepted text. `review-instructions.md` keeps the wording the
 round-1 reviewer was actually given, with a dated note at its head marking
 the naming paragraph superseded for any later round.
 
+## The collision backlog, ruled
+
+**Session `session_01K5bL9oWzAagjTMExsyUADi`, 2026-09-13, a worker that did not
+build the instrument.** `scripts/collision_triage.py` exited non-zero for Books
+1-6 with **221 rows carrying no disposition** — 96, 30, 27, 30, 26 and 12. The
+worker that built the instrument declined to rule them, on the grounds that
+writing 221 dispositions in the session that built the instrument would be the
+very defect the instrument exists to catch. It was right. This section records
+what ruling them found in **Book 1**.
+
+| disposition | rows |
+|---|---|
+| `artifact` | 4 |
+| `common-rendering` | 13 |
+| `common-word` | 22 |
+| `context-rendered` | 4 |
+| `free-variation` | 1 |
+| `homograph` | 4 |
+| `kept` | 19 |
+| `kept-elsewhere` | 58 |
+| `phrase-not-word` | 8 |
+| `same-referent` | 3 |
+| `unavoidable-merge` | 7 |
+| `variant` | 15 |
+
+**158 rows, 27 of them ruled by hand. Five were live and Book 1 is owed a
+successor for them; `book01/candidate-v4.json`
+(`6e5ecb0a4b7a40d2ca2ccf17ef36408bb95c6980a2584b522d37526959a77de8`) is it.**
+Book 1 is the most heavily rewritten Book in the package (retention 0.72703) and
+therefore the one whose renderings were least constrained, which is exactly
+where the live rows turned out to be.
+
+* **B01-P010, `conducted` -> `led`.** Butler writes `He led the way as he
+  spoke` and, twenty-five words later, `he conducted her to a richly decorated
+  seat`. The candidate wrote `led` twice, producing a repetition Butler
+  avoided. This is the M-2 shape found at Book 7. Repaired to `showed her to a
+  richly worked seat`.
+* **B01-P019, `prevail upon` -> `urge`.** Butler: `I would, however, urge you to
+  set about trying to get rid of these suitors` and, a hundred words later in
+  the same speech by the same speaker, `let me prevail upon you to take the best
+  ship you can get`. Two degrees of pressing — advice, then persuasion — and the
+  candidate wrote `urge` for both. The sentence that lost the second is the one
+  asking for the voyage the Book turns on. Repaired to `let me persuade you`.
+* **B01-P019, `smart looking` -> `capable-looking`.** A sense change as well as
+  a collision. Butler calls Odysseus `no more capable man on earth` (B01-P006)
+  and Telemachus `a fine, smart looking fellow`; 1900 British `smart looking` is
+  about APPEARANCE, and `capable-looking` makes Athena praise a competence she
+  is at that moment telling him he has not yet shown. Repaired to `a fine,
+  good-looking young man`. **Found by arrow B across paragraphs, which arrow C
+  cannot see** — see the note below.
+* **B01-P022, `wondered` -> `marveled`.** Accepted Books 2 and 3 render Butler's
+  own `marvelled` as `marveled`; Book 1 put `marveled` where Butler wrote
+  `wondered`, flattening two of his words into one across Books. The
+  substitution bought nothing — `wondered at it` was already current English.
+  Butler's word restored.
+* **B01-P024, `celebrate` -> `sing`.** Butler: `such as poets love to celebrate.
+  Sing the suitors some one of these`. The candidate printed `that poets love to
+  sing. Sing the suitors one of those` — the word twice at a sentence join where
+  Butler had two words and no repetition. Repaired by restoring `celebrate`,
+  which is current English in this construction and needed no change; the same
+  repair as `fashioned` at Book 7.
+
+**One repair declined and recorded instead.** `a couple of lances` keeps `a
+couple of` at B01-P018 and `a couple of blazing torches` becomes `a pair of` at
+B01-P032, fourteen paragraphs apart with no shared referent. Ruled
+`free-variation`: no reader can attach a meaning to the difference, and a
+successor to an accepted Book for it would buy nothing.
+
+**One row the repair itself created, ruled in the same pass.** `show someone to
+a seat` now stands beside the `showed` that renders `shewed`, `manifested` and
+`displayed` in Books 3 and 4. It is a fixed idiom, ruled `phrase-not-word`. A
+repair that trades one collision for an unruled row is not a repair.
+
+Every row touching this Book now carries a disposition and
+`python3 scripts/collision_triage.py 1` exits zero. The full table, one row per
+collision with its reason, is generated into `book01/collisions.md`.
+
+### What this exercise says about the instrument, from this Book's side
+
+The 221 rows were **mostly noise, and the noise had one cause**: `kept`
+dismissed a row from the KEEPER's side and there was no class to dismiss it from
+the MOVER's side, so every row where one Book modernized a word another Book
+could keep stayed open forever in whichever Book had done the modernizing. One
+missing mirror, `kept-elsewhere`, absorbs **104 of the 214 rows of that shape**
+that survive into the repaired corpus, measured by running the triage with every
+hand ruling for Books 1-6 switched off. **110 rows needed a person, and 7 of
+them were live** — 103 reasoned dismissals for 7 repairs, a signal rate of 6% of
+the rows a person had to read and 3% of the backlog as reported.
+
+**But the noise was not worthless, and the seven were not findable any other
+way.** Six of the seven came from arrow C, the proximity arrow. The seventh —
+`smart looking` -> `capable-looking` at B01-P019 — came from arrow B across
+paragraphs, and is the first live instance of **blind spot 6** being closed by
+accident rather than by design: *a discrimination lost ACROSS paragraphs*, which
+arrow C cannot see. That it was caught at all is luck, not coverage, and the
+blind spot stands.
+
 ## H.1 — the compound register
 
 Ledger **A5(c)**, and the answer to **A4(ii)** in the negative: one disposition

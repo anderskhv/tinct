@@ -387,6 +387,78 @@ the full table is in `checks-v2.md` §3.
   retention **0.93808**, splitting **153 → 189 (+23.5%)**, sixty-word
   **9 → 1**, semicolons **34 → 13**.
 
+## The collision backlog, ruled
+
+**Session `session_01K5bL9oWzAagjTMExsyUADi`, 2026-09-13, a worker that did not
+build the instrument.** `scripts/collision_triage.py` exited non-zero for Books
+1-6 with **221 rows carrying no disposition** — 96, 30, 27, 30, 26 and 12. The
+worker that built the instrument declined to rule them, on the grounds that
+writing 221 dispositions in the session that built the instrument would be the
+very defect the instrument exists to catch. It was right. This section records
+what ruling them found in **Book 5**.
+
+| disposition | rows |
+|---|---|
+| `common-rendering` | 4 |
+| `common-word` | 3 |
+| `context-rendered` | 4 |
+| `discrimination` | 1 |
+| `free-variation` | 1 |
+| `homograph` | 2 |
+| `kept` | 45 |
+| `kept-elsewhere` | 13 |
+| `matches-accepted` | 5 |
+| `unavoidable-merge` | 4 |
+| `variant` | 7 |
+
+**89 rows, 17 of them ruled by hand, and none live.** Nothing in Book 5 needed a
+successor.
+
+Book 5 is where the class `context-rendered` earns its keep, four times:
+
+* `retired` -> `retreated` of a wave (B05-P032) and `withdrew` of two people
+  going to bed (B05-P019). Water retreats and people withdraw; `the pair
+  retreated into the cave` makes them flee and `the wave withdrew` gives it an
+  intention.
+* `sorely` kept in `sorely against my will` (B05-P031) — a living fixed
+  collocation — and moved to `hard` in `pressing me so sorely` (B05-P023),
+  where it is not.
+* `firmament` -> `sky` for a flight through it (B05-P005) against `vault of
+  heaven` for the sun rising into it (B03-P001). `the sky of heaven` is not
+  English and `swooped down through the vault` loses the motion.
+* `furthermore` -> `and now` at the head of a grievance (B05-P002) against
+  `next` at the head of a narrative step (B02-P031).
+
+**And the row this entire check was built for is now clean.** The drafter of
+Book 6 named `herbage`/`grass` as a call no single-Book instrument could see.
+Both accepted Books render `greenery` — B06-P009 plain, B05-P006 with `lush`
+carrying Butler's own `luscious`. One rendering in two Books, ruled
+`matches-accepted` from both sides.
+
+Every row touching this Book now carries a disposition and
+`python3 scripts/collision_triage.py 5` exits zero. The full table, one row per
+collision with its reason, is generated into `book05/collisions.md`.
+
+### What this exercise says about the instrument, from this Book's side
+
+The 221 rows were **mostly noise, and the noise had one cause**: `kept`
+dismissed a row from the KEEPER's side and there was no class to dismiss it from
+the MOVER's side, so every row where one Book modernized a word another Book
+could keep stayed open forever in whichever Book had done the modernizing. One
+missing mirror, `kept-elsewhere`, absorbs **104 of the 214 rows of that shape**
+that survive into the repaired corpus, measured by running the triage with every
+hand ruling for Books 1-6 switched off. **110 rows needed a person, and 7 of
+them were live** — 103 reasoned dismissals for 7 repairs, a signal rate of 6% of
+the rows a person had to read and 3% of the backlog as reported.
+
+**But the noise was not worthless, and the seven were not findable any other
+way.** Six of the seven came from arrow C, the proximity arrow. The seventh —
+`smart looking` -> `capable-looking` at B01-P019 — came from arrow B across
+paragraphs, and is the first live instance of **blind spot 6** being closed by
+accident rather than by design: *a discrimination lost ACROSS paragraphs*, which
+arrow C cannot see. That it was caught at all is luck, not coverage, and the
+blind spot stands.
+
 ## H.1 — the compound register
 
 Ledger **A5(c)**, and the answer to **A4(ii)** in the negative: one disposition

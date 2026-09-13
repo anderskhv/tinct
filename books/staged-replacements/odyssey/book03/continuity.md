@@ -465,6 +465,77 @@ the sacrifice and the voyage catalogues, where Butler is already plain
 narration, and the most-rewritten are the ones carrying *thou/thee/thy*,
 *vouchsafe*, *shewed*, *aforetime* and *the public weal*.
 
+## The collision backlog, ruled
+
+**Session `session_01K5bL9oWzAagjTMExsyUADi`, 2026-09-13, a worker that did not
+build the instrument.** `scripts/collision_triage.py` exited non-zero for Books
+1-6 with **221 rows carrying no disposition** — 96, 30, 27, 30, 26 and 12. The
+worker that built the instrument declined to rule them, on the grounds that
+writing 221 dispositions in the session that built the instrument would be the
+very defect the instrument exists to catch. It was right. This section records
+what ruling them found in **Book 3**.
+
+| disposition | rows |
+|---|---|
+| `artifact` | 3 |
+| `common-rendering` | 5 |
+| `common-word` | 13 |
+| `context-rendered` | 2 |
+| `homograph` | 3 |
+| `kept` | 60 |
+| `kept-elsewhere` | 8 |
+| `matches-accepted` | 4 |
+| `phrase-not-word` | 2 |
+| `same-referent` | 3 |
+| `unavoidable-merge` | 6 |
+| `variant` | 9 |
+
+**118 rows, 20 of them ruled by hand, and none live.** Nothing in Book 3 needed a
+successor.
+
+Two rows are worth naming because they are the two dismissal classes that were
+invented to rule them honestly:
+
+* **`hereabouts`, ruled `context-rendered`, and it is the clearest case of that
+  class in the package.** B03-P024 is Nestor narrating a coast far from where he
+  stands — `there is a high headland in those parts`. B04-P032 is Eidothea,
+  standing on that shore, pointing — `an old immortal who lives under the sea
+  near here`. The two renderings of one Butler word differ because the DEIXIS
+  does: `near here` in Nestor's mouth moves Crete to Pylos, and `in those parts`
+  in Eidothea's empties her gesture.
+* **`company`, ruled `homograph`.** `nine guilds with five hundred men in each`
+  -> `nine companies` is a body of men; `sacked the town of Troy in company with
+  yourself` is accompaniment. One spelling, two words.
+
+`counselled` -> `decreed`, three times in three paragraphs, is one rendering
+used consistently and is ruled `unavoidable-merge` from the other side:
+`counsel` used transitively of a god ordaining a death is dead English, and
+Butler himself writes `decreed` for the identical act.
+
+Every row touching this Book now carries a disposition and
+`python3 scripts/collision_triage.py 3` exits zero. The full table, one row per
+collision with its reason, is generated into `book03/collisions.md`.
+
+### What this exercise says about the instrument, from this Book's side
+
+The 221 rows were **mostly noise, and the noise had one cause**: `kept`
+dismissed a row from the KEEPER's side and there was no class to dismiss it from
+the MOVER's side, so every row where one Book modernized a word another Book
+could keep stayed open forever in whichever Book had done the modernizing. One
+missing mirror, `kept-elsewhere`, absorbs **104 of the 214 rows of that shape**
+that survive into the repaired corpus, measured by running the triage with every
+hand ruling for Books 1-6 switched off. **110 rows needed a person, and 7 of
+them were live** — 103 reasoned dismissals for 7 repairs, a signal rate of 6% of
+the rows a person had to read and 3% of the backlog as reported.
+
+**But the noise was not worthless, and the seven were not findable any other
+way.** Six of the seven came from arrow C, the proximity arrow. The seventh —
+`smart looking` -> `capable-looking` at B01-P019 — came from arrow B across
+paragraphs, and is the first live instance of **blind spot 6** being closed by
+accident rather than by design: *a discrimination lost ACROSS paragraphs*, which
+arrow C cannot see. That it was caught at all is luck, not coverage, and the
+blind spot stands.
+
 ## H.1 — the compound register
 
 Ledger **A5(c)**, and the answer to **A4(ii)** in the negative: one disposition

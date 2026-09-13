@@ -400,6 +400,94 @@ pushed. **Recorded because the lesson generalises**: a rewrap is a text
 transformation like any other and has to be asserted, not trusted, and a
 `\w+- \w+` scan now runs over every candidate.
 
+## The collision backlog, ruled
+
+**Session `session_01K5bL9oWzAagjTMExsyUADi`, 2026-09-13, a worker that did not
+build the instrument.** `scripts/collision_triage.py` exited non-zero for Books
+1-6 with **221 rows carrying no disposition** — 96, 30, 27, 30, 26 and 12. The
+worker that built the instrument declined to rule them, on the grounds that
+writing 221 dispositions in the session that built the instrument would be the
+very defect the instrument exists to catch. It was right. This section records
+what ruling them found in **Book 4**.
+
+| disposition | rows |
+|---|---|
+| `artifact` | 2 |
+| `common-rendering` | 8 |
+| `common-word` | 7 |
+| `context-rendered` | 2 |
+| `discrimination` | 1 |
+| `free-variation` | 1 |
+| `homograph` | 3 |
+| `kept` | 69 |
+| `kept-elsewhere` | 10 |
+| `matches-accepted` | 5 |
+| `phrase-not-word` | 3 |
+| `same-referent` | 2 |
+| `unavoidable-merge` | 9 |
+| `variant` | 8 |
+
+**130 rows, 26 of them ruled by hand. Two were live and Book 4 is owed a
+successor for them; `book04/candidate-v5.json`
+(`3c21549edf30a74d5f1a5bedfe01f53823267a46caae97f59e0ebf5ce6c9986d`) is it.**
+
+* **B04-P017, `forenoon` -> `morning`. The sharpest finding of the whole
+  backlog, because the candidate's own sentence convicts it.** Butler: `Morning
+  will come in due course, and in the forenoon I care not how much I cry for
+  those that are dead and gone.` Pisistratus is refusing to weep at the evening
+  meal and naming the hours when weeping is proper. The candidate wrote
+  `Morning will come in its own time, and in the morning I do not care how much
+  I cry` — a sentence that says a thing will come, and that when it has come it
+  will be there. The whole point of the sentence is the deferral, the deferral
+  is carried entirely by the second word, and the candidate spent it on the
+  first. Repaired to **`and later in the day`**. This is a small widening:
+  Butler's `forenoon` is the hours before noon and `later in the day` is not
+  bounded at noon. It is recorded here rather than hidden, because every
+  rendering that kept the bound reused the word `morning` and so kept the
+  collision.
+* **B04-P040, `holy hecatombs` -> `holy sacrifices`,** one sentence from
+  Butler's own `you must offer sacrifices to Zeus`. A hecatomb IS a sacrifice,
+  so the referent is not lost; what is lost is the SCALE — and that is the one
+  thing accepted Books 1 and 3 both paid for with an adjective (`great
+  sacrifice` at B01-P003, `fine sacrifice` at B03-P007). **Book 4 was the
+  accepted Book out of step**, which is the `luscious` shape a third time — the
+  third consecutive run of this instrument to find something in work already
+  accepted. Repaired to `great and holy sacrifices`, matching Book 1's scale
+  word.
+
+  The row does not disappear from the report and is not meant to: it is ruled
+  `same-referent`, because the noun is still Butler's own. What the successor
+  buys is that three accepted Books now treat his `hecatomb` the same way.
+
+**One divergence recorded, not repaired.** Book 4 renders Butler's `dwells` as
+`lives` at B04-P047; **accepted Book 7 keeps `dwells`** at B07-P021. Both
+readings are defensible, neither is wrong, and repairing either would cost a
+successor for no reading gain.
+
+Every row touching this Book now carries a disposition and
+`python3 scripts/collision_triage.py 4` exits zero. The full table, one row per
+collision with its reason, is generated into `book04/collisions.md`.
+
+### What this exercise says about the instrument, from this Book's side
+
+The 221 rows were **mostly noise, and the noise had one cause**: `kept`
+dismissed a row from the KEEPER's side and there was no class to dismiss it from
+the MOVER's side, so every row where one Book modernized a word another Book
+could keep stayed open forever in whichever Book had done the modernizing. One
+missing mirror, `kept-elsewhere`, absorbs **104 of the 214 rows of that shape**
+that survive into the repaired corpus, measured by running the triage with every
+hand ruling for Books 1-6 switched off. **110 rows needed a person, and 7 of
+them were live** — 103 reasoned dismissals for 7 repairs, a signal rate of 6% of
+the rows a person had to read and 3% of the backlog as reported.
+
+**But the noise was not worthless, and the seven were not findable any other
+way.** Six of the seven came from arrow C, the proximity arrow. The seventh —
+`smart looking` -> `capable-looking` at B01-P019 — came from arrow B across
+paragraphs, and is the first live instance of **blind spot 6** being closed by
+accident rather than by design: *a discrimination lost ACROSS paragraphs*, which
+arrow C cannot see. That it was caught at all is luck, not coverage, and the
+blind spot stands.
+
 ## H.1 — the compound register
 
 Ledger **A5(c)**, and the answer to **A4(ii)** in the negative: one disposition

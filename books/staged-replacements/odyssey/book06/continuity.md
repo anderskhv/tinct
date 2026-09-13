@@ -432,6 +432,78 @@ touch this Book. **Three of the five calls above were found by it and not by
 reading**, including the defect in accepted Book 4, which is ledger item
 **A4**(i).
 
+## The collision backlog, ruled
+
+**Session `session_01K5bL9oWzAagjTMExsyUADi`, 2026-09-13, a worker that did not
+build the instrument.** `scripts/collision_triage.py` exited non-zero for Books
+1-6 with **221 rows carrying no disposition** — 96, 30, 27, 30, 26 and 12. The
+worker that built the instrument declined to rule them, on the grounds that
+writing 221 dispositions in the session that built the instrument would be the
+very defect the instrument exists to catch. It was right. This section records
+what ruling them found in **Book 6**.
+
+| disposition | rows |
+|---|---|
+| `artifact` | 1 |
+| `common-rendering` | 6 |
+| `common-word` | 9 |
+| `context-rendered` | 2 |
+| `discrimination` | 1 |
+| `free-variation` | 1 |
+| `homograph` | 1 |
+| `kept` | 44 |
+| `kept-elsewhere` | 2 |
+| `matches-accepted` | 2 |
+| `unavoidable-merge` | 6 |
+| `variant` | 6 |
+
+**81 rows, 13 of them ruled by hand — the smallest backlog of the six — and none
+live.** Nothing in Book 6 needed a successor.
+
+The one row that matters is **`scion` -> `young woman` at B06-P013**, and it is
+the row the whole check was built to convict. It is ruled `unavoidable-merge`
+and NOT repaired, for a reason that is worth keeping:
+
+> The drafter of Book 6 made this call by hand and refused `creature` because
+> `creature` is the edition's rendering of Butler's OWN `creature` in Books 4
+> and 5 — which is precisely the defect arrow B exists to catch, avoided by
+> reading, before arrow B existed. `scion` is a shoot of a plant and has no
+> plain modern equivalent for a person. What it prefigures — the young palm at
+> Delos, three sentences later — is carried by that simile itself, in Butler's
+> own words, kept.
+
+No available word both reads as modern English and keeps the graft metaphor, so
+the merge is recorded rather than bought.
+
+`conjecture` -> `suppose` at B06-P013, in the same sentence, is ruled
+`unavoidable-merge` on its own account: `conjecture` as a finite verb is stiff
+to the point of comedy in a castaway's plea, and `suppose` is what Butler
+himself writes elsewhere for exactly this hedged guess.
+
+Every row touching this Book now carries a disposition and
+`python3 scripts/collision_triage.py 6` exits zero. The full table, one row per
+collision with its reason, is generated into `book06/collisions.md`.
+
+### What this exercise says about the instrument, from this Book's side
+
+The 221 rows were **mostly noise, and the noise had one cause**: `kept`
+dismissed a row from the KEEPER's side and there was no class to dismiss it from
+the MOVER's side, so every row where one Book modernized a word another Book
+could keep stayed open forever in whichever Book had done the modernizing. One
+missing mirror, `kept-elsewhere`, absorbs **104 of the 214 rows of that shape**
+that survive into the repaired corpus, measured by running the triage with every
+hand ruling for Books 1-6 switched off. **110 rows needed a person, and 7 of
+them were live** — 103 reasoned dismissals for 7 repairs, a signal rate of 6% of
+the rows a person had to read and 3% of the backlog as reported.
+
+**But the noise was not worthless, and the seven were not findable any other
+way.** Six of the seven came from arrow C, the proximity arrow. The seventh —
+`smart looking` -> `capable-looking` at B01-P019 — came from arrow B across
+paragraphs, and is the first live instance of **blind spot 6** being closed by
+accident rather than by design: *a discrimination lost ACROSS paragraphs*, which
+arrow C cannot see. That it was caught at all is luck, not coverage, and the
+blind spot stands.
+
 ## H.1 — the compound register
 
 Ledger **A5(c)**, and the answer to **A4(ii)** in the negative: one disposition

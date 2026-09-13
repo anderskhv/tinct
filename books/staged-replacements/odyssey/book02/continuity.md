@@ -557,6 +557,69 @@ own, from `odyssey-threads.json`, applied from the closed table in
    the served `modern-en` and `modern-da`. Correct, not a defect; recorded so
    the reviewer does not have to rediscover it.
 
+## The collision backlog, ruled
+
+**Session `session_01K5bL9oWzAagjTMExsyUADi`, 2026-09-13, a worker that did not
+build the instrument.** `scripts/collision_triage.py` exited non-zero for Books
+1-6 with **221 rows carrying no disposition** — 96, 30, 27, 30, 26 and 12. The
+worker that built the instrument declined to rule them, on the grounds that
+writing 221 dispositions in the session that built the instrument would be the
+very defect the instrument exists to catch. It was right. This section records
+what ruling them found in **Book 2**.
+
+| disposition | rows |
+|---|---|
+| `common-rendering` | 5 |
+| `common-word` | 9 |
+| `context-rendered` | 1 |
+| `homograph` | 3 |
+| `kept` | 38 |
+| `kept-elsewhere` | 13 |
+| `matches-accepted` | 3 |
+| `phrase-not-word` | 4 |
+| `unavoidable-merge` | 7 |
+| `variant` | 6 |
+
+**89 rows, 18 of them ruled by hand, and NONE live.** Book 2 is the only one of
+the six whose hand rulings are all dismissals, and the reason is visible in the
+rows themselves: where Book 2 shares a sentence with another accepted Book — the
+dressing formula at B02-P001 and B04-P025, `govern equitably` at B02-P014 and
+B05-P002, `some heaven-sent message may direct me` at B02-P012 and B01-P019, and
+Zeus settling the account at B02-P008 and B01-P027 — the two Books render it
+**word for word the same**. That is the cross-Book consistency arrow A exists to
+check for, and Book 2 passes it four times over.
+
+The one row worth naming is `naughtiness` -> `wickedness` at B02-P014, beside
+Butler's own `wickedness` at B02-P010. Ruled `unavoidable-merge`: Butler's
+`naughtiness` is the older strong sense and IS wickedness, modern `naughtiness`
+means the opposite in force, and both phrases name the same conduct of the same
+suitors four paragraphs apart — which is why the merge is the correct reading
+rather than a loss.
+
+Every row touching this Book now carries a disposition and
+`python3 scripts/collision_triage.py 2` exits zero. The full table, one row per
+collision with its reason, is generated into `book02/collisions.md`.
+
+### What this exercise says about the instrument, from this Book's side
+
+The 221 rows were **mostly noise, and the noise had one cause**: `kept`
+dismissed a row from the KEEPER's side and there was no class to dismiss it from
+the MOVER's side, so every row where one Book modernized a word another Book
+could keep stayed open forever in whichever Book had done the modernizing. One
+missing mirror, `kept-elsewhere`, absorbs **104 of the 214 rows of that shape**
+that survive into the repaired corpus, measured by running the triage with every
+hand ruling for Books 1-6 switched off. **110 rows needed a person, and 7 of
+them were live** — 103 reasoned dismissals for 7 repairs, a signal rate of 6% of
+the rows a person had to read and 3% of the backlog as reported.
+
+**But the noise was not worthless, and the seven were not findable any other
+way.** Six of the seven came from arrow C, the proximity arrow. The seventh —
+`smart looking` -> `capable-looking` at B01-P019 — came from arrow B across
+paragraphs, and is the first live instance of **blind spot 6** being closed by
+accident rather than by design: *a discrimination lost ACROSS paragraphs*, which
+arrow C cannot see. That it was caught at all is luck, not coverage, and the
+blind spot stands.
+
 ## H.1 — the compound register
 
 Ledger **A5(c)**, and the answer to **A4(ii)** in the negative: one disposition
