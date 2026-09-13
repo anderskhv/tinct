@@ -368,7 +368,7 @@ for row in [
 ('cato-the-younger','Cato','Cato of Utica, who would rather see the Republic ruined than saved by an innovation. Montaigne devotes a whole chapter to him later.'),
 ('aratus','Aratus','Made admiral of Sparta in name, because an edict forbade choosing the same man twice — while Lysander went out as general of the navy and commanded in fact.','Aratus'),
 ('pericles','Pericles','The Athenian, who told a Spartan envoy that a law once engrossed on the tablet could not be taken away — and was advised to turn the tablet round instead, that being not forbidden. Montaigne’s instance of what rhetoric is for: thrown in the wrestling, he could still persuade the spectators he had had no fall and carry away the prize.','Pericles','supporting'),
-('philopoemen','Philopoemen','Whom Plutarch commends for knowing how to command not only according to the laws but over them, when the public necessity required it. Against Machanidas he let his own archers and slingers be chased and cut in pieces before his face rather than leave his post, and charged the enemy’s foot only once their horse had gone off in the pursuit — the case Montaigne sets beside the Duc de Guise’s at Dreux; and he is one of the captains who held that rich accoutrement inflames a soldier’s courage. The older edition misprints his name Philopcemen in that second place.','Philopoemen|Philopcemen'),
+('philopoemen','Philopoemen','Whom Plutarch commends for knowing how to command not only according to the laws but over them, when the public necessity required it. Against Machanidas he let his own archers and slingers be chased and cut in pieces before his face rather than leave his post, and charged the enemy’s foot only once their horse had gone off in the pursuit — the case Montaigne sets beside the Duc de Guise’s at Dreux; and he is one of the captains who held that rich accoutrement inflames a soldier’s courage. The older edition misprints his name Philopcemen in that second place.','Philopoemen|Philopcemen|Philopaemen'),
 ('apollo','Apollo','The god of the Delphic oracle, who told the people of Delphos, afraid of the Persians, to stir nothing of his treasure and to look to themselves — he was sufficient to look after what was his.','Apollo','supporting','deity'),
 ]:add(*row)
 
@@ -544,7 +544,7 @@ for row in [
 ('zenobia','Zenobia','Who would admit her husband for one encounter only and then left him to himself for the whole time of her conception — a brave and generous example, Montaigne says, of conjugal continence.','Zenobia'),
 ('aelius-verus','AElius Verus','The emperor who answered his wife’s reproaches about other women by saying that marriage was a name of honour and dignity, not of wanton desire. The modern edition spells him Aelius.','AElius Verus|Aelius Verus'),
 ('gallio','Gallio','Exiled to Lesbos and found to be living there as merry as the day was long, so that the Senate recalled him and confined him to his own house with his wife and family — to fit the punishment to his feeling.','Gallio'),
-('amurath','Amurath','Who at the taking of the Isthmus immolated six hundred young Greeks to his father’s soul as a propitiatory sacrifice for his sins. Not the Amurath III of 78:1.','Amurath'),
+('amurath','Amurath','Who at the taking of the Isthmus immolated six hundred young Greeks to his father’s soul as a propitiatory sacrifice for his sins, and whose army stood against Huniades’s when the young Turkish lord made his first sally into arms. Not the Amurath III of 78:1. The modern edition writes him Murad.','Amurath|Murad'),
 ('fernando-cortez','Fernando Cortez','To whom the king of Mexico’s ambassadors boasted that their master was obliged to offer the gods fifty thousand men a year — and for whose welcome, at another town, they sacrificed fifty at once.','Fernando Cortez|Cortez'),
 ]:add(*row)
 
@@ -740,7 +740,7 @@ for row in [
 ('metellus-tribune','Metellus','The tribune who attempted to publish a decree calling Pompey and his army into the city at the time of Catiline’s conspiracy, and was opposed by Cato alone, stoutly and with very sharp language on both sides, the day before the controversy was to be decided.'),
 ('catiline','Catiline','Whose conspiracy was the occasion of the tribune Metellus’s decree, and so of the night Cato slept through while his friends went without sleep, food or drink for the danger they saw him running into.','Catiline'),
 ('sextus-pompeius','Sextus Pompeius','Whom Augustus beat in the naval engagement in Sicily that Augustus slept through, until his friends woke him to give the signal of battle.','Sextus Pompeius'),
-('mark-antony','Mark Antony','Who took that sleep as an occasion to reproach Augustus afterwards that he had not the courage so much as to behold the order of his own squadrons with open eyes, nor dared present himself to the soldiers until Agrippa had brought him news of the victory.','Mark Antony'),
+('mark-antony','Mark Antony','Who took that sleep as an occasion to reproach Augustus afterwards that he had not the courage so much as to behold the order of his own squadrons with open eyes, nor dared present himself to the soldiers until Agrippa had brought him news of the victory. At 81:3 he is Marcus Antonius, who said that the greatness of the people of Rome was not so much seen in what they took as in what they gave.','Mark Antony|Marcus Antonius'),
 ('agrippa','Agrippa','Pomponius Atticus’s son-in-law, called to his bedside with two or three friends to be told he had resolved to end his life and his pain together. Also the man who brought Augustus the news of the victory over Sextus Pompeius while the emperor was still out of sight of his own soldiers.'),
 ('marius-younger','The young Marius','Who did much worse: on the day of his last battle against Sylla, having marshalled his army and given the word and signal, he lay down in the shade of a tree to repose himself and fell so fast asleep that the rout and flight of his men could hardly waken him, having seen nothing of the fight. He was said to be so spent with labour and want of sleep that nature could hold out no longer.'),
 ('epimenides','Epimenides','The sage whose biographers affirm that he slept seven-and-fifty years together.','Epimenides'),
@@ -998,8 +998,8 @@ for row in [
 ('johannes-secundus','Johannes Secundus','Whose Basia, with the Decameron and Rabelais, Montaigne reckons among the books worth reading for amusement — if, he adds, they may be ranged under that title.','Johannes Secundus'),
 ('cicero-the-younger','The younger Cicero','Who resembled his father in nothing but the name. Commanding in Asia, he had Cestius at the lower end of his table, was told who the man was, and had him whipped on the spot — a proceeding, Montaigne notes, of a host and a judge at once.','The younger Cicero'),
 ('cestius','Cestius','Who intruded on the great man’s open table, was pointed out to the younger Cicero as one who made no more account of the father’s eloquence than of his own, and was seized and whipped for it.','Cestius'),
-('asinius-pollio','Asinius Pollio','Who found mistakes in Caesar’s own histories, into which Caesar had fallen either because he could not have his eye in all parts of his army at once, or because he trusted the particular reports of others.','Asinius Pollio'),
-('bodin','Bodin','Who has sufficiently handled the question Montaigne leaves aside there, and with whose sentiment Montaigne agrees.','Bodin'),
+('asinius-pollio','Asinius Pollio','Who found mistakes in Caesar’s own histories, into which Caesar had fallen either because he could not have his eye in all parts of his army at once, or because he trusted the particular reports of others.','Asinius Pollio|Asnius Pollio'),
+('bodin','Bodin','Jean Bodin, whom Montaigne calls a good author of his own times and of much greater judgment than the rout of scribblers of his age, deserving to be read and considered — and yet a little bold in the passage of his Method of history where he accuses Plutarch of ignorance and of reporting impossible things. He has sufficiently handled the question Montaigne leaves aside at 67:28, and Montaigne agrees with his sentiment there.','Bodin','supporting'),
 ('eginhard','Eginhard','Chancellor to Charlemagne, and with the Sire de Joinville and Philip de Commines one of the elder historians in whom the freedom and liberty of writing shines — by comparison with which Montaigne finds a manifest decadence in the two lords of his own subject.','Eginhard'),
 ('biron','Biron','Whose proceedings, with Monsieur de Montmorency’s, are among the things Montaigne complains are omitted from the memoirs he is discussing — as are actions that did not succeed, and speeches and countenances the writer durst not report.','Biron'),
 ]:add(*row)
@@ -1044,7 +1044,7 @@ for row in [
 ('apion','Apion','Who says he saw that, and tells the story of Androdus and the lion.','Apion'),
 ('surena','Surena','Against whom the same fine arms served that Sertorius was beaten with in Spain and Eumenes used against Antigonus — and who used them against Crassus.','Surena'),
 ('epictetus','Epictetus','Who says that man has nothing properly his own but the use of his opinion.','Epictetus'),
-('memmius','Memmius','The great Memmius whom Lucretius addresses in the verses on the god who first found out the reason now called wisdom. The older edition prints the name Memmus; the Latin vocative Memmi of the quotation is left unbound like every other inflection.','Memmus|Memmius'),
+('memmius','Memmius','The great Memmius whom Lucretius addresses in the verses on the god who first found out the reason now called wisdom. The older edition prints the name Memmus; the Latin vocative Memmi of the quotation is left unbound like every other inflection. At 90:7 the modern edition names Caius Memmius, who had written very sharp speeches against Caesar; the older edition has a lacuna there and names nobody, so that mention binds in the modern text alone. Whether Lucretius’s Memmius and Caesar’s are one man the Essays do not say.','Memmus|Memmius'),
 ('eusebius','Eusebius','Whose Chronicon Montaigne cites for the account of the philosopher whose order afforded him only a few lucid intervals, in which he composed his book, and who at last killed himself.','Eusebius'),
 ('dionysius-heracleotes','Dionysius Heracleotes','Who, afflicted with a vehement smarting in his eyes, was reduced to quit his Stoical resolutions.','Dionysius Heracleotes'),
 ('crantor','Crantor','Who had very good reason, Montaigne thinks, to controvert the insensibility of Epicurus, if it were founded so deep that the first attack and birth of evils were not to be perceived.','Crantor'),
@@ -1183,7 +1183,7 @@ for row in [
 ('chancellor-olivier','Chancellor Olivier','Author of the saying Montaigne calls to mind when he judges his own strength: that the French are like monkeys that swarm up a tree from branch to branch and never stop till they come to the highest, and there show their breech. One of the two Chancellors of France Montaigne names for great ability and no common virtue.','Olivier','supporting'),
 ('de-lhospital','De l\u2019Hospital','The other of those two Chancellors, and one of the good artificers of poetry in Montaigne\u2019s age.','De l\u2019Hospital|de l\'Hospital|L\u2019Hospital|L\'Hospital','supporting'),
 ('metellus-macedonicus','Metellus of Macedon','Author of the saying some of our princes have bragged of since: that they would burn their shirts if they knew their true intentions. The older edition prints him Metellius.','','reference'),
-('soliman','Soliman','Of the Ottoman race, a race not very solicitous of keeping their words or compacts \u2014 and yet, being told that Mercurino de\u2019 Gattinara and the inhabitants of Castro were held prisoner against the articles of their capitulation, he took it ill. Also the Soliman who said that victories obtained without the master are never complete. The modern edition writes him Suleiman.','Soliman|Suleiman','supporting'),
+('soliman','Soliman','Of the Ottoman race, a race not very solicitous of keeping their words or compacts \u2014 and yet, being told that Mercurino de\u2019 Gattinara and the inhabitants of Castro were held prisoner against the articles of their capitulation, he took it ill. Also the Soliman who said that victories obtained without the master are never complete. The modern edition writes him Suleiman.','Soliman|Suleiman|Solyman','supporting'),
 ('mercurino-de-gattinara','Mercurino de\u2019 Gattinara','Held prisoner with the inhabitants of Castro after they had surrendered the place, contrary to the articles of their capitulation. The older edition prints him Gratinare.','Mercurino de\u2019 Gratinare|Mercurino de\'Gattinara|Mercurino de\' Gattinara'),
 ('latinus','Latinus','The scoffer Martial\u2019s epigram asks whether the critic could excel \u2014 quoted by Montaigne against those who would carp at his book.','Latinus','reference','literary-figure'),
 ('atlas','Atlas','Who, in the same epigram, would refuse to bear a nose so great.','','reference','mythological-figure'),
@@ -1249,8 +1249,119 @@ for row in [
 ('statius','Statius','The Latin poet of the Silvae, quoted for the tender sex, unskilled in arms, immodestly engaged in manly fights amidst those tumults and new sports.','Statius','supporting'),
 ]:add(*row)
 
-print(len(entities),'entities authored: chapters 1-80')
+# ================================= CHAPTER 81 — of the Roman grandeur
+for row in [
+('marcus-furius','Marcus Furius','Whom Cicero had recommended, and whom Caesar wrote back that he would make king of Gaul — and if Cicero would have him advance any other friend of his, to send him.','Marcus Furius'),
+('mithridates-pergamus','Mithridates','The gentleman of the city of Pergamus to whom Caesar gave away King Deiotarus’s kingdom — Montaigne’s instance that it was no new thing for a simple citizen of Rome to dispose of kingdoms.','',),
+('ptolemy-astronomer','Ptolemy','Who was a great man, and had established the bounds of this world of ours — and was deceived in it upon the foundation of his reason, which is Montaigne’s reason for not trusting what the new discoverers say either. Not either of the kings.','',),
+('ptolemy-of-the-exercises','King Ptolemy','Whom some extolled for inuring his person every day to the exercise of arms, and of whom Philopoemen said it was not commendable in a king of his age to exercise himself in those things, but rather to govern. Not the Ptolemy from whom Caesar had three millions and six hundred thousand crowns; the Essays join them nowhere.','',),
+('ptolemy','King Ptolemy','From whom Suetonius says Caesar once had three millions and six hundred thousand crowns, which was very like selling him his own kingdom.','',),
+('popilius','Popilius','Who came to Antiochus from the Senate, refused his hand until he had read the letters, drew a circle about him with his cane and said: return me an answer before thou stir out of this circle. Antiochus, astonished at the roughness of it, replied that he would obey — and Popilius then saluted him as friend of the Roman people.','Popilius','supporting'),
+('cogidunus','Cogidunus','King of England, of whom Tacitus gives, by a marvellous touch, an instance of the infinite Roman power: the Romans were accustomed from all antiquity to leave the kings they had subdued in possession of their kingdoms under their authority.','Cogidunus'),
+]:add(*row)
+
+# ========================== CHAPTER 82 — not to counterfeit being sick
+for row in [
+('caelius-gout','Caelius','Martial’s man, who to avoid making his court to the great men of Rome pretended to have the gout — till Fortune did him the kindness to make him one indeed. Not the orator Caelius of 88:15.','',),
+('appian','Appian','In whom Montaigne thinks he has read of the man who, to escape the proscriptions of the triumvirs, counterfeited having but one eye — and having recovered his liberty, wanted to take off the plaster and found he had really lost the sight of it.','Appian'),
+('harpaste','Harpaste','Seneca’s wife’s fool, thrown upon him as an hereditary charge, who lost her sight suddenly and kept asking to be taken out of the dark house — the instance Seneca gives Lucilius of a soul that will not see its own vice.','Harpaste'),
+]:add(*row)
+
+# ======================================== CHAPTER 83 — of thumbs
+for row in [
+('caius-vatienus','Caius Vatienus','Whom the Senate, in the time of the Italic war, condemned to perpetual imprisonment with all his goods confiscated, for having purposely cut off the thumb of his left hand to exempt himself from that expedition.','Caius Vatienus'),
+]:add(*row)
+
+# ======================= CHAPTER 84 — cowardice the mother of cruelty
+for row in [
+('alexander-of-pherae','Alexander, the tyrant of Pheres','Who durst not be a spectator of tragedies in the theatre for fear his citizens should see him weep at the misfortunes of Hecuba and Andromache — he who without pity caused so many people every day to be murdered. Not Alexander the Great.','Alexander, the tyrant of Pheres|Alexander, the tyrant of Pherae','supporting'),
+('hecuba','Hecuba','One of the two whose misfortunes made him weep.','Hecuba','reference','literary-figure'),
+('andromache','Andromache','The other.','Andromache','reference','literary-figure'),
+('lyciscus','Lyciscus','Whose penitence for the treason committed against the Orchomenians came at a season when no one remained alive of those the offence had touched — which is why Montaigne pities them.','Lyciscus'),
+('plancus','Plancus','Against whom Asinius Pollio wrote a libel and forbore to publish it till he was dead: which Montaigne calls mumbling at a dead man, and worse in a worthy man than in another.','Plancus'),
+('mattecoulom','The Sieur de Mattecoulom','Montaigne’s brother, asked at Rome by a gentleman he hardly knew to be his second in a duel — which Montaigne says he would not have him do again, and which gave him a domestic interest in the question. The modern edition writes him Matecoulon.','Sieur de Mattecoulom|Sieur de Matecoulom|Mattecoulom|Matecoulom','supporting'),
+('duke-of-orleans','Our Duke of Orleans','Who challenged the king of England, a hundred against a hundred — Montaigne’s instance that where there is troop against troop the multitude on either side is considered but as one single man. The Essays give him no more than the title.','Duke of Orleans','supporting'),
+('publius-rutilius-consul','The consul Publius Rutilius','The first who taught the soldiers to handle their arms with skill, and joined art with valour — not for private quarrels but for the wars of the people of Rome. Not the Rutilius of the Itinerarium at 72:43, nor the Rutilius of Tacitus’s Agricola at 74:7.','Publius Rutilius','supporting'),
+('amycus','Amycus','With Epeius, the introducer of the art of boxing, which Plato interdicts in the education of the children of his government because it has another end than to render youth fit for the service of war.','Amycus','reference','mythological-figure'),
+('epeius','Epeius','The other of that pair.','Epeius','reference','mythological-figure'),
+('antaeus','Antaeus','With Cercyo, the introducer of wrestling, interdicted on the same ground.','Antaeus','reference','mythological-figure'),
+('cercyo','Cercyo','The other of that pair. The modern edition writes him Cercyon.','Cercyo|Cercyon','reference','mythological-figure'),
+('mauricius','The Emperor Mauricius','Warned by dreams and prognostics that an obscure soldier called Phocas should kill him, and told by his son-in-law Philip that the man was pusillanimous and fearful — whereupon he concluded at once that he was therefore murderous and cruel.','Mauricius','supporting'),
+('phocas','Phocas','The obscure soldier of the prognostic, who did kill him.','Phocas'),
+('philip-son-in-law','Philip','Mauricius’s son-in-law, whom he questioned about Phocas’s nature and qualities.','',),
+('herodicus','Herodicus','Prince of Thessaly, condemned by Philip, whose two sons were killed after him and whose two widows were Theoxena and Archo.','Herodicus'),
+('theoxena','Theoxena','Herodicus’s widow, who could not be persuaded to marry again, and then married Poris out of a maternal charity towards her nephews, to have them under her own eyes; and who, when the flight by sea failed, prepared weapons and poison, set them before the children, and told them the only remaining freedom was in dying.','Theoxena','supporting'),
+('archo','Archo','The other widow, who married Poris, the greatest man among the AEnians, and by him had a great many children, whom she left at a very tender age.','Archo'),
+('poris','Poris','The greatest man among the AEnians, who married first Archo and then Theoxena, and who promised to steal the children away to Athens and commit them to faithful friends.','Poris'),
+('chalcondylas','Chalcondylas','A writer of good credit, in whose records of things that happened near him Montaigne finds the Emperor Mohammed’s way of cutting men in the middle by the diaphragm with one blow of a scimitar, so that they died two deaths at once.','Chalcondylas'),
+('mohammed-ii','The Emperor Mohammed','Who practised that torment very often, and worse upon the Epirot lords, who were flayed alive piecemeal so malignly that they continued fifteen days in that misery; and who won Constantinople and finally exterminated the Grecian name. The modern edition writes him Mehmed.','',),
+('pantaleon','Pantaleon','Croesus’s brother, whose favourite Croesus seized and had carded to death with the cards and combs of a fuller’s shop.','Pantaleon'),
+('george-sechel','George Sechel','Chief commander of the peasants of Poland, who committed so many mischiefs under the title of the Crusade; defeated and taken by the Vayvode of Transylvania, he was three days bound naked on the rack, and at the end of it made his beloved brother Lucat drink his blood while he looked on, and twenty of his most favoured captains feed upon him.','George Sechel','supporting'),
+('lucat','Lucat','His beloved brother, for whom alone he entreated, and who took the blame of all their evil actions on himself.','Lucat'),
+]:add(*row)
+
+# =============================== CHAPTER 85 — all things have their season
+for row in [
+('quintus-flaminius','Quintus Flaminius','Of whom it is reported that, being general of an army, he was seen praying apart in the time of a battle that he won — which Montaigne sets beside Cato the Censor learning Greek in his extreme old age, as things done out of their season.','Quintus Flaminius'),
+('eudemonidas','Eudemonidas','Who, seeing Xenocrates very old and still very intent upon his school lectures, asked when this man would be wise if he were yet learning.','Eudemonidas'),
+]:add(*row)
+
+# ======================================== CHAPTER 86 — of virtue
+for row in [
+('cybele','Cybele','The goddess whose priests gelded themselves upon mature consideration and upon the account of religion — which Montaigne sets against the man who did it out of a sudden and violent humour.','Cybele','reference','deity'),
+('calanus','Calanus','One of the Indian philosophers who, having lived long enough and taken leave of his friends, threw himself into the fire before Alexander and all his army.','Calanus','supporting'),
+('huniades','Huniades','Whose army stood ready to join battle with Amurath’s when the young Turkish lord made his first sally into arms. The modern edition writes him Hunyadi.','Huniades|Hunyadi','supporting'),
+('prince-of-orange','The Prince of Orange','Whose death two men conspired at a fortnight’s distance — the more admirable effect of resolution, Montaigne says, than anything else in his memory: the second going with the same arms and the same method against a lord armed with so recent a lesson of distrust, powerful in followers, in his own hall and amidst his guards.','Prince of Orange',),
+('jehan-de-jaureguy','Jehan de Jaureguy','The first of the two, who wounded the Prince on 18 March 1582. Montaigne does not name either man; the editor’s bracketed note does.','Jehan de Jaureguy|Jaureguy'),
+('balthazar-gerard','Balthazar Gerard','The second, by whom the Prince was killed on 10 July 1584.','Balthazar Gerard'),
+('raymond-of-tripoli','Raymond, Count of Tripoli','Assassinated in the heart of his own city during the enterprises of the Holy War, by the nation from whose name the word is derived.','Raymond, Count of Tripoli'),
+('conrad-of-monteferrat','Conrad, Marquis of Monteferrat','Likewise, his murderers at their execution bearing themselves with great pride and glory that they had performed so brave an exploit.','Conrad, Marquis of Monteferrat|Conrad, Marquis of Montferrat'),
+('the-assassins','The Assassins','A nation bordering upon Phoenicia, reputed among the Mohammedans a people of very great devotion and purity of manners, who hold paradise to be a reward for killing one of a contrary religion — and from whose name the word assassination comes.','The Assassins','reference','group'),
+]:add(*row)
+
+# ======================================== CHAPTER 88 — of anger
+for row in [
+('the-cyclopes','The Cyclopes','After whose manner, Aristotle says, most civil governments leave every man the ordering of his wives and children according to his own foolish and indiscreet fancy.','Cyclopes','reference','mythological-figure'),
+('caius-rabirius','Caius Rabirius','Whom Caesar had condemned, and in whose favour the people determined the cause upon appeal — the thing that most prevailed upon them being the animosity and vehemence Caesar had shown in the sentence. Not the Rabirius of the inform style at 74:26.','Caius Rabirius'),
+('archytas-tarentinus','Archytas Tarentinus','Who, returning from a war he had commanded in, found his house in great disorder and his lands out of tillage through his receiver’s ill husbandry, and told the man he was fortunate that he was angry — for otherwise he should not have escaped being handled as he deserved. The modern edition writes him Archytas of Tarentum.','Archytas Tarentinus|Archytas of Tarentum','supporting'),
+('carillus','Carillus','A Lacedaemonian, who said to a helot that carried himself insolently towards him: by the gods, if I were not angry I would presently cause thee to be put to death. The modern edition writes him Charillus.','Carillus|Charillus'),
+('caelius-orator','Caelius','The orator, wonderfully choleric by nature, to whom a supper companion of a soft and gentle conversation contradicted nothing for fear of angering him — until Caelius cried out, contradict me in something, that we may be two. The older edition prints him Celius.','',),
+]:add(*row)
+
+# ===================== CHAPTER 89 — defence of Seneca and Plutarch
+for row in [
+('labienus-general','Labienus','One of the captains whose names Montaigne says are obscured by the splendour of other names of less desert, with Ventidius and Telesinus. Not the orator of 65:39 nor his father.','',),
+('ventidius','Ventidius','Another of them.','Ventidius'),
+('telesinus','Telesinus','The third.','Telesinus'),
+('camillus','Camillus','Whom Montaigne says was much less comparable to Themistocles than Plutarch’s pairing makes him — one of the unequal companions he thinks Plutarch gave the Greeks.','Camillus','supporting'),
+('the-gracchi','The Gracchi','Whom the same complaint pairs with Agis and Cleomenes.','Gracchi','reference','group'),
+('epicharis','Epicharis','Who tired and glutted the cruelty of Nero’s satellites a whole day together — their fire, their beating, their racks — without one syllable of confession of her conspiracy, and the next day strangled herself with her own girdle: which makes Montaigne presume she had purposely lent her life to the trial of her fortitude the day before, to mock the tyrant.','Epicharis','supporting'),
+]:add(*row)
+
+# ================================ CHAPTER 90 — the story of Spurina
+for row in [
+('lais','Lais','The beautiful and famous courtesan whom Xenocrates’s disciples slipped naked into his bed to try his continency, and whose beauty so far mutinied his unruly flesh that he gelded the members that had lent themselves to the revolt.','Lais','supporting'),
+('cleopatra','Cleopatra','Queen of Egypt, whose maidenhead Caesar had — witness the little Caesario she bore him.','Cleopatra','supporting'),
+('caesario','Caesario','The little son Cleopatra bore Caesar. The modern edition writes him Caesarion.','Caesario|Caesarion'),
+('eunoe','Eunoe','Queen of Mauritania, another of Caesar’s amours.','Eunoe'),
+('posthumia','Posthumia','The wife of Servius Sulpitius, another of them. The modern edition writes her Postumia.','',),
+('servius-sulpitius','Servius Sulpitius','Her husband. The modern edition writes him Servius Sulpicius.','Servius Sulpitius|Servius Sulpicius'),
+('lollia','Lollia','The wife of Gabinius, another of them.','Lollia'),
+('gabinius','Gabinius','Her husband.','Gabinius'),
+('tertulla','Tertulla','The wife of Crassus, another of them.','Tertulla'),
+('mutia','Mutia','The wife of the great Pompey, and — the Roman historians say, though Plutarch confesses it to be more than he knew — the reason Pompey repudiated her. The modern edition writes her Mucia.','Mutia|Mucia'),
+('the-curios','The Curios','Father and son, who afterwards reproached Pompey, when he married Caesar’s daughter, that he had made himself son-in-law to a man who had made him cuckold.','Curios','reference','group'),
+('aegisthus','AEgisthus','The name Pompey himself was wont to use for Caesar. The modern edition writes it Aegisthus.','AEgisthus|Aegisthus','reference','mythological-figure'),
+('servilia','Servilia','Cato’s sister and Marcus Brutus’s mother, whom Caesar entertained — whence, every one believes, proceeded the great affection he had to Brutus, he having been born at a time when it was likely he might be his son. It was a love-letter of hers that Cato threw back to Caesar in the Senate, during the question of Catiline’s conspiracy, saying: there, drunkard.','Servilia','supporting'),
+('ladislaus','Ladislaus','King of Naples, who having reduced Florence by a close and tedious siege was content to raise it for a beautiful maid, took her — and found in her bed a writing which her father had given her to keep her honour, to say she was diseased.','Ladislaus','supporting'),
+('caius-calvus','Caius Calvus','Who had composed several injurious epigrams against Caesar, and whom Caesar voluntarily persuaded himself to write to first, when Calvus employed friends to mediate a reconciliation.','Caius Calvus'),
+('mamurra','Mamurra','The name under which Catullus had so rudely ruffled Caesar — and Catullus, coming to offer his excuses, was made to sit at his table the same day.','Mamurra','reference'),
+('caius-oppius','Caius Oppius','Caesar’s companion on a journey, who finding himself ill was left the only lodging there was, Caesar lying all night on the hard ground in the open air; and who relates how Caesar, having medicated instead of common oil set before him in a sauce, ate heartily of it that he might not put his entertainer out of countenance. The bare Oppius at 49:27 is a name and not this man.','Caius Oppius'),
+('spurina','Spurina','A young man of Tuscany, so endowed with singular beauty and so excessive that the chastest eyes could not chastely behold it — who, rather than let that beauty inflame others, wounded and disfigured the perfect proportion and order of his features with his own hand. Montaigne says he has met with few examples of a man who would condemn his own beauty for his neighbour’s interest, and that this is one.','Spurina','central'),
+]:add(*row)
+
+print(len(entities),'entities authored: chapters 1-90')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-13.5',
- coverage='Both full English editions, chapters 1-80 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
+ contentVersion='2026-09-13.6',
+ coverage='Both full English editions, chapters 1-90 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

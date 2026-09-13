@@ -1564,7 +1564,7 @@ Exiled to Lesbos and found to be living there as merry as the day was long, so t
 
 ## Amurath · reference
 
-Who at the taking of the Isthmus immolated six hundred young Greeks to his father’s soul as a propitiatory sacrifice for his sins. Not the Amurath III of 78:1.
+Who at the taking of the Isthmus immolated six hundred young Greeks to his father’s soul as a propitiatory sacrifice for his sins, and whose army stood against Huniades’s when the young Turkish lord made his first sally into arms. Not the Amurath III of 78:1. The modern edition writes him Murad.
 
 ## Fernando Cortez · reference
 
@@ -2088,7 +2088,7 @@ Whom Augustus beat in the naval engagement in Sicily that Augustus slept through
 
 ## Mark Antony · reference
 
-Who took that sleep as an occasion to reproach Augustus afterwards that he had not the courage so much as to behold the order of his own squadrons with open eyes, nor dared present himself to the soldiers until Agrippa had brought him news of the victory.
+Who took that sleep as an occasion to reproach Augustus afterwards that he had not the courage so much as to behold the order of his own squadrons with open eyes, nor dared present himself to the soldiers until Agrippa had brought him news of the victory. At 81:3 he is Marcus Antonius, who said that the greatness of the people of Rome was not so much seen in what they took as in what they gave.
 
 ## Agrippa · reference
 
@@ -2774,9 +2774,9 @@ Who intruded on the great man’s open table, was pointed out to the younger Cic
 
 Who found mistakes in Caesar’s own histories, into which Caesar had fallen either because he could not have his eye in all parts of his army at once, or because he trusted the particular reports of others.
 
-## Bodin · reference
+## Bodin · supporting
 
-Who has sufficiently handled the question Montaigne leaves aside there, and with whose sentiment Montaigne agrees.
+Jean Bodin, whom Montaigne calls a good author of his own times and of much greater judgment than the rout of scribblers of his age, deserving to be read and considered — and yet a little bold in the passage of his Method of history where he accuses Plutarch of ignorance and of reporting impossible things. He has sufficiently handled the question Montaigne leaves aside at 67:28, and Montaigne agrees with his sentiment there.
 
 ## Eginhard · reference
 
@@ -2892,7 +2892,7 @@ Who says that man has nothing properly his own but the use of his opinion.
 
 ## Memmius · reference
 
-The great Memmius whom Lucretius addresses in the verses on the god who first found out the reason now called wisdom. The older edition prints the name Memmus; the Latin vocative Memmi of the quotation is left unbound like every other inflection.
+The great Memmius whom Lucretius addresses in the verses on the god who first found out the reason now called wisdom. The older edition prints the name Memmus; the Latin vocative Memmi of the quotation is left unbound like every other inflection. At 90:7 the modern edition names Caius Memmius, who had written very sharp speeches against Caesar; the older edition has a lacuna there and names nobody, so that mention binds in the modern text alone. Whether Lucretius’s Memmius and Caesar’s are one man the Essays do not say.
 
 ## Eusebius · reference
 
@@ -3489,3 +3489,303 @@ The Christian poet of the Contra Symmachum, quoted against the gladiators: what 
 ## Statius · supporting
 
 The Latin poet of the Silvae, quoted for the tender sex, unskilled in arms, immodestly engaged in manly fights amidst those tumults and new sports.
+
+## Marcus Furius · reference
+
+Whom Cicero had recommended, and whom Caesar wrote back that he would make king of Gaul — and if Cicero would have him advance any other friend of his, to send him.
+
+## Mithridates · reference
+
+The gentleman of the city of Pergamus to whom Caesar gave away King Deiotarus’s kingdom — Montaigne’s instance that it was no new thing for a simple citizen of Rome to dispose of kingdoms.
+
+## Ptolemy · reference
+
+Who was a great man, and had established the bounds of this world of ours — and was deceived in it upon the foundation of his reason, which is Montaigne’s reason for not trusting what the new discoverers say either. Not either of the kings.
+
+## King Ptolemy · reference
+
+Whom some extolled for inuring his person every day to the exercise of arms, and of whom Philopoemen said it was not commendable in a king of his age to exercise himself in those things, but rather to govern. Not the Ptolemy from whom Caesar had three millions and six hundred thousand crowns; the Essays join them nowhere.
+
+## King Ptolemy · reference
+
+From whom Suetonius says Caesar once had three millions and six hundred thousand crowns, which was very like selling him his own kingdom.
+
+## Popilius · supporting
+
+Who came to Antiochus from the Senate, refused his hand until he had read the letters, drew a circle about him with his cane and said: return me an answer before thou stir out of this circle. Antiochus, astonished at the roughness of it, replied that he would obey — and Popilius then saluted him as friend of the Roman people.
+
+## Cogidunus · reference
+
+King of England, of whom Tacitus gives, by a marvellous touch, an instance of the infinite Roman power: the Romans were accustomed from all antiquity to leave the kings they had subdued in possession of their kingdoms under their authority.
+
+## Caelius · reference
+
+Martial’s man, who to avoid making his court to the great men of Rome pretended to have the gout — till Fortune did him the kindness to make him one indeed. Not the orator Caelius of 88:15.
+
+## Appian · reference
+
+In whom Montaigne thinks he has read of the man who, to escape the proscriptions of the triumvirs, counterfeited having but one eye — and having recovered his liberty, wanted to take off the plaster and found he had really lost the sight of it.
+
+## Harpaste · reference
+
+Seneca’s wife’s fool, thrown upon him as an hereditary charge, who lost her sight suddenly and kept asking to be taken out of the dark house — the instance Seneca gives Lucilius of a soul that will not see its own vice.
+
+## Caius Vatienus · reference
+
+Whom the Senate, in the time of the Italic war, condemned to perpetual imprisonment with all his goods confiscated, for having purposely cut off the thumb of his left hand to exempt himself from that expedition.
+
+## Alexander, the tyrant of Pheres · supporting
+
+Who durst not be a spectator of tragedies in the theatre for fear his citizens should see him weep at the misfortunes of Hecuba and Andromache — he who without pity caused so many people every day to be murdered. Not Alexander the Great.
+
+## Hecuba · reference
+
+One of the two whose misfortunes made him weep.
+
+## Andromache · reference
+
+The other.
+
+## Lyciscus · reference
+
+Whose penitence for the treason committed against the Orchomenians came at a season when no one remained alive of those the offence had touched — which is why Montaigne pities them.
+
+## Plancus · reference
+
+Against whom Asinius Pollio wrote a libel and forbore to publish it till he was dead: which Montaigne calls mumbling at a dead man, and worse in a worthy man than in another.
+
+## The Sieur de Mattecoulom · supporting
+
+Montaigne’s brother, asked at Rome by a gentleman he hardly knew to be his second in a duel — which Montaigne says he would not have him do again, and which gave him a domestic interest in the question. The modern edition writes him Matecoulon.
+
+## Our Duke of Orleans · supporting
+
+Who challenged the king of England, a hundred against a hundred — Montaigne’s instance that where there is troop against troop the multitude on either side is considered but as one single man. The Essays give him no more than the title.
+
+## The consul Publius Rutilius · supporting
+
+The first who taught the soldiers to handle their arms with skill, and joined art with valour — not for private quarrels but for the wars of the people of Rome. Not the Rutilius of the Itinerarium at 72:43, nor the Rutilius of Tacitus’s Agricola at 74:7.
+
+## Amycus · reference
+
+With Epeius, the introducer of the art of boxing, which Plato interdicts in the education of the children of his government because it has another end than to render youth fit for the service of war.
+
+## Epeius · reference
+
+The other of that pair.
+
+## Antaeus · reference
+
+With Cercyo, the introducer of wrestling, interdicted on the same ground.
+
+## Cercyo · reference
+
+The other of that pair. The modern edition writes him Cercyon.
+
+## The Emperor Mauricius · supporting
+
+Warned by dreams and prognostics that an obscure soldier called Phocas should kill him, and told by his son-in-law Philip that the man was pusillanimous and fearful — whereupon he concluded at once that he was therefore murderous and cruel.
+
+## Phocas · reference
+
+The obscure soldier of the prognostic, who did kill him.
+
+## Philip · reference
+
+Mauricius’s son-in-law, whom he questioned about Phocas’s nature and qualities.
+
+## Herodicus · reference
+
+Prince of Thessaly, condemned by Philip, whose two sons were killed after him and whose two widows were Theoxena and Archo.
+
+## Theoxena · supporting
+
+Herodicus’s widow, who could not be persuaded to marry again, and then married Poris out of a maternal charity towards her nephews, to have them under her own eyes; and who, when the flight by sea failed, prepared weapons and poison, set them before the children, and told them the only remaining freedom was in dying.
+
+## Archo · reference
+
+The other widow, who married Poris, the greatest man among the AEnians, and by him had a great many children, whom she left at a very tender age.
+
+## Poris · reference
+
+The greatest man among the AEnians, who married first Archo and then Theoxena, and who promised to steal the children away to Athens and commit them to faithful friends.
+
+## Chalcondylas · reference
+
+A writer of good credit, in whose records of things that happened near him Montaigne finds the Emperor Mohammed’s way of cutting men in the middle by the diaphragm with one blow of a scimitar, so that they died two deaths at once.
+
+## The Emperor Mohammed · reference
+
+Who practised that torment very often, and worse upon the Epirot lords, who were flayed alive piecemeal so malignly that they continued fifteen days in that misery; and who won Constantinople and finally exterminated the Grecian name. The modern edition writes him Mehmed.
+
+## Pantaleon · reference
+
+Croesus’s brother, whose favourite Croesus seized and had carded to death with the cards and combs of a fuller’s shop.
+
+## George Sechel · supporting
+
+Chief commander of the peasants of Poland, who committed so many mischiefs under the title of the Crusade; defeated and taken by the Vayvode of Transylvania, he was three days bound naked on the rack, and at the end of it made his beloved brother Lucat drink his blood while he looked on, and twenty of his most favoured captains feed upon him.
+
+## Lucat · reference
+
+His beloved brother, for whom alone he entreated, and who took the blame of all their evil actions on himself.
+
+## Quintus Flaminius · reference
+
+Of whom it is reported that, being general of an army, he was seen praying apart in the time of a battle that he won — which Montaigne sets beside Cato the Censor learning Greek in his extreme old age, as things done out of their season.
+
+## Eudemonidas · reference
+
+Who, seeing Xenocrates very old and still very intent upon his school lectures, asked when this man would be wise if he were yet learning.
+
+## Cybele · reference
+
+The goddess whose priests gelded themselves upon mature consideration and upon the account of religion — which Montaigne sets against the man who did it out of a sudden and violent humour.
+
+## Calanus · supporting
+
+One of the Indian philosophers who, having lived long enough and taken leave of his friends, threw himself into the fire before Alexander and all his army.
+
+## Huniades · supporting
+
+Whose army stood ready to join battle with Amurath’s when the young Turkish lord made his first sally into arms. The modern edition writes him Hunyadi.
+
+## The Prince of Orange · reference
+
+Whose death two men conspired at a fortnight’s distance — the more admirable effect of resolution, Montaigne says, than anything else in his memory: the second going with the same arms and the same method against a lord armed with so recent a lesson of distrust, powerful in followers, in his own hall and amidst his guards.
+
+## Jehan de Jaureguy · reference
+
+The first of the two, who wounded the Prince on 18 March 1582. Montaigne does not name either man; the editor’s bracketed note does.
+
+## Balthazar Gerard · reference
+
+The second, by whom the Prince was killed on 10 July 1584.
+
+## Raymond, Count of Tripoli · reference
+
+Assassinated in the heart of his own city during the enterprises of the Holy War, by the nation from whose name the word is derived.
+
+## Conrad, Marquis of Monteferrat · reference
+
+Likewise, his murderers at their execution bearing themselves with great pride and glory that they had performed so brave an exploit.
+
+## The Assassins · reference
+
+A nation bordering upon Phoenicia, reputed among the Mohammedans a people of very great devotion and purity of manners, who hold paradise to be a reward for killing one of a contrary religion — and from whose name the word assassination comes.
+
+## The Cyclopes · reference
+
+After whose manner, Aristotle says, most civil governments leave every man the ordering of his wives and children according to his own foolish and indiscreet fancy.
+
+## Caius Rabirius · reference
+
+Whom Caesar had condemned, and in whose favour the people determined the cause upon appeal — the thing that most prevailed upon them being the animosity and vehemence Caesar had shown in the sentence. Not the Rabirius of the inform style at 74:26.
+
+## Archytas Tarentinus · supporting
+
+Who, returning from a war he had commanded in, found his house in great disorder and his lands out of tillage through his receiver’s ill husbandry, and told the man he was fortunate that he was angry — for otherwise he should not have escaped being handled as he deserved. The modern edition writes him Archytas of Tarentum.
+
+## Carillus · reference
+
+A Lacedaemonian, who said to a helot that carried himself insolently towards him: by the gods, if I were not angry I would presently cause thee to be put to death. The modern edition writes him Charillus.
+
+## Caelius · reference
+
+The orator, wonderfully choleric by nature, to whom a supper companion of a soft and gentle conversation contradicted nothing for fear of angering him — until Caelius cried out, contradict me in something, that we may be two. The older edition prints him Celius.
+
+## Labienus · reference
+
+One of the captains whose names Montaigne says are obscured by the splendour of other names of less desert, with Ventidius and Telesinus. Not the orator of 65:39 nor his father.
+
+## Ventidius · reference
+
+Another of them.
+
+## Telesinus · reference
+
+The third.
+
+## Camillus · supporting
+
+Whom Montaigne says was much less comparable to Themistocles than Plutarch’s pairing makes him — one of the unequal companions he thinks Plutarch gave the Greeks.
+
+## The Gracchi · reference
+
+Whom the same complaint pairs with Agis and Cleomenes.
+
+## Epicharis · supporting
+
+Who tired and glutted the cruelty of Nero’s satellites a whole day together — their fire, their beating, their racks — without one syllable of confession of her conspiracy, and the next day strangled herself with her own girdle: which makes Montaigne presume she had purposely lent her life to the trial of her fortitude the day before, to mock the tyrant.
+
+## Lais · supporting
+
+The beautiful and famous courtesan whom Xenocrates’s disciples slipped naked into his bed to try his continency, and whose beauty so far mutinied his unruly flesh that he gelded the members that had lent themselves to the revolt.
+
+## Cleopatra · supporting
+
+Queen of Egypt, whose maidenhead Caesar had — witness the little Caesario she bore him.
+
+## Caesario · reference
+
+The little son Cleopatra bore Caesar. The modern edition writes him Caesarion.
+
+## Eunoe · reference
+
+Queen of Mauritania, another of Caesar’s amours.
+
+## Posthumia · reference
+
+The wife of Servius Sulpitius, another of them. The modern edition writes her Postumia.
+
+## Servius Sulpitius · reference
+
+Her husband. The modern edition writes him Servius Sulpicius.
+
+## Lollia · reference
+
+The wife of Gabinius, another of them.
+
+## Gabinius · reference
+
+Her husband.
+
+## Tertulla · reference
+
+The wife of Crassus, another of them.
+
+## Mutia · reference
+
+The wife of the great Pompey, and — the Roman historians say, though Plutarch confesses it to be more than he knew — the reason Pompey repudiated her. The modern edition writes her Mucia.
+
+## The Curios · reference
+
+Father and son, who afterwards reproached Pompey, when he married Caesar’s daughter, that he had made himself son-in-law to a man who had made him cuckold.
+
+## AEgisthus · reference
+
+The name Pompey himself was wont to use for Caesar. The modern edition writes it Aegisthus.
+
+## Servilia · supporting
+
+Cato’s sister and Marcus Brutus’s mother, whom Caesar entertained — whence, every one believes, proceeded the great affection he had to Brutus, he having been born at a time when it was likely he might be his son. It was a love-letter of hers that Cato threw back to Caesar in the Senate, during the question of Catiline’s conspiracy, saying: there, drunkard.
+
+## Ladislaus · supporting
+
+King of Naples, who having reduced Florence by a close and tedious siege was content to raise it for a beautiful maid, took her — and found in her bed a writing which her father had given her to keep her honour, to say she was diseased.
+
+## Caius Calvus · reference
+
+Who had composed several injurious epigrams against Caesar, and whom Caesar voluntarily persuaded himself to write to first, when Calvus employed friends to mediate a reconciliation.
+
+## Mamurra · reference
+
+The name under which Catullus had so rudely ruffled Caesar — and Catullus, coming to offer his excuses, was made to sit at his table the same day.
+
+## Caius Oppius · reference
+
+Caesar’s companion on a journey, who finding himself ill was left the only lodging there was, Caesar lying all night on the hard ground in the open air; and who relates how Caesar, having medicated instead of common oil set before him in a sauce, ate heartily of it that he might not put his entertainer out of countenance. The bare Oppius at 49:27 is a name and not this man.
+
+## Spurina · central
+
+A young man of Tuscany, so endowed with singular beauty and so excessive that the chastest eyes could not chastely behold it — who, rather than let that beauty inflame others, wounded and disfigured the perfect proportion and order of his features with his own hand. Montaigne says he has met with few examples of a man who would condemn his own beauty for his neighbour’s interest, and that this is one.
