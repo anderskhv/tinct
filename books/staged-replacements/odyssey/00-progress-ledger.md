@@ -6,6 +6,21 @@ Kept current at every push.
 
 ## Done
 
+- 2026-09-13 — **Book 10 drafted and FROZEN; Book 9 ACCEPTED; the source is
+  PINNED.** Three package-level repairs came out of Book 9's round 1 and all
+  three are in: **A11** (`scripts/pg_source.py` re-derives every chapter from
+  PG #1727, whose bytes are hashed and re-downloadable; clause (b4) of
+  `verify_manifest`; `Gate.source_failures`, which no declaration reaches),
+  **D28** (the dividing marks by mark identity, with the class changes named
+  by paragraph), and **`checks.py --prose`** (every figure-bearing table row
+  of every committed record, against the figures its candidates produce — 337
+  numbers). `scripts/attack_source_pin.py` is eleven attacks on the repair and
+  names the one that passes. **D29**: a repair restores Butler's word; it does
+  not paraphrase. **A7 is resolved into three hashed options** with **B+**
+  recommended. And a defect found by adding D5 row 14: `Mars → Ares` was in
+  the prose table and not in `NAME_MAP`, so Book 8 was charged retention on
+  thirteen tokens for obeying D5 — republished 0.93862 → 0.94093.
+
 - 2026-09-13 — **Book 9's round 1 is done and the package's own retention
   figure was wrong in four places.** `book09/review/findings-v1.md`: 7
   substantive, 9 minor, 8 records, 3 optional, all 44 paragraphs ruled
@@ -538,7 +553,32 @@ accepted files, and every row carries its basis. Nothing here is typed by hand.
 | **7 v2 (ACCEPTED)** | **`candidate-v2`** | **all 29 paragraphs** | **0.93438** | **103 → 138** | **+34.0%** | **7 → 0** | **30 → 7** | **+9.0%** | **0.01217** |
 | 8 v1 *(superseded)* | `candidate-v1` | all 50 paragraphs | 0.94075 | 192 → 244 | +27.1% | 11 → 0 | 42 → 0 | +4.3% | 0.00692 |
 | **8 v2 (ACCEPTED)** | **`candidate-v2`** | **all 50 paragraphs** | **0.94093** | **192 → 235** | **+22.4%** | **11 → 1** | **42 → 7** | **+3.4%** | **0.00692** |
-| **9 v1 (round 1 done)** | **`candidate-v1`** | **all 44 paragraphs** | **0.92181** | **171 → 207** | **+21.1%** | **16 → 0** | **54 → 24** | **+2.7%** | **0.01266** |
+| 9 v1 *(superseded)* | `candidate-v1` | all 44 paragraphs | 0.92181 | 171 → 207 | +21.1% | 16 → 0 | 54 → 24 | +2.7% | 0.01266 |
+| **9 v2 (ACCEPTED)** | **`candidate-v2`** | **all 44 paragraphs** | **0.92284** | **171 → 203** | **+18.7%** | **16 → 1** | **54 → 26** | **+1.8%** | **0.01232** |
+| **10 v1 (FROZEN)** | **`candidate-v1`** | **all 49 paragraphs** | **0.93645** | **175 → 214** | **+22.3%** | **12 → 2** | **44 → 11** | **+2.7%** | **0.00908** |
+
+**D28 — the dividing marks BY IDENTITY, which is the column that is COMPARED
+from Book 9 forward.** D27 asks whether Butler's mark in the aligned span was
+*a member* of `{; : —}`; D28 asks whether it was *the same mark*. Book 9's
+round 1 (S-1) found the difference is not nothing: its v1 cashed two of
+Butler's colons and wrote two of its own over his semicolons, the class census
+read `: 7 → 7`, and the compared figure moved 0.8 points. Every Book is
+republished on the strict basis **with the D27 column kept beside it** (R-1).
+
+| | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | **9 v2** | **10 v1** |
+|---|---|---|---|---|---|---|---|---|---|---|
+| dividing marks, Butler → candidate (D27) | 55→39 | 58→61 | 53→47 | 103→81 | 64→35 | 38→16 | 42→18 | 62→31 | **71→45** | **60→26** |
+| — kept + added (D27, membership) | 20+19 | 36+25 | 39+8 | 80+0 | 34+1 | 14+2 | 14+4 | 24+7 | **45+0** | **26+0** |
+| — **kept + class-changed + added (D28)** | 17+3+19 | 32+4+25 | 38+1+8 | 79+1+0 | 34+0+1 | 13+1+2 | 14+0+4 | 24+0+7 | **43+2+0** | **26+0+0** |
+| NORM RATE, D27, on Butler's pointing | −4.3% | +0.0% | −2.3% | +0.5% | +2.8% | +5.2% | +4.8% | +2.0% | **+2.5%** | **+2.1%** |
+| **NORM RATE, D28, by identity — COMPARED** | **−5.9%** | **−2.1%** | **−2.8%** | **+0.3%** | **+2.8%** | **+4.5%** | **+4.8%** | **+2.0%** | **+1.7%** | **+2.1%** |
+
+**Six of the ten Books move.** The largest gaps are Book 2 (+0.0% → −2.1%,
+four of its 61 marks are a different mark from Butler's) and Book 1 (−4.3% →
+−5.9%, three). **Books 7, 8 and 10 do not move at all**, because none of their
+marks is a class change — and Book 10 is the only one of the three that
+*asserts* it: its drafter refuses to write the file if `changed` is non-zero,
+which is Book 9's finding turned into a gate rather than into a table.
 
 **And the column that replaces the last-but-one, decided as D21.** The NORM
 RATE above is the published one, which credits a comma raised to a semicolon
