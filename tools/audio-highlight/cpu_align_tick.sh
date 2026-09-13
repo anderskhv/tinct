@@ -21,6 +21,16 @@ BUDGET="${2:-2700}"
 TOOLS="$(cd "$(dirname "$0")" && pwd)"
 export TINCT_TRIAL_MODEL="$WORK/model"
 
+# One run per work directory, enforced rather than assumed. trial.py detaches
+# its worker with start_new_session, so a second invocation does not inherit or
+# notice the first: both workers then write the same pNN.diagnostic.json.tmp and
+# whichever renames second dies with FileNotFoundError, killing the run. That is
+# not hypothetical — it is how the 2026-09-13 08:00 run died after seven
+# minutes, because a mistyped shell chain had already started a worker.
+mkdir -p "$WORK"
+exec 9>"$WORK/.lock"
+flock -n 9 || { echo "another tick is already running in $WORK; leaving it alone"; exit 0; }
+
 [ -d "$WORK/cohort/cohort.json" ] 2>/dev/null || [ -f "$WORK/cohort/cohort.json" ] || {
   echo "no cohort at $WORK/cohort/cohort.json"; exit 2; }
 
