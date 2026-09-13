@@ -63,6 +63,7 @@ pointing**, +5.6% here against the +7.0% the unsplit measure gives.
 | Book 4 | all 81 paragraphs | 0.95872 | 281 → 306 | +8.9% | 17 → 3 | 68 → 50 | +2.0% | 0.00431 |
 | Book 5 | all 37 paragraphs | 0.93808 | 153 → 189 | +23.5% | 9 → 1 | 34 → 13 | +8.0% | 0.00891 |
 | Book 6 | all 26 paragraphs | 0.93408 | 116 → 148 | +27.6% | 7 → 1 | 27 → 5 | +7.0% | 0.01156 |
+| Book 7 | all 29 paragraphs | 0.93438 | 103 → 138 | +34.0% | 7 → 0 | 30 → 7 | +9.0% | 0.01217 |
 
 Book 3's row is the reason this column exists. Its published figures
 are computed on **37 of its 38 paragraphs** — B03-P038, the **D14**
@@ -237,7 +238,7 @@ arrows, across all Books, are `scripts/rendering_collisions.py`.
 `scripts/compound_drift.py`, keyed on separator-stripped letters so
 closed, hyphenated and open settings of one compound collide.
 
-Result over book01, book02, book03, book04, book05, book06: **no drift**.
+Result over book01, book02, book03, book04, book05, book06, book07: **mountaintops {'closed': ['book05', 'book06'], 'open': ['book06-v2']}**.
 
 ## 11. The closing-compound filter (H.1, interim)
 

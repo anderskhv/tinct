@@ -478,13 +478,16 @@ ACCEPTED = {
     1: ("book01/source-book1.json", "book01/candidate-v2.json",
         "book01/candidate-v3.json"),
     2: ("book02/source-book2.json", "book02/candidate-v2.json",
-        "book02/candidate-v5.json"),
+        "book02/candidate-v6.json"),
     3: ("book03/source-book3.json", "book03/candidate-v2.json",
         "book03/candidate-v3.json"),
     4: ("book04/source-book4.json", "book04/candidate-v2.json",
         "book04/candidate-v4.json"),
-    5: ("book05/source-book5.json", "book05/candidate-v2.json", None),
-    6: ("book06/source-book6.json", "book06/candidate-v2.json", None),
+    5: ("book05/source-book5.json", "book05/candidate-v2.json",
+        "book05/candidate-v3.json"),
+    6: ("book06/source-book6.json", "book06/candidate-v2.json",
+        "book06/candidate-v3.json"),
+    7: ("book07/source-book7.json", "book07/candidate-v2.json", None),
 }
 
 # Every figure the package publishes for an accepted Book, on that Book's own
@@ -505,6 +508,8 @@ PUBLISHED = {
             norm=+8.0, movegap=0.00891, norm_butler=+7.5, kept_added=(12, 1)),
     6: dict(retention=0.93408, sent=(116, 148), sixty=(7, 1), semi=(27, 5),
             norm=+7.0, movegap=0.01156, norm_butler=+5.6, kept_added=(3, 2)),
+    7: dict(retention=0.93438, sent=(103, 138), sixty=(7, 0), semi=(30, 7),
+            norm=+9.0, movegap=0.01217, norm_butler=+7.5, kept_added=(5, 2)),
 }
 
 
@@ -566,7 +571,7 @@ DECLARED = {
         reason="the compound successor; identical to v2 on all four measures."),
     "book02/candidate-v2.json": _decl(
         growth=[(19, 49, 50), (28, 57, 58)],
-        compound=["mixingbowls", "seashore", "waterside"],
+        compound=["mixingbowls", "seashore", "storeroom", "waterside"],
         reason="the three compounds are what the SUCCESSORS v3-v5 exist to "
                "correct, so the accepted file necessarily disagrees with the "
                "shipping corpus; that is the successor working, not drift "
@@ -575,6 +580,13 @@ DECLARED = {
     "book02/candidate-v3.json": _decl(growth=[(19, 49, 50), (28, 57, 58)]),
     "book02/candidate-v4.json": _decl(growth=[(19, 49, 50), (28, 57, 58)]),
     "book02/candidate-v5.json": _decl(growth=[(19, 49, 50), (28, 57, 58)]),
+    "book02/candidate-v6.json": _decl(
+        growth=[(19, 49, 50), (28, 57, 58)],
+        reason="ledger A6 (`councillors` -> `councilors`, two words, D9) and "
+               "A5(c) (`store-room` -> `storeroom`, two words, D15) in ONE "
+               "successor. `store-room` was found by "
+               "`scripts/compound_register.py` the first time it ran and had "
+               "never been named by a reader, a review round or a check."),
     "book03/candidate-v2.json": _decl(
         growth=[(11, 64, 66), (13, 69, 72), (24, 56, 58), (24, 73, 74)],
         compound=["seashore"],
@@ -599,9 +611,27 @@ DECLARED = {
         growth=[(18, 53, 54), (28, 54, 56), (76, 61, 62)],
         reason="the fifth successor (ledger A4(i)); the arrow-B repair at "
                "B04-P010 moves no sentence length."),
-    "book05/candidate-v2.json": _decl(),
-    "book06/candidate-v2.json": _decl(),
+    "book05/candidate-v2.json": _decl(
+        compound=["mountaintops"],
+        reason="ledger A5(a): `mountain tops` is corrected in the successor "
+               "v3, so the accepted file necessarily disagrees with the "
+               "shipping corpus. That is the successor working, not drift "
+               "arriving — the same shape Books 2, 3 and 4 already declare."),
+    "book05/candidate-v3.json": _decl(
+        reason="ledger A5(a): `mountain tops` -> `mountaintops`, one word, D15."),
+    "book06/candidate-v2.json": _decl(
+        compound=["mountaintops"],
+        reason="records finding R-6: the SECOND instance, which "
+               "`book06/ACCEPTANCE.md` O-6 did not count. Corrected in the "
+               "successor v3."),
+    "book06/candidate-v3.json": _decl(
+        reason="ledger A5(a) and records finding R-6: the SECOND successor the "
+               "record said was one. Same one-word change as Book 5's."),
     "book07/candidate-v1.json": _decl(),
+    "book07/candidate-v2.json": _decl(
+        reason="the accepted file. Declares nothing: no byte-identical "
+               "paragraph, no paragraph under 0.90, no sentence grown past 50, "
+               "no compound drift."),
 }
 
 

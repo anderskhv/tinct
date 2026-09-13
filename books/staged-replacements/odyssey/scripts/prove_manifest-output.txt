@@ -1,46 +1,46 @@
 Prove, by planting the defects, that the manifest and the three
 
 1. control — the package as committed
-  ✓ checks.py 7 passes on the frozen candidate
-      | (133 → 137 normalized, S-1)
-      | semicolons Butler → cand   30 → 14  (D19)
-      | of which kept / added      8 kept + 6 added  (S-1)
-      | sentences grown to 40+     3 (0 may fail at 50+)
+  ✓ checks.py 7 passes on the accepted candidate
+      | (133 → 143 normalized, S-1)
+      | semicolons Butler → cand   30 → 7  (D19)
+      | of which kept / added      5 kept + 2 added  (S-1)
+      | sentences grown to 40+     2 (0 may fail at 50+)
   ✓ --manifests verifies every Book
       | ✓ book04  no checks block (predates the rule, declared)
       | ✓ book05  no checks block (predates the rule, declared)
-      | ✓ book06  checks a1141adf over book06/candidate-v2.json
-      | ✓ book07  checks da19d4a1 over book07/candidate-v1.json
+      | ✓ book06  checks 34937f90 over book06/candidate-v2.json
+      | ✓ book07  checks 54acaec8 over book07/candidate-v2.json
 
 2. S-2 — a stale checks hash (the defect that was actually there)
   ✓ --manifests rejects the stale hash and exits non-zero
-      | ✗ manifest: book07 records checks.sha256 00000000 but book07/checks-v1.md hashes to da19d4a1 — STALE
+      | ✗ manifest: book07 records checks.sha256 00000000 but book07/checks-v2.md hashes to 54acaec8 — STALE
   ✓ checks.py 7 also rejects it, in the Book's own run
-      | own to 40+     3 (0 may fail at 50+)
-      | candidate sentences 40+    17 (absolute)
+      | own to 40+     2 (0 may fail at 50+)
+      | candidate sentences 40+    10 (absolute)
       | displaced runs             1
       | H.1 head-noun pairs        23
 
 3. S-2 — the candidate moved under the manifest
   ✓ --manifests rejects a candidate whose bytes moved
-      | ✗ manifest: book07 records candidate_sha256 bf8cf2f7 but book07/candidate-v1.json hashes to b0247bf9 — the can
+      | ✗ manifest: book07 records candidate_sha256 e79eb82b but book07/candidate-v2.json hashes to b16e2466 — the can
 
 4. S-2 — a failing candidate cannot acquire a manifest
   ✓ checks.py 7 fails the planted candidate
       | 1
       | H.1 head-noun pairs        23
       | MANIFEST FAILED (S-2 read side):
-      | ✗ manifest: book07 records candidate_sha256 bf8cf2f7 but book07/candidate-v1.json hashes to 348af29d — the can
+      | ✗ manifest: book07 records candidate_sha256 e79eb82b but book07/candidate-v2.json hashes to b3abe816 — the can
   ✓ --write-manifest REFUSES to write a manifest for it
       | in
       | block = manifest_checks_block(f, g)     # raises unless evaluated+passed
       | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-      | File "/tmp/odyssey-prove-5q9bzlwz/odyssey/scripts/checks.py", line 724, in manifest_checks_block
+      | File "/tmp/odyssey-prove-7aseyiwq/odyssey/scripts/checks.py", line 754, in manifest_checks_block
   ✓ the manifest already on disk no longer vouches for it
       | e, declared)
       | ✓ book05  no checks block (predates the rule, declared)
-      | ✓ book06  checks a1141adf over book06/candidate-v2.json
-      | ✗ manifest: book07 records checks.sha256 da19d4a1 but book07/checks-v1.md hashes to 228bdf50 — STALE
+      | ✓ book06  checks 34937f90 over book06/candidate-v2.json
+      | ✗ manifest: book07 records checks.sha256 54acaec8 but book07/checks-v2.md hashes to f7f43e7c — STALE
 
 5. S-2 — an empty failure list is not a pass
   ✓ a never-evaluated Gate is refused (evaluated=False, failures=[])
@@ -48,9 +48,9 @@ Prove, by planting the defects, that the manifest and the three
 
 6. S-3 and R-5 — three enumerations, both directions
   ✓ byte-identical: an UNDECLARED instance appears (Book 7 declares none)
-      | ✗ manifest: book07 records candidate_sha256 bf8cf2f7 but book07/candidate-v1.json hashes to 82f8372b — the can
+      | ✗ manifest: book07 records candidate_sha256 e79eb82b but book07/candidate-v2.json hashes to 53ce584f — the can
       | ✗ manifest: book07 asserts all_gates_passed: true, and 1 gate(s) just failed
-      | ✗ byte-identical paragraphs [2], but book07/candidate-v1.json declares []
+      | ✗ byte-identical paragraphs [2], but book07/candidate-v2.json declares []
   ✓ byte-identical: a DECLARED instance goes away (Book 4 declares seven)
       | ✗ byte-identical paragraphs [54, 61, 63, 70, 79, 80], but book04/candidate-v2.json declares [39, 54, 61, 63, 7
   ✓ thin paragraphs: an UNDECLARED thin paragraph appears in Book 1
@@ -60,6 +60,6 @@ Prove, by planting the defects, that the manifest and the three
   ✓ R-5: membership missed the second identical growth; multiplicity catches it
       | membership -> [] (silent);  multiset -> [(5, 49, 50)] (fires)
   ✓ the package itself is byte-unchanged by this proof
-      | ed3367c130176fda == ed3367c130176fda
+      | 0b3dff803d0c0551 == 0b3dff803d0c0551
 
 15 assertions, 15 passed.

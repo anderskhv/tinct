@@ -6,7 +6,7 @@ of `book07/review/findings-v1.md`: the check returned seventy-two rows touching
 Book 7, eleven were acted on, and sixty-one were dismissed with no record of
 having been read. This file is that record, and it is generated, not typed.
 
-**82 rows touch Book 7.**
+**81 rows touch Book 7.**
 
 | disposition | rows |
 |---|---|
@@ -18,7 +18,7 @@ having been read. This file is that record, and it is generated, not typed.
 | `phrase-not-word` | 2 |
 | `same-referent` | 2 |
 | `unavoidable-merge` | 3 |
-| `variant` | 13 |
+| `variant` | 12 |
 
 The vocabulary is defined in the script's docstring. `homograph`,
 `same-referent`, `unavoidable-merge` and `phrase-not-word` are new here;
@@ -26,13 +26,12 @@ The vocabulary is defined in the script's docstring. `homograph`,
 
 ## ARROW A — one Butler word, two or more renderings, across Books
 
-15 rows.
+14 rows.
 
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
 | `became` | `became` (B7-P012) | **`kept`** | every entry Book 7 contributes is Butler's own `became` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `closely` | `closely` (B7-P010) | **`kept`** | every entry Book 7 contributes is Butler's own `closely` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `councillors` | `councilors` (B7-P018) | **`variant`** | every rendering in the row reduces to `councilor` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `depart` | `to leave` (B7-P022) | **`variant`** | every rendering in the row reduces to `leave` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `dwells` | `dwells` (B7-P021) | **`kept`** | every entry Book 7 contributes is Butler's own `dwells` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `endowed` | `endowed` (B7-P011) | **`kept`** | every entry Book 7 contributes is Butler's own `endowed` carried through unchanged; the decision in this row belongs to whichever Book moved |

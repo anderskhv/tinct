@@ -83,7 +83,7 @@ def main():
     print("1. control — the package as committed")
     w = fresh()
     rc, out = run(w, "7")
-    expect("checks.py 7 passes on the frozen candidate", rc == 0 and
+    expect("checks.py 7 passes on the accepted candidate", rc == 0 and
            "all gates pass" in out, out[-300:])
     rc, out = run(w, "--manifests")
     expect("--manifests verifies every Book", rc == 0, out[-300:])
@@ -107,7 +107,7 @@ def main():
     # ---- 3. S-2(b): the candidate moving under the manifest is rejected. --
     print("\n3. S-2 — the candidate moved under the manifest")
     w = fresh()
-    edit_json(w / "book07/candidate-v1.json",
+    edit_json(w / "book07/candidate-v2.json",
               lambda d: d["paragraphs"].__setitem__(
                   28, d["paragraphs"][28] + " And so they slept."))
     rc, out = run(w, "--manifests")
@@ -128,11 +128,11 @@ def main():
         d["paragraphs"][1] = src["paragraphs"][1]          # byte-identical
         d["paragraphs"][10] = d["paragraphs"][10].replace("townspeople",
                                                           "town people")
-    edit_json(w / "book07/candidate-v1.json", plant)
+    edit_json(w / "book07/candidate-v2.json", plant)
     rc, out = run(w, "7", "--no-write")
     expect("checks.py 7 fails the planted candidate", rc != 0 and
            "GATES FAILED" in out, out[-400:])
-    rc, out = run(w, "7", "--version", "1", "--write-manifest")
+    rc, out = run(w, "7", "--version", "2", "--write-manifest")
     expect("--write-manifest REFUSES to write a manifest for it",
            rc != 0 and "no manifest may be written" in out, out[-400:])
     # and the manifest already on disk does not silently vouch for it
@@ -157,9 +157,9 @@ def main():
     print("\n6. S-3 and R-5 — three enumerations, both directions")
     cases = [
         ("byte-identical: an UNDECLARED instance appears (Book 7 declares none)",
-         "book07/candidate-v1.json",
+         "book07/candidate-v2.json",
          lambda d, s: d["paragraphs"].__setitem__(1, s["paragraphs"][1]),
-         7, "but book07/candidate-v1.json declares []"),
+         7, "but book07/candidate-v2.json declares []"),
         ("byte-identical: a DECLARED instance goes away (Book 4 declares seven)",
          "book04/candidate-v2.json",
          lambda d, s: d["paragraphs"].__setitem__(
