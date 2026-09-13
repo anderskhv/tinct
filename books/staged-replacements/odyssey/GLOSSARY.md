@@ -832,3 +832,46 @@ what made each of them the obvious choice rather than one of several.
 **What D29 does not do.** It cannot say that a restored word is *right*, only
 that it is Butler's. Blind spot 7 — *whether an arrow's repair is right* —
 stands.
+
+---
+
+## D30 — the SOURCE is pinned to Project Gutenberg, and the pin is not declarable
+
+**From substantive finding S-6 / attack A11 of Book 9's round 1.**
+
+Every figure, census and gate this package publishes is computed against
+`bookNN/source-bookN.json`. Until 2026-09-13 that file was **loaded by naming
+convention** — `load("book%02d/source-book%d.json")` — and its sha256 appeared
+in no manifest, no `ACCEPTED`, `DECLARED` or `SUPERSEDED` row, and no
+assertion of `prove_manifest.py`. The reviewer demonstrated it twice, 13 of
+13: rewrite twelve of Butler's full stops and the published rate moves nine
+points with every instrument exiting 0; or remove one comma, which no recorded
+figure can see, and nothing needs regenerating at all.
+
+**D30, in four clauses:**
+
+1. **PG #1727 is hashed**, `ffbdb29c…`, 717 784 bytes, and the hash is
+   traceable outward rather than inward: `https://www.gutenberg.org/ebooks/
+   1727.txt.utf-8` was re-downloaded and is byte-identical, so a third party
+   with no access to this repository can reproduce the anchor.
+2. **Every source file must RE-DERIVE from it**, between PG's own structural
+   markers, in the space every published measure is computed in. A recorded
+   hash of a file this package also writes is a promise it makes to itself;
+   a derivation from a public artefact is not.
+3. **The divergences are ENUMERATED, bounded at four, and each carries a
+   written reason** — ledger A7 made load-bearing, asserted as set equality in
+   both directions over all 24 chapters. A fifth fails; an enumerated one that
+   heals fails.
+4. **There is no declarable escape.** `Gate.source_failures` is not
+   `Gate.failures`: no key of `DECLARED` reaches it, and
+   `manifest_checks_block()` refuses over it, so A9's *declare it and re-run*
+   cannot be applied to Butler.
+
+**What D30 does NOT buy, stated because three previous claims of soundness
+were wrong.** `scripts/attack_source_pin.py` runs eleven attacks and **the
+eleventh passes**: edit the source, the served `original-en`, PG's own text
+and the `PG_SHA256` constant, in one commit. That is A9's shape with a larger
+price — four files, one of which this package is forbidden to write and one of
+which is a number somebody else publishes. A hash cannot make its anchor
+unfalsifiable.
+

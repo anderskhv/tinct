@@ -14,9 +14,8 @@ one for three Books.
 
 ## 1. Verdict
 
-**GATES FAILED — this candidate cannot be frozen.**
+**All gates pass.**
 
-- cross-Book compound drift ['lowlying (attributive)', 'seashore', 'welldisposed'], but book04/candidate-v2.json declares ['lowlying', 'seashore', 'welldisposed'] — lowlying (attributive) {'hyphenated': ['book04', 'book05'], 'open': ['book04-v2']}; seashore {'closed': ['book02', 'book03', 'book04', 'book05', 'book08', 'book09'], 'open': ['book04-v2']}; welldisposed {'hyphenated': ['book04'], 'open': ['book04-v2']}
 
 ## 2. The figures
 

@@ -74,6 +74,17 @@ data, and saved reading positions all key on that same paragraph index.
    `candidate-v2.json` (and v3 if a second round is needed), list every
    change by paragraph ID with the finding it answers, re-check each changed
    passage against the source, and note any finding not applied and why.
+
+   **Then RE-RUN the collision check and the compound register over the
+   corrected file, and rule whatever the repairs opened.** Blind spot 15 is
+   *a repair that re-creates its own collision somewhere else in the same
+   draft*, and Book 9's round 1 found the instance by reading PG by hand:
+   the P020 repair restored Butler's `clutched up` to protect his `snatched`
+   at P036 while the same draft wrote `snatch` at P019. **Book 9's own v2
+   then opened a new row** (`answer`, at P017/P019) and Book 10's draft
+   opened several — and every one of them was caught **only because the check
+   was run again after the repairs**. A repair is an edit to the text and
+   gets the same instruments a draft gets.
 7. **Read the complete Book for flow.** A continuous read of the corrected
    candidate for voice, pacing, repetition, terminology, and transitions.
    Record Book-level findings and fixes.

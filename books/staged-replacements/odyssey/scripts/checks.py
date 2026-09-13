@@ -855,12 +855,18 @@ DECLARED = {
     "book04/candidate-v2.json": _decl(
         byte_identical=[39, 54, 61, 63, 70, 79, 80],
         growth=[(18, 53, 55), (28, 54, 56), (76, 61, 62)],
-        compound=["lowlying", "seashore", "welldisposed"],
+        compound=["lowlying (attributive)", "seashore", "welldisposed"],
         reason="the seven byte-identical paragraphs were examined one by one "
                "and left because they are already plain modern English in "
                "Butler (`book04/continuity.md` \u00a76). P018's growth is "
                "**53 \u2192 55 in this file**; the 53 \u2192 54 the old "
-               "book-keyed table declared is the successor's figure."),
+               "book-keyed table declared is the successor's figure. "
+               "**`lowlying` became `lowlying (attributive)` on 2026-09-13**, "
+               "when `compound_drift()` was made position-aware (Book 9 round "
+               "1, question 4): the drift is between Book 4 and 5's "
+               "premodifying `low-lying` and this file's open `low lying` in "
+               "the same position, and the key now says which position it is "
+               "in. The row is the same row; only its name carries more."),
     "book04/candidate-v3.json": _decl(
         byte_identical=[39, 54, 61, 63, 70, 79, 80],
         growth=[(18, 53, 54), (28, 54, 56), (76, 61, 62)],
@@ -897,14 +903,6 @@ DECLARED = {
     "book06/candidate-v3.json": _decl(
         reason="ledger A5(a) and records finding R-6: the SECOND successor the "
                "record said was one. Same one-word change as Book 5's."),
-    "book09/candidate-v1.json": _decl(
-        reason="the frozen draft. **Declares nothing**, which is the point: no "
-               "byte-identical paragraph, no paragraph under 0.90 of its "
-               "source's length, no sentence grown past 50 words, no compound "
-               "drift against the other eight Books — and, under D27, no "
-               "dividing mark that is not Butler's own. A file absent from "
-               "this table gets every gate at full strength; a file present "
-               "with an empty declaration says so out loud."),
     "book10/candidate-v1.json": _decl(
         growth=[(44, 53, 54)],
         reason="the frozen draft. **One declaration, and the compound check "
