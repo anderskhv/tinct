@@ -226,6 +226,55 @@ Kept current at every push.
   Book 5's round 1. **The first successor in the package found by a check
   rather than by a reader.**
 
+- 2026-09-13 — **Book 7 round 1 applied and Book 7 ACCEPTED** at
+  `candidate-v2.json` `e79eb82b…`. 29 substitutions in 16 of 29 paragraphs,
+  every finding answered either way (**D11**), three declined with reasons and
+  asserted still present. **S-1's figure was EARNED rather than declared**:
+  NORM RATE on Butler's own pointing +3.0% → **+7.5%**, semicolons 14 → 7 with
+  additions 6 → 2. Flow read found one defect **this round's own correction had
+  created** — M-2's literal repair collapses Butler's `home` and `abode` five
+  words apart in one clause at B07-P020.
+- 2026-09-13 — **Three findings of Book 7's round 1 pushed back on, with
+  reasons, and all three recorded in `book07/ACCEPTANCE.md`.** (a) The "fifth of
+  seven" ranking compares bases (R-1's disease); on like against like v1 was
+  third. (b) **O-7's proposed repair repairs nothing** — it offers `lone
+  traveler` to avoid a merge and the candidate already writes `solitary
+  traveler`; the merge is untouched either way. (c) **M-7's prose says four
+  periods and its own table rules three**, and three plus five is the eight
+  S-1 establishes; the table governs.
+- 2026-09-13 — **The three infrastructure repairs shipped** (**D22**, **D23**,
+  **R-4**), with `scripts/prove_manifest.py` planting each defect and asserting
+  the rejection. **`--all` evaluating the gates for the first time immediately
+  found a mixed basis in the gate table itself** (`LEGACY_GROWTH[4]` held the
+  successor's figure, not the accepted file's).
+- 2026-09-13 — **R-2 answered as D24**: all 72 arrow-A/B rows touching Book 7
+  plus 11 arrow-C rows, and 93 rows touching Book 8, each with a written
+  disposition, generated not typed. Four upheld rows are `kept` — which is WHY
+  they are upheld: Book 7 kept Butler's word and another Book moved. `luscious`
+  records **accepted Book 5 as the one out of step**, not repaired. `issue` is
+  reclassified `homograph`.
+- 2026-09-13 — **ARROW C added (D25)**, and it found four repairs round 1 did
+  not: `fashioned expressly` → `made` at B07-P010 (a god's craft flattened onto
+  the women's weaving), `bid` → `tell` at B07-P015, `bade` → `told` at B07-P022
+  (flattening the exact distinction the sentence poses), and a doubled `never`
+  at B07-P011. It also found `abode` → `house` in **accepted Book 3**.
+- 2026-09-13 — **A5 and A6 done in ONE pass** (`scripts/build_compound_sweep.py`)
+  — `book05/candidate-v3.json`, `book06/candidate-v3.json`,
+  `book02/candidate-v6.json` — with every accepted candidate and acceptance
+  record hashed before and after and asserted byte-unchanged. **R-6 confirmed:
+  two successors, not one.** `store-room` was found by the new register while
+  the build was being written and folded into the same successor, so it cost
+  nothing extra.
+- 2026-09-13 — **Book 8 drafted and FROZEN** at `candidate-v1.json`
+  `e758790c…`, 50 paragraphs, 17 packets. **Semicolons 42 → 0 with none added**
+  — the largest conversion in the package and worth exactly zero on the
+  compared figure, which is the clearest demonstration D20 has produced. Source
+  verified by a **twelfth** kind of rule whose own audit failed it twice and
+  whose repair found **three divergences of the served file from PG that nobody
+  had recorded**. Six collisions repaired **before** the freeze, four of them
+  Butler's own discriminations. `GLOSSARY.md` gains one row, `Mars` → `Ares`;
+  `Hercules` → `Heracles` is flagged to the reviewer rather than added.
+
 ## Decided, and why
 
 | # | Decision | Why |
@@ -385,6 +434,13 @@ Kept current at every push.
   one block along and the rule announced 28 as its second-best; and a control
   whose "re-wrap" changed no line count at all.
 
+| **D21** | **The splitting rate that is COMPARED is NORM RATE computed on BUTLER'S OWN POINTING** — the candidate's semicolons split into those of Butler's it KEEPS and those the draft ADDED where he wrote something weaker, with only the kept ones entering the denominator. D20 clause (a) still stands and is unchanged; this is its missing half. Implemented as `semicolon_provenance()`, `kept_added()` and `norm_rate_butler()` in `scripts/checks.py`, pinned in `PUBLISHED` for every Book, and covered by four `--audit` controls. Books 1–8 on this basis: **−4.5%, +1.2%, −2.0%, +2.0%, +7.5%, +5.6%, +7.5% (v2), +4.3%**; added semicolons **1, 5, 6, 0, 1, 2, 2, 0**. | Substantive finding **S-1** of Book 7's round 1. D20 (a) adds each text's own semicolon count to its own sentence count so that a semicolon cashed for a period is worth zero. **The same construction makes a comma raised to a semicolon worth a FULL DIVISION** — it adds nothing to the sentence count, adds one to the semicolon count, and scores exactly what a real period scores, while leaving the clause chain inside one sentence, which is the thing D17, D19 and D20 exist to detect the absence of. A period costs a recast; a semicolon costs a keystroke. The corollary was never stated, nothing tested it, and **six of Book 7 v1's fourteen marks were the drafter's own**, making a published figure 60% pointing. Every Book but 4 and 8 carries some. |
+| **D22** | **A manifest is unwriteable unless the gates actually evaluated AND passed, and it is verified against the files it names on every run.** `Gate.evaluated`; `manifest_checks_block()` as the package's only writer, raising otherwise; `verify_manifest()` on every `checks.py N` and `checks.py --manifests` for all Books; manifest failures kept apart from content gates so a stale manifest cannot block its own repair. Proved by planting, in `scripts/prove_manifest.py` — 15 assertions, with the package hashed before and after. | Substantive finding **S-2** of Book 7's round 1. The enforcement was described as structural and was **a claim about the past**: nothing ever read a manifest, `book07/manifest.json` already recorded the hash of a checks file that no longer existed, and a manifest asserting `all_gates_passed: true` survived a candidate failing two gates. An empty failure list is not a pass — a Gate that was never asked anything has one too. |
+| **D23** | **What an accepted file carries that a gate would otherwise fire on is enumerated PER FILE, exactly, in both directions** — `DECLARED` in `scripts/checks.py`, replacing `BYTE_IDENTICAL`, `MIN_PARA_RATIO` and `LEGACY_GROWTH`. The per-paragraph length floor is **0.90 for every Book with no lowered threshold anywhere**; growth and compound drift are multiset and exact-list equalities. A file absent from the table declares nothing and gets every gate at full strength. | Substantive finding **S-3** and records finding **R-5** of Book 7's round 1. `MIN_PARA_RATIO = {1: 0.86}` was a lowered threshold wearing an enumeration's name — a sixth, seventh and tenth thin paragraph anywhere in Book 1 would have passed in silence, in the one place the package's own disposition said the door was shut. `LEGACY_GROWTH` compared membership, not multiplicity. **And keying on the Book rather than the FILE hid a mixed basis (R-1's disease):** `LEGACY_GROWTH[4]` declared `(18, 53, 54)`, which is the SUCCESSOR v3's figure; the accepted `candidate-v2.json` that `PUBLISHED` is computed over carries `(18, 53, 55)`. Nothing could notice while the gates ran for no accepted Book (**R-4**). |
+| **D24** | **A collision report and a compound report are TRIAGE RECORDS, not print-outs: every row touching a Book gets a disposition or an explicit dismissal reason, generated rather than typed, and the script exits non-zero if any row lacks one.** `scripts/collision_triage.py` writes `bookNN/collisions.md`; `scripts/compound_register.py` writes §H.1 into every `continuity.md`. Five collision classes are mechanical (`variant`, `kept`, `common-rendering`, `common-word`, `artifact`) and the rest are named and hand-ruled, including **`homograph`** — one Butler spelling, two unrelated senses, therefore two words that happen to be spelled alike (`issue`, `appearance`) — plus `same-referent`, `unavoidable-merge`, `phrase-not-word`, `matches-accepted` and `divergence-recorded`. A dismissal that leans on a class names the check that carries the residue, which is D18's `declare_blind` shape applied to a triage. | Records finding **R-2** and blind spot **8** of Book 7's round 1: the check returned **72 rows touching Book 7**, eleven were acted on and **sixty-one were dismissed with no record of having been read**, which is how `walls ← precincts` (M-1) — a sense change in a Book whose walls are literally bronze — passed through. *"This is not a gap in an instrument; it is a gap between an instrument and a record, and it is the cheaper half to close."* |
+| **D25** | **ARROW C: inside one paragraph, a rendering that reuses a word BUTLER HIMSELF KEEPS in that same paragraph for a different word of his.** No rarity gate at all and a three-letter minimum, because inside one paragraph proximity does the work rarity does across a corpus. Three controls under D18, all on both clauses, with three-way independence from arrows A and B asserted rather than claimed. | §9.7 of Book 7's round 1: M-2 (`abode` → `house`), M-5 (`sup` → `eat`) and M-10 (`chief persons` → `chief men`) are one defect and **every instrument in the package is blind to all three**. Its diagnosis — that arrow B's rarity gate is on the wrong side — is **wrong**; arrow B is already gated on Butler's side. The real reason is that `abode` occurs in six paragraphs and so is not rare. Arrow C finds all three in the frozen Book 7 candidate, one nobody had reported in **accepted Book 3**, and **six in Book 8 during drafting**, four of them Butler's own discriminations the draft had flattened. |
+| **D26** | **A4(ii) is answered: NO vendored word list. The instrument for D15 is the served corpus, and the real fix is the register.** `app/public/data/editions/*-modern-en.json` — 100 modern-English editions, already a product dependency — is READ (never written) and a pair is closed only when the closed form leads the open 3× **and** appears in 3+ distinct editions. The corpus is machine-generated and is never a sole authority. | Book 7's round 1 §5.7, recommending against, on both halves: *unnecessary*, because the corpus is already here and attests the forms; *insufficient*, because a word list answers *"is `mountaintop` a word?"* and **D15 asks which of two forms**, which a list of single words cannot represent. **The register found `store-room` in accepted Book 2 the first time it ran** — 31 closed in 9 editions against 1 open — which no reader, no review round and no check had ever named. **And a correction to A5(c)'s own claim:** it says the register *"would have caught `mountain tops` at Book 5"*. It would not have — closed 7 in 7 editions against 9 open, short of the margin on both counts. It would have caught `sea shore` (56 in 17 against 0), which cost three successors. |
+
 ## The comparability table — one table, every basis stated (R-1)
 
 **This is the package's only cross-Book instrument, and until 2026-09-12 it was
@@ -413,7 +469,35 @@ accepted files, and every row carries its basis. Nothing here is typed by hand.
 | 5 v1 *(superseded)* | `candidate-v1` | **all 37 paragraphs** | 0.94211 | 153 → 189 | +23.5% | 9 → 3 | 34 → 12 | +7.5% | 0.00721 |
 | **6 v2 (accepted)** | `candidate-v2` | **all 26 paragraphs** | **0.93408** | **116 → 148** | **+27.6%** | **7 → 1** | **27 → 5** | **+7.0%** | **0.01156** |
 | 6 v1 *(superseded)* | `candidate-v1` | **all 26 paragraphs** | 0.93669 | 116 → 148 | +27.6% | 7 → 1 | 27 → 4 | +6.3% | 0.00925 |
-| **7 v1 (frozen draft)** | `candidate-v1` | **all 29 paragraphs** | **0.93943** | **103 → 129** | **+25.2%** | **7 → 0** | **30 → 14** | **+7.5%** | **0.01277** |
+| 7 v1 *(superseded)* | `candidate-v1` | all 29 paragraphs | 0.93943 | 103 → 129 | +25.2% | 7 → 0 | 30 → 14 | +7.5% | 0.01277 |
+| **7 v2 (ACCEPTED)** | **`candidate-v2`** | **all 29 paragraphs** | **0.93438** | **103 → 138** | **+34.0%** | **7 → 0** | **30 → 7** | **+9.0%** | **0.01217** |
+| **8 v1 (frozen draft)** | **`candidate-v1`** | **all 50 paragraphs** | **0.93844** | **192 → 244** | **+27.1%** | **11 → 0** | **42 → 0** | **+4.3%** | **0.00692** |
+
+**And the column that replaces the last-but-one, decided as D21.** The NORM
+RATE above is the published one, which credits a comma raised to a semicolon
+with a full division. **The figure that is COMPARED from Book 7 forward is NORM
+RATE on Butler's own pointing** — his semicolons the candidate keeps, and only
+those, in the denominator:
+
+| | 1 | 2 | 3 | 4 | 5 | 6 | 7 v1 | **7 v2** | **8 v1** |
+|---|---|---|---|---|---|---|---|---|---|
+| semicolons, Butler → candidate | 47→13 | 36→21 | 39→32 | 68→50 | 34→13 | 27→5 | 30→14 | **30→7** | **42→0** |
+| — **kept + ADDED** | 12+1 | 16+5 | 26+6 | **50+0** | 12+1 | 3+2 | **8+6** | **5+2** | **0+0** |
+| NORM RATE as published | −3.9% | +4.0% | +1.0% | +2.0% | +8.0% | +7.0% | +7.5% | **+9.0%** | **+4.3%** |
+| **NORM RATE on Butler's own pointing** | **−4.5%** | **+1.2%** | **−2.0%** | **+2.0%** | **+7.5%** | **+5.6%** | **+3.0%** | **+7.5%** | **+4.3%** |
+
+**Book 4 and Book 8 are the only Books that added none**, and Book 8 is the
+first drafted after the measure existed. **Book 7 v1 was the worst at 6 of 14**,
+and the corrections at step 6 earned its published figure rather than pointing
+it: four added semicolons became periods, three of Butler's own became periods,
+and one of his that had been lowered to a comma came back.
+
+**A correction to Book 7's round 1, on its own principle.** §S-1 says +3.0%
+puts Book 7 *"fifth of seven"*. That ranks one corrected figure against six
+uncorrected published ones — **two bases in one column, which is R-1**. On like
+against like, v1 was **third of seven**, and v2 is joint first with Book 5. The
+substance of S-1 is untouched by this: six of fourteen marks were the drafter's
+own and the published figure was 60% pointing.
 
 **Three further corrections the recomputation surfaced, all in the same class
 as R-1 and none of them previously stated.**
@@ -565,7 +649,14 @@ against Butler's (**D19**). Every control under **D18**; run
 
 ## Needs Anders (listed, not waited on)
 
-- **A5. `mountain tops`, and A4(ii)'s vendored word list — Book 7's round 1
+- **~~A5.~~ DONE 2026-09-13 — `mountain tops` closed, the vendored word list
+  declined, and the register built. `book05/candidate-v3.json` `c8af4cc3…` and
+  `book06/candidate-v3.json` `1ae67a52…`; **R-6 confirmed, the cost was TWO
+  successors, not one**; A4(ii) answered as **D26**, A5(c) built as
+  `scripts/compound_register.py` and **its own claim corrected with evidence**
+  (the register would NOT have caught `mountain tops`; it would have caught
+  `sea shore`). The original text, kept:**
+  **A5. `mountain tops`, and A4(ii)'s vendored word list — Book 7's round 1
   recommends, and one of the two comes with evidence that changes the question.**
   Full argument in `book07/review/findings-v1.md` §5.7.
   **(a) `mountain tops`: close it — but inside one consolidated compound sweep,
@@ -605,7 +696,11 @@ against Butler's (**D19**). Every control under **D18**; run
   `kept open, standard` / `not a compound`. Twenty lines a Book, no dependency,
   and it would have caught `mountain tops` at Book 5 before a successor was owed.
 
-- **A6. `councillors` — ruled by Book 7's round 1, and it costs a successor to
+- **~~A6.~~ DONE 2026-09-13 — `book02/candidate-v6.json` `a6fb8103…`, two words
+  for `councilors` and two more for `storeroom` in the SAME successor, with
+  `book02/candidate-v2.json` and `ACCEPTANCE.md` byte-unchanged, plus one word
+  in Book 7 v2. The original text, kept:**
+  **A6. `councillors` — ruled by Book 7's round 1, and it costs a successor to
   Book 2.** §5.3. **D9 wins; write `councilors`.** Decisive fact the drafter did
   not have: every accepted candidate was scanned for `-our`, `-ised`,
   `-isation`, doubled-`l` inflections, `grey`, `plough`, `-ence`, `-re`,
@@ -619,7 +714,7 @@ against Butler's (**D19**). Every control under **D18**; run
 
 - **A4. A fifth successor, and a new dependency — both raised by Book 6's
   round 1.**
-  **(i) is DONE 2026-09-12** — `book04/candidate-v4.json`, sha256
+  **(ii) is DONE 2026-09-13 — DECLINED, see D26. (i) is DONE 2026-09-12** — `book04/candidate-v4.json`, sha256
   `3b88a4da182eccc7f673e392e125295aef05b584c1cc592d405470d5ee86bf95`, built by
   `scripts/build_fifth_successor.py` from `candidate-v3.json`, with
   `book04/candidate-v2.json` asserted **byte-unchanged** across the build and
