@@ -9,7 +9,7 @@ becomes Wycliffe, Zisca becomes Zizka, Trivulcio becomes Trivulzio, Fabricio
 becomes Fabrizio, Juliano becomes Giuliano, Fregosa becomes Fregoso, Sylla
 becomes Sulla, AEneid becomes Aeneid. Both spellings are carried on one card.
 
-Chapters 1-69 are authored. The rest are not.
+Chapters 1-100 are authored. The rest are not.
 
 Scope: named persons — historical, literary, mythological and scriptural — and
 the gods Montaigne treats as agents. Peoples, places, schools of philosophy and
@@ -210,7 +210,7 @@ for row in [
 
 # =============================================== CHAPTER 12 — of constancy
 for row in [
-('laches','Laches','Who defined fortitude in Plato as standing firm in the ranks, and was laughed out of it by Socrates: would it be cowardice, then, to beat the enemy by giving ground?','Laches','reference','literary-figure'),
+('laches','Laches','Who defined fortitude in Plato as standing firm in the ranks, and was laughed out of it by Socrates: would it be cowardice, then, to beat the enemy by giving ground? The same man who fled beside Socrates after the rout at Delium, and whose bearing in the retreat Alcibiades sets against his friend’s steady march. The older edition writes him Lachez there.','Laches|Lachez','reference','literary-figure'),
 ('homer','Homer','The poet Montaigne names among the three most excellent men the world has produced, and cites here for commending in Aeneas the science of flight.','Homer','major'),
 ('aeneas','Aeneas','Whose science of flight Homer commends — Socrates’s authority against Laches.','AEneas|Aeneas','reference','mythological-figure'),
 ('idanthyrses','Idanthyrses','The Scythian king who told Darius that he did not retire out of fear but because his nation had neither fields nor cities to lose, and that if Darius wanted a battle he had only to come and look at their ancient places of sepulture.','Idanthyrses'),
@@ -740,7 +740,7 @@ for row in [
 ('metellus-tribune','Metellus','The tribune who attempted to publish a decree calling Pompey and his army into the city at the time of Catiline’s conspiracy, and was opposed by Cato alone, stoutly and with very sharp language on both sides, the day before the controversy was to be decided.'),
 ('catiline','Catiline','Whose conspiracy was the occasion of the tribune Metellus’s decree, and so of the night Cato slept through while his friends went without sleep, food or drink for the danger they saw him running into.','Catiline'),
 ('sextus-pompeius','Sextus Pompeius','Whom Augustus beat in the naval engagement in Sicily that Augustus slept through, until his friends woke him to give the signal of battle.','Sextus Pompeius'),
-('mark-antony','Mark Antony','Who took that sleep as an occasion to reproach Augustus afterwards that he had not the courage so much as to behold the order of his own squadrons with open eyes, nor dared present himself to the soldiers until Agrippa had brought him news of the victory. At 81:3 he is Marcus Antonius, who said that the greatness of the people of Rome was not so much seen in what they took as in what they gave.','Mark Antony|Marcus Antonius'),
+('mark-antony','Mark Antony','Who took that sleep as an occasion to reproach Augustus afterwards that he had not the courage so much as to behold the order of his own squadrons with open eyes, nor dared present himself to the soldiers until Agrippa had brought him news of the victory. At 81:3 he is Marcus Antonius, who said that the greatness of the people of Rome was not so much seen in what they took as in what they gave.','Mark Antony|Marc Antony|Marcus Antonius'),
 ('agrippa','Agrippa','Pomponius Atticus’s son-in-law, called to his bedside with two or three friends to be told he had resolved to end his life and his pain together. Also the man who brought Augustus the news of the victory over Sextus Pompeius while the emperor was still out of sight of his own soldiers.'),
 ('marius-younger','The young Marius','Who did much worse: on the day of his last battle against Sylla, having marshalled his army and given the word and signal, he lay down in the shade of a tree to repose himself and fell so fast asleep that the rout and flight of his men could hardly waken him, having seen nothing of the fight. He was said to be so spent with labour and want of sleep that nature could hold out no longer.'),
 ('epimenides','Epimenides','The sage whose biographers affirm that he slept seven-and-fifty years together.','Epimenides'),
@@ -1490,8 +1490,19 @@ for row in [
 ('hemon','Hemon','A young boy of Chios who, thinking by fine dressing to acquire the beauty nature had denied him, asked Arcesilaus whether a wise man could be in love — and was answered yes, if the beauty were not such as his own contrived one. Cotton’s later edition makes him Emonez, a young courtezan of Chios.','Hemon|Emonez'),
 ]:add(*row)
 
-print(len(entities),'entities authored: chapters 1-99')
+# ========================= CHAPTER 100 — of coaches
+for row in [
+('cytheris','Cytheris','The Roman courtezan who rode beside Marc Antony, a singing wench with him, when he had himself drawn through Rome in a coach by lions — the first man at Rome to do it. The same woman whom Cornelius Gallus put into his elegies under the name Lycoris, and whom, the note says, he doubtless knew personally.','Cytheris|Lycoris'),
+('firmus','The Emperor Firmus','The emperor who caused his chariot to be drawn by ostriches of a prodigious size, so that it seemed rather to fly than roll — the third of Montaigne\u2019s instances of a monarch\u2019s strange invention in coaches, after Marc Antony\u2019s lions and Heliogabalus\u2019s tigers.','Firmus'),
+('probus','The Emperor Probus','The emperor in whose presence, on the third day of the amphitheatre spectacle, three hundred pair of gladiators fought it out to the last — after a thousand ostriches, a thousand stags, a thousand boars and a thousand fallow-deer on the first day, and a hundred lions, a hundred leopards and three hundred bears on the second.','Probus'),
+('calpurnius','Calpurnius','The poet of the Eclogues, cited three times for the magnificence of the Roman amphitheatres: the belt glittering with jewels and the portico overlaid with gold, the wild beasts emerging from the chasm in the earth, and the nets woven of gold.','Calpurnius'),
+('gregory-xiii','Pope Gregory XIII','Who will leave a laudable memory to future times, Montaigne says, for laying money out on ports, havens, walls, fortifications, churches, hospitals, colleges and the reforming of streets and highways rather than on public shows. The pope who reformed the calendar in 1582, so that France passed at one step from the 9th to the 20th of December.','Gregory XIII'),
+('catherine-de-medici','Queen Catherine','Our Queen, who would manifest to long posterity her natural liberality and munificence, Montaigne says, did her means supply her affection. Not the St. Catherine of the hill at 23:0, which is a place.','Queen Catherine'),
+('agamemnon','Agamemnon','Before whom, Horace says, many brave men lived, and all are pressed by the long night unmourned and unknown — Montaigne’s instance of how short our knowledge is, both in extent of time and extent of matter. Not the Agamemnon of 74:68 and 74:78, which is the title of Seneca’s play.','',),
+]:add(*row)
+
+print(len(entities),'entities authored: chapters 1-100')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-13.8',
- coverage='Both full English editions, chapters 1-99 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
+ contentVersion='2026-09-13.9',
+ coverage='Both full English editions, chapters 1-100 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

@@ -1,7 +1,7 @@
 """Reviewed bindings for Montaigne's Essays.
 
 Cotton in both editions, 107 chapters covering the three books, 4,897 paragraphs
-per edition. Chapters 1-99 are authored.
+per edition. Chapters 1-100 are authored.
 
 Two things make this book hard, and it has both of them at once. The first is
 spelling: the modern edition modernises the transliterations, so one man is
@@ -57,7 +57,7 @@ SPLIT={
                (60,53):'alexander',(62,21):'alexander',(65,40):'alexander',
                (66,6):'alexander',(68,55):'alexander',(69,78):'alexander',
                (69,139):'alexander',(69,300):'alexander',
-               (69,532):'alexander',(73,31):'alexander',(74,8):'alexander',(75,0):'alexander',(76,4):'alexander',(76,5):'alexander',(86,10):'alexander',(91,0):'alexander',(91,21):'alexander',(91,24):'alexander',(91,30):'alexander',(93,16):'alexander',(93,18):'alexander',(93,24):'alexander',(93,27):'alexander',(93,28):'alexander',(96,14):'alexander',(99,146):'alexander',(99,238):'alexander',(99,246):'alexander',(99,287):'alexander'},None),
+               (69,532):'alexander',(73,31):'alexander',(74,8):'alexander',(75,0):'alexander',(76,4):'alexander',(76,5):'alexander',(86,10):'alexander',(91,0):'alexander',(91,21):'alexander',(91,24):'alexander',(91,30):'alexander',(93,16):'alexander',(93,18):'alexander',(93,24):'alexander',(93,27):'alexander',(93,28):'alexander',(96,14):'alexander',(99,146):'alexander',(99,238):'alexander',(99,246):'alexander',(99,287):'alexander',(100,61):'alexander'},None),
  # Conrad III at 1:3; Conrad Marquis of Monteferrat at 86:19.
  'Conrad':({(1,3):'conrad-iii'},None),
  # The Ferdinand of the Buda campaign at 2:9; King Ferdinand of the Indies at
@@ -77,7 +77,7 @@ SPLIT={
             (26,18):'philip-augustus',(30,0):'philip-v-macedon',
             (39,1):'philip-ii-macedon',(39,7):'philip-ii-macedon',
             (59,21):'philip-ii-macedon',(60,3):'philip-ii-macedon',
-            (60,55):'philip-v-macedon',(84,23):'philip-son-in-law',(84,26):'philip-v-macedon',(84,28):'philip-v-macedon',(99,199):'philip-ii-macedon'},None),
+            (60,55):'philip-v-macedon',(84,23):'philip-son-in-law',(84,26):'philip-v-macedon',(84,28):'philip-v-macedon',(99,199):'philip-ii-macedon',(100,31):'philip-ii-macedon'},None),
  # Cyrus the Great in both authored places; Cyrus the Younger is not yet read.
  'Cyrus':({(3,13):'cyrus-the-great',(4,9):'cyrus-the-great',(18,3):'cyrus-the-great',
            (24,57):'cyrus-the-great',(24,59):'cyrus-the-great',
@@ -86,7 +86,7 @@ SPLIT={
            (42,50):'cyrus-the-great',(47,17):'cyrus-the-younger',
            (48,7):'cyrus-the-great',(48,44):'cyrus-the-great',
            (59,28):'cyrus-the-younger',(60,50):'cyrus-the-great',
-           (69,535):'cyrus-the-great',(79,0):'cyrus-the-great',(91,2):'cyrus-the-great',(91,26):'cyrus-the-great',(99,345):'cyrus-the-great'},None),
+           (69,535):'cyrus-the-great',(79,0):'cyrus-the-great',(91,2):'cyrus-the-great',(91,26):'cyrus-the-great',(99,345):'cyrus-the-great',(100,27):'cyrus-the-great'},None),
  # Socrates's friend at 3:15; the Crito of 69:208 is somebody's brother in
  # another story.
  'Crito':({(3,15):'crito',(69,208):'crito-brother'},None),
@@ -186,7 +186,7 @@ SPLIT={
             (61,3):'julius-caesar',(65,39):'julius-caesar',
             (68,37):'julius-caesar',(65,32):'julius-caesar',(69,287):'julius-caesar',
             (65,40):'julius-caesar',(67,19):'julius-caesar',
-            (67,26):'julius-caesar',(67,28):'julius-caesar',(70,9):'julius-caesar',(70,14):'julius-caesar',(70,17):'julius-caesar',(70,28):'julius-caesar',(73,31):'julius-caesar',(73,80):'julius-caesar',(74,1):'julius-caesar',(74,30):'julius-caesar',(75,0):'julius-caesar',(75,18):'julius-caesar',(79,1):'julius-caesar',(84,21):'julius-caesar',(90,7):'julius-caesar',(81,0):[None,'julius-caesar','julius-caesar','julius-caesar'],(88,11):'julius-caesar',(90,3):'julius-caesar',(90,6):'julius-caesar',(90,8):'julius-caesar',(91,0):'julius-caesar',(91,5):'julius-caesar',(91,7):'julius-caesar',(91,9):'julius-caesar',(91,11):'julius-caesar',(91,12):'julius-caesar',(91,24):'julius-caesar',(91,25):'julius-caesar',(91,26):'julius-caesar',(91,27):'julius-caesar',(91,28):'julius-caesar',(91,30):'julius-caesar',(91,33):'julius-caesar',(91,34):'julius-caesar',(93,24):'julius-caesar',(93,27):'julius-caesar',(93,28):'julius-caesar',(98,42):'julius-caesar',(99,146):'julius-caesar',(99,157):'julius-caesar'},None),
+            (67,26):'julius-caesar',(67,28):'julius-caesar',(70,9):'julius-caesar',(70,14):'julius-caesar',(70,17):'julius-caesar',(70,28):'julius-caesar',(73,31):'julius-caesar',(73,80):'julius-caesar',(74,1):'julius-caesar',(74,30):'julius-caesar',(75,0):'julius-caesar',(75,18):'julius-caesar',(79,1):'julius-caesar',(84,21):'julius-caesar',(90,7):'julius-caesar',(81,0):[None,'julius-caesar','julius-caesar','julius-caesar'],(88,11):'julius-caesar',(90,3):'julius-caesar',(90,6):'julius-caesar',(90,8):'julius-caesar',(91,0):'julius-caesar',(91,5):'julius-caesar',(91,7):'julius-caesar',(91,9):'julius-caesar',(91,11):'julius-caesar',(91,12):'julius-caesar',(91,24):'julius-caesar',(91,25):'julius-caesar',(91,26):'julius-caesar',(91,27):'julius-caesar',(91,28):'julius-caesar',(91,30):'julius-caesar',(91,33):'julius-caesar',(91,34):'julius-caesar',(93,24):'julius-caesar',(93,27):'julius-caesar',(93,28):'julius-caesar',(98,42):'julius-caesar',(99,146):'julius-caesar',(99,157):'julius-caesar',(100,60):'julius-caesar'},None),
  # Pompey's father-in-law at 18:12. Every other Scipio in the Essays belongs to
  # a chapter not yet authored, and the name runs through a whole family.
  'Scipio':({(18,12):'metellus-scipio',(22,49):'publius-scipio-pontifex',
@@ -360,7 +360,7 @@ SPLIT={
  # Gallus" in full, where the proctor of 19:24 carries that exact alias -- so the
  # alias binding is suppressed there and the surname is keyed instead. 19:70, 20:2
  # and the chapter 99 occurrences have not been read.
- 'Gallus':({(59,24):'cornelius-gallus-poet',(99,232):'cornelius-gallus-poet'},None),
+ 'Gallus':({(59,24):'cornelius-gallus-poet',(99,232):'cornelius-gallus-poet',(100,14):'cornelius-gallus-poet'},None),
  # Two men called Fulvius in one paragraph: Augustus's favourite, whose wife ran
  # herself through first, and the consul of the butchery at Capua, who is named
  # twice after him. Cnaeus Fulvius at 15:4 and Quintus Fulvius Flaccus at 48:51
@@ -570,9 +570,15 @@ SPLIT={
  'Achaemenes':({(99,145):'achaemenes'},None),
  # The same at 99:335 against Juvenal's Latin at 99:334.
  'Lachesis':({(99,335):'lachesis'},None),
- # The emperor at 99:350. Publius Sulpicius Galba of 30:0 is another man, bound
- # by his own longer name; 99:199, 100:17 and 103:2 have not been read.
- 'Galba':({(99,350):'galba-emperor'},None),
+ # The emperor at 99:350 and 100:17, where the sentence calls him so. Publius
+ # Sulpicius Galba of 30:0 is another man, bound by his own longer name; the
+ # Galba of 99:199 carries no numeral and is left unbound, and 103:2 has not
+ # been read.
+ 'Galba':({(99,350):'galba-emperor',(100,17):'galba-emperor'},None),
+ # 74:68 and 74:78 are "Seneca, Agamemnon" -- the title of the play. Only the
+ # English version of Horace's ode at 100:47 means the man.
+ 'Agamemnon':({(100,47):'agamemnon'},None),
+
  # The Octavius of 99:181, who killed Pontia Posthumia for refusing him.
  'Octavius':({(22,54):'octavius',(91,34):'marcus-octavius',
               (99,181):'octavius-of-rome'},None),

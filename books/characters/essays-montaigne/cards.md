@@ -524,7 +524,7 @@ Whose book prophesied all the emperors and patriarchs of Greece. Not Pope Leo X.
 
 ## Laches · reference
 
-Who defined fortitude in Plato as standing firm in the ranks, and was laughed out of it by Socrates: would it be cowardice, then, to beat the enemy by giving ground?
+Who defined fortitude in Plato as standing firm in the ranks, and was laughed out of it by Socrates: would it be cowardice, then, to beat the enemy by giving ground? The same man who fled beside Socrates after the rout at Delium, and whose bearing in the retreat Alcibiades sets against his friend’s steady march. The older edition writes him Lachez there.
 
 ## Homer · major
 
@@ -4165,3 +4165,31 @@ The woman he lay with, and killed. Not the Posthumia who was Servius Sulpitius�
 ## Hemon · reference
 
 A young boy of Chios who, thinking by fine dressing to acquire the beauty nature had denied him, asked Arcesilaus whether a wise man could be in love — and was answered yes, if the beauty were not such as his own contrived one. Cotton’s later edition makes him Emonez, a young courtezan of Chios.
+
+## Cytheris · reference
+
+The Roman courtezan who rode beside Marc Antony, a singing wench with him, when he had himself drawn through Rome in a coach by lions — the first man at Rome to do it. The same woman whom Cornelius Gallus put into his elegies under the name Lycoris, and whom, the note says, he doubtless knew personally.
+
+## The Emperor Firmus · reference
+
+The emperor who caused his chariot to be drawn by ostriches of a prodigious size, so that it seemed rather to fly than roll — the third of Montaigne’s instances of a monarch’s strange invention in coaches, after Marc Antony’s lions and Heliogabalus’s tigers.
+
+## The Emperor Probus · reference
+
+The emperor in whose presence, on the third day of the amphitheatre spectacle, three hundred pair of gladiators fought it out to the last — after a thousand ostriches, a thousand stags, a thousand boars and a thousand fallow-deer on the first day, and a hundred lions, a hundred leopards and three hundred bears on the second.
+
+## Calpurnius · reference
+
+The poet of the Eclogues, cited three times for the magnificence of the Roman amphitheatres: the belt glittering with jewels and the portico overlaid with gold, the wild beasts emerging from the chasm in the earth, and the nets woven of gold.
+
+## Pope Gregory XIII · reference
+
+Who will leave a laudable memory to future times, Montaigne says, for laying money out on ports, havens, walls, fortifications, churches, hospitals, colleges and the reforming of streets and highways rather than on public shows. The pope who reformed the calendar in 1582, so that France passed at one step from the 9th to the 20th of December.
+
+## Queen Catherine · reference
+
+Our Queen, who would manifest to long posterity her natural liberality and munificence, Montaigne says, did her means supply her affection. Not the St. Catherine of the hill at 23:0, which is a place.
+
+## Agamemnon · reference
+
+Before whom, Horace says, many brave men lived, and all are pressed by the long night unmourned and unknown — Montaigne’s instance of how short our knowledge is, both in extent of time and extent of matter. Not the Agamemnon of 74:68 and 74:78, which is the title of Seneca’s play.

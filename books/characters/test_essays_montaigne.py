@@ -1,5 +1,5 @@
 """Focused checks for Montaigne's Essays.
-Chapters 1-99 of 107 are authored."""
+Chapters 1-100 of 107 are authored."""
 import unittest
 from build_essays_montaigne import compile_package
 
@@ -230,8 +230,8 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual(w[0],(28,2),ed)
             self.assertLess(len(w),40,ed)
 
-    def test_only_the_first_ninety_nine_chapters_are_authored(self):
-        self.assertIn('chapters 1-99 of 107',REPORT['scope'])
+    def test_only_the_first_hundred_chapters_are_authored(self):
+        self.assertIn('chapters 1-100 of 107',REPORT['scope'])
         self.assertEqual(REPORT['editions']['original-en']['chapters'],107)
         self.assertEqual(REPORT['editions']['original-en']['paragraphs'],4897)
         self.assertEqual(REPORT['editions']['modern-en']['paragraphs'],4897)
@@ -702,7 +702,7 @@ class EssaysMontaigne(unittest.TestCase):
 
     def test_philip_of_macedon_holds_both_of_his_paragraphs(self):
         for ed in ['original-en','modern-en']:
-            self.assertEqual([(39,1),(39,7),(59,21),(60,3),(99,199)],
+            self.assertEqual([(39,1),(39,7),(59,21),(60,3),(99,199),(100,31)],
                              where(ed,'philip-ii-macedon'),ed)
             self.assertIn((39,1),where(ed,'cyrus-the-great'),ed)
 
@@ -965,7 +965,7 @@ class EssaysMontaigne(unittest.TestCase):
         # older edition abbreviates the poet "Cornet." and the modern prints him
         # in full, colliding exactly with the proctor's alias.
         for ed in ['original-en','modern-en']:
-            self.assertEqual([(59,24),(99,232)],where(ed,'cornelius-gallus-poet'),ed)
+            self.assertEqual([(59,24),(99,232),(100,14)],where(ed,'cornelius-gallus-poet'),ed)
             self.assertEqual({'Gallus'},set(said(ed,'cornelius-gallus-poet')),ed)
             self.assertNotIn('cornelius-gallus',ids(ed,59,24),ed)
             self.assertIn((19,24),where(ed,'cornelius-gallus'),ed)
@@ -2101,7 +2101,7 @@ class EssaysMontaigne(unittest.TestCase):
 
     def test_the_third_galba(self):
         for ed in ['original-en','modern-en']:
-            self.assertEqual([(99,350)],where(ed,'galba-emperor'),ed)
+            self.assertEqual([(99,350),(100,17)],where(ed,'galba-emperor'),ed)
             self.assertEqual([(30,0)],where(ed,'sulpicius-galba'),ed)
             self.assertEqual([],[c for c in ids(ed,99,199) if 'galba' in c],ed)
 
@@ -2139,6 +2139,76 @@ class EssaysMontaigne(unittest.TestCase):
                 self.assertEqual([],[c for c in ids(ed,*k) if 'gallus' in c],(ed,k))
             for cid in ['julius-caesar','pompey','mark-antony','cato-the-younger']:
                 self.assertIn((99,157),where(ed,cid),(ed,cid))
+
+
+    def test_the_agamemnon_of_chapter_100_is_the_man_and_not_the_play(self):
+        # 74:68 and 74:78 are "Seneca, Agamemnon" -- citations of the tragedy.
+        # Only the English version of Horace's ode at 100:47 means the king, so
+        # he is keyed and not aliased. The same trap as Hippolytus at 2:17.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(100,47)],where(ed,'agamemnon'),ed)
+            for k in [(74,68),(74,78)]:
+                self.assertEqual([],[c for c in ids(ed,*k) if 'agamemnon' in c],(ed,k))
+
+    def test_the_queen_catherine_and_the_saints_hill(self):
+        # 23:0 is "the St. Catherine's Mount", the battery position at the siege
+        # of Rouen. The queen binds by her title, which that hill does not carry.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(100,16)],where(ed,'catherine-de-medici'),ed)
+            self.assertEqual(['Queen Catherine'],said(ed,'catherine-de-medici'),ed)
+            self.assertEqual([],[c for c in ids(ed,23,0) if 'catherine' in c],ed)
+
+    def test_gregory_xiii_binds_by_his_numeral(self):
+        # Both his paragraphs are editor's notes or a list of public works, and
+        # both name the numeral, so the alias is safe in a chapter not yet read.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(100,16),(104,45)],where(ed,'gregory-xiii'),ed)
+            self.assertEqual({'Gregory XIII'},set(said(ed,'gregory-xiii')),ed)
+
+    def test_cytheris_under_both_her_names(self):
+        # The note at 100:14 gives the courtezan her own name and the name Gallus
+        # gave her in his elegies. One card, two aliases, one paragraph.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(100,14)],where(ed,'cytheris'),ed)
+            self.assertEqual({'Cytheris','Lycoris'},set(said(ed,'cytheris')),ed)
+            self.assertIn((100,14),where(ed,'cornelius-gallus-poet'),ed)
+
+    def test_the_three_emperors_of_the_coaches(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(100,15)],where(ed,'firmus'),ed)
+            self.assertEqual([(100,31)],where(ed,'probus'),ed)
+            self.assertEqual([(99,350),(100,17)],where(ed,'galba-emperor'),ed)
+            self.assertEqual([(30,0)],where(ed,'sulpicius-galba'),ed)
+            self.assertIn((100,15),where(ed,'heliogabalus'),ed)
+
+    def test_laches_in_both_spellings(self):
+        # 12:1 and 84:22 are Plato's Laches; 100:7 is the same man fleeing beside
+        # Socrates after Delium, and both editions spell him Lachez there.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(12,1),(84,22),(100,7)],where(ed,'laches'),ed)
+            self.assertIn('Lachez',said(ed,'laches'),ed)
+            self.assertIn('Laches',said(ed,'laches'),ed)
+            self.assertEqual([],[c for c in ids(ed,99,335) if c=='laches'],ed)
+
+    def test_calpurnius_is_cast_from_his_three_citations(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(100,33),(100,39),(100,44)],where(ed,'calpurnius'),ed)
+
+    def test_the_deliberate_gaps_of_chapter_100(self):
+        # The tyrant Dionysius at 100:18 carries no numeral and the Essays hold
+        # two tyrants of the name; "Plutarch's Life of Antony" at 100:14 is a
+        # title, though Marc Antony himself is bound one paragraph earlier;
+        # Hermogenes at 100:41 stands inside Martial's Latin, which in this
+        # chapter alone has no English version after it; and the daemons and
+        # sibyls of 100:59 are classes and not names -- the modern edition
+        # lowercases both, which is the evidence for it.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([],[c for c in ids(ed,100,18) if 'dionysius' in c],ed)
+            self.assertEqual([],[c for c in ids(ed,100,14) if 'antony' in c],ed)
+            self.assertIn((100,13),where(ed,'mark-antony'),ed)
+            self.assertEqual([],ids(ed,100,41),ed)
+            self.assertEqual([],ids(ed,100,59),ed)
+        self.assertIn('Marc Antony',said('original-en','mark-antony'))
 
 
 if __name__=='__main__':unittest.main()
