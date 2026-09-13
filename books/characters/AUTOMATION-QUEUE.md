@@ -175,4 +175,13 @@ costs one session; a confidently wrong card costs a reader's trust in the book.
 
 ## Blocked
 
-_(nothing yet)_
+- **2026-09-13 — Lane A complete.** All 15 books in the Lane A table
+  (`genealogy-of-morals` through `democracy-in-america`) show
+  `contentStatus: "validated-package"` in `library-inventory.json`
+  (confirmed by `python3 books/characters/inventory.py` and a direct
+  per-book check against the Lane A list). Per the hard constraint,
+  this session stops here rather than starting a Lane B book. Next
+  steps are either: (a) release review and production integration of
+  the 15 validated Lane A packages (see each package's `README.md`
+  and its `RELEASE-QUEUE.md` entry for required production checks),
+  or (b) a larger-model session picking up a Lane B book.
