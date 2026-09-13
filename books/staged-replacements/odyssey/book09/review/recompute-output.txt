@@ -1,0 +1,100 @@
+candidate sha256: 41f452ac577054aa820eba1cf1bb20cc24b382e6e3330b74af8c24f657c481fb
+paragraphs: 44
+
+retention (aggregate-join, canonical) = 0.92181
+retention (order, per-paragraph)      = 0.92181
+retention (bag, per-paragraph)        = 0.93447
+MOVE-GAP (bag - order)                = 0.01266
+
+sentences 171 -> 207   raw D17 = +21.1%
+sixty-word 16 -> 0
+
+semicolons 54 -> 24   kept 24 + added 0
+dividing marks 71 -> 41   kept 41 + added 0
+
+NORM RATE (D20, semicolons both sides): 225 -> 231 = +2.7%
+NORM RATE on Butler's pointing (D21):   225 -> 231 = +2.7%
+NORM RATE, every dividing mark (D27):   242 -> 248 = +2.5%
+NORM RATE, D27 on Butler's pointing:    242 -> 248 = +2.5%  <-- COMPARED
+
+word ratio = 0.99110  (5845 -> 5793)
+
+displaced runs: 2
+   B09-P011  <<we saw a great cave>>
+   B09-P014  <<with such a noise>>
+
+--- the 41 candidate dividing marks, with Butler's mark there ---
+  B09-P002  ;   butler=';'   ...neritum covered with forests
+  B09-P002  —   butler='—'   ...near to one another
+  B09-P003  ;   butler=';'   ...though they outnumbered us
+  B09-P006  ;   butler=';'   ...tops of high mountains
+  B09-P007  ;   butler=';'   ...the foot of man
+  B09-P007  —   butler='—'   ...of man for sportsmen
+  B09-P007  —   butler='—'   ...or among mountain precipices
+  B09-P007  ;   butler=';'   ...full of luscious grass
+  B09-P007  ;   butler=';'   ...would do there excellently
+  B09-P009  :   butler=';'   ...sent us excellent sport
+  B09-P010  :   butler=':'   ...what these people are
+  B09-P011  ;   butler=';'   ...to loose the hawsers
+  B09-P012  ;   butler=';'   ...and child as well
+  B09-P012  —   butler='—'   ...presents of great value
+  B09-P013  :   butler=';'   ...kept in separate flocks
+  B09-P013  ;   butler=';'   ...apart from one another
+  B09-P014  —   butler='—'   ...mouth of the cave
+  B09-P014  :   butler=':'   ...of us and said
+  B09-P020  —   butler='—'   ...back again at once
+  B09-P020  ;   butler=';'   ...them up the mountain
+  B09-P021  ;   butler=';'   ...of the sheep pens
+  B09-P021  —   butler='—'   ...flocks into the cave
+  B09-P021  ;   butler=';'   ...none in the yards
+  B09-P021  :   butler=':'   ...wine in my hands
+  B09-P024  ;   butler=';'   ...gave him some more
+  B09-P024  :   butler=':'   ...plausibly as i could
+  B09-P024  ;   butler=';'   ...my name is noman
+  B09-P026  —   butler='—'   ...water to temper it
+  B09-P026  —   butler='—'   ...strength to the iron
+  B09-P028  ;   butler=';'   ...killing me by fraud
+  B09-P029  ;   butler=';'   ...you must be ill
+  B09-P031  ;   butler=';'   ...lives of my companions
+  B09-P032  :   butler=':'   ...of it and said
+  B09-P033  ;   butler=';'   ...home again at night
+  B09-P034  ;   butler=';'   ...put out to sea
+  B09-P039  ;   butler=';'   ...till he grew old
+  B09-P039  —   butler='—'   ...forward on your journey
+  B09-P041  ;   butler=';'   ...reach his home alive
+  B09-P043  ;   butler=';'   ...on to the seashore
+  B09-P043  ;   butler=';'   ...as an extra share
+  B09-P044  ;   butler=';'   ...sea with their oars
+
+--- Butler's 71 dividing marks by paragraph ---
+  B09-P002  ;=2 :=0 dash=1
+  B09-P003  ;=3 :=0 dash=0
+  B09-P005  ;=1 :=0 dash=0
+  B09-P006  ;=1 :=0 dash=0
+  B09-P007  ;=5 :=0 dash=2
+  B09-P008  ;=2 :=0 dash=0
+  B09-P009  ;=2 :=0 dash=0
+  B09-P010  ;=0 :=1 dash=0
+  B09-P011  ;=1 :=0 dash=0
+  B09-P012  ;=1 :=1 dash=1
+  B09-P013  ;=3 :=0 dash=0
+  B09-P014  ;=0 :=1 dash=1
+  B09-P018  ;=1 :=0 dash=0
+  B09-P019  ;=1 :=0 dash=0
+  B09-P020  ;=2 :=0 dash=1
+  B09-P021  ;=4 :=2 dash=1
+  B09-P022  ;=1 :=0 dash=0
+  B09-P024  ;=5 :=1 dash=0
+  B09-P026  ;=1 :=0 dash=2
+  B09-P028  ;=1 :=0 dash=0
+  B09-P029  ;=1 :=0 dash=0
+  B09-P030  ;=1 :=0 dash=0
+  B09-P031  ;=2 :=0 dash=0
+  B09-P032  ;=1 :=1 dash=0
+  B09-P033  ;=1 :=0 dash=0
+  B09-P034  ;=2 :=0 dash=0
+  B09-P037  ;=2 :=0 dash=0
+  B09-P039  ;=2 :=0 dash=1
+  B09-P041  ;=2 :=0 dash=0
+  B09-P043  ;=2 :=0 dash=0
+  B09-P044  ;=1 :=0 dash=0
