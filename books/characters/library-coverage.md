@@ -48,7 +48,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Groundwork of the Metaphysics of Morals (`kant-groundwork`) | validated-package | Production verified September 11 in both English editions; preserve source fingerprints and contextual exclusions. |
 | Beowulf (`beowulf`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Candide (`candide`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Democracy in America (`democracy-in-america`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Democracy in America (`democracy-in-america`) | validated-package | awaiting-integration: register both English editions, version the asset, run app gates, and verify in production before changing appStatus |
 | Oedipus Rex (`oedipus-rex`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Oedipus at Colonus (`oedipus-at-colonus`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Antigone (`antigone`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
