@@ -10,16 +10,21 @@ having been read. This file is that record, and it is generated, not typed.
 
 | disposition | rows |
 |---|---|
-| `UNRULED` | 30 |
 | `artifact` | 2 |
 | `common-rendering` | 9 |
 | `common-word` | 7 |
-| `homograph` | 1 |
+| `context-rendered` | 2 |
+| `discrimination` | 1 |
+| `free-variation` | 1 |
+| `homograph` | 3 |
 | `kept` | 70 |
-| `matches-accepted` | 2 |
-| `same-referent` | 1 |
-| `unavoidable-merge` | 4 |
-| `variant` | 7 |
+| `kept-elsewhere` | 10 |
+| `matches-accepted` | 5 |
+| `phrase-not-word` | 3 |
+| `repair` | 1 |
+| `same-referent` | 2 |
+| `unavoidable-merge` | 9 |
+| `variant` | 8 |
 
 The vocabulary is defined in the script's docstring. `homograph`,
 `same-referent`, `unavoidable-merge` and `phrase-not-word` are new here;
@@ -32,17 +37,17 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
 | `ambuscade` | `ambush` (B4-P044), `lying in wait there` (B4-P037) | **`matches-accepted`** | `ambuscade` -> `ambush` at B08-P046 is word for word accepted B04-P044's rendering of the same Butler word. The third rendering in the row, `lying in wait there` at B04-P037, is Book 4's phrase-level recast, where `ambuscade` has no word rendering at all. |
-| `begin` | `start a conversation` (B4-P014) | **`UNRULED`** |  |
+| `begin` | `start a conversation` (B4-P014) | **`matches-accepted`** | Both accepted Books render Butler's `begin` as `start` — `start questioning` at B03-P003, `start a conversation` at B04-P014, where the longer span is Butler's own doublet `begin opening up discourse` collapsed to one verb. One rendering, two spans. Book 2 keeps `begin`, which is current English in its own context. |
 | `behaving` | `behaving` (B4-P053) | **`kept`** | every entry Book 4 contributes is Butler's own `behaving` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `bottom` | `bottom` (B4-P032), `bottom` (B4-P037) | **`kept`** | every entry Book 4 contributes is Butler's own `bottom` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `compassion` | `compassion` (B4-P077) | **`kept`** | every entry Book 4 contributes is Butler's own `compassion` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `conducted` | `conducted` (B4-P024) | **`kept`** | every entry Book 4 contributes is Butler's own `conducted` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `detaining` | `keeping` (B4-P050) | **`UNRULED`** |  |
+| `detaining` | `keeping` (B4-P050) | **`context-rendered`** | `savages who are detaining him against his will` -> `holding` (B01-P014); `you are detaining me from them` -> `keeping me from them` (B04-P050). The first is captivity and the second is delay, and English does not use one verb for both: `holding me from them` is not idiomatic and `keeping him against his will` loses the imprisonment. |
 | `distaff` | `distaff` (B4-P011) | **`kept`** | every entry Book 4 contributes is Butler's own `distaff` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `dwells` | `lives` (B4-P047) | **`UNRULED`** |  |
+| `dwells` | `lives` (B4-P047) | **`kept-elsewhere`** | Book 4 supplies the row's only rendering (`lives`); every other entry is Butler's own `dwells` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `dwells` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
 | `forth` | `forth` (B4-P035) | **`kept`** | every entry Book 4 contributes is Butler's own `forth` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `girded` | `slung` (B4-P025) | **`UNRULED`** |  |
-| `hereabouts` | `near here` (B4-P032) | **`UNRULED`** |  |
+| `girded` | `slung` (B4-P025) | **`matches-accepted`** | Butler's dressing formula is word for word the same at B02-P001 and B04-P025 and both accepted Books render `girded his sword about his shoulder(s)` as `slung his sword over his shoulder(s)` — one rendering in two Books. Book 8 keeps `girded` at B08-P038, of a different act (girding oneself for the games), and that is Book 8's decision. |
+| `hereabouts` | `near here` (B4-P032) | **`context-rendered`** | **Deixis, and the clearest case of this class in the package.** B03-P024 is Nestor narrating a coast far from where he stands — `there is a high headland in those parts`. B04-P032 is Eidothea, standing on that shore, pointing — `an old immortal who lives under the sea near here`. `near here` in Nestor's mouth moves Crete to Pylos; `in those parts` in Eidothea's empties her gesture. |
 | `inherit` | `inherit` (B4-P066) | **`kept`** | every entry Book 4 contributes is Butler's own `inherit` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `insolence` | `insolence` (B4-P053) | **`kept`** | every entry Book 4 contributes is Butler's own `insolence` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `laying` | `laying` (B4-P060) | **`kept`** | every entry Book 4 contributes is Butler's own `laying` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -50,7 +55,7 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `mantle` | `cloak` (B4-P013) | **`matches-accepted`** | `mantle` -> `cloak` at B08-P007 is accepted B04-P013's rendering. B03-P036's `fine cloak` is the same rendering with Butler's own adjective attached. |
 | `meantime` | `meantime` (B4-P081) | **`kept`** | every entry Book 4 contributes is Butler's own `meantime` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `offended` | `offended` (B4-P031) | **`kept`** | every entry Book 4 contributes is Butler's own `offended` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `opening` | `start a conversation` (B4-P014) | **`UNRULED`** |  |
+| `opening` | `start a conversation` (B4-P014) | **`homograph`** | One spelling, two unrelated senses. B04-P014 is Butler's `begin opening up discourse` — starting to talk. B02-P025 is `doors opening in the middle` — a door on its hinge. No referent is shared. |
 | `prepared` | `prepared` (B4-P044) | **`kept`** | every entry Book 4 contributes is Butler's own `prepared` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `prevented` | `prevented` (B4-P015) | **`kept`** | every entry Book 4 contributes is Butler's own `prevented` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `protected` | `protected` (B4-P043) | **`kept`** | every entry Book 4 contributes is Butler's own `protected` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -59,11 +64,11 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `riches` | `riches` (B4-P009) | **`kept`** | every entry Book 4 contributes is Butler's own `riches` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `serve` | `serve` (B4-P020) | **`kept`** | every entry Book 4 contributes is Butler's own `serve` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `shrift` | `shrift` (B4-P028) | **`kept`** | every entry Book 4 contributes is Butler's own `shrift` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `singularly` | `remarkably swift` (B4-P017) | **`UNRULED`** |  |
+| `singularly` | `remarkably swift` (B4-P017) | **`matches-accepted`** | `singularly fleet of foot and in fight valiant` is Butler's epithet for Antilochus in both Books, and both render it `remarkably swift of foot and valiant in a fight` — identical, which is exactly the cross-Book consistency arrow A exists to check for. Book 8 keeps `singularly` in a different construction. |
 | `sorely` | `sorely` (B4-P043) | **`kept`** | every entry Book 4 contributes is Butler's own `sorely` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `stratagem` | `scheme` (B4-P033) | **`UNRULED`** |  |
-| `toils` | `a net` (B4-P073) | **`UNRULED`** |  |
-| `wherein` | `where` (B4-P022) | **`UNRULED`** |  |
+| `stratagem` | `scheme` (B4-P033) | **`kept-elsewhere`** | Book 4 supplies the row's only rendering (`scheme`); every other entry is Butler's own `stratagem` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `stratagem` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
+| `toils` | `a net` (B4-P073) | **`kept-elsewhere`** | Book 4 supplies the row's only rendering (`a net`); every other entry is Butler's own `toils` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `toils` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
+| `wherein` | `where` (B4-P022) | **`free-variation`** | `in which` at B05-P006 and B06-P004, `where` at B04-P022, all rendering Butler's relative `wherein`, all after a concrete place noun (a wood, a peacefulness of light, a wooden horse). No sense, register or referent separates them. Recorded, not repaired: three accepted Books would have to move to close a difference no reader can act on. |
 
 ## ARROW B — one rendering, two or more Butler words, across Books
 
@@ -86,7 +91,7 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `children` | `children` (B4-P001), `children` (B4-P060), `offspring` (B4-P018) | **`common-rendering`** | `children` is a word Butler himself uses in 8 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `cloak` | `cloak` (B4-P010), `mantle` (B4-P013) | **`common-rendering`** | `cloak` is a word Butler himself uses in 10 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `content` | `content` (B4-P005), `contented` (B4-P050) | **`variant`** | every rendering in the row reduces to `content` once inflection, D9 spelling and D15 compound spacing are normalized |
-| `conversation` | `begin opening up discourse` (B4-P014), `conversation` (B4-P050), `conversation` (B4-P079) | **`UNRULED`** |  |
+| `conversation` | `begin opening up discourse` (B4-P014), `conversation` (B4-P050), `conversation` (B4-P079) | **`discrimination`** | **Deliberately kept apart, and the drafter was doing arrow C's work by hand before arrow C existed.** Butler's sentence has both words in it: `ashamed to come here and begin opening up discourse with one whose conversation is so divinely interesting`. The candidate gives `discourse` the word `conversation` and moves Butler's own `conversation` to `talk`, so the sentence keeps two words where Butler had two. His `conversation` is kept at B04-P050 and B04-P079, where nothing is competing for it. |
 | `courtyard` | `courtyard` (B4-P005) | **`same-referent`** | The M-1 repair. `courtyard` now carries Butler's own `courtyard` (accepted B04-P005) and his `precincts` (B07-P012) — and his `precincts` IS the courtyard: the next sentence has Odysseus going `straight through the court`. Using Butler's own word for the thing he is describing is what M-1 asked for, and it is what frees `walls` for the bronze. |
 | `cross` | `cross` (B4-P054) | **`unavoidable-merge`** | `cross` carries Butler's `traverse` at B08-P049 and his own `cross` in four accepted Books. `traverse the sea` is not plain modern English and `cross` is its only ordinary equivalent. |
 | `dangerous` | `dangerous` (B4-P032) | **`kept`** | every entry Book 4 contributes is Butler's own `dangerous` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -95,27 +100,27 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `finest` | `finest` (B4-P051) | **`kept`** | every entry Book 4 contributes is Butler's own `finest` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `forth` | `forth` (B4-P035) | **`kept`** | every entry Book 4 contributes is Butler's own `forth` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `forward` | `forward` (B4-P029) | **`variant`** | every rendering in the row reduces to `forward` once inflection, D9 spelling and D15 compound spacing are normalized |
-| `friendship` | `an intercourse` (B4-P015) | **`UNRULED`** |  |
+| `friendship` | `an intercourse` (B4-P015) | **`kept-elsewhere`** | Book 4 supplies the row's only rendering (`an intercourse`); every other entry is Butler's own `friendship` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `friendship` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
 | `front` | `front` (B4-P053) | **`kept`** | every entry Book 4 contributes is Butler's own `front` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `girls` | `hussies` (B4-P065) | **`UNRULED`** |  |
+| `girls` | `hussies` (B4-P065) | **`kept-elsewhere`** | Book 4 supplies the row's only rendering (`hussies`); every other entry is Butler's own `girls` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `girls` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
 | `going` | `going` (B4-P032), `going` (B4-P061), `going` (B4-P071), `going` (B4-P076) | **`kept`** | every entry Book 4 contributes is Butler's own `going` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `granted` | `granted` (B4-P015), `vouchsafed` (B4-P001) | **`UNRULED`** |  |
+| `granted` | `granted` (B4-P015), `vouchsafed` (B4-P001) | **`unavoidable-merge`** | `heaven vouchsafed Helen no more children` -> `granted` (B04-P001), beside Butler's own `when heaven had granted us a safe return` (B04-P015). `vouchsafe` is archaic and `grant` is its only plain modern equivalent — and it is Butler's own word for the identical act of a god giving. |
 | `great` | `great` (B4-P009), `great` (B4-P015), `great` (B4-P027), `great` (B4-P029), `great` (B4-P034), `great` (B4-P037), `great` (B4-P038), `great` (B4-P042), `great` (B4-P065), `great` (B4-P076), `great` (B4-P081) | **`kept`** | every entry Book 4 contributes is Butler's own `great` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `handed` | `handed` (B4-P008), `handed` (B4-P060) | **`kept`** | every entry Book 4 contributes is Butler's own `handed` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `harshly` | `harshly` (B4-P060) | **`kept`** | every entry Book 4 contributes is Butler's own `harshly` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `headland` | `foreland` (B4-P043) | **`UNRULED`** |  |
+| `headland` | `foreland` (B4-P043) | **`kept-elsewhere`** | Book 4 supplies the row's only rendering (`foreland`); every other entry is Butler's own `headland` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `headland` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
 | `heads` | `heads` (B4-P017) | **`kept`** | every entry Book 4 contributes is Butler's own `heads` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `himself` | `himself` (B4-P021), `himself` (B4-P035), `himself` (B4-P038), `himself` (B4-P042), `himself` (B4-P043) | **`kept`** | every entry Book 4 contributes is Butler's own `himself` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `hurrying` | `hurrying` (B4-P003) | **`kept`** | every entry Book 4 contributes is Butler's own `hurrying` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `husband` | `husband` (B4-P011), `husband` (B4-P021), `husband` (B4-P065), `husband` (B4-P076) | **`kept`** | every entry Book 4 contributes is Butler's own `husband` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `inner` | `inner` (B4-P024) | **`kept`** | every entry Book 4 contributes is Butler's own `inner` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `keeping` | `detaining` (B4-P050), `keeping` (B4-P047) | **`UNRULED`** |  |
+| `keeping` | `detaining` (B4-P050), `keeping` (B4-P047) | **`unavoidable-merge`** | `keeping` carries Butler's `detaining` (B04-P050), his `preventing him from getting home` (B01-P006) and his own `keeping` in five Books. `keep X from Y` is the plain modern idiom for both, and the three instances are in three Books with no shared referent. |
 | `laying` | `laying` (B4-P060) | **`kept`** | every entry Book 4 contributes is Butler's own `laying` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `leather` | `leather` (B4-P072) | **`kept`** | every entry Book 4 contributes is Butler's own `leather` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `leave` | `leave` (B4-P009), `leave` (B4-P015), `leave` (B4-P050), `leave` (B4-P055), `leave` (B4-P057), `leave` (B4-P060), `leave` (B4-P062), `leave` (B4-P065), `leave` (B4-P067), `leave` (B4-P074), `leave` (B4-P076) | **`kept`** | every entry Book 4 contributes is Butler's own `leave` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `lives` | `dwells` (B4-P047), `lives` (B4-P032) | **`UNRULED`** |  |
-| `loaded` | `charged` (B4-P011) | **`UNRULED`** |  |
-| `lying` | `lying` (B4-P001), `lying` (B4-P022), `our ambuscade` (B4-P037) | **`UNRULED`** |  |
+| `lives` | `dwells` (B4-P047), `lives` (B4-P032) | **`unavoidable-merge`** | `Ulysses who dwells in Ithaca` -> `lives` (B04-P047), beside Butler's own `lives` in five Books including B04-P032 fifteen paragraphs away. `dwell` is archaic and `live` is its plain equivalent. **Accepted Book 7 keeps `dwells` at B07-P021** and that divergence is recorded rather than repaired: both readings are defensible and neither is wrong. |
+| `loaded` | `charged` (B4-P011) | **`kept-elsewhere`** | Book 4 supplies the row's only rendering (`charged`); every other entry is Butler's own `loaded` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `loaded` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
+| `lying` | `lying` (B4-P001), `lying` (B4-P022), `our ambuscade` (B4-P037) | **`phrase-not-word`** | `Our ambuscade would have been intolerable` -> `Lying in wait there would have been unbearable` (B04-P037). `lie in wait` is a fixed idiom whose participle coincides with Butler's own `lying` in six Books; there is no second referent. See (4, C, `our ambuscade` -> `wait`) and the Book 8 ruling at (A, `ambuscade`). |
 | `maids` | `maids` (B4-P024), `maids` (B4-P060), `maids` (B4-P064), `maids` (B4-P066), `maids` (B4-P067) | **`kept`** | every entry Book 4 contributes is Butler's own `maids` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `matter` | `matter` (B4-P020), `matter` (B4-P046), `matter` (B4-P058), `matter` (B4-P065), `matter` (B4-P074) | **`variant`** | every rendering in the row reduces to `matter` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `meanwhile` | `meanwhile` (B4-P037), `meanwhile` (B4-P053), `meanwhile` (B4-P069) | **`kept`** | every entry Book 4 contributes is Butler's own `meanwhile` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -123,25 +128,25 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `others` | `others` (B4-P020), `others` (B4-P057), `others` (B4-P059) | **`kept`** | every entry Book 4 contributes is Butler's own `others` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `ourselves` | `ourselves` (B4-P048) | **`variant`** | every rendering in the row reduces to `ourselv` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `people` | `people` (B4-P004), `people` (B4-P007), `people` (B4-P009), `people` (B4-P014), `people` (B4-P015), `people` (B4-P021), `people` (B4-P032), `people` (B4-P076) | **`kept`** | every entry Book 4 contributes is Butler's own `people` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `plainly` | `in all plainness` (B4-P027) | **`UNRULED`** |  |
+| `plainly` | `in all plainness` (B4-P027) | **`unavoidable-merge`** | `tell me in all plainness exactly what you saw` -> `tell me plainly and exactly`, identical in both accepted Books, beside Butler's own `plainly` in Books 2 and 7. His `in all plainness` is an adverbial periphrasis for exactly the adverb he uses elsewhere; modern English has the adverb and not the periphrasis, so the merge is what modernizing this phrase means. |
 | `playing` | `playing` (B4-P037), `playing` (B4-P057) | **`homograph`** | One spelling, two unrelated senses. `the playing that goes with it` at B08-P007 renders Butler's `minstrelsy`; his own `playing` elsewhere is children at play (B01-P008, B07-P023) and a flame playing about a tripod (B08-P040). No referent is shared. |
 | `plotting` | `plotting` (B4-P060), `plotting` (B4-P061), `plotting` (B4-P076) | **`variant`** | every rendering in the row reduces to `plott` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `prayer` | `prayer` (B4-P069) | **`kept`** | every entry Book 4 contributes is Butler's own `prayer` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `pulling` | `pulling` (B4-P074) | **`variant`** | every rendering in the row reduces to `pull` once inflection, D9 spelling and D15 compound spacing are normalized |
 | `quick` | `quick` (B4-P048) | **`kept`** | every entry Book 4 contributes is Butler's own `quick` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `quickly` | `quickly` (B4-P040) | **`kept`** | every entry Book 4 contributes is Butler's own `quickly` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `scheme` | `stratagem` (B4-P033) | **`UNRULED`** |  |
-| `scoundrels` | `miscreants` (B4-P027) | **`UNRULED`** |  |
+| `scheme` | `stratagem` (B4-P033) | **`kept-elsewhere`** | Book 4 supplies the row's only rendering (`stratagem`); every other entry is Butler's own `scheme` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `scheme` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
+| `scoundrels` | `miscreants` (B4-P027) | **`kept-elsewhere`** | Book 4 supplies the row's only rendering (`miscreants`); every other entry is Butler's own `scoundrels` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `scoundrels` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
 | `servant` | `menial` (B4-P021), `servant` (B4-P003), `servant` (B4-P006) | **`common-rendering`** | `servant` is a word Butler himself uses in 15 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
-| `showed` | `displayed` (B4-P022) | **`UNRULED`** |  |
+| `showed` | `displayed` (B4-P022) | **`unavoidable-merge`** | `showed` carries Butler's `shewed` (B03-P030 — his own archaic spelling of this very word), his `manifested herself visibly` (B03-P033) and his `what courage he displayed` (B04-P022). A goddess manifesting and a man displaying courage are both `showing` in plain English, and the third is not a second word at all. |
 | `single` | `single` (B4-P020), `single` (B4-P021) | **`kept`** | every entry Book 4 contributes is Butler's own `single` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `sitting` | `sitting` (B4-P042), `sitting` (B4-P053), `sitting` (B4-P064) | **`kept`** | every entry Book 4 contributes is Butler's own `sitting` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `something` | `something` (B4-P037), `something` (B4-P061), `something` (B4-P076) | **`kept`** | every entry Book 4 contributes is Butler's own `something` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `somewhere` | `somewhere` (B4-P055) | **`kept`** | every entry Book 4 contributes is Butler's own `somewhere` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `spears` | `spears` (B4-P053) | **`kept`** | every entry Book 4 contributes is Butler's own `spears` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `start` | `begin opening up discourse` (B4-P014) | **`UNRULED`** |  |
+| `start` | `begin opening up discourse` (B4-P014) | **`homograph`** | One spelling, two unrelated senses. `ashamed to begin questioning` -> `start questioning` (B03-P003) and `begin opening up discourse` -> `start a conversation` (B04-P014) are *commence*; Butler's own `that he may start at once` (B03-P036) and its kin in Books 5, 6 and 8 are *set out on a journey*. The two senses never meet. |
 | `strength` | `strength` (B4-P035) | **`kept`** | every entry Book 4 contributes is Butler's own `strength` carried through unchanged; the decision in this row belongs to whichever Book moved |
-| `struck` | `smote` (B4-P048), `struck` (B4-P002) | **`UNRULED`** |  |
+| `struck` | `smote` (B4-P048), `struck` (B4-P002) | **`phrase-not-word`** | `smote the grey sea with our oars` -> `struck the gray sea` (B04-P048), beside Butler's own `when the man struck up his tune` (B04-P002). `strike up` is a fixed idiom for beginning to play, not a second use of the transitive verb, and `smite` has no modern equivalent but `strike`. |
 | `suppose` | `suppose` (B4-P015), `suppose` (B4-P076) | **`kept`** | every entry Book 4 contributes is Butler's own `suppose` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `talked` | `converse` (B4-P052) | **`unavoidable-merge`** | `talked` carries Butler's `converse` (B04-P052, B07-P028) and his own `talked` (B02-P025). `converse` as an intransitive verb is archaic and `talk` is its only plain modern equivalent; the alternative is a register difference Butler does not make. B07-P028 matches accepted B04-P052 word for word, which is the consistency the package asks for. |
 | `their` | `their` (B4-P003), `their` (B4-P004), `their` (B4-P005), `their` (B4-P006), `their` (B4-P008), `their` (B4-P019), `their` (B4-P027), `their` (B4-P029), `their` (B4-P030), `their` (B4-P042), `their` (B4-P050), `their` (B4-P052), `their` (B4-P053), `their` (B4-P054), `their` (B4-P060), `their` (B4-P061), `their` (B4-P072), `their` (B4-P081) | **`kept`** | every entry Book 4 contributes is Butler's own `their` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -150,7 +155,7 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | `thought` | `thought` (B4-P037), `thought` (B4-P055), `thought` (B4-P073) | **`kept`** | every entry Book 4 contributes is Butler's own `thought` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `together` | `converse` (B4-P052), `together` (B4-P053) | **`common-rendering`** | `together` is a word Butler himself uses in 14 paragraphs across seven Books, so its reuse as a rendering is not a decision; arrow B is ungated on this side on purpose and arrow C carries the residue |
 | `traveler` | `traveller` (B4-P027) | **`unavoidable-merge`** | **O-7, declined, and the reason is that the proposed repair does not repair anything.** `wayfarer` -> `traveler` at B07-P018 does land on the rendering of Butler's `traveller` at accepted B03-P011 and B04-P027. But O-7 offers `lone traveler` to keep the solitary sense without the merge, and the candidate **already writes `solitary traveler`** — the same repair in a different word, with the merge untouched either way, because `traveler` is the only plain modern equivalent of `wayfarer`. |
-| `treachery` | `perfidy` (B4-P009) | **`UNRULED`** |  |
+| `treachery` | `perfidy` (B4-P009) | **`kept-elsewhere`** | Book 4 supplies the row's only rendering (`perfidy`); every other entry is Butler's own `treachery` carried through unchanged by another Book. There is one rendering decision in this row, not two, so there is nothing to reconcile. **Declared blind:** this class cannot say whether a Book that KEPT `treachery` should also have moved it. That residue is ruled by hand in `RULINGS_BY_BOOK` wherever the kept word is not current English in its own context (see `luscious` at Book 5). |
 | `waste` | `waste` (B4-P045), `waste` (B4-P060) | **`kept`** | every entry Book 4 contributes is Butler's own `waste` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `water` | `water` (B4-P006), `water` (B4-P018), `water` (B4-P019), `water` (B4-P029), `water` (B4-P034), `water` (B4-P035), `water` (B4-P038), `water` (B4-P042), `water` (B4-P048), `water` (B4-P072) | **`kept`** | every entry Book 4 contributes is Butler's own `water` carried through unchanged; the decision in this row belongs to whichever Book moved |
 | `wealth` | `wealth` (B4-P009) | **`kept`** | every entry Book 4 contributes is Butler's own `wealth` carried through unchanged; the decision in this row belongs to whichever Book moved |
@@ -168,14 +173,14 @@ The vocabulary is defined in the script's docstring. `homograph`,
 | key | this Book's entries | disposition | reason |
 |---|---|---|---|
 | `now` | `henceforward` (B4-P004) | **`common-word`** | `now` is an ordinary word Butler uses in 81 paragraphs and the two uses share no referent |
-| `beside` | `by the side of` (B4-P006) | **`UNRULED`** |  |
+| `beside` | `by the side of` (B4-P006) | **`variant`** | Butler uses three surface forms of one preposition in this paragraph — `by the side of Menelaus`, `beside them`, `by their side` — and the candidate uses `beside` for all three. One preposition, not three words. |
 | `brought` | `fetched them` (B4-P006) | **`common-word`** | `brought` is an ordinary word Butler uses in 29 paragraphs and the two uses share no referent |
 | `set` | `offered` (B4-P006) | **`common-word`** | `set` is an ordinary word Butler uses in 45 paragraphs and the two uses share no referent |
-| `morning` | `forenoon` (B4-P017) | **`UNRULED`** |  |
+| `morning` | `forenoon` (B4-P017) | **`repair`** | **Live, and the sharpest finding of this backlog, because the candidate's own sentence is tautological.** Butler: `Morning will come in due course, and in the forenoon I care not how much I cry for those that are dead and gone.` Pisistratus is refusing to weep at the evening meal and naming the hours when weeping is proper. The candidate writes `Morning will come in its own time, and in the morning I do not care how much I cry`, which says a thing will come and that when it has come it will be there. The whole point of the sentence — the deferral — is carried by the second word and the candidate spent it on the first. Repaired in `book04/candidate-v5.json` to `and later in the day`, which keeps the deferral; it widens Butler's pre-noon hours slightly and that is recorded in `book04/continuity.md` rather than hidden. |
 | `man` | `person` (B4-P017) | **`common-word`** | `man` is an ordinary word Butler uses in 86 paragraphs and the two uses share no referent |
 | `great` | `hecatombs` (B4-P029) | **`common-word`** | `great` is an ordinary word Butler uses in 54 paragraphs and the two uses share no referent |
-| `wait` | `our ambuscade` (B4-P037) | **`UNRULED`** |  |
-| `sacrifices` | `hecatombs` (B4-P040) | **`UNRULED`** |  |
+| `wait` | `our ambuscade` (B4-P037) | **`phrase-not-word`** | `Our ambuscade would have been intolerable` -> `Lying in wait there would have been unbearable`, beside Butler's own `sat down to wait till we should come up`. `lie in wait` is a fixed idiom and `wait` in it is not a second use of the verb Butler kept. Ruled the same way from the other side at (4, B, `lying`). |
+| `sacrifices` | `hecatombs` (B4-P040) | **`same-referent`** | Butler: `you must offer sacrifices to Jove ... and offered holy hecatombs to the immortal gods`. A hecatomb IS a sacrifice, so the referent is his own and the merge is not a sense change; what it costs is the SCALE, and that is the one thing accepted Books 1 and 3 both paid for with an adjective (`great sacrifice`, `fine sacrifice`) and Book 4 did not. **Book 4 was the accepted Book out of step**, which is the `luscious` shape again. The successor `book04/candidate-v5.json` writes `great and holy sacrifices`, matching Book 1's scale word. The row does not disappear and is not meant to: the noun is still Butler's own, which is what `same-referent` says. |
 | `from` | `henceforward` (B4-P060) | **`common-word`** | `from` is an ordinary word Butler uses in 131 paragraphs and the two uses share no referent |
 | `tell` | `bid` (B4-P065) | **`common-word`** | `tell` is an ordinary word Butler uses in 56 paragraphs and the two uses share no referent |
 
