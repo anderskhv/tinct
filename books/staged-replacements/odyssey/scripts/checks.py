@@ -52,6 +52,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from compound_drift import compound_drift          # noqa: E402
 from controls import control, declare_blind, summary  # noqa: E402
+import pg_source                                     # noqa: E402
 
 # GLOSSARY.md's closed Roman -> Greek table (D5/D6), lower-cased for the token
 # measures so that Butler's `Ulysses` and the candidate's `Odysseus` are one
@@ -245,10 +246,80 @@ def _provenance(src, cand, marks):
 def kept_added_div(src, cand):
     """(dividing marks of Butler's the candidate still carries, dividing marks
     the candidate added where Butler wrote something weaker). D27's half of
-    D21."""
+    D21.
+
+    **Kept here means Butler's mark in the span was SOME dividing mark**, and
+    that is what D28 below repairs. Retained because eight Books are published
+    on it and a column is republished beside its predecessor, never over it
+    (R-1)."""
     rows = _provenance(src, cand, DIVIDING)
     kept = sum(1 for r in rows if r[2] in DIVIDING)
     return kept, len(rows) - kept
+
+
+# ------------------------------------- D28: the dividing marks, BY IDENTITY
+# **Substantive finding S-1 of Book 9's round 1 — and it is S-1/M-4 of Book
+# 8's round recurring one Book later, inside the class D27 was widened to
+# cover.**
+#
+# D27 asks whether Butler's strongest mark in the aligned span was a member of
+# `DIVIDING`. It does not ask whether it was **the same mark**. So a draft can
+# cash one of Butler's colons for a period and write a colon of its own over
+# one of his semicolons, and the census reads `: 7 → 7` and calls the class
+# untouched. Book 9 does exactly that, twice each way:
+#
+# | | Butler | candidate |
+# |---|---|---|
+# | B09-P009 | `excellent sport;` | `excellent sport:` |
+# | B09-P013 | `separate flocks;` | `separate flocks:` |
+# | B09-P012 | `one housekeeper:` | `one housekeeper.` |
+# | B09-P021 | `to do as follows:` | `the best plan.` |
+#
+# Neither conversion is wrong as English — both new colons introduce a list —
+# and that is the point: **the package could not see the difference between
+# improving Butler's pointing and leaving it alone**, and `README.md` published
+# a claim (*"not one of the 41 marks the candidate carries is its own"*) that
+# depends on the difference. On this Book the compared figure moves 0.8 points.
+#
+# D28 splits the census three ways and makes the COMPARED figure the strict
+# one. A class change is neither kept nor added: it is Butler's pointing
+# improved, which is a real thing a modern edition does and a thing that must
+# be *declared* rather than absorbed. It is reported, named by paragraph, and
+# priced at zero on the candidate's side — the same price as a mark written
+# from nothing, because on the evidence of the count alone the two are the
+# same event.
+def kept_class_added_div(src, cand):
+    """(kept by IDENTITY, class-changed, added). D28.
+
+    * **kept** — the candidate's mark is the mark Butler wrote in that span;
+    * **class-changed** — Butler wrote a *different* dividing mark there;
+    * **added** — Butler wrote nothing stronger than a comma there.
+    """
+    rows = _provenance(src, cand, DIVIDING)
+    kept = sum(1 for r in rows if r[1] == r[2])
+    changed = sum(1 for r in rows if r[2] in DIVIDING and r[1] != r[2])
+    return kept, changed, len(rows) - kept - changed
+
+
+def class_changed_rows(src, cand):
+    """The class changes, named, so that `checks-vN.md` can print them and a
+    reader can rule on each one. A count that cannot be pointed at is the
+    thing S-1 is about."""
+    return [(r[0], r[2], r[1], r[3]) for r in _provenance(src, cand, DIVIDING)
+            if r[2] in DIVIDING and r[1] != r[2]]
+
+
+def norm_rate_butler_ident(src, cand):
+    """**D28 — THE COMPARED FIGURE from Book 9 forward.**
+
+    `norm_rate_butler_ext` with `kept` counted by mark identity. Returns
+    (src_norm, cand_norm, pct)."""
+    sn, _ = sentence_profile(src)
+    cn, _ = sentence_profile(cand)
+    kept, _changed, _added = kept_class_added_div(src, cand)
+    a = sn + dividing_marks(src)
+    b = cn + kept
+    return a, b, 100.0 * (b - a) / a
 
 
 def norm_rate_ext(src, cand):
@@ -1018,7 +1089,10 @@ def figures(book, src, cand):
     nb = norm_rate_butler(s, c)
     ne = norm_rate_ext(s, c)
     nbe = norm_rate_butler_ext(s, c)
+    nbi = norm_rate_butler_ident(s, c)
     return dict(basis=BASIS[book][1], n=len(s),
+                wordratio=sum(len(p.split()) for p in c)
+                / sum(len(p.split()) for p in s),
                 retention=token_retention(s, c),
                 order=order_retention(s, c), bag=bag_retention(s, c),
                 movegap=move_gap(s, c),
@@ -1032,7 +1106,228 @@ def figures(book, src, cand):
                 kept_added_div=kept_added_div(s, c),
                 norm_ext=ne[2], norm_ext_pair=(ne[0], ne[1]),
                 norm_butler_ext=nbe[2],
-                norm_butler_ext_pair=(nbe[0], nbe[1]))
+                norm_butler_ext_pair=(nbe[0], nbe[1]),
+                # D28 — the same census by mark IDENTITY (Book 9 round 1, S-1)
+                kept_class_added_div=kept_class_added_div(s, c),
+                class_changed=class_changed_rows(s, c),
+                norm_butler_ident=nbi[2],
+                norm_butler_ident_pair=(nbi[0], nbi[1]))
+
+
+
+# ------------------------------------------------------ THE PROSE (R-1, R-5)
+# **Records finding R-1 and R-5 of Book 9's round 1.** Clause (b3) recomputes
+# sixteen figures against `manifest.json` and **nothing read the prose**. Book
+# 9 went into its freeze with its retention published as **0.92164** in
+# `README.md`, `continuity.md`, `RESUME.md` and the ledger, and as **0.92181**
+# in `checks-v1.md` and `manifest.json` — the second being what the frozen
+# candidate actually gives. The difference is 0.00017, which over 5 845 source
+# tokens is **exactly one token**: the four prose copies were computed over a
+# candidate one collision repair short of the frozen one. A third value,
+# **0.91976**, is in `scripts/draft_book09_v1.py`'s own docstring. The word
+# ratio is published as `0.993` and is `0.99138`, which rounds to 0.991.
+#
+# `continuity.md` §1 opens *"Every one of them is written by
+# `scripts/checks.py`, not typed"*, and for three of them that sentence was
+# false. **A figure that is right in the manifest and wrong in the prose must
+# fail something**, and this is the something.
+#
+# **How it works, and why it needs no new syntax.** The prose already writes
+# its figures as markdown table rows, `| label | value |`, with labels that
+# name the measure. So: for every row of every figure-bearing prose file,
+# match the LABEL against the measure vocabulary below; if it matches, extract
+# every number of that measure's SHAPE from the value cell and require the set
+# to be exactly what the candidate gives. A cell may carry prose around the
+# number; it may not carry a different number of the same shape.
+#
+# Retention is written to five places everywhere, so `0.993` in a word-ratio
+# cell fails not because it disagrees in the fifth place but because the
+# package writes `%.5f` — which is the same rule that makes the disagreement
+# visible in the first place.
+#
+# **Declared blindness.** This reads TABLE ROWS. A figure written into a
+# sentence — *"retention is 0.92164"* — is not seen, and the repair for that
+# is to write figures in rows, which is what these files already do. The
+# clause is folded into `--all`, so it runs whenever anything else does.
+
+_PROSE_FILES = ("README.md", "continuity.md", "ACCEPTANCE.md")
+_NUM5 = re.compile(r"(?<![\d.])\d\.\d{2,6}")
+_ARROW = re.compile(r"(\d+)\s*(?:→|->)\s*(\d+)")
+_PCT = re.compile(r"([+-]\d+\.\d)%")
+_KEPT = re.compile(r"(\d+)\s*kept\s*\+\s*(\d+)\s*added")
+
+
+def _f5(x):
+    return "%.5f" % round(x, 5)
+
+
+# (label pattern, shape, what the candidate gives). The label patterns are
+# deliberately narrow: a row this vocabulary does not recognize is not
+# checked, and that is reported as a count so the coverage is visible.
+PROSE_MEASURES = (
+    (r"token retention", "num5", lambda f: [_f5(f["retention"])]),
+    (r"order retention\s*/\s*bag retention", "num5",
+     lambda f: [_f5(f["order"]), _f5(f["bag"])]),
+    (r"^bag retention", "num5", lambda f: [_f5(f["bag"])]),
+    (r"MOVE-GAP", "num5", lambda f: [_f5(f["movegap"])]),
+    (r"word ratio", "num5", lambda f: [_f5(f["wordratio"])]),
+    (r"sentences, source", "arrow", lambda f: [f["sent"]]),
+    (r"sixty-word", "arrow", lambda f: [f["sixty"]]),
+    (r"semicolons, Butler", "arrow", lambda f: [f["semi"]]),
+    (r"dividing marks", "arrow", lambda f: [f["div"]]),
+    (r"splitting rate", "pct", lambda f: ["%+.1f" % round(f["raw"], 1)]),
+)
+
+
+def _prose_rows(path):
+    for ln, line in enumerate(path.read_text(encoding="utf-8").split("\n"), 1):
+        if not line.startswith("|"):
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) != 2 or set(cells[1]) <= set("-: "):
+            continue
+        yield ln, cells[0].replace("*", "").strip(), cells[1]
+
+
+def _vocab(book):
+    """Every figure every candidate of one Book produces, at every precision
+    the package writes, as strings.
+
+    **Why a vocabulary and not one file.** A `README.md` legitimately prints
+    the frozen draft's figures beside the accepted successor's, and an
+    `ACCEPTANCE.md` legitimately prints the other Books' for contrast. The
+    thing R-1 is about is narrower and sharper than *disagrees with the
+    accepted file*: Book 9's 0.92164 is **a figure no file in the package
+    produces**, at any precision, for any candidate. So that is what is
+    asserted."""
+    out = set()
+    files = sorted({str(x.relative_to(ROOT))
+                    for x in (ROOT / ("book%02d" % book)).glob("candidate-v*.json")})
+    src = load("book%02d/source-book%d.json" % (book, book))
+    for cf in files:
+        try:
+            f = figures(book, src, load(cf))
+        except Exception:                                    # noqa: BLE001
+            continue
+        for v in (f["retention"], f["order"], f["bag"], f["movegap"],
+                  f["wordratio"]):
+            for dp in (3, 4, 5):
+                out.add(("%%.%df" % dp) % round(v, dp))
+        for v in (f["raw"], f["norm"], f["norm_butler"], f["norm_ext"],
+                  f["norm_butler_ext"], f["norm_butler_ident"]):
+            out.add("%+.1f" % round(v, 1))
+        for pr in (f["sent"], f["sixty"], f["semi"], f["div"],
+                   f["normpair"], f["norm_butler_pair"], f["norm_ext_pair"],
+                   f["norm_butler_ext_pair"], f["norm_butler_ident_pair"]):
+            out.add("%d\u2192%d" % tuple(pr))
+    # Book 3's other basis is published deliberately and on purpose (R-1).
+    if book == 3:
+        saved = BASIS[3]
+        BASIS[3] = (None, "all 38 paragraphs")
+        try:
+            f = figures(3, src, load(ACCEPTED[3][1]))
+            for v in (f["retention"], f["order"], f["bag"], f["movegap"],
+                      f["wordratio"]):
+                for dp in (3, 4, 5):
+                    out.add(("%%.%df" % dp) % round(v, dp))
+            out.add("%+.1f" % round(f["raw"], 1))
+            for pr in (f["sent"], f["sixty"], f["semi"], f["div"]):
+                out.add("%d\u2192%d" % tuple(pr))
+        finally:
+            BASIS[3] = saved
+    return out
+
+
+_BOOKREF = re.compile(r"\bBook\s+\d|\bB0\d-|\bBook\s+[IVX]+\b")
+
+
+def run_prose(quiet=False):
+    """**Every number in a figure-bearing prose row must be a figure this
+    package actually produces.**
+
+    Returns a list of failure messages. Folded into `--all`."""
+    bad, checked = [], 0
+    vocab, union = {}, set()
+    for bkdir in sorted(ROOT.glob("book[0-9][0-9]")):
+        bk = int(bkdir.name[4:])
+        vocab[bk] = _vocab(bk)
+        union |= vocab[bk]
+    for bkdir in sorted(ROOT.glob("book[0-9][0-9]")):
+        book = int(bkdir.name[4:])
+        for name in _PROSE_FILES:
+            path = bkdir / name
+            if not path.exists():
+                continue
+            for ln, label, cell in _prose_rows(path):
+                for pat, shape, _ in PROSE_MEASURES:
+                    if not re.search(pat, label, re.I):
+                        continue
+                    # **The published figure is what precedes the first
+                    # semicolon.** These tables carry commentary in the same
+                    # cell — *`0.9559 (4,682 / 4,898); 0.9957 excluding
+                    # B03-P038; v1 was 0.9561`* — and only the head of the
+                    # cell is the Book's published value. DECLARED BLINDNESS:
+                    # a wrong figure written after a semicolon is not seen.
+                    cell = cell.split(";")[0]
+                    if shape == "num5":
+                        got = _NUM5.findall(cell)
+                    elif shape == "arrow":
+                        got = ["%s\u2192%s" % ab for ab in _ARROW.findall(cell)]
+                    else:
+                        got = _PCT.findall(cell)
+                    # A row that names another Book may cite that Book's
+                    # figures; a row that does not may cite only its own.
+                    allowed = union if _BOOKREF.search(cell + " " + label) \
+                        else vocab[book]
+                    for tok in got:
+                        checked += 1
+                        if tok not in allowed:
+                            bad.append(
+                                "prose: %s:%d `%s` publishes %s, and no "
+                                "candidate of Book %d produces it at that "
+                                "precision"
+                                % (path.relative_to(ROOT), ln, label[:46],
+                                   tok, book))
+                    break
+    # **The two cross-Book tables.** `RESUME.md`'s *State* table and the
+    # ledger's *comparability table* carry one row per Book and eleven cells
+    # per row, so the two-cell reader above does not see them — and they are
+    # two of the four files R-1 names. A row whose first cell is a Book number
+    # has every figure-shaped token in it checked against that Book's
+    # vocabulary. `RESUME.md` says this table is *"produced by
+    # `scripts/checks.py --all`, not typed"*; until now nothing made that
+    # true, and Book 9's 0.92164 sat in it.
+    for rel in ("RESUME.md", "00-progress-ledger.md"):
+        path = ROOT / rel
+        if not path.exists():
+            continue
+        for ln, line in enumerate(path.read_text(encoding="utf-8").split("\n"), 1):
+            if not line.startswith("|"):
+                continue
+            cells = [c.strip() for c in line.strip().strip("|").split("|")]
+            if len(cells) < 6:
+                continue
+            m = re.match(r"^\**\s*(\d+)\b", cells[0].replace("*", "").strip())
+            if not m:
+                continue
+            bk = int(m.group(1))
+            if bk not in vocab:
+                continue
+            toks = _NUM5.findall(line) \
+                + ["%s\u2192%s" % ab for ab in _ARROW.findall(line)] \
+                + _PCT.findall(line)
+            for tok in toks:
+                checked += 1
+                if tok not in vocab[bk]:
+                    bad.append("prose: %s:%d Book %d's row publishes %s, and "
+                               "no candidate of that Book produces it at that "
+                               "precision" % (rel, ln, bk, tok))
+    if not quiet:
+        print("  %s %d figure-bearing prose numbers checked, %d that no file "
+              "produces" % ("\u2717" if bad else "\u2713", checked, len(bad)))
+        for m in bad:
+            print("    \u2717 %s" % m)
+    return bad
 
 
 # ------------------------------------------------------------------- the gates
@@ -1048,6 +1343,14 @@ class Gate:
 
     def __init__(self):
         self.failures = []
+        # **The pin on Butler — A11.** Kept apart from `failures` for the
+        # opposite reason `manifest_failures` is: a manifest-consistency
+        # failure must not block its own repair, and a SOURCE failure must not
+        # be repairable at all. There is no key of `DECLARED` that reaches
+        # this list, no `--write-manifest` that clears it, and no reason a
+        # drafter may write beside it. Butler is not a thing this package
+        # declares; it is the thing it is measured against.
+        self.source_failures = []
         # Manifest-consistency failures are kept APART from the content gates,
         # and the reason is a real one rather than tidiness: a stale manifest
         # must not be able to block its own repair. `manifest_checks_block()`
@@ -1065,7 +1368,7 @@ class Gate:
 
     @property
     def passed(self):
-        return self.evaluated and not self.failures
+        return self.evaluated and not self.failures and not self.source_failures
 
 
 # ------------------------------------------------------- the manifest (S-2)
@@ -1123,12 +1426,30 @@ def manifest_checks_block(figs, gate):
         raise RuntimeError(
             "manifest_checks_block: %d gate(s) FAILED; no manifest may be "
             "written.\n  " % len(gate.failures) + "\n  ".join(gate.failures))
+    if gate.source_failures:
+        # **A11's loud form died here.** The attack was: rewrite Butler, then
+        # run the ordinary `checks.py N --write-manifest` and let the package
+        # re-derive its own consistency around the new figures. That second
+        # step is this function, and it now refuses.
+        raise RuntimeError(
+            "manifest_checks_block: the SOURCE does not reproduce from "
+            "Project Gutenberg #1727; no manifest may be written over an "
+            "edited Butler, and there is no declaration that licenses one."
+            "\n  " + "\n  ".join(gate.source_failures))
     return {
         "written_by": "scripts/checks.py",
         "file": figs["checks_md"],
         "sha256": figs["checks_md_sha256"],
         "candidate_file": figs["candidate_file"],
         "candidate_sha256": figs["candidate_sha256"],
+        # **The source end of every comparison, recorded at last (A11).** The
+        # candidate was named, hashed and re-measured by (b), (b2) and (b3);
+        # the file all sixteen of those figures were computed AGAINST was
+        # loaded by naming convention and held by nothing.
+        "source_file": figs["source_file"],
+        "source_sha256": figs["source_sha256"],
+        "pg_file": pg_source.PG_FILE,
+        "pg_sha256": pg_source.PG_SHA256,
         "basis": figs["basis"],
         "retention": round(figs["retention"], 5),
         "sentences": list(figs["sent"]),
@@ -1267,6 +1588,65 @@ def verify_manifest(book, figs=None, gate=None):
                                "gives %s" % (book, key, want,
                                              ck["candidate_file"], got))
 
+    # (b4) **THE SOURCE — attack A11, the third defeat of this mechanism.**
+    #
+    # Clause (b3) above recomputes sixteen figures from `ck["candidate_file"]`
+    # and `book%02d/source-book%d.json`. The candidate is named by the
+    # manifest, hashed by the manifest and re-measured; **the source was
+    # loaded by naming convention** and its sha256 appeared in no manifest, no
+    # `ACCEPTED`, `DECLARED` or `SUPERSEDED` row and no assertion of
+    # `prove_manifest.py`. The reviewer of Book 9 rewrote twelve of Butler's
+    # full stops as semicolons, ran `checks.py 9 --write-manifest`, and moved a
+    # published rate by nine points with every instrument exiting 0 and no
+    # declaration written; then removed **one comma** and moved nothing at
+    # all, which is worse, because nothing had to be regenerated.
+    #
+    # Three things are asserted here, and the order matters.
+    #
+    # 1. The manifest must **name and hash** the source. A manifest that
+    #    records its candidate and not its source vouches for one end of a
+    #    comparison.
+    # 2. It must name and hash **PG #1727** — the public artefact the package
+    #    is a derivative of, re-downloadable from `PG_URL` by anyone.
+    # 3. And the source must **re-derive from PG**, because a recorded hash of
+    #    a file this package also writes is a promise it makes to itself.
+    #    `pg_source.verify_source` extracts Book N from PG between PG's own
+    #    structural markers and compares paragraph for paragraph in the space
+    #    every published measure is computed in, with the four rows of the A7
+    #    register — and no fifth — as the only permitted divergences.
+    #
+    # There is deliberately **no declarable escape**. A9's hatch (declare the
+    # defect and re-run) is a licence over a candidate; nothing in `DECLARED`
+    # has a key that reaches Butler.
+    if ck.get("source_file") is None or ck.get("source_sha256") is None:
+        bad.append("manifest: book%02d records no source_file/source_sha256 — "
+                   "every figure in this block is computed against a file the "
+                   "manifest does not name (A11)" % book)
+    else:
+        want_src = "book%02d/source-book%d.json" % (book, book)
+        if ck["source_file"] != want_src:
+            bad.append("manifest: book%02d names source_file %r and the file "
+                       "its figures are computed from is %s"
+                       % (book, ck["source_file"], want_src))
+        sp = ROOT / ck["source_file"]
+        if not sp.exists():
+            bad.append("manifest: book%02d names a source that does not "
+                       "exist: %r" % (book, ck["source_file"]))
+        else:
+            actual = hashlib.sha256(sp.read_bytes()).hexdigest()
+            if actual != ck["source_sha256"]:
+                bad.append("manifest: book%02d records source_sha256 %s and %s "
+                           "hashes to %s — **Butler moved under the manifest**"
+                           % (book, str(ck["source_sha256"])[:8],
+                              ck["source_file"], actual[:8]))
+    if ck.get("pg_sha256") != pg_source.PG_SHA256 or \
+            ck.get("pg_file") != pg_source.PG_FILE:
+        bad.append("manifest: book%02d does not record Project Gutenberg "
+                   "#1727 as %s / %s — the source's own source is unheld"
+                   % (book, pg_source.PG_FILE, pg_source.PG_SHA256[:8]))
+    bad += ["manifest: book%02d — %s" % (book, m)
+            for m in pg_source.verify_source(book)]
+
     # (c) `all_gates_passed: true` must be BACKED BY AN EVALUATION.
     #
     # **The defeat, found by Book 8's round 1 (S-3) and reproduced here before
@@ -1310,7 +1690,9 @@ def run_manifests():
     """`--manifests`: the read side for every Book at once."""
     print("checks.py --manifests — verifying every Book's manifest against the "
           "files it names\n")
-    bad = []
+    bad = list(pg_source.verify_all())
+    for m in bad:
+        print("  \u2717 %s" % m)
     for bkdir in sorted((ROOT).glob("book[0-9][0-9]")):
         book = int(bkdir.name[4:])
         # **The repair of the defeat.** `--manifests` used to call
@@ -1355,6 +1737,11 @@ def run_manifests():
                     "`checks.py %d --write-manifest`)"
                     % (book, str(ck["sha256"])[:8], fr["render_sha256"][:8],
                        book)]
+        if gate is not None and gate.source_failures:
+            msgs = msgs + ["manifest: book%02d — the SOURCE its figures are "
+                           "computed against does not reproduce from PG "
+                           "#1727: %s" % (book, m)
+                           for m in gate.source_failures]
         if gate is not None and gate.failures:
             msgs = msgs + ["manifest: book%02d — the candidate its manifest "
                            "names fails a content gate: %s" % (book, m)
@@ -1417,6 +1804,13 @@ def run_book(book, version=None, write=True, quiet=False, candidate=None):
     D = declared(cand_rel)
 
     g = Gate()
+    # **THE PIN ON BUTLER, first, before anything is measured against him
+    # (A11).** `src` above was loaded by naming convention; this is where that
+    # stops. `pg_source.verify_source` re-derives Book N from Project
+    # Gutenberg #1727 — whose own bytes are hashed — and asserts the source
+    # file is the served chapter character for character. It is not in
+    # `g.failures`, because a content gate can be declared and this cannot.
+    g.source_failures = pg_source.verify_source(book)
     g.check(len(src) == len(cand),
             "paragraph alignment: source %d, candidate %d" % (len(src), len(cand)))
     if g.failures:
@@ -1550,6 +1944,8 @@ def run_book(book, version=None, write=True, quiet=False, candidate=None):
         f["checks_md_sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
     f["candidate_sha256"] = hashlib.sha256(cand_path.read_bytes()).hexdigest()
     f["candidate_file"] = str(cand_path.relative_to(ROOT))
+    f["source_file"] = "book%02d/source-book%d.json" % (book, book)
+    f["source_sha256"] = pg_source.source_sha256(book)
 
     # --- THE MANIFEST READ SIDE (S-2) ---------------------------------------
     # The manifest is checked against the files it names, on every run, so a
@@ -1803,6 +2199,10 @@ def _print(book, version, f, g, grown, grown_fail, longs, pairs, dr):
     print("  candidate sentences 40+    %d (absolute)" % len(longs))
     print("  displaced runs             %d" % len(dr))
     print("  H.1 head-noun pairs        %d" % len(pairs))
+    if g.source_failures:
+        print("  SOURCE FAILED (A11 — the pin on Butler; NOT declarable):")
+        for m in g.source_failures:
+            print("    \u2717 %s" % m)
     if g.manifest_failures:
         print("  MANIFEST FAILED (S-2 read side):")
         for m in g.manifest_failures:
@@ -1822,6 +2222,20 @@ def run_all():
     bad = []
     print("checks.py --all — re-asserting every accepted Book's published "
           "figures\n")
+    # **A11, first, over all twenty-four chapters.** Nothing below this line
+    # means anything if Butler has moved, so the pin runs before the figures
+    # rather than beside them — and it runs over the whole served edition, not
+    # only the nine Books this package has drafted, because that is what turns
+    # the ledger's A7 register from four sentences of prose into four rows
+    # asserted as set equality in both directions.
+    sbad = pg_source.verify_all()
+    print("the pin on Butler (A11): PG #1727 %s, %d chapters re-derived, "
+          "%d enumerated divergences — %s\n"
+          % (pg_source.PG_SHA256[:8], 24, len(pg_source.SOURCE_DIVERGENCES),
+             "%d FAILURE(S)" % len(sbad) if sbad else "sound"))
+    for m in sbad:
+        print("  \u2717 %s" % m)
+    bad += sbad
     print("%-8s %-20s %9s %12s %10s %11s %9s %9s"
           % ("Book", "basis", "retention", "sentences", "semicolons",
              "div marks", "NORM D27", "MOVE-GAP"))
@@ -1863,6 +2277,10 @@ def run_all():
     # with them.
     # Every key of DECLARED gets the gates too, so `--all` can no longer pass
     # while a row of the table is a claim nothing tests.
+    print("\nthe prose — every figure-bearing row of every committed record "
+          "(R-1, R-5):")
+    bad += run_prose()
+
     print("\ndeclarations — every file DECLARED names, gated:")
     dbad = run_declarations(quiet=True)
     bad += dbad
@@ -1875,7 +2293,8 @@ def run_all():
     for bk in sorted(ACCEPTED):
         _f, gg = run_book(bk, version=None, write=False, quiet=True,
                           candidate=ACCEPTED[bk][1])
-        msgs = ["Book %d gate: %s" % (bk, m) for m in gg.failures] + \
+        msgs = ["Book %d SOURCE: %s" % (bk, m) for m in gg.source_failures] + \
+               ["Book %d gate: %s" % (bk, m) for m in gg.failures] + \
                ["Book %d %s" % (bk, m) for m in gg.manifest_failures]
         if msgs:
             bad += msgs
@@ -2183,6 +2602,10 @@ def main():
                     help="put the full gates to every key of DECLARED, and "
                          "assert the table is exactly the candidate files on "
                          "disk (Book 8 round 1, S-3's second half)")
+    ap.add_argument("--prose", action="store_true",
+                    help="every figure-bearing table row of every committed "
+                         "record, against the figures the candidates actually "
+                         "produce (Book 9 round 1, R-1/R-5)")
     ap.add_argument("--manifests", action="store_true",
                     help="verify every Book's manifest against the files it "
                          "names (the S-2 read side)")
@@ -2197,6 +2620,10 @@ def main():
         return 0
     if a.declarations:
         return 1 if run_declarations() else 0
+    if a.prose:
+        print("checks.py --prose — every figure this package publishes in "
+              "prose, against what its files give\n")
+        return 1 if run_prose() else 0
     if a.manifests:
         return run_manifests()
     if a.all:
@@ -2215,7 +2642,7 @@ def main():
               % (a.book, block["candidate_file"]))
         return 0
     f, g = run_book(a.book, a.version, write=not a.no_write)
-    return 1 if (g.failures or g.manifest_failures) else 0
+    return 1 if (g.failures or g.manifest_failures or g.source_failures) else 0
 
 
 if __name__ == "__main__":
