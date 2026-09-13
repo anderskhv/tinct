@@ -144,7 +144,7 @@ The philosopher of the schools, whom Montaigne calls the god of scholastic learn
 
 ## Solon · supporting
 
-The Athenian lawgiver, and the author of the saying that no man can be called happy until he is dead — which Montaigne would rather put as that man is never happy, because never so till he is no more.
+The Athenian lawgiver, and the author of the saying that no man can be called happy until he is dead — which Montaigne would rather put as that man is never happy, because never so till he is no more. With Lycurgus and Minos, one of the three whom Plato says their immortal children immortalise and deify.
 
 ## Lucretius · supporting
 
@@ -256,7 +256,7 @@ The Persian king who invaded Greece, and who whipped the sea and sent a written 
 
 ## Caligula · reference
 
-The emperor, Montaigne’s example of a fury that destroys a thing for what happened in it: he demolished a very beautiful palace because his mother had once been happy there.
+The emperor, Montaigne’s example of a fury that destroys a thing for what happened in it: he demolished a very beautiful palace because his mother had once been happy there. It is he who condemned Julius Canus to die, and whom Montaigne calls a worthless fellow for it.
 
 ## Augustus · supporting
 
@@ -484,7 +484,7 @@ Who had to make the harangue to the Pope at Marseilles when Poyet could not. Not
 
 ## Severus Cassius · reference
 
-Who spoke best extempore and owed more to fortune than to diligence: it was an advantage to him to be interrupted, and his adversaries were afraid to nettle him for fear his anger should redouble his eloquence.
+Who spoke best extempore and owed more to fortune than to diligence: it was an advantage to him to be interrupted, and his adversaries were afraid to nettle him for fear his anger should redouble his eloquence. He is also the intimate friend who, seeing Labienus’s books burned, cried out that they would have to burn him too, since he carried them by heart. The older edition prints his name both ways round, Severus Cassius at 10:4 and Cassius Severus at 65:39.
 
 ## Jesus Christ · supporting
 
@@ -1084,7 +1084,7 @@ Whose miseries the grammarians inquire into, Dionysius said, while they know not
 
 ## Rabelais · reference
 
-In whose Gargantua Montaigne found the proverb that the greatest clerks are not the wisest men.
+In whose Gargantua Montaigne found the proverb that the greatest clerks are not the wisest men, and whom he reckons with the Decameron and the Basia of Johannes Secundus among the books worth reading for amusement.
 
 ## Aulus Gellius · reference
 
@@ -1200,7 +1200,7 @@ Who eternally fill and whose vessels eternally run out — Montaigne’s figure 
 
 ## Apollodorus · reference
 
-Who said that if a man picked out of Chrysippus’s writings everything that was none of his, he would leave him nothing but blank paper.
+Who said that if a man picked out of Chrysippus’s writings everything that was none of his, he would leave him nothing but blank paper. Not the Apollodorus whose heart spoke to him in the dream of being flayed and boiled.
 
 ## Capilupus · reference
 
@@ -2637,3 +2637,183 @@ Bishop of Soissons, who in St Louis’s foreign expedition, seeing the king and 
 ## St Paul · reference
 
 The apostle, quoted for: I desire to be with Christ, and who shall rid me of these bands? The St Paul of 17:2 is a town in the Low Countries and not the apostle.
+
+## Rusticus · reference
+
+Who, present at a declamation of Plutarch’s at Rome, received a packet from the emperor and deferred opening it till the whole was done, for which the company highly applauded his gravity. Montaigne allows him the civility of not interrupting the declamation, but doubts whether anyone can commend his prudence: deferring an emperor’s letters might have cost him dear.
+
+## Monsieur de Boutieres · reference
+
+Who had like to have lost Turin from delaying, while engaged in good company at supper, to read the information sent him of the treason plotted against the city he commanded. The modern edition spells him Boutières.
+
+## Archias · reference
+
+The tyrant of Thebes, who the night before Pelopidas’s plot against his life had the whole conspiracy sent him in writing by another Archias, an Athenian, and deferred opening the packet because he was at supper — saying what afterwards turned to a proverb in Greece: business to-morrow.
+
+## Archias · reference
+
+The Athenian who sent him that warning.
+
+## The Sieur de la Brousse · reference
+
+Montaigne’s brother, travelling with him one day during the civil wars when they met the gentleman whose half-dead fear at every passing horse Montaigne at last discovered to be alarms of conscience.
+
+## Bessus · reference
+
+The Paeonian, reproached for pulling down a nest of young sparrows and killing them, who replied that he had reason, seeing those little birds never ceased falsely to accuse him of the murder of his father — and so gave up a parricide that had till then been unknown.
+
+## Hesiod · reference
+
+Who corrects Plato’s saying that punishment closely follows sin: it is, Hesiod says, born at the same time with it.
+
+## Apollodorus · reference
+
+Who dreamed that he saw himself flayed by the Scythians and afterwards boiled in a cauldron, and that his heart muttered: I am the cause of all these mischiefs that have befallen thee. Not the Apollodorus who said Chrysippus’s writings would be blank paper without their borrowings.
+
+## Petilius · reference
+
+Whom Cato set on to demand an account of the money that had passed through Scipio’s hands in the province of Antioch.
+
+## Philotas · reference
+
+Whom Montaigne places among the thousands who have charged their own heads by false confession, considering the circumstances of the trial Alexander put upon him and the progress of his torture.
+
+## Julius Canus · reference
+
+A noble Roman condemned to die by Caligula who, going to the stroke, was asked by a philosopher friend what his soul was doing, and answered that he was keeping his mind settled and fixed to try whether in that short and quick instant he could perceive the motion of the soul as she parted from the body — and come back, if he could, to tell his friends of it.
+
+## Hortensius · reference
+
+The orator whose eloquence Montaigne asks why Cicero does not prefer to his own, if it is vainglory for a man to publish his own virtues — and why Hortensius does not prefer Cicero’s.
+
+## Pluto · reference
+
+The god to whom Iris says she offers the lock of hair, in the line from the AEneid Montaigne quotes for the gods the poets feign to favour the deliverance of those who suffer a languishing death.
+
+## Madame D’Estissac · reference
+
+The dedicatee of the chapter on the affection of fathers to their children, and a widow young enough that everyone who knows at what age her husband left her, and the offers made to her, can see how well she has employed her widowhood.
+
+## Monsieur D’Estissac · reference
+
+Her husband, who left her a widow young.
+
+## Monsieur D’Estissac · reference
+
+Her son, whose great hopes of himself render the account of her widowhood sufficient.
+
+## Muley Hassam · reference
+
+King of Tunis, whom the Emperor Charles restored, and Montaigne’s instance in that chapter. The modern edition spells him Hassan.
+
+## Iccus · reference
+
+The Tarentine, of whom the Greek history observes, with Chryso, Astyllus and Diopompos, that to keep their bodies in order for the Olympic games they abstained from all acts of love.
+
+## Chryso · reference
+
+The second of those four athletes.
+
+## Astyllus · reference
+
+The third of them.
+
+## Diopompos · reference
+
+The fourth.
+
+## Minos · reference
+
+With Lycurgus and Solon, one of the lawgivers whom Plato says their immortal children — the issue of the understanding rather than of the body — immortalise and deify.
+
+## Heliodorus · reference
+
+That good bishop of Trikka, who rather chose to lose the dignity, profit and devotion of so venerable a prelacy than to lose his daughter — a daughter, Montaigne adds, a little too curiously tricked and too amorous for an ecclesiastical one.
+
+## Labienus · reference
+
+A man of great worth and authority at Rome, excellent in all sorts of literature, whose enemies prosecuted his published books before the magistrates and got them condemned to the fire. In him began the new punishment of putting writings to death, and he could not survive the loss: he had himself carried into his ancestors’ monument and walled up there alive.
+
+## Labienus · reference
+
+That great Labienus, the chief of Caesar’s captains in the wars of Gaul, who afterwards sided with Pompey the Great and maintained his cause valiantly until Caesar defeated him in Spain. Montaigne takes the orator to be his son.
+
+## Cremutius Cordus · reference
+
+To whom the like accident befell: accused of having praised Brutus and Cassius in his books, he was condemned with them and starved himself to death.
+
+## Phidias · reference
+
+The sculptor. Montaigne makes a great question whether he, or any other excellent sculptor, would be so solicitous of the preservation of his natural children as of a supremely beautiful statue finished with long study and care.
+
+## Pygmalion · reference
+
+Who, having made the statue of a woman of singular beauty, fell so desperately in love with his own work that the gods had to bring it to life for him — Montaigne’s instance of that other sort of parentage.
+
+## Caracalla · reference
+
+The emperor who was wont to march on foot, completely armed, at the head of his troops.
+
+## Alcimus · reference
+
+A captain of the greatest note and authority about Demetrius, for whom, with himself, Demetrius had two complete suits of armour made of six score pounds weight each, where the ordinary suits weighed half as much.
+
+## Johannes Secundus · reference
+
+Whose Basia, with the Decameron and Rabelais, Montaigne reckons among the books worth reading for amusement — if, he adds, they may be ranged under that title.
+
+## The younger Cicero · reference
+
+Who resembled his father in nothing but the name. Commanding in Asia, he had Cestius at the lower end of his table, was told who the man was, and had him whipped on the spot — a proceeding, Montaigne notes, of a host and a judge at once.
+
+## Cestius · reference
+
+Who intruded on the great man’s open table, was pointed out to the younger Cicero as one who made no more account of the father’s eloquence than of his own, and was seized and whipped for it.
+
+## Asinius Pollio · reference
+
+Who found mistakes in Caesar’s own histories, into which Caesar had fallen either because he could not have his eye in all parts of his army at once, or because he trusted the particular reports of others.
+
+## Bodin · reference
+
+Who has sufficiently handled the question Montaigne leaves aside there, and with whose sentiment Montaigne agrees.
+
+## Eginhard · reference
+
+Chancellor to Charlemagne, and with the Sire de Joinville and Philip de Commines one of the elder historians in whom the freedom and liberty of writing shines — by comparison with which Montaigne finds a manifest decadence in the two lords of his own subject.
+
+## Biron · reference
+
+Whose proceedings, with Monsieur de Montmorency’s, are among the things Montaigne complains are omitted from the memoirs he is discussing — as are actions that did not succeed, and speeches and countenances the writer durst not report.
+
+## Philemon · reference
+
+Julius Caesar’s secretary, who had attempted to poison him, and whom Caesar punished with no greater severity than a simple death — which Montaigne gives among the testimonies to that clemency.
+
+## Euphorbus · reference
+
+Son of Pantheus, and the man Pythagoras remembered having been in the days of the Trojan war, in the line from the Metamorphoses that the editor glosses with a reference to Diogenes Laertius.
+
+## Pantheus · reference
+
+Euphorbus’s father, named in the gloss on the line from the Metamorphoses. The modern edition prints him Panthus.
+
+## Cupid · reference
+
+The god over whose torch and shafts Diana triumphs, in the verses Montaigne quotes.
+
+## Diogenes Laertius · reference
+
+The biographer of the philosophers, whose Life of Pythagoras the editor’s note sends the reader to for the transmigration through Euphorbus. Not Diogenes the Cynic, nor Diogenes the Atheist.
+
+## Metellus · reference
+
+Who alone of all the Roman senators attempted, by the power of virtue, to withstand the violence of Saturninus — and who, told that to do ill was easy and to do well where there was no danger common, answered that to do well where there was danger was the proper office of a man of virtue. Montaigne makes his the type of the exotic difficulty that virtue seeks out.
+
+## Saturninus · reference
+
+The tribune whose violence Metellus alone withstood.
+
+## Artaxerxes · reference
+
+Who moderated the severity of the ancient laws of Persia, ordaining that the nobility who had failed in their duty should be laid on the ground and their clothes beaten instead of their bodies. The Essays do not identify him with the Artaxerxes whose brother claimed to outdrink him.

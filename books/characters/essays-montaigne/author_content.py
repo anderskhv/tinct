@@ -9,7 +9,7 @@ becomes Wycliffe, Zisca becomes Zizka, Trivulcio becomes Trivulzio, Fabricio
 becomes Fabrizio, Juliano becomes Giuliano, Fregosa becomes Fregoso, Sylla
 becomes Sulla, AEneid becomes Aeneid. Both spellings are carried on one card.
 
-Chapters 1-60 are authored. The rest are not.
+Chapters 1-68 are authored. The rest are not.
 
 Scope: named persons — historical, literary, mythological and scriptural — and
 the gods Montaigne treats as agents. Peoples, places, schools of philosophy and
@@ -76,7 +76,7 @@ for row in [
 ('livy','Livy','The Roman historian of the city from its foundation.','Livy','supporting'),
 ('nero','Nero','The emperor, Montaigne’s standing example of a prince whose reputation is fair game once he is dead: two of his own soldiers told him to his face why they hated him and why they had tried to kill him. He is also the perfect image of all cruelty who, brought the sentence of a condemned man to sign, cried out that he wished he had never been taught to write — and the man whose pardon Granius Silvanus and Statius Proximus would not live under.','Nero','supporting'),
 ('aristotle','Aristotle','The philosopher of the schools, whom Montaigne calls the god of scholastic learning and who, he says, will still have a hand in everything.','Aristotle','major'),
-('solon','Solon','The Athenian lawgiver, and the author of the saying that no man can be called happy until he is dead — which Montaigne would rather put as that man is never happy, because never so till he is no more.','Solon','supporting'),
+('solon','Solon','The Athenian lawgiver, and the author of the saying that no man can be called happy until he is dead — which Montaigne would rather put as that man is never happy, because never so till he is no more. With Lycurgus and Minos, one of the three whom Plato says their immortal children immortalise and deify.','Solon','supporting'),
 ('lucretius','Lucretius','The Latin poet of On the Nature of Things, quoted throughout the Essays.','Lucretius','supporting'),
 ('bertrand-du-guesclin','Bertrand de Guesclin','The French general who died at the siege of the Castle of Rancon, and on whose corpse the besieged were made to lay down the keys of the place when they surrendered.','Bertrand de Guesclin|Bertrand du Guesclin|Guesclin'),
 ('bartolommeo-alviano','Bartolommeo d’Alviano','The Venetian general who died in the Republic’s service at Brescia, and whose body had to be carried home through enemy territory.','Bartolommeo d’Alviano|Bartolomeo d’Alviano|Alviano'),
@@ -108,7 +108,7 @@ for row in [
 ('plutarch','Plutarch','The Greek biographer and moralist, and the book Montaigne says he always has at hand. Most of the ancient examples in the Essays come through him, and Montaigne defends him by name against the charge of credulity.','Plutarch','major'),
 ('bion','Bion','The philosopher of the ready retort — it is he who asked of a king tearing his hair out for sorrow whether the man thought baldness a remedy for grief.','Bion'),
 ('xerxes','Xerxes','The Persian king who invaded Greece, and who whipped the sea and sent a written challenge to Mount Athos. Boges kept Eion for him, and would not survive the loss of it.','Xerxes','supporting'),
-('caligula','Caligula','The emperor, Montaigne’s example of a fury that destroys a thing for what happened in it: he demolished a very beautiful palace because his mother had once been happy there.','Caligula'),
+('caligula','Caligula','The emperor, Montaigne’s example of a fury that destroys a thing for what happened in it: he demolished a very beautiful palace because his mother had once been happy there. It is he who condemned Julius Canus to die, and whom Montaigne calls a worthless fellow for it.','Caligula'),
 ('augustus','Augustus','The first Roman emperor, Julius Caesar’s heir. Among Montaigne’s examples of him: he defied Neptune after a storm at sea and had the god’s statue taken down from among the deities at the games, and after losing the legions under Quintilius Varus in Germany he ran his head against the wall crying “O Varus! give me back my legions!”','Augustus Caesar|Augustus','supporting'),
 ('neptune','Neptune','The sea-god whose statue Augustus deposed from among the deities in revenge for a storm.','Neptune','reference','deity'),
 ('quintilius-varus','Quintilius Varus','The commander under whom Augustus lost his legions in Germany.','Quintilius Varus|Varus'),
@@ -191,7 +191,7 @@ for row in [
 ('clement-vii','Pope Clement','Who at the interview with King Francis at Marseilles sent word of the argument he thought suitable, and so wasted the harangue Poyet had been preparing since Paris.','Pope Clement'),
 ('poyet','Monsieur Poyet','A man bred all his life at the bar and in the highest repute for eloquence, who had his speech to the Pope ready made and carried from Paris — and, the subject being changed on the day, could not contrive another.','Poyet'),
 ('jean-du-bellay','Cardinal du Bellay','Who had to make the harangue to the Pope at Marseilles when Poyet could not. Not Martin du Bellay the memoirist, nor the poet.','','supporting'),
-('severus-cassius','Severus Cassius','Who spoke best extempore and owed more to fortune than to diligence: it was an advantage to him to be interrupted, and his adversaries were afraid to nettle him for fear his anger should redouble his eloquence.','Severus Cassius'),
+('severus-cassius','Severus Cassius','Who spoke best extempore and owed more to fortune than to diligence: it was an advantage to him to be interrupted, and his adversaries were afraid to nettle him for fear his anger should redouble his eloquence. He is also the intimate friend who, seeing Labienus’s books burned, cried out that they would have to burn him too, since he carried them by heart. The older edition prints his name both ways round, Severus Cassius at 10:4 and Cassius Severus at 65:39.','Severus Cassius|Cassius Severus'),
 ]:add(*row)
 
 
@@ -401,7 +401,7 @@ for row in [
 for row in [
 ('joachim-du-bellay','Du Bellay','Joachim du Bellay the poet, whom Montaigne calls our famous poet and quotes for the line that of all things he hates pedantic learning. Not Martin the memoirist, nor the cardinal.'),
 ('ulysses','Ulysses','Whose miseries the grammarians inquire into, Dionysius said, while they know nothing of their own.','Ulysses','supporting','mythological-figure'),
-('rabelais','Rabelais','In whose Gargantua Montaigne found the proverb that the greatest clerks are not the wisest men.','Rabelais'),
+('rabelais','Rabelais','In whose Gargantua Montaigne found the proverb that the greatest clerks are not the wisest men, and whom he reckons with the Decameron and the Basia of Johannes Secundus among the books worth reading for amusement.','Rabelais'),
 ('aulus-gellius','Aulus Gellius','The compiler of the Attic Nights, through whom Pacuvius’s line about men who jabber philosophy and do nothing reaches the Essays. The older edition prints the citation in the accusative, Gellium.','Gellium|Gellius'),
 ('hercules','Hercules','From whom, the philosophers say, you might be the fiftieth descendant and still have nothing but a gift of fortune to boast of.','Hercules','reference','mythological-figure'),
 ('crates','Crates','Asked how long it was necessary to philosophise, he answered: till our armies are no more commanded by fools. He is also named to place his brother Pasicles, the philosopher who laid his hand in the wrong place in petitioning a great man.','Crates'),
@@ -435,7 +435,7 @@ for row in [
 for row in [
 ('diane-de-foix','Madame Diane de Foix, Comtesse de Gurson','The chapter’s dedicatee, expecting a child. Montaigne had a hand in making her marriage and writes her his one particular fancy about how the boy should be brought up. The dedication prints her name in capitals.','DIANE DE FOIX|Diane de Foix'),
 ('danaides','The Danaides','Who eternally fill and whose vessels eternally run out — Montaigne’s figure for his own reading of Plutarch and Seneca. The modern edition spells them Danaids.','Danaides|Danaids','reference','mythological-figure'),
-('apollodorus','Apollodorus','Who said that if a man picked out of Chrysippus’s writings everything that was none of his, he would leave him nothing but blank paper.','Apollodorus'),
+('apollodorus','Apollodorus','Who said that if a man picked out of Chrysippus’s writings everything that was none of his, he would leave him nothing but blank paper. Not the Apollodorus whose heart spoke to him in the dream of being flayed and boiled.'),
 ('capilupus','Capilupus','A composer of centos Montaigne knew of, and one of the writers he exempts from the charge of stitching other men’s work into their own under their own name — because such men declare themselves for what they are.','Capilupus'),
 ('lipsius','Lipsius','Whose Politics Montaigne calls a learned and laborious contexture, and another honest example of the same declared borrowing.','Lipsius'),
 ('cimon','Cimon','With Themistocles, one of the thousand men who very much deceived the expectation others had of them — Montaigne’s warning against reading a child’s promise too early. It is he who besieged Boges in Eion and offered him a safe return into Asia with all his wealth.','Cimon'),
@@ -942,8 +942,87 @@ for row in [
 ('st-paul','St Paul','The apostle, quoted for: I desire to be with Christ, and who shall rid me of these bands? The St Paul of 17:2 is a town in the Low Countries and not the apostle.'),
 ]:add(*row)
 
-print(len(entities),'entities authored: chapters 1-60')
+
+# ================================= CHAPTER 61 — to-morrow's a new day
+for row in [
+('rusticus','Rusticus','Who, present at a declamation of Plutarch’s at Rome, received a packet from the emperor and deferred opening it till the whole was done, for which the company highly applauded his gravity. Montaigne allows him the civility of not interrupting the declamation, but doubts whether anyone can commend his prudence: deferring an emperor’s letters might have cost him dear.','Rusticus'),
+('boutieres','Monsieur de Boutieres','Who had like to have lost Turin from delaying, while engaged in good company at supper, to read the information sent him of the treason plotted against the city he commanded. The modern edition spells him Boutières.','Monsieur de Boutieres|Monsieur de Boutières'),
+('archias-thebes','Archias','The tyrant of Thebes, who the night before Pelopidas’s plot against his life had the whole conspiracy sent him in writing by another Archias, an Athenian, and deferred opening the packet because he was at supper — saying what afterwards turned to a proverb in Greece: business to-morrow.'),
+('archias-athenian','Archias','The Athenian who sent him that warning.'),
+]:add(*row)
+
+# ========================================== CHAPTER 62 — of conscience
+for row in [
+('la-brousse','The Sieur de la Brousse','Montaigne’s brother, travelling with him one day during the civil wars when they met the gentleman whose half-dead fear at every passing horse Montaigne at last discovered to be alarms of conscience.','The Sieur de la Brousse'),
+('bessus','Bessus','The Paeonian, reproached for pulling down a nest of young sparrows and killing them, who replied that he had reason, seeing those little birds never ceased falsely to accuse him of the murder of his father — and so gave up a parricide that had till then been unknown.','Bessus'),
+('hesiod','Hesiod','Who corrects Plato’s saying that punishment closely follows sin: it is, Hesiod says, born at the same time with it.','Hesiod'),
+('apollodorus-dreamer','Apollodorus','Who dreamed that he saw himself flayed by the Scythians and afterwards boiled in a cauldron, and that his heart muttered: I am the cause of all these mischiefs that have befallen thee. Not the Apollodorus who said Chrysippus’s writings would be blank paper without their borrowings.'),
+('petilius','Petilius','Whom Cato set on to demand an account of the money that had passed through Scipio’s hands in the province of Antioch.','Petilius'),
+('philotas','Philotas','Whom Montaigne places among the thousands who have charged their own heads by false confession, considering the circumstances of the trial Alexander put upon him and the progress of his torture.','Philotas'),
+]:add(*row)
+
+# ======================================= CHAPTER 63 — use makes perfect
+for row in [
+('julius-canus','Julius Canus','A noble Roman condemned to die by Caligula who, going to the stroke, was asked by a philosopher friend what his soul was doing, and answered that he was keeping his mind settled and fixed to try whether in that short and quick instant he could perceive the motion of the soul as she parted from the body — and come back, if he could, to tell his friends of it.','Julius Canus'),
+('hortensius','Hortensius','The orator whose eloquence Montaigne asks why Cicero does not prefer to his own, if it is vainglory for a man to publish his own virtues — and why Hortensius does not prefer Cicero’s.','Hortensius'),
+('pluto','Pluto','The god to whom Iris says she offers the lock of hair, in the line from the AEneid Montaigne quotes for the gods the poets feign to favour the deliverance of those who suffer a languishing death.','Pluto','reference','deity'),
+]:add(*row)
+
+# ====================== CHAPTER 65 — of the affection of fathers to their children
+for row in [
+('madame-destissac','Madame D’Estissac','The dedicatee of the chapter on the affection of fathers to their children, and a widow young enough that everyone who knows at what age her husband left her, and the offers made to her, can see how well she has employed her widowhood.',"Madame D’Estissac|Madame d'Estissac"),
+('monsieur-destissac-husband','Monsieur D’Estissac','Her husband, who left her a widow young.'),
+('monsieur-destissac-son','Monsieur D’Estissac','Her son, whose great hopes of himself render the account of her widowhood sufficient.'),
+('muley-hassam','Muley Hassam','King of Tunis, whom the Emperor Charles restored, and Montaigne’s instance in that chapter. The modern edition spells him Hassan.','Muley Hassam|Muley Hassan'),
+('iccus','Iccus','The Tarentine, of whom the Greek history observes, with Chryso, Astyllus and Diopompos, that to keep their bodies in order for the Olympic games they abstained from all acts of love.','Iccus'),
+('chryso','Chryso','The second of those four athletes.','Chryso'),
+('astyllus','Astyllus','The third of them.','Astyllus'),
+('diopompos','Diopompos','The fourth.','Diopompos'),
+('minos','Minos','With Lycurgus and Solon, one of the lawgivers whom Plato says their immortal children — the issue of the understanding rather than of the body — immortalise and deify.','Minos'),
+('heliodorus','Heliodorus','That good bishop of Trikka, who rather chose to lose the dignity, profit and devotion of so venerable a prelacy than to lose his daughter — a daughter, Montaigne adds, a little too curiously tricked and too amorous for an ecclesiastical one.','Heliodorus'),
+('labienus-orator','Labienus','A man of great worth and authority at Rome, excellent in all sorts of literature, whose enemies prosecuted his published books before the magistrates and got them condemned to the fire. In him began the new punishment of putting writings to death, and he could not survive the loss: he had himself carried into his ancestors’ monument and walled up there alive.'),
+('labienus-father','Labienus','That great Labienus, the chief of Caesar’s captains in the wars of Gaul, who afterwards sided with Pompey the Great and maintained his cause valiantly until Caesar defeated him in Spain. Montaigne takes the orator to be his son.'),
+('cremutius-cordus','Cremutius Cordus','To whom the like accident befell: accused of having praised Brutus and Cassius in his books, he was condemned with them and starved himself to death.','Cremutius Cordus'),
+('phidias','Phidias','The sculptor. Montaigne makes a great question whether he, or any other excellent sculptor, would be so solicitous of the preservation of his natural children as of a supremely beautiful statue finished with long study and care.','Phidias'),
+('pygmalion','Pygmalion','Who, having made the statue of a woman of singular beauty, fell so desperately in love with his own work that the gods had to bring it to life for him — Montaigne’s instance of that other sort of parentage.','Pygmalion','reference','mythological-figure'),
+]:add(*row)
+
+# =============================== CHAPTER 66 — of the arms of the Parthians
+for row in [
+('caracalla','Caracalla','The emperor who was wont to march on foot, completely armed, at the head of his troops.','Caracalla'),
+('alcimus','Alcimus','A captain of the greatest note and authority about Demetrius, for whom, with himself, Demetrius had two complete suits of armour made of six score pounds weight each, where the ordinary suits weighed half as much.','Alcimus'),
+]:add(*row)
+
+# =========================================== CHAPTER 67 — of books
+for row in [
+('johannes-secundus','Johannes Secundus','Whose Basia, with the Decameron and Rabelais, Montaigne reckons among the books worth reading for amusement — if, he adds, they may be ranged under that title.','Johannes Secundus'),
+('cicero-the-younger','The younger Cicero','Who resembled his father in nothing but the name. Commanding in Asia, he had Cestius at the lower end of his table, was told who the man was, and had him whipped on the spot — a proceeding, Montaigne notes, of a host and a judge at once.','The younger Cicero'),
+('cestius','Cestius','Who intruded on the great man’s open table, was pointed out to the younger Cicero as one who made no more account of the father’s eloquence than of his own, and was seized and whipped for it.','Cestius'),
+('asinius-pollio','Asinius Pollio','Who found mistakes in Caesar’s own histories, into which Caesar had fallen either because he could not have his eye in all parts of his army at once, or because he trusted the particular reports of others.','Asinius Pollio'),
+('bodin','Bodin','Who has sufficiently handled the question Montaigne leaves aside there, and with whose sentiment Montaigne agrees.','Bodin'),
+('eginhard','Eginhard','Chancellor to Charlemagne, and with the Sire de Joinville and Philip de Commines one of the elder historians in whom the freedom and liberty of writing shines — by comparison with which Montaigne finds a manifest decadence in the two lords of his own subject.','Eginhard'),
+('biron','Biron','Whose proceedings, with Monsieur de Montmorency’s, are among the things Montaigne complains are omitted from the memoirs he is discussing — as are actions that did not succeed, and speeches and countenances the writer durst not report.','Biron'),
+]:add(*row)
+
+# ========================================== CHAPTER 68 — of cruelty
+for row in [
+('philemon','Philemon','Julius Caesar’s secretary, who had attempted to poison him, and whom Caesar punished with no greater severity than a simple death — which Montaigne gives among the testimonies to that clemency.','Philemon'),
+('euphorbus','Euphorbus','Son of Pantheus, and the man Pythagoras remembered having been in the days of the Trojan war, in the line from the Metamorphoses that the editor glosses with a reference to Diogenes Laertius.','Euphorbus','reference','mythological-figure'),
+('pantheus','Pantheus','Euphorbus’s father, named in the gloss on the line from the Metamorphoses. The modern edition prints him Panthus.','Pantheus|Panthus'),
+('cupid','Cupid','The god over whose torch and shafts Diana triumphs, in the verses Montaigne quotes.','Cupid','reference','deity'),
+('diogenes-laertius','Diogenes Laertius','The biographer of the philosophers, whose Life of Pythagoras the editor’s note sends the reader to for the transmigration through Euphorbus. Not Diogenes the Cynic, nor Diogenes the Atheist.','Diogenes Laertius'),
+]:add(*row)
+
+
+# ------------------------------------------------ found by the table audit
+for row in [
+('metellus-numidicus','Metellus','Who alone of all the Roman senators attempted, by the power of virtue, to withstand the violence of Saturninus — and who, told that to do ill was easy and to do well where there was no danger common, answered that to do well where there was danger was the proper office of a man of virtue. Montaigne makes his the type of the exotic difficulty that virtue seeks out.'),
+('saturninus','Saturninus','The tribune whose violence Metellus alone withstood.'),
+('artaxerxes-lawgiver','Artaxerxes','Who moderated the severity of the ancient laws of Persia, ordaining that the nobility who had failed in their duty should be laid on the ground and their clothes beaten instead of their bodies. The Essays do not identify him with the Artaxerxes whose brother claimed to outdrink him.'),
+]:add(*row)
+
+print(len(entities),'entities authored: chapters 1-68')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-13.1',
- coverage='Both full English editions, chapters 1-60 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
+ contentVersion='2026-09-13.2',
+ coverage='Both full English editions, chapters 1-68 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')
