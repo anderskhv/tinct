@@ -412,6 +412,68 @@ describe('book-grounded lab chat', () => {
     expect(waitUntil).not.toHaveBeenCalled()
   })
 
+  it('checks public sources for the requested Imitation of Christ influence question and returns grounded links', async () => {
+    const { assets } = bibleAssets(JEREMIAH, { total: 3 })
+    const anthropicBodies: Array<Record<string, unknown>> = []
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles')) {
+        return Response.json([{ messages_used_this_period: 0, message_balance: 0, subscription_status: 'active', subscription_period_end: null, created_at: '2026-06-01T12:00:00Z' }])
+      }
+      if (url.includes('/rest/v1/rpc/use_message')) return Response.json({})
+      if (url === 'https://api.openai.com/v1/responses') {
+        const body = JSON.parse(String(init?.body)) as { input: string; tools: Array<{ type: string }> }
+        expect(body.input).toContain('Imitation of Christ')
+        expect(body.tools).toEqual([expect.objectContaining({ type: 'web_search' })])
+        return Response.json({
+          status: 'completed',
+          output: [{ type: 'message', content: [{
+            text: 'The evidence documents an adaptation and reception history; it does not by itself prove many explicit literary references.',
+            annotations: [{ type: 'url_citation', url: 'https://www.britannica.com/topic/Imitation-of-Christ', title: 'Encyclopaedia Britannica' }],
+          }] }],
+        })
+      }
+      if (url === 'https://api.anthropic.com/v1/messages') {
+        const body = JSON.parse(String(init?.body)) as Record<string, unknown>
+        anthropicBodies.push(body)
+        if (anthropicBodies.length === 1) {
+          return anthropicReply([{ type: 'tool_use', id: 'toolu_sources', name: 'search_reading_sources', input: { query: 'The Imitation of Christ explicit references adaptations literature and art' } }], 'tool_use')
+        }
+        return anthropicReply([{ type: 'text', text: 'It has a documented reception and adaptation history, but that is different from a long list of explicit references. Britannica provides one starting source: https://www.britannica.com/topic/Imitation-of-Christ' }], 'end_turn')
+      }
+      return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleChat(
+      chatRequest({
+        system: 'Use source search when asked.',
+        messages: [
+          { role: 'user', content: 'Has this work been referred to many times in literature and art?' },
+          { role: 'assistant', content: 'I cannot point to specific references without checking sources.' },
+          { role: 'user', content: 'Okay, but just go ahead and check specific sources.' },
+        ],
+        book: { bookId: 'imitation-of-christ', editionKey: 'original-en', chapterNumber: 1 },
+      }),
+      { ...env, OPENAI_API_KEY: 'openai-key', ASSETS: assets },
+      ctx,
+      async () => ({ id: userId, email: 'reader@example.com' }),
+      async () => true,
+    )
+    expect(response.status).toBe(200)
+    const text = (await response.json() as { content: Array<{ text: string }> }).content[0].text
+    expect(text).toContain('documented reception and adaptation history')
+    expect(text).toContain('https://www.britannica.com/topic/Imitation-of-Christ')
+    expect(text).not.toMatch(/search (?:is|was) unavailable|cannot check|search elsewhere/i)
+    expect((anthropicBodies[0].tools as Array<{ name: string }>).map(tool => tool.name)).toEqual([
+      'read_chapter', 'find_in_book', 'search_reading_sources',
+    ])
+    const result = ((anthropicBodies[1].messages as Array<{ content: unknown }>)[4].content) as Array<{ content: string; is_error?: boolean }>
+    expect(result[0].is_error).toBeUndefined()
+    expect(JSON.parse(result[0].content.split('\n').slice(1).join('\n'))).toMatchObject({ sources: [{ title: 'Encyclopaedia Britannica' }] })
+    await Promise.all(pending)
+  })
+
   it('answers directly with one call when the model does not use a tool', async () => {
     const { assets } = bibleAssets(JEREMIAH, { total: 1189 })
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
