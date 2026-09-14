@@ -291,12 +291,19 @@ import {
   }
   function renderLandingCovers() {
     const host=root.querySelector('[data-entry-covers]')
-    if(centreSnap.matches || !state.catalogue || !root.querySelector('[data-view-panel="landing"]').classList.contains('is-current')) {updateMotion();return}
+    if(!state.catalogue || !root.querySelector('[data-view-panel="landing"]').classList.contains('is-current')) {updateMotion();return}
     if(!host.children.length) {
-      const books=fullShelf(state.catalogue).filter(book=>book.art?.src?.startsWith('/covers/v2/')).slice(0,18)
-      host.innerHTML=[0,1,2].map(col=>{const group=books.filter((_,i)=>i%3===col);return `<div class="entry-cover-column" style="--duration:${240+col*30}s">${[...group,...group].map(book=>coverImage(book)).join('')}</div>`}).join('')
+      const shelf=fullShelf(state.catalogue).filter(book=>book.art?.src?.startsWith('/covers/v2/'))
+      if(centreSnap.matches) {
+        const preferred=['the-art-of-war','gilgamesh','crime-and-punishment','jane-eyre','moby-dick']
+        const books=preferred.map(id=>shelf.find(book=>book.id===id)).filter(Boolean)
+        host.innerHTML=books.map(book=>coverImage(book,true)).join('')
+      } else {
+        const books=shelf.slice(0,18)
+        host.innerHTML=[0,1,2].map(col=>{const group=books.filter((_,i)=>i%3===col);return `<div class="entry-cover-column" style="--duration:${240+col*30}s">${[...group,...group].map(book=>coverImage(book)).join('')}</div>`}).join('')
+      }
     }
-    host.querySelectorAll('.entry-cover-column').forEach((column,index)=>column.style.setProperty('--duration',`${(column.clientWidth*1.5+20)*6/(5+index*.3)}s`))
+    if(!centreSnap.matches) host.querySelectorAll('.entry-cover-column').forEach((column,index)=>column.style.setProperty('--duration',`${(column.clientWidth*1.5+20)*6/(5+index*.3)}s`))
     updateMotion()
   }
   document.addEventListener('visibilitychange',updateMotion)
