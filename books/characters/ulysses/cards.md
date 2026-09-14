@@ -765,3 +765,223 @@ Of the Playgoers’ Club, London, who wrote Matcham’s Masterstroke and was pai
 ## Matcham · reference
 
 Who often thinks of the masterstroke by which he won the laughing witch who now. Begins and ends morally. Hand in hand. Smart. His story stands in Gutenberg italics in the older edition, which is why his name is keyed and not aliased.
+
+## Henry Flower · major
+
+The name Bloom writes under and collects his letters under: Henry Flower Esq, care of the post office in Westland row. He carries the card for it behind the leather headband of his hat and puts it back before going into church. It is his own name translated — Virag, his father’s name, is Hungarian for flower.
+
+## Martha · major
+
+The typist who writes to Henry Flower and signs herself Martha: I called you naughty boy because I do not like that other world. Please tell me what is the real meaning of that word. She pins a yellow flower to the letter and asks, in a postscript, what perfume his wife uses. Her surname, Clifford, is given in a later episode.
+
+## The postmistress · reference
+
+Who searches the pigeonhole at Westland row and hands Bloom back his card with a letter, while he holds his rolled newspaper against his nostrils and looks at the recruiting poster.
+
+## Mrs M’Coy · reference
+
+Whose engagement is not settled yet: a reedy freckled soprano with a cheeseparing nose, nice enough for a little ballad. Her husband brings her up so as to borrow a valise, which is the wheeze Bloom did not fall for.
+
+## Bantam Lyons · major
+
+Who takes Bloom’s newspaper at his armpit with yellow blacknailed fingers to look up the French horse running at Ascot, hears him say twice that he was going to throw it away, and speeds off towards Conway’s corner to back Throwaway. Bloom never learns what he has said.
+
+## Bob Doran · reference
+
+On one of his periodical bends, in Conway’s with Bantam Lyons when M’Coy was there.
+
+## Hoppy Holohan · reference
+
+Who told M’Coy about the funeral, and came into Conway’s for a wet. You know Hoppy?
+
+## Corny Kelleher · major
+
+Who Bloom daresays bagged the funeral job for O’Neill’s, singing with his eyes shut. Police tout, he adds, and goes off into the tooraloom song. He manages the undertaker’s, and turns up wherever the day’s business is.
+
+## Tom Kernan · reference
+
+From whom Bloom means to get tea, and cannot ask at a funeral.
+
+## Hornblower · reference
+
+At the porter’s lodge of Trinity, worth keeping on hands: might take a turn in there on the nod. How do you do, Mr Hornblower? How do you do, sir?
+
+## The chemist · reference
+
+Of Sweny’s in Lincoln place, who turns back page after page of the prescriptions book to find the lotion of sweet almond oil and tincture of benzoin, and sells Bloom a cake of sweet lemony soap for fourpence to be paid for later. Sandy shrivelled smell he seems to have. Shrunken skull. And old.
+
+## The boy for the skins · reference
+
+Lolling by Brady’s cottages with his bucket of offal linked, smoking a chewed fagbutt. Tell him if he smokes he won’t grow. O let him. His life isn’t such a bed of roses.
+
+## The girl with the caskhoop · reference
+
+Smaller, with scars of eczema on her forehead, who eyes him listlessly, holding her battered hoop.
+
+## The two in the Coombe · reference
+
+The two women linked together in the rain that night in the Coombe, whose flat Dublin voices bawl the song about Mairy’s drawers in Bloom’s head, and who would listen too, he thinks, in the house at Bethany. The modern edition calls them two rough girls.
+
+## Poor papa · major
+
+Bloom’s father, who used to talk of Kate Bateman in Leah and of the scene where the old blind Abraham knows his son’s voice. He is not named in this episode, and Bloom is glad he did not go into the room to look at his face. That day. O, dear! O, dear!
+
+## Bob Cowley · reference
+
+Who lent M’Coy his valise for the Wicklow regatta concert last year and never heard tidings of it from that good day to this.
+
+## Vance · reference
+
+The High school master who cracked his fingerjoints teaching the law of falling bodies: thirtytwo feet per second per second. He taught the colours of the spectrum too.
+
+## Mrs Ellis · reference
+
+Who kept the old dame’s school where Bloom played marbles, and liked mignonette. And Mr? — the question he leaves unfinished.
+
+## Jack Fleming · reference
+
+Who embezzled to gamble and was smuggled off to America, and keeps a hotel now. They never come back.
+
+## Captain Culler · reference
+
+Who broke a window in the Kildare street club with a slog to square leg — the whole of Bloom’s case for cricket in Ireland.
+
+## M’Carthy · reference
+
+Whose taking the floor set the skulls cracking, in the song Bloom half quotes about Donnybrook fair. Not the Jakes M’Carthy of episode 7, nor Justin M’Carthy, nor Denis Florence M’Carthy.
+
+## Mairy · reference
+
+Who lost the pin of her drawers and did not know what to do to keep it up, in the song of the two women in the Coombe. The modern edition spells her Mary.
+
+## Martin Cunningham · major
+
+Who knows Father Conmee. He is the organiser of the funeral party in the next episode and of the collection for the Dignams after it.
+
+## Father John Conmee · major
+
+Whose sermon on saint Peter Claver and the African Mission is on the notice at the door of All Hallows. Distinguishedlooking, Bloom thinks, and regrets not having worked him about getting Molly into the choir. He opens episode 10 walking across Dublin.
+
+## Saint Peter Claver · reference
+
+The Jesuit of the African mission, subject of the sermon — and the name Bloom reaches for and mixes up with Peter Carey, a few paragraphs later, in the same church.
+
+## Gladstone · reference
+
+For whose conversion they had prayers when he was almost unconscious. The protestants are the same, Bloom adds.
+
+## Dr William J. Walsh · reference
+
+Archbishop of Dublin, whom the protestants would convert to the true religion in the same way. Not the Louis J Walsh of Magherafelt in episode 13.
+
+## Father Farley · reference
+
+Who got the choir place instead of Molly, and who looked a fool but wasn’t.
+
+## Carey · reference
+
+The informer who turned queen’s evidence on the invincibles and took communion every morning in this very church, with a wife and six children at home and the murder plotted all the while. Bloom cannot fix the first name: Carey was his name, Peter Carey, yes — no, Peter Claver I am thinking of — Denis Carey. Episode 8 has him hesitating the same way: Peter or Denis or James Carey.
+
+## Old Glynn · reference
+
+The organist of Gardiner street, who knew how to make that instrument talk, the vibrato, and had fifty pounds a year for it.
+
+## Father Bernard Vaughan · reference
+
+Whose sermon came before the music on the day Molly was in fine voice: Christ or Pilate? Christ, but don’t keep us all night over it.
+
+## Mrs Bandmann Palmer · reference
+
+Playing Leah tonight, and Hamlet last night: a male impersonator, which sets Bloom wondering whether Hamlet was a woman and why Ophelia committed suicide.
+
+## Kate Bateman · reference
+
+Whom Bloom’s father used to talk of in the same part, and waited all the afternoon outside the Adelphi in London to see — the year before Bloom was born, sixtyfive.
+
+## Ristori · reference
+
+And Ristori in Vienna: the other actress his father named.
+
+## Mosenthal · reference
+
+Who wrote the play. By Mosenthal it is. Bloom gropes for the title after the author’s name and does not find it.
+
+## Nathan · reference
+
+Whose voice the old blind man knows in the scene Bloom’s father was always talking about: Nathan’s voice! His son’s voice! I hear the voice of Nathan who left his father to die of grief and misery in my arms.
+
+## Abraham · reference
+
+The old blind man of that scene, who recognises the voice and puts his fingers on his face. Not the patriarch of episodes 12 and 15.
+
+## Ophelia · reference
+
+Who committed suicide, and why — the question Bloom asks himself in front of the playbill, and which the library argument of episode 9 takes up in earnest.
+
+## Pilate · reference
+
+Christ or Pilate, the choice Father Bernard Vaughan’s sermon offered. Professor MacHugh gives him a second line in episode 7.
+
+## Saint Michael · reference
+
+The archangel of the prayer after mass: blessed Michael, defend us in the hour of conflict. His host are the embattled angels of the church whose menace Stephen remembers in episode 1.
+
+## Satan · reference
+
+Whom the same prayer asks God to thrust down to hell, with those other wicked spirits who wander through the world for the ruin of souls.
+
+## Saint Peter · reference
+
+Named with Paul in Bloom’s inventory of what the mass is about: glorious and immaculate virgin, Joseph her spouse, Peter and Paul.
+
+## Saint Paul · reference
+
+The other of the pair.
+
+## Buddha · reference
+
+Lying on his side in the museum with his hand under his cheek, taking it easy, josssticks burning: the god Bloom sets against the Ecce Homo, the crown of thorns and the cross.
+
+## Mohammed · reference
+
+Who cut a piece out of his mantle rather than wake the cat asleep on it — the story Bloom remembers over a tabby on a warm sill. The modern edition calls him the Prophet Muhammad.
+
+## Saint Patrick · reference
+
+And the shamrock: clever idea, Bloom says, in the same breath as the chopsticks and the heathen Chinee.
+
+## Lord Iveagh · reference
+
+Who once cashed a sevenfigure cheque for a million in the bank of Ireland. Shows you the money to be made out of porter.
+
+## Lord Ardilaun · reference
+
+The other brother, who has to change his shirt four times a day, they say.
+
+## The duke of Albany · reference
+
+One of the old queen’s sons, who had only one skin. Leopold, yes — which is Bloom’s own name, and the only reason he remembers the man.
+
+## Brutus · reference
+
+And Brutus is an honourable man: Antony’s line, which Bloom turns on the stylish woman outside the Grosvenor. The honourable Mrs.
+
+## Rossini · reference
+
+Whose Stabat Mater Molly sang in Gardiner street, with the thrill in the air and the people looking up.
+
+## Mercadante · reference
+
+Of the seven last words, first of Bloom’s list of that old sacred music, splendid. Molly sang his Quis est homo too.
+
+## Mozart · reference
+
+Whose twelfth mass has the Gloria in it.
+
+## Palestrina · reference
+
+For example too, among the old popes keen on music and art and statues and pictures of all kinds. They had a gay old time while it lasted.
+
+## Martha and Mary · reference
+
+The two sisters of Bethany, in whose house Christ sat talking — the picture Bloom half remembers when his correspondent’s name slides into the gospel: old master or faked for money. He is sitting in their house, talking. Mysterious.

@@ -1142,6 +1142,336 @@ Asquat on the cuckstool he folded out his paper, turning its pages over on his b
 
 Who often thinks of the masterstroke by which he won the laughing witch who now. Begins and ends morally. Hand in hand. Smart. His story stands in Gutenberg italics in the older edition, which is why his name is keyed and not aliased.
 
+## original-en · henry-flower · 5:8
+
+Henry Flower Esq, c/o P. O. Westland Row, City.
+
+The name Bloom writes under and collects his letters under: Henry Flower Esq, care of the post office in Westland row. He carries the card for it behind the leather headband of his hat and puts it back before going into church. It is his own name translated — Virag, his father’s name, is Hungarian for flower.
+
+## original-en · martha-clifford · 5:78
+
+Martha
+
+The typist who writes to Henry Flower and signs herself Martha: I called you naughty boy because I do not like that other world. Please tell me what is the real meaning of that word. She pins a yellow flower to the letter and asks, in a postscript, what perfume his wife uses. Her surname, Clifford, is given in a later episode.
+
+## original-en · the-postmistress · 5:6
+
+While the postmistress searched a pigeonhole he gazed at the recruiting poster with soldiers of all arms on parade: and held the tip of his baton against his nostrils, smelling freshprinted rag paper. No answer probably. Went too far last time.
+
+Who searches the pigeonhole at Westland row and hands Bloom back his card with a letter, while he holds his rolled newspaper against his nostrils and looks at the recruiting poster.
+
+## original-en · mccoy-wife · 5:45
+
+—My missus has just got an engagement. At least it’s not settled yet.
+
+Whose engagement is not settled yet: a reedy freckled soprano with a cheeseparing nose, nice enough for a little ballad. Her husband brings her up so as to borrow a valise, which is the wheeze Bloom did not fall for.
+
+## original-en · bantam-lyons · 5:26
+
+—I was with Bob Doran, he’s on one of his periodical bends, and what do you call him Bantam Lyons. Just down there in Conway’s we were.
+
+Who takes Bloom’s newspaper at his armpit with yellow blacknailed fingers to look up the French horse running at Ascot, hears him say twice that he was going to throw it away, and speeds off towards Conway’s corner to back Throwaway. Bloom never learns what he has said.
+
+## original-en · bob-doran · 5:26
+
+—I was with Bob Doran, he’s on one of his periodical bends, and what do you call him Bantam Lyons. Just down there in Conway’s we were.
+
+On one of his periodical bends, in Conway’s with Bantam Lyons when M’Coy was there.
+
+## original-en · hoppy-holohan · 5:23
+
+—I must try to get out there, M’Coy said. Eleven, is it? I only heard it last night. Who was telling me? Holohan. You know Hoppy?
+
+Who told M’Coy about the funeral, and came into Conway’s for a wet. You know Hoppy?
+
+## original-en · corny-kelleher · 5:0
+
+By lorries along sir John Rogerson’s quay Mr Bloom walked soberly, past Windmill lane, Leask’s the linseed crusher, the postal telegraph office. Could have given that address too. And past the sailors’ home. He turned from the morning noises of the quayside and walked through Lime street. By Brady’s cottages a boy for the skins lolled, his bucket of offal linked, smoking a chewed fagbutt. A smaller girl with scars of eczema on her forehead eyed him, listlessly holding her battered caskhoop. Tell him if he smokes he won’t grow. O let him! His life isn’t such a bed of roses. Waiting outside pubs to bring da home. Come home to ma, da. Slack hour: won’t be many there. He crossed Townsend street, passed the frowning face of Bethel. El, yes: house of: Aleph, Beth. And past Nichols’ the undertaker. At eleven it is. Time enough. Daresay Corny Kelleher bagged the job for O’Neill’s. Singing with his eyes shut. Corny. Met her once in the park. In the dark. What a lark. Police tout. Her name and address she then told with my tooraloom tooraloom tay. O, surely he bagged it. Bury him cheap in a whatyoumaycall. With my tooraloom, tooraloom, tooraloom, tooraloom.
+
+Who Bloom daresays bagged the funeral job for O’Neill’s, singing with his eyes shut. Police tout, he adds, and goes off into the tooraloom song. He manages the undertaker’s, and turns up wherever the day’s business is.
+
+## original-en · tom-kernan · 5:1
+
+In Westland row he halted before the window of the Belfast and Oriental Tea Company and read the legends of leadpapered packets: choice blend, finest quality, family tea. Rather warm. Tea. Must get some from Tom Kernan. Couldn’t ask him at a funeral, though. While his eyes still read blandly he took off his hat quietly inhaling his hairoil and sent his right hand with slow grace over his brow and hair. Very warm morning. Under their dropped lids his eyes found the tiny bow of the leather headband inside his high grade ha. Just there. His right hand came down into the bowl of his hat. His fingers found quickly a card behind the headband and transferred it to his waistcoat pocket.
+
+From whom Bloom means to get tea, and cannot ask at a funeral.
+
+## original-en · hornblower · 5:147
+
+There’s Hornblower standing at the porter’s lodge. Keep him on hands: might take a turn in there on the nod. How do you do, Mr Hornblower? How do you do, sir?
+
+At the porter’s lodge of Trinity, worth keeping on hands: might take a turn in there on the nod. How do you do, Mr Hornblower? How do you do, sir?
+
+## original-en · the-chemist · 5:114
+
+The chemist turned back page after page. Sandy shrivelled smell he seems to have. Shrunken skull. And old. Quest for the philosopher’s stone. The alchemists. Drugs age you after mental excitement. Lethargy then. Why? Reaction. A lifetime in a night. Gradually changes your character. Living all the day among herbs, ointments, disinfectants. All his alabaster lilypots. Mortar and pestle. Aq. Dist. Fol. Laur. Te Virid. Smell almost cure you like the dentist’s doorbell. Doctor Whack. He ought to physic himself a bit. Electuary or emulsion. The first fellow that picked an herb to cure himself had a bit of pluck. Simples. Want to be careful. Enough stuff here to chloroform you. Test: turns blue litmus paper red. Chloroform. Overdose of laudanum. Sleeping draughts. Lovephiltres. Paragoric poppysyrup bad for cough. Clogs the pores or the phlegm. Poisons the only cures. Remedy where you least expect it. Clever of nature.
+
+Of Sweny’s in Lincoln place, who turns back page after page of the prescriptions book to find the lotion of sweet almond oil and tincture of benzoin, and sells Bloom a cake of sweet lemony soap for fourpence to be paid for later. Sandy shrivelled smell he seems to have. Shrunken skull. And old.
+
+## original-en · skins-boy · 5:0
+
+By lorries along sir John Rogerson’s quay Mr Bloom walked soberly, past Windmill lane, Leask’s the linseed crusher, the postal telegraph office. Could have given that address too. And past the sailors’ home. He turned from the morning noises of the quayside and walked through Lime street. By Brady’s cottages a boy for the skins lolled, his bucket of offal linked, smoking a chewed fagbutt. A smaller girl with scars of eczema on her forehead eyed him, listlessly holding her battered caskhoop. Tell him if he smokes he won’t grow. O let him! His life isn’t such a bed of roses. Waiting outside pubs to bring da home. Come home to ma, da. Slack hour: won’t be many there. He crossed Townsend street, passed the frowning face of Bethel. El, yes: house of: Aleph, Beth. And past Nichols’ the undertaker. At eleven it is. Time enough. Daresay Corny Kelleher bagged the job for O’Neill’s. Singing with his eyes shut. Corny. Met her once in the park. In the dark. What a lark. Police tout. Her name and address she then told with my tooraloom tooraloom tay. O, surely he bagged it. Bury him cheap in a whatyoumaycall. With my tooraloom, tooraloom, tooraloom, tooraloom.
+
+Lolling by Brady’s cottages with his bucket of offal linked, smoking a chewed fagbutt. Tell him if he smokes he won’t grow. O let him. His life isn’t such a bed of roses.
+
+## original-en · caskhoop-girl · 5:0
+
+By lorries along sir John Rogerson’s quay Mr Bloom walked soberly, past Windmill lane, Leask’s the linseed crusher, the postal telegraph office. Could have given that address too. And past the sailors’ home. He turned from the morning noises of the quayside and walked through Lime street. By Brady’s cottages a boy for the skins lolled, his bucket of offal linked, smoking a chewed fagbutt. A smaller girl with scars of eczema on her forehead eyed him, listlessly holding her battered caskhoop. Tell him if he smokes he won’t grow. O let him! His life isn’t such a bed of roses. Waiting outside pubs to bring da home. Come home to ma, da. Slack hour: won’t be many there. He crossed Townsend street, passed the frowning face of Bethel. El, yes: house of: Aleph, Beth. And past Nichols’ the undertaker. At eleven it is. Time enough. Daresay Corny Kelleher bagged the job for O’Neill’s. Singing with his eyes shut. Corny. Met her once in the park. In the dark. What a lark. Police tout. Her name and address she then told with my tooraloom tooraloom tay. O, surely he bagged it. Bury him cheap in a whatyoumaycall. With my tooraloom, tooraloom, tooraloom, tooraloom.
+
+Smaller, with scars of eczema on her forehead, who eyes him listlessly, holding her battered hoop.
+
+## original-en · coombe-sluts · 5:83
+
+Flat Dublin voices bawled in his head. Those two sluts that night in the Coombe, linked together in the rain.
+
+The two women linked together in the rain that night in the Coombe, whose flat Dublin voices bawl the song about Mairy’s drawers in Bloom’s head, and who would listen too, he thinks, in the house at Bethany. The modern edition calls them two rough girls.
+
+## original-en · rudolph-bloom · 5:65
+
+Mr Bloom stood at the corner, his eyes wandering over the multicoloured hoardings. Cantrell and Cochrane’s Ginger Ale (Aromatic). Clery’s Summer Sale. No, he’s going on straight. Hello. _Leah_ tonight. Mrs Bandmann Palmer. Like to see her again in that. _Hamlet_ she played last night. Male impersonator. Perhaps he was a woman. Why Ophelia committed suicide. Poor papa! How he used to talk of Kate Bateman in that. Outside the Adelphi in London waited all the afternoon to get in. Year before I was born that was: sixtyfive. And Ristori in Vienna. What is this the right name is? By Mosenthal it is. Rachel, is it? No. The scene he was always talking about where the old blind Abraham recognises the voice and puts his fingers on his face.
+
+Bloom’s father, who used to talk of Kate Bateman in Leah and of the scene where the old blind Abraham knows his son’s voice. He is not named in this episode, and Bloom is glad he did not go into the room to look at his face. That day. O, dear! O, dear!
+
+## original-en · bob-cowley · 5:62
+
+Didn’t catch me napping that wheeze. The quick touch. Soft mark. I’d like my job. Valise I have a particular fancy for. Leather. Capped corners, rivetted edges, double action lever lock. Bob Cowley lent him his for the Wicklow regatta concert last year and never heard tidings of it from that good day to this.
+
+Who lent M’Coy his valise for the Wicklow regatta concert last year and never heard tidings of it from that good day to this.
+
+## original-en · vance · 5:2
+
+So warm. His right hand once more more slowly went over his brow and hair. Then he put on his hat again, relieved: and read again: choice blend, made of the finest Ceylon brands. The far east. Lovely spot it must be: the garden of the world, big lazy leaves to float about on, cactuses, flowery meads, snaky lianas they call them. Wonder is it like that. Those Cinghalese lobbing about in the sun in _dolce far niente_, not doing a hand’s turn all day. Sleep six months out of twelve. Too hot to quarrel. Influence of the climate. Lethargy. Flowers of idleness. The air feeds most. Azotes. Hothouse in Botanic gardens. Sensitive plants. Waterlilies. Petals too tired to. Sleeping sickness in the air. Walk on roseleaves. Imagine trying to eat tripe and cowheel. Where was the chap I saw in that picture somewhere? Ah yes, in the dead sea floating on his back, reading a book with a parasol open. Couldn’t sink if you tried: so thick with salt. Because the weight of the water, no, the weight of the body in the water is equal to the weight of the what? Or is it the volume is equal to the weight? It’s a law something like that. Vance in High school cracking his fingerjoints, teaching. The college curriculum. Cracking curriculum. What is weight really when you say the weight? Thirtytwo feet per second per second. Law of falling bodies: per second per second. They all fall to the ground. The earth. It’s the force of gravity of the earth is the weight.
+
+The High school master who cracked his fingerjoints teaching the law of falling bodies: thirtytwo feet per second per second. He taught the colours of the spectrum too.
+
+## original-en · mrs-ellis · 5:74
+
+He turned into Cumberland street and, going on some paces, halted in the lee of the station wall. No-one. Meade’s timberyard. Piled balks. Ruins and tenements. With careful tread he passed over a hopscotch court with its forgotten pickeystone. Not a sinner. Near the timberyard a squatted child at marbles, alone, shooting the taw with a cunnythumb. A wise tabby, a blinking sphinx, watched from her warm sill. Pity to disturb them. Mohammed cut a piece out of his mantle not to wake her. Open it. And once I played marbles when I went to that old dame’s school. She liked mignonette. Mrs Ellis’s. And Mr? He opened the letter within the newspaper.
+
+Who kept the old dame’s school where Bloom played marbles, and liked mignonette. And Mr? — the question he leaves unfinished.
+
+## original-en · jack-fleming · 5:145
+
+Mr Bloom folded the sheets again to a neat square and lodged the soap in it, smiling. Silly lips of that chap. Betting. Regular hotbed of it lately. Messenger boys stealing to put on sixpence. Raffle for large tender turkey. Your Christmas dinner for threepence. Jack Fleming embezzling to gamble then smuggled off to America. Keeps a hotel now. They never come back. Fleshpots of Egypt.
+
+Who embezzled to gamble and was smuggled off to America, and keeps a hotel now. They never come back.
+
+## original-en · captain-culler · 5:148
+
+Heavenly weather really. If life was always like that. Cricket weather. Sit around under sunshades. Over after over. Out. They can’t play it here. Duck for six wickets. Still Captain Culler broke a window in the Kildare street club with a slog to square leg. Donnybrook fair more in their line. And the skulls we were acracking when M’Carthy took the floor. Heatwave. Won’t last. Always passing, the stream of life, which in the stream of life we trace is dearer than them all.
+
+Who broke a window in the Kildare street club with a slog to square leg — the whole of Bloom’s case for cricket in Ireland.
+
+## original-en · mccarthy-of-the-song · 5:148
+
+Heavenly weather really. If life was always like that. Cricket weather. Sit around under sunshades. Over after over. Out. They can’t play it here. Duck for six wickets. Still Captain Culler broke a window in the Kildare street club with a slog to square leg. Donnybrook fair more in their line. And the skulls we were acracking when M’Carthy took the floor. Heatwave. Won’t last. Always passing, the stream of life, which in the stream of life we trace is dearer than them all.
+
+Whose taking the floor set the skulls cracking, in the song Bloom half quotes about Donnybrook fair. Not the Jakes M’Carthy of episode 7, nor Justin M’Carthy, nor Denis Florence M’Carthy.
+
+## original-en · mairy · 5:84
+
+O, Mairy lost the pin of her drawers. She didn’t know what to do To keep it up, To keep it up.
+
+Who lost the pin of her drawers and did not know what to do to keep it up, in the song of the two women in the Coombe. The modern edition spells her Mary.
+
+## original-en · martin-cunningham · 5:95
+
+Same notice on the door. Sermon by the very reverend John Conmee S. J. on saint Peter Claver S. J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China’s millions. Wonder how they explain it to the heathen Chinee. Prefer an ounce of opium. Celestials. Rank heresy for them. Buddha their god lying on his side in the museum. Taking it easy with hand under his cheek. Josssticks burning. Not like Ecce Homo. Crown of thorns and cross. Clever idea Saint Patrick the shamrock. Chopsticks? Conmee: Martin Cunningham knows him: distinguishedlooking. Sorry I didn’t work him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn’t. They’re taught that. He’s not going out in bluey specs with the sweat rolling off him to baptise blacks, is he? The glasses would take their fancy, flashing. Like to see them sitting round in a ring with blub lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+Who knows Father Conmee. He is the organiser of the funeral party in the next episode and of the collection for the Dignams after it.
+
+## original-en · john-conmee · 5:95
+
+Same notice on the door. Sermon by the very reverend John Conmee S. J. on saint Peter Claver S. J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China’s millions. Wonder how they explain it to the heathen Chinee. Prefer an ounce of opium. Celestials. Rank heresy for them. Buddha their god lying on his side in the museum. Taking it easy with hand under his cheek. Josssticks burning. Not like Ecce Homo. Crown of thorns and cross. Clever idea Saint Patrick the shamrock. Chopsticks? Conmee: Martin Cunningham knows him: distinguishedlooking. Sorry I didn’t work him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn’t. They’re taught that. He’s not going out in bluey specs with the sweat rolling off him to baptise blacks, is he? The glasses would take their fancy, flashing. Like to see them sitting round in a ring with blub lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+Whose sermon on saint Peter Claver and the African Mission is on the notice at the door of All Hallows. Distinguishedlooking, Bloom thinks, and regrets not having worked him about getting Molly into the choir. He opens episode 10 walking across Dublin.
+
+## original-en · peter-claver · 5:95
+
+Same notice on the door. Sermon by the very reverend John Conmee S. J. on saint Peter Claver S. J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China’s millions. Wonder how they explain it to the heathen Chinee. Prefer an ounce of opium. Celestials. Rank heresy for them. Buddha their god lying on his side in the museum. Taking it easy with hand under his cheek. Josssticks burning. Not like Ecce Homo. Crown of thorns and cross. Clever idea Saint Patrick the shamrock. Chopsticks? Conmee: Martin Cunningham knows him: distinguishedlooking. Sorry I didn’t work him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn’t. They’re taught that. He’s not going out in bluey specs with the sweat rolling off him to baptise blacks, is he? The glasses would take their fancy, flashing. Like to see them sitting round in a ring with blub lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+The Jesuit of the African mission, subject of the sermon — and the name Bloom reaches for and mixes up with Peter Carey, a few paragraphs later, in the same church.
+
+## original-en · gladstone · 5:95
+
+Same notice on the door. Sermon by the very reverend John Conmee S. J. on saint Peter Claver S. J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China’s millions. Wonder how they explain it to the heathen Chinee. Prefer an ounce of opium. Celestials. Rank heresy for them. Buddha their god lying on his side in the museum. Taking it easy with hand under his cheek. Josssticks burning. Not like Ecce Homo. Crown of thorns and cross. Clever idea Saint Patrick the shamrock. Chopsticks? Conmee: Martin Cunningham knows him: distinguishedlooking. Sorry I didn’t work him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn’t. They’re taught that. He’s not going out in bluey specs with the sweat rolling off him to baptise blacks, is he? The glasses would take their fancy, flashing. Like to see them sitting round in a ring with blub lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+For whose conversion they had prayers when he was almost unconscious. The protestants are the same, Bloom adds.
+
+## original-en · william-walsh · 5:95
+
+Same notice on the door. Sermon by the very reverend John Conmee S. J. on saint Peter Claver S. J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China’s millions. Wonder how they explain it to the heathen Chinee. Prefer an ounce of opium. Celestials. Rank heresy for them. Buddha their god lying on his side in the museum. Taking it easy with hand under his cheek. Josssticks burning. Not like Ecce Homo. Crown of thorns and cross. Clever idea Saint Patrick the shamrock. Chopsticks? Conmee: Martin Cunningham knows him: distinguishedlooking. Sorry I didn’t work him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn’t. They’re taught that. He’s not going out in bluey specs with the sweat rolling off him to baptise blacks, is he? The glasses would take their fancy, flashing. Like to see them sitting round in a ring with blub lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+Archbishop of Dublin, whom the protestants would convert to the true religion in the same way. Not the Louis J Walsh of Magherafelt in episode 13.
+
+## original-en · father-farley · 5:95
+
+Same notice on the door. Sermon by the very reverend John Conmee S. J. on saint Peter Claver S. J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China’s millions. Wonder how they explain it to the heathen Chinee. Prefer an ounce of opium. Celestials. Rank heresy for them. Buddha their god lying on his side in the museum. Taking it easy with hand under his cheek. Josssticks burning. Not like Ecce Homo. Crown of thorns and cross. Clever idea Saint Patrick the shamrock. Chopsticks? Conmee: Martin Cunningham knows him: distinguishedlooking. Sorry I didn’t work him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn’t. They’re taught that. He’s not going out in bluey specs with the sweat rolling off him to baptise blacks, is he? The glasses would take their fancy, flashing. Like to see them sitting round in a ring with blub lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+Who got the choir place instead of Molly, and who looked a fool but wasn’t.
+
+## original-en · carey · 5:100
+
+Meet one Sunday after the rosary. Do not deny my request. Turn up with a veil and black bag. Dusk and the light behind her. She might be here with a ribbon round her neck and do the other thing all the same on the sly. Their character. That fellow that turned queen’s evidence on the invincibles he used to receive the, Carey was his name, the communion every morning. This very church. Peter Carey, yes. No, Peter Claver I am thinking of. Denis Carey. And just imagine that. Wife and six children at home. And plotting that murder all the time. Those crawthumpers, now that’s a good name for them, there’s always something shiftylooking about them. They’re not straight men of business either. O, no, she’s not here: the flower: no, no. By the way, did I tear up that envelope? Yes: under the bridge.
+
+The informer who turned queen’s evidence on the invincibles and took communion every morning in this very church, with a wife and six children at home and the murder plotted all the while. Bloom cannot fix the first name: Carey was his name, Peter Carey, yes — no, Peter Claver I am thinking of — Denis Carey. Episode 8 has him hesitating the same way: Peter or Denis or James Carey.
+
+## original-en · old-glynn · 5:102
+
+Mr Bloom looked back towards the choir. Not going to be any music. Pity. Who has the organ here I wonder? Old Glynn he knew how to make that instrument talk, the _vibrato_: fifty pounds a year they say he had in Gardiner street. Molly was in fine voice that day, the _Stabat Mater_ of Rossini. Father Bernard Vaughan’s sermon first. Christ or Pilate? Christ, but don’t keep us all night over it. Music they wanted. Footdrill stopped. Could hear a pin drop. I told her to pitch her voice against that corner. I could feel the thrill in the air, the full, the people looking up:
+
+The organist of Gardiner street, who knew how to make that instrument talk, the vibrato, and had fifty pounds a year for it.
+
+## original-en · bernard-vaughan · 5:102
+
+Mr Bloom looked back towards the choir. Not going to be any music. Pity. Who has the organ here I wonder? Old Glynn he knew how to make that instrument talk, the _vibrato_: fifty pounds a year they say he had in Gardiner street. Molly was in fine voice that day, the _Stabat Mater_ of Rossini. Father Bernard Vaughan’s sermon first. Christ or Pilate? Christ, but don’t keep us all night over it. Music they wanted. Footdrill stopped. Could hear a pin drop. I told her to pitch her voice against that corner. I could feel the thrill in the air, the full, the people looking up:
+
+Whose sermon came before the music on the day Molly was in fine voice: Christ or Pilate? Christ, but don’t keep us all night over it.
+
+## original-en · mrs-bandmann-palmer · 5:65
+
+Mr Bloom stood at the corner, his eyes wandering over the multicoloured hoardings. Cantrell and Cochrane’s Ginger Ale (Aromatic). Clery’s Summer Sale. No, he’s going on straight. Hello. _Leah_ tonight. Mrs Bandmann Palmer. Like to see her again in that. _Hamlet_ she played last night. Male impersonator. Perhaps he was a woman. Why Ophelia committed suicide. Poor papa! How he used to talk of Kate Bateman in that. Outside the Adelphi in London waited all the afternoon to get in. Year before I was born that was: sixtyfive. And Ristori in Vienna. What is this the right name is? By Mosenthal it is. Rachel, is it? No. The scene he was always talking about where the old blind Abraham recognises the voice and puts his fingers on his face.
+
+Playing Leah tonight, and Hamlet last night: a male impersonator, which sets Bloom wondering whether Hamlet was a woman and why Ophelia committed suicide.
+
+## original-en · kate-bateman · 5:65
+
+Mr Bloom stood at the corner, his eyes wandering over the multicoloured hoardings. Cantrell and Cochrane’s Ginger Ale (Aromatic). Clery’s Summer Sale. No, he’s going on straight. Hello. _Leah_ tonight. Mrs Bandmann Palmer. Like to see her again in that. _Hamlet_ she played last night. Male impersonator. Perhaps he was a woman. Why Ophelia committed suicide. Poor papa! How he used to talk of Kate Bateman in that. Outside the Adelphi in London waited all the afternoon to get in. Year before I was born that was: sixtyfive. And Ristori in Vienna. What is this the right name is? By Mosenthal it is. Rachel, is it? No. The scene he was always talking about where the old blind Abraham recognises the voice and puts his fingers on his face.
+
+Whom Bloom’s father used to talk of in the same part, and waited all the afternoon outside the Adelphi in London to see — the year before Bloom was born, sixtyfive.
+
+## original-en · ristori · 5:65
+
+Mr Bloom stood at the corner, his eyes wandering over the multicoloured hoardings. Cantrell and Cochrane’s Ginger Ale (Aromatic). Clery’s Summer Sale. No, he’s going on straight. Hello. _Leah_ tonight. Mrs Bandmann Palmer. Like to see her again in that. _Hamlet_ she played last night. Male impersonator. Perhaps he was a woman. Why Ophelia committed suicide. Poor papa! How he used to talk of Kate Bateman in that. Outside the Adelphi in London waited all the afternoon to get in. Year before I was born that was: sixtyfive. And Ristori in Vienna. What is this the right name is? By Mosenthal it is. Rachel, is it? No. The scene he was always talking about where the old blind Abraham recognises the voice and puts his fingers on his face.
+
+And Ristori in Vienna: the other actress his father named.
+
+## original-en · mosenthal · 5:65
+
+Mr Bloom stood at the corner, his eyes wandering over the multicoloured hoardings. Cantrell and Cochrane’s Ginger Ale (Aromatic). Clery’s Summer Sale. No, he’s going on straight. Hello. _Leah_ tonight. Mrs Bandmann Palmer. Like to see her again in that. _Hamlet_ she played last night. Male impersonator. Perhaps he was a woman. Why Ophelia committed suicide. Poor papa! How he used to talk of Kate Bateman in that. Outside the Adelphi in London waited all the afternoon to get in. Year before I was born that was: sixtyfive. And Ristori in Vienna. What is this the right name is? By Mosenthal it is. Rachel, is it? No. The scene he was always talking about where the old blind Abraham recognises the voice and puts his fingers on his face.
+
+Who wrote the play. By Mosenthal it is. Bloom gropes for the title after the author’s name and does not find it.
+
+## original-en · leah-nathan · 5:66
+
+Nathan’s voice! His son’s voice! I hear the voice of Nathan who left his father to die of grief and misery in my arms, who left the house of his father and left the God of his father.
+
+Whose voice the old blind man knows in the scene Bloom’s father was always talking about: Nathan’s voice! His son’s voice! I hear the voice of Nathan who left his father to die of grief and misery in my arms.
+
+## original-en · leah-abraham · 5:65
+
+Mr Bloom stood at the corner, his eyes wandering over the multicoloured hoardings. Cantrell and Cochrane’s Ginger Ale (Aromatic). Clery’s Summer Sale. No, he’s going on straight. Hello. _Leah_ tonight. Mrs Bandmann Palmer. Like to see her again in that. _Hamlet_ she played last night. Male impersonator. Perhaps he was a woman. Why Ophelia committed suicide. Poor papa! How he used to talk of Kate Bateman in that. Outside the Adelphi in London waited all the afternoon to get in. Year before I was born that was: sixtyfive. And Ristori in Vienna. What is this the right name is? By Mosenthal it is. Rachel, is it? No. The scene he was always talking about where the old blind Abraham recognises the voice and puts his fingers on his face.
+
+The old blind man of that scene, who recognises the voice and puts his fingers on his face. Not the patriarch of episodes 12 and 15.
+
+## original-en · ophelia · 5:65
+
+Mr Bloom stood at the corner, his eyes wandering over the multicoloured hoardings. Cantrell and Cochrane’s Ginger Ale (Aromatic). Clery’s Summer Sale. No, he’s going on straight. Hello. _Leah_ tonight. Mrs Bandmann Palmer. Like to see her again in that. _Hamlet_ she played last night. Male impersonator. Perhaps he was a woman. Why Ophelia committed suicide. Poor papa! How he used to talk of Kate Bateman in that. Outside the Adelphi in London waited all the afternoon to get in. Year before I was born that was: sixtyfive. And Ristori in Vienna. What is this the right name is? By Mosenthal it is. Rachel, is it? No. The scene he was always talking about where the old blind Abraham recognises the voice and puts his fingers on his face.
+
+Who committed suicide, and why — the question Bloom asks himself in front of the playbill, and which the library argument of episode 9 takes up in earnest.
+
+## original-en · pilate · 5:102
+
+Mr Bloom looked back towards the choir. Not going to be any music. Pity. Who has the organ here I wonder? Old Glynn he knew how to make that instrument talk, the _vibrato_: fifty pounds a year they say he had in Gardiner street. Molly was in fine voice that day, the _Stabat Mater_ of Rossini. Father Bernard Vaughan’s sermon first. Christ or Pilate? Christ, but don’t keep us all night over it. Music they wanted. Footdrill stopped. Could hear a pin drop. I told her to pitch her voice against that corner. I could feel the thrill in the air, the full, the people looking up:
+
+Christ or Pilate, the choice Father Bernard Vaughan’s sermon offered. Professor MacHugh gives him a second line in episode 7.
+
+## original-en · saint-michael · 1:318
+
+The proud potent titles clanged over Stephen’s memory the triumph of their brazen bells: _et unam sanctam catholicam et apostolicam ecclesiam:_ the slow growth and change of rite and dogma like his own rare thoughts, a chemistry of stars. Symbol of the apostles in the mass for pope Marcellus, the voices blended, singing alone loud in affirmation: and behind their chant the vigilant angel of the church militant disarmed and menaced her heresiarchs. A horde of heresies fleeing with mitres awry: Photius and the brood of mockers of whom Mulligan was one, and Arius, warring his life long upon the consubstantiality of the Son with the Father, and Valentine, spurning Christ’s terrene body, and the subtle African heresiarch Sabellius who held that the Father was Himself His own Son. Words Mulligan had spoken a moment since in mockery to the stranger. Idle mockery. The void awaits surely all them that weave the wind: a menace, a disarming and a worsting from those embattled angels of the church, Michael’s host, who defend her ever in the hour of conflict with their lances and their shields.
+
+The archangel of the prayer after mass: blessed Michael, defend us in the hour of conflict. His host are the embattled angels of the church whose menace Stephen remembers in episode 1.
+
+## original-en · satan · 5:109
+
+—Blessed Michael, archangel, defend us in the hour of conflict. Be our safeguard against the wickedness and snares of the devil (may God restrain him, we humbly pray!): and do thou, O prince of the heavenly host, by the power of God thrust Satan down to hell and with him those other wicked spirits who wander through the world for the ruin of souls.
+
+Whom the same prayer asks God to thrust down to hell, with those other wicked spirits who wander through the world for the ruin of souls.
+
+## original-en · saint-peter · 5:107
+
+Mr Bloom put his face forward to catch the words. English. Throw them the bone. I remember slightly. How long since your last mass? Glorious and immaculate virgin. Joseph, her spouse. Peter and Paul. More interesting if you understood what it was all about. Wonderful organisation certainly, goes like clockwork. Confession. Everyone wants to. Then I will tell you all. Penance. Punish me, please. Great weapon in their hands. More than doctor or solicitor. Woman dying to. And I schschschschschsch. And did you chachachachacha? And why did you? Look down at her ring to find an excuse. Whispering gallery walls have ears. Husband learn to his surprise. God’s little joke. Then out she comes. Repentance skindeep. Lovely shame. Pray at an altar. Hail Mary and Holy Mary. Flowers, incense, candles melting. Hide her blushes. Salvation army blatant imitation. Reformed prostitute will address the meeting. How I found the Lord. Squareheaded chaps those must be in Rome: they work the whole show. And don’t they rake in the money too? Bequests also: to the P.P. for the time being in his absolute discretion. Masses for the repose of my soul to be said publicly with open doors. Monasteries and convents. The priest in that Fermanagh will case in the witnessbox. No browbeating him. He had his answer pat for everything. Liberty and exaltation of our holy mother the church. The doctors of the church: they mapped out the whole theology of it.
+
+Named with Paul in Bloom’s inventory of what the mass is about: glorious and immaculate virgin, Joseph her spouse, Peter and Paul.
+
+## original-en · saint-paul · 5:107
+
+Mr Bloom put his face forward to catch the words. English. Throw them the bone. I remember slightly. How long since your last mass? Glorious and immaculate virgin. Joseph, her spouse. Peter and Paul. More interesting if you understood what it was all about. Wonderful organisation certainly, goes like clockwork. Confession. Everyone wants to. Then I will tell you all. Penance. Punish me, please. Great weapon in their hands. More than doctor or solicitor. Woman dying to. And I schschschschschsch. And did you chachachachacha? And why did you? Look down at her ring to find an excuse. Whispering gallery walls have ears. Husband learn to his surprise. God’s little joke. Then out she comes. Repentance skindeep. Lovely shame. Pray at an altar. Hail Mary and Holy Mary. Flowers, incense, candles melting. Hide her blushes. Salvation army blatant imitation. Reformed prostitute will address the meeting. How I found the Lord. Squareheaded chaps those must be in Rome: they work the whole show. And don’t they rake in the money too? Bequests also: to the P.P. for the time being in his absolute discretion. Masses for the repose of my soul to be said publicly with open doors. Monasteries and convents. The priest in that Fermanagh will case in the witnessbox. No browbeating him. He had his answer pat for everything. Liberty and exaltation of our holy mother the church. The doctors of the church: they mapped out the whole theology of it.
+
+The other of the pair.
+
+## original-en · buddha · 5:95
+
+Same notice on the door. Sermon by the very reverend John Conmee S. J. on saint Peter Claver S. J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China’s millions. Wonder how they explain it to the heathen Chinee. Prefer an ounce of opium. Celestials. Rank heresy for them. Buddha their god lying on his side in the museum. Taking it easy with hand under his cheek. Josssticks burning. Not like Ecce Homo. Crown of thorns and cross. Clever idea Saint Patrick the shamrock. Chopsticks? Conmee: Martin Cunningham knows him: distinguishedlooking. Sorry I didn’t work him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn’t. They’re taught that. He’s not going out in bluey specs with the sweat rolling off him to baptise blacks, is he? The glasses would take their fancy, flashing. Like to see them sitting round in a ring with blub lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+Lying on his side in the museum with his hand under his cheek, taking it easy, josssticks burning: the god Bloom sets against the Ecce Homo, the crown of thorns and the cross.
+
+## original-en · mohammed · 5:74
+
+He turned into Cumberland street and, going on some paces, halted in the lee of the station wall. No-one. Meade’s timberyard. Piled balks. Ruins and tenements. With careful tread he passed over a hopscotch court with its forgotten pickeystone. Not a sinner. Near the timberyard a squatted child at marbles, alone, shooting the taw with a cunnythumb. A wise tabby, a blinking sphinx, watched from her warm sill. Pity to disturb them. Mohammed cut a piece out of his mantle not to wake her. Open it. And once I played marbles when I went to that old dame’s school. She liked mignonette. Mrs Ellis’s. And Mr? He opened the letter within the newspaper.
+
+Who cut a piece out of his mantle rather than wake the cat asleep on it — the story Bloom remembers over a tabby on a warm sill. The modern edition calls him the Prophet Muhammad.
+
+## original-en · saint-patrick · 5:95
+
+Same notice on the door. Sermon by the very reverend John Conmee S. J. on saint Peter Claver S. J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China’s millions. Wonder how they explain it to the heathen Chinee. Prefer an ounce of opium. Celestials. Rank heresy for them. Buddha their god lying on his side in the museum. Taking it easy with hand under his cheek. Josssticks burning. Not like Ecce Homo. Crown of thorns and cross. Clever idea Saint Patrick the shamrock. Chopsticks? Conmee: Martin Cunningham knows him: distinguishedlooking. Sorry I didn’t work him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn’t. They’re taught that. He’s not going out in bluey specs with the sweat rolling off him to baptise blacks, is he? The glasses would take their fancy, flashing. Like to see them sitting round in a ring with blub lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+And the shamrock: clever idea, Bloom says, in the same breath as the chopsticks and the heathen Chinee.
+
+## original-en · lord-iveagh · 5:91
+
+Henry Flower. You could tear up a cheque for a hundred pounds in the same way. Simple bit of paper. Lord Iveagh once cashed a sevenfigure cheque for a million in the bank of Ireland. Shows you the money to be made out of porter. Still the other brother lord Ardilaun has to change his shirt four times a day, they say. Skin breeds lice or vermin. A million pounds, wait a moment. Twopence a pint, fourpence a quart, eightpence a gallon of porter, no, one and fourpence a gallon of porter. One and four into twenty: fifteen about. Yes, exactly. Fifteen millions of barrels of porter.
+
+Who once cashed a sevenfigure cheque for a million in the bank of Ireland. Shows you the money to be made out of porter.
+
+## original-en · lord-ardilaun · 5:91
+
+Henry Flower. You could tear up a cheque for a hundred pounds in the same way. Simple bit of paper. Lord Iveagh once cashed a sevenfigure cheque for a million in the bank of Ireland. Shows you the money to be made out of porter. Still the other brother lord Ardilaun has to change his shirt four times a day, they say. Skin breeds lice or vermin. A million pounds, wait a moment. Twopence a pint, fourpence a quart, eightpence a gallon of porter, no, one and fourpence a gallon of porter. One and four into twenty: fifteen about. Yes, exactly. Fifteen millions of barrels of porter.
+
+The other brother, who has to change his shirt four times a day, they say.
+
+## original-en · duke-of-albany · 5:121
+
+Brings out the darkness of her eyes. Looking at me, the sheet up to her eyes, Spanish, smelling herself, when I was fixing the links in my cuffs. Those homely recipes are often the best: strawberries for the teeth: nettles and rainwater: oatmeal they say steeped in buttermilk. Skinfood. One of the old queen’s sons, duke of Albany was it? had only one skin. Leopold, yes. Three we have. Warts, bunions and pimples to make it worse. But you want a perfume too. What perfume does your? _Peau d’Espagne_. That orangeflower water is so fresh. Nice smell these soaps have. Pure curd soap. Time to get a bath round the corner. Hammam. Turkish. Massage. Dirt gets rolled up in your navel. Nicer if a nice girl did it. Also I think I. Yes I. Do it in the bath. Curious longing I. Water to water. Combine business with pleasure. Pity no time for massage. Feel fresh then all the day. Funeral be rather glum.
+
+One of the old queen’s sons, who had only one skin. Leopold, yes — which is Bloom’s own name, and the only reason he remembers the man.
+
+## original-en · brutus · 5:25
+
+Mr Bloom gazed across the road at the outsider drawn up before the door of the Grosvenor. The porter hoisted the valise up on the well. She stood still, waiting, while the man, husband, brother, like her, searched his pockets for change. Stylish kind of coat with that roll collar, warm for a day like this, looks like blanketcloth. Careless stand of her with her hands in those patch pockets. Like that haughty creature at the polo match. Women all for caste till you touch the spot. Handsome is and handsome does. Reserved about to yield. The honourable Mrs and Brutus is an honourable man. Possess her once take the starch out of her.
+
+And Brutus is an honourable man: Antony’s line, which Bloom turns on the stylish woman outside the Grosvenor. The honourable Mrs.
+
+## original-en · rossini · 5:102
+
+Mr Bloom looked back towards the choir. Not going to be any music. Pity. Who has the organ here I wonder? Old Glynn he knew how to make that instrument talk, the _vibrato_: fifty pounds a year they say he had in Gardiner street. Molly was in fine voice that day, the _Stabat Mater_ of Rossini. Father Bernard Vaughan’s sermon first. Christ or Pilate? Christ, but don’t keep us all night over it. Music they wanted. Footdrill stopped. Could hear a pin drop. I told her to pitch her voice against that corner. I could feel the thrill in the air, the full, the people looking up:
+
+Whose Stabat Mater Molly sang in Gardiner street, with the thrill in the air and the people looking up.
+
+## original-en · mercadante · 5:104
+
+Some of that old sacred music splendid. Mercadante: seven last words. Mozart’s twelfth mass: _Gloria_ in that. Those old popes keen on music, on art and statues and pictures of all kinds. Palestrina for example too. They had a gay old time while it lasted. Healthy too, chanting, regular hours, then brew liqueurs. Benedictine. Green Chartreuse. Still, having eunuchs in their choir that was coming it a bit thick. What kind of voice is it? Must be curious to hear after their own strong basses. Connoisseurs. Suppose they wouldn’t feel anything after. Kind of a placid. No worry. Fall into flesh, don’t they? Gluttons, tall, long legs. Who knows? Eunuch. One way out of it.
+
+Of the seven last words, first of Bloom’s list of that old sacred music, splendid. Molly sang his Quis est homo too.
+
+## original-en · mozart · 5:104
+
+Some of that old sacred music splendid. Mercadante: seven last words. Mozart’s twelfth mass: _Gloria_ in that. Those old popes keen on music, on art and statues and pictures of all kinds. Palestrina for example too. They had a gay old time while it lasted. Healthy too, chanting, regular hours, then brew liqueurs. Benedictine. Green Chartreuse. Still, having eunuchs in their choir that was coming it a bit thick. What kind of voice is it? Must be curious to hear after their own strong basses. Connoisseurs. Suppose they wouldn’t feel anything after. Kind of a placid. No worry. Fall into flesh, don’t they? Gluttons, tall, long legs. Who knows? Eunuch. One way out of it.
+
+Whose twelfth mass has the Gloria in it.
+
+## original-en · palestrina · 5:104
+
+Some of that old sacred music splendid. Mercadante: seven last words. Mozart’s twelfth mass: _Gloria_ in that. Those old popes keen on music, on art and statues and pictures of all kinds. Palestrina for example too. They had a gay old time while it lasted. Healthy too, chanting, regular hours, then brew liqueurs. Benedictine. Green Chartreuse. Still, having eunuchs in their choir that was coming it a bit thick. What kind of voice is it? Must be curious to hear after their own strong basses. Connoisseurs. Suppose they wouldn’t feel anything after. Kind of a placid. No worry. Fall into flesh, don’t they? Gluttons, tall, long legs. Who knows? Eunuch. One way out of it.
+
+For example too, among the old popes keen on music and art and statues and pictures of all kinds. They had a gay old time while it lasted.
+
+## original-en · martha-and-mary · 5:87
+
+Martha, Mary. I saw that picture somewhere I forget now old master or faked for money. He is sitting in their house, talking. Mysterious. Also the two sluts in the Coombe would listen.
+
+The two sisters of Bethany, in whose house Christ sat talking — the picture Bloom half remembers when his correspondent’s name slides into the gospel: old master or faked for money. He is sitting in their house, talking. Mysterious.
+
 ## modern-en · stephen · 1:3
 
 —Come up, Kinch! Come up, you cowardly Jesuit!
@@ -2269,3 +2599,333 @@ Of the Playgoers’ Club, London, who wrote Matcham’s Masterstroke and was pai
 Squatting on the seat he unfolded his paper, turning its pages over on his bared knees. Something new and easy. No great hurry. Save it for a bit. Our prize feature: Matcham's Masterstroke. Written by Mr Philip Beaufoy, Playgoers' Club, London. Payment at the rate of one guinea a column has been made to the writer. Three and a half columns. Three pounds three. Three pounds, thirteen and six.
 
 Who often thinks of the masterstroke by which he won the laughing witch who now. Begins and ends morally. Hand in hand. Smart. His story stands in Gutenberg italics in the older edition, which is why his name is keyed and not aliased.
+
+## modern-en · henry-flower · 5:8
+
+Henry Flower Esq, c/o P.O. Westland Row, City.
+
+The name Bloom writes under and collects his letters under: Henry Flower Esq, care of the post office in Westland row. He carries the card for it behind the leather headband of his hat and puts it back before going into church. It is his own name translated — Virag, his father’s name, is Hungarian for flower.
+
+## modern-en · martha-clifford · 5:78
+
+Martha
+
+The typist who writes to Henry Flower and signs herself Martha: I called you naughty boy because I do not like that other world. Please tell me what is the real meaning of that word. She pins a yellow flower to the letter and asks, in a postscript, what perfume his wife uses. Her surname, Clifford, is given in a later episode.
+
+## modern-en · the-postmistress · 5:6
+
+While the postmistress searched a pigeonhole he gazed at the recruiting poster with soldiers of all branches on parade: and held the tip of his rolled paper against his nostrils, smelling the fresh-printed ink on paper. No answer probably. Went too far last time.
+
+Who searches the pigeonhole at Westland row and hands Bloom back his card with a letter, while he holds his rolled newspaper against his nostrils and looks at the recruiting poster.
+
+## modern-en · mccoy-wife · 5:45
+
+—My wife has just got an engagement. At least it's not settled yet.
+
+Whose engagement is not settled yet: a reedy freckled soprano with a cheeseparing nose, nice enough for a little ballad. Her husband brings her up so as to borrow a valise, which is the wheeze Bloom did not fall for.
+
+## modern-en · bantam-lyons · 5:26
+
+—I was with Bob Doran — he's on one of his periodic binges — and what do you call him, Bantam Lyons. Just down there in Conway's pub we were.
+
+Who takes Bloom’s newspaper at his armpit with yellow blacknailed fingers to look up the French horse running at Ascot, hears him say twice that he was going to throw it away, and speeds off towards Conway’s corner to back Throwaway. Bloom never learns what he has said.
+
+## modern-en · bob-doran · 5:26
+
+—I was with Bob Doran — he's on one of his periodic binges — and what do you call him, Bantam Lyons. Just down there in Conway's pub we were.
+
+On one of his periodical bends, in Conway’s with Bantam Lyons when M’Coy was there.
+
+## modern-en · hoppy-holohan · 5:23
+
+—I must try to get out there, M'Coy said. Eleven, is it? I only heard last night. Who was telling me? Holohan. You know Hoppy?
+
+Who told M’Coy about the funeral, and came into Conway’s for a wet. You know Hoppy?
+
+## modern-en · corny-kelleher · 5:0
+
+Past lorries along Sir John Rogerson's Quay Mr Bloom walked soberly, past Windmill Lane, Leask's the linseed crusher's, the postal telegraph office. Could have given that address too. And past the sailors' home. He turned from the morning noises of the quayside and walked through Lime Street. By Brady's cottages a boy employed to collect animal skins lounged, his bucket of offal dangling, smoking a chewed cigarette butt. A smaller girl with scars of eczema on her forehead eyed him, listlessly holding her battered toy hoop. Tell him if he smokes he won't grow. Oh, let him! His life isn't such a bed of roses. Waiting outside pubs to bring Dad home. Come home to Ma, Da. Slack hour: won't be many there. He crossed Townsend Street, passed the frowning facade of Bethel chapel. El, yes: house of: Aleph, Beth — Hebrew letters. And past Nichols' the undertaker. The funeral is at eleven. Time enough. I dare say Corny Kelleher landed the job for O'Neill's funeral home. Singing with his eyes shut. Corny. Met her once in the park. In the dark. What a lark. Police informer. She told him her name and address along with my tooraloom tooraloom tay. Oh, he surely landed it. Bury him cheap in a whatyoumaycall. With my tooraloom, tooraloom, tooraloom, tooraloom.
+
+Who Bloom daresays bagged the funeral job for O’Neill’s, singing with his eyes shut. Police tout, he adds, and goes off into the tooraloom song. He manages the undertaker’s, and turns up wherever the day’s business is.
+
+## modern-en · tom-kernan · 5:1
+
+In Westland Row he halted before the window of the Belfast and Oriental Tea Company and read the labels on the lead-papered packets: choice blend, finest quality, family tea. Rather warm. Tea. Must get some from Tom Kernan. Couldn't ask him at a funeral, though. While his eyes still read blandly he took off his hat quietly, inhaling his hair oil, and sent his right hand with slow grace over his brow and hair. Very warm morning. Under their dropped lids his eyes found the tiny bow of the leather headband inside his high grade ha — the t worn off. Just there. His right hand came down into the bowl of his hat. His fingers found quickly a card behind the headband and transferred it to his waistcoat pocket.
+
+From whom Bloom means to get tea, and cannot ask at a funeral.
+
+## modern-en · hornblower · 5:147
+
+There's Hornblower standing at the porter's lodge. Keep on good terms with him: might get a free pass in there sometime. How do you do, Mr Hornblower? How do you do, sir?
+
+At the porter’s lodge of Trinity, worth keeping on hands: might take a turn in there on the nod. How do you do, Mr Hornblower? How do you do, sir?
+
+## modern-en · the-chemist · 5:114
+
+The chemist turned back page after page. Dry shriveled smell he seems to have. Shrunken skull. And old. Quest for the philosopher's stone. The alchemists. Drugs age you after mental excitement. Lethargy then. Why? Reaction. A lifetime in a night. Gradually changes your character. Living all day among herbs, ointments, disinfectants. All his white porcelain jars. Mortar and pestle. Distilled water. Laurel leaves. Green tea. The smell almost cures you, like the dentist's doorbell announcing it's over. Doctor Quack. He ought to dose himself a bit. Pills or tonic. The first fellow who picked an herb to cure himself had a bit of pluck. Simple remedies. Have to be careful. Enough chemicals here to knock you out. Litmus test: turns blue paper red. Chloroform. Overdose of laudanum. Sleeping draughts. Love potions. Cough syrup with opium, bad for cough. Clogs the pores or the phlegm. Poisons the only cures. Remedy where you least expect it. Clever of nature.
+
+Of Sweny’s in Lincoln place, who turns back page after page of the prescriptions book to find the lotion of sweet almond oil and tincture of benzoin, and sells Bloom a cake of sweet lemony soap for fourpence to be paid for later. Sandy shrivelled smell he seems to have. Shrunken skull. And old.
+
+## modern-en · skins-boy · 5:0
+
+Past lorries along Sir John Rogerson's Quay Mr Bloom walked soberly, past Windmill Lane, Leask's the linseed crusher's, the postal telegraph office. Could have given that address too. And past the sailors' home. He turned from the morning noises of the quayside and walked through Lime Street. By Brady's cottages a boy employed to collect animal skins lounged, his bucket of offal dangling, smoking a chewed cigarette butt. A smaller girl with scars of eczema on her forehead eyed him, listlessly holding her battered toy hoop. Tell him if he smokes he won't grow. Oh, let him! His life isn't such a bed of roses. Waiting outside pubs to bring Dad home. Come home to Ma, Da. Slack hour: won't be many there. He crossed Townsend Street, passed the frowning facade of Bethel chapel. El, yes: house of: Aleph, Beth — Hebrew letters. And past Nichols' the undertaker. The funeral is at eleven. Time enough. I dare say Corny Kelleher landed the job for O'Neill's funeral home. Singing with his eyes shut. Corny. Met her once in the park. In the dark. What a lark. Police informer. She told him her name and address along with my tooraloom tooraloom tay. Oh, he surely landed it. Bury him cheap in a whatyoumaycall. With my tooraloom, tooraloom, tooraloom, tooraloom.
+
+Lolling by Brady’s cottages with his bucket of offal linked, smoking a chewed fagbutt. Tell him if he smokes he won’t grow. O let him. His life isn’t such a bed of roses.
+
+## modern-en · caskhoop-girl · 5:0
+
+Past lorries along Sir John Rogerson's Quay Mr Bloom walked soberly, past Windmill Lane, Leask's the linseed crusher's, the postal telegraph office. Could have given that address too. And past the sailors' home. He turned from the morning noises of the quayside and walked through Lime Street. By Brady's cottages a boy employed to collect animal skins lounged, his bucket of offal dangling, smoking a chewed cigarette butt. A smaller girl with scars of eczema on her forehead eyed him, listlessly holding her battered toy hoop. Tell him if he smokes he won't grow. Oh, let him! His life isn't such a bed of roses. Waiting outside pubs to bring Dad home. Come home to Ma, Da. Slack hour: won't be many there. He crossed Townsend Street, passed the frowning facade of Bethel chapel. El, yes: house of: Aleph, Beth — Hebrew letters. And past Nichols' the undertaker. The funeral is at eleven. Time enough. I dare say Corny Kelleher landed the job for O'Neill's funeral home. Singing with his eyes shut. Corny. Met her once in the park. In the dark. What a lark. Police informer. She told him her name and address along with my tooraloom tooraloom tay. Oh, he surely landed it. Bury him cheap in a whatyoumaycall. With my tooraloom, tooraloom, tooraloom, tooraloom.
+
+Smaller, with scars of eczema on her forehead, who eyes him listlessly, holding her battered hoop.
+
+## modern-en · coombe-sluts · 5:83
+
+Flat Dublin voices bawled in his head. Those two rough girls that night in the Coombe, linked arm in arm in the rain.
+
+The two women linked together in the rain that night in the Coombe, whose flat Dublin voices bawl the song about Mairy’s drawers in Bloom’s head, and who would listen too, he thinks, in the house at Bethany. The modern edition calls them two rough girls.
+
+## modern-en · rudolph-bloom · 5:65
+
+Mr Bloom stood at the corner, his eyes wandering over the multicolored billboard posters. Cantrell and Cochrane's Ginger Ale (Aromatic). Clery's Summer Sale. No, he's going on straight. Hello. Leah playing tonight. Mrs Bandmann Palmer. Like to see her again in that. She played Hamlet last night. Male impersonator. Perhaps Hamlet was a woman. Why Ophelia committed suicide. Poor Papa! How he used to talk about Kate Bateman in that role. Outside the Adelphi Theatre in London he waited all afternoon to get in. Year before I was born that was: sixty-five. And Ristori in Vienna. What's the actual name of the play? By Mosenthal, it is. Rachel, is it? No. The scene he always talked about where the old blind Abraham recognizes the voice and puts his fingers on his face.
+
+Bloom’s father, who used to talk of Kate Bateman in Leah and of the scene where the old blind Abraham knows his son’s voice. He is not named in this episode, and Bloom is glad he did not go into the room to look at his face. That day. O, dear! O, dear!
+
+## modern-en · bob-cowley · 5:62
+
+Didn't catch me napping with that trick. The quick touch. Easy mark. I'd love my job — him borrowing my suitcase. Leather. Capped corners, riveted edges, double action lever lock. Bob Cowley lent him his for the Wicklow regatta concert last year and never heard another word about it from that day to this.
+
+Who lent M’Coy his valise for the Wicklow regatta concert last year and never heard tidings of it from that good day to this.
+
+## modern-en · vance · 5:2
+
+So warm. His right hand once more, more slowly, went over his brow and hair. Then he put on his hat again, relieved: and read again: choice blend, made of the finest Ceylon brands. The Far East. Lovely spot it must be: the garden of the world, big lazy leaves to float about on, cactuses, flowery meadows, snaky vines they call lianas. Wonder if it's really like that. Those Sri Lankans lounging around in the sun in sweet idleness, not doing a hand's turn all day. Sleeping six months out of twelve. Too hot to quarrel. Effect of the climate. Lethargy. Flowers of idleness. The air feeds most. Nitrogen. Hothouse in the Botanic Gardens. Sensitive plants. Water lilies. Petals too tired to. Sleeping sickness in the air. Walk on rose petals. Imagine trying to eat tripe and cow heel there. Where was that picture I saw somewhere? Ah yes, in the Dead Sea, a man floating on his back, reading a book with a parasol open. Couldn't sink if you tried: so thick with salt. Because the weight of the water, no, the weight of the body in the water is equal to the weight of the what? Or is it the volume is equal to the weight? It's a law, something like that. Vance in high school cracking his finger joints, teaching. The college curriculum. Cracking curriculum. What is weight really when you say the weight? Thirty-two feet per second per second. Law of falling bodies: per second per second. They all fall to the ground. The earth. It's the force of gravity of the earth that is the weight.
+
+The High school master who cracked his fingerjoints teaching the law of falling bodies: thirtytwo feet per second per second. He taught the colours of the spectrum too.
+
+## modern-en · mrs-ellis · 5:74
+
+He turned into Cumberland Street and, going on some paces, halted in the shelter of the station wall. No one about. Meade's timber yard. Piled planks. Ruins and tenements. Stepping carefully he passed over a hopscotch court with its forgotten stone marker. Not a soul. Near the timber yard a child squatted playing marbles alone, shooting with a practiced thumb. A wise tabby cat, a blinking sphinx, watched from her warm windowsill. Pity to disturb them. The Prophet Muhammad cut a piece from his cloak rather than disturb a sleeping cat. Open the letter. And once I played marbles when I went to that old dame's school. She liked the flower mignonette. Mrs Ellis's school. And Mr? He opened the letter within the newspaper.
+
+Who kept the old dame’s school where Bloom played marbles, and liked mignonette. And Mr? — the question he leaves unfinished.
+
+## modern-en · jack-fleming · 5:145
+
+Mr Bloom folded the sheets again into a neat square and lodged the soap in it, smiling. Silly fellow. Betting. Regular hotbed of it lately. Messenger boys stealing money to put sixpence on a horse. Raffle for a large tender turkey. Your Christmas dinner for threepence. Jack Fleming embezzling money to gamble, then smuggled off to America. Keeps a hotel now. They never come back. The good life.
+
+Who embezzled to gamble and was smuggled off to America, and keeps a hotel now. They never come back.
+
+## modern-en · captain-culler · 5:148
+
+Heavenly weather, really. If life was always like this. Cricket weather. Sit around under parasols. Over after over. Out. They can't play it here in Ireland. Six wickets for hardly any runs. Still, Captain Culler broke a window in the Kildare Street Club with a big hit to square leg. Donnybrook fair more their style. And the skulls we were cracking when M'Carthy took the floor at the dance. Heat wave. Won't last. Always passing, the stream of life — which in the stream of life we trace is dearer than them all.
+
+Who broke a window in the Kildare street club with a slog to square leg — the whole of Bloom’s case for cricket in Ireland.
+
+## modern-en · mccarthy-of-the-song · 5:148
+
+Heavenly weather, really. If life was always like this. Cricket weather. Sit around under parasols. Over after over. Out. They can't play it here in Ireland. Six wickets for hardly any runs. Still, Captain Culler broke a window in the Kildare Street Club with a big hit to square leg. Donnybrook fair more their style. And the skulls we were cracking when M'Carthy took the floor at the dance. Heat wave. Won't last. Always passing, the stream of life — which in the stream of life we trace is dearer than them all.
+
+Whose taking the floor set the skulls cracking, in the song Bloom half quotes about Donnybrook fair. Not the Jakes M’Carthy of episode 7, nor Justin M’Carthy, nor Denis Florence M’Carthy.
+
+## modern-en · mairy · 5:84
+
+Oh, Mary lost the pin of her drawers. She didn't know what to do To keep it up, To keep it up.
+
+Who lost the pin of her drawers and did not know what to do to keep it up, in the song of the two women in the Coombe. The modern edition spells her Mary.
+
+## modern-en · martin-cunningham · 5:95
+
+Same notice on the door. Sermon by the Very Reverend John Conmee S.J. on Saint Peter Claver S.J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The Protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China's millions. Wonder how they explain Christianity to the Chinese. They'd prefer an ounce of opium. Celestials, they call them. Rank heresy to them. Buddha, their god, lying on his side in the museum. Taking it easy with hand under his cheek. Joss sticks burning. Not like the crucifix. Crown of thorns and cross. Clever idea, Saint Patrick using the shamrock. Chopsticks? Father Conmee: Martin Cunningham knows him: distinguished-looking. Sorry I didn't ask him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn't. They're trained that way. He's not going out in blue-tinted glasses with the sweat rolling off him to baptize Africans, is he? The glasses would fascinate them, flashing. Like to see them sitting around in a circle with thick lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+Who knows Father Conmee. He is the organiser of the funeral party in the next episode and of the collection for the Dignams after it.
+
+## modern-en · john-conmee · 5:95
+
+Same notice on the door. Sermon by the Very Reverend John Conmee S.J. on Saint Peter Claver S.J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The Protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China's millions. Wonder how they explain Christianity to the Chinese. They'd prefer an ounce of opium. Celestials, they call them. Rank heresy to them. Buddha, their god, lying on his side in the museum. Taking it easy with hand under his cheek. Joss sticks burning. Not like the crucifix. Crown of thorns and cross. Clever idea, Saint Patrick using the shamrock. Chopsticks? Father Conmee: Martin Cunningham knows him: distinguished-looking. Sorry I didn't ask him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn't. They're trained that way. He's not going out in blue-tinted glasses with the sweat rolling off him to baptize Africans, is he? The glasses would fascinate them, flashing. Like to see them sitting around in a circle with thick lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+Whose sermon on saint Peter Claver and the African Mission is on the notice at the door of All Hallows. Distinguishedlooking, Bloom thinks, and regrets not having worked him about getting Molly into the choir. He opens episode 10 walking across Dublin.
+
+## modern-en · peter-claver · 5:95
+
+Same notice on the door. Sermon by the Very Reverend John Conmee S.J. on Saint Peter Claver S.J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The Protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China's millions. Wonder how they explain Christianity to the Chinese. They'd prefer an ounce of opium. Celestials, they call them. Rank heresy to them. Buddha, their god, lying on his side in the museum. Taking it easy with hand under his cheek. Joss sticks burning. Not like the crucifix. Crown of thorns and cross. Clever idea, Saint Patrick using the shamrock. Chopsticks? Father Conmee: Martin Cunningham knows him: distinguished-looking. Sorry I didn't ask him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn't. They're trained that way. He's not going out in blue-tinted glasses with the sweat rolling off him to baptize Africans, is he? The glasses would fascinate them, flashing. Like to see them sitting around in a circle with thick lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+The Jesuit of the African mission, subject of the sermon — and the name Bloom reaches for and mixes up with Peter Carey, a few paragraphs later, in the same church.
+
+## modern-en · gladstone · 5:95
+
+Same notice on the door. Sermon by the Very Reverend John Conmee S.J. on Saint Peter Claver S.J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The Protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China's millions. Wonder how they explain Christianity to the Chinese. They'd prefer an ounce of opium. Celestials, they call them. Rank heresy to them. Buddha, their god, lying on his side in the museum. Taking it easy with hand under his cheek. Joss sticks burning. Not like the crucifix. Crown of thorns and cross. Clever idea, Saint Patrick using the shamrock. Chopsticks? Father Conmee: Martin Cunningham knows him: distinguished-looking. Sorry I didn't ask him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn't. They're trained that way. He's not going out in blue-tinted glasses with the sweat rolling off him to baptize Africans, is he? The glasses would fascinate them, flashing. Like to see them sitting around in a circle with thick lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+For whose conversion they had prayers when he was almost unconscious. The protestants are the same, Bloom adds.
+
+## modern-en · william-walsh · 5:95
+
+Same notice on the door. Sermon by the Very Reverend John Conmee S.J. on Saint Peter Claver S.J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The Protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China's millions. Wonder how they explain Christianity to the Chinese. They'd prefer an ounce of opium. Celestials, they call them. Rank heresy to them. Buddha, their god, lying on his side in the museum. Taking it easy with hand under his cheek. Joss sticks burning. Not like the crucifix. Crown of thorns and cross. Clever idea, Saint Patrick using the shamrock. Chopsticks? Father Conmee: Martin Cunningham knows him: distinguished-looking. Sorry I didn't ask him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn't. They're trained that way. He's not going out in blue-tinted glasses with the sweat rolling off him to baptize Africans, is he? The glasses would fascinate them, flashing. Like to see them sitting around in a circle with thick lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+Archbishop of Dublin, whom the protestants would convert to the true religion in the same way. Not the Louis J Walsh of Magherafelt in episode 13.
+
+## modern-en · father-farley · 5:95
+
+Same notice on the door. Sermon by the Very Reverend John Conmee S.J. on Saint Peter Claver S.J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The Protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China's millions. Wonder how they explain Christianity to the Chinese. They'd prefer an ounce of opium. Celestials, they call them. Rank heresy to them. Buddha, their god, lying on his side in the museum. Taking it easy with hand under his cheek. Joss sticks burning. Not like the crucifix. Crown of thorns and cross. Clever idea, Saint Patrick using the shamrock. Chopsticks? Father Conmee: Martin Cunningham knows him: distinguished-looking. Sorry I didn't ask him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn't. They're trained that way. He's not going out in blue-tinted glasses with the sweat rolling off him to baptize Africans, is he? The glasses would fascinate them, flashing. Like to see them sitting around in a circle with thick lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+Who got the choir place instead of Molly, and who looked a fool but wasn’t.
+
+## modern-en · carey · 5:100
+
+Meet one Sunday after mass. Do not deny my request. Turn up with a veil and black bag. Dusk and the light behind her. She might be here with a ribbon round her neck doing the devotions just the same, on the sly. Their character. That fellow who turned informer against the Invincibles — the political assassins — he used to receive communion every morning. Carey was his name. This very church. Peter Carey, yes. No, Peter Claver I'm thinking of. Denis Carey. And just imagine that. Wife and six children at home. And plotting that murder the whole time. Those church crawlers, now that's a good name for them, there's always something shifty-looking about them. They're not straight businessmen either. Oh, no — she's not here: the flower: no, no. By the way, did I tear up that envelope? Yes: under the bridge.
+
+The informer who turned queen’s evidence on the invincibles and took communion every morning in this very church, with a wife and six children at home and the murder plotted all the while. Bloom cannot fix the first name: Carey was his name, Peter Carey, yes — no, Peter Claver I am thinking of — Denis Carey. Episode 8 has him hesitating the same way: Peter or Denis or James Carey.
+
+## modern-en · old-glynn · 5:102
+
+Mr Bloom looked back toward the choir loft. Not going to be any music. Pity. Who plays the organ here, I wonder? Old Glynn, he knew how to make that instrument sing, the vibrato: fifty pounds a year they say he had at Gardiner Street church. Molly was in fine voice that day, the Stabat Mater of Rossini. Father Bernard Vaughan's sermon first. Christ or Pilate? Christ, but don't keep us all night over it. Music they wanted. Everyone stood still. Could hear a pin drop. I told her to aim her voice at that corner. I could feel the thrill in the air, the fullness, the people looking up:
+
+The organist of Gardiner street, who knew how to make that instrument talk, the vibrato, and had fifty pounds a year for it.
+
+## modern-en · bernard-vaughan · 5:102
+
+Mr Bloom looked back toward the choir loft. Not going to be any music. Pity. Who plays the organ here, I wonder? Old Glynn, he knew how to make that instrument sing, the vibrato: fifty pounds a year they say he had at Gardiner Street church. Molly was in fine voice that day, the Stabat Mater of Rossini. Father Bernard Vaughan's sermon first. Christ or Pilate? Christ, but don't keep us all night over it. Music they wanted. Everyone stood still. Could hear a pin drop. I told her to aim her voice at that corner. I could feel the thrill in the air, the fullness, the people looking up:
+
+Whose sermon came before the music on the day Molly was in fine voice: Christ or Pilate? Christ, but don’t keep us all night over it.
+
+## modern-en · mrs-bandmann-palmer · 5:65
+
+Mr Bloom stood at the corner, his eyes wandering over the multicolored billboard posters. Cantrell and Cochrane's Ginger Ale (Aromatic). Clery's Summer Sale. No, he's going on straight. Hello. Leah playing tonight. Mrs Bandmann Palmer. Like to see her again in that. She played Hamlet last night. Male impersonator. Perhaps Hamlet was a woman. Why Ophelia committed suicide. Poor Papa! How he used to talk about Kate Bateman in that role. Outside the Adelphi Theatre in London he waited all afternoon to get in. Year before I was born that was: sixty-five. And Ristori in Vienna. What's the actual name of the play? By Mosenthal, it is. Rachel, is it? No. The scene he always talked about where the old blind Abraham recognizes the voice and puts his fingers on his face.
+
+Playing Leah tonight, and Hamlet last night: a male impersonator, which sets Bloom wondering whether Hamlet was a woman and why Ophelia committed suicide.
+
+## modern-en · kate-bateman · 5:65
+
+Mr Bloom stood at the corner, his eyes wandering over the multicolored billboard posters. Cantrell and Cochrane's Ginger Ale (Aromatic). Clery's Summer Sale. No, he's going on straight. Hello. Leah playing tonight. Mrs Bandmann Palmer. Like to see her again in that. She played Hamlet last night. Male impersonator. Perhaps Hamlet was a woman. Why Ophelia committed suicide. Poor Papa! How he used to talk about Kate Bateman in that role. Outside the Adelphi Theatre in London he waited all afternoon to get in. Year before I was born that was: sixty-five. And Ristori in Vienna. What's the actual name of the play? By Mosenthal, it is. Rachel, is it? No. The scene he always talked about where the old blind Abraham recognizes the voice and puts his fingers on his face.
+
+Whom Bloom’s father used to talk of in the same part, and waited all the afternoon outside the Adelphi in London to see — the year before Bloom was born, sixtyfive.
+
+## modern-en · ristori · 5:65
+
+Mr Bloom stood at the corner, his eyes wandering over the multicolored billboard posters. Cantrell and Cochrane's Ginger Ale (Aromatic). Clery's Summer Sale. No, he's going on straight. Hello. Leah playing tonight. Mrs Bandmann Palmer. Like to see her again in that. She played Hamlet last night. Male impersonator. Perhaps Hamlet was a woman. Why Ophelia committed suicide. Poor Papa! How he used to talk about Kate Bateman in that role. Outside the Adelphi Theatre in London he waited all afternoon to get in. Year before I was born that was: sixty-five. And Ristori in Vienna. What's the actual name of the play? By Mosenthal, it is. Rachel, is it? No. The scene he always talked about where the old blind Abraham recognizes the voice and puts his fingers on his face.
+
+And Ristori in Vienna: the other actress his father named.
+
+## modern-en · mosenthal · 5:65
+
+Mr Bloom stood at the corner, his eyes wandering over the multicolored billboard posters. Cantrell and Cochrane's Ginger Ale (Aromatic). Clery's Summer Sale. No, he's going on straight. Hello. Leah playing tonight. Mrs Bandmann Palmer. Like to see her again in that. She played Hamlet last night. Male impersonator. Perhaps Hamlet was a woman. Why Ophelia committed suicide. Poor Papa! How he used to talk about Kate Bateman in that role. Outside the Adelphi Theatre in London he waited all afternoon to get in. Year before I was born that was: sixty-five. And Ristori in Vienna. What's the actual name of the play? By Mosenthal, it is. Rachel, is it? No. The scene he always talked about where the old blind Abraham recognizes the voice and puts his fingers on his face.
+
+Who wrote the play. By Mosenthal it is. Bloom gropes for the title after the author’s name and does not find it.
+
+## modern-en · leah-nathan · 5:66
+
+Nathan's voice! His son's voice! I hear the voice of Nathan who left his father to die of grief and misery in my arms, who left the house of his father and left the God of his father.
+
+Whose voice the old blind man knows in the scene Bloom’s father was always talking about: Nathan’s voice! His son’s voice! I hear the voice of Nathan who left his father to die of grief and misery in my arms.
+
+## modern-en · leah-abraham · 5:65
+
+Mr Bloom stood at the corner, his eyes wandering over the multicolored billboard posters. Cantrell and Cochrane's Ginger Ale (Aromatic). Clery's Summer Sale. No, he's going on straight. Hello. Leah playing tonight. Mrs Bandmann Palmer. Like to see her again in that. She played Hamlet last night. Male impersonator. Perhaps Hamlet was a woman. Why Ophelia committed suicide. Poor Papa! How he used to talk about Kate Bateman in that role. Outside the Adelphi Theatre in London he waited all afternoon to get in. Year before I was born that was: sixty-five. And Ristori in Vienna. What's the actual name of the play? By Mosenthal, it is. Rachel, is it? No. The scene he always talked about where the old blind Abraham recognizes the voice and puts his fingers on his face.
+
+The old blind man of that scene, who recognises the voice and puts his fingers on his face. Not the patriarch of episodes 12 and 15.
+
+## modern-en · ophelia · 5:65
+
+Mr Bloom stood at the corner, his eyes wandering over the multicolored billboard posters. Cantrell and Cochrane's Ginger Ale (Aromatic). Clery's Summer Sale. No, he's going on straight. Hello. Leah playing tonight. Mrs Bandmann Palmer. Like to see her again in that. She played Hamlet last night. Male impersonator. Perhaps Hamlet was a woman. Why Ophelia committed suicide. Poor Papa! How he used to talk about Kate Bateman in that role. Outside the Adelphi Theatre in London he waited all afternoon to get in. Year before I was born that was: sixty-five. And Ristori in Vienna. What's the actual name of the play? By Mosenthal, it is. Rachel, is it? No. The scene he always talked about where the old blind Abraham recognizes the voice and puts his fingers on his face.
+
+Who committed suicide, and why — the question Bloom asks himself in front of the playbill, and which the library argument of episode 9 takes up in earnest.
+
+## modern-en · pilate · 5:102
+
+Mr Bloom looked back toward the choir loft. Not going to be any music. Pity. Who plays the organ here, I wonder? Old Glynn, he knew how to make that instrument sing, the vibrato: fifty pounds a year they say he had at Gardiner Street church. Molly was in fine voice that day, the Stabat Mater of Rossini. Father Bernard Vaughan's sermon first. Christ or Pilate? Christ, but don't keep us all night over it. Music they wanted. Everyone stood still. Could hear a pin drop. I told her to aim her voice at that corner. I could feel the thrill in the air, the fullness, the people looking up:
+
+Christ or Pilate, the choice Father Bernard Vaughan’s sermon offered. Professor MacHugh gives him a second line in episode 7.
+
+## modern-en · saint-michael · 1:318
+
+The proud powerful titles clanged through Stephen's memory, the triumph of their brazen bells: and one holy Catholic and apostolic church: the slow growth and change of rite and dogma like his own rare thoughts, a chemistry of stars. The voices blended in the Mass for Pope Marcellus, singing alone in loud affirmation: and behind their chant the vigilant angel of the church militant disarmed and menaced her heretics. A horde of heresies fleeing with crooked hats: Photius and the brood of mockers of whom Mulligan was one, and Arius, who fought his whole life long over whether the Son was of the same substance as the Father, and Valentine, who rejected Christ's earthly body, and the subtle African heretic Sabellius who held that the Father was Himself His own Son. Words Mulligan had spoken a moment ago in mockery to the stranger. Idle mockery. The void surely awaits all those who weave the wind: a menace, a disarming and a defeat from those embattled angels of the church, Michael's host, who defend her ever in the hour of conflict with their lances and their shields.
+
+The archangel of the prayer after mass: blessed Michael, defend us in the hour of conflict. His host are the embattled angels of the church whose menace Stephen remembers in episode 1.
+
+## modern-en · satan · 5:109
+
+—Blessed Michael, archangel, defend us in the hour of conflict. Be our safeguard against the wickedness and snares of the devil (may God restrain him, we humbly pray!): and do thou, O prince of the heavenly host, by the power of God thrust Satan down to hell and with him those other wicked spirits who wander through the world for the ruin of souls.
+
+Whom the same prayer asks God to thrust down to hell, with those other wicked spirits who wander through the world for the ruin of souls.
+
+## modern-en · saint-peter · 5:107
+
+Mr Bloom leaned forward to catch the words. English. Throw them a bone. I remember slightly. How long since your last mass? Glorious and immaculate virgin. Joseph, her husband. Peter and Paul. More interesting if you understood what it was all about. Wonderful organization, certainly — goes like clockwork. Confession. Everyone wants to. Then I will tell you all. Penance. Punish me, please. Great weapon in their hands. More powerful than doctor or lawyer. Woman dying to. And I shh-shh-shh-shh. And did you cha-cha-cha-cha? And why did you? Looking down at her ring to find an excuse. Whispering gallery — walls have ears. Husband learns to his surprise. God's little joke. Then out she comes. Skin-deep repentance. Lovely shame. Pray at an altar. Hail Mary and Holy Mary. Flowers, incense, candles melting. Hide her blushes. Salvation Army — blatant imitation. Reformed prostitute will address the meeting. How I Found the Lord. Shrewd operators, those men in Rome: they run the whole show. And don't they rake in the money too? Bequests also: to the parish priest for the time being, in his absolute discretion. Masses for the repose of my soul to be said publicly with open doors. Monasteries and convents. The priest in that Fermanagh court case, in the witness box. No one could browbeat him. He had his answer ready for everything. Liberty and exaltation of our holy mother the church. The doctors of the church: they mapped out the whole theology of it.
+
+Named with Paul in Bloom’s inventory of what the mass is about: glorious and immaculate virgin, Joseph her spouse, Peter and Paul.
+
+## modern-en · saint-paul · 5:107
+
+Mr Bloom leaned forward to catch the words. English. Throw them a bone. I remember slightly. How long since your last mass? Glorious and immaculate virgin. Joseph, her husband. Peter and Paul. More interesting if you understood what it was all about. Wonderful organization, certainly — goes like clockwork. Confession. Everyone wants to. Then I will tell you all. Penance. Punish me, please. Great weapon in their hands. More powerful than doctor or lawyer. Woman dying to. And I shh-shh-shh-shh. And did you cha-cha-cha-cha? And why did you? Looking down at her ring to find an excuse. Whispering gallery — walls have ears. Husband learns to his surprise. God's little joke. Then out she comes. Skin-deep repentance. Lovely shame. Pray at an altar. Hail Mary and Holy Mary. Flowers, incense, candles melting. Hide her blushes. Salvation Army — blatant imitation. Reformed prostitute will address the meeting. How I Found the Lord. Shrewd operators, those men in Rome: they run the whole show. And don't they rake in the money too? Bequests also: to the parish priest for the time being, in his absolute discretion. Masses for the repose of my soul to be said publicly with open doors. Monasteries and convents. The priest in that Fermanagh court case, in the witness box. No one could browbeat him. He had his answer ready for everything. Liberty and exaltation of our holy mother the church. The doctors of the church: they mapped out the whole theology of it.
+
+The other of the pair.
+
+## modern-en · buddha · 5:95
+
+Same notice on the door. Sermon by the Very Reverend John Conmee S.J. on Saint Peter Claver S.J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The Protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China's millions. Wonder how they explain Christianity to the Chinese. They'd prefer an ounce of opium. Celestials, they call them. Rank heresy to them. Buddha, their god, lying on his side in the museum. Taking it easy with hand under his cheek. Joss sticks burning. Not like the crucifix. Crown of thorns and cross. Clever idea, Saint Patrick using the shamrock. Chopsticks? Father Conmee: Martin Cunningham knows him: distinguished-looking. Sorry I didn't ask him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn't. They're trained that way. He's not going out in blue-tinted glasses with the sweat rolling off him to baptize Africans, is he? The glasses would fascinate them, flashing. Like to see them sitting around in a circle with thick lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+Lying on his side in the museum with his hand under his cheek, taking it easy, josssticks burning: the god Bloom sets against the Ecce Homo, the crown of thorns and the cross.
+
+## modern-en · mohammed · 5:74
+
+He turned into Cumberland Street and, going on some paces, halted in the shelter of the station wall. No one about. Meade's timber yard. Piled planks. Ruins and tenements. Stepping carefully he passed over a hopscotch court with its forgotten stone marker. Not a soul. Near the timber yard a child squatted playing marbles alone, shooting with a practiced thumb. A wise tabby cat, a blinking sphinx, watched from her warm windowsill. Pity to disturb them. The Prophet Muhammad cut a piece from his cloak rather than disturb a sleeping cat. Open the letter. And once I played marbles when I went to that old dame's school. She liked the flower mignonette. Mrs Ellis's school. And Mr? He opened the letter within the newspaper.
+
+Who cut a piece out of his mantle rather than wake the cat asleep on it — the story Bloom remembers over a tabby on a warm sill. The modern edition calls him the Prophet Muhammad.
+
+## modern-en · saint-patrick · 5:95
+
+Same notice on the door. Sermon by the Very Reverend John Conmee S.J. on Saint Peter Claver S.J. and the African Mission. Prayers for the conversion of Gladstone they had too when he was almost unconscious. The Protestants are the same. Convert Dr William J. Walsh D.D. to the true religion. Save China's millions. Wonder how they explain Christianity to the Chinese. They'd prefer an ounce of opium. Celestials, they call them. Rank heresy to them. Buddha, their god, lying on his side in the museum. Taking it easy with hand under his cheek. Joss sticks burning. Not like the crucifix. Crown of thorns and cross. Clever idea, Saint Patrick using the shamrock. Chopsticks? Father Conmee: Martin Cunningham knows him: distinguished-looking. Sorry I didn't ask him about getting Molly into the choir instead of that Father Farley who looked a fool but wasn't. They're trained that way. He's not going out in blue-tinted glasses with the sweat rolling off him to baptize Africans, is he? The glasses would fascinate them, flashing. Like to see them sitting around in a circle with thick lips, entranced, listening. Still life. Lap it up like milk, I suppose.
+
+And the shamrock: clever idea, Bloom says, in the same breath as the chopsticks and the heathen Chinee.
+
+## modern-en · lord-iveagh · 5:91
+
+Henry Flower. You could tear up a check for a hundred pounds in the same way. Simple bit of paper. Lord Iveagh once cashed a seven-figure check for a million in the Bank of Ireland. Shows you the money to be made from stout. Still, the other brother Lord Ardilaun has to change his shirt four times a day, they say. His skin breeds lice or something. A million pounds, wait a moment. Twopence a pint, fourpence a quart, eightpence a gallon of porter — no, one and fourpence a gallon of porter. One and four into twenty: about fifteen. Yes, exactly. Fifteen million barrels of porter.
+
+Who once cashed a sevenfigure cheque for a million in the bank of Ireland. Shows you the money to be made out of porter.
+
+## modern-en · lord-ardilaun · 5:91
+
+Henry Flower. You could tear up a check for a hundred pounds in the same way. Simple bit of paper. Lord Iveagh once cashed a seven-figure check for a million in the Bank of Ireland. Shows you the money to be made from stout. Still, the other brother Lord Ardilaun has to change his shirt four times a day, they say. His skin breeds lice or something. A million pounds, wait a moment. Twopence a pint, fourpence a quart, eightpence a gallon of porter — no, one and fourpence a gallon of porter. One and four into twenty: about fifteen. Yes, exactly. Fifteen million barrels of porter.
+
+The other brother, who has to change his shirt four times a day, they say.
+
+## modern-en · duke-of-albany · 5:121
+
+Brings out the darkness of her eyes. Looking at me, the sheet up to her eyes, that Spanish look, smelling herself, while I was fixing the links in my cuffs. Those homemade recipes are often the best: strawberries for the teeth: nettles and rainwater: oatmeal they say steeped in buttermilk. Skin food. One of the old Queen's sons — Duke of Albany, was it? — had only one layer of skin. Leopold, yes, that was his name. Three we have. Warts, bunions, and pimples to make it worse. But you want a perfume too. What perfume does your wife? Spanish Skin. That orange-flower water is so fresh. Nice smell these soaps have. Pure curd soap. Time to get a bath around the corner. Turkish baths. Massage. Dirt gets rolled up in your navel. Nicer if a nice girl did it. Also I think I. Yes, I. Do it in the bath. Curious longing I. Water to water. Combine business with pleasure. Pity, no time for massage. Feel fresh then all the day. Funeral will be rather gloomy.
+
+One of the old queen’s sons, who had only one skin. Leopold, yes — which is Bloom’s own name, and the only reason he remembers the man.
+
+## modern-en · brutus · 5:25
+
+Mr Bloom gazed across the road at the carriage drawn up before the door of the Grosvenor Hotel. The porter hoisted the suitcase up on the back. She stood still, waiting, while the man — husband, brother, someone like her — searched his pockets for change. Stylish kind of coat with that roll collar, warm for a day like this, looks like blanket cloth. The careless way she stands with her hands in those patch pockets. Like that haughty woman at the polo match. Women all about social standing until you touch the right spot. Handsome is as handsome does. Reserved but about to yield. The honorable Mrs so-and-so, and Brutus is an honorable man. Have her once and take the starch out of her.
+
+And Brutus is an honourable man: Antony’s line, which Bloom turns on the stylish woman outside the Grosvenor. The honourable Mrs.
+
+## modern-en · rossini · 5:102
+
+Mr Bloom looked back toward the choir loft. Not going to be any music. Pity. Who plays the organ here, I wonder? Old Glynn, he knew how to make that instrument sing, the vibrato: fifty pounds a year they say he had at Gardiner Street church. Molly was in fine voice that day, the Stabat Mater of Rossini. Father Bernard Vaughan's sermon first. Christ or Pilate? Christ, but don't keep us all night over it. Music they wanted. Everyone stood still. Could hear a pin drop. I told her to aim her voice at that corner. I could feel the thrill in the air, the fullness, the people looking up:
+
+Whose Stabat Mater Molly sang in Gardiner street, with the thrill in the air and the people looking up.
+
+## modern-en · mercadante · 5:104
+
+Some of that old sacred music is splendid. Mercadante: The Seven Last Words. Mozart's Twelfth Mass: that Gloria. Those old popes were keen on music, on art and statues and pictures of all kinds. Palestrina, for example, too. They had a fine old time while it lasted. Healthy too: chanting, regular hours, then brewing liqueurs. Benedictine. Green Chartreuse. Still, having castrated men sing in their choir — that was going a bit far. What kind of voice does a eunuch have? Must be curious to hear after their own strong basses. Connoisseurs. Suppose they wouldn't feel anything afterward. Kind of calm. No worry. Run to fat, don't they? Gluttons, tall, long legs. Who knows? Eunuch. One way out of it.
+
+Of the seven last words, first of Bloom’s list of that old sacred music, splendid. Molly sang his Quis est homo too.
+
+## modern-en · mozart · 5:104
+
+Some of that old sacred music is splendid. Mercadante: The Seven Last Words. Mozart's Twelfth Mass: that Gloria. Those old popes were keen on music, on art and statues and pictures of all kinds. Palestrina, for example, too. They had a fine old time while it lasted. Healthy too: chanting, regular hours, then brewing liqueurs. Benedictine. Green Chartreuse. Still, having castrated men sing in their choir — that was going a bit far. What kind of voice does a eunuch have? Must be curious to hear after their own strong basses. Connoisseurs. Suppose they wouldn't feel anything afterward. Kind of calm. No worry. Run to fat, don't they? Gluttons, tall, long legs. Who knows? Eunuch. One way out of it.
+
+Whose twelfth mass has the Gloria in it.
+
+## modern-en · palestrina · 5:104
+
+Some of that old sacred music is splendid. Mercadante: The Seven Last Words. Mozart's Twelfth Mass: that Gloria. Those old popes were keen on music, on art and statues and pictures of all kinds. Palestrina, for example, too. They had a fine old time while it lasted. Healthy too: chanting, regular hours, then brewing liqueurs. Benedictine. Green Chartreuse. Still, having castrated men sing in their choir — that was going a bit far. What kind of voice does a eunuch have? Must be curious to hear after their own strong basses. Connoisseurs. Suppose they wouldn't feel anything afterward. Kind of calm. No worry. Run to fat, don't they? Gluttons, tall, long legs. Who knows? Eunuch. One way out of it.
+
+For example too, among the old popes keen on music and art and statues and pictures of all kinds. They had a gay old time while it lasted.
+
+## modern-en · martha-and-mary · 5:87
+
+Martha, Mary. I saw that painting somewhere, I forget now — old master or a fake done for money. He is sitting in their house, talking. Mysterious. The two rough girls in the Coombe would listen too.
+
+The two sisters of Bethany, in whose house Christ sat talking — the picture Bloom half remembers when his correspondent’s name slides into the gospel: old master or faked for money. He is sitting in their house, talking. Mysterious.

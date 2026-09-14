@@ -1,6 +1,6 @@
 """Guards for the Ulysses character package.
 
-Episodes 1 to 4 of 18 are authored. These tests pin the identifications that took a
+Episodes 1 to 5 of 18 are authored. These tests pin the identifications that took a
 reading to make, and the traps that a later pass must not undo.
 """
 import json,unittest
@@ -13,8 +13,8 @@ def ids(ed,ch,pi):return sorted({m['characterId'] for m in mentions(ed) if m['ch
 CARDS={e['id']:e for e in json.loads(open('ulysses/editorial.json').read())['entities']}
 
 class Ulysses(unittest.TestCase):
-    def test_only_the_first_four_episodes_are_authored(self):
-        self.assertIn('episodes 1-4 of 18',REPORT['scope'])
+    def test_only_the_first_five_episodes_are_authored(self):
+        self.assertIn('episodes 1-5 of 18',REPORT['scope'])
         for ed in ['original-en','modern-en']:
             self.assertEqual(REPORT['editions'][ed]['chapters'],18,ed)
             self.assertEqual(REPORT['editions'][ed]['paragraphs'],7148,ed)
@@ -178,7 +178,8 @@ class Ulysses(unittest.TestCase):
             self.assertEqual([(1,335)],where(ed,'lily-carlisle'),ed)  # six women called Lily
             self.assertEqual([(1,255)],where(ed,'butterly'),ed)       # 15:449 is Maurice Butterly
             self.assertEqual([(1,329),(4,135)],where(ed,'bannon'),ed)  # Milly writes home about him
-            self.assertEqual([(1,232),(1,269),(1,275),(2,74),(3,79)],where(ed,'hamlet'),ed)
+            self.assertEqual([(1,232),(1,269),(1,275),(2,74),(3,79),(5,65)],
+                             where(ed,'hamlet'),ed)
             self.assertEqual([(1,275),(2,74),(2,113)],where(ed,'shakespeare'),ed)
 
     def test_the_deliberate_gaps_of_episode_one(self):
@@ -406,17 +407,20 @@ class Calypso(unittest.TestCase):
     """Episode 4. Bloom arrives, and with him the surname that is five people."""
 
     def test_bloom_is_five_people_and_a_mountain_range(self):
-        # There is no bare `Bloom` key in the builder at all. Every mention is
-        # keyed on a longer phrase, which is what keeps 4:38 — Slieve Bloom, the
-        # mountains in Offaly — out of the cast.
+        # The surname is Leopold, Marion, Milly, Rudolph and Rudy — and, at
+        # 4:38, Slieve Bloom, the mountains in Offaly, in the middle of Bloom's
+        # own thoughts. The `Bloom` table never defaults and 4:38 is not a key
+        # in it; every other mention is keyed on a longer phrase.
         from build_ulysses import SPLIT
-        self.assertNotIn('Bloom',SPLIT)
+        table,default=SPLIT['Bloom']
+        self.assertIsNone(default)
+        self.assertNotIn((4,38),table)
         for ed in ['original-en','modern-en']:
             self.assertEqual([],ids(ed,4,38),ed)
             self.assertEqual([(4,0),(4,5),(4,7),(4,47),(4,64),(4,80),(4,134),(4,164)],
-                             where(ed,'leopold'),ed)
+                             [k for k in where(ed,'leopold') if k[0]==4],ed)
             self.assertEqual([(4,27),(4,57),(4,63),(4,87),(4,94),(4,135),(4,146)],
-                             where(ed,'molly'),ed)
+                             [k for k in where(ed,'molly') if k[0]==4],ed)
             self.assertIn('Mr Leopold Bloom',said(ed,'leopold'),ed)
             self.assertIn('Mrs Marion Bloom',said(ed,'molly'),ed)
             self.assertIn('Milly Bloom',said(ed,'milly'),ed)
@@ -512,3 +516,95 @@ class Calypso(unittest.TestCase):
             # M'Auley's, Thornton's.
             self.assertEqual([],ids(ed,4,25),ed)
             self.assertEqual(['larry-orourke'],ids(ed,4,29),ed)
+
+class LotusEaters(unittest.TestCase):
+    """Episode 5. Bloom under his other name, and the church at Westland row."""
+
+    def test_bloom_has_a_second_name_and_it_is_a_second_card(self):
+        # Henry Flower is the name he writes under and collects letters under,
+        # and it gets a card of its own rather than being folded into his.
+        for ed in ['original-en','modern-en']:
+            # The alias is safe book-wide: every Henry Flower in the book is
+            # this one, including the three typewritten letters listed at
+            # 17:497 and the apparition in Circe.
+            self.assertEqual([(5,8),(5,76),(5,77),(5,91),(11,203),(11,617),
+                              (15,227),(15,665),(15,707),(17,497),(17,505),(17,629)],
+                             where(ed,'henry-flower'),ed)
+            self.assertIn('Henry Flower',said(ed,'henry-flower'),ed)
+            self.assertIn('Henry',said(ed,'henry-flower'),ed)
+            # and the two men who say "Hello, Bloom" to his face are bound to him
+            self.assertIn((5,12),where(ed,'leopold'),ed)
+            self.assertIn((5,131),where(ed,'leopold'),ed)
+
+    def test_leopold_is_two_men_twelve_lines_apart(self):
+        # 5:67 is Bloom's father calling him Leopold; 5:121 is the duke of
+        # Albany, one of the old queen's sons, who had only one skin — and whose
+        # name is the only reason Bloom remembers him.
+        for ed in ['original-en','modern-en']:
+            self.assertIn((5,67),where(ed,'leopold'),ed)
+            self.assertEqual([(5,121)],where(ed,'duke-of-albany'),ed)
+            self.assertNotIn('leopold',[c for c in ids(ed,5,121)],ed)
+            # and the old queen in the same sentence is Victoria
+            self.assertIn((5,121),where(ed,'queen-victoria'),ed)
+
+    def test_the_three_careys_are_one_man_and_the_claver_between_them_is_not(self):
+        # Bloom cannot fix the informer's first name: "Carey was his name. This
+        # very church. Peter Carey, yes. No, Peter Claver I am thinking of.
+        # Denis Carey." Three spans for one man, and a saint in the middle.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(5,100)],where(ed,'carey'),ed)
+            self.assertEqual(3,len([m for m in mentions(ed)
+                                    if m['characterId']=='carey']),ed)
+            self.assertIn((5,100),where(ed,'peter-claver'),ed)
+
+    def test_martha_is_the_typist_and_then_the_sister_of_bethany(self):
+        # 5:78 and 5:80 are his correspondent; at 5:87 the name slides into the
+        # gospel — "Martha, Mary. I saw that picture somewhere" — and the two
+        # sisters get their own card.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(5,78),(5,80)],where(ed,'martha-clifford'),ed)
+            self.assertEqual([(5,87)],where(ed,'martha-and-mary'),ed)
+            self.assertEqual(2,len([m for m in mentions(ed)
+                                    if m['characterId']=='martha-and-mary']),ed)
+
+    def test_michael_reaches_back_into_episode_one(self):
+        # 1:318 is Michael's host, the embattled angels of the church, in a
+        # chapter that had already been signed off without him. Found the same
+        # way as Columbanus at 2:73: by listing every occurrence of the name.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(1,318),(5,109)],where(ed,'saint-michael'),ed)
+
+    def test_the_editions_disagree_about_one_name_in_this_episode(self):
+        # The modern edition supplies M'Coy's name at 5:27 where Joyce writes
+        # only "Talking of one thing or another", writes My wife for My missus,
+        # Mary for Mairy, and the Prophet Muhammad for Mohammed.
+        self.assertNotIn('mccoy',ids('original-en',5,27))
+        self.assertIn('mccoy',ids('modern-en',5,27))
+        self.assertIn('Mohammed',said('original-en','mohammed'))
+        self.assertIn('Muhammad',said('modern-en','mohammed'))
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(5,45),(5,63)],where(ed,'mccoy-wife'),ed)
+            self.assertEqual([(5,84)],where(ed,'mairy'),ed)
+        O={(m['characterId'],m['paragraphIndex']) for m in mentions('original-en')
+           if m['chapterNumber']==5}
+        M={(m['characterId'],m['paragraphIndex']) for m in mentions('modern-en')
+           if m['chapterNumber']==5}
+        self.assertEqual(set(),O-M)
+        self.assertEqual({('mccoy',27)},M-O)
+
+    def test_the_deliberate_gaps_of_episode_five(self):
+        for ed in ['original-en','modern-en']:
+            # O'Connell street at 5:9 is a street, and the O'Connell key does
+            # not reach it.
+            self.assertNotIn('oconnell',ids(ed,5,9),ed)
+            # Cantrell and Cochrane's ginger ale at 5:65 and 5:101 is a firm,
+            # and is not the schoolboy Cochrane of episode 2.
+            self.assertNotIn('cochrane',ids(ed,5,65),ed)
+            self.assertNotIn('cochrane',ids(ed,5,101),ed)
+            # "our holy mother the church" at 5:107 is not anybody's mother.
+            self.assertNotIn('may-dedalus',ids(ed,5,107),ed)
+            # Leah and Rachel at 5:65 are the names of plays, not women; the
+            # actresses beside them are cast.
+            self.assertIn('mrs-bandmann-palmer',ids(ed,5,65),ed)
+            self.assertIn('kate-bateman',ids(ed,5,65),ed)
+            self.assertEqual([],[c for c in ids(ed,5,65) if 'rachel' in c or 'leah'==c],ed)

@@ -1,7 +1,7 @@
 """Reviewed bindings for Ulysses.
 
 Joyce in both editions, 18 episodes, 7,148 paragraphs per edition. Episodes 1 to
-4 are authored; episodes 5-18 are not.
+5 are authored; episodes 6-18 are not.
 
 Every table below has `None` for its default, so a name that an unread episode
 will give to somebody else carries no card at all outside the paragraphs keyed
@@ -60,10 +60,10 @@ SPLIT={
  # in eleven episodes; only the two mentions of episode 1 are keyed here.
  'Shakespeare':({(1,275):'shakespeare',(2,74):'shakespeare',(2,113):'shakespeare'},None),
  'Hamlet':({(1,232):'hamlet',(1,269):'hamlet',(1,275):'hamlet',(2,74):'hamlet',
-           (3,79):'hamlet'},None),
+           (3,79):'hamlet',(5,65):'hamlet'},None),
  # Joseph is Joseph the Joiner at 1:288 and 1:295 and eleven other men elsewhere.
  'Joseph':({(1,288):'joseph-the-joiner',(1,295):'joseph-the-joiner',
-            (3,43):'joseph-the-joiner'},None),
+            (3,43):'joseph-the-joiner',(5,107):'joseph-the-joiner'},None),
  # --- episode 2. Every one of these names belongs to somebody else elsewhere in
  # the book, which is why none of them is an alias. The comments say who.
  # 5:65 and 5:101 are Cantrell and Cochrane's ginger ale.
@@ -155,17 +155,23 @@ SPLIT={
  # Rudy are all Bloom, and 4:38 is Slieve Bloom, a mountain range in Offaly,
  # which is why there is no bare 'Bloom' key at all.
  'Mr Leopold Bloom':({(4,0):'leopold'},None),
- 'Mr Bloom':({(4,5):'leopold',(4,7):'leopold',(4,47):'leopold'},None),
- 'Mrs Marion Bloom':({(4,63):'molly'},None),
+ # The bare surname is keyed only where somebody says it to his face, and
+ # 4:38 -- Slieve Bloom, the mountains in Offaly -- is deliberately not a key.
+ 'Bloom':({(5,12):'leopold',(5,131):'leopold'},None),
+ 'Mr Bloom':({(4,5):'leopold',(4,7):'leopold',(4,47):'leopold'}
+             |{(5,i):'leopold' for i in [0,19,22,25,32,38,42,47,52,57,59,61,63,65,69,
+                                          102,105,107,116,118,123,125,128,136,138,141,142,145]},None),
+ 'Mrs Marion Bloom':({(4,63):'molly',(5,50):'molly'},None),
  'Mrs Marion':({(4,63):'molly',(4,146):'molly'},None),
- 'Marion':({(4,63):'molly',(4,94):'molly',(4,146):'molly'},None),
+ 'Marion':({(4,63):'molly',(4,94):'molly',(4,146):'molly',(5,50):'molly'},None),
  'Milly Bloom':({(4,86):'milly'},None),
  'Mr and Mrs L\\. M\\. Bloom':({(4,164):'leopold'},None),
  # Poldy is hers for him. Molly is his for her, except where the book uses the
  # name otherwise: the Molly Maguires at 12:364, Molly bawn at 18:3, the songs
  # at 15:10 and 18:4.
  'Poldy':({(4,64):'leopold',(4,80):'leopold'},None),
- 'Molly':({(4,27):'molly',(4,57):'molly',(4,87):'molly'},None),
+ 'Molly':({(4,27):'molly',(4,57):'molly',(4,87):'molly',
+           (5,81):'molly',(5,95):'molly',(5,99):'molly',(5,102):'molly'},None),
  'Milly':({(4,67):'milly',(4,68):'milly',(4,85):'milly',(4,87):'milly',
            (4,135):'milly',(4,136):'milly',(4,146):'milly'},None),
  # 16:19 and 16:23 are Boylan the billsticker, whom nobody in the book connects
@@ -173,10 +179,11 @@ SPLIT={
  'Boylan':({(4,84):'blazes-boylan',(4,95):'blazes-boylan',(4,135):'blazes-boylan',
             (4,165):'blazes-boylan'},None),
  # Master Patrick Aloysius Dignam is his son, in episodes 10 and 15.
- 'Dignam':({(4,31):'paddy-dignam',(4,117):'paddy-dignam',(4,172):'paddy-dignam'},None),
+ 'Dignam':({(4,31):'paddy-dignam',(4,117):'paddy-dignam',(4,172):'paddy-dignam',
+            (5,19):'paddy-dignam',(5,28):'paddy-dignam',(5,34):'paddy-dignam'},None),
  # 6:103 is Molly's namesake Tweedy, crown solicitor for Waterford; from episode
  # 16 on, Madam Marion Tweedy is Molly herself.
- 'Tweedy':({(4,24):'major-tweedy',(4,27):'major-tweedy'},None),
+ 'Tweedy':({(4,24):'major-tweedy',(4,27):'major-tweedy',(5,9):'major-tweedy'},None),
  'Larry':({(4,29):'larry-orourke',(4,30):'larry-orourke'},None),
  'Larry O[’\']Rourke':({(4,29):'larry-orourke'},None),
  # 18:5 is Williams and Woods, the jam makers.
@@ -207,6 +214,51 @@ SPLIT={
  # Stephens, the writer doing some clever sketches.
  'James Stephens':({(4,159):'head-centre',(8,133):'head-centre',
                     (12,234):'head-centre',(15,433):'head-centre'},None),
+
+ # --- episode 5. Bloom alone for a second morning, and the names he thinks
+ # with. Paddy Dignam's name has three forms in one conversation.
+ 'Paddy':({(5,28):'paddy-dignam',(5,34):'paddy-dignam'},None),
+ 'Paddy Dignam':({(5,28):'paddy-dignam',(5,34):'paddy-dignam'},None),
+ # Leopold is Bloom at 5:67 and the queen's son at 5:121, twelve lines after
+ # Bloom notices that the duke of Albany had his own name.
+ 'Leopold':({(5,67):'leopold',(5,121):'duke-of-albany'},None),
+ # Henry is Bloom's pen name here; John Henry Menton, Henry Campbell and Henry
+ # Blackwood Price are three other men.
+ 'Henry':({(5,76):'henry-flower',(5,77):'henry-flower'},None),
+ # 15:1235 is Mrs Bob Doran, his wife.
+ 'Doran':({(5,26):'bob-doran',(5,27):'bob-doran'},None),
+ 'Bob Doran':({(5,26):'bob-doran'},None),
+ # 10:457 is Councillor Abraham Lyon.
+ 'Lyons':({(5,26):'bantam-lyons',(5,27):'bantam-lyons',(5,130):'bantam-lyons',
+           (5,133):'bantam-lyons',(5,134):'bantam-lyons',(5,137):'bantam-lyons',
+           (5,139):'bantam-lyons',(5,142):'bantam-lyons'},None),
+ # The informer, whose first name Bloom cannot fix: Carey, Peter Carey, Denis
+ # Carey, all three in the same paragraph and all the same man. Peter Claver in
+ # the middle of them is the saint of the sermon on the door.
+ 'Carey':({(5,100):'carey'},None),
+ 'Peter Carey':({(5,100):'carey'},None),
+ 'Denis Carey':({(5,100):'carey'},None),
+ # Peter is the apostle only at 5:107; at 5:95 and 5:100 he is Peter Claver and
+ # Peter Carey, both of whom have their own span.
+ 'Peter':({(5,107):'saint-peter'},None),
+ 'Paul':({(5,107):'saint-paul'},None),
+ # 1:318 is Michael's host, the embattled angels of the church, in an episode
+ # that had already been signed off without him.
+ 'Michael':({(1,318):'saint-michael',(5,109):'saint-michael'},None),
+ 'Satan':({(5,109):'satan'},None),
+ # Saint Patrick is named in nine episodes and only this one is read.
+ 'Saint Patrick':({(5,95):'saint-patrick'},None),
+ # 12:513 and 15:78 are the patriarch; this is the blind father of the play.
+ 'Abraham':({(5,65):'leah-abraham'},None),
+ # The modern edition spells her Mary, which is also the gospel sister at 5:87.
+ '(?:Mairy|Mary)':({(5,84):'mairy'},None),
+ 'Martha':({(5,78):'martha-clifford',(5,80):'martha-clifford',
+            (5,87):'martha-and-mary'},None),
+ 'Mary':({(5,87):'martha-and-mary'},None),
+ # 11:516 is the Iveagh home, a hostel named after him.
+ 'Iveagh':({(5,91):'lord-iveagh'},None),
+ # 5:148 is the man of the song; four other M'Carthys are four other men.
+ 'M[’\']Carthy':({(5,148):'mccarthy-of-the-song'},None),
 
  # The mother is unnamed in episode 1 and is bound where the text makes her the
  # subject: the dream, the deathbed, the bowl of bile, the ghostcandle.
@@ -292,6 +344,28 @@ PHRASE={
  (4,135):[(r'mummy','molly')],
  (4,157):[(r'The maid','nextdoor-girl')],
  (4,160):[(r'my miss','nextdoor-girl')],
+ # episode 5
+ (5,0):[(r'a boy for the skins','skins-boy'),
+        (r'a boy employed to collect animal skins','skins-boy'),
+        (r'A smaller girl','caskhoop-girl')],
+ (5,6):[(r'the postmistress','the-postmistress')],
+ (5,7):[(r'The postmistress','the-postmistress')],
+ # The modern edition writes 'My wife' where M'Coy says 'My missus'. Two
+ # paragraphs later Bloom answers with 'My wife too', which is Molly.
+ (5,45):[(r'My missus','mccoy-wife'),(r'My wife','mccoy-wife')],
+ (5,48):[(r'My wife','molly')],
+ (5,63):[(r'My missus','mccoy-wife'),(r'My wife','mccoy-wife')],
+ (5,65):[(r'Poor papa','rudolph-bloom'),(r'Poor Papa','rudolph-bloom')],
+ (5,68):[(r'Poor papa','rudolph-bloom'),(r'Poor Papa','rudolph-bloom')],
+ (5,83):[(r'Those two sluts','coombe-sluts'),(r'Those two rough girls','coombe-sluts')],
+ (5,87):[(r'the two sluts','coombe-sluts'),(r'The two rough girls','coombe-sluts')],
+ # Bloom's inventory of the mass: the virgin twice under two names.
+ (5,107):[(r'Glorious and immaculate virgin','blessed-virgin'),
+          (r'Hail Mary','blessed-virgin'),(r'Holy Mary','blessed-virgin')],
+ (5,114):[(r'The chemist','the-chemist')],
+ (5,121):[(r'the old queen','queen-victoria'),(r'the old Queen','queen-victoria')],
+ (5,122):[(r'the chemist','the-chemist')],
+ (5,127):[(r'the chemist','the-chemist')],
 }
 
 # (matched text, episode, paragraph) -> the alias hit is dropped there

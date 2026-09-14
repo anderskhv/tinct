@@ -6,7 +6,7 @@ it resolves some of Joyce's run-together words and normalises punctuation, but
 it does not rewrite the prose and it does not modernise the names. Where the two
 differ on a name the difference is recorded on the card.
 
-Episodes 1 to 4 are authored. The rest are not.
+Episodes 1 to 5 are authored. The rest are not.
 
 Scope: named persons — the Dublin cast, the figures they remember, and the
 writers, saints, heresiarchs and stage characters they quote. Peoples, places,
@@ -260,12 +260,78 @@ for row in [
 ('matcham','Matcham','Who often thinks of the masterstroke by which he won the laughing witch who now. Begins and ends morally. Hand in hand. Smart. His story stands in Gutenberg italics in the older edition, which is why his name is keyed and not aliased.','','reference','literary-figure'),
 ]:add(*row)
 
+# ========================= EPISODE 5 — Lotus Eaters
+for row in [
+# --- the correspondence
+('henry-flower','Henry Flower','The name Bloom writes under and collects his letters under: Henry Flower Esq, care of the post office in Westland row. He carries the card for it behind the leather headband of his hat and puts it back before going into church. It is his own name translated — Virag, his father’s name, is Hungarian for flower.','Henry Flower','major'),
+('martha-clifford','Martha','The typist who writes to Henry Flower and signs herself Martha: I called you naughty boy because I do not like that other world. Please tell me what is the real meaning of that word. She pins a yellow flower to the letter and asks, in a postscript, what perfume his wife uses. Her surname, Clifford, is given in a later episode.','','major'),
+('the-postmistress','The postmistress','Who searches the pigeonhole at Westland row and hands Bloom back his card with a letter, while he holds his rolled newspaper against his nostrils and looks at the recruiting poster.','',),
+# --- the people he meets and passes
+('mccoy-wife','Mrs M’Coy','Whose engagement is not settled yet: a reedy freckled soprano with a cheeseparing nose, nice enough for a little ballad. Her husband brings her up so as to borrow a valise, which is the wheeze Bloom did not fall for.','',),
+('bantam-lyons','Bantam Lyons','Who takes Bloom’s newspaper at his armpit with yellow blacknailed fingers to look up the French horse running at Ascot, hears him say twice that he was going to throw it away, and speeds off towards Conway’s corner to back Throwaway. Bloom never learns what he has said.','Bantam Lyons','major'),
+('bob-doran','Bob Doran','On one of his periodical bends, in Conway’s with Bantam Lyons when M’Coy was there.','',),
+('hoppy-holohan','Hoppy Holohan','Who told M’Coy about the funeral, and came into Conway’s for a wet. You know Hoppy?','Hoppy Holohan|Holohan|Hoppy'),
+('corny-kelleher','Corny Kelleher','Who Bloom daresays bagged the funeral job for O’Neill’s, singing with his eyes shut. Police tout, he adds, and goes off into the tooraloom song. He manages the undertaker’s, and turns up wherever the day’s business is.','Kelleher','major'),
+('tom-kernan','Tom Kernan','From whom Bloom means to get tea, and cannot ask at a funeral.','Tom Kernan'),
+('hornblower','Hornblower','At the porter’s lodge of Trinity, worth keeping on hands: might take a turn in there on the nod. How do you do, Mr Hornblower? How do you do, sir?','Hornblower'),
+('the-chemist','The chemist','Of Sweny’s in Lincoln place, who turns back page after page of the prescriptions book to find the lotion of sweet almond oil and tincture of benzoin, and sells Bloom a cake of sweet lemony soap for fourpence to be paid for later. Sandy shrivelled smell he seems to have. Shrunken skull. And old.','',),
+('skins-boy','The boy for the skins','Lolling by Brady’s cottages with his bucket of offal linked, smoking a chewed fagbutt. Tell him if he smokes he won’t grow. O let him. His life isn’t such a bed of roses.','',),
+('caskhoop-girl','The girl with the caskhoop','Smaller, with scars of eczema on her forehead, who eyes him listlessly, holding her battered hoop.','',),
+('coombe-sluts','The two in the Coombe','The two women linked together in the rain that night in the Coombe, whose flat Dublin voices bawl the song about Mairy’s drawers in Bloom’s head, and who would listen too, he thinks, in the house at Bethany. The modern edition calls them two rough girls.','',),
+('rudolph-bloom','Poor papa','Bloom’s father, who used to talk of Kate Bateman in Leah and of the scene where the old blind Abraham knows his son’s voice. He is not named in this episode, and Bloom is glad he did not go into the room to look at his face. That day. O, dear! O, dear!','','major'),
+# --- remembered
+('bob-cowley','Bob Cowley','Who lent M’Coy his valise for the Wicklow regatta concert last year and never heard tidings of it from that good day to this.','Bob Cowley'),
+('vance','Vance','The High school master who cracked his fingerjoints teaching the law of falling bodies: thirtytwo feet per second per second. He taught the colours of the spectrum too.','Vance'),
+('mrs-ellis','Mrs Ellis','Who kept the old dame’s school where Bloom played marbles, and liked mignonette. And Mr? — the question he leaves unfinished.','Mrs Ellis'),
+('jack-fleming','Jack Fleming','Who embezzled to gamble and was smuggled off to America, and keeps a hotel now. They never come back.','Jack Fleming'),
+('captain-culler','Captain Culler','Who broke a window in the Kildare street club with a slog to square leg — the whole of Bloom’s case for cricket in Ireland.','Captain Culler'),
+('mccarthy-of-the-song','M’Carthy','Whose taking the floor set the skulls cracking, in the song Bloom half quotes about Donnybrook fair. Not the Jakes M’Carthy of episode 7, nor Justin M’Carthy, nor Denis Florence M’Carthy.','',),
+('mairy','Mairy','Who lost the pin of her drawers and did not know what to do to keep it up, in the song of the two women in the Coombe. The modern edition spells her Mary.','',),
+('martin-cunningham','Martin Cunningham','Who knows Father Conmee. He is the organiser of the funeral party in the next episode and of the collection for the Dignams after it.','Martin Cunningham','major'),
+('john-conmee','Father John Conmee','Whose sermon on saint Peter Claver and the African Mission is on the notice at the door of All Hallows. Distinguishedlooking, Bloom thinks, and regrets not having worked him about getting Molly into the choir. He opens episode 10 walking across Dublin.','Conmee','major'),
+('peter-claver','Saint Peter Claver','The Jesuit of the African mission, subject of the sermon — and the name Bloom reaches for and mixes up with Peter Carey, a few paragraphs later, in the same church.','Peter Claver|Claver'),
+('gladstone','Gladstone','For whose conversion they had prayers when he was almost unconscious. The protestants are the same, Bloom adds.','Gladstone'),
+('william-walsh','Dr William J. Walsh','Archbishop of Dublin, whom the protestants would convert to the true religion in the same way. Not the Louis J Walsh of Magherafelt in episode 13.','William J. Walsh'),
+('father-farley','Father Farley','Who got the choir place instead of Molly, and who looked a fool but wasn’t.','Father Farley'),
+('carey','Carey','The informer who turned queen’s evidence on the invincibles and took communion every morning in this very church, with a wife and six children at home and the murder plotted all the while. Bloom cannot fix the first name: Carey was his name, Peter Carey, yes — no, Peter Claver I am thinking of — Denis Carey. Episode 8 has him hesitating the same way: Peter or Denis or James Carey.','',),
+('old-glynn','Old Glynn','The organist of Gardiner street, who knew how to make that instrument talk, the vibrato, and had fifty pounds a year for it.','Glynn'),
+('bernard-vaughan','Father Bernard Vaughan','Whose sermon came before the music on the day Molly was in fine voice: Christ or Pilate? Christ, but don’t keep us all night over it.','Bernard Vaughan'),
+# --- the theatre, and Bloom's father's theatre
+('mrs-bandmann-palmer','Mrs Bandmann Palmer','Playing Leah tonight, and Hamlet last night: a male impersonator, which sets Bloom wondering whether Hamlet was a woman and why Ophelia committed suicide.','Mrs Bandmann Palmer|Bandmann Palmer'),
+('kate-bateman','Kate Bateman','Whom Bloom’s father used to talk of in the same part, and waited all the afternoon outside the Adelphi in London to see — the year before Bloom was born, sixtyfive.','Kate Bateman'),
+('ristori','Ristori','And Ristori in Vienna: the other actress his father named.','Ristori'),
+('mosenthal','Mosenthal','Who wrote the play. By Mosenthal it is. Bloom gropes for the title after the author’s name and does not find it.','Mosenthal'),
+('leah-nathan','Nathan','Whose voice the old blind man knows in the scene Bloom’s father was always talking about: Nathan’s voice! His son’s voice! I hear the voice of Nathan who left his father to die of grief and misery in my arms.','Nathan','reference','literary-figure'),
+('leah-abraham','Abraham','The old blind man of that scene, who recognises the voice and puts his fingers on his face. Not the patriarch of episodes 12 and 15.','','reference','literary-figure'),
+('ophelia','Ophelia','Who committed suicide, and why — the question Bloom asks himself in front of the playbill, and which the library argument of episode 9 takes up in earnest.','Ophelia','reference','literary-figure'),
+# --- the church, and what Bloom thinks in it
+('pilate','Pilate','Christ or Pilate, the choice Father Bernard Vaughan’s sermon offered. Professor MacHugh gives him a second line in episode 7.','Pilate'),
+('saint-michael','Saint Michael','The archangel of the prayer after mass: blessed Michael, defend us in the hour of conflict. His host are the embattled angels of the church whose menace Stephen remembers in episode 1.','',),
+('satan','Satan','Whom the same prayer asks God to thrust down to hell, with those other wicked spirits who wander through the world for the ruin of souls.','',),
+('saint-peter','Saint Peter','Named with Paul in Bloom’s inventory of what the mass is about: glorious and immaculate virgin, Joseph her spouse, Peter and Paul.','',),
+('saint-paul','Saint Paul','The other of the pair.','',),
+('buddha','Buddha','Lying on his side in the museum with his hand under his cheek, taking it easy, josssticks burning: the god Bloom sets against the Ecce Homo, the crown of thorns and the cross.','Buddha'),
+('mohammed','Mohammed','Who cut a piece out of his mantle rather than wake the cat asleep on it — the story Bloom remembers over a tabby on a warm sill. The modern edition calls him the Prophet Muhammad.','Mohammed|Muhammad'),
+('saint-patrick','Saint Patrick','And the shamrock: clever idea, Bloom says, in the same breath as the chopsticks and the heathen Chinee.','',),
+# --- the money
+('lord-iveagh','Lord Iveagh','Who once cashed a sevenfigure cheque for a million in the bank of Ireland. Shows you the money to be made out of porter.','',),
+('lord-ardilaun','Lord Ardilaun','The other brother, who has to change his shirt four times a day, they say.','Ardilaun'),
+('duke-of-albany','The duke of Albany','One of the old queen’s sons, who had only one skin. Leopold, yes — which is Bloom’s own name, and the only reason he remembers the man.','duke of Albany|Duke of Albany'),
+('brutus','Brutus','And Brutus is an honourable man: Antony’s line, which Bloom turns on the stylish woman outside the Grosvenor. The honourable Mrs.','Brutus','reference','literary-figure'),
+# --- the music
+('rossini','Rossini','Whose Stabat Mater Molly sang in Gardiner street, with the thrill in the air and the people looking up.','Rossini'),
+('mercadante','Mercadante','Of the seven last words, first of Bloom’s list of that old sacred music, splendid. Molly sang his Quis est homo too.','Mercadante'),
+('mozart','Mozart','Whose twelfth mass has the Gloria in it.','Mozart'),
+('palestrina','Palestrina','For example too, among the old popes keen on music and art and statues and pictures of all kinds. They had a gay old time while it lasted.','Palestrina'),
+('martha-and-mary','Martha and Mary','The two sisters of Bethany, in whose house Christ sat talking — the picture Bloom half remembers when his correspondent’s name slides into the gospel: old master or faked for money. He is sitting in their house, talking. Mysterious.','',),
+]:add(*row)
+
 updates={}
 for e in entities:e['snapshots']=[dict(after=list(at),body=body) for at,body in updates.get(e['id'],[])]
-print(len(entities),'entities authored: episodes 1-4')
+print(len(entities),'entities authored: episodes 1-5')
 BASE=Path(__file__).resolve().parent
 (BASE/'editorial.json').write_text(json.dumps(dict(
  bookId='ulysses',
- contentVersion='2026-09-14.4',
- coverage='Both full English editions, episodes 1-4 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.',
+ contentVersion='2026-09-14.5',
+ coverage='Both full English editions, episodes 1-5 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

@@ -1,12 +1,12 @@
 # Ulysses character package — IN PROGRESS
 
-**Episodes 1 to 4 of 18 are authored. The rest are not.** Status stays
+**Episodes 1 to 5 of 18 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole book is
 covered.
 
-Current state: 191 entities authored, 190 bound in the older edition and 188 in
-the modern one, 1,294 and 1,287 exact mentions, 43 focused tests. Content
-revision 2026-09-14.4.
+Current state: 246 entities authored, 245 bound in the older edition and 243 in
+the modern one, 1,669 and 1,665 exact mentions, 50 focused tests. Content
+revision 2026-09-14.5.
 
 ## What is hard about this book
 
@@ -315,6 +315,78 @@ stage direction, which will need a key when *Circe* is read; and **Patrice at
 16:212**, which is not Patrice Egan at all but *the faubourg Saint Patrice
 called Ireland for short*, and will need suppressing.
 
+## Editorial checks — episode 5 (*Lotus Eaters*)
+
+Bloom alone for a second morning: the post office, M'Coy, the letter, the
+church, the chemist, the baths. 151 paragraphs, 55 new entities.
+
+**Bloom has a second name, and it gets a second card.** *Henry Flower* is what
+he writes under and collects letters under, and the card says so — including
+that it is his own name translated, since Virag, his father's name, is
+Hungarian for flower. The alias is safe for the whole book: every Henry Flower
+in *Ulysses* is this one.
+
+**1. Namesakes.** *Leopold* is two men twelve lines apart: Bloom at 5:67, where
+his father says *every word is so deep, Leopold*, and at 5:121 **the duke of
+Albany**, one of the old queen's sons, who had only one skin — and whose name is
+the only reason Bloom remembers him at all. *Peter* is three people in six
+paragraphs: **Peter Claver** the Jesuit on the notice at the church door,
+**Peter Carey** the informer, and **Peter the apostle** in Bloom's inventory of
+the mass — and Bloom himself confuses the first two out loud (*Peter Carey, yes.
+No, Peter Claver I am thinking of*). *Carey* is one man under three names in a
+single paragraph — Carey, Peter Carey, Denis Carey — and all three spans carry
+the same card, because the point is that Bloom cannot fix the name. *Abraham* at
+5:65 is the blind father of Mosenthal's play, not the patriarch. *Martha* is his
+correspondent at 5:78 and 5:80 and **the sister of Bethany at 5:87**, where the
+name slides out of the letter into a painting. *Michael*, *Satan*, *Paul*,
+*Mairy*, *Lyons*, *Doran*, *M'Carthy* and *Iveagh* are keyed for the same
+reason, each with the other bearer named in the builder.
+
+**Michael reached back into episode 1.** 1:318 is *Michael's host*, the
+embattled angels of the church in Stephen's memory of the heresiarchs, in a
+chapter signed off without him. Second time the occurrence list has done this,
+after Columbanus at 2:73.
+
+**2. Person or not.** *O'Connell street* at 5:9 is a street and the O'Connell
+key does not reach it. *Cantrell and Cochrane's ginger ale* at 5:65 and 5:101 is
+a firm and is not the schoolboy Cochrane of episode 2. *Leah* and *Rachel* at
+5:65 are the names of plays; the actresses beside them — Mrs Bandmann Palmer,
+Kate Bateman, Ristori — are cast. *Plumtree's Potted Meat*, *Prescott's
+dyeworks*, *Sweny's*, *Hamilton Long's*, *Wheatley's*, *Clery's*, *Nichols'*,
+*O'Neill's*, *Leask's* and *Conway's* are shops and firms; the chemist inside
+Sweny's is a man in the scene and **is** cast. *The invincibles* is an
+organisation. *Doctor Whack* at 5:114 is a joke, not a doctor. *Our holy mother
+the church* at 5:107 is not anybody's mother.
+
+**3. Scriptural references.** Christ stays uncast, as everywhere in this
+package, so *Christ or Pilate?* at 5:102 gives Pilate a card and Christ none,
+and *This is my body* at 5:149 carries nothing. Michael the archangel and Satan
+are cast where the prayer after mass names them aloud in English; the Blessed
+Virgin, already cast from 3:37, binds at 5:107 on *Glorious and immaculate
+virgin* and on *Hail Mary and Holy Mary*. Joseph the Joiner, cast in episode 1
+from Mulligan's ballad, binds there too as *Joseph, her spouse*.
+
+**4. Ambiguous references, deliberately unbound.** **The woman outside the
+Grosvenor** — the whole of 5:25 to 5:40, and the reason Bloom loses the thread
+of M'Coy's story — is never named and never given a stable description: *she*,
+*her rich gloved hand*, *the honourable Mrs*. She is left unbound rather than
+attached to a phrase that would not hold. So is *the man, husband, brother, like
+her* beside her; *the squatted child at marbles* at 5:74; *that haughty creature
+at the polo match*; *Rachel, is it?*, which is a title Bloom is groping for and
+not a woman; and *Mrs* in Milly's letter. Each is listed here rather than
+guessed.
+
+**5. Spot-read.** Sixteen mentions, eight from each edition; all sixteen right.
+
+**6. Both editions independently.** Nothing is bound in the older edition and
+not in the modern one. One binding goes the other way: **M'Coy at 5:27**, where
+the modern edition writes *M'Coy talking of one thing or another* for Joyce's
+*Talking of one thing or another*. The modern edition also writes *My wife* for
+*My missus*, *Mary* for *Mairy*, *the Prophet Muhammad* for *Mohammed*, *Hoppy
+Holohan* for *Hoppy*, and *the Invincibles — the political assassins* for *the
+invincibles*: each is handled by an alias or a phrase on one card, and the card
+says which edition prints which.
+
 ## Source defects — recorded, not repaired
 
 No edition byte was touched.
@@ -330,7 +402,7 @@ No edition byte was touched.
 
 ## Remaining work
 
-- **Episodes 5–18.** 6,299 paragraphs, and the three longest are 15 (*Circe*,
+- **Episodes 6–18.** 6,148 paragraphs, and the three longest are 15 (*Circe*,
   1,441 paragraphs), 17 (*Ithaca*, 654) and 11 (*Sirens*, 635). Episode 18
   (*Penelope*) is eight paragraphs of Molly's monologue and will be the densest
   page-for-page in the book.
@@ -355,6 +427,6 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_ulysses.py --check`, then `python3 -m unittest
-discover -s books/characters -p 'test_*.py'` — 43 focused tests for this book so
+discover -s books/characters -p 'test_*.py'` — 50 focused tests for this book so
 far. No edition changes, no network generation, no API spend: every card here was
 written in the authoring conversation and committed as a file.
