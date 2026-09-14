@@ -25,3 +25,10 @@ First deploy attempt succeeded, and CI verified the exact reader bundle `/assets
 Production About verified on desktop and 390×844 phone: new headline, eight sections, versioned stylesheet, correct shortened section heights, no horizontal overflow, and voice demonstration. Production `/lab/phone` rendered The Manual section 52 with the expected reader bundle and no browser warnings/errors. Screenshots saved in the shared workspace under `output/tinct-about-condense-2026-09-14/`: about-desktop.png, about-phone.png, about-phone-demo.png, reader-phone.png.
 
 Next action: observe actual visitor response before further visual reconstruction. No conversion lift is claimed.
+
+
+## Approved copy follow-up — September 14
+
+Anders requested: “How about making AI help us read the best books ever made?” followed by the shelf and Hamlet obstacle, plus “Start reading” from entry. App commit aba03d5edbf3f524ec82ff78b25eb0a3d9ddf9bd uses that question verbatim (sentence capitalization), “We know where to find them.” (plural agreement with books), and “But they ask a lot of us.” Both rendered and bootstrap button copy say “Start reading”. Cache versions cover the modified bootstrap and module graph. No timing changes.
+
+Phone preview verified all three beats and the entry CTA. 2240 tests, 10 focused About checks, build and verify-bundle passed. [Deploy run 34838411064](https://github.com/anderskhv/tinct/actions/runs/34838411064), retry 2, passed including all smoke tests. First attempt encountered the same transient configuration-asset 404; a local smoke rerun also passed all 15 checks. Final bundle `index-DgOXaJPB.js` matched CI and the production phone reader; Worker version `23dfdf58-c773-457d-bf91-6ea704b7f68f`. Production phone About confirms all three lines, Start reading from entry, no overflow or browser errors. Desktop layout verified locally. Screenshots: `output/tinct-about-condense-2026-09-14/copy-phone.png` and `copy-reader-phone.png`. Next action remains observing visitor response.
