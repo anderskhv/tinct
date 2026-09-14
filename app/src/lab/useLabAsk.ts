@@ -31,6 +31,7 @@ import {
 } from './labAsk'
 import {
   buildLabTalkInstructions,
+  LabChatError,
   labCompanionBookFields,
   queryLabCompanion,
   readAnthropicResponse,
@@ -723,8 +724,8 @@ export function useLabAsk(options: UseLabAskOptions) {
         // Let a chapter skip commit (header + listen chapter) before Play.
         window.setTimeout(() => optionsRef.current.onResumeListen?.(), 0)
       }
-    } catch {
-      fail(LAB_COPY.askUnavailable)
+    } catch (error) {
+      fail(error instanceof LabChatError ? error.message : LAB_COPY.askUnavailable)
     } finally {
       sendingRef.current = false
       setTypedLoading(false)

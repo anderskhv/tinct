@@ -12,6 +12,7 @@ import {
   buildLabAskInstructions,
   isResumeListenCommand,
   LAB_ASK_BOOK_TOOLS_RULE,
+  LAB_ASK_POLICY,
   LAB_ASK_LOOKUP_OFFER_RULE,
   LAB_ASK_NO_DECLINE_RULE,
   LAB_ASK_NO_PRAISE_RULE,
@@ -492,4 +493,12 @@ describe('no praise and no context-limit declines, typed and spoken', () => {
     expect(instructions).toContain(`"I can't explain what comes after this chapter"`)
     expect(instructions).toContain('"The ending" means the end of the chapter the reader is in')
   })
+})
+
+
+it('welcomes relevant outside commentary while requiring honest attribution', () => {
+  expect(LAB_ASK_POLICY).toContain('Tim Keller on Martha and the Good Samaritan in Luke 10 is relevant')
+  expect(LAB_ASK_POLICY).toContain('Do not invent a sermon, title, date, quotation or attribution')
+  expect(LAB_ASK_POLICY).toContain('Redirect only requests clearly unrelated to reading or the text')
+  expect(LAB_ASK_POLICY).not.toContain('anything that is not the open book')
 })

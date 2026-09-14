@@ -278,6 +278,21 @@ export type AnthropicStreamResult = {
   text: string
   stopReason: string | null
   sawStop: boolean
+  error?: LabChatError
+}
+
+/** A reader-facing failure, without raw provider messages or request contents. */
+export class LabChatError extends Error {
+  constructor(type = 'interrupted') {
+    super(type === 'rate_limit_error'
+      ? 'Ask is busy. Please try again in a minute.'
+      : type === 'overloaded_error'
+        ? 'The answer service is busy. Please try again shortly.'
+        : type === 'authentication_error' || type === 'permission_error'
+          ? 'The answer service is unavailable. Please try again later.'
+          : 'The answer was interrupted. Please try again.')
+    this.name = 'LabChatError'
+  }
 }
 
 export function extractAnthropicSseDelta(line: string): string {
@@ -318,10 +333,10 @@ export async function readAnthropicStream(
         const payload = line.trim().slice(5).trim()
         if (payload === '[DONE]') { finished = true; sawStop = true }
         else {
-          let event: { type?: string } | undefined
+          let event: { type?: string; error?: { type?: string } } | undefined
           try { event = JSON.parse(payload) } catch { /* Ignore non-JSON SSE data. */ }
           if (event?.type === 'message_stop') { finished = true; sawStop = true }
-          if (event?.type === 'error') throw new Error('Chat stream failed')
+          if (event?.type === 'error') throw new LabChatError(event.error?.type)
         }
       }
       const piece = extractAnthropicSseDelta(line)
@@ -340,8 +355,9 @@ export async function readAnthropicStream(
         if (finished) { void reader.cancel().catch(() => {}); break }
       }
       consume(buffer + decoder.decode())
-    } catch {
-      return { text: text.trim(), stopReason: 'error', sawStop: false }
+    } catch (error) {
+      void reader.cancel().catch(() => {})
+      return { text: text.trim(), stopReason: 'error', sawStop: false, error: error instanceof LabChatError ? error : new LabChatError() }
     } finally { reader.releaseLock() }
     return { text: text.trim(), stopReason, sawStop }
   }
@@ -356,7 +372,7 @@ export async function readAnthropicResponse(
   onDelta?: (text: string) => void,
 ): Promise<string> {
   const result = await readAnthropicStream(response, onDelta)
-  if (result.stopReason === 'error' || !result.text.trim()) throw new Error('Chat stream failed')
+  if (result.stopReason === 'error' || !result.sawStop || !result.text.trim()) throw result.error ?? new LabChatError()
   return result.text
 }
 

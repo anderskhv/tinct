@@ -114,3 +114,19 @@ it('sends the successor edition when the reader still holds a withdrawn one', as
   expect(body.book).toMatchObject({ bookId: 'bible', editionKey: 'web-en', chapterNumber: 794 })
   expect(JSON.stringify(body)).not.toContain('modern-en')
 })
+
+
+it('shows a useful streamed error and retries without duplicating the reader question', async () => {
+  const fetcher = vi.fn()
+    .mockResolvedValueOnce(new Response('data: {"type":"error","error":{"type":"overloaded_error"}}\n\n', {
+      headers: { 'Content-Type': 'text/event-stream' },
+    }))
+    .mockResolvedValue(ok())
+  vi.stubGlobal('fetch', fetcher)
+  const { result } = renderHook(() => useLabAsk(base))
+  await act(async () => { await result.current.sendTyped('recap this chapter') })
+  expect(result.current.notice).toBe('The answer service is busy. Please try again shortly.')
+  await act(async () => { result.current.retryTyped!(); await new Promise(resolve => setTimeout(resolve, 10)) })
+  expect(result.current.notice).toBeNull()
+  expect(result.current.turns.filter(turn => turn.role === 'user')).toHaveLength(1)
+})
