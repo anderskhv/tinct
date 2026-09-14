@@ -1,3 +1,4 @@
+import { runInNewContext } from 'node:vm';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
@@ -81,4 +82,27 @@ test('the supplied reveal composition replaces the separate screen overlays', ()
   assert.ok(story.includes('/assets/about-v20/assets/introducing-tinct-20260914-v2.png'));
   assert.ok(existsSync(publicDir + 'assets/about-v20/assets/introducing-tinct-20260914-v2.png'));
   assert.match(css, /\.brand-ensemble \.device-canvas>img\.lit-screen\{display:none\}/);
+});
+
+test('joke sequence runs once across scene remounts and scroll reversals', () => {
+  const js = readFileSync(publicDir + 'assets/about-v20/about-v21.js', 'utf8');
+  const source = js.slice(js.indexOf('var jokeStarted = false;'), js.indexOf('  function update()'));
+  let active = true;
+  const timers = [], states = [];
+  const context = {
+    document: { querySelector: () => ({ getBoundingClientRect: () => ({ bottom: 500 }), getAttribute: () => active ? 'true' : 'false' }) },
+    root: { setAttribute: (_, value) => states.push(value) },
+    setTimeout: (fn, delay) => timers.push({ fn, delay }),
+  };
+  runInNewContext(source + '; updateJoke();', context);
+  assert.deepEqual(timers.map(t => t.delay), [1700, 2400, 3000]);
+  assert.deepEqual(states, []);
+  timers[0].fn();
+  active = false;
+  runInNewContext('updateJoke()', context);
+  active = true;
+  runInNewContext('updateJoke()', context);
+  assert.equal(timers.length, 3);
+  timers[1].fn(); timers[2].fn();
+  assert.deepEqual(states, ['1', '2', '3']);
 });

@@ -269,12 +269,13 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
 .story-root[data-bookshelf=true] .journey-steps #chapter-ai{height:460svh;min-height:460svh}
 .journey[data-scene=ai] .living-ai-response{animation:none;clip-path:none}
 .living-ai-response .joke-setup{display:block;margin-bottom:1em}
-@keyframes joke-sentence{from{opacity:0}to{opacity:1}}
-@media (prefers-reduced-motion:no-preference){
-.journey[data-scene=ai] .joke-setup{animation:joke-sentence .001s step-end .3s both}
-.journey[data-scene=ai] .joke-turn{animation:joke-sentence .001s step-end 1.1s both}
-.journey[data-scene=ai] .joke-punchline{animation:joke-sentence .001s step-end 1.7s both}
-}
+/* Keep every scene copy aligned and on the same monotonic reveal state. */
+.living-ai,.living-ai-question,.living-ai-response{text-align:left!important}
+.living-ai-response,.living-ai-response span{animation:none!important;transition:none!important;clip-path:none!important;transform:none!important}
+.living-ai-response :is(.joke-setup,.joke-turn,.joke-punchline){opacity:0}
+html[data-joke-step] .joke-setup{opacity:1}
+html[data-joke-step="2"] .joke-turn,html[data-joke-step="3"] .joke-turn,html[data-joke-step="3"] .joke-punchline{opacity:1}
+@media(prefers-reduced-motion:reduce){.living-ai-response :is(.joke-setup,.joke-turn,.joke-punchline){opacity:1}}
 .story-root[data-bookshelf=true] .living-feed>:nth-child(14){--slop-arrival:1.350}
 .story-root[data-bookshelf=true] .living-feed>:nth-child(15){--slop-arrival:1.396}
 .story-root[data-bookshelf=true] .living-feed>:nth-child(16){--slop-arrival:1.441}

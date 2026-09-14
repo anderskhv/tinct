@@ -48,7 +48,26 @@
         ' L' + (ex - ux * size + uy * 5) + ' ' + (ey - uy * size - ux * 5));
     });
   }
+  // One page-level sequence shared by outgoing/incoming copies of the card.
+  // Scene remounts must not restart a CSS animation or reveal an unanimated copy.
+  var jokeStarted = false;
+  function updateJoke() {
+    if (jokeStarted) return;
+    var chapter = document.querySelector('#chapter-ai');
+    if (!chapter) return;
+    if (chapter.getBoundingClientRect().bottom <= 0) {
+      jokeStarted = true;
+      root.setAttribute('data-joke-step', '3');
+    } else if (chapter.getAttribute('data-active') === 'true') {
+      jokeStarted = true;
+      // Allow the .7s card entrance to settle, then one full second for the prompt.
+      [1700, 2400, 3000].forEach(function (delay, index) {
+        setTimeout(function () { root.setAttribute('data-joke-step', String(index + 1)); }, delay);
+      });
+    }
+  }
   function update() {
+    updateJoke();
     updatePassageArrow();
     var beat = visibleBeat();
     if (revealY === null && afterReveal[beat]) revealY = window.scrollY;
