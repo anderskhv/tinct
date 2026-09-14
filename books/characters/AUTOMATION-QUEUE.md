@@ -64,12 +64,13 @@ Take the first entry whose `contentStatus` in `library-inventory.json` is still
 
 ## Lane B — larger model only
 
-Not automated. `odyssey`, `iliad`, `the-aeneid`, `divine-comedy`,
-`paradise-lost`, `faust-part-1`, `the-republic`, `the-histories`,
-`peloponnesian-war`, `essays-montaigne`, `ulysses`, `pride-and-prejudice`,
-`crime-and-punishment`, `jane-eyre`, `frankenstein`, `moby-dick`,
-`great-expectations`, `niels-lyhne`, `jerusalem`, `brothers-karamazov`,
-`anna-karenina`, `don-quixote`.
+Not automated. Validated so far: `odyssey`, `iliad`, `the-aeneid`,
+`divine-comedy`, `paradise-lost`, `faust-part-1`, `the-republic`,
+`the-histories`, `peloponnesian-war`, `essays-montaigne`.
+
+Still `not-started`: `ulysses`, `pride-and-prejudice`, `crime-and-punishment`,
+`jane-eyre`, `frankenstein`, `moby-dick`, `great-expectations`, `niels-lyhne`,
+`jerusalem`, `brothers-karamazov`, `anna-karenina`, `don-quixote`.
 
 Plus the three partials, which carry live or drafted work that must be
 preserved rather than replaced: `war-and-peace` (45-entry draft),

@@ -2300,3 +2300,88 @@ A future Lane A firing should confirm via `python3
 books/characters/inventory.py` that no `not-started` Lane A book
 remains, and if so, record that Lane A is complete rather than
 starting a Lane B book.
+
+## Opus batch 12: Montaigne's Essays
+
+Authored on branch `claude/tinct-character-content-1n5iqq` over fourteen passes.
+Queued, not production verified; this lane never sets `appStatus`.
+
+| Book | Original / modern entries | Builder |
+|---|---:|---|
+| Montaigne's Essays | 1,133 / 1,133 | build_essays_montaigne.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| Montaigne's Essays | 2d7353e85164e3a1426003ae17857136460edc0e2dab21a1ee0ee507c8076dd5 | b9a1d95cff1ad62b23d0250e242ed8f7541bf0a77495faf52f1a9cad6338b4ed |
+
+4,529 exact mentions in original-en and 4,672 in modern-en, across all 107
+chapters and 4,897 paragraphs per edition — the whole work, all three books of
+the Essays. No omitted entities on either side. Content revision
+`2026-09-13.13`. Commands: `python3 books/characters/build_essays_montaigne.py
+--check`, then `python3 -m unittest discover -s books/characters -p 'test_*.py'`
+— 285 focused tests for this book. Shared dependencies: `build_reviewed.py` and
+`reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+Both editions are Cotton, but unlike the Peloponnesian War package **the modern
+edition modernises the transliterations** — Wicliffe becomes Wycliffe, Sylla
+becomes Sulla, AEneid becomes Aeneid — so the work here is both spelling variants
+and namesakes, and the reviewer has to look at both.
+
+- **Two hundred and eighty-two entities share a name with at least one other**,
+  set out in a table of 215 rows in the package README, each row pinned by a test.
+  The worst are the ones the Essays repeat most: four men called Crassus, four
+  called Diogenes, four called Pausanias, four called Scipio, three called Cato,
+  three called Dionysius, three called Galba, three called Saturninus, two called
+  Cicero — including his brother Q. Cicero, whose citations had been binding to
+  the orator until chapter 102 was read.
+- **A hundred and twenty-odd position tables, every one with a `None` default.**
+  A name that belongs to more than one man carries no card outside the paragraphs
+  that identify him. Single-referent names — Cicero, Plato, Seneca, Socrates,
+  Horace, Plutarch — are bound by alias through all 107 chapters.
+- **Eighteen suppressed alias bindings**, each a different kind of collision, and
+  the reviewer should read them as a list of the ways this can go wrong: a name
+  inside a longer name, a man inside a book title, an author's own surname on a
+  building and on a college, a planet with a god's name, a church named for a
+  bishop, a town named for a duke.
+- **Titles are the recurring trap and the thing most worth spot-checking.** Nine
+  places in this book name a man in order to name a book about him — Hippolytus at
+  2:17, Agamemnon at 74:68 and 74:78, the *Lives* of Flamininus and Pyrrhus at
+  89:3, Cicero's own *Cato* at 90:6, Plutarch's *Life of Antony* at 100:14, Clinias
+  at 99:133, the *Life of Paulus Emilius* at 103:18, the *Daemon of Socrates* and
+  the five-title list at 103:264, and Tacitus's *Agricola* at 74:7. None of them
+  is bound; the men themselves are bound elsewhere.
+- **Fortune is deliberately not cast**, with the Christian God, Christ, Satan and
+  Nature. Chapter 33 personifies her throughout and chapter 69 again. This is the
+  one scope decision in the package a reader might reasonably want changed, and it
+  is the release owner's call.
+- **Forty-one bindings fall in one edition and not the other**, all read and
+  classed: the older edition's citation abbreviations (*Hor.*, *Claud.*,
+  *Quintil.*, *Lucret.*, *Propert.*, *Liv.*, *Cic.*, *Mart.*, *Aug.*), which the
+  modern edition expands; the modern edition's pronoun resolutions, where Cotton
+  writes *he*; and three places where the two translations genuinely differ
+  (70:35, 73:64, 99:72). None is a wrong card. Closing the first kind means adding
+  each abbreviation as an alias on nine authors, which was not done because an
+  abbreviation is not a name.
+- **Thirteen source defects are recorded and were not repaired.** No edition byte
+  was touched. The list is in the package README; the one a reader could notice is
+  the lacuna at 90:7, where the older edition's sentence is broken and names
+  nobody while the modern edition names Caius Memmius.
+
+Suggested live checks in both editions:
+
+1. A first-encounter card in original-en and modern-en alike.
+2. That the bare *Cato* resolves to the censor at 102:5 and to the younger at
+   106:3, and to nothing at all at 106:22, 96:25 and 107:196 — the last of which
+   names both men with one word.
+3. That *Q. Cicero* at 99:315, 102:78 and 102:80 shows the brother's card and not
+   the orator's.
+4. That *Sylla* (original-en) and *Sulla* (modern-en) resolve to one card, and
+   likewise Wicliffe/Wycliffe, AEsculapius/Asclepius and Panetius/Panætius.
+5. That nothing is bound at 103:264, where five book titles stand in a row.
+6. That the author's own card does not appear on *building at Montaigne* (103:38)
+   or *Montaigne College at Paris* (103:257).
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.

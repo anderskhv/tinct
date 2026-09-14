@@ -9,7 +9,7 @@ becomes Wycliffe, Zisca becomes Zizka, Trivulcio becomes Trivulzio, Fabricio
 becomes Fabrizio, Juliano becomes Giuliano, Fregosa becomes Fregoso, Sylla
 becomes Sulla, AEneid becomes Aeneid. Both spellings are carried on one card.
 
-Chapters 1-105 are authored. The rest are not.
+All 107 chapters are authored.
 
 Scope: named persons — historical, literary, mythological and scriptural — and
 the gods Montaigne treats as agents. Peoples, places, schools of philosophy and
@@ -402,7 +402,7 @@ for row in [
 ('joachim-du-bellay','Du Bellay','Joachim du Bellay the poet, whom Montaigne calls our famous poet and quotes for the line that of all things he hates pedantic learning. Not Martin the memoirist, nor the cardinal.'),
 ('ulysses','Ulysses','Whose miseries the grammarians inquire into, Dionysius said, while they know nothing of their own.','Ulysses','supporting','mythological-figure'),
 ('rabelais','Rabelais','In whose Gargantua Montaigne found the proverb that the greatest clerks are not the wisest men, and whom he reckons with the Decameron and the Basia of Johannes Secundus among the books worth reading for amusement.','Rabelais'),
-('aulus-gellius','Aulus Gellius','The compiler of the Attic Nights, through whom Pacuvius’s line about men who jabber philosophy and do nothing reaches the Essays. The older edition prints the citation in the accusative, Gellium.','Gellium|Gellius'),
+('aulus-gellius','Aulus Gellius','The compiler of the Attic Nights, through whom Pacuvius’s line about men who jabber philosophy and do nothing reaches the Essays. The older edition prints the citation in the accusative, Gellium.','Gellium|Gellius|Aulus Gelliusor'),
 ('hercules','Hercules','From whom, the philosophers say, you might be the fiftieth descendant and still have nothing but a gift of fortune to boast of.','Hercules','reference','mythological-figure'),
 ('crates','Crates','Asked how long it was necessary to philosophise, he answered: till our armies are no more commanded by fools. He is also named to place his brother Pasicles, the philosopher who laid his hand in the wrong place in petitioning a great man.','Crates'),
 ('heraclitus','Heraclitus','Who resigned the royalty to his brother, and told the Ephesians who reproached him with playing with children before the temple that it was better than sitting at the helm of affairs in their company. Commiserating the human condition, he appeared always with a sorrowful look and tears in his eyes, where Democritus found the same condition ridiculous and never appeared abroad but laughing. Montaigne is clearly for the laughing humour — not because laughing is pleasanter, but because it expresses the more contempt.','Heraclitus','supporting'),
@@ -1408,7 +1408,7 @@ for row in [
 ('bussaguet','The Sieur de Bussaguet','The last of the four brothers, and the only one of the family who made use of medicine — by reason, Montaigne supposes, of his concern with the other arts, being a councillor of Parliament — and it succeeded so ill with him that it visibly shortened his life.','Sieur de Bussaguet|Bussaguet','supporting'),
 ('hadrian','The Emperor Adrian','Who made his physician mark and encircle on his breast the mortal place where he was to be stabbed; who said that an emperor must die standing; and who, dying, continually exclaimed that the crowd of physicians had killed him. The modern edition writes him Hadrian.','',),
 ('nicocles','Nicocles','To whom a physician boasted that his art was of great authority: it is so indeed, said Nicocles, that can with impunity kill so many people.','',),
-('aesculapius','AEsculapius','The physicians’ patron, struck with thunder for restoring Hippolytus from death to life — and whose secret ceremonies Montaigne sets beside the physicians’ own closed consultations. The modern edition writes him Aesculapius.','AEsculapius|Aesculapius','reference','deity'),
+('aesculapius','AEsculapius','The physicians’ patron, struck with thunder for restoring Hippolytus from death to life — and whose secret ceremonies Montaigne sets beside the physicians’ own closed consultations. The modern edition writes him Aesculapius.','AEsculapius|Aesculapius|Asclepius','reference','deity'),
 ('hippolytus','Hippolytus','Whom AEsculapius restored from death to life, and was struck with thunder for it. Keyed rather than aliased: at 2:17 the same name is the title of Seneca’s play, and titles are not cast. The older edition prints him Hippolitus at 94:33.','',),
 ]:add(*row)
 
@@ -1577,8 +1577,45 @@ for row in [
 ('boreas','Boreas','The north wind, whose penetrable cold the vine-dresser guards his vines against in Virgil.','Boreas'),
 ]:add(*row)
 
-print(len(entities),'entities authored: chapters 1-105')
+# ========================= CHAPTER 106 — of physiognomy
+for row in [
+('agricola','Agricola','Whose mother Tacitus had reason to commend, Montaigne says, for having restrained her son in his too violent appetite for learning. Not the Agricola of 74:7, which is the title of the book.','',),
+('selim','Selim','The most cruel conqueror that ever was, in whose history Montaigne is astonished to find that when he subdued Egypt the beautiful gardens about Damascus were left untouched by his soldiers, standing open in a conquered land with his army encamped upon the very place, because they had not received the signal to plunder.','Selim'),
+('favonius','Favonius','Who said that not even the tyrannical usurpation of a commonwealth was worth a civil war — and whom Montaigne sets against the men whose ambition and revenge borrow the colour of justice.','Favonius'),
+('proserpina','Proserpine','Cruel Proserpine, who in Horace forbears no man’s head — the verse Montaigne sets over his own stone.','Proserpine'),
+('phryne','Phryne','Who would have lost her cause in the hands of an excellent advocate if, opening her robe, she had not corrupted her judges by the lustre of her beauty — Montaigne’s instance that beauty recommends itself first of all.','Phryne'),
+('chremes','Chremes','To whom the man in Terence answers that he had indeed had a son, before he lost him — the half-line Montaigne quotes for the force of a plain word. The Latin gives him in the vocative, Chreme.','Chremes'),
+('henry-of-navarre','Henry, king of Navarre','Afterwards Henry IV, and the young man of Virgil\u2019s line that the note beside 106:39 takes Montaigne to mean: forbid not, at least, that this young man repair this ruined age.','',),
+]:add(*row)
+
+# ========================= CHAPTER 107 — of experience
+for row in [
+('ferdinand-of-spain','King Ferdinand','Who, sending colonies to the Indies, wisely provided that they should carry no students of jurisprudence with them, for fear lest suits should get footing in that new world. Not the Ferdinand who made war about Buda on the widow of King John of Hungary.','',),
+('baldus','Baldus','With Bartolus, the commentator who perplexes Montaigne more than the doubtful text of Ulpian did — his instance that glosses multiply doubts instead of settling them.','Baldus'),
+('calepin','Calepin','Ambrogio da Calepio, the lexicographer whose polyglot dictionary became so famous that his name turned into the common word for one: to drive a respondent to the end of his Calepin is to drive him to the end of the dictionary.','Calepin'),
+('perrozet','Perrozet','The card-maker who, Montaigne says, cannot polish and blanch the backs of his cards so carefully that some gamester will not tell them apart by seeing them shuffled.','Perrozet'),
+('aristarchus','Aristarchus','Who said that anciently there were scarce seven sages to be found in the world, and in his time scarce so many fools.','Aristarchus'),
+('circe','Circe','Whose potion varies our nature as she pleases; and who, if she had offered Ulysses the two draughts — one to make a fool wise and one to make a wise man a fool — should, the philosophers say, have had the second chosen.','Circe'),
+('evenus','Evenus','Who said that fire was the best condiment of life.','Evenus'),
+('vascosan','Vascosan','One of the two printers whose shops Montaigne says it is no more to the purpose to borrow our proofs from than from what is to be seen in our own village.','Vascosan'),
+('plantin','Plantin','The other of them.','Plantin'),
+('andron','Andron','The Argian, of whom Aristotle says that he travelled over the arid sands of Lybia without drinking.','Andron'),
+('fernel','Fernel','One of the two physicians according to whom, Montaigne says drily, the humour changes with the climates and the moons.','Fernel'),
+('scaliger','Scaliger','The other of them.','Scaliger'),
+('quartilla','Quartilla','Who could not remember when she was a maid — with whose fortune Montaigne couples his own in the matter of remembering when he was well.','Quartilla'),
+('ctesiphon','Ctesiphon','Who undertook to kick with his mule, which is Montaigne’s figure for the folly of combating natural necessity.','Ctesiphon'),
+('theon','Theon','The philosopher who walked in his sleep, as Pericles’s servant did, and that upon the tiles and top of the house.','Theon'),
+('cheilonis','Cheilonis','Daughter and wife to kings of Sparta, whose fine humour Montaigne says he admires willingly: whilst her husband Cleombrotus prevailed she kept close to her banished father, and when he fell she followed her husband into exile.','Cheilonis'),
+('cranaus','Cranaus','King of Attica, said to have been the inventor of the custom of diluting wine. The editions print him Cranabs.','Cranabs|Cranaus'),
+('critolaus','Critolaus','By whose balance the pure pleasures and displeasures of the imagination were weighed against the body’s and found the greater. The older edition prints him Critolaiis.','Critolaus|Critolaiis'),
+('eudoxus','Eudoxus','Who wished and begged of the gods that he might once see the sun near at hand, to comprehend its form and greatness and beauty, though he should be burned for it; and who established the sovereign good in pleasure, and tasted it, with his companions, in its most charming sweetness by the means of a singular temperance. The older edition prints him Euxodus in the second place.','Eudoxus|Euxodus'),
+('archimedes','Archimedes','Master of the science that claims precedency over all others for truth and certainty, and who said that the sun is a god of red-hot iron — which Montaigne gives as a fine imagination extracted from necessity; and whose ecstasies he will not set above the pleasure a man takes in his own life.','Archimedes'),
+('ceres','Ceres','The goddess of corn, of whom, with Bacchus, Montaigne notes that in times past there were many parts of the world that had no knowledge at all; and one of the three the sour philosophers would have men refuse their light from.','Ceres'),
+('the-fates','The Fatal Sisters','Who untwist our lives so artificially, Montaigne says, that a man passes into decrepitude without feeling the thread drawn out.','the Fatal Sisters'),
+]:add(*row)
+
+print(len(entities),'entities authored: all 107 chapters')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-13.12',
- coverage='Both full English editions, chapters 1-105 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
+ contentVersion='2026-09-13.13',
+ coverage='Both full English editions, all 107 chapters. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

@@ -1,5 +1,5 @@
 """Focused checks for Montaigne's Essays.
-Chapters 1-105 of 107 are authored."""
+All 107 chapters are authored."""
 import unittest
 from build_essays_montaigne import compile_package
 
@@ -135,9 +135,9 @@ class EssaysMontaigne(unittest.TestCase):
         # -- the same king, and it is now bound. 69:268 and 107:53 have still not
         # been read and carry no card either way.
         for ed in ['original-en','modern-en']:
-            self.assertEqual(where(ed,'perseus-macedon'),[(5,0),(44,1)],ed)
+            self.assertEqual(where(ed,'perseus-macedon'),[(5,0),(44,1),(107,53)],ed)
             self.assertIn('Perseus of Macedon',said(ed,'perseus-macedon'),ed)
-            for k in [(69,268),(107,53)]:
+            for k in [(69,268)]:
                 self.assertNotIn('perseus-macedon',ids(ed,*k),(ed,k))
 
     def test_guelph_the_duke_is_not_guelph_the_faction(self):
@@ -230,8 +230,8 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual(w[0],(28,2),ed)
             self.assertLess(len(w),40,ed)
 
-    def test_only_the_first_hundred_and_five_chapters_are_authored(self):
-        self.assertIn('chapters 1-105 of 107',REPORT['scope'])
+    def test_the_report_counts_the_whole_work(self):
+        self.assertIn('all 107 chapters',REPORT['scope'])
         self.assertEqual(REPORT['editions']['original-en']['chapters'],107)
         self.assertEqual(REPORT['editions']['original-en']['paragraphs'],4897)
         self.assertEqual(REPORT['editions']['modern-en']['paragraphs'],4897)
@@ -382,7 +382,7 @@ class EssaysMontaigne(unittest.TestCase):
                               (69,238),(69,246),(69,268),(69,370),(69,401),
                               (69,414),(69,465),(69,613),(74,115),(98,25),
                               (99,133),(99,238),(99,240),(99,247),(99,248),
-                              (103,181),(104,71)],ed)
+                              (103,181),(104,71),(107,191)],ed)
 
     def test_the_three_men_called_scipio(self):
         # Pompey's father-in-law (18:12), the high priest in Cotta's list
@@ -392,7 +392,8 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual(where(ed,'publius-scipio-pontifex'),[(22,49)],ed)
             self.assertEqual(where(ed,'scipio-africanus'),
                              [(23,10),(25,51),(46,18),(47,19),(57,7),(62,18),(76,4),
-                              (85,0),(91,0),(103,143),(104,111)],ed)
+                              (85,0),(91,0),(103,143),(104,111),(106,121),
+                              (107,133),(107,198)],ed)
 
     def test_the_fourth_man_called_lepidus(self):
         # Livia's list of conspirators punished to no purpose supplies a fourth:
@@ -527,7 +528,7 @@ class EssaysMontaigne(unittest.TestCase):
                              [(25,103),(27,28),(50,7),(60,6),
                               (69,15),(69,74),(69,565),(69,579),(88,21),(90,15),
                               (94,3),(94,28),(95,32),(103,37),(103,242),
-                              (104,63)],ed)
+                              (104,63),(107,186)],ed)
 
     def test_the_two_spartans_called_cleomenes(self):
         for ed in ['original-en','modern-en']:
@@ -837,7 +838,7 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual([(44,0)],where(ed,'metellus-tribune'),ed)
             self.assertEqual([(48,47)],where(ed,'metellus-crete'),ed)
             self.assertEqual([(44,1),(58,0)],where(ed,'marius-younger'),ed)
-            self.assertEqual([(47,8),(66,13),(74,36),(102,83),(104,62)],
+            self.assertEqual([(47,8),(66,13),(74,36),(102,83),(104,62),(107,81)],
                              where(ed,'marius-elder'),ed)
 
     def test_the_two_men_called_cyrus(self):
@@ -984,7 +985,8 @@ class EssaysMontaigne(unittest.TestCase):
             # 95:5 is the modern edition alone, which names him where Cotton
             # writes "he".
             self.assertEqual([(59,13),(60,56),(65,39),(70,28),(74,94),(79,1),
-                              (94,66),(95,4),(97,38),(101,11),(102,84)],
+                              (94,66),(95,4),(97,38),(101,11),(102,84),
+                              (107,64),(107,65)],
                              [k for k in where(ed,'tiberius-emperor') if k!=(95,5)],ed)
 
     def test_the_god_of_wine_under_four_names(self):
@@ -1236,7 +1238,7 @@ class EssaysMontaigne(unittest.TestCase):
         # disciple, who is a third man under the same seven letters.
         for ed in ['original-en','modern-en']:
             self.assertEqual([(69,268)],where(ed,'persaeus'),ed)
-            self.assertEqual([(5,0),(44,1)],where(ed,'perseus-macedon'),ed)
+            self.assertEqual([(5,0),(44,1),(107,53)],where(ed,'perseus-macedon'),ed)
 
     def test_the_two_crassuses_of_the_apology(self):
         # The orator whose lamprey came when he called it at 69:87; the triumvir
@@ -2535,6 +2537,93 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual([],[c for c in ids(ed,105,54) if 'antigonus' in c],ed)
             self.assertEqual([],[c for c in ids(ed,105,9) if 'lefevre' in c],ed)
             self.assertIn((105,46),where(ed,'alexander'),ed)
+
+
+    def test_the_agricola_that_is_a_man(self):
+        # 74:7 is "Tacitus, Agricola", the title; 106:8 is the man whose mother
+        # Tacitus commends for restraining him. The fifth instance of the trap
+        # after Hippolytus, Agamemnon, Clinias and the list at 103:264.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(106,8)],where(ed,'agricola'),ed)
+            self.assertEqual([],[c for c in ids(ed,74,7) if 'agricola' in c],ed)
+
+    def test_the_two_kings_called_ferdinand(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(2,9)],where(ed,'ferdinand'),ed)
+            self.assertEqual([(107,9)],where(ed,'ferdinand-of-spain'),ed)
+
+    def test_circe_and_archimedes_and_ceres_reach_back(self):
+        # Three more cast nowhere until the last two chapters were read, each
+        # standing in the Apology, which has now been corrected four times.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(69,166),(107,72)],where(ed,'circe'),ed)
+            self.assertEqual([(69,370),(107,233)],where(ed,'archimedes'),ed)
+            self.assertEqual([(69,326),(107,191)],where(ed,'ceres'),ed)
+            self.assertEqual([(69,252),(107,202)],where(ed,'eudoxus'),ed)
+        self.assertIn('Euxodus',said('original-en','eudoxus'))
+        self.assertNotIn('Euxodus',said('modern-en','eudoxus'))
+
+    def test_the_quoted_verse_of_the_last_two_chapters(self):
+        # Proserpina in Horace's Latin at 106:69 against Proserpine in the
+        # version at 106:70; Chreme in Terence's at 106:126 against Chremes at
+        # 106:127. Both are spelt differently in the verse, so the version's
+        # spelling is the alias and the Latin needs no suppression.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(106,70)],where(ed,'proserpina'),ed)
+            self.assertEqual([(106,127)],where(ed,'chremes'),ed)
+            for k in [(106,69),(106,126)]:
+                self.assertEqual([],ids(ed,*k),(ed,k))
+
+    def test_the_last_chapters_new_cast(self):
+        for ed in ['original-en','modern-en']:
+            for cid,k in [('selim',(106,40)),('favonius',(106,41)),
+                          ('phryne',(106,121)),('perrozet',(107,4)),
+                          ('baldus',(107,16)),('aristarchus',(107,43)),
+                          ('evenus',(107,72)),('vascosan',(107,73)),
+                          ('plantin',(107,73)),('andron',(107,74)),
+                          ('fernel',(107,106)),('scaliger',(107,106)),
+                          ('quartilla',(107,99)),('ctesiphon',(107,122)),
+                          ('theon',(107,154)),('cheilonis',(107,166)),
+                          ('cranaus',(107,181)),('critolaus',(107,191)),
+                          ('the-fates',(107,184)),('henry-of-navarre',(106,39))]:
+                self.assertEqual([k],where(ed,cid),(ed,cid))
+            self.assertEqual([(107,22),(107,23)],where(ed,'calepin'),ed)
+            self.assertIn((107,16),where(ed,'bartolus'),ed)
+            self.assertIn((107,16),where(ed,'ulpian'),ed)
+            self.assertIn((107,166),where(ed,'pyrrhus-epirus'),ed)
+            self.assertIn((107,53),where(ed,'perseus-macedon'),ed)
+            self.assertIn((107,191),where(ed,'minerva'),ed)
+        self.assertIn('Critolaiis',said('original-en','critolaus'))
+        self.assertIn('Aulus Gelliusor',said('original-en','aulus-gellius'))
+        self.assertNotIn('Aulus Gelliusor',said('modern-en','aulus-gellius'))
+
+    def test_the_deliberate_gaps_of_the_last_two_chapters(self):
+        # Cato at 106:22 stands for the philosophers a peasant has not read, and
+        # at 107:196 one word names BOTH Catos at once -- "that inimitable
+        # emulation to virtue, which astonishes us both in the one and the other
+        # Cato" -- which no single binding can carry. "Philip, or some other" at
+        # 107:26 is Montaigne's own doubt about who did it. The Guelph of 106:51
+        # is the party and not the man, the Pseudo-Gallus of 107:88 and 107:121
+        # is an editorial doubt, and the Hydra's head at 107:24 and the Gordian
+        # knot are proverbs rather than cast.
+        for ed in ['original-en','modern-en']:
+            for k in [(106,22),(107,196)]:
+                self.assertEqual([],[c for c in ids(ed,*k) if 'cato' in c],(ed,k))
+            self.assertEqual([],[c for c in ids(ed,107,26) if 'philip' in c],ed)
+            self.assertEqual([],[c for c in ids(ed,106,51) if 'guelph' in c],ed)
+            for k in [(107,88),(107,121)]:
+                self.assertEqual([],[c for c in ids(ed,*k) if 'gallus' in c],(ed,k))
+            self.assertEqual([],[c for c in ids(ed,107,24) if 'hydra' in c],ed)
+            self.assertIn((106,3),where(ed,'cato-the-younger'),ed)
+
+    def test_the_whole_work_is_covered(self):
+        # The scope line is the package's claim, and this is the test that says
+        # what it now means: every one of the 107 chapters has been read.
+        self.assertIn('all 107 chapters',REPORT['scope'])
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([],REPORT['editions'][ed]['omittedEntities'],ed)
+            chapters={m['chapterNumber'] for m in mentions(ed)}
+            self.assertEqual(len(chapters),107,ed)
 
 
 if __name__=='__main__':unittest.main()

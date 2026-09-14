@@ -1,6 +1,6 @@
 {
-  "contentVersion": "2026-09-13.12",
-  "coverage": "Both full English editions, chapters 1-105 of 107. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.",
+  "contentVersion": "2026-09-13.13",
+  "coverage": "Both full English editions, all 107 chapters. Named persons, named animals, and the named classical gods; the Christian God, Nature and Fortune are deliberately not cast. Peoples, places, schools of philosophy, book titles and names used as names rather than as men are not cast.",
   "entities": [
     {
       "id": "montaigne",
@@ -3244,7 +3244,8 @@
       "body": "The compiler of the Attic Nights, through whom Pacuvius’s line about men who jabber philosophy and do nothing reaches the Essays. The older edition prints the citation in the accusative, Gellium.",
       "aliases": [
         "Gellium",
-        "Gellius"
+        "Gellius",
+        "Aulus Gelliusor"
       ],
       "category": "reference",
       "kind": "person",
@@ -11677,7 +11678,8 @@
       "body": "The physicians’ patron, struck with thunder for restoring Hippolytus from death to life — and whose secret ceremonies Montaigne sets beside the physicians’ own closed consultations. The modern edition writes him Aesculapius.",
       "aliases": [
         "AEsculapius",
-        "Aesculapius"
+        "Aesculapius",
+        "Asclepius"
       ],
       "category": "reference",
       "kind": "deity",
@@ -13117,6 +13119,351 @@
       "body": "The north wind, whose penetrable cold the vine-dresser guards his vines against in Virgil.",
       "aliases": [
         "Boreas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "agricola",
+      "name": "Agricola",
+      "body": "Whose mother Tacitus had reason to commend, Montaigne says, for having restrained her son in his too violent appetite for learning. Not the Agricola of 74:7, which is the title of the book.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "selim",
+      "name": "Selim",
+      "body": "The most cruel conqueror that ever was, in whose history Montaigne is astonished to find that when he subdued Egypt the beautiful gardens about Damascus were left untouched by his soldiers, standing open in a conquered land with his army encamped upon the very place, because they had not received the signal to plunder.",
+      "aliases": [
+        "Selim"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "favonius",
+      "name": "Favonius",
+      "body": "Who said that not even the tyrannical usurpation of a commonwealth was worth a civil war — and whom Montaigne sets against the men whose ambition and revenge borrow the colour of justice.",
+      "aliases": [
+        "Favonius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "proserpina",
+      "name": "Proserpine",
+      "body": "Cruel Proserpine, who in Horace forbears no man’s head — the verse Montaigne sets over his own stone.",
+      "aliases": [
+        "Proserpine"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phryne",
+      "name": "Phryne",
+      "body": "Who would have lost her cause in the hands of an excellent advocate if, opening her robe, she had not corrupted her judges by the lustre of her beauty — Montaigne’s instance that beauty recommends itself first of all.",
+      "aliases": [
+        "Phryne"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chremes",
+      "name": "Chremes",
+      "body": "To whom the man in Terence answers that he had indeed had a son, before he lost him — the half-line Montaigne quotes for the force of a plain word. The Latin gives him in the vocative, Chreme.",
+      "aliases": [
+        "Chremes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "henry-of-navarre",
+      "name": "Henry, king of Navarre",
+      "body": "Afterwards Henry IV, and the young man of Virgil’s line that the note beside 106:39 takes Montaigne to mean: forbid not, at least, that this young man repair this ruined age.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ferdinand-of-spain",
+      "name": "King Ferdinand",
+      "body": "Who, sending colonies to the Indies, wisely provided that they should carry no students of jurisprudence with them, for fear lest suits should get footing in that new world. Not the Ferdinand who made war about Buda on the widow of King John of Hungary.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "baldus",
+      "name": "Baldus",
+      "body": "With Bartolus, the commentator who perplexes Montaigne more than the doubtful text of Ulpian did — his instance that glosses multiply doubts instead of settling them.",
+      "aliases": [
+        "Baldus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "calepin",
+      "name": "Calepin",
+      "body": "Ambrogio da Calepio, the lexicographer whose polyglot dictionary became so famous that his name turned into the common word for one: to drive a respondent to the end of his Calepin is to drive him to the end of the dictionary.",
+      "aliases": [
+        "Calepin"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "perrozet",
+      "name": "Perrozet",
+      "body": "The card-maker who, Montaigne says, cannot polish and blanch the backs of his cards so carefully that some gamester will not tell them apart by seeing them shuffled.",
+      "aliases": [
+        "Perrozet"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aristarchus",
+      "name": "Aristarchus",
+      "body": "Who said that anciently there were scarce seven sages to be found in the world, and in his time scarce so many fools.",
+      "aliases": [
+        "Aristarchus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "circe",
+      "name": "Circe",
+      "body": "Whose potion varies our nature as she pleases; and who, if she had offered Ulysses the two draughts — one to make a fool wise and one to make a wise man a fool — should, the philosophers say, have had the second chosen.",
+      "aliases": [
+        "Circe"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "evenus",
+      "name": "Evenus",
+      "body": "Who said that fire was the best condiment of life.",
+      "aliases": [
+        "Evenus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vascosan",
+      "name": "Vascosan",
+      "body": "One of the two printers whose shops Montaigne says it is no more to the purpose to borrow our proofs from than from what is to be seen in our own village.",
+      "aliases": [
+        "Vascosan"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "plantin",
+      "name": "Plantin",
+      "body": "The other of them.",
+      "aliases": [
+        "Plantin"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "andron",
+      "name": "Andron",
+      "body": "The Argian, of whom Aristotle says that he travelled over the arid sands of Lybia without drinking.",
+      "aliases": [
+        "Andron"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fernel",
+      "name": "Fernel",
+      "body": "One of the two physicians according to whom, Montaigne says drily, the humour changes with the climates and the moons.",
+      "aliases": [
+        "Fernel"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "scaliger",
+      "name": "Scaliger",
+      "body": "The other of them.",
+      "aliases": [
+        "Scaliger"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "quartilla",
+      "name": "Quartilla",
+      "body": "Who could not remember when she was a maid — with whose fortune Montaigne couples his own in the matter of remembering when he was well.",
+      "aliases": [
+        "Quartilla"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ctesiphon",
+      "name": "Ctesiphon",
+      "body": "Who undertook to kick with his mule, which is Montaigne’s figure for the folly of combating natural necessity.",
+      "aliases": [
+        "Ctesiphon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "theon",
+      "name": "Theon",
+      "body": "The philosopher who walked in his sleep, as Pericles’s servant did, and that upon the tiles and top of the house.",
+      "aliases": [
+        "Theon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cheilonis",
+      "name": "Cheilonis",
+      "body": "Daughter and wife to kings of Sparta, whose fine humour Montaigne says he admires willingly: whilst her husband Cleombrotus prevailed she kept close to her banished father, and when he fell she followed her husband into exile.",
+      "aliases": [
+        "Cheilonis"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cranaus",
+      "name": "Cranaus",
+      "body": "King of Attica, said to have been the inventor of the custom of diluting wine. The editions print him Cranabs.",
+      "aliases": [
+        "Cranabs",
+        "Cranaus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "critolaus",
+      "name": "Critolaus",
+      "body": "By whose balance the pure pleasures and displeasures of the imagination were weighed against the body’s and found the greater. The older edition prints him Critolaiis.",
+      "aliases": [
+        "Critolaus",
+        "Critolaiis"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eudoxus",
+      "name": "Eudoxus",
+      "body": "Who wished and begged of the gods that he might once see the sun near at hand, to comprehend its form and greatness and beauty, though he should be burned for it; and who established the sovereign good in pleasure, and tasted it, with his companions, in its most charming sweetness by the means of a singular temperance. The older edition prints him Euxodus in the second place.",
+      "aliases": [
+        "Eudoxus",
+        "Euxodus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "archimedes",
+      "name": "Archimedes",
+      "body": "Master of the science that claims precedency over all others for truth and certainty, and who said that the sun is a god of red-hot iron — which Montaigne gives as a fine imagination extracted from necessity; and whose ecstasies he will not set above the pleasure a man takes in his own life.",
+      "aliases": [
+        "Archimedes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ceres",
+      "name": "Ceres",
+      "body": "The goddess of corn, of whom, with Bacchus, Montaigne notes that in times past there were many parts of the world that had no knowledge at all; and one of the three the sour philosophers would have men refuse their light from.",
+      "aliases": [
+        "Ceres"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "the-fates",
+      "name": "The Fatal Sisters",
+      "body": "Who untwist our lives so artificially, Montaigne says, that a man passes into decrepitude without feeling the thread drawn out.",
+      "aliases": [
+        "the Fatal Sisters"
       ],
       "category": "reference",
       "kind": "person",

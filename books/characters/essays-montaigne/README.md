@@ -1,22 +1,20 @@
-# Montaigne's Essays character package — IN PROGRESS
+# Montaigne's Essays character package
 
-**Chapters 1–105 of 107 are authored. The rest are not.** Status stays
-`in-progress` and the package must not be integrated until the whole work is
-covered.
+**All 107 chapters are authored.** Every chapter of both full English editions
+has been read, and the scope line says so.
 
-Current state: 1,104 entities authored, all 1,104 bound in both editions, 4,463
-and 4,605 exact mentions. Of those, 162 and 180 fall inside chapters 1–10, 205 and 209
+Current state: 1,133 entities authored, all 1,133 bound in both editions, 4,529
+and 4,672 exact mentions. Of those, 162 and 180 fall inside chapters 1–10, 205 and 209
 inside chapters 11–20, 344 and 357 inside chapters 21–25, 136 and 142 inside
 chapters 26–30, 256 and 264 inside chapters 31–40, 278 and 288 inside
 chapters 41–50, 271 and 279 inside chapters 51–60, 272 and 278 inside
-chapters 61–68, 594 and 600 inside chapter 69 alone, 157 and 159 inside
+chapters 61–68, 599 and 605 inside chapter 69 alone, 157 and 159 inside
 chapters 70–73, 214 and 218 inside chapters 74–80, 286 and 310 inside
 chapters 81–90, 385 and 404 inside chapters 91–98, 253 and 260 inside
 chapter 99 alone, 150 and 154 inside chapters 100–102, 162 and 162 inside
-chapter 103 alone, and 106 and 106 inside chapters 104–105; the rest — 227 and 231 —
-are later occurrences of names that belong to one man through the whole book:
-Cicero, Plato, Horace, Seneca, Socrates, Plutarch, Aristotle and the other
-authorities Montaigne quotes on every page. Content revision 2026-09-13.12.
+chapter 103 alone, 106 and 106 inside chapters 104–105, and 288 and 293 inside
+chapters 106–107. Nothing is left over: the mentions now fall inside chapters
+that have been read, from the first paragraph to the last. Content revision 2026-09-13.13.
 
 Chapter 69, the Apology for Raimond Sebond, is by itself the largest chapter in
 the work — 660 paragraphs, as much text as chapters 41–68 together, and more
@@ -149,6 +147,10 @@ this scale:
 | Perrete (104:107) | Perrette |
 | Matthew (74:120) | Matthias — a mistranslation, not a spelling |
 | Mahomet (104:61) | Mohammed |
+| AEsculapius (107:119, 107:124) | Asclepius |
+| Euxodus (107:202) | Eudoxus |
+| Critolaiis (107:191) | Critolaus |
+| Aulus Gelliusor (107:73) | Aulus Gellius or — a missing space, not a spelling |
 | Lachez (100:7) | Lachez — both editions, against *Laches* at 12:1 and 84:22 |
 
 Both spellings sit on one card, and a test pins every pair. The last row is the
@@ -409,6 +411,12 @@ ninety-eight chapters:
 | **`henri-de-guise`** | 104:60 | **`duc-de-guise`** of 45:0, 45:1 and 74:157, who commanded at Dreux. 15:5 is the town |
 | **`pan`** | 104:96 | **nothing — and that is the point.** The older edition prints *Panætius* with the ae-ligature at 69:239, and the word-boundary matcher treats a ligature as a boundary, so a bare *Pan* alias binds inside it. The god is keyed; the ligature spelling is an alias on Panaetius instead, which also closed a recorded asymmetry |
 | `lansac`, `matignon` | 104:10 | `biron`, the third of the mayors of Bordeaux named in that sentence |
+| **`agricola`** | 106:8 | **the title of Tacitus's book**, cited at 74:7. Keyed, not aliased — the fifth instance of the trap, after Hippolytus, Agamemnon, Clinias and the list at 103:264 |
+| **`ferdinand-of-spain`** | 107:9 | **`ferdinand`** of 2:9, who made war about Buda. This file predicted the split twenty passes before the chapter was read, and it was right |
+| `henry-of-navarre` | 106:39 | the six other men called Henry or Henri |
+| `eudoxus` | 69:252, 107:202 | himself: the older edition prints him *Euxodus* in the second place |
+| `critolaus` | 107:191 | himself: the older edition prints him *Critolaiis* |
+| `cranaus` | 107:181 | himself: both editions print him *Cranabs* |
 
 **Three of those were live mis-bindings the sweep caught**, not hypotheticals. The
 bare surname *Lepidus* was binding the man who died of a stumble at 19:24 to the
@@ -422,27 +430,49 @@ by tests.
 Francesco Taverna and Francesco Sforza in the same sentence and then calls
 Taverna "Messire Francesco". That phrase is keyed to Taverna.
 
-## How the unauthored chapters are handled
+## How the two binding mechanisms divide the work
 
-Every table has `None` for its default, so a name a later chapter will give to
-somebody else carries no card at all outside the paragraphs keyed here. A name
-that is single-referent across the whole work — the authorities and philosophers
-Montaigne quotes on every page — is bound by alias and therefore appears in
-chapters that have not been authored yet, with a card written to be true
-anywhere in the book rather than to gloss the paragraph it was first found in.
-Seventy-five entities bind beyond chapter 105 that way, and five of
-them — Socrates, Seneca, Plato, Cicero and Horace — account for nearly half of it. It
-is worth being plain about the size of this: 227 of the 4,463 mentions in the
-older edition fall in the two chapters that have not been read, one of them
-*Of experience*, the longest of the four that were left. Those are bindings of names with
-one bearer, and the cards are written to be true anywhere; but they are not
-reviewed paragraph by paragraph, and the release owner should read the scope line
-as covering the *cast*, not every mention of it.
+Every table has `None` for its default, so a name that means different men in
+different chapters carries no card at all outside the paragraphs keyed for it. A
+name that is single-referent across the whole work — the authorities and
+philosophers Montaigne quotes on every page — is bound by alias instead, with a
+card written to be true anywhere in the book rather than to gloss the paragraph
+it was first found in.
 
-## Editorial checks — chapters 1–105
+While chapters were still unread that division carried a risk, and this file used
+to say so: an alias reaches into chapters nobody has looked at. That risk is now
+spent — every chapter has been read — but the passes that closed it are worth
+recording, because the same risk will exist in the next book. **Fourteen entities were
+found cast nowhere at all in chapters that had already been signed off**, and
+every one of them was found by the same cheap act: listing all the occurrences of
+a new name across the whole work before deciding between an alias and a key.
 
-**1. Namesakes.** The two hundred and seventy-six entities in the table above —
-two hundred and eleven rows — each pinned by a test.
+| Found in the pass for | Standing uncast in | Who |
+|---|---|---|
+| chapter 74 | 69:268, 69:401 | Xenocrates, hidden by the *Zenocrates* misprint |
+| chapter 94 | 69:268 and after | the Muses and the Sirens, a whole class |
+| chapter 99 | 69:476, 69:268ff, 94:42 | Origen, Strato, Messalina |
+| chapters 101–102 | 69:613 | Philoxenus |
+| chapters 104–105 | 91:0, 69:574, 76:3 | Scipio Africanus, Metrocles, Voltaire |
+| chapters 106–107 | 69:166, 69:370, 69:326, 69:252 | Circe, Archimedes, Ceres, Eudoxus |
+
+Chapter 69, the Apology, appears in five of those six rows. It is the chapter
+this package corrected most often after declaring it done, and the reason is
+plain: it is the longest, the densest in names, and the one whose own pass had
+the least behind it.
+
+The same list is what catches the opposite error — a name that looks
+single-referent and is not. *Q. Cicero* at 99:315 had been binding to his
+brother; the bare *Petronius* at 91:33 would have gone to the arbiter; the
+Macedonian regent Antipater was taking Antipater of Tarsus; the tragedian
+Pacuvius was taking Pacuvius Calavius. **List the occurrences first. It is the
+first thing to do with a new name, and in four separate passes it was the only
+check that found anything.**
+
+## Editorial checks — the whole work
+
+**1. Namesakes.** The two hundred and eighty-two entities in the table above —
+two hundred and fifteen rows — each pinned by a test.
 
 **2. Person or not.** This is the check that does the most work in an essayist.
 Excluded:
@@ -652,6 +682,24 @@ Chapter 99 adds four, and one of them is the chapter's own hardest line:
   the authorship of an elegy, not a man — the same judgment already made at
   19:70. The Gallus of 99:232, set against Horace for speaking simply because he
   conceives simply, is the elegist and is bound.
+
+Chapters 106 and 107 add six, and one of them is a shape the package had not
+met before:
+
+- **Cato at 107:196.** "That inimitable emulation to virtue, which astonishes us
+  both in the one and the other Cato" — one word naming *both* men at once. No
+  single binding can carry it, and two bindings on one span is what the compiler
+  refuses. Left unbound, and recorded here because it is the only mention in the
+  whole work of that shape.
+- **Cato at 106:22**, where the peasants "neither know Aristotle nor Cato": a
+  name standing for a body of reading, with two bearers.
+- **"Philip, or some other" at 107:26** is Montaigne's own doubt about who did
+  it, and the package does not resolve a doubt the author states.
+- **The Guelph of 106:51** is the party, not the man — the mis-binding this
+  package caught in its first pass and has kept caught ever since.
+- **The Pseudo-Gallus of 107:88 and 107:121**, an editorial doubt about the
+  authorship of an elegy, as at 19:70 and in chapter 99.
+- **The Hydra's head at 107:24**, a proverb like the Gordian knot at 105:46.
 
 Chapters 104 and 105 add four:
 
@@ -961,6 +1009,10 @@ Pseudo-Gallus of 99:34, 99:95 and 99:257, and Achaemenes at 99:144, which is
 inside Horace's Latin and carries its card at 99:145 instead. That is the first
 pass in which the audit found nothing that needed fixing.
 
+Over chapters 106 and 107 it reported twenty-two, and sixteen were real — among
+them six Alexanders and six Caesars, in the two chapters where Montaigne returns
+to both men most often.
+
 Over chapters 104 and 105 it reported seventeen, and thirteen were real, among
 them the Diogenes the older edition misprints *Diogeries* at 104:63, which no
 spelling in the Diogenes table would have matched.
@@ -1014,6 +1066,12 @@ The **adjacency sweep** over chapters 81–90 produced forty-six hits, all sound
 *King Deiotarus*, *King Ptolemy*, *the Emperor Mauricius*, *the Emperor Mohammed*,
 *our late poor King Charles IX*, *the Praetor Lucius Piso*, *Caius Memmius* — and
 the range's **spot-read** of thirty-two mentions found no mis-binding.
+
+The **adjacency sweep** over chapters 106 and 107 produced twenty-two hits, all
+sound, and the two chapters' **spot-read** found no mis-binding. With the last
+chapter read, a fresh **whole-work spot-read** of forty mentions drawn at random
+from all 107 chapters and both editions was run, and every one of the forty was
+correct.
 
 The **adjacency sweep** over chapters 104 and 105 produced nine hits, all sound,
 and the range's **spot-read** of twenty-eight mentions found no mis-binding. The
@@ -1082,7 +1140,7 @@ Seneca's wife at 92:13. That is the second catch for the spot-read in twelve
 passes, and again it is the kind only reading the sentence finds.
 
 **6. Both editions independently.** No entity is missing from either edition. The
-mention counts differ by about three percent (4,463 against 4,605),
+mention counts differ by about three percent (4,529 against 4,672),
 partly because the modern edition resolves pronouns to names — it says *Dionysius*
 and *Scanderbeg* and *Betis* and *Ferdinand* where Cotton says *he* — and partly
 because it expands the citation abbreviations, so *Hor.* becomes *Horace* and
@@ -1174,56 +1232,65 @@ alias did not match, not because the man was somebody else.
 
 No edition byte was touched.
 
-## Remaining work
+## What is left, and what was learned
 
-- **Chapters 106 and 107.** Two chapters: 107 (*Of experience*, 240 paragraphs)
-  and 106 (*Of physiognomy*, 142).
-- **Run the edition-asymmetry census on every chapter already authored.** It was
-  written for chapter 69 and immediately found three gaps and one mis-binding in
-  chapters 17, 65 and 67, which eight passes of other checks had gone past. The
-  eighteen asymmetries it still reports over chapters 1–68 are the citation
-  abbreviations — *Hor.*, *Claud.*, *Quintil.*, *Lucret.*, *Propert.*, *Liv.*,
-  *Cic.* — which the modern edition expands and no alias in the older edition
-  matches. They are recorded, not repaired, but they should be read once more by
-  whoever finishes the book.
-- **Run the unbound-tabled-names audit before believing the tests** — enumerate
-  every `SPLIT` pattern against the new chapters rather than reading the mention
-  list, since a table with no key produces no mention to audit. It has now found
-  forty-two real gaps, thirteen of them in chapters 31–40 alone, and it is the
-  only check that would have caught any of them. Chapter 99 is the first pass in
-  which it came back with nothing to fix, which is what a finished table looks
-  like — but that is a result of running it eleven times before, not a reason to
-  skip it on chapter 100.
-- **Check whether the name already has a card before writing one.** Three entities
-  in the chapters 41–50 pass were written from a reading of the text when they were
-  already in the package — Heraclitus, Hegesias and Crates, all cast in chapters 24
-  and 25 — and the duplicate-id assertion in the compiler is what caught them. Grep
-  `author_content.py` for the id first; the census of unknown capitalised tokens
-  filters out names that already have an alias, so a name missing from the census
-  is a name that is already cast.
-- **Re-read what earlier passes claimed about unread chapters.** One namesake row
-  in this file was wrong for twenty chapters because it assigned 44:1 to the
-  Gorgon-slayer without reading it. Claims of the form "the X of chapter N is
-  another man" are only as good as the chapter having been read.
-- **Check the keys as well as the gaps.** Four keys in this pass matched nothing,
-  which is the same failure wearing the opposite mask. The guard test is in place;
-  run it, do not re-derive it.
-- **Every new card must stand alone.** Do not write "the other of them" and rely
-  on the neighbouring card; a reader gets one card at a time. And write the card
-  from the paragraph in front of you, not from memory of the story — three
-  rewrites in this pass were wrong on the first attempt for exactly that reason.
-- The names already tabled will need keys in every later chapter that uses them,
-  and their `None` defaults replaced only where a later man is actually carded.
-  The list that will need the most work is the one the Essays repeat most:
-  Alexander, Caesar, Pompey, Cato, Scipio, Cyrus, Dionysius, Antigonus, Ptolemy,
-  Darius, Philip, Charles, Henry, Francis.
-- Montaigne himself first binds at 28:2; his card is written for the whole book.
-- Then the six editorial checks over the whole work, a fresh whole-work
-  spot-read, a refreshed `omittedEntities`, and only then `validated-package`.
+Nothing is left to author. What follows is the part of this file worth carrying
+to the next book, and then the two items the release owner has to decide.
+
+**For the release owner.**
+
+- **The eighteen citation abbreviations are recorded, not repaired.** Over the
+  whole work forty-one bindings still fall in one edition and not the other. Every
+  one has been read and classed, and they are of exactly three kinds: the older
+  edition's abbreviations (*Hor.*, *Claud.*, *Quintil.*, *Lucret.*, *Propert.*,
+  *Liv.*, *Cic.*, *Mart.*, *Aug.*), which the modern edition expands to the
+  author's name; the modern edition's pronoun resolutions, where Cotton writes
+  *he* and the modern edition writes *Caesar*, *Socrates*, *Tacitus*, *Seneca*;
+  and three places where the two translations genuinely differ (70:35, 73:64,
+  99:72). None of them is a wrong card. Closing the first kind would mean adding
+  the abbreviation as an alias on each of nine authors; it was not done because an
+  abbreviation is not a name, and the release owner may reasonably decide the
+  other way.
+- **Fortune.** She is deliberately not cast, with the Christian God, Nature,
+  Christ and Satan. Chapter 33 personifies her throughout and so does chapter 69.
+  This is the one scope decision in the package a reader might disagree with, and
+  it is the release owner's to change.
+
+**For whoever authors the next book.** In order of how much each one caught:
+
+1. **List every occurrence of a name across the whole work before choosing
+   between an alias and a key.** It found eleven men cast nowhere in chapters
+   already signed off, and stopped four mis-bindings before the first build. It is
+   cheap and it is first.
+2. **Run the unkeyed-table audit** — enumerate every `SPLIT` pattern against the
+   new chapters rather than reading the mention list, because a table with no key
+   produces no mention for any other check to see. It found two hundred and
+   fifty-six real gaps over the book.
+3. **Run the edition-asymmetry census, and run it again over chapters already
+   declared done.** It closed chapter 69, and it went on finding gaps in signed-off
+   chapters for the rest of the book.
+4. **Run the adjacency sweep.** It is the only check that can see a right name on
+   a wrong referent: *Philip Augustus*, *Marcus Aurelius*, *De La Montaigne*,
+   *building at Montaigne*, *Montaigne College*.
+5. **Read a random sample of the bindings as sentences.** Two mis-bindings in
+   the whole book were of a kind only reading could catch — the planet Mercury on
+   "the epicycle of Mercury" at 74:9, and Seneca's wife Paulina on the woman of
+   the Serapis story at 92:13 — and no audit would have found either.
+6. **Titles are the trap that kept recurring.** Hippolytus, Agamemnon, Clinias,
+   Agricola, the *Life of Antony*, the *Life of Paulus Emilius*, the *Lives of
+   Flamininus and Pyrrhus*, the *Daemon of Socrates*, and the list of five at
+   103:264. A book named for a man is not the man; key those, never alias.
+7. **Every card must stand alone.** A reader gets one card at a time and no
+   neighbours. `test_no_card_is_a_bare_cross_reference` enforces it and has caught
+   cards in three separate passes.
+8. **Watch the ligatures.** The older edition sets *Panætius*, *Scævola*,
+   *AEsculapius*, *AEgisthus*. A word-boundary matcher treats a ligature as a
+   boundary, so a short alias can bind *inside* a longer name — *Pan* inside
+   *Panætius*. Key, do not alias, when a short name could sit inside a long one.
 
 ## Validation
 
 `python3 books/characters/build_essays_montaigne.py --check`, then
 `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Two hundred and
-seventy-eight focused tests so far. No edition changes, no network generation, no API spend: every card
+eighty-five focused tests. No edition changes, no network generation, no API spend: every card
 here was written in the authoring conversation and committed as a file.

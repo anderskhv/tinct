@@ -4417,3 +4417,119 @@ Whose shoe fits all feet, which is Montaigne’s figure for an understanding so 
 ## Boreas · reference
 
 The north wind, whose penetrable cold the vine-dresser guards his vines against in Virgil.
+
+## Agricola · reference
+
+Whose mother Tacitus had reason to commend, Montaigne says, for having restrained her son in his too violent appetite for learning. Not the Agricola of 74:7, which is the title of the book.
+
+## Selim · reference
+
+The most cruel conqueror that ever was, in whose history Montaigne is astonished to find that when he subdued Egypt the beautiful gardens about Damascus were left untouched by his soldiers, standing open in a conquered land with his army encamped upon the very place, because they had not received the signal to plunder.
+
+## Favonius · reference
+
+Who said that not even the tyrannical usurpation of a commonwealth was worth a civil war — and whom Montaigne sets against the men whose ambition and revenge borrow the colour of justice.
+
+## Proserpine · reference
+
+Cruel Proserpine, who in Horace forbears no man’s head — the verse Montaigne sets over his own stone.
+
+## Phryne · reference
+
+Who would have lost her cause in the hands of an excellent advocate if, opening her robe, she had not corrupted her judges by the lustre of her beauty — Montaigne’s instance that beauty recommends itself first of all.
+
+## Chremes · reference
+
+To whom the man in Terence answers that he had indeed had a son, before he lost him — the half-line Montaigne quotes for the force of a plain word. The Latin gives him in the vocative, Chreme.
+
+## Henry, king of Navarre · reference
+
+Afterwards Henry IV, and the young man of Virgil’s line that the note beside 106:39 takes Montaigne to mean: forbid not, at least, that this young man repair this ruined age.
+
+## King Ferdinand · reference
+
+Who, sending colonies to the Indies, wisely provided that they should carry no students of jurisprudence with them, for fear lest suits should get footing in that new world. Not the Ferdinand who made war about Buda on the widow of King John of Hungary.
+
+## Baldus · reference
+
+With Bartolus, the commentator who perplexes Montaigne more than the doubtful text of Ulpian did — his instance that glosses multiply doubts instead of settling them.
+
+## Calepin · reference
+
+Ambrogio da Calepio, the lexicographer whose polyglot dictionary became so famous that his name turned into the common word for one: to drive a respondent to the end of his Calepin is to drive him to the end of the dictionary.
+
+## Perrozet · reference
+
+The card-maker who, Montaigne says, cannot polish and blanch the backs of his cards so carefully that some gamester will not tell them apart by seeing them shuffled.
+
+## Aristarchus · reference
+
+Who said that anciently there were scarce seven sages to be found in the world, and in his time scarce so many fools.
+
+## Circe · reference
+
+Whose potion varies our nature as she pleases; and who, if she had offered Ulysses the two draughts — one to make a fool wise and one to make a wise man a fool — should, the philosophers say, have had the second chosen.
+
+## Evenus · reference
+
+Who said that fire was the best condiment of life.
+
+## Vascosan · reference
+
+One of the two printers whose shops Montaigne says it is no more to the purpose to borrow our proofs from than from what is to be seen in our own village.
+
+## Plantin · reference
+
+The other of them.
+
+## Andron · reference
+
+The Argian, of whom Aristotle says that he travelled over the arid sands of Lybia without drinking.
+
+## Fernel · reference
+
+One of the two physicians according to whom, Montaigne says drily, the humour changes with the climates and the moons.
+
+## Scaliger · reference
+
+The other of them.
+
+## Quartilla · reference
+
+Who could not remember when she was a maid — with whose fortune Montaigne couples his own in the matter of remembering when he was well.
+
+## Ctesiphon · reference
+
+Who undertook to kick with his mule, which is Montaigne’s figure for the folly of combating natural necessity.
+
+## Theon · reference
+
+The philosopher who walked in his sleep, as Pericles’s servant did, and that upon the tiles and top of the house.
+
+## Cheilonis · reference
+
+Daughter and wife to kings of Sparta, whose fine humour Montaigne says he admires willingly: whilst her husband Cleombrotus prevailed she kept close to her banished father, and when he fell she followed her husband into exile.
+
+## Cranaus · reference
+
+King of Attica, said to have been the inventor of the custom of diluting wine. The editions print him Cranabs.
+
+## Critolaus · reference
+
+By whose balance the pure pleasures and displeasures of the imagination were weighed against the body’s and found the greater. The older edition prints him Critolaiis.
+
+## Eudoxus · reference
+
+Who wished and begged of the gods that he might once see the sun near at hand, to comprehend its form and greatness and beauty, though he should be burned for it; and who established the sovereign good in pleasure, and tasted it, with his companions, in its most charming sweetness by the means of a singular temperance. The older edition prints him Euxodus in the second place.
+
+## Archimedes · reference
+
+Master of the science that claims precedency over all others for truth and certainty, and who said that the sun is a god of red-hot iron — which Montaigne gives as a fine imagination extracted from necessity; and whose ecstasies he will not set above the pleasure a man takes in his own life.
+
+## Ceres · reference
+
+The goddess of corn, of whom, with Bacchus, Montaigne notes that in times past there were many parts of the world that had no knowledge at all; and one of the three the sour philosophers would have men refuse their light from.
+
+## The Fatal Sisters · reference
+
+Who untwist our lives so artificially, Montaigne says, that a man passes into decrepitude without feeling the thread drawn out.
