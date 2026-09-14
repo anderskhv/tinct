@@ -2422,6 +2422,7 @@ export const DESCARTES_MEDITATIONS: Book = {
       translator: 'John Veitch',
       year: 1901,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',
