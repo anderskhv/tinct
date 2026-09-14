@@ -111,8 +111,8 @@ test('removing the bridge preserves the absolute duration of every product demon
 });
 
 test('the new stylesheet and module entry use one cache version', () => {
-  assert.match(html, /about-v21\.css\?v=middle-20260914/);
-  assert.match(html, /index-D9hLDidQ\.js\?v=middle-20260914/);
+  assert.match(html, /about-v21\.css\?v=copy-20260914/);
+  assert.match(html, /index-D9hLDidQ\.js\?v=copy-20260914/);
   const entry = readFileSync(publicDir + 'assets/about-v20/_next/static/chunks/index-D9hLDidQ.js', 'utf8');
-  assert.match(entry, /scroll-story-BQLclMWW\.js\?v=middle-20260914/);
+  assert.match(entry, /scroll-story-BQLclMWW\.js\?v=copy-20260914/);
 });
