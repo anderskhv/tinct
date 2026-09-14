@@ -106,9 +106,13 @@ export function libraryModeFor(list: Pick<ReadingList, 'readingNow' | 'finished'
   return list && (list.readingNow.length > 0 || list.finished.length > 0) ? 'returning' : 'new'
 }
 
-/** "Last time you read · Genesis 1" — the chapter label of the place Continue resumes in. */
-export function recapEyebrow(chapterLabel: string): string {
-  return `Last time you read · ${chapterLabel}`
+/** Relative age of the actual reading record, never the library snapshot's paint time.
+ * Mirrored by the dependency-free first paint in public/lab/library-boot.js.
+ */
+export function recapEyebrow(lastReadAt: number | null | undefined, now = Date.now()): string {
+  if (typeof lastReadAt !== 'number' || !Number.isFinite(lastReadAt) || lastReadAt <= 0 || lastReadAt > now + 60_000) return 'Last time you read: —'
+  const days = Math.floor(Math.max(0, now - lastReadAt) / 86_400_000)
+  return `Last time you read: ${days === 0 ? 'today' : days === 1 ? 'yesterday' : `${days} days ago`}`
 }
 
 /** "Chapter 1 — Loomings" → "Chapter 1"; labels the reader already shows, unchanged otherwise. */

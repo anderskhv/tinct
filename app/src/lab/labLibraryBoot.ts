@@ -31,6 +31,8 @@ export interface LabLibraryBootHero {
   /** The chapter Continue resumes in, as the library labels it ("Proverbs 17", "Book 3"). */
   chapterLabel: string
   headline: string
+  /** Actual reading activity; absent in older snapshots. */
+  lastReadAt?: number | null
   coverSrc: string | null
   coverSrcSet: string | null
   /** "12% read", when known. */
@@ -106,6 +108,7 @@ export function parseLabLibraryBootSnapshot(raw: unknown, now = Date.now()): Lab
       title,
       chapterLabel,
       headline,
+      ...(typeof h.lastReadAt === 'number' && Number.isFinite(h.lastReadAt) && h.lastReadAt > 0 && h.lastReadAt <= now + 60_000 ? { lastReadAt: h.lastReadAt } : {}),
       coverSrc: safeCoverSource(h.coverSrc),
       coverSrcSet: safeCoverSource(h.coverSrc) ? text(h.coverSrcSet, 4_000) : null,
       note: text(h.note, 40),
@@ -180,6 +183,7 @@ export function snapshotWithReaderPlace(existing: LabLibraryBootSnapshot | null,
     bookId: input.bookId,
     title: input.title,
     chapterLabel: input.chapterLabel,
+    lastReadAt: input.now,
     headline: sameChapter && base?.hero ? base.hero.headline : stoppedInHeadline(input.chapterLabel),
     coverSrc: sameBook && base?.hero ? base.hero.coverSrc : fromRow?.coverSrc ?? null,
     coverSrcSet: sameBook && base?.hero ? base.hero.coverSrcSet : fromRow?.coverSrcSet ?? null,

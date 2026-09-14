@@ -70,12 +70,12 @@ describe('boot snapshot', () => {
 
   it('folds the reader place in: same chapter keeps the headline, another chapter gets the location line', () => {
     const same = snapshotWithReaderPlace(snapshot(), { userId: 'user-a', bookId: 'bible', title: 'The Bible', chapterLabel: 'Proverbs 17', now: NOW })
-    expect(same.hero).toEqual(snapshot().hero)
+    expect(same.hero).toEqual({ ...snapshot().hero, lastReadAt: NOW })
     expect(same.readingNow).toBe(2)
     expect(same.at).toBe(NOW)
 
     const moved = snapshotWithReaderPlace(snapshot(), { userId: 'user-a', bookId: 'bible', title: 'The Bible', chapterLabel: 'Hebrews 3', now: NOW })
-    expect(moved.hero).toEqual({ bookId: 'bible', title: 'The Bible', chapterLabel: 'Hebrews 3', headline: 'You stopped in Hebrews 3', coverSrc: '/covers/bible.jpg', coverSrcSet: '/covers/bible.jpg 1x', note: null })
+    expect(moved.hero).toEqual({ bookId: 'bible', title: 'The Bible', chapterLabel: 'Hebrews 3', headline: 'You stopped in Hebrews 3', lastReadAt: NOW, coverSrc: '/covers/bible.jpg', coverSrcSet: '/covers/bible.jpg 1x', note: null })
     expect(moved.readingNow).toBe(2)
 
     // A book that was on the row steps up: its cover comes with it, the old

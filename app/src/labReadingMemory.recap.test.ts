@@ -220,7 +220,7 @@ describe('recap hero: a short absence is not summarised', () => {
     expect(section.querySelector('[data-testid=lab-recap-headline]')!.textContent).toBe('You’re in the middle of Proverbs 17')
     // The book's title leads the caption; it is not a stray line under the summary.
     expect([...section.querySelectorAll('[data-now-caption] > *')].map(node => node.getAttribute('data-testid') ?? node.className.split(' ')[0]))
-      .toEqual(['lab-recap-book', 'lab-recap-eyebrow', 'lab-recap-headline', 'lab-recap-summary', 'lib-now-cta'])
+      .toEqual(['lab-recap-book', 'lab-recap-headline', 'lab-recap-eyebrow', 'lab-recap-summary', 'lib-now-cta'])
     expect(section.querySelector('[data-testid=lab-recap-book]')!.textContent).toBe('The Bible')
     expect(section.dataset.summaryLine).toBe('recent')
     expect(recapCalls).toEqual([])
@@ -295,10 +295,9 @@ describe('back out of the book\u2019s own reader', () => {
       .toBe('You\u2019re in the middle of Proverbs 17')
     expect(section.dataset.summaryLine).toBe('from-reader')
     expect(recapCalls).toEqual([])
-    // Nothing is going to arrive, so the block is not on the page at all —
-    // and lab/library-boot.js leaves it out for the same reason, so the two
-    // paints are the same height.
-    expect(section.querySelector('[data-testid=lab-recap-summary]')).toBeNull()
+    // No recap is generated or shown, but its reserved empty slot remains
+    // identical to the first paint and to books with a cached recap.
+    expect(section.querySelector<HTMLButtonElement>('[data-testid=lab-recap-summary]')?.hidden).toBe(true)
   })
 
   it('does not even show a summary this device already cached for that place', async () => {
@@ -312,7 +311,7 @@ describe('back out of the book\u2019s own reader', () => {
       positionState([biblePlace(ago(3 * DAY))], 'proverbs'),
     )
     expect(section.dataset.summaryLine).toBe('from-reader')
-    expect(section.querySelector('[data-testid=lab-recap-summary]')).toBeNull()
+    expect(section.querySelector<HTMLButtonElement>('[data-testid=lab-recap-summary]')?.hidden).toBe(true)
     expect(recapCalls).toEqual([])
   })
 
@@ -466,17 +465,36 @@ describe('the so-far block opens and closes', () => {
     block.dataset.expandable = 'true'
     block.disabled = false
     block.setAttribute('aria-expanded', 'false')
-    block.querySelector('.lib-recap-summary-more')!.textContent = 'More'
+    block.querySelector('.lib-recap-summary-more')!.textContent = 'Expand'
 
     block.click()
     expect(block.classList.contains('is-open')).toBe(true)
     expect(block.getAttribute('aria-expanded')).toBe('true')
-    expect(block.querySelector('.lib-recap-summary-more')!.textContent).toBe('Less')
+    expect(block.querySelector('.lib-recap-summary-more')!.textContent).toBe('Collapse')
 
     block.click()
     expect(block.classList.contains('is-open')).toBe(false)
     expect(block.getAttribute('aria-expanded')).toBe('false')
-    expect(block.querySelector('.lib-recap-summary-more')!.textContent).toBe('More')
+    expect(block.querySelector('.lib-recap-summary-more')!.textContent).toBe('Expand')
+  })
+
+  it('keeps an expanded cached recap closable after a same-caption refresh and resize', async () => {
+    const section = await renderWithSummary()
+    const block = heroSummary(section)
+    block.dataset.expandable = 'true'
+    block.disabled = false
+    block.click()
+    window.dispatchEvent(new Event('focus'))
+    await flush()
+    window.dispatchEvent(new Event('resize'))
+    await vi.advanceTimersByTimeAsync(30)
+    expect(heroSummary(section)).toBe(block)
+    expect(block.classList.contains('is-open')).toBe(true)
+    expect(block.disabled).toBe(false)
+    expect(block.getAttribute('aria-expanded')).toBe('true')
+    expect(block.querySelector('.lib-recap-summary-more')!.textContent).toBe('Collapse')
+    block.click()
+    expect(block.getAttribute('aria-expanded')).toBe('false')
   })
 
   it('does nothing when there is no more of it to show', async () => {
@@ -732,7 +750,7 @@ describe('recap hero: "N% read" under Continue', () => {
 describe('recap covers do not flicker', () => {
   /** The DOM lab/library-boot.js paints from its snapshot: one hero card, its cover already showing. */
   function mountBootShell(bookId: string, title: string, coverSrc: string) {
-    document.body.innerHTML = `<div id="tinct-onboarding-worlds-v5"><section class="lib-recap" data-reading-memory-recap data-boot-recap="snapshot" aria-busy="true"><section class="lib-reading-now" data-reading-now-section aria-label="Reading now"><header class="lib-index-head lib-sec-head" data-reading-now-head><span class="lib-eyebrow is-dim">Reading now</span><span class="lib-cnt">2</span></header><div class="lib-now-shelf is-single" data-now-shelf><div class="lib-now-item is-focused" data-now-index="0" data-now-book="${bookId}"><button type="button" class="lib-now-open" data-recap-open="${bookId}"><span class="lib-cover"><img src="${coverSrc}" srcset="${coverSrc} 1x" alt="" decoding="async"></span></button><button type="button" class="lib-now-remove" data-now-remove="${bookId}" aria-label="Remove ${title} from currently reading">×</button></div></div><div class="lib-now-caption" data-now-caption><p class="lib-lede">${title}</p><p class="lib-eyebrow">Last time you read · Book I</p><h1 class="lib-h1">You stopped in Book I</h1></div></section></section></div>`
+    document.body.innerHTML = `<div id="tinct-onboarding-worlds-v5"><section class="lib-recap" data-reading-memory-recap data-boot-recap="snapshot" aria-busy="true"><section class="lib-reading-now" data-reading-now-section aria-label="Reading now"><header class="lib-index-head lib-sec-head" data-reading-now-head><span class="lib-eyebrow is-dim">Reading now</span><span class="lib-cnt">2</span></header><div class="lib-now-shelf is-single" data-now-shelf><div class="lib-now-item is-focused" data-now-index="0" data-now-book="${bookId}"><button type="button" class="lib-now-open" data-recap-open="${bookId}"><span class="lib-cover"><img src="${coverSrc}" srcset="${coverSrc} 1x" alt="" decoding="async"></span></button><button type="button" class="lib-now-remove" data-now-remove="${bookId}" aria-label="Remove ${title} from currently reading">×</button></div></div><div class="lib-now-caption" data-now-caption><p class="lib-lede">${title}</p><p class="lib-h1">You stopped in Book I</p><p class="lib-eyebrow">Last time you read: today</p></div></section></section></div>`
   }
 
   /** Every card added or removed under the section, and every time it was hidden. */

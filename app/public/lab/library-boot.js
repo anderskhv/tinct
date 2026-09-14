@@ -163,7 +163,7 @@
       var h = raw.hero
       var bookId = str(h.bookId, 80), title = str(h.title, 200), chapterLabel = str(h.chapterLabel, 200), headline = str(h.headline, 600)
       if (!bookId || !title || !chapterLabel || !headline) return null
-      hero = { bookId: bookId, title: title, chapterLabel: chapterLabel, headline: headline, coverSrc: safeSrc(h.coverSrc), coverSrcSet: safeSrc(h.coverSrc) ? str(h.coverSrcSet, 4000) : null, note: str(h.note, 40) }
+      hero = { bookId: bookId, title: title, chapterLabel: chapterLabel, headline: headline, lastReadAt: h.lastReadAt, coverSrc: safeSrc(h.coverSrc), coverSrcSet: safeSrc(h.coverSrc) ? str(h.coverSrcSet, 4000) : null, note: str(h.note, 40) }
     }
     var count = function (v) { return typeof v === 'number' && v >= 0 && v <= 10000 ? Math.floor(v) : 0 }
     // The cards after the hero (src/lab/labLibraryBoot.ts `row`): same
@@ -281,6 +281,13 @@
     return block
   }
 
+  // Same wording/validation as preReader/libraryRecap.ts recapEyebrow.
+  function lastReadLabel(at) {
+    var now = Date.now()
+    if (typeof at !== 'number' || !isFinite(at) || at <= 0 || at > now + 60000) return 'Last time you read: —'
+    var days = Math.floor(Math.max(0, now - at) / 86400000)
+    return 'Last time you read: ' + (days === 0 ? 'today' : days === 1 ? 'yesterday' : days + ' days ago')
+  }
   function sectionHead(label, count, attr) {
     var head = el('header', 'lib-index-head lib-sec-head')
     head.setAttribute(attr, '')
@@ -333,18 +340,11 @@
     caption.setAttribute('data-now-caption', '')
     if (hero) {
       section.setAttribute('data-boot-recap', 'snapshot')
-      // Title first, then the chapter eyebrow and the headline — the order
-      // nowCaptionMarkup in src/labReadingMemory.ts renders.
+      // Same stable caption geometry as the confirmed library render.
       caption.appendChild(el('p', 'lib-lede', hero.title))
-      caption.appendChild(el('p', 'lib-eyebrow', 'Last time you read · ' + hero.chapterLabel))
-      caption.appendChild(el('h1', 'lib-h1', hero.headline))
-      // The reserved "so far" block — three lines, empty. src/labReadingMemory.ts
-      // renders the same block a moment later and fades the text into it;
-      // painting it here too means the confirmed render is the same height as
-      // this one, and coming back from the reader does not shove the page
-      // down. It is left out entirely in the one case both paints can already
-      // answer: straight back out of this book's reader, no summary coming.
-      if (!state.noRecapSummary) caption.appendChild(summaryBlock())
+      caption.appendChild(el('p', 'lib-h1', hero.headline))
+      caption.appendChild(el('p', 'lib-eyebrow', lastReadLabel(hero.lastReadAt)))
+      caption.appendChild(summaryBlock())
       var cta = el('div', 'lib-now-cta')
       var button = el('button', 'lib-cta', 'Continue reading')
       button.type = 'button'
@@ -359,8 +359,8 @@
       // Same order as the snapshot paint, so the bars reserve the lines
       // where the text will land.
       caption.appendChild(el('p', 'lib-lede lib-boot-bar'))
+      caption.appendChild(el('p', 'lib-h1 lib-boot-bar'))
       caption.appendChild(el('p', 'lib-eyebrow lib-boot-bar'))
-      caption.appendChild(el('h1', 'lib-h1 lib-boot-bar'))
       caption.appendChild(summaryBlock())
       var skCta = el('div', 'lib-now-cta')
       var skButton = el('button', 'lib-cta', 'Continue reading')

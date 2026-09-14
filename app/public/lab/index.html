@@ -26,7 +26,7 @@
     button, input { -webkit-tap-highlight-color: transparent; }
 
 </style>
-  <script src="/lab/library-boot.js?v=20260911-3"></script>
+  <script src="/lab/library-boot.js?v=20260914-1"></script>
   <!-- Recent readers can leave for /reader without waiting for the library's font stylesheet. -->
   <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   <style>
@@ -1072,23 +1072,23 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-recap[hidden] { display:none; }
   #tinct-onboarding-worlds-v5 .lib-recap { display:flex; flex-direction:column; gap:44px; }
   #tinct-onboarding-worlds-v5 .lib-reading-now,#tinct-onboarding-worlds-v5 .lib-finished { display:flex; flex-direction:column; gap:22px; }
-  /* Optional recaps stay hidden until text is available. A slow or absent
-     summary must not leave a blank hole above Continue reading. */
+  /* The collapsed preview always occupies three lines and an affordance row.
+     Empty, loading and unavailable recaps retain identical geometry. */
   #tinct-onboarding-worlds-v5 .lib-recap-summary { --lib-recap-lines:3; display:flex; flex-direction:column; align-items:flex-start; gap:4px; width:100%; margin:0; padding:0; border:0; background:none; text-align:left; font-family:inherit; color:var(--lib-lede); max-width:52ch; }
-  #tinct-onboarding-worlds-v5 .lib-recap-summary[hidden] { display:none; }
+  #tinct-onboarding-worlds-v5 .lib-recap-summary[hidden] { display:flex!important; visibility:hidden; pointer-events:none; }
   #tinct-onboarding-worlds-v5 .lib-recap-summary-text { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--lib-recap-lines); overflow:hidden; width:100%; height:calc(var(--lib-recap-lines) * 1.5em); font-size:16.5px; line-height:1.5; color:var(--lib-lede); opacity:0; transition:opacity .28s ease,height .3s cubic-bezier(.2,.7,.2,1); }
   #tinct-onboarding-worlds-v5 .lib-recap-summary.is-shown .lib-recap-summary-text { opacity:1; }
   #tinct-onboarding-worlds-v5 .lib-recap-summary.is-open .lib-recap-summary-text { -webkit-line-clamp:unset; height:auto; }
   /* The affordance keeps its row whether or not it has a word in it, so a
      summary that turns out to be short does not change the block's height. */
-  #tinct-onboarding-worlds-v5 .lib-recap-summary-more { min-height:16px; font-family:var(--lib-mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--lib-muted); }
+  #tinct-onboarding-worlds-v5 .lib-recap-summary-more { min-height:24px; font-family:var(--lib-sans); font-size:14px; line-height:24px; letter-spacing:0; text-transform:none; text-decoration:underline; text-underline-offset:3px; color:var(--lib-muted); }
   #tinct-onboarding-worlds-v5 .lib-recap-summary:hover .lib-recap-summary-more { color:var(--lib-cream); }
   #tinct-onboarding-worlds-v5 .lib-recap-summary[disabled] { cursor:default; }
   @media (prefers-reduced-motion:reduce) {
     #tinct-onboarding-worlds-v5 .lib-recap-summary-text { transition:none; }
   }
   #tinct-onboarding-worlds-v5 .lib .lib-cta { display:inline-flex; align-items:center; justify-content:center; font-family:var(--lib-sans); font-size:16px; font-weight:500; color:var(--lib-cta-fg); background:var(--lib-cta-bg); border-radius:999px; padding:13px 26px; line-height:1.2; white-space:nowrap; }
-  #tinct-onboarding-worlds-v5 .lib-cta-note { display:none; font-family:var(--lib-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--lib-muted); }
+  #tinct-onboarding-worlds-v5 .lib-cta-note { display:none; font-family:var(--lib-sans); font-size:14px; letter-spacing:0; text-transform:none; color:var(--lib-muted); }
   #tinct-onboarding-worlds-v5 .lib-recap-others { border-top:1px solid var(--lib-rule-strong); }
   #tinct-onboarding-worlds-v5 .lib-recap-others:empty { display:none; }
   #tinct-onboarding-worlds-v5 .lib-finished .lib-recap-others { border-top:0; }
@@ -1325,7 +1325,9 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   /* Returning reader: every card in the same quiet style, in a row that
      scrolls like the popular one. No amber, no per-card summary — the summary
      belongs to the book in the middle. */
-  #tinct-onboarding-worlds-v5 .lib-recap .lib-eyebrow { color:var(--lib-muted); }
+  #tinct-onboarding-worlds-v5 .lib-recap .lib-eyebrow { font-family:var(--lib-sans); font-size:14px; line-height:1.5; letter-spacing:0; text-transform:none; color:var(--lib-muted); }
+  #tinct-onboarding-worlds-v5 .lib-sec-head .lib-eyebrow { font-family:var(--lib-serif); font-size:23px; line-height:1.3; color:var(--lib-cream); }
+  #tinct-onboarding-worlds-v5 .lib-sec-head .lib-cnt { font-family:var(--lib-sans); letter-spacing:0; }
   #tinct-onboarding-worlds-v5 .lib-reading-now { gap:10px; }
   #tinct-onboarding-worlds-v5 .lib-now-shelf { display:flex; gap:16px; align-items:flex-start; margin:0 calc(-1 * var(--lib-pad-r)) 0 calc(-1 * var(--lib-pad-l)); padding:4px var(--lib-pad-r) 6px var(--lib-pad-l); overflow-x:auto; overflow-y:hidden; scrollbar-width:none; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scroll-padding-left:var(--lib-pad-l); scroll-padding-right:var(--lib-pad-r); }
   #tinct-onboarding-worlds-v5 .lib-now-shelf::-webkit-scrollbar { display:none; }
@@ -1339,7 +1341,7 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-now-shelf.is-single,#tinct-onboarding-worlds-v5 .lib-now-shelf.is-flush { scroll-snap-type:none; }
   #tinct-onboarding-worlds-v5 .lib-now-shelf.is-single::before,
   #tinct-onboarding-worlds-v5 .lib-now-shelf.is-flush::before { display:none; }
-  #tinct-onboarding-worlds-v5 .lib .lib-now-item { position:relative; flex:0 0 124px; display:flex; flex-direction:column; text-align:left; scroll-snap-align:center; scroll-snap-stop:always; opacity:.55; transition:opacity .32s ease; }
+  #tinct-onboarding-worlds-v5 .lib .lib-now-item { position:relative; flex:0 0 clamp(88px,26vw,124px); display:flex; flex-direction:column; text-align:left; scroll-snap-align:center; scroll-snap-stop:always; opacity:.55; transition:opacity .32s ease; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-item.is-focused { opacity:1; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-open { display:block; width:100%; text-align:left; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-item .lib-cover { box-shadow:0 14px 30px var(--lib-shadow-soft); }
@@ -1348,20 +1350,20 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
      confirmation. It removes the book from the list and nothing else. */
   #tinct-onboarding-worlds-v5 .lib .lib-now-remove { position:absolute; top:6px; right:6px; z-index:2; display:grid; place-items:center; width:26px; height:26px; border:1px solid var(--lib-rule-strong); border-radius:999px; background:rgba(7,23,35,.72); color:var(--lib-cream); font:16px/1 var(--lib-sans); }
   #tinct-onboarding-worlds-v5 .lib .lib-now-remove:hover { background:rgba(7,23,35,.9); }
-  #tinct-onboarding-worlds-v5 .lib-now-caption { display:flex; flex-direction:column; gap:8px; min-height:132px; }
-  /* The book's title leads the caption: one quiet serif line over the chapter
-     eyebrow, not the page's 22px lede. */
-  #tinct-onboarding-worlds-v5 .lib-now-caption .lib-lede { font-size:17px; line-height:1.3; color:var(--lib-cream); max-width:none; }
-  #tinct-onboarding-worlds-v5 .lib-now-caption .lib-h1 { font-size:26px; line-height:1.14; }
+  #tinct-onboarding-worlds-v5 .lib-now-caption { display:flex; flex-direction:column; gap:8px; min-width:0; }
+  /* Reserve title and location lines as well as the recap: switching to a
+     longer title or chapter cannot displace Continue or the next section. */
+  #tinct-onboarding-worlds-v5 .lib-now-caption .lib-lede { font-size:25px; line-height:1.3; height:1.3em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--lib-cream); max-width:none; }
+  #tinct-onboarding-worlds-v5 .lib-now-caption .lib-h1 { font-family:var(--lib-sans); font-size:16px; font-weight:400; line-height:1.5; height:1.5em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; letter-spacing:0; }
+  #tinct-onboarding-worlds-v5 .lib-now-caption .lib-eyebrow { height:1.5em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary { margin:0; max-width:52ch; }
   #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary-text { font-size:15.5px; line-height:1.45; height:calc(var(--lib-recap-lines) * 1.45em); }
   #tinct-onboarding-worlds-v5 .lib-now-cta { display:flex; align-items:center; gap:16px; margin-top:2px; }
   @media (min-width:601px) {
-    #tinct-onboarding-worlds-v5 .lib-now-caption .lib-lede { font-size:19px; }
+    #tinct-onboarding-worlds-v5 .lib-now-caption .lib-lede { font-size:27px; }
     #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary { max-width:66ch; }
   }
   @media (min-width:900px) {
-    #tinct-onboarding-worlds-v5 .lib-now-caption .lib-h1 { font-size:36px; }
     #tinct-onboarding-worlds-v5 .lib .lib-now-item { flex:0 0 148px; }
     #tinct-onboarding-worlds-v5 .lib-now-shelf::before { flex-basis:calc(50% - 74px - 16px); }
   }
@@ -1386,7 +1388,6 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   @media (min-width:1280px) {
     #tinct-onboarding-worlds-v5 .lib-reading-now { column-gap:64px; }
     #tinct-onboarding-worlds-v5 .lib .lib-now-item { flex:0 0 176px; }
-    #tinct-onboarding-worlds-v5 .lib-now-caption .lib-h1 { font-size:42px; }
   }
   @media (prefers-reduced-motion:reduce) {
     #tinct-onboarding-worlds-v5 .lib .lib-now-item { transition:none; }

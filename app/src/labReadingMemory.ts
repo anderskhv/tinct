@@ -362,17 +362,19 @@ function showSummary(key: string, summary: string, status: 'cached' | 'fresh'): 
   markExpandable(line, text)
 }
 
-const MORE_LABEL = 'More'
-const LESS_LABEL = 'Less'
+const MORE_LABEL = 'Expand'
+const LESS_LABEL = 'Collapse'
 
 /** Clamped text is text there is more of; only then is the block a control. */
 function markExpandable(line: HTMLElement, text: HTMLElement): void {
-  const clamped = text.scrollHeight > text.clientHeight + 1
+  // A refresh of the same open recap must keep its Collapse control.
+  const open = line.classList.contains('is-open')
+  const clamped = open || text.scrollHeight > text.clientHeight + 1
   const more = line.querySelector<HTMLElement>('.lib-recap-summary-more')
   line.toggleAttribute('disabled', !clamped)
-  if (clamped) line.setAttribute('aria-expanded', 'false')
+  if (clamped) line.setAttribute('aria-expanded', String(open))
   else line.removeAttribute('aria-expanded')
-  if (more) more.textContent = clamped ? MORE_LABEL : ''
+  if (more) more.textContent = clamped ? (open ? LESS_LABEL : MORE_LABEL) : ''
   line.dataset.expandable = String(clamped)
 }
 
@@ -450,8 +452,8 @@ async function fillHeroSummary(
     showSummary(key, cached, 'cached')
     return
   }
-  // Came out of this book's reader: the position line is the whole hero, and
-  // nowCaptionMarkup has already left the block out of the page.
+  // Came out of this book's reader: keep the reserved preview empty.
+  // Reserving space does not change the no-summary request/cache policy.
   if (permission.reason === 'from-reader') {
     section.dataset.summaryLine = 'from-reader'
     return
@@ -642,44 +644,25 @@ function removeMarkup(bookId: string, title: string): string {
   return `<button type="button" class="lib-now-remove" data-now-remove="${escapeHtml(bookId)}" aria-label="${escapeHtml(`Remove ${title} from currently reading`)}" title="Remove from currently reading">×</button>`
 }
 
-/**
- * Whether this caption can show a "so far" block. A reader who has just walked out of this book's
- * reader is never getting a summary — the rule says so synchronously — so
- * the block is not there rather than empty. lab/library-boot.js asks exactly
- * the same question of exactly the same marker before it paints, so the
- * block cannot appear or vanish between the boot paint and this one.
- */
-function summaryBlockReserved(row: ReadingListRow, books: Map<string, CatalogueBook>): boolean {
-  return recapSummaryPermission({
-    bookId: row.bookId,
-    origin: readerOrigin(books),
-    sessionLastActiveAt: row.session?.lastActiveAt ?? null,
-    placeUpdatedAt: row.target.at,
-    now: Date.now(),
-  }).reason !== 'from-reader'
-}
-
 /** The block: a button, so the whole three-line box is the tap target. */
 function summaryMarkup(summaryKey: string): string {
   return `<button type="button" class="lib-recap-summary" hidden data-testid="lab-recap-summary" data-recap-summary-key="${escapeHtml(summaryKey)}" data-expandable="false" disabled><span class="lib-recap-summary-text"></span><span class="lib-recap-summary-more" aria-hidden="true"></span></button>`
 }
 
 /**
- * The caption, top to bottom: the book's title (a small line, so the eyebrow
- * and headline under it are read as being about that book), the chapter
- * eyebrow, the headline, the optional "so far" block, Continue. The title
- * used to sit under the summary, where it read as a stray caption to the
- * description. lab/library-boot.js paints the same order.
+ * Title, one location, last-read age, a stable recap preview, then Continue.
+ * The empty preview reserves the same space as a collapsed recap; selecting
+ * another book rebuilds the caption closed. library-boot.js paints this order.
  */
 function nowCaptionMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>): string {
   const book = books.get(row.bookId)
   const note = progressNote(row)
   const request = summaryRequestFor(row, books)
   const summaryKey = request ? summaryKeyFor(row, request) : ''
-  const summary = request && summaryBlockReserved(row, books) ? summaryMarkup(summaryKey) : ''
-  return `<p class="lib-lede" data-testid="lab-recap-book">${escapeHtml(bookTitle(book, row.bookId))}</p>
-      <p class="lib-eyebrow" data-testid="lab-recap-eyebrow">${escapeHtml(recapEyebrow(row.target.chapterLabel))}</p>
-      <h1 class="lib-h1" data-testid="lab-recap-headline">${escapeHtml(heroHeadline(row))}</h1>
+  const summary = summaryMarkup(summaryKey)
+  return `<p class="lib-lede" data-testid="lab-recap-book" title="${escapeHtml(bookTitle(book, row.bookId))}">${escapeHtml(bookTitle(book, row.bookId))}</p>
+      <p class="lib-h1" data-testid="lab-recap-headline" title="${escapeHtml(heroHeadline(row))}">${escapeHtml(heroHeadline(row))}</p>
+      <p class="lib-eyebrow" data-testid="lab-recap-eyebrow">${escapeHtml(recapEyebrow(row.lastActiveAt))}</p>
       ${summary}
       <div class="lib-now-cta"><button type="button" class="lib-cta" data-recap-continue="${escapeHtml(row.bookId)}">Continue reading</button>${note ? `<span class="lib-cta-note" data-testid="lab-recap-progress">${escapeHtml(note)}</span>` : ''}</div>`
 }
@@ -730,6 +713,7 @@ function renderNowCaption(immediate = false): void {
   // (lab/library-boot.js) never matches — it carries no test hooks — so the
   // first confirmed render always replaces it, in the same shape.
   const markup = nowCaptionMarkup(row, books)
+  caption.classList.remove('lib-boot-skel')
   if (lastCaptionMarkup !== markup || !caption.childElementCount) {
     caption.innerHTML = markup
     lastCaptionMarkup = markup
@@ -824,6 +808,9 @@ function refitNowShelfOnResize(): void {
     if (!lastList.readingNow.length) return
     fitNowShelf()
     observeNowShelf()
+    const line = section?.querySelector<HTMLElement>('.lib-recap-summary.is-shown')
+    const text = line?.querySelector<HTMLElement>('.lib-recap-summary-text')
+    if (line && text) markExpandable(line, text)
   })
 }
 
@@ -1082,6 +1069,7 @@ function bootSnapshot(list: ReadingList, userId: string | null, books: Map<strin
       title: bookTitle(book, hero.bookId),
       chapterLabel: hero.target.chapterLabel,
       headline: heroHeadline(hero),
+      lastReadAt: hero.lastActiveAt,
       coverSrc: safeCoverSource(cover?.src),
       coverSrcSet: safeCoverSource(cover?.src) && cover?.srcSet ? cover.srcSet : null,
       note: progressNote(hero),
@@ -1213,6 +1201,7 @@ section?.addEventListener('click', (event) => {
 })
 
 window.addEventListener('resize', refitNowShelfOnResize)
+void document.fonts?.ready.then(refitNowShelfOnResize)
 window.addEventListener('tinct:lab-auth-state', () => { void render() })
 window.addEventListener('tinct:lab-catalogue-ready', () => { void render() })
 window.addEventListener('pageshow', () => { void render() })

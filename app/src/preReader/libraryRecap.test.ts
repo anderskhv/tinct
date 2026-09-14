@@ -58,8 +58,13 @@ describe('library recap helpers', () => {
     expect(libraryModeFor({ readingNow: [], finished: [{ bookId: 'hamlet', finishedAt: null, session: null }] })).toBe('returning')
   })
 
-  it('labels the eyebrow with the chapter Continue resumes in and compacts long chapter titles', () => {
-    expect(recapEyebrow('Genesis 1')).toBe('Last time you read · Genesis 1')
+  it('labels real reading age without repeating the location and compacts chapter titles', () => {
+    expect(recapEyebrow(T0, T0 + 2 * 86_400_000)).toBe('Last time you read: 2 days ago')
+    expect(recapEyebrow(T0, T0 + 86_400_000)).toBe('Last time you read: yesterday')
+    expect(recapEyebrow(T0, T0 + 60_000)).toBe('Last time you read: today')
+    for (const value of [undefined, null, 0, NaN, Infinity, T0 + 120_000]) {
+      expect(recapEyebrow(value, T0)).toBe('Last time you read: —')
+    }
     expect(compactChapterTitle('Chapter 1 — Loomings', 'Chapter 1')).toBe('Chapter 1')
     expect(compactChapterTitle('Book II — The Just City', 'x')).toBe('Book II')
     expect(compactChapterTitle('', 'Chapter 4')).toBe('Chapter 4')
