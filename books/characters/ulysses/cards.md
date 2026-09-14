@@ -201,3 +201,171 @@ Who spurned Christ’s terrene body.
 ## Sabellius · reference
 
 The African, subtlest heresiarch of them all, who held that the Father was Himself His own Son.
+
+## Mr Deasy · major
+
+The headmaster of the school at Dalkey where Stephen teaches: an Ulster protestant and a unionist who pays Stephen his salary in sovereigns and shillings, lectures him on saving money, dictates a letter to the press about foot and mouth disease, and tells him that England is in the hands of the jews and that Ireland never persecuted them because she never let them in.
+
+## Cochrane · reference
+
+One of Stephen’s pupils, who is asked what city sent for Pyrrhus and answers Tarentum, and who is on the same side as Halliday at hockey.
+
+## Armstrong · reference
+
+The boy with the bag of figrolls in his satchel, asked what was the end of Pyrrhus and offering a pier. Welloff people, proud that their eldest son was in the navy; Vico Road, Dalkey.
+
+## Comyn · reference
+
+The boy who laughs, and who is told to ask Stephen about Pyrrhus.
+
+## Talbot · reference
+
+The boy who reads Lycidas with the book propped nimbly under the breastwork of his satchel, prompted word by word.
+
+## Sargent · reference
+
+The boy kept back after class over his sums, ugly and futile, with lean neck and tangled hair and a smear of ink on his cheek, whose mother loved him and who copies the symbols in grave morrice across the page.
+
+## Sargent’s mother · reference
+
+Who taught him to write and bought him a coloured picture book; and who, Stephen thinks, is the only one who loved him and saved him from being trampled underfoot.
+
+## Halliday · reference
+
+On the same side as Cochrane at hockey. Not the Jacob Halliday, vintner, of the mock legal report in episode 12.
+
+## Curran · reference
+
+Ten guineas, in the list of Stephen’s debts. Not John Philpot Curran of episode 7 nor Sara Curran of episode 12.
+
+## McCann · reference
+
+One guinea.
+
+## Fred Ryan · reference
+
+Two shillings.
+
+## Temple · reference
+
+Two lunches — and one of the oval equine faces of Stephen’s dream in episode 3. Not Temple bar.
+
+## Russell · reference
+
+One guinea: George Russell, the eminent poet who signs himself A. E., whom Bloom thinks of in episode 8 and who argues with Stephen in the library in episode 9.
+
+## Cousins · reference
+
+Ten shillings.
+
+## Bob Reynolds · reference
+
+Half a guinea.
+
+## Koehler · reference
+
+Three guineas.
+
+## Mrs MacKernan · reference
+
+Five weeks’ board.
+
+## Albert Edward, prince of Wales · reference
+
+The shapely bulk of a man in tartan fillibegs over Deasy’s mantelpiece, whom he stares at sternly.
+
+## Sir John Blackwood · reference
+
+Deasy’s ancestor, who voted for the union — per vias rectas was his motto — and put on his topboots to ride to Dublin from the Ards of Down to do it. Stephen sees the gruff squire jogging on horseback instead.
+
+## Mr Henry Blackwood Price · reference
+
+Named in Deasy’s letter to the press as making a courteous offer of a fair trial of Koch’s preparation against foot and mouth disease. Not the Henry Price of the basket and fancy goods shop in episode 17.
+
+## Koch · reference
+
+Whose preparation, serum and virus, the letter recommends.
+
+## lord Hastings|Lord Hastings · reference
+
+Owner of Repulse, one of the vanished horses framed on Deasy’s walls.
+
+## The Duke of Westminster · reference
+
+Owner of Shotover, another of them.
+
+## The Duke of Beaufort · reference
+
+Owner of Ceylon, prix de Paris, 1866, the third.
+
+## O’Connell · reference
+
+Whose time Deasy has seen three generations since, and whom the prelates of Stephen’s communion denounced as a demagogue twenty years after the orange lodges had agitated for repeal.
+
+## Parnell · reference
+
+Whom a woman brought low, in Deasy’s list of the women who have ruined men.
+
+## Edith · reference
+
+One of the four faces Stephen watches with envy, whose breaths are sweetened with tea and jam and whose bracelets titter in the struggle.
+
+## Ethel · reference
+
+Another of the four.
+
+## Gerty · reference
+
+A third. Not the Gerty MacDowell of episode 13.
+
+## Lily · reference
+
+The fourth. Not the red Carlisle girl of episode 1, and not the Lily of episodes 6, 12, 13 or 15.
+
+## Pyrrhus · reference
+
+Whose end Armstrong cannot remember and whose fall by a beldam’s hand in Argos Stephen sets beside Caesar’s knifing as one of the things that are not to be thought away. Misled by an oracle, the newspaper men say of him in episode 7, he made a last attempt to retrieve the fortunes of Greece.
+
+## Julius Caesar · reference
+
+Knifed to death: the other of the two actualities Stephen says cannot be thought away.
+
+## Blake · reference
+
+Whose wings of excess thud in Stephen’s thought of history fabled by the daughters of memory, and whose buttocks the creepycrawlers follow into eternity in episode 9. Not the Phil Blake of the weekly Pat and Bull story in episode 7.
+
+## Aristotle · reference
+
+Whose phrase — the soul is the form of forms — forms itself within the gabbled verses and floats out into the studious silence of the library of Saint Genevieve, where Stephen read night by night, sheltered from the sin of Paris.
+
+## Averroes · reference
+
+With Moses Maimonides, one of the dark men in mien and movement, gone from the world, flashing in their mocking mirrors the obscure soul of the world — a darkness shining in brightness which brightness could not comprehend.
+
+## Moses Maimonides · reference
+
+The other of them.
+
+## Iago · reference
+
+Whose line Deasy quotes as Shakespeare’s — put but money in thy purse — and whom Stephen names under his breath in correction.
+
+## Cassandra · reference
+
+The classical allusion Deasy pardons himself for in the letter, and a woman, he adds, who was no better than she should be.
+
+## Helen · reference
+
+The runaway wife of Menelaus, for whom the Greeks made war ten years on Troy — first of Deasy’s women who brought sin into the world.
+
+## Menelaus · reference
+
+Her husband.
+
+## MacMurrough’s wife · reference
+
+The faithless wife who first brought the strangers to our shore here, second of Deasy’s three women who brought sin into the world. The text names her husband only in naming her, and O’Rourke, prince of Breffni, was her leman.
+
+## O’Rourke, prince of Breffni · reference
+
+Her leman.

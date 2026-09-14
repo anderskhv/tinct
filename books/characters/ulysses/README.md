@@ -1,17 +1,26 @@
 # Ulysses character package — IN PROGRESS
 
-**Episode 1 of 18 is authored. The rest are not.** Status stays `in-progress`
-and the package must not be integrated until the whole book is covered.
+**Episodes 1 and 2 of 18 are authored. The rest are not.** Status stays
+`in-progress` and the package must not be integrated until the whole book is
+covered.
 
-Current state: 50 entities authored, all 50 bound in the older edition and 48 in
-the modern one, 869 and 871 exact mentions. Of those, 337 and 339 fall inside
-episode 1; the rest are later occurrences of names that belong to one person
-through the whole book — Stephen, Mulligan, Haines, Cranly, Wilde — bound by
-alias and carded to be true anywhere. Content revision 2026-09-14.1.
+Current state: 92 entities authored, all 92 bound in the older edition and 90 in
+the modern one, 1,006 and 1,011 exact mentions. Content revision 2026-09-14.2.
 
 ## What is hard about this book
 
-**A surname in Ulysses is almost never one man.** *Dedalus* is Stephen in
+**A surname in Ulysses is almost never one man**, and after two episodes that is
+not a caution but a measurement. Of the twelve surnames episode 2 introduces,
+**twelve belong to somebody or something else elsewhere in the book**: Cochrane
+is Cantrell and Cochrane's ginger ale at 5:65, Talbot is lord Talbot de Malahide
+at 10:43, Halliday is Jacob Halliday the vintner at 12:312, Curran is John
+Philpot Curran at 7:380 and Sara Curran at 12:172, Temple is Temple bar at
+10:235, Blake is Phil Blake's weekly Pat and Bull story at 7:42, Price is Henry
+Price the basket manufacturer at 17:587, and Gerty and Lily belong to other women
+in six later episodes. Not one of them is an alias in this package. The working
+rule for the rest of the book is therefore the opposite of the rule in every
+other book in this library: **key by default, alias only on proof.**
+ *Dedalus* is Stephen in
 episode 1, his father Simon from episode 6, and his sisters in episode 10.
 *Bloom* will be Leopold, Molly, Milly, Rudolph and Rudy. *Mulligan* is Buck
 everywhere except 10:349, where it is John Mulligan, the manager of the
@@ -62,10 +71,11 @@ was drowned nine days ago. Each has a card and is bound on the phrase the text
 uses. Stephen's mother is a tenth: she is the presence the whole episode turns
 on and she is never named in it.
 
-## Editorial checks — episode 1
+## Editorial checks — episodes 1 and 2
 
-**1. Namesakes.** Eight names in episode 1 belong to somebody else elsewhere in
-the book, and all eight are keyed rather than aliased: Ursula (12:513 is S.
+**1. Namesakes.** Twelve of episode 2's names are keyed for the reason set out
+above, and each key carries a comment naming the other bearer. Eight names in
+episode 1 belong to somebody else elsewhere in the book, and all eight are keyed rather than aliased: Ursula (12:513 is S.
 Ursula of the eleven thousand virgins), Aubrey (9:294 is the theatre owner of the
 Shakespeare argument), Mrs Cahill (10:542 is Cahill's corner, a place), Lily (six
 women of the name), Butterly (15:449 is Maurice Butterly, farmer), Bannon,
@@ -94,11 +104,17 @@ Upanishads, the ballad of joking Jesus).
   Mulligan's mother, who has her own card; 1:155 and 1:162 are part of mother
   Grogan's name; 1:288 is the jew mother of the ballad.
 
-**4. Spot-read.** Twenty-eight mentions were read as sentences across both
-editions; all twenty-eight were right.
+**4. Spot-read.** Twenty-eight mentions in episode 1 and twenty-four in episode
+2 were read as sentences across both editions; all fifty-two were right.
 
-**5. Adjacency sweep.** Twenty-three hits, all sound, and it is what found that
-*Malachi Mulligan* at 1:15 was taking two adjacent spans instead of one.
+**5. Adjacency sweep.** Twenty-three hits in episode 1 and thirty-four in episode
+2, all sound, and it is what found that *Malachi Mulligan* at 1:15 was taking two
+adjacent spans instead of one.
+
+**5b. The apostrophe.** The older edition sets O'Connell and O'Rourke with a
+curly apostrophe and the modern one with a straight one. A pattern that spells
+only one binds in one edition alone, which is the commonest way to lose half a
+book's mentions in this library, and a test pins both forms.
 
 **6. Both editions independently.** Seven bindings fall in one edition and not
 the other, and all seven are the rewrite class set out in the table above. No
@@ -115,7 +131,7 @@ No edition byte was touched.
 
 ## Remaining work
 
-- **Episodes 2–18.** 6,780 paragraphs, and the three longest are 15 (*Circe*,
+- **Episodes 3–18.** 6,573 paragraphs, and the three longest are 15 (*Circe*,
   1,441 paragraphs), 17 (*Ithaca*, 654) and 11 (*Sirens*, 635). Episode 18
   (*Penelope*) is eight paragraphs of Molly's monologue and will be the densest
   page-for-page in the book.
@@ -131,6 +147,6 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_ulysses.py --check`, then `python3 -m unittest
-discover -s books/characters -p 'test_*.py'` — 18 focused tests for this book so
+discover -s books/characters -p 'test_*.py'` — 24 focused tests for this book so
 far. No edition changes, no network generation, no API spend: every card here was
 written in the authoring conversation and committed as a file.

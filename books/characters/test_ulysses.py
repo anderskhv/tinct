@@ -1,6 +1,6 @@
 """Guards for the Ulysses character package.
 
-Episode 1 of 18 is authored. These tests pin the identifications that took a
+Episodes 1 and 2 of 18 are authored. These tests pin the identifications that took a
 reading to make, and the traps that a later pass must not undo.
 """
 import json,unittest
@@ -13,8 +13,8 @@ def ids(ed,ch,pi):return sorted({m['characterId'] for m in mentions(ed) if m['ch
 CARDS={e['id']:e for e in json.loads(open('ulysses/editorial.json').read())['entities']}
 
 class Ulysses(unittest.TestCase):
-    def test_only_episode_one_is_authored(self):
-        self.assertIn('episode 1 of 18',REPORT['scope'])
+    def test_only_the_first_two_episodes_are_authored(self):
+        self.assertIn('episodes 1-2 of 18',REPORT['scope'])
         for ed in ['original-en','modern-en']:
             self.assertEqual(REPORT['editions'][ed]['chapters'],18,ed)
             self.assertEqual(REPORT['editions'][ed]['paragraphs'],7148,ed)
@@ -69,7 +69,7 @@ class Ulysses(unittest.TestCase):
         from build_ulysses import SPLIT
         table,default=SPLIT['Dedalus']
         self.assertIsNone(default)
-        self.assertTrue(all(ch==1 for ch,_ in table))
+        self.assertTrue(all(ch in (1,2) for ch,_ in table))
         for ed in ['original-en','modern-en']:
             self.assertIn((1,23),where(ed,'stephen'),ed)
             for k in [(6,1),(10,1)]:
@@ -176,8 +176,8 @@ class Ulysses(unittest.TestCase):
             self.assertEqual([(1,335)],where(ed,'lily-carlisle'),ed)  # six women called Lily
             self.assertEqual([(1,255)],where(ed,'butterly'),ed)       # 15:449 is Maurice Butterly
             self.assertEqual([(1,329)],where(ed,'bannon'),ed)
-            self.assertEqual([(1,232),(1,269),(1,275)],where(ed,'hamlet'),ed)
-            self.assertEqual([(1,275)],where(ed,'shakespeare'),ed)
+            self.assertEqual([(1,232),(1,269),(1,275),(2,74)],where(ed,'hamlet'),ed)
+            self.assertEqual([(1,275),(2,74),(2,113)],where(ed,'shakespeare'),ed)
 
     def test_the_deliberate_gaps_of_episode_one(self):
         # "By Jove" at 1:156 is the exclamation, not the god, like the epicycle
@@ -202,6 +202,74 @@ class Ulysses(unittest.TestCase):
             bound={m['characterId'] for m in mentions(ed)}
             missing=[c for c in CARDS if c not in bound]
             self.assertEqual(missing,REPORT['editions'][ed]['omittedEntities'],ed)
+
+
+    def test_episode_two_surnames_all_belong_to_somebody_else(self):
+        # Every one of these is a different person or a different thing
+        # elsewhere in the book, which is why none of them is an alias. This is
+        # the rule in Ulysses rather than the exception.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(2,0),(2,57),(2,91)],where(ed,'cochrane'),ed)
+            self.assertEqual([(2,30),(2,32),(2,36),(2,40),(2,43)],where(ed,'talbot'),ed)
+            self.assertEqual([(2,91)],where(ed,'halliday'),ed)
+            self.assertEqual([(2,123)],where(ed,'curran'),ed)
+            self.assertEqual([(2,123)],where(ed,'temple'),ed)
+            self.assertEqual([(2,123)],where(ed,'russell'),ed)
+            self.assertEqual([(2,6)],where(ed,'blake'),ed)
+            self.assertEqual([(2,151),(2,152)],where(ed,'henry-blackwood-price'),ed)
+            self.assertEqual([(2,141)],where(ed,'duke-of-westminster'),ed)
+            self.assertEqual([(2,141)],where(ed,'duke-of-beaufort'),ed)
+            self.assertEqual([(2,20)],where(ed,'school-gerty'),ed)
+            self.assertEqual([(2,20)],where(ed,'school-lily'),ed)
+            # and none of them reaches the paragraph where the name is somebody else
+            for cid,k in [('cochrane',(5,65)),('talbot',(10,43)),('halliday',(12,312)),
+                          ('curran',(7,380)),('temple',(10,235)),('blake',(7,42)),
+                          ('henry-blackwood-price',(17,587))]:
+                self.assertNotIn(cid,ids(ed,*k),(ed,cid,k))
+
+    def test_deasy_calls_stephen_mr_dedalus(self):
+        # The same two words are his father from episode 6, so they are keyed.
+        for ed in ['original-en','modern-en']:
+            for k in [(2,137),(2,154),(2,195)]:
+                self.assertIn('stephen',ids(ed,*k),(ed,k))
+            self.assertIn('Mr Dedalus',said(ed,'stephen'),ed)
+
+    def test_the_schoolroom_and_the_study(self):
+        for ed in ['original-en','modern-en']:
+            self.assertTrue([k for k in where(ed,'deasy') if k[0]==2],ed)
+            self.assertEqual([(2,13),(2,23),(2,29)],where(ed,'comyn'),ed)
+            self.assertIn((2,66),where(ed,'sargent'),ed)
+            self.assertIn('Cyril Sargent',said(ed,'sargent'),ed)
+            self.assertEqual([(2,73)],where(ed,'sargent-mother'),ed)
+            self.assertEqual(['someone'],said(ed,'sargent-mother'),ed)
+            self.assertEqual([(2,136)],where(ed,'sir-john-blackwood'),ed)
+
+    def test_deasys_three_women_and_his_horses(self):
+        for ed in ['original-en','modern-en']:
+            for cid in ['helen','menelaus','macmurrough-wife','orourke','parnell']:
+                self.assertIn((2,174),where(ed,cid),(ed,cid))
+            self.assertEqual([(2,141)],where(ed,'lord-hastings'),ed)
+        self.assertIn('lord Hastings',said('original-en','lord-hastings'))
+        self.assertIn('Lord Hastings',said('modern-en','lord-hastings'))
+
+    def test_the_curly_and_straight_apostrophes(self):
+        # The older edition sets O\u2019Connell and O\u2019Rourke with a curly
+        # apostrophe and the modern one with a straight apostrophe. A pattern
+        # that spells only one of them binds in one edition alone, which is the
+        # commonest way to lose half a book's mentions in this library.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(2,129)],where(ed,'oconnell'),ed)
+            self.assertEqual([(2,174)],where(ed,'orourke'),ed)
+        self.assertIn('O\u2019Connell',said('original-en','oconnell'))
+        self.assertIn("O'Connell",said('modern-en','oconnell'))
+
+    def test_the_deliberate_gaps_of_episode_two(self):
+        # 2:78's "Love of the mother" is the abstraction, not a woman; 2:145's
+        # "mother's darling" is a phrase for a player on the field; the fox of
+        # 2:60 buries his grandmother in a riddle and she is no one.
+        for ed in ['original-en','modern-en']:
+            for k in [(2,78),(2,145),(2,60)]:
+                self.assertEqual([],[c for c in ids(ed,*k) if 'mother' in c],(ed,k))
 
 
 if __name__=='__main__':unittest.main()

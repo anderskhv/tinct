@@ -302,6 +302,258 @@ The proud potent titles clanged over Stephen’s memory the triumph of their bra
 
 The African, subtlest heresiarch of them all, who held that the Father was Himself His own Son.
 
+## original-en · deasy · 2:67
+
+—Mr Deasy told me to write them out all again, he said, and show them to you, sir.
+
+The headmaster of the school at Dalkey where Stephen teaches: an Ulster protestant and a unionist who pays Stephen his salary in sovereigns and shillings, lectures him on saving money, dictates a letter to the press about foot and mouth disease, and tells him that England is in the hands of the jews and that Ireland never persecuted them because she never let them in.
+
+## original-en · cochrane · 2:0
+
+—You, Cochrane, what city sent for him?
+
+One of Stephen’s pupils, who is asked what city sent for Pyrrhus and answers Tarentum, and who is on the same side as Halliday at hockey.
+
+## original-en · armstrong · 2:11
+
+—You, Armstrong, Stephen said. What was the end of Pyrrhus?
+
+The boy with the bag of figrolls in his satchel, asked what was the end of Pyrrhus and offering a pier. Welloff people, proud that their eldest son was in the navy; Vico Road, Dalkey.
+
+## original-en · comyn · 2:13
+
+—I know, sir. Ask me, sir, Comyn said.
+
+The boy who laughs, and who is told to ask Stephen about Pyrrhus.
+
+## original-en · talbot · 2:30
+
+—Go on then, Talbot.
+
+The boy who reads Lycidas with the book propped nimbly under the breastwork of his satchel, prompted word by word.
+
+## original-en · sargent · 2:65
+
+Sargent who alone had lingered came forward slowly, showing an open copybook. His tangled hair and scraggy neck gave witness of unreadiness and through his misty glasses weak eyes looked up pleading. On his cheek, dull and bloodless, a soft stain of ink lay, dateshaped, recent and damp as a snail’s bed.
+
+The boy kept back after class over his sums, ugly and futile, with lean neck and tangled hair and a smear of ink on his cheek, whose mother loved him and who copies the symbols in grave morrice across the page.
+
+## original-en · sargent-mother · 2:73
+
+Ugly and futile: lean neck and tangled hair and a stain of ink, a snail’s bed. Yet someone had loved him, borne him in her arms and in her heart. But for her the race of the world would have trampled him underfoot, a squashed boneless snail. She had loved his weak watery blood drained from her own. Was that then real? The only true thing in life? His mother’s prostrate body the fiery Columbanus in holy zeal bestrode. She was no more: the trembling skeleton of a twig burnt in the fire, an odour of rosewood and wetted ashes. She had saved him from being trampled underfoot and had gone, scarcely having been. A poor soul gone to heaven: and on a heath beneath winking stars a fox, red reek of rapine in his fur, with merciless bright eyes scraped in the earth, listened, scraped up the earth, listened, scraped and scraped.
+
+Who taught him to write and bought him a coloured picture book; and who, Stephen thinks, is the only one who loved him and saved him from being trampled underfoot.
+
+## original-en · halliday · 2:91
+
+—Cochrane and Halliday are on the same side, sir, Stephen said.
+
+On the same side as Cochrane at hockey. Not the Jacob Halliday, vintner, of the mock legal report in episode 12.
+
+## original-en · curran · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea, Cousins, ten shillings, Bob Reynolds, half a guinea, Koehler, three guineas, Mrs MacKernan, five weeks’ board. The lump I have is useless.
+
+Ten guineas, in the list of Stephen’s debts. Not John Philpot Curran of episode 7 nor Sara Curran of episode 12.
+
+## original-en · mccann · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea, Cousins, ten shillings, Bob Reynolds, half a guinea, Koehler, three guineas, Mrs MacKernan, five weeks’ board. The lump I have is useless.
+
+One guinea.
+
+## original-en · fred-ryan · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea, Cousins, ten shillings, Bob Reynolds, half a guinea, Koehler, three guineas, Mrs MacKernan, five weeks’ board. The lump I have is useless.
+
+Two shillings.
+
+## original-en · temple · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea, Cousins, ten shillings, Bob Reynolds, half a guinea, Koehler, three guineas, Mrs MacKernan, five weeks’ board. The lump I have is useless.
+
+Two lunches — and one of the oval equine faces of Stephen’s dream in episode 3. Not Temple bar.
+
+## original-en · russell · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea, Cousins, ten shillings, Bob Reynolds, half a guinea, Koehler, three guineas, Mrs MacKernan, five weeks’ board. The lump I have is useless.
+
+One guinea: George Russell, the eminent poet who signs himself A. E., whom Bloom thinks of in episode 8 and who argues with Stephen in the library in episode 9.
+
+## original-en · cousins · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea, Cousins, ten shillings, Bob Reynolds, half a guinea, Koehler, three guineas, Mrs MacKernan, five weeks’ board. The lump I have is useless.
+
+Ten shillings.
+
+## original-en · bob-reynolds · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea, Cousins, ten shillings, Bob Reynolds, half a guinea, Koehler, three guineas, Mrs MacKernan, five weeks’ board. The lump I have is useless.
+
+Half a guinea.
+
+## original-en · koehler · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea, Cousins, ten shillings, Bob Reynolds, half a guinea, Koehler, three guineas, Mrs MacKernan, five weeks’ board. The lump I have is useless.
+
+Three guineas.
+
+## original-en · mrs-mackernan · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea, Cousins, ten shillings, Bob Reynolds, half a guinea, Koehler, three guineas, Mrs MacKernan, five weeks’ board. The lump I have is useless.
+
+Five weeks’ board.
+
+## original-en · albert-edward · 2:128
+
+Mr Deasy stared sternly for some moments over the mantelpiece at the shapely bulk of a man in tartan fillibegs: Albert Edward, prince of Wales.
+
+The shapely bulk of a man in tartan fillibegs over Deasy’s mantelpiece, whom he stares at sternly.
+
+## original-en · sir-john-blackwood · 2:136
+
+A gruff squire on horseback with shiny topboots. Soft day, sir John! Soft day, your honour!... Day!... Day!... Two topboots jog dangling on to Dublin. Lal the ral the ra. Lal the ral the raddy.
+
+Deasy’s ancestor, who voted for the union — per vias rectas was his motto — and put on his topboots to ride to Dublin from the Ards of Down to do it. Stephen sees the gruff squire jogging on horseback instead.
+
+## original-en · henry-blackwood-price · 2:151
+
+Foot and mouth disease. Known as Koch’s preparation. Serum and virus. Percentage of salted horses. Rinderpest. Emperor’s horses at Mürzsteg, lower Austria. Veterinary surgeons. Mr Henry Blackwood Price. Courteous offer a fair trial. Dictates of common sense. Allimportant question. In every sense of the word take the bull by the horns. Thanking you for the hospitality of your columns.
+
+Named in Deasy’s letter to the press as making a courteous offer of a fair trial of Koch’s preparation against foot and mouth disease. Not the Henry Price of the basket and fancy goods shop in episode 17.
+
+## original-en · koch · 2:151
+
+Foot and mouth disease. Known as Koch’s preparation. Serum and virus. Percentage of salted horses. Rinderpest. Emperor’s horses at Mürzsteg, lower Austria. Veterinary surgeons. Mr Henry Blackwood Price. Courteous offer a fair trial. Dictates of common sense. Allimportant question. In every sense of the word take the bull by the horns. Thanking you for the hospitality of your columns.
+
+Whose preparation, serum and virus, the letter recommends.
+
+## original-en · lord-hastings · 2:141
+
+Stephen seated himself noiselessly before the princely presence. Framed around the walls images of vanished horses stood in homage, their meek heads poised in air: lord Hastings’ _Repulse_, the duke of Westminster’s _Shotover_, the duke of Beaufort’s _Ceylon_, _prix de Paris_, 1866. Elfin riders sat them, watchful of a sign. He saw their speeds, backing king’s colours, and shouted with the shouts of vanished crowds.
+
+Owner of Repulse, one of the vanished horses framed on Deasy’s walls.
+
+## original-en · duke-of-westminster · 2:141
+
+Stephen seated himself noiselessly before the princely presence. Framed around the walls images of vanished horses stood in homage, their meek heads poised in air: lord Hastings’ _Repulse_, the duke of Westminster’s _Shotover_, the duke of Beaufort’s _Ceylon_, _prix de Paris_, 1866. Elfin riders sat them, watchful of a sign. He saw their speeds, backing king’s colours, and shouted with the shouts of vanished crowds.
+
+Owner of Shotover, another of them.
+
+## original-en · duke-of-beaufort · 2:141
+
+Stephen seated himself noiselessly before the princely presence. Framed around the walls images of vanished horses stood in homage, their meek heads poised in air: lord Hastings’ _Repulse_, the duke of Westminster’s _Shotover_, the duke of Beaufort’s _Ceylon_, _prix de Paris_, 1866. Elfin riders sat them, watchful of a sign. He saw their speeds, backing king’s colours, and shouted with the shouts of vanished crowds.
+
+Owner of Ceylon, prix de Paris, 1866, the third.
+
+## original-en · oconnell · 2:129
+
+—You think me an old fogey and an old tory, his thoughtful voice said. I saw three generations since O’Connell’s time. I remember the famine in ’46. Do you know that the orange lodges agitated for repeal of the union twenty years before O’Connell did or before the prelates of your communion denounced him as a demagogue? You fenians forget some things.
+
+Whose time Deasy has seen three generations since, and whom the prelates of Stephen’s communion denounced as a demagogue twenty years after the orange lodges had agitated for repeal.
+
+## original-en · parnell · 2:174
+
+—I am happier than you are, he said. We have committed many errors and many sins. A woman brought sin into the world. For a woman who was no better than she should be, Helen, the runaway wife of Menelaus, ten years the Greeks made war on Troy. A faithless wife first brought the strangers to our shore here, MacMurrough’s wife and her leman, O’Rourke, prince of Breffni. A woman too brought Parnell low. Many errors, many failures but not the one sin. I am a struggler now at the end of my days. But I will fight for the right till the end.
+
+Whom a woman brought low, in Deasy’s list of the women who have ruined men.
+
+## original-en · edith · 2:20
+
+Some laughed again: mirthless but with meaning. Two in the back bench whispered. Yes. They knew: had never learned nor ever been innocent. All. With envy he watched their faces: Edith, Ethel, Gerty, Lily. Their likes: their breaths, too, sweetened with tea and jam, their bracelets tittering in the struggle.
+
+One of the four faces Stephen watches with envy, whose breaths are sweetened with tea and jam and whose bracelets titter in the struggle.
+
+## original-en · ethel · 2:20
+
+Some laughed again: mirthless but with meaning. Two in the back bench whispered. Yes. They knew: had never learned nor ever been innocent. All. With envy he watched their faces: Edith, Ethel, Gerty, Lily. Their likes: their breaths, too, sweetened with tea and jam, their bracelets tittering in the struggle.
+
+Another of the four.
+
+## original-en · school-gerty · 2:20
+
+Some laughed again: mirthless but with meaning. Two in the back bench whispered. Yes. They knew: had never learned nor ever been innocent. All. With envy he watched their faces: Edith, Ethel, Gerty, Lily. Their likes: their breaths, too, sweetened with tea and jam, their bracelets tittering in the struggle.
+
+A third. Not the Gerty MacDowell of episode 13.
+
+## original-en · school-lily · 2:20
+
+Some laughed again: mirthless but with meaning. Two in the back bench whispered. Yes. They knew: had never learned nor ever been innocent. All. With envy he watched their faces: Edith, Ethel, Gerty, Lily. Their likes: their breaths, too, sweetened with tea and jam, their bracelets tittering in the struggle.
+
+The fourth. Not the red Carlisle girl of episode 1, and not the Lily of episodes 6, 12, 13 or 15.
+
+## original-en · pyrrhus · 2:11
+
+—You, Armstrong, Stephen said. What was the end of Pyrrhus?
+
+Whose end Armstrong cannot remember and whose fall by a beldam’s hand in Argos Stephen sets beside Caesar’s knifing as one of the things that are not to be thought away. Misled by an oracle, the newspaper men say of him in episode 7, he made a last attempt to retrieve the fortunes of Greece.
+
+## original-en · julius-caesar · 2:25
+
+Had Pyrrhus not fallen by a beldam’s hand in Argos or Julius Caesar not been knifed to death. They are not to be thought away. Time has branded them and fettered they are lodged in the room of the infinite possibilities they have ousted. But can those have been possible seeing that they never were? Or was that only possible which came to pass? Weave, weaver of the wind.
+
+Knifed to death: the other of the two actualities Stephen says cannot be thought away.
+
+## original-en · blake · 2:6
+
+Fabled by the daughters of memory. And yet it was in some way if not as memory fabled it. A phrase, then, of impatience, thud of Blake’s wings of excess. I hear the ruin of all space, shattered glass and toppling masonry, and time one livid final flame. What’s left us then?
+
+Whose wings of excess thud in Stephen’s thought of history fabled by the daughters of memory, and whose buttocks the creepycrawlers follow into eternity in episode 9. Not the Phil Blake of the weekly Pat and Bull story in episode 7.
+
+## original-en · aristotle · 2:35
+
+It must be a movement then, an actuality of the possible as possible. Aristotle’s phrase formed itself within the gabbled verses and floated out into the studious silence of the library of Saint Genevieve where he had read, sheltered from the sin of Paris, night by night. By his elbow a delicate Siamese conned a handbook of strategy. Fed and feeding brains about me: under glowlamps, impaled, with faintly beating feelers: and in my mind’s darkness a sloth of the underworld, reluctant, shy of brightness, shifting her dragon scaly folds. Thought is the thought of thought. Tranquil brightness. The soul is in a manner all that is: the soul is the form of forms. Tranquility sudden, vast, candescent: form of forms.
+
+Whose phrase — the soul is the form of forms — forms itself within the gabbled verses and floats out into the studious silence of the library of Saint Genevieve, where Stephen read night by night, sheltered from the sin of Paris.
+
+## original-en · averroes · 2:75
+
+Across the page the symbols moved in grave morrice, in the mummery of their letters, wearing quaint caps of squares and cubes. Give hands, traverse, bow to partner: so: imps of fancy of the Moors. Gone too from the world, Averroes and Moses Maimonides, dark men in mien and movement, flashing in their mocking mirrors the obscure soul of the world, a darkness shining in brightness which brightness could not comprehend.
+
+With Moses Maimonides, one of the dark men in mien and movement, gone from the world, flashing in their mocking mirrors the obscure soul of the world — a darkness shining in brightness which brightness could not comprehend.
+
+## original-en · maimonides · 2:75
+
+Across the page the symbols moved in grave morrice, in the mummery of their letters, wearing quaint caps of squares and cubes. Give hands, traverse, bow to partner: so: imps of fancy of the Moors. Gone too from the world, Averroes and Moses Maimonides, dark men in mien and movement, flashing in their mocking mirrors the obscure soul of the world, a darkness shining in brightness which brightness could not comprehend.
+
+The other of them.
+
+## original-en · iago · 2:114
+
+—Iago, Stephen murmured.
+
+Whose line Deasy quotes as Shakespeare’s — put but money in thy purse — and whom Stephen names under his breath in correction.
+
+## original-en · cassandra · 2:149
+
+May I trespass on your valuable space. That doctrine of _laissez faire_ which so often in our history. Our cattle trade. The way of all our old industries. Liverpool ring which jockeyed the Galway harbour scheme. European conflagration. Grain supplies through the narrow waters of the channel. The pluterperfect imperturbability of the department of agriculture. Pardoned a classical allusion. Cassandra. By a woman who was no better than she should be. To come to the point at issue.
+
+The classical allusion Deasy pardons himself for in the letter, and a woman, he adds, who was no better than she should be.
+
+## original-en · helen · 2:174
+
+—I am happier than you are, he said. We have committed many errors and many sins. A woman brought sin into the world. For a woman who was no better than she should be, Helen, the runaway wife of Menelaus, ten years the Greeks made war on Troy. A faithless wife first brought the strangers to our shore here, MacMurrough’s wife and her leman, O’Rourke, prince of Breffni. A woman too brought Parnell low. Many errors, many failures but not the one sin. I am a struggler now at the end of my days. But I will fight for the right till the end.
+
+The runaway wife of Menelaus, for whom the Greeks made war ten years on Troy — first of Deasy’s women who brought sin into the world.
+
+## original-en · menelaus · 2:174
+
+—I am happier than you are, he said. We have committed many errors and many sins. A woman brought sin into the world. For a woman who was no better than she should be, Helen, the runaway wife of Menelaus, ten years the Greeks made war on Troy. A faithless wife first brought the strangers to our shore here, MacMurrough’s wife and her leman, O’Rourke, prince of Breffni. A woman too brought Parnell low. Many errors, many failures but not the one sin. I am a struggler now at the end of my days. But I will fight for the right till the end.
+
+Her husband.
+
+## original-en · macmurrough-wife · 2:174
+
+—I am happier than you are, he said. We have committed many errors and many sins. A woman brought sin into the world. For a woman who was no better than she should be, Helen, the runaway wife of Menelaus, ten years the Greeks made war on Troy. A faithless wife first brought the strangers to our shore here, MacMurrough’s wife and her leman, O’Rourke, prince of Breffni. A woman too brought Parnell low. Many errors, many failures but not the one sin. I am a struggler now at the end of my days. But I will fight for the right till the end.
+
+The faithless wife who first brought the strangers to our shore here, second of Deasy’s three women who brought sin into the world. The text names her husband only in naming her, and O’Rourke, prince of Breffni, was her leman.
+
+## original-en · orourke · 2:174
+
+—I am happier than you are, he said. We have committed many errors and many sins. A woman brought sin into the world. For a woman who was no better than she should be, Helen, the runaway wife of Menelaus, ten years the Greeks made war on Troy. A faithless wife first brought the strangers to our shore here, MacMurrough’s wife and her leman, O’Rourke, prince of Breffni. A woman too brought Parnell low. Many errors, many failures but not the one sin. I am a struggler now at the end of my days. But I will fight for the right till the end.
+
+Her leman.
+
 ## modern-en · stephen · 1:3
 
 —Come up, Kinch! Come up, you cowardly Jesuit!
@@ -589,3 +841,255 @@ Who spurned Christ’s terrene body.
 The proud powerful titles clanged through Stephen's memory, the triumph of their brazen bells: and one holy Catholic and apostolic church: the slow growth and change of rite and dogma like his own rare thoughts, a chemistry of stars. The voices blended in the Mass for Pope Marcellus, singing alone in loud affirmation: and behind their chant the vigilant angel of the church militant disarmed and menaced her heretics. A horde of heresies fleeing with crooked hats: Photius and the brood of mockers of whom Mulligan was one, and Arius, who fought his whole life long over whether the Son was of the same substance as the Father, and Valentine, who rejected Christ's earthly body, and the subtle African heretic Sabellius who held that the Father was Himself His own Son. Words Mulligan had spoken a moment ago in mockery to the stranger. Idle mockery. The void surely awaits all those who weave the wind: a menace, a disarming and a defeat from those embattled angels of the church, Michael's host, who defend her ever in the hour of conflict with their lances and their shields.
 
 The African, subtlest heresiarch of them all, who held that the Father was Himself His own Son.
+
+## modern-en · deasy · 2:67
+
+—Mr Deasy told me to write them out all again, he said, and show them to you, sir.
+
+The headmaster of the school at Dalkey where Stephen teaches: an Ulster protestant and a unionist who pays Stephen his salary in sovereigns and shillings, lectures him on saving money, dictates a letter to the press about foot and mouth disease, and tells him that England is in the hands of the jews and that Ireland never persecuted them because she never let them in.
+
+## modern-en · cochrane · 2:0
+
+—You, Cochrane, what city sent for him?
+
+One of Stephen’s pupils, who is asked what city sent for Pyrrhus and answers Tarentum, and who is on the same side as Halliday at hockey.
+
+## modern-en · armstrong · 2:11
+
+—You, Armstrong, Stephen said. What was the end of Pyrrhus?
+
+The boy with the bag of figrolls in his satchel, asked what was the end of Pyrrhus and offering a pier. Welloff people, proud that their eldest son was in the navy; Vico Road, Dalkey.
+
+## modern-en · comyn · 2:13
+
+—I know, sir. Ask me, sir, Comyn said.
+
+The boy who laughs, and who is told to ask Stephen about Pyrrhus.
+
+## modern-en · talbot · 2:30
+
+—Go on then, Talbot.
+
+The boy who reads Lycidas with the book propped nimbly under the breastwork of his satchel, prompted word by word.
+
+## modern-en · sargent · 2:65
+
+Sargent, who alone had lingered, came forward slowly, holding out an open exercise book. His tangled hair and scrawny neck showed his neglect, and through his misty glasses weak eyes looked up pleading. On his cheek, dull and bloodless, a soft stain of ink lay, shaped like a date, recent and damp as a snail's trail.
+
+The boy kept back after class over his sums, ugly and futile, with lean neck and tangled hair and a smear of ink on his cheek, whose mother loved him and who copies the symbols in grave morrice across the page.
+
+## modern-en · sargent-mother · 2:73
+
+Ugly and futile: scrawny neck and tangled hair and a stain of ink, a snail's bed. Yet someone had loved him, borne him in her arms and in her heart. But for her, the world would have trampled him underfoot, a squashed boneless snail. She had loved his weak watery blood drained from her own. Was that then real? The only true thing in life? His mother's prostrate body the fiery Saint Columban in holy zeal had straddled. She was no more: the trembling skeleton of a twig burnt in the fire, a smell of rosewood and dampened ashes. She had saved him from being trampled underfoot and had gone, scarcely having existed. A poor soul gone to heaven: and on a heath beneath winking stars a fox, red stink of prey in his fur, with merciless bright eyes scraped in the earth, listened, scraped up the earth, listened, scraped and scraped.
+
+Who taught him to write and bought him a coloured picture book; and who, Stephen thinks, is the only one who loved him and saved him from being trampled underfoot.
+
+## modern-en · halliday · 2:91
+
+—Cochrane and Halliday are on the same side, sir, Stephen said.
+
+On the same side as Cochrane at hockey. Not the Jacob Halliday, vintner, of the mock legal report in episode 12.
+
+## modern-en · curran · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea. Cousins, ten shillings. Bob Reynolds, half a guinea. Koehler, three guineas. Mrs MacKernan, five weeks' rent. The lump I have is useless.
+
+Ten guineas, in the list of Stephen’s debts. Not John Philpot Curran of episode 7 nor Sara Curran of episode 12.
+
+## modern-en · mccann · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea. Cousins, ten shillings. Bob Reynolds, half a guinea. Koehler, three guineas. Mrs MacKernan, five weeks' rent. The lump I have is useless.
+
+One guinea.
+
+## modern-en · fred-ryan · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea. Cousins, ten shillings. Bob Reynolds, half a guinea. Koehler, three guineas. Mrs MacKernan, five weeks' rent. The lump I have is useless.
+
+Two shillings.
+
+## modern-en · temple · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea. Cousins, ten shillings. Bob Reynolds, half a guinea. Koehler, three guineas. Mrs MacKernan, five weeks' rent. The lump I have is useless.
+
+Two lunches — and one of the oval equine faces of Stephen’s dream in episode 3. Not Temple bar.
+
+## modern-en · russell · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea. Cousins, ten shillings. Bob Reynolds, half a guinea. Koehler, three guineas. Mrs MacKernan, five weeks' rent. The lump I have is useless.
+
+One guinea: George Russell, the eminent poet who signs himself A. E., whom Bloom thinks of in episode 8 and who argues with Stephen in the library in episode 9.
+
+## modern-en · cousins · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea. Cousins, ten shillings. Bob Reynolds, half a guinea. Koehler, three guineas. Mrs MacKernan, five weeks' rent. The lump I have is useless.
+
+Ten shillings.
+
+## modern-en · bob-reynolds · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea. Cousins, ten shillings. Bob Reynolds, half a guinea. Koehler, three guineas. Mrs MacKernan, five weeks' rent. The lump I have is useless.
+
+Half a guinea.
+
+## modern-en · koehler · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea. Cousins, ten shillings. Bob Reynolds, half a guinea. Koehler, three guineas. Mrs MacKernan, five weeks' rent. The lump I have is useless.
+
+Three guineas.
+
+## modern-en · mrs-mackernan · 2:123
+
+Mulligan, nine pounds, three pairs of socks, one pair brogues, ties. Curran, ten guineas. McCann, one guinea. Fred Ryan, two shillings. Temple, two lunches. Russell, one guinea. Cousins, ten shillings. Bob Reynolds, half a guinea. Koehler, three guineas. Mrs MacKernan, five weeks' rent. The lump I have is useless.
+
+Five weeks’ board.
+
+## modern-en · albert-edward · 2:128
+
+Mr Deasy stared sternly for some moments over the mantelpiece at the sturdy figure of a man in tartan kilt: Albert Edward, Prince of Wales.
+
+The shapely bulk of a man in tartan fillibegs over Deasy’s mantelpiece, whom he stares at sternly.
+
+## modern-en · sir-john-blackwood · 2:136
+
+A rough country squire on horseback with shiny top boots. Fine day, Sir John! Fine day, your honor!... Day!... Day!... Two top boots jogging along to Dublin. Lal the ral the ra. Lal the ral the raddy.
+
+Deasy’s ancestor, who voted for the union — per vias rectas was his motto — and put on his topboots to ride to Dublin from the Ards of Down to do it. Stephen sees the gruff squire jogging on horseback instead.
+
+## modern-en · henry-blackwood-price · 2:151
+
+Foot and mouth disease. Known as Koch's preparation. Serum and virus. Percentage of treated horses. Cattle plague. The Emperor's horses at Murzsteg, lower Austria. Veterinary surgeons. Mr Henry Blackwood Price. Courteous offer of a fair trial. Dictates of common sense. All-important question. In every sense of the word, take the bull by the horns. Thanking you for the hospitality of your columns.
+
+Named in Deasy’s letter to the press as making a courteous offer of a fair trial of Koch’s preparation against foot and mouth disease. Not the Henry Price of the basket and fancy goods shop in episode 17.
+
+## modern-en · koch · 2:151
+
+Foot and mouth disease. Known as Koch's preparation. Serum and virus. Percentage of treated horses. Cattle plague. The Emperor's horses at Murzsteg, lower Austria. Veterinary surgeons. Mr Henry Blackwood Price. Courteous offer of a fair trial. Dictates of common sense. All-important question. In every sense of the word, take the bull by the horns. Thanking you for the hospitality of your columns.
+
+Whose preparation, serum and virus, the letter recommends.
+
+## modern-en · lord-hastings · 2:141
+
+Stephen seated himself noiselessly before the princely portrait. Framed around the walls, images of vanished racehorses stood in homage, their noble heads poised in air: Lord Hastings's Repulse, the Duke of Westminster's Shotover, the Duke of Beaufort's Ceylon, winner of the Prix de Paris, 1866. Tiny jockeys sat them, watchful for a signal. He saw their speeds, backing the royal colors, and shouted with the shouts of vanished crowds.
+
+Owner of Repulse, one of the vanished horses framed on Deasy’s walls.
+
+## modern-en · duke-of-westminster · 2:141
+
+Stephen seated himself noiselessly before the princely portrait. Framed around the walls, images of vanished racehorses stood in homage, their noble heads poised in air: Lord Hastings's Repulse, the Duke of Westminster's Shotover, the Duke of Beaufort's Ceylon, winner of the Prix de Paris, 1866. Tiny jockeys sat them, watchful for a signal. He saw their speeds, backing the royal colors, and shouted with the shouts of vanished crowds.
+
+Owner of Shotover, another of them.
+
+## modern-en · duke-of-beaufort · 2:141
+
+Stephen seated himself noiselessly before the princely portrait. Framed around the walls, images of vanished racehorses stood in homage, their noble heads poised in air: Lord Hastings's Repulse, the Duke of Westminster's Shotover, the Duke of Beaufort's Ceylon, winner of the Prix de Paris, 1866. Tiny jockeys sat them, watchful for a signal. He saw their speeds, backing the royal colors, and shouted with the shouts of vanished crowds.
+
+Owner of Ceylon, prix de Paris, 1866, the third.
+
+## modern-en · oconnell · 2:129
+
+—You think me an old fogey and an old conservative, his thoughtful voice said. I saw three generations since Daniel O'Connell's time. I remember the famine in '46. Do you know that the Orange lodges pushed for repeal of the union twenty years before O'Connell did, or before the bishops of your church denounced him as a rabble-rouser? You nationalists forget some things.
+
+Whose time Deasy has seen three generations since, and whom the prelates of Stephen’s communion denounced as a demagogue twenty years after the orange lodges had agitated for repeal.
+
+## modern-en · parnell · 2:174
+
+—I am happier than you are, he said. We have committed many errors and many sins. A woman brought sin into the world. For a woman who was no better than she should be, Helen, the runaway wife of Menelaus, ten years the Greeks made war on Troy. A faithless wife first brought foreigners to our shore here — MacMurrough's wife and her lover, O'Rourke, prince of Breffni. A woman too brought Parnell low. Many errors, many failures, but not the one sin. I am a fighter now at the end of my days. But I will fight for the right till the end.
+
+Whom a woman brought low, in Deasy’s list of the women who have ruined men.
+
+## modern-en · edith · 2:20
+
+Some laughed again: mirthless but with meaning. Two in the back bench whispered. Yes. They knew: had never learned nor ever been innocent. All of them. With envy he watched their faces: Edith, Ethel, Gerty, Lily. Their kind: their breaths too sweetened with tea and jam, their bracelets jingling in the struggle.
+
+One of the four faces Stephen watches with envy, whose breaths are sweetened with tea and jam and whose bracelets titter in the struggle.
+
+## modern-en · ethel · 2:20
+
+Some laughed again: mirthless but with meaning. Two in the back bench whispered. Yes. They knew: had never learned nor ever been innocent. All of them. With envy he watched their faces: Edith, Ethel, Gerty, Lily. Their kind: their breaths too sweetened with tea and jam, their bracelets jingling in the struggle.
+
+Another of the four.
+
+## modern-en · school-gerty · 2:20
+
+Some laughed again: mirthless but with meaning. Two in the back bench whispered. Yes. They knew: had never learned nor ever been innocent. All of them. With envy he watched their faces: Edith, Ethel, Gerty, Lily. Their kind: their breaths too sweetened with tea and jam, their bracelets jingling in the struggle.
+
+A third. Not the Gerty MacDowell of episode 13.
+
+## modern-en · school-lily · 2:20
+
+Some laughed again: mirthless but with meaning. Two in the back bench whispered. Yes. They knew: had never learned nor ever been innocent. All of them. With envy he watched their faces: Edith, Ethel, Gerty, Lily. Their kind: their breaths too sweetened with tea and jam, their bracelets jingling in the struggle.
+
+The fourth. Not the red Carlisle girl of episode 1, and not the Lily of episodes 6, 12, 13 or 15.
+
+## modern-en · pyrrhus · 2:11
+
+—You, Armstrong, Stephen said. What was the end of Pyrrhus?
+
+Whose end Armstrong cannot remember and whose fall by a beldam’s hand in Argos Stephen sets beside Caesar’s knifing as one of the things that are not to be thought away. Misled by an oracle, the newspaper men say of him in episode 7, he made a last attempt to retrieve the fortunes of Greece.
+
+## modern-en · julius-caesar · 2:25
+
+If Pyrrhus had not fallen by an old woman's hand in Argos, or Julius Caesar not been stabbed to death. They cannot be thought away. Time has branded them and fettered, they are lodged in the room of the infinite possibilities they have replaced. But could those other possibilities have existed, seeing that they never happened? Or was only what actually occurred ever possible? Weave, weaver of the wind.
+
+Knifed to death: the other of the two actualities Stephen says cannot be thought away.
+
+## modern-en · blake · 2:6
+
+Shaped by the daughters of memory. And yet it happened in some way if not as memory shaped it. A phrase then, of impatience, a beat of Blake's wings of excess. I hear the ruin of all space, shattered glass and toppling masonry, and time one livid final flame. What's left us then?
+
+Whose wings of excess thud in Stephen’s thought of history fabled by the daughters of memory, and whose buttocks the creepycrawlers follow into eternity in episode 9. Not the Phil Blake of the weekly Pat and Bull story in episode 7.
+
+## modern-en · aristotle · 2:35
+
+It must be a movement then, an actualization of the possible as possible. Aristotle's phrase formed itself within the gabbled verses and floated out into the studious silence of the library of Saint Genevieve in Paris where he had read, sheltered from the sin of Paris, night after night. At his elbow a delicate Siamese student studied a handbook of strategy. Brains fed and feeding around me: under glowing lamps, pinned, with faintly beating antennae: and in my mind's darkness a sluggish creature of the underworld, reluctant, shy of light, shifting her dragon-scaly folds. Thought is the thought of thought. Tranquil brightness. The soul is in a sense all that exists: the soul is the form of forms. Tranquility sudden, vast, luminous: form of forms.
+
+Whose phrase — the soul is the form of forms — forms itself within the gabbled verses and floats out into the studious silence of the library of Saint Genevieve, where Stephen read night by night, sheltered from the sin of Paris.
+
+## modern-en · averroes · 2:75
+
+Across the page the mathematical symbols moved in grave dance, in the masquerade of their letters, wearing quaint caps of squares and cubes. Give hands, cross over, bow to partner: so: little imps of the Moorish imagination. Gone too from the world, Averroes and Moses Maimonides, dark men in look and movement, reflecting in their mocking mirrors the obscure soul of the world, a darkness shining in brightness which brightness could not comprehend.
+
+With Moses Maimonides, one of the dark men in mien and movement, gone from the world, flashing in their mocking mirrors the obscure soul of the world — a darkness shining in brightness which brightness could not comprehend.
+
+## modern-en · maimonides · 2:75
+
+Across the page the mathematical symbols moved in grave dance, in the masquerade of their letters, wearing quaint caps of squares and cubes. Give hands, cross over, bow to partner: so: little imps of the Moorish imagination. Gone too from the world, Averroes and Moses Maimonides, dark men in look and movement, reflecting in their mocking mirrors the obscure soul of the world, a darkness shining in brightness which brightness could not comprehend.
+
+The other of them.
+
+## modern-en · iago · 2:114
+
+—Iago, Stephen murmured.
+
+Whose line Deasy quotes as Shakespeare’s — put but money in thy purse — and whom Stephen names under his breath in correction.
+
+## modern-en · cassandra · 2:149
+
+May I trespass on your valuable space. That doctrine of laissez faire which so often in our history. Our cattle trade. The way of all our old industries. The Liverpool ring which sabotaged the Galway harbor scheme. European war. Grain supplies through the narrow waters of the English Channel. The utter indifference of the department of agriculture. Pardon a classical allusion. Cassandra. By a woman who was no better than she should be. To come to the point at issue.
+
+The classical allusion Deasy pardons himself for in the letter, and a woman, he adds, who was no better than she should be.
+
+## modern-en · helen · 2:174
+
+—I am happier than you are, he said. We have committed many errors and many sins. A woman brought sin into the world. For a woman who was no better than she should be, Helen, the runaway wife of Menelaus, ten years the Greeks made war on Troy. A faithless wife first brought foreigners to our shore here — MacMurrough's wife and her lover, O'Rourke, prince of Breffni. A woman too brought Parnell low. Many errors, many failures, but not the one sin. I am a fighter now at the end of my days. But I will fight for the right till the end.
+
+The runaway wife of Menelaus, for whom the Greeks made war ten years on Troy — first of Deasy’s women who brought sin into the world.
+
+## modern-en · menelaus · 2:174
+
+—I am happier than you are, he said. We have committed many errors and many sins. A woman brought sin into the world. For a woman who was no better than she should be, Helen, the runaway wife of Menelaus, ten years the Greeks made war on Troy. A faithless wife first brought foreigners to our shore here — MacMurrough's wife and her lover, O'Rourke, prince of Breffni. A woman too brought Parnell low. Many errors, many failures, but not the one sin. I am a fighter now at the end of my days. But I will fight for the right till the end.
+
+Her husband.
+
+## modern-en · macmurrough-wife · 2:174
+
+—I am happier than you are, he said. We have committed many errors and many sins. A woman brought sin into the world. For a woman who was no better than she should be, Helen, the runaway wife of Menelaus, ten years the Greeks made war on Troy. A faithless wife first brought foreigners to our shore here — MacMurrough's wife and her lover, O'Rourke, prince of Breffni. A woman too brought Parnell low. Many errors, many failures, but not the one sin. I am a fighter now at the end of my days. But I will fight for the right till the end.
+
+The faithless wife who first brought the strangers to our shore here, second of Deasy’s three women who brought sin into the world. The text names her husband only in naming her, and O’Rourke, prince of Breffni, was her leman.
+
+## modern-en · orourke · 2:174
+
+—I am happier than you are, he said. We have committed many errors and many sins. A woman brought sin into the world. For a woman who was no better than she should be, Helen, the runaway wife of Menelaus, ten years the Greeks made war on Troy. A faithless wife first brought foreigners to our shore here — MacMurrough's wife and her lover, O'Rourke, prince of Breffni. A woman too brought Parnell low. Many errors, many failures, but not the one sin. I am a fighter now at the end of my days. But I will fight for the right till the end.
+
+Her leman.

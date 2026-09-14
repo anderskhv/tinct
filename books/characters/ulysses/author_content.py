@@ -6,7 +6,7 @@ it resolves some of Joyce's run-together words and normalises punctuation, but
 it does not rewrite the prose and it does not modernise the names. Where the two
 differ on a name the difference is recorded on the card.
 
-Episode 1 is authored. The rest are not.
+Episodes 1 and 2 are authored. The rest are not.
 
 Scope: named persons — the Dublin cast, the figures they remember, and the
 writers, saints, heresiarchs and stage characters they quote. Peoples, places,
@@ -95,12 +95,62 @@ for row in [
 ('sabellius','Sabellius','The African, subtlest heresiarch of them all, who held that the Father was Himself His own Son.','Sabellius'),
 ]:add(*row)
 
+# ========================= EPISODE 2 — Nestor
+for row in [
+('deasy','Mr Deasy','The headmaster of the school at Dalkey where Stephen teaches: an Ulster protestant and a unionist who pays Stephen his salary in sovereigns and shillings, lectures him on saving money, dictates a letter to the press about foot and mouth disease, and tells him that England is in the hands of the jews and that Ireland never persecuted them because she never let them in.','Deasy','major'),
+('cochrane','Cochrane','One of Stephen\u2019s pupils, who is asked what city sent for Pyrrhus and answers Tarentum, and who is on the same side as Halliday at hockey.','',),
+('armstrong','Armstrong','The boy with the bag of figrolls in his satchel, asked what was the end of Pyrrhus and offering a pier. Welloff people, proud that their eldest son was in the navy; Vico Road, Dalkey.','Armstrong'),
+('comyn','Comyn','The boy who laughs, and who is told to ask Stephen about Pyrrhus.','Comyn'),
+('talbot','Talbot','The boy who reads Lycidas with the book propped nimbly under the breastwork of his satchel, prompted word by word.','',),
+('sargent','Sargent','The boy kept back after class over his sums, ugly and futile, with lean neck and tangled hair and a smear of ink on his cheek, whose mother loved him and who copies the symbols in grave morrice across the page.','Sargent'),
+('sargent-mother','Sargent\u2019s mother','Who taught him to write and bought him a coloured picture book; and who, Stephen thinks, is the only one who loved him and saved him from being trampled underfoot.','',),
+('halliday','Halliday','On the same side as Cochrane at hockey. Not the Jacob Halliday, vintner, of the mock legal report in episode 12.','',),
+# --- the Dublin men Stephen owes money to
+('curran','Curran','Ten guineas, in the list of Stephen\u2019s debts. Not John Philpot Curran of episode 7 nor Sara Curran of episode 12.','',),
+('mccann','McCann','One guinea.','McCann'),
+('fred-ryan','Fred Ryan','Two shillings.','Fred Ryan'),
+('temple','Temple','Two lunches \u2014 and one of the oval equine faces of Stephen\u2019s dream in episode 3. Not Temple bar.','',),
+('russell','Russell','One guinea: George Russell, the eminent poet who signs himself A. E., whom Bloom thinks of in episode 8 and who argues with Stephen in the library in episode 9.','',),
+('cousins','Cousins','Ten shillings.','Cousins'),
+('bob-reynolds','Bob Reynolds','Half a guinea.','Bob Reynolds'),
+('koehler','Koehler','Three guineas.','Koehler'),
+('mrs-mackernan','Mrs MacKernan','Five weeks\u2019 board.','Mrs MacKernan'),
+# --- the people in Deasy's study and in his letter
+('albert-edward','Albert Edward, prince of Wales','The shapely bulk of a man in tartan fillibegs over Deasy\u2019s mantelpiece, whom he stares at sternly.','',),
+('sir-john-blackwood','Sir John Blackwood','Deasy\u2019s ancestor, who voted for the union \u2014 per vias rectas was his motto \u2014 and put on his topboots to ride to Dublin from the Ards of Down to do it. Stephen sees the gruff squire jogging on horseback instead.','',),
+('henry-blackwood-price','Mr Henry Blackwood Price','Named in Deasy\u2019s letter to the press as making a courteous offer of a fair trial of Koch\u2019s preparation against foot and mouth disease. Not the Henry Price of the basket and fancy goods shop in episode 17.','Henry Blackwood Price'),
+('koch','Koch','Whose preparation, serum and virus, the letter recommends.','Koch'),
+('lord-hastings','lord Hastings|Lord Hastings','Owner of Repulse, one of the vanished horses framed on Deasy\u2019s walls.','lord Hastings|Lord Hastings'),
+('duke-of-westminster','The Duke of Westminster','Owner of Shotover, another of them.','',),
+('duke-of-beaufort','The Duke of Beaufort','Owner of Ceylon, prix de Paris, 1866, the third.','',),
+('oconnell','O\u2019Connell','Whose time Deasy has seen three generations since, and whom the prelates of Stephen\u2019s communion denounced as a demagogue twenty years after the orange lodges had agitated for repeal.','',),
+('parnell','Parnell','Whom a woman brought low, in Deasy\u2019s list of the women who have ruined men.','',),
+# --- the schoolgirls of Stephen's envy
+('edith','Edith','One of the four faces Stephen watches with envy, whose breaths are sweetened with tea and jam and whose bracelets titter in the struggle.','Edith'),
+('ethel','Ethel','Another of the four.','Ethel'),
+('school-gerty','Gerty','A third. Not the Gerty MacDowell of episode 13.','',),
+('school-lily','Lily','The fourth. Not the red Carlisle girl of episode 1, and not the Lily of episodes 6, 12, 13 or 15.','',),
+# --- the figures of the history lesson and of Stephen's thought
+('pyrrhus','Pyrrhus','Whose end Armstrong cannot remember and whose fall by a beldam\u2019s hand in Argos Stephen sets beside Caesar\u2019s knifing as one of the things that are not to be thought away. Misled by an oracle, the newspaper men say of him in episode 7, he made a last attempt to retrieve the fortunes of Greece.','Pyrrhus'),
+('julius-caesar','Julius Caesar','Knifed to death: the other of the two actualities Stephen says cannot be thought away.','Julius Caesar'),
+('blake','Blake','Whose wings of excess thud in Stephen\u2019s thought of history fabled by the daughters of memory, and whose buttocks the creepycrawlers follow into eternity in episode 9. Not the Phil Blake of the weekly Pat and Bull story in episode 7.','',),
+('aristotle','Aristotle','Whose phrase \u2014 the soul is the form of forms \u2014 forms itself within the gabbled verses and floats out into the studious silence of the library of Saint Genevieve, where Stephen read night by night, sheltered from the sin of Paris.','Aristotle'),
+('averroes','Averroes','With Moses Maimonides, one of the dark men in mien and movement, gone from the world, flashing in their mocking mirrors the obscure soul of the world \u2014 a darkness shining in brightness which brightness could not comprehend.','Averroes'),
+('maimonides','Moses Maimonides','The other of them.','Maimonides'),
+('iago','Iago','Whose line Deasy quotes as Shakespeare\u2019s \u2014 put but money in thy purse \u2014 and whom Stephen names under his breath in correction.','Iago','reference','literary-figure'),
+('cassandra','Cassandra','The classical allusion Deasy pardons himself for in the letter, and a woman, he adds, who was no better than she should be.','Cassandra'),
+('helen','Helen','The runaway wife of Menelaus, for whom the Greeks made war ten years on Troy \u2014 first of Deasy\u2019s women who brought sin into the world.','',),
+('menelaus','Menelaus','Her husband.','Menelaus'),
+('macmurrough-wife','MacMurrough\u2019s wife','The faithless wife who first brought the strangers to our shore here, second of Deasy\u2019s three women who brought sin into the world. The text names her husband only in naming her, and O\u2019Rourke, prince of Breffni, was her leman.','MacMurrough'),
+('orourke','O\u2019Rourke, prince of Breffni','Her leman.','',),
+]:add(*row)
+
 updates={}
 for e in entities:e['snapshots']=[dict(after=list(at),body=body) for at,body in updates.get(e['id'],[])]
-print(len(entities),'entities authored: episode 1')
+print(len(entities),'entities authored: episodes 1-2')
 BASE=Path(__file__).resolve().parent
 (BASE/'editorial.json').write_text(json.dumps(dict(
  bookId='ulysses',
- contentVersion='2026-09-14.1',
- coverage='Both full English editions, episode 1 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.',
+ contentVersion='2026-09-14.2',
+ coverage='Both full English editions, episodes 1-2 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')
