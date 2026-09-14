@@ -1368,7 +1368,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const beforeGrowPagesRef = useRef<ChapterHearingPage[] | null>(null)
   const highlightsApi = useLabHighlights(book.chapterNumber, chromeV2 ? { bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition } : undefined)
   const primaryCharacters = useCharacterCards(book.bookId, prefs.primaryEdition)
-  const compareCharacters = useCharacterCards(book.bookId, prefs.compareEdition)
+  // Verifying cards downloads their complete source edition. Do not fetch an
+  // unused second book alongside the chapter when Compare is disabled.
+  const compareCharacters = useCharacterCards(prefs.compareOpen ? book.bookId : undefined, prefs.compareEdition)
   const define = useDefine()
   const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange; editionKey?: string; defineText?: string }) | null>(null)
   const [popupMode, setPopupMode] = useState<PopupMode>('colors')
