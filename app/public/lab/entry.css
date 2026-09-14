@@ -149,7 +149,15 @@
 #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom>.tov5-secondary-world-art,#tinct-onboarding-worlds-v5 .tov5-book-detail-zoom>.tov5-secondary-world-scrim,
 #tinct-onboarding-worlds-v5 .tov5-edition-zoom>.tov5-secondary-world-art,#tinct-onboarding-worlds-v5 .tov5-edition-zoom>.tov5-secondary-world-scrim {display:none}
 #tinct-onboarding-worlds-v5 .entry-cover-column {height:max-content}
-@media(max-width:899px){#tinct-onboarding-worlds-v5 .tov5-edition-head h2 {font-size:30px}}
+@media(max-width:899px){
+ #tinct-onboarding-worlds-v5 .tov5-edition-head h2 {font-size:30px}
+ /* A static row of real library covers fills the phone hero's unused middle
+    without moving its copy or fixed Start reading action. */
+ #tinct-onboarding-worlds-v5 .entry-cover-field {display:flex;position:absolute;z-index:1;top:48%;right:-44px;bottom:118px;left:-44px;align-items:flex-end;gap:12px;overflow:hidden;opacity:.58;transform:rotate(-5deg);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);pointer-events:none}
+ #tinct-onboarding-worlds-v5 .entry-cover-field .lib-cover {display:block;flex:0 0 112px;aspect-ratio:2/3;overflow:hidden;border:1px solid rgba(244,237,225,.14);border-radius:3px;box-shadow:0 14px 30px rgba(0,0,0,.34)}
+ #tinct-onboarding-worlds-v5 .entry-cover-field .lib-cover:nth-child(even) {transform:translateY(22px)}
+ #tinct-onboarding-worlds-v5 .entry-cover-field img {display:block;width:100%;height:100%;object-fit:cover}
+}
 
 /* Expanding a long preface must not move the cover or bury the reader action.
    The existing Start/Continue button becomes one quiet, viewport-pinned action
