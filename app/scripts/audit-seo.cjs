@@ -20,6 +20,7 @@ const READ_DIR = path.join(PUBLIC_DIR, 'read')
 const EDITIONS_DIR = path.join(PUBLIC_DIR, 'data/editions')
 const SITEMAP = path.join(PUBLIC_DIR, 'sitemap.xml')
 const ORIGIN = 'https://tinct.app'
+const SHARED_SOCIAL_IMAGE = `${ORIGIN}/og-image-v2.jpg`
 
 const HOLD_BACK_BOOK_IDS = new Set([])
 
@@ -190,6 +191,31 @@ function auditLocalStaticPages(urls) {
   else pass(`checked ${checked} local static SEO pages`)
 }
 
+function auditSharedSocialPreviews() {
+  const pages = [
+    ['landing', path.join(PUBLIC_DIR, 'landing.html')],
+    ['about', path.join(PUBLIC_DIR, 'about.html')],
+    ['library hub', path.join(READ_DIR, 'index.html')],
+  ]
+
+  for (const [label, file] of pages) {
+    const html = read(file)
+    if (attr(html, 'og:image') !== SHARED_SOCIAL_IMAGE) fail(`${label} has stale og:image`)
+    if (attr(html, 'twitter:image') !== SHARED_SOCIAL_IMAGE) fail(`${label} has stale twitter:image`)
+    if (attr(html, 'og:image:type') !== 'image/jpeg') fail(`${label} has missing/wrong og:image:type`)
+    if (attr(html, 'og:image:width') !== '1200' || attr(html, 'og:image:height') !== '630') {
+      fail(`${label} has missing/wrong social image dimensions`)
+    }
+  }
+
+  const aboutHtml = read(path.join(PUBLIC_DIR, 'about.html'))
+  if (!attr(aboutHtml, 'og:description')) fail('about has no og:description')
+
+  const imagePath = path.join(PUBLIC_DIR, 'og-image-v2.jpg')
+  if (!fs.existsSync(imagePath) || fs.statSync(imagePath).size < 10_000) fail('shared social image is missing or empty')
+  else pass('shared social previews use the versioned 1200x630 JPEG')
+}
+
 async function fetchNoBody(url, init = {}) {
   return fetch(url, {
     redirect: 'manual',
@@ -279,6 +305,7 @@ async function main() {
   const args = parseArgs(process.argv.slice(2))
   const urls = auditLocalSitemap()
   auditLocalStaticPages(urls)
+  auditSharedSocialPreviews()
 
   if (args.base) {
     await auditLive(args.base, urls, args.limit)

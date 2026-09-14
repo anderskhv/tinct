@@ -38,7 +38,7 @@ const BUILD_DATE = new Date().toISOString().slice(0, 10)
 const SEO_EXCERPT_WORDS = 1200
 const MAX_META_TITLE_CHARS = 60
 const MAX_META_DESCRIPTION_CHARS = 155
-const DEFAULT_OG_IMAGE = `${ORIGIN}/og-image.png`
+const DEFAULT_OG_IMAGE = `${ORIGIN}/og-image-v2.jpg`
 const MANUAL_BOOK_META = {
   odyssey: {
     title: 'Read The Odyssey Online — Modern Translation, AI Companion, Audiobook | Tinct',
@@ -286,6 +286,9 @@ function pageShell({ title, description, canonical, body, jsonLd, image = DEFAUL
   <meta property="og:type" content="book">
   <meta property="og:site_name" content="Tinct">
   <meta property="og:image" content="${escapeHtml(image)}">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">

@@ -64,14 +64,18 @@ const edits = [
   ['html', 'opening thread card metrics', '\u2661 2.4K \u00a0 \u21bb 618', '\u2661 3.1K \u00a0 \u21bb 412', 2],
   ['html', 'og:image + twitter card', '<meta property="og:type" content="website"/>',
     '<meta property="og:type" content="website"/>' +
-    '<meta property="og:image" content="https://tinct.app/og-image.png"/>' +
+    '<meta property="og:description" content="A beautiful reading app for the world’s greatest books. Read, listen, ask, and pick up the thread when life gets in the way."/>' +
+    '<meta property="og:image" content="https://tinct.app/og-image-v2.jpg"/>' +
+    '<meta property="og:image:type" content="image/jpeg"/>' +
+    '<meta property="og:image:width" content="1200"/>' +
+    '<meta property="og:image:height" content="630"/>' +
     '<meta name="twitter:card" content="summary_large_image"/>' +
     '<meta name="twitter:title" content="Tinct · Read something great"/>' +
     '<meta name="twitter:description" content="A beautiful reading app for the world’s greatest books. Read, listen, ask, and pick up the thread when life gets in the way."/>' +
-    '<meta name="twitter:image" content="https://tinct.app/og-image.png"/>', 1, 'property="og:image"'],
+    '<meta name="twitter:image" content="https://tinct.app/og-image-v2.jpg"/>', 1, 'property="og:image"'],
   // Safari tints its toolbars from theme-color; without it the green root canvas of the v20 build showed through.
-  ['html', 'theme-color is the story ground', '<meta name="twitter:image" content="https://tinct.app/og-image.png"/>',
-    '<meta name="twitter:image" content="https://tinct.app/og-image.png"/><meta name="theme-color" content="#191411"/>', 1, 'name="theme-color"'],
+  ['html', 'theme-color is the story ground', '<meta name="twitter:image" content="https://tinct.app/og-image-v2.jpg"/>',
+    '<meta name="twitter:image" content="https://tinct.app/og-image-v2.jpg"/><meta name="theme-color" content="#191411"/>', 1, 'name="theme-color"'],
   ['html', 'override stylesheet', 'data-precedence="vite-rsc/importer-resources"/>',
     'data-precedence="vite-rsc/importer-resources"/><link rel="stylesheet" href="/assets/about-v20/about-v21.css"/>', 1, 'about-v21.css'],
   ['html', 'product fonts for the Talk panel', '<link rel="stylesheet" href="/assets/about-v20/about-v21.css"/>',

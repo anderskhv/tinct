@@ -2,49 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
+  <link rel="stylesheet" href="../../public/fonts/tinct-fonts.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 1200px; height: 630px; overflow: hidden; }
-    body {
-      background: #ece7db;
-      color: #0b0b0b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    body { background: #191411; color: #fffaf0; font-family: 'EB Garamond', Georgia, serif; }
+    .scene, .wash, .card { position: absolute; inset: 0; }
+    .scene { width: 100%; height: 100%; object-fit: cover; object-position: center 54%; transform: scale(1.015); }
+    .wash {
+      background:
+        linear-gradient(90deg, rgba(18, 13, 10, 0.92) 0%, rgba(18, 13, 10, 0.56) 34%, rgba(18, 13, 10, 0.06) 68%),
+        linear-gradient(0deg, rgba(18, 13, 10, 0.48), transparent 42%);
     }
-    .card {
-      text-align: center;
-    }
+    .card { display: flex; flex-direction: column; justify-content: space-between; padding: 62px 68px 58px; }
     .wordmark {
       font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 900;
-      font-size: 148px;
-      letter-spacing: -0.02em;
-      line-height: 1;
-      color: #0b0b0b;
+      font-weight: 700; font-size: 64px; letter-spacing: -0.035em; line-height: 1;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.3);
     }
-    .wordmark .dot { color: #1f4a5c; }
-    .rule {
-      width: 220px;
-      height: 3px;
-      background: #1f4a5c;
-      margin: 44px auto 36px;
+    .wordmark .dot { color: #c6844b; }
+    .title {
+      max-width: 520px; font-size: 65px; font-weight: 500; line-height: 0.98;
+      letter-spacing: -0.025em; text-wrap: balance; text-shadow: 0 2px 22px rgba(0, 0, 0, 0.55);
     }
-    .tagline {
-      font-family: 'EB Garamond', Georgia, serif;
-      font-style: italic;
-      font-size: 42px;
-      color: #0b0b0b;
-      opacity: 0.82;
-    }
+    .rule { width: 78px; height: 2px; margin-bottom: 22px; background: #c6844b; }
   </style>
 </head>
 <body>
+  <img class="scene" src="../../public/assets/about-v20/assets/introducing-tinct-20260914-v2.png" alt="">
+  <div class="wash"></div>
   <div class="card">
     <div class="wordmark">Tinct<span class="dot">.</span></div>
-    <div class="rule"></div>
-    <div class="tagline">The classics, in your language.</div>
+    <div><div class="rule"></div><div class="title">Read something great.</div></div>
   </div>
 </body>
 </html>
