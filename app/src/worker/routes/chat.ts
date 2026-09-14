@@ -1,3 +1,4 @@
+import { ChatUpstreamError, fetchChatUpstream as fetchAnthropic, logChatFailure, providerErrorType, readChatChunk, safeChatError } from '../lib/chatUpstream'
 import { COMPANION_MODEL, parseCompanionEffort, type CompanionEffort } from '../../companionModel'
 import { evaluateChatAccess, type ChatProfile } from '../lib/chatAccess'
 import {
@@ -172,58 +173,19 @@ function validateSystemParam(value: unknown): { system: AnthropicSystemParam; er
 }
 
 function streamAnthropicResponse(response: Response, request: Request, env: ChatEnv, ctx: ExecutionContext, userId: string | null): Response {
-  if (!response.body) return jsonResponse({ error: 'Empty stream' }, 502, request)
-  const decoder = new TextDecoder()
-  const encoder = new TextEncoder()
   let charged = false
-  let buffer = ''
-  const transformed = response.body.pipeThrough(new TransformStream<Uint8Array, Uint8Array>({
-    transform(chunk, controller) {
-      const text = decoder.decode(chunk, { stream: true })
-      if (charged) {
-        controller.enqueue(encoder.encode(text))
-        return
-      }
-      buffer += text
-      const lines = buffer.split(/\r?\n/)
-      buffer = lines.pop() ?? ''
-      for (const line of lines) {
-        if (!line.startsWith('data:')) continue
-        const data = line.slice(5).trim()
-        if (!data || data === '[DONE]') continue
-        try {
-          const parsed = JSON.parse(data) as {
-            type?: string
-            message?: { usage?: AnthropicUsage }
-            delta?: { type?: string; text?: string }
-          }
-          if (parsed.type === 'message_start') {
-            logAnthropicCacheUsage('chat_stream_start', parsed.message?.usage)
-          }
-          if (parsed.type === 'content_block_delta' && parsed.delta?.type === 'text_delta' && parsed.delta.text) {
-            charged = true
-            buffer = ''
-            if (userId && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
-              ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
-            }
-            break
-          }
-        } catch { /* ignore partial/non-json SSE data */ }
-      }
-      controller.enqueue(encoder.encode(text))
-    },
-    flush(controller) {
-      const tail = decoder.decode()
-      if (tail) controller.enqueue(encoder.encode(tail))
-    },
-  }))
-  return new Response(transformed, {
-    status: response.status,
-    headers: {
-      ...corsHeaders(request),
-      'Content-Type': response.headers.get('content-type') || 'text/event-stream; charset=utf-8',
-      'Cache-Control': 'no-cache',
-    },
+  return chatEventStream(request, ctx, async sink => {
+    const outcome = await consumeStreamedRound(response, sink, {
+      firstRound: true,
+      onText: () => {
+        if (charged) return
+        charged = true
+        if (userId && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
+          ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
+        }
+      },
+    })
+    if (!outcome.ok) sink.write('error', outcome.body as Record<string, unknown>)
   })
 }
 
@@ -255,7 +217,7 @@ async function* readSseEvents(body: ReadableStream<Uint8Array>): AsyncGenerator<
   }
   try {
     while (true) {
-      const { done, value } = await reader.read()
+      const { done, value } = await readChatChunk(reader)
       if (done) break
       buffer += decoder.decode(value, { stream: true })
       let boundary = buffer.search(/\r?\n\r?\n/)
@@ -271,6 +233,7 @@ async function* readSseEvents(body: ReadableStream<Uint8Array>): AsyncGenerator<
     const tail = parseBlock(buffer)
     if (tail) yield tail
   } finally {
+    void reader.cancel().catch(() => {})
     reader.releaseLock()
   }
 }
@@ -289,75 +252,98 @@ async function consumeStreamedRound(
   sink: ClientSink | null,
   options: { firstRound: boolean; onText: () => void },
 ): Promise<RoundOutcome> {
-  if (!response.body) return { ok: false, status: 502, body: { error: 'Empty stream' } }
+  if (!response.body) {
+    logChatFailure('stream', 'empty_stream', response)
+    return { ok: false, status: 502, body: safeChatError() }
+  }
   const blocks: ContentBlock[] = []
   const jsonBuffers = new Map<number, string>()
   let stopReason: string | null = null
   let message: Record<string, unknown> | null = null
-  for await (const { event, data } of readSseEvents(response.body)) {
-    const type = typeof data.type === 'string' ? data.type : event
-    const index = typeof data.index === 'number' ? data.index : -1
-    switch (type) {
-      case 'message_start': {
-        message = (data.message as Record<string, unknown> | undefined) ?? null
-        logAnthropicCacheUsage(options.firstRound ? 'chat_stream_start' : 'chat_tool_round', (message?.usage as AnthropicUsage | undefined))
-        if (sink && options.firstRound) sink.write(event, data)
-        break
-      }
-      case 'content_block_start': {
-        const block = (data.content_block as ContentBlock | undefined) ?? { type: 'text', text: '' }
-        if (block.type === 'tool_use') {
-          blocks[index] = { type: 'tool_use', id: String((block as ToolUseBlock).id ?? ''), name: String((block as ToolUseBlock).name ?? ''), input: {} }
-          jsonBuffers.set(index, '')
-        } else {
-          blocks[index] = block.type === 'text' ? { type: 'text', text: String((block as TextBlock).text ?? '') } : block
-          if (sink) sink.write(event, data)
+  let partialText = false
+  let completed = false
+  try {
+    for await (const { event, data } of readSseEvents(response.body)) {
+      const type = typeof data.type === 'string' ? data.type : event
+      const index = typeof data.index === 'number' ? data.index : -1
+      switch (type) {
+        case 'message_start': {
+          message = (data.message as Record<string, unknown> | undefined) ?? null
+          logAnthropicCacheUsage(options.firstRound ? 'chat_stream_start' : 'chat_tool_round', (message?.usage as AnthropicUsage | undefined))
+          if (sink && options.firstRound) sink.write(event, data)
+          break
         }
-        break
-      }
-      case 'content_block_delta': {
-        const delta = (data.delta as { type?: string; text?: string; partial_json?: string } | undefined) ?? {}
-        const block = blocks[index]
-        if (delta.type === 'text_delta' && typeof delta.text === 'string') {
-          if (block && block.type === 'text') (block as TextBlock).text += delta.text
-          else blocks[index] = { type: 'text', text: delta.text }
-          if (delta.text) options.onText()
-          if (sink) sink.write(event, data)
-        } else if (delta.type === 'input_json_delta' && typeof delta.partial_json === 'string') {
-          jsonBuffers.set(index, (jsonBuffers.get(index) ?? '') + delta.partial_json)
-        }
-        break
-      }
-      case 'content_block_stop': {
-        const block = blocks[index]
-        if (block && block.type === 'tool_use') {
-          const raw = jsonBuffers.get(index) ?? ''
-          try {
-            (block as ToolUseBlock).input = raw.trim() ? JSON.parse(raw) : {}
-          } catch {
-            (block as ToolUseBlock).input = { malformed: raw.slice(0, 200) }
+        case 'content_block_start': {
+          const block = (data.content_block as ContentBlock | undefined) ?? { type: 'text', text: '' }
+          if (block.type === 'tool_use') {
+            blocks[index] = { type: 'tool_use', id: String((block as ToolUseBlock).id ?? ''), name: String((block as ToolUseBlock).name ?? ''), input: {} }
+            jsonBuffers.set(index, '')
+          } else {
+            blocks[index] = block.type === 'text' ? { type: 'text', text: String((block as TextBlock).text ?? '') } : block
+            if (sink) sink.write(event, data)
           }
-        } else if (sink) {
-          sink.write(event, data)
+          break
         }
-        break
+        case 'content_block_delta': {
+          const delta = (data.delta as { type?: string; text?: string; partial_json?: string } | undefined) ?? {}
+          const block = blocks[index]
+          if (delta.type === 'text_delta' && typeof delta.text === 'string') {
+            if (block && block.type === 'text') (block as TextBlock).text += delta.text
+            else blocks[index] = { type: 'text', text: delta.text }
+            if (delta.text) {
+              partialText = true
+              options.onText()
+            }
+            if (sink) sink.write(event, data)
+          } else if (delta.type === 'input_json_delta' && typeof delta.partial_json === 'string') {
+            jsonBuffers.set(index, (jsonBuffers.get(index) ?? '') + delta.partial_json)
+          }
+          break
+        }
+        case 'content_block_stop': {
+          const block = blocks[index]
+          if (block && block.type === 'tool_use') {
+            const raw = jsonBuffers.get(index) ?? ''
+            try {
+              (block as ToolUseBlock).input = raw.trim() ? JSON.parse(raw) : {}
+            } catch {
+              (block as ToolUseBlock).input = { malformed: raw.slice(0, 200) }
+            }
+          } else if (sink) {
+            sink.write(event, data)
+          }
+          break
+        }
+        case 'message_delta': {
+          const delta = (data.delta as { stop_reason?: string | null } | undefined) ?? {}
+          if (typeof delta.stop_reason === 'string') stopReason = delta.stop_reason
+          if (sink && stopReason !== 'tool_use') sink.write(event, data)
+          break
+        }
+        case 'message_stop': {
+          completed = true
+          if (sink && stopReason !== 'tool_use') sink.write(event, data)
+          break
+        }
+        case 'error': {
+          // The caller emits one sanitized error event; never expose provider messages.
+          const type = providerErrorType(data)
+          logChatFailure('stream', type, response, { partial_text: partialText })
+          return { ok: false, status: 502, body: safeChatError(type) }
+        }
+        default:
+          if (sink && type === 'ping') sink.write(event, data)
       }
-      case 'message_delta': {
-        const delta = (data.delta as { stop_reason?: string | null } | undefined) ?? {}
-        if (typeof delta.stop_reason === 'string') stopReason = delta.stop_reason
-        if (sink && stopReason !== 'tool_use') sink.write(event, data)
-        break
-      }
-      case 'message_stop': {
-        if (sink && stopReason !== 'tool_use') sink.write(event, data)
-        break
-      }
-      case 'error':
-        // The caller emits one client-facing error event; do not forward twice.
-        return { ok: false, status: 502, body: data }
-      default:
-        if (sink && type === 'ping') sink.write(event, data)
+      if (completed) break
     }
+  } catch (error) {
+    const type = error instanceof ChatUpstreamError ? error.errorType : 'upstream_connection_error'
+    logChatFailure('stream', type, response, { partial_text: partialText })
+    return { ok: false, status: 502, body: safeChatError(type) }
+  }
+  if (!completed) {
+    logChatFailure('stream', 'incomplete_stream', response, { partial_text: partialText })
+    return { ok: false, status: 502, body: safeChatError() }
   }
   return { ok: true, content: blocks.filter(Boolean), stopReason, message }
 }
@@ -399,18 +385,6 @@ function cacheableSystem(system: AnthropicSystemParam): AnthropicSystemParam {
   }
   if (system.length === 0 || system.some(block => block.cache_control)) return system
   return system.map((block, index) => (index === system.length - 1 ? { ...block, cache_control: { type: 'ephemeral' } } : block))
-}
-
-async function fetchAnthropic(apiKey: string, payload: Record<string, unknown>): Promise<Response> {
-  return fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
-    },
-    body: JSON.stringify(payload),
-  })
 }
 
 async function executeToolCalls(
@@ -500,7 +474,7 @@ async function runToolLoop(input: ToolLoopInput, sink: ClientSink | null, firstR
         stream: input.stream,
         forceText,
         effort: input.effort,
-      }))
+      }), !firstTextSeen)
       if (!response.ok) {
         const body = await response.json().catch(() => ({ error: 'Chat request failed' }))
         return { ok: false, status: response.status, body }
@@ -652,7 +626,7 @@ export async function handleChat(
     // reader's requests take the plain path below unchanged.
     const book: BookRef | null = parseBookRef(body.book)
     if (book && env.ASSETS) {
-      return handleBookGroundedChat({
+      return await handleBookGroundedChat({
         request, env, ctx, apiKey, book, system, safeMessages, maxTokens, stream, effort, charge,
         trailChapters: parseReadingTrailChapters(body.readingTrail),
       })
@@ -682,8 +656,9 @@ export async function handleChat(
     if (response.ok) charge()
 
     return jsonResponse(data, response.status, request)
-  } catch {
-    return jsonResponse({ error: 'Chat request failed' }, 500, request)
+  } catch (error) {
+    if (!(error instanceof ChatUpstreamError)) logChatFailure('route', 'upstream_error')
+    return jsonResponse(safeChatError(error instanceof ChatUpstreamError ? error.errorType : 'upstream_error'), error instanceof ChatUpstreamError ? error.status : 502, request)
   }
 }
 
@@ -745,6 +720,14 @@ async function handleBookGroundedChat(input: {
     const data = await first.json().catch(() => ({ error: 'Chat request failed' }))
     return jsonResponse(data, first.status, request)
   }
+  return chatEventStream(request, ctx, async sink => {
+    const outcome = await runToolLoop(loopInput, sink, first)
+    if (!outcome.ok) sink.write('error', outcome.body as Record<string, unknown>)
+  })
+}
+
+/** Both reader paths report sanitized errors, including after the first text token. */
+function chatEventStream(request: Request, ctx: ExecutionContext, run: (sink: ClientSink) => Promise<void>): Response {
   const encoder = new TextEncoder()
   const { readable, writable } = new TransformStream<Uint8Array, Uint8Array>()
   const writer = writable.getWriter()
@@ -757,12 +740,10 @@ async function handleBookGroundedChat(input: {
   }
   const pump = (async () => {
     try {
-      const outcome = await runToolLoop(loopInput, sink, first)
-      if (!outcome.ok) {
-        sink.write('error', { type: 'error', error: { type: 'upstream_error', message: 'Chat request failed' } })
-      }
-    } catch {
-      sink.write('error', { type: 'error', error: { type: 'upstream_error', message: 'Chat request failed' } })
+      await run(sink)
+    } catch (error) {
+      if (!(error instanceof ChatUpstreamError)) logChatFailure('stream', 'upstream_error')
+      sink.write('error', safeChatError(error instanceof ChatUpstreamError ? error.errorType : 'upstream_error'))
     } finally {
       closed = true
       await writer.close().catch(() => { /* client went away */ })

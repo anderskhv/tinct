@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { COMPANION_MODEL } from './companionModel'
 import { handleChat, handleLabChat, MAX_SYSTEM_PROMPT_LENGTH, MAX_TOOL_ROUNDS } from './worker/routes/chat'
+import { CHAT_STREAM_IDLE_MS } from './worker/lib/chatUpstream'
 
 const userId = '11111111-1111-4111-8111-111111111111'
 const env = {
@@ -262,7 +263,8 @@ describe('chat route', () => {
       leftover.push(new TextDecoder().decode(next.value))
     }
     expect(leftover.join('')).toContain('is beside him.')
-    expect(waitUntil).not.toHaveBeenCalled()
+    expect(waitUntil).toHaveBeenCalledTimes(1) // stream pump only; guest has no billing call
+    expect(fetchMock).toHaveBeenCalledTimes(1)
   })
 
   it('rejects invalid system blocks before calling Anthropic', async () => {
@@ -578,5 +580,125 @@ describe('book-grounded lab chat', () => {
     const system = bodies[1].system as Array<{ text: string; cache_control: unknown }>
     expect(system[0].text).toHaveLength(MAX_SYSTEM_PROMPT_LENGTH)
     expect(system[0].cache_control).toEqual({ type: 'ephemeral' })
+  })
+})
+
+describe('chat failure diagnostics and interrupted answers', () => {
+  beforeEach(() => { vi.spyOn(console, 'warn').mockImplementation(() => {}) })
+  afterEach(() => {
+    vi.unstubAllGlobals()
+    vi.restoreAllMocks()
+    vi.useRealTimers()
+  })
+
+  it.each([false, true])('contains a rejected first fetch (book retrieval: %s)', async book => {
+    const fetchMock = vi.fn().mockRejectedValue(new Error('private upstream failure'))
+    vi.stubGlobal('fetch', fetchMock)
+    const { ctx } = makeExecutionContext()
+    const response = await handleLabChat(chatRequest({
+      stream: true, messages: [{ role: 'user', content: 'private reader question' }],
+      ...(book ? { book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } } : {}),
+    }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
+    expect(response.status).toBe(502)
+    expect(await response.json()).toMatchObject({ error: { type: 'upstream_connection_error' } })
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    expect(JSON.stringify(vi.mocked(console.warn).mock.calls)).not.toContain('private')
+  })
+
+  it.each([false, true])('sanitizes an SSE provider error after text without replay (book retrieval: %s)', async book => {
+    const response = sseResponse([
+      sse('message_start', { message: { usage: {} } }),
+      sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Partial answer' } }),
+      sse('error', { error: { type: 'overloaded_error', message: 'private provider details' } }),
+    ])
+    response.headers.set('request-id', 'req_stream_failure')
+    const fetchMock = vi.fn().mockResolvedValue(response)
+    vi.stubGlobal('fetch', fetchMock)
+    const { ctx, pending } = makeExecutionContext()
+    const result = await handleLabChat(chatRequest({ stream: true,
+      messages: [{ role: 'user', content: 'question' }],
+      ...(book ? { book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } } : {}),
+    }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
+    const text = await result.text()
+    await Promise.all(pending)
+    expect(text).toContain('Partial answer')
+    expect(text).toContain('overloaded_error')
+    expect(text.match(/event: error/g)).toHaveLength(1)
+    expect(text).not.toContain('private provider details')
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    const log = JSON.stringify(vi.mocked(console.warn).mock.calls)
+    expect(log).toContain('req_stream_failure')
+    expect(log).toContain('partial_text')
+    expect(log).not.toContain('Partial answer')
+    expect(log).not.toContain('private provider details')
+  })
+
+  it('reports premature EOF instead of pretending a partial reply completed', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(sseResponse([
+      sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Unfinished' } }),
+    ])))
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleLabChat(chatRequest({ stream: true, messages: [{ role: 'user', content: 'hi' }] }), { ANTHROPIC_API_KEY: 'key' }, ctx, async () => true)
+    const text = await response.text()
+    await Promise.all(pending)
+    expect(text).toContain('Unfinished')
+    expect(text).toContain('event: error')
+    expect(text).not.toContain('event: message_stop')
+    expect(JSON.stringify(vi.mocked(console.warn).mock.calls)).toContain('incomplete_stream')
+  })
+
+  it.each([false, true])('preserves billing only after first answer text on interruption (text: %s)', async partial => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles')) return Response.json([{ subscription_status: 'active' }])
+      if (url.includes('/rest/v1/rpc/use_message')) return Response.json({})
+      return sseResponse([
+        ...(partial ? [sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Started' } })] : []),
+        sse('error', { error: { type: 'api_error', message: 'private' } }),
+      ])
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleChat(chatRequest({ stream: true, messages: [{ role: 'user', content: 'hi' }] }), env, ctx,
+      async () => ({ id: userId, email: 'reader@example.com' }), async () => true)
+    expect(await response.text()).toContain('event: error')
+    await Promise.all(pending)
+    expect(fetchMock.mock.calls.filter(call => String(call[0]).includes('/rpc/use_message'))).toHaveLength(partial ? 1 : 0)
+    expect(fetchMock.mock.calls.filter(call => String(call[0]).includes('api.anthropic.com'))).toHaveLength(1)
+  })
+
+  it('finishes a stalled stream with one error and cancels the provider body', async () => {
+    vi.useFakeTimers()
+    const cancel = vi.fn()
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(new ReadableStream({ cancel }))))
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleLabChat(chatRequest({ stream: true, messages: [{ role: 'user', content: 'hi' }] }), { ANTHROPIC_API_KEY: 'key' }, ctx, async () => true)
+    const text = response.text()
+    await vi.advanceTimersByTimeAsync(CHAT_STREAM_IDLE_MS)
+    expect(await text).toContain('upstream_timeout')
+    await Promise.all(pending)
+    expect(cancel).toHaveBeenCalledTimes(1)
+  })
+
+  it('does not retry a later tool-round rejection after already forwarding text', async () => {
+    const fetchMock = vi.fn().mockResolvedValueOnce(sseResponse([
+      sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+      sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Let me check.' } }),
+      sse('content_block_start', { index: 1, content_block: { type: 'tool_use', id: 't1', name: 'read_chapter', input: {} } }),
+      sse('content_block_delta', { index: 1, delta: { type: 'input_json_delta', partial_json: '{"chapter":"782"}' } }),
+      sse('content_block_stop', { index: 1 }),
+      sse('message_delta', { delta: { stop_reason: 'tool_use' } }),
+      sse('message_stop', {}),
+    ])).mockResolvedValueOnce(Response.json({ error: { type: 'overloaded_error' } }, { status: 529 }))
+    vi.stubGlobal('fetch', fetchMock)
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleLabChat(chatRequest({ stream: true,
+      messages: [{ role: 'user', content: 'check' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
+    }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
+    const text = await response.text()
+    await Promise.all(pending)
+    expect(text).toContain('Let me check.')
+    expect(text).toContain('overloaded_error')
+    expect(fetchMock).toHaveBeenCalledTimes(2)
   })
 })
