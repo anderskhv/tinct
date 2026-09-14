@@ -111,3 +111,8 @@ on mobile and 1/21:265 on desktop). Real desktop single-word lookup selected
 exactly “these” without separator spaces; compact definition divider measured
 0px. Screenshots/results are in the durable `production-settings/` artifact folder.
 These UI checks use isolated browser fixtures and mocked API endpoints.
+
+
+September 14 loading follow-up: Anders confirmed the recording demonstrates slow
+returning-reader startup. Two narrow loading costs are now fixed; authenticated
+recovery remains open. [Startup evidence and release](returning-reader-load-2026-09-14.md).
