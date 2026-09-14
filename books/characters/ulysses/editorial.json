@@ -1,7 +1,7 @@
 {
   "bookId": "ulysses",
-  "contentVersion": "2026-09-14.2",
-  "coverage": "Both full English editions, episodes 1-2 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.",
+  "contentVersion": "2026-09-14.3",
+  "coverage": "Both full English editions, episodes 1-3 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.",
   "entities": [
     {
       "id": "stephen",
@@ -380,9 +380,10 @@
     {
       "id": "thomas-aquinas",
       "name": "Thomas Aquinas",
-      "body": "And the fiftyfive reasons he has made out to prop the theory up, which Mulligan says he is not equal to before a few pints.",
+      "body": "And the fiftyfive reasons he has made out to prop the theory up, which Mulligan says he is not equal to before a few pints. Stephen calls him Aquinas tunbelly on the strand, frate porcospino, and quotes his morose delectation.",
       "aliases": [
-        "Thomas Aquinas"
+        "Thomas Aquinas",
+        "Aquinas"
       ],
       "category": "reference",
       "kind": "person",
@@ -1027,6 +1028,753 @@
       "id": "orourke",
       "name": "O’Rourke, prince of Breffni",
       "body": "Her leman.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "richie-goulding",
+      "name": "Uncle Richie",
+      "body": "Richie Goulding, Stephen’s uncle on his mother’s side, in his broad bed with a sturdy forearm over the hillock of his knees, drafting bills of costs on a lapboard and whistling the aria from the opera. He offers Stephen malt, a chippendale chair and a rasher fried with a herring, and admits there is nothing in the house but backache pills. Stephen’s father calls him the drunken little costdrawer.",
+      "aliases": [],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aunt-sara",
+      "name": "Aunt Sara",
+      "body": "Richie’s wife, and the aunt whose house Stephen is walking towards and then walks past. Stephen’s father calls her aunt Sally and asks whether the boy could not fly a bit higher than Strasburg terrace. She is the mother Walter is sent to for the malt, and she is bathing Crissie when Stephen calls.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "walter-goulding",
+      "name": "Walter",
+      "body": "Richie’s son, skeweyed, who draws the bolt and welcomes Stephen, is sent for the malt, squints vainly for a chair and finds the visitor nothing to sit on. He sirs his own father at every answer, which is what makes Stephen’s father say Jesus wept, and no wonder.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "crissie-goulding",
+      "name": "Crissie",
+      "body": "Richie’s small daughter, being bathed upstairs while Stephen stands in the bedroom. Papa’s little bedpal, lump of love.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "goulding-cornet-brother",
+      "name": "The cornet player",
+      "body": "Richie’s brother, named in Stephen’s father’s catalogue of the family he married into: the drunken little costdrawer and his brother the cornet player, highly respectable gondoliers.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "simon-dedalus",
+      "name": "Simon Dedalus",
+      "body": "Stephen’s father, present in this episode only as the voice in his son’s head — my consubstantial father’s voice — mimicking the Gouldings and asking, and and and and tell us, Stephen, how is uncle Si. The man himself comes into the book in episode 6.",
+      "aliases": [],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "florence-maccabe",
+      "name": "Mrs Florence MacCabe",
+      "body": "One of the two women who come down the steps from Leahy’s terrace and shuffle along the shelving shore, swinging a midwife’s bag. Out from the liberties for the day, of Bride Street. One of her sisterhood lugged Stephen squealing into life, and he wonders what she has in the bag: a misbirth with a trailing navelcord, hushed in ruddy wool.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "patk-maccabe",
+      "name": "The late Patk MacCabe",
+      "body": "Her husband, deeply lamented, of Bride Street. The modern edition spells him Patrick.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cocklepicker-man",
+      "name": "The cocklepicker",
+      "body": "The man who comes shoreward with a woman and a dog, wades in to souse his bag, calls the dog Tatters off the dead carcass with a blunt bootless kick, and trudges away with the bags shouldered. Blued feet out of turnedup trousers and a dull brick muffler round his unshaven neck. Stephen makes him a ruffian out of the rogues’ lingo.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cocklepicker-woman",
+      "name": "The cocklepicker’s woman",
+      "body": "Who follows behind her lord with woman steps, spoils slung at her back, loose sand and shellgrit crusted on her bare feet and her hair trailing about her windraw face. Stephen gives her a whole life in three sentences: the archway where dogs have mired, the fancyman treating two Royal Dublins in O’Loughlin’s, Fumbally’s lane and the tanyard smells.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bookshop-woman",
+      "name": "The girl at the bookshop window",
+      "body": "The virgin at Hodges Figgis’ window on Monday, looking in for one of the alphabet books Stephen was going to write, her wrist through the braided jesse of her sunshade. She lives in Leeson park, a lady of letters. The modern edition calls her the young woman at the bookshop window.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "two-maries",
+      "name": "The two Marys",
+      "body": "The women who came to the tomb on the third day, and whom Stephen sees in the two figures walking shoreward out of the tide. He adds that they have tucked it safe among the bulrushes, which is Moses and not Easter: the two stories run together in the same breath.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "kevin-egan",
+      "name": "Kevin Egan",
+      "body": "The old Fenian in exile in Paris, rolling gunpowder cigarettes through fingers smeared with printer’s ink and sipping his green fairy, who talks of Ireland and hopes and conspiracies and would yoke Stephen as his yokefellow. Loveless, landless, wifeless, making his day’s stations between the dingy printingcase, his three taverns and the Montmartre lair. They have forgotten Kevin Egan, not he them.",
+      "aliases": [
+        "Kevin Egan"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "patrice",
+      "name": "Patrice",
+      "body": "Kevin Egan’s son, home on furlough, who lapped warm milk with Stephen in the bar MacMahon with a plump bunny’s face, hopes to win in the gros lots, read Michelet on the nature of women, and says he is a socialist and does not believe in the existence of God — but his father must not be told. His father calls him Pat: my son, soldier of France.",
+      "aliases": [
+        "Patrice"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "egan-wife",
+      "name": "Kevin Egan’s wife",
+      "body": "The madame in rue Gît-le-Cœur, quite nicey comfy without her outcast man, with a canary and two buck lodgers, peachy cheeks and a zebra skirt, frisky as a young thing.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "head-centre",
+      "name": "The head centre",
+      "body": "The Fenian chief whose escape Egan retells as the authentic version: got up as a young bride, man, veil, orangeblossoms, and driven out the road to Malahide. The text names him by his office and never by his name; the modern edition calls him the rebel leader.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "the-froeken",
+      "name": "The froeken",
+      "body": "The Swedish maid of all work who rubs male nakedness in the bath at Upsala — it is my job, she said, all the gentlemen — in Egan’s account of most licentious custom. The modern edition calls her the Scandinavian girl.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "esther-osvalt",
+      "name": "Esther Osvalt",
+      "body": "The girl Stephen knew in Paris, whose shoe went on his foot: what a pretty little foot. He remembers being delighted by it while looking down at another man’s castoff boots on his own feet.",
+      "aliases": [
+        "Esther Osvalt"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "belluomo",
+      "name": "Belluomo",
+      "body": "Who rises from the bed of his wife’s lover’s wife in Stephen’s Paris waking rawly. The name is Italian for a handsome man, and the modern edition prints the translation in place of the name.",
+      "aliases": [
+        "Belluomo"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "yvonne",
+      "name": "Yvonne",
+      "body": "One of the two women in Rodot’s who newmake their tumbled beauties, shattering chaussons of pastry with gold teeth, their mouths yellowed with flan.",
+      "aliases": [
+        "Yvonne"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "madeleine",
+      "name": "Madeleine",
+      "body": "The other of them. Not Madeline the mare of the song at the start of the episode, who is a horse and is spelt with an i.",
+      "aliases": [
+        "Madeleine"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arthur-griffith",
+      "name": "Arthur Griffith",
+      "body": "Named in Egan’s talk of hopes and conspiracies, beside A E and the good shepherd of men. Bloom thinks of him twice in the course of the day: the man who said the thing about the homerule sun rising up in the northwest, and a squareheaded fellow with no go in him for the mob.",
+      "aliases": [
+        "Arthur Griffith",
+        "Griffith"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "drumont",
+      "name": "Monsieur Drumont",
+      "body": "The famous French journalist Egan quotes, who called queen Victoria an old hag with the yellow teeth. Stephen gives the phrase back to himself later on the strand, with his own bad teeth in his mouth.",
+      "aliases": [
+        "Drumont"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "queen-victoria",
+      "name": "Queen Victoria",
+      "body": "The old hag with the yellow teeth, in Drumont’s phrase, which Stephen repeats. She had been dead three years on the day of this book.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maud-gonne",
+      "name": "Maud Gonne",
+      "body": "Beautiful woman, in Egan’s roll of Paris names. Bloom remembers her letter about taking the soldiers off O’Connell street at night: disgrace to our Irish capital.",
+      "aliases": [
+        "Maud Gonne"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "millevoye",
+      "name": "Monsieur Millevoye",
+      "body": "The French journalist and politician named beside Maud Gonne in the same breath, with La Patrie between them.",
+      "aliases": [
+        "Millevoye"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "felix-faure",
+      "name": "Félix Faure",
+      "body": "Named next, with the question Egan leaves hanging: know how he died? The answer is the two words that follow — licentious men.",
+      "aliases": [
+        "Félix Faure",
+        "Faure"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "brian-boru",
+      "name": "Brian Boru",
+      "body": "The high king whose warriors Egan means when he talks of Ireland. The older edition calls them the Dalcassians, which is the name of his people and not of a man; the modern edition puts the king in place of the people, so this card exists in the modern edition alone.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "richard-burke",
+      "name": "Colonel Richard Burke",
+      "body": "Tanist of his sept, with whom Egan prowled under the walls of Clerkenwell and, crouching, saw a flame of vengeance hurl them upward in the fog. Not the O’Madden Burke of the newspaper office, nor Pisser Burke of the City Arms, nor Burke’s public house.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "napper-tandy",
+      "name": "Napper Tandy",
+      "body": "Who takes me by the hand in the song Egan sings out of The Wearing of the Green. Not the Shapland Tandy whose bills of costs uncle Richie drafts.",
+      "aliases": [
+        "Napper Tandy"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "shapland-tandy",
+      "name": "Master Shapland Tandy",
+      "body": "One of the two masters for whose eyes Richie Goulding drafts his bills of costs, with master Goff, among consents and common searches and a writ of Duces Tecum. Not Napper Tandy of the song.",
+      "aliases": [
+        "Shapland Tandy"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "goff",
+      "name": "Master Goff",
+      "body": "The other of the two, named in the same line of legal work.",
+      "aliases": [
+        "Goff"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "strongbow",
+      "name": "Strongbow",
+      "body": "Whose castle on the Nore stands over old Kilkenny in Egan’s memory of the song he taught Patrice.",
+      "aliases": [
+        "Strongbow"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "saint-canice",
+      "name": "Saint Canice",
+      "body": "Of Kilkenny, named with Strongbow’s castle in the same memory, and again in the long procession of saints in episode 12.",
+      "aliases": [
+        "Canice"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demiurge",
+      "name": "Los Demiurgos",
+      "body": "The maker whose mallet Stephen hears in the solid sound of his own boots on the strand. The modern edition replaces the demiurge of the gnostics with God the Creator.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "adam",
+      "name": "Adam",
+      "body": "The first man: Adam Kadmon, the primal man of the kabbalists, whose spouse and helpmate is Heva; and again, at the end of the episode, unfallen Adam who rode and did not rut. The modern edition writes the primal man Adam.",
+      "aliases": [
+        "Adam Kadmon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eve",
+      "name": "Eve",
+      "body": "Heva, naked Eve, who had no navel — belly without blemish, a buckler of taut vellum — set against the trailing navelcord in the midwife’s bag. The older edition gives her Hebrew name first; the modern edition drops it and keeps Eve.",
+      "aliases": [
+        "Heva"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mananaan",
+      "name": "Mananaan",
+      "body": "Mananaan MacLir, the Irish sea god, whose steeds are the whitemaned seahorses of the waves coming in. The modern edition explains him as the sea god Mananaan; A E invokes him by both names in the library.",
+      "aliases": [
+        "Mananaan"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "joachim-abbas",
+      "name": "Joachim Abbas",
+      "body": "The abbot whose fading prophecies Stephen read in the stagnant bay of Marsh’s library, and whom Mulligan mocks in episode 10 as mumbling Joachim. The modern edition names him Joachim of Fiore.",
+      "aliases": [
+        "Joachim Abbas",
+        "Joachim of Fiore",
+        "Joachim"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "foxy-campbell",
+      "name": "Foxy Campbell",
+      "body": "One of the oval equine faces in Stephen’s procession of the mad: Temple, Buck Mulligan, Foxy Campbell, Lanternjaws. Not the Thomas Campbell of the churchyard poem, nor Henry Campbell the townclerk.",
+      "aliases": [
+        "Foxy Campbell"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lanternjaws",
+      "name": "Lanternjaws",
+      "body": "The last of the four faces, known by his jaw and by nothing else. The modern edition hyphenates him.",
+      "aliases": [
+        "Lanternjaws",
+        "Lantern-jaws"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "william-of-ockham",
+      "name": "Dan Occam",
+      "body": "The invincible doctor, who thought of the host elevated in two churches at once — a misty English morning, the imp hypostasis tickled his brain. The modern edition names him William of Ockham and calls him the invincible logician.",
+      "aliases": [
+        "Dan Occam",
+        "Occam",
+        "William of Ockham",
+        "Ockham"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "blessed-virgin",
+      "name": "The Blessed Virgin",
+      "body": "To whom Stephen prayed that he might not have a red nose, in the same breath in which he prayed to the devil in Serpentine avenue that the fubsy widow in front might lift her clothes still more.",
+      "aliases": [
+        "Blessed Virgin"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pico-della-mirandola",
+      "name": "Pico della Mirandola",
+      "body": "Whom Stephen thinks of over the epiphanies he meant to have sent, if he died, to all the great libraries of the world, including Alexandria: someone was to read them there after a few thousand years. Ay, very like a whale.",
+      "aliases": [
+        "Pico della Mirandola",
+        "Mirandola"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "michelet",
+      "name": "Michelet",
+      "body": "The French historian in whom Patrice read about the nature of women, over warm milk in the bar MacMahon.",
+      "aliases": [
+        "Michelet"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leo-taxil",
+      "name": "Monsieur Léo Taxil",
+      "body": "Author of La Vie de Jésus, which Patrice must send Stephen and has lent to a friend. His is the joke of the pigeon — who put you in this wretched position? It was the pigeon, Joseph — and the French of it comes back in episode 14.",
+      "aliases": [
+        "Léo Taxil",
+        "Taxil"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "columbanus",
+      "name": "Columbanus",
+      "body": "The fiery missionary to Europe Stephen meant to follow, and who in the history lesson of the episode before bestrode his own mother’s prostrate body in holy zeal. The modern edition calls him Saint Columban.",
+      "aliases": [
+        "Columbanus",
+        "Columban"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fiacre",
+      "name": "Fiacre",
+      "body": "One of the two Irish monks laughing in heaven on their creepystools, spilt from their pintpots. Not the church of Saint Fiacre in Horto of the mock wedding report in episode 12.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "scotus",
+      "name": "Scotus",
+      "body": "The other of them, loudlatinlaughing: Euge! Euge!",
+      "aliases": [
+        "Scotus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "king-malachi",
+      "name": "Malachi",
+      "body": "The high king who wore the collar of gold, in Stephen’s vision of the Danish galleys beaching on this same strand. The ardri Malachi of the roll of Irish heroes in episode 12 is the same king. Malachi Mulligan is not, and neither is the Saint Malachy of the procession.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bruce-brother",
+      "name": "The Bruce’s brother",
+      "body": "Edward Bruce, brother of Robert the Bruce, crowned king of Ireland and killed for it: first of Stephen’s four pretenders. The text names him only as his brother’s brother.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thomas-fitzgerald",
+      "name": "Thomas Fitzgerald",
+      "body": "Silken Thomas, the silken knight, second of the four. Not the lord Edward Fitzgerald who escaped from major Sirr, nor the Fitzgerald Mor, the great earl.",
+      "aliases": [
+        "Thomas Fitzgerald"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "perkin-warbeck",
+      "name": "Perkin Warbeck",
+      "body": "York’s false scion, in breeches of silk of whiterose ivory, wonder of a day.",
+      "aliases": [
+        "Perkin Warbeck"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lambert-simnel",
+      "name": "Lambert Simnel",
+      "body": "With a tail of nans and sutlers, a scullion crowned. Last of the four, and the one the thought closes on: all kings’ sons, paradise of pretenders then and now.",
+      "aliases": [
+        "Lambert Simnel"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "guido",
+      "name": "Guido",
+      "body": "Whom the courtiers mocked in Or san Michele — and they were in their own house, which is the turn Stephen uses against himself while deciding he would not go in after a drowning man. The modern edition calls him the poet Guido and drops the name of the church.",
+      "aliases": [
+        "Guido"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sir-lout",
+      "name": "Sir Lout",
+      "body": "The giant whose toys are the stoneheaps on the strand: I am the bloody well gigant rolls all them bloody well boulders, bones for my steppingstones. Feefawfum. The modern edition keeps the giant and drops the name.",
+      "aliases": [
+        "Sir Lout"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "haroun-al-raschid",
+      "name": "Haroun al Raschid",
+      "body": "The caliph of the dream Stephen is almosting: open hallway, street of harlots, the man who led me and held a melon against my face, and the red carpet spread. The modern edition adds that he is out of the Arabian Nights and spells him Rashid.",
+      "aliases": [
+        "Haroun al Raschid",
+        "Haroun Al Raschid",
+        "Haroun al Rashid"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "louis-veuillot",
+      "name": "Louis Veuillot",
+      "body": "Who called Gautier’s prose a coach stuck in the sand — the phrase Stephen turns over on these heavy sands. The modern edition explains him as the French critic.",
+      "aliases": [
+        "Louis Veuillot",
+        "Veuillot"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gautier",
+      "name": "Théophile Gautier",
+      "body": "Whose prose he called it. The older edition gives the surname alone; the modern edition supplies the first name.",
+      "aliases": [
+        "Gautier"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ferrando",
+      "name": "Ferrando",
+      "body": "Whose aria di sortita uncle Richie drones on his padded knees: the grandest number, Stephen, in the whole opera. The modern edition spells him Fernando.",
+      "aliases": [
+        "Ferrando",
+        "Fernando"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "saint-ambrose",
+      "name": "Saint Ambrose",
+      "body": "Who heard the sigh of leaves and waves waiting and awaiting the fullness of their times, in the Latin Stephen quotes over the weeds swaying under the tide.",
+      "aliases": [
+        "Saint Ambrose",
+        "Ambrose"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "berkeley",
+      "name": "The bishop of Cloyne",
+      "body": "Who took the veil of the temple out of his shovel hat: the veil of space with coloured emblems hatched on its field. The modern edition names him, calling him the philosopher Bishop Berkeley and giving him a top hat.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pan",
+      "name": "Pan",
+      "body": "Whose hour is the faunal noon in which Stephen lies back over the sharp rocks with his hat tilted down on his eyes, among gumheavy serpentplants and milkoozing fruits.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lawn-tennyson",
+      "name": "Lawn Tennyson",
+      "body": "Gentleman poet, whose May Queen gives Stephen the line he hums with his bad teeth — of all the glad new year, mother, the rum tum tiddledy tum. The same phrase for him comes back in the library in episode 9.",
+      "aliases": [
+        "Lawn Tennyson",
+        "Tennyson"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucifer",
+      "name": "Lucifer",
+      "body": "Allbright he falls, proud lightning of the intellect. The Latin Stephen quotes is from the Easter Exsultet, where Lucifer is the morning star that knows no setting; Stephen means the falling angel as well.",
       "aliases": [],
       "category": "reference",
       "kind": "person",

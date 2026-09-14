@@ -140,7 +140,7 @@ The play Haines asks Stephen for his idea of, and whose Elsinore the tower and c
 
 ## Thomas Aquinas · reference
 
-And the fiftyfive reasons he has made out to prop the theory up, which Mulligan says he is not equal to before a few pints.
+And the fiftyfive reasons he has made out to prop the theory up, which Mulligan says he is not equal to before a few pints. Stephen calls him Aquinas tunbelly on the strand, frate porcospino, and quotes his morose delectation.
 
 ## Loyola · reference
 
@@ -369,3 +369,263 @@ The faithless wife who first brought the strangers to our shore here, second of 
 ## O’Rourke, prince of Breffni · reference
 
 Her leman.
+
+## Uncle Richie · major
+
+Richie Goulding, Stephen’s uncle on his mother’s side, in his broad bed with a sturdy forearm over the hillock of his knees, drafting bills of costs on a lapboard and whistling the aria from the opera. He offers Stephen malt, a chippendale chair and a rasher fried with a herring, and admits there is nothing in the house but backache pills. Stephen’s father calls him the drunken little costdrawer.
+
+## Aunt Sara · reference
+
+Richie’s wife, and the aunt whose house Stephen is walking towards and then walks past. Stephen’s father calls her aunt Sally and asks whether the boy could not fly a bit higher than Strasburg terrace. She is the mother Walter is sent to for the malt, and she is bathing Crissie when Stephen calls.
+
+## Walter · reference
+
+Richie’s son, skeweyed, who draws the bolt and welcomes Stephen, is sent for the malt, squints vainly for a chair and finds the visitor nothing to sit on. He sirs his own father at every answer, which is what makes Stephen’s father say Jesus wept, and no wonder.
+
+## Crissie · reference
+
+Richie’s small daughter, being bathed upstairs while Stephen stands in the bedroom. Papa’s little bedpal, lump of love.
+
+## The cornet player · reference
+
+Richie’s brother, named in Stephen’s father’s catalogue of the family he married into: the drunken little costdrawer and his brother the cornet player, highly respectable gondoliers.
+
+## Simon Dedalus · major
+
+Stephen’s father, present in this episode only as the voice in his son’s head — my consubstantial father’s voice — mimicking the Gouldings and asking, and and and and tell us, Stephen, how is uncle Si. The man himself comes into the book in episode 6.
+
+## Mrs Florence MacCabe · reference
+
+One of the two women who come down the steps from Leahy’s terrace and shuffle along the shelving shore, swinging a midwife’s bag. Out from the liberties for the day, of Bride Street. One of her sisterhood lugged Stephen squealing into life, and he wonders what she has in the bag: a misbirth with a trailing navelcord, hushed in ruddy wool.
+
+## The late Patk MacCabe · reference
+
+Her husband, deeply lamented, of Bride Street. The modern edition spells him Patrick.
+
+## The cocklepicker · reference
+
+The man who comes shoreward with a woman and a dog, wades in to souse his bag, calls the dog Tatters off the dead carcass with a blunt bootless kick, and trudges away with the bags shouldered. Blued feet out of turnedup trousers and a dull brick muffler round his unshaven neck. Stephen makes him a ruffian out of the rogues’ lingo.
+
+## The cocklepicker’s woman · reference
+
+Who follows behind her lord with woman steps, spoils slung at her back, loose sand and shellgrit crusted on her bare feet and her hair trailing about her windraw face. Stephen gives her a whole life in three sentences: the archway where dogs have mired, the fancyman treating two Royal Dublins in O’Loughlin’s, Fumbally’s lane and the tanyard smells.
+
+## The girl at the bookshop window · reference
+
+The virgin at Hodges Figgis’ window on Monday, looking in for one of the alphabet books Stephen was going to write, her wrist through the braided jesse of her sunshade. She lives in Leeson park, a lady of letters. The modern edition calls her the young woman at the bookshop window.
+
+## The two Marys · reference
+
+The women who came to the tomb on the third day, and whom Stephen sees in the two figures walking shoreward out of the tide. He adds that they have tucked it safe among the bulrushes, which is Moses and not Easter: the two stories run together in the same breath.
+
+## Kevin Egan · major
+
+The old Fenian in exile in Paris, rolling gunpowder cigarettes through fingers smeared with printer’s ink and sipping his green fairy, who talks of Ireland and hopes and conspiracies and would yoke Stephen as his yokefellow. Loveless, landless, wifeless, making his day’s stations between the dingy printingcase, his three taverns and the Montmartre lair. They have forgotten Kevin Egan, not he them.
+
+## Patrice · reference
+
+Kevin Egan’s son, home on furlough, who lapped warm milk with Stephen in the bar MacMahon with a plump bunny’s face, hopes to win in the gros lots, read Michelet on the nature of women, and says he is a socialist and does not believe in the existence of God — but his father must not be told. His father calls him Pat: my son, soldier of France.
+
+## Kevin Egan’s wife · reference
+
+The madame in rue Gît-le-Cœur, quite nicey comfy without her outcast man, with a canary and two buck lodgers, peachy cheeks and a zebra skirt, frisky as a young thing.
+
+## The head centre · reference
+
+The Fenian chief whose escape Egan retells as the authentic version: got up as a young bride, man, veil, orangeblossoms, and driven out the road to Malahide. The text names him by his office and never by his name; the modern edition calls him the rebel leader.
+
+## The froeken · reference
+
+The Swedish maid of all work who rubs male nakedness in the bath at Upsala — it is my job, she said, all the gentlemen — in Egan’s account of most licentious custom. The modern edition calls her the Scandinavian girl.
+
+## Esther Osvalt · reference
+
+The girl Stephen knew in Paris, whose shoe went on his foot: what a pretty little foot. He remembers being delighted by it while looking down at another man’s castoff boots on his own feet.
+
+## Belluomo · reference
+
+Who rises from the bed of his wife’s lover’s wife in Stephen’s Paris waking rawly. The name is Italian for a handsome man, and the modern edition prints the translation in place of the name.
+
+## Yvonne · reference
+
+One of the two women in Rodot’s who newmake their tumbled beauties, shattering chaussons of pastry with gold teeth, their mouths yellowed with flan.
+
+## Madeleine · reference
+
+The other of them. Not Madeline the mare of the song at the start of the episode, who is a horse and is spelt with an i.
+
+## Arthur Griffith · reference
+
+Named in Egan’s talk of hopes and conspiracies, beside A E and the good shepherd of men. Bloom thinks of him twice in the course of the day: the man who said the thing about the homerule sun rising up in the northwest, and a squareheaded fellow with no go in him for the mob.
+
+## Monsieur Drumont · reference
+
+The famous French journalist Egan quotes, who called queen Victoria an old hag with the yellow teeth. Stephen gives the phrase back to himself later on the strand, with his own bad teeth in his mouth.
+
+## Queen Victoria · reference
+
+The old hag with the yellow teeth, in Drumont’s phrase, which Stephen repeats. She had been dead three years on the day of this book.
+
+## Maud Gonne · reference
+
+Beautiful woman, in Egan’s roll of Paris names. Bloom remembers her letter about taking the soldiers off O’Connell street at night: disgrace to our Irish capital.
+
+## Monsieur Millevoye · reference
+
+The French journalist and politician named beside Maud Gonne in the same breath, with La Patrie between them.
+
+## Félix Faure · reference
+
+Named next, with the question Egan leaves hanging: know how he died? The answer is the two words that follow — licentious men.
+
+## Brian Boru · reference
+
+The high king whose warriors Egan means when he talks of Ireland. The older edition calls them the Dalcassians, which is the name of his people and not of a man; the modern edition puts the king in place of the people, so this card exists in the modern edition alone.
+
+## Colonel Richard Burke · reference
+
+Tanist of his sept, with whom Egan prowled under the walls of Clerkenwell and, crouching, saw a flame of vengeance hurl them upward in the fog. Not the O’Madden Burke of the newspaper office, nor Pisser Burke of the City Arms, nor Burke’s public house.
+
+## Napper Tandy · reference
+
+Who takes me by the hand in the song Egan sings out of The Wearing of the Green. Not the Shapland Tandy whose bills of costs uncle Richie drafts.
+
+## Master Shapland Tandy · reference
+
+One of the two masters for whose eyes Richie Goulding drafts his bills of costs, with master Goff, among consents and common searches and a writ of Duces Tecum. Not Napper Tandy of the song.
+
+## Master Goff · reference
+
+The other of the two, named in the same line of legal work.
+
+## Strongbow · reference
+
+Whose castle on the Nore stands over old Kilkenny in Egan’s memory of the song he taught Patrice.
+
+## Saint Canice · reference
+
+Of Kilkenny, named with Strongbow’s castle in the same memory, and again in the long procession of saints in episode 12.
+
+## Los Demiurgos · reference
+
+The maker whose mallet Stephen hears in the solid sound of his own boots on the strand. The modern edition replaces the demiurge of the gnostics with God the Creator.
+
+## Adam · reference
+
+The first man: Adam Kadmon, the primal man of the kabbalists, whose spouse and helpmate is Heva; and again, at the end of the episode, unfallen Adam who rode and did not rut. The modern edition writes the primal man Adam.
+
+## Eve · reference
+
+Heva, naked Eve, who had no navel — belly without blemish, a buckler of taut vellum — set against the trailing navelcord in the midwife’s bag. The older edition gives her Hebrew name first; the modern edition drops it and keeps Eve.
+
+## Mananaan · reference
+
+Mananaan MacLir, the Irish sea god, whose steeds are the whitemaned seahorses of the waves coming in. The modern edition explains him as the sea god Mananaan; A E invokes him by both names in the library.
+
+## Joachim Abbas · reference
+
+The abbot whose fading prophecies Stephen read in the stagnant bay of Marsh’s library, and whom Mulligan mocks in episode 10 as mumbling Joachim. The modern edition names him Joachim of Fiore.
+
+## Foxy Campbell · reference
+
+One of the oval equine faces in Stephen’s procession of the mad: Temple, Buck Mulligan, Foxy Campbell, Lanternjaws. Not the Thomas Campbell of the churchyard poem, nor Henry Campbell the townclerk.
+
+## Lanternjaws · reference
+
+The last of the four faces, known by his jaw and by nothing else. The modern edition hyphenates him.
+
+## Dan Occam · reference
+
+The invincible doctor, who thought of the host elevated in two churches at once — a misty English morning, the imp hypostasis tickled his brain. The modern edition names him William of Ockham and calls him the invincible logician.
+
+## The Blessed Virgin · reference
+
+To whom Stephen prayed that he might not have a red nose, in the same breath in which he prayed to the devil in Serpentine avenue that the fubsy widow in front might lift her clothes still more.
+
+## Pico della Mirandola · reference
+
+Whom Stephen thinks of over the epiphanies he meant to have sent, if he died, to all the great libraries of the world, including Alexandria: someone was to read them there after a few thousand years. Ay, very like a whale.
+
+## Michelet · reference
+
+The French historian in whom Patrice read about the nature of women, over warm milk in the bar MacMahon.
+
+## Monsieur Léo Taxil · reference
+
+Author of La Vie de Jésus, which Patrice must send Stephen and has lent to a friend. His is the joke of the pigeon — who put you in this wretched position? It was the pigeon, Joseph — and the French of it comes back in episode 14.
+
+## Columbanus · reference
+
+The fiery missionary to Europe Stephen meant to follow, and who in the history lesson of the episode before bestrode his own mother’s prostrate body in holy zeal. The modern edition calls him Saint Columban.
+
+## Fiacre · reference
+
+One of the two Irish monks laughing in heaven on their creepystools, spilt from their pintpots. Not the church of Saint Fiacre in Horto of the mock wedding report in episode 12.
+
+## Scotus · reference
+
+The other of them, loudlatinlaughing: Euge! Euge!
+
+## Malachi · reference
+
+The high king who wore the collar of gold, in Stephen’s vision of the Danish galleys beaching on this same strand. The ardri Malachi of the roll of Irish heroes in episode 12 is the same king. Malachi Mulligan is not, and neither is the Saint Malachy of the procession.
+
+## The Bruce’s brother · reference
+
+Edward Bruce, brother of Robert the Bruce, crowned king of Ireland and killed for it: first of Stephen’s four pretenders. The text names him only as his brother’s brother.
+
+## Thomas Fitzgerald · reference
+
+Silken Thomas, the silken knight, second of the four. Not the lord Edward Fitzgerald who escaped from major Sirr, nor the Fitzgerald Mor, the great earl.
+
+## Perkin Warbeck · reference
+
+York’s false scion, in breeches of silk of whiterose ivory, wonder of a day.
+
+## Lambert Simnel · reference
+
+With a tail of nans and sutlers, a scullion crowned. Last of the four, and the one the thought closes on: all kings’ sons, paradise of pretenders then and now.
+
+## Guido · reference
+
+Whom the courtiers mocked in Or san Michele — and they were in their own house, which is the turn Stephen uses against himself while deciding he would not go in after a drowning man. The modern edition calls him the poet Guido and drops the name of the church.
+
+## Sir Lout · reference
+
+The giant whose toys are the stoneheaps on the strand: I am the bloody well gigant rolls all them bloody well boulders, bones for my steppingstones. Feefawfum. The modern edition keeps the giant and drops the name.
+
+## Haroun al Raschid · reference
+
+The caliph of the dream Stephen is almosting: open hallway, street of harlots, the man who led me and held a melon against my face, and the red carpet spread. The modern edition adds that he is out of the Arabian Nights and spells him Rashid.
+
+## Louis Veuillot · reference
+
+Who called Gautier’s prose a coach stuck in the sand — the phrase Stephen turns over on these heavy sands. The modern edition explains him as the French critic.
+
+## Théophile Gautier · reference
+
+Whose prose he called it. The older edition gives the surname alone; the modern edition supplies the first name.
+
+## Ferrando · reference
+
+Whose aria di sortita uncle Richie drones on his padded knees: the grandest number, Stephen, in the whole opera. The modern edition spells him Fernando.
+
+## Saint Ambrose · reference
+
+Who heard the sigh of leaves and waves waiting and awaiting the fullness of their times, in the Latin Stephen quotes over the weeds swaying under the tide.
+
+## The bishop of Cloyne · reference
+
+Who took the veil of the temple out of his shovel hat: the veil of space with coloured emblems hatched on its field. The modern edition names him, calling him the philosopher Bishop Berkeley and giving him a top hat.
+
+## Pan · reference
+
+Whose hour is the faunal noon in which Stephen lies back over the sharp rocks with his hat tilted down on his eyes, among gumheavy serpentplants and milkoozing fruits.
+
+## Lawn Tennyson · reference
+
+Gentleman poet, whose May Queen gives Stephen the line he hums with his bad teeth — of all the glad new year, mother, the rum tum tiddledy tum. The same phrase for him comes back in the library in episode 9.
+
+## Lucifer · reference
+
+Allbright he falls, proud lightning of the intellect. The Latin Stephen quotes is from the Easter Exsultet, where Lucifer is the morning star that knows no setting; Stephen means the falling angel as well.

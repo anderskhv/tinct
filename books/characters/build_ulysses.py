@@ -1,7 +1,7 @@
 """Reviewed bindings for Ulysses.
 
-Joyce in both editions, 18 episodes, 7,148 paragraphs per edition. Episode 1 is
-authored; episodes 2-18 are not.
+Joyce in both editions, 18 episodes, 7,148 paragraphs per edition. Episodes 1 to
+3 are authored; episodes 4-18 are not.
 
 Every table below has `None` for its default, so a name that an unread episode
 will give to somebody else carries no card at all outside the paragraphs keyed
@@ -57,9 +57,11 @@ SPLIT={
  # Shakespeare and Hamlet are argued over for the whole of episode 9 and named
  # in eleven episodes; only the two mentions of episode 1 are keyed here.
  'Shakespeare':({(1,275):'shakespeare',(2,74):'shakespeare',(2,113):'shakespeare'},None),
- 'Hamlet':({(1,232):'hamlet',(1,269):'hamlet',(1,275):'hamlet',(2,74):'hamlet'},None),
+ 'Hamlet':({(1,232):'hamlet',(1,269):'hamlet',(1,275):'hamlet',(2,74):'hamlet',
+           (3,79):'hamlet'},None),
  # Joseph is Joseph the Joiner at 1:288 and 1:295 and eleven other men elsewhere.
- 'Joseph':({(1,288):'joseph-the-joiner',(1,295):'joseph-the-joiner'},None),
+ 'Joseph':({(1,288):'joseph-the-joiner',(1,295):'joseph-the-joiner',
+            (3,43):'joseph-the-joiner'},None),
  # --- episode 2. Every one of these names belongs to somebody else elsewhere in
  # the book, which is why none of them is an alias. The comments say who.
  # 5:65 and 5:101 are Cantrell and Cochrane's ginger ale.
@@ -72,7 +74,7 @@ SPLIT={
  # 7:380 is John Philpot Curran and 12:172 is Sara Curran.
  'Curran':({(2,123):'curran'},None),
  # 10:235 is Temple bar. 3:35 is the same man, in an episode not yet read.
- 'Temple':({(2,123):'temple'},None),
+ 'Temple':({(2,123):'temple',(3,35):'temple'},None),
  # 8:111 and 8:144 name him in full: the eminent poet A. E., Mr Geo. Russell.
  'Russell':({(2,123):'russell'},None),
  # 7:42 is Phil Blake's weekly Pat and Bull story.
@@ -91,11 +93,67 @@ SPLIT={
  'Albert Edward':({(2,128):'albert-edward'},None),
  'O[\u2019\']Rourke':({(2,174):'orourke'},None),
 
+ # --- episode 3. Same rule: every one of these is somebody else somewhere in
+ # the book, or would be if the name were let loose, so each is keyed.
+ # Richie Goulding is Stephen's uncle here; at 9:375 and 9:391 "nuncle Richie"
+ # is Richard Shakespeare, in the argument about the brothers.
+ 'Richie':({(3,17):'richie-goulding',(3,21):'richie-goulding',(3,24):'richie-goulding',
+            (3,25):'richie-goulding',(3,26):'richie-goulding'},None),
+ # 12:172 is Sara Curran of the Tommy Moore song and 14:57 is the Sara of a lay.
+ 'Sara':({(3,11):'aunt-sara',(3,41):'aunt-sara'},None),
+ # 6:22 is the same woman, in an episode not yet read.
+ 'Sally':({(3,11):'aunt-sara'},None),
+ # 8:140 is Walter Sexton, 9:256 and 15:394 are Sir Walter Raleigh, 11:483 is
+ # Walter Bapty; 11:385 is this Walter, crosseyed, in an unread episode.
+ 'Walter':({(3,11):'walter-goulding',(3,15):'walter-goulding',(3,19):'walter-goulding',
+            (3,28):'walter-goulding'},None),
+ 'Crissie':({(3,22):'crissie-goulding'},None),
+ # 7:479 names the same two midwives again, in an episode not yet read.
+ 'Mrs Florence MacCabe':({(3,6):'florence-maccabe'},None),
+ '(?:Patk|Patrick) MacCabe':({(3,6):'patk-maccabe'},None),
+ # Simon Dedalus is named Si five times in episode 11; here he is only a voice.
+ 'Si':({(3,11):'simon-dedalus'},None),
+ # 16:105 is another Egan, the one Cunningham would work a pass through.
+ 'Egan':({(3,59):'kevin-egan'},None),
+ # Pat is bald Pat the waiter through the whole of episode 11, Pat Dignam in
+ # four episodes, Pat Farrell, Pat Claffey, Pat Kinsella, Pat Tobin. Here twice
+ # it is Kevin Egan's son: tell Pat you saw me; I wanted to get poor Pat a job.
+ 'Pat':({(3,59):'patrice'},None),
+ # Eleven other Burkes: O'Madden Burke of the newspaper office, Pisser Burke,
+ # Edmund Burke, Burke's public house.
+ 'Burke':({(3,59):'richard-burke'},None),
+ # 14:49 is Victoria Frances, a child of the Purefoy family.
+ 'Victoria':({(3,57):'queen-victoria',(3,94):'queen-victoria'},None),
+ # Modern edition only: it prints the king where Joyce wrote his people. 6:205
+ # is the Brian Boru House pub.
+ 'Brian Boru':({(3,57):'brian-boru'},None),
+ # A E is George Russell, already cast from Stephen's list of debts at 2:123.
+ # The older edition spells it A E and the modern one A.E., as it does in five
+ # later episodes that have not been read.
+ '(?:A E|A\\.E\\.)':({(3,57):'russell'},None),
+ # The high king, not Buck Mulligan and not Saint Malachy: the alias is dropped
+ # at 3:67 by SUPPRESS below and the key carries it. 12:50 names him the ardri.
+ 'Malachi':({(3,67):'king-malachi',(12,50):'king-malachi'},None),
+ # Adam and Eve's is a church and a tavern in five episodes; Adam Findlater,
+ # Villiers de l'Isle-Adam and an Adam's apple are three more.
+ 'Adam':({(3,7):'adam',(3,77):'adam'},None),
+ 'Eve':({(3,7):'eve'},None),
+ # 12:360 is the church of Saint Fiacre in Horto.
+ 'Fiacre':({(3,51):'fiacre'},None),
+ # 15:991 is a match: STEPHEN: Lucifer. Thanks.
+ 'Lucifer':({(3,93):'lucifer'},None),
+ # 12:177 is Pan Poleaxe Paddyrisky, one of the mock foreign delegates.
+ 'Pan':({(3,85):'pan'},None),
+
  # The mother is unnamed in episode 1 and is bound where the text makes her the
  # subject: the dream, the deathbed, the bowl of bile, the ghostcandle.
  'mother':({(1,39):'may-dedalus',(1,41):'may-dedalus',(1,52):'may-dedalus',
             (1,80):'may-dedalus',(1,85):'may-dedalus',(1,89):'may-dedalus',
-            (1,91):'may-dedalus',(1,117):'may-dedalus'},None),
+            (1,91):'may-dedalus',(1,117):'may-dedalus',
+            # 3:21 is Walter's mother, who is aunt Sara; 3:50 is Stephen's own,
+            # sending him eight shillings by money order in Paris.
+            # 3:53 is the aunt's charge: you killed your mother.
+            (3,21):'aunt-sara',(3,50):'may-dedalus',(3,53):'may-dedalus'},None),
 }
 
 # Figures the text names only by a description. (episode, paragraph) -> [(pattern, id)]
@@ -129,6 +187,35 @@ PHRASE={
  (1,331):[(r'An elderly man','creek-elderly-man')],
  (1,333):[(r'the young man','creek-young-man')],
  (1,348):[(r'The young man','creek-young-man')],
+ # episode 3: the people the text gives only a description, and the places
+ # where the two editions describe the same person in different words.
+ (3,1):[(r'Los Demiurgos','demiurge'),(r'God the Creator','demiurge')],
+ (3,11):[(r'My consubstantial father','simon-dedalus'),(r'My father','simon-dedalus'),
+         (r'The drunken little costdrawer','richie-goulding'),
+         (r'The drunken little penny-pincher','richie-goulding'),
+         (r'his brother,? the cornet player','goulding-cornet-brother'),
+         (r'his father','richie-goulding')],
+ (3,53):[(r'The aunt','mulligan-aunt')],
+ (3,54):[("Mulligan['’]s aunt",'mulligan-aunt')],
+ (3,56):[(r'A handsome man','belluomo')],
+ (3,57):[(r'The froeken','the-froeken'),(r'The Scandinavian girl','the-froeken')],
+ (3,58):[(r'the head centre','head-centre'),(r'the rebel leader','head-centre')],
+ (3,59):[('madame in rue Gît-le-Cœur','egan-wife'),
+         (r'the madam on the Street of the Lying Heart','egan-wife')],
+ (3,63):[(r'the panthersahib','haines'),(r'the panther-dreaming Englishman','haines'),
+         (r'his pointer','mulligan'),(r'his gun dog','mulligan')],
+ (3,65):[(r'Some giant','sir-lout')],
+ (3,66):[(r'The two maries','two-maries'),(r'The two Marys','two-maries')],
+ (3,68):[("The Bruce['’]s brother",'bruce-brother'),
+         (r'The man that was drowned','drowned-man'),(r'The man who drowned','drowned-man')],
+ (3,69):[(r'A woman','cocklepicker-woman'),(r'a man','cocklepicker-man')],
+ (3,73):[(r'his master','cocklepicker-man')],
+ (3,75):[(r'the ruffian','cocklepicker-man'),(r'the rogue','cocklepicker-man'),
+         (r'his strolling mort','cocklepicker-woman'),
+         (r'his wandering woman','cocklepicker-woman')],
+ (3,82):[(r'bishop of Cloyne','berkeley'),(r'Bishop Berkeley','berkeley')],
+ (3,83):[(r'The virgin at Hodges Figgis','bookshop-woman'),
+         (r'The young woman at the bookshop','bookshop-woman')],
 }
 
 # (matched text, episode, paragraph) -> the alias hit is dropped there
@@ -150,6 +237,8 @@ SUPPRESS={
  # 1:155 and 1:162 are "mother Grogan", where the word is part of her name and
  # the Grogan key carries the span; 1:288 is the jew mother of Mulligan's ballad.
  ('mother',1,45),('mother',1,155),('mother',1,162),('mother',1,288),
+ # 3:67 is the high king Malachi who wore the collar of gold, not Buck.
+ ('Malachi',3,67),
 }
 
 def bind(edition,ch,pi,text,entities):
