@@ -275,6 +275,7 @@ import {
   const prefaceCache=new Map()
   async function renderInlinePreface(book) {
     const token=++state.prefaceToken,button=root.querySelector('[data-inline-preface]'),body=root.querySelector('[data-inline-preface-body]')
+    root.querySelector('.tov5-book-detail-zoom')?.classList.remove('is-preface-expanded')
     button.hidden=true;body.hidden=true;body.innerHTML='';button.textContent='Read full preface';button.setAttribute('aria-expanded','false')
     if(!prefaceCache.has(book.id)) prefaceCache.set(book.id,fetchJsonIfAvailable(`/lab/prefaces/${encodeURIComponent(book.id)}.json?v=20260909-1`))
     const preface=await prefaceCache.get(book.id)
@@ -1205,7 +1206,7 @@ import {
       renderEditions(selectedBook()); navigateView('edition'); window.scrollTo(0, 0); return
     }
     if (target?.closest('[data-about-book]')) { if(pushedEntries>0) history.back();else navigateView('book-detail',true);window.scrollTo(0,0);return }
-    if (target?.closest('[data-inline-preface]')) { const body=root.querySelector('[data-inline-preface-body]');body.hidden=!body.hidden;const button=root.querySelector('[data-inline-preface]');button.setAttribute('aria-expanded',String(!body.hidden));button.textContent=body.hidden?'Read full preface':'Close preface';return }
+    if (target?.closest('[data-inline-preface]')) { const body=root.querySelector('[data-inline-preface-body]');body.hidden=!body.hidden;const expanded=!body.hidden;const button=root.querySelector('[data-inline-preface]');button.setAttribute('aria-expanded',String(expanded));button.textContent=expanded?'Close preface':'Read full preface';root.querySelector('.tov5-book-detail-zoom')?.classList.toggle('is-preface-expanded',expanded);return }
     if (target?.closest('[data-sample-more]')) {state.sampleExpanded=!state.sampleExpanded;void fillVersionSamples(selectedBook());return}
     const readSide=target?.closest('[data-version-read]')
     if(readSide) {selectEdition(readSide.dataset.versionRead);return}
