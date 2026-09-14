@@ -4,9 +4,11 @@ Reviewed: 2026-09-14
 
 ## Status and scope
 
-Approved design implemented locally on `codex/library-recap-layout-0914`, based
-on main `941eaa09f`. **Not deployed.** Independent review and coordinated release
-remain next. Worktree: `/tmp/tinct-library-recap-layout-0914`.
+Approved design shipped in `63cf67c79` and production-verified on September 14.
+[Deploy run 34834096441](https://github.com/anderskhv/tinct/actions/runs/34834096441)
+passed its test, deploy, exact-bundle wait and production smoke steps. Production
+served app bundle `index-BByW1_zt.js` and Library boot script
+`library-boot.js?v=20260914-1` during the independent check.
 
 Reading now and Finished use sentence-case headings. The selected book has one
 smaller location and a relative “Last time you read” date derived from actual
@@ -40,21 +42,28 @@ confirmed caption sheds its loading class so Continue is no longer dimmed.
   requests blocked; no provider call or real account data used.
 - Updated review artifact includes sample long/short/no-recap states with stable
   geometry. Production UI shows only real recap text.
+- Independent release review repeated the 63 focused tests, all 2,240 app tests,
+  build and bundle verification. It traced first-paint/hydrated parity, actual
+  reading timestamps, recap keys and selection/refresh handlers and found no
+  actionable regression or scope drift.
+- The same Chromium/WebKit matrix then passed against `https://tinct.app` at
+  390×844, 1180×820 and 1440×900. Pending, empty, long, short, stale-response,
+  expand/collapse, refresh and book-switch checks all passed with stable collapsed
+  geometry and zero mocked position writes.
 
 Artifacts: shared repository `output/launch-week-library-wireframes/implementation/`
-contains screenshots, both browser result files, build and test logs. Updated
-proposal: `output/launch-week-library-wireframes/library-reading-now.html`.
+contains implementation screenshots, browser results, build and test logs.
+`output/launch-week-library-wireframes/production/` contains the independent live
+Chromium/WebKit screenshots and result files. Updated proposal:
+`output/launch-week-library-wireframes/library-reading-now.html`.
 
-## Release handoff and limits
+## Release result and limits
 
 No reader/audio/character/translation code changed. The Library boot helper is
 also consumed by reader code; its added timestamp is optional and backwards
 compatible. Build-generated sitemap date churn is excluded. Dependencies and
 local environment are untracked convenience files, not part of the release.
 
-The shared checkout's launch-week plan and PIPELINES contain the dated Library
-checkpoint and Anders's strict instruction that all substantive work belongs to
-subagents; root only structures feedback, assigns work and facilitates. Those
-shared coordination edits preserve existing changes and are not bundled into
-this isolated app commit. Release owner must update shipped product status only
-after deployment and production verification.
+The feature is released; no follow-up is required for the approved Library scope.
+Slow authenticated startup remains a separately documented investigation and was
+not changed by this release.
