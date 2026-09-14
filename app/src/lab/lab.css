@@ -6942,6 +6942,12 @@
 .lab[data-chrome-version="v2"] .lab-passage.is-chapter-end-page > .lab-passage-header { display: none; }
 .lab[data-chrome-version="v2"] .lab-chapter-end-page { width: 100%; max-width: 560px; margin: 0 auto; }
 .lab[data-chrome-version="v2"] .lab-chapter-end-page .lab-chapter-end { margin-top: 0; }
+/* The dedicated end screen occupies one desktop leaf. Its source columns
+   remain hidden; this does not change text measurement or the page map. */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-passage.is-spread > .lab-chapter-end-page {
+  width: calc((100% - var(--desktop-gutter)) / 2);
+  margin-left: 0;
+}
 
 /* The desktop spread on a 900–1100px landscape tablet: tighter page padding
    and gutter, so each of the two columns keeps ~40 characters. */
