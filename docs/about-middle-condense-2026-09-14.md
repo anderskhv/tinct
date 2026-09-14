@@ -1,5 +1,9 @@
 # About middle condensation — 14 September 2026
 
+## Rollback requested — September 14
+
+Anders requested restoration to the About page before today’s improvements. Restore all About assets and patch tooling exactly from a88bb9a7, before commits 12958166 and aba03d5e. This restores the original questions, longer middle, bridge and Escape-to-Start-reading button behavior. The implementation and copy releases below are superseded; their verification remains historical evidence. Unrelated reader changes are preserved. Rollback verification and deployment are in progress.
+
 Anders approved the narrow middle cut in the marketing review conversation (“go”). Broader recommendations remain proposals.
 
 ## Change
