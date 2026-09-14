@@ -14,8 +14,8 @@ describe('reversible edition discovery availability', () => {
     expect(reviewed).toEqual(actual)
     // 200 after Bible modern-en was withdrawn on 2026-09-11 (NIV-derived text).
     expect(new Set(reviewed).size).toBe(200)
-    expect(manifest.eligible_editions).toHaveLength(152)
-    expect(manifest.held_editions).toHaveLength(48)
+    expect(manifest.eligible_editions).toHaveLength(153)
+    expect(manifest.held_editions).toHaveLength(47)
     expect(BOOKS.filter(book => !book.editions.some(e => e.language === 'en' && !isAudioHeld(book.id, e.key))).map(b=>b.id).sort()).toEqual([...manifest.held_books].sort())
   })
   it('removes held books only from discovery, retaining direct text handoffs and exact places', () => {
