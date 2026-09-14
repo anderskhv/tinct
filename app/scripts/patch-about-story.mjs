@@ -246,14 +246,14 @@ console.log(`done: ${applied} edit(s) applied, ${skipped} already in place`);
 
 // Version the stylesheet and module graph together for previously cached pages.
 {
-  const names = [...readdirSync(chunks).filter(n => n.endsWith('.js')), 'about-v21.css'];
-  const pattern = new RegExp('(' + names.map(n => n.replaceAll('.', '\\.')).join('|') + ')(?!\\?v=reveal-20260914)', 'g');
+  const names = [...readdirSync(chunks).filter(n => n.endsWith('.js')), 'about-v21.css', 'about-v21.js'];
+  const pattern = new RegExp('(' + names.map(n => n.replaceAll('.', '\\.')).join('|') + ')(?!\\?v=polish-20260914)', 'g');
   const paths = [files.html, join(publicDir, 'about.rsc'),
     ...readdirSync(about).filter(n => /^bootstrap-.*\.js$/.test(n)).map(n => join(about,n)),
     ...readdirSync(chunks).filter(n => n.endsWith('.js')).map(n => join(chunks,n))];
   for (const path of paths) {
     const before = readFileSync(path, 'utf8');
-    const after = before.replace(pattern, '$1?v=reveal-20260914');
+    const after = before.replaceAll('?v=reveal-20260914', '').replace(pattern, '$1?v=polish-20260914');
     if (after !== before) writeFileSync(path, after);
   }
 }

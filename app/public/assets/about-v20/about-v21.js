@@ -15,7 +15,41 @@
     }
     return '';
   }
+  // Connect the actual headline and page bounds, rather than a fixed page ornament.
+  function updatePassageArrow() {
+    document.querySelectorAll('.reading-journey[data-beat="language"]').forEach(function (scene) {
+      var headline = scene.querySelector('.reading-problem');
+      var page = scene.querySelector('.reading-right-leaf');
+      var timing = scene.querySelector('.language-direction');
+      if (!headline || !page || !timing) return;
+      var arrow = scene.querySelector('.passage-connector');
+      if (!arrow) {
+        arrow = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        arrow.setAttribute('class', 'passage-connector');
+        arrow.setAttribute('aria-hidden', 'true');
+        var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        arrow.appendChild(path);
+        scene.appendChild(arrow);
+      }
+      var frame = scene.getBoundingClientRect(), h = headline.getBoundingClientRect(), p = page.getBoundingClientRect();
+      var phone = window.innerWidth <= 1024;
+      var sx = (phone ? h.left + Math.min(h.width * .85, 280) : h.right + 12) - frame.left;
+      var sy = (phone ? h.bottom + 12 : h.top + h.height * .65) - frame.top;
+      var ex = (phone ? p.right - 24 : p.left - 12) - frame.left;
+      var ey = (phone ? p.top - 10 : p.top + p.height * .30) - frame.top;
+      var cx = phone ? p.right - frame.left + 2 : sx + (ex - sx) * .6;
+      var cy = phone ? ey - 22 : sy;
+      var dx = ex - cx, dy = ey - cy, len = Math.hypot(dx, dy) || 1;
+      var ux = dx / len, uy = dy / len, size = 10;
+      arrow.setAttribute('viewBox', '0 0 ' + frame.width + ' ' + frame.height);
+      arrow.style.opacity = timing.style.opacity;
+      arrow.firstChild.setAttribute('d', 'M' + sx + ' ' + sy + ' Q' + cx + ' ' + cy + ' ' + ex + ' ' + ey +
+        ' M' + (ex - ux * size - uy * 5) + ' ' + (ey - uy * size + ux * 5) + ' L' + ex + ' ' + ey +
+        ' L' + (ex - ux * size + uy * 5) + ' ' + (ey - uy * size - ux * 5));
+    });
+  }
   function update() {
+    updatePassageArrow();
     var beat = visibleBeat();
     if (revealY === null && afterReveal[beat]) revealY = window.scrollY;
     var seen = revealY !== null && window.scrollY >= revealY - 10;
@@ -26,6 +60,10 @@
     if (ticking) return; ticking = true;
     requestAnimationFrame(function () { ticking = false; update(); });
   }, { passive: true });
+  window.addEventListener('resize', update);
+  new MutationObserver(function (changes) {
+    if (changes.some(function (change) { return !change.target.closest || !change.target.closest('.passage-connector'); })) requestAnimationFrame(update);
+  }).observe(document.querySelector('.journey-stage') || document.querySelector('main'), { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
   update();
 
   // The pill steps aside while the closing section's own Start reading button is on screen, so the two never
