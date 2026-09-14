@@ -2,7 +2,7 @@
 
 Reviewed: 2026-09-14
 
-Status: verified locally; deployment pending.
+Status: deployed and production-verified at app commit `8c1214d45`.
 
 Anders reported the dedicated Hebrews 1 chapter-end card crossing the desktop
 spread gutter. He approved leaving the facing page blank and required minimal
@@ -38,4 +38,19 @@ Phone and Compare layouts are excluded by the desktop-spread selector.
   `1440-795-after.png`. No claim of universal zero risk is made; the patch is
   confined to presentation and the sampled pagination/navigation checks pass.
 
-Next action: deploy and repeat the browser checks against the live bundle.
+## Production verification
+
+[Deployment run 34829365444](https://github.com/anderskhv/tinct/actions/runs/34829365444)
+succeeded, including all 2,239 tests, build/bundle gates, exact deployed JavaScript
+verification and all 15 smoke checks. Live bundle: **`index-CZkux1Sk.js`**.
+Worker version: `6a04a71b-b803-4627-8d41-ef958740539b`.
+
+The same four browser scenarios passed against production, including `/lab/phone`
+at 390×844. Every scenario served the CI bundle above. The desktop dedicated card
+is entirely within the left leaf, the facing leaf is blank, and before/after
+word maps and Back/Continue checks pass. API/account traffic remained intercepted.
+Live screenshots and results: `output/chapter-end-single-page/production/`,
+including `1440-795-after.png` and `results.json`.
+
+No remaining action for this scoped layout fix. A next-chapter preview would be
+separate work because it would involve source and navigation behavior.
