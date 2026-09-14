@@ -253,3 +253,8 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
    the screen alone for longer), and then the pair stands for the rest of the chapter. */
 .story-root[data-bookshelf=true] .journey-steps #chapter-stop{height:240svh;min-height:240svh}
 .story-root[data-bookshelf=true] .scene-frame[data-scene=stop] .question-or{opacity:clamp(0, (var(--scene-progress) - .2) / .07, 1)}
+
+/* The supplied image already contains the lit screens. Keep all three devices
+   visible without stretching the original 1484×1060 composition. */
+.brand-ensemble .device-canvas>img:first-child{object-fit:contain}
+.brand-ensemble .device-canvas>img.lit-screen{display:none}

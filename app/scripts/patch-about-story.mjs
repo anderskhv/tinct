@@ -226,3 +226,34 @@ if (preloads.length) { text.html = text.html.replaceAll(preloadRe, ''); applied+
 
 for (const [k, p] of Object.entries(files)) writeFileSync(p, text[k]);
 console.log(`done: ${applied} edit(s) applied, ${skipped} already in place`);
+
+// User-supplied, fully composed reveal image (September 14). Keep the original
+// reveal timing and component structure so imports retain earlier fixes.
+{
+  let story = readFileSync(files.story, 'utf8');
+  const start = story.indexOf('className:`device-ensemble brand-ensemble`');
+  const oldImage = '/assets/about-v20/assets/devices-transparent-v10.webp';
+  const newImage = '/assets/about-v20/assets/introducing-tinct-20260914.png';
+  if (start < 0) throw new Error('Missing Introducing Tinct figure');
+  const end = story.indexOf('So.map', start);
+  const figure = story.slice(start, end);
+  if (!figure.includes(newImage)) {
+    if (!figure.includes(oldImage)) throw new Error('Missing original reveal image');
+    story = story.slice(0, start) + figure.replace(oldImage, newImage) + story.slice(end);
+    writeFileSync(files.story, story);
+  }
+}
+
+// Version the stylesheet and module graph together for previously cached pages.
+{
+  const names = [...readdirSync(chunks).filter(n => n.endsWith('.js')), 'about-v21.css'];
+  const pattern = new RegExp('(' + names.map(n => n.replaceAll('.', '\\.')).join('|') + ')(?!\\?v=reveal-20260914)', 'g');
+  const paths = [files.html, join(publicDir, 'about.rsc'),
+    ...readdirSync(about).filter(n => /^bootstrap-.*\.js$/.test(n)).map(n => join(about,n)),
+    ...readdirSync(chunks).filter(n => n.endsWith('.js')).map(n => join(chunks,n))];
+  for (const path of paths) {
+    const before = readFileSync(path, 'utf8');
+    const after = before.replace(pattern, '$1?v=reveal-20260914');
+    if (after !== before) writeFileSync(path, after);
+  }
+}

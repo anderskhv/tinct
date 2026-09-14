@@ -34,7 +34,8 @@ test('all HTML asset references resolve inside the isolated namespace', () => {
       // public URLs are worker routes with no file of their own: /library is
       // served from /lab/ by src/worker/routes/seo.ts.
       if (WORKER_ROUTES.has(match[1])) continue;
-      assert.ok(existsSync(publicDir + match[1]) || existsSync(publicDir + match[1] + '.html'), match[1]);
+      const path = match[1].split('?')[0];
+      assert.ok(existsSync(publicDir + path) || existsSync(publicDir + path + '.html'), match[1]);
     }
   }
   assert.ok(existsSync(publicDir + 'about.rsc'));
@@ -74,8 +75,10 @@ test('phone reading scenes place headline and page in the same unit system (no v
   assert.match(phone, /\.reading-narration\{[^}]*bottom:calc\(var\(--page-foot\) \+ var\(--page-h\) \+ 32px\)/);
 });
 
-test('the reveal lights every screen before the devices are fully visible', () => {
+test('the supplied reveal composition replaces the separate screen overlays', () => {
   const story = readFileSync(publicDir + 'assets/about-v20/_next/static/chunks/scroll-story-BQLclMWW.js', 'utf8');
   assert.match(story, /className:`brand-devices`,style:\{opacity:Q\(u,\.08,\.28\)/);
-  assert.match(story, /lit-screen[^;]*opacity:Q\(u,e\.kind===`desktop`\?\.1:e\.kind===`eink`\?\.14:\.18,e\.kind===`desktop`\?\.2:e\.kind===`eink`\?\.24:\.28\)/);
+  assert.ok(story.includes('/assets/about-v20/assets/introducing-tinct-20260914.png'));
+  assert.ok(existsSync(publicDir + 'assets/about-v20/assets/introducing-tinct-20260914.png'));
+  assert.match(css, /\.brand-ensemble \.device-canvas>img\.lit-screen\{display:none\}/);
 });
