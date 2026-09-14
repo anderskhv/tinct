@@ -2,6 +2,7 @@ import { isAudioHeld, isEditionDiscoverable } from '../data/audioAvailability'
 import { useCharacterCards } from '../services/characters/useCharacterCards'
 import { resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
 import { LabBookPreface } from './LabBookPreface'
+import { LabBookSwitcher } from './LabBookSwitcher'
 import { getBookPreface } from '../data/bookPrefaces'
 import { LabChapterEnd } from './LabChapterEnd'
 import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest } from './labChapterChat'
@@ -96,8 +97,8 @@ import { LabInTheBook } from './LabInTheBook'
 import { bibleBookOpeningTitle, bibleFallbackSource, loadLabBookSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './useLabPositionSync'
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
-import { consumeLabReaderHandoffForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
-import { recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
+import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
+import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
 import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, ensurePageIdentity, followOnReadingPage, growPageByFirstOmittedWord, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
@@ -122,8 +123,10 @@ import {
   type LabPlaybackNavigationOutcome,
 } from './labVoiceControls'
 import type { VoiceTinctView } from '../voice/tinctTools'
-import { getBook } from '../data/bookRegistry'
+import { BOOKS, getBook } from '../data/bookRegistry'
 import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
+import { continueHandoff } from '../preReader/continueHandoff'
+import { quickBookCompletedIds, quickBookPositions, quickBookRows, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
 import './lab.css'
 
 const PHONE_QUERY = LAB_PHONE_QUERY
@@ -359,6 +362,18 @@ function readOnline(override?: boolean): boolean {
   return navigator.onLine
 }
 
+function quickCatalogueFallback(current: LabSource): QuickBookCatalogueEntry[] {
+  const currentBookId = current.bookId || 'bible'
+  return BOOKS.map(book => ({
+    id: book.id,
+    title: book.title,
+    art: { src: `/covers/v2/${book.id}.webp` },
+    readingStructure: book.id === currentBookId
+      ? { chapters: current.chapters.map(chapter => ({ number: chapter.number, title: chapter.title })) }
+      : null,
+  }))
+}
+
 export function LabApp({ pathname, search, online, source, authToken }: LabAppProps) {
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/lab')
   const layoutOverride = labLayoutOverride(path)
@@ -411,6 +426,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [mobileCompareActive, setMobileCompareActive] = useState(resumeInCompare)
   const [desktopCompareActive, setDesktopCompareActive] = useState(resumeInCompare)
   const [speedPopoverOpen, setSpeedPopoverOpen] = useState(false)
+  const [bookSwitcherOpen, setBookSwitcherOpen] = useState(false)
+  const [bookSwitcherRows, setBookSwitcherRows] = useState<QuickBookRow[]>([])
+  const [bookSwitcherLoading, setBookSwitcherLoading] = useState(false)
+  const [bookSwitcherError, setBookSwitcherError] = useState('')
+  const bookTitleButtonRef = useRef<HTMLButtonElement>(null)
+  const bookSwitcherWasOpenRef = useRef(false)
   useEffect(() => {
     if (!speedPopoverOpen) return
     const outside = (event: PointerEvent) => {
@@ -428,6 +449,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       document.removeEventListener('keydown', escape)
     }
   }, [speedPopoverOpen])
+  useEffect(() => {
+    if (!bookSwitcherOpen) return
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setBookSwitcherOpen(false)
+    }
+    document.addEventListener('keydown', escape)
+    return () => document.removeEventListener('keydown', escape)
+  }, [bookSwitcherOpen])
+  useEffect(() => {
+    if (bookSwitcherWasOpenRef.current && !bookSwitcherOpen) bookTitleButtonRef.current?.focus()
+    bookSwitcherWasOpenRef.current = bookSwitcherOpen
+  }, [bookSwitcherOpen])
 
   const audioEditionKey = effectiveLabAudioEdition(prefs, bookEditions)
   const audioHeld = isAudioHeld(book.bookId || 'bible', audioEditionKey)
@@ -1056,6 +1089,70 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       window.removeEventListener('pagehide', onHide)
     }
   }, [])
+
+  const rowsForQuickCatalogue = useCallback((catalogue: QuickBookCatalogueEntry[]) => {
+    try {
+      const viewer = authToken !== undefined
+        ? (authToken ? (authUser?.id ?? null) : null)
+        : (authUser?.id ?? null)
+      const local = accountLabPositionRecord(readLabPositionLocal(), null, viewer)
+      const positions = quickBookPositions(local, catalogue, key => localStorage.getItem(key))
+      return quickBookRows({
+        catalogue,
+        positions,
+        memory: readDeviceReadingMemory(),
+        viewer,
+        completedBookIds: quickBookCompletedIds(localStorage),
+      })
+    } catch {
+      return []
+    }
+  }, [authToken, authUser?.id])
+
+  const openBookSwitcher = useCallback(() => {
+    if (showPhoneChrome && !readerControlsVisible) {
+      setReaderControlsVisible(true)
+      return
+    }
+    setGearOpen(false)
+    setTocOpen(false)
+    setSuperMenuOpen(false)
+    setSuperSheet(null)
+    setReaderControlsVisible(true)
+    setBookSwitcherError('')
+    setBookSwitcherOpen(true)
+    const fallback = quickCatalogueFallback(book)
+    setBookSwitcherRows(rowsForQuickCatalogue(fallback))
+    setBookSwitcherLoading(true)
+    void fetch('/lab/catalogue.json')
+      .then(async response => {
+        if (!response.ok) throw new Error(String(response.status))
+        const payload = await response.json() as { books?: QuickBookCatalogueEntry[] }
+        if (!Array.isArray(payload.books)) throw new Error('Invalid catalogue')
+        setBookSwitcherRows(rowsForQuickCatalogue(payload.books))
+      })
+      .catch(() => setBookSwitcherError('Showing books saved on this device.'))
+      .finally(() => setBookSwitcherLoading(false))
+  }, [book, readerControlsVisible, rowsForQuickCatalogue, showPhoneChrome])
+
+  const switchQuickBook = useCallback((row: QuickBookRow) => {
+    const intent = continueHandoff(row.target)
+    if (!intent) {
+      setBookSwitcherError('That saved place is temporarily unavailable.')
+      return
+    }
+    // Persist the outgoing coherent tuple before the document navigation. The
+    // handoff then installs the selected book and its own tuple together.
+    notePlace('hide')
+    rememberLibraryPlace()
+    try { sessionStorage.setItem(LAB_READER_HANDOFF_KEY, JSON.stringify(intent)) } catch {
+      setBookSwitcherError('That saved place is temporarily unavailable.')
+      return
+    }
+    setBookSwitcherOpen(false)
+    window.location.assign(`/reader${readerPreviewSearch(window.location.search)}`)
+  }, [notePlace, rememberLibraryPlace])
+
   useEffect(() => {
     const root = labRootRef.current
     if (!root) return
@@ -3767,7 +3864,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           className="lab-header-brand"
           onClick={showPhoneChrome && !phoneReaderControlsVisible ? () => setReaderControlsVisible(true) : undefined}
         >
-          <h1 className="lab-header-work" data-testid="lab-header-work">{book.bookTitle}</h1>
+          <h1 className="lab-header-work" data-testid="lab-header-work">
+            {chromeV2 ? <button
+              ref={bookTitleButtonRef}
+              type="button"
+              className="lab-header-book"
+              data-testid="lab-header-book"
+              aria-label={`Switch books, currently ${book.bookTitle}`}
+              aria-expanded={bookSwitcherOpen}
+              aria-haspopup="dialog"
+              onClick={openBookSwitcher}
+            >
+              <span>{book.bookTitle}</span><span className="lab-header-book-chevron" aria-hidden="true" />
+            </button> : book.bookTitle}
+          </h1>
           <span className="lab-title-sep" aria-hidden="true"> · </span>
           <button
             type="button"
@@ -3833,6 +3943,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           )}
         </p>
       </header>}
+      {bookSwitcherOpen && !frontispieceVisible && <LabBookSwitcher
+        current={{ bookId: book.bookId || 'bible', title: book.bookTitle, chapterLabel: paintedChapterLabel, coverSrc: `/covers/v2/${book.bookId || 'bible'}.webp` }}
+        rows={bookSwitcherRows}
+        loading={bookSwitcherLoading}
+        error={bookSwitcherError}
+        onClose={() => setBookSwitcherOpen(false)}
+        onSelect={switchQuickBook}
+      />}
       {chromeV2 && !frontispieceVisible && (
         <LabSuperMenu
           open={superMenuOpen}

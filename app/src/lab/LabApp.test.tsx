@@ -3766,6 +3766,26 @@ describe('lab after-paint shrink', () => {
 
 
 describe('lab chrome pass', () => {
+  it('switches a Reading-now book through one saved coherent handoff tuple', () => {
+    localStorage.setItem('tinct-lab-position', JSON.stringify({
+      books: {
+        odyssey: { bookId: 'odyssey', headerBook: 'The Odyssey', chapterNumber: 1, sequentialChapter: 1, paragraphIndex: 0, wordIndex: 0, pageIndex: 0, primaryEditionKey: 'original-en', updatedAt: 10, deviceId: 'device', rev: 1 },
+        crito: { bookId: 'crito', headerBook: 'Crito', chapterNumber: 2, sequentialChapter: 2, paragraphIndex: 4, wordIndex: 3, pageIndex: 2, primaryEditionKey: 'modern-en', updatedAt: 20, deviceId: 'device', rev: 2 },
+      },
+      recentChapters: {}, finished: {}, hidden: {}, lastSettledBookId: 'odyssey', lastSettledAt: 10,
+      updatedAt: 20, deviceId: 'device', owner: null,
+    }))
+    render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'odyssey' }} />)
+    fireEvent.click(screen.getByTestId('lab-header-book'))
+    fireEvent.click(screen.getByRole('button', { name: /Crito.*Chapter 2/i }))
+    expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff') || 'null')).toEqual({
+      kind: 'open-reader',
+      bookId: 'crito',
+      primaryEditionKey: 'modern-en',
+      savedPlace: { bookId: 'crito', chapterNumber: 2, page: 2, paragraphIndex: 4, wordIndex: 3 },
+    })
+  })
+
   it('opens the original Tinct TOC from the chapter tap and jumps Talk context', async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input)
@@ -4021,7 +4041,7 @@ describe('lab chrome pass', () => {
     expect(root.getAttribute('data-reader-controls')).toBe('visible')
     expect(stage.textContent).toBe(pageText)
     expect(screen.queryByTestId('lab-toc')).toBeNull()
-    // Visible controls: the title stays inert, as before.
+    // Visible controls: the title stays inert in the retained V1 DOM.
     fireEvent.click(screen.getByTestId('lab-header-work'))
     expect(root.getAttribute('data-reader-controls')).toBe('visible')
     expect(screen.queryByTestId('lab-toc')).toBeNull()
