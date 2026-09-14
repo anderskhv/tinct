@@ -5,6 +5,7 @@ import { bibleFallbackSource, loadLabChapterList, type LabSource } from './labSo
 import { getBook } from '../data/bookRegistry'
 import { bibleEditions, syncLabAudioEdition, type LabPrefs } from './labPrefs'
 import { prefsFromLabResumePlace } from './labReaderHandoff'
+import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 import {
   LAB_INITIAL_CLOUD_WAIT_MS,
   LAB_POSITION_WRITE_ARM_MS,
@@ -253,7 +254,17 @@ export function useLabPositionSync(args: {
   const cloudFetchRef = useRef<{ token: string; promise: Promise<LabPositionState | null> } | null>(null)
   const cloudRecord = useCallback((token: string) => {
     if (cloudFetchRef.current?.token === token) return cloudFetchRef.current.promise
-    const promise = fetchLabPositionCloud(token)
+    markReaderLoadTrace('position_request_start', { startOf: 'position_request' })
+    const promise = fetchLabPositionCloud(token).then((record) => {
+      markReaderLoadTrace(record ? 'position_request_resolved' : 'position_request_empty', {
+        endOf: 'position_request',
+        outcome: record ? 'success' : 'empty',
+      })
+      return record
+    }).catch((error) => {
+      markReaderLoadTrace('position_request_error', { endOf: 'position_request', outcome: 'error' })
+      throw error
+    })
     cloudFetchRef.current = { token, promise }
     return promise
   }, [])
