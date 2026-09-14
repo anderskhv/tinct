@@ -262,5 +262,5 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
 /* September 14: headline-to-page connector and a reveal that blends into the ground. */
 .reading-journey[data-beat=language] .reading-right-leaf::after{display:none}
 .passage-connector{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:5;overflow:visible;fill:none;stroke:#dcc5a3;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.brand-ensemble .device-canvas>img:first-child{-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 70%,transparent 99%),linear-gradient(to right,transparent 0%,#000 7%,#000 93%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,#000 0%,#000 70%,transparent 99%),linear-gradient(to right,transparent 0%,#000 7%,#000 93%,transparent 100%);mask-composite:intersect}
+.brand-ensemble .device-canvas>img:first-child{-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 88%,transparent 100%),linear-gradient(to right,transparent 0%,#000 7%,#000 93%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,#000 0%,#000 88%,transparent 100%),linear-gradient(to right,transparent 0%,#000 7%,#000 93%,transparent 100%);mask-composite:intersect}
 .brand-sweep{display:none}

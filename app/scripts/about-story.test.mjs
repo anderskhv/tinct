@@ -78,7 +78,7 @@ test('phone reading scenes place headline and page in the same unit system (no v
 test('the supplied reveal composition replaces the separate screen overlays', () => {
   const story = readFileSync(publicDir + 'assets/about-v20/_next/static/chunks/scroll-story-BQLclMWW.js', 'utf8');
   assert.match(story, /className:`brand-devices`,style:\{opacity:Q\(u,\.08,\.28\)/);
-  assert.ok(story.includes('/assets/about-v20/assets/introducing-tinct-20260914.png'));
-  assert.ok(existsSync(publicDir + 'assets/about-v20/assets/introducing-tinct-20260914.png'));
+  assert.ok(story.includes('/assets/about-v20/assets/introducing-tinct-20260914-v2.png'));
+  assert.ok(existsSync(publicDir + 'assets/about-v20/assets/introducing-tinct-20260914-v2.png'));
   assert.match(css, /\.brand-ensemble \.device-canvas>img\.lit-screen\{display:none\}/);
 });

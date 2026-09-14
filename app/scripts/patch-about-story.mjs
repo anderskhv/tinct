@@ -233,13 +233,15 @@ console.log(`done: ${applied} edit(s) applied, ${skipped} already in place`);
   let story = readFileSync(files.story, 'utf8');
   const start = story.indexOf('className:`device-ensemble brand-ensemble`');
   const oldImage = '/assets/about-v20/assets/devices-transparent-v10.webp';
-  const newImage = '/assets/about-v20/assets/introducing-tinct-20260914.png';
+  const newImage = '/assets/about-v20/assets/introducing-tinct-20260914-v2.png';
   if (start < 0) throw new Error('Missing Introducing Tinct figure');
   const end = story.indexOf('So.map', start);
   const figure = story.slice(start, end);
   if (!figure.includes(newImage)) {
-    if (!figure.includes(oldImage)) throw new Error('Missing original reveal image');
-    story = story.slice(0, start) + figure.replace(oldImage, newImage) + story.slice(end);
+    if (figure.includes('/assets/about-v20/assets/introducing-tinct-20260914.png')) story = story.slice(0, start) + figure.replace('/assets/about-v20/assets/introducing-tinct-20260914.png', oldImage) + story.slice(end);
+    const currentFigure = story.slice(start, story.indexOf('So.map', start));
+    if (!currentFigure.includes(oldImage)) throw new Error('Missing original reveal image');
+    story = story.slice(0, start) + currentFigure.replace(oldImage, newImage) + story.slice(story.indexOf('So.map', start));
     writeFileSync(files.story, story);
   }
 }
@@ -247,13 +249,13 @@ console.log(`done: ${applied} edit(s) applied, ${skipped} already in place`);
 // Version the stylesheet and module graph together for previously cached pages.
 {
   const names = [...readdirSync(chunks).filter(n => n.endsWith('.js')), 'about-v21.css', 'about-v21.js'];
-  const pattern = new RegExp('(' + names.map(n => n.replaceAll('.', '\\.')).join('|') + ')(?!\\?v=polish-20260914)', 'g');
+  const pattern = new RegExp('(' + names.map(n => n.replaceAll('.', '\\.')).join('|') + ')(?!\\?v=image2-20260914)', 'g');
   const paths = [files.html, join(publicDir, 'about.rsc'),
     ...readdirSync(about).filter(n => /^bootstrap-.*\.js$/.test(n)).map(n => join(about,n)),
     ...readdirSync(chunks).filter(n => n.endsWith('.js')).map(n => join(chunks,n))];
   for (const path of paths) {
     const before = readFileSync(path, 'utf8');
-    const after = before.replaceAll('?v=reveal-20260914', '').replace(pattern, '$1?v=polish-20260914');
+    const after = before.replaceAll('?v=reveal-20260914', '').replaceAll('?v=polish-20260914', '').replace(pattern, '$1?v=image2-20260914');
     if (after !== before) writeFileSync(path, after);
   }
 }
