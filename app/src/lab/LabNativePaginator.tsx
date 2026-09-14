@@ -1,3 +1,4 @@
+import { labMeasureParagraphInto } from './labMeasureParagraph'
 import { Fragment, memo, useLayoutEffect, useRef, type ReactNode } from 'react'
 import {
   LAB_ORPHAN_PAGE_WORDS,
@@ -314,51 +315,12 @@ export const LabNativePaginator = memo(function LabNativePaginator({
             const words = sourceWords[segment.paragraphIndex].slice(segment.from, segment.to)
             const p = document.createElement('p')
             p.className = 'lab-hearing-line'
-            // Match renderWordGroups: spacing belongs inside the word span,
-            // including the no-wrap verse unit. Column-flow markup deliberately
-            // puts it outside; cloning that markup changes Bible line breaks.
-            const makeWord = (index: number) => {
-              const span = document.createElement('span')
-              span.className = 'lab-hearing-word'
-              span.dataset.nativeWord = 'true'
-              span.append(nativeWordSpacing(words[index], index, words[index - 1]))
-              if (isLabVerseMarker(words[index].text)) {
-                const marker = document.createElement('span')
-                marker.className = 'lab-verse-mark'
-                marker.textContent = labVerseMarkerDisplay(words[index].text) + (index < words.length - 1 ? '\u00a0' : '')
-                span.append(marker)
-              } else span.append(words[index].text)
-              return span
-            }
-            const children: Array<{ at: number; node: Node }> = []
-            for (let index = 0; index < words.length; index++) {
-              if (isLabVerseMarker(words[index].text) && words[index + 1]) {
-                const unit = document.createElement('span')
-                unit.className = 'lab-verse-unit'
-                unit.append(makeWord(index), makeWord(index + 1))
-                children.push({ at: index, node: unit })
-                index++
-              } else children.push({ at: index, node: makeWord(index) })
-            }
-            // The hidden copy has to carry the verse blocks too, or the phone
-            // packs its pages against a paragraph shape the reader never sees.
-            const ranges = verseLineRanges(
-              paragraphs[segment.paragraphIndex],
-              segment.from,
-              segment.from + words.length,
-            )
-            if (!ranges) p.append(...children.map(child => child.node))
-            else for (const [start, end] of ranges) {
-              const verseLine = document.createElement('span')
-              verseLine.className = 'lab-verse-line'
-              verseLine.append(...children
-                .filter(child => segment.from + child.at >= start && segment.from + child.at < end)
-                .map(child => child.node))
-              p.append(verseLine)
-            }
+            labMeasureParagraphInto(p, words, {
+              text: paragraphs[segment.paragraphIndex], from: segment.from,
+            })
             stage.append(p)
           }
-          const last = [...stage.querySelectorAll('[data-native-word]')].at(-1)
+          const last = [...stage.querySelectorAll('.lab-hearing-word')].at(-1)
           const lastBottom = last ? Math.max(...[...last.getClientRects()].map(rect => rect.bottom)) : Infinity
           return labPageFitsPaint({ lastBottom, chromeTop: host.getBoundingClientRect().bottom })
         })

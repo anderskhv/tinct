@@ -7,7 +7,7 @@ export interface MeasurableWord {
 }
 
 /**
- * Spacing belongs inside the word span, exactly as `renderWordGroups` in
+ * Spacing belongs outside the word span, exactly as `renderWordGroups` in
  * `LabPassage` composes it. A word that follows a verse marker carries no
  * space: the marker's own trailing no-break space already separates them.
  */
@@ -40,8 +40,6 @@ export function labMeasureParagraphInto(
   const makeWord = (index: number): HTMLElement => {
     const span = document.createElement('span')
     span.className = 'lab-hearing-word'
-    const spacing = labMeasuredWordSpacing(words[index], index, words[index - 1])
-    if (spacing) span.append(spacing)
     const word = words[index]
     const content: Node = isLabVerseMarker(word.text)
       ? (() => {
@@ -60,13 +58,19 @@ export function labMeasureParagraphInto(
   }
   const children: Array<{ at: number; node: Node }> = []
   for (let index = 0; index < words.length; index += 1) {
+    const group = document.createDocumentFragment()
+    group.append(labMeasuredWordSpacing(words[index], index, words[index - 1]))
     if (isLabVerseMarker(words[index].text) && words[index + 1]) {
       const unit = document.createElement('span')
       unit.className = 'lab-verse-unit'
       unit.append(makeWord(index), makeWord(index + 1))
-      children.push({ at: index, node: unit })
+      group.append(unit)
+      children.push({ at: index, node: group })
       index += 1
-    } else children.push({ at: index, node: makeWord(index) })
+    } else {
+      group.append(makeWord(index))
+      children.push({ at: index, node: group })
+    }
   }
   // Verse lineation is a block per line, and a block is taller and narrower
   // than the same words run together. The measured page has to carry it for

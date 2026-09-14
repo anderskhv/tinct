@@ -2346,7 +2346,8 @@ describe('lab passage headline pages', () => {
       />,
     )
     const unit = screen.getByTestId('lab-reading-stage').querySelector('.lab-verse-unit')
-    expect(unit?.previousSibling?.textContent).toBe(' so.')
+    expect(unit?.previousSibling?.textContent).toBe(' ')
+    expect(unit?.previousSibling?.previousSibling?.textContent).toBe('so.')
     expect(unit?.textContent).toContain(`9\u00a0And`)
   })
 
@@ -2613,7 +2614,7 @@ describe('lab passage headline pages', () => {
     expect(turn).toHaveBeenCalledWith(1)
   })
 
-  it('keeps selection visually continuous by bridging the spaces between selected words', () => {
+  it('keeps selected word boxes separate from whitespace', () => {
     render(
       <LabPassage
         chapterTitle="Book 1"
@@ -2632,8 +2633,10 @@ describe('lab passage headline pages', () => {
     expect(words[1].className).toContain('is-selecting')
     expect(words[2].className).toContain('is-selecting')
     expect(words[3].className).toContain('is-selecting')
-    expect(words[2].textContent?.startsWith(' ')).toBe(true)
-    expect(words[3].textContent?.startsWith(' ')).toBe(true)
+    expect(words[2].textContent).toBe('O')
+    expect(words[2].previousSibling?.textContent).toBe(' ')
+    expect(words[3].textContent).toBe('Muse')
+    expect(words[3].previousSibling?.textContent).toBe(' ')
     const css = readFileSync(resolve(process.cwd(), 'src/lab/lab.css'), 'utf8')
     // The provisional mark is the highlight the Highlight action would make,
     // in the default colour, so the preview cannot lie about the result.

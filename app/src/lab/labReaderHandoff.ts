@@ -71,7 +71,8 @@ export function prefsFromLabReaderHandoff(current: LabPrefs, handoff: ReaderHand
     primaryEdition: primary.key,
     compareEdition: compare,
     audioEdition: audio,
-    compareOpen: Boolean(handoff.compareEditionKey),
+    // A library entry can omit a pair without withdrawing the reader’s preference.
+    compareOpen: Boolean(handoff.compareEditionKey) || current.compareOpen,
   }
 }
 
@@ -89,7 +90,9 @@ export function prefsFromLabResumePlace(current: LabPrefs, place: LabBookPlace |
     ...current,
     primaryEdition: primary.key,
     compareEdition: compare?.key ?? current.compareEdition,
-    compareOpen: Boolean(compare),
+    // Edition keys restore the pair, but the latest settings choice owns
+    // availability. An older position must neither disable Compare nor undo None.
+    compareOpen: current.compareOpen,
   }, book.editions)
 }
 

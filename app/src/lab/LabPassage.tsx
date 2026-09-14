@@ -119,8 +119,9 @@ export function renderWordGroups<T extends { text: string }>(
         at: wordIndex,
         node: (
           <Fragment key={`verse-${wordIndex}`}>
+            {wordSpacing(word, wordIndex, words[wordIndex - 1])}
             <span className="lab-verse-unit">
-              {renderWord(word, wordIndex, wordSpacing(word, wordIndex, words[wordIndex - 1]))}
+              {renderWord(word, wordIndex, "")}
               {renderWord(words[wordIndex + 1], wordIndex + 1, wordSpacing(words[wordIndex + 1], wordIndex + 1, word))}
             </span>
           </Fragment>
@@ -132,7 +133,8 @@ export function renderWordGroups<T extends { text: string }>(
         at: wordIndex,
         node: (
           <Fragment key={`word-${wordIndex}`}>
-            {renderWord(word, wordIndex, wordSpacing(word, wordIndex, words[wordIndex - 1]))}
+            {wordSpacing(word, wordIndex, words[wordIndex - 1])}
+            {renderWord(word, wordIndex, "")}
           </Fragment>
         ),
       })
@@ -808,7 +810,7 @@ export function LabPassage({
               const segment = alignCompare ? comparisonSegment({ paragraphIndex, from, to: from + line.words.length }, paragraphs, source) : { from, to: from + line.words.length }
               const text = words.slice(segment.from, segment.to).map(word => word.text).join(' ')
               if (!alignCompare && !text) return null
-              return <p key={lineIndex} className="lab-hearing-line" style={alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{asVerseLines(source[paragraphIndex], segment.from, words.slice(segment.from, segment.to).map((word, index) => <span key={index} className={labHighlightCssClass(highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, segment.from + index), !!activeSelecting && !!(localSelecting ? dragRef.current?.comparison : selectingComparison) && wordInHighlightRange(activeSelecting, paragraphIndex, segment.from + index))} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={segment.from + index}>{index > 0 ? ' ' : ''}{word.emphasis ? <em>{word.text}</em> : word.text}</span>))}</p>
+              return <p key={lineIndex} className="lab-hearing-line" style={alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{asVerseLines(source[paragraphIndex], segment.from, words.slice(segment.from, segment.to).map((word, index) => <Fragment key={index}>{index > 0 ? ' ' : ''}<span className={labHighlightCssClass(highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, segment.from + index), !!activeSelecting && !!(localSelecting ? dragRef.current?.comparison : selectingComparison) && wordInHighlightRange(activeSelecting, paragraphIndex, segment.from + index))} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={segment.from + index}>{word.emphasis ? <em>{word.text}</em> : word.text}</span></Fragment>))}</p>
             })}
           </div>
         )}

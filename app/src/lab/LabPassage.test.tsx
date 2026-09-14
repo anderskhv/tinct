@@ -12,6 +12,7 @@ import {
   markFullContinuedTails,
 } from './LabPassage'
 import { chapterPageSegments, isLabVerseMarker, labVerseMarkerDisplay, tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
+import { labMeasureParagraphInto } from './labMeasureParagraph'
 import { bibleFallbackSource } from './labSource'
 import { followFromPlayback, mergeSidecarWords, type TimedWord } from './labFollow'
 
@@ -54,6 +55,33 @@ function passageProps(paragraphs: string[], readingPage: ChapterHearingPage) {
     readingPage,
   }
 }
+
+describe('word highlight boundaries', () => {
+  it('keeps selection and audio backgrounds off separator spaces', () => {
+    const paragraphs = ['for stubble. They will burn']
+    const { container } = render(<LabPassage {...passageProps(paragraphs, { paragraphIndex: 0, from: 0, to: 5 })}
+      inlineHearingPaint follow={{ kind: 'word', paragraphIndex: 0, wordIndex: 1 }}
+      selectingRange={{ paragraphIndex: 0, fromWord: 1, endParagraphIndex: 0, toWord: 2, text: 'stubble.' }} />)
+    const words = [...container.querySelectorAll('[data-testid="lab-word"]')]
+    expect(words.map(word => word.textContent)).toEqual(['for', 'stubble.', 'They', 'will', 'burn'])
+    expect(words[1].previousSibling?.textContent).toBe(' ')
+    expect(words[1].className).toContain('is-current')
+    expect(words[1].className).toContain('is-selecting')
+    expect(container.querySelector('.lab-hearing-line')?.textContent).toBe(paragraphs[0])
+  })
+
+  it('measures the same word and verse spacing that the reader paints', () => {
+    const paragraphs = ['it was so. ⁸ And God said']
+    const { container } = render(<LabPassage {...passageProps(paragraphs, { paragraphIndex: 0, from: 0, to: 7 })} />)
+    const painted = container.querySelector('.lab-hearing-line')!
+    const measured = labMeasureParagraphInto(document.createElement('p'), tokenizeHearingWords(paragraphs[0]))
+    expect(measured.textContent).toBe(painted.textContent)
+    expect([...measured.querySelectorAll('.lab-hearing-word')].map(word => word.textContent))
+      .toEqual([...painted.querySelectorAll('.lab-hearing-word')].map(word => word.textContent))
+    expect(measured.querySelector('.lab-verse-unit')?.previousSibling?.textContent).toBe(' ')
+    expect(painted.querySelector('.lab-verse-unit')?.previousSibling?.textContent).toBe(' ')
+  })
+})
 
 describe('continued page tails', () => {
   const paragraphs = ['one two three four five', 'six seven eight']

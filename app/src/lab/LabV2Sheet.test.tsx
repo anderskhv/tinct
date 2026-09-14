@@ -93,9 +93,11 @@ describe('reading settings', () => {
     fireEvent.change(compare, { target: { value: other } })
     expect(readLabPrefs().compareEdition).toBe(other)
 
-    const before = readLabPrefs().compareOpen
-    fireEvent.click(screen.getByTestId('lab-v2-show-compare'))
-    expect(readLabPrefs().compareOpen).toBe(!before)
+    expect(readLabPrefs().compareOpen).toBe(true)
+    expect(screen.queryByTestId('lab-v2-show-compare')).toBeNull()
+    fireEvent.change(compare, { target: { value: '' } })
+    expect(readLabPrefs().compareOpen).toBe(false)
+    expect(compare.value).toBe('')
     expect(localStorage.getItem(LAB_PREFS_KEY)).toBeTruthy()
   })
 })

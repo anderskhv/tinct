@@ -259,28 +259,15 @@ export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, 
                   testId="lab-v2-main-edition"
                   value={prefs.primaryEdition}
                   options={editionOptions}
-                  onChange={value => onPrefs({ ...prefs, primaryEdition: value })}
+                  onChange={value => onPrefs({ ...prefs, primaryEdition: value, compareOpen: prefs.compareOpen && prefs.compareEdition !== value })}
                 />
                 <SelectRow
                   label="Compare edition"
                   testId="lab-v2-compare-edition"
-                  value={prefs.compareEdition}
-                  options={editionOptions}
-                  onChange={value => onPrefs({ ...prefs, compareEdition: value })}
+                  value={prefs.compareOpen ? prefs.compareEdition : ''}
+                  options={[{ value: '', label: 'None' }, ...editionOptions.filter(option => option.value !== prefs.primaryEdition)]}
+                  onChange={value => onPrefs({ ...prefs, compareEdition: value || prefs.compareEdition, compareOpen: value !== '' })}
                 />
-                <div className="lab-v2-row">
-                  <span className="lab-v2-row-label">Show Compare</span>
-                  <button
-                    type="button"
-                    className={`lab-v2-toggle${prefs.compareOpen ? ' is-on' : ''}`}
-                    data-testid="lab-v2-show-compare"
-                    aria-pressed={prefs.compareOpen}
-                    aria-label="Show Compare"
-                    onClick={() => onPrefs({ ...prefs, compareOpen: !prefs.compareOpen })}
-                  >
-                    <span className="lab-v2-toggle-knob" />
-                  </button>
-                </div>
               </div>
               <div className="lab-v2-foot">
                 <button

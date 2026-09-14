@@ -52,8 +52,24 @@ describe('Lab reader handoff', () => {
     expect(pending.paragraphs).toEqual([])
   })
 
+  it('keeps Compare enabled when a library handoff omits a second edition', () => {
+    const handoff = consumeLabReaderHandoff(storageWith({
+      kind: 'open-reader', bookId: 'odyssey', primaryEditionKey: 'original-en',
+    }))!
+    expect(prefsFromLabReaderHandoff({ ...DEFAULT_LAB_PREFS, compareOpen: true }, handoff).compareOpen).toBe(true)
+  })
+
+  it('keeps Compare enabled when an older saved position has no edition pair', () => {
+    const prefs = prefsFromLabResumePlace({ ...DEFAULT_LAB_PREFS, compareOpen: true }, {
+      bookId: 'odyssey', headerBook: 'The Odyssey', chapterNumber: 2, sequentialChapter: 2,
+      paragraphIndex: 4, wordIndex: 7, pageIndex: 3, primaryEditionKey: 'original-en',
+      updatedAt: 100, deviceId: 'reader', rev: 2,
+    })
+    expect(prefs.compareOpen).toBe(true)
+  })
+
   it('restores the edition pair from the same book tuple used for position', () => {
-    const prefs = prefsFromLabResumePlace(DEFAULT_LAB_PREFS, {
+    const prefs = prefsFromLabResumePlace({ ...DEFAULT_LAB_PREFS, compareOpen: true }, {
       bookId: 'odyssey', headerBook: 'The Odyssey', chapterNumber: 2, sequentialChapter: 2,
       paragraphIndex: 4, wordIndex: 7, pageIndex: 3,
       primaryEditionKey: 'original-en', compareEditionKey: 'modern-en', readerMode: 'compare',
@@ -63,4 +79,14 @@ describe('Lab reader handoff', () => {
       primaryEdition: 'original-en', compareEdition: 'modern-en', compareOpen: true,
     })
   })
+  it('does not revive Compare from an old position after choosing None', () => {
+    const prefs = prefsFromLabResumePlace(DEFAULT_LAB_PREFS, {
+      bookId: 'odyssey', headerBook: 'The Odyssey', chapterNumber: 2, sequentialChapter: 2,
+      paragraphIndex: 4, wordIndex: 7, pageIndex: 3,
+      primaryEditionKey: 'original-en', compareEditionKey: 'modern-en', readerMode: 'compare',
+      updatedAt: 100, deviceId: 'reader', rev: 2,
+    })
+    expect(prefs.compareOpen).toBe(false)
+  })
+
 })

@@ -698,6 +698,12 @@
   max-height: 8.5rem;
 }
 
+/* Compact definitions have no toolbar below them to separate. */
+.lab .selection-popup.is-compact .popup-define {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
 .lab .popup-define-word,
 .lab .popup-define-list,
 .lab .popup-define-status,
@@ -2140,6 +2146,10 @@
 .lab.is-phone .lab-book,
 .lab.is-phone .lab-passage,
 .lab.has-phone-chrome .lab-passage {
+  /* A short page must keep the full reading measure and edge-tap surface.
+     Auto margins otherwise shrink this flex child to its longest line/card. */
+  width: 100%;
+  box-sizing: border-box;
   flex: 1 1 auto;
   min-height: 0;
   overflow-x: hidden;
