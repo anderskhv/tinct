@@ -380,6 +380,9 @@ describe('worker SEO routing', () => {
       expect(body).toContain('tinct-onboarding-worlds-v5')
       expect(body).not.toContain('noindex')
       expect(body).toContain('href="https://tinct.app/"')
+      expect(body).toContain('<meta property="og:image" content="https://tinct.app/og-image-v2.jpg">')
+      expect(body).toContain('<meta name="twitter:image" content="https://tinct.app/og-image-v2.jpg">')
+      expect(body).toContain('<meta property="og:description" content="Read great books with parallel editions, audiobooks and a voice companion. Explore the Tinct library and start reading.">')
     }
   })
 

@@ -388,10 +388,12 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/' || url.pathname === '/index.html')) {
       const home = await serveLabPreReader(request.method, url, env, '/lab/')
       if (home) {
+        const homeTitle = 'Tinct — A New Way to Read'
+        const homeDescription = 'Read great books with parallel editions, audiobooks and a voice companion. Explore the Tinct library and start reading.'
         const html = request.method === 'HEAD' ? null : (await home.text())
           .replace(/<meta\s+name="robots"[^>]*>/i, '')
-          .replace(/<title>[^<]*<\/title>/i, '<title>Tinct — A New Way to Read</title>')
-          .replace('</head>', '<meta name="description" content="Read great books with parallel editions, audiobooks and a voice companion. Explore the Tinct library and start reading."><link rel="canonical" href="https://tinct.app/"></head>')
+          .replace(/<title>[^<]*<\/title>/i, `<title>${homeTitle}</title>`)
+          .replace('</head>', `<meta name="description" content="${homeDescription}"><link rel="canonical" href="https://tinct.app/"><meta property="og:title" content="${homeTitle}"><meta property="og:description" content="${homeDescription}"><meta property="og:url" content="https://tinct.app/"><meta property="og:type" content="website"><meta property="og:site_name" content="Tinct"><meta property="og:image" content="https://tinct.app/og-image-v2.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${homeTitle}"><meta name="twitter:description" content="${homeDescription}"><meta name="twitter:image" content="https://tinct.app/og-image-v2.jpg"></head>`)
         const response = new Response(html, home)
         response.headers.delete('X-Robots-Tag')
         response.headers.delete('Content-Length')
