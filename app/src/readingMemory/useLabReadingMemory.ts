@@ -33,14 +33,6 @@ export interface LabReadingMemoryInput {
   finishedChapters: ReadonlySet<number>
   /** Optional override; defaults to the live Supabase session. */
   userId?: string | null
-  /**
-   * The reader turned forward onto the final page and it rendered the
-   * chapter's last word — the same signal that completes the memory session.
-   * The reader uses it to keep a durable finished mark in the position
-   * record, which syncs and survives the memory cap and the sign-out wipe.
-   * Not called when the chapter is already in `finishedChapters`.
-   */
-  onChapterCompleted?: (chapterNumber: number) => void
   /** Cloud factory override (tests); defaults to the Supabase versioned row. */
   cloudFor?: (userId: string) => ReadingMemoryCloud | null
 }
@@ -53,8 +45,6 @@ export function useLabReadingMemory(input: LabReadingMemoryInput): void {
   const previousFinishedRef = useRef<ReadonlySet<number> | null>(null)
   const userIdRef = useRef<string | null>(userId)
   userIdRef.current = userId
-  const onChapterCompletedRef = useRef(input.onChapterCompleted)
-  onChapterCompletedRef.current = input.onChapterCompleted
   const cloudForRef = useRef(input.cloudFor ?? createSupabaseReadingMemoryCloud)
   cloudForRef.current = input.cloudFor ?? createSupabaseReadingMemoryCloud
   const drainTimerRef = useRef<number | null>(null)
@@ -117,9 +107,6 @@ export function useLabReadingMemory(input: LabReadingMemoryInput): void {
     })
     previousFinishedRef.current = input.finishedChapters
     const ready = input.ready && input.pagesSettled
-    if (completionSignal && ready && !input.finishedChapters.has(input.chapterNumber)) {
-      onChapterCompletedRef.current?.(input.chapterNumber)
-    }
     recorder.observe({
       bookId: input.bookId,
       editionKey: input.editionKey,

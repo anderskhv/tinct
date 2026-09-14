@@ -109,23 +109,15 @@ describe('useLabReadingMemory (reader observer)', () => {
     expect(typeof session?.completedAt).toBe('number')
   })
 
-  it('reports the chapter completed to the reader when a forward turn lands on the final page with the last word on it', () => {
-    const onChapterCompleted = vi.fn()
+  it('does not complete on arrival at the final page; it completes on the durable finished transition', () => {
     const pages = chapterHearingPages(platoDialogueFixture().paragraphs, null)
     const lastPage = pages.length - 1
     expect(lastPage).toBeGreaterThan(0)
-    const { rerender } = renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor({ onChapterCompleted }) })
-    // Landing on the final page from a backward retreat is not completion.
-    act(() => rerender(inputFor({ onChapterCompleted, pageIndex: lastPage, pageTurnDirection: 'previous' })))
-    expect(onChapterCompleted).not.toHaveBeenCalled()
-    act(() => rerender(inputFor({ onChapterCompleted, pageIndex: lastPage, pageTurnDirection: 'next' })))
-    expect(onChapterCompleted).toHaveBeenCalledWith(1)
+    const { rerender } = renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor() })
+    act(() => rerender(inputFor({ pageIndex: lastPage, pageTurnDirection: 'next' })))
+    expect(latestReadingSession(readDeviceReadingMemory())?.state).not.toBe('completed')
+    act(() => rerender(inputFor({ pageIndex: lastPage, pageTurnDirection: 'next', finishedChapters: new Set([1]) })))
     expect(latestReadingSession(readDeviceReadingMemory())?.state).toBe('completed')
-    // The reader marks the chapter finished; the transition must not report it a second time, and pages that are not settled never do.
-    onChapterCompleted.mockClear()
-    act(() => rerender(inputFor({ onChapterCompleted, pageIndex: lastPage, pageTurnDirection: 'next', finishedChapters: new Set([1]) })))
-    act(() => rerender(inputFor({ onChapterCompleted, pageIndex: lastPage, pageTurnDirection: 'next', pagesSettled: false })))
-    expect(onChapterCompleted).not.toHaveBeenCalled()
   })
 
   it('signing in merges the account\'s cloud copy into the device mirror without touching the open session', async () => {

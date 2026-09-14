@@ -188,13 +188,10 @@ describe('detectCompletionSignal', () => {
     previousFinishedChapters: new Set<number>(),
   }
 
-  it('fires when the reader turns forward onto the final page that renders the last word', () => {
-    expect(detectCompletionSignal({ ...base, pageIndex: pages.length - 1, pageEnd: pages[pages.length - 1].end, pageTurnDirection: 'next' })).toBe(true)
-  })
-
-  it('does not fire on initial render, a backward landing, or a non-final page', () => {
+  it('does not fire on initial render, either direction onto the final page, or a non-final page', () => {
     expect(detectCompletionSignal({ ...base, pageIndex: pages.length - 1, pageEnd: pages[pages.length - 1].end, pageTurnDirection: null })).toBe(false)
     expect(detectCompletionSignal({ ...base, pageIndex: pages.length - 1, pageEnd: pages[pages.length - 1].end, pageTurnDirection: 'previous' })).toBe(false)
+    expect(detectCompletionSignal({ ...base, pageIndex: pages.length - 1, pageEnd: pages[pages.length - 1].end, pageTurnDirection: 'next' })).toBe(false)
     expect(detectCompletionSignal({ ...base, pageIndex: 0, pageEnd: pages[0].end, pageTurnDirection: 'next' })).toBe(false)
   })
 

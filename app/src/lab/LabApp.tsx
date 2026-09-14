@@ -108,6 +108,7 @@ import { buildHighlightRange, type LabHighlight, type LabHighlightRange } from '
 import { useLabHighlights } from './useLabHighlights'
 import { useLabAsk } from './useLabAsk'
 import { readLabPositionLocal } from './labPositionStore'
+import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 import { LabAccountSheet, LabSecondBookNudge } from './LabAccountPrompt.tsx'
 import { clearLabAiActionCount, labBooksReadOnDevice, labCurrentPath, markSecondBookNudgeShown, shouldShowSecondBookNudge, type LabAccountPromptRequest } from './labAccountPrompt'
 import { useLabListen } from './useLabListen'
@@ -1149,6 +1150,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   useEffect(() => {
     if (source) {
+      markReaderLoadTrace('required_text_ready', { outcome: 'success' })
       chapterNavigationRef.current += 1
       setChapterCoverTitle(null)
       setBook(source)
@@ -1170,6 +1172,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       && bookEditions.some(edition => edition.key === prefs.compareEdition)
       ? prefs.compareEdition
       : undefined
+    markReaderLoadTrace('required_text_start', { startOf: 'required_text' })
     loadLabBookSource({
         readingFirst: chromeV2,
       bookId: activeBookId,
@@ -1194,14 +1197,25 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       setChapterCoverTitle(current => initialFrontispieceRef.current ? loaded.bookTitle : current)
       initialFrontispieceRef.current = false
       setBook(loaded)
+      markReaderLoadTrace('required_text_ready', { endOf: 'required_text', outcome: 'success' })
     }).catch((error) => {
       if (!cancelled && navigation === chapterNavigationRef.current) {
+        markReaderLoadTrace('required_text_error', { endOf: 'required_text', outcome: 'error' })
         console.warn('[labReader] Failed to load selected edition', error)
         setReaderLoadError('This edition is temporarily unavailable. Choose another edition from settings or return to the library.')
       }
     })
     return () => { cancelled = true }
   }, [source, book.bookId, bookEditions, prefs.primaryEdition, prefs.compareEdition, prefs.compareOpen, audioEditionKey])
+
+  useEffect(() => {
+    markReaderLoadTrace('fonts_start', { startOf: 'fonts' })
+    let cancelled = false
+    void Promise.resolve(document.fonts?.ready).then(() => {
+      if (!cancelled) markReaderLoadTrace('fonts_ready', { endOf: 'fonts', outcome: 'success' })
+    })
+    return () => { cancelled = true }
+  }, [])
 
   useEffect(() => {
     if (!book.supplement) return
@@ -2293,10 +2307,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     ready: !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && (!chromeV2 || !tocOpen),
     pageTurnDirection: pageTurn?.direction ?? null,
     finishedChapters,
-    // Reading onto the final page (last word on screen) is the same fact the
-    // memory session records as completed; keep it in the synced position
-    // record so it outlives the 50-session memory and a sign-out wipe.
-    onChapterCompleted: markChapterFinished,
   })
   // Picker rows: the position record's finished signal cross-checked with
   // reading memory (a `completed` session marks Finished even if the flag was
@@ -3498,6 +3508,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // per identity, which with the identity flipping from device to account on
   // sign-in meant it replayed at the wrong moments and then never again.)
   const readerLaidOut = book.paragraphs.length > 0 && !initialResolving
+  const readerReady = readerLaidOut
+    && (!desktopPaging || desktopMeasuredKey === desktopLayoutKey && nativeMeasuredContent === readerParagraphs)
+  useEffect(() => {
+    if (!readerReady) return
+    markReaderLoadTrace('pagination_ready', { outcome: 'success' })
+    return afterLabPaint(() => {
+      const passage = [...(labRootRef.current?.querySelectorAll<HTMLElement>('.lab-passage') ?? [])]
+        .find(element => !element.closest('.lab-page-measure') && element.getBoundingClientRect().height > 0)
+      if (passage) markReaderLoadTrace('first_visible_passage', { outcome: 'success' })
+    })
+  }, [readerReady])
   useEffect(() => {
     if (!chromeV2 || !readerLaidOut) return
     if (superFirstViewRef.current) return
@@ -3651,7 +3672,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       data-chapter={String(book.chapterNumber)}
       data-book-id={book.bookId || 'bible'}
       data-cover-page={chapterCoverTitle ? 'true' : 'false'}
-      data-reader-ready={book.paragraphs.length > 0 && !initialResolving && (!desktopPaging || desktopMeasuredKey === desktopLayoutKey && nativeMeasuredContent === readerParagraphs) ? 'true' : 'false'}
+      data-reader-ready={readerReady ? 'true' : 'false'}
       data-position-resolving={initialResolving ? 'true' : 'false'}
       data-biblical-book={biblicalBook}
       data-place={`${placeRef.current.paragraphIndex}:${placeRef.current.wordIndex}`}
