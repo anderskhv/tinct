@@ -517,7 +517,7 @@ export function LabAskPane({
     >
       {desktopCompanion && (
         <div className="lab-desktop-companion-head">
-          <span className="lab-desktop-companion-mark" aria-hidden="true">{desktopCompanion === 'talk' ? <VoiceIcon /> : '••'}</span>
+          {desktopCompanion === 'talk' && <span className="lab-desktop-companion-mark" aria-hidden="true"><VoiceIcon /></span>}
           <strong>{desktopCompanion === 'talk' ? LAB_COPY.talk : LAB_COPY.chat}</strong>
           <button type="button" onClick={onDone} aria-label={`Close ${desktopCompanion}`} data-testid="lab-desktop-companion-close">×</button>
         </div>
