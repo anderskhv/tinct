@@ -293,10 +293,10 @@ html[data-joke-step="2"] .joke-turn,html[data-joke-step="3"] .joke-turn,html[dat
 .story-root[data-bookshelf=true] .living-feed>:nth-child(28){--slop-arrival:1.990}
 
 /* Approved September 14: quiet question, one whole statement per scroll beat. */
-.journey .journey-steps #chapter-better{height:300svh;min-height:300svh}
+.journey .journey-steps #chapter-better{height:520svh;min-height:520svh}
 .journey[data-scene=better] .scene-composition{display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:44px;padding:70px max(6vw,28px);box-sizing:border-box;transform:none}
 .journey[data-scene=better] .journey-copy.scene-copy{padding:0;max-width:none;transform:none;animation:none}
-.journey[data-scene=better] .scene-copy h2{margin:0;font:400 22px/1.4 'EB Garamond',Georgia,serif;color:#c5bdb0;animation:none}
+.journey[data-scene=better] .scene-copy h2{margin:0;font:400 32px/1.25 'EB Garamond',Georgia,serif;color:#c5bdb0;animation:none}
 .journey[data-scene=better] .scene-copy h2 em{font-style:normal;color:inherit}
 .journey[data-scene=better] .journey-visual{height:280px;max-width:850px;flex:none;scale:1;transform:none}
 .journey[data-scene=better] .better-arguments{display:block;position:relative;inset:auto;padding:0;opacity:1;transform:none}
@@ -308,7 +308,7 @@ html[data-joke-step="2"] .joke-turn,html[data-joke-step="3"] .joke-turn,html[dat
 .journey[data-scene=better][data-better-step="3"] .better-arguments p:nth-child(3){opacity:1!important;visibility:visible}
 @media(max-width:760px){
  .journey[data-scene=better] .scene-composition{padding:64px 30px 100px;gap:52px}
- .journey[data-scene=better] .scene-copy h2{font-size:20px}
+ .journey[data-scene=better] .scene-copy h2{font-size:28px}
  .journey[data-scene=better] .journey-visual{height:270px}
  .journey[data-scene=better] .better-arguments p{font-size:48px}
 }

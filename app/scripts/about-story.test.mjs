@@ -114,7 +114,7 @@ test('better-reading statements switch discretely and reverse with scroll', () =
   const scene = { style: { getPropertyValue: () => String(progress) }, getAttribute: () => state, setAttribute: (_, value) => { state = value; } };
   const context = { document: { querySelectorAll: () => [scene] } };
   runInNewContext(source, context);
-  for (const [p, expected] of [[0,'0'],[.18,'1'],[.43,'1'],[.44,'2'],[.7,'3'],[.3,'1'],[0,'0']]) {
+  for (const [p, expected] of [[0,'0'],[.21,'0'],[.22,'1'],[.47,'1'],[.48,'2'],[.74,'3'],[.3,'1'],[0,'0']]) {
     progress = p; runInNewContext('updateBetter()', context); assert.equal(state, expected);
   }
 });

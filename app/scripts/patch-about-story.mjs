@@ -273,13 +273,13 @@ console.log(`done: ${applied} edit(s) applied, ${skipped} already in place`);
 // Version the stylesheet and module graph together for previously cached pages.
 {
   const names = [...readdirSync(chunks).filter(n => n.endsWith('.js')), 'about-v21.css', 'about-v21.js'];
-  const pattern = new RegExp('(' + names.map(n => n.replaceAll('.', '\\.')).join('|') + ')(?!\\?v=reading-hierarchy-20260914)', 'g');
+  const pattern = new RegExp('(' + names.map(n => n.replaceAll('.', '\\.')).join('|') + ')(?!\\?v=reading-hold-20260914)', 'g');
   const paths = [files.html, join(publicDir, 'about.rsc'),
     ...readdirSync(about).filter(n => /^bootstrap-.*\.js$/.test(n)).map(n => join(about,n)),
     ...readdirSync(chunks).filter(n => n.endsWith('.js')).map(n => join(chunks,n))];
   for (const path of paths) {
     const before = readFileSync(path, 'utf8');
-    const after = before.replaceAll('?v=stable-joke-20260914', '').replaceAll('?v=reveal-20260914', '').replaceAll('?v=polish-20260914', '').replaceAll('?v=image2-20260914', '').replaceAll('?v=joke-20260914', '').replace(pattern, '$1?v=reading-hierarchy-20260914');
+    const after = before.replaceAll('?v=reading-hierarchy-20260914', '').replaceAll('?v=stable-joke-20260914', '').replaceAll('?v=reveal-20260914', '').replaceAll('?v=polish-20260914', '').replaceAll('?v=image2-20260914', '').replaceAll('?v=joke-20260914', '').replace(pattern, '$1?v=reading-hold-20260914');
     if (after !== before) writeFileSync(path, after);
   }
 }
