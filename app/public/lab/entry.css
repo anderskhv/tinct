@@ -116,7 +116,7 @@
  #tinct-onboarding-worlds-v5 .entry-search-slot input {width:100%;min-width:0;font-size:14px}
  #tinct-onboarding-worlds-v5 .tov5-book-detail-body {padding:48px 42px;grid-template-columns:200px minmax(0,1fr);column-gap:40px;align-content:start}
  #tinct-onboarding-worlds-v5 .tov5-book-identity {display:contents}
- #tinct-onboarding-worlds-v5 .tov5-book-detail-cover {width:200px;height:300px;grid-column:1;grid-row:1/5}
+ #tinct-onboarding-worlds-v5 .tov5-book-detail-cover {width:200px;height:300px;grid-column:1;grid-row:1/5;align-self:start}
  #tinct-onboarding-worlds-v5 .tov5-book-detail-copy,#tinct-onboarding-worlds-v5 .tov5-book-length,#tinct-onboarding-worlds-v5 .tov5-book-description,#tinct-onboarding-worlds-v5 .entry-preface,#tinct-onboarding-worlds-v5 .tov5-book-detail-body>.tov5-choose-edition {grid-column:2}
  #tinct-onboarding-worlds-v5 .tov5-book-length {gap:10px}
  #tinct-onboarding-worlds-v5 .tov5-book-length span {padding:9px 16px}
@@ -150,3 +150,22 @@
 #tinct-onboarding-worlds-v5 .tov5-edition-zoom>.tov5-secondary-world-art,#tinct-onboarding-worlds-v5 .tov5-edition-zoom>.tov5-secondary-world-scrim {display:none}
 #tinct-onboarding-worlds-v5 .entry-cover-column {height:max-content}
 @media(max-width:899px){#tinct-onboarding-worlds-v5 .tov5-edition-head h2 {font-size:30px}}
+
+/* Expanding a long preface must not move the cover or bury the reader action.
+   The existing Start/Continue button becomes one quiet, viewport-pinned action
+   while the essay is open; extra document padding keeps the final lines clear. */
+#tinct-onboarding-worlds-v5 .tov5-book-detail-zoom.is-preface-expanded .tov5-book-detail-body {padding-bottom:calc(96px + var(--tov5-safe-bottom))}
+#tinct-onboarding-worlds-v5 .tov5-book-detail-zoom.is-preface-expanded .entry-preface p:last-child {scroll-margin-bottom:92px}
+#tinct-onboarding-worlds-v5 .tov5-book-detail-zoom.is-preface-expanded .tov5-book-detail-body>.tov5-choose-edition {
+ position:fixed;z-index:30;left:50%;bottom:max(14px,var(--tov5-safe-bottom));transform:translateX(-50%);
+ width:min(560px,calc(100vw - max(32px,var(--tov5-safe-left)) - max(32px,var(--tov5-safe-right))));
+ box-shadow:0 12px 34px rgba(0,0,0,.3)
+}
+@media(max-width:899px){
+ #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom.is-preface-expanded .tov5-book-detail-body>.tov5-choose-edition {width:calc(100vw - max(32px,var(--tov5-safe-left)) - max(32px,var(--tov5-safe-right)))}
+}
+@media(min-width:900px){
+ #tinct-onboarding-worlds-v5 .tov5-book-detail-zoom.is-preface-expanded .tov5-book-detail-body>.tov5-choose-edition {
+  left:max(42px,calc((100vw - 1120px) / 2 + 42px));bottom:42px;transform:none;width:200px
+ }
+}
