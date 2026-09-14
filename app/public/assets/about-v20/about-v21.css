@@ -291,3 +291,30 @@ html[data-joke-step="2"] .joke-turn,html[data-joke-step="3"] .joke-turn,html[dat
 .story-root[data-bookshelf=true] .living-feed>:nth-child(26){--slop-arrival:1.899}
 .story-root[data-bookshelf=true] .living-feed>:nth-child(27){--slop-arrival:1.944}
 .story-root[data-bookshelf=true] .living-feed>:nth-child(28){--slop-arrival:1.990}
+
+/* Approved September 14: quiet question, one whole statement per scroll beat. */
+.journey .journey-steps #chapter-better{height:300svh;min-height:300svh}
+.journey[data-scene=better] .scene-composition{display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:44px;padding:70px max(6vw,28px);box-sizing:border-box;transform:none}
+.journey[data-scene=better] .journey-copy.scene-copy{padding:0;max-width:none;transform:none;animation:none}
+.journey[data-scene=better] .scene-copy h2{margin:0;font:400 22px/1.4 'EB Garamond',Georgia,serif;color:#c5bdb0;animation:none}
+.journey[data-scene=better] .scene-copy h2 em{font-style:normal;color:inherit}
+.journey[data-scene=better] .journey-visual{height:280px;max-width:850px;flex:none;scale:1;transform:none}
+.journey[data-scene=better] .better-arguments{display:block;position:relative;inset:auto;padding:0;opacity:1;transform:none}
+.journey[data-scene=better] .better-arguments:before{content:none}
+.journey[data-scene=better] .better-arguments p{position:absolute;inset:0 auto auto 0;width:100%;margin:0;font:400 clamp(48px,5.2vw,72px)/1.05 'EB Garamond',Georgia,serif;color:#f3eee2;opacity:0!important;visibility:hidden;animation:none;transition:none;transform:none;text-align:left}
+.journey[data-scene=better] .better-arguments em{color:#d2bd99}
+.journey[data-scene=better][data-better-step="1"] .better-arguments p:nth-child(1),
+.journey[data-scene=better][data-better-step="2"] .better-arguments p:nth-child(2),
+.journey[data-scene=better][data-better-step="3"] .better-arguments p:nth-child(3){opacity:1!important;visibility:visible}
+@media(max-width:760px){
+ .journey[data-scene=better] .scene-composition{padding:64px 30px 100px;gap:52px}
+ .journey[data-scene=better] .scene-copy h2{font-size:20px}
+ .journey[data-scene=better] .journey-visual{height:270px}
+ .journey[data-scene=better] .better-arguments p{font-size:48px}
+}
+@media(max-height:600px){
+ .journey[data-scene=better] .scene-composition{padding-top:24px;padding-bottom:64px;gap:24px}
+ .journey[data-scene=better] .journey-visual{height:210px}
+ .journey[data-scene=better] .better-arguments p{font-size:40px}
+}
+.journey[data-scene=better] .better-arguments p:nth-child(2) em{display:block}

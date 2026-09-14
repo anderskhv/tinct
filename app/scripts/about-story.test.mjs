@@ -106,3 +106,15 @@ test('joke sequence runs once across scene remounts and scroll reversals', () =>
   timers[1].fn(); timers[2].fn();
   assert.deepEqual(states, ['1', '2', '3']);
 });
+
+test('better-reading statements switch discretely and reverse with scroll', () => {
+  const js = readFileSync(publicDir + 'assets/about-v20/about-v21.js', 'utf8');
+  const source = js.slice(js.indexOf('  function updateBetter()'), js.indexOf('  function update()'));
+  let progress = 0, state;
+  const scene = { style: { getPropertyValue: () => String(progress) }, getAttribute: () => state, setAttribute: (_, value) => { state = value; } };
+  const context = { document: { querySelectorAll: () => [scene] } };
+  runInNewContext(source, context);
+  for (const [p, expected] of [[0,'0'],[.18,'1'],[.43,'1'],[.44,'2'],[.7,'3'],[.3,'1'],[0,'0']]) {
+    progress = p; runInNewContext('updateBetter()', context); assert.equal(state, expected);
+  }
+});

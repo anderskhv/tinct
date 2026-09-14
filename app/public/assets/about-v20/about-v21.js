@@ -66,7 +66,16 @@
       });
     }
   }
+  // Derive discrete beats from the same progress as the scene, including reverse scroll.
+  function updateBetter() {
+    document.querySelectorAll('.scene-frame[data-scene="better"]').forEach(function (scene) {
+      var progress = Number(scene.style.getPropertyValue('--scene-progress')) || 0;
+      var step = progress < .18 ? 0 : progress < .44 ? 1 : progress < .70 ? 2 : 3;
+      if (scene.getAttribute('data-better-step') !== String(step)) scene.setAttribute('data-better-step', String(step));
+    });
+  }
   function update() {
+    updateBetter();
     updateJoke();
     updatePassageArrow();
     var beat = visibleBeat();
