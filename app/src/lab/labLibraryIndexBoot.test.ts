@@ -48,6 +48,13 @@ describe('lab/index.html boot script', () => {
     expect(tag).toBeTruthy()
     expect(tag).not.toMatch(/\b(defer|async|type="module")/)
     expect(html.indexOf(tag!)).toBeLessThan(html.indexOf('<div id="tinct-onboarding-worlds-v5">'))
+    // A classic script waits for preceding stylesheets. The recent-reader
+    // redirect must run before a slow library font sheet can hold it up.
+    const stylesheets = [...html.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*>/g)]
+    expect(stylesheets.length).toBeGreaterThan(0)
+    for (const sheet of stylesheets) expect(html.indexOf(tag!)).toBeLessThan(sheet.index!)
+    expect(html.match(/href="\/fonts\/tinct-fonts\.css"/g)).toHaveLength(1)
+    expect(html.indexOf('html { min-width: 320px;')).toBeLessThan(html.indexOf(tag!))
     expect(html).toContain('html[data-lab-boot-view="library"] #tinct-onboarding-worlds-v5 .tov5-view[data-view-panel="landing"] { display:none; }')
   })
 
