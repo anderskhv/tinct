@@ -1,6 +1,5 @@
 {
   "held_books": [
-    "antigone",
     "democracy-in-america",
     "descartes-meditations",
     "essays-montaigne",
@@ -15,6 +14,7 @@
     "a-little-princess/modern-en",
     "a-little-princess/original-en",
     "anna-karenina/modern-en",
+    "antigone/original-en",
     "antony-and-cleopatra/modern-en",
     "antony-and-cleopatra/original-en",
     "apology/original-en",
@@ -170,12 +170,6 @@
     },
     {
       "key": "antigone/modern-en",
-      "issues": [
-        "missing_audio"
-      ]
-    },
-    {
-      "key": "antigone/original-en",
       "issues": [
         "missing_audio"
       ]
@@ -490,5 +484,5 @@
       ]
     }
   ],
-  "basis": "September10 structural audio audit; not acoustic certification or deployed visibility change"
+  "basis": "September 10 structural audio audit; Antigone original-en reclassified September 14 after its missing paragraph recording and word sidecar were repaired and served-hash verified. This is not whole-library acoustic certification."
 }

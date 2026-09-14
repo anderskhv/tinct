@@ -2610,6 +2610,7 @@ export const ANTIGONE: Book = {
       translator: 'Francis Storr',
       year: 1912,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',

@@ -14,14 +14,14 @@ describe('reversible edition discovery availability', () => {
     expect(reviewed).toEqual(actual)
     // 200 after Bible modern-en was withdrawn on 2026-09-11 (NIV-derived text).
     expect(new Set(reviewed).size).toBe(200)
-    expect(manifest.eligible_editions).toHaveLength(148)
-    expect(manifest.held_editions).toHaveLength(52)
+    expect(manifest.eligible_editions).toHaveLength(149)
+    expect(manifest.held_editions).toHaveLength(51)
     expect(BOOKS.filter(book => !book.editions.some(e => e.language === 'en' && !isAudioHeld(book.id, e.key))).map(b=>b.id).sort()).toEqual([...manifest.held_books].sort())
   })
   it('removes held books only from discovery, retaining direct text handoffs and exact places', () => {
     expect(PRE_READER_CATALOGUE.books).toHaveLength(100)
-    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(90)
-    expect(fullShelf(PRE_READER_CATALOGUE)).toHaveLength(90)
+    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(91)
+    expect(fullShelf(PRE_READER_CATALOGUE)).toHaveLength(91)
     for (const id of manifest.held_books) {
       expect(isBookDiscoverable(id)).toBe(false)
       const book = PRE_READER_CATALOGUE.booksById.get(id)!
