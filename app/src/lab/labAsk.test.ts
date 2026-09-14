@@ -498,6 +498,8 @@ describe('no praise and no context-limit declines, typed and spoken', () => {
 
 it('welcomes relevant outside commentary while requiring honest attribution', () => {
   expect(LAB_ASK_POLICY).toContain('Tim Keller on Martha and the Good Samaritan in Luke 10 is relevant')
+  expect(LAB_ASK_POLICY).toContain('reader asks you to check specific sources, use it')
+  expect(LAB_ASK_POLICY).toContain('briefly name the ambiguity and answer the broader question in the same turn')
   expect(LAB_ASK_POLICY).toContain('Do not invent a sermon, title, date, quotation or attribution')
   expect(LAB_ASK_POLICY).toContain('Redirect only requests clearly unrelated to reading or the text')
   expect(LAB_ASK_POLICY).not.toContain('anything that is not the open book')
