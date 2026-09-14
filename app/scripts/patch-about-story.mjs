@@ -246,16 +246,36 @@ console.log(`done: ${applied} edit(s) applied, ${skipped} already in place`);
   }
 }
 
+// The joke arrives as whole sentences, never as a vertical text wipe.
+{
+  const before = 'children:[`I used to think Hamlet was indecisive.`,(0,_.jsx)(`br`,{}),(0,_.jsx)(`br`,{}),(0,_.jsx)(`b`,{children:`I was wrong. He was iterating.`})]';
+  const after = 'children:[(0,_.jsx)(`span`,{className:`joke-setup`,children:`I used to think Hamlet was indecisive.`}),(0,_.jsxs)(`b`,{children:[(0,_.jsx)(`span`,{className:`joke-turn`,children:`I was wrong.`}),` `,(0,_.jsx)(`span`,{className:`joke-punchline`,children:`He was iterating.`})]})]';
+  const story = readFileSync(files.story, 'utf8');
+  if (!story.includes(after)) {
+    if (story.split(before).length !== 2) throw new Error('Missing Hamlet joke anchor');
+    writeFileSync(files.story, story.replace(before, after));
+  }
+}
+
+// Mirror the initial HTML so hydration starts from the same sentence structure.
+{
+  const before = '<div class="living-ai-response">I used to think Hamlet was indecisive.<br/><br/><b>I was wrong. He was iterating.</b></div>';
+  const after = '<div class="living-ai-response"><span class="joke-setup">I used to think Hamlet was indecisive.</span><b><span class="joke-turn">I was wrong.</span> <span class="joke-punchline">He was iterating.</span></b></div>';
+  const html = readFileSync(files.html, 'utf8');
+  if (!html.includes(after) && !html.includes(before)) throw new Error('Missing initial joke markup');
+  writeFileSync(files.html, html.replaceAll(before, after));
+}
+
 // Version the stylesheet and module graph together for previously cached pages.
 {
   const names = [...readdirSync(chunks).filter(n => n.endsWith('.js')), 'about-v21.css', 'about-v21.js'];
-  const pattern = new RegExp('(' + names.map(n => n.replaceAll('.', '\\.')).join('|') + ')(?!\\?v=image2-20260914)', 'g');
+  const pattern = new RegExp('(' + names.map(n => n.replaceAll('.', '\\.')).join('|') + ')(?!\\?v=joke-20260914)', 'g');
   const paths = [files.html, join(publicDir, 'about.rsc'),
     ...readdirSync(about).filter(n => /^bootstrap-.*\.js$/.test(n)).map(n => join(about,n)),
     ...readdirSync(chunks).filter(n => n.endsWith('.js')).map(n => join(chunks,n))];
   for (const path of paths) {
     const before = readFileSync(path, 'utf8');
-    const after = before.replaceAll('?v=reveal-20260914', '').replaceAll('?v=polish-20260914', '').replace(pattern, '$1?v=image2-20260914');
+    const after = before.replaceAll('?v=reveal-20260914', '').replaceAll('?v=polish-20260914', '').replaceAll('?v=image2-20260914', '').replace(pattern, '$1?v=joke-20260914');
     if (after !== before) writeFileSync(path, after);
   }
 }
