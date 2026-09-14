@@ -430,9 +430,9 @@ Kevin Egan’s son, home on furlough, who lapped warm milk with Stephen in the b
 
 The madame in rue Gît-le-Cœur, quite nicey comfy without her outcast man, with a canary and two buck lodgers, peachy cheeks and a zebra skirt, frisky as a young thing.
 
-## The head centre · reference
+## James Stephens · reference
 
-The Fenian chief whose escape Egan retells as the authentic version: got up as a young bride, man, veil, orangeblossoms, and driven out the road to Malahide. The text names him by his office and never by his name; the modern edition calls him the rebel leader.
+The head centre of the Fenian brotherhood, whose escape Kevin Egan retells as the authentic version: got up as a young bride, man, veil, orangeblossoms, and driven out the road to Malahide. Episode 3 names him only by his office — the modern edition calls him the rebel leader — and Bloom gives him his name at 4:159: the chap in the paybox at the Tara street baths got away James Stephens, they say. Not the James Stephens of 9:126, who is doing some clever sketches.
 
 ## The froeken · reference
 
@@ -629,3 +629,139 @@ Gentleman poet, whose May Queen gives Stephen the line he hums with his bad teet
 ## Lucifer · reference
 
 Allbright he falls, proud lightning of the intellect. The Latin Stephen quotes is from the Easter Exsultet, where Lucifer is the morning star that knows no setting; Stephen means the falling angel as well.
+
+## Leopold Bloom · central
+
+The man the book follows from this morning to the small hours: an advertisement canvasser of 7 Eccles street who eats with relish the inner organs of beasts and fowls, fries a pork kidney for his own breakfast and carries his wife her tea in bed. Jewish by descent in a city that will not let him forget it, kind to the cat, curious about everything, and carrying a potato in his pocket. His wife calls him Poldy and his daughter calls him Papli.
+
+## Molly Bloom · central
+
+Marion Bloom, born Marion Tweedy at Gibraltar: a concert soprano, and in bed for the whole of this episode, reading a novel and asking her husband what metempsychosis means. Tell us in plain words. The letter in the bold hand that she glances at and tucks under the pillow is from Blazes Boylan, who is coming at four with the programme. The envelope calls her Mrs Marion Bloom, which is not how a letter is addressed to a married woman.
+
+## Milly Bloom · major
+
+Their daughter, fifteen yesterday and away from home for the first time, learning the photography business at Mullingar. Her birthday letter thanks her father for the present, says everyone says she is quite the belle in her new tam, and mentions a young student named Bannon who sings Boylan’s song about those seaside girls. Her father calls her silly Milly; she signs herself your fond daughter Milly.
+
+## Rudy · reference
+
+Their son, who lived eleven days. Mrs Thornton knew from the first that he would not live, and knew at once. He would be eleven now if he had lived, and the thought of him runs under everything his father does in this book.
+
+## Old Tweedy · reference
+
+Molly’s father, who bought the bed at the governor’s auction at Gibraltar and got a short knock — hard as nails at a bargain, and I rose from the ranks, sir, and I’m proud of it. He made a corner in stamps, which Bloom calls farseeing, and his big moustaches walk into the daydream of the east. The modern edition calls him old Major Tweedy.
+
+## Hanlon’s milkman · reference
+
+Who had just filled the jug Bloom pours the cat’s milk out of. The modern edition drops the dairy’s name and leaves only the milkman.
+
+## Larry O’Rourke · reference
+
+The publican on the corner, a cute old codger and baldhead over the blind, leaning against the sugarbin in his shirtsleeves and watching the curate swab up. No use canvassing him for an ad, but he knows his own business best. Bloom says good day through the doorway and thinks of stopping to say a word about the funeral. Simon Dedalus takes him off to a tee with his eyes screwed up.
+
+## Dlugacz · reference
+
+The ferreteyed porkbutcher of Dorset street with a deep voice, blotchy sausagepink fingers and a pile of cut sheets from a Zionist planting company to wrap the sausages in. Bloom buys the last pork kidney from him and carries away one of the sheets. A later episode gives him a first name: Moses Dlugacz.
+
+## The nextdoor girl · reference
+
+The servant from the house next door, at the counter ahead of Bloom with a slip in her hand and a pound and a half of Denny’s sausages. The porkbutcher calls her my miss; Bloom means to catch up and walk behind her and does not, and thinks of the constable off duty who cuddles her in Eccles lane. She is in the next garden again when he goes down to the jakes.
+
+## Woods · reference
+
+The neighbour she works for. Woods his name is: wonder what he does, wife is oldish, no followers allowed.
+
+## Blazes Boylan · major
+
+Who is bringing Molly the programme at four, and whose letter in the bold hand goes under her pillow unread in front of her husband. Bloom will not hold the name in his mind for long at a time: is that Boylan well off, he has money, why, I noticed he had a good rich smell off his breath dancing. Milly writes that the young student sings Boylan’s song about those seaside girls, and nearly writes Blazes.
+
+## Mr Coghlan · reference
+
+The photographer Milly works for at Mullingar, who took one of her and Mrs and will send it when developed.
+
+## Professor Goodwin · reference
+
+Molly’s old accompanist, a dreadful old case and a courteous old chap, who used to bow her off the platform in the oldfashioned way and kept a little mirror in his silk hat. Milly found it and carried it into the parlour, and they all laughed.
+
+## Dignam · major
+
+Whose funeral is at eleven, and the fixed point of the day for half the men in this book. Bloom comes back to him three times before he has left the house: a word about him to Larry O’Rourke, a man’s soul after he dies — Dignam’s soul — and, under the bells of George’s church, poor Dignam. Not Master Patrick Aloysius Dignam of episode 10, who is his son.
+
+## Mrs Thornton · reference
+
+The midwife of Denzille street, a jolly old woman who must have helped a lot of babies into the world, whom Bloom ran to knock up the summer morning Milly was born, and who knew from the first that Rudy would not live. Well, God is good, sir.
+
+## Citron · reference
+
+Of Saint Kevin’s parade, in whose basketchair Molly used to sit on the pleasant evenings of the old Lombard street days. Wonder is poor Citron still there.
+
+## Mastiansky · reference
+
+Of the same evenings, with the old cither, and the man who told Bloom that the giant poppies of the Chinese cemeteries produce the best opium. A later episode gives him a first name, Julius; the Mrs Mastiansky of the last episode is his wife and not him.
+
+## Moisel · reference
+
+Who told Bloom that the citrons fetched high prices too. Arbutus place, Pleasants street: pleasant old times.
+
+## The Norwegian captain · reference
+
+Whose back Bloom is reminded of by a man on the quayside he knows just to salute — chap you know just to salute, bit of a bore. The captain is not described and is named nowhere else in the book in these words.
+
+## Adam Findlater · reference
+
+One of two Dublin names Bloom uses as a type: the redheaded curates up from the county Leitrim, rinsing empties, who then lo and behold blossom out as Adam Findlaters or Dan Tallons. The modern edition drops both names and writes successful businessmen instead, so this card exists in the older edition alone.
+
+## Dan Tallon · reference
+
+The other of the two. The modern edition drops him here as well, but keeps him at 17:109, where he is the new lord mayor, Daniel Tallon.
+
+## Moses Montefiore · reference
+
+Whose name stands on the sheet Bloom takes from the porkbutcher’s pile, over the model farm at Kinnereth on the lakeshore of Tiberias. I thought he was, Bloom says, and leaves the sentence unfinished.
+
+## Kearney · reference
+
+Bloom’s guarantor at the Capel street library, who will be written to if the book is not renewed. Not the Kathleen Kearney whom Molly cannot bear.
+
+## M’Coy · reference
+
+Through whom Bloom thinks he might work a press pass to Mullingar, to go down and see Milly. He appears in person in the next episode and asks to have his name put down at the funeral.
+
+## Gretta Conroy · reference
+
+Whose dress Molly asked about at 9.20 one morning while she dressed — one of the remarks Bloom used to try jotting down on his cuff.
+
+## Sandow · reference
+
+Whose exercises Bloom must begin again. On the hands down. A later episode names the book: Eugen Sandow, Physical Strength and How to Obtain It.
+
+## Ponchielli · reference
+
+Whose dance of the hours May’s band played the morning after the bazaar dance, and which Bloom is still explaining to himself: morning hours, noon, then evening coming on, then night hours.
+
+## J. C. Doyle · reference
+
+The singer Molly is to sing Là ci darem with on the tour, with Love’s Old Sweet Song for the other number.
+
+## Katey Keogh · reference
+
+With her ass and garden, in the song Bloom sings over his daughter’s letter: I’d rather have you without a farthing than Katey Keogh.
+
+## Paul de Kock · reference
+
+The French novelist Molly wants another of. Nice name he has — which is the whole of Bloom’s comment, and enough.
+
+## Ruby · reference
+
+The pride of the ring, on the floor naked in the illustration with the sheet kindly lent: the heroine of the novel Molly has finished and wants replaced. The first Ruby on the page is the title of the book and carries no card; the second is the girl.
+
+## Maffei · reference
+
+The monster who desisted and flung his victim from him with an oath — the fierce Italian with the carriagewhip in the illustration.
+
+## Mr Philip Beaufoy · reference
+
+Of the Playgoers’ Club, London, who wrote Matcham’s Masterstroke and was paid at the rate of one guinea a column for it. Bloom reads it seated calm above his own rising smell, envies him kindly the three pounds thirteen and six, and tears away half of it to wipe himself. Not the Mrs Beaufoy of episode 8, who is Mrs Purefoy under a slip of the tongue.
+
+## Matcham · reference
+
+Who often thinks of the masterstroke by which he won the laughing witch who now. Begins and ends morally. Hand in hand. Smart. His story stands in Gutenberg italics in the older edition, which is why his name is keyed and not aliased.

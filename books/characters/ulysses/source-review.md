@@ -648,7 +648,7 @@ The madame in rue Gît-le-Cœur, quite nicey comfy without her outcast man, with
 
 The blue fuse burns deadly between hands and burns clear. Loose tobaccoshreds catch fire: a flame and acrid smoke light our corner. Raw facebones under his peep of day boy’s hat. How the head centre got away, authentic version. Got up as a young bride, man, veil, orangeblossoms, drove out the road to Malahide. Did, faith. Of lost leaders, the betrayed, wild escapes. Disguises, clutched at, gone, not here.
 
-The Fenian chief whose escape Egan retells as the authentic version: got up as a young bride, man, veil, orangeblossoms, and driven out the road to Malahide. The text names him by his office and never by his name; the modern edition calls him the rebel leader.
+The head centre of the Fenian brotherhood, whose escape Kevin Egan retells as the authentic version: got up as a young bride, man, veil, orangeblossoms, and driven out the road to Malahide. Episode 3 names him only by his office — the modern edition calls him the rebel leader — and Bloom gives him his name at 4:159: the chap in the paybox at the Tara street baths got away James Stephens, they say. Not the James Stephens of 9:126, who is doing some clever sketches.
 
 ## original-en · the-froeken · 3:57
 
@@ -937,6 +937,210 @@ Gentleman poet, whose May Queen gives Stephen the line he hums with his bad teet
 Come. I thirst. Clouding over. No black clouds anywhere, are there? Thunderstorm. Allbright he falls, proud lightning of the intellect, _Lucifer, dico, qui nescit occasum_. No. My cockle hat and staff and hismy sandal shoon. Where? To evening lands. Evening will find itself.
 
 Allbright he falls, proud lightning of the intellect. The Latin Stephen quotes is from the Easter Exsultet, where Lucifer is the morning star that knows no setting; Stephen means the falling angel as well.
+
+## original-en · leopold · 4:0
+
+Mr Leopold Bloom ate with relish the inner organs of beasts and fowls. He liked thick giblet soup, nutty gizzards, a stuffed roast heart, liverslices fried with crustcrumbs, fried hencods’ roes. Most of all he liked grilled mutton kidneys which gave to his palate a fine tang of faintly scented urine.
+
+The man the book follows from this morning to the small hours: an advertisement canvasser of 7 Eccles street who eats with relish the inner organs of beasts and fowls, fries a pork kidney for his own breakfast and carries his wife her tea in bed. Jewish by descent in a city that will not let him forget it, kind to the cat, curious about everything, and carrying a potato in his pocket. His wife calls him Poldy and his daughter calls him Papli.
+
+## original-en · molly · 4:27
+
+He crossed to the bright side, avoiding the loose cellarflap of number seventyfive. The sun was nearing the steeple of George’s church. Be a warm day I fancy. Specially in these black clothes feel it more. Black conducts, reflects, (refracts is it?), the heat. But I couldn’t go in that light suit. Make a picnic of it. His eyelids sank quietly often as he walked in happy warmth. Boland’s breadvan delivering with trays our daily but she prefers yesterday’s loaves turnovers crisp crowns hot. Makes you feel young. Somewhere in the east: early morning: set off at dawn. Travel round in front of the sun, steal a day’s march on him. Keep it up for ever never grow a day older technically. Walk along a strand, strange land, come to a city gate, sentry there, old ranker too, old Tweedy’s big moustaches, leaning on a long kind of a spear. Wander through awned streets. Turbaned faces going by. Dark caves of carpet shops, big man, Turko the terrible, seated crosslegged, smoking a coiled pipe. Cries of sellers in the streets. Drink water scented with fennel, sherbet. Dander along all day. Might meet a robber or two. Well, meet him. Getting on to sundown. The shadows of the mosques among the pillars: priest with a scroll rolled up. A shiver of the trees, signal, the evening wind. I pass on. Fading gold sky. A mother watches me from her doorway. She calls her children home in their dark language. High wall: beyond strings twanged. Night sky, moon, violet, colour of Molly’s new garters. Strings. Listen. A girl playing one of those instruments what do you call them: dulcimers. I pass.
+
+Marion Bloom, born Marion Tweedy at Gibraltar: a concert soprano, and in bed for the whole of this episode, reading a novel and asking her husband what metempsychosis means. Tell us in plain words. The letter in the bold hand that she glances at and tucks under the pillow is from Blazes Boylan, who is coming at four with the programme. The envelope calls her Mrs Marion Bloom, which is not how a letter is addressed to a married woman.
+
+## original-en · milly · 4:67
+
+He looked at them. Mullingar. Milly.
+
+Their daughter, fifteen yesterday and away from home for the first time, learning the photography business at Mullingar. Her birthday letter thanks her father for the present, says everyone says she is quite the belle in her new tam, and mentions a young student named Bannon who sings Boylan’s song about those seaside girls. Her father calls her silly Milly; she signs herself your fond daughter Milly.
+
+## original-en · rudy · 4:139
+
+Fifteen yesterday. Curious, fifteenth of the month too. Her first birthday away from home. Separation. Remember the summer morning she was born, running to knock up Mrs Thornton in Denzille street. Jolly old woman. Lot of babies she must have helped into the world. She knew from the first poor little Rudy wouldn’t live. Well, God is good, sir. She knew at once. He would be eleven now if he had lived.
+
+Their son, who lived eleven days. Mrs Thornton knew from the first that he would not live, and knew at once. He would be eleven now if he had lived, and the thought of him runs under everything his father does in this book.
+
+## original-en · major-tweedy · 4:24
+
+No. She didn’t want anything. He heard then a warm heavy sigh, softer, as she turned over and the loose brass quoits of the bedstead jingled. Must get those settled really. Pity. All the way from Gibraltar. Forgotten any little Spanish she knew. Wonder what her father gave for it. Old style. Ah yes! of course. Bought it at the governor’s auction. Got a short knock. Hard as nails at a bargain, old Tweedy. Yes, sir. At Plevna that was. I rose from the ranks, sir, and I’m proud of it. Still he had brains enough to make that corner in stamps. Now that was farseeing.
+
+Molly’s father, who bought the bed at the governor’s auction at Gibraltar and got a short knock — hard as nails at a bargain, and I rose from the ranks, sir, and I’m proud of it. He made a corner in stamps, which Bloom calls farseeing, and his big moustaches walk into the daydream of the east. The modern edition calls him old Major Tweedy.
+
+## original-en · hanlon-milkman · 4:13
+
+She blinked up out of her avid shameclosing eyes, mewing plaintively and long, showing him her milkwhite teeth. He watched the dark eyeslits narrowing with greed till her eyes were green stones. Then he went to the dresser, took the jug Hanlon’s milkman had just filled for him, poured warmbubbled milk on a saucer and set it slowly on the floor.
+
+Who had just filled the jug Bloom pours the cat’s milk out of. The modern edition drops the dairy’s name and leaves only the milkman.
+
+## original-en · larry-orourke · 4:29
+
+He approached Larry O’Rourke’s. From the cellar grating floated up the flabby gush of porter. Through the open doorway the bar squirted out whiffs of ginger, teadust, biscuitmush. Good house, however: just the end of the city traffic. For instance M’Auley’s down there: n. g. as position. Of course if they ran a tramline along the North Circular from the cattlemarket to the quays value would go up like a shot.
+
+The publican on the corner, a cute old codger and baldhead over the blind, leaning against the sugarbin in his shirtsleeves and watching the curate swab up. No use canvassing him for an ad, but he knows his own business best. Bloom says good day through the doorway and thinks of stopping to say a word about the funeral. Simon Dedalus takes him off to a tee with his eyes screwed up.
+
+## original-en · dlugacz · 4:16
+
+He listened to her licking lap. Ham and eggs, no. No good eggs with this drouth. Want pure fresh water. Thursday: not a good day either for a mutton kidney at Buckley’s. Fried with butter, a shake of pepper. Better a pork kidney at Dlugacz’s. While the kettle is boiling. She lapped slower, then licking the saucer clean. Why are their tongues so rough? To lap better, all porous holes. Nothing she can eat? He glanced round him. No.
+
+The ferreteyed porkbutcher of Dorset street with a deep voice, blotchy sausagepink fingers and a pile of cut sheets from a Zionist planting company to wrap the sausages in. Bloom buys the last pork kidney from him and carries away one of the sheets. A later episode gives him a first name: Moses Dlugacz.
+
+## original-en · nextdoor-girl · 4:40
+
+A kidney oozed bloodgouts on the willowpatterned dish: the last. He stood by the nextdoor girl at the counter. Would she buy it too, calling the items from a slip in her hand? Chapped: washingsoda. And a pound and a half of Denny’s sausages. His eyes rested on her vigorous hips. Woods his name is. Wonder what he does. Wife is oldish. New blood. No followers allowed. Strong pair of arms. Whacking a carpet on the clothesline. She does whack it, by George. The way her crooked skirt swings at each whack.
+
+The servant from the house next door, at the counter ahead of Bloom with a slip in her hand and a pound and a half of Denny’s sausages. The porkbutcher calls her my miss; Bloom means to catch up and walk behind her and does not, and thinks of the constable off duty who cuddles her in Eccles lane. She is in the next garden again when he goes down to the jakes.
+
+## original-en · woods · 4:40
+
+A kidney oozed bloodgouts on the willowpatterned dish: the last. He stood by the nextdoor girl at the counter. Would she buy it too, calling the items from a slip in her hand? Chapped: washingsoda. And a pound and a half of Denny’s sausages. His eyes rested on her vigorous hips. Woods his name is. Wonder what he does. Wife is oldish. New blood. No followers allowed. Strong pair of arms. Whacking a carpet on the clothesline. She does whack it, by George. The way her crooked skirt swings at each whack.
+
+The neighbour she works for. Woods his name is: wonder what he does, wife is oldish, no followers allowed.
+
+## original-en · blazes-boylan · 4:84
+
+Then he slit open his letter, glancing down the page and over. Thanks: new tam: Mr Coghlan: lough Owel picnic: young student: Blazes Boylan’s seaside girls.
+
+Who is bringing Molly the programme at four, and whose letter in the bold hand goes under her pillow unread in front of her husband. Bloom will not hold the name in his mind for long at a time: is that Boylan well off, he has money, why, I noticed he had a good rich smell off his breath dancing. Milly writes that the young student sings Boylan’s song about those seaside girls, and nearly writes Blazes.
+
+## original-en · mr-coghlan · 4:84
+
+Then he slit open his letter, glancing down the page and over. Thanks: new tam: Mr Coghlan: lough Owel picnic: young student: Blazes Boylan’s seaside girls.
+
+The photographer Milly works for at Mullingar, who took one of her and Mrs and will send it when developed.
+
+## original-en · professor-goodwin · 4:87
+
+Poor old professor Goodwin. Dreadful old case. Still he was a courteous old chap. Oldfashioned way he used to bow Molly off the platform. And the little mirror in his silk hat. The night Milly brought it into the parlour. O, look what I found in professor Goodwin’s hat! All we laughed. Sex breaking out even then. Pert little piece she was.
+
+Molly’s old accompanist, a dreadful old case and a courteous old chap, who used to bow her off the platform in the oldfashioned way and kept a little mirror in his silk hat. Milly found it and carried it into the parlour, and they all laughed.
+
+## original-en · paddy-dignam · 4:31
+
+Stop and say a word: about the funeral perhaps. Sad thing about poor Dignam, Mr O’Rourke.
+
+Whose funeral is at eleven, and the fixed point of the day for half the men in this book. Bloom comes back to him three times before he has left the house: a word about him to Larry O’Rourke, a man’s soul after he dies — Dignam’s soul — and, under the bells of George’s church, poor Dignam. Not Master Patrick Aloysius Dignam of episode 10, who is his son.
+
+## original-en · mrs-thornton · 4:139
+
+Fifteen yesterday. Curious, fifteenth of the month too. Her first birthday away from home. Separation. Remember the summer morning she was born, running to knock up Mrs Thornton in Denzille street. Jolly old woman. Lot of babies she must have helped into the world. She knew from the first poor little Rudy wouldn’t live. Well, God is good, sir. She knew at once. He would be eleven now if he had lived.
+
+The midwife of Denzille street, a jolly old woman who must have helped a lot of babies into the world, whom Bloom ran to knock up the summer morning Milly was born, and who knew from the first that Rudy would not live. Well, God is good, sir.
+
+## original-en · citron · 4:57
+
+He looked at the cattle, blurred in silver heat. Silverpowdered olivetrees. Quiet long days: pruning, ripening. Olives are packed in jars, eh? I have a few left from Andrews. Molly spitting them out. Knows the taste of them now. Oranges in tissue paper packed in crates. Citrons too. Wonder is poor Citron still in Saint Kevin’s parade. And Mastiansky with the old cither. Pleasant evenings we had then. Molly in Citron’s basketchair. Nice to hold, cool waxen fruit, hold in the hand, lift it to the nostrils and smell the perfume. Like that, heavy, sweet, wild perfume. Always the same, year after year. They fetched high prices too, Moisel told me. Arbutus place: Pleasants street: pleasant old times. Must be without a flaw, he said. Coming all that way: Spain, Gibraltar, Mediterranean, the Levant. Crates lined up on the quayside at Jaffa, chap ticking them off in a book, navvies handling them barefoot in soiled dungarees. There’s whatdoyoucallhim out of. How do you? Doesn’t see. Chap you know just to salute bit of a bore. His back is like that Norwegian captain’s. Wonder if I’ll meet him today. Watering cart. To provoke the rain. On earth as it is in heaven.
+
+Of Saint Kevin’s parade, in whose basketchair Molly used to sit on the pleasant evenings of the old Lombard street days. Wonder is poor Citron still there.
+
+## original-en · mastiansky · 4:57
+
+He looked at the cattle, blurred in silver heat. Silverpowdered olivetrees. Quiet long days: pruning, ripening. Olives are packed in jars, eh? I have a few left from Andrews. Molly spitting them out. Knows the taste of them now. Oranges in tissue paper packed in crates. Citrons too. Wonder is poor Citron still in Saint Kevin’s parade. And Mastiansky with the old cither. Pleasant evenings we had then. Molly in Citron’s basketchair. Nice to hold, cool waxen fruit, hold in the hand, lift it to the nostrils and smell the perfume. Like that, heavy, sweet, wild perfume. Always the same, year after year. They fetched high prices too, Moisel told me. Arbutus place: Pleasants street: pleasant old times. Must be without a flaw, he said. Coming all that way: Spain, Gibraltar, Mediterranean, the Levant. Crates lined up on the quayside at Jaffa, chap ticking them off in a book, navvies handling them barefoot in soiled dungarees. There’s whatdoyoucallhim out of. How do you? Doesn’t see. Chap you know just to salute bit of a bore. His back is like that Norwegian captain’s. Wonder if I’ll meet him today. Watering cart. To provoke the rain. On earth as it is in heaven.
+
+Of the same evenings, with the old cither, and the man who told Bloom that the giant poppies of the Chinese cemeteries produce the best opium. A later episode gives him a first name, Julius; the Mrs Mastiansky of the last episode is his wife and not him.
+
+## original-en · moisel · 4:57
+
+He looked at the cattle, blurred in silver heat. Silverpowdered olivetrees. Quiet long days: pruning, ripening. Olives are packed in jars, eh? I have a few left from Andrews. Molly spitting them out. Knows the taste of them now. Oranges in tissue paper packed in crates. Citrons too. Wonder is poor Citron still in Saint Kevin’s parade. And Mastiansky with the old cither. Pleasant evenings we had then. Molly in Citron’s basketchair. Nice to hold, cool waxen fruit, hold in the hand, lift it to the nostrils and smell the perfume. Like that, heavy, sweet, wild perfume. Always the same, year after year. They fetched high prices too, Moisel told me. Arbutus place: Pleasants street: pleasant old times. Must be without a flaw, he said. Coming all that way: Spain, Gibraltar, Mediterranean, the Levant. Crates lined up on the quayside at Jaffa, chap ticking them off in a book, navvies handling them barefoot in soiled dungarees. There’s whatdoyoucallhim out of. How do you? Doesn’t see. Chap you know just to salute bit of a bore. His back is like that Norwegian captain’s. Wonder if I’ll meet him today. Watering cart. To provoke the rain. On earth as it is in heaven.
+
+Who told Bloom that the citrons fetched high prices too. Arbutus place, Pleasants street: pleasant old times.
+
+## original-en · norwegian-captain · 4:57
+
+He looked at the cattle, blurred in silver heat. Silverpowdered olivetrees. Quiet long days: pruning, ripening. Olives are packed in jars, eh? I have a few left from Andrews. Molly spitting them out. Knows the taste of them now. Oranges in tissue paper packed in crates. Citrons too. Wonder is poor Citron still in Saint Kevin’s parade. And Mastiansky with the old cither. Pleasant evenings we had then. Molly in Citron’s basketchair. Nice to hold, cool waxen fruit, hold in the hand, lift it to the nostrils and smell the perfume. Like that, heavy, sweet, wild perfume. Always the same, year after year. They fetched high prices too, Moisel told me. Arbutus place: Pleasants street: pleasant old times. Must be without a flaw, he said. Coming all that way: Spain, Gibraltar, Mediterranean, the Levant. Crates lined up on the quayside at Jaffa, chap ticking them off in a book, navvies handling them barefoot in soiled dungarees. There’s whatdoyoucallhim out of. How do you? Doesn’t see. Chap you know just to salute bit of a bore. His back is like that Norwegian captain’s. Wonder if I’ll meet him today. Watering cart. To provoke the rain. On earth as it is in heaven.
+
+Whose back Bloom is reminded of by a man on the quayside he knows just to salute — chap you know just to salute, bit of a bore. The captain is not described and is named nowhere else in the book in these words.
+
+## original-en · adam-findlater · 4:37
+
+Where do they get the money? Coming up redheaded curates from the county Leitrim, rinsing empties and old man in the cellar. Then, lo and behold, they blossom out as Adam Findlaters or Dan Tallons. Then think of the competition. General thirst. Good puzzle would be cross Dublin without passing a pub. Save it they can’t. Off the drunks perhaps. Put down three and carry five. What is that, a bob here and there, dribs and drabs. On the wholesale orders perhaps. Doing a double shuffle with the town travellers. Square it you with the boss and we’ll split the job, see?
+
+One of two Dublin names Bloom uses as a type: the redheaded curates up from the county Leitrim, rinsing empties, who then lo and behold blossom out as Adam Findlaters or Dan Tallons. The modern edition drops both names and writes successful businessmen instead, so this card exists in the older edition alone.
+
+## original-en · dan-tallon · 4:37
+
+Where do they get the money? Coming up redheaded curates from the county Leitrim, rinsing empties and old man in the cellar. Then, lo and behold, they blossom out as Adam Findlaters or Dan Tallons. Then think of the competition. General thirst. Good puzzle would be cross Dublin without passing a pub. Save it they can’t. Off the drunks perhaps. Put down three and carry five. What is that, a bob here and there, dribs and drabs. On the wholesale orders perhaps. Doing a double shuffle with the town travellers. Square it you with the boss and we’ll split the job, see?
+
+The other of the two. The modern edition drops him here as well, but keeps him at 17:109, where he is the new lord mayor, Daniel Tallon.
+
+## original-en · moses-montefiore · 4:42
+
+He took a page up from the pile of cut sheets: the model farm at Kinnereth on the lakeshore of Tiberias. Can become ideal winter sanatorium. Moses Montefiore. I thought he was. Farmhouse, wall round it, blurred cattle cropping. He held the page from him: interesting: read it nearer, the title, the blurred cropping cattle, the page rustling. A young white heifer. Those mornings in the cattlemarket, the beasts lowing in their pens, branded sheep, flop and fall of dung, the breeders in hobnailed boots trudging through the litter, slapping a palm on a ripemeated hindquarter, there’s a prime one, unpeeled switches in their hands. He held the page aslant patiently, bending his senses and his will, his soft subject gaze at rest. The crooked skirt swinging, whack by whack by whack.
+
+Whose name stands on the sheet Bloom takes from the porkbutcher’s pile, over the model farm at Kinnereth on the lakeshore of Tiberias. I thought he was, Bloom says, and leaves the sentence unfinished.
+
+## original-en · kearney · 4:123
+
+Must get that Capel street library book renewed or they’ll write to Kearney, my guarantor. Reincarnation: that’s the word.
+
+Bloom’s guarantor at the Capel street library, who will be written to if the book is not renewed. Not the Kathleen Kearney whom Molly cannot bear.
+
+## original-en · mccoy · 4:148
+
+Better where she is down there: away. Occupy her. Wanted a dog to pass the time. Might take a trip down there. August bank holiday, only two and six return. Six weeks off, however. Might work a press pass. Or through M’Coy.
+
+Through whom Bloom thinks he might work a press pass to Mullingar, to go down and see Milly. He appears in person in the next episode and asks to have his name put down at the funeral.
+
+## original-en · gretta-conroy · 4:164
+
+Might manage a sketch. By Mr and Mrs L. M. Bloom. Invent a story for some proverb. Which? Time I used to try jotting down on my cuff what she said dressing. Dislike dressing together. Nicked myself shaving. Biting her nether lip, hooking the placket of her skirt. Timing her. 9.15. Did Roberts pay you yet? 9.20. What had Gretta Conroy on? 9.23. What possessed me to buy this comb? 9.24. I’m swelled after that cabbage. A speck of dust on the patent leather of her boot.
+
+Whose dress Molly asked about at 9.20 one morning while she dressed — one of the remarks Bloom used to try jotting down on his cuff.
+
+## original-en · sandow · 4:61
+
+Grey horror seared his flesh. Folding the page into his pocket he turned into Eccles street, hurrying homeward. Cold oils slid along his veins, chilling his blood: age crusting him with a salt cloak. Well, I am here now. Yes, I am here now. Morning mouth bad images. Got up wrong side of the bed. Must begin again those Sandow’s exercises. On the hands down. Blotchy brown brick houses. Number eighty still unlet. Why is that? Valuation is only twentyeight. Towers, Battersby, North, MacArthur: parlour windows plastered with bills. Plasters on a sore eye. To smell the gentle smoke of tea, fume of the pan, sizzling butter. Be near her ample bedwarmed flesh. Yes, yes.
+
+Whose exercises Bloom must begin again. On the hands down. A later episode names the book: Eugen Sandow, Physical Strength and How to Obtain It.
+
+## original-en · ponchielli · 4:165
+
+Rubbing smartly in turn each welt against her stockinged calf. Morning after the bazaar dance when May’s band played Ponchielli’s dance of the hours. Explain that: morning hours, noon, then evening coming on, then night hours. Washing her teeth. That was the first night. Her head dancing. Her fansticks clicking. Is that Boylan well off? He has money. Why? I noticed he had a good rich smell off his breath dancing. No use humming then. Allude to it. Strange kind of music that last night. The mirror was in shadow. She rubbed her handglass briskly on her woollen vest against her full wagging bub. Peering into it. Lines in her eyes. It wouldn’t pan out somehow.
+
+Whose dance of the hours May’s band played the morning after the bazaar dance, and which Bloom is still explaining to himself: morning hours, noon, then evening coming on, then night hours.
+
+## original-en · jc-doyle · 4:97
+
+—_Là ci darem_ with J. C. Doyle, she said, and _Love’s Old Sweet Song_.
+
+The singer Molly is to sing Là ci darem with on the tour, with Love’s Old Sweet Song for the other number.
+
+## original-en · katey-keogh · 4:86
+
+O, Milly Bloom, you are my darling. You are my lookingglass from night to morning. I’d rather have you without a farthing Than Katey Keogh with her ass and garden.
+
+With her ass and garden, in the song Bloom sings over his daughter’s letter: I’d rather have you without a farthing than Katey Keogh.
+
+## original-en · paul-de-kock · 4:121
+
+—Yes. Get another of Paul de Kock’s. Nice name he has.
+
+The French novelist Molly wants another of. Nice name he has — which is the whole of Bloom’s comment, and enough.
+
+## original-en · ruby · 4:117
+
+He smiled, glancing askance at her mocking eyes. The same young eyes. The first night after the charades. Dolphin’s Barn. He turned over the smudged pages. _Ruby: the Pride of the Ring_. Hello. Illustration. Fierce Italian with carriagewhip. Must be Ruby pride of the on the floor naked. Sheet kindly lent. _The monster Maffei desisted and flung his victim from him with an oath_. Cruelty behind it all. Doped animals. Trapeze at Hengler’s. Had to look the other way. Mob gaping. Break your neck and we’ll break our sides. Families of them. Bone them young so they metamspychosis. That we live after death. Our souls. That a man’s soul after he dies. Dignam’s soul...
+
+The pride of the ring, on the floor naked in the illustration with the sheet kindly lent: the heroine of the novel Molly has finished and wants replaced. The first Ruby on the page is the title of the book and carries no card; the second is the girl.
+
+## original-en · maffei · 4:117
+
+He smiled, glancing askance at her mocking eyes. The same young eyes. The first night after the charades. Dolphin’s Barn. He turned over the smudged pages. _Ruby: the Pride of the Ring_. Hello. Illustration. Fierce Italian with carriagewhip. Must be Ruby pride of the on the floor naked. Sheet kindly lent. _The monster Maffei desisted and flung his victim from him with an oath_. Cruelty behind it all. Doped animals. Trapeze at Hengler’s. Had to look the other way. Mob gaping. Break your neck and we’ll break our sides. Families of them. Bone them young so they metamspychosis. That we live after death. Our souls. That a man’s soul after he dies. Dignam’s soul...
+
+The monster who desisted and flung his victim from him with an oath — the fierce Italian with the carriagewhip in the illustration.
+
+## original-en · philip-beaufoy · 4:162
+
+Asquat on the cuckstool he folded out his paper, turning its pages over on his bared knees. Something new and easy. No great hurry. Keep it a bit. Our prize titbit: _Matcham’s Masterstroke_. Written by Mr Philip Beaufoy, Playgoers’ Club, London. Payment at the rate of one guinea a column has been made to the writer. Three and a half. Three pounds three. Three pounds, thirteen and six.
+
+Of the Playgoers’ Club, London, who wrote Matcham’s Masterstroke and was paid at the rate of one guinea a column for it. Bloom reads it seated calm above his own rising smell, envies him kindly the three pounds thirteen and six, and tears away half of it to wipe himself. Not the Mrs Beaufoy of episode 8, who is Mrs Purefoy under a slip of the tongue.
+
+## original-en · matcham · 4:162
+
+Asquat on the cuckstool he folded out his paper, turning its pages over on his bared knees. Something new and easy. No great hurry. Keep it a bit. Our prize titbit: _Matcham’s Masterstroke_. Written by Mr Philip Beaufoy, Playgoers’ Club, London. Payment at the rate of one guinea a column has been made to the writer. Three and a half. Three pounds three. Three pounds, thirteen and six.
+
+Who often thinks of the masterstroke by which he won the laughing witch who now. Begins and ends morally. Hand in hand. Smart. His story stands in Gutenberg italics in the older edition, which is why his name is keyed and not aliased.
 
 ## modern-en · stephen · 1:3
 
@@ -1572,7 +1776,7 @@ The madame in rue Gît-le-Cœur, quite nicey comfy without her outcast man, with
 
 The blue fuse of his cigarette burns deadly between hands and burns clear. Loose tobacco shreds catch fire: a flame and acrid smoke light our corner. Raw cheekbones under his rebel's cap. How the rebel leader escaped, the real story. Disguised as a young bride, man in veil and orange blossoms, drove out the road to Malahide. He did, truly. Tales of lost leaders, the betrayed, wild escapes. Disguises snatched at, gone, not here.
 
-The Fenian chief whose escape Egan retells as the authentic version: got up as a young bride, man, veil, orangeblossoms, and driven out the road to Malahide. The text names him by his office and never by his name; the modern edition calls him the rebel leader.
+The head centre of the Fenian brotherhood, whose escape Kevin Egan retells as the authentic version: got up as a young bride, man, veil, orangeblossoms, and driven out the road to Malahide. Episode 3 names him only by his office — the modern edition calls him the rebel leader — and Bloom gives him his name at 4:159: the chap in the paybox at the Tara street baths got away James Stephens, they say. Not the James Stephens of 9:126, who is doing some clever sketches.
 
 ## modern-en · the-froeken · 3:57
 
@@ -1867,3 +2071,201 @@ Gentleman poet, whose May Queen gives Stephen the line he hums with his bad teet
 Come. I'm thirsty. Clouding over. No black clouds anywhere though, are there? Thunderstorm. All-bright he falls, proud lightning of the intellect, Lucifer, I say, who knows no setting. No. My pilgrim's hat and staff and my sandal shoes. Where? To evening lands. Evening will find itself.
 
 Allbright he falls, proud lightning of the intellect. The Latin Stephen quotes is from the Easter Exsultet, where Lucifer is the morning star that knows no setting; Stephen means the falling angel as well.
+
+## modern-en · leopold · 4:0
+
+Mr Leopold Bloom ate with relish the inner organs of beasts and fowls. He liked thick giblet soup, nutty gizzards, a stuffed roast heart, liver slices fried with breadcrumbs, fried cod roe. Most of all he liked grilled mutton kidneys which gave to his palate a fine tang of faintly scented urine.
+
+The man the book follows from this morning to the small hours: an advertisement canvasser of 7 Eccles street who eats with relish the inner organs of beasts and fowls, fries a pork kidney for his own breakfast and carries his wife her tea in bed. Jewish by descent in a city that will not let him forget it, kind to the cat, curious about everything, and carrying a potato in his pocket. His wife calls him Poldy and his daughter calls him Papli.
+
+## modern-en · molly · 4:27
+
+He crossed to the sunny side, avoiding the loose cellar flap of number seventy-five. The sun was nearing the steeple of George's church. Going to be a warm day, I think. Especially in these black clothes, you feel it more. Black conducts — reflects — refracts, is it? — the heat. But I couldn't go in that light suit. Would look like a picnic outing. His eyelids sank quietly, often, as he walked in happy warmth. Boland's bread van delivering with trays our daily bread, but she prefers yesterday's turnovers, crisp crusty ones, hot. Makes you feel young. Somewhere in the east: early morning: setting off at dawn. Travel round in front of the sun, steal a day's march on him. Keep it up forever, never grow a day older technically. Walk along a strand, strange land, come to a city gate, sentry there, old soldier too, like old Tweedy's big moustaches, leaning on a long kind of spear. Wander through awninged streets. Turbaned faces going by. Dark caves of carpet shops, a big man, Turko the Terrible, seated cross-legged, smoking a coiled pipe. Cries of sellers in the streets. Drink water scented with fennel, sherbet. Stroll along all day. Might meet a robber or two. Well, deal with him. Getting on toward sundown. The shadows of the mosques among the pillars: a priest with a scroll rolled up. A shiver of the trees, a signal, the evening wind. I pass on. Fading gold sky. A mother watches me from her doorway. She calls her children home in their dark language. High wall: beyond it strings plucked. Night sky, moon, violet, color of Molly's new garters. Strings. Listen. A girl playing one of those instruments, what do you call them: dulcimers. I pass.
+
+Marion Bloom, born Marion Tweedy at Gibraltar: a concert soprano, and in bed for the whole of this episode, reading a novel and asking her husband what metempsychosis means. Tell us in plain words. The letter in the bold hand that she glances at and tucks under the pillow is from Blazes Boylan, who is coming at four with the programme. The envelope calls her Mrs Marion Bloom, which is not how a letter is addressed to a married woman.
+
+## modern-en · milly · 4:67
+
+He looked at them. Mullingar. Milly.
+
+Their daughter, fifteen yesterday and away from home for the first time, learning the photography business at Mullingar. Her birthday letter thanks her father for the present, says everyone says she is quite the belle in her new tam, and mentions a young student named Bannon who sings Boylan’s song about those seaside girls. Her father calls her silly Milly; she signs herself your fond daughter Milly.
+
+## modern-en · rudy · 4:139
+
+Fifteen yesterday. Curious, the fifteenth of the month too. Her first birthday away from home. Separation. Remember the summer morning she was born, running to fetch Mrs Thornton in Denzille Street. Jolly old woman. Lots of babies she must have helped into the world. She knew from the first that poor little Rudy wouldn't live. Well, God is good, sir. She knew at once. He would be eleven now if he had lived.
+
+Their son, who lived eleven days. Mrs Thornton knew from the first that he would not live, and knew at once. He would be eleven now if he had lived, and the thought of him runs under everything his father does in this book.
+
+## modern-en · major-tweedy · 4:24
+
+No. She didn't want anything. He heard then a warm heavy sigh, softer, as she turned over and the loose brass rings of the bedstead jingled. Must get those fixed, really. Pity. That bed came all the way from Gibraltar. She's forgotten whatever little Spanish she knew. Wonder what her father gave for it. Old style. Ah yes, of course. Bought it at the governor's auction. Got it cheap. Hard as nails at a bargain, old Major Tweedy. Yes, sir. At the siege of Plevna that was. I rose from the ranks, sir, and I'm proud of it. Still, he had brains enough to make a fortune in stamps. Now that was farsighted.
+
+Molly’s father, who bought the bed at the governor’s auction at Gibraltar and got a short knock — hard as nails at a bargain, and I rose from the ranks, sir, and I’m proud of it. He made a corner in stamps, which Bloom calls farseeing, and his big moustaches walk into the daydream of the east. The modern edition calls him old Major Tweedy.
+
+## modern-en · hanlon-milkman · 4:13
+
+She blinked up out of her greedy, half-closing eyes, meowing plaintively and long, showing him her milk-white teeth. He watched the dark eye-slits narrowing with greed until her eyes were green stones. Then he went to the dresser, took the jug the milkman had just filled for him, poured warm bubbly milk on a saucer and set it slowly on the floor.
+
+Who had just filled the jug Bloom pours the cat’s milk out of. The modern edition drops the dairy’s name and leaves only the milkman.
+
+## modern-en · larry-orourke · 4:29
+
+He approached Larry O'Rourke's pub. From the cellar grating floated up the heavy gush of stout. Through the open doorway the bar leaked out whiffs of ginger, tea dust, biscuit crumbs. Good business, though: right at the end of the city traffic. For instance, M'Auley's down there: no good as a location. Of course, if they ran a tram line along the North Circular from the cattle market to the quays, property values would shoot up.
+
+The publican on the corner, a cute old codger and baldhead over the blind, leaning against the sugarbin in his shirtsleeves and watching the curate swab up. No use canvassing him for an ad, but he knows his own business best. Bloom says good day through the doorway and thinks of stopping to say a word about the funeral. Simon Dedalus takes him off to a tee with his eyes screwed up.
+
+## modern-en · dlugacz · 4:16
+
+He listened to her lapping. Ham and eggs, no. No good eggs during this drought. Need pure fresh water. Thursday: not a good day either for a mutton kidney at Buckley's. Fried with butter, a shake of pepper. Better a pork kidney at Dlugacz's butcher shop. While the kettle is boiling. She lapped slower, then licked the saucer clean. Why are their tongues so rough? To lap better, all porous holes. Nothing she can eat? He glanced around. No.
+
+The ferreteyed porkbutcher of Dorset street with a deep voice, blotchy sausagepink fingers and a pile of cut sheets from a Zionist planting company to wrap the sausages in. Bloom buys the last pork kidney from him and carries away one of the sheets. A later episode gives him a first name: Moses Dlugacz.
+
+## modern-en · nextdoor-girl · 4:40
+
+A kidney oozed blood drops on the willow-pattern dish: the last one. He stood beside the next-door girl at the counter. Would she buy it too, reading the items from a slip in her hand? Chapped hands: washing soda. And a pound and a half of Denny's sausages. His eyes rested on her vigorous hips. Woods, her name is. Wonder what he does for a living. Wife is getting on in years. New blood. No male visitors allowed. Strong pair of arms. Whacking a carpet on the clothesline. She does whack it, by George. The way her crooked skirt swings at each whack.
+
+The servant from the house next door, at the counter ahead of Bloom with a slip in her hand and a pound and a half of Denny’s sausages. The porkbutcher calls her my miss; Bloom means to catch up and walk behind her and does not, and thinks of the constable off duty who cuddles her in Eccles lane. She is in the next garden again when he goes down to the jakes.
+
+## modern-en · woods · 4:40
+
+A kidney oozed blood drops on the willow-pattern dish: the last one. He stood beside the next-door girl at the counter. Would she buy it too, reading the items from a slip in her hand? Chapped hands: washing soda. And a pound and a half of Denny's sausages. His eyes rested on her vigorous hips. Woods, her name is. Wonder what he does for a living. Wife is getting on in years. New blood. No male visitors allowed. Strong pair of arms. Whacking a carpet on the clothesline. She does whack it, by George. The way her crooked skirt swings at each whack.
+
+The neighbour she works for. Woods his name is: wonder what he does, wife is oldish, no followers allowed.
+
+## modern-en · blazes-boylan · 4:84
+
+Then he slit open his letter, glancing down the page and across. Thanks: new hat: Mr Coghlan: Lough Owel picnic: young student: Blazes Boylan's seaside girls.
+
+Who is bringing Molly the programme at four, and whose letter in the bold hand goes under her pillow unread in front of her husband. Bloom will not hold the name in his mind for long at a time: is that Boylan well off, he has money, why, I noticed he had a good rich smell off his breath dancing. Milly writes that the young student sings Boylan’s song about those seaside girls, and nearly writes Blazes.
+
+## modern-en · mr-coghlan · 4:84
+
+Then he slit open his letter, glancing down the page and across. Thanks: new hat: Mr Coghlan: Lough Owel picnic: young student: Blazes Boylan's seaside girls.
+
+The photographer Milly works for at Mullingar, who took one of her and Mrs and will send it when developed.
+
+## modern-en · professor-goodwin · 4:87
+
+Poor old Professor Goodwin. Dreadful old case. Still, he was a courteous old fellow. Old-fashioned way he used to escort Molly off the stage. And the little mirror in his top hat. The night Milly brought it into the parlor. Oh, look what I found in Professor Goodwin's hat! We all laughed. Sex awakening even then. Cheeky little thing she was.
+
+Molly’s old accompanist, a dreadful old case and a courteous old chap, who used to bow her off the platform in the oldfashioned way and kept a little mirror in his silk hat. Milly found it and carried it into the parlour, and they all laughed.
+
+## modern-en · paddy-dignam · 4:31
+
+Stop and say a word: about the funeral perhaps. Sad thing about poor Dignam, Mr O'Rourke.
+
+Whose funeral is at eleven, and the fixed point of the day for half the men in this book. Bloom comes back to him three times before he has left the house: a word about him to Larry O’Rourke, a man’s soul after he dies — Dignam’s soul — and, under the bells of George’s church, poor Dignam. Not Master Patrick Aloysius Dignam of episode 10, who is his son.
+
+## modern-en · mrs-thornton · 4:139
+
+Fifteen yesterday. Curious, the fifteenth of the month too. Her first birthday away from home. Separation. Remember the summer morning she was born, running to fetch Mrs Thornton in Denzille Street. Jolly old woman. Lots of babies she must have helped into the world. She knew from the first that poor little Rudy wouldn't live. Well, God is good, sir. She knew at once. He would be eleven now if he had lived.
+
+The midwife of Denzille street, a jolly old woman who must have helped a lot of babies into the world, whom Bloom ran to knock up the summer morning Milly was born, and who knew from the first that Rudy would not live. Well, God is good, sir.
+
+## modern-en · citron · 4:57
+
+He looked at the cattle, blurred in silver heat. Silver-powdered olive trees. Quiet long days: pruning, ripening. Olives packed in jars, eh? I have a few left from Andrews. Molly spitting them out. She knows the taste of them now. Oranges in tissue paper packed in crates. Citrons too. Wonder if poor Citron still lives on Saint Kevin's Parade. And Mastiansky with the old zither. Pleasant evenings we had then. Molly in Citron's basket chair. Nice to hold, cool waxy fruit, hold in the hand, lift it to the nostrils and smell the perfume. Like that, heavy, sweet, wild perfume. Always the same, year after year. They fetched high prices too, Moisel told me. Arbutus Place: Pleasants Street: pleasant old times. Must be without a flaw, he said. Coming all that way: Spain, Gibraltar, Mediterranean, the Levant. Crates lined up on the quayside at Jaffa, a clerk ticking them off in a book, dockworkers handling them barefoot in soiled overalls. There's what's-his-name, from. How do you do? Doesn't see me. Chap you know just well enough to nod to, bit of a bore. His back looks like that Norwegian captain's. Wonder if I'll run into him today. Watering cart. Trying to make it rain. On earth as it is in heaven.
+
+Of Saint Kevin’s parade, in whose basketchair Molly used to sit on the pleasant evenings of the old Lombard street days. Wonder is poor Citron still there.
+
+## modern-en · mastiansky · 4:57
+
+He looked at the cattle, blurred in silver heat. Silver-powdered olive trees. Quiet long days: pruning, ripening. Olives packed in jars, eh? I have a few left from Andrews. Molly spitting them out. She knows the taste of them now. Oranges in tissue paper packed in crates. Citrons too. Wonder if poor Citron still lives on Saint Kevin's Parade. And Mastiansky with the old zither. Pleasant evenings we had then. Molly in Citron's basket chair. Nice to hold, cool waxy fruit, hold in the hand, lift it to the nostrils and smell the perfume. Like that, heavy, sweet, wild perfume. Always the same, year after year. They fetched high prices too, Moisel told me. Arbutus Place: Pleasants Street: pleasant old times. Must be without a flaw, he said. Coming all that way: Spain, Gibraltar, Mediterranean, the Levant. Crates lined up on the quayside at Jaffa, a clerk ticking them off in a book, dockworkers handling them barefoot in soiled overalls. There's what's-his-name, from. How do you do? Doesn't see me. Chap you know just well enough to nod to, bit of a bore. His back looks like that Norwegian captain's. Wonder if I'll run into him today. Watering cart. Trying to make it rain. On earth as it is in heaven.
+
+Of the same evenings, with the old cither, and the man who told Bloom that the giant poppies of the Chinese cemeteries produce the best opium. A later episode gives him a first name, Julius; the Mrs Mastiansky of the last episode is his wife and not him.
+
+## modern-en · moisel · 4:57
+
+He looked at the cattle, blurred in silver heat. Silver-powdered olive trees. Quiet long days: pruning, ripening. Olives packed in jars, eh? I have a few left from Andrews. Molly spitting them out. She knows the taste of them now. Oranges in tissue paper packed in crates. Citrons too. Wonder if poor Citron still lives on Saint Kevin's Parade. And Mastiansky with the old zither. Pleasant evenings we had then. Molly in Citron's basket chair. Nice to hold, cool waxy fruit, hold in the hand, lift it to the nostrils and smell the perfume. Like that, heavy, sweet, wild perfume. Always the same, year after year. They fetched high prices too, Moisel told me. Arbutus Place: Pleasants Street: pleasant old times. Must be without a flaw, he said. Coming all that way: Spain, Gibraltar, Mediterranean, the Levant. Crates lined up on the quayside at Jaffa, a clerk ticking them off in a book, dockworkers handling them barefoot in soiled overalls. There's what's-his-name, from. How do you do? Doesn't see me. Chap you know just well enough to nod to, bit of a bore. His back looks like that Norwegian captain's. Wonder if I'll run into him today. Watering cart. Trying to make it rain. On earth as it is in heaven.
+
+Who told Bloom that the citrons fetched high prices too. Arbutus place, Pleasants street: pleasant old times.
+
+## modern-en · norwegian-captain · 4:57
+
+He looked at the cattle, blurred in silver heat. Silver-powdered olive trees. Quiet long days: pruning, ripening. Olives packed in jars, eh? I have a few left from Andrews. Molly spitting them out. She knows the taste of them now. Oranges in tissue paper packed in crates. Citrons too. Wonder if poor Citron still lives on Saint Kevin's Parade. And Mastiansky with the old zither. Pleasant evenings we had then. Molly in Citron's basket chair. Nice to hold, cool waxy fruit, hold in the hand, lift it to the nostrils and smell the perfume. Like that, heavy, sweet, wild perfume. Always the same, year after year. They fetched high prices too, Moisel told me. Arbutus Place: Pleasants Street: pleasant old times. Must be without a flaw, he said. Coming all that way: Spain, Gibraltar, Mediterranean, the Levant. Crates lined up on the quayside at Jaffa, a clerk ticking them off in a book, dockworkers handling them barefoot in soiled overalls. There's what's-his-name, from. How do you do? Doesn't see me. Chap you know just well enough to nod to, bit of a bore. His back looks like that Norwegian captain's. Wonder if I'll run into him today. Watering cart. Trying to make it rain. On earth as it is in heaven.
+
+Whose back Bloom is reminded of by a man on the quayside he knows just to salute — chap you know just to salute, bit of a bore. The captain is not described and is named nowhere else in the book in these words.
+
+## modern-en · dan-tallon · 17:109
+
+Firstly, oscillation between events of imperial and of local interest, the anticipated diamond jubilee of Queen Victoria (born 1820, acceded 1837) and the posticipated opening of the new municipal fish market: secondly, apprehension of opposition from extreme circles on the questions of the respective visits of Their Royal Highnesses the duke and duchess of York (real) and of His Majesty King Brian Boru (imaginary): thirdly, a conflict between professional etiquette and professional emulation concerning the recent erections of the Grand Lyric Hall on Burgh Quay and the Theatre Royal in Hawkins street: fourthly, distraction resultant from compassion for Nelly Bouverist’s non-intellectual, non-political, non-topical expression of countenance and concupiscence caused by Nelly Bouverist’s revelations of white articles of non-intellectual, non-political, non-topical underclothing while she (Nelly Bouverist) was in the articles: fifthly, the difficulties of the selection of appropriate music and humorous allusions from _Everybody’s Book of Jokes_ (1000 pages and a laugh in every one): sixthly, the rhymes, homophonous and cacophonous, associated with the names of the new lord mayor, Daniel Tallon, the new high sheriff, Thomas Pile and the new solicitorgeneral, Dunbar Plunket Barton.
+
+The other of the two. The modern edition drops him here as well, but keeps him at 17:109, where he is the new lord mayor, Daniel Tallon.
+
+## modern-en · moses-montefiore · 4:42
+
+He picked up a page from the pile of cut sheets: an ad for a model farm at Kinnereth on the shore of the Sea of Galilee. Could become an ideal winter health resort. Moses Montefiore. I thought he was. Farmhouse, wall around it, blurred cattle grazing. He held the page away from him: interesting: read it closer, the title, the blurred grazing cattle, the page rustling. A young white heifer. Those mornings at the cattle market, the beasts lowing in their pens, branded sheep, the plop and fall of dung, the breeders in hobnailed boots trudging through the muck, slapping a palm on a ripe-meated hindquarter — there's a prime one — unpeeled switches in their hands. He held the page tilted patiently, bending his senses and his will, his soft distracted gaze at rest. The crooked skirt swinging, whack by whack by whack.
+
+Whose name stands on the sheet Bloom takes from the porkbutcher’s pile, over the model farm at Kinnereth on the lakeshore of Tiberias. I thought he was, Bloom says, and leaves the sentence unfinished.
+
+## modern-en · kearney · 4:123
+
+Must get that library book from Capel Street renewed or they'll write to Kearney, my guarantor. Reincarnation: that's the word.
+
+Bloom’s guarantor at the Capel street library, who will be written to if the book is not renewed. Not the Kathleen Kearney whom Molly cannot bear.
+
+## modern-en · mccoy · 4:148
+
+Better where she is, down there in Mullingar: away. Keep her busy. She wanted a dog to pass the time. Might take a trip down there. August bank holiday, only two and six for a return ticket. Six weeks off, however. Might wangle a press pass. Or through M'Coy.
+
+Through whom Bloom thinks he might work a press pass to Mullingar, to go down and see Milly. He appears in person in the next episode and asks to have his name put down at the funeral.
+
+## modern-en · gretta-conroy · 4:164
+
+Might try writing a sketch myself. By Mr and Mrs L. M. Bloom. Invent a story around some proverb. Which one? I used to try jotting down on my shirt cuff what she said while dressing. Don't like dressing together. Nicked myself shaving. Biting her lower lip, hooking the fastener of her skirt. Timing her. 9:15. Did Roberts pay you yet? 9:20. What was Gretta Conroy wearing? 9:23. What possessed me to buy this comb? 9:24. I'm bloated after that cabbage. A speck of dust on the patent leather of her boot.
+
+Whose dress Molly asked about at 9.20 one morning while she dressed — one of the remarks Bloom used to try jotting down on his cuff.
+
+## modern-en · sandow · 4:61
+
+Grey horror seared his flesh. Folding the page into his pocket he turned into Eccles Street, hurrying homeward. Cold oils slid along his veins, chilling his blood: age crusting him with a salt cloak. Well, I am here now. Yes, I am here now. Morning mouth, bad images. Got up on the wrong side of the bed. Must begin again those Sandow exercises. Stand on my hands. Blotchy brown brick houses. Number eighty still empty. Why is that? Assessed value only twenty-eight pounds. Towers, Battersby, North, MacArthur: parlor windows plastered with for-sale signs. Bandages on a sore eye. To smell the gentle smoke of tea, the sizzle of the pan, sizzling butter. Be near her ample bed-warmed flesh. Yes, yes.
+
+Whose exercises Bloom must begin again. On the hands down. A later episode names the book: Eugen Sandow, Physical Strength and How to Obtain It.
+
+## modern-en · ponchielli · 4:165
+
+Rubbing smartly in turn each sole against her stockinged calf. Morning after the charity ball when May's band played Ponchielli's Dance of the Hours. Explain that: morning hours, noon, then evening coming on, then night hours. Brushing her teeth. That was the first night. Her head dancing. Her fan clicking. Is that Boylan well off? He has money. Why? I noticed he smelled good when we were dancing. No use hinting. Allude to it. Strange kind of music that last night. The mirror was in shadow. She rubbed her hand mirror briskly on her woolen undershirt against her full swaying breast. Peering into it. Lines around her eyes. It just wouldn't work out somehow.
+
+Whose dance of the hours May’s band played the morning after the bazaar dance, and which Bloom is still explaining to himself: morning hours, noon, then evening coming on, then night hours.
+
+## modern-en · jc-doyle · 4:97
+
+—Là ci darem — the duet from Don Giovanni — with J. C. Doyle, she said, and Love's Old Sweet Song.
+
+The singer Molly is to sing Là ci darem with on the tour, with Love’s Old Sweet Song for the other number.
+
+## modern-en · katey-keogh · 4:86
+
+Oh, Milly Bloom, you are my darling. You are my looking glass from night to morning. I'd rather have you without a farthing Than Katey Keogh with her donkey and garden.
+
+With her ass and garden, in the song Bloom sings over his daughter’s letter: I’d rather have you without a farthing than Katey Keogh.
+
+## modern-en · paul-de-kock · 4:121
+
+—Yes. Get another of Paul de Kock's. Nice name he has.
+
+The French novelist Molly wants another of. Nice name he has — which is the whole of Bloom’s comment, and enough.
+
+## modern-en · ruby · 4:117
+
+He smiled, glancing sideways at her mocking eyes. The same young eyes. The first night after the party games. Dolphin's Barn. He turned over the smudged pages. Ruby: the Pride of the Ring. Hello. Illustration. Fierce Italian with carriage whip. Must be Ruby, pride of the ring, on the floor naked. Sheet kindly provided. The monster Maffei relented and flung his victim from him with an oath. Cruelty behind it all. Drugged animals. Trapeze at Hengler's circus. Had to look the other way. Mob gaping. Break your neck and we'll split our sides laughing. Whole families of them. Bend their bones young so they — metempsychosis. That we live after death. Our souls. That a man's soul after he dies. Dignam's soul...
+
+The pride of the ring, on the floor naked in the illustration with the sheet kindly lent: the heroine of the novel Molly has finished and wants replaced. The first Ruby on the page is the title of the book and carries no card; the second is the girl.
+
+## modern-en · maffei · 4:117
+
+He smiled, glancing sideways at her mocking eyes. The same young eyes. The first night after the party games. Dolphin's Barn. He turned over the smudged pages. Ruby: the Pride of the Ring. Hello. Illustration. Fierce Italian with carriage whip. Must be Ruby, pride of the ring, on the floor naked. Sheet kindly provided. The monster Maffei relented and flung his victim from him with an oath. Cruelty behind it all. Drugged animals. Trapeze at Hengler's circus. Had to look the other way. Mob gaping. Break your neck and we'll split our sides laughing. Whole families of them. Bend their bones young so they — metempsychosis. That we live after death. Our souls. That a man's soul after he dies. Dignam's soul...
+
+The monster who desisted and flung his victim from him with an oath — the fierce Italian with the carriagewhip in the illustration.
+
+## modern-en · philip-beaufoy · 4:162
+
+Squatting on the seat he unfolded his paper, turning its pages over on his bared knees. Something new and easy. No great hurry. Save it for a bit. Our prize feature: Matcham's Masterstroke. Written by Mr Philip Beaufoy, Playgoers' Club, London. Payment at the rate of one guinea a column has been made to the writer. Three and a half columns. Three pounds three. Three pounds, thirteen and six.
+
+Of the Playgoers’ Club, London, who wrote Matcham’s Masterstroke and was paid at the rate of one guinea a column for it. Bloom reads it seated calm above his own rising smell, envies him kindly the three pounds thirteen and six, and tears away half of it to wipe himself. Not the Mrs Beaufoy of episode 8, who is Mrs Purefoy under a slip of the tongue.
+
+## modern-en · matcham · 4:162
+
+Squatting on the seat he unfolded his paper, turning its pages over on his bared knees. Something new and easy. No great hurry. Save it for a bit. Our prize feature: Matcham's Masterstroke. Written by Mr Philip Beaufoy, Playgoers' Club, London. Payment at the rate of one guinea a column has been made to the writer. Three and a half columns. Three pounds three. Three pounds, thirteen and six.
+
+Who often thinks of the masterstroke by which he won the laughing witch who now. Begins and ends morally. Hand in hand. Smart. His story stands in Gutenberg italics in the older edition, which is why his name is keyed and not aliased.

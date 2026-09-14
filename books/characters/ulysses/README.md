@@ -1,12 +1,12 @@
 # Ulysses character package — IN PROGRESS
 
-**Episodes 1 to 3 of 18 are authored. The rest are not.** Status stays
+**Episodes 1 to 4 of 18 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole book is
 covered.
 
-Current state: 157 entities authored, 156 bound in the older edition and 155 in
-the modern one, 1,131 and 1,139 exact mentions. Episode 3 alone contributes 65
-entities and 123 and 127 mentions. Content revision 2026-09-14.3.
+Current state: 191 entities authored, 190 bound in the older edition and 188 in
+the modern one, 1,294 and 1,287 exact mentions, 43 focused tests. Content
+revision 2026-09-14.4.
 
 ## What is hard about this book
 
@@ -233,6 +233,88 @@ watchers were waiting for in episode 1. **The head centre is the hardest of
 them**: the text names him by his office and never by his name, and the card says
 so rather than supplying the name from outside the book.
 
+## Editorial checks — episode 4 (*Calypso*)
+
+Bloom arrives. 173 paragraphs, 34 new entities, and the hardest single table in
+the book.
+
+**1. Namesakes — and the reason there is no `Bloom` key at all.** *Bloom* is
+five people (Leopold, Marion, Milly, Rudolph and Rudy) **and a mountain range**:
+4:38 is *Slieve Bloom*, in Offaly, in the middle of Bloom's own thoughts about
+the schoolboys' geography. Every mention in this episode is therefore keyed on a
+longer phrase — `Mr Leopold Bloom`, `Mr Bloom`, `Mrs Marion Bloom`, `Milly
+Bloom`, `Mr and Mrs L. M. Bloom` — and the bare surname is not a key anywhere in
+the builder. A test asserts that it never becomes one.
+
+Nine more names are keyed with the other bearer named in the comment: *Boylan*
+(16:19 and 16:23 are Boylan the billsticker, whom nobody in the book connects
+with this one; 12:260 is a Mr Boylan in the citizen's deaf-man story), *Molly*
+(the Molly Maguires at 12:364, *Molly bawn* at 18:3, two songs), *Marion* (Rotha
+Marion at 12:59, S. Marion Calpensis at 12:513), *Dignam* (his son, Master
+Patrick Aloysius, in episodes 10 and 15), *Tweedy* (the crown solicitor for
+Waterford at 6:103; Molly herself as Madam Marion Tweedy from episode 16),
+*Woods* (Williams and Woods, the jam makers, at 18:5), *Beaufoy* (Mrs Beaufoy at
+8:85, 13:98 and 15:203, who is **Mrs Purefoy under a slip of Bloom's tongue**),
+*Kearney* (Kathleen Kearney), *Mastiansky* and *Moisel* (their wives). *Ruby* at
+4:117 is two things in one paragraph — the **title** of the book, which carries
+no card, and the **girl** on the floor, who does — and is keyed by occurrence.
+
+**The head centre of episode 3 gets his name here.** At 4:159 Bloom thinks *the
+chap in the paybox there got away James Stephens, they say* — and the man
+episode 3 could only call by his office is named. The card was rewritten and the
+entity now binds at 4:159, 8:133, 12:234 and 15:433. **9:126 is a different
+James Stephens**, the writer *doing some clever sketches*, and gets no card.
+
+**Bannon joins up across three episodes.** He sends a card from Westmeath in
+episode 1 about a sweet young thing, a photo girl; Milly writes home from
+Mullingar in episode 4 about *a young student comes here some evenings named
+Bannon*. Same man, and the occurrence list is what connects them.
+
+**2. Person or not.** The shops of Dublin keep their owners' names and are not
+cast: *Buckley's*, *Denny's*, *Boland's*, *Plasto's*, *Drago's*, *M'Auley's*,
+*Andrews*, *Cassidy's*, *Thornton's*, *Hengler's*. Larry O'Rourke and Dlugacz
+**are** cast, because both are men in the scene and not only names over a door.
+Also not cast: the cat, who has more dialogue in this episode than most of the
+human cast; *Agendath Netaim*, a planting company; *George's church* and *Saint
+Joseph's National school*; *Erin's King*, a pleasure boat; *Titbits*, *Photo
+Bits* and the *Freeman*; the *Bath of the Nymph* over the bed; *Don Giovanni*,
+which the modern edition supplies at 4:97 and 4:107 as the name of the opera the
+arias come from; and *Towers, Battersby, North, MacArthur*, who are auctioneers'
+names on a bill.
+
+**4. Ambiguous references, deliberately unbound.** *O'Brien.* at 4:159 — one
+word on its own after the thought about James Stephens, and the book never says
+which O'Brien. *Did Roberts pay you yet?* at 4:164 — there is a George Roberts
+at 9:126 and a Lord Roberts at 18:1, and nothing here settles it. *May's band*
+at 4:165 is a music warehouse, not a woman. *Mr Coghlan took one of me and Mrs*
+at 4:135 — Mrs Coghlan is never named. *The aproned curate* at 4:30 is a barman
+with no name. Each is left unbound.
+
+**5. Spot-read.** Sixteen mentions, eight from each edition, read as whole
+sentences; all sixteen were right.
+
+**6. Both editions independently.** The asymmetry census over episode 4 returns
+exactly two bindings in the older edition and none in the modern: **Adam
+Findlater and Dan Tallon at 4:37**, where *they blossom out as Adam Findlaters
+or Dan Tallons* becomes *they blossom into successful businessmen*. Findlater is
+named nowhere else in the book and is an `omittedEntity` for the modern edition;
+Tallon survives at 17:109 as the new lord mayor, Daniel Tallon. The modern
+edition also deletes *Hanlon's* from 4:13, leaving only *the milkman* — both
+editions bind the milkman, on the phrase each one uses.
+
+**The italic trap caught a second name, and now has a standing test.**
+*Matcham's Masterstroke* stands in Gutenberg italics at 4:162 and 4:163, so the
+alias `Matcham` bound in the modern edition and silently not in the older one —
+the same failure as *Los Demiurgos* at 3:1, and found the same way, by the
+edition-asymmetry census. Both are keyed now. A test (`test_no_alias_in_this_
+package_is_hidden_by_italics`) now compares every alias's matches under the
+shared binder's `\w` guard against a `[A-Za-z]` guard over episodes 1–4 and
+fails if they differ. Run over all eighteen episodes it reports two more, both
+in unread territory and both worth knowing now: **Stephen at 15:1133**, inside a
+stage direction, which will need a key when *Circe* is read; and **Patrice at
+16:212**, which is not Patrice Egan at all but *the faubourg Saint Patrice
+called Ireland for short*, and will need suppressing.
+
 ## Source defects — recorded, not repaired
 
 No edition byte was touched.
@@ -243,17 +325,19 @@ No edition byte was touched.
 | **The modern edition renames two people** — Algy to Swinburne at 1:35, Billy Pitt to William Pitt at 1:268. | Both forms are aliases on one card, and the card says which edition prints which. |
 | **The modern edition supplies four names Joyce did not write** — Aristotle at 3:0, Brian Boru at 3:57 (for *the Dalcassians*), Deasy at 3:10, Queen Victoria at 3:94. | Not repaired. Each is bound in the modern edition and left unbound in the older one, where the text offers no name. Brian Boru exists in the modern edition alone and is an `omittedEntity` for the older edition. A reader of the older edition is never offered his card. |
 | **The modern edition respells three names** — Ferrando to Fernando at 3:32, Patk MacCabe to Patrick MacCabe at 3:6, Haroun al Raschid to Haroun al Rashid at 3:74; and it renames Dan Occam to William of Ockham at 3:36, Joachim Abbas to Joachim of Fiore at 3:35, and Columbanus to Saint Columban at 2:73 and 3:51. | Every form is an alias on one card, and each card says which edition prints which. |
-| **`_Los Demiurgos_` at 3:1 sits inside Gutenberg italic underscores**, which the shared alias binder counts as word characters. | Not repaired — no edition byte is touched. The name is bound by a keyed phrase instead, and a test pins it. Any alias in this library whose only occurrence is inside underscores is silently unbindable; the release owner should treat this as a binder limitation to check for, not a source defect. |
+| **`_Los Demiurgos_` at 3:1 and `_Matcham's Masterstroke_` at 4:162 sit inside Gutenberg italic underscores**, which the shared alias binder counts as word characters. | Not repaired — no edition byte is touched. Both are bound by keyed patterns instead, and a standing test compares every alias under both guards. This is a **binder limitation, not a source defect**, and it applies to every book in this library: an alias whose only occurrences are inside `_italics_` binds nothing and nothing reports it. |
+| **The modern edition deletes two Dublin names at 4:37** — *Adam Findlaters or Dan Tallons* becomes *successful businessmen* — and *Hanlon's* at 4:13. | Not repaired. Adam Findlater is an `omittedEntity` for the modern edition; Dan Tallon survives at 17:109; the milkman is bound in both editions on the phrase each one uses. |
 
 ## Remaining work
 
-- **Episodes 4–18.** 6,472 paragraphs, and the three longest are 15 (*Circe*,
+- **Episodes 5–18.** 6,299 paragraphs, and the three longest are 15 (*Circe*,
   1,441 paragraphs), 17 (*Ithaca*, 654) and 11 (*Sirens*, 635). Episode 18
   (*Penelope*) is eight paragraphs of Molly's monologue and will be the densest
   page-for-page in the book.
-- **Bloom has not been read yet.** He arrives in episode 4 and the *Bloom*
-  surname is five people. Nothing should be aliased there until all five are
-  separated.
+- **The Bloom family is keyed, never aliased.** Leopold, Molly and Milly are
+  cast; Rudy is an alias because his name belongs to nobody else; Rudolph, the
+  father, has not been named yet and arrives in episode 6. `Bloom` itself must
+  never become a key — see the episode 4 checks above.
 - **Run the occurrence list on every new name.** It found five wrong bindings in
   unread episodes during the first pass alone.
 - **The `Dedalus` table is the one to watch.** It has seven keys, all in episode
@@ -271,6 +355,6 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_ulysses.py --check`, then `python3 -m unittest
-discover -s books/characters -p 'test_*.py'` — 35 focused tests for this book so
+discover -s books/characters -p 'test_*.py'` — 43 focused tests for this book so
 far. No edition changes, no network generation, no API spend: every card here was
 written in the authoring conversation and committed as a file.

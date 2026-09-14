@@ -1,6 +1,6 @@
 """Guards for the Ulysses character package.
 
-Episodes 1 to 3 of 18 are authored. These tests pin the identifications that took a
+Episodes 1 to 4 of 18 are authored. These tests pin the identifications that took a
 reading to make, and the traps that a later pass must not undo.
 """
 import json,unittest
@@ -13,8 +13,8 @@ def ids(ed,ch,pi):return sorted({m['characterId'] for m in mentions(ed) if m['ch
 CARDS={e['id']:e for e in json.loads(open('ulysses/editorial.json').read())['entities']}
 
 class Ulysses(unittest.TestCase):
-    def test_only_the_first_three_episodes_are_authored(self):
-        self.assertIn('episodes 1-3 of 18',REPORT['scope'])
+    def test_only_the_first_four_episodes_are_authored(self):
+        self.assertIn('episodes 1-4 of 18',REPORT['scope'])
         for ed in ['original-en','modern-en']:
             self.assertEqual(REPORT['editions'][ed]['chapters'],18,ed)
             self.assertEqual(REPORT['editions'][ed]['paragraphs'],7148,ed)
@@ -151,7 +151,7 @@ class Ulysses(unittest.TestCase):
         self.assertEqual([],where('modern-en','chrysostomos'))
         self.assertIn((1,293),where('original-en','mercury'))
         self.assertEqual([],where('modern-en','mercury'))
-        self.assertEqual(['mercury','chrysostomos'],
+        self.assertEqual(['mercury','chrysostomos','adam-findlater'],
                          REPORT['editions']['modern-en']['omittedEntities'])
         # brian-boru is the inverse case: a man the modern edition puts in where
         # Joyce named his people, so he is unreachable in the older edition.
@@ -177,7 +177,7 @@ class Ulysses(unittest.TestCase):
             self.assertEqual([(1,158)],where(ed,'mrs-cahill'),ed)     # 10:542 is Cahill's corner
             self.assertEqual([(1,335)],where(ed,'lily-carlisle'),ed)  # six women called Lily
             self.assertEqual([(1,255)],where(ed,'butterly'),ed)       # 15:449 is Maurice Butterly
-            self.assertEqual([(1,329)],where(ed,'bannon'),ed)
+            self.assertEqual([(1,329),(4,135)],where(ed,'bannon'),ed)  # Milly writes home about him
             self.assertEqual([(1,232),(1,269),(1,275),(2,74),(3,79)],where(ed,'hamlet'),ed)
             self.assertEqual([(1,275),(2,74),(2,113)],where(ed,'shakespeare'),ed)
 
@@ -288,7 +288,10 @@ class Proteus(unittest.TestCase):
             self.assertEqual([(3,11),(3,21),(3,41)],where(ed,'aunt-sara'),ed)
             self.assertEqual([(3,11),(3,15),(3,19),(3,28)],where(ed,'walter-goulding'),ed)
             self.assertEqual([(3,22)],where(ed,'crissie-goulding'),ed)
-            self.assertEqual([(3,11)],where(ed,'simon-dedalus'),ed)
+            # 4:30 names him in full for the first time, still out of sight:
+            # Simon Dedalus takes Larry O'Rourke off to a tee with his eyes
+            # screwed up.
+            self.assertEqual([(3,11),(4,30)],where(ed,'simon-dedalus'),ed)
 
     def test_richie_is_not_shakespeares_brother(self):
         # 9:375 and 9:391 are "nuncle Richie" in the argument about the two
@@ -328,13 +331,17 @@ class Proteus(unittest.TestCase):
         # Nine more people the text gives only a description, and one it gives
         # only an office.
         for ed in ['original-en','modern-en']:
-            for cid,k in [('head-centre',(3,58)),('the-froeken',(3,57)),
+            for cid,k in [('the-froeken',(3,57)),
                           ('egan-wife',(3,59)),('bookshop-woman',(3,83)),
                           ('two-maries',(3,66)),('berkeley',(3,82)),
                           ('goulding-cornet-brother',(3,11)),
                           ('bruce-brother',(3,68))]:
                 self.assertEqual([k],where(ed,cid),(ed,cid))
             self.assertEqual([(3,69),(3,73),(3,75)],where(ed,'cocklepicker-man'),ed)
+            # The head centre is the exception: episode 3 names him by his
+            # office only, and Bloom gives him his name in episode 4.
+            self.assertEqual([(3,58),(4,159),(8,133),(12,234),(15,433)],
+                             where(ed,'head-centre'),ed)
             self.assertEqual([(3,69),(3,75)],where(ed,'cocklepicker-woman'),ed)
 
     def test_the_modern_edition_adds_names_of_its_own(self):
@@ -394,3 +401,114 @@ class Proteus(unittest.TestCase):
             self.assertEqual([],ids(ed,3,72),ed)
             # delta of Cassiopeia at 3:82 is a star, not the queen.
             self.assertEqual(['berkeley'],ids(ed,3,82),ed)
+
+class Calypso(unittest.TestCase):
+    """Episode 4. Bloom arrives, and with him the surname that is five people."""
+
+    def test_bloom_is_five_people_and_a_mountain_range(self):
+        # There is no bare `Bloom` key in the builder at all. Every mention is
+        # keyed on a longer phrase, which is what keeps 4:38 — Slieve Bloom, the
+        # mountains in Offaly — out of the cast.
+        from build_ulysses import SPLIT
+        self.assertNotIn('Bloom',SPLIT)
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([],ids(ed,4,38),ed)
+            self.assertEqual([(4,0),(4,5),(4,7),(4,47),(4,64),(4,80),(4,134),(4,164)],
+                             where(ed,'leopold'),ed)
+            self.assertEqual([(4,27),(4,57),(4,63),(4,87),(4,94),(4,135),(4,146)],
+                             where(ed,'molly'),ed)
+            self.assertIn('Mr Leopold Bloom',said(ed,'leopold'),ed)
+            self.assertIn('Mrs Marion Bloom',said(ed,'molly'),ed)
+            self.assertIn('Milly Bloom',said(ed,'milly'),ed)
+
+    def test_the_names_the_family_use_for_each_other(self):
+        # Poldy is hers for him, Papli is the daughter's, mummy is the
+        # daughter's for her, silly Milly is his for the daughter.
+        for ed in ['original-en','modern-en']:
+            self.assertIn('Poldy',said(ed,'leopold'),ed)
+            self.assertIn((4,134),where(ed,'leopold'),ed)
+            self.assertIn((4,135),where(ed,'molly'),ed)
+        self.assertIn('Papli',said('original-en','leopold'))
+        self.assertIn('Daddy',said('modern-en','leopold'))
+
+    def test_the_head_centre_gets_his_name(self):
+        # Episode 3 names him by his office; Bloom names him here. 9:126 is the
+        # other James Stephens, the writer doing some clever sketches, and gets
+        # no card.
+        for ed in ['original-en','modern-en']:
+            self.assertIn((4,159),where(ed,'head-centre'),ed)
+            self.assertNotIn('head-centre',ids(ed,9,126),ed)
+            self.assertIn('James Stephens',said(ed,'head-centre'),ed)
+
+    def test_bannon_joins_up_across_three_episodes(self):
+        # He sends a card from Westmeath in episode 1 about a sweet young thing,
+        # a photo girl; Milly writes home from Mullingar in episode 4 about a
+        # young student named Bannon. The occurrence list is what connects them.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(1,329),(4,135)],where(ed,'bannon'),ed)
+
+    def test_the_modern_edition_deletes_two_dubliners(self):
+        # 4:37: "they blossom out as Adam Findlaters or Dan Tallons" becomes
+        # "they blossom into successful businessmen". Findlater is named nowhere
+        # else, so he is an omittedEntity for that edition; Tallon survives at
+        # 17:109 as the new lord mayor, Daniel Tallon.
+        self.assertEqual([(4,37)],where('original-en','adam-findlater'))
+        self.assertEqual([],where('modern-en','adam-findlater'))
+        self.assertEqual([(4,37),(17,109)],where('original-en','dan-tallon'))
+        self.assertEqual([(17,109)],where('modern-en','dan-tallon'))
+        O={(m['characterId'],m['paragraphIndex']) for m in mentions('original-en')
+           if m['chapterNumber']==4}
+        M={(m['characterId'],m['paragraphIndex']) for m in mentions('modern-en')
+           if m['chapterNumber']==4}
+        self.assertEqual({('adam-findlater',37),('dan-tallon',37)},O-M)
+        self.assertEqual(set(),M-O)
+
+    def test_the_italic_trap_again(self):
+        # Matcham's Masterstroke stands in Gutenberg italics at 4:162 and 4:163,
+        # so the alias binder could not reach it, exactly as with Los Demiurgos
+        # at 3:1. Keyed, and bound in both editions.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(4,162),(4,163)],where(ed,'matcham'),ed)
+
+    def test_no_alias_in_this_package_is_hidden_by_italics(self):
+        # The standing check that found the two above. An alias whose only
+        # occurrence sits inside _underscores_ is unbindable and silent: the
+        # shared binder guards with \w, which an underscore satisfies. The two
+        # cases still open are both in unread episodes: Stephen at 15:1133,
+        # inside a stage direction, and Patrice at 16:212, which is not Patrice
+        # Egan at all but the faubourg Saint Patrice.
+        import re,json as _j
+        from build_pilot import normalized
+        P={}
+        for ed in ['original-en','modern-en']:
+            with open(f'/home/user/tinct/app/public/data/editions/ulysses-{ed}.json') as f:
+                d=_j.load(f)
+            P[ed]={(c['number'],i):normalized(p) for c in d['chapters']
+                   if c['number']<=4 for i,p in enumerate(c['paragraphs'])}
+        missed=[]
+        for e in CARDS.values():
+            for a in e['aliases']:
+                strict=re.compile(r'(?<!\w)'+re.escape(a)+r'(?!\w)')
+                loose=re.compile(r'(?<![A-Za-z])'+re.escape(a)+r'(?![A-Za-z])')
+                for ed,ps in P.items():
+                    for k,t in ps.items():
+                        if len(loose.findall(t))>len(strict.findall(t)):
+                            missed.append((e['id'],a,ed,k))
+        self.assertEqual([],missed)
+
+    def test_the_deliberate_gaps_of_episode_four(self):
+        for ed in ['original-en','modern-en']:
+            # The cat has more dialogue than most of the cast and is not cast.
+            self.assertEqual([],ids(ed,4,4),ed)
+            self.assertEqual([],ids(ed,4,9),ed)
+            # Saint Joseph's National school at 4:38 is not Joseph the Joiner.
+            self.assertNotIn('joseph-the-joiner',ids(ed,4,38),ed)
+            # "O'Brien." at 4:159 is a bare surname the text never settles, and
+            # "Did Roberts pay you yet?" at 4:164 is another. Both unbound.
+            self.assertEqual(['head-centre'],ids(ed,4,159),ed)
+            self.assertEqual(['gretta-conroy','leopold'],ids(ed,4,164),ed)
+            # The shops keep their owners' names and are not people: Buckley's,
+            # Denny's, Boland's, Plasto's, Drago's, Andrews, Cassidy's,
+            # M'Auley's, Thornton's.
+            self.assertEqual([],ids(ed,4,25),ed)
+            self.assertEqual(['larry-orourke'],ids(ed,4,29),ed)

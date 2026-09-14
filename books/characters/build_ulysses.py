@@ -1,7 +1,7 @@
 """Reviewed bindings for Ulysses.
 
 Joyce in both editions, 18 episodes, 7,148 paragraphs per edition. Episodes 1 to
-3 are authored; episodes 4-18 are not.
+4 are authored; episodes 5-18 are not.
 
 Every table below has `None` for its default, so a name that an unread episode
 will give to somebody else carries no card at all outside the paragraphs keyed
@@ -50,7 +50,9 @@ SPLIT={
  # Seymour is named in five episodes; only episode 1 says who he is.
  'Seymour':({(1,69):'seymour',(1,333):'seymour',(1,339):'seymour',(1,340):'seymour'},None),
  # Bannon reappears in 4, 14 and 15, where he is with Milly Bloom.
- 'Bannon':({(1,329):'bannon'},None),
+ # 4:135 is the same young student: Milly writes home about him from
+ # Mullingar, which is the other end of the card he sent in episode 1.
+ 'Bannon':({(1,329):'bannon',(4,135):'bannon'},None),
  'Bannons':({(1,328):'the-bannons'},None),
  # Fergus is the song in episode 1; 12 and 15 use the name otherwise.
  'Fergus':({(1,105):'fergus',(1,107):'fergus'},None),
@@ -91,7 +93,10 @@ SPLIT={
  'Parnell':({(2,174):'parnell'},None),
  'Helen':({(2,174):'helen'},None),
  'Albert Edward':({(2,128):'albert-edward'},None),
- 'O[\u2019\']Rourke':({(2,174):'orourke'},None),
+ # 4:29 to 4:33 are Larry O'Rourke the publican on the corner of Dorset
+ # street, a different man entirely.
+ 'O[’\']Rourke':({(2,174):'orourke',(4,29):'larry-orourke',(4,30):'larry-orourke',
+                 (4,31):'larry-orourke',(4,33):'larry-orourke'},None),
 
  # --- episode 3. Same rule: every one of these is somebody else somewhere in
  # the book, or would be if the name were let loose, so each is keyed.
@@ -144,6 +149,64 @@ SPLIT={
  'Lucifer':({(3,93):'lucifer'},None),
  # 12:177 is Pan Poleaxe Paddyrisky, one of the mock foreign delegates.
  'Pan':({(3,85):'pan'},None),
+
+ # --- episode 4. Bloom arrives, and with him the hardest table in the book:
+ # the surname belongs to five people. Leopold, Marion, Milly, Rudolph and
+ # Rudy are all Bloom, and 4:38 is Slieve Bloom, a mountain range in Offaly,
+ # which is why there is no bare 'Bloom' key at all.
+ 'Mr Leopold Bloom':({(4,0):'leopold'},None),
+ 'Mr Bloom':({(4,5):'leopold',(4,7):'leopold',(4,47):'leopold'},None),
+ 'Mrs Marion Bloom':({(4,63):'molly'},None),
+ 'Mrs Marion':({(4,63):'molly',(4,146):'molly'},None),
+ 'Marion':({(4,63):'molly',(4,94):'molly',(4,146):'molly'},None),
+ 'Milly Bloom':({(4,86):'milly'},None),
+ 'Mr and Mrs L\\. M\\. Bloom':({(4,164):'leopold'},None),
+ # Poldy is hers for him. Molly is his for her, except where the book uses the
+ # name otherwise: the Molly Maguires at 12:364, Molly bawn at 18:3, the songs
+ # at 15:10 and 18:4.
+ 'Poldy':({(4,64):'leopold',(4,80):'leopold'},None),
+ 'Molly':({(4,27):'molly',(4,57):'molly',(4,87):'molly'},None),
+ 'Milly':({(4,67):'milly',(4,68):'milly',(4,85):'milly',(4,87):'milly',
+           (4,135):'milly',(4,136):'milly',(4,146):'milly'},None),
+ # 16:19 and 16:23 are Boylan the billsticker, whom nobody in the book connects
+ # with this one, and 12:260 is a Mr Boylan in the citizen's deaf-man story.
+ 'Boylan':({(4,84):'blazes-boylan',(4,95):'blazes-boylan',(4,135):'blazes-boylan',
+            (4,165):'blazes-boylan'},None),
+ # Master Patrick Aloysius Dignam is his son, in episodes 10 and 15.
+ 'Dignam':({(4,31):'paddy-dignam',(4,117):'paddy-dignam',(4,172):'paddy-dignam'},None),
+ # 6:103 is Molly's namesake Tweedy, crown solicitor for Waterford; from episode
+ # 16 on, Madam Marion Tweedy is Molly herself.
+ 'Tweedy':({(4,24):'major-tweedy',(4,27):'major-tweedy'},None),
+ 'Larry':({(4,29):'larry-orourke',(4,30):'larry-orourke'},None),
+ 'Larry O[’\']Rourke':({(4,29):'larry-orourke'},None),
+ # 18:5 is Williams and Woods, the jam makers.
+ 'Woods':({(4,40):'woods'},None),
+ # 8:85, 13:98 and 15:203 are Mrs Beaufoy, who is Mrs Purefoy under a slip.
+ 'Beaufoy':({(4,162):'philip-beaufoy',(4,163):'philip-beaufoy'},None),
+ 'Philip Beaufoy':({(4,162):'philip-beaufoy'},None),
+ # Two occurrences in the paragraph, and the first is the title of the book.
+ 'Ruby':({(4,117):[None,'ruby']},None),
+ # Matcham's Masterstroke is set in Gutenberg italic underscores at 4:162 and
+ # 4:163, where the alias binder's \\w guard cannot reach it: the same trap as
+ # Los Demiurgos at 3:1. Keyed for that reason.
+ 'Matcham':({(4,162):'matcham',(4,163):'matcham'},None),
+ # 18:1 is Mrs Mastiansky, and 8:118 is Mrs Moisel.
+ 'Mastiansky':({(4,57):'mastiansky'},None),
+ 'Moisel':({(4,57):'moisel'},None),
+ # 18:1 and 18:4 are Kathleen Kearney.
+ 'Kearney':({(4,123):'kearney'},None),
+ # 17:485 lists a Montefiore among financiers; only this one is read.
+ 'Moses Montefiore':({(4,42):'moses-montefiore'},None),
+ # The modern edition deletes both names from this paragraph.
+ 'Adam Findlaters':({(4,37):'adam-findlater'},None),
+ 'Dan Tallons':({(4,37):'dan-tallon'},None),
+ 'Daniel Tallon':({(17,109):'dan-tallon'},None),
+ # Simon Dedalus named in full for the first time; from episode 6 he is present.
+ 'Simon Dedalus':({(4,30):'simon-dedalus'},None),
+ # The head centre of episode 3 gets his name here. 9:126 is the other James
+ # Stephens, the writer doing some clever sketches.
+ 'James Stephens':({(4,159):'head-centre',(8,133):'head-centre',
+                    (12,234):'head-centre',(15,433):'head-centre'},None),
 
  # The mother is unnamed in episode 1 and is bound where the text makes her the
  # subject: the dream, the deathbed, the bowl of bile, the ghostcandle.
@@ -216,6 +279,19 @@ PHRASE={
  (3,82):[(r'bishop of Cloyne','berkeley'),(r'Bishop Berkeley','berkeley')],
  (3,83):[(r'The virgin at Hodges Figgis','bookshop-woman'),
          (r'The young woman at the bookshop','bookshop-woman')],
+ # episode 4
+ (4,13):[('Hanlon[’\']s milkman','hanlon-milkman'),(r'the milkman','hanlon-milkman')],
+ (4,24):[(r'her father','major-tweedy')],
+ (4,40):[(r'the next-?door girl','nextdoor-girl')],
+ (4,41):[(r'The ferreteyed porkbutcher','dlugacz'),(r'The sharp-eyed pork butcher','dlugacz')],
+ (4,43):[(r'The porkbutcher','dlugacz'),(r'The pork butcher','dlugacz')],
+ (4,44):[(r'my miss','nextdoor-girl')],
+ (4,46):[(r'my miss','nextdoor-girl')],
+ (4,57):[(r'that Norwegian captain','norwegian-captain')],
+ (4,134):[(r'Papli','leopold'),(r'Daddy','leopold')],
+ (4,135):[(r'mummy','molly')],
+ (4,157):[(r'The maid','nextdoor-girl')],
+ (4,160):[(r'my miss','nextdoor-girl')],
 }
 
 # (matched text, episode, paragraph) -> the alias hit is dropped there
