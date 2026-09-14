@@ -42,3 +42,25 @@ browser DNS failure cleared in a fresh tab. Screenshots: output/about-reading-hi
 production-mobile.png, production-desktop.png and production-reader.png.
 
 Next: Anders reviews the live section's pacing; no further copy changes approved.
+
+
+## Larger question and longer holds — September 14
+
+Anders found the question too small and every beat too brief. This follow-up
+supersedes the 22px/20px question and 300svh pacing above: desktop question 32px,
+phone 28px; chapter 520svh, with answer boundaries .22/.48/.74. This more than
+doubles the question-only scroll hold and extends each answer's scroll hold.
+The original words, shared font, alignment and instant replacements remain.
+
+Local verification: all 2,252 tests in 175 files, nine About checks, build and
+bundle verification passed. Desktop and mobile question/answer layouts inspected.
+Implementation commit 1b1fe4c36, reconciled main bb526afc5. Deploy run
+[34874107172](https://github.com/anderskhv/tinct/actions/runs/34874107172) passed
+all 15 smoke checks. Worker 0477f30d-dc38-4540-bcf6-bea50348f87c; bundle
+index-CkDIQCtz.js matched the script loaded in production /lab/phone.
+Production /about: 28px mobile question and 520svh chapter verified; after one
+PageDown, the question remained alone at progress .196. The next PageDown showed
+the first complete answer. Desktop 1280×720 inspected. Screenshots:
+output/about-reading-hierarchy/longer-hold-mobile.png, longer-hold-desktop.png,
+and longer-hold-reader.png. Documentation checker: 12 checked, zero errors.
+Next: Anders reviews the longer live pacing.
