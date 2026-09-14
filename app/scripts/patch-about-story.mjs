@@ -16,6 +16,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { condenseAboutStory } from './condense-about-story.mjs';
 
 const publicDir = fileURLToPath(new URL('../public/', import.meta.url));
 const about = join(publicDir, 'assets/about-v20');
@@ -226,3 +227,4 @@ if (preloads.length) { text.html = text.html.replaceAll(preloadRe, ''); applied+
 
 for (const [k, p] of Object.entries(files)) writeFileSync(p, text[k]);
 console.log(`done: ${applied} edit(s) applied, ${skipped} already in place`);
+condenseAboutStory();

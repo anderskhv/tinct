@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { runInNewContext } from 'node:vm';
 
 const publicDir = fileURLToPath(new URL('../public/', import.meta.url));
 const html = readFileSync(publicDir + 'about.html', 'utf8');
@@ -33,8 +34,9 @@ test('all HTML asset references resolve inside the isolated namespace', () => {
       // accept an extensionless page link when its .html file exists. A few
       // public URLs are worker routes with no file of their own: /library is
       // served from /lab/ by src/worker/routes/seo.ts.
-      if (WORKER_ROUTES.has(match[1])) continue;
-      assert.ok(existsSync(publicDir + match[1]) || existsSync(publicDir + match[1] + '.html'), match[1]);
+      const path = match[1].split('?')[0];
+      if (WORKER_ROUTES.has(path)) continue;
+      assert.ok(existsSync(publicDir + path) || existsSync(publicDir + path + '.html'), match[1]);
     }
   }
   assert.ok(existsSync(publicDir + 'about.rsc'));
@@ -78,4 +80,39 @@ test('the reveal lights every screen before the devices are fully visible', () =
   const story = readFileSync(publicDir + 'assets/about-v20/_next/static/chunks/scroll-story-BQLclMWW.js', 'utf8');
   assert.match(story, /className:`brand-devices`,style:\{opacity:Q\(u,\.08,\.28\)/);
   assert.match(story, /lit-screen[^;]*opacity:Q\(u,e\.kind===`desktop`\?\.1:e\.kind===`eink`\?\.14:\.18,e\.kind===`desktop`\?\.2:e\.kind===`eink`\?\.24:\.28\)/);
+});
+
+test('middle skips repeated sections while preserving the bookshelf index and incoming scene', () => {
+  const story = readFileSync(publicDir + 'assets/about-v20/_next/static/chunks/scroll-story-BQLclMWW.js', 'utf8');
+  assert.doesNotMatch(html, /id="chapter-(better|effortless)"/);
+  assert.match(story, /t&&\(n===4\|\|n===6\|\|n>=9&&n<=13\)\?null:/);
+  assert.match(story, /o\(nextSceneIndex,0,100\*\(1-r.travel\),!0\)/);
+  const expression = story.match(/nextSceneIndex=([^;]+);\(0,c.useEffect/)[1];
+  for (const [a, expected] of [[3,5],[5,7],[7,8]]) {
+    assert.equal(runInNewContext(expression, {t:true,a}), expected);
+  }
+});
+
+test('removing the bridge preserves the absolute duration of every product demonstration', () => {
+  const story = readFileSync(publicDir + 'assets/about-v20/_next/static/chunks/scroll-story-BQLclMWW.js', 'utf8');
+  const source = story.match(/function no\(e\)\{.*?\}\}/)[0];
+  const locate = runInNewContext(`(${source})`);
+  assert.equal(locate(0).index, 5, 'Tinct appears immediately after the overview');
+  const oldEdges = [0,.09756,.16585,.37724,.49675,.61626,.75285,1];
+  const order = [5,2,1,3,0,4];
+  for (let i = 0; i < order.length; i++) {
+    const oldStart = oldEdges[i+1], oldEnd = oldEdges[i+2];
+    const progress = ((oldStart+oldEnd)/2-.09756)/(1-.09756);
+    assert.equal(locate(progress).index, order[i]);
+    assert.ok(Math.abs(locate(progress).progress-.5)<1e-8);
+    assert.ok(Math.abs((oldEnd-oldStart)*2460-(oldEnd-oldStart)/(1-.09756)*2220)<.02);
+  }
+  assert.equal(locate(1).index, 4);
+});
+
+test('the new stylesheet and module entry use one cache version', () => {
+  assert.match(html, /about-v21\.css\?v=middle-20260914/);
+  assert.match(html, /index-D9hLDidQ\.js\?v=middle-20260914/);
+  const entry = readFileSync(publicDir + 'assets/about-v20/_next/static/chunks/index-D9hLDidQ.js', 'utf8');
+  assert.match(entry, /scroll-story-BQLclMWW\.js\?v=middle-20260914/);
 });

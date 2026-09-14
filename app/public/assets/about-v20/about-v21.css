@@ -253,3 +253,10 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
    the screen alone for longer), and then the pair stands for the rest of the chapter. */
 .story-root[data-bookshelf=true] .journey-steps #chapter-stop{height:240svh;min-height:240svh}
 .story-root[data-bookshelf=true] .scene-frame[data-scene=stop] .question-or{opacity:clamp(0, (var(--scene-progress) - .2) / .07, 1)}
+
+/* September 14: one turn toward better reading, then books and the obstacle.
+   Supersedes the separate stop/better/effortless/bridge pauses above. The joke,
+   overview questions and every demonstration retain their readable holds. */
+.story-root[data-bookshelf=true] .journey-steps #chapter-stop{height:180svh;min-height:180svh}
+.story-root[data-bookshelf=true] .journey-steps #chapter-books{height:300svh;min-height:300svh}
+.story-root[data-bookshelf=true] .journey-steps #chapter-introducing{height:2220svh;min-height:2220svh}
