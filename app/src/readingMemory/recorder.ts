@@ -167,14 +167,10 @@ export function createReadingMemoryRecorder(options: ReadingMemoryRecorderOption
 }
 
 /**
- * The only two signals that mark a chapter completed:
- *  1. the reader turned forward onto the final page and that page renders the
- *     chapter's last word;
- *  2. the reader turned past the final page (the lab marks the chapter
- *     finished at that moment), detected as a transition, never as "the set
- *     already contained this chapter".
- * Merely opening a chapter, or landing on its last page from a backward
- * chapter retreat, is not completion.
+ * Completion is the reader's durable finished-chapter transition. Merely
+ * opening the final page does not prove it was read: the page can contain a
+ * substantial final passage. The reader creates the transition only when the
+ * user advances past the end (or audio reaches the end).
  */
 export function detectCompletionSignal(input: {
   pageIndex: number
@@ -187,14 +183,8 @@ export function detectCompletionSignal(input: {
   finishedChapters: ReadonlySet<number>
   previousFinishedChapters: ReadonlySet<number> | null
 }): boolean {
-  const lastIndex = input.paragraphs.length - 1
-  const onFinalPage = input.totalPages >= 1 && input.pageIndex === input.totalPages - 1
-  const rendersLastWord = lastIndex >= 0
-    && input.pageEnd.paragraphIndex === lastIndex
-    && input.pageEnd.wordIndex >= input.lastParagraphWordCount
-  const turnedOntoFinalPage = input.pageTurnDirection === 'next' && onFinalPage && rendersLastWord
   const turnedPastEnd = input.previousFinishedChapters !== null
     && input.finishedChapters.has(input.chapterNumber)
     && !input.previousFinishedChapters.has(input.chapterNumber)
-  return turnedOntoFinalPage || turnedPastEnd
+  return turnedPastEnd
 }

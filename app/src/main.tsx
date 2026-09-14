@@ -4,6 +4,7 @@ import App from './App'
 import { LabApp } from './lab/LabApp'
 import { isLabPath } from './lab/labRoute'
 import { isNativeCapacitor } from './utils/nativePlatform'
+import { startReaderLoadTrace } from './utils/readerLoadTrace'
 import './index.css'
 
 // Detect Capacitor (Android/iOS native app) and E-ink devices.
@@ -35,6 +36,9 @@ if (isEink) {
 
 const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
 const Root = isLabPath(pathname) ? LabApp : App
+if (pathname === '/reader' || pathname === '/lab/phone' || pathname === '/lab/reader') {
+  startReaderLoadTrace()
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

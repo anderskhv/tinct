@@ -6,6 +6,7 @@ import type { UserProfile } from '../types'
 import { getAttributionPayload } from '../utils/attribution'
 import { trackEvent } from '../utils/analytics'
 import { clearSignedInCookie, hasSignedInCookie, setSignedInCookie } from '../utils/authCookie'
+import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 
 interface UseAuthReturn {
   user: User | null
@@ -90,13 +91,16 @@ export function useAuth(): UseAuthReturn {
     }
     const likelyAtStart = hasLikelySupabaseSession()
     setLikelyAuthenticated(likelyAtStart)
+    markReaderLoadTrace('auth_session_start', { startOf: 'auth_session' })
     const offlineTimeout = setTimeout(() => {
       console.warn('[useAuth] getSession() timed out — proceeding offline')
+      markReaderLoadTrace('auth_session_timeout', { endOf: 'auth_session', outcome: 'timeout' })
       finishLoading()
     }, likelyAtStart ? 12000 : 3000)
     supabase.auth.getSession()
       .then(({ data: { session: s } }) => {
         clearTimeout(offlineTimeout)
+        markReaderLoadTrace('auth_session_resolved', { endOf: 'auth_session', outcome: s ? 'session' : 'signed_out' })
         setSession(s)
         setUser(s?.user ?? null)
         if (s?.user) {
@@ -111,6 +115,7 @@ export function useAuth(): UseAuthReturn {
       })
       .catch((e) => {
         clearTimeout(offlineTimeout)
+        markReaderLoadTrace('auth_session_error', { endOf: 'auth_session', outcome: 'error' })
         console.warn('[useAuth] getSession() failed (likely offline):', e)
         finishLoading()
       })
