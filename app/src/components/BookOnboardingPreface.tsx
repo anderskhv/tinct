@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo, useCallback, useRef, useLayoutEffect } from 'react'
 import type { Book, Edition, EditionKey, Language } from '../types'
+import { matchingAudioEditions } from '../utils/audioEditionSelection'
 import { inferOnboardingLanguage, loadOnboardingData, type OnboardingLanguage } from '../utils/onboardingData'
 import {
   countColumnPages,
@@ -127,11 +128,16 @@ export function BookOnboardingPreface({
     return editions[0]?.key || ''
   })
 
-  const audioEditions = useMemo(() => editions.filter(e => e.hasAudio), [editions])
+  const audioEditions = useMemo(() => matchingAudioEditions(editionKey, editions), [editionKey, editions])
   const [audioEditionKey, setAudioEditionKey] = useState<EditionKey | undefined>(() => {
     if (defaultAudioEditionKey && audioEditions.some(e => e.key === defaultAudioEditionKey)) return defaultAudioEditionKey
     return undefined
   })
+  useEffect(() => {
+    if (audioEditionKey && !audioEditions.some(edition => edition.key === audioEditionKey)) {
+      setAudioEditionKey(undefined)
+    }
+  }, [audioEditionKey, audioEditions])
 
   const [splitEditionKey, setSplitEditionKey] = useState<EditionKey | undefined>(() => {
     if (defaultOpenSplit && defaultSplitEditionKey) return defaultSplitEditionKey

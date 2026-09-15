@@ -83,6 +83,7 @@ import {
   type LabAppearanceProfile,
   type LabReaderProgressMode,
 } from './labPrefs'
+import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioEditionSelection'
 import { labChromeVersion, labLayoutOverride, labVoiceVersion, labVoiceTrial } from './labRoute'
 import { useLabDictation } from './useLabDictation'
 import { LabAskPane } from './LabAskPane'
@@ -465,6 +466,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   const audioEditionKey = effectiveLabAudioEdition(prefs, bookEditions)
   const audioHeld = isAudioHeld(book.bookId || 'bible', audioEditionKey)
+  const audioUnavailable = audioHeld || !resolvedAudioIsAvailable(audioEditionKey, prefs.primaryEdition, bookEditions)
   const [audioUnavailableNotice, setAudioUnavailableNotice] = useState(false)
   useEffect(() => setAudioUnavailableNotice(false), [book.bookId, audioEditionKey])
   const updatePrefs = useCallback((next: LabPrefs) => {
@@ -960,7 +962,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   const listen = useLabListen({
     guardPlaybackRequests: chromeV2,
-    playbackUnavailable: isAudioHeld(listenSource.bookId, audioEditionKey),
+    playbackUnavailable: audioUnavailable,
     bookId: listenSource.bookId,
     paragraphs: listenSource.paragraphs,
     followParagraphs: listenSource.followParagraphs,
@@ -3196,7 +3198,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [goNext, goPrev, keyboardPageTurnsBlocked])
 
   const startHearing = useCallback((opts?: { force?: boolean }) => {
-    if (audioHeld) { setAudioUnavailableNotice(true); return }
+    if (audioUnavailable) { setAudioUnavailableNotice(true); return }
     mobileCompareReturnPlaceRef.current = null
     setChapterCoverTitle(null)
     if (chrome === 'talking' && !opts?.force) return
@@ -3265,7 +3267,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     notePlace('play')
     if (listen.src && onThisPage) listen.resume()
     else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
-  }, [audioHeld, book, chrome, chromeV2, listen, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
+  }, [audioUnavailable, book, chrome, chromeV2, listen, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
 
   startHearingRef.current = () => startHearing({ force: true })
 
@@ -4560,7 +4562,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         onPrefs={updatePrefs}
         editions={bookEditions.filter(edition => isEditionDiscoverable(book.bookId || 'bible', edition) || edition.key === prefs.primaryEdition || edition.key === prefs.compareEdition)}
         unavailableEditionKeys={bookEditions.filter(edition => !isEditionDiscoverable(book.bookId || 'bible', edition)).map(edition => edition.key)}
-        audioEditions={bookEditions.filter(edition => edition.hasAudio && !isAudioHeld(book.bookId || 'bible', edition.key))}
+        audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
         onOpenThisBook={() => {
           setGearOpen(false)
           setPhoneAskOpen(false)

@@ -2944,6 +2944,7 @@ export const HEART_OF_DARKNESS: Book = {
       label: 'Conrad (1899)',
       year: 1899,
       aligned: true,
+      hasAudio: true,
     },
     {
       key: 'modern-en',

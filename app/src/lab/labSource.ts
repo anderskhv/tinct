@@ -383,7 +383,7 @@ export async function loadLabSource(
   // withdrawn edition.
   const primary = migrateWithheldEdition(LAB_BOOK_ID, editions?.primary || LAB_EDITION_KEY)
   const compare = migrateWithheldEdition(LAB_BOOK_ID, editions?.compare || LAB_COMPARE_EDITION_KEY)
-  const audio = migrateWithheldEdition(LAB_BOOK_ID, editions?.audio || LAB_EDITION_KEY)
+  const audio = migrateWithheldEdition(LAB_BOOK_ID, editions?.audio || primary)
   try {
     const threadsPromise = editions?.readingFirst ? undefined : loadThreadsJson().catch(() => ({ characters: [] }))
     const manifest = await loadBibleManifest(primary)
@@ -514,8 +514,8 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     throw new Error(`Invalid compare edition ${selection.compareEditionKey} for ${selection.bookId}`)
   }
   const audioEdition = selection.audioEditionKey
-    ? registryBook.editions.find(edition => edition.key === selection.audioEditionKey && edition.hasAudio)
-    : (primaryEdition.hasAudio ? primaryEdition : registryBook.editions.find(edition => edition.hasAudio))
+    ? registryBook.editions.find(edition => edition.key === selection.audioEditionKey && edition.hasAudio && edition.language === primaryEdition.language)
+    : (primaryEdition.hasAudio ? primaryEdition : registryBook.editions.find(edition => edition.hasAudio && edition.language === primaryEdition.language))
   if (selection.audioEditionKey && !audioEdition) {
     throw new Error(`Invalid audio edition ${selection.audioEditionKey} for ${selection.bookId}`)
   }

@@ -28,6 +28,7 @@ import {
   parseLabPrefs,
   parseLabStoredPrefs,
   readLabPrefs,
+  syncLabAudioEdition,
   writeLabPrefs,
 } from './labPrefs'
 
@@ -36,6 +37,18 @@ afterEach(() => {
 })
 
 describe('lab prefs', () => {
+  it('drops a persisted audiobook when the selected text changes language', () => {
+    const next = syncLabAudioEdition({
+      ...DEFAULT_LAB_PREFS,
+      primaryEdition: 'original-da',
+      audioEdition: 'original-en',
+    }, [
+      { key: 'original-da', language: 'da', style: 'original', label: 'Danish', aligned: true },
+      { key: 'original-en', language: 'en', style: 'original', label: 'English', aligned: true, hasAudio: true },
+    ])
+    expect(next.audioEdition).toBe('original-da')
+  })
+
   it('keeps mobile progress compact because the chapter is already in the header', () => {
     expect(labCompactFootProgress('Genesis 1 — 5 / 9')).toBe('5 / 9')
     expect(labCompactFootProgress('Genesis 1 — 56%')).toBe('56%')

@@ -2,6 +2,7 @@ import type { Edition, FontFamily, ProgressDisplay, ProgressMetric, ProgressScop
 import { BIBLE } from '../data/bookRegistry'
 import { isEditionWithheld, migrateWithheldEdition } from '../data/withheldEditions'
 import { LAB_COMPARE_EDITION_KEY, LAB_EDITION_KEY } from './labSource'
+import { resolveAudioEditionKey } from '../utils/audioEditionSelection'
 
 /** Lab library route. Full navigation, never /app or a book id. */
 export const LAB_LIBRARY_URL = '/library'
@@ -213,11 +214,8 @@ export function bibleAudioEditions(): Edition[] {
 
 /** Lab Hear locks narration to the primary edition when it has audio. */
 export function syncLabAudioEdition(prefs: LabPrefs, editions: Edition[] = bibleEditions()): LabPrefs {
-  const audioEditions = editions.filter(edition => edition.hasAudio)
-  const primaryHasAudio = audioEditions.some(edition => edition.key === prefs.primaryEdition)
-  if (primaryHasAudio) return { ...prefs, audioEdition: prefs.primaryEdition }
-  if (audioEditions.some(edition => edition.key === prefs.audioEdition)) return prefs
-  return { ...prefs, audioEdition: audioEditions[0]?.key || prefs.primaryEdition }
+  const audioEdition = resolveAudioEditionKey(prefs.audioEdition, prefs.primaryEdition, editions)
+  return audioEdition === prefs.audioEdition ? prefs : { ...prefs, audioEdition }
 }
 
 export function effectiveLabAudioEdition(prefs: LabPrefs, editions: Edition[] = bibleEditions()): string {

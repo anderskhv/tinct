@@ -66,6 +66,7 @@ import { shouldOpenSplitView } from './utils/readerPagination'
 import { perfStartSwitch, perfMark, perfMeasure, perfLogSummary } from './utils/perf'
 import { readerViewFromMobileIndex, useReaderSessionController } from './readerSession/useReaderSessionController'
 import { paragraphTargetFromPosition, shouldHoldReaderForCloudRestore } from './readerSession/controllerGuards'
+import { matchingAudioEditions, resolveAudioEditionKey, resolvedAudioIsAvailable } from './utils/audioEditionSelection'
 import { appendReaderSessionShadow, installReaderSessionShadowDebug } from './readerSession/shadow'
 import type { ReaderBookContext, ReaderSessionEvent } from './readerSession/types'
 
@@ -2422,18 +2423,9 @@ export default function App() {
     setActiveView, setPanelTab, togglePanel, setAudioStripOpen,
   ])
 
-  // Effective audio edition — separate from primary, falls back to first edition with audio
+  // A fallback audiobook must keep the language of the selected text.
   const effectiveAudioEditionKey = useMemo(() => {
-    if (audioEditionKey && book.editions.some(ed => ed.hasAudio && ed.key === audioEditionKey)) {
-      return audioEditionKey
-    }
-    // Use primary if it has audio
-    if (book.editions.some(ed => ed.hasAudio && ed.key === primaryEditionKey)) {
-      return primaryEditionKey
-    }
-    // Fall back to any edition that has audio
-    const audioEd = book.editions.find(ed => ed.hasAudio)
-    return audioEd?.key || primaryEditionKey
+    return resolveAudioEditionKey(audioEditionKey, primaryEditionKey, book.editions)
   }, [audioEditionKey, primaryEditionKey, book.editions])
 
   // Get edition label
@@ -2803,8 +2795,7 @@ export default function App() {
   // the same way as fetch).
   useEffect(() => {
     if (audioEditionKey === 'none') { setHasAudio(false); return }
-    const anyAudioEdition = book.editions.some(e => e.hasAudio)
-    if (!anyAudioEdition) {
+    if (!resolvedAudioIsAvailable(effectiveAudioEditionKey, primaryEditionKey, book.editions)) {
       setHasAudio(false)
       return
     }
@@ -3190,7 +3181,7 @@ export default function App() {
             splitView={preferences.splitView}
             onToggleSplitView={handleToggleSplitView}
             onPrefetchSplitEdition={handleSplitTogglePrefetch}
-            audioEditions={book.editions.filter(ed => ed.hasAudio)}
+            audioEditions={matchingAudioEditions(primaryEditionKey, book.editions)}
             audioEditionKey={effectiveAudioEditionKey}
             onAudioEditionChange={setAudioEditionKey}
             progressDisplay={preferences.progressDisplay}
@@ -3491,7 +3482,7 @@ export default function App() {
         splitEditionKey={splitEditionKey}
         onSplitEditionChange={applySplitEditionKey}
         alignedEditions={book.editions.filter(ed => ed.aligned).map(ed => ({ key: ed.key, label: ed.label }))}
-        audioEditions={book.editions.filter(ed => ed.hasAudio).map(ed => ({ key: ed.key, label: ed.label }))}
+        audioEditions={matchingAudioEditions(primaryEditionKey, book.editions).map(ed => ({ key: ed.key, label: ed.label }))}
         audioEditionKey={effectiveAudioEditionKey}
         onAudioEditionChange={setAudioEditionKey}
         hasSections={!!(primaryData?.sections?.length)}

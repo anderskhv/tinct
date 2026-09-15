@@ -54,6 +54,15 @@ describe('bible chapter identity', () => {
 })
 
 describe('loadLabSource', () => {
+  it('rejects an audiobook in a different language from the selected text', async () => {
+    await expect(loadLabBookSource({
+      bookId: 'niels-lyhne',
+      primaryEditionKey: 'original-da',
+      audioEditionKey: 'original-en',
+      chapterNumber: 1,
+    })).rejects.toThrow('Invalid audio edition original-en for niels-lyhne')
+  })
+
   it('adapts a selected published book and compare edition without Bible fallback', async () => {
     vi.stubGlobal('__BUILD_VERSION__', 'dev')
     const requested: string[] = []
