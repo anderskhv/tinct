@@ -71,6 +71,61 @@ it('automatically retries a zero-output failure as the same question and succeed
   expect(result.current.turns.filter(turn => turn.role === 'user')).toHaveLength(1)
 })
 
+it('sends and stores the full highlighted passage separately, then clears only on success', async () => {
+  const fetcher = vi.fn().mockResolvedValue(ok())
+  const onSuccess = vi.fn()
+  vi.stubGlobal('fetch', fetcher)
+  const { result } = renderHook(() => useLabAsk(base))
+
+  await act(async () => {
+    await result.current.sendTyped('Why does this matter?', undefined, undefined, {
+      highlightedText: 'Socrates says that we must never return injustice for injustice.',
+      onSuccess,
+    })
+  })
+
+  const request = JSON.parse(String(fetcher.mock.calls[0][1]?.body)) as { messages: Array<{ role: string; content: string }> }
+  expect(request.messages.at(-1)?.content).toContain('[The reader highlighted this passage:\nSocrates says that we must never return injustice for injustice.]')
+  expect(request.messages.at(-1)?.content).toContain('\n\nWhy does this matter?')
+  expect(result.current.turns.find(turn => turn.role === 'user')?.highlightedText).toBe('Socrates says that we must never return injustice for injustice.')
+  expect(onSuccess).toHaveBeenCalledTimes(1)
+})
+
+it('does not clear an attached passage after a failed request', async () => {
+  const onSuccess = vi.fn()
+  vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('offline')))
+  const { result } = renderHook(() => useLabAsk(base))
+
+  await act(async () => {
+    await result.current.sendTyped('Why?', undefined, undefined, { highlightedText: 'The passage.', onSuccess })
+  })
+
+  expect(result.current.notice).toBeTruthy()
+  expect(result.current.retryTyped).toBeTypeOf('function')
+  expect(result.current.turns.find(turn => turn.role === 'user')?.highlightedText).toBe('The passage.')
+  expect(onSuccess).not.toHaveBeenCalled()
+})
+
+it('clears an attached passage only after its failed turn retries successfully', async () => {
+  const onSuccess = vi.fn()
+  const fetcher = vi.fn()
+    .mockRejectedValueOnce(new Error('offline'))
+    .mockRejectedValueOnce(new Error('offline'))
+    .mockResolvedValue(ok())
+  vi.stubGlobal('fetch', fetcher)
+  const { result } = renderHook(() => useLabAsk(base))
+
+  await act(async () => {
+    await result.current.sendTyped('Why?', undefined, undefined, { highlightedText: 'The passage.', onSuccess })
+  })
+  expect(onSuccess).not.toHaveBeenCalled()
+
+  await act(async () => { result.current.retryTyped?.(); await new Promise(resolve => setTimeout(resolve, 10)) })
+  expect(onSuccess).toHaveBeenCalledTimes(1)
+  const retry = JSON.parse(String(fetcher.mock.calls[2][1]?.body)) as { messages: Array<{ content: string }> }
+  expect(retry.messages.at(-1)?.content).toContain('The passage.')
+})
+
 /**
  * The anonymous account policy allows one free AI action. A failed round used
  * to consume it, so "Try again" opened the account sheet instead of retrying

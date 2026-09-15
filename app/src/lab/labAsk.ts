@@ -20,6 +20,8 @@ export interface LabAskTurn {
   timestamp?: number
   chapterNumber?: number
   paragraphIndex?: number
+  /** Passage the reader attached to this question. Kept separate from the visible question. */
+  highlightedText?: string
   cancelled?: boolean
 }
 

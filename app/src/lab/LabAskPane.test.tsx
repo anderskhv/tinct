@@ -120,6 +120,53 @@ describe('lab ask typed send', () => {
   })
 })
 
+describe('selected passage attachment', () => {
+  it('keeps the question clean, detaches without changing its draft, and focuses the field', () => {
+    const onRemoveAttachment = vi.fn()
+    render(
+      <LabAskPane
+        chromeV2
+        conversationState="idle"
+        voiceActive={false}
+        typedLoading={false}
+        turns={[]}
+        draft="Why does Socrates say this?"
+        attachment={{ text: 'The full selected passage.' }}
+        onRemoveAttachment={onRemoveAttachment}
+        onDraftChange={vi.fn()}
+        onSubmit={vi.fn()}
+        onMic={vi.fn()}
+        onVoiceMode={vi.fn()}
+      />,
+    )
+    const input = screen.getByTestId('lab-ask-input') as HTMLTextAreaElement
+    expect(input.value).toBe('Why does Socrates say this?')
+    expect(input.placeholder).toBe('Ask about this passage…')
+    fireEvent.click(screen.getByRole('button', { name: 'Remove' }))
+    expect(onRemoveAttachment).toHaveBeenCalledTimes(1)
+    expect(input.value).toBe('Why does Socrates say this?')
+  })
+
+  it('renders an attached passage separately from its question in history', () => {
+    render(
+      <LabAskPane
+        chromeV2
+        conversationState="idle"
+        voiceActive={false}
+        typedLoading={false}
+        turns={[{ id: 'q1', role: 'user', content: 'Why?', highlightedText: 'Because we ought not repay injustice.', source: 'typed' }]}
+        draft=""
+        onDraftChange={vi.fn()}
+        onSubmit={vi.fn()}
+        onMic={vi.fn()}
+        onVoiceMode={vi.fn()}
+      />,
+    )
+    expect(screen.getByTestId('lab-ask-history-passage').textContent).toBe('Because we ought not repay injustice.')
+    expect(screen.getByTestId('lab-ask-turn-user').textContent).toContain('Why?')
+  })
+})
+
 describe('lab ask phone listen', () => {
   it('does not add a Listen control on the phone sheet', () => {
     render(pane('idle', vi.fn(), vi.fn(), vi.fn()))

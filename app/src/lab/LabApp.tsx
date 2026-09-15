@@ -591,6 +591,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [desktopMeasuredKey, setDesktopMeasuredKey] = useState('')
   const [returnTo, setReturnTo] = useState<LabReturnTo>('reading')
   const [draft, setDraft] = useState('')
+  const [askAttachment, setAskAttachment] = useState<{ bookId: string; text: string } | null>(null)
+  useEffect(() => {
+    setAskAttachment(current => current?.bookId === book.bookId ? current : null)
+  }, [book.bookId])
   const [voiceGate, setVoiceGate] = useState<LabVoiceGatePhase>('off')
   // The phone call surface. `callOpen` is the reader's own intent: it stays
   // true through a dropped connection, so a call that lost its transport can
@@ -3680,9 +3684,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     interruptHearForAsk()
     setDesktopAskOpen(true)
-    setDraft('')
-    void ask.sendTyped(value)
-  }, [ask, interruptHearForAsk, resumeListenAfterAsk])
+    const attachment = askAttachment?.bookId === book.bookId ? askAttachment : null
+    void ask.sendTyped(value, undefined, undefined, {
+      highlightedText: attachment?.text,
+      onSuccess: () => {
+        setDraft('')
+        setAskAttachment(null)
+      },
+    })
+  }, [ask, askAttachment, book.bookId, interruptHearForAsk, resumeListenAfterAsk])
 
   const handleChapterChat = useCallback((kind: 'discuss' | 'prepare') => {
     if (ask.typedLoading || initialResolving || book.chaptersProvisional) return
@@ -3868,7 +3878,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               aria-haspopup="dialog"
               onClick={openBookSwitcher}
             >
-              <span>{book.bookTitle}</span><span className="lab-header-book-chevron" aria-hidden="true" />
+              <span>{book.bookTitle}</span>
             </button> : book.bookTitle}
           </h1>
           <span className="lab-title-sep" aria-hidden="true"> · </span>
@@ -4173,6 +4183,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             turns={ask.turns}
             historyStatus={ask.historyStatus}
             draft={draft}
+            attachment={askAttachment?.bookId === book.bookId ? askAttachment : null}
+            onRemoveAttachment={() => setAskAttachment(null)}
             onDraftChange={(text) => { dictation.stop(); setDraft(text) }}
             onSubmit={(text) => { dictation.stop(); handleAsk(text) }}
             onMic={handleMic}
@@ -4721,7 +4733,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             const text = selectionPopup.text
             dismissSelectionPopup()
             handleChat()
-            setDraft(`About “${text}”: `)
+            setAskAttachment({ bookId: book.bookId, text })
+            setDraft('')
           }}
           onCopy={() => {
             const text = selectionPopup.text

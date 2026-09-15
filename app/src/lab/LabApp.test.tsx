@@ -3776,7 +3776,10 @@ describe('lab chrome pass', () => {
       updatedAt: 20, deviceId: 'device', owner: null,
     }))
     render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'odyssey' }} />)
-    fireEvent.click(screen.getByTestId('lab-header-book'))
+    const titleButton = screen.getByTestId('lab-header-book')
+    expect(titleButton.getAttribute('aria-haspopup')).toBe('dialog')
+    expect(titleButton.querySelector('.lab-header-book-chevron')).toBeNull()
+    fireEvent.click(titleButton)
     fireEvent.click(screen.getByRole('button', { name: /Crito.*Chapter 2/i }))
     expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff') || 'null')).toEqual({
       kind: 'open-reader',

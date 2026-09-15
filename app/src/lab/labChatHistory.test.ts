@@ -367,4 +367,13 @@ describe('display order of a stored thread', () => {
     }]
     expect(turnsFromConversations(stored).map(turn => turn.id)).toEqual(['early', 'late'])
   })
+
+  it('restores a passage attachment as separate turn data', () => {
+    const base = Date.parse('2026-09-12T06:04:00Z')
+    const stored = [{
+      ...conversation('c', base, 774),
+      messages: [{ ...message('question', base), highlightedText: 'A selected passage.' }],
+    }]
+    expect(turnsFromConversations(stored)[0].highlightedText).toBe('A selected passage.')
+  })
 })

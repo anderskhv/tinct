@@ -15,6 +15,8 @@ interface LabAskPaneProps {
   typedLoading: boolean
   turns: LabAskTurn[]
   draft: string
+  attachment?: { text: string } | null
+  onRemoveAttachment?: () => void
   onDraftChange: (value: string) => void
   onSubmit: (value: string) => void
   onMic: () => void
@@ -114,6 +116,8 @@ export function LabAskPane({
   typedLoading,
   turns,
   draft,
+  attachment,
+  onRemoveAttachment,
   onDraftChange,
   onSubmit,
   onMic,
@@ -129,6 +133,9 @@ export function LabAskPane({
   historyStatus = 'ready',
 }: LabAskPaneProps) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
+  const attachmentTextRef = useRef<HTMLParagraphElement | null>(null)
+  const [attachmentExpanded, setAttachmentExpanded] = useState(false)
+  const [attachmentOverflows, setAttachmentOverflows] = useState(false)
   const [copiedTurn, setCopiedTurn] = useState<string | null>(null)
   // Auto-grow. The measurement collapses the field to 0px to read its
   // scrollHeight, which for that moment makes the content overflow the box by
@@ -147,6 +154,18 @@ export function LabAskPane({
     field.style.height = `${Math.min(content, LAB_ASK_MAX_COMPOSER_PX)}px`
     if (content > LAB_ASK_MAX_COMPOSER_PX) field.style.overflowY = 'auto'
   }, [draft, chromeV2])
+  useLayoutEffect(() => {
+    setAttachmentExpanded(false)
+    const node = attachmentTextRef.current
+    if (!node || !attachment) { setAttachmentOverflows(false); return }
+    const measure = () => {
+      const lineHeight = Number.parseFloat(getComputedStyle(node).lineHeight) || 24
+      setAttachmentOverflows(node.scrollHeight > lineHeight * 2 + 1)
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [attachment?.text])
   const copyTurn = async (turn: LabAskTurn) => {
     try {
       await navigator.clipboard.writeText(turn.content)
@@ -404,6 +423,26 @@ export function LabAskPane({
         submit()
       }}
     >
+      {attachment && (
+        <section className="lab-ask-attachment" data-testid="lab-ask-attachment" aria-label="Highlighted passage attached to question">
+          <span className="lab-ask-attachment-label">Highlight:</span>
+          <p
+            ref={attachmentTextRef}
+            className={`lab-ask-attachment-text${attachmentExpanded ? ' is-expanded' : ''}`}
+          >{attachment.text}</p>
+          <div className="lab-ask-attachment-actions">
+            {attachmentOverflows && (
+              <button type="button" onClick={() => setAttachmentExpanded(value => !value)}>
+                {attachmentExpanded ? 'Collapse' : 'Expand'}
+              </button>
+            )}
+            <button type="button" onClick={() => {
+              onRemoveAttachment?.()
+              window.requestAnimationFrame(() => textareaRef.current?.focus())
+            }}>Remove</button>
+          </div>
+        </section>
+      )}
       <label className="lab-visually-hidden" htmlFor="lab-ask-input">
         {LAB_COPY.askPlaceholder}
       </label>
@@ -431,7 +470,7 @@ export function LabAskPane({
           event.preventDefault()
           submit()
         }}
-        placeholder={LAB_COPY.askPlaceholder}
+        placeholder={attachment ? 'Ask about this passage…' : LAB_COPY.askPlaceholder}
       /> : (<input
         id="lab-ask-input"
         data-testid="lab-ask-input"
@@ -448,7 +487,7 @@ export function LabAskPane({
             submit()
           }
         }}
-        placeholder={LAB_COPY.askPlaceholder}
+        placeholder={attachment ? 'Ask about this passage…' : LAB_COPY.askPlaceholder}
         autoComplete="off"
       />)}
       <button
@@ -471,7 +510,7 @@ export function LabAskPane({
         hidden={chromeV2 && !canSend}
         aria-label={LAB_COPY.sendLabel}
         data-testid="lab-ask-send"
-        disabled={typedLoading}
+        disabled={typedLoading || !canSend}
         onPointerDown={(event) => {
           // Keep the focused input (and mobile keyboard chrome) stable until
           // the activation completes. Otherwise the target can move between
@@ -569,6 +608,7 @@ export function LabAskPane({
                 >
                   {turn.role === 'user' ? (
                     <p className="lab-ask-user">
+                      {turn.highlightedText && <span className="lab-ask-history-passage" data-testid="lab-ask-history-passage">{turn.highlightedText}</span>}
                       <span className="lab-ask-user-label">{LAB_COPY.youLabel}</span>
                       {turn.content}
                       {unanswered && <span className="lab-ask-unanswered" data-testid="lab-ask-unanswered">{LAB_COPY.askUnanswered}</span>}

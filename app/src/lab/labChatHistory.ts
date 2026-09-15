@@ -73,7 +73,7 @@ function parseChatMessage(raw: unknown, bookId: string): ChatMessage | null {
     chapterAction: parseChapterChatAction(src.chapterAction, bookId),
     chapterNumber: isFiniteInt(src.chapterNumber, 1, 5000) ? src.chapterNumber : undefined,
     paragraphIndex: isFiniteInt(src.paragraphIndex, 0, 10_000) ? src.paragraphIndex : undefined,
-    ...(typeof src.highlightedText === 'string' && src.highlightedText ? { highlightedText: src.highlightedText.slice(0, 2000) } : {}),
+    ...(typeof src.highlightedText === 'string' && src.highlightedText ? { highlightedText: src.highlightedText.slice(0, MAX_CONTENT) } : {}),
     ...(src.isComplete === false ? { isComplete: false } : src.isComplete === true ? { isComplete: true } : {}),
     ...(source ? { source } : {}),
   }
@@ -210,6 +210,7 @@ export function turnsFromConversations(conversations: ChatConversation[]): LabAs
     source: message.source === 'voice' ? 'voice' as const : 'typed' as const,
     chapterNumber: message.chapterNumber ?? conversation.chapterNumber,
     paragraphIndex: message.paragraphIndex ?? conversation.paragraphIndex,
+    highlightedText: message.highlightedText,
     cancelled: message.isComplete === false,
   })))
 }

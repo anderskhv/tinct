@@ -142,7 +142,13 @@ export function useLabAsk(options: UseLabAskOptions) {
   const [assistantPace, setAssistantPace] = useState<AssistantPace>('normal')
   const sendingRef = useRef(false)
   const gatedChapterRef = useRef<ChapterChatRequest | undefined>(undefined)
-  const [failedTyped, setFailedTyped] = useState<{ text: string; chapterRequest?: ChapterChatRequest; context: LabAskContext; userTurn: LabAskTurn } | null>(null)
+  const [failedTyped, setFailedTyped] = useState<{
+    text: string
+    chapterRequest?: ChapterChatRequest
+    context: LabAskContext
+    userTurn: LabAskTurn
+    attachment?: { highlightedText?: string; onSuccess?: () => void }
+  } | null>(null)
   const optionsRef = useRef(options)
   optionsRef.current = options
   const chatBookIdRef = useRef(chatBookId)
@@ -516,7 +522,12 @@ export function useLabAsk(options: UseLabAskOptions) {
     await startVoice()
   }, [startVoice, starting, stopVoice, voice.isActive])
 
-  const sendTyped = useCallback(async (content: string, chapterRequest?: ChapterChatRequest, retry?: { context: LabAskContext; userTurn: LabAskTurn }) => {
+  const sendTyped = useCallback(async (
+    content: string,
+    chapterRequest?: ChapterChatRequest,
+    retry?: { context: LabAskContext; userTurn: LabAskTurn; attachment?: { highlightedText?: string; onSuccess?: () => void } },
+    attachment?: { highlightedText?: string; onSuccess?: () => void },
+  ) => {
     const text = content.trim()
     const gated = gatedChapterRef.current
     if (!chapterRequest && gated && gated.action.bookId === chatBookIdRef.current
@@ -553,6 +564,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       timestamp: Date.now(),
       chapterNumber: requestChapter,
       paragraphIndex: requestParagraph,
+      highlightedText: attachment?.highlightedText,
     }
     if (!retry) {
       setTurns(current => {
@@ -570,6 +582,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         chapterNumber: requestChapter,
         isComplete: true,
         source: 'text',
+        highlightedText: userTurn.highlightedText,
         chapterAction: chapterRequest?.action,
       }, requestChapter, requestParagraph)
     }
@@ -578,7 +591,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     const fail = (message: string, detail?: { type: string; status?: number; attempts?: number; partial?: boolean }) => {
       if (!stillHere()) return
       setNotice(message)
-      setFailedTyped({ text, chapterRequest, context: requestContext, userTurn })
+      setFailedTyped({ text, chapterRequest, context: requestContext, userTurn, attachment: attachment ?? retry?.attachment })
       if (detail) void trackEvent('chat_request_failed', {
         book_id: requestBookId,
         chapter_number: requestChapter,
@@ -607,7 +620,15 @@ export function useLabAsk(options: UseLabAskOptions) {
       // The companion's window stays the last 20 turns; only the displayed history grew.
       const history = [...(chapterRequest?.action.kind === 'prepare' ? [] : contextTurns.filter(turn => turn.id !== userTurn.id)), userTurn]
         .slice(-20)
-        .map(turn => ({ role: turn.role, content: turn.id === userTurn.id && chapterRequest ? turn.content : chapterChatHistoryContent(turn) }))
+        .map(turn => {
+          const content = turn.id === userTurn.id && chapterRequest ? turn.content : chapterChatHistoryContent(turn)
+          return {
+            role: turn.role,
+            content: turn.role === 'user' && turn.highlightedText
+              ? `[The reader highlighted this passage:\n${turn.highlightedText}]\n\n${content}`
+              : content,
+          }
+        })
       const headers: Record<string, string> = {
         'Content-Type': 'application/json',
       }
@@ -755,6 +776,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         // Let a chapter skip commit (header + listen chapter) before Play.
         window.setTimeout(() => optionsRef.current.onResumeListen?.(), 0)
       }
+      attachment?.onSuccess?.()
     } catch (error) {
       fail(error instanceof LabChatError ? error.message : LAB_COPY.askUnavailable)
     } finally {
@@ -792,7 +814,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     toggleInChatVoice,
     sendTyped,
     retryTyped: failedTyped && failedTyped.userTurn.bookId === chatBookId ? () => {
-      void sendTyped(failedTyped.text, failedTyped.chapterRequest, failedTyped)
+      void sendTyped(failedTyped.text, failedTyped.chapterRequest, failedTyped, failedTyped.attachment)
     } : undefined,
   }
 }
