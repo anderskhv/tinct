@@ -3,11 +3,14 @@ import { act, cleanup, renderHook } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { useLabAsk, type UseLabAskOptions } from './useLabAsk'
 
+const { trackEvent } = vi.hoisted(() => ({ trackEvent: vi.fn() }))
+
 vi.mock('../data/editionLoader', () => ({ loadEditionWindow: vi.fn() }))
 vi.mock('../hooks/useAuth', () => ({ useAuth: () => ({ session: null, likelyAuthenticated: false }) }))
 vi.mock('../hooks/useVoiceSession', () => ({
   useVoiceSession: () => ({ state: 'idle', activity: 'idle', connection: 'idle', isActive: false, stop: vi.fn(), setAssistantPace: vi.fn() }),
 }))
+vi.mock('../utils/analytics', () => ({ trackEvent }))
 
 const base: UseLabAskOptions = {
   bookId: 'bible',
@@ -39,6 +42,7 @@ afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals(); vi.cle
 it('recovers on the next question after a failed round, and clears the notice', async () => {
   const fetcher = vi.fn()
     .mockRejectedValueOnce(new Error('tool round collapsed'))
+    .mockRejectedValueOnce(new Error('tool round collapsed again'))
     .mockResolvedValue(ok())
   vi.stubGlobal('fetch', fetcher)
   const { result } = renderHook(() => useLabAsk(base))
@@ -52,7 +56,7 @@ it('recovers on the next question after a failed round, and clears the notice', 
   expect(result.current.turns.some(turn => turn.role === 'assistant' && turn.content.includes('Jeremiah 49'))).toBe(true)
 })
 
-it('retries the same failed question and succeeds', async () => {
+it('automatically retries a zero-output failure as the same question and succeeds', async () => {
   const fetcher = vi.fn()
     .mockRejectedValueOnce(new Error('tool round collapsed'))
     .mockResolvedValue(ok())
@@ -60,7 +64,6 @@ it('retries the same failed question and succeeds', async () => {
   const { result } = renderHook(() => useLabAsk(base))
 
   await act(async () => { await result.current.sendTyped('recap this chapter') })
-  await act(async () => { result.current.retryTyped!(); await new Promise(resolve => setTimeout(resolve, 10)) })
 
   expect(fetcher).toHaveBeenCalledTimes(2)
   expect(result.current.notice).toBeNull()
@@ -77,17 +80,18 @@ it('does not spend an anonymous reader’s free action on a retry', async () => 
   const onAccountPrompt = vi.fn()
   const fetcher = vi.fn()
     .mockRejectedValueOnce(new Error('tool round collapsed'))
+    .mockRejectedValueOnce(new Error('tool round collapsed again'))
     .mockResolvedValue(ok())
   vi.stubGlobal('fetch', fetcher)
   const { result } = renderHook(() => useLabAsk({ ...base, signedIn: false, onAccountPrompt }))
 
   await act(async () => { await result.current.sendTyped('recap this chapter') })
-  expect(fetcher).toHaveBeenCalledTimes(1)
+  expect(fetcher).toHaveBeenCalledTimes(2)
   expect(onAccountPrompt).not.toHaveBeenCalled()
 
   await act(async () => { result.current.retryTyped!(); await new Promise(resolve => setTimeout(resolve, 10)) })
   expect(onAccountPrompt).not.toHaveBeenCalled()
-  expect(fetcher).toHaveBeenCalledTimes(2)
+  expect(fetcher).toHaveBeenCalledTimes(3)
   expect(result.current.notice).toBeNull()
 })
 
@@ -101,6 +105,27 @@ it('reports the server’s own message rather than a generic failure', async () 
 
   await act(async () => { await result.current.sendTyped('recap this chapter') })
   expect(result.current.notice).toBe('Rate limit exceeded. Try again in a minute.')
+  expect(fetcher).toHaveBeenCalledTimes(1)
+})
+
+it('automatically retries a zero-output gateway interruption and records recovery without question text', async () => {
+  const fetcher = vi.fn()
+    .mockResolvedValueOnce(new Response(JSON.stringify({ error: { type: 'upstream_timeout', message: 'The reply was interrupted. Please try again.' } }), {
+      status: 504, headers: { 'Content-Type': 'application/json' },
+    }))
+    .mockResolvedValue(ok())
+  vi.stubGlobal('fetch', fetcher)
+  const { result } = renderHook(() => useLabAsk(base))
+
+  await act(async () => { await result.current.sendTyped('recap this chapter') })
+
+  expect(fetcher).toHaveBeenCalledTimes(2)
+  expect(result.current.notice).toBeNull()
+  expect(result.current.turns.filter(turn => turn.role === 'user')).toHaveLength(1)
+  expect(trackEvent).toHaveBeenCalledWith('chat_request_recovered', expect.objectContaining({
+    first_failure_type: 'upstream_timeout', attempts: 2,
+  }), null)
+  expect(JSON.stringify(trackEvent.mock.calls)).not.toContain('recap this chapter')
 })
 
 /** A withdrawn edition must never reach the worker, whatever the reader carries. */
@@ -121,6 +146,9 @@ it('shows a useful streamed error and retries without duplicating the reader que
     .mockResolvedValueOnce(new Response('data: {"type":"error","error":{"type":"overloaded_error"}}\n\n', {
       headers: { 'Content-Type': 'text/event-stream' },
     }))
+    .mockResolvedValueOnce(new Response('data: {"type":"error","error":{"type":"overloaded_error"}}\n\n', {
+      headers: { 'Content-Type': 'text/event-stream' },
+    }))
     .mockResolvedValue(ok())
   vi.stubGlobal('fetch', fetcher)
   const { result } = renderHook(() => useLabAsk(base))
@@ -129,4 +157,24 @@ it('shows a useful streamed error and retries without duplicating the reader que
   await act(async () => { result.current.retryTyped!(); await new Promise(resolve => setTimeout(resolve, 10)) })
   expect(result.current.notice).toBeNull()
   expect(result.current.turns.filter(turn => turn.role === 'user')).toHaveLength(1)
+})
+
+it('does not automatically replay after partial answer text', async () => {
+  const stream = [
+    'data: {"type":"content_block_delta","delta":{"type":"text_delta","text":"A partial answer"}}',
+    '',
+    'data: {"type":"error","error":{"type":"overloaded_error"}}',
+    '',
+  ].join('\n')
+  const fetcher = vi.fn().mockResolvedValue(new Response(stream, {
+    headers: { 'Content-Type': 'text/event-stream' },
+  }))
+  vi.stubGlobal('fetch', fetcher)
+  const { result } = renderHook(() => useLabAsk(base))
+
+  await act(async () => { await result.current.sendTyped('recap this chapter') })
+
+  expect(fetcher).toHaveBeenCalledTimes(1)
+  expect(result.current.notice).toBe('The answer service is busy. Please try again shortly.')
+  expect(result.current.turns.some(turn => turn.role === 'assistant' && turn.content === 'A partial answer')).toBe(true)
 })

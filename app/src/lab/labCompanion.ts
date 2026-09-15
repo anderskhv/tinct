@@ -283,7 +283,7 @@ export type AnthropicStreamResult = {
 
 /** A reader-facing failure, without raw provider messages or request contents. */
 export class LabChatError extends Error {
-  constructor(type = 'interrupted') {
+  constructor(public readonly type = 'interrupted') {
     super(type === 'rate_limit_error'
       ? 'Ask is busy. Please try again in a minute.'
       : type === 'overloaded_error'

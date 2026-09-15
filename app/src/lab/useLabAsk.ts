@@ -10,6 +10,7 @@ import { useTinctVoiceTools } from '../hooks/useTinctVoiceTools'
 import { useVoiceSession } from '../hooks/useVoiceSession'
 import { COMPANION_EFFORT_TYPED, COMPANION_MODEL } from '../companionModel'
 import { apiUrl } from '../utils/apiUrl'
+import { trackEvent } from '../utils/analytics'
 import { migrateWithheldEdition } from '../data/withheldEditions'
 import type { TinctVoiceToolAdapter } from '../voice/tinctTools'
 import {
@@ -574,10 +575,18 @@ export function useLabAsk(options: UseLabAskOptions) {
     }
     setNotice(null)
 
-    const fail = (message: string) => {
+    const fail = (message: string, detail?: { type: string; status?: number; attempts?: number; partial?: boolean }) => {
       if (!stillHere()) return
       setNotice(message)
       setFailedTyped({ text, chapterRequest, context: requestContext, userTurn })
+      if (detail) void trackEvent('chat_request_failed', {
+        book_id: requestBookId,
+        chapter_number: requestChapter,
+        failure_type: detail.type,
+        http_status: detail.status ?? null,
+        attempts: detail.attempts ?? 1,
+        had_partial_answer: detail.partial === true,
+      }, viewerId)
     }
     try {
       let actionSystem: string | undefined
@@ -605,61 +614,83 @@ export function useLabAsk(options: UseLabAskOptions) {
       if (authToken) headers.Authorization = `Bearer ${authToken}`
       const context = { ...requestContext, readingTrail: chapterRequest ? undefined : await readTrail() }
       if (!stillHere()) return
-      const response = await fetch(apiUrl(authToken ? '/api/chat' : '/api/lab-chat'), {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({
-          model: COMPANION_MODEL,
-          max_tokens: 1024,
-          stream: true,
-          effort: COMPANION_EFFORT_TYPED,
-          system: actionSystem ?? buildLabAskInstructions(context),
-          messages: history,
-          ...labCompanionBookFields(context),
-        }),
-      })
-      if (!stillHere()) return
-      if (response.status === 401) {
-        fail(authToken ? LAB_COPY.signInAsk : LAB_COPY.askUnavailable)
-        return
-      }
-      if (response.status === 402) {
-        fail(LAB_COPY.balanceEmpty)
-        return
-      }
-      if (!response.ok) {
-        const data = await response.json().catch(() => ({})) as {
-          error?: { message?: string } | string
-        }
-        const message = typeof data.error === 'string'
-          ? data.error
-          : data.error?.message || LAB_COPY.askUnavailable
-        fail(message)
-        return
-      }
       let assistantId = nextId()
-      const rawReply = await readAnthropicResponse(response, (accumulated) => {
-        const content = accumulated.trim()
-        if (!content || !stillHere()) return
-        setTurns(current => {
-          if (!stillHere()) return current
-          const last = current[current.length - 1]
-          const next = last?.id === assistantId
-            ? [...current.slice(0, -1), { ...last, content }]
-            : [...current, {
-                bookId: requestBookId,
-                chapterAction: chapterRequest?.action,
-                id: assistantId,
-                role: 'assistant' as const,
-                content,
-                source: 'typed' as const,
-                chapterNumber: requestChapter,
-                paragraphIndex: requestParagraph,
-              }]
-          dumpLabTalkTurns(next)
-          return next
-        })
+      const body = JSON.stringify({
+        model: COMPANION_MODEL,
+        max_tokens: 1024,
+        stream: true,
+        effort: COMPANION_EFFORT_TYPED,
+        system: actionSystem ?? buildLabAskInstructions(context),
+        messages: history,
+        ...labCompanionBookFields(context),
       })
+      let rawReply = ''
+      let firstFailureType: string | null = null
+      for (let attempt = 1; attempt <= 2; attempt++) {
+        let accumulated = ''
+        try {
+          const response = await fetch(apiUrl(authToken ? '/api/chat' : '/api/lab-chat'), { method: 'POST', headers, body })
+          if (!stillHere()) return
+          if (response.status === 401) {
+            fail(authToken ? LAB_COPY.signInAsk : LAB_COPY.askUnavailable, { type: 'authentication', status: 401, attempts: attempt })
+            return
+          }
+          if (response.status === 402) {
+            fail(LAB_COPY.balanceEmpty, { type: 'insufficient_balance', status: 402, attempts: attempt })
+            return
+          }
+          if (!response.ok) {
+            const data = await response.json().catch(() => ({})) as { error?: { message?: string; type?: string } | string }
+            const message = typeof data.error === 'string' ? data.error : data.error?.message || LAB_COPY.askUnavailable
+            const type = typeof data.error === 'object' && data.error?.type ? data.error.type : `http_${response.status}`
+            if (attempt === 1 && (response.status === 502 || response.status === 504)) { firstFailureType = type; continue }
+            fail(message, { type, status: response.status, attempts: attempt })
+            return
+          }
+          rawReply = await readAnthropicResponse(response, (next) => {
+            accumulated = next
+            const content = next.trim()
+            if (!content || !stillHere()) return
+            setTurns(current => {
+              if (!stillHere()) return current
+              const last = current[current.length - 1]
+              const nextTurns = last?.id === assistantId
+                ? [...current.slice(0, -1), { ...last, content }]
+                : [...current, {
+                    bookId: requestBookId,
+                    chapterAction: chapterRequest?.action,
+                    id: assistantId,
+                    role: 'assistant' as const,
+                    content,
+                    source: 'typed' as const,
+                    chapterNumber: requestChapter,
+                    paragraphIndex: requestParagraph,
+                  }]
+              dumpLabTalkTurns(nextTurns)
+              return nextTurns
+            })
+          })
+          if (attempt === 2 && firstFailureType) void trackEvent('chat_request_recovered', {
+            book_id: requestBookId,
+            chapter_number: requestChapter,
+            first_failure_type: firstFailureType,
+            attempts: 2,
+          }, viewerId)
+          break
+        } catch (error) {
+          const type = error instanceof LabChatError ? error.type : 'network_error'
+          // No answer was displayed or charged, so retry the same persisted
+          // reader turn once. Never replay a partial answer: that could create
+          // duplicate prose or a second billable provider completion.
+          if (attempt === 1 && !accumulated.trim()) { firstFailureType = type; continue }
+          fail(error instanceof LabChatError ? error.message : LAB_COPY.askUnavailable, {
+            type,
+            attempts: attempt,
+            partial: Boolean(accumulated.trim()),
+          })
+          return
+        }
+      }
       if (!stillHere()) return
       const resumed = labTypedResume(rawReply)
       const parsed = labTypedSpeed(resumed.text)
@@ -730,7 +761,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       sendingRef.current = false
       setTypedLoading(false)
     }
-  }, [askContextNow, gateAiAction, options.authToken, options.conversationId, options.chapterNumber, options.paragraphIndex, readTrail, recordTurn, sessionToken, turns, conversations])
+  }, [askContextNow, gateAiAction, options.authToken, options.conversationId, options.chapterNumber, options.paragraphIndex, readTrail, recordTurn, sessionToken, turns, conversations, viewerId])
 
   return {
     turns,
