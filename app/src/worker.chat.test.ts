@@ -550,6 +550,7 @@ describe('book-grounded lab chat', () => {
   })
 
   it('streams only the final answer to the client and charges a signed-in reader once', async () => {
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {})
     const { assets } = bibleAssets(JEREMIAH, { total: 1189 })
     const bodies: Array<Record<string, unknown>> = []
     const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
@@ -600,6 +601,7 @@ describe('book-grounded lab chat', () => {
 
     expect(response.status).toBe(200)
     expect(response.headers.get('content-type') || '').toContain('event-stream')
+    expect(response.headers.get('x-tinct-chat-request-id')).toMatch(/^[A-Za-z0-9_-]+$/)
     const text = await readAll(response)
     await Promise.all(pending)
     expect(bodies).toHaveLength(2)
@@ -616,6 +618,13 @@ describe('book-grounded lab chat', () => {
     expect(text).toContain('"stop_reason":"end_turn"')
     expect(waitUntil).toHaveBeenCalled()
     expect(fetchMock.mock.calls.filter(call => String(call[0]).includes('/rest/v1/rpc/use_message'))).toHaveLength(1)
+    const timingLine = logSpy.mock.calls.map(call => String(call[0])).find(line => line.includes('"event":"chat_request_timing"'))
+    expect(timingLine).toBeTruthy()
+    expect(timingLine).not.toContain('court of the prison')
+    expect(JSON.parse(timingLine!)).toMatchObject({
+      audience: 'signed', path: 'book_grounded', outcome: 'completed', had_text: true,
+      provider_rounds: 2, tool_rounds: 1,
+    })
   })
 
   it('keeps the plain path when no book is named and caps the system prompt with one', async () => {
