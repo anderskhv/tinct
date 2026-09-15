@@ -547,7 +547,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       return new Response(null, {
         status: 302,
         headers: {
-          Location: '/library?book=notes-from-underground&start=1.2&edition=original-en',
+          Location: '/library?book=notes-from-underground&start=1.2&edition=modern-en&compare=original-en&direct=reader',
           'Cache-Control': 'no-store',
         },
       })

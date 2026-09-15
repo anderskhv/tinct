@@ -657,3 +657,21 @@ export function explicitReaderStart(search, book) {
     wordIndex: 0,
   }
 }
+
+/** Validated edition and cover behavior for an explicit reader-start link. */
+export function explicitReaderLinkSetup(search, book) {
+  const start = explicitReaderStart(search, book)
+  if (!start) return null
+  const params = new URLSearchParams(search)
+  const editions = Array.isArray(book?.editions) ? book.editions : []
+  const primary = editions.find(edition => edition.key === params.get('edition') && edition.availability?.chapterText)
+  if (!primary) return { start, primaryEditionKey: null, compareEditionKey: null, bypassCover: false }
+  const compare = editions.find(edition => edition.key === params.get('compare')
+    && edition.key !== primary.key && edition.availability?.compare)
+  return {
+    start,
+    primaryEditionKey: primary.key,
+    compareEditionKey: primary.aligned && compare ? compare.key : null,
+    bypassCover: params.get('direct') === 'reader',
+  }
+}

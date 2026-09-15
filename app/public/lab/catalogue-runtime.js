@@ -2,6 +2,7 @@ import { fullShelf, pairedSamples } from './entry-model.js?v=20260912-withheld-1
 import { wholeBookProgress } from './library-2-model.js'
 import {
   LAB_CATALOGUE_URL,
+  explicitReaderLinkSetup,
   explicitReaderStart,
   readerPreviewSearch,
   DEFAULT_LANDING_WORLD,
@@ -67,6 +68,7 @@ import {
     continuations: [],
     pendingResume: null,
     explicitStart: null,
+    directExplicitStart: false,
     auth: { ready: false, signedIn: false, email: null, name: null },
     /** 'new' (selection shelf) or 'returning' (uniform shelf under the recap). */
     libraryMode: 'new',
@@ -820,13 +822,16 @@ import {
     state.pendingResume = state.continuations.find(item => item.bookId === book.id) || null
     const resumePrimary = v1Editions(book).find(edition => edition.key === state.pendingResume?.primaryEditionKey && edition.availability.chapterText)
     if (changingBook) state.selectedEditionKey = resumePrimary?.key || defaultEdition(book)?.key || null
-    state.explicitStart = explicitReaderStart(location.search, book)
+    const explicitSetup = explicitReaderLinkSetup(location.search, book)
+    state.explicitStart = explicitSetup?.start ?? explicitReaderStart(location.search, book)
+    state.directExplicitStart = Boolean(explicitSetup?.bypassCover)
     if (state.explicitStart) {
-      const requestedEdition = v1Editions(book).find(edition => edition.key === new URLSearchParams(location.search).get('edition') && edition.availability.chapterText)
+      const requestedEdition = v1Editions(book).find(edition => edition.key === explicitSetup?.primaryEditionKey && edition.availability.chapterText)
       if (requestedEdition) state.selectedEditionKey = requestedEdition.key
     }
     const resumeCompare = v1Editions(book).find(edition => edition.key === state.pendingResume?.compareEditionKey && edition.availability.compare)
     if (changingBook) { state.compareEditionKey = resumeCompare?.key || null; state.previewCompareKey = null; state.sampleExpanded = false }
+    if (state.explicitStart && explicitSetup?.compareEditionKey) state.compareEditionKey = explicitSetup.compareEditionKey
     applyWorld(book)
     renderDetail(book)
     renderEditions(book)
@@ -1174,15 +1179,17 @@ import {
     // position. Its explicit purpose wins over an older saved place once; the
     // reader then persists normally from the chosen paragraph.
     const resolvedPlace = state.explicitStart || savedPlace || resumeSavedPlace(state.pendingResume)
+    const bypassCover = Boolean(state.explicitStart && state.directExplicitStart)
     const intent = createHandoff({
       bookId: book.id,
       primaryEditionKey: state.selectedEditionKey,
       ...(state.compareEditionKey ? { compareEditionKey: state.compareEditionKey } : {}),
       ...(resolvedPlace ? { savedPlace: resolvedPlace } : {}),
-      ...(state.explicitStart ? { startAtSavedPlace: true } : {}),
+      ...(state.explicitStart && !bypassCover ? { startAtSavedPlace: true } : {}),
     })
     if (!intent) return false
     state.explicitStart = null
+    state.directExplicitStart = false
     window.__tinctLabLastHandoff = intent
     // Where this visit to the reader started, so the library it comes back to
     // knows not to recap the book the reader has just been looking at.

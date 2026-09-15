@@ -25,6 +25,7 @@ import {
   showPopularShelf,
   readerWordsPerMinute,
   explicitReaderStart,
+  explicitReaderLinkSetup,
   readingMinutes,
   readingTimeLine,
   publishedCount,
@@ -359,6 +360,21 @@ describe('explicit reader starts', () => {
     '?book=notes-from-underground&start=author-note',
   ])('rejects an invalid or cross-book coordinate: %s', search => {
     expect(explicitReaderStart(search, book)).toBeNull()
+  })
+
+  it('validates a direct Compare link without changing ordinary explicit starts', () => {
+    const linkedBook = {
+      ...book,
+      editions: [
+        { key: 'modern-en', aligned: true, availability: { chapterText: true, compare: true } },
+        { key: 'original-en', aligned: true, availability: { chapterText: true, compare: true } },
+      ],
+    }
+    expect(explicitReaderLinkSetup('?book=notes-from-underground&start=1.2&edition=modern-en&compare=original-en&direct=reader', linkedBook)).toEqual({
+      start: { bookId: 'notes-from-underground', chapterNumber: 1, page: 0, paragraphIndex: 1, wordIndex: 0 },
+      primaryEditionKey: 'modern-en', compareEditionKey: 'original-en', bypassCover: true,
+    })
+    expect(explicitReaderLinkSetup('?book=notes-from-underground&start=1.2&edition=modern-en', linkedBook)?.bypassCover).toBe(false)
   })
 })
 

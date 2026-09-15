@@ -268,7 +268,7 @@ describe('worker SEO routing', () => {
   it.each(['/notes', '/notes/'])('opens the normal Notes cover with the explicit post-author-note start from %s', async (pathname) => {
     const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
     expect(resp.status).toBe(302)
-    expect(resp.headers.get('Location')).toBe('/library?book=notes-from-underground&start=1.2&edition=original-en')
+    expect(resp.headers.get('Location')).toBe('/library?book=notes-from-underground&start=1.2&edition=modern-en&compare=original-en&direct=reader')
     expect(resp.headers.get('Cache-Control')).toBe('no-store')
   })
 
