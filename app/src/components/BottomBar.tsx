@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback, useImperativeHandle, forwardRef } from 'react'
 import { resolveAudioUrl } from '../utils/audioUrl'
+import { playAudioTransition, setAudioSource } from '../utils/audioPlayback'
 import { useAudioSpeed, nextAudioSpeed } from '../hooks/useAudioSpeed'
 import type { AudioPlaybackAnchor, AudioPlaybackPause } from '../voice/types'
 
@@ -173,6 +174,17 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
 
     // Single reusable Audio element — avoids listener accumulation and stale closures
     const audioRef = useRef<HTMLAudioElement | null>(null)
+    // Playback intent survives automatic paragraph/chapter transitions. It is
+    // cleared only by an explicit pause, a manual content change, or a
+    // terminal playback failure, so a transient mobile play rejection cannot
+    // turn an automatic transition into a user-visible pause.
+    const playbackIntentRef = useRef(false)
+    const bookIdRef = useRef(bookId)
+    const editionKeyRef = useRef(editionKey)
+    const chapterNumberRef = useRef(chapterNumber)
+    bookIdRef.current = bookId
+    editionKeyRef.current = editionKey
+    chapterNumberRef.current = chapterNumber
     const speedRef = useRef(speed)
     speedRef.current = speed
     const isPlayingRef = useRef(isPlaying)
@@ -248,16 +260,25 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           // paragraph's fraction before the new audio starts reporting.
           lastProgressFireRef.current = 0
           onProgressChangeRef.current?.(0)
-          const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`)
-          audio.src = url
+          const url = resolveAudioUrl(`${bookIdRef.current}/${editionKeyRef.current}/ch${chapterNumberRef.current}/${nextPara.file}`)
+          setAudioSource(audio, url)
+          const expectedSrc = audio.src
           applyAudioRate(audio, speedRef.current)
-          try { audio.load() } catch { /* ignore */ }
           const followingPara = m.paragraphs[nextIndex + 1]
           if (followingPara) {
-            warmAudioUrl(resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${followingPara.file}`))
+            warmAudioUrl(resolveAudioUrl(`${bookIdRef.current}/${editionKeyRef.current}/ch${chapterNumberRef.current}/${followingPara.file}`))
           }
-          audio.play().catch(() => {
-            setIsPlaying(false)
+          void playAudioTransition(audio, expectedSrc, () => playbackIntentRef.current, (event, error) => {
+            recordAudioDebug({
+              event: `paragraph-transition-${event}`,
+              paragraph: nextPara.paragraph,
+              error: error instanceof Error ? `${error.name}: ${error.message}` : error ? String(error) : undefined,
+            })
+          }).then(playing => {
+            if (!playing && playbackIntentRef.current && audio.src === expectedSrc) {
+              playbackIntentRef.current = false
+              setIsPlaying(false)
+            }
           })
         } else {
           // Chapter finished — auto-advance
@@ -268,6 +289,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
             onChapterEndRef.current()
           } else {
             shouldResumeRef.current = false
+            playbackIntentRef.current = false
             onBookEndRef.current?.()
           }
         }
@@ -281,6 +303,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         consecutiveErrors += 1
         const m = manifestRef.current
         if (!m || consecutiveErrors >= 3) {
+          playbackIntentRef.current = false
           setIsPlaying(false)
           return
         }
@@ -291,12 +314,18 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           setCurrentParagraph(nextIndex)
           currentParagraphRef.current = nextIndex
           onParagraphChangeRef.current?.(nextPara.paragraph)
-          const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`)
-          audio.src = url
+          const url = resolveAudioUrl(`${bookIdRef.current}/${editionKeyRef.current}/ch${chapterNumberRef.current}/${nextPara.file}`)
+          setAudioSource(audio, url)
+          const expectedSrc = audio.src
           applyAudioRate(audio, speedRef.current)
-          try { audio.load() } catch { /* ignore */ }
-          audio.play().catch(() => { setIsPlaying(false) })
+          void playAudioTransition(audio, expectedSrc, () => playbackIntentRef.current).then(playing => {
+            if (!playing && playbackIntentRef.current && audio.src === expectedSrc) {
+              playbackIntentRef.current = false
+              setIsPlaying(false)
+            }
+          })
         } else {
+          playbackIntentRef.current = false
           setIsPlaying(false)
         }
       }
@@ -401,10 +430,12 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         audio.removeEventListener('stalled', handleStalled)
         audio.pause()
         audio.removeAttribute('src')
+        playbackIntentRef.current = false
       }
-    // Re-create audio element when book/edition/chapter changes
-    // so event handler closures capture correct URL base
-    }, [bookId, editionKey, chapterNumber])
+    // Keep one media element for the component lifetime. Mobile browsers bind
+    // autoplay permission and parts of the media session to the element; a
+    // replacement at every chapter boundary can lose that unlocked session.
+    }, [])
 
     // Load manifest — stop audio on chapter change
     useEffect(() => {
@@ -412,6 +443,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
 
       // Stop current audio on chapter change — but keep element alive if auto-resuming
       if (audioRef.current && !isAutoResume) {
+        playbackIntentRef.current = false
         audioRef.current.pause()
         audioRef.current.removeAttribute('src')
       }
@@ -422,6 +454,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
 
       // 'none' means user has disabled audio
       if (editionKey === 'none') {
+        playbackIntentRef.current = false
         setManifest(null)
         manifestRef.current = null
         setHasAudio(false)
@@ -459,17 +492,26 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
             const audio = audioRef.current
             if (!audio || !data.paragraphs[0]) return
             const paraUrl = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${data.paragraphs[0].file}`)
-            audio.src = paraUrl
+            setAudioSource(audio, paraUrl)
+            const expectedSrc = audio.src
             applyAudioRate(audio, speedRef.current)
-            try { audio.load() } catch { /* ignore */ }
             if (data.paragraphs[1]) {
               warmAudioUrl(resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${data.paragraphs[1].file}`))
             }
-            audio.play().then(() => {
-              setIsPlaying(true)
-              onParagraphChangeRef.current?.(data.paragraphs[0].paragraph)
-            }).catch(() => {
-              setIsPlaying(false)
+            void playAudioTransition(audio, expectedSrc, () => playbackIntentRef.current, (event, error) => {
+              recordAudioDebug({
+                event: `chapter-transition-${event}`,
+                chapter: chapterNumber,
+                error: error instanceof Error ? `${error.name}: ${error.message}` : error ? String(error) : undefined,
+              })
+            }).then(playing => {
+              if (playing) {
+                setIsPlaying(true)
+                onParagraphChangeRef.current?.(data.paragraphs[0].paragraph)
+              } else if (playbackIntentRef.current && audio.src === expectedSrc) {
+                playbackIntentRef.current = false
+                setIsPlaying(false)
+              }
             })
           }
         })
@@ -502,34 +544,34 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       }
 
       const url = resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${para.file}`)
-      // Explicit pause + load between src changes. Without load(), Android
-      // System WebView (Boox) sometimes doesn't reload the new src — the
-      // .play() call resolves against the OLD media-context, plays nothing.
-      // load() forces a fresh fetch + media-context for the new url.
+      // Android's native WebView still receives an explicit load; mobile web
+      // keeps its existing media pipeline and unlocked audio session.
       try { audio.pause() } catch { /* ignore */ }
-      audio.src = url
+      playbackIntentRef.current = true
+      setAudioSource(audio, url)
+      const expectedSrc = audio.src
       applyAudioRate(audio, speedRef.current)
-      try { audio.load() } catch { /* ignore — older WebViews may throw */ }
       const nextPara = m.paragraphs[index + 1]
       if (nextPara) {
         warmAudioUrl(resolveAudioUrl(`${bookId}/${editionKey}/ch${chapterNumber}/${nextPara.file}`))
       }
-      audio.play().then(() => {
-        setCurrentParagraph(index)
-        currentParagraphRef.current = index
-        setIsPlaying(true)
-        onParagraphChange?.(para.paragraph)
-        recordAudioDebug({ event: 'play-success', index, url, paragraph: para.paragraph })
-      }).catch((err) => {
-        // Autoplay blocked or network error. Log loudly so we can diagnose
-        // the Boox-specific "disclaimer-then-silence" symptom — the catch
-        // used to swallow it and the user just saw nothing.
-        const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err)
-        console.warn('[audio] play() rejected for', url, msg)
-        recordAudioDebug({ event: 'play-rejected', index, url, error: msg })
-        setIsPlaying(false)
+      void playAudioTransition(audio, expectedSrc, () => playbackIntentRef.current, (event, error) => {
+        const msg = error instanceof Error ? `${error.name}: ${error.message}` : error ? String(error) : undefined
+        recordAudioDebug({ event: `direct-play-${event}`, index, url, error: msg })
+      }).then(playing => {
+        if (playing) {
+          setCurrentParagraph(index)
+          currentParagraphRef.current = index
+          setIsPlaying(true)
+          onParagraphChangeRef.current?.(para.paragraph)
+          recordAudioDebug({ event: 'play-success', index, url, paragraph: para.paragraph })
+        } else if (playbackIntentRef.current && audio.src === expectedSrc) {
+          playbackIntentRef.current = false
+          recordAudioDebug({ event: 'play-rejected', index, url })
+          setIsPlaying(false)
+        }
       })
-    }, [bookId, editionKey, chapterNumber, onParagraphChange])
+    }, [bookId, editionKey, chapterNumber])
 
     // Wraps playParagraph with a one-time-per-book AI-narration disclaimer.
     // Critical: the disclaimer plays through the SAME Audio element as the
@@ -586,6 +628,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       // Optimistic UI — flip Play state so the user sees feedback while the
       // disclaimer loads. The handleEnded effect listener will fire when the
       // disclaimer finishes; we replace it with our one-shot proceed handler.
+      playbackIntentRef.current = true
       setIsPlaying(true)
 
       const proceed = () => {
@@ -593,6 +636,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         audio.removeEventListener('ended', onDone)
         audio.removeEventListener('error', onError)
         try { localStorage.setItem(disclaimerKey, '1') } catch { /* ignore */ }
+        if (!playbackIntentRef.current) return
         // Now play the actual paragraph on the SAME audio element. The element
         // was just user-gesture-unlocked by the disclaimer's play(), so this
         // .play() call will not be rejected by autoplay policy.
@@ -609,9 +653,8 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
       audio.addEventListener('ended', onDone, { once: true })
       audio.addEventListener('error', onError, { once: true })
       try { audio.pause() } catch { /* ignore */ }
-      audio.src = disclaimerUrl
+      setAudioSource(audio, disclaimerUrl)
       applyAudioRate(audio, 1.0) // disclaimer always at 1x
-      try { audio.load() } catch { /* ignore */ }
       recordAudioDebug({ event: 'disclaimer-start', url: disclaimerUrl })
       audio.play().then(() => {
         recordAudioDebug({ event: 'disclaimer-playing' })
@@ -691,11 +734,17 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
           try { audio.currentTime = Math.max(0, offsetInPara) } catch { /* ignore */ }
         }
         audio.addEventListener('loadedmetadata', onLoaded)
-        audio.src = url
+        setAudioSource(audio, url)
+        const expectedSrc = audio.src
         applyAudioRate(audio, speedRef.current)
-        try { audio.load() } catch { /* ignore */ }
         if (wasPlaying) {
-          audio.play().catch(() => setIsPlaying(false))
+          playbackIntentRef.current = true
+          void playAudioTransition(audio, expectedSrc, () => playbackIntentRef.current).then(playing => {
+            if (!playing && playbackIntentRef.current && audio.src === expectedSrc) {
+              playbackIntentRef.current = false
+              setIsPlaying(false)
+            }
+          })
         }
       },
       hasAudio() {
@@ -711,6 +760,7 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         if (audio && !audio.paused) {
           try { audio.pause() } catch { /* ignore */ }
         }
+        playbackIntentRef.current = false
         setIsPlaying(false)
         return {
           anchor: {
@@ -739,12 +789,19 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         const startAtOffset = () => {
           try { audio.currentTime = offset } catch { /* ignore */ }
           applyAudioRate(audio, speedRef.current)
-          audio.play().then(() => {
-            setCurrentParagraph(targetIdx)
-            currentParagraphRef.current = targetIdx
-            setIsPlaying(true)
-            onParagraphChangeRef.current?.(para.paragraph)
-          }).catch(() => setIsPlaying(false))
+          playbackIntentRef.current = true
+          const expectedSrc = audio.src
+          void playAudioTransition(audio, expectedSrc, () => playbackIntentRef.current).then(playing => {
+            if (playing) {
+              setCurrentParagraph(targetIdx)
+              currentParagraphRef.current = targetIdx
+              setIsPlaying(true)
+              onParagraphChangeRef.current?.(para.paragraph)
+            } else if (playbackIntentRef.current && audio.src === expectedSrc) {
+              playbackIntentRef.current = false
+              setIsPlaying(false)
+            }
+          })
         }
 
         const alreadyOnParagraph = !!audio.src && audio.src.includes(para.file)
@@ -754,20 +811,21 @@ export const BottomBar = forwardRef<BottomBarHandle, BottomBarProps>(
         }
 
         try { audio.pause() } catch { /* ignore */ }
-        audio.src = url
-        applyAudioRate(audio, speedRef.current)
+        playbackIntentRef.current = true
         const onLoaded = () => {
           audio.removeEventListener('loadedmetadata', onLoaded)
           startAtOffset()
         }
         audio.addEventListener('loadedmetadata', onLoaded)
-        try { audio.load() } catch { /* ignore */ }
+        setAudioSource(audio, url)
+        applyAudioRate(audio, speedRef.current)
       },
     }), [playParagraph, bookId, editionKey, chapterNumber])
 
     const togglePlayRef = useRef<() => void>(() => {})
     const togglePlay = useCallback(() => {
       if (isPlaying) {
+        playbackIntentRef.current = false
         audioRef.current?.pause()
         setIsPlaying(false)
       } else {
