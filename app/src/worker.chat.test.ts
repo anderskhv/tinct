@@ -446,7 +446,7 @@ describe('book-grounded lab chat', () => {
       if (url.includes('/rest/v1/rpc/use_message')) return Response.json({})
       if (url === 'https://api.openai.com/v1/responses') {
         const body = JSON.parse(String(init?.body)) as { input: string; tools: Array<{ type: string }> }
-        expect(body.input).toContain('Imitation of Christ')
+        expect(body.input).toMatch(/Imitation of Christ/i)
         expect(body.tools).toEqual([expect.objectContaining({ type: 'web_search' })])
         return Response.json({
           status: 'completed',
@@ -459,9 +459,6 @@ describe('book-grounded lab chat', () => {
       if (url === 'https://api.anthropic.com/v1/messages') {
         const body = JSON.parse(String(init?.body)) as Record<string, unknown>
         anthropicBodies.push(body)
-        if (anthropicBodies.length === 1) {
-          return anthropicReply([{ type: 'tool_use', id: 'toolu_sources', name: 'search_reading_sources', input: { query: 'The Imitation of Christ explicit references adaptations literature and art' } }], 'tool_use')
-        }
         return anthropicReply([{ type: 'text', text: 'It has a documented reception and adaptation history, but that is different from a long list of explicit references. Britannica provides one starting source: https://www.britannica.com/topic/Imitation-of-Christ' }], 'end_turn')
       }
       return Response.json({ error: 'unexpected fetch' }, { status: 500 })
@@ -488,13 +485,51 @@ describe('book-grounded lab chat', () => {
     expect(text).toContain('documented reception and adaptation history')
     expect(text).toContain('https://www.britannica.com/topic/Imitation-of-Christ')
     expect(text).not.toMatch(/search (?:is|was) unavailable|cannot check|search elsewhere/i)
+    expect(anthropicBodies).toHaveLength(1)
     expect((anthropicBodies[0].tools as Array<{ name: string }>).map(tool => tool.name)).toEqual([
       'read_chapter', 'find_in_book', 'search_reading_sources',
     ])
-    expect(anthropicBodies[1].tool_choice).toEqual({ type: 'none' })
-    const result = ((anthropicBodies[1].messages as Array<{ content: unknown }>)[4].content) as Array<{ content: string; is_error?: boolean }>
+    expect(anthropicBodies[0].tool_choice).toEqual({ type: 'none' })
+    const sentMessages = anthropicBodies[0].messages as Array<{ content: unknown }>
+    const result = sentMessages.at(-1)!.content as Array<{ content: string; is_error?: boolean }>
     expect(result[0].is_error).toBeUndefined()
     expect(JSON.parse(result[0].content.split('\n').slice(1).join('\n'))).toMatchObject({ sources: [{ title: 'Encyclopaedia Britannica' }] })
+    await Promise.all(pending)
+  })
+
+  it('answers honestly in one provider round when an explicit source lookup fails', async () => {
+    const { assets } = bibleAssets(JEREMIAH, { total: 3 })
+    const anthropicBodies: Array<Record<string, unknown>> = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles')) {
+        return Response.json([{ messages_used_this_period: 0, message_balance: 1, subscription_status: 'active', subscription_period_end: null, created_at: '2026-06-01T12:00:00Z' }])
+      }
+      if (url.includes('/rest/v1/rpc/use_message')) return Response.json({})
+      if (url === 'https://api.openai.com/v1/responses') return Response.json({ error: { type: 'server_error' } }, { status: 500 })
+      if (url === 'https://api.anthropic.com/v1/messages') {
+        const body = JSON.parse(String(init?.body)) as Record<string, unknown>
+        anthropicBodies.push(body)
+        const result = ((body.messages as Array<{ content: unknown }>).at(-1)!.content) as Array<{ content: string; is_error?: boolean }>
+        expect(result[0].is_error).toBe(true)
+        expect(result[0].content).toContain('do not claim that sources were checked')
+        return anthropicReply([{ type: 'text', text: 'I could not verify specific sources just now, so I can only give a qualified overview.' }], 'end_turn')
+      }
+      return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+    }))
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleChat(
+      chatRequest({
+        messages: [{ role: 'user', content: 'Please check specific sources for this claim.' }],
+        book: { bookId: 'imitation-of-christ', editionKey: 'original-en', chapterNumber: 1 },
+      }),
+      { ...env, OPENAI_API_KEY: 'openai-key', ASSETS: assets }, ctx,
+      async () => ({ id: userId, email: 'reader@example.com' }), async () => true,
+    )
+    expect(response.status).toBe(200)
+    expect((await response.json() as { content: Array<{ text: string }> }).content[0].text).toContain('could not verify')
+    expect(anthropicBodies).toHaveLength(1)
+    expect(anthropicBodies[0].tool_choice).toEqual({ type: 'none' })
     await Promise.all(pending)
   })
 

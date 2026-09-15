@@ -265,6 +265,13 @@ describe('worker SEO routing', () => {
     expect(resp.headers.get('Location')).toBe('/library?book=odyssey&view=book-detail')
   })
 
+  it.each(['/notes', '/notes/'])('opens the normal Notes cover with the explicit post-author-note start from %s', async (pathname) => {
+    const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
+    expect(resp.status).toBe(302)
+    expect(resp.headers.get('Location')).toBe('/library?book=notes-from-underground&start=1.2&edition=original-en')
+    expect(resp.headers.get('Cache-Control')).toBe('no-store')
+  })
+
   it('does not serve the legacy app shell for a bare book URL', async () => {
     const resp = await worker.fetch(new Request('https://tinct.app/odyssey'), routerEnv() as never, ctx)
     expect(await resp.text()).not.toContain('app shell')

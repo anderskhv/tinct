@@ -540,6 +540,19 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       return serveNotFound(request.method, url, env)
     }
 
+    // Short share link for the normal Notes from Underground cover. Its
+    // explicit start anchor is consumed only when the reader chooses Start;
+    // ordinary book links and saved positions remain unchanged.
+    if ((request.method === 'GET' || request.method === 'HEAD') && /^\/notes\/?$/i.test(url.pathname)) {
+      return new Response(null, {
+        status: 302,
+        headers: {
+          Location: '/library?book=notes-from-underground&start=1.2&edition=original-en',
+          'Cache-Control': 'no-store',
+        },
+      })
+    }
+
     // Bare /{bookId} URLs are legacy/shareable share links. They used to serve
     // the legacy React SPA shell, so an old link dropped the visitor into a
     // different product than the one /read/{bookId} and /library?book=... open.
