@@ -85,7 +85,11 @@ def chapter_words_from_text(text: str) -> List[str]:
 
 
 def normalize_token(token: str) -> str:
-    return re.sub(r"[^\w]", "", token.lower())
+    # `[\W_]`, not `[^\w]`: `_` is a word character to `re`, and Project
+    # Gutenberg uses it as italic/stage-direction markup. Leaving it on meant
+    # `[_Exeunt._]` normalized to `_exeunt_` and never matched the `exeunt`
+    # Whisper heard in the very same audio.
+    return re.sub(r"[\W_]", "", token.lower())
 
 
 @dataclass(frozen=True)

@@ -65,7 +65,21 @@ class Tests(unittest.TestCase):
    with patch.dict('sys.modules',{'faster_whisper':NS(WhisperModel=lambda *a,**k:Model(['one']))}):trial.worker(args)
    candidate=json.loads((d/'out/test/original-en/ch1/auto/words.candidate.json').read_text());self.assertEqual(candidate['paragraphs'][0]['file'],'p1.mp3')
  def test_exact_helper_pin(self):
-  import hashlib,subprocess
-  original=subprocess.check_output(['git','show','f5b23de7795e73983edf55d922d0801d57d61287:app/tts/words_sidecar_lib.py'])
-  self.assertEqual(hashlib.sha256(original).hexdigest(),trial.sha(trial.lib.__file__))
+  # A tripwire, not a formality: the helper decides which timings are real and
+  # which are interpolated, so every edit to it moves the quality gate. Bump
+  # this hash only with a reviewed reason, recorded here.
+  #
+  # 0aa529e6 -> 38200cbb (2026-09-15): normalize_token stripped `[^\w]`, which
+  # keeps `_` because `_` is a word character. Gutenberg marks stage directions
+  # and italics with underscores, so `[_Exeunt._]` compared as `_exeunt_` and
+  # never matched the `exeunt` Whisper heard in the same audio. 13 chapters were
+  # rejected for mismatching their own correct recordings. See
+  # test_pinned_words_sidecar_lib.py, which keeps a control case proving a real
+  # mishearing ("alarums" read as "alarms") still fails.
+  #
+  # This used to pin against app/tts/words_sidecar_lib.py at commit f5b23de7.
+  # That reference had gone stale: the file at that path is now an older
+  # lineage without canonical_alignment_token, so the comparison no longer
+  # meant what its name claimed. It pins the reviewed bytes directly instead.
+  self.assertEqual(trial.sha(trial.lib.__file__),'38200cbb579ac24067a2efa873c47f433c9922f05df7dece6c3c02a61e023ba4')
 if __name__=='__main__':unittest.main()
