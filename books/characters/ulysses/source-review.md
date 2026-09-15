@@ -588,7 +588,7 @@ Richie’s brother, named in Stephen’s father’s catalogue of the family he m
 
 His pace slackened. Here. Am I going to aunt Sara’s or not? My consubstantial father’s voice. Did you see anything of your artist brother Stephen lately? No? Sure he’s not down in Strasburg terrace with his aunt Sally? Couldn’t he fly a bit higher than that, eh? And and and and tell us, Stephen, how is uncle Si? O, weeping God, the things I married into! De boys up in de hayloft. The drunken little costdrawer and his brother, the cornet player. Highly respectable gondoliers! And skeweyed Walter sirring his father, no less! Sir. Yes, sir. No, sir. Jesus wept: and no wonder, by Christ!
 
-Stephen’s father, present in this episode only as the voice in his son’s head — my consubstantial father’s voice — mimicking the Gouldings and asking, and and and and tell us, Stephen, how is uncle Si. The man himself comes into the book in episode 6.
+Stephen’s father, present in this episode only as the voice in his son’s head — my consubstantial father’s voice — mimicking the Gouldings and asking, and and and and tell us, Stephen, how is uncle Si. In episode 6 he is in the funeral carriage all morning, and from there on every Mr Dedalus and every bare Dedalus in the book is him and not his son.
 
 ## original-en · florence-maccabe · 3:6
 
@@ -1472,6 +1472,372 @@ Martha, Mary. I saw that picture somewhere I forget now old master or faked for 
 
 The two sisters of Bethany, in whose house Christ sat talking — the picture Bloom half remembers when his correspondent’s name slides into the gospel: old master or faked for money. He is sitting in their house, talking. Mysterious.
 
+## original-en · peeping-woman · 6:6
+
+Mr Bloom entered and sat in the vacant place. He pulled the door to after him and slammed it twice till it shut tight. He passed an arm through the armstrap and looked seriously from the open carriagewindow at the lowered blinds of the avenue. One dragged aside: an old woman peeping. Nose whiteflattened against the pane. Thanking her stars she was passed over. Extraordinary the interest they take in a corpse. Glad to see us go we give them such trouble coming. Job seems to suit them. Huggermugger in corners. Slop about in slipperslappers for fear he’d wake. Then getting it ready. Laying it out. Molly and Mrs Fleming making the bed. Pull it more to your side. Our windingsheet. Never know who will touch you dead. Wash and shampoo. I believe they clip the nails and the hair. Keep a bit in an envelope. Grows all the same after. Unclean job.
+
+Who drags her blind aside as the funeral leaves Newbridge avenue, her nose whiteflattened against the pane, thanking her stars she was passed over. Extraordinary the interest they take in a corpse, Bloom thinks: glad to see us go, we give them such trouble coming.
+
+## original-en · jack-power · 6:0
+
+Martin Cunningham, first, poked his silkhatted head into the creaking carriage and, entering deftly, seated himself. Mr Power stepped in after him, curving his height with care.
+
+Jack Power, the fourth man in the carriage: goodlooking, greyish over the ears, and the one who says out loud that the worst of all is the man who takes his own life, not knowing whose father did. Bloom has heard he keeps a barmaid from Jury’s or the Moira. Mr Dedalus calls him Jack at the graveside.
+
+## original-en · mrs-fleming · 6:6
+
+Mr Bloom entered and sat in the vacant place. He pulled the door to after him and slammed it twice till it shut tight. He passed an arm through the armstrap and looked seriously from the open carriagewindow at the lowered blinds of the avenue. One dragged aside: an old woman peeping. Nose whiteflattened against the pane. Thanking her stars she was passed over. Extraordinary the interest they take in a corpse. Glad to see us go we give them such trouble coming. Job seems to suit them. Huggermugger in corners. Slop about in slipperslappers for fear he’d wake. Then getting it ready. Laying it out. Molly and Mrs Fleming making the bed. Pull it more to your side. Our windingsheet. Never know who will touch you dead. Wash and shampoo. I believe they clip the nails and the hair. Keep a bit in an envelope. Grows all the same after. Unclean job.
+
+Who comes in to clean at Eccles street, made the bed with Molly, and did not darn Bloom’s socks well enough.
+
+## original-en · ignatius-gallaher · 6:24
+
+Richie Goulding and the legal bag. Goulding, Collis and Ward he calls the firm. His jokes are getting a bit damp. Great card he was. Waltzing in Stamer street with Ignatius Gallaher on a Sunday morning, the landlady’s two hats pinned on his head. Out on the rampage all night. Beginning to tell on him now: that backache of his, I fear. Wife ironing his back. Thinks he’ll cure it with pills. All breadcrumbs they are. About six hundred per cent profit.
+
+With whom Richie Goulding waltzed in Stamer street of a Sunday morning, the landlady’s two hats pinned on his head. The newspaper men of episode 7 remember him as the man who paralysed Europe.
+
+## original-en · peter-paul-mswiney · 6:27
+
+—I won’t have her bastard of a nephew ruin my son. A counterjumper’s son. Selling tapes in my cousin, Peter Paul M’Swiney’s. Not likely.
+
+Mr Dedalus’s cousin, in whose shop a counterjumper’s son sold tapes — the whole of his case against Mulligan.
+
+## original-en · ned-lambert · 6:46
+
+—Yes, Mr Bloom answered. He’s behind with Ned Lambert and Hynes.
+
+One of the mourners behind, who was down for the Cork park races and stopped with Dick Tivy, tells Mr Dedalus who is walking in front, and tells John Henry Menton who Bloom is.
+
+## original-en · joe-hynes · 6:46
+
+—Yes, Mr Bloom answered. He’s behind with Ned Lambert and Hynes.
+
+The reporter, who walks behind with Ned Lambert and takes the names at the graveside for the paper — and takes down M’Intosh as a name because Bloom said macintosh. He asks the others to go round by the chief’s grave.
+
+## original-en · paddy-leonard · 6:65
+
+—Tom Kernan was immense last night, he said. And Paddy Leonard taking him off to his face.
+
+Who was taking Tom Kernan off to his face last night.
+
+## original-en · ben-dollard · 6:66
+
+—O, draw him out, Martin, Mr Power said eagerly. Wait till you hear him, Simon, on Ben Dollard’s singing of _The Croppy Boy_.
+
+Whose singing of The Croppy Boy Tom Kernan called the most trenchant rendering he ever heard in the whole course of his experience.
+
+## original-en · dan-dawson · 6:69
+
+—Did you read Dan Dawson’s speech? Martin Cunningham asked.
+
+Whose speech is in the paper this morning, and which Mr Dedalus refuses to have read out to him in a carriage. The newspaper office takes it apart in episode 7.
+
+## original-en · eugene-stratton · 6:80
+
+They went past the bleak pulpit of saint Mark’s, under the railway bridge, past the Queen’s theatre: in silence. Hoardings: Eugene Stratton, Mrs Bandmann Palmer. Could I go to see _Leah_ tonight, I wonder. I said I. Or the _Lily of Killarney_? Elster Grimes Opera Company. Big powerful change. Wet bright bills for next week. _Fun on the Bristol_. Martin Cunningham could work a pass for the Gaiety. Have to stand a drink or two. As broad as it’s long.
+
+On the hoardings past the Queen’s theatre, and on them again for Father Conmee in episode 10.
+
+## original-en · philip-crampton · 6:82
+
+Plasto’s. Sir Philip Crampton’s memorial fountain bust. Who was he?
+
+Whose memorial fountain bust they pass. Who was he? — which is the whole of Bloom’s thought about him.
+
+## original-en · mary-anderson · 6:96
+
+—Quite so, Martin Cunningham said. Mary Anderson is up there now.
+
+Who is up in Belfast now, in Martin Cunningham’s one contribution to the talk about the concert tour.
+
+## original-en · louis-werner · 6:98
+
+—Louis Werner is touring her, Mr Bloom said. O yes, we’ll have all topnobbers. J. C. Doyle and John MacCormack I hope and. The best, in fact.
+
+Who is touring Molly.
+
+## original-en · john-mccormack · 6:98
+
+—Louis Werner is touring her, Mr Bloom said. O yes, we’ll have all topnobbers. J. C. Doyle and John MacCormack I hope and. The best, in fact.
+
+Whom Bloom hopes to have among the topnobbers, with J. C. Doyle.
+
+## original-en · smith-obrien · 6:100
+
+Mr Bloom unclasped his hands in a gesture of soft politeness and clasped them. Smith O’Brien. Someone has laid a bunch of flowers there. Woman. Must be his deathday. For many happy returns. The carriage wheeling by Farrell’s statue united noiselessly their unresisting knees.
+
+Whose statue has a bunch of flowers laid at it. Must be his deathday, Bloom thinks: for many happy returns.
+
+## original-en · ocallaghan · 6:101
+
+Oot: a dullgarbed old man from the curbstone tendered his wares, his mouth opening: oot.
+
+The old man at the curbstone selling four bootlaces for a penny, struck off the rolls, who had his office in Hume street and has had the silk hat ever since. Relics of old decency. On his last legs.
+
+## original-en · waterford-tweedy · 6:103
+
+Wonder why he was struck off the rolls. Had his office in Hume street. Same house as Molly’s namesake, Tweedy, crown solicitor for Waterford. Has that silk hat ever since. Relics of old decency. Mourning too. Terrible comedown, poor wretch! Kicked about like snuff at a wake. O’Callaghan on his last legs.
+
+Molly’s namesake, who had his office in the same house. Not her father.
+
+## original-en · crofton · 6:105
+
+His eyes passed lightly over Mr Power’s goodlooking face. Greyish over the ears. _Madame_: smiling. I smiled back. A smile goes a long way. Only politeness perhaps. Nice fellow. Who knows is that true about the woman he keeps? Not pleasant for the wife. Yet they say, who was it told me, there is no carnal. You would imagine that would get played out pretty quick. Yes, it was Crofton met him one evening bringing her a pound of rumpsteak. What is this she was? Barmaid in Jury’s. Or the Moira, was it?
+
+Who met Mr Power one evening bringing his woman a pound of rumpsteak — the only evidence Bloom has for the story.
+
+## original-en · john-gray · 6:113
+
+Mr Power, collapsing in laughter, shaded his face from the window as the carriage passed Gray’s statue.
+
+Whose statue the carriage passes while Mr Power collapses in laughter.
+
+## original-en · nelson · 6:139
+
+Nelson’s pillar.
+
+Whose pillar they pass. Horatio onehandled Nelson, as episode 11 has him.
+
+## original-en · father-mathew · 6:155
+
+Dead side of the street this. Dull business by day, land agents, temperance hotel, Falconer’s railway guide, civil service college, Gill’s, catholic club, the industrious blind. Why? Some reason. Sun or wind. At night too. Chummies and slaveys. Under the patronage of the late Father Mathew. Foundation stone for Parnell. Breakdown. Heart.
+
+The temperance apostle, under whose patronage the dead side of the street stands, with the foundation stone for Parnell beside it.
+
+## original-en · reuben-j · 6:108
+
+—Of the tribe of Reuben, he said.
+
+Reuben J Dodd, the moneylender, stumping round the corner of Elvery’s on a stick — of the tribe of Reuben, Martin Cunningham says, and the carriage enjoys him. He gave the boatman who fished his son out of the Liffey a florin, which Mr Dedalus calls one and eightpence too much. Mr Dedalus also calls him Barabbas, after the robber released instead of Christ, and does so again in episode 10.
+
+## original-en · reuben-son · 6:118
+
+—That’s an awfully good one that’s going the rounds about Reuben J and the son.
+
+The young chiseller, whom his father was sending to the Isle of Man out of harm’s way over a girl, and who got loose on the quay and went over the wall into the river.
+
+## original-en · liffey-boatman · 6:131
+
+—Dead! Martin Cunningham cried. Not he! A boatman got a pole and fished him out by the slack of the breeches and he was landed up to the father on the quay more dead than alive. Half the town was there.
+
+Who got a pole and fished him out by the slack of the breeches and landed him up to the father more dead than alive. Half the town was there. A silver florin.
+
+## original-en · john-henry-menton · 6:256
+
+—Yes, Ned Lambert said, with the wife’s brother. John Henry Menton is behind. He put down his name for a quid.
+
+Solicitor, commissioner for oaths and affidavits, in whose office Dignam used to be. He danced with Molly at Mat Dillon’s seventeen golden years ago and has disliked Bloom ever since an evening at bowls, and asks Ned Lambert in God’s name what she married a coon like that for. Bloom points out the dinge in his hat and gets a short thank you.
+
+## original-en · mat-dillon · 6:306
+
+—O, to be sure, John Henry Menton said. I haven’t seen her for some time. She was a finelooking woman. I danced with her, wait, fifteen seventeen golden years ago, at Mat Dillon’s in Roundtown. And a good armful she was.
+
+Jolly Mat of Roundtown, in whose house Molly and Menton danced: convivial evenings, cold fowl, cigars, the Tantalus glasses. Heart of gold really.
+
+## original-en · floey-dillon · 6:388
+
+Solicitor, I think. I know his face. Menton, John Henry, solicitor, commissioner for oaths and affidavits. Dignam used to be in his office. Mat Dillon’s long ago. Jolly Mat. Convivial evenings. Cold fowl, cigars, the Tantalus glasses. Heart of gold really. Yes, Menton. Got his rag out that evening on the bowlinggreen because I sailed inside him. Pure fluke of mine: the bias. Why he took such a rooted dislike to me. Hate at first sight. Molly and Floey Dillon linked under the lilactree, laughing. Fellow always like that, mortified if women are by.
+
+Linked with Molly under the lilactree, laughing, on the same evening.
+
+## original-en · wisdom-hely · 6:310
+
+—Yes, he was, he said, in Wisdom Hely’s. A traveller for blottingpaper.
+
+The stationer Bloom travelled for, in blottingpaper.
+
+## original-en · dick-tivy · 6:250
+
+—I was down there for the Cork park races on Easter Monday, Ned Lambert said. Same old six and eightpence. Stopped with Dick Tivy.
+
+The solid man of Cork, with whom Ned Lambert stopped for the races, and who has nothing between himself and heaven — which is Ned Lambert’s way of saying he is bald.
+
+## original-en · dignam-son · 6:226
+
+He followed his companions. Mr Kernan and Ned Lambert followed, Hynes walking after them. Corny Kelleher stood by the opened hearse and took out the two wreaths. He handed one to the boy.
+
+Paddy Dignam’s eldest, in a brandnew collar, sleekcombed, who carries one of the two wreaths, is beckoned to kneel by Corny Kelleher, and stands at the gravehead holding it with both hands. Martin Cunningham is trying to get him into Artane. He has episode 10 to himself, carrying home a pound and a half of porksteaks.
+
+## original-en · dignam-brother-in-law · 6:231
+
+The mutes shouldered the coffin and bore it in through the gates. So much dead weight. Felt heavier myself stepping out of that bath. First the stiff: then the friends of the stiff. Corny Kelleher and the boy followed with their wreaths. Who is that beside them? Ah, the brother-in-law.
+
+Who walks beside the boy, carries the other wreath, and at the end places something in the gravedigger’s free hand.
+
+## original-en · mrs-dignam · 6:244
+
+—A great blow to the poor wife, Mr Kernan added.
+
+Left with five young children and a policy heavily mortgaged. A great blow to the poor wife, Mr Kernan says, and Bloom thinks: she had outlived him.
+
+## original-en · father-coffey · 6:264
+
+Father Coffey. I knew his name was like a coffin. _Dominenamine._ Bully about the muzzle he looks. Bosses the show. Muscular christian. Woe betide anyone that looks crooked at him: priest. Thou art Peter. Burst sideways like a sheep in clover Dedalus says he will. With a belly on him like a poisoned pup. Most amusing expressions that man finds. Hhhn: burst sideways.
+
+Who reads the service over the coffin in a fluent croak. I knew his name was like a coffin, Bloom thinks: bully about the muzzle, bosses the show, with a belly on him like a poisoned pup. Not the Coffey the butcher of episode 8.
+
+## original-en · mortuary-server · 6:262
+
+A server bearing a brass bucket with something in it came out through a door. The whitesmocked priest came after him, tidying his stole with one hand, balancing with the other a little book against his toad’s belly. Who’ll read the book? I, said the rook.
+
+The boy who carries the brass bucket in before the priest, pipes the answers in the treble, and holds the bucket while the priest shakes the thing over the coffin.
+
+## original-en · mervyn-browne · 6:266
+
+Makes them feel more important to be prayed over in Latin. Requiem mass. Crape weepers. Blackedged notepaper. Your name on the altarlist. Chilly place this. Want to feed well, sitting in there all the morning in the gloom kicking his heels waiting for the next please. Eyes of a toad too. What swells him up that way? Molly gets swelled after cabbage. Air of the place maybe. Looks full up of bad gas. Must be an infernal lot of bad gas round the place. Butchers, for instance: they get like raw beefsteaks. Who was telling me? Mervyn Browne. Down in the vaults of saint Werburgh’s lovely old organ hundred and fifty they have to bore a hole in the coffins sometimes to let out the bad gas and burn it. Out it rushes: blue. One whiff of that and you’re a goner.
+
+Who told Bloom that down in the vaults of saint Werburgh’s they have to bore a hole in the coffins sometimes to let out the bad gas.
+
+## original-en · john-oconnell · 6:315
+
+—John O’Connell, Mr Power said pleased. He never forgets a friend.
+
+The caretaker of Glasnevin: a portly man ambushed among the grasses who never forgets a friend, shakes all their hands in silence, and tells the story of the two drunks and Mulcahy from the Coombe. Keys at his back, and a prosperous bulk Bloom admires. Not Daniel O’Connell, whose circle they are standing in.
+
+## original-en · terence-mulcahy · 6:320
+
+—Did you hear that one, he asked them, about Mulcahy from the Coombe?
+
+From the Coombe, whose grave the two drunks found in the fog, and whose widow had put up a statue of Our Saviour over it. Not a bloody bit like the man, said the second drunk. That’s not Mulcahy, whoever done it.
+
+## original-en · mulcahy-widow · 6:323
+
+—They tell the story, he said, that two drunks came out here one foggy evening to look for the grave of a friend of theirs. They asked for Mulcahy from the Coombe and were told where he was buried. After traipsing about in the fog they found the grave sure enough. One of the drunks spelt out the name: Terence Mulcahy. The other drunk was blinking up at a statue of Our Saviour the widow had got put up.
+
+Who had the statue put up.
+
+## original-en · major-gamble · 6:331
+
+He has seen a fair share go under in his time, lying around him field after field. Holy fields. More room if they buried them standing. Sitting or kneeling you couldn’t. Standing? His head might come up some day above ground in a landslip with his hand pointing. All honeycombed the ground must be: oblong cells. And very neat he keeps it too: trim grass and edgings. His garden Major Gamble calls Mount Jerome. Well, so it is. Ought to be flowers of sleep. Chinese cemeteries with giant poppies growing produce the best opium Mastiansky told me. The Botanic Gardens are just over there. It’s the blood sinking in the earth gives new life. Same idea those jews they said killed the christian boy. Every man his price. Well preserved fat corpse, gentleman, epicure, invaluable for fruit garden. A bargain. By carcass of William Wilkinson, auditor and accountant, lately deceased, three pounds thirteen and six. With thanks.
+
+Who calls Mount Jerome his garden — the protestant cemetery on the other side of the city.
+
+## original-en · spurgeon · 6:333
+
+But they must breed a devil of a lot of maggots. Soil must be simply swirling with them. Your head it simply swurls. Those pretty little seaside gurls. He looks cheerful enough over it. Gives him a sense of power seeing all the others go under first. Wonder how he looks at life. Cracking his jokes too: warms the cockles of his heart. The one about the bulletin. Spurgeon went to heaven 4 a.m. this morning. 11 p.m. (closing time). Not arrived yet. Peter. The dead themselves the men anyhow would like to hear an odd joke or the women to know what’s in fashion. A juicy pear or ladies’ punch, hot, strong and sweet. Keep out the damp. You must laugh sometimes so better do it that way. Gravediggers in _Hamlet_. Shows the profound knowledge of the human heart. Daren’t joke about the dead for two years at least. _De mortuis nil nisi prius_. Go out of mourning first. Hard to imagine his funeral. Seems a sort of a joke. Read your own obituary notice they say you live longer. Gives you second wind. New lease of life.
+
+Of the caretaker’s other joke, the one about the bulletin: Spurgeon went to heaven 4 a.m. this morning. 11 p.m. (closing time). Not arrived yet. Peter.
+
+## original-en · macintosh · 6:359
+
+—Macintosh. Yes, I saw him, Mr Bloom said. Where is he now?
+
+The thirteenth man at the graveside, a lankylooking galoot in a macintosh who was not in the chapel and whom nobody knows. Bloom says the word for the coat; Hynes writes it down as a name, and it is the name he keeps for the rest of the book.
+
+## original-en · louis-byrne · 6:356
+
+So he was before he got the job in the morgue under Louis Byrne. Good idea a postmortem for doctors. Find out what they imagine they know. He died of a Tuesday. Got the run. Levanted with the cash of a few ads. Charley, you’re my darling. That was why he asked me to. O well, does no harm. I saw to that, M’Coy. Thanks, old chap: much obliged. Leave him under an obligation: costs nothing.
+
+Under whom M’Coy got the job in the morgue after the Freeman.
+
+## original-en · joe-cuffe · 6:184
+
+Thursday, of course. Tomorrow is killing day. Springers. Cuffe sold them about twentyseven quid each. For Liverpool probably. Roastbeef for old England. They buy up all the juicy ones. And then the fifth quarter lost: all that raw stuff, hide, hair, horns. Comes to a big thing in a year. Dead meat trade. Byproducts of the slaughterhouses for tanneries, soap, margarine. Wonder if that dodge works now getting dicky meat off the train at Clonsilla.
+
+Who sold the cattle at about twentyseven quid each. Bloom worked for him once, and was given the order of the boot for it.
+
+## original-en · james-mccann · 6:204
+
+Their eyes watched him. On the slow weedy waterway he had floated on his raft coastward over Ireland drawn by a haulage rope past beds of reeds, over slime, mudchoked bottles, carrion dogs. Athlone, Mullingar, Moyvalley, I could make a walking tour to see Milly by the canal. Or cycle down. Hire some old crock, safety. Wren had one the other day at the auction but a lady’s. Developing waterways. James M’Cann’s hobby to row me o’er the ferry. Cheaper transit. By easy stages. Houseboats. Camping out. Also hearses. To heaven by water. Perhaps I will without writing. Come as a surprise, Leixlip, Clonsilla. Dropping down lock by lock to Dublin. With turf from the midland bogs. Salute. He lifted his brown straw hat, saluting Paddy Dignam.
+
+Whose hobby is developing the waterways — to row me o’er the ferry. Not the McCann of Stephen’s list of debts.
+
+## original-en · wren · 6:204
+
+Their eyes watched him. On the slow weedy waterway he had floated on his raft coastward over Ireland drawn by a haulage rope past beds of reeds, over slime, mudchoked bottles, carrion dogs. Athlone, Mullingar, Moyvalley, I could make a walking tour to see Milly by the canal. Or cycle down. Hire some old crock, safety. Wren had one the other day at the auction but a lady’s. Developing waterways. James M’Cann’s hobby to row me o’er the ferry. Cheaper transit. By easy stages. Houseboats. Camping out. Also hearses. To heaven by water. Perhaps I will without writing. Come as a surprise, Leixlip, Clonsilla. Dropping down lock by lock to Dublin. With turf from the midland bogs. Salute. He lifted his brown straw hat, saluting Paddy Dignam.
+
+The auctioneer at whose sale there was an old crock of a safety bicycle the other day, but a lady’s — in Bloom’s plan for cycling down the canal to see Milly. The modern edition drops the sentence.
+
+## original-en · fogarty · 6:206
+
+—I wonder how is our friend Fogarty getting on, Mr Power said.
+
+Our friend Fogarty, whom Mr Power wonders about and Mr Dedalus says to ask Tom Kernan about: though lost to sight, to memory dear — which means Kernan owes him money.
+
+## original-en · jimmy-geary · 6:213
+
+On the curbstone before Jimmy Geary, the sexton’s, an old tramp sat, grumbling, emptying the dirt and stones out of his huge dustbrown yawning boot. After life’s journey.
+
+The sexton, before whose door an old tramp sat emptying the dirt and stones out of his boot. After life’s journey.
+
+## original-en · childs · 6:216
+
+—That is where Childs was murdered, he said. The last house.
+
+Murdered in the last house of the gloomy gardens. His brother was tried for it and Seymour Bushe got him off; the crown had no evidence, only circumstantial. A later episode gives the name: Samuel Childs.
+
+## original-en · seymour-bushe · 6:217
+
+—So it is, Mr Dedalus said. A gruesome case. Seymour Bushe got him off. Murdered his brother. Or so they said.
+
+The K.C. who got him off, and whose polished periods the newspaper men remember in episode 7.
+
+## original-en · mrs-riordan · 6:178
+
+As they turned into Berkeley street a streetorgan near the Basin sent over and after them a rollicking rattling song of the halls. Has anybody here seen Kelly? Kay ee double ell wy. Dead March from _Saul._ He’s as bad as old Antonio. He left me on my ownio. Pirouette! The _Mater Misericordiae_. Eccles street. My house down there. Big place. Ward for incurables there. Very encouraging. Our Lady’s Hospice for the dying. Deadhouse handy underneath. Where old Mrs Riordan died. They look terrible the women. Her feeding cup and rubbing her mouth with the spoon. Then the screen round her bed for her to die. Nice young student that was dressed that bite the bee gave me. He’s gone over to the lying-in hospital they told me. From one extreme to the other.
+
+Who died in Our Lady’s Hospice for the dying: her feeding cup, and the screen round her bed for her to die. Molly knew her at the City Arms hotel.
+
+## original-en · mesias · 6:341
+
+Nice soft tweed Ned Lambert has in that suit. Tinge of purple. I had one like that when we lived in Lombard street west. Dressy fellow he was once. Used to change three suits in the day. Must get that grey suit of mine turned by Mesias. Hello. It’s dyed. His wife I forgot he’s not married or his landlady ought to have picked out those threads for him.
+
+The tailor who is to turn Bloom’s grey suit. One in a million, Bloom calls him later.
+
+## original-en · alderman-hooper · 6:376
+
+A bird sat tamely perched on a poplar branch. Like stuffed. Like the wedding present alderman Hooper gave us. Hoo! Not a budge out of him. Knows there are no catapults to let fly at him. Dead animal even sadder. Silly-Milly burying the little dead bird in the kitchen matchbox, a daisychain and bits of broken chainies on the grave.
+
+Who gave the Blooms a stuffed bird as a wedding present. Not the Paddy Hooper of the newspaper office.
+
+## original-en · robert-emery · 6:383
+
+Who lives there? Are laid the remains of Robert Emery. Robert Emmet was buried here by torchlight, wasn’t he? Making his rounds.
+
+Whose remains are laid in the crypt where the rat goes in — and whose name sets Bloom thinking of the other Robert, buried here by torchlight.
+
+## original-en · robert-emmet · 6:383
+
+Who lives there? Are laid the remains of Robert Emery. Robert Emmet was buried here by torchlight, wasn’t he? Making his rounds.
+
+Who was buried here by torchlight, wasn’t he? His last words come back to Bloom in episode 11, in a shop window with seven last words.
+
+## original-en · mrs-sinico · 6:386
+
+The gates glimmered in front: still open. Back to the world again. Enough of this place. Brings you a bit nearer every time. Last time I was here was Mrs Sinico’s funeral. Poor papa too. The love that kills. And even scraping up the earth at night with a lantern like that case I read of to get at fresh buried females or even putrefied with running gravesores. Give you the creeps after a bit. I will appear to you after death. You will see my ghost after death. My ghost will haunt you after death. There is another world after death named hell. I do not like that other world she wrote. No more do I. Plenty to see and hear and feel yet. Feel live warm beings near you. Let them sleep in their maggoty beds. They are not going to get me this innings. Warm beds: warm fullblooded life.
+
+At whose funeral Bloom was last in this cemetery. Emily Sinico, accidentally killed at Sydney Parade railway station.
+
+## original-en · ellen-bloom · 6:348
+
+Does he ever think of the hole waiting for himself? They say you do when you shiver in the sun. Someone walking over it. Callboy’s warning. Near you. Mine over there towards Finglas, the plot I bought. Mamma, poor mamma, and little Rudy.
+
+Mamma, poor mamma, buried in the plot he bought towards Finglas, with little Rudy. She is not named in this episode.
+
+## original-en · prince-albert · 6:247
+
+He looked down at the boots he had blacked and polished. She had outlived him. Lost her husband. More dead for her than for me. One must outlive the other. Wise men say. There are more women than men in the world. Condole with her. Your terrible loss. I hope you’ll soon follow him. For Hindu widows only. She would marry another. Him? No. Yet who knows after. Widowhood not the thing since the old queen died. Drawn on a guncarriage. Victoria and Albert. Frogmore memorial mourning. But in the end she put a few violets in her bonnet. Vain in her heart of hearts. All for a shadow. Consort not even a king. Her son was the substance. Something new to hope for not like the past she wanted back, waiting. It never comes. One must go first: alone, under the ground: and lie no more in her warm bed.
+
+The prince consort, with Victoria on the guncarriage and at the Frogmore memorial: consort not even a king, in Bloom’s account of the old queen’s widowhood. Her son was the substance.
+
+## original-en · lazarus · 6:296
+
+Your heart perhaps but what price the fellow in the six feet by two with his toes to the daisies? No touching that. Seat of the affections. Broken heart. A pump after all, pumping thousands of gallons of blood every day. One fine day it gets bunged up: and there you are. Lots of them lying around here: lungs, hearts, livers. Old rusty pumps: damn the thing else. The resurrection and the life. Once you are dead you are dead. That last day idea. Knocking them all up out of their graves. Come forth, Lazarus! And he came fifth and lost the job. Get up! Last day! Then every fellow mousing around for his liver and his lights and the rest of his traps. Find damn all of himself that morning. Pennyweight of powder in a skull. Twelve grammes one pennyweight. Troy measure.
+
+Come forth, Lazarus! And he came fifth and lost the job — Bloom’s answer to the resurrection and the life.
+
+## original-en · robinson-crusoe · 6:337
+
+Burying him. We come to bury Cæsar. His ides of March or June. He doesn’t know who is here nor care. Now who is that lankylooking galoot over there in the macintosh? Now who is he I’d like to know? Now I’d give a trifle to know who he is. Always someone turns up you never dreamt of. A fellow could live on his lonesome all his life. Yes, he could. Still he’d have to get someone to sod him after he died though he could dig his own grave. We all do. Only man buries. No, ants too. First thing strikes anybody. Bury the dead. Say Robinson Crusoe was true to life. Well then Friday buried him. Every Friday buries a Thursday if you come to look at it.
+
+Say Robinson Crusoe was true to life: then Friday buried him. Only man buries — no, ants too.
+
+## original-en · crusoe-friday · 6:337
+
+Burying him. We come to bury Cæsar. His ides of March or June. He doesn’t know who is here nor care. Now who is that lankylooking galoot over there in the macintosh? Now who is he I’d like to know? Now I’d give a trifle to know who he is. Always someone turns up you never dreamt of. A fellow could live on his lonesome all his life. Yes, he could. Still he’d have to get someone to sod him after he died though he could dig his own grave. We all do. Only man buries. No, ants too. First thing strikes anybody. Bury the dead. Say Robinson Crusoe was true to life. Well then Friday buried him. Every Friday buries a Thursday if you come to look at it.
+
+Who buried him. The second Friday in the sentence is the day of the week, and carries no card.
+
 ## modern-en · stephen · 1:3
 
 —Come up, Kinch! Come up, you cowardly Jesuit!
@@ -2046,7 +2412,7 @@ Richie’s brother, named in Stephen’s father’s catalogue of the family he m
 
 His pace slackened. Here. Am I going to Aunt Sara's or not? My father's voice — my real, flesh-and-blood father's voice. Did you see anything of your artist brother Stephen lately? No? Sure he's not down in Strasburg Terrace with his Aunt Sally? Couldn't he aim a bit higher than that, eh? And and and and tell us, Stephen, how is Uncle Si? Oh, weeping God, the family I married into! The boys up in the hayloft. The drunken little penny-pincher and his brother the cornet player. Very respectable indeed! And cross-eyed Walter calling his father 'sir,' no less! Sir. Yes, sir. No, sir. Jesus wept: and no wonder, by Christ!
 
-Stephen’s father, present in this episode only as the voice in his son’s head — my consubstantial father’s voice — mimicking the Gouldings and asking, and and and and tell us, Stephen, how is uncle Si. The man himself comes into the book in episode 6.
+Stephen’s father, present in this episode only as the voice in his son’s head — my consubstantial father’s voice — mimicking the Gouldings and asking, and and and and tell us, Stephen, how is uncle Si. In episode 6 he is in the funeral carriage all morning, and from there on every Mr Dedalus and every bare Dedalus in the book is him and not his son.
 
 ## modern-en · florence-maccabe · 3:6
 
@@ -2929,3 +3295,369 @@ For example too, among the old popes keen on music and art and statues and pictu
 Martha, Mary. I saw that painting somewhere, I forget now — old master or a fake done for money. He is sitting in their house, talking. Mysterious. The two rough girls in the Coombe would listen too.
 
 The two sisters of Bethany, in whose house Christ sat talking — the picture Bloom half remembers when his correspondent’s name slides into the gospel: old master or faked for money. He is sitting in their house, talking. Mysterious.
+
+## modern-en · peeping-woman · 6:6
+
+Mr Bloom entered and sat in the vacant place. He pulled the door shut after him and slammed it twice till it closed tight. He passed an arm through the hanging strap and looked seriously from the open carriage window at the drawn blinds of the avenue. One pulled aside: an old woman peeping. Nose flattened white against the pane. Thankful she's been spared. Extraordinary the interest they take in a corpse. Glad to see us go — we give them such trouble coming into the world. Job seems to suit them. Whispering in corners. Shuffling about in slippers so as not to wake him. Then getting him ready. Laying him out. Molly and Mrs Fleming making the bed. Pull it more to your side. Our winding sheet. You never know who will touch you when you're dead. Wash and shampoo. I believe they clip the nails and the hair. Keep a bit in an envelope. Hair still grows afterward, they say. Unpleasant job.
+
+Who drags her blind aside as the funeral leaves Newbridge avenue, her nose whiteflattened against the pane, thanking her stars she was passed over. Extraordinary the interest they take in a corpse, Bloom thinks: glad to see us go, we give them such trouble coming.
+
+## modern-en · jack-power · 6:0
+
+Martin Cunningham, first, poked his silk-hatted head into the creaking carriage and, entering deftly, seated himself. Mr Power stepped in after him, stooping his tall frame with care.
+
+Jack Power, the fourth man in the carriage: goodlooking, greyish over the ears, and the one who says out loud that the worst of all is the man who takes his own life, not knowing whose father did. Bloom has heard he keeps a barmaid from Jury’s or the Moira. Mr Dedalus calls him Jack at the graveside.
+
+## modern-en · mrs-fleming · 6:6
+
+Mr Bloom entered and sat in the vacant place. He pulled the door shut after him and slammed it twice till it closed tight. He passed an arm through the hanging strap and looked seriously from the open carriage window at the drawn blinds of the avenue. One pulled aside: an old woman peeping. Nose flattened white against the pane. Thankful she's been spared. Extraordinary the interest they take in a corpse. Glad to see us go — we give them such trouble coming into the world. Job seems to suit them. Whispering in corners. Shuffling about in slippers so as not to wake him. Then getting him ready. Laying him out. Molly and Mrs Fleming making the bed. Pull it more to your side. Our winding sheet. You never know who will touch you when you're dead. Wash and shampoo. I believe they clip the nails and the hair. Keep a bit in an envelope. Hair still grows afterward, they say. Unpleasant job.
+
+Who comes in to clean at Eccles street, made the bed with Molly, and did not darn Bloom’s socks well enough.
+
+## modern-en · ignatius-gallaher · 6:24
+
+Richie Goulding and the legal bag. Goulding, Collis and Ward he calls the firm. His jokes are getting stale. Great character he was. Waltzing in Stamer Street with Ignatius Gallaher on a Sunday morning, the landlady's two hats pinned on his head. Out on a bender all night. Beginning to tell on him now: that bad back of his, I fear. Wife rubbing his back. Thinks he'll cure it with pills. All placebos they are. About six hundred percent profit.
+
+With whom Richie Goulding waltzed in Stamer street of a Sunday morning, the landlady’s two hats pinned on his head. The newspaper men of episode 7 remember him as the man who paralysed Europe.
+
+## modern-en · peter-paul-mswiney · 6:27
+
+—I won't have her bastard of a nephew ruin my son. A shopkeeper's son. Selling ribbon and tape in my cousin Peter Paul M'Swiney's shop. Not likely.
+
+Mr Dedalus’s cousin, in whose shop a counterjumper’s son sold tapes — the whole of his case against Mulligan.
+
+## modern-en · ned-lambert · 6:46
+
+—Yes, Mr Bloom answered. He's behind with Ned Lambert and Hynes.
+
+One of the mourners behind, who was down for the Cork park races and stopped with Dick Tivy, tells Mr Dedalus who is walking in front, and tells John Henry Menton who Bloom is.
+
+## modern-en · joe-hynes · 6:46
+
+—Yes, Mr Bloom answered. He's behind with Ned Lambert and Hynes.
+
+The reporter, who walks behind with Ned Lambert and takes the names at the graveside for the paper — and takes down M’Intosh as a name because Bloom said macintosh. He asks the others to go round by the chief’s grave.
+
+## modern-en · paddy-leonard · 6:65
+
+—Tom Kernan was hilarious last night, he said. And Paddy Leonard doing an impression of him to his face.
+
+Who was taking Tom Kernan off to his face last night.
+
+## modern-en · ben-dollard · 6:66
+
+—Oh, draw him out, Martin, Mr Power said eagerly. Wait till you hear him, Simon, on Ben Dollard's singing of The Croppy Boy.
+
+Whose singing of The Croppy Boy Tom Kernan called the most trenchant rendering he ever heard in the whole course of his experience.
+
+## modern-en · dan-dawson · 6:69
+
+—Did you read Dan Dawson's speech? Martin Cunningham asked.
+
+Whose speech is in the paper this morning, and which Mr Dedalus refuses to have read out to him in a carriage. The newspaper office takes it apart in episode 7.
+
+## modern-en · eugene-stratton · 6:80
+
+They went past the bleak facade of Saint Mark's Church, under the railway bridge, past the Queen's Theatre: in silence. Billboards: Eugene Stratton the minstrel, Mrs Bandmann Palmer. Could I go to see Leah tonight, I wonder. I said I would. Or The Lily of Killarney? Elster Grimes Opera Company. Big powerful change of program. Wet bright posters for next week. Fun on the Bristol. Martin Cunningham could get a free pass for the Gaiety Theatre. Have to buy a drink or two in return. Six of one, half a dozen of the other.
+
+On the hoardings past the Queen’s theatre, and on them again for Father Conmee in episode 10.
+
+## modern-en · philip-crampton · 6:82
+
+Plasto's hat shop. Sir Philip Crampton's memorial fountain bust. Who was he?
+
+Whose memorial fountain bust they pass. Who was he? — which is the whole of Bloom’s thought about him.
+
+## modern-en · mary-anderson · 6:96
+
+—Quite so, Martin Cunningham said. Mary Anderson is performing up there now.
+
+Who is up in Belfast now, in Martin Cunningham’s one contribution to the talk about the concert tour.
+
+## modern-en · louis-werner · 6:98
+
+—Louis Werner is managing her tour, Mr Bloom said. Oh yes, we'll have all the top names. J. C. Doyle and John MacCormack I hope, and. The best, in fact.
+
+Who is touring Molly.
+
+## modern-en · john-mccormack · 6:98
+
+—Louis Werner is managing her tour, Mr Bloom said. Oh yes, we'll have all the top names. J. C. Doyle and John MacCormack I hope, and. The best, in fact.
+
+Whom Bloom hopes to have among the topnobbers, with J. C. Doyle.
+
+## modern-en · smith-obrien · 6:100
+
+Mr Bloom unclasped his hands in a gesture of soft politeness and clasped them again. Smith O'Brien's statue. Someone has laid a bunch of flowers there. A woman. Must be his death anniversary. For many happy returns. The carriage wheeling past Farrell's statue pressed noiselessly their unresisting knees together.
+
+Whose statue has a bunch of flowers laid at it. Must be his deathday, Bloom thinks: for many happy returns.
+
+## modern-en · ocallaghan · 6:101
+
+Oot: a shabbily dressed old man from the curbstone offered his wares, his mouth opening: oot.
+
+The old man at the curbstone selling four bootlaces for a penny, struck off the rolls, who had his office in Hume street and has had the silk hat ever since. Relics of old decency. On his last legs.
+
+## modern-en · waterford-tweedy · 6:103
+
+Wonder why he was struck off the lawyers' roll. Had his office in Hume Street. Same house as Molly's namesake, Tweedy, crown solicitor for Waterford. Has had that silk hat ever since. Relics of former respectability. In mourning too. Terrible comedown, poor wretch! Kicked around like snuff at a wake. O'Callaghan on his last legs.
+
+Molly’s namesake, who had his office in the same house. Not her father.
+
+## modern-en · crofton · 6:105
+
+His eyes passed lightly over Mr Power's good-looking face. Going grey over the ears. Madame: smiling. I smiled back. A smile goes a long way. Only politeness, perhaps. Nice fellow. Who knows if that story about the woman he keeps is true? Not pleasant for the wife. Yet they say — who was it told me? — there's nothing physical going on. You'd think that would get old pretty quick. Yes, it was Crofton who met him one evening bringing her a pound of rump steak. What was she before? Barmaid in Jury's Hotel. Or the Moira, was it?
+
+Who met Mr Power one evening bringing his woman a pound of rumpsteak — the only evidence Bloom has for the story.
+
+## modern-en · john-gray · 6:113
+
+Mr Power, collapsing in laughter, shaded his face from the window as the carriage passed Grey's statue.
+
+Whose statue the carriage passes while Mr Power collapses in laughter.
+
+## modern-en · nelson · 6:139
+
+Nelson's Pillar.
+
+Whose pillar they pass. Horatio onehandled Nelson, as episode 11 has him.
+
+## modern-en · father-mathew · 6:155
+
+Dead side of the street, this. Dull business by day: land agents, temperance hotel, Falconer's Railway Guide, civil service college, Gill's bookshop, Catholic club, the workshop for the blind. Why? Some reason. Sun or wind. At night too. Prostitutes and servant girls. Under the patronage of the late Father Mathew, the temperance crusader. Foundation stone for the Parnell monument. Heart failure. Heart.
+
+The temperance apostle, under whose patronage the dead side of the street stands, with the foundation stone for Parnell beside it.
+
+## modern-en · reuben-j · 6:108
+
+—Of the tribe of Reuben, he said.
+
+Reuben J Dodd, the moneylender, stumping round the corner of Elvery’s on a stick — of the tribe of Reuben, Martin Cunningham says, and the carriage enjoys him. He gave the boatman who fished his son out of the Liffey a florin, which Mr Dedalus calls one and eightpence too much. Mr Dedalus also calls him Barabbas, after the robber released instead of Christ, and does so again in episode 10.
+
+## modern-en · reuben-son · 6:118
+
+—That's an awfully good one going the rounds about Reuben J. and the son.
+
+The young chiseller, whom his father was sending to the Isle of Man out of harm’s way over a girl, and who got loose on the quay and went over the wall into the river.
+
+## modern-en · liffey-boatman · 6:131
+
+—Dead! Martin Cunningham cried. Not he! A boatman got a pole and fished him out by the seat of his pants and he was hauled up to the father on the quay more dead than alive. Half the town was there.
+
+Who got a pole and fished him out by the slack of the breeches and landed him up to the father more dead than alive. Half the town was there. A silver florin.
+
+## modern-en · john-henry-menton · 6:256
+
+—Yes, Ned Lambert said, with the wife's brother. John Henry Menton is behind. He put his name down for a pound.
+
+Solicitor, commissioner for oaths and affidavits, in whose office Dignam used to be. He danced with Molly at Mat Dillon’s seventeen golden years ago and has disliked Bloom ever since an evening at bowls, and asks Ned Lambert in God’s name what she married a coon like that for. Bloom points out the dinge in his hat and gets a short thank you.
+
+## modern-en · mat-dillon · 6:306
+
+—Oh, of course, John Henry Menton said. I haven't seen her for some time. She was a fine-looking woman. I danced with her — wait — fifteen, seventeen years ago, at Mat Dillon's in Roundtown. And a good armful she was.
+
+Jolly Mat of Roundtown, in whose house Molly and Menton danced: convivial evenings, cold fowl, cigars, the Tantalus glasses. Heart of gold really.
+
+## modern-en · floey-dillon · 6:388
+
+Solicitor, I think. I know his face. Menton. John Henry Menton, solicitor, commissioner for oaths and affidavits. Dignam used to be in his office. Mat Dillon's house, long ago. Jolly Mat. Convivial evenings. Cold chicken, cigars, the locked liquor cabinet. Heart of gold, really. Yes, Menton. Got angry that evening on the bowling green because I beat him. Pure fluke on my part: the bias of the bowl. Why he took such a rooted dislike to me. Hate at first sight. Molly and Floey Dillon linked arm in arm under the lilac tree, laughing. Type of fellow who's always mortified if women are around.
+
+Linked with Molly under the lilactree, laughing, on the same evening.
+
+## modern-en · wisdom-hely · 6:310
+
+—Yes, he was, he said, in Wisdom Hely's. A traveling salesman for blotting paper.
+
+The stationer Bloom travelled for, in blottingpaper.
+
+## modern-en · dick-tivy · 6:250
+
+—I was down there for the Cork Park races on Easter Monday, Ned Lambert said. Same old story. Stayed with Dick Tivy.
+
+The solid man of Cork, with whom Ned Lambert stopped for the races, and who has nothing between himself and heaven — which is Ned Lambert’s way of saying he is bald.
+
+## modern-en · dignam-son · 6:226
+
+He followed his companions. Mr Kernan and Ned Lambert followed, Hynes walking after them. Corny Kelleher stood by the opened hearse and took out the two wreaths. He handed one to the boy.
+
+Paddy Dignam’s eldest, in a brandnew collar, sleekcombed, who carries one of the two wreaths, is beckoned to kneel by Corny Kelleher, and stands at the gravehead holding it with both hands. Martin Cunningham is trying to get him into Artane. He has episode 10 to himself, carrying home a pound and a half of porksteaks.
+
+## modern-en · dignam-brother-in-law · 6:231
+
+The pallbearers shouldered the coffin and bore it in through the gates. So much dead weight. Felt heavier myself stepping out of that bath. First the stiff: then the friends of the stiff. Corny Kelleher and the boy followed with their wreaths. Who is that beside them? Ah, the brother-in-law.
+
+Who walks beside the boy, carries the other wreath, and at the end places something in the gravedigger’s free hand.
+
+## modern-en · mrs-dignam · 6:244
+
+—A great blow to the poor wife, Mr Kernan added.
+
+Left with five young children and a policy heavily mortgaged. A great blow to the poor wife, Mr Kernan says, and Bloom thinks: she had outlived him.
+
+## modern-en · father-coffey · 6:264
+
+Father Coffey. I knew his name was like a coffin. Lord have mercy upon us. Bulldog face he has. Runs the whole show. Muscular Christian. God help anyone who crosses him: priest. Thou art Peter. Going to burst out of his vestments sideways like a sheep full of clover, Dedalus says he will. With a belly on him like a poisoned pup. Most amusing descriptions that man comes up with. Hhhn: burst sideways.
+
+Who reads the service over the coffin in a fluent croak. I knew his name was like a coffin, Bloom thinks: bully about the muzzle, bosses the show, with a belly on him like a poisoned pup. Not the Coffey the butcher of episode 8.
+
+## modern-en · mortuary-server · 6:262
+
+An altar server carrying a brass bucket with something in it came out through a door. The white-robed priest came after him, adjusting his stole with one hand, balancing a small book against his paunch with the other. Who'll read the book? I, said the rook.
+
+The boy who carries the brass bucket in before the priest, pipes the answers in the treble, and holds the bucket while the priest shakes the thing over the coffin.
+
+## modern-en · mervyn-browne · 6:266
+
+Makes them feel more important to be prayed over in Latin. Requiem mass. Black mourning bands. Black-bordered notepaper. Your name on the altar list. Chilly place, this. Need to eat well, sitting in here all morning in the gloom, kicking his heels waiting for the next one, please. Eyes of a toad too. What swells him up like that? Molly gets bloated after cabbage. The atmosphere of the place, maybe. Looks full of bad gas. Must be a terrible lot of gas from decomposition around here. Butchers, for instance: they come to look like raw beefsteaks. Who was telling me? Mervyn Browne. Down in the vaults of Saint Werburgh's, lovely old organ, a hundred and fifty years old — they have to bore a hole in the coffins sometimes to let out the gas and burn it off. Out it rushes: blue. One whiff of that and you're a goner.
+
+Who told Bloom that down in the vaults of saint Werburgh’s they have to bore a hole in the coffins sometimes to let out the bad gas.
+
+## modern-en · john-oconnell · 6:315
+
+—John O'Connell, Mr Power said, pleased. He never forgets a friend.
+
+The caretaker of Glasnevin: a portly man ambushed among the grasses who never forgets a friend, shakes all their hands in silence, and tells the story of the two drunks and Mulcahy from the Coombe. Keys at his back, and a prosperous bulk Bloom admires. Not Daniel O’Connell, whose circle they are standing in.
+
+## modern-en · terence-mulcahy · 6:320
+
+—Did you hear that one, he asked them, about Mulcahy from the Coombe?
+
+From the Coombe, whose grave the two drunks found in the fog, and whose widow had put up a statue of Our Saviour over it. Not a bloody bit like the man, said the second drunk. That’s not Mulcahy, whoever done it.
+
+## modern-en · mulcahy-widow · 6:323
+
+—They tell the story, he said, that two drunks came out here one foggy evening to look for the grave of a friend of theirs. They asked for Mulcahy from the Coombe and were told where he was buried. After stumbling about in the fog they found the grave sure enough. One of the drunks spelled out the name: Terence Mulcahy. The other drunk was blinking up at a statue of our Lord that the widow had erected.
+
+Who had the statue put up.
+
+## modern-en · major-gamble · 6:331
+
+He has seen a fair number go under in his time, lying around him field after field. Holy fields. More room if they buried them standing. Sitting or kneeling, you couldn't. Standing? His head might poke up someday after a landslip, his hand pointing. All honeycombed the ground must be: rectangular cells. And very tidy he keeps it too: trimmed grass and edgings. His garden, Major Gamble calls Mount Jerome Cemetery. Well, so it is. Ought to have flowers of sleep — poppies. Chinese cemeteries with giant poppies produce the best opium, Mastiansky told me. The Botanic Gardens are just over there. It's the blood sinking into the earth that gives new life. Same idea behind the old story that Jews killed Christian children for blood. Every man has his price. Well-preserved fat corpse: gentleman, gourmet, invaluable for fruit garden. A bargain. Carcass of William Wilkinson, auditor and accountant, lately deceased, three pounds thirteen and six. With thanks.
+
+Who calls Mount Jerome his garden — the protestant cemetery on the other side of the city.
+
+## modern-en · spurgeon · 6:333
+
+But they must breed a devil of a lot of maggots. The soil must be simply swarming with them. Your head it simply swirls. Those pretty little seaside girls. The caretaker looks cheerful enough about it. Gives him a sense of power, seeing all the others go under first. Wonder how he views life. Cracking his jokes too: warms the cockles of his heart. The one about the death notice. Spurgeon went to heaven 4 a.m. this morning. 11 p.m. (closing time). Not arrived yet. Saint Peter. The dead themselves — the men anyway — would like to hear an odd joke, or the women to know what's in fashion. A juicy pear or ladies' punch, hot, strong and sweet. Keep out the damp. You have to laugh sometimes, so better do it that way. Gravediggers in Hamlet. Shows Shakespeare's profound knowledge of the human heart. Daren't joke about the dead for two years at least. Of the dead say nothing unless it was true first. Get out of mourning first. Hard to imagine his own funeral. Seems a sort of joke. They say if you read your own obituary notice you live longer. Gives you a second wind. New lease of life.
+
+Of the caretaker’s other joke, the one about the bulletin: Spurgeon went to heaven 4 a.m. this morning. 11 p.m. (closing time). Not arrived yet. Peter.
+
+## modern-en · macintosh · 6:359
+
+—Mackintosh. Yes, I saw him, Mr Bloom said. Where is he now?
+
+The thirteenth man at the graveside, a lankylooking galoot in a macintosh who was not in the chapel and whom nobody knows. Bloom says the word for the coat; Hynes writes it down as a name, and it is the name he keeps for the rest of the book.
+
+## modern-en · louis-byrne · 6:356
+
+So he was, before he got the job in the morgue under Louis Byrne. Good idea, a post-mortem, for doctors. Find out what they only think they know. He died on a Tuesday. Got fired. Ran off with the cash from a few advertisements. Charley, you're my darling. That's why he asked me to sign him in. Oh well, does no harm. I did him that favor. M'Coy. Thanks, old chap: much obliged. Put him under an obligation: costs nothing.
+
+Under whom M’Coy got the job in the morgue after the Freeman.
+
+## modern-en · joe-cuffe · 6:184
+
+Thursday, of course. Tomorrow is slaughtering day. Young cattle. Cuffe sold them for about twenty-seven pounds each. For Liverpool probably. Roast beef for old England. They buy up all the best ones. And then the fifth quarter lost: all that raw material — hide, hair, horns. Adds up to a lot in a year. Dead meat trade. Byproducts of the slaughterhouses for tanneries, soap, margarine. Wonder if that trick still works of getting bad meat off the train at Clonsilla.
+
+Who sold the cattle at about twentyseven quid each. Bloom worked for him once, and was given the order of the boot for it.
+
+## modern-en · james-mccann · 6:204
+
+Their eyes watched him. On the slow weedy waterway he had floated on his raft inland across Ireland, drawn by a hauling rope past beds of reeds, over slime, mud-choked bottles, dead dogs. Athlone, Mullingar, Moyvalley. I could make a walking tour to see Milly by the canal. Or cycle down. Hire some old bicycle, a lady's model. Developing waterways. James M'Cann's hobby, to row him across the ferry. Cheaper transport. In easy stages. Houseboats. Camping out. Also hearses — to heaven by water. Perhaps I'll go without writing first. Come as a surprise. Leixlip, Clonsilla. Dropping down lock by lock to Dublin. With turf from the midland bogs. Salute. He lifted his brown straw hat, saluting Paddy Dignam.
+
+Whose hobby is developing the waterways — to row me o’er the ferry. Not the McCann of Stephen’s list of debts.
+
+## modern-en · wren · 15:859
+
+BELLO: _(Cuttingly.)_ Their heelmarks will stamp the Brusselette carpet you bought at Wren’s auction. In their horseplay with Moll the romp to find the buck flea in her breeches they will deface the little statue you carried home in the rain for art for art’s sake. They will violate the secrets of your bottom drawer. Pages will be torn from your handbook of astronomy to make them pipespills. And they will spit in your ten shilling brass fender from Hampton Leedom’s.
+
+The auctioneer at whose sale there was an old crock of a safety bicycle the other day, but a lady’s — in Bloom’s plan for cycling down the canal to see Milly. The modern edition drops the sentence.
+
+## modern-en · fogarty · 6:206
+
+—I wonder how our friend Fogarty is getting on, Mr Power said.
+
+Our friend Fogarty, whom Mr Power wonders about and Mr Dedalus says to ask Tom Kernan about: though lost to sight, to memory dear — which means Kernan owes him money.
+
+## modern-en · jimmy-geary · 6:213
+
+On the curbstone before Jimmy Geary the sexton's house, an old tramp sat grumbling, emptying the dirt and stones out of his huge dusty brown yawning boot. After life's journey.
+
+The sexton, before whose door an old tramp sat emptying the dirt and stones out of his boot. After life’s journey.
+
+## modern-en · childs · 6:216
+
+—That is where Childs was murdered, he said. The last house.
+
+Murdered in the last house of the gloomy gardens. His brother was tried for it and Seymour Bushe got him off; the crown had no evidence, only circumstantial. A later episode gives the name: Samuel Childs.
+
+## modern-en · seymour-bushe · 6:217
+
+—So it is, Mr Dedalus said. A gruesome case. Seymour Bushe got him off. Murdered his brother. Or so they said.
+
+The K.C. who got him off, and whose polished periods the newspaper men remember in episode 7.
+
+## modern-en · mrs-riordan · 6:178
+
+As they turned into Berkeley Street a street organ near the Basin sent after them a rollicking rattling music hall song. Has anybody here seen Kelly? K-E-double-L-Y. Dead March from Saul. He's as bad as old Antonio. He left me on my own. Pirouette! The Mater Misericordiae Hospital. Eccles Street. My house, down there. Big building. Ward for incurables there. Very encouraging. Our Lady's Hospice for the Dying. Mortuary conveniently underneath. Where old Mrs Riordan died. They look terrible, the women. Feeding her with a cup and wiping her mouth with the spoon. Then the screen round her bed for her to die. Nice young medical student that was, who dressed that bee sting I got. He's transferred to the maternity hospital, they told me. From one extreme to the other.
+
+Who died in Our Lady’s Hospice for the dying: her feeding cup, and the screen round her bed for her to die. Molly knew her at the City Arms hotel.
+
+## modern-en · mesias · 6:341
+
+Nice soft tweed Ned Lambert has in that suit. Tinge of purple. I had one like that when we lived in Lombard Street West. Dressy fellow he was once. Used to change three suits in the day. Must get that grey suit of mine turned inside out by Mesias the tailor. Hello. It's been re-dyed. His wife — I forgot, he's not married — or his landlady ought to have picked out those threads for him.
+
+The tailor who is to turn Bloom’s grey suit. One in a million, Bloom calls him later.
+
+## modern-en · alderman-hooper · 6:376
+
+A bird sat tamely perched on a poplar branch. Like a stuffed bird. Like the wedding present Alderman Hooper gave us. Hoo! Not a budge out of him. Knows there are no catapults to let fly at him. Dead animal even sadder. Silly Milly burying the little dead bird in the kitchen matchbox, a daisy chain and bits of broken crockery on the grave.
+
+Who gave the Blooms a stuffed bird as a wedding present. Not the Paddy Hooper of the newspaper office.
+
+## modern-en · robert-emery · 6:383
+
+Who lies there? Are laid the remains of Robert Emery. Robert Emmet the patriot was buried here by torchlight, wasn't he? Making his rounds.
+
+Whose remains are laid in the crypt where the rat goes in — and whose name sets Bloom thinking of the other Robert, buried here by torchlight.
+
+## modern-en · robert-emmet · 6:383
+
+Who lies there? Are laid the remains of Robert Emery. Robert Emmet the patriot was buried here by torchlight, wasn't he? Making his rounds.
+
+Who was buried here by torchlight, wasn’t he? His last words come back to Bloom in episode 11, in a shop window with seven last words.
+
+## modern-en · mrs-sinico · 6:386
+
+The gates glimmered ahead: still open. Back to the world again. Enough of this place. Brings you a bit nearer every time. Last time I was here was Mrs Sinico's funeral. Poor Papa too. The love that kills. And even scraping up the earth at night with a lantern, like that case I read of, to get at fresh-buried females — or even decomposed ones with running sores. Gives you the creeps after a while. I will appear to you after death. You will see my ghost after death. My ghost will haunt you after death. There is another world after death named hell. 'I do not like that other world,' she wrote — Martha. No more do I. Plenty to see and hear and feel yet. Feel live warm beings near you. Let them sleep in their maggoty beds. They are not going to get me this time round. Warm beds: warm full-blooded life.
+
+At whose funeral Bloom was last in this cemetery. Emily Sinico, accidentally killed at Sydney Parade railway station.
+
+## modern-en · ellen-bloom · 6:348
+
+Does the caretaker ever think of the hole waiting for himself? They say you do when you shiver in the sun. Someone walking over your grave. A death warning. Near you. Mine is over there toward Finglas, the plot I bought. Mamma, poor Mamma, and little Rudy.
+
+Mamma, poor mamma, buried in the plot he bought towards Finglas, with little Rudy. She is not named in this episode.
+
+## modern-en · prince-albert · 6:247
+
+He looked down at the boots he had blacked and polished. She had outlived him. Lost her husband. More dead for her than for me. One must outlive the other. Wise men say. There are more women than men in the world. Sympathize with her. Your terrible loss. I hope you'll soon follow him. That's only for Hindu widows. She would marry again. Him? No. Yet who knows afterward. Widowhood not the thing since the old Queen died. Drawn on a gun carriage. Victoria and Albert. Frogmore memorial in permanent mourning. But in the end she put a few violets in her bonnet. Vain in her heart of hearts. All for a shadow. Consort, not even a king. Her son was the real thing. Something new to hope for, not like the past she wanted back, waiting. It never comes. One must go first: alone, under the ground: and lie no more in her warm bed.
+
+The prince consort, with Victoria on the guncarriage and at the Frogmore memorial: consort not even a king, in Bloom’s account of the old queen’s widowhood. Her son was the substance.
+
+## modern-en · lazarus · 6:296
+
+Your heart perhaps, but what about the fellow in the six feet by two with his toes to the daisies? No touching that. The heart, seat of the emotions. Broken heart. A pump after all, pumping thousands of gallons of blood every day. One fine day it gets blocked up: and there you are. Lots of them lying around here: lungs, hearts, livers. Old rusty pumps: damn all else. The resurrection and the life. Once you are dead you are dead. That Last Judgment idea. Knocking them all up out of their graves. Come forth, Lazarus! And he came fifth and lost the job. Get up! Last Day! Then every fellow searching around for his liver and his lungs and the rest of his innards. Find damn all of himself that morning. A pennyweight of powder in a skull. Twelve grams, one pennyweight. Troy measure.
+
+Come forth, Lazarus! And he came fifth and lost the job — Bloom’s answer to the resurrection and the life.
+
+## modern-en · robinson-crusoe · 6:337
+
+Burying him. We come to bury Caesar. His Ides of March or June. He doesn't know who is here nor care. Now who is that gaunt-looking fellow over there in the mackintosh? Now who is he? I'd like to know. I'd give a trifle to know who he is. Always someone turns up you never expected. A fellow could live on his own all his life. Yes, he could. Still, he'd have to get someone to bury him after he died — though he could dig his own grave. We all do. Only man buries his dead. No: ants too. First thing that strikes anybody. Bury the dead. Say Robinson Crusoe was true to life. Well then, Friday buried him. Every Friday buries a Thursday, if you think about it.
+
+Say Robinson Crusoe was true to life: then Friday buried him. Only man buries — no, ants too.
+
+## modern-en · crusoe-friday · 6:337
+
+Burying him. We come to bury Caesar. His Ides of March or June. He doesn't know who is here nor care. Now who is that gaunt-looking fellow over there in the mackintosh? Now who is he? I'd like to know. I'd give a trifle to know who he is. Always someone turns up you never expected. A fellow could live on his own all his life. Yes, he could. Still, he'd have to get someone to bury him after he died — though he could dig his own grave. We all do. Only man buries his dead. No: ants too. First thing that strikes anybody. Bury the dead. Say Robinson Crusoe was true to life. Well then, Friday buried him. Every Friday buries a Thursday, if you think about it.
+
+Who buried him. The second Friday in the sentence is the day of the week, and carries no card.

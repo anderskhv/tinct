@@ -1,12 +1,12 @@
 # Ulysses character package — IN PROGRESS
 
-**Episodes 1 to 5 of 18 are authored. The rest are not.** Status stays
+**Episodes 1 to 6 of 18 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole book is
 covered.
 
-Current state: 246 entities authored, 245 bound in the older edition and 243 in
-the modern one, 1,669 and 1,665 exact mentions, 50 focused tests. Content
-revision 2026-09-14.5.
+Current state: 307 entities authored, 306 bound in the older edition and 304 in
+the modern one, 2,208 and 2,211 exact mentions, 59 focused tests. Content
+revision 2026-09-14.6.
 
 ## What is hard about this book
 
@@ -387,6 +387,93 @@ Holohan* for *Hoppy*, and *the Invincibles — the political assassins* for *the
 invincibles*: each is handled by an alias or a phrase on one card, and the card
 says which edition prints which.
 
+## Editorial checks — episode 6 (*Hades*)
+
+The funeral: four men in a carriage across Dublin, then Glasnevin. 402
+paragraphs, 61 new entities, and the largest named cast in the book so far.
+
+**The surname Dedalus changes hands in this episode.** Episodes 1 and 2 key
+*Dedalus* and *Mr Dedalus* to Stephen; from episode 6 every one of them is his
+father Simon, who sits in the carriage all morning. The two tables are merged
+and keyed paragraph by paragraph, with a test asserting the rule: chapters 1 and
+2 give Stephen, chapter 6 gives Simon, and there is no default. **Stephen is in
+this episode and is never named in it** — he is seen once from the carriage
+window as *a lithe young man, clad in mourning* (*a slim young man* in the
+modern edition) and once as *your son and heir*. Both are phrase-bound.
+
+**1. Namesakes.** *Two O'Connells*, and one paragraph that holds both: Daniel
+O'Connell, whose circle and monument the funeral passes, and **John O'Connell,
+the caretaker of Glasnevin**. 6:330 names both four lines apart — *Decent fellow,
+John O'Connell, real good sort* and *Daniel O'Connell must be a descendant I
+suppose* — and is keyed by occurrence. *Tweedy* is three people: Molly's father
+at 4:24, **the crown solicitor for Waterford at 6:103**, who is her namesake and
+nothing else, and Molly herself at 6:305 as *Madame Marion Tweedy that was*.
+*Paddy* is Dignam five times and Paddy Leonard once. *Peter* is Peter Paul
+M'Swiney at 6:27 and the apostle at 6:264 and 6:333. *Friday* at 6:337 is Crusoe's
+Friday and then the day of the week, in one sentence, keyed by occurrence.
+*Goulding* at 6:24 is Richie and then the firm. Eight more are keyed with the
+other bearer in the comment: Gray (a grey beard at 6:330, Gray's confectioner at
+8:336), Cuffe (Cuffe street), Lazarus (Simon Lazarus at 9:174), Albert (Albert
+Edward, prince of Wales), Hooper (Paddy Hooper of the newspaper office), Reuben,
+Barabbas and Charley.
+
+**The thirteenth mourner gets his name from a mistake.** Bloom says *macintosh*,
+meaning the coat; Hynes writes **M'Intosh** in his notebook as a name, and that
+is what the book calls him for the rest of its length. Both spans are bound to
+one card, and the card says which is which. The modern edition spells the
+garment *Mackintosh*.
+
+**2. Person or not.** Not cast: *Athos*, Rudolph Bloom's dog, like the cat and
+Tatters before him; *the Lily of Killarney* at 6:80, an opera; *Brian Boroimhe
+house* at 6:205, a pub; *John Barleycorn* at 6:148, a personification of drink;
+*Thos. H. Dennany, monumental builder and sculptor* at 6:211, a sign; *the
+invincibles*, an organisation; *Has anybody here seen Kelly?* and *old Antonio*
+at 6:178, both songs; *Todd's*, *Artane*, *Mount Jerome* and *Dunphy's*, places.
+The ten names Bloom scans in the death column at 6:74 — Callan, Coleman,
+Fawcett, Lowry, Naumann, Peake, Sexton, Urbright, Quinlan — are **deliberately
+not cast**: they are a column of type he is reading past, and only Dignam among
+them is a person in this book. *The Little Flower* in the same paragraph is a
+devotional formula and is left unbound.
+
+**3. Scriptural and mythological references.** Christ stays uncast, so *Drown
+Barabbas!* at 6:125 carries Reuben J Dodd's card and not the robber's: the point
+is that Mr Dedalus is calling a man a name, and the card says where the name
+comes from. *Come forth, Lazarus! And he came fifth and lost the job* gives
+Lazarus a card; *I am the resurrection and the life* carries none. *His blessed
+mother* at 6:25 is the Virgin, already cast from 3:37. *Thou art Peter* at 6:264
+and *Not arrived yet. Peter.* at 6:333 are the apostle at the gate.
+
+**4. Ambiguous references, deliberately unbound.** *I owe three shillings to
+O'Grady* at 6:260 — Bloom is imagining the dead man's last thoughts, and whose
+debt it is cannot be settled from the text. *Dear Henry fled to his home up above
+in the sky* at 6:75 is a mourning-card verse and not Henry Flower; the next
+paragraph, where Bloom turns the same words on his own pen name, **is** bound.
+*Who is that beside them? Ah, the brother-in-law* is bound on the description;
+*the mutes*, *the gravediggers*, *the pointsman*, *the drover*, *the old tramp*
+and *the hawker* are not, being crowd. *The nice young student that was dressed
+that bite the bee gave me* at 6:178 is Dixon, who is not named until episode 14,
+and is left unbound here.
+
+**5. Spot-read.** Twenty mentions, ten from each edition, read as whole
+sentences; all twenty were right. **The adjacency sweep caught the one real
+error in the episode**: 6:330 was binding both O'Connells to the caretaker.
+
+**6. Both editions independently.** One binding in the older edition and not the
+modern (*Wren* at 6:204, where the modern edition drops the sentence about the
+auction — he still binds in episodes 15 and 17), and six the other way. Five of
+those six are the modern edition **supplying a name Joyce did not write**:
+*Daniel O'Connell* at 6:106 for *the hugecloaked Liberator's form*, again at
+6:277 for the apex of the lofty cone, and again at 6:278 for *old Dan O'*;
+*Madame Bloom* at 6:104 for *And Madame*; and *Shakespeare's* at 6:333 for *Shows
+the profound knowledge of the human heart*. The sixth is *Martha* at 6:386, where
+the modern edition attaches the name to *I do not like that other world, she
+wrote*.
+
+**The italic trap caught a third name.** *That's not Mulcahy, says he* at 6:325
+is set in Gutenberg italics, so the alias reached 6:320 and 6:323 and not that
+one — found, again, by the edition-asymmetry census, because the modern edition
+has no italics there. Keyed, and pinned by a test.
+
 ## Source defects — recorded, not repaired
 
 No edition byte was touched.
@@ -395,14 +482,14 @@ No edition byte was touched.
 |---|---|
 | **The modern edition deletes three of Joyce's allusions** — Chrysostomos at 1:9, Mercury's hat at 1:293, and Chuck Loyola at 1:101. | Not repaired. Chrysostomos and Mercury are `omittedEntities` for that edition; Loyola binds at 9:65 in both and so is not omitted, only absent from this paragraph. A reader of the modern edition will not be offered these cards, and the release owner should know that before integration. |
 | **The modern edition renames two people** — Algy to Swinburne at 1:35, Billy Pitt to William Pitt at 1:268. | Both forms are aliases on one card, and the card says which edition prints which. |
-| **The modern edition supplies four names Joyce did not write** — Aristotle at 3:0, Brian Boru at 3:57 (for *the Dalcassians*), Deasy at 3:10, Queen Victoria at 3:94. | Not repaired. Each is bound in the modern edition and left unbound in the older one, where the text offers no name. Brian Boru exists in the modern edition alone and is an `omittedEntity` for the older edition. A reader of the older edition is never offered his card. |
+| **The modern edition supplies names Joyce did not write** — Aristotle at 3:0, Brian Boru at 3:57 (for *the Dalcassians*), Deasy at 3:10, Queen Victoria at 3:94, M'Coy at 5:27, Daniel O'Connell at 6:106, 6:277 and 6:278, Madame Bloom at 6:104, Shakespeare at 6:333, Martha at 6:386. | Not repaired. Each is bound in the modern edition and left unbound in the older one, where the text offers no name. Brian Boru exists in the modern edition alone and is an `omittedEntity` for the older edition. A reader of the older edition is never offered his card. |
 | **The modern edition respells three names** — Ferrando to Fernando at 3:32, Patk MacCabe to Patrick MacCabe at 3:6, Haroun al Raschid to Haroun al Rashid at 3:74; and it renames Dan Occam to William of Ockham at 3:36, Joachim Abbas to Joachim of Fiore at 3:35, and Columbanus to Saint Columban at 2:73 and 3:51. | Every form is an alias on one card, and each card says which edition prints which. |
 | **`_Los Demiurgos_` at 3:1 and `_Matcham's Masterstroke_` at 4:162 sit inside Gutenberg italic underscores**, which the shared alias binder counts as word characters. | Not repaired — no edition byte is touched. Both are bound by keyed patterns instead, and a standing test compares every alias under both guards. This is a **binder limitation, not a source defect**, and it applies to every book in this library: an alias whose only occurrences are inside `_italics_` binds nothing and nothing reports it. |
 | **The modern edition deletes two Dublin names at 4:37** — *Adam Findlaters or Dan Tallons* becomes *successful businessmen* — and *Hanlon's* at 4:13. | Not repaired. Adam Findlater is an `omittedEntity` for the modern edition; Dan Tallon survives at 17:109; the milkman is bound in both editions on the phrase each one uses. |
 
 ## Remaining work
 
-- **Episodes 6–18.** 6,148 paragraphs, and the three longest are 15 (*Circe*,
+- **Episodes 7–18.** 5,746 paragraphs, and the three longest are 15 (*Circe*,
   1,441 paragraphs), 17 (*Ithaca*, 654) and 11 (*Sirens*, 635). Episode 18
   (*Penelope*) is eight paragraphs of Molly's monologue and will be the densest
   page-for-page in the book.
@@ -418,7 +505,7 @@ No edition byte was touched.
   episode 6, where the man himself appears, *Mr Dedalus* and *Dedalus* are him
   and not Stephen. The two must never share a default.
 - **The Goulding household will be back.** Richie, aunt Sara, Walter and Crissie
-  are all named again in episodes 6, 11, 13, 15 and 17, and 17:39 is the
+  are all named again in episodes 11, 13, 15 and 17, and 17:39 is the
   paragraph that states the relationships outright: *his aunt Sara, wife of
   Richie (Richard) Goulding*. Those keys should be extended, not aliased, when
   those episodes are read. 11:385 in particular is this Walter, crosseyed, and
@@ -427,6 +514,6 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_ulysses.py --check`, then `python3 -m unittest
-discover -s books/characters -p 'test_*.py'` — 50 focused tests for this book so
+discover -s books/characters -p 'test_*.py'` — 59 focused tests for this book so
 far. No edition changes, no network generation, no API spend: every card here was
 written in the authoring conversation and committed as a file.

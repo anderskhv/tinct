@@ -6,7 +6,7 @@ it resolves some of Joyce's run-together words and normalises punctuation, but
 it does not rewrite the prose and it does not modernise the names. Where the two
 differ on a name the difference is recorded on the card.
 
-Episodes 1 to 5 are authored. The rest are not.
+Episodes 1 to 6 are authored. The rest are not.
 
 Scope: named persons — the Dublin cast, the figures they remember, and the
 writers, saints, heresiarchs and stage characters they quote. Peoples, places,
@@ -153,7 +153,7 @@ for row in [
 ('walter-goulding','Walter','Richie’s son, skeweyed, who draws the bolt and welcomes Stephen, is sent for the malt, squints vainly for a chair and finds the visitor nothing to sit on. He sirs his own father at every answer, which is what makes Stephen’s father say Jesus wept, and no wonder.','',),
 ('crissie-goulding','Crissie','Richie’s small daughter, being bathed upstairs while Stephen stands in the bedroom. Papa’s little bedpal, lump of love.','',),
 ('goulding-cornet-brother','The cornet player','Richie’s brother, named in Stephen’s father’s catalogue of the family he married into: the drunken little costdrawer and his brother the cornet player, highly respectable gondoliers.','',),
-('simon-dedalus','Simon Dedalus','Stephen’s father, present in this episode only as the voice in his son’s head — my consubstantial father’s voice — mimicking the Gouldings and asking, and and and and tell us, Stephen, how is uncle Si. The man himself comes into the book in episode 6.','','major'),
+('simon-dedalus','Simon Dedalus','Stephen’s father, present in this episode only as the voice in his son’s head — my consubstantial father’s voice — mimicking the Gouldings and asking, and and and and tell us, Stephen, how is uncle Si. In episode 6 he is in the funeral carriage all morning, and from there on every Mr Dedalus and every bare Dedalus in the book is him and not his son.','','major'),
 # --- the strand
 ('florence-maccabe','Mrs Florence MacCabe','One of the two women who come down the steps from Leahy’s terrace and shuffle along the shelving shore, swinging a midwife’s bag. Out from the liberties for the day, of Bride Street. One of her sisterhood lugged Stephen squealing into life, and he wonders what she has in the bag: a misbirth with a trailing navelcord, hushed in ruddy wool.','',),
 ('patk-maccabe','The late Patk MacCabe','Her husband, deeply lamented, of Bride Street. The modern edition spells him Patrick.','',),
@@ -326,12 +326,81 @@ for row in [
 ('martha-and-mary','Martha and Mary','The two sisters of Bethany, in whose house Christ sat talking — the picture Bloom half remembers when his correspondent’s name slides into the gospel: old master or faked for money. He is sitting in their house, talking. Mysterious.','',),
 ]:add(*row)
 
+# ========================= EPISODE 6 — Hades
+for row in [
+# --- the carriage
+('peeping-woman','The old woman peeping','Who drags her blind aside as the funeral leaves Newbridge avenue, her nose whiteflattened against the pane, thanking her stars she was passed over. Extraordinary the interest they take in a corpse, Bloom thinks: glad to see us go, we give them such trouble coming.','',),
+('jack-power','Mr Power','Jack Power, the fourth man in the carriage: goodlooking, greyish over the ears, and the one who says out loud that the worst of all is the man who takes his own life, not knowing whose father did. Bloom has heard he keeps a barmaid from Jury’s or the Moira. Mr Dedalus calls him Jack at the graveside.','','major'),
+# --- the people the carriage talks about
+('mrs-fleming','Mrs Fleming','Who comes in to clean at Eccles street, made the bed with Molly, and did not darn Bloom’s socks well enough.','Mrs Fleming'),
+('ignatius-gallaher','Ignatius Gallaher','With whom Richie Goulding waltzed in Stamer street of a Sunday morning, the landlady’s two hats pinned on his head. The newspaper men of episode 7 remember him as the man who paralysed Europe.','Ignatius Gallaher'),
+('peter-paul-mswiney','Peter Paul M’Swiney','Mr Dedalus’s cousin, in whose shop a counterjumper’s son sold tapes — the whole of his case against Mulligan.','Peter Paul M’Swiney|Peter Paul M\'Swiney'),
+('ned-lambert','Ned Lambert','One of the mourners behind, who was down for the Cork park races and stopped with Dick Tivy, tells Mr Dedalus who is walking in front, and tells John Henry Menton who Bloom is.','Ned Lambert','major'),
+('joe-hynes','Hynes','The reporter, who walks behind with Ned Lambert and takes the names at the graveside for the paper — and takes down M’Intosh as a name because Bloom said macintosh. He asks the others to go round by the chief’s grave.','Hynes','major'),
+('paddy-leonard','Paddy Leonard','Who was taking Tom Kernan off to his face last night.','Paddy Leonard'),
+('ben-dollard','Ben Dollard','Whose singing of The Croppy Boy Tom Kernan called the most trenchant rendering he ever heard in the whole course of his experience.','Ben Dollard','major'),
+('dan-dawson','Dan Dawson','Whose speech is in the paper this morning, and which Mr Dedalus refuses to have read out to him in a carriage. The newspaper office takes it apart in episode 7.','Dan Dawson'),
+('eugene-stratton','Eugene Stratton','On the hoardings past the Queen’s theatre, and on them again for Father Conmee in episode 10.','Eugene Stratton'),
+('philip-crampton','Sir Philip Crampton','Whose memorial fountain bust they pass. Who was he? — which is the whole of Bloom’s thought about him.','Philip Crampton'),
+('mary-anderson','Mary Anderson','Who is up in Belfast now, in Martin Cunningham’s one contribution to the talk about the concert tour.','Mary Anderson'),
+('louis-werner','Louis Werner','Who is touring Molly.','Louis Werner'),
+('john-mccormack','John MacCormack','Whom Bloom hopes to have among the topnobbers, with J. C. Doyle.','John MacCormack'),
+('smith-obrien','Smith O’Brien','Whose statue has a bunch of flowers laid at it. Must be his deathday, Bloom thinks: for many happy returns.','Smith O’Brien|Smith O\'Brien'),
+('ocallaghan','O’Callaghan','The old man at the curbstone selling four bootlaces for a penny, struck off the rolls, who had his office in Hume street and has had the silk hat ever since. Relics of old decency. On his last legs.','',),
+('waterford-tweedy','Tweedy, crown solicitor for Waterford','Molly’s namesake, who had his office in the same house. Not her father.','',),
+('crofton','Crofton','Who met Mr Power one evening bringing his woman a pound of rumpsteak — the only evidence Bloom has for the story.','Crofton'),
+('john-gray','Sir John Gray','Whose statue the carriage passes while Mr Power collapses in laughter.','',),
+('nelson','Nelson','Whose pillar they pass. Horatio onehandled Nelson, as episode 11 has him.','Nelson'),
+('father-mathew','Father Mathew','The temperance apostle, under whose patronage the dead side of the street stands, with the foundation stone for Parnell beside it.','Father Mathew|Theobald Mathew'),
+# --- Reuben J and the son
+('reuben-j','Reuben J','Reuben J Dodd, the moneylender, stumping round the corner of Elvery’s on a stick — of the tribe of Reuben, Martin Cunningham says, and the carriage enjoys him. He gave the boatman who fished his son out of the Liffey a florin, which Mr Dedalus calls one and eightpence too much. Mr Dedalus also calls him Barabbas, after the robber released instead of Christ, and does so again in episode 10.','',),
+('reuben-son','Reuben J’s son','The young chiseller, whom his father was sending to the Isle of Man out of harm’s way over a girl, and who got loose on the quay and went over the wall into the river.','',),
+('liffey-boatman','The boatman','Who got a pole and fished him out by the slack of the breeches and landed him up to the father more dead than alive. Half the town was there. A silver florin.','',),
+# --- the funeral party at Glasnevin
+('john-henry-menton','John Henry Menton','Solicitor, commissioner for oaths and affidavits, in whose office Dignam used to be. He danced with Molly at Mat Dillon’s seventeen golden years ago and has disliked Bloom ever since an evening at bowls, and asks Ned Lambert in God’s name what she married a coon like that for. Bloom points out the dinge in his hat and gets a short thank you.','John Henry Menton','major'),
+('mat-dillon','Mat Dillon','Jolly Mat of Roundtown, in whose house Molly and Menton danced: convivial evenings, cold fowl, cigars, the Tantalus glasses. Heart of gold really.','Mat Dillon'),
+('floey-dillon','Floey Dillon','Linked with Molly under the lilactree, laughing, on the same evening.','Floey Dillon'),
+('wisdom-hely','Wisdom Hely','The stationer Bloom travelled for, in blottingpaper.','Wisdom Hely'),
+('dick-tivy','Dick Tivy','The solid man of Cork, with whom Ned Lambert stopped for the races, and who has nothing between himself and heaven — which is Ned Lambert’s way of saying he is bald.','Dick Tivy'),
+('dignam-son','The boy with the wreath','Paddy Dignam’s eldest, in a brandnew collar, sleekcombed, who carries one of the two wreaths, is beckoned to kneel by Corny Kelleher, and stands at the gravehead holding it with both hands. Martin Cunningham is trying to get him into Artane. He has episode 10 to himself, carrying home a pound and a half of porksteaks.','',),
+('dignam-brother-in-law','The brother-in-law','Who walks beside the boy, carries the other wreath, and at the end places something in the gravedigger’s free hand.','',),
+('mrs-dignam','Dignam’s wife','Left with five young children and a policy heavily mortgaged. A great blow to the poor wife, Mr Kernan says, and Bloom thinks: she had outlived him.','',),
+('father-coffey','Father Coffey','Who reads the service over the coffin in a fluent croak. I knew his name was like a coffin, Bloom thinks: bully about the muzzle, bosses the show, with a belly on him like a poisoned pup. Not the Coffey the butcher of episode 8.','Father Coffey'),
+('mortuary-server','The server','The boy who carries the brass bucket in before the priest, pipes the answers in the treble, and holds the bucket while the priest shakes the thing over the coffin.','',),
+('mervyn-browne','Mervyn Browne','Who told Bloom that down in the vaults of saint Werburgh’s they have to bore a hole in the coffins sometimes to let out the bad gas.','Mervyn Browne'),
+('john-oconnell','John O’Connell','The caretaker of Glasnevin: a portly man ambushed among the grasses who never forgets a friend, shakes all their hands in silence, and tells the story of the two drunks and Mulcahy from the Coombe. Keys at his back, and a prosperous bulk Bloom admires. Not Daniel O’Connell, whose circle they are standing in.','',),
+('terence-mulcahy','Terence Mulcahy','From the Coombe, whose grave the two drunks found in the fog, and whose widow had put up a statue of Our Saviour over it. Not a bloody bit like the man, said the second drunk. That’s not Mulcahy, whoever done it.','Mulcahy'),
+('mulcahy-widow','Mulcahy’s widow','Who had the statue put up.','',),
+('major-gamble','Major Gamble','Who calls Mount Jerome his garden — the protestant cemetery on the other side of the city.','Major Gamble'),
+('spurgeon','Spurgeon','Of the caretaker’s other joke, the one about the bulletin: Spurgeon went to heaven 4 a.m. this morning. 11 p.m. (closing time). Not arrived yet. Peter.','Spurgeon'),
+('macintosh','M’Intosh','The thirteenth man at the graveside, a lankylooking galoot in a macintosh who was not in the chapel and whom nobody knows. Bloom says the word for the coat; Hynes writes it down as a name, and it is the name he keeps for the rest of the book.','',),
+('louis-byrne','Louis Byrne','Under whom M’Coy got the job in the morgue after the Freeman.','Louis Byrne'),
+('joe-cuffe','Cuffe','Who sold the cattle at about twentyseven quid each. Bloom worked for him once, and was given the order of the boot for it.','',),
+('james-mccann','James M’Cann','Whose hobby is developing the waterways — to row me o’er the ferry. Not the McCann of Stephen’s list of debts.','James M’Cann|James M\'Cann'),
+('wren','Wren','The auctioneer at whose sale there was an old crock of a safety bicycle the other day, but a lady\u2019s \u2014 in Bloom\u2019s plan for cycling down the canal to see Milly. The modern edition drops the sentence.','Wren'),
+('fogarty','Fogarty','Our friend Fogarty, whom Mr Power wonders about and Mr Dedalus says to ask Tom Kernan about: though lost to sight, to memory dear — which means Kernan owes him money.','Fogarty'),
+('jimmy-geary','Jimmy Geary','The sexton, before whose door an old tramp sat emptying the dirt and stones out of his boot. After life’s journey.','Jimmy Geary'),
+('childs','Childs','Murdered in the last house of the gloomy gardens. His brother was tried for it and Seymour Bushe got him off; the crown had no evidence, only circumstantial. A later episode gives the name: Samuel Childs.','Childs'),
+('seymour-bushe','Seymour Bushe','The K.C. who got him off, and whose polished periods the newspaper men remember in episode 7.','Seymour Bushe|Bushe'),
+('mrs-riordan','Mrs Riordan','Who died in Our Lady’s Hospice for the dying: her feeding cup, and the screen round her bed for her to die. Molly knew her at the City Arms hotel.','Mrs Riordan'),
+('mesias','Mesias','The tailor who is to turn Bloom’s grey suit. One in a million, Bloom calls him later.','Mesias'),
+('alderman-hooper','Alderman Hooper','Who gave the Blooms a stuffed bird as a wedding present. Not the Paddy Hooper of the newspaper office.','',),
+('robert-emery','Robert Emery','Whose remains are laid in the crypt where the rat goes in — and whose name sets Bloom thinking of the other Robert, buried here by torchlight.','Robert Emery'),
+('robert-emmet','Robert Emmet','Who was buried here by torchlight, wasn’t he? His last words come back to Bloom in episode 11, in a shop window with seven last words.','Robert Emmet|Emmet'),
+('mrs-sinico','Mrs Sinico','At whose funeral Bloom was last in this cemetery. Emily Sinico, accidentally killed at Sydney Parade railway station.','Mrs Sinico|Emily Sinico'),
+('ellen-bloom','Bloom’s mother','Mamma, poor mamma, buried in the plot he bought towards Finglas, with little Rudy. She is not named in this episode.','',),
+('prince-albert','Albert','The prince consort, with Victoria on the guncarriage and at the Frogmore memorial: consort not even a king, in Bloom’s account of the old queen’s widowhood. Her son was the substance.','',),
+('lazarus','Lazarus','Come forth, Lazarus! And he came fifth and lost the job — Bloom’s answer to the resurrection and the life.','',),
+('robinson-crusoe','Robinson Crusoe','Say Robinson Crusoe was true to life: then Friday buried him. Only man buries — no, ants too.','Robinson Crusoe','reference','literary-figure'),
+('crusoe-friday','Friday','Who buried him. The second Friday in the sentence is the day of the week, and carries no card.','','reference','literary-figure'),
+]:add(*row)
+
 updates={}
 for e in entities:e['snapshots']=[dict(after=list(at),body=body) for at,body in updates.get(e['id'],[])]
-print(len(entities),'entities authored: episodes 1-5')
+print(len(entities),'entities authored: episodes 1-6')
 BASE=Path(__file__).resolve().parent
 (BASE/'editorial.json').write_text(json.dumps(dict(
  bookId='ulysses',
- contentVersion='2026-09-14.5',
- coverage='Both full English editions, episodes 1-5 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.',
+ contentVersion='2026-09-14.6',
+ coverage='Both full English editions, episodes 1-6 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')
