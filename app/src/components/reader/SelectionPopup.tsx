@@ -4,8 +4,9 @@ import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import type { DictResult } from '../../services/dictionary'
 import type { SelectionSegment } from './selectionGeometry'
 import { defaultPopupMode, type SelectionPopupHomeMode } from './selectionPopupMode'
+import { ContextualExplainCard } from './ContextualExplainCard'
 
-export type PopupMode = 'main' | 'colors' | 'issue' | 'note' | 'define' | 'character' | 'gallery'
+export type PopupMode = 'main' | 'colors' | 'issue' | 'note' | 'define' | 'character' | 'gallery' | 'explain'
 
 // The selection/highlight action popup. Presentational: all state + handlers are
 // owned by Reader.tsx and passed in. Extracted from Reader.tsx (slice 4).
@@ -53,9 +54,10 @@ export interface SelectionPopupProps {
   noteInput: string
   setNoteInput: (n: string) => void
   onUpdateHighlightNote?: (id: string, note: string) => void
-  onRequestNote: () => void
+  onRequestNote: (color?: HighlightColor) => void
   // Main toolbar actions
   onExplain: () => void
+  onRequestExplanation?: (onDelta: (text: string) => void) => Promise<string>
   onCopy: () => void
   onShare?: (text: string) => void
   onDeleteHighlight?: (id: string) => void
@@ -143,11 +145,26 @@ export function SelectionPopup({
   onUpdateHighlightNote,
   onRequestNote,
   onExplain,
+  onRequestExplanation,
   onCopy,
   onDeleteHighlight,
   dismissPopup,
   lab = false,
 }: SelectionPopupProps) {
+  const contextualExplain = lab && !!onRequestExplanation
+  const [explainPlacement, setExplainPlacement] = useState({ edge: 'bottom', available: 520 })
+  const openContextualExplanation = () => {
+    // Position beside the selected passage without moving the reader or its place.
+    const boxes = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
+      .map(node => node.getBoundingClientRect())
+      .filter(box => box.width && box.height && box.bottom > 0 && box.top < window.innerHeight)
+    const top = boxes.length ? Math.min(...boxes.map(box => box.top)) : selection.y
+    const bottom = boxes.length ? Math.max(...boxes.map(box => box.bottom)) : selection.y
+    const above = top - 92
+    const below = window.innerHeight - bottom - 100
+    setExplainPlacement({ edge: above > below ? 'top' : 'bottom', available: Math.max(230, above > below ? above : below) })
+    setPopupMode('explain')
+  }
   const homeMode = homeModeFor(selection)
   const [galleryId, setGalleryId] = useState<string | null>(null)
   useEffect(() => { setGalleryId(null) }, [selection.character])
@@ -157,7 +174,7 @@ export function SelectionPopup({
     return () => { if (previous?.isConnected) previous.focus({ preventScroll: true }) }
   }, [selection.character])
   useEffect(() => {
-    if (selection.character && (popupMode === 'character' || popupMode === 'gallery')) popupRef.current?.focus({ preventScroll: true })
+    if ((selection.character && (popupMode === 'character' || popupMode === 'gallery')) || popupMode === 'explain') popupRef.current?.focus({ preventScroll: true })
   }, [selection.character, popupMode, popupRef])
   const character = selection.character
   const card = galleryId ? character?.gallery.find(entry => entry.card.id === galleryId)?.card : character?.card
@@ -173,6 +190,12 @@ export function SelectionPopup({
     try { localStorage.setItem('tinct-highlight-color', color) } catch { /* private mode */ }
     onColorClick(color)
     setPopupMode('colors')
+  }
+  const applyNoteColor = (color: HighlightColor) => {
+    setLastColor(color)
+    try { localStorage.setItem('tinct-highlight-color', color) } catch { /* private mode */ }
+    onColorClick(color)
+    setPopupMode('note')
   }
   const dismissRef = useRef(dismissPopup)
   dismissRef.current = dismissPopup
@@ -202,8 +225,8 @@ export function SelectionPopup({
     <div
       ref={popupRef}
       tabIndex={-1}
-      role={character ? 'dialog' : undefined}
-      aria-label={character ? 'People at this passage' : undefined}
+      role={character || popupMode === 'explain' ? 'dialog' : undefined}
+      aria-label={popupMode === 'explain' ? 'Explain this passage' : character ? 'People at this passage' : undefined}
       onKeyDown={event => {
         event.stopPropagation()
         if (event.key === 'Escape') { event.preventDefault(); dismissPopup() }
@@ -215,7 +238,9 @@ export function SelectionPopup({
           }
         }
       }}
-      className={`selection-popup is-compact${lab ? ' is-lab' : ''} ${selection.showBelow ? 'selection-popup-below' : ''} ${selection.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
+      className={`selection-popup is-compact${popupMode === 'explain' ? ' is-contextual-explain' : ''}${lab ? ' is-lab' : ''} ${selection.showBelow ? 'selection-popup-below' : ''} ${selection.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
+      data-explain-edge={explainPlacement.edge}
+      data-explain-side={selection.x < window.innerWidth / 2 ? 'right' : 'left'}
       data-popup-mode={popupMode}
       data-popup-home={homeMode}
       style={{
@@ -223,11 +248,15 @@ export function SelectionPopup({
         top: selection.y,
         position: 'fixed',
         '--selection-popup-top': `${selection.y}px`,
+        '--explain-available-height': `${explainPlacement.available}px`,
       } as CSSProperties}
       onClick={e => e.stopPropagation()}
       onMouseUp={e => e.stopPropagation()}
       onTouchEnd={e => e.stopPropagation()}
     >
+      {contextualExplain && popupMode === 'explain' && (
+        <ContextualExplainCard passage={selection.text} request={onRequestExplanation} onAsk={onExplain} onClose={dismissPopup} />
+      )}
       {character && (popupMode === 'character' || popupMode === 'gallery') && (
         <div className="popup-character">
           <div className="popup-character-heading"><small>At this passage</small><button className="popup-more" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button></div>
@@ -321,18 +350,23 @@ export function SelectionPopup({
       )}
 
       {popupMode === 'note' && (
-        <div className="popup-issue-form">
+        <div className={`popup-issue-form${contextualExplain ? ' popup-highlight-note' : ''}`}>
+          {contextualExplain && <div className="popup-colors" aria-label="Highlight colour">{HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => applyNoteColor(c.key)} />)}</div>}
           <textarea
             className="popup-textarea"
             value={noteInput}
             onChange={e => setNoteInput(e.target.value)}
-            placeholder="Add a note to this highlight..."
+            placeholder={contextualExplain ? 'Add a note (optional)…' : 'Add a note to this highlight...'}
+            aria-label="Highlight note"
             rows={3}
             onClick={e => e.stopPropagation()}
-            autoFocus
+            autoFocus={!contextualExplain}
           />
           <div className="popup-note-actions">
-            <button className="popup-button" onClick={() => setPopupMode(homeMode)}>Cancel</button>
+            <button className="popup-button" onClick={() => {
+              if (contextualExplain) setNoteInput(selection.existingNote || '')
+              setPopupMode(homeMode)
+            }}>{contextualExplain ? 'Back' : 'Cancel'}</button>
             <button
               className="popup-button popup-button-primary"
               onClick={() => {
@@ -341,14 +375,23 @@ export function SelectionPopup({
                 }
                 dismissPopup()
               }}
-            >Save</button>
+            >{contextualExplain ? 'Done' : 'Save'}</button>
           </div>
+          {contextualExplain && selection.existingHighlightId && <button className="popup-button" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}>Remove highlight</button>}
         </div>
       )}
 
       {(popupMode === 'main' || popupMode === 'colors') && (
         <div className="popup-compact-menu">
           {informationMode && <div className="popup-menu-heading"><button type="button" onClick={() => { setGalleryId(null); setPopupMode(informationMode) }} aria-label="Back to information">‹ Back</button></div>}
+          {contextualExplain ? (
+            <>
+              {selection.existingHighlightId && <button type="button" className="popup-menu-action" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}><DeleteIcon /><span>Delete highlight</span></button>}
+              <button type="button" className="popup-menu-action" onClick={openContextualExplanation}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Explain</span></button>
+              <button type="button" className="popup-menu-action" onClick={() => onRequestNote(lastColor)}><NoteIcon /><span>Highlight &amp; note</span></button>
+              <button type="button" className="popup-menu-action" onClick={onCopy}><CopyIcon /><span>Copy</span></button>
+            </>
+          ) : <>
           {selection.existingHighlightId ? <button type="button" className="popup-menu-action" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}><DeleteIcon /><span>Remove highlight</span></button>
             : <button type="button" className="popup-menu-action" onClick={() => applyColor(lastColor)}><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true"><path d="m3 10 7-7 3 3-7 7H3zM2 15h12" /></svg><span>Highlight</span></button>}
           {(popupMode === 'colors' || selection.existingHighlightId) && <div className="popup-colors" aria-label="Highlight colour">{HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => applyColor(c.key)} />)}</div>}
@@ -356,6 +399,7 @@ export function SelectionPopup({
           <button type="button" className="popup-menu-action" onClick={onExplain}><ChatIcon /><span>Ask</span></button>
           <button type="button" className="popup-menu-action" onClick={onRequestNote}><NoteIcon /><span>{selection.existingNote ? 'Edit note' : 'Add note'}</span></button>
           {character && <div className="popup-menu-secondary"><button type="button" onClick={onDefine}>Dictionary</button><button type="button" onClick={() => { setGalleryId(null); setPopupMode('gallery') }}>Character gallery</button></div>}
+          </>}
         </div>
       )}
     </div>

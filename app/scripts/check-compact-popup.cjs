@@ -1,11 +1,88 @@
-const {webkit,chromium}=require('playwright');const fs=require('fs');const assert=require('assert');
-(async()=>{let base=process.argv[2]||'http://localhost:5197',out=process.argv[3]||'/tmp/popup-local';fs.mkdirSync(out,{recursive:true});const results=[];
-for(const [name,engine,width] of [['phone',webkit,390],['desktop',chromium,1440]]){const b=await engine.launch();const p=await b.newPage({viewport:{width,height:name==='phone'?844:950},hasTouch:name==='phone',isMobile:name==='phone'});await p.addInitScript((compare)=>{localStorage.setItem('tinct-lab-prefs',JSON.stringify({primaryEdition:'original-en',compareEdition:'modern-en',compareOpen:true,theme:compare?'dark':'light'}));sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'hamlet',primaryEditionKey:'original-en',compareEditionKey:'modern-en',savedPlace:{bookId:'hamlet',chapterNumber:3,paragraphIndex:1,page:0}}));},!!process.env.COMPARE);await p.goto(base+(name==='phone'?'/lab/phone?chrome=v2':'/reader'));await p.locator('.lab-hearing-word').first().waitFor();await p.waitForTimeout(1600);
-const marks=()=>p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]'));
-const open=async locator=>{await locator.scrollIntoViewIfNeeded();if(name==='phone'){const r=await locator.boundingBox();await locator.dispatchEvent('pointerdown',{pointerId:7,pointerType:'touch',clientX:r.x+r.width/2,clientY:r.y+r.height/2,bubbles:true});await p.waitForTimeout(450);await locator.dispatchEvent('pointerup',{pointerId:7,pointerType:'touch',clientX:r.x+r.width/2,clientY:r.y+r.height/2,bubbles:true});}else await locator.click();await p.locator('.selection-popup').waitFor();await p.waitForTimeout(250);};
-if(process.env.COMPARE){await p.getByTestId('lab-super').click();await p.getByTestId('lab-super-row-compare').click();await p.waitForTimeout(700);}
-const words=p.locator(process.env.COMPARE && name==='desktop' ? '.lab-book-col-compare .lab-hearing-word' : '[data-testid="lab-reading-stage"] .lab-hearing-word');await open(words.nth(1));assert.equal((await marks()).length,0);assert.equal(await p.locator('.popup-color-dot').count(),0);await p.screenshot({path:out+'/'+name+'-info.png'});await p.getByRole('button',{name:'More actions',exact:true}).click();assert.equal(await p.locator('.popup-define').count(),0);await p.getByRole('button',{name:'Highlight',exact:true}).click();assert.equal((await marks()).length,1);if(process.env.COMPARE) assert.equal((await marks())[0].editionKey,'modern-en');const id=(await marks())[0].id;await p.getByRole('button',{name:'Highlight Sky',exact:true}).click();assert.equal((await marks()).length,1);assert.equal((await marks())[0].id,id);assert.equal((await marks())[0].color,'sky');await p.screenshot({path:out+'/'+name+'-menu.png'});
-const before=await p.locator('[data-testid="lab-reading-stage"]').innerText();await p.mouse.click(width-6,400);assert.equal(await p.locator('.selection-popup').count(),0);assert.equal(await p.locator('[data-testid="lab-reading-stage"]').innerText(),before);assert.equal((await marks()).length,1);
-await open(words.nth(1));await p.getByRole('button',{name:'Add note',exact:true}).click();await p.locator('.popup-textarea').fill('A remembered passage');await p.getByRole('button',{name:'Save',exact:true}).click();assert.equal((await marks())[0].note,'A remembered passage');await open(words.nth(1));assert.equal(await p.getByRole('button',{name:'Edit note',exact:true}).count(),1);await p.getByRole('button',{name:'Remove highlight',exact:true}).click();assert.equal((await marks()).length,0);
-const selected=await words.nth(5).textContent();await open(words.nth(5));assert.equal(await p.locator('.popup-define').count(),1);await p.getByRole('button',{name:'More actions',exact:true}).click();await p.getByRole('button',{name:'Back to information',exact:true}).click();assert.equal(await p.locator('.popup-define').count(),1);await p.getByRole('button',{name:'More actions',exact:true}).click();await p.getByRole('button',{name:'Highlight',exact:true}).click();assert.equal((await marks())[0].color,'sky');await p.getByRole('button',{name:'Ask',exact:true}).click();assert.equal(await p.locator('.selection-popup').count(),0);assert.equal(await p.getByTestId('lab-ask-input').inputValue(),'');assert.equal((await p.getByTestId('lab-ask-attachment').innerText()).includes(selected.trim()),true);results.push({name,passed:true});await b.close();}
-fs.writeFileSync(out+'/results.json',JSON.stringify(results,null,2));console.log('PASS menu, explicit save, same-id recolour, dismissal, notes, last colour and Ask attachment');})().catch(e=>{console.error(e);process.exit(1)});
+const { webkit, chromium } = require('playwright')
+const fs = require('fs')
+const assert = require('assert')
+
+;(async () => {
+  const base = process.argv[2] || 'http://localhost:5197'
+  const out = process.argv[3] || '/tmp/popup-local'
+  fs.mkdirSync(out, { recursive: true })
+  const results = []
+
+  for (const [name, engine, width] of [['phone', webkit, 390], ['desktop', chromium, 1440]]) {
+    const browser = await engine.launch()
+    const page = await browser.newPage({ viewport: { width, height: name === 'phone' ? 844 : 950 }, hasTouch: name === 'phone', isMobile: name === 'phone' })
+    await page.addInitScript(() => {
+      localStorage.setItem('tinct-highlight-color', 'sky')
+      localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'original-en', compareEdition: 'modern-en', compareOpen: true, theme: 'light' }))
+      sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: 'hamlet', primaryEditionKey: 'original-en', compareEditionKey: 'modern-en', savedPlace: { bookId: 'hamlet', chapterNumber: 3, paragraphIndex: 1, page: 0 } }))
+    })
+    await page.route('**/api/lab-chat', route => route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({ content: [{ text: 'The passage turns private doubt into a question about action.' }] }),
+    }))
+    await page.goto(base + (name === 'phone' ? '/lab/phone?chrome=v2' : '/reader'))
+    await page.locator('.lab-hearing-word').first().waitFor()
+    await page.waitForTimeout(1_200)
+
+    const marks = () => page.evaluate(() => JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]'))
+    const words = page.locator('[data-testid="lab-reading-stage"] .lab-hearing-word')
+    const open = async locator => {
+      await locator.scrollIntoViewIfNeeded()
+      if (name === 'phone') {
+        const box = await locator.boundingBox()
+        await locator.dispatchEvent('pointerdown', { pointerId: 7, pointerType: 'touch', clientX: box.x + box.width / 2, clientY: box.y + box.height / 2, bubbles: true })
+        await page.waitForTimeout(450)
+        await locator.dispatchEvent('pointerup', { pointerId: 7, pointerType: 'touch', clientX: box.x + box.width / 2, clientY: box.y + box.height / 2, bubbles: true })
+      } else {
+        await locator.click()
+      }
+      await page.locator('.selection-popup').waitFor()
+    }
+
+    await open(words.nth(1))
+    assert.equal((await marks()).length, 0, 'selection alone must not save')
+    await page.getByRole('button', { name: 'More actions', exact: true }).click()
+    assert.deepEqual((await page.locator('.popup-menu-action').allTextContents()).map(text => text.replace('✧', '')), ['Explain', 'Highlight & note', 'Copy'])
+    await page.getByRole('button', { name: 'Highlight & note', exact: true }).click()
+    assert.equal((await marks()).length, 1, 'Highlight & note saves immediately')
+    assert.equal((await marks())[0].color, 'sky', 'new highlight uses last colour')
+    assert.notEqual(await page.locator('.popup-textarea').evaluate(node => node === document.activeElement), true, 'note must not autofocus')
+    const id = (await marks())[0].id
+    await page.getByRole('button', { name: 'Highlight Rose', exact: true }).click()
+    assert.equal((await marks())[0].id, id, 'recolour keeps highlight identity')
+    await page.locator('.popup-textarea').fill('A remembered passage')
+    await page.getByRole('button', { name: 'Done', exact: true }).click()
+    assert.equal((await marks())[0].note, 'A remembered passage')
+
+    if (name === 'phone') {
+      const marked = words.nth(1)
+      const box = await marked.boundingBox()
+      await marked.dispatchEvent('pointerdown', { pointerId: 8, pointerType: 'touch', clientX: box.x + box.width / 2, clientY: box.y + box.height / 2, bubbles: true })
+      await marked.dispatchEvent('pointerup', { pointerId: 8, pointerType: 'touch', clientX: box.x + box.width / 2, clientY: box.y + box.height / 2, bubbles: true })
+      await page.locator('.selection-popup').waitFor()
+    } else {
+      await open(words.nth(1))
+    }
+    assert.equal((await page.locator('.popup-menu-action').first().textContent()).trim(), 'Delete highlight')
+    await page.getByRole('button', { name: 'Delete highlight', exact: true }).click()
+    assert.equal((await marks()).length, 0)
+
+    const selected = (await words.nth(5).textContent()).trim()
+    await open(words.nth(5))
+    await page.getByRole('button', { name: 'More actions', exact: true }).click()
+    await page.getByRole('button', { name: 'Explain', exact: true }).click()
+    await page.getByText('The passage turns private doubt into a question about action.').waitFor()
+    assert.equal((await marks()).length, 0, 'explanation must not save a highlight')
+    await page.screenshot({ path: `${out}/${name}-explain.png` })
+    await page.getByRole('button', { name: /Ask a follow-up/ }).click()
+    assert.equal(await page.locator('.selection-popup').count(), 0)
+    assert.equal(await page.getByTestId('lab-ask-input').inputValue(), '')
+    assert.equal((await page.getByTestId('lab-ask-attachment').innerText()).includes(selected), true)
+    results.push({ name, passed: true })
+    await browser.close()
+  }
+
+  fs.writeFileSync(`${out}/results.json`, JSON.stringify(results, null, 2))
+  console.log('PASS menu, direct saved-highlight delete, same-id recolour, note, explanation and unsent follow-up')
+})().catch(error => { console.error(error); process.exit(1) })

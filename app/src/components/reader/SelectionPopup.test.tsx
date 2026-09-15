@@ -125,4 +125,63 @@ describe('compact selection popup', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Back to information' }))
     expect(input.setPopupMode).toHaveBeenCalledWith('character')
   })
+
+  it('uses the locked contextual menu and saves a last-colour highlight before editing', () => {
+    localStorage.setItem('tinct-highlight-color', 'sage')
+    const input = props({
+      lab: true,
+      popupMode: 'main',
+      onRequestExplanation: vi.fn().mockResolvedValue('An explanation.'),
+    })
+    render(<SelectionPopup {...input} />)
+    expect(Array.from(document.querySelectorAll('.popup-menu-action')).map(button => button.textContent?.replace('✧', ''))).toEqual(['Explain', 'Highlight & note', 'Copy'])
+    expect(screen.queryByText('Ask')).toBeNull()
+    expect(screen.queryByText('Add note')).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: 'Highlight & note' }))
+    expect(input.onRequestNote).toHaveBeenCalledWith('sage')
+    localStorage.clear()
+  })
+
+  it('opens the explanation and routes Ask a follow-up through the existing composer', async () => {
+    const request = vi.fn().mockResolvedValue('An explanation.')
+    const input = props({ lab: true, popupMode: 'main', onRequestExplanation: request })
+    const { rerender } = render(<SelectionPopup {...input} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Explain' }))
+    expect(input.setPopupMode).toHaveBeenCalledWith('explain')
+    rerender(<SelectionPopup {...input} popupMode="explain" />)
+    await screen.findByText('An explanation.')
+    fireEvent.click(screen.getByRole('button', { name: /Ask a follow-up/ }))
+    expect(input.onExplain).toHaveBeenCalledOnce()
+  })
+
+  it('does not autofocus the optional note and keeps recolouring in the same editor', () => {
+    const input = props({
+      lab: true,
+      popupMode: 'note',
+      selection: selection({ existingHighlightId: 'h1' }),
+      onRequestExplanation: vi.fn().mockResolvedValue('An explanation.'),
+    })
+    render(<SelectionPopup {...input} />)
+    expect(document.activeElement).not.toBe(screen.getByRole('textbox', { name: 'Highlight note' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Highlight Rose' }))
+    expect(input.onColorClick).toHaveBeenCalledWith('rose')
+    expect(input.setPopupMode).toHaveBeenCalledWith('note')
+    fireEvent.click(screen.getByRole('button', { name: 'Remove highlight' }))
+    expect(input.onDeleteHighlight).toHaveBeenCalledWith('h1')
+  })
+
+  it('puts Delete highlight first when an existing highlight opens', () => {
+    const input = props({
+      lab: true,
+      popupMode: 'main',
+      selection: selection({ existingHighlightId: 'saved' }),
+      onRequestExplanation: vi.fn().mockResolvedValue('An explanation.'),
+    })
+    render(<SelectionPopup {...input} />)
+    expect(Array.from(document.querySelectorAll('.popup-menu-action')).map(button => button.textContent?.replace('✧', '')))
+      .toEqual(['Delete highlight', 'Explain', 'Highlight & note', 'Copy'])
+    fireEvent.click(screen.getByRole('button', { name: 'Delete highlight' }))
+    expect(input.onDeleteHighlight).toHaveBeenCalledWith('saved')
+    expect(input.dismissPopup).toHaveBeenCalledOnce()
+  })
 })

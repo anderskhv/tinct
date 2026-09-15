@@ -2711,7 +2711,7 @@ describe('lab passage headline pages', () => {
       const words = screen.getAllByTestId('lab-word')
       const whole = [1, 2, 3].map(i => words[i].textContent?.trim()).join(' ')
       await selectWords(1, 3, 51)
-      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+      fireEvent.click(screen.getByRole('button', { name: 'Highlight & note', exact: true }))
       await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
       fireEvent.pointerDown(document.body, { pointerId: 52, pointerType: 'mouse', clientX: 10, clientY: 10 })
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
@@ -2741,7 +2741,7 @@ describe('lab passage headline pages', () => {
       render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       const words = screen.getAllByTestId('lab-word')
       await selectWords(1, 2, 61)
-      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+      fireEvent.click(screen.getByRole('button', { name: 'Highlight & note', exact: true }))
       await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
       fireEvent.pointerDown(document.body, { pointerId: 62, pointerType: 'mouse', clientX: 10, clientY: 10 })
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
@@ -2765,7 +2765,7 @@ describe('lab passage headline pages', () => {
       render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       const words = screen.getAllByTestId('lab-word')
       await selectWords(1, 2, 71)
-      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+      fireEvent.click(screen.getByRole('button', { name: 'Highlight & note', exact: true }))
       await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
       fireEvent.pointerDown(document.body, { pointerId: 72, pointerType: 'mouse', clientX: 10, clientY: 10 })
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
@@ -2796,7 +2796,7 @@ describe('lab passage headline pages', () => {
     fireEvent.pointerUp(words[3], { pointerId: 9, pointerType: 'mouse', clientX: 220, clientY: 200 })
     expect(document.querySelector('.selection-popup')).toBeTruthy()
     expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(0)
-    fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+    fireEvent.click(screen.getByRole('button', { name: 'Highlight & note', exact: true }))
     await waitFor(() => expect(localStorage.getItem('tinct-lab-highlights')).toContain('gold'))
     fireEvent.click(screen.getByTitle('Highlight Sky'))
     await waitFor(() => {
@@ -2815,7 +2815,7 @@ describe('lab passage headline pages', () => {
     fireEvent.pointerDown(words[1], { pointerId: 91, pointerType: 'mouse', clientX: 150, clientY: 200 })
     fireEvent.pointerMove(words[3], { pointerId: 91, pointerType: 'mouse', clientX: 230, clientY: 200 })
     fireEvent.pointerUp(words[3], { pointerId: 91, pointerType: 'mouse', clientX: 230, clientY: 200 })
-    fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+    fireEvent.click(screen.getByRole('button', { name: 'Highlight & note', exact: true }))
     await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
 
     fireEvent.pointerDown(document.body, { pointerId: 92, pointerType: 'touch', clientX: 10, clientY: 10 })
@@ -2825,6 +2825,31 @@ describe('lab passage headline pages', () => {
     expect(saved[0].color).toBe('gold')
     fireEvent.pointerUp(document.body)
     fireEvent.click(document.body)
+  })
+
+  it('opens a saved highlight on a short touch instead of toggling reader controls', () => {
+    const onSelectRange = vi.fn()
+    const onToggleControls = vi.fn()
+    render(<LabPassage
+      chapterTitle="Book 1"
+      paragraphs={['Tell me O Muse']}
+      compareParagraphs={[]}
+      compare={false}
+      mode="reading"
+      follow={{ kind: 'none' }}
+      followParagraphs={[]}
+      markedIndexes={new Set()}
+      chapterNumber={1}
+      highlights={[{ id: 'saved', chapterNumber: 1, paragraphIndex: 0, fromWord: 1, endParagraphIndex: 0, toWord: 4, color: 'gold' }]}
+      onSelectRange={onSelectRange}
+      onToggleControls={onToggleControls}
+      readingPage={{ paragraphIndex: 0, from: 0, to: 4 }}
+    />)
+    const marked = screen.getAllByTestId('lab-word')[2]
+    fireEvent.pointerDown(marked, { pointerId: 103, pointerType: 'touch', clientX: 190, clientY: 200 })
+    fireEvent.pointerUp(marked, { pointerId: 103, pointerType: 'touch', clientX: 190, clientY: 200 })
+    expect(onSelectRange).toHaveBeenCalledWith(expect.objectContaining({ paragraphIndex: 0, fromWord: 2, toWord: 3 }), 190, 200, undefined, 'lookup')
+    expect(onToggleControls).not.toHaveBeenCalled()
   })
 
   it('hides the reader navigation while the iPhone keyboard owns the lower viewport', () => {

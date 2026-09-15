@@ -785,6 +785,47 @@ export function useLabAsk(options: UseLabAskOptions) {
     }
   }, [askContextNow, gateAiAction, options.authToken, options.conversationId, options.chapterNumber, options.paragraphIndex, readTrail, recordTurn, sessionToken, turns, conversations, viewerId])
 
+  const explainSelection = useCallback(async (input: {
+    text: string
+    editionKey: string
+    editionLabel?: string
+    paragraphs: string[]
+    paragraphIndex: number
+  }, onDelta: (text: string) => void): Promise<string> => {
+    const text = input.text.trim()
+    if (!text || !gateAiAction('chat')) throw new LabChatError('unavailable')
+    const requestBookId = chatBookIdRef.current
+    const context: LabAskContext = {
+      ...askContextNow([]),
+      editionKey: input.editionKey,
+      editionLabel: input.editionLabel,
+      paragraphs: input.paragraphs,
+      paragraphIndex: input.paragraphIndex,
+    }
+    const authToken = await resolveLabVoiceToken({ override: optionsRef.current.authToken, sessionToken, readSession: readSupabaseAccessToken })
+    if (requestBookId !== chatBookIdRef.current) throw new LabChatError('unavailable')
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+    if (authToken) headers.Authorization = `Bearer ${authToken}`
+    const response = await fetch(apiUrl(authToken ? '/api/chat' : '/api/lab-chat'), {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        model: COMPANION_MODEL,
+        max_tokens: 700,
+        stream: true,
+        effort: COMPANION_EFFORT_TYPED,
+        system: buildLabAskInstructions(context),
+        messages: [{
+          role: 'user',
+          content: `Explain this selected passage clearly and concisely for a reader at this point in the book. Discuss its meaning and significance without using knowledge from later in the work.\n\n<selected_passage>\n${text}\n</selected_passage>`,
+        }],
+        ...labCompanionBookFields(context),
+      }),
+    })
+    if (!response.ok) throw new LabChatError(`http_${response.status}`)
+    return readAnthropicResponse(response, onDelta)
+  }, [askContextNow, gateAiAction, sessionToken])
+
   return {
     turns,
     /** This book's stored history (classic shape), for the chapter picker. */
@@ -813,6 +854,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     failStart,
     toggleInChatVoice,
     sendTyped,
+    explainSelection,
     retryTyped: failedTyped && failedTyped.userTurn.bookId === chatBookId ? () => {
       void sendTyped(failedTyped.text, failedTyped.chapterRequest, failedTyped, failedTyped.attachment)
     } : undefined,

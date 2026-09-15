@@ -106,6 +106,31 @@ it('does not clear an attached passage after a failed request', async () => {
   expect(onSuccess).not.toHaveBeenCalled()
 })
 
+it('explains a selected passage without adding it to chat history', async () => {
+  const fetcher = vi.fn().mockResolvedValue(ok())
+  vi.stubGlobal('fetch', fetcher)
+  const { result } = renderHook(() => useLabAsk(base))
+  const before = result.current.turns.length
+  let answer = ''
+
+  await act(async () => {
+    answer = await result.current.explainSelection({
+      text: '  The selected words.  ',
+      editionKey: 'web-en',
+      editionLabel: 'World English Bible',
+      paragraphs: ['The selected words.'],
+      paragraphIndex: 0,
+    }, vi.fn())
+  })
+
+  expect(answer).toContain('Jeremiah 49')
+  expect(result.current.turns).toHaveLength(before)
+  const request = JSON.parse(String(fetcher.mock.calls[0][1]?.body)) as { messages: Array<{ content: string }>; book?: { bookId?: string; editionKey?: string } }
+  expect(request.messages[0].content).toContain('<selected_passage>\nThe selected words.\n</selected_passage>')
+  expect(request.messages[0].content).toContain('without using knowledge from later in the work')
+  expect(JSON.stringify(request)).toContain('web-en')
+})
+
 it('clears an attached passage only after its failed turn retries successfully', async () => {
   const onSuccess = vi.fn()
   const fetcher = vi.fn()

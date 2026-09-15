@@ -2694,7 +2694,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           { paragraphIndex: highlight.endParagraphIndex, wordIndex: Math.max(highlight.fromWord, highlight.toWord - 1) },
         )
       : null) ?? range
-    const mode = character ? 'character' as const : defaultPopupMode(subject.text, existing?.id)
+    // A saved highlight is an explicit reader object. Its own controls take
+    // precedence over an incidental dictionary/character match at the same
+    // words, so tapping it always exposes Delete highlight first.
+    const mode = existing ? 'main' as const : character ? 'character' as const : defaultPopupMode(subject.text)
     setPopupMode(mode)
     setNoteInput(highlight?.note || '')
     if (mode === 'define') define.begin(range.text)
@@ -4718,9 +4721,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           noteInput={noteInput}
           setNoteInput={setNoteInput}
           onUpdateHighlightNote={(id, note) => highlightsApi.setNote(id, note)}
-          onRequestNote={() => {
+          onRequestNote={(color) => {
             if (!selectionPopup.existingHighlightId && selectionPopup.range) {
-              const created = highlightsApi.addOrReuse(selectionPopup.range, 'gold', selectionPopup.editionKey)
+              const created = highlightsApi.addOrReuse(selectionPopup.range, color ?? 'gold', selectionPopup.editionKey)
               setSelectionPopup(current => current ? {
                 ...current,
                 existingHighlightId: created.id,
@@ -4735,6 +4738,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             handleChat()
             setAskAttachment({ bookId: book.bookId, text })
             setDraft('')
+          }}
+          onRequestExplanation={(onDelta) => {
+            const editionKey = selectionPopup.editionKey || readerEditionKey
+            const compare = editionKey === prefs.compareEdition && editionKey !== prefs.primaryEdition
+            return ask.explainSelection({
+              text: selectionPopup.text,
+              editionKey,
+              editionLabel: editionLabelFor(editionKey, bookEditions),
+              paragraphs: compare ? book.compareParagraphs : book.paragraphs,
+              paragraphIndex: selectionPopup.paragraphIndex,
+            }, onDelta)
           }}
           onCopy={() => {
             const text = selectionPopup.text

@@ -588,6 +588,12 @@ export function LabPassage({
     const deltaY = event.clientY - drag.startY
     const duration = Math.max(0, event.timeStamp - drag.startedAt)
     const surfaceRect = event.currentTarget.getBoundingClientRect()
+    const savedHighlight = drag.start
+      ? (drag.comparison ? compareHighlights : highlights).find(mark => (
+          mark.chapterNumber === chapterNumber
+          && wordInHighlightRange(mark, drag.start!.paragraphIndex, drag.start!.wordIndex)
+        ))
+      : null
     // Precedence, decided once and used by everything below: a click or tap
     // that lands in a live page-turn zone turns the page and does nothing
     // else. It must never also open a word definition — one click cannot both
@@ -595,6 +601,7 @@ export function LabPassage({
     // previous/next buttons the zones are off (`tapZones` is 'none'), so a
     // mouse click on a word anywhere on the page still defines it.
     const tap = onPageTurn
+      && !savedHighlight
       && labTapTurnAllowed(tapZones, drag.pointerType)
       && !selectingRange
       && !drag.selecting
@@ -603,7 +610,7 @@ export function LabPassage({
       && duration <= 500
       ? labTapPageDirection(event.clientX, surfaceRect.left, surfaceRect.width)
       : null
-    if (tap == null && drag.pointerType === 'mouse' && !drag.selecting && drag.start && onSelectRange
+    if (tap == null && (drag.pointerType === 'mouse' || savedHighlight) && !drag.selecting && drag.start && onSelectRange
       && Math.abs(deltaX) < 3 && Math.abs(deltaY) < 3) {
       const range = buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, drag.start, drag.start)
       dragRef.current = null
