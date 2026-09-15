@@ -155,4 +155,38 @@ describe('useChatHistory book scoping guards', () => {
 
     expect(result.current.conversations).toEqual([])
   })
+
+  it('re-reads a newer cloud snapshot when the storage notification tick changes', async () => {
+    const june = conversation('bible')
+    store.set('chat-history:bible', [june])
+
+    const { result, rerender } = renderHook(
+      ({ tick }) => useChatHistory('bible', true, tick),
+      { initialProps: { tick: 0 } },
+    )
+    await waitFor(() => expect(result.current.conversations[0]?.messages).toHaveLength(1))
+
+    const september = conversation('bible', {
+      endTimestamp: 1_778_000_000_000,
+      messages: [
+        ...june.messages,
+        message({
+          id: 'bible-september',
+          bookId: 'bible',
+          chapterNumber: 3,
+          timestamp: 1_778_000_000_000,
+          content: 'Why did John eat locusts and wild honey?',
+        }),
+      ],
+    })
+    store.set('chat-history:bible', [september])
+
+    act(() => rerender({ tick: 1 }))
+
+    await waitFor(() => expect(result.current.conversations[0]?.messages.map(item => item.id)).toEqual([
+      'bible-m1',
+      'bible-september',
+    ]))
+  })
+
 })

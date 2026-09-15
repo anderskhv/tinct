@@ -9,6 +9,7 @@ import type { StorageProvider } from './storage'
 import { localStorageProvider } from './storage'
 import type { RealtimeChannel } from '@supabase/supabase-js'
 import { coerceRev, shouldFallbackToLegacyUserDataWrite, versionedWriteApplied, type VersionedStorageRow } from './supabaseStorage.versioning'
+import { mergeChatHistoryValues } from './chatHistoryMerge'
 
 export type StorageChangeSource = 'broadcast' | 'realtime' | 'local'
 export type StorageChangeListener = (key: string, value: unknown, meta?: { source: StorageChangeSource }) => void
@@ -292,23 +293,10 @@ export class SupabaseStorageProvider implements StorageProvider {
           console.warn('[Supabase] heavy-load failed:', error.message)
           return
         }
-        if (data) {
-	          for (const row of data) {
-              this.rememberRev(row.key, row.rev)
-	            if (row.value === null) {
-	              this.cache.delete(row.key)
-	              localStorageProvider.delete(row.key)
-	              continue
-	            }
-	            // Only set if not already in cache — don't clobber recent writes.
-            if (!this.cache.has(row.key)) {
-              this.cache.set(row.key, row.value)
-              // Same mirror logic as Phase A — preserve heavy data in
-              // localStorage for offline access on future sessions.
-              localStorageProvider.set(row.key, row.value)
-            }
-          }
-        }
+        // Cloud is authoritative for a returning device. hydrateRows protects
+        // writes made on this device in the last ten seconds, while replacing
+        // older cached heavy rows that may be months behind another device.
+        if (data) this.hydrateRows(data)
         this.heavyLoaded = true
         // Notify listeners so components dependent on these keys re-render.
         // We notify with a synthetic key so panels can refresh without
@@ -485,6 +473,18 @@ export class SupabaseStorageProvider implements StorageProvider {
 
       const row = Array.isArray(data) ? data[0] as VersionedStorageRow | undefined : data as VersionedStorageRow | undefined
       if (!versionedWriteApplied(row)) {
+        if (row?.key === key && key.startsWith('chat-history:')) {
+          const bookId = key.slice('chat-history:'.length)
+          const localLatest = this.queuedCommits.get(key) ?? this.cache.get(key) ?? value
+          const merged = mergeChatHistoryValues(row.value, localLatest, bookId)
+          if (merged) {
+            this.applyRemoteRow({ ...row, value: merged }, 'realtime')
+            // Retry from the server revision with the union of both devices.
+            this.queuedCommits.set(key, merged)
+            this.recordError(key, 'version conflict merged for retry', attempt, merged)
+            return
+          }
+        }
         if (row?.key) {
           if (this.queuedCommits.has(key)) {
             this.rememberRev(row.key, row.rev)
@@ -608,7 +608,7 @@ export class SupabaseStorageProvider implements StorageProvider {
    *  about a couple of keys (current book + position) and would otherwise
    *  re-pull every row in the user's account on every tab focus.
    *  (Phase 4.1.) */
-  async refreshKeys(keys: string[]): Promise<void> {
+  async refreshKeys(keys: string[], options: { notify?: boolean; protectRecentWrites?: boolean } = {}): Promise<void> {
     if (!supabase) return
     if (keys.length === 0) return
     const { data, error } = await supabase
@@ -637,8 +637,11 @@ export class SupabaseStorageProvider implements StorageProvider {
       const seen = new Set<string>()
       for (const row of data) {
         seen.add(row.key)
+        const lastWrite = this.recentLocalWrites.get(row.key)
+        if (options.protectRecentWrites && lastWrite && Date.now() - lastWrite < 10_000) continue
         this.rememberRev(row.key, row.rev)
-	        if (row.value === null) {
+	        if (options.notify) this.applyRemoteRow(row, 'realtime')
+	        else if (row.value === null) {
 	          this.cache.delete(row.key)
 	          localStorageProvider.delete(row.key)
 	        } else {
@@ -651,9 +654,14 @@ export class SupabaseStorageProvider implements StorageProvider {
       // stale value. (e.g. a `position:bookId` purged on another device.)
       for (const k of keys) {
         if (!seen.has(k)) {
+          const lastWrite = this.recentLocalWrites.get(k)
+          if (options.protectRecentWrites && lastWrite && Date.now() - lastWrite < 10_000) continue
           this.cache.delete(k)
           localStorageProvider.delete(k)
           this.forgetRev(k)
+          if (options.notify) {
+            for (const listener of this.listeners) listener(k, null, { source: 'realtime' })
+          }
         }
       }
     }
@@ -666,7 +674,13 @@ export class SupabaseStorageProvider implements StorageProvider {
   async refresh(currentBookId?: string): Promise<void> {
     const keys = ['tinct-current-book']
     if (currentBookId) keys.push(`position:${currentBookId}`)
-    return this.refreshKeys(keys)
+    await this.refreshKeys(keys)
+    if (currentBookId) {
+      await this.refreshKeys([`chat-history:${currentBookId}`], {
+        notify: true,
+        protectRecentWrites: true,
+      })
+    }
   }
 
   /** Subscribe to real-time changes from other devices. Best-effort: if the

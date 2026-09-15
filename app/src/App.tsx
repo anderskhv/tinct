@@ -629,6 +629,11 @@ export default function App() {
         refreshLibrary()
       } else if (key === '__heavy_loaded__') {
         setHeavyLoadedTick(t => t + 1)
+      } else if (key.startsWith('chat-history:')) {
+        // Realtime and foreground-refresh rows already updated the provider
+        // cache. Re-read the active book so a long-lived mobile tab cannot
+        // remain pinned to an old local chat snapshot.
+        setHeavyLoadedTick(t => t + 1)
       }
     })
     return unsubscribe
