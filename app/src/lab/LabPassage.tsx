@@ -4,6 +4,7 @@ import { LAB_COPY } from './labCopy'
 import {
   buildHighlightRange,
   highlightColorAt,
+  labHighlightGapCssClass,
   labHighlightCssClass,
   wordInHighlightRange,
   type LabHighlight,
@@ -110,16 +111,18 @@ export function renderWordGroups<T extends { text: string }>(
   words: T[],
   renderWord: (word: T, wordIndex: number, spacing: string) => ReactNode,
   lineation?: { text?: string; from: number },
+  renderSpacing?: (spacing: string, wordIndex: number) => ReactNode,
 ): ReactNode[] {
   const rendered: Array<{ at: number; node: ReactNode }> = []
   for (let wordIndex = 0; wordIndex < words.length; wordIndex += 1) {
     const word = words[wordIndex]
     if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
+      const spacing = wordSpacing(word, wordIndex, words[wordIndex - 1])
       rendered.push({
         at: wordIndex,
         node: (
           <Fragment key={`verse-${wordIndex}`}>
-            {wordSpacing(word, wordIndex, words[wordIndex - 1])}
+            {renderSpacing ? renderSpacing(spacing, wordIndex) : spacing}
             <span className="lab-verse-unit">
               {renderWord(word, wordIndex, "")}
               {renderWord(words[wordIndex + 1], wordIndex + 1, wordSpacing(words[wordIndex + 1], wordIndex + 1, word))}
@@ -129,11 +132,12 @@ export function renderWordGroups<T extends { text: string }>(
       })
       wordIndex += 1
     } else {
+      const spacing = wordSpacing(word, wordIndex, words[wordIndex - 1])
       rendered.push({
         at: wordIndex,
         node: (
           <Fragment key={`word-${wordIndex}`}>
-            {wordSpacing(word, wordIndex, words[wordIndex - 1])}
+            {renderSpacing ? renderSpacing(spacing, wordIndex) : spacing}
             {renderWord(word, wordIndex, "")}
           </Fragment>
         ),
@@ -701,7 +705,18 @@ export function LabPassage({
                           {renderWordText(word.text, wordIndex < line.words.length - 1, word.emphasis)}
                         </span>
                       )
-                    }, { text: paragraphs[paragraphIndex], from: wordBase })}
+                    }, { text: paragraphs[paragraphIndex], from: wordBase }, (spacing, wordIndex) => {
+                      if (!spacing || wordIndex <= 0) return spacing
+                      const absoluteWord = wordBase + wordIndex
+                      const previousWord = absoluteWord - 1
+                      const color = highlightColorAt(highlights, chapterNumber, paragraphIndex, absoluteWord)
+                      const previousColor = highlightColorAt(highlights, chapterNumber, paragraphIndex, previousWord)
+                      const onPrimary = !((localSelecting && dragRef.current?.comparison) || (!localSelecting && selectingComparison))
+                      const selecting = !!activeSelecting && onPrimary && wordInHighlightRange(activeSelecting, paragraphIndex, absoluteWord)
+                      const previousSelecting = !!activeSelecting && onPrimary && wordInHighlightRange(activeSelecting, paragraphIndex, previousWord)
+                      const className = labHighlightGapCssClass(color, selecting, previousColor, previousSelecting)
+                      return className ? <span className={className}>{spacing}</span> : spacing
+                    })}
                   </p>
                 )
               })
@@ -810,7 +825,16 @@ export function LabPassage({
               const segment = alignCompare ? comparisonSegment({ paragraphIndex, from, to: from + line.words.length }, paragraphs, source) : { from, to: from + line.words.length }
               const text = words.slice(segment.from, segment.to).map(word => word.text).join(' ')
               if (!alignCompare && !text) return null
-              return <p key={lineIndex} className="lab-hearing-line" style={alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{asVerseLines(source[paragraphIndex], segment.from, words.slice(segment.from, segment.to).map((word, index) => <Fragment key={index}>{index > 0 ? ' ' : ''}<span className={labHighlightCssClass(highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, segment.from + index), !!activeSelecting && !!(localSelecting ? dragRef.current?.comparison : selectingComparison) && wordInHighlightRange(activeSelecting, paragraphIndex, segment.from + index))} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={segment.from + index}>{word.emphasis ? <em>{word.text}</em> : word.text}</span></Fragment>))}</p>
+              const compareSelecting = !!activeSelecting && !!(localSelecting ? dragRef.current?.comparison : selectingComparison)
+              return <p key={lineIndex} className="lab-hearing-line" style={alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{asVerseLines(source[paragraphIndex], segment.from, words.slice(segment.from, segment.to).map((word, index) => {
+                const absoluteWord = segment.from + index
+                const color = highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, absoluteWord)
+                const selecting = compareSelecting && wordInHighlightRange(activeSelecting!, paragraphIndex, absoluteWord)
+                const previousColor = index > 0 ? highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, absoluteWord - 1) : null
+                const previousSelecting = index > 0 && compareSelecting && wordInHighlightRange(activeSelecting!, paragraphIndex, absoluteWord - 1)
+                const gapClass = index > 0 ? labHighlightGapCssClass(color, selecting, previousColor, previousSelecting) : ''
+                return <Fragment key={index}>{index > 0 ? (gapClass ? <span className={gapClass}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord}>{word.emphasis ? <em>{word.text}</em> : word.text}</span></Fragment>
+              }))}</p>
             })}
           </div>
         )}

@@ -209,3 +209,19 @@ export function labHighlightCssClass(
   if (color) parts.push(COLOR_CLASS[color] || 'is-hl-warm')
   return parts.join(' ')
 }
+
+/** Paint only a separator whose words are both inside the same visible mark. */
+export function labHighlightGapCssClass(
+  color: LabHighlightColor | null,
+  selecting: boolean,
+  previousColor: LabHighlightColor | null,
+  previousSelecting: boolean,
+): string {
+  const joinsSelection = selecting && previousSelecting
+  const joinsSavedHighlight = color != null && previousColor != null
+  if (!joinsSelection && !joinsSavedHighlight) return ''
+  const parts = ['lab-highlight-gap']
+  if (joinsSelection) parts.push('is-selecting')
+  if (joinsSavedHighlight && color) parts.push(COLOR_CLASS[color] || 'is-hl-warm')
+  return parts.join(' ')
+}

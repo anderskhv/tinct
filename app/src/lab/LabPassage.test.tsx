@@ -70,6 +70,46 @@ describe('word highlight boundaries', () => {
     expect(container.querySelector('.lab-hearing-line')?.textContent).toBe(paragraphs[0])
   })
 
+  it('paints only internal spaces for a multiword live selection', () => {
+    const paragraphs = ['zero one two three four']
+    const { container } = render(<LabPassage {...passageProps(paragraphs, { paragraphIndex: 0, from: 0, to: 5 })}
+      selectingRange={{ paragraphIndex: 0, fromWord: 1, endParagraphIndex: 0, toWord: 4, text: 'one two three' }} />)
+    const words = [...container.querySelectorAll('[data-testid="lab-word"]')]
+    expect(container.querySelectorAll('.lab-highlight-gap.is-selecting')).toHaveLength(2)
+    expect(words[1].previousSibling?.nodeType).toBe(Node.TEXT_NODE)
+    expect(words[2].previousElementSibling?.classList.contains('is-selecting')).toBe(true)
+    expect(words[3].previousElementSibling?.classList.contains('is-selecting')).toBe(true)
+    expect(words[4].previousSibling?.nodeType).toBe(Node.TEXT_NODE)
+    expect(container.querySelector('.lab-hearing-line')?.textContent).toBe(paragraphs[0])
+  })
+
+  it('keeps saved highlight spaces continuous without coloring either outer space', () => {
+    const paragraphs = ['zero one two three']
+    const { container } = render(<LabPassage {...passageProps(paragraphs, { paragraphIndex: 0, from: 0, to: 4 })}
+      highlights={[{ id: 'saved', chapterNumber: 1, paragraphIndex: 0, fromWord: 1, endParagraphIndex: 0, toWord: 3, color: 'gold' }]}
+      chapterNumber={1} />)
+    const words = [...container.querySelectorAll('[data-testid="lab-word"]')]
+    expect(container.querySelectorAll('.lab-highlight-gap.is-hl-warm')).toHaveLength(1)
+    expect(words[1].previousSibling?.nodeType).toBe(Node.TEXT_NODE)
+    expect(words[2].previousElementSibling?.classList.contains('is-hl-warm')).toBe(true)
+    expect(words[3].previousSibling?.nodeType).toBe(Node.TEXT_NODE)
+  })
+
+  it('uses the same internal-space rule in Compare', () => {
+    const paragraphs = ['zero one two three']
+    const { container } = render(<LabPassage {...passageProps(paragraphs, { paragraphIndex: 0, from: 0, to: 4 })}
+      compare compareParagraphs={['alpha beta gamma delta']}
+      selectingComparison
+      selectingRange={{ paragraphIndex: 0, fromWord: 1, endParagraphIndex: 0, toWord: 3, text: 'beta gamma' }} />)
+    const compare = container.querySelector('.lab-book-col-compare')!
+    const words = [...compare.querySelectorAll('[data-testid="lab-word"]')]
+    expect(compare.querySelectorAll('.lab-highlight-gap.is-selecting')).toHaveLength(1)
+    expect(words[1].previousSibling?.nodeType).toBe(Node.TEXT_NODE)
+    expect(words[2].previousElementSibling?.classList.contains('is-selecting')).toBe(true)
+    expect(words[3].previousSibling?.nodeType).toBe(Node.TEXT_NODE)
+    expect(compare.textContent).toBe('alpha beta gamma delta')
+  })
+
   it('measures the same word and verse spacing that the reader paints', () => {
     const paragraphs = ['it was so. ⁸ And God said']
     const { container } = render(<LabPassage {...passageProps(paragraphs, { paragraphIndex: 0, from: 0, to: 7 })} />)
