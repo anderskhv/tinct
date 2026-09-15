@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { labPageTurnAffordance, labTapPageDirection, labTapTurnAllowed } from './labChrome'
+import { labPageTurnAffordance, labPageTurnSurfaceEnabled, labTapPageDirection, labTapTurnAllowed } from './labChrome'
 
 /**
  * Width decides layout; the pointer decides interaction. A half-screen
@@ -84,5 +84,15 @@ describe('page-turn affordance', () => {
     expect(labTapTurnAllowed('none', 'mouse')).toBe(false)
     expect(labTapTurnAllowed('all', 'mouse')).toBe(true)
     expect(labTapTurnAllowed('all', 'touch')).toBe(true)
+  })
+
+  it('wires tablet touch zones on a desktop spread without adding mouse tap zones', () => {
+    expect(labPageTurnSurfaceEnabled({ phoneChrome: false, buttons: false, tapZones: 'all', askOpen: false, selectionOpen: false })).toBe(true)
+    expect(labPageTurnSurfaceEnabled({ phoneChrome: false, buttons: true, tapZones: 'touch', askOpen: false, selectionOpen: false })).toBe(true)
+    expect(labPageTurnSurfaceEnabled({ phoneChrome: false, buttons: true, tapZones: 'none', askOpen: false, selectionOpen: false })).toBe(false)
+    // Unknown legacy pointer media offers fallback buttons plus zones, but does
+    // not attach those zones to a desktop surface where a mouse selects text.
+    expect(labPageTurnSurfaceEnabled({ phoneChrome: false, buttons: true, tapZones: 'all', askOpen: false, selectionOpen: false })).toBe(false)
+    expect(labPageTurnSurfaceEnabled({ phoneChrome: false, buttons: false, tapZones: 'all', askOpen: true, selectionOpen: false })).toBe(false)
   })
 })

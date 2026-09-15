@@ -45,6 +45,7 @@ import {
   type LabVoiceGatePhase,
   LAB_PHONE_QUERY,
   labPageTurnAffordance,
+  labPageTurnSurfaceEnabled,
 } from './labChrome'
 import { LabPhoneBibleTree } from './LabPhoneBibleTree'
 import { LabContentsV2 } from './LabContentsV2'
@@ -4074,7 +4075,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             pageTurn={chromeV2 ? undefined : pageTurn}
             tapZones={pageTurnAffordance.tapZones}
             onSelectRange={phoneAsk ? undefined : handleSelectRange}
-            onPageTurn={showPhoneChrome && !phoneAsk && !selectionPopup
+            onPageTurn={labPageTurnSurfaceEnabled({
+              phoneChrome: showPhoneChrome,
+              buttons: pageTurnAffordance.buttons,
+              tapZones: pageTurnAffordance.tapZones,
+              askOpen: phoneAsk,
+              selectionOpen: selectionPopup != null,
+            })
               ? (direction) => {
                   setReaderControlsVisible(false)
                   if (direction > 0) goNext()

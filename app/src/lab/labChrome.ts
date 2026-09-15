@@ -209,6 +209,18 @@ export function labTapTurnAllowed(zones: LabTapTurnZones, pointerType?: string):
   return pointerType !== 'mouse'
 }
 
+/** A touch-capable tablet keeps the desktop spread but still needs its page surface wired. */
+export function labPageTurnSurfaceEnabled(input: {
+  phoneChrome: boolean
+  buttons: boolean
+  tapZones: LabTapTurnZones
+  askOpen: boolean
+  selectionOpen: boolean
+}): boolean {
+  if (input.askOpen || input.selectionOpen) return false
+  return input.phoneChrome || input.tapZones === 'touch' || !input.buttons
+}
+
 /** Paused chrome is page-turn; playing chrome is transport. */
 export function labBottomSlot(playing: boolean): 'page-turn' | 'transport' {
   return playing ? 'transport' : 'page-turn'
