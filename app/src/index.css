@@ -65,11 +65,11 @@
 }
 
 [data-theme="dark"] {
-  --bg-primary: #1a1612;
-  --bg-secondary: #231f19;
-  --bg-panel: #1f1b16;
-  --bg-hover: #2e2820;
-  --bg-chat-user: #2e2820;
+  --bg-primary: #171411;
+  --bg-secondary: #1e1a16;
+  --bg-panel: #1b1814;
+  --bg-hover: #27221c;
+  --bg-chat-user: #27221c;
   --bg-chat-assistant: transparent;
   --bg-highlight: #3d3222;
   --bg-popup: #f3efe9;
@@ -77,17 +77,17 @@
   /* Dark-mode paper surfaces. Without these, .header, .bottom-bar, .audio-strip,
      card rails, settings sheet, etc. all kept the light-mode cream (#ece7db)
      and looked completely out of place against the dark reader. */
-  --paper: #1a1612;
-  --paper-warm: #231f19;
-  --paper-deep: #14110e;
+  --paper: #171411;
+  --paper-warm: #1e1a16;
+  --paper-deep: #100e0c;
 
-  --text-primary: #e8e0d4;
-  --text-secondary: #a89a8a;
-  --text-tertiary: #756858;
-  --text-inverse: #1a1612;
+  --text-primary: #bdb3a7;
+  --text-secondary: #8f857a;
+  --text-tertiary: #776e65;
+  --text-inverse: #171411;
 
-  --border-color: #332d24;
-  --border-light: #2a251e;
+  --border-color: #3a332b;
+  --border-light: #2c2721;
 
   --accent: #5a9db5;
   --accent-hover: #6db3cb;

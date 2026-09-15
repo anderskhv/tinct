@@ -4130,7 +4130,7 @@ describe('lab chrome pass', () => {
     expect(screen.getByTestId('lab-root').getAttribute('data-theme')).toBe('dark')
     expect(document.documentElement.getAttribute('data-theme')).toBe('dark')
     expect(document.documentElement.style.colorScheme).toBe('dark')
-    expect(document.querySelector('meta[name="theme-color"]')?.getAttribute('content')).toBe('#2e2a24')
+    expect(document.querySelector('meta[name="theme-color"]')?.getAttribute('content')).toBe('#171411')
     const sizeSlider = screen.getByRole('slider', { name: 'Text size' }) as HTMLInputElement
     expect(sizeSlider.min).toBe('0.8')
     const smaller = screen.getByRole('button', { name: 'A−' })
@@ -4161,6 +4161,13 @@ describe('lab chrome pass', () => {
     expect(root.style.getPropertyValue('--lab-reader-margin')).toBe('1.1rem')
     expect(root.style.getPropertyValue('--lab-paragraph-gap')).toBe('.55em')
     expect((JSON.parse(localStorage.getItem('tinct-lab-prefs') || '{}') as { phone?: { alignment?: string } }).phone?.alignment).toBe('left')
+  })
+
+  it('uses the shared dim night palette on phone and desktop without changing the light paper', () => {
+    const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
+    expect(css).toMatch(/\.lab\s*\{[^}]*--lab-paper:\s*#ece7db;/)
+    expect(css).toMatch(/\.lab\.is-night\s*\{[^}]*--lab-paper:\s*#171411;[^}]*--lab-ink:\s*#bdb3a7;[^}]*--lab-ink-muted:\s*#8f857a;/)
+    expect(css).toMatch(/\.lab\.is-night\.is-desktop\s*\{[^}]*--lab-paper:\s*#171411;[^}]*--lab-ink:\s*#bdb3a7;[^}]*--lab-ink-muted:\s*#8f857a;/)
   })
 })
 

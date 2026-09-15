@@ -2851,26 +2851,27 @@
 }
 
 .lab.is-night {
-  --lab-paper: #2e2a24;
-  --lab-ink: #faf6ee;
-  --lab-ink-muted: #b8b0a4;
-  --lab-surface: #3a342c;
-  --lab-border: #4a4338;
+  --lab-paper: #171411;
+  --lab-ink: #bdb3a7;
+  --lab-ink-muted: #8f857a;
+  --lab-ink-faint: #776e65;
+  --lab-surface: #211d18;
+  --lab-border: #3f382f;
   background: var(--lab-paper);
   color: var(--lab-ink);
 }
 
-/* Desktop night mode recedes in dim rooms without changing any reader metric.
-   Phone keeps the existing warmer, brighter palette. */
+/* Night mode recedes in dim rooms without changing any reader metric. Desktop
+   keeps a slightly deeper surround while sharing the phone's paper and ink. */
 .lab.is-night.is-desktop {
-  --lab-paper: #1c1814;
-  --lab-ink: #d3c8ba;
-  --lab-ink-muted: #a59687;
-  --lab-ink-faint: #8f8276;
-  --lab-surface: #201b16;
-  --lab-border: #776656;
+  --lab-paper: #171411;
+  --lab-ink: #bdb3a7;
+  --lab-ink-muted: #8f857a;
+  --lab-ink-faint: #776e65;
+  --lab-surface: #211d18;
+  --lab-border: #4a4036;
   --lab-accent: #78aabd;
-  background: #15120f;
+  background: #100e0c;
 }
 
 .lab.is-night.is-desktop :focus-visible {

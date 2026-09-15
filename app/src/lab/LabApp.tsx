@@ -1250,7 +1250,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     root.setAttribute('data-theme', resolvedTheme)
     root.style.colorScheme = resolvedDarkMode ? 'dark' : 'light'
-    themeColor.content = resolvedTheme === 'dark' ? '#2e2a24' : resolvedTheme === 'book' ? '#e7dcc7' : '#f2eee4'
+    themeColor.content = resolvedTheme === 'dark' ? '#171411' : resolvedTheme === 'book' ? '#e7dcc7' : '#f2eee4'
     root.style.backgroundColor = themeColor.content
     document.body.style.backgroundColor = themeColor.content
     return () => {
