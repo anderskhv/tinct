@@ -2678,6 +2678,23 @@
   color: var(--lab-ink);
 }
 
+/* Desktop night mode recedes in dim rooms without changing any reader metric.
+   Phone keeps the existing warmer, brighter palette. */
+.lab.is-night.is-desktop {
+  --lab-paper: #1c1814;
+  --lab-ink: #d3c8ba;
+  --lab-ink-muted: #a59687;
+  --lab-ink-faint: #8f8276;
+  --lab-surface: #201b16;
+  --lab-border: #776656;
+  --lab-accent: #78aabd;
+  background: #15120f;
+}
+
+.lab.is-night.is-desktop :focus-visible {
+  outline-color: #9cc9d9;
+}
+
 .lab.is-night .lab-header,
 .lab.is-night .lab-page-turn,
 .lab.is-night .lab-phone-bar,
@@ -6121,6 +6138,20 @@
   --lab-call-pill-shadow: 0 14px 36px rgba(0, 0, 0, 0.32);
 }
 
+.lab[data-chrome-version="v2"].is-night.is-desktop {
+  --lab-call-ink: #d3c8ba;
+  --lab-call-muted: #a59687;
+  --lab-call-hairline: #776656;
+  --lab-call-rule: rgba(119, 102, 86, 0.55);
+  --lab-call-tint: rgba(211, 200, 186, 0.08);
+  --lab-call-panel: rgba(32, 27, 22, 0.94);
+  --lab-call-panel-border: rgba(119, 102, 86, 0.7);
+  --lab-v2-chevron: #a59687;
+  --lab-v2-quiet: #a59687;
+  --lab-v2-faint: #8f8276;
+  --lab-v2-knob: #d3c8ba;
+}
+
 /* The orb draws in currentColor; the canvas is sized by the component. */
 .lab[data-chrome-version="v2"] .lab-voice-orb {
   position: relative;
@@ -6639,9 +6670,17 @@
   padding: 4px 8px; font: 18px 'EB Garamond', Georgia, serif;
 }
 
+.lab[data-chrome-version="v2"] .lab-ask-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  min-height: 32px;
+  margin-top: 0.2rem;
+}
 .lab[data-chrome-version="v2"] .lab-ask-time {
-  display: block; margin: 0 0 4px; color: var(--lab-ink-muted);
-  font: 10px 'IBM Plex Mono', monospace;
+  flex: none;
+  color: var(--lab-ink-muted);
+  font: 400 0.75rem/1.2 'EB Garamond', Georgia, serif;
 }
 .lab[data-chrome-version="v2"] .lab-ask-toolbar { display: flex; flex: 0 0 auto; padding: 6px 0 10px; }
 .lab[data-chrome-version="v2"] .lab-ask-done {
@@ -6661,7 +6700,6 @@
 .lab[data-chrome-version="v2"] .lab-ask-turn {
   flex-direction: column; min-width: 0;
 }
-.lab[data-chrome-version="v2"] .lab-ask-time { flex: none; }
 .lab[data-chrome-version="v2"] .lab-ask-reply,
 .lab[data-chrome-version="v2"] .lab-ask-user { min-width: 0; overflow-wrap: anywhere; }
 

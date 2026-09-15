@@ -567,11 +567,6 @@ export function LabAskPane({
                   data-testid={`lab-ask-turn-${turn.role}`}
                   {...(chromeV2 ? { 'data-turn-id': turn.id } : {})}
                 >
-                  {chromeV2 && turn.timestamp != null && Number.isFinite(turn.timestamp) && (
-                    <time className="lab-ask-time" dateTime={new Date(turn.timestamp).toISOString()}>
-                      {new Intl.DateTimeFormat(undefined, { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }).format(turn.timestamp)}
-                    </time>
-                  )}
                   {turn.role === 'user' ? (
                     <p className="lab-ask-user">
                       <span className="lab-ask-user-label">{LAB_COPY.youLabel}</span>
@@ -584,9 +579,18 @@ export function LabAskPane({
                       <LabMarkdown>{turn.content}</LabMarkdown>
                     </div>
                   )}
-                  {chromeV2 && <button type="button" className="lab-ask-copy" aria-label={copiedTurn === turn.id ? 'Copied' : turn.role === 'user' ? 'Copy question' : 'Copy answer'} onClick={() => void copyTurn(turn)}>
-                    {copiedTurn === turn.id ? '✓' : <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2" stroke="currentColor" strokeWidth="1.5"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" strokeWidth="1.5"/></svg>}
-                  </button>}
+                  {chromeV2 && (
+                    <div className="lab-ask-meta">
+                      {turn.timestamp != null && Number.isFinite(turn.timestamp) && (
+                        <time className="lab-ask-time" dateTime={new Date(turn.timestamp).toISOString()}>
+                          {new Intl.DateTimeFormat(undefined, { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }).format(turn.timestamp)}
+                        </time>
+                      )}
+                      <button type="button" className="lab-ask-copy" aria-label={copiedTurn === turn.id ? 'Copied' : turn.role === 'user' ? 'Copy question' : 'Copy answer'} onClick={() => void copyTurn(turn)}>
+                        {copiedTurn === turn.id ? '✓' : <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2" stroke="currentColor" strokeWidth="1.5"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" strokeWidth="1.5"/></svg>}
+                      </button>
+                    </div>
+                  )}
                 </div>
               </Fragment>
             )
