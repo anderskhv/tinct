@@ -632,3 +632,28 @@ export function readerPreviewSearch(search) {
   const trial = source.get('voiceTrial')
   return trial === 'mini' ? '?voiceTrial=mini' : ''
 }
+
+/**
+ * A share link may name a one-use starting paragraph as `start=chapter.paragraph`.
+ * URL coordinates are one-based; reader handoffs are zero-based. The catalogue's
+ * published reading structure validates both numbers before the cover can use
+ * them. Invalid or cross-book input is ignored and the ordinary resume path wins.
+ */
+export function explicitReaderStart(search, book) {
+  if (!book?.id || !book.readingStructure?.chapters) return null
+  const params = new URLSearchParams(search)
+  if (params.get('book') !== book.id) return null
+  const match = /^(\d+)\.(\d+)$/.exec(params.get('start') || '')
+  if (!match) return null
+  const chapterNumber = Number(match[1])
+  const paragraphNumber = Number(match[2])
+  const chapter = book.readingStructure.chapters.find(item => item.number === chapterNumber)
+  if (!chapter || paragraphNumber < 1 || paragraphNumber > chapter.paragraphCount) return null
+  return {
+    bookId: book.id,
+    chapterNumber,
+    page: 0,
+    paragraphIndex: paragraphNumber - 1,
+    wordIndex: 0,
+  }
+}

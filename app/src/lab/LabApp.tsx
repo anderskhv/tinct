@@ -115,7 +115,7 @@ import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 import { LabAccountSheet, LabSecondBookNudge } from './LabAccountPrompt.tsx'
 import { clearLabAiActionCount, labBooksReadOnDevice, labCurrentPath, markSecondBookNudgeShown, shouldShowSecondBookNudge, type LabAccountPromptRequest } from './labAccountPrompt'
 import { useLabListen } from './useLabListen'
-import { mapLabCompareAnchor } from './labCompare'
+import { mapLabCompareAnchor, splitLabPagesAtAnchor } from './labCompare'
 import {
   createLabVoiceToolAdapter,
   getLabVoiceReadingHistory,
@@ -662,13 +662,25 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [chapterCoverTitle, setChapterCoverTitle] = useState<string | null>(() => (
     readerHandoff && !readerHandoff.savedPlace ? book.bookTitle : null
   ))
+  const explicitStartAnchor = useMemo(() => (
+    readerHandoff?.startAtSavedPlace
+      && readerHandoff.savedPlace?.chapterNumber === book.chapterNumber
+      ? {
+          paragraphIndex: readerHandoff.savedPlace.paragraphIndex ?? 0,
+          wordIndex: readerHandoff.savedPlace.wordIndex ?? 0,
+        }
+      : null
+  ), [book.chapterNumber, readerHandoff])
   const [prefaceCoverBook, setPrefaceCoverBook] = useState<string | null>(null)
   const approvedPreface = chromeV2 ? getBookPreface(book.bookId || 'bible') : undefined
   const prefaceVisible = Boolean(approvedPreface && (prefaceCoverBook === book.bookId || chapterCoverTitle === book.bookTitle))
   const pendingMapHighlightRef = useRef<LabHighlight | null>(null)
   const [openAtEnd, setOpenAtEnd] = useState(false)
   const [pageMetrics, setPageMetrics] = useState<LabPageMetrics | null>(null)
-  const [readingPages, setReadingPages] = useState<ChapterHearingPage[]>(() => chapterHearingPages(readerParagraphs, null))
+  const [readingPages, setReadingPages] = useState<ChapterHearingPage[]>(() => {
+    const pages = chapterHearingPages(readerParagraphs, null)
+    return explicitStartAnchor ? splitLabPagesAtAnchor(pages, explicitStartAnchor) : pages
+  })
   const [draftPages, setDraftPages] = useState<ChapterHearingPage[]>(readingPages)
   const [settleIndex, setSettleIndex] = useState<number | null>(0)
   const labRootRef = useRef<HTMLDivElement | null>(null)
@@ -1384,9 +1396,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const swapped = contentChanged && swapCommittedRef.current?.paragraphs === readerParagraphs
       ? swapCommittedRef.current.pages
       : null
-    const next = settledPrimaryPages
+    const naturalNext = settledPrimaryPages
       ?? swapped
       ?? chapterHearingPages(readerParagraphs, canUseLabPageBudget(budget) ? budget : null)
+    const next = explicitStartAnchor ? splitLabPagesAtAnchor(naturalNext, explicitStartAnchor) : naturalNext
     swapCommittedRef.current = null
     if (settledPrimaryPages || swapped) {
       if (settledPrimaryPages) mobilePrimaryPagesRef.current = null
@@ -1448,7 +1461,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const budget = labPageBudgetFromMetrics(pageMetrics)
     if (!canUseLabPageBudget(budget)) return
     didBudgetPageRef.current = true
-    const next = chapterHearingPages(readerParagraphs, budget)
+    const naturalNext = chapterHearingPages(readerParagraphs, budget)
+    const next = explicitStartAnchor ? splitLabPagesAtAnchor(naturalNext, explicitStartAnchor) : naturalNext
     const keep = pageAnchorRef.current
     const landing = chapterLandingRef.current
     readingPagesRef.current = next
@@ -1505,7 +1519,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   const applyNativePages = useCallback((incoming: ChapterHearingPage[], measuredContent?: string[]) => {
     if (measuredContent && measuredContent !== nativeContentRef.current) return
-    const next = incoming
+    const next = explicitStartAnchor ? splitLabPagesAtAnchor(incoming, explicitStartAnchor) : incoming
     // Audio chrome temporarily changes the available box. Keep the reading
     // page map as the single authority instead of repaginating mid-playback.
     // V1's bar never changes height, so a page map that arrives mid-playback
@@ -1581,7 +1595,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // rendered-page verification now that the font-settled preflight is the
     // authority; refs alone do not trigger that verification effect.
     setNativePagesRevision(revision => revision + 1)
-  }, [chromeV2, measuredPaging])
+  }, [chromeV2, explicitStartAnchor, measuredPaging])
 
   /**
    * The standby map, off the critical path entirely: a ref write, no state,

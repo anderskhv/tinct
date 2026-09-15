@@ -2,6 +2,7 @@ import { fullShelf, pairedSamples } from './entry-model.js?v=20260912-withheld-1
 import { wholeBookProgress } from './library-2-model.js'
 import {
   LAB_CATALOGUE_URL,
+  explicitReaderStart,
   readerPreviewSearch,
   DEFAULT_LANDING_WORLD,
   LANDING_WORLD_SESSION_KEY,
@@ -38,7 +39,7 @@ import {
   writeReaderOrigin,
   shelfScrollLeft,
   showPopularShelf,
-} from './library-model.js?v=20260915-reading-length-1'
+} from './library-model.js?v=20260915-explicit-start-1'
 
 {
   const root = document.querySelector('#tinct-onboarding-worlds-v5')
@@ -65,6 +66,7 @@ import {
     onboarding: null,
     continuations: [],
     pendingResume: null,
+    explicitStart: null,
     auth: { ready: false, signedIn: false, email: null, name: null },
     /** 'new' (selection shelf) or 'returning' (uniform shelf under the recap). */
     libraryMode: 'new',
@@ -818,6 +820,11 @@ import {
     state.pendingResume = state.continuations.find(item => item.bookId === book.id) || null
     const resumePrimary = v1Editions(book).find(edition => edition.key === state.pendingResume?.primaryEditionKey && edition.availability.chapterText)
     if (changingBook) state.selectedEditionKey = resumePrimary?.key || defaultEdition(book)?.key || null
+    state.explicitStart = explicitReaderStart(location.search, book)
+    if (state.explicitStart) {
+      const requestedEdition = v1Editions(book).find(edition => edition.key === new URLSearchParams(location.search).get('edition') && edition.availability.chapterText)
+      if (requestedEdition) state.selectedEditionKey = requestedEdition.key
+    }
     const resumeCompare = v1Editions(book).find(edition => edition.key === state.pendingResume?.compareEditionKey && edition.availability.compare)
     if (changingBook) { state.compareEditionKey = resumeCompare?.key || null; state.previewCompareKey = null; state.sampleExpanded = false }
     applyWorld(book)
@@ -1155,20 +1162,27 @@ import {
       const place = selection.savedPlace
       if (place.bookId !== book.id || !Number.isInteger(place.chapterNumber) || place.chapterNumber < 1 || (place.page !== undefined && (!Number.isInteger(place.page) || place.page < 0)) || (place.paragraphIndex !== undefined && (!Number.isInteger(place.paragraphIndex) || place.paragraphIndex < 0)) || (place.wordIndex !== undefined && (!Number.isInteger(place.wordIndex) || place.wordIndex < 0))) return null
       intent.savedPlace = { ...place }
+      if (selection.startAtSavedPlace === true) intent.startAtSavedPlace = true
     }
     return intent
   }
 
   function openReader(savedPlace) {
     const book = selectedBook()
-    const resolvedPlace = savedPlace || resumeSavedPlace(state.pendingResume)
+    // A validated share-link start is consumed only here, after the reader
+    // presses Start/Continue. Merely opening the normal cover writes no reading
+    // position. Its explicit purpose wins over an older saved place once; the
+    // reader then persists normally from the chosen paragraph.
+    const resolvedPlace = state.explicitStart || savedPlace || resumeSavedPlace(state.pendingResume)
     const intent = createHandoff({
       bookId: book.id,
       primaryEditionKey: state.selectedEditionKey,
       ...(state.compareEditionKey ? { compareEditionKey: state.compareEditionKey } : {}),
       ...(resolvedPlace ? { savedPlace: resolvedPlace } : {}),
+      ...(state.explicitStart ? { startAtSavedPlace: true } : {}),
     })
     if (!intent) return false
+    state.explicitStart = null
     window.__tinctLabLastHandoff = intent
     // Where this visit to the reader started, so the library it comes back to
     // knows not to recap the book the reader has just been looking at.

@@ -127,6 +127,21 @@ describe('pre-reader catalogue layer', () => {
       if (handoff?.audioEditionKey) expect(book.editions.some(edition => edition.key === handoff.audioEditionKey && edition.availability.audio)).toBe(true)
     }
     expect(createReaderHandoffIntent({ bookId: 'odyssey', primaryEditionKey: 'missing' })).toBeNull()
+    expect(createReaderHandoffIntent({
+      bookId: 'notes-from-underground',
+      primaryEditionKey: 'original-en',
+      savedPlace: { bookId: 'notes-from-underground', chapterNumber: 1, paragraphIndex: 1, wordIndex: 0 },
+      startAtSavedPlace: true,
+    })).toMatchObject({
+      bookId: 'notes-from-underground',
+      savedPlace: { chapterNumber: 1, paragraphIndex: 1, wordIndex: 0 },
+      startAtSavedPlace: true,
+    })
+    expect(createReaderHandoffIntent({
+      bookId: 'notes-from-underground',
+      primaryEditionKey: 'original-en',
+      startAtSavedPlace: true,
+    })).not.toHaveProperty('startAtSavedPlace')
     expect(createReaderHandoffIntent({ bookId: 'odyssey', primaryEditionKey: 'original-en', audioEditionKey: 'original-ru' })).toBeNull()
     expect(createReaderHandoffIntent({
       bookId: 'ivan-ilyich',

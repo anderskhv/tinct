@@ -26,6 +26,22 @@ describe('Lab reader handoff', () => {
     expect(consumeLabReaderHandoff(storage)).toBeNull()
   })
 
+  it('preserves a validated one-use page-start flag only with its saved place', () => {
+    const handoff = consumeLabReaderHandoff(storageWith({
+      kind: 'open-reader',
+      bookId: 'notes-from-underground',
+      primaryEditionKey: 'original-en',
+      savedPlace: { bookId: 'notes-from-underground', chapterNumber: 1, paragraphIndex: 1, wordIndex: 0 },
+      startAtSavedPlace: true,
+    }))
+    expect(handoff).toMatchObject({ startAtSavedPlace: true, savedPlace: { paragraphIndex: 1, wordIndex: 0 } })
+
+    const withoutPlace = consumeLabReaderHandoff(storageWith({
+      kind: 'open-reader', bookId: 'notes-from-underground', primaryEditionKey: 'original-en', startAtSavedPlace: true,
+    }))
+    expect(withoutPlace).not.toHaveProperty('startAtSavedPlace')
+  })
+
   it('consumes but rejects invalid editions and cross-book saved places', () => {
     const invalidEdition = storageWith({ kind: 'open-reader', bookId: 'odyssey', primaryEditionKey: 'missing' })
     expect(consumeLabReaderHandoff(invalidEdition)).toBeNull()

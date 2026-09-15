@@ -222,6 +222,8 @@ export interface ReaderHandoffSelection {
   compareEditionKey?: EditionKey
   audioEditionKey?: EditionKey
   savedPlace?: SavedReaderPlaceInput
+  /** Begin the first rendered page exactly at savedPlace (share-link starts only). */
+  startAtSavedPlace?: boolean
 }
 
 export interface ReaderHandoffIntent {
@@ -231,6 +233,8 @@ export interface ReaderHandoffIntent {
   compareEditionKey?: EditionKey
   audioEditionKey?: EditionKey
   savedPlace?: SavedReaderPlaceInput
+  /** One-use document handoff flag; never stored as the user's reading position. */
+  startAtSavedPlace?: boolean
 }
 
 function firstSentence(text: string): string {
@@ -512,6 +516,7 @@ export function createReaderHandoffIntent(
   if (selection.savedPlace) {
     if (!validPlace(selection.savedPlace, book.id)) return null
     intent.savedPlace = { ...selection.savedPlace }
+    if (selection.startAtSavedPlace === true) intent.startAtSavedPlace = true
   }
   return intent
 }

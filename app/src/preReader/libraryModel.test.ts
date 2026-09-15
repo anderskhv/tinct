@@ -24,6 +24,7 @@ import {
   shelfFocusIndex,
   showPopularShelf,
   readerWordsPerMinute,
+  explicitReaderStart,
   readingMinutes,
   readingTimeLine,
   publishedCount,
@@ -326,6 +327,39 @@ it('keeps Full voice and the new reader through library navigation', async () =>
   expect(readerPreviewSearch('?chrome=v2&voiceTrial=unknown')).toBe('')
   expect(readerPreviewSearch('')).toBe('')
   expect(readerPreviewSearch('?voiceTrial=full')).toBe('')
+})
+
+describe('explicit reader starts', () => {
+  const book = {
+    id: 'notes-from-underground',
+    readingStructure: {
+      chapters: [
+        { number: 1, title: 'Part 1, Chapter 1', paragraphCount: 11 },
+        { number: 2, title: 'Part 1, Chapter 2', paragraphCount: 8 },
+      ],
+    },
+  }
+
+  it('turns a validated one-based share coordinate into a coherent reader tuple', () => {
+    expect(explicitReaderStart('?book=notes-from-underground&start=1.2', book)).toEqual({
+      bookId: 'notes-from-underground',
+      chapterNumber: 1,
+      page: 0,
+      paragraphIndex: 1,
+      wordIndex: 0,
+    })
+  })
+
+  it.each([
+    '?book=odyssey&start=1.2',
+    '?book=notes-from-underground&start=1.0',
+    '?book=notes-from-underground&start=1.12',
+    '?book=notes-from-underground&start=3.1',
+    '?book=notes-from-underground&start=1.2.1',
+    '?book=notes-from-underground&start=author-note',
+  ])('rejects an invalid or cross-book coordinate: %s', search => {
+    expect(explicitReaderStart(search, book)).toBeNull()
+  })
 })
 
 describe('search drawer', () => {
