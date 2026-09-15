@@ -1,7 +1,7 @@
 """Reviewed bindings for Ulysses.
 
 Joyce in both editions, 18 episodes, 7,148 paragraphs per edition. Episodes 1 to
-7 are authored; episodes 8-18 are not.
+8 are authored; episodes 9-18 are not.
 
 Every table below has `None` for its default, so a name that an unread episode
 will give to somebody else carries no card at all outside the paragraphs keyed
@@ -56,7 +56,7 @@ SPLIT={
            (7,126):'simon-dedalus',(7,137):'simon-dedalus',
            (7,151):'simon-dedalus',(7,156):'simon-dedalus',
            (7,166):'simon-dedalus',(7,168):'simon-dedalus',
-           (7,258):'stephen',(7,497):'stephen'},None),
+           (7,258):'stephen',(7,497):'stephen',(8,9):'simon-dedalus'},None),
  # Deasy calls him Mr Dedalus; from episode 6 the same two words are his father.
  'Mr Dedalus':({(2,137):'stephen',(2,154):'stephen',(2,195):'stephen',
               (6,3):'simon-dedalus',(6,12):'simon-dedalus',
@@ -114,9 +114,9 @@ SPLIT={
  # Shakespeare and Hamlet are argued over for the whole of episode 9 and named
  # in eleven episodes; only the two mentions of episode 1 are keyed here.
  'Shakespeare':({(1,275):'shakespeare',(2,74):'shakespeare',(2,113):'shakespeare',
-                 (6,168):'shakespeare',(6,333):'shakespeare'},None),
+                 (6,168):'shakespeare',(6,333):'shakespeare',(8,16):'shakespeare'},None),
  'Hamlet':({(1,232):'hamlet',(1,269):'hamlet',(1,275):'hamlet',(2,74):'hamlet',
-           (3,79):'hamlet',(5,65):'hamlet',(6,333):'hamlet',(7,154):'hamlet'},None),
+           (3,79):'hamlet',(5,65):'hamlet',(6,333):'hamlet',(7,154):'hamlet',(8,17):'hamlet'},None),
  # Joseph is Joseph the Joiner at 1:288 and 1:295 and eleven other men elsewhere.
  'Joseph':({(1,288):'joseph-the-joiner',(1,295):'joseph-the-joiner',
             (3,43):'joseph-the-joiner',(5,107):'joseph-the-joiner'},None),
@@ -134,7 +134,7 @@ SPLIT={
  # 10:235 is Temple bar. 3:35 is the same man, in an episode not yet read.
  'Temple':({(2,123):'temple',(3,35):'temple'},None),
  # 8:111 and 8:144 name him in full: the eminent poet A. E., Mr Geo. Russell.
- 'Russell':({(2,123):'russell'},None),
+ 'Russell':({(2,123):'russell',(8,111):'russell',(8,144):'russell'},None),
  # 7:42 is Phil Blake's weekly Pat and Bull story.
  # 7:42 is Phil Blake of the weekly Pat and Bull story.
  'Blake':({(2,6):'blake',(7,42):'phil-blake'},None),
@@ -154,7 +154,7 @@ SPLIT={
                  (6,315):'john-oconnell',(6,316):'john-oconnell',
                  (6,330):['john-oconnell','oconnell']},None),
  'Parnell':({(2,174):'parnell',(6,155):'parnell',(6,346):'parnell',
-             (6,374):'parnell'},None),
+             (6,374):'parnell',(8,134):'parnell',(8,141):'parnell'},None),
  'Helen':({(2,174):'helen',(7,276):'helen',(7,519):'helen'},None),
  'Albert Edward':({(2,128):'albert-edward'},None),
  # 4:29 to 4:33 are Larry O'Rourke the publican on the corner of Dorset
@@ -188,13 +188,13 @@ SPLIT={
  # Pat is bald Pat the waiter through the whole of episode 11, Pat Dignam in
  # four episodes, Pat Farrell, Pat Claffey, Pat Kinsella, Pat Tobin. Here twice
  # it is Kevin Egan's son: tell Pat you saw me; I wanted to get poor Pat a job.
- 'Pat':({(3,59):'patrice'},None),
+ 'Pat':({(3,59):'patrice',(8,160):'pat-kinsella'},None),
  # Eleven other Burkes: O'Madden Burke of the newspaper office, Pisser Burke,
  # Edmund Burke, Burke's public house.
  'Burke':({(3,59):'richard-burke'},None),
  # 14:49 is Victoria Frances, a child of the Purefoy family.
  'Victoria':({(3,57):'queen-victoria',(3,94):'queen-victoria',
-              (6,247):'queen-victoria'},None),
+              (6,247):'queen-victoria',(8,116):'queen-victoria'},None),
  # Modern edition only: it prints the king where Joyce wrote his people. 6:205
  # is the Brian Boru House pub.
  'Brian Boru':({(3,57):'brian-boru'},None),
@@ -202,7 +202,7 @@ SPLIT={
  # The older edition spells it A E and the modern one A.E., as it does in five
  # later episodes that have not been read.
  # 7:407 is George Russell again, signing himself A. E.
- '(?:A E|A\\.\s?E\\.)':({(3,57):'russell',(7,407):'russell'},None),
+ '(?:A E|A\\.\s?E\\.)':({(3,57):'russell',(7,407):'russell',(8,111):'russell',(8,144):'russell'},None),
  # The high king, not Buck Mulligan and not Saint Malachy: the alias is dropped
  # at 3:67 by SUPPRESS below and the key carries it. 12:50 names him the ardri.
  'Malachi':({(3,67):'king-malachi',(12,50):'king-malachi'},None),
@@ -257,7 +257,7 @@ SPLIT={
          (7,216):'leopold',(7,220):'leopold',(7,223):'leopold',
          (7,228):'leopold',(7,313):'leopold',(7,349):'leopold',
          (7,487):'leopold',(7,491):'leopold',(7,494):'leopold',
-         (7,498):'leopold',(7,501):'leopold',(7,314):'molly'},None),
+         (7,498):'leopold',(7,501):'leopold',(7,314):'molly',(8,204):'leopold',(8,288):'leopold'},None),
  'Mr Bloom':({(4,5):'leopold',(4,7):'leopold',(4,47):'leopold',
               (5,0):'leopold',(5,19):'leopold',(5,22):'leopold',
               (5,25):'leopold',(5,32):'leopold',(5,38):'leopold',
@@ -298,7 +298,7 @@ SPLIT={
               (7,183):'leopold',(7,208):'leopold',(7,212):'leopold',
               (7,216):'leopold',(7,220):'leopold',(7,223):'leopold',
               (7,228):'leopold',(7,487):'leopold',(7,491):'leopold',
-              (7,494):'leopold',(7,498):'leopold',(7,501):'leopold'},None),
+              (7,494):'leopold',(7,498):'leopold',(7,501):'leopold',(8,1):'leopold',(8,33):'leopold',(8,34):'leopold',(8,43):'leopold',(8,46):'leopold',(8,52):'leopold',(8,56):'leopold',(8,63):'leopold',(8,67):'leopold',(8,72):'leopold',(8,75):'leopold',(8,77):'leopold',(8,85):'leopold',(8,90):'leopold',(8,92):'leopold',(8,97):'leopold',(8,100):'leopold',(8,102):'leopold',(8,106):'leopold',(8,109):'leopold',(8,143):'leopold',(8,158):'leopold',(8,190):'leopold',(8,223):'leopold',(8,229):'leopold',(8,243):'leopold',(8,253):'leopold',(8,315):'leopold',(8,322):'leopold',(8,323):'leopold',(8,336):'leopold',(8,338):'leopold',(8,340):'leopold',(8,341):'leopold',(8,342):'leopold',(8,344):'leopold',(8,354):'leopold',(8,366):'leopold'},None),
  'Mrs Marion Bloom':({(4,63):'molly',(5,50):'molly'},None),
  'Mrs Marion':({(4,63):'molly',(4,146):'molly'},None),
  'Marion':({(4,63):'molly',(4,94):'molly',(4,146):'molly',(5,50):'molly',
@@ -312,21 +312,21 @@ SPLIT={
  'Molly':({(4,27):'molly',(4,57):'molly',(4,87):'molly',
            (5,81):'molly',(5,95):'molly',(5,99):'molly',(5,102):'molly',
            (6,6):'molly',(6,28):'molly',(6,32):'molly',(6,103):'molly',
-           (6,266):'molly',(6,330):'molly',(6,388):'molly'},None),
+           (6,266):'molly',(6,330):'molly',(6,388):'molly',(8,33):'molly',(8,35):'molly',(8,36):'molly',(8,45):'molly',(8,81):'molly',(8,105):'molly',(8,116):'molly',(8,118):'molly',(8,162):'molly',(8,253):'molly',(8,333):'molly',(8,356):'molly'},None),
  'Milly':({(4,67):'milly',(4,68):'milly',(4,85):'milly',(4,87):'milly',
            (4,135):'milly',(4,136):'milly',(4,146):'milly',
-           (6,32):'milly',(6,56):'milly',(6,204):'milly',(6,376):'milly'},None),
+           (6,32):'milly',(6,56):'milly',(6,204):'milly',(6,376):'milly',(8,36):'milly',(8,37):'milly',(8,42):'milly',(8,46):'milly',(8,211):'milly',(8,255):'milly',(8,349):'milly'},None),
  # 16:19 and 16:23 are Boylan the billsticker, whom nobody in the book connects
  # with this one, and 12:260 is a Mr Boylan in the citizen's deaf-man story.
  'Boylan':({(4,84):'blazes-boylan',(4,95):'blazes-boylan',(4,135):'blazes-boylan',
-            (4,165):'blazes-boylan',(6,86):'blazes-boylan'},None),
+            (4,165):'blazes-boylan',(6,86):'blazes-boylan',(8,35):'blazes-boylan',(8,255):'blazes-boylan'},None),
  # Master Patrick Aloysius Dignam is his son, in episodes 10 and 15.
  'Dignam':({(4,31):'paddy-dignam',(4,117):'paddy-dignam',(4,172):'paddy-dignam',
             (5,19):'paddy-dignam',(5,28):'paddy-dignam',(5,34):'paddy-dignam',
             (6,74):'paddy-dignam',(6,197):'paddy-dignam',(6,204):'paddy-dignam',
             (6,271):'paddy-dignam',(6,339):'paddy-dignam',(6,385):'paddy-dignam',
-            (6,388):'paddy-dignam',(7,39):'paddy-dignam',(7,99):'paddy-dignam'},None),
- 'Paddy Dignam':({(6,197):'paddy-dignam',(6,204):'paddy-dignam'},None),
+            (6,388):'paddy-dignam',(7,39):'paddy-dignam',(7,99):'paddy-dignam',(8,56):'paddy-dignam',(8,135):'paddy-dignam',(8,208):'paddy-dignam'},None),
+ 'Paddy Dignam':({(6,197):'paddy-dignam',(6,204):'paddy-dignam',(5,28):'paddy-dignam',(5,34):'paddy-dignam'},None),
  # 6:103 is Molly's namesake Tweedy, crown solicitor for Waterford; from episode
  # 16 on, Madam Marion Tweedy is Molly herself.
  # 6:103 is Molly's namesake, the crown solicitor for Waterford, and 6:305 is
@@ -338,14 +338,14 @@ SPLIT={
  # 18:5 is Williams and Woods, the jam makers.
  'Woods':({(4,40):'woods'},None),
  # 8:85, 13:98 and 15:203 are Mrs Beaufoy, who is Mrs Purefoy under a slip.
- 'Beaufoy':({(4,162):'philip-beaufoy',(4,163):'philip-beaufoy'},None),
- 'Philip Beaufoy':({(4,162):'philip-beaufoy'},None),
+ 'Beaufoy':({(4,162):'philip-beaufoy',(4,163):'philip-beaufoy',(8,85):'mina-purefoy',(8,87):'philip-beaufoy'},None),
+ 'Philip Beaufoy':({(4,162):'philip-beaufoy',(8,87):'philip-beaufoy'},None),
  # Two occurrences in the paragraph, and the first is the title of the book.
  'Ruby':({(4,117):[None,'ruby']},None),
  # Matcham's Masterstroke is set in Gutenberg italic underscores at 4:162 and
  # 4:163, where the alias binder's \\w guard cannot reach it: the same trap as
  # Los Demiurgos at 3:1. Keyed for that reason.
- 'Matcham':({(4,162):'matcham',(4,163):'matcham'},None),
+ 'Matcham':({(4,162):'matcham',(4,163):'matcham',(8,87):'matcham'},None),
  # 18:1 is Mrs Mastiansky, and 8:118 is Mrs Moisel.
  'Mastiansky':({(4,57):'mastiansky',(6,331):'mastiansky'},None),
  'Moisel':({(4,57):'moisel'},None),
@@ -369,19 +369,18 @@ SPLIT={
  'Paddy':({(5,28):'paddy-dignam',(5,34):'paddy-dignam',
            (6,143):'paddy-dignam',(6,144):'paddy-dignam',(6,197):'paddy-dignam',
            (6,204):'paddy-dignam',(6,257):'paddy-dignam'},None),
- 'Paddy Dignam':({(5,28):'paddy-dignam',(5,34):'paddy-dignam'},None),
  # Leopold is Bloom at 5:67 and the queen's son at 5:121, twelve lines after
  # Bloom notices that the duke of Albany had his own name.
  'Leopold':({(5,67):'leopold',(5,121):'duke-of-albany',
-             (6,56):'leopold',(6,171):'leopold',(6,354):'leopold'},None),
+             (6,56):'leopold',(6,171):'leopold',(6,354):'leopold',(8,255):'archduke-leopold'},None),
  # Henry is Bloom's pen name here; John Henry Menton, Henry Campbell and Henry
  # Blackwood Price are three other men.
  # 6:75 is the mourning-card verse -- dear Henry fled to his home up above --
  # and is not bound; 6:76 is Bloom turning the same words on his own pen name.
  'Henry':({(5,76):'henry-flower',(5,77):'henry-flower',(6,76):'henry-flower'},None),
  # 15:1235 is Mrs Bob Doran, his wife.
- 'Doran':({(5,26):'bob-doran',(5,27):'bob-doran'},None),
- 'Bob Doran':({(5,26):'bob-doran'},None),
+ 'Doran':({(5,26):'bob-doran',(5,27):'bob-doran',(8,159):'bob-doran'},None),
+ 'Bob Doran':({(5,26):'bob-doran',(8,159):'bob-doran'},None),
  # 10:457 is Councillor Abraham Lyon.
  'Lyons':({(5,26):'bantam-lyons',(5,27):'bantam-lyons',(5,130):'bantam-lyons',
            (5,133):'bantam-lyons',(5,134):'bantam-lyons',(5,137):'bantam-lyons',
@@ -389,7 +388,7 @@ SPLIT={
  # The informer, whose first name Bloom cannot fix: Carey, Peter Carey, Denis
  # Carey, all three in the same paragraph and all the same man. Peter Claver in
  # the middle of them is the saint of the sermon on the door.
- 'Carey':({(5,100):'carey'},None),
+ 'Carey':({(5,100):'carey',(8,127):'carey'},None),
  'Peter Carey':({(5,100):'carey'},None),
  'Denis Carey':({(5,100):'carey'},None),
  # Peter is the apostle only at 5:107; at 5:95 and 5:100 he is Peter Claver and
@@ -401,7 +400,7 @@ SPLIT={
  'Michael':({(1,318):'saint-michael',(5,109):'saint-michael'},None),
  'Satan':({(5,109):'satan'},None),
  # Saint Patrick is named in nine episodes and only this one is read.
- 'Saint Patrick':({(5,95):'saint-patrick'},None),
+ 'Saint Patrick':({(5,95):'saint-patrick',(8,179):'saint-patrick'},None),
  # 12:513 and 15:78 are the patriarch; this is the blind father of the play.
  'Abraham':({(5,65):'leah-abraham'},None),
  # The modern edition spells her Mary, which is also the gospel sister at 5:87.
@@ -410,7 +409,7 @@ SPLIT={
             (5,87):'martha-and-mary',
             (6,330):'martha-clifford',(6,386):'martha-clifford',
             (7,24):'martha-and-mary'},None),
- 'Mary':({(5,87):'martha-and-mary',(7,24):'martha-and-mary'},None),
+ 'Mary':({(5,87):'martha-and-mary',(7,24):'martha-and-mary',(8,128):'mary-slavey',(8,130):'mary-slavey'},None),
  # 11:516 is the Iveagh home, a hostel named after him.
  'Iveagh':({(5,91):'lord-iveagh'},None),
  # --- episode 7. The newspaper office: Stephen and Bloom in the same room for
@@ -486,7 +485,7 @@ SPLIT={
  # --- episode 6. The funeral, and the largest named cast in the book so far.
  # Stephen is in this episode and is never named in it: he is seen once from
  # the carriage as a lithe young man clad in mourning.
- 'Simon Dedalus':({(4,30):'simon-dedalus',(7,21):'simon-dedalus'},None),
+ 'Simon Dedalus':({(4,30):'simon-dedalus',(7,21):'simon-dedalus',(8,141):'simon-dedalus'},None),
  'Simon':({(6,1):'simon-dedalus',(6,66):'simon-dedalus',
          (6,248):'simon-dedalus',(6,278):'simon-dedalus',
          (6,318):'simon-dedalus',(7,21):'simon-dedalus',
@@ -507,7 +506,6 @@ SPLIT={
             (6,218):'jack-power',(6,223):'jack-power',(6,235):'jack-power',
             (6,237):'jack-power',(6,277):'jack-power',(6,280):'jack-power',
             (6,315):'jack-power',(6,370):'jack-power',(6,371):'jack-power'},None),
- 'Jack':({(6,279):'jack-power'},None),
  'Martin':({(6,0):'martin-cunningham',(6,5):'martin-cunningham',
           (6,11):'martin-cunningham',(6,28):'martin-cunningham',
           (6,31):'martin-cunningham',(6,36):'martin-cunningham',
@@ -542,14 +540,14 @@ SPLIT={
           (6,306):'john-henry-menton',(6,311):'john-henry-menton',
           (6,313):'john-henry-menton',(6,319):'john-henry-menton',
           (6,388):'john-henry-menton',(6,393):'john-henry-menton',
-          (6,395):'john-henry-menton',(6,397):'john-henry-menton'},None),
+          (6,395):'john-henry-menton',(6,397):'john-henry-menton',(8,79):'john-henry-menton',(8,110):'john-henry-menton'},None),
  'John Henry':({(6,257):'john-henry-menton'},None),
  'Corny':({(6,34):'corny-kelleher',(6,190):'corny-kelleher'},None),
  # 6:24 names Richie first and then the firm: Goulding, Collis and Ward.
- 'Goulding':({(6,24):['richie-goulding',None]},None),
+ 'Goulding':({(6,24):['richie-goulding',None],(8,110):'richie-goulding'},None),
  # Reuben J Dodd, and Mr Dedalus calling him Barabbas.
  'Reuben':({(6,108):'reuben-j',(6,118):'reuben-j',(6,129):'reuben-j',
-            (6,133):'reuben-j'},None),
+            (6,133):'reuben-j',(8,364):'reuben-j'},None),
  'Barabbas':({(6,125):'reuben-j'},None),
  # 8:336 is Gray's confectioner's window and 6:330 is a grey sprouting beard.
  # The modern edition spells the knight Grey.
@@ -589,7 +587,66 @@ SPLIT={
             # 6:25 is 'the help of God and His blessed mother'.
             (6,25):'blessed-virgin',
             # 7:294 is Mulligan's jibe again: whose mother is beastly dead.
-            (7,294):'may-dedalus'},None),
+            (7,294):'may-dedalus',(8,9):'may-dedalus'},None),
+ # ---- episode 8. Every name below was listed across all 18 episodes before
+ # being keyed; the comment says what the other occurrences are.
+ # The prophet on Dowie's handbill, and again on the ball of paper thrown to
+ # the gulls. 12:565 is Christ's cry from the cross and 15:608 is Dowie in
+ # person, so the name is keyed and not aliased.
+ 'Elijah':({(8,5):'elijah',(8,14):'elijah'},None),
+ # The second half of "Torry and Alexander". Every other Alexander in the book
+ # is Alexander Keyes, Alexander J Dowie or archbishop William Alexander.
+ 'Alexander':({(8,7):'alexander-evangelist'},None),
+ # 12:240 is the Irish Caruso-Garibaldi, where the hyphen defeats the guard.
+ 'Garibaldi':({(8,133):'garibaldi'},None),
+ # The king who choked at Sletty. 12:312 is the tribe of Cormac and 17:7 is
+ # the same king again, under his full name Cormac MacArt.
+ 'Cormac':({(8,179):'cormac'},None),
+ # Noah's son, in the pun on the potted meats. 4:16 is ham and eggs.
+ 'Ham':({(8,208):'ham'},None),
+ # The goddesses in the round hall. Venus is a statue, a planet and half a
+ # dozen epithets elsewhere in the book; Juno is Juno's eyes in episode 9.
+ 'Venus':({(8,260):'venus'},None),
+ 'Juno':({(8,260):'juno'},None),
+ # The archduke Otto of the Habsburg story. 17:108 is Thomas Otto, harlequin.
+ 'Otto':({(8,255):'archduke-otto'},None),
+ # The owner of the filly. Elsewhere the name is the banking house.
+ 'Rothschild':({(8,250):'rothschild'},None),
+ # Old Harris the optician, whose shop it is. 9:181 is Frank Harris on
+ # Shakespeare, 15:869 is Harris Rosenberg, 17:463 is Harris tweed.
+ 'Harris':({(8,148):'harris'},None),
+ # The park ranger. 12:274 is Stubbs's, the trade gazette.
+ 'Stubbs':({(8,112):'stubbs'},None),
+ # Whelan of the Express. 15:617 and 17:108 are other Whelans.
+ 'Whelan':({(8,112):'whelan'},None),
+ # Coffey the butcher, who has the right to venison. Father Coffey of episode
+ # 6 carries his own alias and is a different man.
+ 'Coffey':({(8,255):'coffey-butcher'},None),
+ 'Dubedat':({(8,255):'dubedat'},None),
+ # Rock the head bailiff at the Burton bar. The other occurrences are Maiden's
+ # Rock, Three Rock mountain and the pineapple rock of the first sentence.
+ 'Rock':({(8,189):'rock'},None),
+ # Tommy Moore over the urinal. 8:255 is Moore street and episode 9 is George
+ # Moore the novelist, so the surname is keyed to this one paragraph.
+ 'Moore':({(8,121):'tom-moore'},None),
+ # The song's chief, whose name sits inside Gutenberg italics in the older
+ # edition, where the trailing underscore defeats the alias guard.
+ 'MacTrigger':({(8,208):'mactrigger',(8,223):'mactrigger'},None),
+ 'Don Giovanni':({(8,325):'don-giovanni',(8,330):'don-giovanni'},None),
+ # Nosey Flynn by his bare surname. The guard lets "Flynn" through inside
+ # "O'Flynn", so the name can never be aliased: 8:198, 12:513 and 15:1340 are
+ # Father O'Flynn, and 13:88 and 12:349 are outside the read episodes.
+ 'Flynn':({(8,205):'nosey-flynn',(8,241):'nosey-flynn',
+           (8,260):'nosey-flynn',(8,323):'nosey-flynn'},None),
+ 'Father O[’\']Flynn':({(8,198):'father-oflynn'},None),
+ 'Jack Power':({(8,122):'jack-power'},None),
+ # Denis Breen by his first name, in his wife's mouth.
+ 'Denis':({(8,103):'denis-breen'},None),
+ # Theodore Purefoy, named only by his first name and his cousin in the castle.
+ 'Theodore':({(8,113):'theodore-purefoy'},None),
+ 'Blazes Boylan':({(8,228):'blazes-boylan'},None),
+ 'Blazes':({(8,238):'blazes-boylan'},None),
+ 'Richie Goulding':({(8,110):'richie-goulding'},None),
 }
 
 # Figures the text names only by a description. (episode, paragraph) -> [(pattern, id)]
@@ -728,6 +785,55 @@ PHRASE={
  (7,197):[(r'the cringing urchin','the-newsboy')],
  (7,201):[(r'the newsboy','the-newsboy')],
  (7,205):[(r'the boy','the-newsboy')],
+ # ---- episode 8
+ (8,0):[(r'A sugarsticky girl','sweetshop-girl'),(r'A sugar-sticky girl','sweetshop-girl'),
+        (r'[Cc]hristian [Bb]rother','christian-brother')],
+ (8,1):[(r'A sombre Y\.\s?M\.\s?C\.\s?A\.\s?young man','ymca-young-man')],
+ (8,9):[(r'daughter','dedalus-daughter'),(r'the father','simon-dedalus')],
+ (8,10):[(r'that poor child','dedalus-daughter')],
+ # The older edition writes Reuben J's son; the modern edition supplies the
+ # surname and writes Reuben J. Dodd's son.
+ (8,12):[(r'Reuben J’s son','reuben-son'),(r"Reuben J\. Dodd's son",'reuben-son')],
+ (8,21):[(r'the old apple ?woman','applewoman')],
+ (8,34):[(r'[Bb]ig Ben','ben-dollard')],
+ # Lot's wife is named in the modern edition only; the older text has just
+ # the two words Pillar of salt.
+ (8,35):[(r'Y lagging behind','sandwichman-y'),(r'The Y man, lagging behind','sandwichman-y'),
+         (r'a nice nun','tranquilla-nun'),(r"Lot's wife",'lots-wife')],
+ (8,37):[(r'[Pp]apa','rudolph-bloom')],
+ (8,39):[(r'the dayfather','monks'),(r'the day-shift man','monks')],
+ (8,63):[(r'A barefoot arab','barefoot-arab'),(r'A barefoot street urchin','barefoot-arab')],
+ (8,99):[(r'A bony form','farrell'),(r'A bony figure','farrell')],
+ (8,112):[(r'That one at the Grosvenor','grosvenor-woman'),
+          (r'pug ?-?nosed driver','pugnosed-driver')],
+ (8,113):[(r'Methodist husband','theodore-purefoy')],
+ (8,116):[(r'[Oo]ld woman that lived in a shoe','old-woman-in-a-shoe'),
+          (r'old woman who lived in a shoe','old-woman-in-a-shoe')],
+ (8,118):[(r'(?<=’s )son','tom-wall-son'),(r"(?<='s )son",'tom-wall-son')],
+ (8,122):[(r'father a G man','power-father'),
+          (r'his father was a plainclothes detective','power-father'),
+          (r'That horsepoliceman','horsepoliceman'),(r'That mounted policeman','horsepoliceman')],
+ (8,127):[(r'Peeping Tom','peeping-tom')],
+ (8,133):[(r'[Tt]urnkey[’\']s daughter','turnkey-daughter')],
+ (8,141):[(r'the brother','john-howard-parnell')],
+ (8,143):[(r'Beard and bicycle','russell')],
+ (8,145):[(r'the high figure in homespun','russell'),(r'the tall figure in homespun','russell')],
+ (8,148):[(r'that farmer[’\']s daughter','farmers-daughter')],
+ (8,189):[(r'An illgirt server','burton-server'),(r'A dishevelled waiter','burton-server')],
+ (8,220):[(r'The curate','davy-byrne-curate'),(r'The barman','davy-byrne-curate')],
+ (8,236):[(r'that soldier in the Portobello [Bb]arracks','portobello-soldier'),
+          (r'the little kipper','myler-keogh'),(r'the little fighter','myler-keogh')],
+ (8,270):[(r'(?<=Nolan’s )wife','nolan-wife'),(r"(?<=Nolan's )wife",'nolan-wife')],
+ (8,283):[(r'one of the saint Legers of Doneraile','saint-leger-woman'),
+          (r'one of the St Legers of Doneraile','saint-leger-woman')],
+ (8,335):[(r'a drowsing loafer','drowsing-loafer'),(r'a drowsy loafer','drowsing-loafer')],
+ (8,336):[(r'[Pp]apa','rudolph-bloom')],
+ (8,337):[(r'A blind stripling','blind-stripling'),(r'A blind young man','blind-stripling')],
+ (8,339):[(r'The blind stripling','blind-stripling'),(r'The blind young man','blind-stripling')],
+ (8,343):[(r'the stripling','blind-stripling'),(r'the young man','blind-stripling')],
+ (8,353):[(r'The blind stripling','blind-stripling'),(r'The blind young man','blind-stripling')],
+ (8,360):[(r'the blind man','blind-stripling')],
+ (8,365):[(r'His Excellency the [Ll]ord [Ll]ieutenant','lord-lieutenant')],
 }
 
 # (matched text, episode, paragraph) -> the alias hit is dropped there
@@ -751,6 +857,9 @@ SUPPRESS={
  ('mother',1,45),('mother',1,155),('mother',1,162),('mother',1,288),
  # 3:67 is the high king Malachi who wore the collar of gold, not Buck.
  ('Malachi',3,67),
+ # 11:465 is the money Bloom spent in the pub -- Seven Davy Byrne's -- in a
+ # column of the day's expenses, not the publican himself.
+ ('Davy Byrne',11,465),
 }
 
 def bind(edition,ch,pi,text,entities):

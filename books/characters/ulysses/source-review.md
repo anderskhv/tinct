@@ -1080,7 +1080,7 @@ Bloom’s guarantor at the Capel street library, who will be written to if the b
 
 Better where she is down there: away. Occupy her. Wanted a dog to pass the time. Might take a trip down there. August bank holiday, only two and six return. Six weeks off, however. Might work a press pass. Or through M’Coy.
 
-Through whom Bloom thinks he might work a press pass to Mullingar, to go down and see Milly. He appears in person in the next episode and asks to have his name put down at the funeral.
+Through whom Bloom thinks he might work a press pass to Mullingar, to go down and see Milly. He appears in person in the next episode and asks to have his name put down at the funeral. The modern edition spells him McCoy from episode 8 on.
 
 ## original-en · gretta-conroy · 4:164
 
@@ -2282,6 +2282,678 @@ Their names are Anne Kearns and Florence MacCabe. Anne Kearns has the lumbago fo
 
 One of the two: she has the lumbago, for which she rubs on Lourdes water given her by a lady who got a bottleful from a passionist father. The other is Florence MacCabe, the midwife Stephen watched come down to the strand in episode 3.
 
+## original-en · sweetshop-girl · 8:0
+
+Pineapple rock, lemon platt, butter scotch. A sugarsticky girl shovelling scoopfuls of creams for a christian brother. Some school treat. Bad for their tummies. Lozenge and comfit manufacturer to His Majesty the King. God. Save. Our. Sitting on his throne sucking red jujubes white.
+
+Shovelling scoopfuls of creams for a christian brother behind the warm sweet fumes of Graham Lemon’s, in the first sentence of the episode. Pineapple rock, lemon platt, butter scotch. Bad for their tummies, Bloom thinks, and walks on hungry.
+
+## original-en · christian-brother · 8:0
+
+Pineapple rock, lemon platt, butter scotch. A sugarsticky girl shovelling scoopfuls of creams for a christian brother. Some school treat. Bad for their tummies. Lozenge and comfit manufacturer to His Majesty the King. God. Save. Our. Sitting on his throne sucking red jujubes white.
+
+Buying the sweets at Lemon’s for some school treat. One of the teaching order, in the older edition lowercase and in the modern edition given his capitals.
+
+## original-en · ymca-young-man · 8:1
+
+A sombre Y. M. C. A. young man, watchful among the warm sweet fumes of Graham Lemon’s, placed a throwaway in a hand of Mr Bloom.
+
+Sombre and watchful among the fumes of the sweetshop, who puts the throwaway into Mr Bloom’s hand. Heart to heart talks. Bloom reads the first word of it as his own name — Bloo… Me? No — and it turns out to be Blood of the Lamb.
+
+## original-en · elijah · 8:5
+
+His slow feet walked him riverward, reading. Are you saved? All are washed in the blood of the lamb. God wants blood victim. Birth, hymen, martyr, war, foundation of a building, sacrifice, kidney burntoffering, druids’ altars. Elijah is coming. Dr John Alexander Dowie restorer of the church in Zion is coming.
+
+Whose coming the throwaway announces, and whose name Bloom reads twice: Elijah is coming, and then, crumpled into a ball and thrown to the gulls, Elijah thirtytwo feet per sec is com. The prophet taken up in the whirlwind, whose return the revivalist has attached to himself.
+
+## original-en · dowie · 8:5
+
+His slow feet walked him riverward, reading. Are you saved? All are washed in the blood of the lamb. God wants blood victim. Birth, hymen, martyr, war, foundation of a building, sacrifice, kidney burntoffering, druids’ altars. Elijah is coming. Dr John Alexander Dowie restorer of the church in Zion is coming.
+
+Dr John Alexander Dowie, restorer of the church in Zion, who is the Elijah of the handbill. Bloom prices the enterprise as he would any other: paying game.
+
+## original-en · torry · 8:7
+
+Paying game. Torry and Alexander last year. Polygamy. His wife will put the stopper on that. Where was that ad some Birmingham firm the luminous crucifix. Our Saviour. Wake up in the dead of night and see him on the wall, hanging. Pepper’s ghost idea. Iron Nails Ran In.
+
+One of the two revivalists who worked Dublin the year before, whom Bloom sets beside Dowie as the same trade returning. Polygamy, he adds, thinking of Zion: his wife will put the stopper on that.
+
+## original-en · alexander-evangelist · 8:7
+
+Paying game. Torry and Alexander last year. Polygamy. His wife will put the stopper on that. Where was that ad some Birmingham firm the luminous crucifix. Our Saviour. Wake up in the dead of night and see him on the wall, hanging. Pepper’s ghost idea. Iron Nails Ran In.
+
+The other half of Torry and Alexander, the revival that worked Dublin last year. Bloom remembers the pair as one act and does not separate them; the name is his measure of how often this trade comes round.
+
+## original-en · dedalus-daughter · 8:9
+
+From Butler’s monument house corner he glanced along Bachelor’s walk. Dedalus’ daughter there still outside Dillon’s auctionrooms. Must be selling off some old furniture. Knew her eyes at once from the father. Lobbing about waiting for him. Home always breaks up when the mother goes. Fifteen children he had. Birth every year almost. That’s in their theology or the priest won’t give the poor woman the confession, the absolution. Increase and multiply. Did you ever hear such an idea? Eat you out of house and home. No families themselves to feed. Living on the fat of the land. Their butteries and larders. I’d like to see them do the black fast Yom Kippur. Crossbuns. One meal and a collation for fear he’d collapse on the altar. A housekeeper of one of those fellows if you could pick it out of her. Never pick it out of her. Like getting £. s. d. out of him. Does himself well. No guests. All for number one. Watching his water. Bring your own bread and butter. His reverence: mum’s the word.
+
+Lobbing about outside Dillon’s auctionrooms on Bachelor’s walk, waiting for her father, with some old furniture going under the hammer inside. Bloom knows her eyes at once from the father, counts the fifteen children, and notes the dress in flitters and the underfed look of her. The episode does not give her a first name.
+
+## original-en · applewoman · 8:21
+
+He halted again and bought from the old applewoman two Banbury cakes for a penny and broke the brittle paste and threw its fragments down into the Liffey. See that? The gulls swooped silently, two, then all from their heights, pouncing on prey. Gone. Every morsel.
+
+Two apples a penny, two for a penny, at the corner of the bridge. Bloom buys two Banbury cakes from her for a penny and breaks them up for the gulls, who take every morsel and give him not even a caw.
+
+## original-en · hy-franks · 8:26
+
+Good idea that. Wonder if he pays rent to the corporation. How can you own water really? It’s always flowing in a stream, never the same, which in the stream of life we trace. Because life is a stream. All kinds of places are good for ads. That quack doctor for the clap used to be stuck up in all the greenhouses. Never see it now. Strictly confidential. Dr Hy Franks. Didn’t cost him a red like Maginni the dancing master self advertisement. Got fellows to stick them up or stick them up himself for that matter on the q. t. running in to loosen a button. Flybynight. Just the place too. POST NO BILLS. POST 110 PILLS. Some chap with a dose burning him.
+
+The quack for the clap whose strictly confidential bills used to be stuck up in all the greenhouses, and who never paid a red for the privilege. Bloom the canvasser reads the city as a hoarding and grades the work.
+
+## original-en · maginni · 8:26
+
+Good idea that. Wonder if he pays rent to the corporation. How can you own water really? It’s always flowing in a stream, never the same, which in the stream of life we trace. Because life is a stream. All kinds of places are good for ads. That quack doctor for the clap used to be stuck up in all the greenhouses. Never see it now. Strictly confidential. Dr Hy Franks. Didn’t cost him a red like Maginni the dancing master self advertisement. Got fellows to stick them up or stick them up himself for that matter on the q. t. running in to loosen a button. Flybynight. Just the place too. POST NO BILLS. POST 110 PILLS. Some chap with a dose burning him.
+
+The dancing master, whose self advertisement Bloom sets against Franks: he got fellows to stick the bills up, or stuck them up himself on the q. t., running in to loosen a button.
+
+## original-en · robert-ball · 8:33
+
+Mr Bloom moved forward, raising his troubled eyes. Think no more about that. After one. Timeball on the ballastoffice is down. Dunsink time. Fascinating little book that is of sir Robert Ball’s. Parallax. I never exactly understood. There’s a priest. Could ask him. Par it’s Greek: parallel, parallax. Met him pike hoses she called it till I told her about the transmigration. O rocks!
+
+Whose fascinating little book gave Bloom the word parallax, which he has never exactly understood, and which comes back at him all day. Par it’s Greek: parallel, parallax.
+
+## original-en · sandwichman-y · 8:35
+
+A procession of whitesmocked sandwichmen marched slowly towards him along the gutter, scarlet sashes across their boards. Bargains. Like that priest they are this morning: we have sinned: we have suffered. He read the scarlet letters on their five tall white hats: H. E. L. Y. S. Wisdom Hely’s. Y lagging behind drew a chunk of bread from under his foreboard, crammed it into his mouth and munched as he walked. Our staple food. Three bob a day, walking along the gutters, street after street. Just keep skin and bone together, bread and skilly. They are not Boyl: no, M’Glade’s men. Doesn’t bring in any business either. I suggested to him about a transparent showcart with two smart girls sitting inside writing letters, copybooks, envelopes, blottingpaper. I bet that would have caught on. Smart girls writing something catch the eye at once. Everyone dying to know what she’s writing. Get twenty of them round you if you stare at nothing. Have a finger in the pie. Women too. Curiosity. Pillar of salt. Wouldn’t have it of course because he didn’t think of it himself first. Or the inkbottle I suggested with a false stain of black celluloid. His ideas for ads like Plumtree’s potted under the obituaries, cold meat department. You can’t lick ’em. What? Our envelopes. Hello, Jones, where are you going? Can’t stop, Robinson, I am hastening to purchase the only reliable inkeraser _Kansell,_ sold by Hely’s Ltd, 85 Dame street. Well out of that ruck I am. Devil of a job it was collecting accounts of those convents. Tranquilla convent. That was a nice nun there, really sweet face. Wimple suited her small head. Sister? Sister? I am sure she was crossed in love by her eyes. Very hard to bargain with that sort of a woman. I disturbed her at her devotions that morning. But glad to communicate with the outside world. Our great day, she said. Feast of Our Lady of Mount Carmel. Sweet name too: caramel. She knew I, I think she knew by the way she. If she had married she would have changed. I suppose they really were short of money. Fried everything in the best butter all the same. No lard for them. My heart’s broke eating dripping. They like buttering themselves in and out. Molly tasting it, her veil up. Sister? Pat Claffey, the pawnbroker’s daughter. It was a nun they say invented barbed wire.
+
+Fifth of the whitesmocked sandwichmen with the scarlet sashes, lagging behind the others along the gutter and eating a chunk of bread from under his foreboard as he walks. Three bob a day, Bloom reckons, street after street: just keep skin and bone together.
+
+## original-en · mcglade · 8:35
+
+A procession of whitesmocked sandwichmen marched slowly towards him along the gutter, scarlet sashes across their boards. Bargains. Like that priest they are this morning: we have sinned: we have suffered. He read the scarlet letters on their five tall white hats: H. E. L. Y. S. Wisdom Hely’s. Y lagging behind drew a chunk of bread from under his foreboard, crammed it into his mouth and munched as he walked. Our staple food. Three bob a day, walking along the gutters, street after street. Just keep skin and bone together, bread and skilly. They are not Boyl: no, M’Glade’s men. Doesn’t bring in any business either. I suggested to him about a transparent showcart with two smart girls sitting inside writing letters, copybooks, envelopes, blottingpaper. I bet that would have caught on. Smart girls writing something catch the eye at once. Everyone dying to know what she’s writing. Get twenty of them round you if you stare at nothing. Have a finger in the pie. Women too. Curiosity. Pillar of salt. Wouldn’t have it of course because he didn’t think of it himself first. Or the inkbottle I suggested with a false stain of black celluloid. His ideas for ads like Plumtree’s potted under the obituaries, cold meat department. You can’t lick ’em. What? Our envelopes. Hello, Jones, where are you going? Can’t stop, Robinson, I am hastening to purchase the only reliable inkeraser _Kansell,_ sold by Hely’s Ltd, 85 Dame street. Well out of that ruck I am. Devil of a job it was collecting accounts of those convents. Tranquilla convent. That was a nice nun there, really sweet face. Wimple suited her small head. Sister? Sister? I am sure she was crossed in love by her eyes. Very hard to bargain with that sort of a woman. I disturbed her at her devotions that morning. But glad to communicate with the outside world. Our great day, she said. Feast of Our Lady of Mount Carmel. Sweet name too: caramel. She knew I, I think she knew by the way she. If she had married she would have changed. I suppose they really were short of money. Fried everything in the best butter all the same. No lard for them. My heart’s broke eating dripping. They like buttering themselves in and out. Molly tasting it, her veil up. Sister? Pat Claffey, the pawnbroker’s daughter. It was a nun they say invented barbed wire.
+
+Whose men the sandwichboard procession turns out to be. Doesn’t bring in any business either, Bloom decides, and goes back over the showcart with two smart girls in it that Hely would not have because he had not thought of it himself.
+
+## original-en · tranquilla-nun · 8:35
+
+A procession of whitesmocked sandwichmen marched slowly towards him along the gutter, scarlet sashes across their boards. Bargains. Like that priest they are this morning: we have sinned: we have suffered. He read the scarlet letters on their five tall white hats: H. E. L. Y. S. Wisdom Hely’s. Y lagging behind drew a chunk of bread from under his foreboard, crammed it into his mouth and munched as he walked. Our staple food. Three bob a day, walking along the gutters, street after street. Just keep skin and bone together, bread and skilly. They are not Boyl: no, M’Glade’s men. Doesn’t bring in any business either. I suggested to him about a transparent showcart with two smart girls sitting inside writing letters, copybooks, envelopes, blottingpaper. I bet that would have caught on. Smart girls writing something catch the eye at once. Everyone dying to know what she’s writing. Get twenty of them round you if you stare at nothing. Have a finger in the pie. Women too. Curiosity. Pillar of salt. Wouldn’t have it of course because he didn’t think of it himself first. Or the inkbottle I suggested with a false stain of black celluloid. His ideas for ads like Plumtree’s potted under the obituaries, cold meat department. You can’t lick ’em. What? Our envelopes. Hello, Jones, where are you going? Can’t stop, Robinson, I am hastening to purchase the only reliable inkeraser _Kansell,_ sold by Hely’s Ltd, 85 Dame street. Well out of that ruck I am. Devil of a job it was collecting accounts of those convents. Tranquilla convent. That was a nice nun there, really sweet face. Wimple suited her small head. Sister? Sister? I am sure she was crossed in love by her eyes. Very hard to bargain with that sort of a woman. I disturbed her at her devotions that morning. But glad to communicate with the outside world. Our great day, she said. Feast of Our Lady of Mount Carmel. Sweet name too: caramel. She knew I, I think she knew by the way she. If she had married she would have changed. I suppose they really were short of money. Fried everything in the best butter all the same. No lard for them. My heart’s broke eating dripping. They like buttering themselves in and out. Molly tasting it, her veil up. Sister? Pat Claffey, the pawnbroker’s daughter. It was a nun they say invented barbed wire.
+
+A really sweet face, the wimple suiting her small head, whom Bloom disturbed at her devotions the morning he came to collect the convent’s account. Our great day, she said: feast of Our Lady of Mount Carmel. She knew, he thinks — I think she knew by the way she.
+
+## original-en · pat-claffey · 8:35
+
+A procession of whitesmocked sandwichmen marched slowly towards him along the gutter, scarlet sashes across their boards. Bargains. Like that priest they are this morning: we have sinned: we have suffered. He read the scarlet letters on their five tall white hats: H. E. L. Y. S. Wisdom Hely’s. Y lagging behind drew a chunk of bread from under his foreboard, crammed it into his mouth and munched as he walked. Our staple food. Three bob a day, walking along the gutters, street after street. Just keep skin and bone together, bread and skilly. They are not Boyl: no, M’Glade’s men. Doesn’t bring in any business either. I suggested to him about a transparent showcart with two smart girls sitting inside writing letters, copybooks, envelopes, blottingpaper. I bet that would have caught on. Smart girls writing something catch the eye at once. Everyone dying to know what she’s writing. Get twenty of them round you if you stare at nothing. Have a finger in the pie. Women too. Curiosity. Pillar of salt. Wouldn’t have it of course because he didn’t think of it himself first. Or the inkbottle I suggested with a false stain of black celluloid. His ideas for ads like Plumtree’s potted under the obituaries, cold meat department. You can’t lick ’em. What? Our envelopes. Hello, Jones, where are you going? Can’t stop, Robinson, I am hastening to purchase the only reliable inkeraser _Kansell,_ sold by Hely’s Ltd, 85 Dame street. Well out of that ruck I am. Devil of a job it was collecting accounts of those convents. Tranquilla convent. That was a nice nun there, really sweet face. Wimple suited her small head. Sister? Sister? I am sure she was crossed in love by her eyes. Very hard to bargain with that sort of a woman. I disturbed her at her devotions that morning. But glad to communicate with the outside world. Our great day, she said. Feast of Our Lady of Mount Carmel. Sweet name too: caramel. She knew I, I think she knew by the way she. If she had married she would have changed. I suppose they really were short of money. Fried everything in the best butter all the same. No lard for them. My heart’s broke eating dripping. They like buttering themselves in and out. Molly tasting it, her veil up. Sister? Pat Claffey, the pawnbroker’s daughter. It was a nun they say invented barbed wire.
+
+The pawnbroker’s daughter, the name Bloom gropes for when he cannot think what the nun was called. Sister? Sister? Pat Claffey. It is offered as a guess and the episode never settles it.
+
+## original-en · phil-gilligan · 8:36
+
+He crossed Westmoreland street when apostrophe S had plodded by. Rover cycleshop. Those races are on today. How long ago is that? Year Phil Gilligan died. We were in Lombard street west. Wait: was in Thom’s. Got the job in Wisdom Hely’s year we married. Six years. Ten years ago: ninetyfour he died yes that’s right the big fire at Arnott’s. Val Dillon was lord mayor. The Glencree dinner. Alderman Robert O’Reilly emptying the port into his soup before the flag fell. Bobbob lapping it for the inner alderman. Couldn’t hear what the band played. For what we have already received may the Lord make us. Milly was a kiddy then. Molly had that elephantgrey dress with the braided frogs. Mantailored with selfcovered buttons. She didn’t like it because I sprained my ankle first day she wore choir picnic at the Sugarloaf. As if that. Old Goodwin’s tall hat done up with some sticky stuff. Flies’ picnic too. Never put a dress on her back like it. Fitted her like a glove, shoulders and hips. Just beginning to plump it out well. Rabbitpie we had that day. People looking after her.
+
+By whose death Bloom dates the year: ninetyfour, the big fire at Arnott’s, when they were in Lombard street west and Milly was a kiddy.
+
+## original-en · val-dillon · 8:36
+
+He crossed Westmoreland street when apostrophe S had plodded by. Rover cycleshop. Those races are on today. How long ago is that? Year Phil Gilligan died. We were in Lombard street west. Wait: was in Thom’s. Got the job in Wisdom Hely’s year we married. Six years. Ten years ago: ninetyfour he died yes that’s right the big fire at Arnott’s. Val Dillon was lord mayor. The Glencree dinner. Alderman Robert O’Reilly emptying the port into his soup before the flag fell. Bobbob lapping it for the inner alderman. Couldn’t hear what the band played. For what we have already received may the Lord make us. Milly was a kiddy then. Molly had that elephantgrey dress with the braided frogs. Mantailored with selfcovered buttons. She didn’t like it because I sprained my ankle first day she wore choir picnic at the Sugarloaf. As if that. Old Goodwin’s tall hat done up with some sticky stuff. Flies’ picnic too. Never put a dress on her back like it. Fitted her like a glove, shoulders and hips. Just beginning to plump it out well. Rabbitpie we had that day. People looking after her.
+
+Lord mayor at the Glencree dinner, the night Molly wore the elephantgrey dress with the braided frogs and people looked after her.
+
+## original-en · robert-oreilly · 8:36
+
+He crossed Westmoreland street when apostrophe S had plodded by. Rover cycleshop. Those races are on today. How long ago is that? Year Phil Gilligan died. We were in Lombard street west. Wait: was in Thom’s. Got the job in Wisdom Hely’s year we married. Six years. Ten years ago: ninetyfour he died yes that’s right the big fire at Arnott’s. Val Dillon was lord mayor. The Glencree dinner. Alderman Robert O’Reilly emptying the port into his soup before the flag fell. Bobbob lapping it for the inner alderman. Couldn’t hear what the band played. For what we have already received may the Lord make us. Milly was a kiddy then. Molly had that elephantgrey dress with the braided frogs. Mantailored with selfcovered buttons. She didn’t like it because I sprained my ankle first day she wore choir picnic at the Sugarloaf. As if that. Old Goodwin’s tall hat done up with some sticky stuff. Flies’ picnic too. Never put a dress on her back like it. Fitted her like a glove, shoulders and hips. Just beginning to plump it out well. Rabbitpie we had that day. People looking after her.
+
+Who emptied the port into his soup before the flag fell at that same dinner, and lapped it up for the inner alderman. Bobbob.
+
+## original-en · bartell-darcy · 8:40
+
+Bartell d’Arcy was the tenor, just coming out then. Seeing her home after practice. Conceited fellow with his waxedup moustache. Gave her that song _Winds that blow from the south_.
+
+The tenor, just coming out then, conceited with his waxedup moustache, who saw Molly home after practice and gave her Winds that blow from the south. Bloom leaves the thought there and moves to the windy night he went to fetch her himself.
+
+## original-en · josie-breen · 8:44
+
+—O, how do you do, Mrs Breen?
+
+Josie Powell that was, of the charades at Luke Doyle’s in Dolphin’s Barn, only a year or so older than Molly and wearing the same blue serge dress as two years ago, the nap bleaching. She stops Bloom on Westmoreland street, hears about Dignam, and shows him the postcard her husband got.
+
+## original-en · denis-breen · 8:103
+
+—He has enough of them, she said. Denis will be like that one of these days.
+
+Her lord and master, a caution to rattlesnakes, in there now with his lawbooks finding out the law of libel. He woke her in the night to say the ace of spades was walking up the stairs, and he shuffles out of Harrison’s in a skimpy frockcoat and blue canvas shoes with two heavy tomes under his arm, bound for Menton’s office and an action for ten thousand pounds.
+
+## original-en · barefoot-arab · 8:63
+
+Hot mockturtle vapour and steam of newbaked jampuffs rolypoly poured out from Harrison’s. The heavy noonreek tickled the top of Mr Bloom’s gullet. Want to make good pastry, butter, best flour, Demerara sugar, or they’d taste it with the hot tea. Or is it from her? A barefoot arab stood over the grating, breathing in the fumes. Deaden the gnaw of hunger that way. Pleasure or pain is it? Penny dinner. Knife and fork chained to the table.
+
+Standing over the grating outside Harrison’s breathing in the noonreek of mockturtle and jampuffs. Deaden the gnaw of hunger that way, Bloom thinks. Pleasure or pain is it?
+
+## original-en · luke-doyle · 8:83
+
+He looked still at her, holding back behind his look his discontent. Pungent mockturtle oxtail mulligatawny. I’m hungry too. Flakes of pastry on the gusset of her dress: daub of sugary flour stuck to her cheek. Rhubarb tart with liberal fillings, rich fruit interior. Josie Powell that was. In Luke Doyle’s long ago. Dolphin’s Barn, the charades. U. p: up.
+
+In whose house at Dolphin’s Barn the charades were played, long ago, where Bloom first knew Josie Powell. U. p: up comes back to him out of the same evening.
+
+## original-en · mina-purefoy · 8:85
+
+—Do you ever see anything of Mrs Beaufoy? Mr Bloom asked.
+
+Three days bad in the lying-in hospital in Holles street, with a houseful of kids at home and a very stiff birth, the nurse told Mrs Breen. Bloom asks after her under the wrong name, Mrs Beaufoy, because Philip Beaufoy of the prize titbit is in his head; and she stays in his head for the rest of the episode.
+
+## original-en · theodore-purefoy · 8:113
+
+Poor Mrs Purefoy! Methodist husband. Method in his madness. Saffron bun and milk and soda lunch in the educational dairy. Y. M. C. A. Eating with a stopwatch, thirtytwo chews to the minute. And still his muttonchop whiskers grew. Supposed to be well connected. Theodore’s cousin in Dublin Castle. One tony relative in every family. Hardy annuals he presents her with. Saw him out at the Three Jolly Topers marching along bareheaded and his eldest boy carrying one in a marketnet. The squallers. Poor thing! Then having to give the breast year after year all hours of the night. Selfish those t.t’s are. Dog in the manger. Only one lump of sugar in my tea, if you please.
+
+The Methodist husband. Method in his madness: saffron bun and milk and soda in the educational dairy, eating with a stopwatch, thirtytwo chews to the minute, and hardy annuals he presents her with. Bloom saw him marching bareheaded out at the Three Jolly Topers with his eldest boy carrying one in a marketnet.
+
+## original-en · dr-horne · 8:89
+
+—I just called to ask on the way in is she over it. She’s in the lying-in hospital in Holles street. Dr Horne got her in. She’s three days bad now.
+
+Master of the lying-in hospital in Holles street, who got Mrs Purefoy in. Bloom hears the name from Mrs Breen and keeps it with the three days and the forceps.
+
+## original-en · farrell · 8:99
+
+A bony form strode along the curbstone from the river staring with a rapt gaze into the sunlight through a heavystringed glass. Tight as a skullpiece a tiny hat gripped his head. From his arm a folded dustcoat, a stick and an umbrella dangled to his stride.
+
+The bony form who strides along the curbstone staring through a heavystringed glass, a tiny hat gripped tight as a skullpiece on his head, a dustcoat and stick and umbrella dangling from his arm. He always walks outside the lampposts. He has enough of them, Mrs Breen says of the names.
+
+## original-en · alf-bergan · 8:110
+
+U. p: up. I’ll take my oath that’s Alf Bergan or Richie Goulding. Wrote it for a lark in the Scotch house I bet anything. Round to Menton’s office. His oyster eyes staring at the postcard. Be a feast for the gods.
+
+One of the two Bloom would take his oath wrote the U. p: up postcard for a lark in the Scotch house. Be a feast for the gods, he thinks, to see Breen take it round to a solicitor.
+
+## original-en · lizzie-twigg · 8:111
+
+He passed the _Irish Times_. There might be other answers lying there. Like to answer them all. Good system for criminals. Code. At their lunch now. Clerk with the glasses there doesn’t know me. O, leave them there to simmer. Enough bother wading through fortyfour of them. Wanted, smart lady typist to aid gentleman in literary work. I called you naughty darling because I do not like that other world. Please tell me what is the meaning. Please tell me what perfume does your wife. Tell me who made the world. The way they spring those questions on you. And the other one Lizzie Twigg. My literary efforts have had the good fortune to meet with the approval of the eminent poet A. E. (Mr Geo. Russell). No time to do her hair drinking sloppy tea with a book of poetry.
+
+Whose answer to the advertisement said that her literary efforts had had the good fortune to meet with the approval of the eminent poet A. E. No time to do her hair, Bloom decides, drinking sloppy tea with a book of poetry — and then thinks he sees her walking beside the beard and bicycle, taking it all in and not saying a word.
+
+## original-en · james-carlisle · 8:112
+
+Best paper by long chalks for a small ad. Got the provinces now. Cook and general, exc. cuisine, housemaid kept. Wanted live man for spirit counter. Resp. girl (R.C.) wishes to hear of post in fruit or pork shop. James Carlisle made that. Six and a half per cent dividend. Made a big deal on Coates’s shares. Ca’ canny. Cunning old Scotch hunks. All the toady news. Our gracious and popular vicereine. Bought the _Irish Field_ now. Lady Mountcashel has quite recovered after her confinement and rode out with the Ward Union staghounds at the enlargement yesterday at Rathoath. Uneatable fox. Pothunters too. Fear injects juices make it tender enough for them. Riding astride. Sit her horse like a man. Weightcarrying huntress. No sidesaddle or pillion for her, not for Joe. First to the meet and in at the death. Strong as a brood mare some of those horsey women. Swagger around livery stables. Toss off a glass of brandy neat while you’d say knife. That one at the Grosvenor this morning. Up with her on the car: wishswish. Stonewall or fivebarred gate put her mount to it. Think that pugnosed driver did it out of spite. Who is this she was like? O yes! Mrs Miriam Dandrade that sold me her old wraps and black underclothes in the Shelbourne hotel. Divorced Spanish American. Didn’t take a feather out of her my handling them. As if I was her clotheshorse. Saw her in the viceregal party when Stubbs the park ranger got me in with Whelan of the _Express._ Scavenging what the quality left. High tea. Mayonnaise I poured on the plums thinking it was custard. Her ears ought to have tingled for a few weeks after. Want to be a bull for her. Born courtesan. No nursery work for her, thanks.
+
+Who made the Irish Times: six and a half per cent dividend, a big deal on Coates’s shares. Ca’ canny. Cunning old Scotch hunks.
+
+## original-en · lady-mountcashel · 8:112
+
+Best paper by long chalks for a small ad. Got the provinces now. Cook and general, exc. cuisine, housemaid kept. Wanted live man for spirit counter. Resp. girl (R.C.) wishes to hear of post in fruit or pork shop. James Carlisle made that. Six and a half per cent dividend. Made a big deal on Coates’s shares. Ca’ canny. Cunning old Scotch hunks. All the toady news. Our gracious and popular vicereine. Bought the _Irish Field_ now. Lady Mountcashel has quite recovered after her confinement and rode out with the Ward Union staghounds at the enlargement yesterday at Rathoath. Uneatable fox. Pothunters too. Fear injects juices make it tender enough for them. Riding astride. Sit her horse like a man. Weightcarrying huntress. No sidesaddle or pillion for her, not for Joe. First to the meet and in at the death. Strong as a brood mare some of those horsey women. Swagger around livery stables. Toss off a glass of brandy neat while you’d say knife. That one at the Grosvenor this morning. Up with her on the car: wishswish. Stonewall or fivebarred gate put her mount to it. Think that pugnosed driver did it out of spite. Who is this she was like? O yes! Mrs Miriam Dandrade that sold me her old wraps and black underclothes in the Shelbourne hotel. Divorced Spanish American. Didn’t take a feather out of her my handling them. As if I was her clotheshorse. Saw her in the viceregal party when Stubbs the park ranger got me in with Whelan of the _Express._ Scavenging what the quality left. High tea. Mayonnaise I poured on the plums thinking it was custard. Her ears ought to have tingled for a few weeks after. Want to be a bull for her. Born courtesan. No nursery work for her, thanks.
+
+Who has quite recovered after her confinement and rode out with the Ward Union staghounds at the enlargement yesterday at Rathoath, in the paragraph of the Irish Field that sets Bloom off on horsey women. First to the meet and in at the death.
+
+## original-en · miriam-dandrade · 8:112
+
+Best paper by long chalks for a small ad. Got the provinces now. Cook and general, exc. cuisine, housemaid kept. Wanted live man for spirit counter. Resp. girl (R.C.) wishes to hear of post in fruit or pork shop. James Carlisle made that. Six and a half per cent dividend. Made a big deal on Coates’s shares. Ca’ canny. Cunning old Scotch hunks. All the toady news. Our gracious and popular vicereine. Bought the _Irish Field_ now. Lady Mountcashel has quite recovered after her confinement and rode out with the Ward Union staghounds at the enlargement yesterday at Rathoath. Uneatable fox. Pothunters too. Fear injects juices make it tender enough for them. Riding astride. Sit her horse like a man. Weightcarrying huntress. No sidesaddle or pillion for her, not for Joe. First to the meet and in at the death. Strong as a brood mare some of those horsey women. Swagger around livery stables. Toss off a glass of brandy neat while you’d say knife. That one at the Grosvenor this morning. Up with her on the car: wishswish. Stonewall or fivebarred gate put her mount to it. Think that pugnosed driver did it out of spite. Who is this she was like? O yes! Mrs Miriam Dandrade that sold me her old wraps and black underclothes in the Shelbourne hotel. Divorced Spanish American. Didn’t take a feather out of her my handling them. As if I was her clotheshorse. Saw her in the viceregal party when Stubbs the park ranger got me in with Whelan of the _Express._ Scavenging what the quality left. High tea. Mayonnaise I poured on the plums thinking it was custard. Her ears ought to have tingled for a few weeks after. Want to be a bull for her. Born courtesan. No nursery work for her, thanks.
+
+Divorced Spanish American, who sold Bloom her old wraps and black underclothes in the Shelbourne hotel and did not take a feather out of him handling them. As if I was her clotheshorse. Born courtesan; no nursery work for her, thanks.
+
+## original-en · grosvenor-woman · 8:112
+
+Best paper by long chalks for a small ad. Got the provinces now. Cook and general, exc. cuisine, housemaid kept. Wanted live man for spirit counter. Resp. girl (R.C.) wishes to hear of post in fruit or pork shop. James Carlisle made that. Six and a half per cent dividend. Made a big deal on Coates’s shares. Ca’ canny. Cunning old Scotch hunks. All the toady news. Our gracious and popular vicereine. Bought the _Irish Field_ now. Lady Mountcashel has quite recovered after her confinement and rode out with the Ward Union staghounds at the enlargement yesterday at Rathoath. Uneatable fox. Pothunters too. Fear injects juices make it tender enough for them. Riding astride. Sit her horse like a man. Weightcarrying huntress. No sidesaddle or pillion for her, not for Joe. First to the meet and in at the death. Strong as a brood mare some of those horsey women. Swagger around livery stables. Toss off a glass of brandy neat while you’d say knife. That one at the Grosvenor this morning. Up with her on the car: wishswish. Stonewall or fivebarred gate put her mount to it. Think that pugnosed driver did it out of spite. Who is this she was like? O yes! Mrs Miriam Dandrade that sold me her old wraps and black underclothes in the Shelbourne hotel. Divorced Spanish American. Didn’t take a feather out of her my handling them. As if I was her clotheshorse. Saw her in the viceregal party when Stubbs the park ranger got me in with Whelan of the _Express._ Scavenging what the quality left. High tea. Mayonnaise I poured on the plums thinking it was custard. Her ears ought to have tingled for a few weeks after. Want to be a bull for her. Born courtesan. No nursery work for her, thanks.
+
+The stylish one Bloom watched that morning getting up on the car outside the hotel, silk flash rich stockings white, until the tram slewed between. Up with her on the car: wishswish. She comes back to him here as one of the weightcarrying huntresses, and he cannot place who she was like until he gets Mrs Dandrade.
+
+## original-en · pugnosed-driver · 8:112
+
+Best paper by long chalks for a small ad. Got the provinces now. Cook and general, exc. cuisine, housemaid kept. Wanted live man for spirit counter. Resp. girl (R.C.) wishes to hear of post in fruit or pork shop. James Carlisle made that. Six and a half per cent dividend. Made a big deal on Coates’s shares. Ca’ canny. Cunning old Scotch hunks. All the toady news. Our gracious and popular vicereine. Bought the _Irish Field_ now. Lady Mountcashel has quite recovered after her confinement and rode out with the Ward Union staghounds at the enlargement yesterday at Rathoath. Uneatable fox. Pothunters too. Fear injects juices make it tender enough for them. Riding astride. Sit her horse like a man. Weightcarrying huntress. No sidesaddle or pillion for her, not for Joe. First to the meet and in at the death. Strong as a brood mare some of those horsey women. Swagger around livery stables. Toss off a glass of brandy neat while you’d say knife. That one at the Grosvenor this morning. Up with her on the car: wishswish. Stonewall or fivebarred gate put her mount to it. Think that pugnosed driver did it out of spite. Who is this she was like? O yes! Mrs Miriam Dandrade that sold me her old wraps and black underclothes in the Shelbourne hotel. Divorced Spanish American. Didn’t take a feather out of her my handling them. As if I was her clotheshorse. Saw her in the viceregal party when Stubbs the park ranger got me in with Whelan of the _Express._ Scavenging what the quality left. High tea. Mayonnaise I poured on the plums thinking it was custard. Her ears ought to have tingled for a few weeks after. Want to be a bull for her. Born courtesan. No nursery work for her, thanks.
+
+Whose tramcar honked its gong and slewed between Bloom and the woman at the Grosvenor that morning. Curse your noisy pugnose. Think that pugnosed driver did it out of spite, he decides now.
+
+## original-en · stubbs · 8:112
+
+Best paper by long chalks for a small ad. Got the provinces now. Cook and general, exc. cuisine, housemaid kept. Wanted live man for spirit counter. Resp. girl (R.C.) wishes to hear of post in fruit or pork shop. James Carlisle made that. Six and a half per cent dividend. Made a big deal on Coates’s shares. Ca’ canny. Cunning old Scotch hunks. All the toady news. Our gracious and popular vicereine. Bought the _Irish Field_ now. Lady Mountcashel has quite recovered after her confinement and rode out with the Ward Union staghounds at the enlargement yesterday at Rathoath. Uneatable fox. Pothunters too. Fear injects juices make it tender enough for them. Riding astride. Sit her horse like a man. Weightcarrying huntress. No sidesaddle or pillion for her, not for Joe. First to the meet and in at the death. Strong as a brood mare some of those horsey women. Swagger around livery stables. Toss off a glass of brandy neat while you’d say knife. That one at the Grosvenor this morning. Up with her on the car: wishswish. Stonewall or fivebarred gate put her mount to it. Think that pugnosed driver did it out of spite. Who is this she was like? O yes! Mrs Miriam Dandrade that sold me her old wraps and black underclothes in the Shelbourne hotel. Divorced Spanish American. Didn’t take a feather out of her my handling them. As if I was her clotheshorse. Saw her in the viceregal party when Stubbs the park ranger got me in with Whelan of the _Express._ Scavenging what the quality left. High tea. Mayonnaise I poured on the plums thinking it was custard. Her ears ought to have tingled for a few weeks after. Want to be a bull for her. Born courtesan. No nursery work for her, thanks.
+
+The park ranger who got Bloom in among the viceregal party, where he poured mayonnaise on the plums thinking it was custard.
+
+## original-en · whelan · 8:112
+
+Best paper by long chalks for a small ad. Got the provinces now. Cook and general, exc. cuisine, housemaid kept. Wanted live man for spirit counter. Resp. girl (R.C.) wishes to hear of post in fruit or pork shop. James Carlisle made that. Six and a half per cent dividend. Made a big deal on Coates’s shares. Ca’ canny. Cunning old Scotch hunks. All the toady news. Our gracious and popular vicereine. Bought the _Irish Field_ now. Lady Mountcashel has quite recovered after her confinement and rode out with the Ward Union staghounds at the enlargement yesterday at Rathoath. Uneatable fox. Pothunters too. Fear injects juices make it tender enough for them. Riding astride. Sit her horse like a man. Weightcarrying huntress. No sidesaddle or pillion for her, not for Joe. First to the meet and in at the death. Strong as a brood mare some of those horsey women. Swagger around livery stables. Toss off a glass of brandy neat while you’d say knife. That one at the Grosvenor this morning. Up with her on the car: wishswish. Stonewall or fivebarred gate put her mount to it. Think that pugnosed driver did it out of spite. Who is this she was like? O yes! Mrs Miriam Dandrade that sold me her old wraps and black underclothes in the Shelbourne hotel. Divorced Spanish American. Didn’t take a feather out of her my handling them. As if I was her clotheshorse. Saw her in the viceregal party when Stubbs the park ranger got me in with Whelan of the _Express._ Scavenging what the quality left. High tea. Mayonnaise I poured on the plums thinking it was custard. Her ears ought to have tingled for a few weeks after. Want to be a bull for her. Born courtesan. No nursery work for her, thanks.
+
+Of the Express, through whom Stubbs worked Bloom into the viceregal party. Scavenging what the quality left: high tea, and mayonnaise on the plums.
+
+## original-en · mrs-moisel · 8:118
+
+Funny sight two of them together, their bellies out. Molly and Mrs Moisel. Mothers’ meeting. Phthisis retires for the time being, then returns. How flat they look all of a sudden after. Peaceful eyes. Weight off their mind. Old Mrs Thornton was a jolly old soul. All my babies, she said. The spoon of pap in her mouth before she fed them. O, that’s nyumnyum. Got her hand crushed by old Tom Wall’s son. His first bow to the public. Head like a prize pumpkin. Snuffy Dr Murren. People knocking them up at all hours. For God’ sake, doctor. Wife in her throes. Then keep them waiting months for their fee. To attendance on your wife. No gratitude in people. Humane doctors, most of them.
+
+Big at the same time as Molly: funny sight two of them together, their bellies out. Mothers’ meeting.
+
+## original-en · tom-wall · 8:118
+
+Funny sight two of them together, their bellies out. Molly and Mrs Moisel. Mothers’ meeting. Phthisis retires for the time being, then returns. How flat they look all of a sudden after. Peaceful eyes. Weight off their mind. Old Mrs Thornton was a jolly old soul. All my babies, she said. The spoon of pap in her mouth before she fed them. O, that’s nyumnyum. Got her hand crushed by old Tom Wall’s son. His first bow to the public. Head like a prize pumpkin. Snuffy Dr Murren. People knocking them up at all hours. For God’ sake, doctor. Wife in her throes. Then keep them waiting months for their fee. To attendance on your wife. No gratitude in people. Humane doctors, most of them.
+
+Old Tom Wall, in the one thing Bloom remembers about him: his son crushed Mrs Thornton’s hand being born, with a head like a prize pumpkin.
+
+## original-en · tom-wall-son · 8:118
+
+Funny sight two of them together, their bellies out. Molly and Mrs Moisel. Mothers’ meeting. Phthisis retires for the time being, then returns. How flat they look all of a sudden after. Peaceful eyes. Weight off their mind. Old Mrs Thornton was a jolly old soul. All my babies, she said. The spoon of pap in her mouth before she fed them. O, that’s nyumnyum. Got her hand crushed by old Tom Wall’s son. His first bow to the public. Head like a prize pumpkin. Snuffy Dr Murren. People knocking them up at all hours. For God’ sake, doctor. Wife in her throes. Then keep them waiting months for their fee. To attendance on your wife. No gratitude in people. Humane doctors, most of them.
+
+His first bow to the public, and the one baby in Mrs Thornton’s long career who did her an injury.
+
+## original-en · dr-murren · 6:375
+
+Mr Bloom walked unheeded along his grove by saddened angels, crosses, broken pillars, family vaults, stone hopes praying with upcast eyes, old Ireland’s hearts and hands. More sensible to spend the money on some charity for the living. Pray for the repose of the soul of. Does anybody really? Plant him and have done with him. Like down a coalshoot. Then lump them together to save time. All souls’ day. Twentyseventh I’ll be at his grave. Ten shillings for the gardener. He keeps it free of weeds. Old man himself. Bent down double with his shears clipping. Near death’s door. Who passed away. Who departed this life. As if they did it of their own accord. Got the shove, all of them. Who kicked the bucket. More interesting if they told you what they were. So and So, wheelwright. I travelled for cork lino. I paid five shillings in the pound. Or a woman’s with her saucepan. I cooked good Irish stew. Eulogy in a country churchyard it ought to be that poem of whose is it Wordsworth or Thomas Campbell. Entered into rest the protestants put it. Old Dr Murren’s. The great physician called him home. Well it’s God’s acre for them. Nice country residence. Newly plastered and painted. Ideal spot to have a quiet smoke and read the _Church Times._ Marriage ads they never try to beautify. Rusty wreaths hung on knobs, garlands of bronzefoil. Better value that for the money. Still, the flowers are more poetical. The other gets rather tiresome, never withering. Expresses nothing. Immortelles.
+
+Snuffy, knocked up at all hours — for God’ sake, doctor, wife in her throes — and then kept waiting months for his fee. Humane doctors, most of them, Bloom allows.
+
+## original-en · apjohn · 8:119
+
+Before the huge high door of the Irish house of parliament a flock of pigeons flew. Their little frolic after meals. Who will we do it on? I pick the fellow in black. Here goes. Here’s good luck. Must be thrilling from the air. Apjohn, myself and Owen Goldberg up in the trees near Goose green playing the monkeys. Mackerel they called me.
+
+One of the boys up in the trees near Goose green playing the monkeys, when they called Bloom Mackerel.
+
+## original-en · owen-goldberg · 8:119
+
+Before the huge high door of the Irish house of parliament a flock of pigeons flew. Their little frolic after meals. Who will we do it on? I pick the fellow in black. Here goes. Here’s good luck. Must be thrilling from the air. Apjohn, myself and Owen Goldberg up in the trees near Goose green playing the monkeys. Mackerel they called me.
+
+The third of them in the trees near Goose green, with Apjohn and Bloom, playing the monkeys. A Jewish schoolfellow, and one of the few names from the boyhood Bloom almost never goes back to.
+
+## original-en · tom-moore · 8:121
+
+He crossed under Tommy Moore’s roguish finger. They did right to put him up over a urinal: meeting of the waters. Ought to be places for women. Running into cakeshops. Settle my hat straight. _There is not in this wide world a vallee_. Great song of Julia Morkan’s. Kept her voice up to the very last. Pupil of Michael Balfe’s, wasn’t she?
+
+Under whose roguish finger Bloom crosses. They did right to put him up over a urinal: meeting of the waters. The modern edition calls him Tom Moore and spells out the joke.
+
+## original-en · julia-morkan · 8:121
+
+He crossed under Tommy Moore’s roguish finger. They did right to put him up over a urinal: meeting of the waters. Ought to be places for women. Running into cakeshops. Settle my hat straight. _There is not in this wide world a vallee_. Great song of Julia Morkan’s. Kept her voice up to the very last. Pupil of Michael Balfe’s, wasn’t she?
+
+Whose great song The meeting of the waters was, and who kept her voice up to the very last.
+
+## original-en · michael-balfe · 8:121
+
+He crossed under Tommy Moore’s roguish finger. They did right to put him up over a urinal: meeting of the waters. Ought to be places for women. Running into cakeshops. Settle my hat straight. _There is not in this wide world a vallee_. Great song of Julia Morkan’s. Kept her voice up to the very last. Pupil of Michael Balfe’s, wasn’t she?
+
+The composer of The Bohemian Girl, whose pupil Julia Morkan was — wasn’t she? Bloom is not sure, and leaves the question hanging as he walks on.
+
+## original-en · power-father · 8:122
+
+He gazed after the last broad tunic. Nasty customers to tackle. Jack Power could a tale unfold: father a G man. If a fellow gave them trouble being lagged they let him have it hot and heavy in the bridewell. Can’t blame them after all with the job they have especially the young hornies. That horsepoliceman the day Joe Chamberlain was given his degree in Trinity he got a run for his money. My word he did! His horse’s hoofs clattering after us down Abbey street. Lucky I had the presence of mind to dive into Manning’s or I was souped. He did come a wallop, by George. Must have cracked his skull on the cobblestones. I oughtn’t to have got myself swept along with those medicals. And the Trinity jibs in their mortarboards. Looking for trouble. Still I got to know that young Dixon who dressed that sting for me in the Mater and now he’s in Holles street where Mrs Purefoy. Wheels within wheels. Police whistle in my ears still. All skedaddled. Why he fixed on me. Give me in charge. Right here it began.
+
+A G man, which is why Jack Power could a tale unfold about what the police do to a fellow in the bridewell who gives them trouble being lagged.
+
+## original-en · horsepoliceman · 8:122
+
+He gazed after the last broad tunic. Nasty customers to tackle. Jack Power could a tale unfold: father a G man. If a fellow gave them trouble being lagged they let him have it hot and heavy in the bridewell. Can’t blame them after all with the job they have especially the young hornies. That horsepoliceman the day Joe Chamberlain was given his degree in Trinity he got a run for his money. My word he did! His horse’s hoofs clattering after us down Abbey street. Lucky I had the presence of mind to dive into Manning’s or I was souped. He did come a wallop, by George. Must have cracked his skull on the cobblestones. I oughtn’t to have got myself swept along with those medicals. And the Trinity jibs in their mortarboards. Looking for trouble. Still I got to know that young Dixon who dressed that sting for me in the Mater and now he’s in Holles street where Mrs Purefoy. Wheels within wheels. Police whistle in my ears still. All skedaddled. Why he fixed on me. Give me in charge. Right here it began.
+
+Who got a run for his money the day Joe Chamberlain was given his degree in Trinity, his horse’s hoofs clattering after Bloom down Abbey street until he came a wallop on the cobblestones. Must have cracked his skull. Bloom dived into Manning’s and was not souped.
+
+## original-en · joe-chamberlain · 8:122
+
+He gazed after the last broad tunic. Nasty customers to tackle. Jack Power could a tale unfold: father a G man. If a fellow gave them trouble being lagged they let him have it hot and heavy in the bridewell. Can’t blame them after all with the job they have especially the young hornies. That horsepoliceman the day Joe Chamberlain was given his degree in Trinity he got a run for his money. My word he did! His horse’s hoofs clattering after us down Abbey street. Lucky I had the presence of mind to dive into Manning’s or I was souped. He did come a wallop, by George. Must have cracked his skull on the cobblestones. I oughtn’t to have got myself swept along with those medicals. And the Trinity jibs in their mortarboards. Looking for trouble. Still I got to know that young Dixon who dressed that sting for me in the Mater and now he’s in Holles street where Mrs Purefoy. Wheels within wheels. Police whistle in my ears still. All skedaddled. Why he fixed on me. Give me in charge. Right here it began.
+
+Given his degree in Trinity, with the medicals and the Trinity jibs out for trouble and the students yelling that they will hang him on a sourapple tree. Up the Boers.
+
+## original-en · de-wet · 8:124
+
+—Three cheers for De Wet!
+
+The Boer general the students cheer in the same breath as they threaten to hang Joe Chamberlain. Three cheers for De Wet: the war is two years over and the slogans are still on the street.
+
+## original-en · dixon · 8:122
+
+He gazed after the last broad tunic. Nasty customers to tackle. Jack Power could a tale unfold: father a G man. If a fellow gave them trouble being lagged they let him have it hot and heavy in the bridewell. Can’t blame them after all with the job they have especially the young hornies. That horsepoliceman the day Joe Chamberlain was given his degree in Trinity he got a run for his money. My word he did! His horse’s hoofs clattering after us down Abbey street. Lucky I had the presence of mind to dive into Manning’s or I was souped. He did come a wallop, by George. Must have cracked his skull on the cobblestones. I oughtn’t to have got myself swept along with those medicals. And the Trinity jibs in their mortarboards. Looking for trouble. Still I got to know that young Dixon who dressed that sting for me in the Mater and now he’s in Holles street where Mrs Purefoy. Wheels within wheels. Police whistle in my ears still. All skedaddled. Why he fixed on me. Give me in charge. Right here it began.
+
+The young medical who dressed the bee sting for Bloom in the Mater, and is now in Holles street where Mrs Purefoy is. Wheels within wheels.
+
+## original-en · harvey-duff · 8:127
+
+Never know who you’re talking to. Corny Kelleher he has Harvey Duff in his eye. Like that Peter or Denis or James Carey that blew the gaff on the invincibles. Member of the corporation too. Egging raw youths on to get in the know all the time drawing secret service pay from the castle. Drop him like a hot potato. Why those plainclothes men are always courting slaveys. Easily twig a man used to uniform. Squarepushing up against a backdoor. Maul her a bit. Then the next thing on the menu. And who is the gentleman does be visiting there? Was the young master saying anything? Peeping Tom through the keyhole. Decoy duck. Hotblooded young student fooling round her fat arms ironing.
+
+The informer of Boucicault’s play, whose name has become the thing itself: Corny Kelleher he has Harvey Duff in his eye. The modern edition glosses it — a Harvey Duff, an informer — where Joyce lets the name carry it.
+
+## original-en · mary-slavey · 8:128
+
+—Are those yours, Mary?
+
+The slavey at the backdoor in the scene Bloom runs off in his head, ironing with her fat arms while the plainclothes man works round to what the young master was saying. Are those yours, Mary? There are great times coming, Mary. Ah, gelong with your great times coming.
+
+## original-en · turnkey-daughter · 8:133
+
+James Stephens’ idea was the best. He knew them. Circles of ten so that a fellow couldn’t round on more than his own ring. Sinn Fein. Back out you get the knife. Hidden hand. Stay in. The firing squad. Turnkey’s daughter got him out of Richmond, off from Lusk. Putting up in the Buckingham Palace hotel under their very noses. Garibaldi.
+
+Who got James Stephens out of Richmond, and off from Lusk, while he put up in the Buckingham Palace hotel under their very noses.
+
+## original-en · garibaldi · 8:133
+
+James Stephens’ idea was the best. He knew them. Circles of ten so that a fellow couldn’t round on more than his own ring. Sinn Fein. Back out you get the knife. Hidden hand. Stay in. The firing squad. Turnkey’s daughter got him out of Richmond, off from Lusk. Putting up in the Buckingham Palace hotel under their very noses. Garibaldi.
+
+The one word Bloom adds to James Stephens’s escape, for the kind of fascination it takes to carry a thing like that off — the same fascination he then finds in Parnell.
+
+## original-en · john-howard-parnell · 8:140
+
+The sun freed itself slowly and lit glints of light among the silverware opposite in Walter Sexton’s window by which John Howard Parnell passed, unseeing.
+
+The brother, city marshal, who passes Walter Sexton’s window unseeing, like a man walking in his sleep, and will drop into the D.B.C. for his coffee and play chess there. Image of him. Haunting face. They say he never put on the uniform since he got the job, and David Sheehy beat him for south Meath. His brother used men as pawns.
+
+## original-en · charley-kavanagh · 8:141
+
+There he is: the brother. Image of him. Haunting face. Now that’s a coincidence. Course hundreds of times you think of a person and don’t meet him. Like a man walking in his sleep. No-one knows him. Must be a corporation meeting today. They say he never put on the city marshal’s uniform since he got the job. Charley Kavanagh used to come out on his high horse, cocked hat, puffed, powdered and shaved. Look at the woebegone walk of him. Eaten a bad egg. Poached eyes on ghost. I have a pain. Great man’s brother: his brother’s brother. He’d look nice on the city charger. Drop into the D.B.C. probably for his coffee, play chess there. His brother used men as pawns. Let them all go to pot. Afraid to pass a remark on him. Freeze them up with that eye of his. That’s the fascination: the name. All a bit touched. Mad Fanny and his other sister Mrs Dickinson driving about with scarlet harness. Bolt upright like surgeon M’Ardle. Still David Sheehy beat him for south Meath. Apply for the Chiltern Hundreds and retire into public life. The patriot’s banquet. Eating orangepeels in the park. Simon Dedalus said when they put him in parliament that Parnell would come back from the grave and lead him out of the house of commons by the arm.
+
+The city marshal before him, who used to come out on his high horse: cocked hat, puffed, powdered and shaved. Set against the woebegone walk of the man who has the job now.
+
+## original-en · fanny-parnell · 8:141
+
+There he is: the brother. Image of him. Haunting face. Now that’s a coincidence. Course hundreds of times you think of a person and don’t meet him. Like a man walking in his sleep. No-one knows him. Must be a corporation meeting today. They say he never put on the city marshal’s uniform since he got the job. Charley Kavanagh used to come out on his high horse, cocked hat, puffed, powdered and shaved. Look at the woebegone walk of him. Eaten a bad egg. Poached eyes on ghost. I have a pain. Great man’s brother: his brother’s brother. He’d look nice on the city charger. Drop into the D.B.C. probably for his coffee, play chess there. His brother used men as pawns. Let them all go to pot. Afraid to pass a remark on him. Freeze them up with that eye of his. That’s the fascination: the name. All a bit touched. Mad Fanny and his other sister Mrs Dickinson driving about with scarlet harness. Bolt upright like surgeon M’Ardle. Still David Sheehy beat him for south Meath. Apply for the Chiltern Hundreds and retire into public life. The patriot’s banquet. Eating orangepeels in the park. Simon Dedalus said when they put him in parliament that Parnell would come back from the grave and lead him out of the house of commons by the arm.
+
+One of the sisters, driving about with scarlet harness. All a bit touched: that’s the fascination, the name.
+
+## original-en · mrs-dickinson · 8:141
+
+There he is: the brother. Image of him. Haunting face. Now that’s a coincidence. Course hundreds of times you think of a person and don’t meet him. Like a man walking in his sleep. No-one knows him. Must be a corporation meeting today. They say he never put on the city marshal’s uniform since he got the job. Charley Kavanagh used to come out on his high horse, cocked hat, puffed, powdered and shaved. Look at the woebegone walk of him. Eaten a bad egg. Poached eyes on ghost. I have a pain. Great man’s brother: his brother’s brother. He’d look nice on the city charger. Drop into the D.B.C. probably for his coffee, play chess there. His brother used men as pawns. Let them all go to pot. Afraid to pass a remark on him. Freeze them up with that eye of his. That’s the fascination: the name. All a bit touched. Mad Fanny and his other sister Mrs Dickinson driving about with scarlet harness. Bolt upright like surgeon M’Ardle. Still David Sheehy beat him for south Meath. Apply for the Chiltern Hundreds and retire into public life. The patriot’s banquet. Eating orangepeels in the park. Simon Dedalus said when they put him in parliament that Parnell would come back from the grave and lead him out of the house of commons by the arm.
+
+The other sister, in the same carriage with the scarlet harness. Bloom sets the two of them beside the brother as evidence that the whole family is a bit touched.
+
+## original-en · mcardle · 8:141
+
+There he is: the brother. Image of him. Haunting face. Now that’s a coincidence. Course hundreds of times you think of a person and don’t meet him. Like a man walking in his sleep. No-one knows him. Must be a corporation meeting today. They say he never put on the city marshal’s uniform since he got the job. Charley Kavanagh used to come out on his high horse, cocked hat, puffed, powdered and shaved. Look at the woebegone walk of him. Eaten a bad egg. Poached eyes on ghost. I have a pain. Great man’s brother: his brother’s brother. He’d look nice on the city charger. Drop into the D.B.C. probably for his coffee, play chess there. His brother used men as pawns. Let them all go to pot. Afraid to pass a remark on him. Freeze them up with that eye of his. That’s the fascination: the name. All a bit touched. Mad Fanny and his other sister Mrs Dickinson driving about with scarlet harness. Bolt upright like surgeon M’Ardle. Still David Sheehy beat him for south Meath. Apply for the Chiltern Hundreds and retire into public life. The patriot’s banquet. Eating orangepeels in the park. Simon Dedalus said when they put him in parliament that Parnell would come back from the grave and lead him out of the house of commons by the arm.
+
+The surgeon whose bolt upright carriage is the comparison for the two Parnell sisters driving about Dublin. A name Bloom reaches for to fix a posture, and drops again.
+
+## original-en · david-sheehy · 8:141
+
+There he is: the brother. Image of him. Haunting face. Now that’s a coincidence. Course hundreds of times you think of a person and don’t meet him. Like a man walking in his sleep. No-one knows him. Must be a corporation meeting today. They say he never put on the city marshal’s uniform since he got the job. Charley Kavanagh used to come out on his high horse, cocked hat, puffed, powdered and shaved. Look at the woebegone walk of him. Eaten a bad egg. Poached eyes on ghost. I have a pain. Great man’s brother: his brother’s brother. He’d look nice on the city charger. Drop into the D.B.C. probably for his coffee, play chess there. His brother used men as pawns. Let them all go to pot. Afraid to pass a remark on him. Freeze them up with that eye of his. That’s the fascination: the name. All a bit touched. Mad Fanny and his other sister Mrs Dickinson driving about with scarlet harness. Bolt upright like surgeon M’Ardle. Still David Sheehy beat him for south Meath. Apply for the Chiltern Hundreds and retire into public life. The patriot’s banquet. Eating orangepeels in the park. Simon Dedalus said when they put him in parliament that Parnell would come back from the grave and lead him out of the house of commons by the arm.
+
+Who beat John Howard Parnell for south Meath, so that the beaten man applied for the Chiltern Hundreds and retired into public life.
+
+## original-en · salmon · 8:139
+
+Provost’s house. The reverend Dr Salmon: tinned salmon. Well tinned in there. Like a mortuary chapel. Wouldn’t live in it if they paid me. Hope they have liver and bacon today. Nature abhors a vacuum.
+
+Provost of Trinity, tinned salmon, well tinned in there. Bloom would not live in the provost’s house if they paid him: like a mortuary chapel.
+
+## original-en · kerwan · 8:136
+
+Cityful passing away, other cityful coming, passing away too: other coming on, passing on. Houses, lines of houses, streets, miles of pavements, piledup bricks, stones. Changing hands. This owner, that. Landlord never dies they say. Other steps into his shoes when he gets his notice to quit. They buy the place up with gold and still they have all the gold. Swindle in it somewhere. Piled up in cities, worn away age after age. Pyramids in sand. Built on bread and onions. Slaves Chinese wall. Babylon. Big stones left. Round towers. Rest rubble, sprawling suburbs, jerrybuilt. Kerwan’s mushroom houses built of breeze. Shelter, for the night.
+
+Whose mushroom houses are built of breeze, at the end of the passage where the cities pile up and wear away age after age. Shelter, for the night.
+
+## original-en · sinclair · 8:148
+
+He crossed at Nassau street corner and stood before the window of Yeates and Son, pricing the fieldglasses. Or will I drop into old Harris’s and have a chat with young Sinclair? Wellmannered fellow. Probably at his lunch. Must get those old glasses of mine set right. Goerz lenses six guineas. Germans making their way everywhere. Sell on easy terms to capture trade. Undercutting. Might chance on a pair in the railway lost property office. Astonishing the things people leave behind them in trains and cloakrooms. What do they be thinking about? Women too. Incredible. Last year travelling to Ennis had to pick up that farmer’s daughter’s bag and hand it to her at Limerick junction. Unclaimed money too. There’s a little watch up there on the roof of the bank to test those glasses by.
+
+At old Harris’s, a wellmannered fellow, with whom Bloom thinks of dropping in for a chat about getting his old fieldglasses set right. Probably at his lunch.
+
+## original-en · harris · 8:148
+
+He crossed at Nassau street corner and stood before the window of Yeates and Son, pricing the fieldglasses. Or will I drop into old Harris’s and have a chat with young Sinclair? Wellmannered fellow. Probably at his lunch. Must get those old glasses of mine set right. Goerz lenses six guineas. Germans making their way everywhere. Sell on easy terms to capture trade. Undercutting. Might chance on a pair in the railway lost property office. Astonishing the things people leave behind them in trains and cloakrooms. What do they be thinking about? Women too. Incredible. Last year travelling to Ennis had to pick up that farmer’s daughter’s bag and hand it to her at Limerick junction. Unclaimed money too. There’s a little watch up there on the roof of the bank to test those glasses by.
+
+The optician on Nassau street, old Harris, whose window Bloom would go into for a chat about his old fieldglasses if young Sinclair were not probably at his lunch.
+
+## original-en · joly · 8:151
+
+Now that I come to think of it that ball falls at Greenwich time. It’s the clock is worked by an electric wire from Dunsink. Must go out there some first Saturday of the month. If I could get an introduction to professor Joly or learn up something about his family. That would do to: man always feels complimented. Flattery where least expected. Nobleman proud to be descended from some king’s mistress. His foremother. Lay it on with a trowel. Cap in hand goes through the land. Not go in and blurt out what you know you’re not to: what’s parallax? Show this gentleman the door.
+
+At Dunsink, to whom Bloom would like an introduction, or else to learn up something about his family: a man always feels complimented. Lay it on with a trowel. Not go in and blurt out what’s parallax.
+
+## original-en · pat-kinsella · 8:160
+
+Yes. Thought so. Sloping into the Empire. Gone. Plain soda would do him good. Where Pat Kinsella had his Harp theatre before Whitbred ran the Queen’s. Broth of a boy. Dion Boucicault business with his harvestmoon face in a poky bonnet. Three Purty Maids from School. How time flies, eh? Showing long red pantaloons under his skirts. Drinkers, drinking, laughed spluttering, their drink against their breath. More power, Pat. Coarse red: fun for drunkards: guffaw and smoke. Take off that white hat. His parboiled eyes. Where is he now? Beggar somewhere. The harp that once did starve us all.
+
+Of the Harp theatre, with his harvestmoon face in a poky bonnet doing the Dion Boucicault business and showing long red pantaloons under his skirts. More power, Pat. Where is he now? Beggar somewhere.
+
+## original-en · whitbred · 8:160
+
+Yes. Thought so. Sloping into the Empire. Gone. Plain soda would do him good. Where Pat Kinsella had his Harp theatre before Whitbred ran the Queen’s. Broth of a boy. Dion Boucicault business with his harvestmoon face in a poky bonnet. Three Purty Maids from School. How time flies, eh? Showing long red pantaloons under his skirts. Drinkers, drinking, laughed spluttering, their drink against their breath. More power, Pat. Coarse red: fun for drunkards: guffaw and smoke. Take off that white hat. His parboiled eyes. Where is he now? Beggar somewhere. The harp that once did starve us all.
+
+Who ran the Queen’s theatre after Pat Kinsella’s Harp, in the succession of Dublin stages Bloom counts off while he asks himself how time flies.
+
+## original-en · boucicault · 8:160
+
+Yes. Thought so. Sloping into the Empire. Gone. Plain soda would do him good. Where Pat Kinsella had his Harp theatre before Whitbred ran the Queen’s. Broth of a boy. Dion Boucicault business with his harvestmoon face in a poky bonnet. Three Purty Maids from School. How time flies, eh? Showing long red pantaloons under his skirts. Drinkers, drinking, laughed spluttering, their drink against their breath. More power, Pat. Coarse red: fun for drunkards: guffaw and smoke. Take off that white hat. His parboiled eyes. Where is he now? Beggar somewhere. The harp that once did starve us all.
+
+The playwright whose business Kinsella did on the boards of the Harp: harvestmoon face, poky bonnet, long red pantaloons under the skirts. Harvey Duff, four paragraphs earlier, is out of the same author.
+
+## original-en · meyerbeer · 8:163
+
+He passed, dallying, the windows of Brown Thomas, silk mercers. Cascades of ribbons. Flimsy China silks. A tilted urn poured from its mouth a flood of bloodhued poplin: lustrous blood. The huguenots brought that here. _La causa è santa!_ Tara tara. Great chorus that. Taree tara. Must be washed in rainwater. Meyerbeer. Tara: bom bom bom.
+
+Whose chorus comes up out of the flood of bloodhued poplin in Brown Thomas’s window. La causa è santa. Tara tara. Great chorus that.
+
+## original-en · cormac · 8:179
+
+Perched on high stools by the bar, hats shoved back, at the tables calling for more bread no charge, swilling, wolfing gobfuls of sloppy food, their eyes bulging, wiping wetted moustaches. A pallid suetfaced young man polished his tumbler knife fork and spoon with his napkin. New set of microbes. A man with an infant’s saucestained napkin tucked round him shovelled gurgling soup down his gullet. A man spitting back on his plate: halfmasticated gristle: gums: no teeth to chewchewchew it. Chump chop from the grill. Bolting to get it over. Sad booser’s eyes. Bitten off more than he can chew. Am I like that? See ourselves as others see us. Hungry man is an angry man. Working tooth and jaw. Don’t! O! A bone! That last pagan king of Ireland Cormac in the schoolpoem choked himself at Sletty southward of the Boyne. Wonder what he was eating. Something galoptious. Saint Patrick converted him to Christianity. Couldn’t swallow it all however.
+
+The last pagan king of Ireland in the schoolpoem, who choked himself at Sletty southward of the Boyne. Wonder what he was eating. Saint Patrick converted him to Christianity; couldn’t swallow it all however.
+
+## original-en · burton-server · 8:189
+
+An illgirt server gathered sticky clattering plates. Rock, the head bailiff, standing at the bar blew the foamy crown from his tankard. Well up: it splashed yellow near his boot. A diner, knife and fork upright, elbows on table, ready for a second helping stared towards the foodlift across his stained square of newspaper. Other chap telling him something with his mouth full. Sympathetic listener. Table talk. I munched hum un thu Unchster Bunk un Munchday. Ha? Did you, faith?
+
+Gathering the sticky clattering plates in the Burton while Bloom stands in the doorway with his gorge rising.
+
+## original-en · rock · 8:189
+
+An illgirt server gathered sticky clattering plates. Rock, the head bailiff, standing at the bar blew the foamy crown from his tankard. Well up: it splashed yellow near his boot. A diner, knife and fork upright, elbows on table, ready for a second helping stared towards the foodlift across his stained square of newspaper. Other chap telling him something with his mouth full. Sympathetic listener. Table talk. I munched hum un thu Unchster Bunk un Munchday. Ha? Did you, faith?
+
+The head bailiff, standing at the bar of the Burton blowing the foamy crown from his tankard. Well up: it splashed yellow near his boot.
+
+## original-en · father-oflynn · 8:198
+
+Suppose that communal kitchen years to come perhaps. All trotting down with porringers and tommycans to be filled. Devour contents in the street. John Howard Parnell example the provost of Trinity every mother’s son don’t talk of your provosts and provost of Trinity women and children cabmen priests parsons fieldmarshals archbishops. From Ailesbury road, Clyde road, artisans’ dwellings, north Dublin union, lord mayor in his gingerbread coach, old queen in a bathchair. My plate’s empty. After you with our incorporated drinkingcup. Like sir Philip Crampton’s fountain. Rub off the microbes with your handkerchief. Next chap rubs on a new batch with his. Father O’Flynn would make hares of them all. Have rows all the same. All for number one. Children fighting for the scrapings of the pot. Want a souppot as big as the Phoenix park. Harpooning flitches and hindquarters out of it. Hate people all round you. City Arms hotel _table d’hôte_ she called it. Soup, joint and sweet. Never know whose thoughts you’re chewing. Then who’d wash up all the plates and forks? Might be all feeding on tabloids that time. Teeth getting worse and worse.
+
+Of the song, who would make hares of them all — Bloom’s guess at who would keep order in the communal kitchen of the future.
+
+## original-en · old-woman-in-a-shoe · 8:116
+
+Sss. Dth, dth, dth! Three days imagine groaning on a bed with a vinegared handkerchief round her forehead, her belly swollen out. Phew! Dreadful simply! Child’s head too big: forceps. Doubled up inside her trying to butt its way out blindly, groping for the way out. Kill me that would. Lucky Molly got over hers lightly. They ought to invent something to stop that. Life with hard labour. Twilight sleep idea: queen Victoria was given that. Nine she had. A good layer. Old woman that lived in a shoe she had so many children. Suppose he was consumptive. Time someone thought about it instead of gassing about the what was it the pensive bosom of the silver effulgence. Flapdoodle to feed fools on. They could easily have big establishments whole thing quite painless out of all the taxes give every child born five quid at compound interest up to twentyone five per cent is a hundred shillings and five tiresome pounds multiply by twenty decimal system encourage people to put by money save hundred and ten and a bit twentyone years want to work it out on paper come to a tidy sum more than you think.
+
+She had so many children: the rhyme Bloom reaches for over Mrs Purefoy’s three days, next to queen Victoria’s nine and the twilight sleep she was given.
+
+## original-en · ham · 8:208
+
+Sardines on the shelves. Almost taste them by looking. Sandwich? Ham and his descendants musterred and bred there. Potted meats. What is home without Plumtree’s potted meat? Incomplete. What a stupid ad! Under the obituary notices they stuck it. All up a plumtree. Dignam’s potted meat. Cannibals would with lemon and rice. White missionary too salty. Like pickled pork. Expect the chief consumes the parts of honour. Ought to be tough from exercise. His wives in a row to watch the effect. _There was a right royal old nigger. Who ate or something the somethings of the reverend Mr MacTrigger_. With it an abode of bliss. Lord knows what concoction. Cauls mouldy tripes windpipes faked and minced up. Puzzle find the meat. Kosher. No meat and milk together. Hygiene that was what they call now. Yom Kippur fast spring cleaning of inside. Peace and war depend on some fellow’s digestion. Religions. Christmas turkeys and geese. Slaughter of innocents. Eat drink and be merry. Then casual wards full after. Heads bandaged. Cheese digests all but itself. Mity cheese.
+
+Noah’s son, in the pun Bloom makes over Davy Byrne’s shelves: ham and his descendants musterred and bred there.
+
+## original-en · mactrigger · 8:208
+
+Sardines on the shelves. Almost taste them by looking. Sandwich? Ham and his descendants musterred and bred there. Potted meats. What is home without Plumtree’s potted meat? Incomplete. What a stupid ad! Under the obituary notices they stuck it. All up a plumtree. Dignam’s potted meat. Cannibals would with lemon and rice. White missionary too salty. Like pickled pork. Expect the chief consumes the parts of honour. Ought to be tough from exercise. His wives in a row to watch the effect. _There was a right royal old nigger. Who ate or something the somethings of the reverend Mr MacTrigger_. With it an abode of bliss. Lord knows what concoction. Cauls mouldy tripes windpipes faked and minced up. Puzzle find the meat. Kosher. No meat and milk together. Hygiene that was what they call now. Yom Kippur fast spring cleaning of inside. Peace and war depend on some fellow’s digestion. Religions. Christmas turkeys and geese. Slaughter of innocents. Eat drink and be merry. Then casual wards full after. Heads bandaged. Cheese digests all but itself. Mity cheese.
+
+Of the comic song about the right royal old nigger who ate the somethings of him, which keeps surfacing while Bloom eats his cheese sandwich. His five hundred wives. Had the time of their lives. It grew bigger and bigger and bigger. Both of his appearances stand in Gutenberg italics in the older edition, which is why the name is keyed and not aliased.
+
+## original-en · nosey-flynn · 8:204
+
+—Hello, Bloom, Nosey Flynn said from his nook.
+
+In his nook in Davy Byrne’s, snuffling, scratching his groin, with a dewdrop on the end of his nose that Bloom watches all through the sandwich. He is the one who says Blazes Boylan is mixed up in the tour, and the one who tells Davy Byrne, when Bloom goes out to the yard, that he is in the craft: ancient free and accepted order, they give him a leg up.
+
+## original-en · davy-byrne · 8:193
+
+He backed towards the door. Get a light snack in Davy Byrne’s. Stopgap. Keep me going. Had a good breakfast.
+
+Moral pub, Bloom calls it: he doesn’t chat, stands a drink now and then but in leapyear once in four, and cashed a cheque for him once. He comes forward from the hindbar in tuckstitched shirtsleeves, will never put anything on a horse, and says of Bloom, decent quiet man he is, I never once saw him over the line.
+
+## original-en · davy-byrne-curate · 8:220
+
+The curate served.
+
+Who serves the burgundy and the gorgonzola sandwich. Seven d., sir. Thank you, sir. The modern edition calls him the barman.
+
+## original-en · jack-mooney · 8:236
+
+—He had a good slice of luck, Jack Mooney was telling me, over that boxingmatch Myler Keogh won again that soldier in the Portobello barracks. By God, he had the little kipper down in the county Carlow he was telling me...
+
+Who told Nosey Flynn about the slice of luck Boylan had over the boxingmatch, and so put the whole story into Davy Byrne’s with Bloom standing there eating his sandwich.
+
+## original-en · myler-keogh · 8:236
+
+—He had a good slice of luck, Jack Mooney was telling me, over that boxingmatch Myler Keogh won again that soldier in the Portobello barracks. By God, he had the little kipper down in the county Carlow he was telling me...
+
+Who won that match against the soldier in the Portobello barracks. Boylan had him down in the county Carlow for near a month before it came off, sucking duck eggs by God till further orders, and kept him off the boose.
+
+## original-en · portobello-soldier · 8:236
+
+—He had a good slice of luck, Jack Mooney was telling me, over that boxingmatch Myler Keogh won again that soldier in the Portobello barracks. By God, he had the little kipper down in the county Carlow he was telling me...
+
+The man Myler Keogh beat in the barracks, on whom Boylan had his slice of luck. The episode gives him no name and nobody in the pub asks for one.
+
+## original-en · howard-de-walden · 8:247
+
+—True for you, Nosey Flynn said. Unless you’re in the know. There’s no straight sport going now. Lenehan gets some good ones. He’s giving Sceptre today. Zinfandel’s the favourite, Lord Howard de Walden’s, won at Epsom. Morny Cannon is riding him. I could have got seven to one against Saint Amant a fortnight before.
+
+Whose Zinfandel is the favourite for the Gold cup, having won at Epsom. The race is run this afternoon and is on every tongue in the pub.
+
+## original-en · morny-cannon · 8:247
+
+—True for you, Nosey Flynn said. Unless you’re in the know. There’s no straight sport going now. Lenehan gets some good ones. He’s giving Sceptre today. Zinfandel’s the favourite, Lord Howard de Walden’s, won at Epsom. Morny Cannon is riding him. I could have got seven to one against Saint Amant a fortnight before.
+
+The jockey riding Zinfandel for the Gold cup, in the tip Nosey Flynn passes on as though it were his own.
+
+## original-en · rothschild · 8:250
+
+—I could, faith, Nosey Flynn said, snuffling. That was a rare bit of horseflesh. Saint Frusquin was her sire. She won in a thunderstorm, Rothschild’s filly, with wadding in her ears. Blue jacket and yellow cap. Bad luck to big Ben Dollard and his John O’Gaunt. He put me off it. Ay.
+
+Whose filly it was that won in a thunderstorm with wadding in her ears, blue jacket and yellow cap, in the race Nosey Flynn could have got seven to one on.
+
+## original-en · archduke-leopold · 8:255
+
+Mild fire of wine kindled his veins. I wanted that badly. Felt so off colour. His eyes unhungrily saw shelves of tins: sardines, gaudy lobsters’ claws. All the odd things people pick up for food. Out of shells, periwinkles with a pin, off trees, snails out of the ground the French eat, out of the sea with bait on a hook. Silly fish learn nothing in a thousand years. If you didn’t know risky putting anything into your mouth. Poisonous berries. Johnny Magories. Roundness you think good. Gaudy colour warns you off. One fellow told another and so on. Try it on the dog first. Led on by the smell or the look. Tempting fruit. Ice cones. Cream. Instinct. Orangegroves for instance. Need artificial irrigation. Bleibtreustrasse. Yes but what about oysters. Unsightly like a clot of phlegm. Filthy shells. Devil to open them too. Who found them out? Garbage, sewage they feed on. Fizz and Red bank oysters. Effect on the sexual. Aphrodis. He was in the Red Bank this morning. Was he oysters old fish at table perhaps he young flesh in bed no June has no ar no oysters. But there are people like things high. Tainted game. Jugged hare. First catch your hare. Chinese eating eggs fifty years old, blue and green again. Dinner of thirty courses. Each dish harmless might mix inside. Idea for a poison mystery. That archduke Leopold was it no yes or was it Otto one of those Habsburgs? Or who was it used to eat the scruff off his own head? Cheapest lunch in town. Of course aristocrats, then the others copy to be in the fashion. Milly too rock oil and flour. Raw pastry I like myself. Half the catch of oysters they throw back in the sea to keep up the price. Cheap no-one would buy. Caviare. Do the grand. Hock in green glasses. Swell blowout. Lady this. Powdered bosom pearls. The _élite. Crème de la crème_. They want special dishes to pretend they’re. Hermit with a platter of pulse keep down the stings of the flesh. Know me come eat with me. Royal sturgeon high sheriff, Coffey, the butcher, right to venisons of the forest from his ex. Send him back the half of a cow. Spread I saw down in the Master of the Rolls’ kitchen area. Whitehatted _chef_ like a rabbi. Combustible duck. Curly cabbage _à la duchesse de Parme_. Just as well to write it on the bill of fare so you can know what you’ve eaten. Too many drugs spoil the broth. I know it myself. Dosing it with Edwards’ desiccated soup. Geese stuffed silly for them. Lobsters boiled alive. Do ptake some ptarmigan. Wouldn’t mind being a waiter in a swell hotel. Tips, evening dress, halfnaked ladies. May I tempt you to a little more filleted lemon sole, miss Dubedat? Yes, do bedad. And she did bedad. Huguenot name I expect that. A miss Dubedat lived in Killiney, I remember. _Du de la_ is French. Still it’s the same fish perhaps old Micky Hanlon of Moore street ripped the guts out of making money hand over fist finger in fishes’ gills can’t write his name on a cheque think he was painting the landscape with his mouth twisted. Moooikill A Aitcha Ha ignorant as a kish of brogues, worth fifty thousand pounds.
+
+One of those Habsburgs, in the story Bloom half remembers about eating the scruff off his own head — or was it Otto. It comes up between the fifty-year-old Chinese eggs and the idea for a poison mystery.
+
+## original-en · archduke-otto · 8:255
+
+Mild fire of wine kindled his veins. I wanted that badly. Felt so off colour. His eyes unhungrily saw shelves of tins: sardines, gaudy lobsters’ claws. All the odd things people pick up for food. Out of shells, periwinkles with a pin, off trees, snails out of the ground the French eat, out of the sea with bait on a hook. Silly fish learn nothing in a thousand years. If you didn’t know risky putting anything into your mouth. Poisonous berries. Johnny Magories. Roundness you think good. Gaudy colour warns you off. One fellow told another and so on. Try it on the dog first. Led on by the smell or the look. Tempting fruit. Ice cones. Cream. Instinct. Orangegroves for instance. Need artificial irrigation. Bleibtreustrasse. Yes but what about oysters. Unsightly like a clot of phlegm. Filthy shells. Devil to open them too. Who found them out? Garbage, sewage they feed on. Fizz and Red bank oysters. Effect on the sexual. Aphrodis. He was in the Red Bank this morning. Was he oysters old fish at table perhaps he young flesh in bed no June has no ar no oysters. But there are people like things high. Tainted game. Jugged hare. First catch your hare. Chinese eating eggs fifty years old, blue and green again. Dinner of thirty courses. Each dish harmless might mix inside. Idea for a poison mystery. That archduke Leopold was it no yes or was it Otto one of those Habsburgs? Or who was it used to eat the scruff off his own head? Cheapest lunch in town. Of course aristocrats, then the others copy to be in the fashion. Milly too rock oil and flour. Raw pastry I like myself. Half the catch of oysters they throw back in the sea to keep up the price. Cheap no-one would buy. Caviare. Do the grand. Hock in green glasses. Swell blowout. Lady this. Powdered bosom pearls. The _élite. Crème de la crème_. They want special dishes to pretend they’re. Hermit with a platter of pulse keep down the stings of the flesh. Know me come eat with me. Royal sturgeon high sheriff, Coffey, the butcher, right to venisons of the forest from his ex. Send him back the half of a cow. Spread I saw down in the Master of the Rolls’ kitchen area. Whitehatted _chef_ like a rabbi. Combustible duck. Curly cabbage _à la duchesse de Parme_. Just as well to write it on the bill of fare so you can know what you’ve eaten. Too many drugs spoil the broth. I know it myself. Dosing it with Edwards’ desiccated soup. Geese stuffed silly for them. Lobsters boiled alive. Do ptake some ptarmigan. Wouldn’t mind being a waiter in a swell hotel. Tips, evening dress, halfnaked ladies. May I tempt you to a little more filleted lemon sole, miss Dubedat? Yes, do bedad. And she did bedad. Huguenot name I expect that. A miss Dubedat lived in Killiney, I remember. _Du de la_ is French. Still it’s the same fish perhaps old Micky Hanlon of Moore street ripped the guts out of making money hand over fist finger in fishes’ gills can’t write his name on a cheque think he was painting the landscape with his mouth twisted. Moooikill A Aitcha Ha ignorant as a kish of brogues, worth fifty thousand pounds.
+
+The other name Bloom tries for the same Habsburg story, and does not settle either. One of those Habsburgs, he decides, and goes on to the man who ate the scruff off his own head.
+
+## original-en · micky-hanlon · 8:255
+
+Mild fire of wine kindled his veins. I wanted that badly. Felt so off colour. His eyes unhungrily saw shelves of tins: sardines, gaudy lobsters’ claws. All the odd things people pick up for food. Out of shells, periwinkles with a pin, off trees, snails out of the ground the French eat, out of the sea with bait on a hook. Silly fish learn nothing in a thousand years. If you didn’t know risky putting anything into your mouth. Poisonous berries. Johnny Magories. Roundness you think good. Gaudy colour warns you off. One fellow told another and so on. Try it on the dog first. Led on by the smell or the look. Tempting fruit. Ice cones. Cream. Instinct. Orangegroves for instance. Need artificial irrigation. Bleibtreustrasse. Yes but what about oysters. Unsightly like a clot of phlegm. Filthy shells. Devil to open them too. Who found them out? Garbage, sewage they feed on. Fizz and Red bank oysters. Effect on the sexual. Aphrodis. He was in the Red Bank this morning. Was he oysters old fish at table perhaps he young flesh in bed no June has no ar no oysters. But there are people like things high. Tainted game. Jugged hare. First catch your hare. Chinese eating eggs fifty years old, blue and green again. Dinner of thirty courses. Each dish harmless might mix inside. Idea for a poison mystery. That archduke Leopold was it no yes or was it Otto one of those Habsburgs? Or who was it used to eat the scruff off his own head? Cheapest lunch in town. Of course aristocrats, then the others copy to be in the fashion. Milly too rock oil and flour. Raw pastry I like myself. Half the catch of oysters they throw back in the sea to keep up the price. Cheap no-one would buy. Caviare. Do the grand. Hock in green glasses. Swell blowout. Lady this. Powdered bosom pearls. The _élite. Crème de la crème_. They want special dishes to pretend they’re. Hermit with a platter of pulse keep down the stings of the flesh. Know me come eat with me. Royal sturgeon high sheriff, Coffey, the butcher, right to venisons of the forest from his ex. Send him back the half of a cow. Spread I saw down in the Master of the Rolls’ kitchen area. Whitehatted _chef_ like a rabbi. Combustible duck. Curly cabbage _à la duchesse de Parme_. Just as well to write it on the bill of fare so you can know what you’ve eaten. Too many drugs spoil the broth. I know it myself. Dosing it with Edwards’ desiccated soup. Geese stuffed silly for them. Lobsters boiled alive. Do ptake some ptarmigan. Wouldn’t mind being a waiter in a swell hotel. Tips, evening dress, halfnaked ladies. May I tempt you to a little more filleted lemon sole, miss Dubedat? Yes, do bedad. And she did bedad. Huguenot name I expect that. A miss Dubedat lived in Killiney, I remember. _Du de la_ is French. Still it’s the same fish perhaps old Micky Hanlon of Moore street ripped the guts out of making money hand over fist finger in fishes’ gills can’t write his name on a cheque think he was painting the landscape with his mouth twisted. Moooikill A Aitcha Ha ignorant as a kish of brogues, worth fifty thousand pounds.
+
+Of Moore street, who ripped the guts out of fish and made money hand over fist and cannot write his name on a cheque: you would think he was painting the landscape with his mouth twisted. Ignorant as a kish of brogues, worth fifty thousand pounds.
+
+## original-en · dubedat · 8:255
+
+Mild fire of wine kindled his veins. I wanted that badly. Felt so off colour. His eyes unhungrily saw shelves of tins: sardines, gaudy lobsters’ claws. All the odd things people pick up for food. Out of shells, periwinkles with a pin, off trees, snails out of the ground the French eat, out of the sea with bait on a hook. Silly fish learn nothing in a thousand years. If you didn’t know risky putting anything into your mouth. Poisonous berries. Johnny Magories. Roundness you think good. Gaudy colour warns you off. One fellow told another and so on. Try it on the dog first. Led on by the smell or the look. Tempting fruit. Ice cones. Cream. Instinct. Orangegroves for instance. Need artificial irrigation. Bleibtreustrasse. Yes but what about oysters. Unsightly like a clot of phlegm. Filthy shells. Devil to open them too. Who found them out? Garbage, sewage they feed on. Fizz and Red bank oysters. Effect on the sexual. Aphrodis. He was in the Red Bank this morning. Was he oysters old fish at table perhaps he young flesh in bed no June has no ar no oysters. But there are people like things high. Tainted game. Jugged hare. First catch your hare. Chinese eating eggs fifty years old, blue and green again. Dinner of thirty courses. Each dish harmless might mix inside. Idea for a poison mystery. That archduke Leopold was it no yes or was it Otto one of those Habsburgs? Or who was it used to eat the scruff off his own head? Cheapest lunch in town. Of course aristocrats, then the others copy to be in the fashion. Milly too rock oil and flour. Raw pastry I like myself. Half the catch of oysters they throw back in the sea to keep up the price. Cheap no-one would buy. Caviare. Do the grand. Hock in green glasses. Swell blowout. Lady this. Powdered bosom pearls. The _élite. Crème de la crème_. They want special dishes to pretend they’re. Hermit with a platter of pulse keep down the stings of the flesh. Know me come eat with me. Royal sturgeon high sheriff, Coffey, the butcher, right to venisons of the forest from his ex. Send him back the half of a cow. Spread I saw down in the Master of the Rolls’ kitchen area. Whitehatted _chef_ like a rabbi. Combustible duck. Curly cabbage _à la duchesse de Parme_. Just as well to write it on the bill of fare so you can know what you’ve eaten. Too many drugs spoil the broth. I know it myself. Dosing it with Edwards’ desiccated soup. Geese stuffed silly for them. Lobsters boiled alive. Do ptake some ptarmigan. Wouldn’t mind being a waiter in a swell hotel. Tips, evening dress, halfnaked ladies. May I tempt you to a little more filleted lemon sole, miss Dubedat? Yes, do bedad. And she did bedad. Huguenot name I expect that. A miss Dubedat lived in Killiney, I remember. _Du de la_ is French. Still it’s the same fish perhaps old Micky Hanlon of Moore street ripped the guts out of making money hand over fist finger in fishes’ gills can’t write his name on a cheque think he was painting the landscape with his mouth twisted. Moooikill A Aitcha Ha ignorant as a kish of brogues, worth fifty thousand pounds.
+
+Of the waiter’s patter Bloom runs in his head — may I tempt you to a little more filleted lemon sole, miss Dubedat? Yes, do bedad. And she did bedad — and then of the real one who lived in Killiney. Huguenot name, he expects.
+
+## original-en · coffey-butcher · 8:255
+
+Mild fire of wine kindled his veins. I wanted that badly. Felt so off colour. His eyes unhungrily saw shelves of tins: sardines, gaudy lobsters’ claws. All the odd things people pick up for food. Out of shells, periwinkles with a pin, off trees, snails out of the ground the French eat, out of the sea with bait on a hook. Silly fish learn nothing in a thousand years. If you didn’t know risky putting anything into your mouth. Poisonous berries. Johnny Magories. Roundness you think good. Gaudy colour warns you off. One fellow told another and so on. Try it on the dog first. Led on by the smell or the look. Tempting fruit. Ice cones. Cream. Instinct. Orangegroves for instance. Need artificial irrigation. Bleibtreustrasse. Yes but what about oysters. Unsightly like a clot of phlegm. Filthy shells. Devil to open them too. Who found them out? Garbage, sewage they feed on. Fizz and Red bank oysters. Effect on the sexual. Aphrodis. He was in the Red Bank this morning. Was he oysters old fish at table perhaps he young flesh in bed no June has no ar no oysters. But there are people like things high. Tainted game. Jugged hare. First catch your hare. Chinese eating eggs fifty years old, blue and green again. Dinner of thirty courses. Each dish harmless might mix inside. Idea for a poison mystery. That archduke Leopold was it no yes or was it Otto one of those Habsburgs? Or who was it used to eat the scruff off his own head? Cheapest lunch in town. Of course aristocrats, then the others copy to be in the fashion. Milly too rock oil and flour. Raw pastry I like myself. Half the catch of oysters they throw back in the sea to keep up the price. Cheap no-one would buy. Caviare. Do the grand. Hock in green glasses. Swell blowout. Lady this. Powdered bosom pearls. The _élite. Crème de la crème_. They want special dishes to pretend they’re. Hermit with a platter of pulse keep down the stings of the flesh. Know me come eat with me. Royal sturgeon high sheriff, Coffey, the butcher, right to venisons of the forest from his ex. Send him back the half of a cow. Spread I saw down in the Master of the Rolls’ kitchen area. Whitehatted _chef_ like a rabbi. Combustible duck. Curly cabbage _à la duchesse de Parme_. Just as well to write it on the bill of fare so you can know what you’ve eaten. Too many drugs spoil the broth. I know it myself. Dosing it with Edwards’ desiccated soup. Geese stuffed silly for them. Lobsters boiled alive. Do ptake some ptarmigan. Wouldn’t mind being a waiter in a swell hotel. Tips, evening dress, halfnaked ladies. May I tempt you to a little more filleted lemon sole, miss Dubedat? Yes, do bedad. And she did bedad. Huguenot name I expect that. A miss Dubedat lived in Killiney, I remember. _Du de la_ is French. Still it’s the same fish perhaps old Micky Hanlon of Moore street ripped the guts out of making money hand over fist finger in fishes’ gills can’t write his name on a cheque think he was painting the landscape with his mouth twisted. Moooikill A Aitcha Ha ignorant as a kish of brogues, worth fifty thousand pounds.
+
+Who has the right to venisons of the forest, in the list of things that go by rank: royal sturgeon to the high sheriff, and half a cow sent back to his excellency.
+
+## original-en · venus · 8:260
+
+His downcast eyes followed the silent veining of the oaken slab. Beauty: it curves: curves are beauty. Shapely goddesses, Venus, Juno: curves the world admires. Can see them library museum standing in the round hall, naked goddesses. Aids to digestion. They don’t care what man looks. All to see. Never speaking. I mean to say to fellows like Flynn. Suppose she did Pygmalion and Galatea what would she say first? Mortal! Put you in your proper place. Quaffing nectar at mess with gods golden dishes, all ambrosial. Not like a tanner lunch we have, boiled mutton, carrots and turnips, bottle of Allsop. Nectar imagine it drinking electricity: gods’ food. Lovely forms of women sculped Junonian. Immortal lovely. And we stuffing food in one hole and out behind: food, chyle, blood, dung, earth, food: have to feed it like stoking an engine. They have no. Never looked. I’ll look today. Keeper won’t see. Bend down let something fall see if she.
+
+One of the naked goddesses standing in the round hall of the museum. Curves are beauty; curves the world admires. They don’t care what man looks.
+
+## original-en · juno · 8:260
+
+His downcast eyes followed the silent veining of the oaken slab. Beauty: it curves: curves are beauty. Shapely goddesses, Venus, Juno: curves the world admires. Can see them library museum standing in the round hall, naked goddesses. Aids to digestion. They don’t care what man looks. All to see. Never speaking. I mean to say to fellows like Flynn. Suppose she did Pygmalion and Galatea what would she say first? Mortal! Put you in your proper place. Quaffing nectar at mess with gods golden dishes, all ambrosial. Not like a tanner lunch we have, boiled mutton, carrots and turnips, bottle of Allsop. Nectar imagine it drinking electricity: gods’ food. Lovely forms of women sculped Junonian. Immortal lovely. And we stuffing food in one hole and out behind: food, chyle, blood, dung, earth, food: have to feed it like stoking an engine. They have no. Never looked. I’ll look today. Keeper won’t see. Bend down let something fall see if she.
+
+The second of the naked goddesses in the round hall. Lovely forms of women sculped Junonian. Immortal lovely, and never speaking: they don’t care what man looks.
+
+## original-en · pygmalion · 8:260
+
+His downcast eyes followed the silent veining of the oaken slab. Beauty: it curves: curves are beauty. Shapely goddesses, Venus, Juno: curves the world admires. Can see them library museum standing in the round hall, naked goddesses. Aids to digestion. They don’t care what man looks. All to see. Never speaking. I mean to say to fellows like Flynn. Suppose she did Pygmalion and Galatea what would she say first? Mortal! Put you in your proper place. Quaffing nectar at mess with gods golden dishes, all ambrosial. Not like a tanner lunch we have, boiled mutton, carrots and turnips, bottle of Allsop. Nectar imagine it drinking electricity: gods’ food. Lovely forms of women sculped Junonian. Immortal lovely. And we stuffing food in one hole and out behind: food, chyle, blood, dung, earth, food: have to feed it like stoking an engine. They have no. Never looked. I’ll look today. Keeper won’t see. Bend down let something fall see if she.
+
+Whose statue came alive, in the question Bloom puts to himself in front of them: suppose she did Pygmalion and Galatea, what would she say first? Mortal! Put you in your proper place.
+
+## original-en · galatea · 8:260
+
+His downcast eyes followed the silent veining of the oaken slab. Beauty: it curves: curves are beauty. Shapely goddesses, Venus, Juno: curves the world admires. Can see them library museum standing in the round hall, naked goddesses. Aids to digestion. They don’t care what man looks. All to see. Never speaking. I mean to say to fellows like Flynn. Suppose she did Pygmalion and Galatea what would she say first? Mortal! Put you in your proper place. Quaffing nectar at mess with gods golden dishes, all ambrosial. Not like a tanner lunch we have, boiled mutton, carrots and turnips, bottle of Allsop. Nectar imagine it drinking electricity: gods’ food. Lovely forms of women sculped Junonian. Immortal lovely. And we stuffing food in one hole and out behind: food, chyle, blood, dung, earth, food: have to feed it like stoking an engine. They have no. Never looked. I’ll look today. Keeper won’t see. Bend down let something fall see if she.
+
+The statue Pygmalion made and loved, who came alive. Bloom gives her the first word and makes it a rebuke: Mortal! Put you in your proper place.
+
+## original-en · tom-rochford · 8:292
+
+Paddy Leonard and Bantam Lyons came in. Tom Rochford followed frowning, a plaining hand on his claret waistcoat.
+
+Who comes into Davy Byrne’s frowning with a hand on his claret waistcoat, asks for a glass of fresh water, and tips a twisted paper of powder into it for that cursed dyspepsia. Wonder if he will do anything with that invention of his, Bloom thinks afterwards: wasting time explaining it to Flynn’s mouth.
+
+## original-en · john-wyse-nolan · 8:270
+
+—It’s not the wife anyhow, Nosey Flynn said. I met him the day before yesterday and he coming out of that Irish farm dairy John Wyse Nolan’s wife has in Henry street with a jar of cream in his hand taking it home to his better half. She’s well nourished, I tell you. Plovers on toast.
+
+Whose wife has the Irish farm dairy in Henry street, where Nosey Flynn met Bloom coming out with a jar of cream for his better half.
+
+## original-en · nolan-wife · 8:270
+
+—It’s not the wife anyhow, Nosey Flynn said. I met him the day before yesterday and he coming out of that Irish farm dairy John Wyse Nolan’s wife has in Henry street with a jar of cream in his hand taking it home to his better half. She’s well nourished, I tell you. Plovers on toast.
+
+Who keeps the dairy. The cream is the whole of Flynn’s argument that Bloom does not live on the ads he picks up.
+
+## original-en · saint-leger-woman · 8:283
+
+—There was one woman, Nosey Flynn said, hid herself in a clock to find out what they do be doing. But be damned but they smelt her out and swore her in on the spot a master mason. That was one of the saint Legers of Doneraile.
+
+The one woman, Nosey Flynn says, who hid herself in a clock to find out what the masons do be doing — and they smelt her out and swore her in on the spot a master mason.
+
+## original-en · peeping-tom · 8:127
+
+Never know who you’re talking to. Corny Kelleher he has Harvey Duff in his eye. Like that Peter or Denis or James Carey that blew the gaff on the invincibles. Member of the corporation too. Egging raw youths on to get in the know all the time drawing secret service pay from the castle. Drop him like a hot potato. Why those plainclothes men are always courting slaveys. Easily twig a man used to uniform. Squarepushing up against a backdoor. Maul her a bit. Then the next thing on the menu. And who is the gentleman does be visiting there? Was the young master saying anything? Peeping Tom through the keyhole. Decoy duck. Hotblooded young student fooling round her fat arms ironing.
+
+Through the keyhole: the figure Bloom reaches for in the business of plainclothes men courting slaveys. Decoy duck.
+
+## original-en · drowsing-loafer · 8:335
+
+Tour the south then. What about English wateringplaces? Brighton, Margate. Piers by moonlight. Her voice floating out. Those lovely seaside girls. Against John Long’s a drowsing loafer lounged in heavy thought, gnawing a crusted knuckle. Handy man wants job. Small wages. Will eat anything.
+
+Lounging in heavy thought, gnawing a crusted knuckle. Handy man wants job. Small wages. Will eat anything.
+
+## original-en · thomas-connellan · 8:336
+
+Mr Bloom turned at Gray’s confectioner’s window of unbought tarts and passed the reverend Thomas Connellan’s bookstore. _Why I left the church of Rome? Birds’ Nest._ Women run him. They say they used to give pauper children soup to change to protestants in the time of the potato blight. Society over the way papa went to for the conversion of poor jews. Same bait. Why we left the church of Rome.
+
+Whose bookstore Bloom passes, with Why I left the church of Rome in the window, and the Birds’ Nest beside it. Women run him. Same bait as the soup given to pauper children in the time of the blight, and as the society across the way that papa went to for the conversion of poor jews.
+
+## original-en · blind-stripling · 8:337
+
+A blind stripling stood tapping the curbstone with his slender cane. No tram in sight. Wants to cross.
+
+Tapping the curbstone with his slender cane at the Dawson street crossing, who wants to go to Molesworth street and South Frederick street. Bloom tells him about the van that is not moving, touches the thin elbow and takes the limp seeing hand across, tries a common remark about the rain, and gets Thanks, sir. Knows I’m a man. Voice.
+
+## original-en · penrose · 8:355
+
+Penrose! That was that chap’s name.
+
+The priestylooking chap with the weak eyes who was always squinting in when Bloom passed, and stopped at Citron’s on saint Kevin’s parade. Bloom cannot get the name in the morning — Pen something. Pendennis? — and it comes back to him behind the blind man in the afternoon.
+
+## original-en · william-miller · 8:327
+
+Bare clean closestools waiting in the window of William Miller, plumber, turned back his thoughts. They could: and watch it all the way down, swallow a pin sometimes come out of the ribs years after, tour round the body changing biliary duct spleen squirting liver gastric juice coils of intestines like pipes. But the poor buffer would have to stand all the time with his insides entrails on show. Science.
+
+Plumber, whose window of bare clean closestools turns Bloom’s thoughts back inside himself: swallow a pin, tour round the body, and the poor buffer standing all the time with his insides on show. Science.
+
+## original-en · don-giovanni · 8:325
+
+Don Giovanni, a cenar teco M’invitasti.
+
+Whom the statue invites to supper, in the line Bloom hums going up Dawson street: Don Giovanni, a cenar teco m’invitasti. He tries it in English and it doesn’t go properly, and stops on the one word he wants: what does that teco mean? Tonight perhaps.
+
+## original-en · billy-prescott · 8:332
+
+Keyes: two months if I get Nannetti to. That’ll be two pounds ten about two pounds eight. Three Hynes owes me. Two eleven. Prescott’s dyeworks van over there. If I get Billy Prescott’s ad: two fifteen. Five guineas about. On the pig’s back.
+
+Of the dyeworks, whose ad would bring Bloom to two fifteen if he gets it. Five guineas about. On the pig’s back.
+
+## original-en · frederick-falkiner · 8:364
+
+Sir Frederick Falkiner going into the freemasons’ hall. Solemn as Troy. After his good lunch in Earlsfort terrace. Old legal cronies cracking a magnum. Tales of the bench and assizes and annals of the bluecoat school. I sentenced him to ten years. I suppose he’d turn up his nose at that stuff I drank. Vintage wine for them, the year marked on a dusty bottle. Has his own ideas of justice in the recorder’s court. Wellmeaning old man. Police chargesheets crammed with cases get their percentage manufacturing crime. Sends them to the rightabout. The devil on moneylenders. Gave Reuben J a great strawcalling. Now he’s really what they call a dirty jew. Power those judges have. Crusty old topers in wigs. Bear with a sore paw. And may the Lord have mercy on your soul.
+
+Recorder of Dublin, going into the freemasons’ hall solemn as Troy after his good lunch in Earlsfort terrace, with the tales of the bench and the assizes and I sentenced him to ten years. Wellmeaning old man, and the devil on moneylenders: he gave Reuben J a great strawcalling.
+
+## original-en · lord-lieutenant · 8:365
+
+Hello, placard. Mirus bazaar. His Excellency the lord lieutenant. Sixteenth. Today it is. In aid of funds for Mercer’s hospital. _The Messiah_ was first given for that. Yes. Handel. What about going out there: Ballsbridge. Drop in on Keyes. No use sticking to him like a leech. Wear out my welcome. Sure to know someone on the gate.
+
+On the placard for the Mirus bazaar, sixteenth of June, in aid of funds for Mercer’s hospital. Bloom thinks of going out to Ballsbridge on the strength of it and dropping in on Keyes: sure to know someone on the gate.
+
+## original-en · handel · 8:365
+
+Hello, placard. Mirus bazaar. His Excellency the lord lieutenant. Sixteenth. Today it is. In aid of funds for Mercer’s hospital. _The Messiah_ was first given for that. Yes. Handel. What about going out there: Ballsbridge. Drop in on Keyes. No use sticking to him like a leech. Wear out my welcome. Sure to know someone on the gate.
+
+Whose Messiah was first given in aid of Mercer’s hospital, which the Mirus bazaar is being held for now. Yes. Handel.
+
+## original-en · thomas-deane · 8:370
+
+Making for the museum gate with long windy steps he lifted his eyes. Handsome building. Sir Thomas Deane designed. Not following me?
+
+Who designed the museum, and whose cream curves of stone Bloom stares at, heart quopping, while he turns out his pockets at the gate. Handsome building. Sir Thomas Deane was the Greek architecture.
+
+## original-en · farmers-daughter · 8:148
+
+He crossed at Nassau street corner and stood before the window of Yeates and Son, pricing the fieldglasses. Or will I drop into old Harris’s and have a chat with young Sinclair? Wellmannered fellow. Probably at his lunch. Must get those old glasses of mine set right. Goerz lenses six guineas. Germans making their way everywhere. Sell on easy terms to capture trade. Undercutting. Might chance on a pair in the railway lost property office. Astonishing the things people leave behind them in trains and cloakrooms. What do they be thinking about? Women too. Incredible. Last year travelling to Ennis had to pick up that farmer’s daughter’s bag and hand it to her at Limerick junction. Unclaimed money too. There’s a little watch up there on the roof of the bank to test those glasses by.
+
+Whose bag Bloom had to pick up and hand to her at Limerick junction, travelling to Ennis last year, in the list of what people leave behind them in trains and cloakrooms.
+
 ## modern-en · stephen · 1:3
 
 —Come up, Kinch! Come up, you cowardly Jesuit!
@@ -3348,7 +4020,7 @@ Bloom’s guarantor at the Capel street library, who will be written to if the b
 
 Better where she is, down there in Mullingar: away. Keep her busy. She wanted a dog to pass the time. Might take a trip down there. August bank holiday, only two and six for a return ticket. Six weeks off, however. Might wangle a press pass. Or through M'Coy.
 
-Through whom Bloom thinks he might work a press pass to Mullingar, to go down and see Milly. He appears in person in the next episode and asks to have his name put down at the funeral.
+Through whom Bloom thinks he might work a press pass to Mullingar, to go down and see Milly. He appears in person in the next episode and asks to have his name put down at the funeral. The modern edition spells him McCoy from episode 8 on.
 
 ## modern-en · gretta-conroy · 4:164
 
@@ -4549,3 +5221,681 @@ Proprietress of the north city diningrooms in Marlborough street, from whom the 
 Their names are Anne Kearns and Florence MacCabe. Anne Kearns has lumbago, for which she rubs on Lourdes water, given to her by a lady who got a whole bottleful from a Passionist father. Florence MacCabe has a pig's trotter and a bottle of extra-strong stout for supper every Saturday.
 
 One of the two: she has the lumbago, for which she rubs on Lourdes water given her by a lady who got a bottleful from a passionist father. The other is Florence MacCabe, the midwife Stephen watched come down to the strand in episode 3.
+
+## modern-en · sweetshop-girl · 8:0
+
+Pineapple rock, lemon drops, butterscotch. A sugar-sticky girl shovelling scoopfuls of cream sweets for a Christian Brother. Some school outing treat. Bad for their stomachs. Confectionery manufacturer to His Majesty the King. God. Save. Our. Sitting on his throne sucking red jujubes white.
+
+Shovelling scoopfuls of creams for a christian brother behind the warm sweet fumes of Graham Lemon’s, in the first sentence of the episode. Pineapple rock, lemon platt, butter scotch. Bad for their tummies, Bloom thinks, and walks on hungry.
+
+## modern-en · christian-brother · 8:0
+
+Pineapple rock, lemon drops, butterscotch. A sugar-sticky girl shovelling scoopfuls of cream sweets for a Christian Brother. Some school outing treat. Bad for their stomachs. Confectionery manufacturer to His Majesty the King. God. Save. Our. Sitting on his throne sucking red jujubes white.
+
+Buying the sweets at Lemon’s for some school treat. One of the teaching order, in the older edition lowercase and in the modern edition given his capitals.
+
+## modern-en · ymca-young-man · 8:1
+
+A sombre Y.M.C.A. young man, watching from among the warm sweet fumes of Graham Lemon's sweet shop, placed a religious leaflet in Mr Bloom's hand.
+
+Sombre and watchful among the fumes of the sweetshop, who puts the throwaway into Mr Bloom’s hand. Heart to heart talks. Bloom reads the first word of it as his own name — Bloo… Me? No — and it turns out to be Blood of the Lamb.
+
+## modern-en · elijah · 8:5
+
+His slow feet walked him towards the river, reading. Are you saved? All are washed in the blood of the lamb. God wants blood sacrifice. Birth, virginity, martyrdom, war, foundation of a building, sacrifice, burnt offerings of kidneys, druids' altars. Elijah is coming. Dr John Alexander Dowie, restorer of the church in Zion, is coming.
+
+Whose coming the throwaway announces, and whose name Bloom reads twice: Elijah is coming, and then, crumpled into a ball and thrown to the gulls, Elijah thirtytwo feet per sec is com. The prophet taken up in the whirlwind, whose return the revivalist has attached to himself.
+
+## modern-en · dowie · 8:5
+
+His slow feet walked him towards the river, reading. Are you saved? All are washed in the blood of the lamb. God wants blood sacrifice. Birth, virginity, martyrdom, war, foundation of a building, sacrifice, burnt offerings of kidneys, druids' altars. Elijah is coming. Dr John Alexander Dowie, restorer of the church in Zion, is coming.
+
+Dr John Alexander Dowie, restorer of the church in Zion, who is the Elijah of the handbill. Bloom prices the enterprise as he would any other: paying game.
+
+## modern-en · torry · 8:7
+
+Good money in that racket. Torry and Alexander last year. Polygamy. His wife will put a stop to that. Where was that ad from some Birmingham firm for the luminous crucifix? Our Saviour. Wake up in the dead of night and see him on the wall, hanging. Like a Pepper's Ghost illusion. Iron Nails Ran In — I.N.R.I.
+
+One of the two revivalists who worked Dublin the year before, whom Bloom sets beside Dowie as the same trade returning. Polygamy, he adds, thinking of Zion: his wife will put the stopper on that.
+
+## modern-en · alexander-evangelist · 8:7
+
+Good money in that racket. Torry and Alexander last year. Polygamy. His wife will put a stop to that. Where was that ad from some Birmingham firm for the luminous crucifix? Our Saviour. Wake up in the dead of night and see him on the wall, hanging. Like a Pepper's Ghost illusion. Iron Nails Ran In — I.N.R.I.
+
+The other half of Torry and Alexander, the revival that worked Dublin last year. Bloom remembers the pair as one act and does not separate them; the name is his measure of how often this trade comes round.
+
+## modern-en · dedalus-daughter · 8:9
+
+From Butler's monument house corner he glanced along Bachelor's Walk. Dedalus's daughter still standing outside Dillon's auction rooms. Must be selling off some old furniture. Recognised her eyes at once — same as the father's. Hanging about waiting for him. Home always falls apart when the mother goes. Fifteen children he had. A birth every year, almost. That's in their theology — or the priest won't give the poor woman confession, absolution. Go forth and multiply. Did you ever hear such a thing? Eat you out of house and home. No families of their own to feed. Living on the fat of the land. Their pantries and larders. I'd like to see them try the Yom Kippur fast. Hot cross buns. One meal and a snack for fear the priest collapses at the altar. A housekeeper of one of those fellows — if you could get anything out of her. You'd never get it out of her. Like getting money out of him. Does himself well. No guests. All for number one. Watching his spending. Bring your own bread and butter. His Reverence: mum's the word.
+
+Lobbing about outside Dillon’s auctionrooms on Bachelor’s walk, waiting for her father, with some old furniture going under the hammer inside. Bloom knows her eyes at once from the father, counts the fifteen children, and notes the dress in flitters and the underfed look of her. The episode does not give her a first name.
+
+## modern-en · applewoman · 8:21
+
+He stopped again and bought from the old apple woman two Banbury cakes for a penny, broke the brittle pastry, and threw the fragments down into the Liffey. See that? The gulls swooped silently — two, then all of them from their heights, pouncing on the food. Gone. Every morsel.
+
+Two apples a penny, two for a penny, at the corner of the bridge. Bloom buys two Banbury cakes from her for a penny and breaks them up for the gulls, who take every morsel and give him not even a caw.
+
+## modern-en · hy-franks · 8:26
+
+Good idea, that. Wonder if he pays rent to the city council. How can you really own water? It's always flowing in a stream, never the same — which in the stream of life we trace. Because life is a stream. All kinds of places are good for advertising. That quack doctor for venereal disease used to have his signs stuck up in all the public lavatories. Never see them now. Strictly confidential. Dr Hy Franks. Didn't cost him a penny — unlike Maginni the dancing master with his self-promotion. Got fellows to stick them up, or stuck them up himself for that matter, on the quiet, running in to unbutton his trousers. Fly-by-night operation. Just the right place, too. POST NO BILLS. POST 110 PILLS. Some chap with a dose that's burning him.
+
+The quack for the clap whose strictly confidential bills used to be stuck up in all the greenhouses, and who never paid a red for the privilege. Bloom the canvasser reads the city as a hoarding and grades the work.
+
+## modern-en · maginni · 8:26
+
+Good idea, that. Wonder if he pays rent to the city council. How can you really own water? It's always flowing in a stream, never the same — which in the stream of life we trace. Because life is a stream. All kinds of places are good for advertising. That quack doctor for venereal disease used to have his signs stuck up in all the public lavatories. Never see them now. Strictly confidential. Dr Hy Franks. Didn't cost him a penny — unlike Maginni the dancing master with his self-promotion. Got fellows to stick them up, or stuck them up himself for that matter, on the quiet, running in to unbutton his trousers. Fly-by-night operation. Just the right place, too. POST NO BILLS. POST 110 PILLS. Some chap with a dose that's burning him.
+
+The dancing master, whose self advertisement Bloom sets against Franks: he got fellows to stick the bills up, or stuck them up himself on the q. t., running in to loosen a button.
+
+## modern-en · robert-ball · 8:33
+
+Mr Bloom moved forward, raising his troubled eyes. Don't think about that any more. After one o'clock. The time ball on the Ballast Office has dropped. Dunsink observatory time. Fascinating little book, that one by Sir Robert Ball. Parallax. I never quite understood it. There's a priest over there. Could ask him. Par — it's Greek: parallel, parallax. Molly called it 'met him pike hoses' — metempsychosis — till I told her about the transmigration of souls. Oh, rocks!
+
+Whose fascinating little book gave Bloom the word parallax, which he has never exactly understood, and which comes back at him all day. Par it’s Greek: parallel, parallax.
+
+## modern-en · sandwichman-y · 8:35
+
+A procession of sandwich-board men in white smocks marched slowly towards him along the gutter, scarlet sashes across their boards. Bargains. Like those priests this morning: we have sinned, we have suffered. He read the scarlet letters on their five tall white hats: H. E. L. Y. S. Wisdom Hely's stationery. The Y man, lagging behind, pulled a chunk of bread from under his board, crammed it into his mouth, and munched as he walked. Our daily bread. Three bob a day, walking along the gutters, street after street. Just enough to keep body and soul together, bread and thin gruel. They're not Boylan's men — no, M'Glade's men. Doesn't bring in any business either. I suggested to him a transparent show-cart with two attractive girls sitting inside writing letters, using copybooks, envelopes, blotting paper. I bet that would have caught on. Pretty girls writing something catches the eye at once. Everyone dying to know what she's writing. Twenty people would crowd around you if you just stare at nothing. Have a finger in the pie. Women too. Curiosity. Lot's wife turned to a pillar of salt. He wouldn't have it, of course, because he hadn't thought of it himself first. Or the inkbottle I suggested, with a fake stain of black celluloid. His ideas for ads — like Plumtree's Potted Meat placed under the obituary notices: cold meat department. You can't beat that. What? Our envelopes. Hello, Jones, where are you going? Can't stop, Robinson, I am hurrying to purchase the only reliable ink eraser _Kansell_, sold by Hely's Ltd, 85 Dame Street. Well, I'm out of that rat race now. Devil of a job it was, collecting payments from those convents. Tranquilla Convent. There was a nice nun there, really sweet face. The wimple suited her small head. Sister? Sister? I'm sure she was crossed in love, judging by her eyes. Very hard to haggle with that sort of woman. I disturbed her at her prayers that morning. But she was glad to have contact with the outside world. Our great feast day, she said. Feast of Our Lady of Mount Carmel. Sweet name, too: caramel. She knew I — I think she knew, by the way she — If she had married, she would have changed. I suppose they really were short of money. Fried everything in the best butter, all the same. No dripping for them. My heart's broken eating dripping. They like to cocoon themselves. Molly tasting it, her veil up. Sister? Pat Claffey, the pawnbroker's daughter. They say it was a nun who invented barbed wire.
+
+Fifth of the whitesmocked sandwichmen with the scarlet sashes, lagging behind the others along the gutter and eating a chunk of bread from under his foreboard as he walks. Three bob a day, Bloom reckons, street after street: just keep skin and bone together.
+
+## modern-en · mcglade · 8:35
+
+A procession of sandwich-board men in white smocks marched slowly towards him along the gutter, scarlet sashes across their boards. Bargains. Like those priests this morning: we have sinned, we have suffered. He read the scarlet letters on their five tall white hats: H. E. L. Y. S. Wisdom Hely's stationery. The Y man, lagging behind, pulled a chunk of bread from under his board, crammed it into his mouth, and munched as he walked. Our daily bread. Three bob a day, walking along the gutters, street after street. Just enough to keep body and soul together, bread and thin gruel. They're not Boylan's men — no, M'Glade's men. Doesn't bring in any business either. I suggested to him a transparent show-cart with two attractive girls sitting inside writing letters, using copybooks, envelopes, blotting paper. I bet that would have caught on. Pretty girls writing something catches the eye at once. Everyone dying to know what she's writing. Twenty people would crowd around you if you just stare at nothing. Have a finger in the pie. Women too. Curiosity. Lot's wife turned to a pillar of salt. He wouldn't have it, of course, because he hadn't thought of it himself first. Or the inkbottle I suggested, with a fake stain of black celluloid. His ideas for ads — like Plumtree's Potted Meat placed under the obituary notices: cold meat department. You can't beat that. What? Our envelopes. Hello, Jones, where are you going? Can't stop, Robinson, I am hurrying to purchase the only reliable ink eraser _Kansell_, sold by Hely's Ltd, 85 Dame Street. Well, I'm out of that rat race now. Devil of a job it was, collecting payments from those convents. Tranquilla Convent. There was a nice nun there, really sweet face. The wimple suited her small head. Sister? Sister? I'm sure she was crossed in love, judging by her eyes. Very hard to haggle with that sort of woman. I disturbed her at her prayers that morning. But she was glad to have contact with the outside world. Our great feast day, she said. Feast of Our Lady of Mount Carmel. Sweet name, too: caramel. She knew I — I think she knew, by the way she — If she had married, she would have changed. I suppose they really were short of money. Fried everything in the best butter, all the same. No dripping for them. My heart's broken eating dripping. They like to cocoon themselves. Molly tasting it, her veil up. Sister? Pat Claffey, the pawnbroker's daughter. They say it was a nun who invented barbed wire.
+
+Whose men the sandwichboard procession turns out to be. Doesn’t bring in any business either, Bloom decides, and goes back over the showcart with two smart girls in it that Hely would not have because he had not thought of it himself.
+
+## modern-en · tranquilla-nun · 8:35
+
+A procession of sandwich-board men in white smocks marched slowly towards him along the gutter, scarlet sashes across their boards. Bargains. Like those priests this morning: we have sinned, we have suffered. He read the scarlet letters on their five tall white hats: H. E. L. Y. S. Wisdom Hely's stationery. The Y man, lagging behind, pulled a chunk of bread from under his board, crammed it into his mouth, and munched as he walked. Our daily bread. Three bob a day, walking along the gutters, street after street. Just enough to keep body and soul together, bread and thin gruel. They're not Boylan's men — no, M'Glade's men. Doesn't bring in any business either. I suggested to him a transparent show-cart with two attractive girls sitting inside writing letters, using copybooks, envelopes, blotting paper. I bet that would have caught on. Pretty girls writing something catches the eye at once. Everyone dying to know what she's writing. Twenty people would crowd around you if you just stare at nothing. Have a finger in the pie. Women too. Curiosity. Lot's wife turned to a pillar of salt. He wouldn't have it, of course, because he hadn't thought of it himself first. Or the inkbottle I suggested, with a fake stain of black celluloid. His ideas for ads — like Plumtree's Potted Meat placed under the obituary notices: cold meat department. You can't beat that. What? Our envelopes. Hello, Jones, where are you going? Can't stop, Robinson, I am hurrying to purchase the only reliable ink eraser _Kansell_, sold by Hely's Ltd, 85 Dame Street. Well, I'm out of that rat race now. Devil of a job it was, collecting payments from those convents. Tranquilla Convent. There was a nice nun there, really sweet face. The wimple suited her small head. Sister? Sister? I'm sure she was crossed in love, judging by her eyes. Very hard to haggle with that sort of woman. I disturbed her at her prayers that morning. But she was glad to have contact with the outside world. Our great feast day, she said. Feast of Our Lady of Mount Carmel. Sweet name, too: caramel. She knew I — I think she knew, by the way she — If she had married, she would have changed. I suppose they really were short of money. Fried everything in the best butter, all the same. No dripping for them. My heart's broken eating dripping. They like to cocoon themselves. Molly tasting it, her veil up. Sister? Pat Claffey, the pawnbroker's daughter. They say it was a nun who invented barbed wire.
+
+A really sweet face, the wimple suiting her small head, whom Bloom disturbed at her devotions the morning he came to collect the convent’s account. Our great day, she said: feast of Our Lady of Mount Carmel. She knew, he thinks — I think she knew by the way she.
+
+## modern-en · pat-claffey · 8:35
+
+A procession of sandwich-board men in white smocks marched slowly towards him along the gutter, scarlet sashes across their boards. Bargains. Like those priests this morning: we have sinned, we have suffered. He read the scarlet letters on their five tall white hats: H. E. L. Y. S. Wisdom Hely's stationery. The Y man, lagging behind, pulled a chunk of bread from under his board, crammed it into his mouth, and munched as he walked. Our daily bread. Three bob a day, walking along the gutters, street after street. Just enough to keep body and soul together, bread and thin gruel. They're not Boylan's men — no, M'Glade's men. Doesn't bring in any business either. I suggested to him a transparent show-cart with two attractive girls sitting inside writing letters, using copybooks, envelopes, blotting paper. I bet that would have caught on. Pretty girls writing something catches the eye at once. Everyone dying to know what she's writing. Twenty people would crowd around you if you just stare at nothing. Have a finger in the pie. Women too. Curiosity. Lot's wife turned to a pillar of salt. He wouldn't have it, of course, because he hadn't thought of it himself first. Or the inkbottle I suggested, with a fake stain of black celluloid. His ideas for ads — like Plumtree's Potted Meat placed under the obituary notices: cold meat department. You can't beat that. What? Our envelopes. Hello, Jones, where are you going? Can't stop, Robinson, I am hurrying to purchase the only reliable ink eraser _Kansell_, sold by Hely's Ltd, 85 Dame Street. Well, I'm out of that rat race now. Devil of a job it was, collecting payments from those convents. Tranquilla Convent. There was a nice nun there, really sweet face. The wimple suited her small head. Sister? Sister? I'm sure she was crossed in love, judging by her eyes. Very hard to haggle with that sort of woman. I disturbed her at her prayers that morning. But she was glad to have contact with the outside world. Our great feast day, she said. Feast of Our Lady of Mount Carmel. Sweet name, too: caramel. She knew I — I think she knew, by the way she — If she had married, she would have changed. I suppose they really were short of money. Fried everything in the best butter, all the same. No dripping for them. My heart's broken eating dripping. They like to cocoon themselves. Molly tasting it, her veil up. Sister? Pat Claffey, the pawnbroker's daughter. They say it was a nun who invented barbed wire.
+
+The pawnbroker’s daughter, the name Bloom gropes for when he cannot think what the nun was called. Sister? Sister? Pat Claffey. It is offered as a guess and the episode never settles it.
+
+## modern-en · phil-gilligan · 8:36
+
+He crossed Westmoreland Street after the S-man had plodded by. Rover cycle shop. Those races are on today. How long ago was that? The year Phil Gilligan died. We were in Lombard Street West. Wait — was I in Thom's then? Got the job in Wisdom Hely's the year we married. Six years ago. Ten years ago now: ninety-four was when he died — yes, that's right, the big fire at Arnott's. Val Dillon was lord mayor. The Glencree charity dinner. Alderman Robert O'Reilly emptying port into his soup before grace was said. Bob lapping it up for the inner man. Couldn't hear what the band was playing. For what we have already received may the Lord make us. Milly was just a little girl then. Molly had that elephant-grey dress with the braided frogging. Man-tailored with self-covered buttons. She didn't like it because I sprained my ankle the first day she wore it — choir picnic at the Sugarloaf. As if that mattered. Old Goodwin's tall hat done up with some sticky stuff. Flies having a picnic on it too. Never had a dress on her back like it. Fitted her like a glove — shoulders and hips. She was just beginning to fill out nicely. Rabbit pie we had that day. People staring after her.
+
+By whose death Bloom dates the year: ninetyfour, the big fire at Arnott’s, when they were in Lombard street west and Milly was a kiddy.
+
+## modern-en · val-dillon · 8:36
+
+He crossed Westmoreland Street after the S-man had plodded by. Rover cycle shop. Those races are on today. How long ago was that? The year Phil Gilligan died. We were in Lombard Street West. Wait — was I in Thom's then? Got the job in Wisdom Hely's the year we married. Six years ago. Ten years ago now: ninety-four was when he died — yes, that's right, the big fire at Arnott's. Val Dillon was lord mayor. The Glencree charity dinner. Alderman Robert O'Reilly emptying port into his soup before grace was said. Bob lapping it up for the inner man. Couldn't hear what the band was playing. For what we have already received may the Lord make us. Milly was just a little girl then. Molly had that elephant-grey dress with the braided frogging. Man-tailored with self-covered buttons. She didn't like it because I sprained my ankle the first day she wore it — choir picnic at the Sugarloaf. As if that mattered. Old Goodwin's tall hat done up with some sticky stuff. Flies having a picnic on it too. Never had a dress on her back like it. Fitted her like a glove — shoulders and hips. She was just beginning to fill out nicely. Rabbit pie we had that day. People staring after her.
+
+Lord mayor at the Glencree dinner, the night Molly wore the elephantgrey dress with the braided frogs and people looked after her.
+
+## modern-en · robert-oreilly · 8:36
+
+He crossed Westmoreland Street after the S-man had plodded by. Rover cycle shop. Those races are on today. How long ago was that? The year Phil Gilligan died. We were in Lombard Street West. Wait — was I in Thom's then? Got the job in Wisdom Hely's the year we married. Six years ago. Ten years ago now: ninety-four was when he died — yes, that's right, the big fire at Arnott's. Val Dillon was lord mayor. The Glencree charity dinner. Alderman Robert O'Reilly emptying port into his soup before grace was said. Bob lapping it up for the inner man. Couldn't hear what the band was playing. For what we have already received may the Lord make us. Milly was just a little girl then. Molly had that elephant-grey dress with the braided frogging. Man-tailored with self-covered buttons. She didn't like it because I sprained my ankle the first day she wore it — choir picnic at the Sugarloaf. As if that mattered. Old Goodwin's tall hat done up with some sticky stuff. Flies having a picnic on it too. Never had a dress on her back like it. Fitted her like a glove — shoulders and hips. She was just beginning to fill out nicely. Rabbit pie we had that day. People staring after her.
+
+Who emptied the port into his soup before the flag fell at that same dinner, and lapped it up for the inner alderman. Bobbob.
+
+## modern-en · bartell-darcy · 8:40
+
+Bartell d'Arcy was the tenor, just coming on the scene then. Seeing her home after practice. Conceited fellow with his waxed moustache. Gave her that song _Winds That Blow from the South_.
+
+The tenor, just coming out then, conceited with his waxedup moustache, who saw Molly home after practice and gave her Winds that blow from the south. Bloom leaves the thought there and moves to the windy night he went to fetch her himself.
+
+## modern-en · josie-breen · 8:44
+
+—Oh, how do you do, Mrs Breen?
+
+Josie Powell that was, of the charades at Luke Doyle’s in Dolphin’s Barn, only a year or so older than Molly and wearing the same blue serge dress as two years ago, the nap bleaching. She stops Bloom on Westmoreland street, hears about Dignam, and shows him the postcard her husband got.
+
+## modern-en · denis-breen · 8:103
+
+—He's got enough names, she said. Denis will end up like that one of these days.
+
+Her lord and master, a caution to rattlesnakes, in there now with his lawbooks finding out the law of libel. He woke her in the night to say the ace of spades was walking up the stairs, and he shuffles out of Harrison’s in a skimpy frockcoat and blue canvas shoes with two heavy tomes under his arm, bound for Menton’s office and an action for ten thousand pounds.
+
+## modern-en · lots-wife · 8:35
+
+A procession of sandwich-board men in white smocks marched slowly towards him along the gutter, scarlet sashes across their boards. Bargains. Like those priests this morning: we have sinned, we have suffered. He read the scarlet letters on their five tall white hats: H. E. L. Y. S. Wisdom Hely's stationery. The Y man, lagging behind, pulled a chunk of bread from under his board, crammed it into his mouth, and munched as he walked. Our daily bread. Three bob a day, walking along the gutters, street after street. Just enough to keep body and soul together, bread and thin gruel. They're not Boylan's men — no, M'Glade's men. Doesn't bring in any business either. I suggested to him a transparent show-cart with two attractive girls sitting inside writing letters, using copybooks, envelopes, blotting paper. I bet that would have caught on. Pretty girls writing something catches the eye at once. Everyone dying to know what she's writing. Twenty people would crowd around you if you just stare at nothing. Have a finger in the pie. Women too. Curiosity. Lot's wife turned to a pillar of salt. He wouldn't have it, of course, because he hadn't thought of it himself first. Or the inkbottle I suggested, with a fake stain of black celluloid. His ideas for ads — like Plumtree's Potted Meat placed under the obituary notices: cold meat department. You can't beat that. What? Our envelopes. Hello, Jones, where are you going? Can't stop, Robinson, I am hurrying to purchase the only reliable ink eraser _Kansell_, sold by Hely's Ltd, 85 Dame Street. Well, I'm out of that rat race now. Devil of a job it was, collecting payments from those convents. Tranquilla Convent. There was a nice nun there, really sweet face. The wimple suited her small head. Sister? Sister? I'm sure she was crossed in love, judging by her eyes. Very hard to haggle with that sort of woman. I disturbed her at her prayers that morning. But she was glad to have contact with the outside world. Our great feast day, she said. Feast of Our Lady of Mount Carmel. Sweet name, too: caramel. She knew I — I think she knew, by the way she — If she had married, she would have changed. I suppose they really were short of money. Fried everything in the best butter, all the same. No dripping for them. My heart's broken eating dripping. They like to cocoon themselves. Molly tasting it, her veil up. Sister? Pat Claffey, the pawnbroker's daughter. They say it was a nun who invented barbed wire.
+
+Who looked back and was turned to a pillar of salt, in the two words Joyce gives the thought about women’s curiosity: Pillar of salt. Only the modern edition supplies the name, which is why she is unreachable in the older text.
+
+## modern-en · barefoot-arab · 8:63
+
+Hot mock-turtle soup vapour and steam of fresh-baked jam puffs and roly-poly poured out from Harrison's bakery. The heavy noontime smell tickled the top of Mr Bloom's throat. To make good pastry you need butter, best flour, Demerara sugar — or you'd taste the cheapness with the hot tea. Or is that smell coming from her? A barefoot street urchin stood over the grating, breathing in the fumes. A way to dull the gnaw of hunger. Is it pleasure or pain? Penny dinner. Knife and fork chained to the table.
+
+Standing over the grating outside Harrison’s breathing in the noonreek of mockturtle and jampuffs. Deaden the gnaw of hunger that way, Bloom thinks. Pleasure or pain is it?
+
+## modern-en · luke-doyle · 8:83
+
+He still looked at her, holding back behind his gaze his unease. The pungent smell of mock-turtle soup, oxtail, mulligatawny. I'm hungry too. Flakes of pastry on the seam of her dress: a dab of sugary flour stuck to her cheek. Rhubarb tart with generous filling, rich fruity inside. Josie Powell, she used to be. Way back at Luke Doyle's. Dolphin's Barn, the charades party. U.P.: up.
+
+In whose house at Dolphin’s Barn the charades were played, long ago, where Bloom first knew Josie Powell. U. p: up comes back to him out of the same evening.
+
+## modern-en · mina-purefoy · 8:85
+
+—Do you ever see anything of Mrs Beaufoy? Mr Bloom asked.
+
+Three days bad in the lying-in hospital in Holles street, with a houseful of kids at home and a very stiff birth, the nurse told Mrs Breen. Bloom asks after her under the wrong name, Mrs Beaufoy, because Philip Beaufoy of the prize titbit is in his head; and she stays in his head for the rest of the episode.
+
+## modern-en · theodore-purefoy · 8:113
+
+Poor Mrs Purefoy! Methodist husband. Method in his madness. Dry saffron bun and milk-and-soda lunch in the vegetarian dairy. Y.M.C.A. Eating with a stopwatch, thirty-two chews per minute. And still his mutton-chop whiskers kept growing. Supposed to be well-connected. Theodore's cousin at Dublin Castle. Every family has one posh relative. Babies year after year he gives her. Saw him out at the Three Jolly Topers, marching along bare-headed, his eldest boy carrying a baby in a shopping net. The squalling brats. Poor woman! Then having to breastfeed year after year, all hours of the night. Selfish, those teetotallers. Dog in the manger. Just one lump of sugar in my tea, if you please.
+
+The Methodist husband. Method in his madness: saffron bun and milk and soda in the educational dairy, eating with a stopwatch, thirtytwo chews to the minute, and hardy annuals he presents her with. Bloom saw him marching bareheaded out at the Three Jolly Topers with his eldest boy carrying one in a marketnet.
+
+## modern-en · dr-horne · 8:89
+
+—I just called in on the way to ask about her. She's in the maternity hospital in Holles Street. Dr Horne admitted her. She's been three days in labour now.
+
+Master of the lying-in hospital in Holles street, who got Mrs Purefoy in. Bloom hears the name from Mrs Breen and keeps it with the three days and the forceps.
+
+## modern-en · farrell · 8:99
+
+A bony figure strode along the kerb from the river, staring with a rapt gaze into the sunlight through a heavy-lensed monocle. Tight as a skullcap, a tiny hat gripped his head. From his arm a folded dust-coat, a walking stick, and an umbrella dangled with his stride.
+
+The bony form who strides along the curbstone staring through a heavystringed glass, a tiny hat gripped tight as a skullpiece on his head, a dustcoat and stick and umbrella dangling from his arm. He always walks outside the lampposts. He has enough of them, Mrs Breen says of the names.
+
+## modern-en · alf-bergan · 8:110
+
+U.P.: up. I'd bet anything it was Alf Bergan or Richie Goulding. Wrote it for a joke in the Scotch House pub, I bet. Off to Menton's law office now. His bulging eyes staring at the postcard. It'll be a feast for the gods.
+
+One of the two Bloom would take his oath wrote the U. p: up postcard for a lark in the Scotch house. Be a feast for the gods, he thinks, to see Breen take it round to a solicitor.
+
+## modern-en · lizzie-twigg · 8:111
+
+He passed the _Irish Times_ office. There might be other personal-ad replies waiting there. I'd like to answer them all. Good system for criminals. Code messages. They'll all be at lunch now. The clerk with the glasses doesn't know me. Oh, leave them there to wait. Enough bother wading through forty-four of them already. Wanted: smart lady typist to aid gentleman in literary work. I called you naughty darling because I do not like that other world. Please tell me what is the meaning. Please tell me what perfume does your wife use. Tell me who made the world. The way they spring those questions on you. And that other one, Lizzie Twigg. My literary efforts have had the good fortune to meet with the approval of the eminent poet A.E. (Mr George Russell). No time to do her hair, drinking sloppy tea with a book of poetry.
+
+Whose answer to the advertisement said that her literary efforts had had the good fortune to meet with the approval of the eminent poet A. E. No time to do her hair, Bloom decides, drinking sloppy tea with a book of poetry — and then thinks he sees her walking beside the beard and bicycle, taking it all in and not saying a word.
+
+## modern-en · james-carlisle · 8:112
+
+Best paper by far for a small ad. Got the provincial readership now. Cook and general, excellent cuisine, housemaid kept. Wanted: live man for spirits counter. Respectable girl (Roman Catholic) wishes to hear of post in fruit or pork shop. James Carlisle made that. Six and a half per cent dividend. Made a killing on Coates's shares. Careful. Cunning old Scotsman. All the sycophantic news. Our gracious and popular vicereine. Bought the _Irish Field_ now. Lady Mountcashel has quite recovered after her confinement and rode out with the Ward Union staghounds at the meet yesterday at Ratoath. Uneatable fox. Trophy hunters too. The fear injects juices that tenderise the meat enough for them. Riding astride. Sits her horse like a man. A sturdy huntress. No side-saddle or riding pillion for her, not our Lady M. First to the meet and in at the kill. Strong as a brood mare, some of those horsey women. Swagger around livery stables. Toss back a glass of brandy neat while you'd say knife. That one at the Grosvenor this morning. Up with her on the carriage: swish-swish. Stone wall or five-barred gate, she'd put her horse to it. I think that pug-nosed driver did it out of spite. Who was it she reminded me of? Oh yes! Mrs Miriam Dandrade, who sold me her old wraps and black underclothes at the Shelbourne Hotel. Divorced Spanish-American. Didn't bother her a bit, my handling them. As if I was her clothes horse. Saw her at the viceregal garden party when Stubbs the park ranger got me in through Whelan of the _Express_. Picking over what the upper classes left behind. High tea. I poured mayonnaise on the plums, thinking it was custard. Her ears should have been burning for weeks after. She'd want a bull of a man. Born courtesan. No nursery duty for her, thank you.
+
+Who made the Irish Times: six and a half per cent dividend, a big deal on Coates’s shares. Ca’ canny. Cunning old Scotch hunks.
+
+## modern-en · lady-mountcashel · 8:112
+
+Best paper by far for a small ad. Got the provincial readership now. Cook and general, excellent cuisine, housemaid kept. Wanted: live man for spirits counter. Respectable girl (Roman Catholic) wishes to hear of post in fruit or pork shop. James Carlisle made that. Six and a half per cent dividend. Made a killing on Coates's shares. Careful. Cunning old Scotsman. All the sycophantic news. Our gracious and popular vicereine. Bought the _Irish Field_ now. Lady Mountcashel has quite recovered after her confinement and rode out with the Ward Union staghounds at the meet yesterday at Ratoath. Uneatable fox. Trophy hunters too. The fear injects juices that tenderise the meat enough for them. Riding astride. Sits her horse like a man. A sturdy huntress. No side-saddle or riding pillion for her, not our Lady M. First to the meet and in at the kill. Strong as a brood mare, some of those horsey women. Swagger around livery stables. Toss back a glass of brandy neat while you'd say knife. That one at the Grosvenor this morning. Up with her on the carriage: swish-swish. Stone wall or five-barred gate, she'd put her horse to it. I think that pug-nosed driver did it out of spite. Who was it she reminded me of? Oh yes! Mrs Miriam Dandrade, who sold me her old wraps and black underclothes at the Shelbourne Hotel. Divorced Spanish-American. Didn't bother her a bit, my handling them. As if I was her clothes horse. Saw her at the viceregal garden party when Stubbs the park ranger got me in through Whelan of the _Express_. Picking over what the upper classes left behind. High tea. I poured mayonnaise on the plums, thinking it was custard. Her ears should have been burning for weeks after. She'd want a bull of a man. Born courtesan. No nursery duty for her, thank you.
+
+Who has quite recovered after her confinement and rode out with the Ward Union staghounds at the enlargement yesterday at Rathoath, in the paragraph of the Irish Field that sets Bloom off on horsey women. First to the meet and in at the death.
+
+## modern-en · miriam-dandrade · 8:112
+
+Best paper by far for a small ad. Got the provincial readership now. Cook and general, excellent cuisine, housemaid kept. Wanted: live man for spirits counter. Respectable girl (Roman Catholic) wishes to hear of post in fruit or pork shop. James Carlisle made that. Six and a half per cent dividend. Made a killing on Coates's shares. Careful. Cunning old Scotsman. All the sycophantic news. Our gracious and popular vicereine. Bought the _Irish Field_ now. Lady Mountcashel has quite recovered after her confinement and rode out with the Ward Union staghounds at the meet yesterday at Ratoath. Uneatable fox. Trophy hunters too. The fear injects juices that tenderise the meat enough for them. Riding astride. Sits her horse like a man. A sturdy huntress. No side-saddle or riding pillion for her, not our Lady M. First to the meet and in at the kill. Strong as a brood mare, some of those horsey women. Swagger around livery stables. Toss back a glass of brandy neat while you'd say knife. That one at the Grosvenor this morning. Up with her on the carriage: swish-swish. Stone wall or five-barred gate, she'd put her horse to it. I think that pug-nosed driver did it out of spite. Who was it she reminded me of? Oh yes! Mrs Miriam Dandrade, who sold me her old wraps and black underclothes at the Shelbourne Hotel. Divorced Spanish-American. Didn't bother her a bit, my handling them. As if I was her clothes horse. Saw her at the viceregal garden party when Stubbs the park ranger got me in through Whelan of the _Express_. Picking over what the upper classes left behind. High tea. I poured mayonnaise on the plums, thinking it was custard. Her ears should have been burning for weeks after. She'd want a bull of a man. Born courtesan. No nursery duty for her, thank you.
+
+Divorced Spanish American, who sold Bloom her old wraps and black underclothes in the Shelbourne hotel and did not take a feather out of him handling them. As if I was her clotheshorse. Born courtesan; no nursery work for her, thanks.
+
+## modern-en · grosvenor-woman · 8:112
+
+Best paper by far for a small ad. Got the provincial readership now. Cook and general, excellent cuisine, housemaid kept. Wanted: live man for spirits counter. Respectable girl (Roman Catholic) wishes to hear of post in fruit or pork shop. James Carlisle made that. Six and a half per cent dividend. Made a killing on Coates's shares. Careful. Cunning old Scotsman. All the sycophantic news. Our gracious and popular vicereine. Bought the _Irish Field_ now. Lady Mountcashel has quite recovered after her confinement and rode out with the Ward Union staghounds at the meet yesterday at Ratoath. Uneatable fox. Trophy hunters too. The fear injects juices that tenderise the meat enough for them. Riding astride. Sits her horse like a man. A sturdy huntress. No side-saddle or riding pillion for her, not our Lady M. First to the meet and in at the kill. Strong as a brood mare, some of those horsey women. Swagger around livery stables. Toss back a glass of brandy neat while you'd say knife. That one at the Grosvenor this morning. Up with her on the carriage: swish-swish. Stone wall or five-barred gate, she'd put her horse to it. I think that pug-nosed driver did it out of spite. Who was it she reminded me of? Oh yes! Mrs Miriam Dandrade, who sold me her old wraps and black underclothes at the Shelbourne Hotel. Divorced Spanish-American. Didn't bother her a bit, my handling them. As if I was her clothes horse. Saw her at the viceregal garden party when Stubbs the park ranger got me in through Whelan of the _Express_. Picking over what the upper classes left behind. High tea. I poured mayonnaise on the plums, thinking it was custard. Her ears should have been burning for weeks after. She'd want a bull of a man. Born courtesan. No nursery duty for her, thank you.
+
+The stylish one Bloom watched that morning getting up on the car outside the hotel, silk flash rich stockings white, until the tram slewed between. Up with her on the car: wishswish. She comes back to him here as one of the weightcarrying huntresses, and he cannot place who she was like until he gets Mrs Dandrade.
+
+## modern-en · pugnosed-driver · 8:112
+
+Best paper by far for a small ad. Got the provincial readership now. Cook and general, excellent cuisine, housemaid kept. Wanted: live man for spirits counter. Respectable girl (Roman Catholic) wishes to hear of post in fruit or pork shop. James Carlisle made that. Six and a half per cent dividend. Made a killing on Coates's shares. Careful. Cunning old Scotsman. All the sycophantic news. Our gracious and popular vicereine. Bought the _Irish Field_ now. Lady Mountcashel has quite recovered after her confinement and rode out with the Ward Union staghounds at the meet yesterday at Ratoath. Uneatable fox. Trophy hunters too. The fear injects juices that tenderise the meat enough for them. Riding astride. Sits her horse like a man. A sturdy huntress. No side-saddle or riding pillion for her, not our Lady M. First to the meet and in at the kill. Strong as a brood mare, some of those horsey women. Swagger around livery stables. Toss back a glass of brandy neat while you'd say knife. That one at the Grosvenor this morning. Up with her on the carriage: swish-swish. Stone wall or five-barred gate, she'd put her horse to it. I think that pug-nosed driver did it out of spite. Who was it she reminded me of? Oh yes! Mrs Miriam Dandrade, who sold me her old wraps and black underclothes at the Shelbourne Hotel. Divorced Spanish-American. Didn't bother her a bit, my handling them. As if I was her clothes horse. Saw her at the viceregal garden party when Stubbs the park ranger got me in through Whelan of the _Express_. Picking over what the upper classes left behind. High tea. I poured mayonnaise on the plums, thinking it was custard. Her ears should have been burning for weeks after. She'd want a bull of a man. Born courtesan. No nursery duty for her, thank you.
+
+Whose tramcar honked its gong and slewed between Bloom and the woman at the Grosvenor that morning. Curse your noisy pugnose. Think that pugnosed driver did it out of spite, he decides now.
+
+## modern-en · stubbs · 8:112
+
+Best paper by far for a small ad. Got the provincial readership now. Cook and general, excellent cuisine, housemaid kept. Wanted: live man for spirits counter. Respectable girl (Roman Catholic) wishes to hear of post in fruit or pork shop. James Carlisle made that. Six and a half per cent dividend. Made a killing on Coates's shares. Careful. Cunning old Scotsman. All the sycophantic news. Our gracious and popular vicereine. Bought the _Irish Field_ now. Lady Mountcashel has quite recovered after her confinement and rode out with the Ward Union staghounds at the meet yesterday at Ratoath. Uneatable fox. Trophy hunters too. The fear injects juices that tenderise the meat enough for them. Riding astride. Sits her horse like a man. A sturdy huntress. No side-saddle or riding pillion for her, not our Lady M. First to the meet and in at the kill. Strong as a brood mare, some of those horsey women. Swagger around livery stables. Toss back a glass of brandy neat while you'd say knife. That one at the Grosvenor this morning. Up with her on the carriage: swish-swish. Stone wall or five-barred gate, she'd put her horse to it. I think that pug-nosed driver did it out of spite. Who was it she reminded me of? Oh yes! Mrs Miriam Dandrade, who sold me her old wraps and black underclothes at the Shelbourne Hotel. Divorced Spanish-American. Didn't bother her a bit, my handling them. As if I was her clothes horse. Saw her at the viceregal garden party when Stubbs the park ranger got me in through Whelan of the _Express_. Picking over what the upper classes left behind. High tea. I poured mayonnaise on the plums, thinking it was custard. Her ears should have been burning for weeks after. She'd want a bull of a man. Born courtesan. No nursery duty for her, thank you.
+
+The park ranger who got Bloom in among the viceregal party, where he poured mayonnaise on the plums thinking it was custard.
+
+## modern-en · whelan · 8:112
+
+Best paper by far for a small ad. Got the provincial readership now. Cook and general, excellent cuisine, housemaid kept. Wanted: live man for spirits counter. Respectable girl (Roman Catholic) wishes to hear of post in fruit or pork shop. James Carlisle made that. Six and a half per cent dividend. Made a killing on Coates's shares. Careful. Cunning old Scotsman. All the sycophantic news. Our gracious and popular vicereine. Bought the _Irish Field_ now. Lady Mountcashel has quite recovered after her confinement and rode out with the Ward Union staghounds at the meet yesterday at Ratoath. Uneatable fox. Trophy hunters too. The fear injects juices that tenderise the meat enough for them. Riding astride. Sits her horse like a man. A sturdy huntress. No side-saddle or riding pillion for her, not our Lady M. First to the meet and in at the kill. Strong as a brood mare, some of those horsey women. Swagger around livery stables. Toss back a glass of brandy neat while you'd say knife. That one at the Grosvenor this morning. Up with her on the carriage: swish-swish. Stone wall or five-barred gate, she'd put her horse to it. I think that pug-nosed driver did it out of spite. Who was it she reminded me of? Oh yes! Mrs Miriam Dandrade, who sold me her old wraps and black underclothes at the Shelbourne Hotel. Divorced Spanish-American. Didn't bother her a bit, my handling them. As if I was her clothes horse. Saw her at the viceregal garden party when Stubbs the park ranger got me in through Whelan of the _Express_. Picking over what the upper classes left behind. High tea. I poured mayonnaise on the plums, thinking it was custard. Her ears should have been burning for weeks after. She'd want a bull of a man. Born courtesan. No nursery duty for her, thank you.
+
+Of the Express, through whom Stubbs worked Bloom into the viceregal party. Scavenging what the quality left: high tea, and mayonnaise on the plums.
+
+## modern-en · mrs-moisel · 8:118
+
+Funny sight, two of them together, bellies sticking out. Molly and Mrs Moisel. Mothers' get-together. Tuberculosis retreats for the time being, then comes back. How flat they look suddenly afterwards. Peaceful eyes. Weight off their minds. Old Mrs Thornton was a jolly old soul. All my babies, she used to say. A spoon of porridge in her own mouth before she fed them. Oh, that's yummy. Got her hand crushed by old Tom Wall's son. His first appearance in public — head like a prize pumpkin. Stuffy old Dr Murren. People knocking on his door at all hours. For God's sake, Doctor! Wife in labour. Then they keep him waiting months for his fee. For attendance on your wife. No gratitude in people. Humane doctors, most of them.
+
+Big at the same time as Molly: funny sight two of them together, their bellies out. Mothers’ meeting.
+
+## modern-en · tom-wall · 8:118
+
+Funny sight, two of them together, bellies sticking out. Molly and Mrs Moisel. Mothers' get-together. Tuberculosis retreats for the time being, then comes back. How flat they look suddenly afterwards. Peaceful eyes. Weight off their minds. Old Mrs Thornton was a jolly old soul. All my babies, she used to say. A spoon of porridge in her own mouth before she fed them. Oh, that's yummy. Got her hand crushed by old Tom Wall's son. His first appearance in public — head like a prize pumpkin. Stuffy old Dr Murren. People knocking on his door at all hours. For God's sake, Doctor! Wife in labour. Then they keep him waiting months for his fee. For attendance on your wife. No gratitude in people. Humane doctors, most of them.
+
+Old Tom Wall, in the one thing Bloom remembers about him: his son crushed Mrs Thornton’s hand being born, with a head like a prize pumpkin.
+
+## modern-en · tom-wall-son · 8:118
+
+Funny sight, two of them together, bellies sticking out. Molly and Mrs Moisel. Mothers' get-together. Tuberculosis retreats for the time being, then comes back. How flat they look suddenly afterwards. Peaceful eyes. Weight off their minds. Old Mrs Thornton was a jolly old soul. All my babies, she used to say. A spoon of porridge in her own mouth before she fed them. Oh, that's yummy. Got her hand crushed by old Tom Wall's son. His first appearance in public — head like a prize pumpkin. Stuffy old Dr Murren. People knocking on his door at all hours. For God's sake, Doctor! Wife in labour. Then they keep him waiting months for his fee. For attendance on your wife. No gratitude in people. Humane doctors, most of them.
+
+His first bow to the public, and the one baby in Mrs Thornton’s long career who did her an injury.
+
+## modern-en · dr-murren · 6:375
+
+Mr Bloom walked unnoticed along his row, by saddened angels, crosses, broken pillars, family vaults, stone figures praying with upcast eyes, old Ireland's hearts and hands. More sensible to spend the money on some charity for the living. Pray for the repose of the soul of. Does anybody really? Plant him and have done with it. Like down a coal chute. Then lump them together to save time. All Souls' Day. The twenty-seventh — I'll be at his grave. Ten shillings for the gardener. He keeps it free of weeds. Old man himself. Bent double with his shears clipping. Near death's door. 'Who passed away.' 'Who departed this life.' As if they did it voluntarily. Got the shove, all of them. 'Who kicked the bucket.' More interesting if they told you what they were. So-and-So, wheelwright. I was a traveling salesman for cork linoleum. I paid five shillings in the pound to my creditors. Or a woman with her saucepan. I cooked good Irish stew. Eulogy in a country churchyard — that poem by whoever it is, Wordsworth or Thomas Campbell. 'Entered into rest,' the Protestants put it. Old Dr Murren's. 'The great physician called him home.' Well, it's God's acre for them. Nice country residence. Newly plastered and painted. Ideal spot to have a quiet smoke and read the Church Times. Wedding ads they never try to decorate. Rusty wreaths hung on knobs, garlands of bronze foil. Better value for the money. Still, the real flowers are more poetic. The metal kind gets rather tiresome — never withering. Expresses nothing. Immortelles.
+
+Snuffy, knocked up at all hours — for God’ sake, doctor, wife in her throes — and then kept waiting months for his fee. Humane doctors, most of them, Bloom allows.
+
+## modern-en · apjohn · 8:119
+
+Before the huge high door of the old Irish Houses of Parliament, a flock of pigeons flew about. Their little frolic after meals. Who shall we bomb? I pick the fellow in black. Here goes. Here's good luck. Must be thrilling from the air. Apjohn, myself, and Owen Goldberg up in the trees near Goose Green, playing at being monkeys. Mackerel they called me.
+
+One of the boys up in the trees near Goose green playing the monkeys, when they called Bloom Mackerel.
+
+## modern-en · owen-goldberg · 8:119
+
+Before the huge high door of the old Irish Houses of Parliament, a flock of pigeons flew about. Their little frolic after meals. Who shall we bomb? I pick the fellow in black. Here goes. Here's good luck. Must be thrilling from the air. Apjohn, myself, and Owen Goldberg up in the trees near Goose Green, playing at being monkeys. Mackerel they called me.
+
+The third of them in the trees near Goose green, with Apjohn and Bloom, playing the monkeys. A Jewish schoolfellow, and one of the few names from the boyhood Bloom almost never goes back to.
+
+## modern-en · tom-moore · 8:121
+
+He crossed under Tom Moore's roguish pointing finger. They were right to put his statue over a public urinal: the Meeting of the Waters. There ought to be public toilets for women too. Always ducking into cake shops. Let me straighten my hat. _There is not in this wide world a valley_. Great song — Julia Morkan's favourite. Kept her voice up to the very last. She was a pupil of Michael Balfe, wasn't she?
+
+Under whose roguish finger Bloom crosses. They did right to put him up over a urinal: meeting of the waters. The modern edition calls him Tom Moore and spells out the joke.
+
+## modern-en · julia-morkan · 8:121
+
+He crossed under Tom Moore's roguish pointing finger. They were right to put his statue over a public urinal: the Meeting of the Waters. There ought to be public toilets for women too. Always ducking into cake shops. Let me straighten my hat. _There is not in this wide world a valley_. Great song — Julia Morkan's favourite. Kept her voice up to the very last. She was a pupil of Michael Balfe, wasn't she?
+
+Whose great song The meeting of the waters was, and who kept her voice up to the very last.
+
+## modern-en · michael-balfe · 8:121
+
+He crossed under Tom Moore's roguish pointing finger. They were right to put his statue over a public urinal: the Meeting of the Waters. There ought to be public toilets for women too. Always ducking into cake shops. Let me straighten my hat. _There is not in this wide world a valley_. Great song — Julia Morkan's favourite. Kept her voice up to the very last. She was a pupil of Michael Balfe, wasn't she?
+
+The composer of The Bohemian Girl, whose pupil Julia Morkan was — wasn’t she? Bloom is not sure, and leaves the question hanging as he walks on.
+
+## modern-en · power-father · 8:122
+
+He gazed after the last broad-backed policeman. Nasty customers to tangle with. Jack Power could tell you a tale or two: his father was a plainclothes detective. If a fellow gave them trouble while being arrested, they'd give him a proper beating in the cells. Can't blame them entirely, with the job they have, especially the young ones. That mounted policeman the day Joe Chamberlain came to get his honorary degree at Trinity — he got a run for his money. My word, he did! His horse's hoofs clattering after us down Abbey Street. Lucky I had the presence of mind to dive into Manning's pub or I'd have been caught. He did take a tumble, by George. Must have cracked his skull on the cobblestones. I shouldn't have got myself swept along with those medical students. And the Trinity crowd in their mortarboards. Looking for trouble. Still, that's how I got to know young Dixon, who treated that sting for me at the Mater Hospital — and now he's in Holles Street maternity hospital where Mrs Purefoy is. Wheels within wheels. The police whistle still rings in my ears. Everyone scattered. Why he singled me out. Give me in charge. Right here is where it started.
+
+A G man, which is why Jack Power could a tale unfold about what the police do to a fellow in the bridewell who gives them trouble being lagged.
+
+## modern-en · horsepoliceman · 8:122
+
+He gazed after the last broad-backed policeman. Nasty customers to tangle with. Jack Power could tell you a tale or two: his father was a plainclothes detective. If a fellow gave them trouble while being arrested, they'd give him a proper beating in the cells. Can't blame them entirely, with the job they have, especially the young ones. That mounted policeman the day Joe Chamberlain came to get his honorary degree at Trinity — he got a run for his money. My word, he did! His horse's hoofs clattering after us down Abbey Street. Lucky I had the presence of mind to dive into Manning's pub or I'd have been caught. He did take a tumble, by George. Must have cracked his skull on the cobblestones. I shouldn't have got myself swept along with those medical students. And the Trinity crowd in their mortarboards. Looking for trouble. Still, that's how I got to know young Dixon, who treated that sting for me at the Mater Hospital — and now he's in Holles Street maternity hospital where Mrs Purefoy is. Wheels within wheels. The police whistle still rings in my ears. Everyone scattered. Why he singled me out. Give me in charge. Right here is where it started.
+
+Who got a run for his money the day Joe Chamberlain was given his degree in Trinity, his horse’s hoofs clattering after Bloom down Abbey street until he came a wallop on the cobblestones. Must have cracked his skull. Bloom dived into Manning’s and was not souped.
+
+## modern-en · joe-chamberlain · 8:122
+
+He gazed after the last broad-backed policeman. Nasty customers to tangle with. Jack Power could tell you a tale or two: his father was a plainclothes detective. If a fellow gave them trouble while being arrested, they'd give him a proper beating in the cells. Can't blame them entirely, with the job they have, especially the young ones. That mounted policeman the day Joe Chamberlain came to get his honorary degree at Trinity — he got a run for his money. My word, he did! His horse's hoofs clattering after us down Abbey Street. Lucky I had the presence of mind to dive into Manning's pub or I'd have been caught. He did take a tumble, by George. Must have cracked his skull on the cobblestones. I shouldn't have got myself swept along with those medical students. And the Trinity crowd in their mortarboards. Looking for trouble. Still, that's how I got to know young Dixon, who treated that sting for me at the Mater Hospital — and now he's in Holles Street maternity hospital where Mrs Purefoy is. Wheels within wheels. The police whistle still rings in my ears. Everyone scattered. Why he singled me out. Give me in charge. Right here is where it started.
+
+Given his degree in Trinity, with the medicals and the Trinity jibs out for trouble and the students yelling that they will hang him on a sourapple tree. Up the Boers.
+
+## modern-en · de-wet · 8:124
+
+—Three cheers for De Wet!
+
+The Boer general the students cheer in the same breath as they threaten to hang Joe Chamberlain. Three cheers for De Wet: the war is two years over and the slogans are still on the street.
+
+## modern-en · dixon · 8:122
+
+He gazed after the last broad-backed policeman. Nasty customers to tangle with. Jack Power could tell you a tale or two: his father was a plainclothes detective. If a fellow gave them trouble while being arrested, they'd give him a proper beating in the cells. Can't blame them entirely, with the job they have, especially the young ones. That mounted policeman the day Joe Chamberlain came to get his honorary degree at Trinity — he got a run for his money. My word, he did! His horse's hoofs clattering after us down Abbey Street. Lucky I had the presence of mind to dive into Manning's pub or I'd have been caught. He did take a tumble, by George. Must have cracked his skull on the cobblestones. I shouldn't have got myself swept along with those medical students. And the Trinity crowd in their mortarboards. Looking for trouble. Still, that's how I got to know young Dixon, who treated that sting for me at the Mater Hospital — and now he's in Holles Street maternity hospital where Mrs Purefoy is. Wheels within wheels. The police whistle still rings in my ears. Everyone scattered. Why he singled me out. Give me in charge. Right here is where it started.
+
+The young medical who dressed the bee sting for Bloom in the Mater, and is now in Holles street where Mrs Purefoy is. Wheels within wheels.
+
+## modern-en · harvey-duff · 8:127
+
+You never know who you're talking to. Corny Kelleher has got his eye on a Harvey Duff — an informer. Like that Peter or Denis or James Carey who betrayed the Invincibles. Corporation member, too. Egging young hotheads on to join up while all the time drawing secret service pay from Dublin Castle. Drop him like a hot potato when he's found out. That's why plainclothes detectives are always courting servant girls. Easy to spot a man used to wearing a uniform. Sneaking up to back doors. Chat her up a bit. Then the next step. And who is the gentleman who keeps visiting? Was the young master saying anything? Peeping Tom through the keyhole. Decoy duck. Hot-blooded young student pawing at her plump arms while she does the ironing.
+
+The informer of Boucicault’s play, whose name has become the thing itself: Corny Kelleher he has Harvey Duff in his eye. The modern edition glosses it — a Harvey Duff, an informer — where Joyce lets the name carry it.
+
+## modern-en · mary-slavey · 8:128
+
+—Are those yours, Mary?
+
+The slavey at the backdoor in the scene Bloom runs off in his head, ironing with her fat arms while the plainclothes man works round to what the young master was saying. Are those yours, Mary? There are great times coming, Mary. Ah, gelong with your great times coming.
+
+## modern-en · turnkey-daughter · 8:133
+
+James Stephens's plan was the best. He knew how these things work. Cells of ten men, so a man couldn't inform on more than his own group. Sinn Fein. Try to back out and you get the knife. Secret society. Stay in, or face the firing squad. The turnkey's daughter smuggled him out of Richmond Gaol, off from Lusk. Hiding out in the Buckingham Palace Hotel, right under their noses. Like Garibaldi.
+
+Who got James Stephens out of Richmond, and off from Lusk, while he put up in the Buckingham Palace hotel under their very noses.
+
+## modern-en · garibaldi · 8:133
+
+James Stephens's plan was the best. He knew how these things work. Cells of ten men, so a man couldn't inform on more than his own group. Sinn Fein. Try to back out and you get the knife. Secret society. Stay in, or face the firing squad. The turnkey's daughter smuggled him out of Richmond Gaol, off from Lusk. Hiding out in the Buckingham Palace Hotel, right under their noses. Like Garibaldi.
+
+The one word Bloom adds to James Stephens’s escape, for the kind of fascination it takes to carry a thing like that off — the same fascination he then finds in Parnell.
+
+## modern-en · john-howard-parnell · 8:140
+
+The sun freed itself slowly and lit glints of light among the silverware in Walter Sexton's shop window opposite, past which John Howard Parnell walked, unseeing.
+
+The brother, city marshal, who passes Walter Sexton’s window unseeing, like a man walking in his sleep, and will drop into the D.B.C. for his coffee and play chess there. Image of him. Haunting face. They say he never put on the uniform since he got the job, and David Sheehy beat him for south Meath. His brother used men as pawns.
+
+## modern-en · charley-kavanagh · 8:141
+
+There he is: the brother. The image of Charles Stewart Parnell. Haunting face. Now that's a coincidence. Of course, hundreds of times you think of a person and don't run into them. He walks like a man sleepwalking. Nobody knows him. Must be a corporation meeting today. They say he's never once worn the City Marshal's uniform since he got the job. Charley Kavanagh used to come out on his high horse — cocked hat, puffed, powdered, and shaved. Look at the sorry state of this one. Like a man who's eaten a bad egg. Poached eggs on ghost-white toast. I have a pain. Great man's brother: his brother's brother. He'd look ridiculous on the City Marshal's horse. He probably drops into the D.B.C. cafe for his coffee, plays chess there. His brother used men as pawns. Let them all go hang. Everyone's afraid to say a word to him. Freezes people with that look of his. That's the fascination: the name. All a bit touched, the Parnells. Mad Fanny and his other sister Mrs Dickinson, driving about with scarlet harness. Bolt upright like Surgeon M'Ardle. Still, David Sheehy beat him for the South Meath seat. Applied for the Chiltern Hundreds and retired from public life. The patriot's banquet: eating orange peel in the park. Simon Dedalus said, when they put him in parliament, that the ghost of Parnell would come back from the grave and lead him out of the House of Commons by the arm.
+
+The city marshal before him, who used to come out on his high horse: cocked hat, puffed, powdered and shaved. Set against the woebegone walk of the man who has the job now.
+
+## modern-en · fanny-parnell · 8:141
+
+There he is: the brother. The image of Charles Stewart Parnell. Haunting face. Now that's a coincidence. Of course, hundreds of times you think of a person and don't run into them. He walks like a man sleepwalking. Nobody knows him. Must be a corporation meeting today. They say he's never once worn the City Marshal's uniform since he got the job. Charley Kavanagh used to come out on his high horse — cocked hat, puffed, powdered, and shaved. Look at the sorry state of this one. Like a man who's eaten a bad egg. Poached eggs on ghost-white toast. I have a pain. Great man's brother: his brother's brother. He'd look ridiculous on the City Marshal's horse. He probably drops into the D.B.C. cafe for his coffee, plays chess there. His brother used men as pawns. Let them all go hang. Everyone's afraid to say a word to him. Freezes people with that look of his. That's the fascination: the name. All a bit touched, the Parnells. Mad Fanny and his other sister Mrs Dickinson, driving about with scarlet harness. Bolt upright like Surgeon M'Ardle. Still, David Sheehy beat him for the South Meath seat. Applied for the Chiltern Hundreds and retired from public life. The patriot's banquet: eating orange peel in the park. Simon Dedalus said, when they put him in parliament, that the ghost of Parnell would come back from the grave and lead him out of the House of Commons by the arm.
+
+One of the sisters, driving about with scarlet harness. All a bit touched: that’s the fascination, the name.
+
+## modern-en · mrs-dickinson · 8:141
+
+There he is: the brother. The image of Charles Stewart Parnell. Haunting face. Now that's a coincidence. Of course, hundreds of times you think of a person and don't run into them. He walks like a man sleepwalking. Nobody knows him. Must be a corporation meeting today. They say he's never once worn the City Marshal's uniform since he got the job. Charley Kavanagh used to come out on his high horse — cocked hat, puffed, powdered, and shaved. Look at the sorry state of this one. Like a man who's eaten a bad egg. Poached eggs on ghost-white toast. I have a pain. Great man's brother: his brother's brother. He'd look ridiculous on the City Marshal's horse. He probably drops into the D.B.C. cafe for his coffee, plays chess there. His brother used men as pawns. Let them all go hang. Everyone's afraid to say a word to him. Freezes people with that look of his. That's the fascination: the name. All a bit touched, the Parnells. Mad Fanny and his other sister Mrs Dickinson, driving about with scarlet harness. Bolt upright like Surgeon M'Ardle. Still, David Sheehy beat him for the South Meath seat. Applied for the Chiltern Hundreds and retired from public life. The patriot's banquet: eating orange peel in the park. Simon Dedalus said, when they put him in parliament, that the ghost of Parnell would come back from the grave and lead him out of the House of Commons by the arm.
+
+The other sister, in the same carriage with the scarlet harness. Bloom sets the two of them beside the brother as evidence that the whole family is a bit touched.
+
+## modern-en · mcardle · 8:141
+
+There he is: the brother. The image of Charles Stewart Parnell. Haunting face. Now that's a coincidence. Of course, hundreds of times you think of a person and don't run into them. He walks like a man sleepwalking. Nobody knows him. Must be a corporation meeting today. They say he's never once worn the City Marshal's uniform since he got the job. Charley Kavanagh used to come out on his high horse — cocked hat, puffed, powdered, and shaved. Look at the sorry state of this one. Like a man who's eaten a bad egg. Poached eggs on ghost-white toast. I have a pain. Great man's brother: his brother's brother. He'd look ridiculous on the City Marshal's horse. He probably drops into the D.B.C. cafe for his coffee, plays chess there. His brother used men as pawns. Let them all go hang. Everyone's afraid to say a word to him. Freezes people with that look of his. That's the fascination: the name. All a bit touched, the Parnells. Mad Fanny and his other sister Mrs Dickinson, driving about with scarlet harness. Bolt upright like Surgeon M'Ardle. Still, David Sheehy beat him for the South Meath seat. Applied for the Chiltern Hundreds and retired from public life. The patriot's banquet: eating orange peel in the park. Simon Dedalus said, when they put him in parliament, that the ghost of Parnell would come back from the grave and lead him out of the House of Commons by the arm.
+
+The surgeon whose bolt upright carriage is the comparison for the two Parnell sisters driving about Dublin. A name Bloom reaches for to fix a posture, and drops again.
+
+## modern-en · david-sheehy · 8:141
+
+There he is: the brother. The image of Charles Stewart Parnell. Haunting face. Now that's a coincidence. Of course, hundreds of times you think of a person and don't run into them. He walks like a man sleepwalking. Nobody knows him. Must be a corporation meeting today. They say he's never once worn the City Marshal's uniform since he got the job. Charley Kavanagh used to come out on his high horse — cocked hat, puffed, powdered, and shaved. Look at the sorry state of this one. Like a man who's eaten a bad egg. Poached eggs on ghost-white toast. I have a pain. Great man's brother: his brother's brother. He'd look ridiculous on the City Marshal's horse. He probably drops into the D.B.C. cafe for his coffee, plays chess there. His brother used men as pawns. Let them all go hang. Everyone's afraid to say a word to him. Freezes people with that look of his. That's the fascination: the name. All a bit touched, the Parnells. Mad Fanny and his other sister Mrs Dickinson, driving about with scarlet harness. Bolt upright like Surgeon M'Ardle. Still, David Sheehy beat him for the South Meath seat. Applied for the Chiltern Hundreds and retired from public life. The patriot's banquet: eating orange peel in the park. Simon Dedalus said, when they put him in parliament, that the ghost of Parnell would come back from the grave and lead him out of the House of Commons by the arm.
+
+Who beat John Howard Parnell for south Meath, so that the beaten man applied for the Chiltern Hundreds and retired into public life.
+
+## modern-en · salmon · 8:139
+
+Provost's House at Trinity. The Reverend Dr Salmon: tinned salmon. Well preserved in there. Like a funeral chapel. I wouldn't live in it if they paid me. Hope they've got liver and bacon today. Nature abhors a vacuum.
+
+Provost of Trinity, tinned salmon, well tinned in there. Bloom would not live in the provost’s house if they paid him: like a mortuary chapel.
+
+## modern-en · kerwan · 8:136
+
+A cityful passing away, another cityful coming, passing away too: another coming on, passing on. Houses, lines of houses, streets, miles of pavements, piled-up bricks, stones. Changing hands. This owner, that. The landlord never dies, they say. Another steps into his shoes when he gets his notice to quit. They buy the property with gold and still they have all the gold. A swindle in there somewhere. Piled up in cities, worn away age after age. Pyramids in the sand. Built on bread and onions. Slaves built the Chinese Wall. Babylon. Big stones left over. Round towers. The rest just rubble, sprawling suburbs, jerry-built. Kerwan's mushroom houses built of breeze-block. Shelter for the night.
+
+Whose mushroom houses are built of breeze, at the end of the passage where the cities pile up and wear away age after age. Shelter, for the night.
+
+## modern-en · sinclair · 8:148
+
+He crossed at the corner of Nassau Street and stood before the window of Yeates and Son, pricing the binoculars. Or shall I drop into old Harris's and have a chat with young Sinclair? Well-mannered fellow. Probably at his lunch. Must get my old glasses fixed. Goerz lenses, six guineas. Germans making inroads everywhere. Selling on easy terms to capture trade. Undercutting. I might find a pair at the railway lost property office. Astonishing, the things people leave behind on trains and in cloakrooms. What are they thinking about? Women too. Unbelievable. Last year, travelling to Ennis, I had to pick up that farmer's daughter's bag and hand it to her at Limerick Junction. Unclaimed money piling up too. There's a little clock up on the roof of the bank to test those glasses by.
+
+At old Harris’s, a wellmannered fellow, with whom Bloom thinks of dropping in for a chat about getting his old fieldglasses set right. Probably at his lunch.
+
+## modern-en · harris · 8:148
+
+He crossed at the corner of Nassau Street and stood before the window of Yeates and Son, pricing the binoculars. Or shall I drop into old Harris's and have a chat with young Sinclair? Well-mannered fellow. Probably at his lunch. Must get my old glasses fixed. Goerz lenses, six guineas. Germans making inroads everywhere. Selling on easy terms to capture trade. Undercutting. I might find a pair at the railway lost property office. Astonishing, the things people leave behind on trains and in cloakrooms. What are they thinking about? Women too. Unbelievable. Last year, travelling to Ennis, I had to pick up that farmer's daughter's bag and hand it to her at Limerick Junction. Unclaimed money piling up too. There's a little clock up on the roof of the bank to test those glasses by.
+
+The optician on Nassau street, old Harris, whose window Bloom would go into for a chat about his old fieldglasses if young Sinclair were not probably at his lunch.
+
+## modern-en · joly · 8:151
+
+Now that I come to think of it, that time-ball drops at Greenwich time. The clock is controlled by an electric wire from Dunsink Observatory. Must go out there some first Saturday of the month. If I could get an introduction to Professor Joly, or learn something about his family background. That would work: a man always feels flattered. Flattery where least expected. Nobleman proud to be descended from some king's mistress. His fore-mother. Lay it on thick. Cap in hand gets you through the land. Don't go in and blurt out what you know you're not supposed to: what's parallax? Show this gentleman the door.
+
+At Dunsink, to whom Bloom would like an introduction, or else to learn up something about his family: a man always feels complimented. Lay it on with a trowel. Not go in and blurt out what’s parallax.
+
+## modern-en · pat-kinsella · 8:160
+
+Yes. Thought so. Slinking into the Empire Theatre. Gone. A plain soda would do him good. Where Pat Kinsella used to have his Harp Theatre before Whitbred ran the Queen's. A fine broth of a boy. Dion Boucicault style — his round harvest-moon face in a tiny bonnet. _Three Pretty Maids from School_. How time flies, eh? Showing long red bloomers under his skirts. Drinkers, drinking, laughing and spluttering, their drink spraying against their breath. More power to you, Pat. Crude red humour: entertainment for drunks — guffaws and smoke. Take off that white hat. His parboiled eyes. Where is he now? A beggar somewhere, probably. The harp that once did starve us all.
+
+Of the Harp theatre, with his harvestmoon face in a poky bonnet doing the Dion Boucicault business and showing long red pantaloons under his skirts. More power, Pat. Where is he now? Beggar somewhere.
+
+## modern-en · whitbred · 8:160
+
+Yes. Thought so. Slinking into the Empire Theatre. Gone. A plain soda would do him good. Where Pat Kinsella used to have his Harp Theatre before Whitbred ran the Queen's. A fine broth of a boy. Dion Boucicault style — his round harvest-moon face in a tiny bonnet. _Three Pretty Maids from School_. How time flies, eh? Showing long red bloomers under his skirts. Drinkers, drinking, laughing and spluttering, their drink spraying against their breath. More power to you, Pat. Crude red humour: entertainment for drunks — guffaws and smoke. Take off that white hat. His parboiled eyes. Where is he now? A beggar somewhere, probably. The harp that once did starve us all.
+
+Who ran the Queen’s theatre after Pat Kinsella’s Harp, in the succession of Dublin stages Bloom counts off while he asks himself how time flies.
+
+## modern-en · boucicault · 8:160
+
+Yes. Thought so. Slinking into the Empire Theatre. Gone. A plain soda would do him good. Where Pat Kinsella used to have his Harp Theatre before Whitbred ran the Queen's. A fine broth of a boy. Dion Boucicault style — his round harvest-moon face in a tiny bonnet. _Three Pretty Maids from School_. How time flies, eh? Showing long red bloomers under his skirts. Drinkers, drinking, laughing and spluttering, their drink spraying against their breath. More power to you, Pat. Crude red humour: entertainment for drunks — guffaws and smoke. Take off that white hat. His parboiled eyes. Where is he now? A beggar somewhere, probably. The harp that once did starve us all.
+
+The playwright whose business Kinsella did on the boards of the Harp: harvestmoon face, poky bonnet, long red pantaloons under the skirts. Harvey Duff, four paragraphs earlier, is out of the same author.
+
+## modern-en · meyerbeer · 8:163
+
+He passed, lingering, the windows of Brown Thomas, silk merchants. Cascades of ribbons. Delicate Chinese silks. A tilted urn poured from its mouth a flood of blood-red poplin: lustrous blood. The Huguenots brought that craft here. _La causa e santa!_ — The cause is holy! Tara tara. Great chorus, that. Taree tara. Must be washed in rainwater. Meyerbeer. Tara: boom boom boom.
+
+Whose chorus comes up out of the flood of bloodhued poplin in Brown Thomas’s window. La causa è santa. Tara tara. Great chorus that.
+
+## modern-en · cormac · 8:179
+
+Perched on high stools at the bar, hats shoved back; at the tables, calling for more bread — no charge — swilling, wolfing mouthfuls of sloppy food, eyes bulging, wiping wet moustaches. A pallid, suet-faced young man polished his tumbler, knife, fork, and spoon with his napkin. Fresh set of germs. A man with an infant's sauce-stained napkin tucked round him shovelled soup down his gullet, gurgling. A man spitting food back onto his plate: half-chewed gristle: gums: no teeth to chew-chew-chew it. Chump chop from the grill. Bolting it down to get it over with. Sad drinker's eyes. Bitten off more than he can chew. Am I like that? See ourselves as others see us. A hungry man is an angry man. Working tooth and jaw. Don't! Oh! A bone! That last pagan king of Ireland, Cormac — in the school poem — choked himself at Sletty, south of the Boyne. Wonder what he was eating. Something delicious. Saint Patrick converted him to Christianity. Couldn't swallow it all, however.
+
+The last pagan king of Ireland in the schoolpoem, who choked himself at Sletty southward of the Boyne. Wonder what he was eating. Saint Patrick converted him to Christianity; couldn’t swallow it all however.
+
+## modern-en · burton-server · 8:189
+
+A dishevelled waiter gathered sticky clattering plates. Rock, the head bailiff, standing at the bar, blew the foamy crown off his pint. Well poured: it splashed yellow near his boot. A diner, knife and fork upright, elbows on table, ready for a second helping, stared towards the dumbwaiter across his stained square of newspaper. Another chap talking to him with his mouth full. Sympathetic listener. Table talk. I munched hmm at the Munster Bank on Monday. Ha? Did you, really?
+
+Gathering the sticky clattering plates in the Burton while Bloom stands in the doorway with his gorge rising.
+
+## modern-en · rock · 8:189
+
+A dishevelled waiter gathered sticky clattering plates. Rock, the head bailiff, standing at the bar, blew the foamy crown off his pint. Well poured: it splashed yellow near his boot. A diner, knife and fork upright, elbows on table, ready for a second helping, stared towards the dumbwaiter across his stained square of newspaper. Another chap talking to him with his mouth full. Sympathetic listener. Table talk. I munched hmm at the Munster Bank on Monday. Ha? Did you, really?
+
+The head bailiff, standing at the bar of the Burton blowing the foamy crown from his tankard. Well up: it splashed yellow near his boot.
+
+## modern-en · father-oflynn · 8:198
+
+Suppose they set up communal kitchens in years to come. Everyone trooping down with their bowls and cans to be filled. Eat the contents in the street. John Howard Parnell, the Provost of Trinity — every mother's son — don't talk of your provosts — and the Provost of Trinity — women and children, cabmen, priests, parsons, field marshals, archbishops. From Ailesbury Road, Clyde Road, artisan's dwellings, the North Dublin Union, the Lord Mayor in his gilded coach, the old queen in a wheelchair. My plate's empty. After you with the communal drinking cup. Like Sir Philip Crampton's fountain. Wipe off the germs with your handkerchief. Next fellow wipes on a new batch with his. Father O'Flynn could outdo them all. There'd still be fights, all the same. Every man for himself. Children fighting for the scrapings of the pot. You'd need a soup-pot as big as Phoenix Park. Harpooning sides of bacon and haunches of meat out of it. Hatred all around you. The City Arms Hotel — _table d'hote_ she called it. Soup, main course, and pudding. You never know whose thoughts you're chewing. Then who'd wash up all the plates and forks? Maybe everyone will be on pills by then. Teeth getting worse and worse.
+
+Of the song, who would make hares of them all — Bloom’s guess at who would keep order in the communal kitchen of the future.
+
+## modern-en · old-woman-in-a-shoe · 8:116
+
+Sss. Tsk, tsk, tsk! Three days — imagine — groaning on a bed with a vinegar-soaked handkerchief round her forehead, her belly swollen out. Ugh! Dreadful, simply! Baby's head too big: forceps needed. Doubled up inside her, trying to butt its way out blindly, groping for the exit. It would kill me. Lucky Molly got through hers easily. They ought to invent something to stop that pain. Life with hard labour indeed. Twilight anaesthesia: Queen Victoria was given that. Nine children she had. A good layer. The old woman who lived in a shoe, she had so many children. Suppose the husband was consumptive. Time someone thought about it instead of going on about — what was it — the pensive bosom of the silver effulgence. Nonsense to feed fools on. They could easily set up big maternity establishments, the whole thing quite painless, out of the taxes. Give every child born five pounds at compound interest up to twenty-one — five per cent is a hundred shillings, and five tiresome pounds — multiply by twenty — decimal system — encourage people to save — a hundred and ten pounds and a bit over twenty-one years — want to work it out on paper — comes to a tidy sum, more than you'd think.
+
+She had so many children: the rhyme Bloom reaches for over Mrs Purefoy’s three days, next to queen Victoria’s nine and the twilight sleep she was given.
+
+## modern-en · ham · 8:208
+
+Sardines on the shelves. You can almost taste them just by looking. A sandwich? Ham and his descendants — mustered and bred there on the shelf. Potted meats. What is home without Plumtree's Potted Meat? Incomplete. What a stupid ad! They stuck it right under the obituary notices. All up a plum tree. Dignam's potted meat. Cannibals would serve that with lemon and rice. White missionary — too salty. Like pickled pork. I expect the chief gets the choicest cuts. Ought to be tough from all the exercise. His wives in a row, watching the effect. _There was a right royal old chief who ate or something the somethings of the Reverend Mr MacTrigger._ With it, an abode of bliss. Lord knows what's in it. Entrails, tripes, windpipes — faked and minced up. Try to find the meat. Kosher rules: no meat and milk together. Hygiene is what they call it now. The Yom Kippur fast: a spring cleaning of the insides. Peace and war depend on somebody's digestion. Religions are the same. Christmas turkeys and geese. Slaughter of the innocents. Eat, drink, and be merry. Then the homeless shelters are packed afterwards. Bandaged heads. Cheese digests everything but itself. Smelly cheese.
+
+Noah’s son, in the pun Bloom makes over Davy Byrne’s shelves: ham and his descendants musterred and bred there.
+
+## modern-en · mactrigger · 8:208
+
+Sardines on the shelves. You can almost taste them just by looking. A sandwich? Ham and his descendants — mustered and bred there on the shelf. Potted meats. What is home without Plumtree's Potted Meat? Incomplete. What a stupid ad! They stuck it right under the obituary notices. All up a plum tree. Dignam's potted meat. Cannibals would serve that with lemon and rice. White missionary — too salty. Like pickled pork. I expect the chief gets the choicest cuts. Ought to be tough from all the exercise. His wives in a row, watching the effect. _There was a right royal old chief who ate or something the somethings of the Reverend Mr MacTrigger._ With it, an abode of bliss. Lord knows what's in it. Entrails, tripes, windpipes — faked and minced up. Try to find the meat. Kosher rules: no meat and milk together. Hygiene is what they call it now. The Yom Kippur fast: a spring cleaning of the insides. Peace and war depend on somebody's digestion. Religions are the same. Christmas turkeys and geese. Slaughter of the innocents. Eat, drink, and be merry. Then the homeless shelters are packed afterwards. Bandaged heads. Cheese digests everything but itself. Smelly cheese.
+
+Of the comic song about the right royal old nigger who ate the somethings of him, which keeps surfacing while Bloom eats his cheese sandwich. His five hundred wives. Had the time of their lives. It grew bigger and bigger and bigger. Both of his appearances stand in Gutenberg italics in the older edition, which is why the name is keyed and not aliased.
+
+## modern-en · nosey-flynn · 8:204
+
+—Hello, Bloom, Nosey Flynn said from his corner.
+
+In his nook in Davy Byrne’s, snuffling, scratching his groin, with a dewdrop on the end of his nose that Bloom watches all through the sandwich. He is the one who says Blazes Boylan is mixed up in the tour, and the one who tells Davy Byrne, when Bloom goes out to the yard, that he is in the craft: ancient free and accepted order, they give him a leg up.
+
+## modern-en · davy-byrne · 8:193
+
+He backed towards the door. I'll get a light snack at Davy Byrne's instead. A stopgap. Keep me going. I had a good breakfast.
+
+Moral pub, Bloom calls it: he doesn’t chat, stands a drink now and then but in leapyear once in four, and cashed a cheque for him once. He comes forward from the hindbar in tuckstitched shirtsleeves, will never put anything on a horse, and says of Bloom, decent quiet man he is, I never once saw him over the line.
+
+## modern-en · davy-byrne-curate · 8:220
+
+The barman served.
+
+Who serves the burgundy and the gorgonzola sandwich. Seven d., sir. Thank you, sir. The modern edition calls him the barman.
+
+## modern-en · jack-mooney · 8:236
+
+—He had a good slice of luck, Jack Mooney was telling me, over that boxing match Myler Keogh won against that soldier in the Portobello Barracks. By God, he had the little fighter down in County Carlow, he was telling me...
+
+Who told Nosey Flynn about the slice of luck Boylan had over the boxingmatch, and so put the whole story into Davy Byrne’s with Bloom standing there eating his sandwich.
+
+## modern-en · myler-keogh · 8:236
+
+—He had a good slice of luck, Jack Mooney was telling me, over that boxing match Myler Keogh won against that soldier in the Portobello Barracks. By God, he had the little fighter down in County Carlow, he was telling me...
+
+Who won that match against the soldier in the Portobello barracks. Boylan had him down in the county Carlow for near a month before it came off, sucking duck eggs by God till further orders, and kept him off the boose.
+
+## modern-en · portobello-soldier · 8:236
+
+—He had a good slice of luck, Jack Mooney was telling me, over that boxing match Myler Keogh won against that soldier in the Portobello Barracks. By God, he had the little fighter down in County Carlow, he was telling me...
+
+The man Myler Keogh beat in the barracks, on whom Boylan had his slice of luck. The episode gives him no name and nobody in the pub asks for one.
+
+## modern-en · howard-de-walden · 8:247
+
+—True for you, Nosey Flynn said. Unless you've got inside information. There's no honest sport any more. Lenehan gets some good tips. He's backing Sceptre today. Zinfandel's the favourite — Lord Howard de Walden's horse — won at Epsom. Morny Cannon's riding him. I could have got seven to one against Saint Amant a fortnight ago.
+
+Whose Zinfandel is the favourite for the Gold cup, having won at Epsom. The race is run this afternoon and is on every tongue in the pub.
+
+## modern-en · morny-cannon · 8:247
+
+—True for you, Nosey Flynn said. Unless you've got inside information. There's no honest sport any more. Lenehan gets some good tips. He's backing Sceptre today. Zinfandel's the favourite — Lord Howard de Walden's horse — won at Epsom. Morny Cannon's riding him. I could have got seven to one against Saint Amant a fortnight ago.
+
+The jockey riding Zinfandel for the Gold cup, in the tip Nosey Flynn passes on as though it were his own.
+
+## modern-en · rothschild · 8:250
+
+—I could, faith, Nosey Flynn said, snuffling. That was a fine horse. Saint Frusquin was her sire. She won in a thunderstorm — Rothschild's filly — with cotton wool in her ears. Blue jacket and yellow cap. Bad luck to Big Ben Dollard and his tip on John O'Gaunt. He put me off my bet. Ay.
+
+Whose filly it was that won in a thunderstorm with wadding in her ears, blue jacket and yellow cap, in the race Nosey Flynn could have got seven to one on.
+
+## modern-en · archduke-leopold · 8:255
+
+A mild fire of wine kindled his veins. I needed that badly. I was feeling so off colour. His eyes, hunger satisfied, surveyed shelves of tins: sardines, gaudy lobsters' claws. All the odd things people pick up for food. Out of shells, periwinkles with a pin; off trees; snails out of the ground the French eat; out of the sea with bait on a hook. Silly fish learn nothing in a thousand years. If you didn't know better, it's risky putting anything in your mouth. Poisonous berries. Deadly nightshade. Roundness makes you think something's safe. Bright colour warns you off. One person told another and so on. Try it on the dog first. Led on by the smell or the look. Tempting fruit. Ice cream cones. Cream. Instinct. Orange groves, for instance. Need artificial irrigation. Bleibtreustrasse — I remember that street name. Yes, but what about oysters? Hideous to look at, like a clot of phlegm. Filthy shells. Devil to open them too. Who discovered they were edible? Garbage, sewage — that's what they feed on. Fizz and Red Bank oysters. Effect on the sexual appetite. Aphrodisiac. Boylan was at the Red Bank this morning. Was he eating oysters? Old fish at the table — perhaps. He — young flesh in bed — no — June has no R — no oysters in season. But there are people who like their food gamy. Ripe game meat. Jugged hare. First catch your hare. Chinese eating eggs fifty years old, blue and green again. Dinner of thirty courses. Each dish harmless on its own but might react when mixed inside. Good idea for a poisoning mystery. That archduke — Leopold, was it? No. Yes? Or was it Otto — one of those Habsburgs? Or who was it used to eat the scabs off his own head? Cheapest lunch in town. Of course aristocrats start these trends, then everyone copies to be fashionable. Milly too — rock oil and flour face mask. I like raw pastry myself. Half the catch of oysters they throw back in the sea to keep up the price. If they were cheap, no one would buy them. Caviar. Playing the grand. Hock wine in green glasses. Posh blowout. Lady this. Powdered bosom, pearls. The _elite. Creme de la creme_. They want special dishes to pretend they're something. A hermit with a plate of lentils, keeping down the urges of the flesh. Know me, come eat with me. The Royal sturgeon goes to the High Sheriff — Coffey the butcher — the right to venison from the king's forest. Send him back half a cow. What a spread I saw down in the Master of the Rolls' kitchen area. White-hatted chef like a rabbi. Flaming duck. Curly cabbage _a la duchesse de Parme_. Just as well to write it on the menu so you can know what you've eaten too many cooks spoil the broth. I know from experience. Doctoring it with Edwards' dehydrated soup. Geese stuffed till they're sick for the making of foie gras. Lobsters boiled alive. Do have some ptarmigan. Wouldn't mind being a waiter in a posh hotel. Tips, evening dress, half-naked ladies. May I tempt you to a little more filleted lemon sole, Miss Dubedat? Yes, do indeed. And she did indeed. Huguenot name, I expect. A Miss Dubedat lived in Killiney, I remember. Du, de, la — that's French. Still, it's the same fish perhaps that old Micky Hanlon of Moore Street gutted, making money hand over fist, finger in fishes' gills, can't write his own name on a cheque — you'd think he was painting a landscape with his mouth twisted. Moooikill A Aitch Ha — ignorant as a basket of old shoes, worth fifty thousand pounds.
+
+One of those Habsburgs, in the story Bloom half remembers about eating the scruff off his own head — or was it Otto. It comes up between the fifty-year-old Chinese eggs and the idea for a poison mystery.
+
+## modern-en · archduke-otto · 8:255
+
+A mild fire of wine kindled his veins. I needed that badly. I was feeling so off colour. His eyes, hunger satisfied, surveyed shelves of tins: sardines, gaudy lobsters' claws. All the odd things people pick up for food. Out of shells, periwinkles with a pin; off trees; snails out of the ground the French eat; out of the sea with bait on a hook. Silly fish learn nothing in a thousand years. If you didn't know better, it's risky putting anything in your mouth. Poisonous berries. Deadly nightshade. Roundness makes you think something's safe. Bright colour warns you off. One person told another and so on. Try it on the dog first. Led on by the smell or the look. Tempting fruit. Ice cream cones. Cream. Instinct. Orange groves, for instance. Need artificial irrigation. Bleibtreustrasse — I remember that street name. Yes, but what about oysters? Hideous to look at, like a clot of phlegm. Filthy shells. Devil to open them too. Who discovered they were edible? Garbage, sewage — that's what they feed on. Fizz and Red Bank oysters. Effect on the sexual appetite. Aphrodisiac. Boylan was at the Red Bank this morning. Was he eating oysters? Old fish at the table — perhaps. He — young flesh in bed — no — June has no R — no oysters in season. But there are people who like their food gamy. Ripe game meat. Jugged hare. First catch your hare. Chinese eating eggs fifty years old, blue and green again. Dinner of thirty courses. Each dish harmless on its own but might react when mixed inside. Good idea for a poisoning mystery. That archduke — Leopold, was it? No. Yes? Or was it Otto — one of those Habsburgs? Or who was it used to eat the scabs off his own head? Cheapest lunch in town. Of course aristocrats start these trends, then everyone copies to be fashionable. Milly too — rock oil and flour face mask. I like raw pastry myself. Half the catch of oysters they throw back in the sea to keep up the price. If they were cheap, no one would buy them. Caviar. Playing the grand. Hock wine in green glasses. Posh blowout. Lady this. Powdered bosom, pearls. The _elite. Creme de la creme_. They want special dishes to pretend they're something. A hermit with a plate of lentils, keeping down the urges of the flesh. Know me, come eat with me. The Royal sturgeon goes to the High Sheriff — Coffey the butcher — the right to venison from the king's forest. Send him back half a cow. What a spread I saw down in the Master of the Rolls' kitchen area. White-hatted chef like a rabbi. Flaming duck. Curly cabbage _a la duchesse de Parme_. Just as well to write it on the menu so you can know what you've eaten too many cooks spoil the broth. I know from experience. Doctoring it with Edwards' dehydrated soup. Geese stuffed till they're sick for the making of foie gras. Lobsters boiled alive. Do have some ptarmigan. Wouldn't mind being a waiter in a posh hotel. Tips, evening dress, half-naked ladies. May I tempt you to a little more filleted lemon sole, Miss Dubedat? Yes, do indeed. And she did indeed. Huguenot name, I expect. A Miss Dubedat lived in Killiney, I remember. Du, de, la — that's French. Still, it's the same fish perhaps that old Micky Hanlon of Moore Street gutted, making money hand over fist, finger in fishes' gills, can't write his own name on a cheque — you'd think he was painting a landscape with his mouth twisted. Moooikill A Aitch Ha — ignorant as a basket of old shoes, worth fifty thousand pounds.
+
+The other name Bloom tries for the same Habsburg story, and does not settle either. One of those Habsburgs, he decides, and goes on to the man who ate the scruff off his own head.
+
+## modern-en · micky-hanlon · 8:255
+
+A mild fire of wine kindled his veins. I needed that badly. I was feeling so off colour. His eyes, hunger satisfied, surveyed shelves of tins: sardines, gaudy lobsters' claws. All the odd things people pick up for food. Out of shells, periwinkles with a pin; off trees; snails out of the ground the French eat; out of the sea with bait on a hook. Silly fish learn nothing in a thousand years. If you didn't know better, it's risky putting anything in your mouth. Poisonous berries. Deadly nightshade. Roundness makes you think something's safe. Bright colour warns you off. One person told another and so on. Try it on the dog first. Led on by the smell or the look. Tempting fruit. Ice cream cones. Cream. Instinct. Orange groves, for instance. Need artificial irrigation. Bleibtreustrasse — I remember that street name. Yes, but what about oysters? Hideous to look at, like a clot of phlegm. Filthy shells. Devil to open them too. Who discovered they were edible? Garbage, sewage — that's what they feed on. Fizz and Red Bank oysters. Effect on the sexual appetite. Aphrodisiac. Boylan was at the Red Bank this morning. Was he eating oysters? Old fish at the table — perhaps. He — young flesh in bed — no — June has no R — no oysters in season. But there are people who like their food gamy. Ripe game meat. Jugged hare. First catch your hare. Chinese eating eggs fifty years old, blue and green again. Dinner of thirty courses. Each dish harmless on its own but might react when mixed inside. Good idea for a poisoning mystery. That archduke — Leopold, was it? No. Yes? Or was it Otto — one of those Habsburgs? Or who was it used to eat the scabs off his own head? Cheapest lunch in town. Of course aristocrats start these trends, then everyone copies to be fashionable. Milly too — rock oil and flour face mask. I like raw pastry myself. Half the catch of oysters they throw back in the sea to keep up the price. If they were cheap, no one would buy them. Caviar. Playing the grand. Hock wine in green glasses. Posh blowout. Lady this. Powdered bosom, pearls. The _elite. Creme de la creme_. They want special dishes to pretend they're something. A hermit with a plate of lentils, keeping down the urges of the flesh. Know me, come eat with me. The Royal sturgeon goes to the High Sheriff — Coffey the butcher — the right to venison from the king's forest. Send him back half a cow. What a spread I saw down in the Master of the Rolls' kitchen area. White-hatted chef like a rabbi. Flaming duck. Curly cabbage _a la duchesse de Parme_. Just as well to write it on the menu so you can know what you've eaten too many cooks spoil the broth. I know from experience. Doctoring it with Edwards' dehydrated soup. Geese stuffed till they're sick for the making of foie gras. Lobsters boiled alive. Do have some ptarmigan. Wouldn't mind being a waiter in a posh hotel. Tips, evening dress, half-naked ladies. May I tempt you to a little more filleted lemon sole, Miss Dubedat? Yes, do indeed. And she did indeed. Huguenot name, I expect. A Miss Dubedat lived in Killiney, I remember. Du, de, la — that's French. Still, it's the same fish perhaps that old Micky Hanlon of Moore Street gutted, making money hand over fist, finger in fishes' gills, can't write his own name on a cheque — you'd think he was painting a landscape with his mouth twisted. Moooikill A Aitch Ha — ignorant as a basket of old shoes, worth fifty thousand pounds.
+
+Of Moore street, who ripped the guts out of fish and made money hand over fist and cannot write his name on a cheque: you would think he was painting the landscape with his mouth twisted. Ignorant as a kish of brogues, worth fifty thousand pounds.
+
+## modern-en · dubedat · 8:255
+
+A mild fire of wine kindled his veins. I needed that badly. I was feeling so off colour. His eyes, hunger satisfied, surveyed shelves of tins: sardines, gaudy lobsters' claws. All the odd things people pick up for food. Out of shells, periwinkles with a pin; off trees; snails out of the ground the French eat; out of the sea with bait on a hook. Silly fish learn nothing in a thousand years. If you didn't know better, it's risky putting anything in your mouth. Poisonous berries. Deadly nightshade. Roundness makes you think something's safe. Bright colour warns you off. One person told another and so on. Try it on the dog first. Led on by the smell or the look. Tempting fruit. Ice cream cones. Cream. Instinct. Orange groves, for instance. Need artificial irrigation. Bleibtreustrasse — I remember that street name. Yes, but what about oysters? Hideous to look at, like a clot of phlegm. Filthy shells. Devil to open them too. Who discovered they were edible? Garbage, sewage — that's what they feed on. Fizz and Red Bank oysters. Effect on the sexual appetite. Aphrodisiac. Boylan was at the Red Bank this morning. Was he eating oysters? Old fish at the table — perhaps. He — young flesh in bed — no — June has no R — no oysters in season. But there are people who like their food gamy. Ripe game meat. Jugged hare. First catch your hare. Chinese eating eggs fifty years old, blue and green again. Dinner of thirty courses. Each dish harmless on its own but might react when mixed inside. Good idea for a poisoning mystery. That archduke — Leopold, was it? No. Yes? Or was it Otto — one of those Habsburgs? Or who was it used to eat the scabs off his own head? Cheapest lunch in town. Of course aristocrats start these trends, then everyone copies to be fashionable. Milly too — rock oil and flour face mask. I like raw pastry myself. Half the catch of oysters they throw back in the sea to keep up the price. If they were cheap, no one would buy them. Caviar. Playing the grand. Hock wine in green glasses. Posh blowout. Lady this. Powdered bosom, pearls. The _elite. Creme de la creme_. They want special dishes to pretend they're something. A hermit with a plate of lentils, keeping down the urges of the flesh. Know me, come eat with me. The Royal sturgeon goes to the High Sheriff — Coffey the butcher — the right to venison from the king's forest. Send him back half a cow. What a spread I saw down in the Master of the Rolls' kitchen area. White-hatted chef like a rabbi. Flaming duck. Curly cabbage _a la duchesse de Parme_. Just as well to write it on the menu so you can know what you've eaten too many cooks spoil the broth. I know from experience. Doctoring it with Edwards' dehydrated soup. Geese stuffed till they're sick for the making of foie gras. Lobsters boiled alive. Do have some ptarmigan. Wouldn't mind being a waiter in a posh hotel. Tips, evening dress, half-naked ladies. May I tempt you to a little more filleted lemon sole, Miss Dubedat? Yes, do indeed. And she did indeed. Huguenot name, I expect. A Miss Dubedat lived in Killiney, I remember. Du, de, la — that's French. Still, it's the same fish perhaps that old Micky Hanlon of Moore Street gutted, making money hand over fist, finger in fishes' gills, can't write his own name on a cheque — you'd think he was painting a landscape with his mouth twisted. Moooikill A Aitch Ha — ignorant as a basket of old shoes, worth fifty thousand pounds.
+
+Of the waiter’s patter Bloom runs in his head — may I tempt you to a little more filleted lemon sole, miss Dubedat? Yes, do bedad. And she did bedad — and then of the real one who lived in Killiney. Huguenot name, he expects.
+
+## modern-en · coffey-butcher · 8:255
+
+A mild fire of wine kindled his veins. I needed that badly. I was feeling so off colour. His eyes, hunger satisfied, surveyed shelves of tins: sardines, gaudy lobsters' claws. All the odd things people pick up for food. Out of shells, periwinkles with a pin; off trees; snails out of the ground the French eat; out of the sea with bait on a hook. Silly fish learn nothing in a thousand years. If you didn't know better, it's risky putting anything in your mouth. Poisonous berries. Deadly nightshade. Roundness makes you think something's safe. Bright colour warns you off. One person told another and so on. Try it on the dog first. Led on by the smell or the look. Tempting fruit. Ice cream cones. Cream. Instinct. Orange groves, for instance. Need artificial irrigation. Bleibtreustrasse — I remember that street name. Yes, but what about oysters? Hideous to look at, like a clot of phlegm. Filthy shells. Devil to open them too. Who discovered they were edible? Garbage, sewage — that's what they feed on. Fizz and Red Bank oysters. Effect on the sexual appetite. Aphrodisiac. Boylan was at the Red Bank this morning. Was he eating oysters? Old fish at the table — perhaps. He — young flesh in bed — no — June has no R — no oysters in season. But there are people who like their food gamy. Ripe game meat. Jugged hare. First catch your hare. Chinese eating eggs fifty years old, blue and green again. Dinner of thirty courses. Each dish harmless on its own but might react when mixed inside. Good idea for a poisoning mystery. That archduke — Leopold, was it? No. Yes? Or was it Otto — one of those Habsburgs? Or who was it used to eat the scabs off his own head? Cheapest lunch in town. Of course aristocrats start these trends, then everyone copies to be fashionable. Milly too — rock oil and flour face mask. I like raw pastry myself. Half the catch of oysters they throw back in the sea to keep up the price. If they were cheap, no one would buy them. Caviar. Playing the grand. Hock wine in green glasses. Posh blowout. Lady this. Powdered bosom, pearls. The _elite. Creme de la creme_. They want special dishes to pretend they're something. A hermit with a plate of lentils, keeping down the urges of the flesh. Know me, come eat with me. The Royal sturgeon goes to the High Sheriff — Coffey the butcher — the right to venison from the king's forest. Send him back half a cow. What a spread I saw down in the Master of the Rolls' kitchen area. White-hatted chef like a rabbi. Flaming duck. Curly cabbage _a la duchesse de Parme_. Just as well to write it on the menu so you can know what you've eaten too many cooks spoil the broth. I know from experience. Doctoring it with Edwards' dehydrated soup. Geese stuffed till they're sick for the making of foie gras. Lobsters boiled alive. Do have some ptarmigan. Wouldn't mind being a waiter in a posh hotel. Tips, evening dress, half-naked ladies. May I tempt you to a little more filleted lemon sole, Miss Dubedat? Yes, do indeed. And she did indeed. Huguenot name, I expect. A Miss Dubedat lived in Killiney, I remember. Du, de, la — that's French. Still, it's the same fish perhaps that old Micky Hanlon of Moore Street gutted, making money hand over fist, finger in fishes' gills, can't write his own name on a cheque — you'd think he was painting a landscape with his mouth twisted. Moooikill A Aitch Ha — ignorant as a basket of old shoes, worth fifty thousand pounds.
+
+Who has the right to venisons of the forest, in the list of things that go by rank: royal sturgeon to the high sheriff, and half a cow sent back to his excellency.
+
+## modern-en · venus · 8:260
+
+His downcast eyes followed the silent grain of the oaken slab. Beauty: it curves: curves are beauty. Shapely goddesses — Venus, Juno: curves the world admires. Can see them in the library museum, standing in the round hall, naked goddesses. Aids to digestion. They don't care what man looks at them. All on display. Never speaking. I mean, to say to fellows like Flynn. Suppose she came to life — Pygmalion and Galatea — what would she say first? Mortal! Put you in your proper place. Sipping nectar at dinner with the gods, golden dishes, all heavenly food. Not like the sixpenny lunch we have — boiled mutton, carrots and turnips, bottle of Allsop's ale. Nectar — imagine it — drinking electricity: food of the gods. Lovely forms of women, sculpted, statuesque. Immortal beauty. And we just stuffing food in one hole and out the other end: food, bile, blood, dung, earth, food: have to keep fuelling it like stoking an engine. They don't have a — Never looked to see. I'll check today. The museum guard won't see. Bend down, let something drop, see if she has a —
+
+One of the naked goddesses standing in the round hall of the museum. Curves are beauty; curves the world admires. They don’t care what man looks.
+
+## modern-en · juno · 8:260
+
+His downcast eyes followed the silent grain of the oaken slab. Beauty: it curves: curves are beauty. Shapely goddesses — Venus, Juno: curves the world admires. Can see them in the library museum, standing in the round hall, naked goddesses. Aids to digestion. They don't care what man looks at them. All on display. Never speaking. I mean, to say to fellows like Flynn. Suppose she came to life — Pygmalion and Galatea — what would she say first? Mortal! Put you in your proper place. Sipping nectar at dinner with the gods, golden dishes, all heavenly food. Not like the sixpenny lunch we have — boiled mutton, carrots and turnips, bottle of Allsop's ale. Nectar — imagine it — drinking electricity: food of the gods. Lovely forms of women, sculpted, statuesque. Immortal beauty. And we just stuffing food in one hole and out the other end: food, bile, blood, dung, earth, food: have to keep fuelling it like stoking an engine. They don't have a — Never looked to see. I'll check today. The museum guard won't see. Bend down, let something drop, see if she has a —
+
+The second of the naked goddesses in the round hall. Lovely forms of women sculped Junonian. Immortal lovely, and never speaking: they don’t care what man looks.
+
+## modern-en · pygmalion · 8:260
+
+His downcast eyes followed the silent grain of the oaken slab. Beauty: it curves: curves are beauty. Shapely goddesses — Venus, Juno: curves the world admires. Can see them in the library museum, standing in the round hall, naked goddesses. Aids to digestion. They don't care what man looks at them. All on display. Never speaking. I mean, to say to fellows like Flynn. Suppose she came to life — Pygmalion and Galatea — what would she say first? Mortal! Put you in your proper place. Sipping nectar at dinner with the gods, golden dishes, all heavenly food. Not like the sixpenny lunch we have — boiled mutton, carrots and turnips, bottle of Allsop's ale. Nectar — imagine it — drinking electricity: food of the gods. Lovely forms of women, sculpted, statuesque. Immortal beauty. And we just stuffing food in one hole and out the other end: food, bile, blood, dung, earth, food: have to keep fuelling it like stoking an engine. They don't have a — Never looked to see. I'll check today. The museum guard won't see. Bend down, let something drop, see if she has a —
+
+Whose statue came alive, in the question Bloom puts to himself in front of them: suppose she did Pygmalion and Galatea, what would she say first? Mortal! Put you in your proper place.
+
+## modern-en · galatea · 8:260
+
+His downcast eyes followed the silent grain of the oaken slab. Beauty: it curves: curves are beauty. Shapely goddesses — Venus, Juno: curves the world admires. Can see them in the library museum, standing in the round hall, naked goddesses. Aids to digestion. They don't care what man looks at them. All on display. Never speaking. I mean, to say to fellows like Flynn. Suppose she came to life — Pygmalion and Galatea — what would she say first? Mortal! Put you in your proper place. Sipping nectar at dinner with the gods, golden dishes, all heavenly food. Not like the sixpenny lunch we have — boiled mutton, carrots and turnips, bottle of Allsop's ale. Nectar — imagine it — drinking electricity: food of the gods. Lovely forms of women, sculpted, statuesque. Immortal beauty. And we just stuffing food in one hole and out the other end: food, bile, blood, dung, earth, food: have to keep fuelling it like stoking an engine. They don't have a — Never looked to see. I'll check today. The museum guard won't see. Bend down, let something drop, see if she has a —
+
+The statue Pygmalion made and loved, who came alive. Bloom gives her the first word and makes it a rebuke: Mortal! Put you in your proper place.
+
+## modern-en · tom-rochford · 8:292
+
+Paddy Leonard and Bantam Lyons came in. Tom Rochford followed, frowning, a hand pressed to his dark red waistcoat.
+
+Who comes into Davy Byrne’s frowning with a hand on his claret waistcoat, asks for a glass of fresh water, and tips a twisted paper of powder into it for that cursed dyspepsia. Wonder if he will do anything with that invention of his, Bloom thinks afterwards: wasting time explaining it to Flynn’s mouth.
+
+## modern-en · john-wyse-nolan · 8:270
+
+—It's not the wife, anyway, Nosey Flynn said. I met him the day before yesterday coming out of that Irish farm dairy — John Wyse Nolan's wife runs it in Henry Street — with a jar of cream in his hand, taking it home to the wife. She's well fed, I tell you. Plovers on toast.
+
+Whose wife has the Irish farm dairy in Henry street, where Nosey Flynn met Bloom coming out with a jar of cream for his better half.
+
+## modern-en · nolan-wife · 8:270
+
+—It's not the wife, anyway, Nosey Flynn said. I met him the day before yesterday coming out of that Irish farm dairy — John Wyse Nolan's wife runs it in Henry Street — with a jar of cream in his hand, taking it home to the wife. She's well fed, I tell you. Plovers on toast.
+
+Who keeps the dairy. The cream is the whole of Flynn’s argument that Bloom does not live on the ads he picks up.
+
+## modern-en · saint-leger-woman · 8:283
+
+—There was one woman, Nosey Flynn said, hid herself in a grandfather clock to spy on what they were up to. But damn me if they didn't smell her out and swore her in on the spot, a master mason. That was one of the St Legers of Doneraile.
+
+The one woman, Nosey Flynn says, who hid herself in a clock to find out what the masons do be doing — and they smelt her out and swore her in on the spot a master mason.
+
+## modern-en · peeping-tom · 8:127
+
+You never know who you're talking to. Corny Kelleher has got his eye on a Harvey Duff — an informer. Like that Peter or Denis or James Carey who betrayed the Invincibles. Corporation member, too. Egging young hotheads on to join up while all the time drawing secret service pay from Dublin Castle. Drop him like a hot potato when he's found out. That's why plainclothes detectives are always courting servant girls. Easy to spot a man used to wearing a uniform. Sneaking up to back doors. Chat her up a bit. Then the next step. And who is the gentleman who keeps visiting? Was the young master saying anything? Peeping Tom through the keyhole. Decoy duck. Hot-blooded young student pawing at her plump arms while she does the ironing.
+
+Through the keyhole: the figure Bloom reaches for in the business of plainclothes men courting slaveys. Decoy duck.
+
+## modern-en · drowsing-loafer · 8:335
+
+Maybe tour the south then. What about English seaside resorts? Brighton, Margate. Piers by moonlight. Her voice floating out. Those lovely seaside girls. Against John Long's pub, a drowsy loafer lounged in heavy thought, gnawing a crusty knuckle. Handyman wants work. Small wages. Will eat anything.
+
+Lounging in heavy thought, gnawing a crusted knuckle. Handy man wants job. Small wages. Will eat anything.
+
+## modern-en · thomas-connellan · 8:336
+
+Mr Bloom turned at Gray's confectioner's window, full of unbought tarts, and passed the Reverend Thomas Connellan's bookshop. _Why I Left the Church of Rome?_ Bird's Nest Orphanage. Women run him. They say they used to give pauper children soup to convert them to Protestantism during the Potato Famine. The Society across the way — Papa went to it — for the conversion of poor Jews. Same bait. Why we left the Church of Rome.
+
+Whose bookstore Bloom passes, with Why I left the church of Rome in the window, and the Birds’ Nest beside it. Women run him. Same bait as the soup given to pauper children in the time of the blight, and as the society across the way that papa went to for the conversion of poor jews.
+
+## modern-en · blind-stripling · 8:337
+
+A blind young man stood tapping the kerb with his slender cane. No tram in sight. He wants to cross.
+
+Tapping the curbstone with his slender cane at the Dawson street crossing, who wants to go to Molesworth street and South Frederick street. Bloom tells him about the van that is not moving, touches the thin elbow and takes the limp seeing hand across, tries a common remark about the rain, and gets Thanks, sir. Knows I’m a man. Voice.
+
+## modern-en · penrose · 8:355
+
+Penrose! That was that fellow's name.
+
+The priestylooking chap with the weak eyes who was always squinting in when Bloom passed, and stopped at Citron’s on saint Kevin’s parade. Bloom cannot get the name in the morning — Pen something. Pendennis? — and it comes back to him behind the blind man in the afternoon.
+
+## modern-en · william-miller · 8:327
+
+Bare, clean toilet bowls waiting in the window of William Miller, plumber, turned his thoughts inward. They could: and watch it all the way down — swallow a pin, sometimes it comes out of the ribs years later — tour round the body, changing biliary duct, spleen squirting, liver, gastric juice, coils of intestines like pipes. But the poor patient would have to stand all the time with his innards on show. Science.
+
+Plumber, whose window of bare clean closestools turns Bloom’s thoughts back inside himself: swallow a pin, tour round the body, and the poor buffer standing all the time with his insides on show. Science.
+
+## modern-en · don-giovanni · 8:325
+
+Don Giovanni, a cenar teco M'invitasti.
+
+Whom the statue invites to supper, in the line Bloom hums going up Dawson street: Don Giovanni, a cenar teco m’invitasti. He tries it in English and it doesn’t go properly, and stops on the one word he wants: what does that teco mean? Tonight perhaps.
+
+## modern-en · billy-prescott · 8:332
+
+Keyes: two months' renewal if I get Nannetti to agree. That'll be two pounds ten — about two pounds eight. Three that Hynes owes me. Two eleven. Prescott's dyeworks van over there. If I get Billy Prescott's ad: two fifteen. Five guineas, about. On the pig's back.
+
+Of the dyeworks, whose ad would bring Bloom to two fifteen if he gets it. Five guineas about. On the pig’s back.
+
+## modern-en · frederick-falkiner · 8:364
+
+Sir Frederick Falkiner going into the Freemasons' Hall. Solemn as Troy. After his fine lunch in Earlsfort Terrace. Old legal cronies sharing a magnum of champagne. Tales of the bench and the assizes and annals of the Blue Coat School. I sentenced him to ten years. I suppose he'd turn up his nose at the wine I just drank. Vintage wine for the likes of him, the year marked on a dusty bottle. Has his own ideas of justice in the Recorder's court. Well-meaning old man. Police charge-sheets crammed with cases — they get their quota by manufacturing crime. Sends them packing. Comes down hard on moneylenders. Gave Reuben J. Dodd a terrible dressing-down. Now there's what they really mean by a dirty Jew. The power those judges have. Crusty old drinkers in wigs. Bear with a sore paw. And may the Lord have mercy on your soul.
+
+Recorder of Dublin, going into the freemasons’ hall solemn as Troy after his good lunch in Earlsfort terrace, with the tales of the bench and the assizes and I sentenced him to ten years. Wellmeaning old man, and the devil on moneylenders: he gave Reuben J a great strawcalling.
+
+## modern-en · lord-lieutenant · 8:365
+
+Hello — a placard. Mirus Bazaar. His Excellency the Lord Lieutenant. Sixteenth of June. That's today. In aid of funds for Mercer's Hospital. _The Messiah_ was first performed for that charity. Yes. Handel. What about going out there: Ballsbridge. Drop in on Keyes. No use sticking to him like a leech. I'll wear out my welcome. Bound to know someone at the gate.
+
+On the placard for the Mirus bazaar, sixteenth of June, in aid of funds for Mercer’s hospital. Bloom thinks of going out to Ballsbridge on the strength of it and dropping in on Keyes: sure to know someone on the gate.
+
+## modern-en · handel · 8:365
+
+Hello — a placard. Mirus Bazaar. His Excellency the Lord Lieutenant. Sixteenth of June. That's today. In aid of funds for Mercer's Hospital. _The Messiah_ was first performed for that charity. Yes. Handel. What about going out there: Ballsbridge. Drop in on Keyes. No use sticking to him like a leech. I'll wear out my welcome. Bound to know someone at the gate.
+
+Whose Messiah was first given in aid of Mercer’s hospital, which the Mirus bazaar is being held for now. Yes. Handel.
+
+## modern-en · thomas-deane · 8:370
+
+Making for the museum gate with long, breezy strides, he lifted his eyes. Handsome building. Sir Thomas Deane designed it. Not following me?
+
+Who designed the museum, and whose cream curves of stone Bloom stares at, heart quopping, while he turns out his pockets at the gate. Handsome building. Sir Thomas Deane was the Greek architecture.
+
+## modern-en · farmers-daughter · 8:148
+
+He crossed at the corner of Nassau Street and stood before the window of Yeates and Son, pricing the binoculars. Or shall I drop into old Harris's and have a chat with young Sinclair? Well-mannered fellow. Probably at his lunch. Must get my old glasses fixed. Goerz lenses, six guineas. Germans making inroads everywhere. Selling on easy terms to capture trade. Undercutting. I might find a pair at the railway lost property office. Astonishing, the things people leave behind on trains and in cloakrooms. What are they thinking about? Women too. Unbelievable. Last year, travelling to Ennis, I had to pick up that farmer's daughter's bag and hand it to her at Limerick Junction. Unclaimed money piling up too. There's a little clock up on the roof of the bank to test those glasses by.
+
+Whose bag Bloom had to pick up and hand to her at Limerick junction, travelling to Ennis last year, in the list of what people leave behind them in trains and cloakrooms.

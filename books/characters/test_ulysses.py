@@ -1,6 +1,6 @@
 """Guards for the Ulysses character package.
 
-Episodes 1 to 7 of 18 are authored. These tests pin the identifications that took a
+Episodes 1 to 8 of 18 are authored. These tests pin the identifications that took a
 reading to make, and the traps that a later pass must not undo.
 """
 import json,unittest
@@ -13,8 +13,8 @@ def ids(ed,ch,pi):return sorted({m['characterId'] for m in mentions(ed) if m['ch
 CARDS={e['id']:e for e in json.loads(open('ulysses/editorial.json').read())['entities']}
 
 class Ulysses(unittest.TestCase):
-    def test_only_the_first_seven_episodes_are_authored(self):
-        self.assertIn('episodes 1-7 of 18',REPORT['scope'])
+    def test_only_the_first_eight_episodes_are_authored(self):
+        self.assertIn('episodes 1-8 of 18',REPORT['scope'])
         for ed in ['original-en','modern-en']:
             self.assertEqual(REPORT['editions'][ed]['chapters'],18,ed)
             self.assertEqual(REPORT['editions'][ed]['paragraphs'],7148,ed)
@@ -69,7 +69,7 @@ class Ulysses(unittest.TestCase):
         from build_ulysses import SPLIT
         table,default=SPLIT['Dedalus']
         self.assertIsNone(default)
-        self.assertTrue(all(ch in (1,2,6,7) for ch,_ in table))
+        self.assertTrue(all(ch in (1,2,6,7,8) for ch,_ in table))
         for ed in ['original-en','modern-en']:
             self.assertIn((1,23),where(ed,'stephen'),ed)
             for k in [(6,1),(10,1)]:
@@ -155,7 +155,11 @@ class Ulysses(unittest.TestCase):
                          REPORT['editions']['modern-en']['omittedEntities'])
         # brian-boru is the inverse case: a man the modern edition puts in where
         # Joyce named his people, so he is unreachable in the older edition.
-        self.assertEqual(['brian-boru'],REPORT['editions']['original-en']['omittedEntities'])
+        # lots-wife is the same case in episode 8: the modern edition writes
+        # Lot's wife turned to a pillar of salt where Joyce writes only
+        # Pillar of salt.
+        self.assertEqual(['brian-boru','lots-wife'],
+                         REPORT['editions']['original-en']['omittedEntities'])
         self.assertIn((1,101),where('original-en','loyola'))
         self.assertNotIn('loyola',ids('modern-en',1,101))
 
@@ -179,8 +183,8 @@ class Ulysses(unittest.TestCase):
             self.assertEqual([(1,255)],where(ed,'butterly'),ed)       # 15:449 is Maurice Butterly
             self.assertEqual([(1,329),(4,135)],where(ed,'bannon'),ed)  # Milly writes home about him
             self.assertEqual([(1,232),(1,269),(1,275),(2,74),(3,79),(5,65),(6,333),
-                              (7,154)],where(ed,'hamlet'),ed)
-            self.assertEqual([(1,275),(2,74),(2,113),(6,168)],
+                              (7,154),(8,17)],where(ed,'hamlet'),ed)
+            self.assertEqual([(1,275),(2,74),(2,113),(6,168),(8,16)],
                              [k for k in where(ed,'shakespeare') if k[0]!=6 or k[1]!=333],ed)
 
     def test_the_deliberate_gaps_of_episode_one(self):
@@ -218,7 +222,8 @@ class Ulysses(unittest.TestCase):
             self.assertEqual([(2,91)],where(ed,'halliday'),ed)
             self.assertEqual([(2,123)],where(ed,'curran'),ed)
             self.assertEqual([(2,123),(3,35)],where(ed,'temple'),ed)  # 3:35 is the same man
-            self.assertEqual([(2,123),(3,57),(7,407)],where(ed,'russell'),ed)
+            self.assertEqual([(2,123),(3,57),(7,407),(8,111),(8,143),(8,144),(8,145)],
+                             where(ed,'russell'),ed)
             self.assertEqual([(2,6)],where(ed,'blake'),ed)
             self.assertEqual([(2,151),(2,152)],where(ed,'henry-blackwood-price'),ed)
             self.assertEqual([(2,141)],where(ed,'duke-of-westminster'),ed)
@@ -285,7 +290,7 @@ class Proteus(unittest.TestCase):
     def test_the_goulding_household(self):
         # The visit to Strasburg terrace that Stephen imagines and does not pay.
         for ed in ['original-en','modern-en']:
-            self.assertEqual([(3,11),(3,17),(3,21),(3,24),(3,25),(3,26),(6,24)],
+            self.assertEqual([(3,11),(3,17),(3,21),(3,24),(3,25),(3,26),(6,24),(8,110)],
                              where(ed,'richie-goulding'),ed)
             self.assertEqual([(3,11),(3,21),(3,41),(6,22)],where(ed,'aunt-sara'),ed)
             self.assertEqual([(3,11),(3,15),(3,19),(3,28)],where(ed,'walter-goulding'),ed)
@@ -474,7 +479,7 @@ class Calypso(unittest.TestCase):
         # so the alias binder could not reach it, exactly as with Los Demiurgos
         # at 3:1. Keyed, and bound in both editions.
         for ed in ['original-en','modern-en']:
-            self.assertEqual([(4,162),(4,163)],where(ed,'matcham'),ed)
+            self.assertEqual([(4,162),(4,163),(8,87)],where(ed,'matcham'),ed)
 
     def test_no_alias_in_this_package_is_hidden_by_italics(self):
         # The standing check that found the two above. An alias whose only
@@ -557,8 +562,10 @@ class LotusEaters(unittest.TestCase):
         # very church. Peter Carey, yes. No, Peter Claver I am thinking of.
         # Denis Carey." Three spans for one man, and a saint in the middle.
         for ed in ['original-en','modern-en']:
-            self.assertEqual([(5,100)],where(ed,'carey'),ed)
-            self.assertEqual(3,len([m for m in mentions(ed)
+            self.assertEqual([(5,100),(8,127)],where(ed,'carey'),ed)
+            # Three spans in episode 5, and one more at 8:127, where the same
+            # hesitation comes back: Peter or Denis or James Carey.
+            self.assertEqual(4,len([m for m in mentions(ed)
                                     if m['characterId']=='carey']),ed)
             self.assertIn((5,100),where(ed,'peter-claver'),ed)
 
@@ -687,9 +694,10 @@ class Hades(unittest.TestCase):
 
     def test_reuben_j_and_the_son_and_the_boatman(self):
         for ed in ['original-en','modern-en']:
-            self.assertEqual([(6,108),(6,118),(6,125),(6,129),(6,133)],
+            self.assertEqual([(6,108),(6,118),(6,125),(6,129),(6,133),(8,364)],
                              where(ed,'reuben-j'),ed)
-            self.assertEqual([(6,118),(6,127),(6,129),(6,133)],where(ed,'reuben-son'),ed)
+            self.assertEqual([(6,118),(6,127),(6,129),(6,133),(8,12)],
+                             where(ed,'reuben-son'),ed)
             self.assertEqual([(6,131),(6,133)],where(ed,'liffey-boatman'),ed)
             # Barabbas at 6:125 is Mr Dedalus's name for Reuben J, not a card of
             # its own: Christ is not cast anywhere in this package.
@@ -697,7 +705,8 @@ class Hades(unittest.TestCase):
 
     def test_blooms_father_and_mother_are_here_and_neither_is_named(self):
         for ed in ['original-en','modern-en']:
-            self.assertEqual([(5,65),(5,68),(6,171),(6,236),(6,345),(6,386),(7,99)],
+            self.assertEqual([(5,65),(5,68),(6,171),(6,236),(6,345),(6,386),(7,99),
+                          (8,37),(8,336)],
                              where(ed,'rudolph-bloom'),ed)
             self.assertEqual([(6,348)],where(ed,'ellen-bloom'),ed)
 
@@ -802,3 +811,194 @@ class Aeolus(unittest.TestCase):
             # Our Saviour at 7:22 and 7:26 carries no card, as everywhere here.
             self.assertEqual([],[c for c in ids(ed,7,22)
                                  if 'christ' in c or 'jesus' in c],ed)
+
+
+class Lestrygonians(unittest.TestCase):
+    """Episode 8. Bloom's lunch hour: the quays, Mrs Breen, the Burton, Davy
+    Byrne's, and the blind stripling on Dawson street."""
+
+    def test_the_throwaway_names_two_men_and_a_prophet(self):
+        # The handbill's Elijah is the prophet the revivalist has attached to
+        # himself; Dowie signs it; Torry and Alexander worked Dublin last year.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(8,5),(8,14)],where(ed,'elijah'),ed)
+            # Dowie's own name is safe as an alias: every occurrence in the
+            # book is this man (14:64, 15:611 and 17:222 among them).
+            self.assertIn((8,5),where(ed,'dowie'),ed)
+            self.assertEqual([(8,7)],where(ed,'torry'),ed)
+            self.assertEqual([(8,7)],where(ed,'alexander-evangelist'),ed)
+            # The Alexander of 8:5 is Dowie's own middle name, and every other
+            # Alexander in the book is Keyes, Dowie again or the archbishop.
+            self.assertNotIn('alexander-evangelist',ids(ed,8,5),ed)
+
+    def test_the_daughter_outside_the_auctionrooms_is_not_named(self):
+        # 8:9 names her only by her father: Dedalus' daughter. The father takes
+        # the surname, the daughter the word daughter, and "the mother" in the
+        # same paragraph is May Dedalus, three months dead.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(8,9),(8,10)],where(ed,'dedalus-daughter'),ed)
+            self.assertIn('simon-dedalus',ids(ed,8,9),ed)
+            self.assertIn('may-dedalus',ids(ed,8,9),ed)
+            self.assertNotIn('stephen',ids(ed,8,9),ed)
+
+    def test_mrs_breen_is_josie_powell_and_her_husband_is_denis(self):
+        for ed in ['original-en','modern-en']:
+            self.assertIn((8,44),where(ed,'josie-breen'),ed)
+            self.assertIn((8,83),where(ed,'josie-breen'),ed)
+            self.assertIn('Josie Powell',said(ed,'josie-breen'),ed)
+            self.assertIn((8,103),where(ed,'denis-breen'),ed)
+            self.assertIn((8,107),where(ed,'denis-breen'),ed)
+            # "Denis will be like that one of these days" is the husband, not
+            # the Denis Carey of 8:127.
+            self.assertNotIn('carey',ids(ed,8,103),ed)
+
+    def test_bloom_asks_after_mrs_purefoy_under_the_wrong_name(self):
+        # He says Mrs Beaufoy because Philip Beaufoy of the prize titbit is in
+        # his head; she corrects him with Mina Purefoy in the next line.
+        for ed in ['original-en','modern-en']:
+            self.assertIn('Beaufoy',said(ed,'mina-purefoy'),ed)
+            self.assertIn((8,85),where(ed,'mina-purefoy'),ed)
+            self.assertIn((8,86),where(ed,'mina-purefoy'),ed)
+            self.assertIn((8,87),where(ed,'philip-beaufoy'),ed)
+            self.assertIn((8,87),where(ed,'matcham'),ed)
+            self.assertNotIn('philip-beaufoy',ids(ed,8,85),ed)
+            self.assertNotIn('mina-purefoy',ids(ed,8,87),ed)
+
+    def test_the_two_parnells(self):
+        # 8:140 and 8:198 are the brother, city marshal; 8:134 and 8:141 are
+        # Charles Stewart, and the modern edition supplies his full name.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(8,140),(8,141),(8,198)],
+                             [k for k in where(ed,'john-howard-parnell') if k[0]==8],ed)
+            self.assertIn((8,134),where(ed,'parnell'),ed)
+            self.assertIn((8,141),where(ed,'parnell'),ed)
+        # The modern edition spells out Charles Stewart Parnell at 8:141 where
+        # Joyce writes only "the brother" and "Image of him".
+        self.assertIn('parnell',ids('modern-en',8,141))
+        self.assertIn('john-howard-parnell',ids('original-en',8,141))
+
+    def test_the_namesakes_of_episode_eight(self):
+        # Each of these surnames belongs to somebody else elsewhere in the book,
+        # so episode 8's man is keyed rather than aliased.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(8,141)],where(ed,'charley-kavanagh'),ed)   # 7:330 is the invincibles' carman
+            self.assertEqual([(8,255)],where(ed,'coffey-butcher'),ed)     # 6:264 is Father Coffey
+            self.assertEqual([(8,255)],where(ed,'micky-hanlon'),ed)       # 4:13 is Hanlon's milkman
+            self.assertEqual([(8,148)],where(ed,'harris'),ed)             # 9:181 is Frank Harris
+            self.assertEqual([(8,112)],where(ed,'stubbs'),ed)             # 12:274 is Stubbs's gazette
+            self.assertEqual([(8,189)],where(ed,'rock'),ed)               # pineapple rock, Three Rock
+            self.assertEqual([(8,250)],where(ed,'rothschild'),ed)         # elsewhere the banking house
+            self.assertEqual([(8,121)],where(ed,'tom-moore'),ed)          # 8:255 is Moore street
+            self.assertEqual([(8,133)],where(ed,'garibaldi'),ed)          # 12:240 is Caruso-Garibaldi
+            self.assertEqual([(8,255)],where(ed,'archduke-otto'),ed)      # 17:108 is Thomas Otto
+            self.assertEqual([(8,255)],where(ed,'archduke-leopold'),ed)   # every other Leopold is Bloom
+
+    def test_the_bare_surname_flynn_can_never_be_aliased(self):
+        # The alias guard lets "Flynn" through inside "O'Flynn", so Nosey Flynn
+        # is keyed paragraph by paragraph and Father O'Flynn of 8:198 gets his
+        # own pattern.
+        for ed in ['original-en','modern-en']:
+            for k in [(8,205),(8,241),(8,260),(8,323)]:
+                self.assertIn('nosey-flynn',ids(ed,*k),(ed,k))
+            self.assertEqual([(8,198)],where(ed,'father-oflynn'),ed)
+            self.assertNotIn('nosey-flynn',ids(ed,8,198),ed)
+
+    def test_the_italic_trap_in_the_cannibal_song(self):
+        # Both of MacTrigger's appearances sit inside Gutenberg italics in the
+        # older edition, where the trailing underscore defeats the alias guard.
+        # He is keyed, and the omittedEntities check is what found him.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(8,208),(8,223)],where(ed,'mactrigger'),ed)
+
+    def test_the_pub_is_the_man_but_not_always(self):
+        # Davy Byrne serves in person; 8:361 is Doran's publichouse and carries
+        # no card, where 8:159 is Bob Doran himself sloping into the Empire.
+        for ed in ['original-en','modern-en']:
+            self.assertIn((8,202),where(ed,'davy-byrne'),ed)
+            self.assertIn('Mr Byrne',said(ed,'davy-byrne'),ed)
+            self.assertIn((8,159),where(ed,'bob-doran'),ed)
+            self.assertNotIn('bob-doran',ids(ed,8,361),ed)
+            # and 11:465 is money spent at the pub, not the man
+            self.assertNotIn('davy-byrne',ids(ed,11,465),ed)
+
+    def test_the_figures_with_no_names(self):
+        for ed in ['original-en','modern-en']:
+            for cid,k in [('ymca-young-man',(8,1)),('sweetshop-girl',(8,0)),
+                          ('applewoman',(8,21)),('barefoot-arab',(8,63)),
+                          ('sandwichman-y',(8,35)),('tranquilla-nun',(8,35)),
+                          ('burton-server',(8,189)),('davy-byrne-curate',(8,220)),
+                          ('drowsing-loafer',(8,335)),('blind-stripling',(8,337)),
+                          ('mary-slavey',(8,128)),('turnkey-daughter',(8,133)),
+                          ('saint-leger-woman',(8,283)),('nolan-wife',(8,270)),
+                          ('horsepoliceman',(8,122)),('power-father',(8,122)),
+                          ('farmers-daughter',(8,148)),('lord-lieutenant',(8,365)),
+                          ('portobello-soldier',(8,236)),('tom-wall-son',(8,118))]:
+                self.assertIn(k,where(ed,cid),(ed,cid))
+
+    def test_the_blind_stripling_is_followed_across_five_paragraphs(self):
+        for ed in ['original-en','modern-en']:
+            for k in [(8,337),(8,339),(8,343),(8,353)]:
+                self.assertIn(k,where(ed,'blind-stripling'),(ed,k))
+        # 8:360 is a fifth, in the modern edition only: There the blind man goes
+        # into Frederick Street, where Joyce writes only There he goes.
+        self.assertIn((8,360),where('modern-en','blind-stripling'))
+        self.assertNotIn((8,360),where('original-en','blind-stripling'))
+        for ed in ['original-en','modern-en']:
+            # Penrose surfaces two paragraphs later and is a different man:
+            # Bloom could not get the name at 8:39 and gets it at 8:355.
+            self.assertEqual([(8,355)],[k for k in where(ed,'penrose') if k[0]==8],ed)
+            self.assertNotIn('penrose',ids(ed,8,39),ed)
+            # 8:39 names the dayfather instead, who is Monks of episode 7.
+            self.assertIn('monks',ids(ed,8,39),ed)
+
+    def test_the_editions_diverge_on_three_names(self):
+        # Joyce truncates Boylan's name at 8:35 (They are not Boyl:) where the
+        # modern edition writes Boylan's men; the modern edition supplies
+        # Boylan again at 8:255 and Lot's wife at 8:35.
+        self.assertNotIn('blazes-boylan',ids('original-en',8,35))
+        self.assertIn('blazes-boylan',ids('modern-en',8,35))
+        self.assertNotIn('blazes-boylan',ids('original-en',8,255))
+        self.assertIn('blazes-boylan',ids('modern-en',8,255))
+        self.assertNotIn('lots-wife',ids('original-en',8,35))
+        self.assertIn('lots-wife',ids('modern-en',8,35))
+        # and the modern edition supplies Reuben J's surname in both places
+        self.assertIn("Reuben J. Dodd's son",said('modern-en','reuben-son'))
+
+    def test_the_deliberate_gaps_of_episode_eight(self):
+        for ed in ['original-en','modern-en']:
+            # 8:144 is Bloom guessing what the initials A. E. stand for, not
+            # the Albert Edward of Deasy's mantelpiece.
+            self.assertNotIn('albert-edward',ids(ed,8,144),ed)
+            # 8:11 is O'Connell bridge, 8:158 is Adam court, 8:140 is Walter
+            # Sexton's window, 8:336 is Gray's confectioner's.
+            self.assertNotIn('oconnell',ids(ed,8,11),ed)
+            self.assertNotIn('adam',ids(ed,8,158),ed)
+            self.assertNotIn('walter-goulding',ids(ed,8,140),ed)
+            self.assertNotIn('john-gray',ids(ed,8,336),ed)
+            # 8:172 is a voice calling Jack, not Jack Power.
+            self.assertNotIn('jack-power',ids(ed,8,172),ed)
+            # Our Saviour at 8:7 carries no card, as everywhere in this package.
+            self.assertEqual([],[c for c in ids(ed,8,7)
+                                 if 'christ' in c or 'jesus' in c],ed)
+
+
+class Tables(unittest.TestCase):
+    def test_no_split_or_phrase_key_is_declared_twice(self):
+        # A repeated dict literal silently shadows the earlier one and drops
+        # every key in it. This has happened twice while authoring episodes 6
+        # and 7, and once undetected: a second 'Jack' table dropped the episode
+        # 7 keys for J. J. O'Molloy until this guard was written.
+        import ast,collections
+        tree=ast.parse(open('build_ulysses.py',encoding='utf-8').read())
+        dupes=[]
+        for node in ast.walk(tree):
+            if not isinstance(node,ast.Assign):continue
+            names=[t.id for t in node.targets if isinstance(t,ast.Name)]
+            if not (set(names)&{'SPLIT','PHRASE'}):continue
+            if not isinstance(node.value,ast.Dict):continue
+            seen=collections.Counter()
+            for k in node.value.keys:
+                try:seen[ast.literal_eval(k)]+=1
+                except Exception:pass
+            dupes+= [(names[0],k) for k,c in seen.items() if c>1]
+        self.assertEqual([],dupes)
