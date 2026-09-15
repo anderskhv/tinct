@@ -104,6 +104,26 @@ export function buildRangeSelectionSegments(content: Element, range: Range, getT
       segments.push({ paragraphIndex, startOffset: start, endOffset: end, text: text.slice(start, end) })
     }
   }
+  // The popup text is trimmed globally, so keep persisted ranges consistent
+  // with it: remove whitespace only at the outer edges of the selection.
+  // Spaces between selected words/paragraphs remain part of the range and are
+  // painted continuously by ParagraphRenderer.
+  if (segments.length > 0) {
+    const first = segments[0]
+    const leading = first.text.match(/^\s*/u)?.[0].length ?? 0
+    if (leading > 0) {
+      first.startOffset += leading
+      first.text = first.text.slice(leading)
+    }
+    const last = segments[segments.length - 1]
+    const trailing = last.text.match(/\s*$/u)?.[0].length ?? 0
+    if (trailing > 0) {
+      last.endOffset -= trailing
+      last.text = last.text.slice(0, -trailing)
+    }
+    if (!first.text) segments.shift()
+    if (segments.length > 0 && !segments[segments.length - 1].text) segments.pop()
+  }
   return segments
 }
 

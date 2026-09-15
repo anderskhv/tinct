@@ -78,6 +78,41 @@ describe('buildSelectionSegments', () => {
 })
 
 describe('buildRangeSelectionSegments', () => {
+  it('excludes outer whitespace while preserving selected word offsets', () => {
+    const content = document.createElement('div')
+    const p = document.createElement('p')
+    p.setAttribute('data-paragraph-index', '0')
+    p.textContent = ' Hello world '
+    content.appendChild(p)
+    document.body.appendChild(content)
+    const range = document.createRange()
+    range.setStart(p.firstChild!, 0)
+    range.setEnd(p.firstChild!, p.textContent!.length)
+    const segs = buildRangeSelectionSegments(content, range, () => ' Hello world ')
+    expect(segs).toEqual([{ paragraphIndex: 0, startOffset: 1, endOffset: 12, text: 'Hello world' }])
+    document.body.removeChild(content)
+  })
+
+  it('keeps whitespace between multi-paragraph selection segments', () => {
+    const content = document.createElement('div')
+    for (const [i, text] of [' first ', 'second '].entries()) {
+      const p = document.createElement('p')
+      p.setAttribute('data-paragraph-index', String(i))
+      p.textContent = text
+      content.appendChild(p)
+    }
+    document.body.appendChild(content)
+    const range = document.createRange()
+    range.setStart(content.children[0].firstChild!, 0)
+    range.setEnd(content.children[1].firstChild!, 7)
+    const segs = buildRangeSelectionSegments(content, range, i => [' first ', 'second '][i] || '')
+    expect(segs).toEqual([
+      { paragraphIndex: 0, startOffset: 1, endOffset: 7, text: 'first ' },
+      { paragraphIndex: 1, startOffset: 0, endOffset: 6, text: 'second' },
+    ])
+    document.body.removeChild(content)
+  })
+
   it('extracts the selected slice of a single paragraph from a DOM Range', () => {
     const content = document.createElement('div')
     const p = document.createElement('p')
