@@ -6,7 +6,7 @@ it resolves some of Joyce's run-together words and normalises punctuation, but
 it does not rewrite the prose and it does not modernise the names. Where the two
 differ on a name the difference is recorded on the card.
 
-Episodes 1 to 6 are authored. The rest are not.
+Episodes 1 to 7 are authored. The rest are not.
 
 Scope: named persons — the Dublin cast, the figures they remember, and the
 writers, saints, heresiarchs and stage characters they quote. Peoples, places,
@@ -97,7 +97,7 @@ for row in [
 
 # ========================= EPISODE 2 — Nestor
 for row in [
-('deasy','Mr Deasy','The headmaster of the school at Dalkey where Stephen teaches: an Ulster protestant and a unionist who pays Stephen his salary in sovereigns and shillings, lectures him on saving money, dictates a letter to the press about foot and mouth disease, and tells him that England is in the hands of the jews and that Ireland never persecuted them because she never let them in.','Deasy','major'),
+('deasy','Mr Garrett Deasy','The headmaster of the school at Dalkey where Stephen teaches: an Ulster protestant and a unionist who pays Stephen his salary in sovereigns and shillings, lectures him on saving money, dictates a letter to the press about foot and mouth disease, and tells him that England is in the hands of the jews and that Ireland never persecuted them because she never let them in.','Garrett Deasy|Deasy','major'),
 ('cochrane','Cochrane','One of Stephen\u2019s pupils, who is asked what city sent for Pyrrhus and answers Tarentum, and who is on the same side as Halliday at hockey.','',),
 ('armstrong','Armstrong','The boy with the bag of figrolls in his satchel, asked what was the end of Pyrrhus and offering a pier. Welloff people, proud that their eldest son was in the navy; Vico Road, Dalkey.','Armstrong'),
 ('comyn','Comyn','The boy who laughs, and who is told to ask Stephen about Pyrrhus.','Comyn'),
@@ -395,12 +395,95 @@ for row in [
 ('crusoe-friday','Friday','Who buried him. The second Friday in the sentence is the day of the week, and carries no card.','','reference','literary-figure'),
 ]:add(*row)
 
+# ========================= EPISODE 7 — Aeolus
+for row in [
+# --- the Freeman's Journal and the Evening Telegraph
+('red-murray','Red Murray','Who cuts Keyes’s advertisement out of the paper with his long shears in four clean strokes, offers a par to go with it, and whispers that Brayden’s face is like Our Saviour’s.','Red Murray|red Murray'),
+('davy-stephens','Davy Stephens','Minute in a large capecoat, a small felt hat crowning his ringlets, who passes out of Ruttledge’s office with a roll of papers under his cape: a king’s courier.','Davy Stephens'),
+('william-brayden','William Brayden','Of Oaklands, Sandymount: the stately figure who goes up the staircase steered by an umbrella, a solemn beardframed face. Simon Dedalus says all his brains are in the nape of his neck.','WILLIAM BRAYDEN|William Brayden|BRAYDEN|Brayden'),
+('nannetti','Councillor Nannetti','The foreman of the machine room, who takes Bloom’s cutting, scratches under his alpaca jacket, and says we can do that, let him give us a three months’ renewal. Member for College green, and soon to be called my lord mayor. He does not hear the machines.','Nannetti','major'),
+('monks','Monks','The dayfather: an old man, bowed, spectacled, aproned, called for four times across the caseroom to find the archbishop’s letter. Queer lot of stuff he must have put through his hands in his time.','',),
+('machugh','Professor MacHugh','Unshaven and blackspectacled, eating water biscuits by the window, who teaches the blatant Latin language and would rather profess Greek. He jeers at Dan Dawson’s speech, sets Rome’s cloacal obsession against the radiance of the intellect, and recites John F Taylor’s speech from memory.','MacHugh','major'),
+('jj-omolloy','J. J. O’Molloy','Cleverest fellow at the junior bar he used to be, with a hectic flush and practice dwindling, turning the pink pages of the file and asking the editor for money he does not get. He quotes Seymour Bushe on the Moses of Michelangelo. The others call him Jack.','J. J. O’Molloy|J. J. O\'Molloy|O’Molloy|O\'Molloy','major'),
+('myles-crawford','Myles Crawford','The editor: a scarlet beaked face crested by a comb of feathery hair, bold blue eyes, in and out of his sanctum all afternoon, jingling his keys, declaiming, and pretty well on. He tells Stephen to write something with a bite in it, and sends Keyes a message that will not go into a newspaper.','Myles Crawford','major'),
+('lenehan','Lenehan','Who comes out of the inner office with Sport’s tissues, gives the Gold cup to Sceptre with O. Madden up, lights everybody’s cigarettes, and will not be put off his riddle: what opera resembles a railwayline? The Rose of Castile. Rows of cast steel.','Lenehan','major'),
+('omadden-burke','Mr O’Madden Burke','Tall in copious grey of Donegal tweed, who brings Stephen in — Youth led by Experience visits Notoriety — and speaks in the manner of a man quoting himself. They went forth to battle, but they always fell.','O’Madden Burke|O\'Madden Burke','major'),
+('the-newsboy','The newsboy','Seized by the collar as the others scamper down the steps: it wasn’t me, sir, it was the big fellow shoved me, sir. He was waiting for the racing special.','',),
+('pat-farrell','Pat Farrell','The big fellow who shoved him, named by the boy and pointed out round the doorframe.','Pat Farrell'),
+# --- the ad, and the people in it
+('alexander-keyes','Alexander Keyes','Tea, wine and spirit merchant, whose advertisement Bloom is trying to renew: two crossed keys, a circle, and the house of keys — innuendo of home rule, from the Manx parliament. He gets a two months’ renewal and an answer from the editor that Bloom does not deliver.','Keyes','major'),
+('ruttledge','Ruttledge','Whose office door creaks and whispers ee: cree, twice, and again in Bloom’s ear in episode 11.','Ruttledge'),
+('mario','Mario','The tenor, who was said to be the picture of Our Saviour: Jesusmario with rougy cheeks, doublet and spindle legs, singing in Martha.','Mario'),
+('long-john-fanning','Long John','Who is backing Nannetti for lord mayor, they say. The modern edition gives him the surname here that the older one keeps until episode 10: Long John Fanning, the subsheriff.','',),
+('phil-blake','Phil Blake','Of the weekly Pat and Bull story in the Freeman, in Bloom’s list of what really sells a paper. Not the Blake of Stephen’s thought in episode 2.','',),
+# --- the men in the office talk about
+('chatterton','Hedges Eyre Chatterton','The vicechancellor, Ned Lambert’s granduncle or greatgranduncle, close on ninety and living to spite them: he writes an odd shaky cheque or two on gale days. Not the Master Abraham Chatterton of episode 15.','',),
+('wetherup','Wetherup','Who always said that: get a grip of them by the stomach.','Wetherup'),
+('gabriel-conroy','Gabriel Conroy','With whom J. J. O’Molloy is believed to do some literary work for the Express.','Gabriel Conroy'),
+('o-madden-jockey','O. Madden','Up on Sceptre, the dead cert for the Gold cup that Lenehan gives out and that does not win.','O. Madden'),
+('kendal-bushe','Kendal Bushe','Whom the editor names and corrects himself out of: Kendal Bushe or I mean Seymour Bushe. An earlier man of the same family and the same reputation at the bar.','Kendal Bushe'),
+('palles','Chief baron Palles','Of the story J. J. O’Molloy begins at the royal university dinner and never finishes, because Lenehan wants his riddle first.','Palles'),
+('whiteside','Whiteside','A master of forensic eloquence, first of the editor’s three men at the bar, with Isaac Butt and silvertongued O’Hagan. Where have you a man now like those fellows?','Whiteside'),
+('isaac-butt','Isaac Butt','The second of them.','Isaac Butt'),
+('ohagan','O’Hagan','Silvertongued, the third.','O’Hagan|O\'Hagan'),
+('grattan','Henry Grattan','Who wrote for this very paper, with Flood: Irish volunteers, established 1763. J. J. O’Molloy brings him in as an orator and the editor takes him back as a journalist.','Grattan'),
+('flood','Flood','The other of the two. Not the flood of the year Hamilton Long’s was founded.','',),
+('demosthenes','Demosthenes','Named in the same list, with Edmund Burke, as the eloquence J. J. O’Molloy will not be told the bar has lost.','Demosthenes'),
+('edmund-burke','Edmund Burke','The last of the list. Not the O’Madden Burke in the room.','Edmund Burke'),
+('harmsworth','Harmsworth','Of the farthing press, Ignatius Gallaher’s Chapelizod boss.','Harmsworth'),
+('dr-lucas','Dr Lucas','Named with the paper’s founding: established 1763.','Dr Lucas'),
+('john-philpot-curran','John Philpot Curran','Who have you now like him, the editor asks. Not the Curran of Stephen’s list of debts, nor Sara Curran.','John Philpot Curran'),
+('tim-healy','Tim Healy','Sitting with Gerald Fitzgibbon, rumour has it, on the Trinity college estates commission.','',),
+('fitzgibbon','Gerald Fitzgibbon','Mr Justice Fitzgibbon, the present lord justice of appeal, whose speech to the youth of Ireland John F Taylor rose to answer. You know Gerald Fitzgibbon: then you can imagine the style of his discourse. Not Fitzgibbon street.','',),
+('john-f-taylor','John F Taylor','Who had come from a sickbed, with a growth of shaggy beard and a loose white silk neckcloth, and made the finest display of oratory professor MacHugh ever heard — the speech of the Egyptian highpriest to the youthful Moses, which MacHugh gives back from memory in the office.','John F Taylor|John F. Taylor','major'),
+('magennis','Professor Magennis','Who was speaking to J. J. O’Molloy about Stephen, and thinks he must have been pulling A. E.’s leg.','Magennis'),
+('blavatsky','Madame Blavatsky','That Blavatsky woman, who started the whole thing. A nice old bag of tricks.','Blavatsky'),
+# --- the invincibles, and the journalism made out of them
+('skin-the-goat','Skin-the-Goat','Fitzharris, who drove the car for an alibi on the day of the Phoenix park murders, and who keeps the cabman’s shelter down at Butt bridge now — they say. Holohan told Mr O’Madden Burke so.','Skin-the-Goat|Fitzharris','major'),
+('joe-brady','Joe Brady','One of the invincibles, on the editor’s map of the route and on the commemoration postcard Lady Dudley nearly bought.','Joe Brady'),
+('tim-kelly','Tim Kelly','Another, whom the editor names and then corrects to Kavanagh.','Tim Kelly'),
+('kavanagh','Kavanagh','The name he corrects it to. Not Charley Kavanagh of episode 8, nor Kavanagh’s public house.','',),
+('number-one','Number One','The unnamed head of the invincibles, on the same postcard. The book never gives him another name.','Number One'),
+('gumley','Gumley','A friend of Stephen’s father, now minding stones for the corporation as a night watchman — let Gumley mind the stones, see they don’t run away.','Gumley'),
+('dick-adams','Dick Adams','The besthearted bloody Corkman the Lord ever put the breath of life in, present with the editor when Ignatius Gallaher cabled the route to New York.','Dick Adams'),
+('gregor-grey','Gregor Grey','Who made the design for the advertisement the map was built out of. That gave him the leg up. Not sir John Gray of the statue.','Gregor Grey'),
+('paddy-hooper','Paddy Hooper','Who worked Tay Pay and got Gallaher his opening, and who is round at the Oval now with Jack Hall. Not the alderman Hooper of the stuffed owl.','Paddy Hooper'),
+('jack-hall','Jack Hall','With whom he came over last night.','Jack Hall'),
+('tay-pay','Tay Pay','T. P. O’Connor, who took Gallaher on to the Star. The older edition spells him as the initials are said; the modern edition writes the name.','Tay Pay|T.P. O’Connor|T.P. O\'Connor|T. P. O’Connor|T. P. O\'Connor'),
+('blumenfeld','Blumenfeld','Whom Gallaher is in with now.','Blumenfeld'),
+('pyatt','Pyatt','He was all their daddies, the editor says. Lenehan makes him the father of scare journalism and the brother-in-law of Chris Callinan.','Pyatt'),
+('chris-callinan','Chris Callinan','His brother-in-law, in Lenehan’s footnote. Lenehan tells a longer story about him and Bloom on the Featherbed Mountain in episode 10.','Chris Callinan'),
+('lady-dudley','Lady Dudley','Walking home through the park to see the trees blown down by the cyclone, who thought she would buy a view of Dublin and was offered a commemoration postcard of Joe Brady instead. Right outside the viceregal lodge, imagine.','Lady Dudley'),
+('bobrikoff','General Bobrikoff','The lord lieutenant of Finland, shot. You look as though you had done the deed, J. J. O’Molloy tells Stephen and Mr O’Madden Burke, looking at their ties.','General Bobrikoff|Bobrikoff'),
+('jakes-mccarthy','Jakes M’Carthy','Father, Son and Holy Ghost and Jakes M’Carthy — the editor’s formula for putting everybody into it. The modern edition spells him McCarthy.','Jakes M’Carthy|Jakes M\'Carthy|Jakes McCarthy'),
+# --- what they quote
+('xenophon','Xenophon','Who looked upon Marathon, and Marathon looked on the sea: Mr Dedalus quoting Byron at Dan Dawson’s prose.','Xenophon'),
+('cicero','Cicero','A recently discovered fragment of whom, professor MacHugh says with pomp of tone, is Dan Dawson’s speech in this morning’s paper.','Cicero'),
+('sallust','Sallust','In mourning for whom, Mulligan says of professor MacHugh’s black clothes. Whose mother is beastly dead.','Sallust'),
+('salisbury','Lord Salisbury','A sofa in a westend club — where professor MacHugh looks for the spirituality of the Roman and the Englishman and does not find it.','Lord Salisbury'),
+('maximilian-odonnell','Maximilian Karl O’Donnell','Graf von Tirconnell in Ireland, the Irishman who saved the emperor’s life on the ramparts of Vienna and whose heir was sent over to make the king an Austrian fieldmarshal. Wild geese.','Maximilian Karl O’Donnell|Maximilian Karl O\'Donnell'),
+('macduff','Macduff','Lay on, Macduff — Mr O’Madden Burke’s word for going to Mooney’s, with a lunge of his umbrella.','Macduff','reference','literary-figure'),
+('michelangelo','Michelangelo','Whose Moses in the vatican Seymour Bushe cited, and described in the period J. J. O’Molloy repeats: that stony effigy in frozen music, horned and terrible. Not the Michelangelo Hayes of episode 12.','',),
+('moses','Moses','Twice over in this episode: the statue in the vatican, and the youthful Moses of John F Taylor’s speech, who did not listen to the Egyptian highpriest and so brought the chosen people out of their house of bondage. He died without having entered the land of promise, which is where Stephen’s parable of the plums ends up.','','reference','major'),
+('saint-augustine','Saint Augustine','Whose sentence comes into Stephen’s head in the middle of the speech — those things are good which yet are corrupted — and is recognised a beat too late. Ah, curse you! That’s saint Augustine.','saint Augustine|Saint Augustine'),
+('isis','Isis','Whose abode, with Osiris, the Egyptian highpriest sets against the local and obscure idol of the Jews. Not Isis Unveiled, the book on the shelf in episode 9.','',),
+('osiris','Osiris','The second of the four.','Osiris'),
+('horus','Horus','The third.','Horus'),
+('ammon-ra','Ammon Ra','The fourth: ours thunder and the seas.','Ammon Ra'),
+('antisthenes','Antisthenes','A disciple of Gorgias, of whom it is said that none could tell whether he were bitterer against others or against himself. He wrote a book taking the palm of beauty from Argive Helen and handing it to poor Penelope, and professor MacHugh says Stephen reminds him of it.','Antisthenes'),
+('gorgias','Gorgias','The sophist whose disciple he was.','Gorgias'),
+('penelope','Penelope','Poor Penelope, who got the palm of beauty in that book. Odysseus’s wife at the loom, and the last word of this one.','',),
+('penelope-rich','Penelope Rich','The other Penelope, who follows in Stephen’s head one line later: Sidney’s Stella, and not Homer’s wife at all.','Penelope Rich'),
+('kate-collins','Miss Kate Collins','Proprietress of the north city diningrooms in Marlborough street, from whom the two Dublin vestals buy one and fourpenceworth of brawn and four slices of panloaf.','Kate Collins'),
+('anne-kearns','Anne Kearns','One of the two: she has the lumbago, for which she rubs on Lourdes water given her by a lady who got a bottleful from a passionist father. The other is Florence MacCabe, the midwife Stephen watched come down to the strand in episode 3.','Anne Kearns'),
+]:add(*row)
+
 updates={}
 for e in entities:e['snapshots']=[dict(after=list(at),body=body) for at,body in updates.get(e['id'],[])]
-print(len(entities),'entities authored: episodes 1-6')
+print(len(entities),'entities authored: episodes 1-7')
 BASE=Path(__file__).resolve().parent
 (BASE/'editorial.json').write_text(json.dumps(dict(
  bookId='ulysses',
- contentVersion='2026-09-14.6',
- coverage='Both full English editions, episodes 1-6 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.',
+ contentVersion='2026-09-15.7',
+ coverage='Both full English editions, episodes 1-7 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

@@ -1,12 +1,12 @@
 # Ulysses character package — IN PROGRESS
 
-**Episodes 1 to 6 of 18 are authored. The rest are not.** Status stays
+**Episodes 1 to 7 of 18 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole book is
 covered.
 
-Current state: 307 entities authored, 306 bound in the older edition and 304 in
-the modern one, 2,208 and 2,211 exact mentions, 59 focused tests. Content
-revision 2026-09-14.6.
+Current state: 381 entities authored, 380 bound in the older edition and 378 in
+the modern one, 2,682 and 2,695 exact mentions, 65 focused tests. Content
+revision 2026-09-15.7.
 
 ## What is hard about this book
 
@@ -474,6 +474,78 @@ is set in Gutenberg italics, so the alias reached 6:320 and 6:323 and not that
 one — found, again, by the edition-asymmetry census, because the modern edition
 has no italics there. Keyed, and pinned by a test.
 
+## Editorial checks — episode 7 (*Aeolus*)
+
+The newspaper office. 539 paragraphs, 74 new entities, and the first episode in
+which Stephen and Bloom are in the same building — Bloom goes out one door as
+Stephen comes in another, and they never meet.
+
+**1. Namesakes.** *Bushe is three men in two paragraphs*: the editor says
+*Bushe? Well, yes: Bushe, yes* of Seymour Bushe the K.C., then corrects himself
+out of **Kendal Bushe**, an earlier man of the same family — so the longer alias
+takes that span and the shorter one takes the other two. *Fitzgibbon* is the
+lord justice of appeal here and Fitzgibbon street at 10:13. *Flood* is the Irish
+volunteer here and, in the modern edition, *the year of the Flood* at 5:112.
+*Grey* is Gregor Grey, who made the design the editor's map was built out of,
+and sir John Gray on his pavement island at 7:535. *Hooper* is Paddy Hooper of
+the press and alderman Hooper of the stuffed owl. *Kavanagh* is the invincible
+the editor corrects Tim Kelly to, and not Charley Kavanagh nor Kavanagh's public
+house. *Healy*, *Chatterton*, *Michelangelo*, *Isis*, *Moses*, *Blake*, *Jack*
+and *Crawford* are keyed for the same reason, each with the other bearer in the
+comment.
+
+**Two Penelopes, one line apart.** *Poor Penelope. Penelope Rich.* — Homer's
+wife at the loom, whom Antisthenes gave the palm of beauty to, and then Sidney's
+Stella, who is a different woman and comes into Stephen's head on the rebound.
+Keyed by occurrence.
+
+**Dedalus is both men in one episode.** 7:21 is Simon, quoted by Bloom on
+Brayden's neck; 7:109 to 7:168 is Simon in the room; **7:258 and 7:497 are his
+son**, who comes in with Mr O'Madden Burke after his father has gone out for a
+drink. The table is keyed paragraph by paragraph and a test pins the two
+exceptions.
+
+**2. Person or not.** Not cast: *Uncle Toby's page for tiny tots* and *Paddy
+Kelly's Budget*, *Pue's Occurrences*, *The Skibbereen Eagle* and *the Old Woman
+of Prince's street*, which are newspapers and columns; *the Joe Miller* at
+7:293, which is a joke-book used as a common noun for a joke (the modern edition
+writes plainly *the joke*, which settles it); *Sceptre* and *Throwaway*, horses;
+*D. and T. Fitzgerald*, a firm of solicitors; *Madam, I'm Adam* at 7:357, a
+palindrome; *Adam and Eve's* at 7:509, a church; *Pat and Bull story* at 7:42, a
+pun; *In Martha* at 7:27, an opera. **Our Saviour** at 7:22 and 7:26 carries no
+card, as everywhere in this package, though Mario the tenor beside him does.
+
+**3. Scriptural and mythological references.** *Moses* is cast twice over and
+once: the statue in the vatican that Seymour Bushe described, and the youthful
+Moses of John F Taylor's speech who did not listen to the Egyptian highpriest —
+and the same man in Stephen's parable, who died without entering the land of
+promise. *Isis, Osiris, Horus and Ammon Ra* are cast from the highpriest's
+speech; *saint Augustine* from the sentence that surfaces in Stephen's head in
+the middle of it and is recognised a beat too late.
+
+**4. Ambiguous references, deliberately unbound.** *His grace phoned down twice
+this morning* at 7:30 and *the archbishop's letter* at 7:86 are almost certainly
+William J. Walsh, cast in episode 5 — but this episode never says so, and the
+inference is left to the reader rather than made into a binding. *The Old Woman
+of Prince's street* is the paper. *The gentleman at the turnstile*, *the
+telegram boy*, *the typesetter* and *the shoeblacks* are crowd and are not cast;
+**the newsboy** is, because he speaks twice and is seized by the collar.
+
+**5. Spot-read.** Twenty mentions, ten from each edition; all twenty were right.
+The adjacency sweep found four paragraphs where a name was reaching only half
+its span (*Mr Crawford* at 7:184 and 7:488, *Patrick Dignam* at 7:39, *Long John
+Fanning* at 7:45) and all four were widened.
+
+**6. Both editions independently.** Nothing is bound in the older edition and
+not in the modern. Six go the other way, and every one of them is the modern
+edition **supplying a name Joyce did not write**: *Nannetti* at 7:42 and 7:62
+(for *the foreman* and for *Nannan*), *Bloom* at 7:67, *Patrick Dignam* at 7:99,
+*Gallaher* at 7:358, and *Mario* at 7:27 — where Joyce's compound **Jesusmario**
+is split into *Jesus-Mario*, which is the same mechanism that makes
+*pseudomalachi* and *Sonmulligan* bindable in episode 9. The modern edition also
+gives Long John his surname at 7:45, writes *T.P. O'Connor* for *Tay Pay* and
+*McCarthy* for *M'Carthy*, and drops *the Joe Miller* out of Lenehan's limerick.
+
 ## Source defects — recorded, not repaired
 
 No edition byte was touched.
@@ -489,7 +561,7 @@ No edition byte was touched.
 
 ## Remaining work
 
-- **Episodes 7–18.** 5,746 paragraphs, and the three longest are 15 (*Circe*,
+- **Episodes 8–18.** 5,207 paragraphs, and the three longest are 15 (*Circe*,
   1,441 paragraphs), 17 (*Ithaca*, 654) and 11 (*Sirens*, 635). Episode 18
   (*Penelope*) is eight paragraphs of Molly's monologue and will be the densest
   page-for-page in the book.
@@ -514,6 +586,6 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_ulysses.py --check`, then `python3 -m unittest
-discover -s books/characters -p 'test_*.py'` — 59 focused tests for this book so
+discover -s books/characters -p 'test_*.py'` — 65 focused tests for this book so
 far. No edition changes, no network generation, no API spend: every card here was
 written in the authoring conversation and committed as a file.

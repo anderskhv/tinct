@@ -1,6 +1,6 @@
 """Guards for the Ulysses character package.
 
-Episodes 1 to 6 of 18 are authored. These tests pin the identifications that took a
+Episodes 1 to 7 of 18 are authored. These tests pin the identifications that took a
 reading to make, and the traps that a later pass must not undo.
 """
 import json,unittest
@@ -13,8 +13,8 @@ def ids(ed,ch,pi):return sorted({m['characterId'] for m in mentions(ed) if m['ch
 CARDS={e['id']:e for e in json.loads(open('ulysses/editorial.json').read())['entities']}
 
 class Ulysses(unittest.TestCase):
-    def test_only_the_first_six_episodes_are_authored(self):
-        self.assertIn('episodes 1-6 of 18',REPORT['scope'])
+    def test_only_the_first_seven_episodes_are_authored(self):
+        self.assertIn('episodes 1-7 of 18',REPORT['scope'])
         for ed in ['original-en','modern-en']:
             self.assertEqual(REPORT['editions'][ed]['chapters'],18,ed)
             self.assertEqual(REPORT['editions'][ed]['paragraphs'],7148,ed)
@@ -69,7 +69,7 @@ class Ulysses(unittest.TestCase):
         from build_ulysses import SPLIT
         table,default=SPLIT['Dedalus']
         self.assertIsNone(default)
-        self.assertTrue(all(ch in (1,2,6) for ch,_ in table))
+        self.assertTrue(all(ch in (1,2,6,7) for ch,_ in table))
         for ed in ['original-en','modern-en']:
             self.assertIn((1,23),where(ed,'stephen'),ed)
             for k in [(6,1),(10,1)]:
@@ -178,8 +178,8 @@ class Ulysses(unittest.TestCase):
             self.assertEqual([(1,335)],where(ed,'lily-carlisle'),ed)  # six women called Lily
             self.assertEqual([(1,255)],where(ed,'butterly'),ed)       # 15:449 is Maurice Butterly
             self.assertEqual([(1,329),(4,135)],where(ed,'bannon'),ed)  # Milly writes home about him
-            self.assertEqual([(1,232),(1,269),(1,275),(2,74),(3,79),(5,65),(6,333)],
-                             where(ed,'hamlet'),ed)
+            self.assertEqual([(1,232),(1,269),(1,275),(2,74),(3,79),(5,65),(6,333),
+                              (7,154)],where(ed,'hamlet'),ed)
             self.assertEqual([(1,275),(2,74),(2,113),(6,168)],
                              [k for k in where(ed,'shakespeare') if k[0]!=6 or k[1]!=333],ed)
 
@@ -218,7 +218,7 @@ class Ulysses(unittest.TestCase):
             self.assertEqual([(2,91)],where(ed,'halliday'),ed)
             self.assertEqual([(2,123)],where(ed,'curran'),ed)
             self.assertEqual([(2,123),(3,35)],where(ed,'temple'),ed)  # 3:35 is the same man
-            self.assertEqual([(2,123),(3,57)],where(ed,'russell'),ed)  # A E on the strand
+            self.assertEqual([(2,123),(3,57),(7,407)],where(ed,'russell'),ed)
             self.assertEqual([(2,6)],where(ed,'blake'),ed)
             self.assertEqual([(2,151),(2,152)],where(ed,'henry-blackwood-price'),ed)
             self.assertEqual([(2,141)],where(ed,'duke-of-westminster'),ed)
@@ -263,7 +263,7 @@ class Ulysses(unittest.TestCase):
         # commonest way to lose half a book's mentions in this library.
         for ed in ['original-en','modern-en']:
             self.assertIn((2,129),where(ed,'oconnell'),ed)
-            self.assertEqual([(2,174)],where(ed,'orourke'),ed)
+            self.assertEqual([(2,174),(7,276)],where(ed,'orourke'),ed)
         self.assertIn('O\u2019Connell',said('original-en','oconnell'))
         self.assertIn("O'Connell",said('modern-en','oconnell'))
 
@@ -420,7 +420,7 @@ class Calypso(unittest.TestCase):
         for ed in ['original-en','modern-en']:
             self.assertEqual([],ids(ed,4,38),ed)
             self.assertEqual([(4,0),(4,5),(4,7),(4,47),(4,64),(4,80),(4,134),(4,164)],
-                             [k for k in where(ed,'leopold') if k[0]==4],ed)
+                             sorted([k for k in where(ed,'leopold') if k[0]==4]),ed)
             self.assertEqual([(4,27),(4,57),(4,63),(4,87),(4,94),(4,135),(4,146)],
                              [k for k in where(ed,'molly') if k[0]==4],ed)
             self.assertIn('Mr Leopold Bloom',said(ed,'leopold'),ed)
@@ -569,8 +569,10 @@ class LotusEaters(unittest.TestCase):
         for ed in ['original-en','modern-en']:
             self.assertIn((5,78),where(ed,'martha-clifford'),ed)
             self.assertIn((6,330),where(ed,'martha-clifford'),ed)
-            self.assertEqual([(5,87)],where(ed,'martha-and-mary'),ed)
-            self.assertEqual(2,len([m for m in mentions(ed)
+            self.assertEqual([(5,87),(7,24)],where(ed,'martha-and-mary'),ed)
+            # 5:87 names them once each; 7:24 names them again, in the other
+            # order, over the same picture.
+            self.assertEqual(4,len([m for m in mentions(ed)
                                     if m['characterId']=='martha-and-mary']),ed)
 
     def test_michael_reaches_back_into_episode_one(self):
@@ -627,7 +629,11 @@ class Hades(unittest.TestCase):
             table,default=SPLIT[name]
             self.assertIsNone(default,name)
             for (ch,pi),who in table.items():
-                self.assertEqual('stephen' if ch<3 else 'simon-dedalus',who,(name,ch,pi))
+                if (ch,pi) in [(7,258),(7,497)]:
+                    self.assertEqual('stephen',who,(name,ch,pi))   # Stephen, named
+                else:
+                    self.assertEqual('stephen' if ch<3 else 'simon-dedalus',who,
+                                     (name,ch,pi))
         for ed in ['original-en','modern-en']:
             self.assertIn((6,3),where(ed,'simon-dedalus'),ed)
             self.assertNotIn('stephen',ids(ed,6,3),ed)
@@ -671,7 +677,7 @@ class Hades(unittest.TestCase):
             self.assertNotIn('paddy-dignam',ids(ed,6,65),ed)
             self.assertIn('paddy-leonard',ids(ed,6,65),ed)
             # Grey sprouting beard at 6:330 is a colour, not sir John Gray.
-            self.assertEqual([(6,113)],where(ed,'john-gray'),ed)
+            self.assertEqual([(6,113),(7,535)],where(ed,'john-gray'),ed)
             # "By the holy Paul!" at 6:253 is an oath.
             self.assertNotIn('saint-paul',ids(ed,6,253),ed)
             # The Lily of Killarney at 6:80 is an opera.
@@ -691,7 +697,7 @@ class Hades(unittest.TestCase):
 
     def test_blooms_father_and_mother_are_here_and_neither_is_named(self):
         for ed in ['original-en','modern-en']:
-            self.assertEqual([(5,65),(5,68),(6,171),(6,236),(6,345),(6,386)],
+            self.assertEqual([(5,65),(5,68),(6,171),(6,236),(6,345),(6,386),(7,99)],
                              where(ed,'rudolph-bloom'),ed)
             self.assertEqual([(6,348)],where(ed,'ellen-bloom'),ed)
 
@@ -713,3 +719,86 @@ class Hades(unittest.TestCase):
         # so the alias reaches 6:320 and 6:323 and not this one. Keyed.
         for ed in ['original-en','modern-en']:
             self.assertEqual([(6,320),(6,323),(6,325)],where(ed,'terence-mulcahy'),ed)
+
+class Aeolus(unittest.TestCase):
+    """Episode 7. The newspaper office: Stephen and Bloom in the same room for
+    the first time, and never in it together."""
+
+    def test_the_two_dedaluses_in_one_episode(self):
+        # 7:21 is Simon, quoted by Bloom on Brayden's neck; 7:109 to 7:168 is
+        # Simon in the room; 7:258 and 7:497 are his son, who comes in after he
+        # has gone out.
+        for ed in ['original-en','modern-en']:
+            seven=[k for k in where(ed,'simon-dedalus') if k[0]==7]
+            self.assertIn((7,21),seven,ed)
+            self.assertIn((7,109),seven,ed)
+            self.assertNotIn((7,258),seven,ed)
+            self.assertIn((7,258),where(ed,'stephen'),ed)
+            self.assertIn((7,497),where(ed,'stephen'),ed)
+
+    def test_the_bar_and_the_bench_are_five_separate_men(self):
+        # Bushe is three people in two paragraphs: the editor says "Bushe? Well,
+        # yes: Bushe, yes" of Seymour, then corrects himself out of Kendal
+        # Bushe, an earlier man of the same family.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(7,382)],where(ed,'kendal-bushe'),ed)
+            self.assertIn((7,382),where(ed,'seymour-bushe'),ed)
+            self.assertIn((7,385),where(ed,'seymour-bushe'),ed)
+            # Fitzgibbon the lord justice, not Fitzgibbon street at 10:13
+            self.assertEqual([(7,409),(7,411),(7,420)],where(ed,'fitzgibbon'),ed)
+            self.assertNotIn('fitzgibbon',ids(ed,10,13),ed)
+            # Flood the volunteer, not the year of the Flood at 5:112
+            self.assertEqual([(7,378),(7,380)],where(ed,'flood'),ed)
+            self.assertNotIn('flood',ids(ed,5,112),ed)
+
+    def test_two_penelopes_one_line_apart(self):
+        # "Poor Penelope. Penelope Rich." — Homer's wife at the loom, and then
+        # Sidney's Stella, who is not her. Keyed by occurrence.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([(7,519),(7,520)],where(ed,'penelope'),ed)
+            # the alias is safe book-wide: 9:256 is the same woman, in the
+            # Shakespeare argument.
+            self.assertEqual([(7,520),(9,256)],where(ed,'penelope-rich'),ed)
+
+    def test_the_greys_and_the_hoopers_and_the_kavanaghs(self):
+        for ed in ['original-en','modern-en']:
+            # Gregor Grey who made the design, and sir John Gray on his island.
+            self.assertEqual([(7,358)],where(ed,'gregor-grey'),ed)
+            self.assertEqual([(6,113),(7,535)],where(ed,'john-gray'),ed)
+            # Paddy Hooper of the press, and alderman Hooper of the stuffed owl.
+            self.assertEqual([(7,232),(7,358)],where(ed,'paddy-hooper'),ed)
+            self.assertEqual([(6,376)],where(ed,'alderman-hooper'),ed)
+            # The invincible the editor corrects Tim Kelly to, not Charley
+            # Kavanagh at 8:141 nor Kavanagh's public house at 10:466.
+            self.assertEqual([(7,330)],where(ed,'kavanagh'),ed)
+
+    def test_the_modern_edition_supplies_six_names_here(self):
+        # Nannetti twice where Joyce writes only the foreman and "Nannan";
+        # Bloom at 7:67; Patrick Dignam at 7:99; Gallaher at 7:358; and Mario at
+        # 7:27, where Joyce's compound "Jesusmario" is split into two words —
+        # the same mechanism as pseudomalachi at 9:194.
+        O={(m['characterId'],m['paragraphIndex']) for m in mentions('original-en')
+           if m['chapterNumber']==7}
+        M={(m['characterId'],m['paragraphIndex']) for m in mentions('modern-en')
+           if m['chapterNumber']==7}
+        self.assertEqual(set(),O-M)
+        self.assertEqual({('ignatius-gallaher',358),('leopold',67),('mario',27),
+                          ('nannetti',42),('nannetti',62),('paddy-dignam',99)},M-O)
+        # and Long John gets his surname in the modern edition only
+        self.assertIn('Long John',said('original-en','long-john-fanning'))
+        self.assertIn('Long John Fanning',said('modern-en','long-john-fanning'))
+
+    def test_the_deliberate_gaps_of_episode_seven(self):
+        for ed in ['original-en','modern-en']:
+            # "Madam, I'm Adam" at 7:357 is a palindrome, and Adam and Eve's at
+            # 7:509 is a church.
+            self.assertEqual([],[c for c in ids(ed,7,357) if c in ('adam','eve')],ed)
+            self.assertEqual([],[c for c in ids(ed,7,509) if c in ('adam','eve')],ed)
+            # "Pat and Bull story" at 7:42 is a pun, not a Pat.
+            self.assertNotIn('patrice',ids(ed,7,42),ed)
+            # "In Martha" at 7:27 is the opera; 7:24 is the sister of Bethany.
+            self.assertNotIn('martha-clifford',ids(ed,7,27),ed)
+            self.assertIn('martha-and-mary',ids(ed,7,24),ed)
+            # Our Saviour at 7:22 and 7:26 carries no card, as everywhere here.
+            self.assertEqual([],[c for c in ids(ed,7,22)
+                                 if 'christ' in c or 'jesus' in c],ed)

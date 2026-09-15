@@ -1838,6 +1838,450 @@ Burying him. We come to bury Cæsar. His ides of March or June. He doesn’t kno
 
 Who buried him. The second Friday in the sentence is the day of the week, and carries no card.
 
+## original-en · red-murray · 7:10
+
+—There it is, Red Murray said. Alexander Keyes.
+
+Who cuts Keyes’s advertisement out of the paper with his long shears in four clean strokes, offers a par to go with it, and whispers that Brayden’s face is like Our Saviour’s.
+
+## original-en · davy-stephens · 7:12
+
+The door of Ruttledge’s office creaked again. Davy Stephens, minute in a large capecoat, a small felt hat crowning his ringlets, passed out with a roll of papers under his cape, a king’s courier.
+
+Minute in a large capecoat, a small felt hat crowning his ringlets, who passes out of Ruttledge’s office with a roll of papers under his cape: a king’s courier.
+
+## original-en · william-brayden · 7:18
+
+WILLIAM BRAYDEN, ESQUIRE, OF OAKLANDS, SANDYMOUNT
+
+Of Oaklands, Sandymount: the stately figure who goes up the staircase steered by an umbrella, a solemn beardframed face. Simon Dedalus says all his brains are in the nape of his neck.
+
+## original-en · nannetti · 7:37
+
+He pushed in the glass swingdoor and entered, stepping over strewn packing paper. Through a lane of clanking drums he made his way towards Nannetti’s reading closet.
+
+The foreman of the machine room, who takes Bloom’s cutting, scratches under his alpaca jacket, and says we can do that, let him give us a three months’ renewal. Member for College green, and soon to be called my lord mayor. He does not hear the machines.
+
+## original-en · monks · 7:88
+
+—Monks, sir? a voice asked from the castingbox.
+
+The dayfather: an old man, bowed, spectacled, aproned, called for four times across the caseroom to find the archbishop’s letter. Queer lot of stuff he must have put through his hands in his time.
+
+## original-en · machugh · 7:108
+
+—The ghost walks, professor MacHugh murmured softly, biscuitfully to the dusty windowpane.
+
+Unshaven and blackspectacled, eating water biscuits by the window, who teaches the blatant Latin language and would rather profess Greek. He jeers at Dan Dawson’s speech, sets Rome’s cloacal obsession against the radiance of the intellect, and recites John F Taylor’s speech from memory.
+
+## original-en · jj-omolloy · 7:131
+
+—Excuse me, J. J. O’Molloy said, entering.
+
+Cleverest fellow at the junior bar he used to be, with a hectic flush and practice dwindling, turning the pink pages of the file and asking the editor for money he does not get. He quotes Seymour Bushe on the Moses of Michelangelo. The others call him Jack.
+
+## original-en · myles-crawford · 7:147
+
+Practice dwindling. A mighthavebeen. Losing heart. Gambling. Debts of honour. Reaping the whirlwind. Used to get good retainers from D. and T. Fitzgerald. Their wigs to show the grey matter. Brains on their sleeve like the statue in Glasnevin. Believe he does some literary work for the _Express_ with Gabriel Conroy. Wellread fellow. Myles Crawford began on the _Independent._ Funny the way those newspaper men veer about when they get wind of a new opening. Weathercocks. Hot and cold in the same breath. Wouldn’t know which to believe. One story good till you hear the next. Go for one another baldheaded in the papers and then all blows over. Hail fellow well met the next moment.
+
+The editor: a scarlet beaked face crested by a comb of feathery hair, bold blue eyes, in and out of his sanctum all afternoon, jingling his keys, declaiming, and pretty well on. He tells Stephen to write something with a bite in it, and sends Keyes a message that will not go into a newspaper.
+
+## original-en · lenehan · 7:145
+
+—Very much so, professor MacHugh said. To be seen and heard. He’s in his sanctum with Lenehan.
+
+Who comes out of the inner office with Sport’s tissues, gives the Gold cup to Sceptre with O. Madden up, lights everybody’s cigarettes, and will not be put off his riddle: what opera resembles a railwayline? The Rose of Castile. Rows of cast steel.
+
+## original-en · omadden-burke · 7:258
+
+Mr O’Madden Burke, tall in copious grey of Donegal tweed, came in from the hallway. Stephen Dedalus, behind him, uncovered as he entered.
+
+Tall in copious grey of Donegal tweed, who brings Stephen in — Youth led by Experience visits Notoriety — and speaks in the manner of a man quoting himself. They went forth to battle, but they always fell.
+
+## original-en · the-newsboy · 7:197
+
+Professor MacHugh strode across the room and seized the cringing urchin by the collar as the others scampered out of the hall and down the steps. The tissues rustled up in the draught, floated softly in the air blue scrawls and under the table came to earth.
+
+Seized by the collar as the others scamper down the steps: it wasn’t me, sir, it was the big fellow shoved me, sir. He was waiting for the racing special.
+
+## original-en · pat-farrell · 7:201
+
+—Waiting for the racing special, sir, the newsboy said. It was Pat Farrell shoved me, sir.
+
+The big fellow who shoved him, named by the boy and pointed out round the doorframe.
+
+## original-en · alexander-keyes · 6:330
+
+Mr Bloom admired the caretaker’s prosperous bulk. All want to be on good terms with him. Decent fellow, John O’Connell, real good sort. Keys: like Keyes’s ad: no fear of anyone getting out. No passout checks. _Habeas corpus_. I must see about that ad after the funeral. Did I write Ballsbridge on the envelope I took to cover when she disturbed me writing to Martha? Hope it’s not chucked in the dead letter office. Be the better of a shave. Grey sprouting beard. That’s the first sign when the hairs come out grey. And temper getting cross. Silver threads among the grey. Fancy being his wife. Wonder he had the gumption to propose to any girl. Come out and live in the graveyard. Dangle that before her. It might thrill her first. Courting death. Shades of night hovering here with all the dead stretched about. The shadows of the tombs when churchyards yawn and Daniel O’Connell must be a descendant I suppose who is this used to say he was a queer breedy man great catholic all the same like a big giant in the dark. Will o’ the wisp. Gas of graves. Want to keep her mind off it to conceive at all. Women especially are so touchy. Tell her a ghost story in bed to make her sleep. Have you ever seen a ghost? Well, I have. It was a pitchdark night. The clock was on the stroke of twelve. Still they’d kiss all right if properly keyed up. Whores in Turkish graveyards. Learn anything if taken young. You might pick up a young widow here. Men like that. Love among the tombstones. Romeo. Spice of pleasure. In the midst of death we are in life. Both ends meet. Tantalising for the poor dead. Smell of grilled beefsteaks to the starving. Gnawing their vitals. Desire to grig people. Molly wanting to do it at the window. Eight children he has anyway.
+
+Tea, wine and spirit merchant, whose advertisement Bloom is trying to renew: two crossed keys, a circle, and the house of keys — innuendo of home rule, from the Manx parliament. He gets a two months’ renewal and an answer from the editor that Bloom does not deliver.
+
+## original-en · ruttledge · 7:12
+
+The door of Ruttledge’s office creaked again. Davy Stephens, minute in a large capecoat, a small felt hat crowning his ringlets, passed out with a roll of papers under his cape, a king’s courier.
+
+Whose office door creaks and whispers ee: cree, twice, and again in Bloom’s ear in episode 11.
+
+## original-en · mario · 7:24
+
+Our Saviour: beardframed oval face: talking in the dusk. Mary, Martha. Steered by an umbrella sword to the footlights: Mario the tenor.
+
+The tenor, who was said to be the picture of Our Saviour: Jesusmario with rougy cheeks, doublet and spindle legs, singing in Martha.
+
+## original-en · long-john-fanning · 7:45
+
+Soon be calling him my lord mayor. Long John is backing him, they say.
+
+Who is backing Nannetti for lord mayor, they say. The modern edition gives him the surname here that the older one keeps until episode 10: Long John Fanning, the subsheriff.
+
+## original-en · phil-blake · 7:42
+
+Strange he never saw his real country. Ireland my country. Member for College green. He boomed that workaday worker tack for all it was worth. It’s the ads and side features sell a weekly, not the stale news in the official gazette. Queen Anne is dead. Published by authority in the year one thousand and. Demesne situate in the townland of Rosenallis, barony of Tinnahinch. To all whom it may concern schedule pursuant to statute showing return of number of mules and jennets exported from Ballina. Nature notes. Cartoons. Phil Blake’s weekly Pat and Bull story. Uncle Toby’s page for tiny tots. Country bumpkin’s queries. Dear Mr Editor, what is a good cure for flatulence? I’d like that part. Learn a lot teaching others. The personal note. M. A. P. Mainly all pictures. Shapely bathers on golden strand. World’s biggest balloon. Double marriage of sisters celebrated. Two bridegrooms laughing heartily at each other. Cuprani too, printer. More Irish than the Irish.
+
+Of the weekly Pat and Bull story in the Freeman, in Bloom’s list of what really sells a paper. Not the Blake of Stephen’s thought in episode 2.
+
+## original-en · chatterton · 7:119
+
+High falutin stuff. Bladderbags. Ned Lambert is taking a day off I see. Rather upsets a man’s day, a funeral does. He has influence they say. Old Chatterton, the vicechancellor, is his granduncle or his greatgranduncle. Close on ninety they say. Subleader for his death written this long time perhaps. Living to spite them. Might go first himself. Johnny, make room for your uncle. The right honourable Hedges Eyre Chatterton. Daresay he writes him an odd shaky cheque or two on gale days. Windfall when he kicks out. Alleluia.
+
+The vicechancellor, Ned Lambert’s granduncle or greatgranduncle, close on ninety and living to spite them: he writes an odd shaky cheque or two on gale days. Not the Master Abraham Chatterton of episode 15.
+
+## original-en · wetherup · 7:161
+
+All very fine to jeer at it now in cold print but it goes down like hot cake that stuff. He was in the bakery line too, wasn’t he? Why they call him Doughy Daw. Feathered his nest well anyhow. Daughter engaged to that chap in the inland revenue office with the motor. Hooked that nicely. Entertainments. Open house. Big blowout. Wetherup always said that. Get a grip of them by the stomach.
+
+Who always said that: get a grip of them by the stomach.
+
+## original-en · gabriel-conroy · 7:147
+
+Practice dwindling. A mighthavebeen. Losing heart. Gambling. Debts of honour. Reaping the whirlwind. Used to get good retainers from D. and T. Fitzgerald. Their wigs to show the grey matter. Brains on their sleeve like the statue in Glasnevin. Believe he does some literary work for the _Express_ with Gabriel Conroy. Wellread fellow. Myles Crawford began on the _Independent._ Funny the way those newspaper men veer about when they get wind of a new opening. Weathercocks. Hot and cold in the same breath. Wouldn’t know which to believe. One story good till you hear the next. Go for one another baldheaded in the papers and then all blows over. Hail fellow well met the next moment.
+
+With whom J. J. O’Molloy is believed to do some literary work for the Express.
+
+## original-en · o-madden-jockey · 7:193
+
+—Who wants a dead cert for the Gold cup? he asked. Sceptre with O. Madden up.
+
+Up on Sceptre, the dead cert for the Gold cup that Lenehan gives out and that does not win.
+
+## original-en · kendal-bushe · 7:382
+
+—Bushe? the editor said. Well, yes: Bushe, yes. He has a strain of it in his blood. Kendal Bushe or I mean Seymour Bushe.
+
+Whom the editor names and corrects himself out of: Kendal Bushe or I mean Seymour Bushe. An earlier man of the same family and the same reputation at the bar.
+
+## original-en · palles · 7:256
+
+—Do you know that story about chief baron Palles? J. J. O’Molloy asked. It was at the royal university dinner. Everything was going swimmingly ...
+
+Of the story J. J. O’Molloy begins at the royal university dinner and never finishes, because Lenehan wants his riddle first.
+
+## original-en · whiteside · 7:368
+
+—They’re only in the hook and eye department, Myles Crawford said. Psha! Press and the bar! Where have you a man now at the bar like those fellows, like Whiteside, like Isaac Butt, like silvertongued O’Hagan. Eh? Ah, bloody nonsense. Psha! Only in the halfpenny place.
+
+A master of forensic eloquence, first of the editor’s three men at the bar, with Isaac Butt and silvertongued O’Hagan. Where have you a man now like those fellows?
+
+## original-en · isaac-butt · 7:368
+
+—They’re only in the hook and eye department, Myles Crawford said. Psha! Press and the bar! Where have you a man now at the bar like those fellows, like Whiteside, like Isaac Butt, like silvertongued O’Hagan. Eh? Ah, bloody nonsense. Psha! Only in the halfpenny place.
+
+The second of them.
+
+## original-en · ohagan · 7:368
+
+—They’re only in the hook and eye department, Myles Crawford said. Psha! Press and the bar! Where have you a man now at the bar like those fellows, like Whiteside, like Isaac Butt, like silvertongued O’Hagan. Eh? Ah, bloody nonsense. Psha! Only in the halfpenny place.
+
+Silvertongued, the third.
+
+## original-en · grattan · 7:378
+
+—My dear Myles, he said, flinging his cigarette aside, you put a false construction on my words. I hold no brief, as at present advised, for the third profession _qua_ profession but your Cork legs are running away with you. Why not bring in Henry Grattan and Flood and Demosthenes and Edmund Burke? Ignatius Gallaher we all know and his Chapelizod boss, Harmsworth of the farthing press, and his American cousin of the Bowery guttersheet not to mention _Paddy Kelly’s Budget_, _Pue’s Occurrences_ and our watchful friend _The Skibbereen Eagle_. Why bring in a master of forensic eloquence like Whiteside? Sufficient for the day is the newspaper thereof.
+
+Who wrote for this very paper, with Flood: Irish volunteers, established 1763. J. J. O’Molloy brings him in as an orator and the editor takes him back as a journalist.
+
+## original-en · flood · 7:378
+
+—My dear Myles, he said, flinging his cigarette aside, you put a false construction on my words. I hold no brief, as at present advised, for the third profession _qua_ profession but your Cork legs are running away with you. Why not bring in Henry Grattan and Flood and Demosthenes and Edmund Burke? Ignatius Gallaher we all know and his Chapelizod boss, Harmsworth of the farthing press, and his American cousin of the Bowery guttersheet not to mention _Paddy Kelly’s Budget_, _Pue’s Occurrences_ and our watchful friend _The Skibbereen Eagle_. Why bring in a master of forensic eloquence like Whiteside? Sufficient for the day is the newspaper thereof.
+
+The other of the two. Not the flood of the year Hamilton Long’s was founded.
+
+## original-en · demosthenes · 7:378
+
+—My dear Myles, he said, flinging his cigarette aside, you put a false construction on my words. I hold no brief, as at present advised, for the third profession _qua_ profession but your Cork legs are running away with you. Why not bring in Henry Grattan and Flood and Demosthenes and Edmund Burke? Ignatius Gallaher we all know and his Chapelizod boss, Harmsworth of the farthing press, and his American cousin of the Bowery guttersheet not to mention _Paddy Kelly’s Budget_, _Pue’s Occurrences_ and our watchful friend _The Skibbereen Eagle_. Why bring in a master of forensic eloquence like Whiteside? Sufficient for the day is the newspaper thereof.
+
+Named in the same list, with Edmund Burke, as the eloquence J. J. O’Molloy will not be told the bar has lost.
+
+## original-en · edmund-burke · 7:378
+
+—My dear Myles, he said, flinging his cigarette aside, you put a false construction on my words. I hold no brief, as at present advised, for the third profession _qua_ profession but your Cork legs are running away with you. Why not bring in Henry Grattan and Flood and Demosthenes and Edmund Burke? Ignatius Gallaher we all know and his Chapelizod boss, Harmsworth of the farthing press, and his American cousin of the Bowery guttersheet not to mention _Paddy Kelly’s Budget_, _Pue’s Occurrences_ and our watchful friend _The Skibbereen Eagle_. Why bring in a master of forensic eloquence like Whiteside? Sufficient for the day is the newspaper thereof.
+
+The last of the list. Not the O’Madden Burke in the room.
+
+## original-en · harmsworth · 7:378
+
+—My dear Myles, he said, flinging his cigarette aside, you put a false construction on my words. I hold no brief, as at present advised, for the third profession _qua_ profession but your Cork legs are running away with you. Why not bring in Henry Grattan and Flood and Demosthenes and Edmund Burke? Ignatius Gallaher we all know and his Chapelizod boss, Harmsworth of the farthing press, and his American cousin of the Bowery guttersheet not to mention _Paddy Kelly’s Budget_, _Pue’s Occurrences_ and our watchful friend _The Skibbereen Eagle_. Why bring in a master of forensic eloquence like Whiteside? Sufficient for the day is the newspaper thereof.
+
+Of the farthing press, Ignatius Gallaher’s Chapelizod boss.
+
+## original-en · dr-lucas · 7:380
+
+—Grattan and Flood wrote for this very paper, the editor cried in his face. Irish volunteers. Where are you now? Established 1763. Dr Lucas. Who have you now like John Philpot Curran? Psha!
+
+Named with the paper’s founding: established 1763.
+
+## original-en · john-philpot-curran · 7:380
+
+—Grattan and Flood wrote for this very paper, the editor cried in his face. Irish volunteers. Where are you now? Established 1763. Dr Lucas. Who have you now like John Philpot Curran? Psha!
+
+Who have you now like him, the editor asks. Not the Curran of Stephen’s list of debts, nor Sara Curran.
+
+## original-en · tim-healy · 7:412
+
+—He is sitting with Tim Healy, J. J. O’Molloy said, rumour has it, on the Trinity college estates commission.
+
+Sitting with Gerald Fitzgibbon, rumour has it, on the Trinity college estates commission.
+
+## original-en · fitzgibbon · 7:409
+
+—No, thanks, professor MacHugh said, waving the cigarettecase aside. Wait a moment. Let me say one thing. The finest display of oratory I ever heard was a speech made by John F Taylor at the college historical society. Mr Justice Fitzgibbon, the present lord justice of appeal, had spoken and the paper under debate was an essay (new for those days), advocating the revival of the Irish tongue.
+
+Mr Justice Fitzgibbon, the present lord justice of appeal, whose speech to the youth of Ireland John F Taylor rose to answer. You know Gerald Fitzgibbon: then you can imagine the style of his discourse. Not Fitzgibbon street.
+
+## original-en · john-f-taylor · 7:409
+
+—No, thanks, professor MacHugh said, waving the cigarettecase aside. Wait a moment. Let me say one thing. The finest display of oratory I ever heard was a speech made by John F Taylor at the college historical society. Mr Justice Fitzgibbon, the present lord justice of appeal, had spoken and the paper under debate was an essay (new for those days), advocating the revival of the Irish tongue.
+
+Who had come from a sickbed, with a growth of shaggy beard and a loose white silk neckcloth, and made the finest display of oratory professor MacHugh ever heard — the speech of the Egyptian highpriest to the youthful Moses, which MacHugh gives back from memory in the office.
+
+## original-en · magennis · 7:407
+
+—Professor Magennis was speaking to me about you, J. J. O’Molloy said to Stephen. What do you think really of that hermetic crowd, the opal hush poets: A. E. the mastermystic? That Blavatsky woman started it. She was a nice old bag of tricks. A. E. has been telling some yankee interviewer that you came to him in the small hours of the morning to ask him about planes of consciousness. Magennis thinks you must have been pulling A. E.’s leg. He is a man of the very highest morale, Magennis.
+
+Who was speaking to J. J. O’Molloy about Stephen, and thinks he must have been pulling A. E.’s leg.
+
+## original-en · blavatsky · 7:407
+
+—Professor Magennis was speaking to me about you, J. J. O’Molloy said to Stephen. What do you think really of that hermetic crowd, the opal hush poets: A. E. the mastermystic? That Blavatsky woman started it. She was a nice old bag of tricks. A. E. has been telling some yankee interviewer that you came to him in the small hours of the morning to ask him about planes of consciousness. Magennis thinks you must have been pulling A. E.’s leg. He is a man of the very highest morale, Magennis.
+
+That Blavatsky woman, who started the whole thing. A nice old bag of tricks.
+
+## original-en · skin-the-goat · 7:330
+
+—_New York World_, the editor said, excitedly pushing back his straw hat. Where it took place. Tim Kelly, or Kavanagh I mean. Joe Brady and the rest of them. Where Skin-the-Goat drove the car. Whole route, see?
+
+Fitzharris, who drove the car for an alibi on the day of the Phoenix park murders, and who keeps the cabman’s shelter down at Butt bridge now — they say. Holohan told Mr O’Madden Burke so.
+
+## original-en · joe-brady · 7:330
+
+—_New York World_, the editor said, excitedly pushing back his straw hat. Where it took place. Tim Kelly, or Kavanagh I mean. Joe Brady and the rest of them. Where Skin-the-Goat drove the car. Whole route, see?
+
+One of the invincibles, on the editor’s map of the route and on the commemoration postcard Lady Dudley nearly bought.
+
+## original-en · tim-kelly · 7:330
+
+—_New York World_, the editor said, excitedly pushing back his straw hat. Where it took place. Tim Kelly, or Kavanagh I mean. Joe Brady and the rest of them. Where Skin-the-Goat drove the car. Whole route, see?
+
+Another, whom the editor names and then corrects to Kavanagh.
+
+## original-en · kavanagh · 7:330
+
+—_New York World_, the editor said, excitedly pushing back his straw hat. Where it took place. Tim Kelly, or Kavanagh I mean. Joe Brady and the rest of them. Where Skin-the-Goat drove the car. Whole route, see?
+
+The name he corrects it to. Not Charley Kavanagh of episode 8, nor Kavanagh’s public house.
+
+## original-en · number-one · 7:367
+
+—O yes, J. J. O’Molloy said eagerly. Lady Dudley was walking home through the park to see all the trees that were blown down by that cyclone last year and thought she’d buy a view of Dublin. And it turned out to be a commemoration postcard of Joe Brady or Number One or Skin-the-Goat. Right outside the viceregal lodge, imagine!
+
+The unnamed head of the invincibles, on the same postcard. The book never gives him another name.
+
+## original-en · gumley · 7:333
+
+—And poor Gumley is down there too, so he told me, minding stones for the corporation. A night watchman.
+
+A friend of Stephen’s father, now minding stones for the corporation as a night watchman — let Gumley mind the stones, see they don’t run away.
+
+## original-en · dick-adams · 7:355
+
+—I saw it, the editor said proudly. I was present. Dick Adams, the besthearted bloody Corkman the Lord ever put the breath of life in, and myself.
+
+The besthearted bloody Corkman the Lord ever put the breath of life in, present with the editor when Ignatius Gallaher cabled the route to New York.
+
+## original-en · gregor-grey · 7:358
+
+—History! Myles Crawford cried. The Old Woman of Prince’s street was there first. There was weeping and gnashing of teeth over that. Out of an advertisement. Gregor Grey made the design for it. That gave him the leg up. Then Paddy Hooper worked Tay Pay who took him on to the _Star._ Now he’s got in with Blumenfeld. That’s press. That’s talent. Pyatt! He was all their daddies!
+
+Who made the design for the advertisement the map was built out of. That gave him the leg up. Not sir John Gray of the statue.
+
+## original-en · paddy-hooper · 7:232
+
+—Who? the professor said, turning. They’re gone round to the Oval for a drink. Paddy Hooper is there with Jack Hall. Came over last night.
+
+Who worked Tay Pay and got Gallaher his opening, and who is round at the Oval now with Jack Hall. Not the alderman Hooper of the stuffed owl.
+
+## original-en · jack-hall · 7:232
+
+—Who? the professor said, turning. They’re gone round to the Oval for a drink. Paddy Hooper is there with Jack Hall. Came over last night.
+
+With whom he came over last night.
+
+## original-en · tay-pay · 7:358
+
+—History! Myles Crawford cried. The Old Woman of Prince’s street was there first. There was weeping and gnashing of teeth over that. Out of an advertisement. Gregor Grey made the design for it. That gave him the leg up. Then Paddy Hooper worked Tay Pay who took him on to the _Star._ Now he’s got in with Blumenfeld. That’s press. That’s talent. Pyatt! He was all their daddies!
+
+T. P. O’Connor, who took Gallaher on to the Star. The older edition spells him as the initials are said; the modern edition writes the name.
+
+## original-en · blumenfeld · 7:358
+
+—History! Myles Crawford cried. The Old Woman of Prince’s street was there first. There was weeping and gnashing of teeth over that. Out of an advertisement. Gregor Grey made the design for it. That gave him the leg up. Then Paddy Hooper worked Tay Pay who took him on to the _Star._ Now he’s got in with Blumenfeld. That’s press. That’s talent. Pyatt! He was all their daddies!
+
+Whom Gallaher is in with now.
+
+## original-en · pyatt · 7:358
+
+—History! Myles Crawford cried. The Old Woman of Prince’s street was there first. There was weeping and gnashing of teeth over that. Out of an advertisement. Gregor Grey made the design for it. That gave him the leg up. Then Paddy Hooper worked Tay Pay who took him on to the _Star._ Now he’s got in with Blumenfeld. That’s press. That’s talent. Pyatt! He was all their daddies!
+
+He was all their daddies, the editor says. Lenehan makes him the father of scare journalism and the brother-in-law of Chris Callinan.
+
+## original-en · chris-callinan · 7:359
+
+—The father of scare journalism, Lenehan confirmed, and the brother-in-law of Chris Callinan.
+
+His brother-in-law, in Lenehan’s footnote. Lenehan tells a longer story about him and Bloom on the Featherbed Mountain in episode 10.
+
+## original-en · lady-dudley · 7:367
+
+—O yes, J. J. O’Molloy said eagerly. Lady Dudley was walking home through the park to see all the trees that were blown down by that cyclone last year and thought she’d buy a view of Dublin. And it turned out to be a commemoration postcard of Joe Brady or Number One or Skin-the-Goat. Right outside the viceregal lodge, imagine!
+
+Walking home through the park to see the trees blown down by the cyclone, who thought she would buy a view of Dublin and was offered a commemoration postcard of Joe Brady instead. Right outside the viceregal lodge, imagine.
+
+## original-en · bobrikoff · 7:307
+
+—Like fellows who had blown up the Bastile, J. J. O’Molloy said in quiet mockery. Or was it you shot the lord lieutenant of Finland between you? You look as though you had done the deed. General Bobrikoff.
+
+The lord lieutenant of Finland, shot. You look as though you had done the deed, J. J. O’Molloy tells Stephen and Mr O’Madden Burke, looking at their ties.
+
+## original-en · jakes-mccarthy · 7:321
+
+—Foot and mouth disease! the editor cried in scornful invective. Great nationalist meeting in Borris-in-Ossory. All balls! Bulldosing the public! Give them something with a bite in it. Put us all into it, damn its soul. Father, Son and Holy Ghost and Jakes M’Carthy.
+
+Father, Son and Holy Ghost and Jakes M’Carthy — the editor’s formula for putting everybody into it. The modern edition spells him McCarthy.
+
+## original-en · xenophon · 7:116
+
+—And Xenophon looked upon Marathon, Mr Dedalus said, looking again on the fireplace and to the window, and Marathon looked on the sea.
+
+Who looked upon Marathon, and Marathon looked on the sea: Mr Dedalus quoting Byron at Dan Dawson’s prose.
+
+## original-en · cicero · 7:122
+
+—A recently discovered fragment of Cicero, professor MacHugh answered with pomp of tone. _Our lovely land_.
+
+A recently discovered fragment of whom, professor MacHugh says with pomp of tone, is Dan Dawson’s speech in this morning’s paper.
+
+## original-en · sallust · 7:294
+
+In mourning for Sallust, Mulligan says. Whose mother is beastly dead.
+
+In mourning for whom, Mulligan says of professor MacHugh’s black clothes. Whose mother is beastly dead.
+
+## original-en · salisbury · 7:284
+
+—We were always loyal to lost causes, the professor said. Success for us is the death of the intellect and of the imagination. We were never loyal to the successful. We serve them. I teach the blatant Latin language. I speak the tongue of a race the acme of whose mentality is the maxim: time is money. Material domination. _Dominus!_ Lord! Where is the spirituality? Lord Jesus? Lord Salisbury? A sofa in a westend club. But the Greek!
+
+A sofa in a westend club — where professor MacHugh looks for the spirituality of the Roman and the Englishman and does not find it.
+
+## original-en · maximilian-odonnell · 7:278
+
+—Ay, a grass one, Myles Crawford said, his eye running down the typescript. Emperor’s horses. Habsburg. An Irishman saved his life on the ramparts of Vienna. Don’t you forget! Maximilian Karl O’Donnell, graf von Tirconnell in Ireland. Sent his heir over to make the king an Austrian fieldmarshal now. Going to be trouble there one day. Wild geese. O yes, every time. Don’t you forget that!
+
+Graf von Tirconnell in Ireland, the Irishman who saved the emperor’s life on the ramparts of Vienna and whose heir was sent over to make the king an Austrian fieldmarshal. Wild geese.
+
+## original-en · macduff · 7:450
+
+—Lay on, Macduff!
+
+Lay on, Macduff — Mr O’Madden Burke’s word for going to Mooney’s, with a lunge of his umbrella.
+
+## original-en · michelangelo · 7:390
+
+—He spoke on the law of evidence, J. J. O’Molloy said, of Roman justice as contrasted with the earlier Mosaic code, the _lex talionis_. And he cited the Moses of Michelangelo in the vatican.
+
+Whose Moses in the vatican Seymour Bushe cited, and described in the period J. J. O’Molloy repeats: that stony effigy in frozen music, horned and terrible. Not the Michelangelo Hayes of episode 12.
+
+## original-en · moses · 7:390
+
+—He spoke on the law of evidence, J. J. O’Molloy said, of Roman justice as contrasted with the earlier Mosaic code, the _lex talionis_. And he cited the Moses of Michelangelo in the vatican.
+
+Twice over in this episode: the statue in the vatican, and the youthful Moses of John F Taylor’s speech, who did not listen to the Egyptian highpriest and so brought the chosen people out of their house of bondage. He died without having entered the land of promise, which is where Stephen’s parable of the plums ends up.
+
+## original-en · saint-augustine · 7:427
+
+It was revealed to me that those things are good which yet are corrupted which neither if they were supremely good nor unless they were good could be corrupted. Ah, curse you! That’s saint Augustine.
+
+Whose sentence comes into Stephen’s head in the middle of the speech — those things are good which yet are corrupted — and is recognised a beat too late. Ah, curse you! That’s saint Augustine.
+
+## original-en · isis · 7:432
+
+_—You pray to a local and obscure idol: our temples, majestic and mysterious, are the abodes of Isis and Osiris, of Horus and Ammon Ra. Yours serfdom, awe and humbleness: ours thunder and the seas. Israel is weak and few are her children: Egypt is an host and terrible are her arms. Vagrants and daylabourers are you called: the world trembles at our name._
+
+Whose abode, with Osiris, the Egyptian highpriest sets against the local and obscure idol of the Jews. Not Isis Unveiled, the book on the shelf in episode 9.
+
+## original-en · osiris · 7:432
+
+_—You pray to a local and obscure idol: our temples, majestic and mysterious, are the abodes of Isis and Osiris, of Horus and Ammon Ra. Yours serfdom, awe and humbleness: ours thunder and the seas. Israel is weak and few are her children: Egypt is an host and terrible are her arms. Vagrants and daylabourers are you called: the world trembles at our name._
+
+The second of the four.
+
+## original-en · horus · 7:432
+
+_—You pray to a local and obscure idol: our temples, majestic and mysterious, are the abodes of Isis and Osiris, of Horus and Ammon Ra. Yours serfdom, awe and humbleness: ours thunder and the seas. Israel is weak and few are her children: Egypt is an host and terrible are her arms. Vagrants and daylabourers are you called: the world trembles at our name._
+
+The third.
+
+## original-en · ammon-ra · 7:432
+
+_—You pray to a local and obscure idol: our temples, majestic and mysterious, are the abodes of Isis and Osiris, of Horus and Ammon Ra. Yours serfdom, awe and humbleness: ours thunder and the seas. Israel is weak and few are her children: Egypt is an host and terrible are her arms. Vagrants and daylabourers are you called: the world trembles at our name._
+
+The fourth: ours thunder and the seas.
+
+## original-en · antisthenes · 7:519
+
+—You remind me of Antisthenes, the professor said, a disciple of Gorgias, the sophist. It is said of him that none could tell if he were bitterer against others or against himself. He was the son of a noble and a bondwoman. And he wrote a book in which he took away the palm of beauty from Argive Helen and handed it to poor Penelope.
+
+A disciple of Gorgias, of whom it is said that none could tell whether he were bitterer against others or against himself. He wrote a book taking the palm of beauty from Argive Helen and handing it to poor Penelope, and professor MacHugh says Stephen reminds him of it.
+
+## original-en · gorgias · 7:519
+
+—You remind me of Antisthenes, the professor said, a disciple of Gorgias, the sophist. It is said of him that none could tell if he were bitterer against others or against himself. He was the son of a noble and a bondwoman. And he wrote a book in which he took away the palm of beauty from Argive Helen and handed it to poor Penelope.
+
+The sophist whose disciple he was.
+
+## original-en · penelope · 7:519
+
+—You remind me of Antisthenes, the professor said, a disciple of Gorgias, the sophist. It is said of him that none could tell if he were bitterer against others or against himself. He was the son of a noble and a bondwoman. And he wrote a book in which he took away the palm of beauty from Argive Helen and handed it to poor Penelope.
+
+Poor Penelope, who got the palm of beauty in that book. Odysseus’s wife at the loom, and the last word of this one.
+
+## original-en · penelope-rich · 7:520
+
+Poor Penelope. Penelope Rich.
+
+The other Penelope, who follows in Stephen’s head one line later: Sidney’s Stella, and not Homer’s wife at all.
+
+## original-en · kate-collins · 7:478
+
+—They buy one and fourpenceworth of brawn and four slices of panloaf at the north city diningrooms in Marlborough street from Miss Kate Collins, proprietress... They purchase four and twenty ripe plums from a girl at the foot of Nelson’s pillar to take off the thirst of the brawn. They give two threepenny bits to the gentleman at the turnstile and begin to waddle slowly up the winding staircase, grunting, encouraging each other, afraid of the dark, panting, one asking the other have you the brawn, praising God and the Blessed Virgin, threatening to come down, peeping at the airslits. Glory be to God. They had no idea it was that high.
+
+Proprietress of the north city diningrooms in Marlborough street, from whom the two Dublin vestals buy one and fourpenceworth of brawn and four slices of panloaf.
+
+## original-en · anne-kearns · 7:479
+
+Their names are Anne Kearns and Florence MacCabe. Anne Kearns has the lumbago for which she rubs on Lourdes water, given her by a lady who got a bottleful from a passionist father. Florence MacCabe takes a crubeen and a bottle of double X for supper every Saturday.
+
+One of the two: she has the lumbago, for which she rubs on Lourdes water given her by a lady who got a bottleful from a passionist father. The other is Florence MacCabe, the midwife Stephen watched come down to the strand in episode 3.
+
 ## modern-en · stephen · 1:3
 
 —Come up, Kinch! Come up, you cowardly Jesuit!
@@ -3661,3 +4105,447 @@ Say Robinson Crusoe was true to life: then Friday buried him. Only man buries �
 Burying him. We come to bury Caesar. His Ides of March or June. He doesn't know who is here nor care. Now who is that gaunt-looking fellow over there in the mackintosh? Now who is he? I'd like to know. I'd give a trifle to know who he is. Always someone turns up you never expected. A fellow could live on his own all his life. Yes, he could. Still, he'd have to get someone to bury him after he died — though he could dig his own grave. We all do. Only man buries his dead. No: ants too. First thing that strikes anybody. Bury the dead. Say Robinson Crusoe was true to life. Well then, Friday buried him. Every Friday buries a Thursday, if you think about it.
 
 Who buried him. The second Friday in the sentence is the day of the week, and carries no card.
+
+## modern-en · red-murray · 7:10
+
+—There it is, Red Murray said. Alexander Keyes.
+
+Who cuts Keyes’s advertisement out of the paper with his long shears in four clean strokes, offers a par to go with it, and whispers that Brayden’s face is like Our Saviour’s.
+
+## modern-en · davy-stephens · 7:12
+
+The door of Ruttledge's office creaked again. Davy Stephens, a tiny figure in a large cape-coat, a small felt hat crowning his ringlets, passed out with a roll of papers under his cape, like a king's courier.
+
+Minute in a large capecoat, a small felt hat crowning his ringlets, who passes out of Ruttledge’s office with a roll of papers under his cape: a king’s courier.
+
+## modern-en · william-brayden · 7:18
+
+WILLIAM BRAYDEN, ESQUIRE, OF OAKLANDS, SANDYMOUNT
+
+Of Oaklands, Sandymount: the stately figure who goes up the staircase steered by an umbrella, a solemn beardframed face. Simon Dedalus says all his brains are in the nape of his neck.
+
+## modern-en · nannetti · 7:37
+
+He pushed through the glass swing door and entered, stepping over scattered packing paper. Through a lane of clanking drums he made his way towards Nannetti's reading closet.
+
+The foreman of the machine room, who takes Bloom’s cutting, scratches under his alpaca jacket, and says we can do that, let him give us a three months’ renewal. Member for College green, and soon to be called my lord mayor. He does not hear the machines.
+
+## modern-en · monks · 7:88
+
+—Monks, sir? a voice asked from the casting box.
+
+The dayfather: an old man, bowed, spectacled, aproned, called for four times across the caseroom to find the archbishop’s letter. Queer lot of stuff he must have put through his hands in his time.
+
+## modern-en · machugh · 7:108
+
+—The boss is here — payday, Professor MacHugh murmured softly, crumblingly, to the dusty windowpane.
+
+Unshaven and blackspectacled, eating water biscuits by the window, who teaches the blatant Latin language and would rather profess Greek. He jeers at Dan Dawson’s speech, sets Rome’s cloacal obsession against the radiance of the intellect, and recites John F Taylor’s speech from memory.
+
+## modern-en · jj-omolloy · 7:131
+
+—Excuse me, J. J. O'Molloy said, entering.
+
+Cleverest fellow at the junior bar he used to be, with a hectic flush and practice dwindling, turning the pink pages of the file and asking the editor for money he does not get. He quotes Seymour Bushe on the Moses of Michelangelo. The others call him Jack.
+
+## modern-en · myles-crawford · 7:147
+
+His practice is dwindling. A might-have-been. Losing heart. Gambling. Debts of honour. Reaping the whirlwind. Used to get good fees from D. and T. Fitzgerald. Those barristers in their wigs, showing off their grey matter. Brains on their sleeve, like the statue in Glasnevin cemetery. I believe he does some literary work for the _Express_ with Gabriel Conroy. Well-read fellow. Myles Crawford started at the _Independent_. Funny the way those newspaper men shift allegiance when they smell a new opportunity. Weathervanes. Hot and cold in the same breath. You wouldn't know which to believe. One story sounds good till you hear the next. They go at each other hammer and tongs in the papers and then it all blows over. Best mates the next moment.
+
+The editor: a scarlet beaked face crested by a comb of feathery hair, bold blue eyes, in and out of his sanctum all afternoon, jingling his keys, declaiming, and pretty well on. He tells Stephen to write something with a bite in it, and sends Keyes a message that will not go into a newspaper.
+
+## modern-en · lenehan · 7:145
+
+—Very much so, Professor MacHugh said. To be seen and heard. He's in his office with Lenehan.
+
+Who comes out of the inner office with Sport’s tissues, gives the Gold cup to Sceptre with O. Madden up, lights everybody’s cigarettes, and will not be put off his riddle: what opera resembles a railwayline? The Rose of Castile. Rows of cast steel.
+
+## modern-en · omadden-burke · 7:258
+
+Mr O'Madden Burke, tall in a generous suit of grey Donegal tweed, came in from the hallway. Stephen Dedalus, behind him, bare-headed as he entered.
+
+Tall in copious grey of Donegal tweed, who brings Stephen in — Youth led by Experience visits Notoriety — and speaks in the manner of a man quoting himself. They went forth to battle, but they always fell.
+
+## modern-en · the-newsboy · 7:197
+
+Professor MacHugh strode across the room and seized the cringing urchin by the collar as the others scampered out of the hall and down the steps. The racing pages rustled up in the draught, floated softly through the air, blue scrawls, and drifted under the table to the floor.
+
+Seized by the collar as the others scamper down the steps: it wasn’t me, sir, it was the big fellow shoved me, sir. He was waiting for the racing special.
+
+## modern-en · pat-farrell · 7:201
+
+—Waiting for the racing special, sir, the newsboy said. It was Pat Farrell shoved me, sir.
+
+The big fellow who shoved him, named by the boy and pointed out round the doorframe.
+
+## modern-en · alexander-keyes · 6:330
+
+Mr Bloom admired the caretaker's well-fed bulk. Everyone wants to be on good terms with him. Decent fellow, John O'Connell, real good sort. Keys: like that Keyes's ad: no fear of anyone getting out. No exit passes. Habeas corpus. I must see about that advertisement after the funeral. Did I write Ballsbridge on the envelope I grabbed for cover when she interrupted me writing to Martha? Hope it's not stuck in the dead letter office. He could use a shave. Grey sprouting beard. That's the first sign when the hair comes out grey and temper gets short. Silver threads among the grey. Imagine being his wife. Wonder how he summoned the nerve to propose to any girl. Come live with me in the graveyard. Dangle that before her. It might excite her at first. Flirting with death. Shadows of night hovering here with all the dead stretched about. The shadows of the tombs when churchyards yawn, and Daniel O'Connell must be a descendant, I suppose — who used to say he was a queer prolific man, great Catholic all the same — like a big giant in the dark. Will-o'-the-wisp. Gas of graves. Want to keep her mind off it, to conceive at all. Women especially are so sensitive. Tell her a ghost story in bed to make her sleep. Have you ever seen a ghost? Well, I have. It was a pitch-dark night. The clock was about to strike twelve. Still, they'd kiss all right if properly keyed up. Prostitutes in Turkish graveyards. Teach them anything if taken young. You might pick up a young widow here. Men like that. Love among the tombstones. Romeo. Spice of pleasure. In the midst of death we are in life. Both ends meet. Tantalizing for the poor dead. The smell of grilled beefsteaks to the starving. Gnawing their insides. Desire to irritate people. Molly wanting to do it at the window. Eight children he has, anyway.
+
+Tea, wine and spirit merchant, whose advertisement Bloom is trying to renew: two crossed keys, a circle, and the house of keys — innuendo of home rule, from the Manx parliament. He gets a two months’ renewal and an answer from the editor that Bloom does not deliver.
+
+## modern-en · ruttledge · 7:12
+
+The door of Ruttledge's office creaked again. Davy Stephens, a tiny figure in a large cape-coat, a small felt hat crowning his ringlets, passed out with a roll of papers under his cape, like a king's courier.
+
+Whose office door creaks and whispers ee: cree, twice, and again in Bloom’s ear in episode 11.
+
+## modern-en · mario · 7:24
+
+Our Saviour: beard-framed oval face: talking in the twilight. Mary, Martha. Steered by an umbrella-sword to the footlights: Mario the tenor.
+
+The tenor, who was said to be the picture of Our Saviour: Jesusmario with rougy cheeks, doublet and spindle legs, singing in Martha.
+
+## modern-en · long-john-fanning · 7:45
+
+They'll be calling him lord mayor soon. Long John Fanning is backing him, they say.
+
+Who is backing Nannetti for lord mayor, they say. The modern edition gives him the surname here that the older one keeps until episode 10: Long John Fanning, the subsheriff.
+
+## modern-en · phil-blake · 7:42
+
+Strange he never saw his real country. Ireland my country. Member of Parliament for College Green. He milked that common-man worker angle for all it was worth. It's the ads and special features that sell a weekly paper, not the stale news in the official gazette. Queen Anne is dead. Published by authority in the year one thousand and. Property situated in the township of Rosenallis, barony of Tinnahinch. To all whom it may concern: schedule pursuant to statute showing return of number of mules and donkeys exported from Ballina. Nature notes. Cartoons. Phil Blake's weekly Pat and Bull story. Uncle Toby's page for tiny tots. Country bumpkin's queries. Dear Mr Editor, what is a good cure for flatulence? I'd enjoy that section. You learn a lot by teaching others. The personal column. M.A.P. Mainly all pictures. Shapely bathers on golden strand. World's biggest balloon. Double marriage of sisters celebrated. Two bridegrooms laughing heartily at each other. Nannetti too, an Italian-Irish printer. More Irish than the Irish.
+
+Of the weekly Pat and Bull story in the Freeman, in Bloom’s list of what really sells a paper. Not the Blake of Stephen’s thought in episode 2.
+
+## modern-en · chatterton · 7:119
+
+Highfalutin stuff. Windbags. Ned Lambert is taking a day off, I see. A funeral rather throws off a man's day. He has influence, they say. Old Chatterton, the vice-chancellor, is his granduncle or great-granduncle. Close to ninety, they say. His obituary probably already written and waiting. Living just to spite them. Might die first himself. Make room for your uncle, Johnny. The Right Honourable Hedges Eyre Chatterton. I'd guess he writes him the odd shaky cheque on quarter days. Nice windfall when the old man kicks the bucket. Alleluia.
+
+The vicechancellor, Ned Lambert’s granduncle or greatgranduncle, close on ninety and living to spite them: he writes an odd shaky cheque or two on gale days. Not the Master Abraham Chatterton of episode 15.
+
+## modern-en · wetherup · 7:161
+
+Easy enough to mock it now in cold print, but that stuff goes down a treat with audiences. He was in the baking business too, wasn't he? That's why they call him Doughy Daw. Feathered his nest well enough, anyway. Daughter engaged to that fellow in the tax office who has a motor car. Landed that nicely. Entertaining. Open house. Big blowout parties. Wetherup always said that. Win them over through their stomachs.
+
+Who always said that: get a grip of them by the stomach.
+
+## modern-en · gabriel-conroy · 7:147
+
+His practice is dwindling. A might-have-been. Losing heart. Gambling. Debts of honour. Reaping the whirlwind. Used to get good fees from D. and T. Fitzgerald. Those barristers in their wigs, showing off their grey matter. Brains on their sleeve, like the statue in Glasnevin cemetery. I believe he does some literary work for the _Express_ with Gabriel Conroy. Well-read fellow. Myles Crawford started at the _Independent_. Funny the way those newspaper men shift allegiance when they smell a new opportunity. Weathervanes. Hot and cold in the same breath. You wouldn't know which to believe. One story sounds good till you hear the next. They go at each other hammer and tongs in the papers and then it all blows over. Best mates the next moment.
+
+With whom J. J. O’Molloy is believed to do some literary work for the Express.
+
+## modern-en · o-madden-jockey · 7:193
+
+—Who wants a sure thing for the Gold Cup? he asked. Sceptre with O. Madden riding.
+
+Up on Sceptre, the dead cert for the Gold cup that Lenehan gives out and that does not win.
+
+## modern-en · kendal-bushe · 7:382
+
+—Bushe? the editor said. Well, yes: Bushe, yes. He has a strain of it in his blood. Kendal Bushe — or I mean Seymour Bushe.
+
+Whom the editor names and corrects himself out of: Kendal Bushe or I mean Seymour Bushe. An earlier man of the same family and the same reputation at the bar.
+
+## modern-en · palles · 7:256
+
+—Do you know that story about Chief Baron Palles? J. J. O'Molloy asked. It was at the Royal University dinner. Everything was going swimmingly...
+
+Of the story J. J. O’Molloy begins at the royal university dinner and never finishes, because Lenehan wants his riddle first.
+
+## modern-en · whiteside · 7:368
+
+—They're small-time operators, Myles Crawford said. Pah! The press and the bar! Where have you a man now at the bar like those fellows — like Whiteside, like Isaac Butt, like silver-tongued O'Hagan? Eh? Ah, bloody nonsense. Pah! Today's lot are nothing.
+
+A master of forensic eloquence, first of the editor’s three men at the bar, with Isaac Butt and silvertongued O’Hagan. Where have you a man now like those fellows?
+
+## modern-en · isaac-butt · 7:368
+
+—They're small-time operators, Myles Crawford said. Pah! The press and the bar! Where have you a man now at the bar like those fellows — like Whiteside, like Isaac Butt, like silver-tongued O'Hagan? Eh? Ah, bloody nonsense. Pah! Today's lot are nothing.
+
+The second of them.
+
+## modern-en · ohagan · 7:368
+
+—They're small-time operators, Myles Crawford said. Pah! The press and the bar! Where have you a man now at the bar like those fellows — like Whiteside, like Isaac Butt, like silver-tongued O'Hagan? Eh? Ah, bloody nonsense. Pah! Today's lot are nothing.
+
+Silvertongued, the third.
+
+## modern-en · grattan · 7:378
+
+—My dear Myles, he said, flinging his cigarette aside, you put a false construction on my words. I hold no brief, as it stands, for the legal profession as such, but your Cork enthusiasm is running away with you. Why not bring in Henry Grattan and Flood and Demosthenes and Edmund Burke? We all know Ignatius Gallaher and his Chapelizod boss, Harmsworth of the penny press, and his American cousin of the Bowery gutter-sheet — not to mention _Paddy Kelly's Budget_, _Pue's Occurrences_, and our watchful friend _The Skibbereen Eagle_. Why bring in a master of courtroom eloquence like Whiteside? Sufficient for the day is the newspaper thereof.
+
+Who wrote for this very paper, with Flood: Irish volunteers, established 1763. J. J. O’Molloy brings him in as an orator and the editor takes him back as a journalist.
+
+## modern-en · flood · 7:378
+
+—My dear Myles, he said, flinging his cigarette aside, you put a false construction on my words. I hold no brief, as it stands, for the legal profession as such, but your Cork enthusiasm is running away with you. Why not bring in Henry Grattan and Flood and Demosthenes and Edmund Burke? We all know Ignatius Gallaher and his Chapelizod boss, Harmsworth of the penny press, and his American cousin of the Bowery gutter-sheet — not to mention _Paddy Kelly's Budget_, _Pue's Occurrences_, and our watchful friend _The Skibbereen Eagle_. Why bring in a master of courtroom eloquence like Whiteside? Sufficient for the day is the newspaper thereof.
+
+The other of the two. Not the flood of the year Hamilton Long’s was founded.
+
+## modern-en · demosthenes · 7:378
+
+—My dear Myles, he said, flinging his cigarette aside, you put a false construction on my words. I hold no brief, as it stands, for the legal profession as such, but your Cork enthusiasm is running away with you. Why not bring in Henry Grattan and Flood and Demosthenes and Edmund Burke? We all know Ignatius Gallaher and his Chapelizod boss, Harmsworth of the penny press, and his American cousin of the Bowery gutter-sheet — not to mention _Paddy Kelly's Budget_, _Pue's Occurrences_, and our watchful friend _The Skibbereen Eagle_. Why bring in a master of courtroom eloquence like Whiteside? Sufficient for the day is the newspaper thereof.
+
+Named in the same list, with Edmund Burke, as the eloquence J. J. O’Molloy will not be told the bar has lost.
+
+## modern-en · edmund-burke · 7:378
+
+—My dear Myles, he said, flinging his cigarette aside, you put a false construction on my words. I hold no brief, as it stands, for the legal profession as such, but your Cork enthusiasm is running away with you. Why not bring in Henry Grattan and Flood and Demosthenes and Edmund Burke? We all know Ignatius Gallaher and his Chapelizod boss, Harmsworth of the penny press, and his American cousin of the Bowery gutter-sheet — not to mention _Paddy Kelly's Budget_, _Pue's Occurrences_, and our watchful friend _The Skibbereen Eagle_. Why bring in a master of courtroom eloquence like Whiteside? Sufficient for the day is the newspaper thereof.
+
+The last of the list. Not the O’Madden Burke in the room.
+
+## modern-en · harmsworth · 7:378
+
+—My dear Myles, he said, flinging his cigarette aside, you put a false construction on my words. I hold no brief, as it stands, for the legal profession as such, but your Cork enthusiasm is running away with you. Why not bring in Henry Grattan and Flood and Demosthenes and Edmund Burke? We all know Ignatius Gallaher and his Chapelizod boss, Harmsworth of the penny press, and his American cousin of the Bowery gutter-sheet — not to mention _Paddy Kelly's Budget_, _Pue's Occurrences_, and our watchful friend _The Skibbereen Eagle_. Why bring in a master of courtroom eloquence like Whiteside? Sufficient for the day is the newspaper thereof.
+
+Of the farthing press, Ignatius Gallaher’s Chapelizod boss.
+
+## modern-en · dr-lucas · 7:380
+
+—Grattan and Flood wrote for this very paper, the editor cried in his face. Irish Volunteers. Where are you now? Established 1763. Dr Lucas. Who have you now like John Philpot Curran? Pah!
+
+Named with the paper’s founding: established 1763.
+
+## modern-en · john-philpot-curran · 7:380
+
+—Grattan and Flood wrote for this very paper, the editor cried in his face. Irish Volunteers. Where are you now? Established 1763. Dr Lucas. Who have you now like John Philpot Curran? Pah!
+
+Who have you now like him, the editor asks. Not the Curran of Stephen’s list of debts, nor Sara Curran.
+
+## modern-en · tim-healy · 7:412
+
+—He is sitting alongside Tim Healy, J. J. O'Molloy said — rumour has it — on the Trinity College estates commission.
+
+Sitting with Gerald Fitzgibbon, rumour has it, on the Trinity college estates commission.
+
+## modern-en · fitzgibbon · 7:409
+
+—No thanks, Professor MacHugh said, waving the cigarette case aside. Wait a moment. Let me say one thing. The finest display of oratory I ever heard was a speech made by John F. Taylor at the College Historical Society. Mr Justice Fitzgibbon, the present Lord Justice of Appeal, had spoken, and the paper under debate was an essay — new for those days — advocating the revival of the Irish language.
+
+Mr Justice Fitzgibbon, the present lord justice of appeal, whose speech to the youth of Ireland John F Taylor rose to answer. You know Gerald Fitzgibbon: then you can imagine the style of his discourse. Not Fitzgibbon street.
+
+## modern-en · john-f-taylor · 7:409
+
+—No thanks, Professor MacHugh said, waving the cigarette case aside. Wait a moment. Let me say one thing. The finest display of oratory I ever heard was a speech made by John F. Taylor at the College Historical Society. Mr Justice Fitzgibbon, the present Lord Justice of Appeal, had spoken, and the paper under debate was an essay — new for those days — advocating the revival of the Irish language.
+
+Who had come from a sickbed, with a growth of shaggy beard and a loose white silk neckcloth, and made the finest display of oratory professor MacHugh ever heard — the speech of the Egyptian highpriest to the youthful Moses, which MacHugh gives back from memory in the office.
+
+## modern-en · magennis · 7:407
+
+—Professor Magennis was speaking to me about you, J. J. O'Molloy said to Stephen. What do you really think of that mystical crowd, the dreamy poets: A.E. the master mystic? That Blavatsky woman started the whole thing. She was a fine old bag of tricks. A.E. has been telling some American interviewer that you came to him in the small hours of the morning to ask him about planes of consciousness. Magennis thinks you must have been pulling A.E.'s leg. Magennis is a man of the very highest moral standards.
+
+Who was speaking to J. J. O’Molloy about Stephen, and thinks he must have been pulling A. E.’s leg.
+
+## modern-en · blavatsky · 7:407
+
+—Professor Magennis was speaking to me about you, J. J. O'Molloy said to Stephen. What do you really think of that mystical crowd, the dreamy poets: A.E. the master mystic? That Blavatsky woman started the whole thing. She was a fine old bag of tricks. A.E. has been telling some American interviewer that you came to him in the small hours of the morning to ask him about planes of consciousness. Magennis thinks you must have been pulling A.E.'s leg. Magennis is a man of the very highest moral standards.
+
+That Blavatsky woman, who started the whole thing. A nice old bag of tricks.
+
+## modern-en · skin-the-goat · 7:330
+
+—_New York World_, the editor said, excitedly pushing back his straw hat. Where the murder took place. Tim Kelly — or Kavanagh, I mean. Joe Brady and the rest of them. Where Skin-the-Goat drove the getaway car. The whole route, see?
+
+Fitzharris, who drove the car for an alibi on the day of the Phoenix park murders, and who keeps the cabman’s shelter down at Butt bridge now — they say. Holohan told Mr O’Madden Burke so.
+
+## modern-en · joe-brady · 7:330
+
+—_New York World_, the editor said, excitedly pushing back his straw hat. Where the murder took place. Tim Kelly — or Kavanagh, I mean. Joe Brady and the rest of them. Where Skin-the-Goat drove the getaway car. The whole route, see?
+
+One of the invincibles, on the editor’s map of the route and on the commemoration postcard Lady Dudley nearly bought.
+
+## modern-en · tim-kelly · 7:330
+
+—_New York World_, the editor said, excitedly pushing back his straw hat. Where the murder took place. Tim Kelly — or Kavanagh, I mean. Joe Brady and the rest of them. Where Skin-the-Goat drove the getaway car. The whole route, see?
+
+Another, whom the editor names and then corrects to Kavanagh.
+
+## modern-en · kavanagh · 7:330
+
+—_New York World_, the editor said, excitedly pushing back his straw hat. Where the murder took place. Tim Kelly — or Kavanagh, I mean. Joe Brady and the rest of them. Where Skin-the-Goat drove the getaway car. The whole route, see?
+
+The name he corrects it to. Not Charley Kavanagh of episode 8, nor Kavanagh’s public house.
+
+## modern-en · number-one · 7:367
+
+—Oh yes, J. J. O'Molloy said eagerly. Lady Dudley was walking home through the Phoenix Park to see all the trees that were blown down by that cyclone last year, and she thought she'd buy a view of Dublin from one of them. And it turned out to be a commemorative postcard of Joe Brady or Number One or Skin-the-Goat. Right outside the Viceregal Lodge, imagine!
+
+The unnamed head of the invincibles, on the same postcard. The book never gives him another name.
+
+## modern-en · gumley · 7:333
+
+—And poor Gumley is down there too, he told me, guarding stones for the city council. A night watchman.
+
+A friend of Stephen’s father, now minding stones for the corporation as a night watchman — let Gumley mind the stones, see they don’t run away.
+
+## modern-en · dick-adams · 7:355
+
+—I saw it happen, the editor said proudly. I was there. Dick Adams, the best-hearted bloody Corkman the Lord ever breathed life into, and myself.
+
+The besthearted bloody Corkman the Lord ever put the breath of life in, present with the editor when Ignatius Gallaher cabled the route to New York.
+
+## modern-en · gregor-grey · 7:358
+
+—History! Myles Crawford cried. The Old Woman of Prince's Street — our paper — was there first. There was weeping and gnashing of teeth over that scoop. All from an advertisement. Gregor Grey designed the layout. That gave Gallaher his break. Then Paddy Hooper got him work with T.P. O'Connor, who took him on at the _Star_. Now he's in with Blumenfeld at the _Daily Express_. That's journalism. That's talent. Pyatt! Gallaher was the daddy of them all!
+
+Who made the design for the advertisement the map was built out of. That gave him the leg up. Not sir John Gray of the statue.
+
+## modern-en · paddy-hooper · 7:232
+
+—Who? the professor said, turning. They've gone round to the Oval for a drink. Paddy Hooper is there with Jack Hall. Came over last night.
+
+Who worked Tay Pay and got Gallaher his opening, and who is round at the Oval now with Jack Hall. Not the alderman Hooper of the stuffed owl.
+
+## modern-en · jack-hall · 7:232
+
+—Who? the professor said, turning. They've gone round to the Oval for a drink. Paddy Hooper is there with Jack Hall. Came over last night.
+
+With whom he came over last night.
+
+## modern-en · tay-pay · 7:358
+
+—History! Myles Crawford cried. The Old Woman of Prince's Street — our paper — was there first. There was weeping and gnashing of teeth over that scoop. All from an advertisement. Gregor Grey designed the layout. That gave Gallaher his break. Then Paddy Hooper got him work with T.P. O'Connor, who took him on at the _Star_. Now he's in with Blumenfeld at the _Daily Express_. That's journalism. That's talent. Pyatt! Gallaher was the daddy of them all!
+
+T. P. O’Connor, who took Gallaher on to the Star. The older edition spells him as the initials are said; the modern edition writes the name.
+
+## modern-en · blumenfeld · 7:358
+
+—History! Myles Crawford cried. The Old Woman of Prince's Street — our paper — was there first. There was weeping and gnashing of teeth over that scoop. All from an advertisement. Gregor Grey designed the layout. That gave Gallaher his break. Then Paddy Hooper got him work with T.P. O'Connor, who took him on at the _Star_. Now he's in with Blumenfeld at the _Daily Express_. That's journalism. That's talent. Pyatt! Gallaher was the daddy of them all!
+
+Whom Gallaher is in with now.
+
+## modern-en · pyatt · 7:358
+
+—History! Myles Crawford cried. The Old Woman of Prince's Street — our paper — was there first. There was weeping and gnashing of teeth over that scoop. All from an advertisement. Gregor Grey designed the layout. That gave Gallaher his break. Then Paddy Hooper got him work with T.P. O'Connor, who took him on at the _Star_. Now he's in with Blumenfeld at the _Daily Express_. That's journalism. That's talent. Pyatt! Gallaher was the daddy of them all!
+
+He was all their daddies, the editor says. Lenehan makes him the father of scare journalism and the brother-in-law of Chris Callinan.
+
+## modern-en · chris-callinan · 7:359
+
+—The father of sensationalist journalism, Lenehan confirmed, and the brother-in-law of Chris Callinan.
+
+His brother-in-law, in Lenehan’s footnote. Lenehan tells a longer story about him and Bloom on the Featherbed Mountain in episode 10.
+
+## modern-en · lady-dudley · 7:367
+
+—Oh yes, J. J. O'Molloy said eagerly. Lady Dudley was walking home through the Phoenix Park to see all the trees that were blown down by that cyclone last year, and she thought she'd buy a view of Dublin from one of them. And it turned out to be a commemorative postcard of Joe Brady or Number One or Skin-the-Goat. Right outside the Viceregal Lodge, imagine!
+
+Walking home through the park to see the trees blown down by the cyclone, who thought she would buy a view of Dublin and was offered a commemoration postcard of Joe Brady instead. Right outside the viceregal lodge, imagine.
+
+## modern-en · bobrikoff · 7:307
+
+—Like fellows who had blown up the Bastille, J. J. O'Molloy said with quiet mockery. Or was it you two who shot the governor-general of Finland? You look as though you had done the deed. General Bobrikoff.
+
+The lord lieutenant of Finland, shot. You look as though you had done the deed, J. J. O’Molloy tells Stephen and Mr O’Madden Burke, looking at their ties.
+
+## modern-en · jakes-mccarthy · 7:321
+
+—Foot-and-mouth disease! the editor cried scornfully. Great nationalist meeting in Borris-in-Ossory. All rubbish! Hoodwinking the public! Give them something with a bite to it. Put us all into it, damn it all. Father, Son and Holy Ghost and Jakes McCarthy.
+
+Father, Son and Holy Ghost and Jakes M’Carthy — the editor’s formula for putting everybody into it. The modern edition spells him McCarthy.
+
+## modern-en · xenophon · 7:116
+
+—And Xenophon looked upon Marathon, Mr Dedalus said, looking again at the fireplace and to the window, and Marathon looked on the sea.
+
+Who looked upon Marathon, and Marathon looked on the sea: Mr Dedalus quoting Byron at Dan Dawson’s prose.
+
+## modern-en · cicero · 7:122
+
+—A recently discovered fragment of Cicero, Professor MacHugh answered with a pompous tone. _Our lovely land._
+
+A recently discovered fragment of whom, professor MacHugh says with pomp of tone, is Dan Dawson’s speech in this morning’s paper.
+
+## modern-en · sallust · 7:294
+
+In mourning for the Roman historian Sallust, Mulligan says. Whose mother is completely dead.
+
+In mourning for whom, Mulligan says of professor MacHugh’s black clothes. Whose mother is beastly dead.
+
+## modern-en · salisbury · 7:284
+
+—We were always loyal to lost causes, the professor said. Success for us is the death of the intellect and of the imagination. We were never loyal to the successful. We serve them. I teach the blunt Latin language. I speak the tongue of a race whose highest wisdom is the maxim: time is money. Material domination. _Dominus!_ Lord! Where is the spirituality? Lord Jesus? Lord Salisbury? A sofa in a West End club. But the Greek!
+
+A sofa in a westend club — where professor MacHugh looks for the spirituality of the Roman and the Englishman and does not find it.
+
+## modern-en · maximilian-odonnell · 7:278
+
+—Well, as good as, Myles Crawford said, his eye running down the typescript. Emperor's horses. Habsburg. An Irishman saved the emperor's life on the ramparts of Vienna. Don't forget that! Maximilian Karl O'Donnell, Count von Tirconnell in Ireland. Sent his heir over to make the king an Austrian field marshal now. There's going to be trouble there one day. Wild Geese — Irish soldiers abroad. Oh yes, every time. Don't you forget that!
+
+Graf von Tirconnell in Ireland, the Irishman who saved the emperor’s life on the ramparts of Vienna and whose heir was sent over to make the king an Austrian fieldmarshal. Wild geese.
+
+## modern-en · macduff · 7:450
+
+—Lead on, Macduff!
+
+Lay on, Macduff — Mr O’Madden Burke’s word for going to Mooney’s, with a lunge of his umbrella.
+
+## modern-en · michelangelo · 7:390
+
+—He spoke on the law of evidence, J. J. O'Molloy said, on Roman justice as contrasted with the earlier Mosaic code, the law of an eye for an eye. And he cited the Moses of Michelangelo in the Vatican.
+
+Whose Moses in the vatican Seymour Bushe cited, and described in the period J. J. O’Molloy repeats: that stony effigy in frozen music, horned and terrible. Not the Michelangelo Hayes of episode 12.
+
+## modern-en · moses · 7:390
+
+—He spoke on the law of evidence, J. J. O'Molloy said, on Roman justice as contrasted with the earlier Mosaic code, the law of an eye for an eye. And he cited the Moses of Michelangelo in the Vatican.
+
+Twice over in this episode: the statue in the vatican, and the youthful Moses of John F Taylor’s speech, who did not listen to the Egyptian highpriest and so brought the chosen people out of their house of bondage. He died without having entered the land of promise, which is where Stephen’s parable of the plums ends up.
+
+## modern-en · saint-augustine · 7:427
+
+It was revealed to me that those things are good which yet are corrupted, which neither if they were supremely good nor unless they were good could be corrupted. Ah, damn it! That's Saint Augustine.
+
+Whose sentence comes into Stephen’s head in the middle of the speech — those things are good which yet are corrupted — and is recognised a beat too late. Ah, curse you! That’s saint Augustine.
+
+## modern-en · isis · 7:432
+
+_—You pray to a local and obscure idol: our temples, majestic and mysterious, are the abodes of Isis and Osiris, of Horus and Ammon Ra. Yours is serfdom, awe, and humbleness: ours is thunder and the seas. Israel is weak and few are her children: Egypt is a host and terrible are her arms. Vagrants and day-labourers you are called: the world trembles at our name._
+
+Whose abode, with Osiris, the Egyptian highpriest sets against the local and obscure idol of the Jews. Not Isis Unveiled, the book on the shelf in episode 9.
+
+## modern-en · osiris · 7:432
+
+_—You pray to a local and obscure idol: our temples, majestic and mysterious, are the abodes of Isis and Osiris, of Horus and Ammon Ra. Yours is serfdom, awe, and humbleness: ours is thunder and the seas. Israel is weak and few are her children: Egypt is a host and terrible are her arms. Vagrants and day-labourers you are called: the world trembles at our name._
+
+The second of the four.
+
+## modern-en · horus · 7:432
+
+_—You pray to a local and obscure idol: our temples, majestic and mysterious, are the abodes of Isis and Osiris, of Horus and Ammon Ra. Yours is serfdom, awe, and humbleness: ours is thunder and the seas. Israel is weak and few are her children: Egypt is a host and terrible are her arms. Vagrants and day-labourers you are called: the world trembles at our name._
+
+The third.
+
+## modern-en · ammon-ra · 7:432
+
+_—You pray to a local and obscure idol: our temples, majestic and mysterious, are the abodes of Isis and Osiris, of Horus and Ammon Ra. Yours is serfdom, awe, and humbleness: ours is thunder and the seas. Israel is weak and few are her children: Egypt is a host and terrible are her arms. Vagrants and day-labourers you are called: the world trembles at our name._
+
+The fourth: ours thunder and the seas.
+
+## modern-en · antisthenes · 7:519
+
+—You remind me of Antisthenes, the professor said, a disciple of Gorgias the sophist. It is said of him that no one could tell if he was more bitter against others or against himself. He was the son of a nobleman and a slave-woman. And he wrote a book in which he took the prize for beauty away from Helen of Argos and gave it to poor Penelope.
+
+A disciple of Gorgias, of whom it is said that none could tell whether he were bitterer against others or against himself. He wrote a book taking the palm of beauty from Argive Helen and handing it to poor Penelope, and professor MacHugh says Stephen reminds him of it.
+
+## modern-en · gorgias · 7:519
+
+—You remind me of Antisthenes, the professor said, a disciple of Gorgias the sophist. It is said of him that no one could tell if he was more bitter against others or against himself. He was the son of a nobleman and a slave-woman. And he wrote a book in which he took the prize for beauty away from Helen of Argos and gave it to poor Penelope.
+
+The sophist whose disciple he was.
+
+## modern-en · penelope · 7:519
+
+—You remind me of Antisthenes, the professor said, a disciple of Gorgias the sophist. It is said of him that no one could tell if he was more bitter against others or against himself. He was the son of a nobleman and a slave-woman. And he wrote a book in which he took the prize for beauty away from Helen of Argos and gave it to poor Penelope.
+
+Poor Penelope, who got the palm of beauty in that book. Odysseus’s wife at the loom, and the last word of this one.
+
+## modern-en · penelope-rich · 7:520
+
+Poor Penelope. Penelope Rich.
+
+The other Penelope, who follows in Stephen’s head one line later: Sidney’s Stella, and not Homer’s wife at all.
+
+## modern-en · kate-collins · 7:478
+
+—They buy one and fourpence worth of pressed meat and four slices of bread at the north city dining rooms in Marlborough Street from Miss Kate Collins, proprietress... They purchase twenty-four ripe plums from a girl at the foot of Nelson's Pillar to wash down the meat. They give two threepenny bits to the man at the turnstile and begin to waddle slowly up the winding staircase, grunting, encouraging each other, afraid of the dark, panting, one asking the other have you got the meat, praising God and the Blessed Virgin, threatening to come back down, peeping through the air slits. Glory be to God. They had no idea it was that high up.
+
+Proprietress of the north city diningrooms in Marlborough street, from whom the two Dublin vestals buy one and fourpenceworth of brawn and four slices of panloaf.
+
+## modern-en · anne-kearns · 7:479
+
+Their names are Anne Kearns and Florence MacCabe. Anne Kearns has lumbago, for which she rubs on Lourdes water, given to her by a lady who got a whole bottleful from a Passionist father. Florence MacCabe has a pig's trotter and a bottle of extra-strong stout for supper every Saturday.
+
+One of the two: she has the lumbago, for which she rubs on Lourdes water given her by a lady who got a bottleful from a passionist father. The other is Florence MacCabe, the midwife Stephen watched come down to the strand in episode 3.
