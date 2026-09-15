@@ -61,3 +61,27 @@ $25 total envelope, $0.00 of it spent. $1/hour per-GPU ceiling, 50-minute stop
 deadline, one owned pod with measurable uptime. The 0.85 per-paragraph
 threshold does not move. No recording is regenerated. `magna-carta/original-en`
 ch1 stays unpublished.
+
+## Batches E and F (2026-09-15, after the markup fix)
+
+`batch-e-recovered-markup.json` — 13 chapters. Every one was rejected under the
+old normalizer and passes when its stored diagnostics are replayed through the
+corrected one. This batch is the end-to-end confirmation that the offline
+replay was right; it is not new coverage in the sense of new alignment work.
+
+`batch-f-verse-priority1.json` — 45 chapters across 16 plays, `original-en`
+only (originals and human translations; the `modern-en` renderings are
+AI-created and stay Priority 2). Never attempted. Chapters already present in
+any earlier collect-report are excluded, so this measures the corrected
+pipeline on fresh verse rather than re-running known outcomes.
+
+There are 374 Priority-1 verse chapters untimed and audio-ready in total, and
+808 counting `modern-en`. Before the fix that corpus passed at 5% and was not
+worth the CPU. Batch F is the test of whether it is worth it now — run it
+before queueing the rest.
+
+Both files are the `[{bookId, edition, chapter}, ...]` shape `cloud_cohort.py
+--targets` and `verify_timings.py --targets` expect. They live here rather than
+only in the scratchpad because the session container has been reclaimed
+mid-batch before, most recently for the 43 hours between 2026-09-14 02:41 and
+2026-09-15 22:00.
