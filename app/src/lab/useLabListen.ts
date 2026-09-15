@@ -12,6 +12,7 @@ import {
   type LabAudioTitleClip,
 } from './labListen'
 import { nextHearingSpeed, parseHearingSpeed, playbackTimeSeconds, seekAcrossClips } from './labHearing'
+import { playAudioTransition, setAudioSource } from '../utils/audioPlayback'
 import {
   alignTimedWordsToText,
   followParagraphFromManifest,
@@ -226,10 +227,10 @@ export function useLabListen(options: UseLabListenOptions) {
     const sameSrc = audio.src === url || audio.src.endsWith(url)
     try { audio.pause() } catch { /* ignore */ }
     if (!sameSrc) {
-      audio.src = url
+      setAudioSource(audio, url)
       try { audio.currentTime = offsetSeconds } catch { /* ignore */ }
-      try { audio.load() } catch { /* ignore */ }
     }
+    const expectedSrc = audio.src
     const applyOffset = () => {
       if (!requestIsCurrent(request)) return
       if (offsetSeconds > 0 || audio.currentTime !== offsetSeconds) {
@@ -254,22 +255,16 @@ export function useLabListen(options: UseLabListenOptions) {
     syncFollow(index, offsetSeconds)
     playingRef.current = true
     setPlaying(true)
-    audio.play().then(() => {
-      if (!requestIsCurrent(request)) return
-      applyRate(audio, speed)
+    void playAudioTransition(
+      audio,
+      expectedSrc,
+      () => requestIsCurrent(request) && playingRef.current,
+    ).then(started => {
+      if (!requestIsCurrent(request) || audio.src !== expectedSrc) return
       switchingRef.current = false
-      syncFollow(index, audio.currentTime || offsetSeconds)
-    }).catch(error => {
-      if (!requestIsCurrent(request)) return
-      switchingRef.current = false
-      if (optionsRef.current.guardPlaybackRequests && (error?.name === 'AbortError' || error?.name === 'NotAllowedError')) {
-        playingRef.current = false
-        setPlaying(false)
-        setFollow({ kind: 'none' })
-        return
-      }
-      if (index + 1 < clipsRef.current.length) {
-        playClipRef.current(index + 1, 0, true)
+      if (started) {
+        applyRate(audio, speed)
+        syncFollow(index, audio.currentTime || offsetSeconds)
         return
       }
       playingRef.current = false

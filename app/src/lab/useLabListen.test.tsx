@@ -38,6 +38,40 @@ it('does not let a superseded rejection hide the new clip or its highlighting', 
   expect(h.result.current.follow).toMatchObject({ kind: 'word', paragraphIndex: 1 })
 })
 
+it('retries a transient rejection at an automatic clip transition without forcing load', async () => {
+  const h = harness()
+  await act(async () => { await h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+  await act(async () => h.pending[0].resolve())
+
+  act(() => h.audio.dispatchEvent(new Event('ended')))
+  expect(h.audio.play).toHaveBeenCalledTimes(2)
+  await act(async () => h.pending[1].reject(new DOMException('Source swap interrupted', 'AbortError')))
+  await act(async () => { await Promise.resolve() })
+  act(() => h.audio.dispatchEvent(new Event('canplay')))
+  await act(async () => { await Promise.resolve() })
+  expect(h.audio.play).toHaveBeenCalledTimes(3)
+  await act(async () => h.pending[2].resolve())
+
+  expect(h.audio.load).not.toHaveBeenCalled()
+  expect(h.result.current.clipIndex).toBe(1)
+  expect(h.result.current.playing).toBe(true)
+  expect(h.result.current.follow).toMatchObject({ kind: 'word', paragraphIndex: 1 })
+})
+
+it('does not retry an old rejected source after a newer play request supersedes it', async () => {
+  const h = harness()
+  await act(async () => { await h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+  await act(async () => h.pending[0].reject(new DOMException('Interrupted', 'AbortError')))
+
+  await act(async () => { await h.result.current.startAtPlace({ paragraphIndex: 1, wordIndex: 0 }) })
+  act(() => h.audio.dispatchEvent(new Event('canplay')))
+  expect(h.audio.play).toHaveBeenCalledTimes(2)
+  await act(async () => h.pending[1].resolve())
+
+  expect(h.result.current.clipIndex).toBe(1)
+  expect(h.result.current.playing).toBe(true)
+})
+
 it('blocks held-edition playback without fetching audio or changing follow state', async () => {
   const fetch = vi.fn(); vi.stubGlobal('fetch', fetch)
   const createAudio = vi.fn()
