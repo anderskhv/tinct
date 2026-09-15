@@ -38,16 +38,13 @@ export const LAB_CALL_COPY = {
   connectionConnecting: 'Connecting',
   connectionLost: 'Not connected',
   connectionLabel: 'Connection',
-  /** The word under the three-lines button. The underlined link is retired (2026-09-11). */
-  transcript: 'Transcript',
-  /** The accessible name of End; the phone bar still shows it in full. */
+  /** The accessible name of End. */
   end: 'End conversation',
   /** The word under the X. */
   endWord: 'End',
   mute: 'Mute',
   unmute: 'Unmute',
   reconnect: 'Reconnect',
-  backToCall: 'Back to the conversation',
   callLabel: 'Voice conversation',
   /** The caption while the microphone is open and nothing is being said. */
   askAboutPage: 'Ask about this page.',

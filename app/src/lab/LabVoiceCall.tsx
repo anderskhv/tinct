@@ -11,7 +11,6 @@ import {
   VoiceEndIcon,
   VoiceMicIcon,
   VoiceReconnectIcon,
-  VoiceTranscriptIcon,
 } from './LabVoiceIcons'
 import { VoiceOrb } from './VoiceOrb'
 
@@ -37,7 +36,6 @@ interface LabVoiceCallProps {
   /** The newest thing the assistant said, for the caption while she speaks. */
   utterance?: string | null
   onMuteToggle: () => void
-  onTranscript: () => void
   onEnd: () => void
   onReconnect: () => void
 }
@@ -89,7 +87,6 @@ export function LabVoiceCall({
   bookLine,
   utterance = null,
   onMuteToggle,
-  onTranscript,
   onEnd,
   onReconnect,
 }: LabVoiceCallProps) {
@@ -163,12 +160,6 @@ export function LabVoiceCall({
           />
         )}
         <VoiceControl
-          testId="lab-call-transcript"
-          word={LAB_CALL_COPY.transcript}
-          icon={<VoiceTranscriptIcon />}
-          onClick={onTranscript}
-        />
-        <VoiceControl
           testId="lab-call-end"
           word={LAB_CALL_COPY.endWord}
           label={LAB_CALL_COPY.end}
@@ -177,57 +168,6 @@ export function LabVoiceCall({
           onClick={onEnd}
         />
       </div>
-    </div>
-  )
-}
-
-interface LabVoiceCallBarProps {
-  view: LabCallView
-  onMuteToggle: () => void
-  onEnd: () => void
-  onReturn: () => void
-}
-
-/**
- * What is left of the call while the transcript is open: the same status,
- * kept honest, plus mute, end, and the way back to the full surface.
- */
-export function LabVoiceCallBar({ view, onMuteToggle, onEnd, onReturn }: LabVoiceCallBarProps) {
-  return (
-    <div className="lab-call-bar" data-testid="lab-call-bar" data-status={view.status}>
-      <button
-        type="button"
-        className="lab-call-bar-status"
-        data-testid="lab-call-bar-return"
-        onClick={onReturn}
-        aria-label={LAB_CALL_COPY.backToCall}
-      >
-        <span className={`lab-call-bar-dot is-${view.status}`} aria-hidden="true" />
-        <span className="lab-call-bar-text" data-testid="lab-call-bar-text">{view.statusText}</span>
-        <span className="lab-call-bar-connection" data-testid="lab-call-bar-connection">
-          {view.connectionText}
-        </span>
-        <svg className="lab-call-bar-back" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M6 14.5 12 8.5l6 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </button>
-      <button
-        type="button"
-        className={`lab-call-bar-action${view.micOff ? ' is-on' : ''}`}
-        data-testid="lab-call-bar-mute"
-        aria-pressed={view.micOff}
-        onClick={onMuteToggle}
-      >
-        {view.micOff ? LAB_CALL_COPY.unmute : LAB_CALL_COPY.mute}
-      </button>
-      <button
-        type="button"
-        className="lab-call-bar-action is-end"
-        data-testid="lab-call-bar-end"
-        onClick={onEnd}
-      >
-        {LAB_CALL_COPY.end}
-      </button>
     </div>
   )
 }

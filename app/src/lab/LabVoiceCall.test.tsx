@@ -2,7 +2,7 @@
 
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { LabVoiceCall, LabVoiceCallBar } from './LabVoiceCall.tsx'
+import { LabVoiceCall } from './LabVoiceCall.tsx'
 import { labCallView, type LabCallInput } from './labVoiceCall'
 
 afterEach(() => {
@@ -24,7 +24,6 @@ function renderCall(input: Partial<LabCallInput> = {}, props: Record<string, unk
     <LabVoiceCall
       view={view}
       onMuteToggle={noop}
-      onTranscript={noop}
       onEnd={noop}
       onReconnect={noop}
       {...props}
@@ -98,24 +97,11 @@ describe('the call surface', () => {
     })
   })
 
-  describe('the transcript control', () => {
-    it('is the icon button with one word beneath it', () => {
-      renderCall()
-      const control = screen.getByTestId('lab-call-transcript')
-      expect(control.textContent).toBe('Transcript')
-      expect(control.querySelector('svg')).toBeTruthy()
-      // The underlined "See transcript in real time." link is retired.
-      expect(screen.queryByText('See transcript in real time.')).toBeNull()
-    })
-
-    it('opens the transcript without ending the call', () => {
-      const onTranscript = vi.fn()
-      const onEnd = vi.fn()
-      renderCall({}, { onTranscript, onEnd })
-      fireEvent.click(screen.getByTestId('lab-call-transcript'))
-      expect(onTranscript).toHaveBeenCalledTimes(1)
-      expect(onEnd).not.toHaveBeenCalled()
-    })
+  it('keeps the call focused with no transcript-mode control', () => {
+    renderCall()
+    expect(screen.queryByTestId('lab-call-transcript')).toBeNull()
+    expect(screen.getByTestId('lab-call-mute')).toBeTruthy()
+    expect(screen.getByTestId('lab-call-end')).toBeTruthy()
   })
 
   it('offers an obvious End conversation control in every state', () => {
@@ -193,44 +179,5 @@ describe('the call surface', () => {
       // running an animation that would only look like speech.
       expect(frames.length).toBe(0)
     })
-  })
-})
-
-describe('the compact controls over the transcript', () => {
-  function renderBar(input: Partial<LabCallInput> = {}, props: Record<string, unknown> = {}) {
-    const view = labCallView({
-      connection: 'connected',
-      activity: 'listening',
-      micMuted: false,
-      ...input,
-    })
-    return render(
-      <LabVoiceCallBar view={view} onMuteToggle={noop} onEnd={noop} onReturn={noop} {...props} />,
-    )
-  }
-
-  it('carries the same status and connection the full surface shows', () => {
-    renderBar({ activity: 'speaking' })
-    expect(screen.getByTestId('lab-call-bar-text').textContent).toBe('Speaking.')
-    expect(screen.getByTestId('lab-call-bar-connection').textContent).toBe('Connected')
-  })
-
-  it('never claims a dropped call is listening', () => {
-    renderBar({ connection: 'disconnected', activity: 'listening' })
-    expect(screen.getByTestId('lab-call-bar-text').textContent).toBe('Disconnected')
-    expect(screen.getByTestId('lab-call-bar-connection').textContent).toBe('Not connected')
-  })
-
-  it('mutes, ends, and goes back to the full surface', () => {
-    const onMuteToggle = vi.fn()
-    const onEnd = vi.fn()
-    const onReturn = vi.fn()
-    renderBar({}, { onMuteToggle, onEnd, onReturn })
-    fireEvent.click(screen.getByTestId('lab-call-bar-mute'))
-    fireEvent.click(screen.getByTestId('lab-call-bar-end'))
-    fireEvent.click(screen.getByTestId('lab-call-bar-return'))
-    expect(onMuteToggle).toHaveBeenCalledTimes(1)
-    expect(onEnd).toHaveBeenCalledTimes(1)
-    expect(onReturn).toHaveBeenCalledTimes(1)
   })
 })

@@ -72,46 +72,21 @@ describe('Talk on the phone with Chrome V2', () => {
     expect(getUserMedia).not.toHaveBeenCalled()
   })
 
-  it('requests the microphone once across call, transcript and composer changes', async () => {
+  it('opens the full call from Chat without exposing transcript mode', async () => {
     const getUserMedia = vi.fn(() => new Promise(() => {}))
     vi.stubGlobal('navigator', { ...navigator, mediaDevices: { getUserMedia } })
-    await openCall()
-    await waitFor(() => expect(getUserMedia).toHaveBeenCalledTimes(1))
-    fireEvent.click(screen.getByTestId('lab-call-transcript'))
-    fireEvent.change(screen.getByTestId('lab-ask-input'), { target: { value: 'A multiline\nquestion' } })
-    fireEvent.click(screen.getByTestId('lab-call-bar-return'))
+    renderPhone('?chrome=v2')
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+    await waitFor(() => expect(screen.getByTestId('lab-ask-pane')).toBeTruthy())
+    fireEvent.click(screen.getByTestId('lab-ask-voice'))
     await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
-    expect(getUserMedia).toHaveBeenCalledTimes(1)
+    await waitFor(() => expect(getUserMedia).toHaveBeenCalledTimes(1))
+    expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
+    expect(screen.queryByTestId('lab-call-transcript')).toBeNull()
+    expect(screen.queryByTestId('lab-call-bar')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-call-end'))
     expect(getUserMedia).toHaveBeenCalledTimes(1)
-  })
-
-  describe('the transcript control', () => {
-    it('opens the existing chat view with the call still live', async () => {
-      await openCall()
-      const control = screen.getByTestId('lab-call-transcript')
-      expect(control.textContent).toBe('Transcript')
-      fireEvent.click(control)
-
-      await waitFor(() => expect(screen.getByTestId('lab-ask-pane')).toBeTruthy())
-      // The full surface stands down, but the call has not ended: the compact
-      // controls carry its status, mute, and end.
-      expect(screen.queryByTestId('lab-call')).toBeNull()
-      const bar = screen.getByTestId('lab-call-bar')
-      expect(bar).toBeTruthy()
-      expect(screen.getByTestId('lab-call-bar-mute')).toBeTruthy()
-      expect(screen.getByTestId('lab-call-bar-end')).toBeTruthy()
-      expect(screen.getByTestId('lab-call-bar-text').textContent).toBe('Connecting.')
-    })
-
-    it('goes back to the full call surface', async () => {
-      await openCall()
-      fireEvent.click(screen.getByTestId('lab-call-transcript'))
-      await waitFor(() => expect(screen.getByTestId('lab-call-bar')).toBeTruthy())
-      fireEvent.click(screen.getByTestId('lab-call-bar-return'))
-      await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
-      expect(screen.queryByTestId('lab-call-bar')).toBeNull()
-    })
   })
 
   describe('ending the conversation', () => {
@@ -121,15 +96,6 @@ describe('Talk on the phone with Chrome V2', () => {
       await waitFor(() => expect(screen.queryByTestId('lab-call')).toBeNull())
       expect(screen.queryByTestId('lab-call-bar')).toBeNull()
       expect(screen.getByTestId('lab-root')).toBeTruthy()
-    })
-
-    it('can be ended from the transcript too', async () => {
-      await openCall()
-      fireEvent.click(screen.getByTestId('lab-call-transcript'))
-      await waitFor(() => expect(screen.getByTestId('lab-call-bar')).toBeTruthy())
-      fireEvent.click(screen.getByTestId('lab-call-bar-end'))
-      await waitFor(() => expect(screen.queryByTestId('lab-call-bar')).toBeNull())
-      expect(screen.queryByTestId('lab-call')).toBeNull()
     })
 
     it('leaves the reader where the dialogue began', async () => {
@@ -190,6 +156,17 @@ describe('Talk on the desktop with Chrome V2', () => {
     expect(screen.getByTestId('lab-voice-panel-thread')).toBeTruthy()
   })
 
+  it('opens the full desktop voice panel from Chat', async () => {
+    renderDesktop()
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+    await waitFor(() => expect(screen.getByTestId('lab-ask-pane')).toBeTruthy())
+    fireEvent.click(screen.getByTestId('lab-ask-voice'))
+    await waitFor(() => expect(screen.getByTestId('lab-voice-panel')).toBeTruthy())
+    expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
+    expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('talk')
+  })
+
   it('tints the passage under discussion on the page', async () => {
     await openDesktopCall()
     await waitFor(() => expect(document.querySelector('.lab-hearing-line.is-discussed')).toBeTruthy())
@@ -209,11 +186,12 @@ describe('Talk on the desktop with Chrome V2', () => {
       expect(document.querySelector('.lab-hearing-line.is-discussed')).toBeTruthy()
     })
 
-    it('restores the panel from the orb, the Transcript button and the expand control', async () => {
+    it('restores the panel from the orb and expand control without transcript mode', async () => {
       await openDesktopCall()
-      for (const control of ['lab-voice-pill-orb', 'lab-voice-pill-transcript', 'lab-voice-pill-expand']) {
+      for (const control of ['lab-voice-pill-orb', 'lab-voice-pill-expand']) {
         fireEvent.click(screen.getByTestId('lab-voice-panel-minimize'))
         expect(screen.getByTestId('lab-voice-pill')).toBeTruthy()
+        expect(screen.queryByTestId('lab-voice-pill-transcript')).toBeNull()
         fireEvent.click(screen.getByTestId(control))
         expect(screen.queryByTestId('lab-voice-pill')).toBeNull()
         expect(screen.getByTestId('lab-voice-panel')).toBeTruthy()

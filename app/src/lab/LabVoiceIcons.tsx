@@ -34,14 +34,6 @@ export function VoiceMicIcon({ size = 24, off = false }: { size?: number; off?: 
   )
 }
 
-export function VoiceTranscriptIcon({ size = 24 }: { size?: number }) {
-  return (
-    <Stroke size={size}>
-      <path d="M5 7h14M5 12h14M5 17h9" />
-    </Stroke>
-  )
-}
-
 export function VoiceEndIcon({ size = 24 }: { size?: number }) {
   return (
     <Stroke size={size}>

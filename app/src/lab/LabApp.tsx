@@ -91,7 +91,7 @@ import { LabConversationOverlay, LabVoiceGate } from './LabConversation'
 import { LabNativePaginator, shrinkNativePageAfterPaint } from './LabNativePaginator'
 import { LabChapterCover } from './LabChapterCover'
 import { LabVoiceActionPanel } from './LabVoiceActionPanel'
-import { LabVoiceCall, LabVoiceCallBar } from './LabVoiceCall.tsx'
+import { LabVoiceCall } from './LabVoiceCall.tsx'
 import { LabVoiceDesktopPanel, LabVoicePill } from './LabVoiceDesktop.tsx'
 import { labCallRestore, labCallUtterance, labCallView, type LabCallAnchor } from './labVoiceCall'
 import { LabPageMeasurePaint, LabPassage } from './LabPassage'
@@ -2307,7 +2307,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const voiceOverlayOpen = showPhoneChrome && !voiceCallSurface && chrome === 'talking' && !phoneAskOpen
   // The full-screen call, and what is left of it while the transcript is open.
   const callFullScreen = voiceCallSurface && showPhoneChrome && callOpen && !phoneAskOpen
-  const callBarVisible = voiceCallSurface && showPhoneChrome && callOpen && phoneAskOpen
   // The desktop conversation: the companion panel, or the pill while minimized.
   const desktopVoiceOpen = voicePanelSurface && callOpen
   const callUtterance = labCallUtterance(ask.turns)
@@ -3415,15 +3414,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   endCallRef.current = endCall
 
-  /** "See transcript in real time." — the existing chat view, call still live. */
-  const openCallTranscript = useCallback(() => {
-    setGearOpen(false)
-    setTocOpen(false)
-    setInTheBookOpen(false)
-    setPeekBook(false)
-    setPhoneAskOpen(true)
-  }, [])
-
   const reconnectCall = useCallback(() => {
     ask.stopVoice()
     setCallAwaitingConnection(true)
@@ -4145,14 +4135,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           )}
         </div>
         )}
-        {callBarVisible && (
-          <LabVoiceCallBar
-            view={callView}
-            onMuteToggle={toggleCallMute}
-            onEnd={endCall}
-            onReturn={() => setPhoneAskOpen(false)}
-          />
-        )}
         {desktopVoiceOpen && !callMinimized && (
           <LabVoiceDesktopPanel
             view={callView}
@@ -4197,7 +4179,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             onVoiceMode={chromeV2 ? () => {
               dictation.stop()
               handleTalk()
-              if (showPhoneChrome) setPhoneAskOpen(true)
             } : handleVoiceMode}
             onRetry={ask.retryTyped}
             notice={chromeV2 ? (dictation.notice || ask.notice) : ask.notice}
@@ -4672,7 +4653,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           bookLine={callBookLine}
           utterance={callUtterance}
           onMuteToggle={toggleCallMute}
-          onTranscript={openCallTranscript}
           onEnd={endCall}
           onReconnect={reconnectCall}
         />

@@ -9,7 +9,6 @@ import {
   VoiceMicIcon,
   VoiceMinimizeIcon,
   VoiceReconnectIcon,
-  VoiceTranscriptIcon,
 } from './LabVoiceIcons'
 import { VoiceOrb } from './VoiceOrb'
 
@@ -249,13 +248,6 @@ export function LabVoicePill({
       </div>
       <div className="lab-voice-pill-controls">
         <MuteOrReconnect view={view} testIdPrefix="lab-voice-pill" compact onMuteToggle={onMuteToggle} onReconnect={onReconnect} />
-        <VoiceControl
-          testId="lab-voice-pill-transcript"
-          word={LAB_CALL_COPY.transcript}
-          icon={<VoiceTranscriptIcon size={22} />}
-          compact
-          onClick={onExpand}
-        />
         <VoiceControl
           testId="lab-voice-pill-end"
           word={LAB_CALL_COPY.end}

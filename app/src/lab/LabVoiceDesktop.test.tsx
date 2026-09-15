@@ -145,13 +145,13 @@ describe('the pill', () => {
     expect(screen.queryByTestId('lab-voice-pill-line')).toBeNull()
   })
 
-  it('restores the panel from the orb, the Transcript button and the expand control', () => {
+  it('restores the panel from the orb and expand control, without transcript mode', () => {
     const onExpand = vi.fn()
     renderPill({}, { onExpand })
     fireEvent.click(screen.getByTestId('lab-voice-pill-orb'))
-    fireEvent.click(screen.getByTestId('lab-voice-pill-transcript'))
     fireEvent.click(screen.getByTestId('lab-voice-pill-expand'))
-    expect(onExpand).toHaveBeenCalledTimes(3)
+    expect(onExpand).toHaveBeenCalledTimes(2)
+    expect(screen.queryByTestId('lab-voice-pill-transcript')).toBeNull()
   })
 
   it('mutes and ends without leaving the pill', () => {
