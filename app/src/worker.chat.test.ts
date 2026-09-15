@@ -124,7 +124,7 @@ describe('chat route', () => {
       }
       if (url === 'https://api.anthropic.com/v1/messages') {
         anthropicBody = JSON.parse(String(init?.body)) as Record<string, unknown>
-        return Response.json({ content: [], usage: { input_tokens: 1, output_tokens: 1 } })
+        return Response.json({ content: [{ text: 'A bounded answer.' }], usage: { input_tokens: 1, output_tokens: 1 } })
       }
       if (url.includes('/rest/v1/rpc/use_message')) {
         return Response.json({})
@@ -147,7 +147,7 @@ describe('chat route', () => {
     )
 
     expect(response.status).toBe(200)
-    expect(await response.json()).toEqual({ content: [], usage: { input_tokens: 1, output_tokens: 1 } })
+    expect(await response.json()).toEqual({ content: [{ text: 'A bounded answer.' }], usage: { input_tokens: 1, output_tokens: 1 } })
     expect(anthropicBody).toMatchObject({
       model: COMPANION_MODEL,
       max_tokens: 2048,
@@ -160,6 +160,29 @@ describe('chat route', () => {
       'https://example.supabase.co/rest/v1/rpc/use_message',
       expect.objectContaining({ method: 'POST' }),
     )
+  })
+
+  it('rejects an empty successful response without charging the reader', async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles')) {
+        return Response.json([{ messages_used_this_period: 0, message_balance: 1, subscription_status: 'active', subscription_period_end: null, created_at: '2026-06-01T12:00:00Z' }])
+      }
+      if (url === 'https://api.anthropic.com/v1/messages') return Response.json({ content: [], usage: { input_tokens: 1, output_tokens: 0 } })
+      if (url.includes('/rest/v1/rpc/use_message')) return Response.json({})
+      return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    const { ctx, pending, waitUntil } = makeExecutionContext()
+    const response = await handleChat(
+      chatRequest({ messages: [{ role: 'user', content: 'Answer me.' }] }), env, ctx,
+      async () => ({ id: userId, email: 'reader@example.com' }), async () => true,
+    )
+    expect(response.status).toBe(502)
+    expect(await response.json()).toMatchObject({ type: 'error', error: { type: 'empty_stream' } })
+    await Promise.all(pending)
+    expect(waitUntil).not.toHaveBeenCalled()
+    expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/rpc/use_message'))).toBe(false)
   })
 
   it('allows a lab guest companion without a session and does not charge', async () => {
@@ -566,10 +589,14 @@ describe('book-grounded lab chat', () => {
       if (bodies.length === 1) {
         return sseResponse([
           sse('message_start', { message: { usage: { input_tokens: 5 } } }),
-          sse('content_block_start', { index: 0, content_block: { type: 'tool_use', id: 'toolu_s', name: 'find_in_book', input: {} } }),
-          sse('content_block_delta', { index: 0, delta: { type: 'input_json_delta', partial_json: '{"query": "court of' } }),
-          sse('content_block_delta', { index: 0, delta: { type: 'input_json_delta', partial_json: ' the prison"}' } }),
+          sse('content_block_start', { index: 0, content_block: { type: 'thinking', thinking: '' } }),
+          sse('content_block_delta', { index: 0, delta: { type: 'thinking_delta', thinking: 'I should search the open book.' } }),
+          sse('content_block_delta', { index: 0, delta: { type: 'signature_delta', signature: 'signed-reasoning' } }),
           sse('content_block_stop', { index: 0 }),
+          sse('content_block_start', { index: 1, content_block: { type: 'tool_use', id: 'toolu_s', name: 'find_in_book', input: {} } }),
+          sse('content_block_delta', { index: 1, delta: { type: 'input_json_delta', partial_json: '{"query": "court of' } }),
+          sse('content_block_delta', { index: 1, delta: { type: 'input_json_delta', partial_json: ' the prison"}' } }),
+          sse('content_block_stop', { index: 1 }),
           sse('message_delta', { delta: { stop_reason: 'tool_use' }, usage: { output_tokens: 3 } }),
           sse('message_stop', {}),
         ])
@@ -605,6 +632,10 @@ describe('book-grounded lab chat', () => {
     const text = await readAll(response)
     await Promise.all(pending)
     expect(bodies).toHaveLength(2)
+    expect((bodies[1].messages as Array<{ content: unknown }>)[1].content).toEqual([
+      { type: 'thinking', thinking: 'I should search the open book.', signature: 'signed-reasoning' },
+      { type: 'tool_use', id: 'toolu_s', name: 'find_in_book', input: { query: 'court of the prison' } },
+    ])
     const toolResult = ((bodies[1].messages as Array<{ content: unknown }>)[2].content) as Array<{ content: string; is_error?: boolean }>
     expect(toolResult[0].is_error).toBeUndefined()
     const found = JSON.parse(toolResult[0].content) as { query: string; matches: Array<{ chapterNumber: number; label: string }> }

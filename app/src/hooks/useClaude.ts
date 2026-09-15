@@ -159,9 +159,11 @@ export function useClaude(options?: UseClaudeOptions) {
     let cacheCreationInputTokens = 0
     let cacheReadInputTokens = 0
     let sawToken = false
+    let sawStop = false
 
     const applyEvent = (data: string) => {
-      if (!data || data === '[DONE]') return
+      if (!data) return
+      if (data === '[DONE]') { sawStop = true; return }
       let event: {
         type?: string
         error?: { message?: string }
@@ -193,6 +195,7 @@ export function useClaude(options?: UseClaudeOptions) {
       if (event.type === 'message_delta') {
         outputTokens = event.usage?.output_tokens || outputTokens
       }
+      if (event.type === 'message_stop') sawStop = true
     }
 
     try {
@@ -217,6 +220,8 @@ export function useClaude(options?: UseClaudeOptions) {
       if (error instanceof ChatStreamError) throw error
       throw new ChatStreamError('Chat stream interrupted', sawToken)
     }
+
+    if (!sawStop) throw new ChatStreamError('Chat stream interrupted', sawToken)
 
     if (optionsRef.current?.bookId !== sendBookId) return
     const totalInputTokens = inputTokens + cacheCreationInputTokens + cacheReadInputTokens

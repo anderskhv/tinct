@@ -345,7 +345,7 @@ async function consumeStreamedRound(
           break
         }
         case 'content_block_delta': {
-          const delta = (data.delta as { type?: string; text?: string; partial_json?: string } | undefined) ?? {}
+          const delta = (data.delta as { type?: string; text?: string; partial_json?: string; thinking?: string; signature?: string } | undefined) ?? {}
           const block = blocks[index]
           if (delta.type === 'text_delta' && typeof delta.text === 'string') {
             if (block && block.type === 'text') (block as TextBlock).text += delta.text
@@ -357,6 +357,12 @@ async function consumeStreamedRound(
             if (sink) sink.write(event, data)
           } else if (delta.type === 'input_json_delta' && typeof delta.partial_json === 'string') {
             jsonBuffers.set(index, (jsonBuffers.get(index) ?? '') + delta.partial_json)
+          } else if (delta.type === 'thinking_delta' && typeof delta.thinking === 'string' && block?.type === 'thinking') {
+            const record = block as Record<string, unknown>
+            record.thinking = `${typeof record.thinking === 'string' ? record.thinking : ''}${delta.thinking}`
+          } else if (delta.type === 'signature_delta' && typeof delta.signature === 'string' && block?.type === 'thinking') {
+            const record = block as Record<string, unknown>
+            record.signature = `${typeof record.signature === 'string' ? record.signature : ''}${delta.signature}`
           }
           break
         }
@@ -748,10 +754,16 @@ export async function handleChat(
     const data = await response.json() as { usage?: AnthropicUsage }
     logAnthropicCacheUsage('chat', data.usage)
 
+    const hasAnswer = Array.isArray((data as { content?: Array<{ text?: string }> }).content)
+      && (data as { content: Array<{ text?: string }> }).content.some(block => Boolean(block.text?.trim()))
+    if (response.ok && !hasAnswer) {
+      logChatRequestTiming(timing, 'failed', false)
+      return jsonResponse(safeChatError('empty_stream'), 502, request)
+    }
+
     // Deduct message on success. Lab guest testers are not billed.
     if (response.ok) charge()
-    if (response.ok && Array.isArray((data as { content?: Array<{ text?: string }> }).content)
-      && (data as { content: Array<{ text?: string }> }).content.some(block => Boolean(block.text))) markFirstChatText(timing)
+    if (response.ok && hasAnswer) markFirstChatText(timing)
     logChatRequestTiming(timing, response.ok ? 'completed' : 'failed', timing.firstTextMs !== null)
     const result = jsonResponse(data, response.status, request)
     result.headers.set('X-Tinct-Chat-Request-Id', timing.requestId)

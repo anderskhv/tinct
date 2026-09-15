@@ -24,6 +24,7 @@ function invalidRequestClass(body: unknown): string | null {
   if (text.includes('tool_result')) return 'tool_result'
   if (text.includes('cache_control')) return 'cache_control'
   if (text.includes('tool_choice')) return 'tool_choice'
+  if (text.includes('thinking') || text.includes('redacted_thinking')) return 'thinking_block'
   if (text.includes('tools')) return 'tools'
   if (text.includes('messages')) return 'messages'
   if (text.includes('token') || text.includes('context')) return 'token_or_context'
