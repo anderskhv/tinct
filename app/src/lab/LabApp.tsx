@@ -1519,7 +1519,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   const applyNativePages = useCallback((incoming: ChapterHearingPage[], measuredContent?: string[]) => {
     if (measuredContent && measuredContent !== nativeContentRef.current) return
-    const next = explicitStartAnchor ? splitLabPagesAtAnchor(incoming, explicitStartAnchor) : incoming
+    // A native column can place the final words of the author's note and the
+    // opening words on one leaf. Cutting that leaf at the explicit start would
+    // leave an eight-word page. Rebuild only this share-link session from the
+    // measured page budget so the requested paragraph begins a normally filled
+    // page; ordinary reader sessions continue to adopt the native map verbatim.
+    const explicitBudget = pageMetricsRef.current ? labPageBudgetFromMetrics(pageMetricsRef.current) : null
+    const explicitPages = explicitStartAnchor
+      ? chapterHearingPages(nativeContentRef.current, canUseLabPageBudget(explicitBudget) ? explicitBudget : null)
+      : null
+    const next = explicitStartAnchor && explicitPages
+      ? splitLabPagesAtAnchor(explicitPages, explicitStartAnchor)
+      : incoming
     // Audio chrome temporarily changes the available box. Keep the reading
     // page map as the single authority instead of repaginating mid-playback.
     // V1's bar never changes height, so a page map that arrives mid-playback
