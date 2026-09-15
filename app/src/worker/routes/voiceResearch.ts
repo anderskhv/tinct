@@ -9,6 +9,21 @@ export type ReadingSourceResearch = {
   sources: Array<{ url: string; title: string }>
 }
 
+function sourceSearchErrorField(value: unknown, key: 'type' | 'code'): string | null {
+  if (!value || typeof value !== 'object') return null
+  const error = (value as { error?: unknown }).error
+  if (!error || typeof error !== 'object') return null
+  const field = (error as Record<string, unknown>)[key]
+  return typeof field === 'string' ? field.slice(0, 80) : null
+}
+
+function logSourceSearchFailure(input: Record<string, unknown>): void {
+  // Diagnostic identity only: never log the query, provider message, key or
+  // source text. This is the path that otherwise collapses every production
+  // failure into an indistinguishable null result.
+  console.error(JSON.stringify({ event: 'source_search_failed', ...input }))
+}
+
 /** Shared bounded public-source lookup for voice and typed reading questions. */
 export async function searchReadingSources(apiKey: string, query: string): Promise<ReadingSourceResearch | null> {
   try {
@@ -23,7 +38,16 @@ export async function searchReadingSources(apiKey: string, query: string): Promi
         input: query.trim(),
       }),
     })
-    if (!response.ok) return null
+    if (!response.ok) {
+      const failure = await response.json().catch(() => null)
+      logSourceSearchFailure({
+        stage: 'http',
+        status: response.status,
+        error_type: sourceSearchErrorField(failure, 'type'),
+        error_code: sourceSearchErrorField(failure, 'code'),
+      })
+      return null
+    }
     const data = await response.json() as { status?: string; output?: Array<{ type?: string; content?: Array<{ text?: string; annotations?: Array<{ type?: string; url?: string; title?: string }> }> }> }
     const parts = (data.output || []).filter(item => item.type === 'message').flatMap(item => item.content || [])
     const sources = parts.flatMap(part => part.annotations || [])
@@ -31,8 +55,13 @@ export async function searchReadingSources(apiKey: string, query: string): Promi
       .map(item => ({ url: item.url!, title: item.title || 'Source' }))
       .filter((item, index, all) => all.findIndex(other => other.url === item.url) === index).slice(0, 8)
     const notes = parts.map(part => part.text || '').join('\n').slice(0, 10000)
-    return data.status === 'completed' && notes && sources.length ? { notes, sources } : null
-  } catch {
+    if (data.status !== 'completed' || !notes || sources.length === 0) {
+      logSourceSearchFailure({ stage: 'result', status: data.status || 'missing', has_notes: Boolean(notes), source_count: sources.length })
+      return null
+    }
+    return { notes, sources }
+  } catch (error) {
+    logSourceSearchFailure({ stage: 'exception', error_name: error instanceof Error ? error.name : 'unknown' })
     return null
   }
 }

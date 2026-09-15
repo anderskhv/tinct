@@ -49,6 +49,7 @@ Interpretation rules:
 - Preserve user changes. Never revert, reset, or clean unrelated files unless Anders explicitly asks.
 - Prefer narrow fixes over broad rewrites, especially in reader, pagination, sync, auth, billing, and storage code.
 - If a change touches position, pagination, sync, or chapter navigation, trace the actual data flow before patching.
+- Automated browser checks must use an isolated headless context with audio muted or disabled. Do not take focus, navigate shared personal browser tabs, request microphone access, or produce audible playback. Physical or audible UI testing requires an explicitly agreed testing window.
 
 ## Verification
 

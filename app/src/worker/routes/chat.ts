@@ -468,6 +468,7 @@ async function runToolLoop(input: ToolLoopInput, sink: ClientSink | null, firstR
     input.onFirstText()
   }
   let separatorPending = false
+  let sourceSearchAttempted = false
   const roundSink: ClientSink | null = sink ? {
     write(event, data) {
       if (separatorPending && data.type === 'content_block_delta') {
@@ -482,7 +483,11 @@ async function runToolLoop(input: ToolLoopInput, sink: ClientSink | null, firstR
   } : null
 
   for (let round = 0; round <= MAX_TOOL_ROUNDS; round++) {
-    const forceText = round === MAX_TOOL_ROUNDS
+    // Public-source lookup is deliberately bounded to one attempt. Once its
+    // result (including a failure) is in the conversation, force the next
+    // round to answer. Advertising the same unavailable tool again let the
+    // model loop on it until the stream ended with no reader-facing answer.
+    const forceText = round === MAX_TOOL_ROUNDS || sourceSearchAttempted
     let outcome: RoundOutcome
     let response: Response
     if (round === 0 && firstResponse) {
@@ -527,6 +532,7 @@ async function runToolLoop(input: ToolLoopInput, sink: ClientSink | null, firstR
       separatorPending = true
     }
     const results = await executeToolCalls(input.retrieval, calls, input.research)
+    if (calls.some(call => call.name === 'search_reading_sources')) sourceSearchAttempted = true
     messages.push({ role: 'assistant', content: outcome.content })
     messages.push({ role: 'user', content: results })
   }

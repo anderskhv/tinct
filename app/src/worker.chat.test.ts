@@ -468,6 +468,7 @@ describe('book-grounded lab chat', () => {
     expect((anthropicBodies[0].tools as Array<{ name: string }>).map(tool => tool.name)).toEqual([
       'read_chapter', 'find_in_book', 'search_reading_sources',
     ])
+    expect(anthropicBodies[1].tool_choice).toEqual({ type: 'none' })
     const result = ((anthropicBodies[1].messages as Array<{ content: unknown }>)[4].content) as Array<{ content: string; is_error?: boolean }>
     expect(result[0].is_error).toBeUndefined()
     expect(JSON.parse(result[0].content.split('\n').slice(1).join('\n'))).toMatchObject({ sources: [{ title: 'Encyclopaedia Britannica' }] })
