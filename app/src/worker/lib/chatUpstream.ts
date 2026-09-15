@@ -14,6 +14,22 @@ export function providerErrorType(body: unknown): string {
   return typeof type === 'string' && ERROR_TYPES.has(type) ? type : 'upstream_error'
 }
 
+/** Classify invalid-request shape without retaining the provider message. */
+function invalidRequestClass(body: unknown): string | null {
+  const error = body && typeof body === 'object' ? (body as { error?: unknown }).error : null
+  const message = error && typeof error === 'object' ? (error as { message?: unknown }).message : null
+  if (typeof message !== 'string') return null
+  const text = message.toLowerCase()
+  if (text.includes('tool_use_id')) return 'tool_use_id'
+  if (text.includes('tool_result')) return 'tool_result'
+  if (text.includes('cache_control')) return 'cache_control'
+  if (text.includes('tool_choice')) return 'tool_choice'
+  if (text.includes('tools')) return 'tools'
+  if (text.includes('messages')) return 'messages'
+  if (text.includes('token') || text.includes('context')) return 'token_or_context'
+  return 'other'
+}
+
 export function safeChatError(type = 'upstream_error') {
   const busy = type === 'rate_limit_error' || type === 'overloaded_error'
   const unavailable = type === 'authentication_error' || type === 'permission_error'
@@ -32,7 +48,7 @@ export function logChatFailure(
   phase: 'http' | 'network' | 'stream' | 'route',
   type: string,
   response?: Response,
-  extra?: { attempt?: number; retry?: boolean; partial_text?: boolean },
+  extra?: { attempt?: number; retry?: boolean; partial_text?: boolean; invalid_request_class?: string | null },
 ): void {
   const id = response?.headers.get('request-id')
   console.warn(JSON.stringify({
@@ -118,10 +134,14 @@ export async function fetchChatUpstream(apiKey: string, payload: Record<string, 
       clearTimeout(timer)
     }
     if (response.ok) return response
-    const type = providerErrorType(await errorBody(response))
+    const body = await errorBody(response)
+    const type = providerErrorType(body)
     const delay = retryDelay(response)
     const retry = allowRetry && attempt === 1 && RETRY_STATUSES.has(response.status) && delay !== null
-    logChatFailure('http', type, response, { attempt, retry })
+    logChatFailure('http', type, response, {
+      attempt, retry,
+      invalid_request_class: type === 'invalid_request_error' ? invalidRequestClass(body) : null,
+    })
     if (retry) {
       await new Promise(resolve => setTimeout(resolve, delay!))
       continue
