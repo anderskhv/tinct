@@ -2954,6 +2954,984 @@ He crossed at Nassau street corner and stood before the window of Yeates and Son
 
 Whose bag Bloom had to pick up and hand to her at Limerick junction, travelling to Ennis last year, in the list of what people leave behind them in trains and cloakrooms.
 
+## original-en · egyptian-highpriest · 7:423
+
+_—Mr Chairman, ladies and gentlemen: Great was my admiration in listening to the remarks addressed to the youth of Ireland a moment since by my learned friend. It seemed to me that I had been transported into a country far away from this country, into an age remote from this age, that I stood in ancient Egypt and that I was listening to the speech of some highpriest of that land addressed to the youthful Moses._
+
+Whose speech to the youthful Moses John F Taylor reported in episode 7 — the voice raised in a tone of like haughtiness and like pride, setting Isis and Osiris, Horus and Ammon Ra against the local and obscure idol of the Jews. Stephen hears it again in the silence of the library: and I heard the voice of that Egyptian highpriest.
+
+## original-en · john-aubrey · 9:294
+
+—And the sense of property, Stephen said. He drew Shylock out of his own long pocket. The son of a maltjobber and moneylender he was himself a cornjobber and moneylender, with ten tods of corn hoarded in the famine riots. His borrowers are no doubt those divers of worship mentioned by Chettle Falstaff who reported his uprightness of dealing. He sued a fellowplayer for the price of a few bags of malt and exacted his pound of flesh in interest for every money lent. How else could Aubrey’s ostler and callboy get rich quick? All events brought grist to his mill. Shylock chimes with the jewbaiting that followed the hanging and quartering of the queen’s leech Lopez, his jew’s heart being plucked forth while the sheeny was yet alive: _Hamlet_ and _Macbeth_ with the coming to the throne of a Scotch philosophaster with a turn for witchroasting. The lost armada is his jeer in _Love’s Labour Lost_. His pageants, the histories, sail fullbellied on a tide of Mafeking enthusiasm. Warwickshire jesuits are tried and we have a porter’s theory of equivocation. The _Sea Venture_ comes home from Bermudas and the play Renan admired is written with Patsy Caliban, our American cousin. The sugared sonnets follow Sidney’s. As for fay Elizabeth, otherwise carrotty Bess, the gross virgin who inspired _The Merry Wives of Windsor_, let some meinherr from Almany grope his life long for deephid meanings in the depths of the buckbasket.
+
+John Aubrey, whose Brief Lives is the authority for Shakespeare having held horses at the playhouse door: how else could Aubrey’s ostler and callboy get rich quick? Not the Aubrey of Magdalen whom Mulligan quotes in episode 1.
+
+## original-en · lyster · 9:0
+
+Urbane, to comfort them, the quaker librarian purred:
+
+The quaker librarian, urbane and creaking, who purrs about Wilhelm Meister, tiptoes in and out on his neatsleather all through the argument, and is called away three times — by an attendant, by a gentleman from the Freeman, and by Father Dineen. Most zealous, most fair, most kind, most honest broadbrim. He is the one who asks Stephen outright whether he thinks she was unfaithful to the poet.
+
+## original-en · john-eglinton · 9:8
+
+—Have you found those six brave medicals, John Eglinton asked with elder’s gall, to write _Paradise Lost_ at your dictation? _The Sorrows of Satan_ he calls it.
+
+W. K. Magee, who signs himself John Eglinton, editing Dana: the carping voice of the room, with active eyebrows, a spare body and a sizar’s stern frown. He makes his blood boil to hear Aristotle compared with Plato, will not have his belief shaken that Shakespeare is Hamlet, and tells Stephen at the end that he is a delusion who has brought them all this way to show them a French triangle. Stephen names him eight ways in one afternoon — littlejohn, Judge, Second, Steadfast John, Eclecticon, Eglintonus Chronolologos, Eglinton Johannes, Magee.
+
+## original-en · mr-best · 9:27
+
+Mr Best entered, tall, young, mild, light. He bore in his hand with grace a notebook, new, large, clean, bright.
+
+Tall, young, mild, light, with a new large clean bright notebook, who says don’t you know at every turn and cares more for the light touch than for the argument. He brings in Mallarmé and the prose poems, the brother motive in Grimm, and the story of Mr W. H., and he hopes Stephen will say a good word for Richard, don’t you know, for his sake.
+
+## original-en · library-attendant · 9:3
+
+A noiseless attendant setting open the door but slightly made him a noiseless beck.
+
+Noiseless at the door, who sets it open but slightly and beckons Mr Lyster out with a noiseless beck; who brings in the card from the Freeman; and who calls from the doorway that Father Dineen wants him.
+
+## original-en · evans · 9:245
+
+—All the leading provincial... _Northern Whig, Cork Examiner, Enniscorthy Guardian,_ 1903... Will you please?... Evans, conduct this gentleman... If you just follow the atten... Or, please allow me... This way... Please, sir...
+
+The attendant Mr Lyster calls to conduct the gentleman from the Freeman to the provincial papers.
+
+## original-en · father-dineen · 9:370
+
+—Mr Lyster! Father Dineen wants...
+
+Who wants Mr Lyster, and takes him out of the room at the one moment when the quaker librarian has asked the question he most wants answered.
+
+## original-en · goethe · 9:4
+
+—Directly, said he, creaking to go, albeit lingering. The beautiful ineffectual dreamer who comes to grief against hard facts. One always feels that Goethe’s judgments are so true. True in the larger analysis.
+
+Of the priceless pages of Wilhelm Meister, the great poet on a great brother poet, whose judgments Mr Lyster always feels are so true. True in the larger analysis. Stephen gives him back later in a harder saying that Mr Magee likes to quote: beware of what you wish for in youth, because you will get it in middle life.
+
+## original-en · de-la-palice · 9:7
+
+—Monsieur de la Palice, Stephen sneered, was alive fifteen minutes before his death.
+
+Who was alive fifteen minutes before his death — Stephen’s sneer at the quaker librarian’s larger analysis, out of the French song about the obvious.
+
+## original-en · yeats · 9:126
+
+Young Colum and Starkey. George Roberts is doing the commercial part. Longworth will give it a good puff in the _Express._ O, will he? I liked Colum’s _Drover._ Yes, I think he has that queer thing genius. Do you think he has genius really? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you’ll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell’s joke about Moore and Martyn? That Moore is Martyn’s wild oats? Awfully clever, isn’t it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the rueful countenance here in Dublin. With a saffron kilt? O’Neill Russell? O, yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+The shining seven, W.B. calls them. He admired Colum’s line about the Grecian vase in the wild earth, and Mulligan asks Stephen at the end why he could not have done the Yeats touch on Lady Gregory’s book instead of slating it.
+
+## original-en · brunetto · 9:156
+
+Stephen withstood the bane of miscreant eyes glinting stern under wrinkled brows. A basilisk. _E quando vede l’uomo l’attosca_. Messer Brunetto, I thank thee for the word.
+
+Brunetto Latini, Dante’s master, from whom Stephen takes the word for John Eglinton’s stare: a basilisk — and when the serpent sees the man, it poisons him. Messer Brunetto, I thank thee for the word.
+
+## original-en · kathleen · 9:15
+
+Cranly’s eleven true Wicklowmen to free their sireland. Gaptoothed Kathleen, her four beautiful green fields, the stranger in her house. And one more to hail him: _ave, rabbi_: the Tinahely twelve. In the shadow of the glen he cooees for them. My soul’s youth I gave him, night by night. God speed. Good hunting.
+
+Gaptoothed Kathleen, her four beautiful green fields and the stranger in her house: Ireland herself in the play, whom Cranly’s eleven true Wicklowmen were to free. The modern edition writes Kathleen Ireland and takes the riddle out of it.
+
+## original-en · ben-jonson · 9:18
+
+—Our young Irish bards, John Eglinton censured, have yet to create a figure which the world will set beside Saxon Shakespeare’s Hamlet though I admire him, as old Ben did, on this side idolatry.
+
+Old Ben, who admired Shakespeare on this side idolatry. The older edition gives only the first name, as John Eglinton would say it among people who know; the modern edition supplies the surname.
+
+## original-en · james-i · 9:294
+
+—And the sense of property, Stephen said. He drew Shylock out of his own long pocket. The son of a maltjobber and moneylender he was himself a cornjobber and moneylender, with ten tods of corn hoarded in the famine riots. His borrowers are no doubt those divers of worship mentioned by Chettle Falstaff who reported his uprightness of dealing. He sued a fellowplayer for the price of a few bags of malt and exacted his pound of flesh in interest for every money lent. How else could Aubrey’s ostler and callboy get rich quick? All events brought grist to his mill. Shylock chimes with the jewbaiting that followed the hanging and quartering of the queen’s leech Lopez, his jew’s heart being plucked forth while the sheeny was yet alive: _Hamlet_ and _Macbeth_ with the coming to the throne of a Scotch philosophaster with a turn for witchroasting. The lost armada is his jeer in _Love’s Labour Lost_. His pageants, the histories, sail fullbellied on a tide of Mafeking enthusiasm. Warwickshire jesuits are tried and we have a porter’s theory of equivocation. The _Sea Venture_ comes home from Bermudas and the play Renan admired is written with Patsy Caliban, our American cousin. The sugared sonnets follow Sidney’s. As for fay Elizabeth, otherwise carrotty Bess, the gross virgin who inspired _The Merry Wives of Windsor_, let some meinherr from Almany grope his life long for deephid meanings in the depths of the buckbasket.
+
+One of the three men the schools have proposed as the real author of Hamlet, in Russell’s list of the questions he thinks purely academic. He returns unnamed at 9:294 as the Scotch philosophaster with a turn for witchroasting whose accession is dated by Hamlet and Macbeth.
+
+## original-en · essex · 9:19
+
+—All these questions are purely academic, Russell oracled out of his shadow. I mean, whether Hamlet is Shakespeare or James I or Essex. Clergymen’s discussions of the historicity of Jesus. Art has to reveal to us ideas, formless spiritual essences. The supreme question about a work of art is out of how deep a life does it spring. The painting of Gustave Moreau is the painting of ideas. The deepest poetry of Shelley, the words of Hamlet bring our minds into contact with the eternal wisdom, Plato’s world of ideas. All the rest is the speculation of schoolboys for schoolboys.
+
+The second of them.
+
+## original-en · gustave-moreau · 9:19
+
+—All these questions are purely academic, Russell oracled out of his shadow. I mean, whether Hamlet is Shakespeare or James I or Essex. Clergymen’s discussions of the historicity of Jesus. Art has to reveal to us ideas, formless spiritual essences. The supreme question about a work of art is out of how deep a life does it spring. The painting of Gustave Moreau is the painting of ideas. The deepest poetry of Shelley, the words of Hamlet bring our minds into contact with the eternal wisdom, Plato’s world of ideas. All the rest is the speculation of schoolboys for schoolboys.
+
+Whose painting is the painting of ideas, in Russell’s argument that art has to reveal formless spiritual essences and not the poet’s drinking and the poet’s debts.
+
+## original-en · shelley · 9:19
+
+—All these questions are purely academic, Russell oracled out of his shadow. I mean, whether Hamlet is Shakespeare or James I or Essex. Clergymen’s discussions of the historicity of Jesus. Art has to reveal to us ideas, formless spiritual essences. The supreme question about a work of art is out of how deep a life does it spring. The painting of Gustave Moreau is the painting of ideas. The deepest poetry of Shelley, the words of Hamlet bring our minds into contact with the eternal wisdom, Plato’s world of ideas. All the rest is the speculation of schoolboys for schoolboys.
+
+Whose deepest poetry brings the mind into contact with the eternal wisdom, Russell says; and whose figure of the mind as a fading coal Stephen turns against him, in the intense instant of imagination. Mulligan quotes him too over the foamborn Aphrodite: life of life, thy lips enkindle.
+
+## original-en · plato · 9:19
+
+—All these questions are purely academic, Russell oracled out of his shadow. I mean, whether Hamlet is Shakespeare or James I or Essex. Clergymen’s discussions of the historicity of Jesus. Art has to reveal to us ideas, formless spiritual essences. The supreme question about a work of art is out of how deep a life does it spring. The painting of Gustave Moreau is the painting of ideas. The deepest poetry of Shelley, the words of Hamlet bring our minds into contact with the eternal wisdom, Plato’s world of ideas. All the rest is the speculation of schoolboys for schoolboys.
+
+The other half of the argument. Aristotle was once Plato’s schoolboy, Stephen says, and has remained so, John Eglinton hopes; and which of the two would have banished me from his commonwealth? Hamlet’s monologue on the afterlife of his princely soul is as shallow as Plato’s, and the dialogues are the form Mr Best thinks the theory ought to take, like the Platonic dialogues Wilde wrote.
+
+## original-en · dunlop · 9:25
+
+Dunlop, Judge, the noblest Roman of them all, A.E., Arval, the Name Ineffable, in heaven hight: K.H., their master, whose identity is no secret to adepts. Brothers of the great white lodge always watching to see if they can help. The Christ with the bridesister, moisture of light, born of an ensouled virgin, repentant sophia, departed to the plane of buddhi. The life esoteric is not for ordinary person. O.P. must work off bad karma first. Mrs Cooper Oakley once glimpsed our very illustrious sister H.P.B.’s elemental.
+
+First of the theosophists in Stephen’s silent catalogue of the Dublin lodge: Daniel Nicol Dunlop, of the yogibogeybox in Dawson chambers.
+
+## original-en · judge-theosophist · 9:25
+
+Dunlop, Judge, the noblest Roman of them all, A.E., Arval, the Name Ineffable, in heaven hight: K.H., their master, whose identity is no secret to adepts. Brothers of the great white lodge always watching to see if they can help. The Christ with the bridesister, moisture of light, born of an ensouled virgin, repentant sophia, departed to the plane of buddhi. The life esoteric is not for ordinary person. O.P. must work off bad karma first. Mrs Cooper Oakley once glimpsed our very illustrious sister H.P.B.’s elemental.
+
+The noblest Roman of them all, second in the same list.
+
+## original-en · koot-hoomi · 9:25
+
+Dunlop, Judge, the noblest Roman of them all, A.E., Arval, the Name Ineffable, in heaven hight: K.H., their master, whose identity is no secret to adepts. Brothers of the great white lodge always watching to see if they can help. The Christ with the bridesister, moisture of light, born of an ensouled virgin, repentant sophia, departed to the plane of buddhi. The life esoteric is not for ordinary person. O.P. must work off bad karma first. Mrs Cooper Oakley once glimpsed our very illustrious sister H.P.B.’s elemental.
+
+Their master, whose identity is no secret to adepts: the mahatma the Dublin theosophists took their instruction from.
+
+## original-en · mrs-cooper-oakley · 9:25
+
+Dunlop, Judge, the noblest Roman of them all, A.E., Arval, the Name Ineffable, in heaven hight: K.H., their master, whose identity is no secret to adepts. Brothers of the great white lodge always watching to see if they can help. The Christ with the bridesister, moisture of light, born of an ensouled virgin, repentant sophia, departed to the plane of buddhi. The life esoteric is not for ordinary person. O.P. must work off bad karma first. Mrs Cooper Oakley once glimpsed our very illustrious sister H.P.B.’s elemental.
+
+Who once glimpsed our very illustrious sister H. P. B.’s elemental — the story that makes Stephen break out in mock scandal: you naughtn’t to look, missus, when a lady’s ashowing of her elemental.
+
+## original-en · sophia · 9:25
+
+Dunlop, Judge, the noblest Roman of them all, A.E., Arval, the Name Ineffable, in heaven hight: K.H., their master, whose identity is no secret to adepts. Brothers of the great white lodge always watching to see if they can help. The Christ with the bridesister, moisture of light, born of an ensouled virgin, repentant sophia, departed to the plane of buddhi. The life esoteric is not for ordinary person. O.P. must work off bad karma first. Mrs Cooper Oakley once glimpsed our very illustrious sister H.P.B.’s elemental.
+
+Repentant sophia, departed to the plane of buddhi: the fallen wisdom of the gnostic scheme, bridesister to the Christ in the theosophical account Stephen is mocking.
+
+## original-en · jubainville · 9:36
+
+—I was showing him Jubainville’s book. He’s quite enthusiastic, don’t you know, about Hyde’s _Lovesongs of Connacht._ I couldn’t bring him in to hear the discussion. He’s gone to Gill’s to buy it.
+
+Whose book Mr Best was showing Haines when Haines got enthusiastic about the Lovesongs of Connacht and went off to Gill’s to buy them: d’Arbois de Jubainville on the Irish mythological cycle.
+
+## original-en · douglas-hyde · 9:36
+
+—I was showing him Jubainville’s book. He’s quite enthusiastic, don’t you know, about Hyde’s _Lovesongs of Connacht._ I couldn’t bring him in to hear the discussion. He’s gone to Gill’s to buy it.
+
+Douglas Hyde, whose Lovesongs of Connacht Haines has gone to buy, and whose own verse — bound thee forth, my booklet, quick, to greet the callous public — Stephen recites in his head, lean unlovely English and all.
+
+## original-en · mallarme · 9:40
+
+—People do not know how dangerous lovesongs can be, the auric egg of Russell warned occultly. The movements which work revolutions in the world are born out of the dreams and visions in a peasant’s heart on the hillside. For them the earth is not an exploitable ground but the living mother. The rarefied air of the academy and the arena produce the sixshilling novel, the musichall song. France produces the finest flower of corruption in Mallarmé but the desirable life is revealed only to the poor of heart, the life of Homer’s Phæacians.
+
+The finest flower of corruption France produces, in Russell’s judgment; and to Mr Best the author of the wonderful prose poems Stephen MacKenna used to read to him in Paris, including the one about Hamlet: il se promène, lisant au livre de lui-même.
+
+## original-en · homer · 9:40
+
+—People do not know how dangerous lovesongs can be, the auric egg of Russell warned occultly. The movements which work revolutions in the world are born out of the dreams and visions in a peasant’s heart on the hillside. For them the earth is not an exploitable ground but the living mother. The rarefied air of the academy and the arena produce the sixshilling novel, the musichall song. France produces the finest flower of corruption in Mallarmé but the desirable life is revealed only to the poor of heart, the life of Homer’s Phæacians.
+
+Whose Phæacians live the desirable life revealed only to the poor of heart, Russell says; and whom Mulligan invokes at the end, chanting Longworth’s puff of Lady Gregory: the most beautiful book that has come out of our country in my time. One thinks of Homer.
+
+## original-en · stephen-mackenna · 9:42
+
+—Mallarmé, don’t you know, he said, has written those wonderful prose poems Stephen MacKenna used to read to me in Paris. The one about _Hamlet._ He says: _il se promène, lisant au livre de lui-même_, don’t you know, _reading the book of himself_. He describes _Hamlet_ given in a French town, don’t you know, a provincial town. They advertised it.
+
+Who used to read Mallarmé’s prose poems to Mr Best in Paris.
+
+## original-en · robert-greene · 9:51
+
+—A deathsman of the soul Robert Greene called him, Stephen said. Not for nothing was he a butcher’s son, wielding the sledded poleaxe and spitting in his palms. Nine lives are taken off for his father’s one. Our Father who art in purgatory. Khaki Hamlets don’t hesitate to shoot. The bloodboltered shambles in act five is a forecast of the concentration camp sung by Mr Swinburne.
+
+Who called Shakespeare a deathsman of the soul — the phrase Stephen opens the argument with. The modern edition turns it round and calls him a death-dealer of the soul.
+
+## original-en · pickwick-fat-boy · 9:55
+
+—He will have it that _Hamlet_ is a ghoststory, John Eglinton said for Mr Best’s behoof. Like the fat boy in Pickwick he wants to make our flesh creep.
+
+Who wants to make your flesh creep, and is John Eglinton’s comparison for Stephen insisting that Hamlet is a ghoststory.
+
+## original-en · king-hamlet · 9:59
+
+—What is a ghost? Stephen said with tingling energy. One who has faded into impalpability through death, through absence, through change of manners. Elizabethan London lay as far from Stratford as corrupt Paris lies from virgin Dublin. Who is the ghost from _limbo patrum_, returning to the world that has forgotten him? Who is King Hamlet?
+
+The ghost from limbo patrum, returning to the world that has forgotten him. Who is King Hamlet? is the question the whole theory turns on, and Stephen’s answer is Shakespeare himself, playing the part in his own play and speaking his own son’s name to the young player in front of him.
+
+## original-en · drake · 9:62
+
+—It is this hour of a day in mid June, Stephen said, begging with a swift glance their hearing. The flag is up on the playhouse by the bankside. The bear Sackerson growls in the pit near it, Paris garden. Canvasclimbers who sailed with Drake chew their sausages among the groundlings.
+
+Whose canvasclimbers chew their sausages among the groundlings at the Globe, in the hour of a day in mid June that Stephen builds for them.
+
+## original-en · burbage · 9:66
+
+—The play begins. A player comes on under the shadow, made up in the castoff mail of a court buck, a wellset man with a bass voice. It is the ghost, the king, a king and no king, and the player is Shakespeare who has studied _Hamlet_ all the years of his life which were not vanity in order to play the part of the spectre. He speaks the words to Burbage, the young player who stands before him beyond the rack of cerecloth, calling him by a name:
+
+The young player who stands before the ghost beyond the rack of cerecloth and is called Hamlet. He returns in the story out of Manningham: the burgher’s wife who bade Dick Burbage to her bed after she had seen him in Richard III, and Shakespeare answering from the capon’s blankets that William the conqueror came before Richard III.
+
+## original-en · hamnet · 9:68
+
+bidding him list. To a son he speaks, the son of his soul, the prince, young Hamlet and to the son of his body, Hamnet Shakespeare, who has died in Stratford that his namesake may live for ever.
+
+The son of his body, dead in Stratford at eleven, whose namesake lives for ever. Had Hamnet lived he would have been prince Hamlet’s twin; and Hamlet, the black prince, is Hamnet Shakespeare.
+
+## original-en · ann-hathaway · 9:69
+
+Is it possible that that player Shakespeare, a ghost by absence, and in the vesture of buried Denmark, a ghost by death, speaking his own words to his own son’s name (had Hamnet Shakespeare lived he would have been prince Hamlet’s twin), is it possible, I want to know, or probable that he did not draw or foresee the logical conclusion of those premises: you are the dispossessed son: I am the murdered father: your mother is the guilty queen, Ann Shakespeare, born Hathaway?
+
+Ann Shakespeare, born Hathaway, whom Stephen will not let the room forget. Eight years older than the boy she tumbled in the cornfield, sweet and twentysix; she bore his children, laid pennies on his eyes, and got the secondbest bed. She died, Stephen says, sixtyseven years after she was born — and of the thirtyfour years between the day she married him and the day she buried him, the plays say nothing except what he branded her with in the fifth scene of Hamlet.
+
+## original-en · villiers-de-lisle · 9:72
+
+—Interesting only to the parish clerk. I mean, we have the plays. I mean when we read the poetry of _King Lear_ what is it to us how the poet lived? As for living our servants can do that for us, Villiers de l’Isle has said. Peeping and prying into greenroom gossip of the day, the poet’s drinking, the poet’s debts. We have _King Lear_: and it is immortal.
+
+Who said that as for living our servants can do that for us — Russell’s authority for refusing to pry into the family life of a great man.
+
+## original-en · georgina-johnson · 9:78
+
+Go to! You spent most of it in Georgina Johnson’s bed, clergyman’s daughter. Agenbite of inwit.
+
+The clergyman’s daughter in whose bed Stephen spent most of the pound Russell lent him when he was hungry. Agenbite of inwit.
+
+## original-en · socrates · 9:101
+
+—A shrew, John Eglinton said shrewdly, is not a useful portal of discovery, one should imagine. What useful discovery did Socrates learn from Xanthippe?
+
+Who learnt dialectic from Xanthippe and from his mother how to bring thoughts into the world, and whom neither the midwife’s lore nor the caudlelectures saved from the archons and their naggin of hemlock. Stephen uses him twice more: Shakespeare had a midwife to mother as he had a shrew to wife; and Maeterlinck’s if Socrates leave his house today he will find the sage seated on his doorstep.
+
+## original-en · xanthippe · 9:101
+
+—A shrew, John Eglinton said shrewdly, is not a useful portal of discovery, one should imagine. What useful discovery did Socrates learn from Xanthippe?
+
+His wife, and John Eglinton’s example of a shrew who was not a useful portal of discovery.
+
+## original-en · myrto · 9:102
+
+—Dialectic, Stephen answered: and from his mother how to bring thoughts into the world. What he learnt from his other wife Myrto (_absit nomen!_), Socratididion’s Epipsychidion, no man, not a woman, will ever know. But neither the midwife’s lore nor the caudlelectures saved him from the archons of Sinn Fein and their naggin of hemlock.
+
+His other wife, absit nomen — what he learnt from her, Stephen says, no man, not a woman, will ever know.
+
+## original-en · katharine · 9:105
+
+—He had a good groatsworth of wit, Stephen said, and no truant memory. He carried a memory in his wallet as he trudged to Romeville whistling _The girl I left behind me._ If the earthquake did not time it we should know where to place poor Wat, sitting in his form, the cry of hounds, the studded bridle and her blue windows. That memory, _Venus and Adonis_, lay in the bedchamber of every light-of-love in London. Is Katharine the shrew illfavoured? Hortensio calls her young and beautiful. Do you think the writer of _Antony and Cleopatra_, a passionate pilgrim, had his eyes in the back of his head that he chose the ugliest doxy in all Warwickshire to lie withal? Good: he left her and gained the world of men. But his boywomen are the women of a boy. Their life, thought, speech are lent them by males. He chose badly? He was chosen, it seems to me. If others have their will Ann hath a way. By cock, she was to blame. She put the comether on him, sweet and twentysix. The greyeyed goddess who bends over the boy Adonis, stooping to conquer, as prologue to the swelling act, is a boldfaced Stratford wench who tumbles in a cornfield a lover younger than herself.
+
+Whom Hortensio calls young and beautiful, against the room’s assumption that the woman Shakespeare married must have been the ugliest doxy in all Warwickshire.
+
+## original-en · hortensio · 9:105
+
+—He had a good groatsworth of wit, Stephen said, and no truant memory. He carried a memory in his wallet as he trudged to Romeville whistling _The girl I left behind me._ If the earthquake did not time it we should know where to place poor Wat, sitting in his form, the cry of hounds, the studded bridle and her blue windows. That memory, _Venus and Adonis_, lay in the bedchamber of every light-of-love in London. Is Katharine the shrew illfavoured? Hortensio calls her young and beautiful. Do you think the writer of _Antony and Cleopatra_, a passionate pilgrim, had his eyes in the back of his head that he chose the ugliest doxy in all Warwickshire to lie withal? Good: he left her and gained the world of men. But his boywomen are the women of a boy. Their life, thought, speech are lent them by males. He chose badly? He was chosen, it seems to me. If others have their will Ann hath a way. By cock, she was to blame. She put the comether on him, sweet and twentysix. The greyeyed goddess who bends over the boy Adonis, stooping to conquer, as prologue to the swelling act, is a boldfaced Stratford wench who tumbles in a cornfield a lover younger than herself.
+
+Who calls her so.
+
+## original-en · adonis · 9:105
+
+—He had a good groatsworth of wit, Stephen said, and no truant memory. He carried a memory in his wallet as he trudged to Romeville whistling _The girl I left behind me._ If the earthquake did not time it we should know where to place poor Wat, sitting in his form, the cry of hounds, the studded bridle and her blue windows. That memory, _Venus and Adonis_, lay in the bedchamber of every light-of-love in London. Is Katharine the shrew illfavoured? Hortensio calls her young and beautiful. Do you think the writer of _Antony and Cleopatra_, a passionate pilgrim, had his eyes in the back of his head that he chose the ugliest doxy in all Warwickshire to lie withal? Good: he left her and gained the world of men. But his boywomen are the women of a boy. Their life, thought, speech are lent them by males. He chose badly? He was chosen, it seems to me. If others have their will Ann hath a way. By cock, she was to blame. She put the comether on him, sweet and twentysix. The greyeyed goddess who bends over the boy Adonis, stooping to conquer, as prologue to the swelling act, is a boldfaced Stratford wench who tumbles in a cornfield a lover younger than herself.
+
+The boy the greyeyed goddess bends over, stooping to conquer — and in Stephen’s reading a boldfaced Stratford wench tumbling a lover younger than herself in a cornfield. The poem’s title at the head of the same sentence is a book and carries no card.
+
+## original-en · piper · 9:115
+
+—Are you going? John Eglinton’s active eyebrows asked. Shall we see you at Moore’s tonight? Piper is coming.
+
+Back from Berlin and coming to Moore’s tonight, which is the news that makes Mr Best pipe. He is the man who met Herr Bleibtreu and brought home the Rutland theory.
+
+## original-en · louis-h-victory · 9:119
+
+Yogibogeybox in Dawson chambers. _Isis Unveiled._ Their Pali book we tried to pawn. Crosslegged under an umbrel umbershoot he thrones an Aztec logos, functioning on astral levels, their oversoul, mahamahatma. The faithful hermetists await the light, ripe for chelaship, ringroundabout him. Louis H. Victory. T. Caulfield Irwin. Lotus ladies tend them i’the eyes, their pineal glands aglow. Filled with his god, he thrones, Buddh under plantain. Gulfer of souls, engulfer. Hesouls, shesouls, shoals of souls. Engulfed with wailing creecries, whirled, whirling, they bewail.
+
+One of the two poets Stephen lists among the faithful hermetists waiting for the light, ripe for chelaship.
+
+## original-en · t-caulfield-irwin · 9:119
+
+Yogibogeybox in Dawson chambers. _Isis Unveiled._ Their Pali book we tried to pawn. Crosslegged under an umbrel umbershoot he thrones an Aztec logos, functioning on astral levels, their oversoul, mahamahatma. The faithful hermetists await the light, ripe for chelaship, ringroundabout him. Louis H. Victory. T. Caulfield Irwin. Lotus ladies tend them i’the eyes, their pineal glands aglow. Filled with his god, he thrones, Buddh under plantain. Gulfer of souls, engulfer. Hesouls, shesouls, shoals of souls. Engulfed with wailing creecries, whirled, whirling, they bewail.
+
+The other.
+
+## original-en · colum · 9:126
+
+Young Colum and Starkey. George Roberts is doing the commercial part. Longworth will give it a good puff in the _Express._ O, will he? I liked Colum’s _Drover._ Yes, I think he has that queer thing genius. Do you think he has genius really? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you’ll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell’s joke about Moore and Martyn? That Moore is Martyn’s wild oats? Awfully clever, isn’t it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the rueful countenance here in Dublin. With a saffron kilt? O’Neill Russell? O, yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Young Colum, whose Drover Russell liked and in whose line about the Grecian vase Yeats found that queer thing genius. One of the younger poets whose verses Russell is gathering into a sheaf.
+
+## original-en · starkey · 9:126
+
+Young Colum and Starkey. George Roberts is doing the commercial part. Longworth will give it a good puff in the _Express._ O, will he? I liked Colum’s _Drover._ Yes, I think he has that queer thing genius. Do you think he has genius really? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you’ll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell’s joke about Moore and Martyn? That Moore is Martyn’s wild oats? Awfully clever, isn’t it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the rueful countenance here in Dublin. With a saffron kilt? O’Neill Russell? O, yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Another of them, whom Russell twice tells Stephen to bring along tonight.
+
+## original-en · george-roberts · 9:126
+
+Young Colum and Starkey. George Roberts is doing the commercial part. Longworth will give it a good puff in the _Express._ O, will he? I liked Colum’s _Drover._ Yes, I think he has that queer thing genius. Do you think he has genius really? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you’ll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell’s joke about Moore and Martyn? That Moore is Martyn’s wild oats? Awfully clever, isn’t it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the rueful countenance here in Dublin. With a saffron kilt? O’Neill Russell? O, yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Who is doing the commercial part of the anthology.
+
+## original-en · longworth · 9:126
+
+Young Colum and Starkey. George Roberts is doing the commercial part. Longworth will give it a good puff in the _Express._ O, will he? I liked Colum’s _Drover._ Yes, I think he has that queer thing genius. Do you think he has genius really? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you’ll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell’s joke about Moore and Martyn? That Moore is Martyn’s wild oats? Awfully clever, isn’t it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the rueful countenance here in Dublin. With a saffron kilt? O’Neill Russell? O, yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Editor of the Express, who will give the sheaf a good puff — and who is awfully sick, Mulligan says, after what Stephen wrote about Lady Gregory’s book in his paper.
+
+## original-en · george-moore · 9:115
+
+—Are you going? John Eglinton’s active eyebrows asked. Shall we see you at Moore’s tonight? Piper is coming.
+
+George Moore, at whose house they are all going tonight, and whom Miss Mitchell’s joke makes Martyn’s wild oats. Our national epic has yet to be written and Moore is the man for it: a knight of the rueful countenance here in Dublin. Mulligan closes the episode on him — Monsieur Moore, lecturer on French letters to the youth of Ireland. Not the Tommy Moore of episode 8 nor Moore street.
+
+## original-en · martyn · 9:126
+
+Young Colum and Starkey. George Roberts is doing the commercial part. Longworth will give it a good puff in the _Express._ O, will he? I liked Colum’s _Drover._ Yes, I think he has that queer thing genius. Do you think he has genius really? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you’ll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell’s joke about Moore and Martyn? That Moore is Martyn’s wild oats? Awfully clever, isn’t it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the rueful countenance here in Dublin. With a saffron kilt? O’Neill Russell? O, yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Edward Martyn, the other half of the joke, and Sancho to Moore’s Quixote.
+
+## original-en · miss-mitchell · 9:126
+
+Young Colum and Starkey. George Roberts is doing the commercial part. Longworth will give it a good puff in the _Express._ O, will he? I liked Colum’s _Drover._ Yes, I think he has that queer thing genius. Do you think he has genius really? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you’ll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell’s joke about Moore and Martyn? That Moore is Martyn’s wild oats? Awfully clever, isn’t it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the rueful countenance here in Dublin. With a saffron kilt? O’Neill Russell? O, yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Whose joke it was. Awfully clever, isn’t it?
+
+## original-en · don-quixote · 9:126
+
+Young Colum and Starkey. George Roberts is doing the commercial part. Longworth will give it a good puff in the _Express._ O, will he? I liked Colum’s _Drover._ Yes, I think he has that queer thing genius. Do you think he has genius really? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you’ll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell’s joke about Moore and Martyn? That Moore is Martyn’s wild oats? Awfully clever, isn’t it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the rueful countenance here in Dublin. With a saffron kilt? O’Neill Russell? O, yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Whom Moore and Martyn remind one of.
+
+## original-en · sancho-panza · 9:126
+
+Young Colum and Starkey. George Roberts is doing the commercial part. Longworth will give it a good puff in the _Express._ O, will he? I liked Colum’s _Drover._ Yes, I think he has that queer thing genius. Do you think he has genius really? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you’ll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell’s joke about Moore and Martyn? That Moore is Martyn’s wild oats? Awfully clever, isn’t it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the rueful countenance here in Dublin. With a saffron kilt? O’Neill Russell? O, yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+And his squire.
+
+## original-en · dulcinea · 9:126
+
+Young Colum and Starkey. George Roberts is doing the commercial part. Longworth will give it a good puff in the _Express._ O, will he? I liked Colum’s _Drover._ Yes, I think he has that queer thing genius. Do you think he has genius really? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you’ll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell’s joke about Moore and Martyn? That Moore is Martyn’s wild oats? Awfully clever, isn’t it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the rueful countenance here in Dublin. With a saffron kilt? O’Neill Russell? O, yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+And his lady — and who would she be, in the Dublin version of the joke?
+
+## original-en · dr-sigerson · 9:126
+
+Young Colum and Starkey. George Roberts is doing the commercial part. Longworth will give it a good puff in the _Express._ O, will he? I liked Colum’s _Drover._ Yes, I think he has that queer thing genius. Do you think he has genius really? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you’ll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell’s joke about Moore and Martyn? That Moore is Martyn’s wild oats? Awfully clever, isn’t it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the rueful countenance here in Dublin. With a saffron kilt? O’Neill Russell? O, yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Who says our national epic has yet to be written.
+
+## original-en · oneill-russell · 9:126
+
+Young Colum and Starkey. George Roberts is doing the commercial part. Longworth will give it a good puff in the _Express._ O, will he? I liked Colum’s _Drover._ Yes, I think he has that queer thing genius. Do you think he has genius really? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you’ll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell’s joke about Moore and Martyn? That Moore is Martyn’s wild oats? Awfully clever, isn’t it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the rueful countenance here in Dublin. With a saffron kilt? O’Neill Russell? O, yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Proposed for the saffron kilt and the grand old tongue. Not the Russell of this episode, who is A. E.
+
+## original-en · james-stephens-writer · 9:126
+
+Young Colum and Starkey. George Roberts is doing the commercial part. Longworth will give it a good puff in the _Express._ O, will he? I liked Colum’s _Drover._ Yes, I think he has that queer thing genius. Do you think he has genius really? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you’ll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell’s joke about Moore and Martyn? That Moore is Martyn’s wild oats? Awfully clever, isn’t it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the rueful countenance here in Dublin. With a saffron kilt? O’Neill Russell? O, yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Who is doing some clever sketches. We are becoming important, it seems. Not the head centre of the Fenians whom Bloom and Kevin Egan remember.
+
+## original-en · cordelia · 9:127
+
+Cordelia. _Cordoglio._ Lir’s loneliest daughter.
+
+Cordoglio. Lir’s loneliest daughter — the one word Stephen answers Russell’s literary evening with, having just handed over Mr Deasy’s letter and been given nothing.
+
+## original-en · lir · 9:127
+
+Cordelia. _Cordoglio._ Lir’s loneliest daughter.
+
+Whose loneliest daughter she is. The older edition writes Lir, the Irish sea god whose children were turned into swans; the modern edition writes Lear and makes it Shakespeare’s king. Joyce’s line holds both at once.
+
+## original-en · norman-editor · 9:129
+
+—Thank you very much, Mr Russell, Stephen said, rising. If you will be so kind as to give the letter to Mr Norman...
+
+Editor of the Irish Homestead, to whom Russell will give Mr Deasy’s letter if he considers it important. We have so much correspondence. Not the Connolly Norman of episode 1.
+
+## original-en · synge · 9:133
+
+Synge has promised me an article for _Dana_ too. Are we going to be read? I feel we are. The Gaelic league wants something in Irish. I hope you will come round tonight. Bring Starkey.
+
+Who has promised Russell an article for Dana; who writes as Shakespeare does, Mulligan says; who is out in pampooties to murder Stephen for pissing on his halldoor in Glasthule; and who has left off wearing black to be like nature.
+
+## original-en · dana-goddess · 9:157
+
+—As we, or mother Dana, weave and unweave our bodies, Stephen said, from day to day, their molecules shuttled to and fro, so does the artist weave and unweave his image. And as the mole on my right breast is where it was when I was born, though all my body has been woven of new stuff time after time, so through the ghost of the unquiet father the image of the unliving son looks forth. In the intense instant of imagination, when the mind, Shelley says, is a fading coal, that which I was is that which I am and that which in possibility I may come to be. So in the future, the sister of the past, I may see myself as I sit here now but by reflection from that which then I shall be.
+
+The goddess who weaves and unweaves, in Stephen’s figure for the artist weaving and unweaving his image out of new stuff time after time. The modern edition writes Mother Nature and loses her; the magazine of the same name, which Russell and Fred Ryan write for, is not she.
+
+## original-en · drummond · 9:158
+
+Drummond of Hawthornden helped you at that stile.
+
+Who helped Stephen over that stile, he admits to himself the moment the figure is out of his mouth.
+
+## original-en · renan · 9:163
+
+—If that were the birthmark of genius, he said, genius would be a drug in the market. The plays of Shakespeare’s later years which Renan admired so much breathe another spirit.
+
+Who admired the plays of Shakespeare’s later years so much, and the play — the Tempest — written after the Sea Venture came home from Bermudas with Patsy Caliban aboard.
+
+## original-en · odysseus · 9:167
+
+—If you want to know what are the events which cast their shadow over the hell of time of _King Lear, Othello, Hamlet, Troilus and Cressida,_ look to see when and how the shadow lifts. What softens the heart of a man, shipwrecked in storms dire, Tried, like another Ulysses, Pericles, prince of Tyre?
+
+Tried, like another Ulysses: the shipwrecked man whose heart is softened when a child, a girl, is placed in his arms. He turns up again as the man Moore makes quote Aristotle on the seacoast of Bohemia.
+
+## original-en · pericles · 9:167
+
+—If you want to know what are the events which cast their shadow over the hell of time of _King Lear, Othello, Hamlet, Troilus and Cressida,_ look to see when and how the shadow lifts. What softens the heart of a man, shipwrecked in storms dire, Tried, like another Ulysses, Pericles, prince of Tyre?
+
+Prince of Tyre, in whose arms Marina is placed.
+
+## original-en · marina · 9:169
+
+—A child, a girl, placed in his arms, Marina.
+
+A child of storm, the daughter given back to him. My dearest wife, Pericles says, was like this maid.
+
+## original-en · miranda · 9:175
+
+—Marina, Stephen said, a child of storm, Miranda, a wonder, Perdita, that which was lost. What was lost is given back to him: his daughter’s child. _My dearest wife_, Pericles says, _was like this maid._ Will any man love the daughter if he has not loved the mother?
+
+A wonder: the second of the three daughters of the late plays, between Marina and Perdita, in Stephen’s list of what was lost and given back.
+
+## original-en · perdita · 9:175
+
+—Marina, Stephen said, a child of storm, Miranda, a wonder, Perdita, that which was lost. What was lost is given back to him: his daughter’s child. _My dearest wife_, Pericles says, _was like this maid._ Will any man love the daughter if he has not loved the mother?
+
+That which was lost.
+
+## original-en · francis-bacon · 9:171
+
+Good Bacon: gone musty. Shakespeare Bacon’s wild oats. Cypherjugglers going the highroads. Seekers on the great quest. What town, good masters? Mummed in names: A. E., eon: Magee, John Eglinton. East of the sun, west of the moon: _Tir na n-og_. Booted the twain and staved.
+
+Good Bacon: gone musty. Shakespeare Bacon’s wild oats, and the cypherjugglers going the highroads after him — the first of the four names Stephen runs together into Rutlandbaconsouthamptonshakespeare.
+
+## original-en · brandes · 9:173
+
+—Mr Brandes accepts it, Stephen said, as the first play of the closing period.
+
+Georg Brandes, who accepts Pericles as the first play of the closing period.
+
+## original-en · sidney-lee · 9:174
+
+—Does he? What does Mr Sidney Lee, or Mr Simon Lazarus as some aver his name is, say of it?
+
+Or Mr Simon Lazarus, as some aver his name is — John Eglinton’s way of asking what the other authority says.
+
+## original-en · bernard-shaw · 9:181
+
+—I hope Mr Dedalus will work out his theory for the enlightenment of the public. And we ought to mention another Irish commentator, Mr George Bernard Shaw. Nor should we forget Mr Frank Harris. His articles on Shakespeare in the _Saturday Review_ were surely brilliant. Oddly enough he too draws for us an unhappy relation with the dark lady of the sonnets. The favoured rival is William Herbert, earl of Pembroke. I own that if the poet must be rejected such a rejection would seem more in harmony with—what shall I say?—our notions of what ought not to have been.
+
+Another Irish commentator the quaker librarian thinks they ought to mention.
+
+## original-en · frank-harris · 9:181
+
+—I hope Mr Dedalus will work out his theory for the enlightenment of the public. And we ought to mention another Irish commentator, Mr George Bernard Shaw. Nor should we forget Mr Frank Harris. His articles on Shakespeare in the _Saturday Review_ were surely brilliant. Oddly enough he too draws for us an unhappy relation with the dark lady of the sonnets. The favoured rival is William Herbert, earl of Pembroke. I own that if the poet must be rejected such a rejection would seem more in harmony with—what shall I say?—our notions of what ought not to have been.
+
+Whose articles on Shakespeare in the Saturday Review were surely brilliant, and who too draws an unhappy relation with the dark lady of the sonnets. Not the old Harris of Nassau street whose fieldglasses Bloom means to have seen to.
+
+## original-en · dark-lady · 9:181
+
+—I hope Mr Dedalus will work out his theory for the enlightenment of the public. And we ought to mention another Irish commentator, Mr George Bernard Shaw. Nor should we forget Mr Frank Harris. His articles on Shakespeare in the _Saturday Review_ were surely brilliant. Oddly enough he too draws for us an unhappy relation with the dark lady of the sonnets. The favoured rival is William Herbert, earl of Pembroke. I own that if the poet must be rejected such a rejection would seem more in harmony with—what shall I say?—our notions of what ought not to have been.
+
+Whom the commentators keep finding, and whose favoured rival, on Frank Harris’s reading, is William Herbert.
+
+## original-en · william-herbert · 9:181
+
+—I hope Mr Dedalus will work out his theory for the enlightenment of the public. And we ought to mention another Irish commentator, Mr George Bernard Shaw. Nor should we forget Mr Frank Harris. His articles on Shakespeare in the _Saturday Review_ were surely brilliant. Oddly enough he too draws for us an unhappy relation with the dark lady of the sonnets. The favoured rival is William Herbert, earl of Pembroke. I own that if the poet must be rejected such a rejection would seem more in harmony with—what shall I say?—our notions of what ought not to have been.
+
+Earl of Pembroke: the favoured rival. If the poet must be rejected, the quaker librarian owns, such a rejection would seem more in harmony with our notions of what ought not to have been.
+
+## original-en · lucrece · 9:186
+
+—The soul has been before stricken mortally, a poison poured in the porch of a sleeping ear. But those who are done to death in sleep cannot know the manner of their quell unless their Creator endow their souls with that knowledge in the life to come. The poisoning and the beast with two backs that urged it King Hamlet’s ghost could not know of were he not endowed with knowledge by his creator. That is why the speech (his lean unlovely English) is always turned elsewhere, backward. Ravisher and ravished, what he would but would not, go with him from Lucrece’s bluecircled ivory globes to Imogen’s breast, bare, with its mole cinquespotted. He goes back, weary of the creation he has piled up to hide him from himself, an old dog licking an old sore. But, because loss is his gain, he passes on towards eternity in undiminished personality, untaught by the wisdom he has written or by the laws he has revealed. His beaver is up. He is a ghost, a shadow now, the wind by Elsinore’s rocks or what you will, the sea’s voice, a voice heard only in the heart of him who is the substance of his shadow, the son consubstantial with the father.
+
+Whose bluecircled ivory globes are the first of the two the ghost’s speech is always turned back towards.
+
+## original-en · imogen · 9:186
+
+—The soul has been before stricken mortally, a poison poured in the porch of a sleeping ear. But those who are done to death in sleep cannot know the manner of their quell unless their Creator endow their souls with that knowledge in the life to come. The poisoning and the beast with two backs that urged it King Hamlet’s ghost could not know of were he not endowed with knowledge by his creator. That is why the speech (his lean unlovely English) is always turned elsewhere, backward. Ravisher and ravished, what he would but would not, go with him from Lucrece’s bluecircled ivory globes to Imogen’s breast, bare, with its mole cinquespotted. He goes back, weary of the creation he has piled up to hide him from himself, an old dog licking an old sore. But, because loss is his gain, he passes on towards eternity in undiminished personality, untaught by the wisdom he has written or by the laws he has revealed. His beaver is up. He is a ghost, a shadow now, the wind by Elsinore’s rocks or what you will, the sea’s voice, a voice heard only in the heart of him who is the substance of his shadow, the son consubstantial with the father.
+
+And the second: her breast, bare, with its mole cinquespotted.
+
+## original-en · johann-most · 9:194
+
+Brood of mockers: Photius, pseudomalachi, Johann Most.
+
+Third in the brood of mockers — Photius, pseudomalachi, Johann Most — whose blasphemy Stephen answers with the whole creed run together in one breath.
+
+## original-en · vining · 9:207
+
+—The bard’s fellowcountrymen, John Eglinton answered, are rather tired perhaps of our brilliancies of theorising. I hear that an actress played Hamlet for the fourhundredandeighth time last night in Dublin. Vining held that the prince was a woman. Has no-one made him out to be an Irishman? Judge Barton, I believe, is searching for some clues. He swears (His Highness not His Lordship) by saint Patrick.
+
+Who held that the prince was a woman.
+
+## original-en · judge-barton · 9:207
+
+—The bard’s fellowcountrymen, John Eglinton answered, are rather tired perhaps of our brilliancies of theorising. I hear that an actress played Hamlet for the fourhundredandeighth time last night in Dublin. Vining held that the prince was a woman. Has no-one made him out to be an Irishman? Judge Barton, I believe, is searching for some clues. He swears (His Highness not His Lordship) by saint Patrick.
+
+Who is searching for some clues that Hamlet was an Irishman: he swears — His Highness, not His Lordship — by saint Patrick.
+
+## original-en · willie-hughes · 9:208
+
+—The most brilliant of all is that story of Wilde’s, Mr Best said, lifting his brilliant notebook. That _Portrait of Mr W. H._ where he proves that the sonnets were written by a Willie Hughes, a man all hues.
+
+A man all hues, for whom Wilde proves the sonnets were written in the Portrait of Mr W. H. Or Hughie Wills, Stephen thinks: Mr William Himself. W. H.: who am I?
+
+## original-en · jove · 9:217
+
+There be many mo. Take her for me. In pairing time. Jove, a cool ruttime send them. Yea, turtledove her.
+
+A cool ruttime send them: the one line of Blake’s pairing time that Stephen turns on the blond ephebe in front of him. Everywhere else in this book the name is only the exclamation.
+
+## original-en · aphrodite · 9:252
+
+—Jehovah, collector of prepuces, is no more. I found him over in the museum where I went to hail the foamborn Aphrodite. The Greek mouth that has never been twisted in prayer. Every day we must do homage to her. _Life of life, thy lips enkindle._
+
+The foamborn, whom Mulligan went over to the museum to hail, and to whom he says we must do homage every day. The Greek mouth that has never been twisted in prayer.
+
+## original-en · griselda · 9:255
+
+—We want to hear more, John Eglinton decided with Mr Best’s approval. We begin to be interested in Mrs S. Till now we had thought of her, if at all, as a patient Griselda, a Penelope stayathome.
+
+Patient Griselda, one of the two figures the room had settled Mrs Shakespeare into before Stephen began — the other being a Penelope stayathome.
+
+## original-en · walt-whitman · 9:256
+
+—Antisthenes, pupil of Gorgias, Stephen said, took the palm of beauty from Kyrios Menelaus’ brooddam, Argive Helen, the wooden mare of Troy in whom a score of heroes slept, and handed it to poor Penelope. Twenty years he lived in London and, during part of that time, he drew a salary equal to that of the lord chancellor of Ireland. His life was rich. His art, more than the art of feudalism as Walt Whitman called it, is the art of surfeit. Hot herringpies, green mugs of sack, honeysauces, sugar of roses, marchpane, gooseberried pigeons, ringocandies. Sir Walter Raleigh, when they arrested him, had half a million francs on his back including a pair of fancy stays. The gombeenwoman Eliza Tudor had underlinen enough to vie with her of Sheba. Twenty years he dallied there between conjugial love and its chaste delights and scortatory love and its foul pleasures. You know Manningham’s story of the burgher’s wife who bade Dick Burbage to her bed after she had seen him in _Richard III_ and how Shakespeare, overhearing, without more ado about nothing, took the cow by the horns and, when Burbage came knocking at the gate, answered from the capon’s blankets: _William the conqueror came before Richard III_. And the gay lakin, mistress Fitton, mount and cry O, and his dainty birdsnies, lady Penelope Rich, a clean quality woman is suited for a player, and the punks of the bankside, a penny a time.
+
+Who called it the art of feudalism; Stephen calls Shakespeare’s the art of surfeit.
+
+## original-en · walter-raleigh · 9:256
+
+—Antisthenes, pupil of Gorgias, Stephen said, took the palm of beauty from Kyrios Menelaus’ brooddam, Argive Helen, the wooden mare of Troy in whom a score of heroes slept, and handed it to poor Penelope. Twenty years he lived in London and, during part of that time, he drew a salary equal to that of the lord chancellor of Ireland. His life was rich. His art, more than the art of feudalism as Walt Whitman called it, is the art of surfeit. Hot herringpies, green mugs of sack, honeysauces, sugar of roses, marchpane, gooseberried pigeons, ringocandies. Sir Walter Raleigh, when they arrested him, had half a million francs on his back including a pair of fancy stays. The gombeenwoman Eliza Tudor had underlinen enough to vie with her of Sheba. Twenty years he dallied there between conjugial love and its chaste delights and scortatory love and its foul pleasures. You know Manningham’s story of the burgher’s wife who bade Dick Burbage to her bed after she had seen him in _Richard III_ and how Shakespeare, overhearing, without more ado about nothing, took the cow by the horns and, when Burbage came knocking at the gate, answered from the capon’s blankets: _William the conqueror came before Richard III_. And the gay lakin, mistress Fitton, mount and cry O, and his dainty birdsnies, lady Penelope Rich, a clean quality woman is suited for a player, and the punks of the bankside, a penny a time.
+
+Who, when they arrested him, had half a million francs on his back including a pair of fancy stays.
+
+## original-en · elizabeth-i · 9:256
+
+—Antisthenes, pupil of Gorgias, Stephen said, took the palm of beauty from Kyrios Menelaus’ brooddam, Argive Helen, the wooden mare of Troy in whom a score of heroes slept, and handed it to poor Penelope. Twenty years he lived in London and, during part of that time, he drew a salary equal to that of the lord chancellor of Ireland. His life was rich. His art, more than the art of feudalism as Walt Whitman called it, is the art of surfeit. Hot herringpies, green mugs of sack, honeysauces, sugar of roses, marchpane, gooseberried pigeons, ringocandies. Sir Walter Raleigh, when they arrested him, had half a million francs on his back including a pair of fancy stays. The gombeenwoman Eliza Tudor had underlinen enough to vie with her of Sheba. Twenty years he dallied there between conjugial love and its chaste delights and scortatory love and its foul pleasures. You know Manningham’s story of the burgher’s wife who bade Dick Burbage to her bed after she had seen him in _Richard III_ and how Shakespeare, overhearing, without more ado about nothing, took the cow by the horns and, when Burbage came knocking at the gate, answered from the capon’s blankets: _William the conqueror came before Richard III_. And the gay lakin, mistress Fitton, mount and cry O, and his dainty birdsnies, lady Penelope Rich, a clean quality woman is suited for a player, and the punks of the bankside, a penny a time.
+
+The gombeenwoman, who had underlinen enough to vie with her of Sheba; and again, at the end of the same speech, fay Elizabeth, otherwise carrotty Bess, the gross virgin who inspired the Merry Wives. The modern edition writes Queen Elizabeth both times.
+
+## original-en · sheba · 9:256
+
+—Antisthenes, pupil of Gorgias, Stephen said, took the palm of beauty from Kyrios Menelaus’ brooddam, Argive Helen, the wooden mare of Troy in whom a score of heroes slept, and handed it to poor Penelope. Twenty years he lived in London and, during part of that time, he drew a salary equal to that of the lord chancellor of Ireland. His life was rich. His art, more than the art of feudalism as Walt Whitman called it, is the art of surfeit. Hot herringpies, green mugs of sack, honeysauces, sugar of roses, marchpane, gooseberried pigeons, ringocandies. Sir Walter Raleigh, when they arrested him, had half a million francs on his back including a pair of fancy stays. The gombeenwoman Eliza Tudor had underlinen enough to vie with her of Sheba. Twenty years he dallied there between conjugial love and its chaste delights and scortatory love and its foul pleasures. You know Manningham’s story of the burgher’s wife who bade Dick Burbage to her bed after she had seen him in _Richard III_ and how Shakespeare, overhearing, without more ado about nothing, took the cow by the horns and, when Burbage came knocking at the gate, answered from the capon’s blankets: _William the conqueror came before Richard III_. And the gay lakin, mistress Fitton, mount and cry O, and his dainty birdsnies, lady Penelope Rich, a clean quality woman is suited for a player, and the punks of the bankside, a penny a time.
+
+The queen whose wardrobe is the comparison. The modern edition names her the Queen of Sheba.
+
+## original-en · manningham · 9:256
+
+—Antisthenes, pupil of Gorgias, Stephen said, took the palm of beauty from Kyrios Menelaus’ brooddam, Argive Helen, the wooden mare of Troy in whom a score of heroes slept, and handed it to poor Penelope. Twenty years he lived in London and, during part of that time, he drew a salary equal to that of the lord chancellor of Ireland. His life was rich. His art, more than the art of feudalism as Walt Whitman called it, is the art of surfeit. Hot herringpies, green mugs of sack, honeysauces, sugar of roses, marchpane, gooseberried pigeons, ringocandies. Sir Walter Raleigh, when they arrested him, had half a million francs on his back including a pair of fancy stays. The gombeenwoman Eliza Tudor had underlinen enough to vie with her of Sheba. Twenty years he dallied there between conjugial love and its chaste delights and scortatory love and its foul pleasures. You know Manningham’s story of the burgher’s wife who bade Dick Burbage to her bed after she had seen him in _Richard III_ and how Shakespeare, overhearing, without more ado about nothing, took the cow by the horns and, when Burbage came knocking at the gate, answered from the capon’s blankets: _William the conqueror came before Richard III_. And the gay lakin, mistress Fitton, mount and cry O, and his dainty birdsnies, lady Penelope Rich, a clean quality woman is suited for a player, and the punks of the bankside, a penny a time.
+
+Whose story of the burgher’s wife, Dick Burbage and William the conqueror Stephen retells to prove the twenty years were not chaste.
+
+## original-en · mistress-fitton · 9:256
+
+—Antisthenes, pupil of Gorgias, Stephen said, took the palm of beauty from Kyrios Menelaus’ brooddam, Argive Helen, the wooden mare of Troy in whom a score of heroes slept, and handed it to poor Penelope. Twenty years he lived in London and, during part of that time, he drew a salary equal to that of the lord chancellor of Ireland. His life was rich. His art, more than the art of feudalism as Walt Whitman called it, is the art of surfeit. Hot herringpies, green mugs of sack, honeysauces, sugar of roses, marchpane, gooseberried pigeons, ringocandies. Sir Walter Raleigh, when they arrested him, had half a million francs on his back including a pair of fancy stays. The gombeenwoman Eliza Tudor had underlinen enough to vie with her of Sheba. Twenty years he dallied there between conjugial love and its chaste delights and scortatory love and its foul pleasures. You know Manningham’s story of the burgher’s wife who bade Dick Burbage to her bed after she had seen him in _Richard III_ and how Shakespeare, overhearing, without more ado about nothing, took the cow by the horns and, when Burbage came knocking at the gate, answered from the capon’s blankets: _William the conqueror came before Richard III_. And the gay lakin, mistress Fitton, mount and cry O, and his dainty birdsnies, lady Penelope Rich, a clean quality woman is suited for a player, and the punks of the bankside, a penny a time.
+
+The gay lakin, mount and cry O — one of the women the sonnets have been fitted to.
+
+## original-en · william-davenant · 9:258
+
+—The height of fine society. And sir William Davenant of Oxford’s mother with her cup of canary for any cockcanary.
+
+Of Oxford — or rather his mother, with her cup of canary for any cockcanary.
+
+## original-en · margaret-mary · 9:260
+
+—Blessed Margaret Mary Anycock!
+
+Margaret Mary Alacoque, of the Sacred Heart, whose name Mulligan turns into a piece of filth with his pious eyes upturned. The modern edition writes Margaret Mary Whatshername and keeps the shape of the joke without the word.
+
+## original-en · henry-viii · 9:261
+
+—And Harry of six wives’ daughter. And other lady friends from neighbour seats as Lawn Tennyson, gentleman poet, sings. But all those twenty years what do you suppose poor Penelope in Stratford was doing behind the diamond panes?
+
+Whose daughter is one of the lady friends in Stephen’s list. The modern edition writes King Henry.
+
+## original-en · gerard · 9:262
+
+Do and do. Thing done. In a rosery of Fetter lane of Gerard, herbalist, he walks, greyedauburn. An azured harebell like her veins. Lids of Juno’s eyes, violets. He walks. One life is all. One body. Do. But do. Afar, in a reek of lust and squalor, hands are laid on whiteness.
+
+The herbalist of Fetter lane, in whose rosery Shakespeare walks greyedauburn in the one wholly quiet paragraph of this episode.
+
+## original-en · shylock · 9:294
+
+—And the sense of property, Stephen said. He drew Shylock out of his own long pocket. The son of a maltjobber and moneylender he was himself a cornjobber and moneylender, with ten tods of corn hoarded in the famine riots. His borrowers are no doubt those divers of worship mentioned by Chettle Falstaff who reported his uprightness of dealing. He sued a fellowplayer for the price of a few bags of malt and exacted his pound of flesh in interest for every money lent. How else could Aubrey’s ostler and callboy get rich quick? All events brought grist to his mill. Shylock chimes with the jewbaiting that followed the hanging and quartering of the queen’s leech Lopez, his jew’s heart being plucked forth while the sheeny was yet alive: _Hamlet_ and _Macbeth_ with the coming to the throne of a Scotch philosophaster with a turn for witchroasting. The lost armada is his jeer in _Love’s Labour Lost_. His pageants, the histories, sail fullbellied on a tide of Mafeking enthusiasm. Warwickshire jesuits are tried and we have a porter’s theory of equivocation. The _Sea Venture_ comes home from Bermudas and the play Renan admired is written with Patsy Caliban, our American cousin. The sugared sonnets follow Sidney’s. As for fay Elizabeth, otherwise carrotty Bess, the gross virgin who inspired _The Merry Wives of Windsor_, let some meinherr from Almany grope his life long for deephid meanings in the depths of the buckbasket.
+
+Whom Shakespeare drew out of his own long pocket: the son of a maltjobber and moneylender who was himself a cornjobber and moneylender, and exacted his pound of flesh in interest for every money lent.
+
+## original-en · chettle · 9:294
+
+—And the sense of property, Stephen said. He drew Shylock out of his own long pocket. The son of a maltjobber and moneylender he was himself a cornjobber and moneylender, with ten tods of corn hoarded in the famine riots. His borrowers are no doubt those divers of worship mentioned by Chettle Falstaff who reported his uprightness of dealing. He sued a fellowplayer for the price of a few bags of malt and exacted his pound of flesh in interest for every money lent. How else could Aubrey’s ostler and callboy get rich quick? All events brought grist to his mill. Shylock chimes with the jewbaiting that followed the hanging and quartering of the queen’s leech Lopez, his jew’s heart being plucked forth while the sheeny was yet alive: _Hamlet_ and _Macbeth_ with the coming to the throne of a Scotch philosophaster with a turn for witchroasting. The lost armada is his jeer in _Love’s Labour Lost_. His pageants, the histories, sail fullbellied on a tide of Mafeking enthusiasm. Warwickshire jesuits are tried and we have a porter’s theory of equivocation. The _Sea Venture_ comes home from Bermudas and the play Renan admired is written with Patsy Caliban, our American cousin. The sugared sonnets follow Sidney’s. As for fay Elizabeth, otherwise carrotty Bess, the gross virgin who inspired _The Merry Wives of Windsor_, let some meinherr from Almany grope his life long for deephid meanings in the depths of the buckbasket.
+
+Falstaff, who reported his uprightness of dealing — the divers of worship among his borrowers.
+
+## original-en · falstaff · 9:294
+
+—And the sense of property, Stephen said. He drew Shylock out of his own long pocket. The son of a maltjobber and moneylender he was himself a cornjobber and moneylender, with ten tods of corn hoarded in the famine riots. His borrowers are no doubt those divers of worship mentioned by Chettle Falstaff who reported his uprightness of dealing. He sued a fellowplayer for the price of a few bags of malt and exacted his pound of flesh in interest for every money lent. How else could Aubrey’s ostler and callboy get rich quick? All events brought grist to his mill. Shylock chimes with the jewbaiting that followed the hanging and quartering of the queen’s leech Lopez, his jew’s heart being plucked forth while the sheeny was yet alive: _Hamlet_ and _Macbeth_ with the coming to the throne of a Scotch philosophaster with a turn for witchroasting. The lost armada is his jeer in _Love’s Labour Lost_. His pageants, the histories, sail fullbellied on a tide of Mafeking enthusiasm. Warwickshire jesuits are tried and we have a porter’s theory of equivocation. The _Sea Venture_ comes home from Bermudas and the play Renan admired is written with Patsy Caliban, our American cousin. The sugared sonnets follow Sidney’s. As for fay Elizabeth, otherwise carrotty Bess, the gross virgin who inspired _The Merry Wives of Windsor_, let some meinherr from Almany grope his life long for deephid meanings in the depths of the buckbasket.
+
+The fat knight, whom John Eglinton feels is his supreme creation, and who was not a family man.
+
+## original-en · lopez · 9:294
+
+—And the sense of property, Stephen said. He drew Shylock out of his own long pocket. The son of a maltjobber and moneylender he was himself a cornjobber and moneylender, with ten tods of corn hoarded in the famine riots. His borrowers are no doubt those divers of worship mentioned by Chettle Falstaff who reported his uprightness of dealing. He sued a fellowplayer for the price of a few bags of malt and exacted his pound of flesh in interest for every money lent. How else could Aubrey’s ostler and callboy get rich quick? All events brought grist to his mill. Shylock chimes with the jewbaiting that followed the hanging and quartering of the queen’s leech Lopez, his jew’s heart being plucked forth while the sheeny was yet alive: _Hamlet_ and _Macbeth_ with the coming to the throne of a Scotch philosophaster with a turn for witchroasting. The lost armada is his jeer in _Love’s Labour Lost_. His pageants, the histories, sail fullbellied on a tide of Mafeking enthusiasm. Warwickshire jesuits are tried and we have a porter’s theory of equivocation. The _Sea Venture_ comes home from Bermudas and the play Renan admired is written with Patsy Caliban, our American cousin. The sugared sonnets follow Sidney’s. As for fay Elizabeth, otherwise carrotty Bess, the gross virgin who inspired _The Merry Wives of Windsor_, let some meinherr from Almany grope his life long for deephid meanings in the depths of the buckbasket.
+
+The queen’s leech, hanged and quartered, his jew’s heart plucked forth while he was yet alive: the jewbaiting that Shylock chimes with.
+
+## original-en · philip-sidney · 9:294
+
+—And the sense of property, Stephen said. He drew Shylock out of his own long pocket. The son of a maltjobber and moneylender he was himself a cornjobber and moneylender, with ten tods of corn hoarded in the famine riots. His borrowers are no doubt those divers of worship mentioned by Chettle Falstaff who reported his uprightness of dealing. He sued a fellowplayer for the price of a few bags of malt and exacted his pound of flesh in interest for every money lent. How else could Aubrey’s ostler and callboy get rich quick? All events brought grist to his mill. Shylock chimes with the jewbaiting that followed the hanging and quartering of the queen’s leech Lopez, his jew’s heart being plucked forth while the sheeny was yet alive: _Hamlet_ and _Macbeth_ with the coming to the throne of a Scotch philosophaster with a turn for witchroasting. The lost armada is his jeer in _Love’s Labour Lost_. His pageants, the histories, sail fullbellied on a tide of Mafeking enthusiasm. Warwickshire jesuits are tried and we have a porter’s theory of equivocation. The _Sea Venture_ comes home from Bermudas and the play Renan admired is written with Patsy Caliban, our American cousin. The sugared sonnets follow Sidney’s. As for fay Elizabeth, otherwise carrotty Bess, the gross virgin who inspired _The Merry Wives of Windsor_, let some meinherr from Almany grope his life long for deephid meanings in the depths of the buckbasket.
+
+Whose sugared sonnets Shakespeare’s follow, and out of whose Arcadia the underplot of King Lear in which Edmund figures is lifted and spatchcocked on to a Celtic legend older than history. Not the Mr Sidney Lee of 9:174.
+
+## original-en · coleridge · 9:299
+
+—A myriadminded man, Mr Best reminded. Coleridge called him myriadminded.
+
+Who called him myriadminded — Mr Best’s one contribution to the case for the defence.
+
+## original-en · athena · 9:331
+
+—Himself his own father, Sonmulligan told himself. Wait. I am big with child. I have an unborn child in my brain. Pallas Athena! A play! The play’s the thing! Let me parturiate!
+
+Who came out of her father’s head, and whom Mulligan invokes when he announces that he is big with child: I have an unborn child in my brain. A play! Let me parturiate!
+
+## original-en · volumnia · 9:333
+
+—As for his family, Stephen said, his mother’s name lives in the forest of Arden. Her death brought from him the scene with Volumnia in _Coriolanus._ His boyson’s death is the deathscene of young Arthur in _King John._ Hamlet, the black prince, is Hamnet Shakespeare. Who the girls in _The Tempest_, in _Pericles,_ in _Winter’s Tale_ are we know. Who Cleopatra, fleshpot of Egypt, and Cressid and Venus are we may guess. But there is another member of his family who is recorded.
+
+Whose scene in Coriolanus came out of the death of Shakespeare’s mother.
+
+## original-en · young-arthur · 9:333
+
+—As for his family, Stephen said, his mother’s name lives in the forest of Arden. Her death brought from him the scene with Volumnia in _Coriolanus._ His boyson’s death is the deathscene of young Arthur in _King John._ Hamlet, the black prince, is Hamnet Shakespeare. Who the girls in _The Tempest_, in _Pericles,_ in _Winter’s Tale_ are we know. Who Cleopatra, fleshpot of Egypt, and Cressid and Venus are we may guess. But there is another member of his family who is recorded.
+
+Whose deathscene in King John came out of his boyson’s death.
+
+## original-en · cleopatra · 9:333
+
+—As for his family, Stephen said, his mother’s name lives in the forest of Arden. Her death brought from him the scene with Volumnia in _Coriolanus._ His boyson’s death is the deathscene of young Arthur in _King John._ Hamlet, the black prince, is Hamnet Shakespeare. Who the girls in _The Tempest_, in _Pericles,_ in _Winter’s Tale_ are we know. Who Cleopatra, fleshpot of Egypt, and Cressid and Venus are we may guess. But there is another member of his family who is recorded.
+
+Fleshpot of Egypt: one of the three Stephen says we may guess at, where the girls of the late plays we know. The play named a hundred lines earlier is a book and carries no card.
+
+## original-en · cressida · 9:167
+
+—If you want to know what are the events which cast their shadow over the hell of time of _King Lear, Othello, Hamlet, Troilus and Cressida,_ look to see when and how the shadow lifts. What softens the heart of a man, shipwrecked in storms dire, Tried, like another Ulysses, Pericles, prince of Tyre?
+
+The second of the three. The modern edition spells her Cressida.
+
+## original-en · gilbert-shakespeare · 9:340
+
+STEPHEN: He had three brothers, Gilbert, Edmund, Richard. Gilbert in his old age told some cavaliers he got a pass for nowt from Maister Gatherer one time mass he did and he seen his brud Maister Wull the playwriter up in Lunnon in a wrastling play wud a man on’s back. The playhouse sausage filled Gilbert’s soul. He is nowhere: but an Edmund and a Richard are recorded in the works of sweet William.
+
+The brother who is nowhere in the works: in his old age he told some cavaliers that he once got a pass for nowt from Maister Gatherer and saw his brud Maister Wull up in Lunnon in a wrastling play. The playhouse sausage filled Gilbert’s soul.
+
+## original-en · edmund-shakespeare · 9:340
+
+STEPHEN: He had three brothers, Gilbert, Edmund, Richard. Gilbert in his old age told some cavaliers he got a pass for nowt from Maister Gatherer one time mass he did and he seen his brud Maister Wull the playwriter up in Lunnon in a wrastling play wud a man on’s back. The playhouse sausage filled Gilbert’s soul. He is nowhere: but an Edmund and a Richard are recorded in the works of sweet William.
+
+The brother who lay dying in Southwark while King Lear was being written, and whose name went to the bastard in it.
+
+## original-en · richard-shakespeare · 9:340
+
+STEPHEN: He had three brothers, Gilbert, Edmund, Richard. Gilbert in his old age told some cavaliers he got a pass for nowt from Maister Gatherer one time mass he did and he seen his brud Maister Wull the playwriter up in Lunnon in a wrastling play wud a man on’s back. The playhouse sausage filled Gilbert’s soul. He is nowhere: but an Edmund and a Richard are recorded in the works of sweet William.
+
+The third brother, whose name went to the crookback. Stephen keeps him and Edmund for the last and calls them, with his own uncle Richie Goulding folded into the joke, those two noble kinsmen nuncle Richie and nuncle Edmund.
+
+## original-en · richard-iii · 9:256
+
+—Antisthenes, pupil of Gorgias, Stephen said, took the palm of beauty from Kyrios Menelaus’ brooddam, Argive Helen, the wooden mare of Troy in whom a score of heroes slept, and handed it to poor Penelope. Twenty years he lived in London and, during part of that time, he drew a salary equal to that of the lord chancellor of Ireland. His life was rich. His art, more than the art of feudalism as Walt Whitman called it, is the art of surfeit. Hot herringpies, green mugs of sack, honeysauces, sugar of roses, marchpane, gooseberried pigeons, ringocandies. Sir Walter Raleigh, when they arrested him, had half a million francs on his back including a pair of fancy stays. The gombeenwoman Eliza Tudor had underlinen enough to vie with her of Sheba. Twenty years he dallied there between conjugial love and its chaste delights and scortatory love and its foul pleasures. You know Manningham’s story of the burgher’s wife who bade Dick Burbage to her bed after she had seen him in _Richard III_ and how Shakespeare, overhearing, without more ado about nothing, took the cow by the horns and, when Burbage came knocking at the gate, answered from the capon’s blankets: _William the conqueror came before Richard III_. And the gay lakin, mistress Fitton, mount and cry O, and his dainty birdsnies, lady Penelope Rich, a clean quality woman is suited for a player, and the punks of the bankside, a penny a time.
+
+A whoreson crookback, misbegotten, who makes love to a widowed Ann and wins her; the only king of all his kings unshielded by Shakespeare’s reverence. Richard the conqueror, third brother, came after William the conquered.
+
+## original-en · edmund-lear · 9:345
+
+STEPHEN: In his trinity of black Wills, the villain shakebags, Iago, Richard Crookback, Edmund in _King Lear_, two bear the wicked uncles’ names. Nay, that last play was written or being written while his brother Edmund lay dying in Southwark.
+
+The bastard of the underplot, one of the trinity of black Wills with Iago and Richard Crookback: two of the three bear the wicked uncles’ names.
+
+## original-en · john-of-gaunt · 9:349
+
+STEPHEN: _(Stringendo)_ He has hidden his own name, a fair name, William, in the plays, a super here, a clown there, as a painter of old Italy set his face in a dark corner of his canvas. He has revealed it in the sonnets where there is Will in overplus. Like John o’Gaunt his name is dear to him, as dear as the coat and crest he toadied for, on a bend sable a spear or steeled argent, honorificabilitudinitatibus, dearer than his glory of greatest shakescene in the country. What’s in a name? That is what we ask ourselves in childhood when we write the name that we are told is ours. A star, a daystar, a firedrake, rose at his birth. It shone by day in the heavens alone, brighter than Venus in the night, and by night it shone over delta in Cassiopeia, the recumbent constellation which is the signature of his initial among the stars. His eyes watched it, lowlying on the horizon, eastward of the bear, as he walked by the slumberous summer fields at midnight returning from Shottery and from her arms.
+
+Whose name was dear to him, as Shakespeare’s own name was dear to Shakespeare. Not the horse Nosey Flynn lost money on in episode 8.
+
+## original-en · icarus · 9:362
+
+Fabulous artificer. The hawklike man. You flew. Whereto? Newhaven-Dieppe, steerage passenger. Paris and back. Lapwing. Icarus. _Pater, ait._ Seabedabbled, fallen, weltering. Lapwing you are. Lapwing be.
+
+Pater, ait: the boy who flew and fell, and the figure Stephen turns on his own Paris year. Seabedabbled, fallen, weltering.
+
+## original-en · grimm · 9:364
+
+—That’s very interesting because that brother motive, don’t you know, we find also in the old Irish myths. Just what you say. The three brothers Shakespeare. In Grimm too, don’t you know, the fairytales. The third brother that always marries the sleeping beauty and wins the best prize.
+
+In whose fairytales Mr Best finds the brother motive too — the third brother that always marries the sleeping beauty and wins the best prize.
+
+## original-en · stephen-brother · 9:377
+
+Where is your brother? Apothecaries’ hall. My whetstone. Him, then Cranly, Mulligan: now these. Speech, speech. But act. Act speech. They mock to try you. Act. Be acted on.
+
+Where is your brother? Apothecaries’ hall. My whetstone — one line, and the only mention of him in the argument about brothers.
+
+## original-en · esau · 9:379
+
+I am tired of my voice, the voice of Esau. My kingdom for a drink.
+
+Whose voice Stephen is tired of hearing come out of his own mouth. My kingdom for a drink.
+
+## original-en · george-meredith · 9:382
+
+—That was Will’s way, John Eglinton defended. We should not now combine a Norse saga with an excerpt from a novel by George Meredith. _Que voulez-vous?_ Moore would say. He puts Bohemia on the seacoast and makes Ulysses quote Aristotle.
+
+Whose novel John Eglinton will not have combined with a Norse saga, and whose Que voulez-vous? Moore would say.
+
+## original-en · prospero · 9:383
+
+—Why? Stephen answered himself. Because the theme of the false or the usurping or the adulterous brother or all three in one is to Shakespeare, what the poor are not, always with him. The note of banishment, banishment from the heart, banishment from home, sounds uninterruptedly from _The Two Gentlemen of Verona_ onward till Prospero breaks his staff, buries it certain fathoms in the earth and drowns his book. It doubles itself in the middle of his life, reflects itself in another, repeats itself, protasis, epitasis, catastasis, catastrophe. It repeats itself again when he is near the grave, when his married daughter Susan, chip of the old block, is accused of adultery. But it was the original sin that darkened his understanding, weakened his will and left in him a strong inclination to evil. The words are those of my lords bishops of Maynooth. An original sin and, like original sin, committed by another in whose sin he too has sinned. It is between the lines of his last written words, it is petrified on his tombstone under which her four bones are not to be laid. Age has not withered it. Beauty and peace have not done it away. It is in infinite variety everywhere in the world he has created, in _Much Ado about Nothing_, twice in _As you like It_, in _The Tempest_, in _Hamlet,_ in _Measure for Measure_—and in all the other plays which I have not read.
+
+Who breaks his staff, buries it certain fathoms in the earth and drowns his book; and who returns in the epilogue as prosperous Prospero, the good man rewarded.
+
+## original-en · susanna · 9:271
+
+—The burden of proof is with you not with me, he said frowning. If you deny that in the fifth scene of _Hamlet_ he has branded her with infamy tell me why there is no mention of her during the thirtyfour years between the day she married him and the day she buried him. All those women saw their men down and under: Mary, her goodman John, Ann, her poor dear Willun, when he went and died on her, raging that he was the first to go, Joan, her four brothers, Judith, her husband and all her sons, Susan, her husband too, while Susan’s daughter, Elizabeth, to use granddaddy’s words, wed her second, having killed her first.
+
+The married daughter, chip of the old block, accused of adultery near the end of his life; and in the list of widows, Susan, her husband too.
+
+## original-en · judith · 9:271
+
+—The burden of proof is with you not with me, he said frowning. If you deny that in the fifth scene of _Hamlet_ he has branded her with infamy tell me why there is no mention of her during the thirtyfour years between the day she married him and the day she buried him. All those women saw their men down and under: Mary, her goodman John, Ann, her poor dear Willun, when he went and died on her, raging that he was the first to go, Joan, her four brothers, Judith, her husband and all her sons, Susan, her husband too, while Susan’s daughter, Elizabeth, to use granddaddy’s words, wed her second, having killed her first.
+
+Her sister: her husband and all her sons.
+
+## original-en · joan-shakespeare · 9:271
+
+—The burden of proof is with you not with me, he said frowning. If you deny that in the fifth scene of _Hamlet_ he has branded her with infamy tell me why there is no mention of her during the thirtyfour years between the day she married him and the day she buried him. All those women saw their men down and under: Mary, her goodman John, Ann, her poor dear Willun, when he went and died on her, raging that he was the first to go, Joan, her four brothers, Judith, her husband and all her sons, Susan, her husband too, while Susan’s daughter, Elizabeth, to use granddaddy’s words, wed her second, having killed her first.
+
+His sister: her four brothers.
+
+## original-en · mary-arden · 9:271
+
+—The burden of proof is with you not with me, he said frowning. If you deny that in the fifth scene of _Hamlet_ he has branded her with infamy tell me why there is no mention of her during the thirtyfour years between the day she married him and the day she buried him. All those women saw their men down and under: Mary, her goodman John, Ann, her poor dear Willun, when he went and died on her, raging that he was the first to go, Joan, her four brothers, Judith, her husband and all her sons, Susan, her husband too, while Susan’s daughter, Elizabeth, to use granddaddy’s words, wed her second, having killed her first.
+
+His mother, whose name lives in the forest of Arden, and whose death brought from him the scene with Volumnia. Mary, her goodman John, at the head of the list of women who saw their men down and under.
+
+## original-en · john-shakespeare · 9:271
+
+—The burden of proof is with you not with me, he said frowning. If you deny that in the fifth scene of _Hamlet_ he has branded her with infamy tell me why there is no mention of her during the thirtyfour years between the day she married him and the day she buried him. All those women saw their men down and under: Mary, her goodman John, Ann, her poor dear Willun, when he went and died on her, raging that he was the first to go, Joan, her four brothers, Judith, her husband and all her sons, Susan, her husband too, while Susan’s daughter, Elizabeth, to use granddaddy’s words, wed her second, having killed her first.
+
+His father, in the months after whose death he wrote the play. The corpse of John Shakespeare does not walk the night. From hour to hour it rots and rots.
+
+## original-en · elizabeth-hall · 9:271
+
+—The burden of proof is with you not with me, he said frowning. If you deny that in the fifth scene of _Hamlet_ he has branded her with infamy tell me why there is no mention of her during the thirtyfour years between the day she married him and the day she buried him. All those women saw their men down and under: Mary, her goodman John, Ann, her poor dear Willun, when he went and died on her, raging that he was the first to go, Joan, her four brothers, Judith, her husband and all her sons, Susan, her husband too, while Susan’s daughter, Elizabeth, to use granddaddy’s words, wed her second, having killed her first.
+
+Susan’s daughter, who, to use granddaddy’s words, wed her second having killed her first; and Lizzie, grandpa’s lump of love, in the epilogue.
+
+## original-en · don-jose · 9:387
+
+—He is, Stephen said. The boy of act one is the mature man of act five. All in all. In _Cymbeline,_ in _Othello_ he is bawd and cuckold. He acts and is acted on. Lover of an ideal or a perversion, like José he kills the real Carmen. His unremitting intellect is the hornmad Iago ceaselessly willing that the moor in him shall suffer.
+
+Who kills the real Carmen — the lover of an ideal or a perversion, in Stephen’s figure for the man who acts and is acted on.
+
+## original-en · carmen · 9:387
+
+—He is, Stephen said. The boy of act one is the mature man of act five. All in all. In _Cymbeline,_ in _Othello_ he is bawd and cuckold. He acts and is acted on. Lover of an ideal or a perversion, like José he kills the real Carmen. His unremitting intellect is the hornmad Iago ceaselessly willing that the moor in him shall suffer.
+
+Whom he kills.
+
+## original-en · dumas-fils · 9:390
+
+—And what a character is Iago! undaunted John Eglinton exclaimed. When all is said Dumas _fils_ (or is it Dumas _père?)_ is right. After God Shakespeare has created most.
+
+Or is it Dumas père? — John Eglinton cannot remember which of them said that after God Shakespeare has created most.
+
+## original-en · dumas-pere · 9:390
+
+—And what a character is Iago! undaunted John Eglinton exclaimed. When all is said Dumas _fils_ (or is it Dumas _père?)_ is right. After God Shakespeare has created most.
+
+The other one.
+
+## original-en · maeterlinck · 9:391
+
+—Man delights him not nor woman neither, Stephen said. He returns after a life of absence to that spot of earth where he was born, where he has always been, man and boy, a silent witness and there, his journey of life ended, he plants his mulberrytree in the earth. Then dies. The motion is ended. Gravediggers bury Hamlet _père_ and Hamlet _fils._ A king and a prince at last in death, with incidental music. And, what though murdered and betrayed, bewept by all frail tender hearts for, Dane or Dubliner, sorrow for the dead is the only husband from whom they refuse to be divorced. If you like the epilogue look long on it: prosperous Prospero, the good man rewarded, Lizzie, grandpa’s lump of love, and nuncle Richie, the bad man taken off by poetic justice to the place where the bad niggers go. Strong curtain. He found in the world without as actual what was in his world within as possible. Maeterlinck says: _If Socrates leave his house today he will find the sage seated on his doorstep. If Judas go forth tonight it is to Judas his steps will tend._ Every life is many days, day after day. We walk through ourselves, meeting robbers, ghosts, giants, old men, young men, wives, widows, brothers-in-love, but always meeting ourselves. The playwright who wrote the folio of this world and wrote it badly (He gave us light first and the sun two days later), the lord of things as they are whom the most Roman of catholics call _dio boia_, hangman god, is doubtless all in all in all of us, ostler and butcher, and would be bawd and cuckold too but that in the economy of heaven, foretold by Hamlet, there are no more marriages, glorified man, an androgynous angel, being a wife unto himself.
+
+Who says that if Socrates leave his house today he will find the sage seated on his doorstep, and if Judas go forth tonight it is to Judas his steps will tend. Mulligan names him again on the stairs, with the Abbey players creating a new art for Europe like the Greeks or M. Maeterlinck.
+
+## original-en · judas · 9:391
+
+—Man delights him not nor woman neither, Stephen said. He returns after a life of absence to that spot of earth where he was born, where he has always been, man and boy, a silent witness and there, his journey of life ended, he plants his mulberrytree in the earth. Then dies. The motion is ended. Gravediggers bury Hamlet _père_ and Hamlet _fils._ A king and a prince at last in death, with incidental music. And, what though murdered and betrayed, bewept by all frail tender hearts for, Dane or Dubliner, sorrow for the dead is the only husband from whom they refuse to be divorced. If you like the epilogue look long on it: prosperous Prospero, the good man rewarded, Lizzie, grandpa’s lump of love, and nuncle Richie, the bad man taken off by poetic justice to the place where the bad niggers go. Strong curtain. He found in the world without as actual what was in his world within as possible. Maeterlinck says: _If Socrates leave his house today he will find the sage seated on his doorstep. If Judas go forth tonight it is to Judas his steps will tend._ Every life is many days, day after day. We walk through ourselves, meeting robbers, ghosts, giants, old men, young men, wives, widows, brothers-in-love, but always meeting ourselves. The playwright who wrote the folio of this world and wrote it badly (He gave us light first and the sun two days later), the lord of things as they are whom the most Roman of catholics call _dio boia_, hangman god, is doubtless all in all in all of us, ostler and butcher, and would be bawd and cuckold too but that in the economy of heaven, foretold by Hamlet, there are no more marriages, glorified man, an androgynous angel, being a wife unto himself.
+
+Whose steps tend to himself.
+
+## original-en · bleibtreu · 9:404
+
+—Well, in that case, he said, I don’t see why you should expect payment for it since you don’t believe it yourself. Dowden believes there is some mystery in _Hamlet_ but will say no more. Herr Bleibtreu, the man Piper met in Berlin, who is working up that Rutland theory, believes that the secret is hidden in the Stratford monument. He is going to visit the present duke, Piper says, and prove to him that his ancestor wrote the plays. It will come as a surprise to his grace. But he believes his theory.
+
+The man Piper met in Berlin, who is working up the Rutland theory and believes the secret is hidden in the Stratford monument. He believes his theory, John Eglinton says, which is more than Stephen will say for his own.
+
+## original-en · duke-of-rutland · 9:404
+
+—Well, in that case, he said, I don’t see why you should expect payment for it since you don’t believe it yourself. Dowden believes there is some mystery in _Hamlet_ but will say no more. Herr Bleibtreu, the man Piper met in Berlin, who is working up that Rutland theory, believes that the secret is hidden in the Stratford monument. He is going to visit the present duke, Piper says, and prove to him that his ancestor wrote the plays. It will come as a surprise to his grace. But he believes his theory.
+
+Whom Herr Bleibtreu is going to visit and prove to that his ancestor wrote the plays. It will come as a surprise to his grace.
+
+## original-en · fresh-nelly · 9:410
+
+—I called upon the bard Kinch at his summer residence in upper Mecklenburgh street and found him deep in the study of the _Summa contra Gentiles_ in the company of two gonorrheal ladies, Fresh Nelly and Rosalie, the coalquay whore.
+
+One of the two gonorrheal ladies Mulligan says he found the bard Kinch studying the Summa contra Gentiles in the company of; and a character in the play he conceives on the stairs.
+
+## original-en · rosalie · 9:410
+
+—I called upon the bard Kinch at his summer residence in upper Mecklenburgh street and found him deep in the study of the _Summa contra Gentiles_ in the company of two gonorrheal ladies, Fresh Nelly and Rosalie, the coalquay whore.
+
+The coalquay whore. The other one.
+
+## original-en · medical-dick · 9:462
+
+TOBY TOSTOFF (a ruined Pole) CRAB (a bushranger) MEDICAL DICK ) and ) (two birds with one stone) MEDICAL DAVY ) MOTHER GROGAN (a watercarrier) FRESH NELLY and ROSALIE (the coalquay whore).
+
+Of the rhyme Mulligan pianos out in the middle of the brothers scene — then outspoke medical Dick to his comrade medical Davy — and of the playbill on the stairs: two birds with one stone.
+
+## original-en · medical-davy · 9:462
+
+TOBY TOSTOFF (a ruined Pole) CRAB (a bushranger) MEDICAL DICK ) and ) (two birds with one stone) MEDICAL DAVY ) MOTHER GROGAN (a watercarrier) FRESH NELLY and ROSALIE (the coalquay whore).
+
+His comrade.
+
+## original-en · toby-tostoff · 9:462
+
+TOBY TOSTOFF (a ruined Pole) CRAB (a bushranger) MEDICAL DICK ) and ) (two birds with one stone) MEDICAL DAVY ) MOTHER GROGAN (a watercarrier) FRESH NELLY and ROSALIE (the coalquay whore).
+
+A ruined Pole. First on the playbill of Everyman His Own Wife, a national immorality in three orgasms, by Ballocky Mulligan.
+
+## original-en · crab · 9:462
+
+TOBY TOSTOFF (a ruined Pole) CRAB (a bushranger) MEDICAL DICK ) and ) (two birds with one stone) MEDICAL DAVY ) MOTHER GROGAN (a watercarrier) FRESH NELLY and ROSALIE (the coalquay whore).
+
+A bushranger. Second on it.
+
+## original-en · aengus · 9:412
+
+—Come, Kinch. Come, wandering Ængus of the birds.
+
+Wandering Ængus of the birds, whom Mulligan calls Stephen on the way out, and whom Stephen has already claimed on the portico: here I watched the birds for augury.
+
+## original-en · mccurdy-atkinson · 9:443
+
+—Longworth and M’Curdy Atkinson were there...
+
+The same that had the wooden leg, in Mulligan’s limerick on the stairs, and one of the two who were there when Longworth got angry.
+
+## original-en · lady-gregory · 9:450
+
+—Longworth is awfully sick, he said, after what you wrote about that old hake Gregory. O you inquisitional drunken jewjesuit! She gets you a job on the paper and then you go and slate her drivel to Jaysus. Couldn’t you do the Yeats touch?
+
+That old hake Gregory, whose drivel Stephen slated in the Express after she got him the job on the paper. The modern edition gives her the title and writes Lady Gregory.
+
+## original-en · ancient-mariner · 9:473
+
+—The wandering jew, Buck Mulligan whispered with clown’s awe. Did you see his eye? He looked upon you to lust after you. I fear thee, ancient mariner. O, Kinch, thou art in peril. Get thee a breechpad.
+
+I fear thee, ancient mariner — Mulligan’s word for Bloom at the door, in the same breath as the wandering jew.
+
+## original-en · wandering-jew · 9:473
+
+—The wandering jew, Buck Mulligan whispered with clown’s awe. Did you see his eye? He looked upon you to lust after you. I fear thee, ancient mariner. O, Kinch, thou art in peril. Get thee a breechpad.
+
+Did you see his eye? He looked upon you to lust after you. The figure Mulligan fastens on Bloom as he passes out between them, bowing, greeting.
+
+## original-en · cymbeline · 9:480
+
+Cease to strive. Peace of the druid priests of Cymbeline: hierophantic: from wide earth an altar.
+
+Whose druid priests give Stephen the last words of the episode: laud we the gods, and let our crooked smokes climb to their nostrils from our bless’d altars.
+
+## original-en · phaedo · 9:441
+
+The dour recluse still there (he has his cake) and the douce youngling, minion of pleasure, Phedo’s toyable fair hair.
+
+Whose toyable fair hair is Stephen’s word for Mr Best, the douce youngling, minion of pleasure, standing beside the dour recluse.
+
+## original-en · lucy · 9:439
+
+Forgot: any more than he forgot the whipping lousy Lucy gave him. And left the _femme de trente ans._ And why no other children born? And his first child a girl?
+
+Sir Thomas Lucy, who had him whipped for poaching — one of the two things Stephen says Shakespeare forgot no more than he forgot anything. The name is keyed, not aliased: 12:513 is S. Lucy among the saints.
+
+## original-en · dowden · 9:285
+
+—He died dead drunk, Buck Mulligan capped. A quart of ale is a dish for a king. O, I must tell you what Dowden said!
+
+Edward Dowden of Highfield house, the professor whose answer to the charge against the bard was that all we can say is that life ran very high in those days. William Shakespeare and company, limited: the people’s William. For terms apply.
+
+## original-en · justice-madden · 9:237
+
+—... in which everyone can find his own. So Mr Justice Madden in his _Diary of Master William Silence_ has found the hunting terms... Yes? What is it?
+
+In whose Diary of Master William Silence the hunting terms have been found, and whom Mr Lyster is quoting when the attendant interrupts him with Bloom’s card.
+
+## original-en · oisin · 9:235
+
+Harsh gargoyle face that warred against me over our mess of hash of lights in rue Saint-André-des-Arts. In words of words for words, palabras. Oisin with Patrick. Faunman he met in Clamart woods, brandishing a winebottle. _C’est vendredi saint!_ Murthering Irish. His image, wandering, he met. I mine. I met a fool i’the forest.
+
+Oisin with Patrick: the pagan poet arguing with the saint, which is what Stephen makes of his own quarrelling with Mulligan in Paris, in words of words for words.
+
+## original-en · thoth · 9:148
+
+Coffined thoughts around me, in mummycases, embalmed in spice of words. Thoth, god of libraries, a birdgod, moonycrowned. And I heard the voice of that Egyptian highpriest. _In painted chambers loaded with tilebooks._
+
+God of libraries, a birdgod, moonycrowned, presiding over the coffined thoughts in their mummycases while the room is empty.
+
+## original-en · achilles · 9:147
+
+Here he ponders things that were not: what Cæsar would have lived to do had he believed the soothsayer: what might have been: possibilities of the possible as possible: things not known: what name Achilles bore when he lived among women.
+
+What name Achilles bore when he lived among women — one of the things not known that the vestal’s lamp watches over.
+
+## original-en · soothsayer · 9:147
+
+Here he ponders things that were not: what Cæsar would have lived to do had he believed the soothsayer: what might have been: possibilities of the possible as possible: things not known: what name Achilles bore when he lived among women.
+
+Whom Cæsar did not believe: what he would have lived to do had he believed him is the first of the possibilities of the possible as possible.
+
+## original-en · bob-kenny · 9:317
+
+Hurrying to her squalid deathlair from gay Paris on the quayside I touched his hand. The voice, new warmth, speaking. Dr Bob Kenny is attending her. The eyes that wish me well. But do not know me.
+
+Who is attending Stephen’s mother, in the sentence he hears his father speak on the quayside as he hurries home from Paris to her deathbed.
+
+## original-en · magee-mor · 9:315
+
+Lean, he lay back. Shy, deny thy kindred, the unco guid. Shy, supping with the godless, he sneaks the cup. A sire in Ultonian Antrim bade it him. Visits him here on quarter days. Mr Magee, sir, there’s a gentleman to see you. Me? Says he’s your father, sir. Give me my Wordsworth. Enter Magee Mor Matthew, a rugged rough rugheaded kern, in strossers with a buttoned codpiece, his nether stocks bemired with clauber of ten forests, a wand of wilding in his hand.
+
+John Eglinton’s father, as Stephen imagines him coming up from Ultonian Antrim on quarter days: a rugged rough rugheaded kern, in strossers with a buttoned codpiece, his nether stocks bemired with clauber of ten forests. Mr Magee, sir, there’s a gentleman to see you. Me? Says he’s your father, sir.
+
+## original-en · wordsworth · 6:375
+
+Mr Bloom walked unheeded along his grove by saddened angels, crosses, broken pillars, family vaults, stone hopes praying with upcast eyes, old Ireland’s hearts and hands. More sensible to spend the money on some charity for the living. Pray for the repose of the soul of. Does anybody really? Plant him and have done with him. Like down a coalshoot. Then lump them together to save time. All souls’ day. Twentyseventh I’ll be at his grave. Ten shillings for the gardener. He keeps it free of weeds. Old man himself. Bent down double with his shears clipping. Near death’s door. Who passed away. Who departed this life. As if they did it of their own accord. Got the shove, all of them. Who kicked the bucket. More interesting if they told you what they were. So and So, wheelwright. I travelled for cork lino. I paid five shillings in the pound. Or a woman’s with her saucepan. I cooked good Irish stew. Eulogy in a country churchyard it ought to be that poem of whose is it Wordsworth or Thomas Campbell. Entered into rest the protestants put it. Old Dr Murren’s. The great physician called him home. Well it’s God’s acre for them. Nice country residence. Newly plastered and painted. Ideal spot to have a quiet smoke and read the _Church Times._ Marriage ads they never try to beautify. Rusty wreaths hung on knobs, garlands of bronzefoil. Better value that for the money. Still, the flowers are more poetical. The other gets rather tiresome, never withering. Expresses nothing. Immortelles.
+
+Give me my Wordsworth — what the son says when the father comes up the stairs.
+
+## original-en · nell-gwynn · 9:283
+
+—Antiquity mentions that Stagyrite schoolurchin and bald heathen sage, Stephen said, who when dying in exile frees and endows his slaves, pays tribute to his elders, wills to be laid in earth near the bones of his dead wife and bids his friends be kind to an old mistress (don’t forget Nell Gwynn Herpyllis) and let her live in his villa.
+
+Don’t forget Nell Gwynn Herpyllis: Stephen’s gloss on the old mistress Aristotle’s will provides for.
+
+## original-en · herpyllis · 9:283
+
+—Antiquity mentions that Stagyrite schoolurchin and bald heathen sage, Stephen said, who when dying in exile frees and endows his slaves, pays tribute to his elders, wills to be laid in earth near the bones of his dead wife and bids his friends be kind to an old mistress (don’t forget Nell Gwynn Herpyllis) and let her live in his villa.
+
+The mistress herself, whom the dying philosopher bids his friends be kind to and let live in his villa.
+
+## original-en · boccaccio · 9:318
+
+—A father, Stephen said, battling against hopelessness, is a necessary evil. He wrote the play in the months that followed his father’s death. If you hold that he, a greying man with two marriageable daughters, with thirtyfive years of life, _nel mezzo del cammin di nostra vita_, with fifty of experience, is the beardless undergraduate from Wittenberg then you must hold that his seventyyear old mother is the lustful queen. No. The corpse of John Shakespeare does not walk the night. From hour to hour it rots and rots. He rests, disarmed of fatherhood, having devised that mystical estate upon his son. Boccaccio’s Calandrino was the first and last man who felt himself with child. Fatherhood, in the sense of conscious begetting, is unknown to man. It is a mystical estate, an apostolic succession, from only begetter to only begotten. On that mystery and not on the madonna which the cunning Italian intellect flung to the mob of Europe the church is founded and founded irremovably because founded, like the world, macro and microcosm, upon the void. Upon incertitude, upon unlikelihood. _Amor matris_, subjective and objective genitive, may be the only true thing in life. Paternity may be a legal fiction. Who is the father of any son that any son should love him or he any son?
+
+Whose Calandrino is the one man who ever felt himself with child.
+
+## original-en · calandrino · 9:318
+
+—A father, Stephen said, battling against hopelessness, is a necessary evil. He wrote the play in the months that followed his father’s death. If you hold that he, a greying man with two marriageable daughters, with thirtyfive years of life, _nel mezzo del cammin di nostra vita_, with fifty of experience, is the beardless undergraduate from Wittenberg then you must hold that his seventyyear old mother is the lustful queen. No. The corpse of John Shakespeare does not walk the night. From hour to hour it rots and rots. He rests, disarmed of fatherhood, having devised that mystical estate upon his son. Boccaccio’s Calandrino was the first and last man who felt himself with child. Fatherhood, in the sense of conscious begetting, is unknown to man. It is a mystical estate, an apostolic succession, from only begetter to only begotten. On that mystery and not on the madonna which the cunning Italian intellect flung to the mob of Europe the church is founded and founded irremovably because founded, like the world, macro and microcosm, upon the void. Upon incertitude, upon unlikelihood. _Amor matris_, subjective and objective genitive, may be the only true thing in life. Paternity may be a legal fiction. Who is the father of any son that any son should love him or he any son?
+
+The first and last such man.
+
+## original-en · othello · 9:387
+
+—He is, Stephen said. The boy of act one is the mature man of act five. All in all. In _Cymbeline,_ in _Othello_ he is bawd and cuckold. He acts and is acted on. Lover of an ideal or a perversion, like José he kills the real Carmen. His unremitting intellect is the hornmad Iago ceaselessly willing that the moor in him shall suffer.
+
+The moor in him whom the hornmad Iago ceaselessly wills to suffer: Shakespeare as bawd and cuckold, acting and acted on.
+
 ## modern-en · stephen · 1:3
 
 —Come up, Kinch! Come up, you cowardly Jesuit!
@@ -5899,3 +6877,969 @@ Who designed the museum, and whose cream curves of stone Bloom stares at, heart 
 He crossed at the corner of Nassau Street and stood before the window of Yeates and Son, pricing the binoculars. Or shall I drop into old Harris's and have a chat with young Sinclair? Well-mannered fellow. Probably at his lunch. Must get my old glasses fixed. Goerz lenses, six guineas. Germans making inroads everywhere. Selling on easy terms to capture trade. Undercutting. I might find a pair at the railway lost property office. Astonishing, the things people leave behind on trains and in cloakrooms. What are they thinking about? Women too. Unbelievable. Last year, travelling to Ennis, I had to pick up that farmer's daughter's bag and hand it to her at Limerick Junction. Unclaimed money piling up too. There's a little clock up on the roof of the bank to test those glasses by.
 
 Whose bag Bloom had to pick up and hand to her at Limerick junction, travelling to Ennis last year, in the list of what people leave behind them in trains and cloakrooms.
+
+## modern-en · egyptian-highpriest · 7:423
+
+_—Mr Chairman, ladies and gentlemen: Great was my admiration in listening to the remarks addressed to the youth of Ireland a moment ago by my learned friend. It seemed to me that I had been transported to a country far away from this country, into an age remote from this age — that I stood in ancient Egypt and that I was listening to the speech of some high priest of that land addressed to the youthful Moses._
+
+Whose speech to the youthful Moses John F Taylor reported in episode 7 — the voice raised in a tone of like haughtiness and like pride, setting Isis and Osiris, Horus and Ammon Ra against the local and obscure idol of the Jews. Stephen hears it again in the silence of the library: and I heard the voice of that Egyptian highpriest.
+
+## modern-en · lyster · 9:0
+
+Urbane, to put them at ease, the Quaker librarian purred:
+
+The quaker librarian, urbane and creaking, who purrs about Wilhelm Meister, tiptoes in and out on his neatsleather all through the argument, and is called away three times — by an attendant, by a gentleman from the Freeman, and by Father Dineen. Most zealous, most fair, most kind, most honest broadbrim. He is the one who asks Stephen outright whether he thinks she was unfaithful to the poet.
+
+## modern-en · john-eglinton · 9:8
+
+—Have you found those six brave medical students, John Eglinton asked with elder's bile, to write _Paradise Lost_ at your dictation? _The Sorrows of Satan_ he calls it.
+
+W. K. Magee, who signs himself John Eglinton, editing Dana: the carping voice of the room, with active eyebrows, a spare body and a sizar’s stern frown. He makes his blood boil to hear Aristotle compared with Plato, will not have his belief shaken that Shakespeare is Hamlet, and tells Stephen at the end that he is a delusion who has brought them all this way to show them a French triangle. Stephen names him eight ways in one afternoon — littlejohn, Judge, Second, Steadfast John, Eclecticon, Eglintonus Chronolologos, Eglinton Johannes, Magee.
+
+## modern-en · mr-best · 9:27
+
+Mr Best entered, tall, young, mild, light. He bore in his hand, gracefully, a notebook — new, large, clean, bright.
+
+Tall, young, mild, light, with a new large clean bright notebook, who says don’t you know at every turn and cares more for the light touch than for the argument. He brings in Mallarmé and the prose poems, the brother motive in Grimm, and the story of Mr W. H., and he hopes Stephen will say a good word for Richard, don’t you know, for his sake.
+
+## modern-en · library-attendant · 9:3
+
+A noiseless attendant, opening the door just slightly, made him a noiseless signal.
+
+Noiseless at the door, who sets it open but slightly and beckons Mr Lyster out with a noiseless beck; who brings in the card from the Freeman; and who calls from the doorway that Father Dineen wants him.
+
+## modern-en · evans · 9:245
+
+—All the leading provincial papers... _Northern Whig, Cork Examiner, Enniscorthy Guardian_, 1903... Will you please?... Evans, conduct this gentleman... If you just follow the attend... Or, please allow me... This way... Please, sir...
+
+The attendant Mr Lyster calls to conduct the gentleman from the Freeman to the provincial papers.
+
+## modern-en · father-dineen · 9:370
+
+—Mr Lyster! Father Dineen wants...
+
+Who wants Mr Lyster, and takes him out of the room at the one moment when the quaker librarian has asked the question he most wants answered.
+
+## modern-en · goethe · 9:4
+
+—Directly, he said, creaking towards the exit, yet lingering. The beautiful ineffectual dreamer who comes to grief against hard facts. One always feels that Goethe's judgments are so true. True in the larger analysis.
+
+Of the priceless pages of Wilhelm Meister, the great poet on a great brother poet, whose judgments Mr Lyster always feels are so true. True in the larger analysis. Stephen gives him back later in a harder saying that Mr Magee likes to quote: beware of what you wish for in youth, because you will get it in middle life.
+
+## modern-en · de-la-palice · 9:7
+
+—Monsieur de La Palice, Stephen sneered, was alive fifteen minutes before his death.
+
+Who was alive fifteen minutes before his death — Stephen’s sneer at the quaker librarian’s larger analysis, out of the French song about the obvious.
+
+## modern-en · yeats · 9:126
+
+Young Colum and Starkey. George Roberts is handling the business end. Longworth will give it a good review in the _Express_. Oh, will he? I liked Colum's _Drover_. Yes, I think he has that strange thing genius. Do you think he really has genius? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you'll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell's joke about Moore and Martyn? That Moore is Martyn's wild oats? Awfully clever, isn't it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the sorrowful countenance here in Dublin. In a saffron kilt? O'Neill Russell? Oh yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+The shining seven, W.B. calls them. He admired Colum’s line about the Grecian vase in the wild earth, and Mulligan asks Stephen at the end why he could not have done the Yeats touch on Lady Gregory’s book instead of slating it.
+
+## modern-en · brunetto · 9:156
+
+Stephen withstood the venom of hostile eyes glinting sternly under wrinkled brows. A basilisk. _And when the serpent sees the man, it poisons him._ Messer Brunetto, I thank you for the word.
+
+Brunetto Latini, Dante’s master, from whom Stephen takes the word for John Eglinton’s stare: a basilisk — and when the serpent sees the man, it poisons him. Messer Brunetto, I thank thee for the word.
+
+## modern-en · kathleen · 9:15
+
+Cranly's eleven true Wicklow men, to free their sireland. Gap-toothed Kathleen Ireland, her four beautiful green fields, the stranger in her house. And one more to hail him: _ave, rabbi_: the Tinahely twelve. In the shadow of the glen he calls for them. My soul's youth I gave him, night by night. God speed. Good hunting.
+
+Gaptoothed Kathleen, her four beautiful green fields and the stranger in her house: Ireland herself in the play, whom Cranly’s eleven true Wicklowmen were to free. The modern edition writes Kathleen Ireland and takes the riddle out of it.
+
+## modern-en · ben-jonson · 9:18
+
+—Our young Irish poets, John Eglinton said reprovingly, have yet to create a figure which the world will place beside Saxon Shakespeare's Hamlet — though I admire him, as old Ben Jonson did, this side of idolatry.
+
+Old Ben, who admired Shakespeare on this side idolatry. The older edition gives only the first name, as John Eglinton would say it among people who know; the modern edition supplies the surname.
+
+## modern-en · james-i · 9:294
+
+—And the sense of property, Stephen said. He drew Shylock out of his own deep pocket. The son of a malt dealer and moneylender, he was himself a grain dealer and moneylender, with ten loads of corn hoarded during the famine riots. His borrowers are no doubt those worthy gentlemen mentioned by Chettle — Falstaff — who testified to his honest dealing. He sued a fellow actor for the price of a few bags of malt and exacted his pound of flesh in interest for every loan. How else could an ostler and call-boy get rich quick? All events were grist to his mill. _Shylock_ chimes with the Jew-baiting that followed the hanging and quartering of the queen's physician Lopez — his Jewish heart plucked out while the man was still alive: _Hamlet_ and _Macbeth_ with the arrival on the throne of a Scottish pseudo-philosopher with a taste for witch-burning. The lost Armada is his joke in _Love's Labour's Lost_. His pageant plays, the histories, sail full-bellied on a tide of patriotic enthusiasm. Warwickshire Jesuits are tried and we get the porter's theory of equivocation. The _Sea Venture_ comes home from Bermuda and the play Renan admired is written with Patsy Caliban, our American cousin. The sweet sonnets follow Sidney's. As for flirtatious Elizabeth, otherwise carrot-headed Bess, the gross virgin who inspired _The Merry Wives of Windsor_, let some German professor spend his whole life groping for deep hidden meanings in the depths of the laundry basket.
+
+One of the three men the schools have proposed as the real author of Hamlet, in Russell’s list of the questions he thinks purely academic. He returns unnamed at 9:294 as the Scotch philosophaster with a turn for witchroasting whose accession is dated by Hamlet and Macbeth.
+
+## modern-en · essex · 9:19
+
+—All these questions are purely academic, Russell proclaimed from his shadow. I mean, whether Hamlet is Shakespeare or James I or Essex. Like clergymen's debates about whether Jesus really existed. Art has to reveal to us ideas, formless spiritual essences. The supreme question about a work of art is: out of how deep a life does it spring? The painting of Gustave Moreau is the painting of ideas. The deepest poetry of Shelley, the words of Hamlet bring our minds into contact with eternal wisdom, Plato's world of ideas. All the rest is the speculation of schoolboys for schoolboys.
+
+The second of them.
+
+## modern-en · gustave-moreau · 9:19
+
+—All these questions are purely academic, Russell proclaimed from his shadow. I mean, whether Hamlet is Shakespeare or James I or Essex. Like clergymen's debates about whether Jesus really existed. Art has to reveal to us ideas, formless spiritual essences. The supreme question about a work of art is: out of how deep a life does it spring? The painting of Gustave Moreau is the painting of ideas. The deepest poetry of Shelley, the words of Hamlet bring our minds into contact with eternal wisdom, Plato's world of ideas. All the rest is the speculation of schoolboys for schoolboys.
+
+Whose painting is the painting of ideas, in Russell’s argument that art has to reveal formless spiritual essences and not the poet’s drinking and the poet’s debts.
+
+## modern-en · shelley · 9:19
+
+—All these questions are purely academic, Russell proclaimed from his shadow. I mean, whether Hamlet is Shakespeare or James I or Essex. Like clergymen's debates about whether Jesus really existed. Art has to reveal to us ideas, formless spiritual essences. The supreme question about a work of art is: out of how deep a life does it spring? The painting of Gustave Moreau is the painting of ideas. The deepest poetry of Shelley, the words of Hamlet bring our minds into contact with eternal wisdom, Plato's world of ideas. All the rest is the speculation of schoolboys for schoolboys.
+
+Whose deepest poetry brings the mind into contact with the eternal wisdom, Russell says; and whose figure of the mind as a fading coal Stephen turns against him, in the intense instant of imagination. Mulligan quotes him too over the foamborn Aphrodite: life of life, thy lips enkindle.
+
+## modern-en · plato · 9:19
+
+—All these questions are purely academic, Russell proclaimed from his shadow. I mean, whether Hamlet is Shakespeare or James I or Essex. Like clergymen's debates about whether Jesus really existed. Art has to reveal to us ideas, formless spiritual essences. The supreme question about a work of art is: out of how deep a life does it spring? The painting of Gustave Moreau is the painting of ideas. The deepest poetry of Shelley, the words of Hamlet bring our minds into contact with eternal wisdom, Plato's world of ideas. All the rest is the speculation of schoolboys for schoolboys.
+
+The other half of the argument. Aristotle was once Plato’s schoolboy, Stephen says, and has remained so, John Eglinton hopes; and which of the two would have banished me from his commonwealth? Hamlet’s monologue on the afterlife of his princely soul is as shallow as Plato’s, and the dialogues are the form Mr Best thinks the theory ought to take, like the Platonic dialogues Wilde wrote.
+
+## modern-en · dunlop · 9:25
+
+Dunlop, Judge, the noblest Roman of them all, A.E., Arval, the Name Ineffable, in heaven called: K.H., their master, whose identity is no secret to initiates. Brothers of the Great White Lodge, always watching to see if they can help. The Christ with the bride-sister, moisture of light, born of an ensouled virgin, repentant Sophia, departed to the plane of enlightenment. The esoteric life is not for ordinary persons. Ordinary persons must work off bad karma first. Mrs Cooper Oakley once glimpsed our very illustrious sister Madame Blavatsky's spirit-guide.
+
+First of the theosophists in Stephen’s silent catalogue of the Dublin lodge: Daniel Nicol Dunlop, of the yogibogeybox in Dawson chambers.
+
+## modern-en · judge-theosophist · 9:25
+
+Dunlop, Judge, the noblest Roman of them all, A.E., Arval, the Name Ineffable, in heaven called: K.H., their master, whose identity is no secret to initiates. Brothers of the Great White Lodge, always watching to see if they can help. The Christ with the bride-sister, moisture of light, born of an ensouled virgin, repentant Sophia, departed to the plane of enlightenment. The esoteric life is not for ordinary persons. Ordinary persons must work off bad karma first. Mrs Cooper Oakley once glimpsed our very illustrious sister Madame Blavatsky's spirit-guide.
+
+The noblest Roman of them all, second in the same list.
+
+## modern-en · koot-hoomi · 9:25
+
+Dunlop, Judge, the noblest Roman of them all, A.E., Arval, the Name Ineffable, in heaven called: K.H., their master, whose identity is no secret to initiates. Brothers of the Great White Lodge, always watching to see if they can help. The Christ with the bride-sister, moisture of light, born of an ensouled virgin, repentant Sophia, departed to the plane of enlightenment. The esoteric life is not for ordinary persons. Ordinary persons must work off bad karma first. Mrs Cooper Oakley once glimpsed our very illustrious sister Madame Blavatsky's spirit-guide.
+
+Their master, whose identity is no secret to adepts: the mahatma the Dublin theosophists took their instruction from.
+
+## modern-en · mrs-cooper-oakley · 9:25
+
+Dunlop, Judge, the noblest Roman of them all, A.E., Arval, the Name Ineffable, in heaven called: K.H., their master, whose identity is no secret to initiates. Brothers of the Great White Lodge, always watching to see if they can help. The Christ with the bride-sister, moisture of light, born of an ensouled virgin, repentant Sophia, departed to the plane of enlightenment. The esoteric life is not for ordinary persons. Ordinary persons must work off bad karma first. Mrs Cooper Oakley once glimpsed our very illustrious sister Madame Blavatsky's spirit-guide.
+
+Who once glimpsed our very illustrious sister H. P. B.’s elemental — the story that makes Stephen break out in mock scandal: you naughtn’t to look, missus, when a lady’s ashowing of her elemental.
+
+## modern-en · sophia · 9:25
+
+Dunlop, Judge, the noblest Roman of them all, A.E., Arval, the Name Ineffable, in heaven called: K.H., their master, whose identity is no secret to initiates. Brothers of the Great White Lodge, always watching to see if they can help. The Christ with the bride-sister, moisture of light, born of an ensouled virgin, repentant Sophia, departed to the plane of enlightenment. The esoteric life is not for ordinary persons. Ordinary persons must work off bad karma first. Mrs Cooper Oakley once glimpsed our very illustrious sister Madame Blavatsky's spirit-guide.
+
+Repentant sophia, departed to the plane of buddhi: the fallen wisdom of the gnostic scheme, bridesister to the Christ in the theosophical account Stephen is mocking.
+
+## modern-en · jubainville · 9:36
+
+—I was showing him Jubainville's book. He's quite enthusiastic, don't you know, about Hyde's _Love Songs of Connacht_. I couldn't bring him in to hear the discussion. He's gone to Gill's bookshop to buy it.
+
+Whose book Mr Best was showing Haines when Haines got enthusiastic about the Lovesongs of Connacht and went off to Gill’s to buy them: d’Arbois de Jubainville on the Irish mythological cycle.
+
+## modern-en · douglas-hyde · 9:36
+
+—I was showing him Jubainville's book. He's quite enthusiastic, don't you know, about Hyde's _Love Songs of Connacht_. I couldn't bring him in to hear the discussion. He's gone to Gill's bookshop to buy it.
+
+Douglas Hyde, whose Lovesongs of Connacht Haines has gone to buy, and whose own verse — bound thee forth, my booklet, quick, to greet the callous public — Stephen recites in his head, lean unlovely English and all.
+
+## modern-en · mallarme · 9:40
+
+—People do not know how dangerous love songs can be, the golden aura of Russell warned occultly. The movements which work revolutions in the world are born out of the dreams and visions in a peasant's heart on the hillside. For them, the earth is not something to exploit but the living mother. The refined air of the academy and the arena produce the cheap novel, the music-hall song. France produces the finest flower of corruption in Mallarme, but the desirable life is revealed only to the poor of heart — the life of Homer's Phaeacians.
+
+The finest flower of corruption France produces, in Russell’s judgment; and to Mr Best the author of the wonderful prose poems Stephen MacKenna used to read to him in Paris, including the one about Hamlet: il se promène, lisant au livre de lui-même.
+
+## modern-en · homer · 9:40
+
+—People do not know how dangerous love songs can be, the golden aura of Russell warned occultly. The movements which work revolutions in the world are born out of the dreams and visions in a peasant's heart on the hillside. For them, the earth is not something to exploit but the living mother. The refined air of the academy and the arena produce the cheap novel, the music-hall song. France produces the finest flower of corruption in Mallarme, but the desirable life is revealed only to the poor of heart — the life of Homer's Phaeacians.
+
+Whose Phæacians live the desirable life revealed only to the poor of heart, Russell says; and whom Mulligan invokes at the end, chanting Longworth’s puff of Lady Gregory: the most beautiful book that has come out of our country in my time. One thinks of Homer.
+
+## modern-en · stephen-mackenna · 9:42
+
+—Mallarme, don't you know, he said, has written those wonderful prose poems Stephen MacKenna used to read to me in Paris. The one about _Hamlet_. He says: _il se promene, lisant au livre de lui-meme_ — don't you know — _reading the book of himself_. He describes _Hamlet_ being performed in a French town, don't you know, a provincial town. They advertised it.
+
+Who used to read Mallarmé’s prose poems to Mr Best in Paris.
+
+## modern-en · robert-greene · 9:51
+
+—Robert Greene called him a death-dealer of the soul, Stephen said. Not for nothing was he a butcher's son, wielding the heavy axe and spitting in his palms. Nine lives are taken in revenge for his father's one. Our Father who art in purgatory. Soldiers in khaki playing Hamlet don't hesitate to shoot. The blood-soaked slaughterhouse of act five is a forecast of the concentration camp, as celebrated by Mr Swinburne.
+
+Who called Shakespeare a deathsman of the soul — the phrase Stephen opens the argument with. The modern edition turns it round and calls him a death-dealer of the soul.
+
+## modern-en · pickwick-fat-boy · 9:55
+
+—He insists that _Hamlet_ is a ghost story, John Eglinton explained for Mr Best's benefit. Like the Fat Boy in _Pickwick_, he wants to make our flesh creep.
+
+Who wants to make your flesh creep, and is John Eglinton’s comparison for Stephen insisting that Hamlet is a ghoststory.
+
+## modern-en · king-hamlet · 9:59
+
+—What is a ghost? Stephen said with tingling energy. One who has faded into nothingness through death, through absence, through change of habits. Elizabethan London lay as far from Stratford as corrupt Paris lies from virgin Dublin. Who is the ghost from limbo, returning to the world that has forgotten him? Who is King Hamlet?
+
+The ghost from limbo patrum, returning to the world that has forgotten him. Who is King Hamlet? is the question the whole theory turns on, and Stephen’s answer is Shakespeare himself, playing the part in his own play and speaking his own son’s name to the young player in front of him.
+
+## modern-en · drake · 9:62
+
+—It is this hour of a day in mid-June, Stephen said, catching with a swift glance their attention. The flag is up on the playhouse by the bankside. The bear Sackerson growls in the pit nearby, at Paris Garden. Sailors who voyaged with Drake chew their sausages among the groundlings.
+
+Whose canvasclimbers chew their sausages among the groundlings at the Globe, in the hour of a day in mid June that Stephen builds for them.
+
+## modern-en · burbage · 9:66
+
+—The play begins. A player comes on under the shadow, made up in the cast-off armour of a court dandy, a well-built man with a bass voice. It is the ghost, the king, a king and no king, and the player is Shakespeare — who has studied _Hamlet_ all the years of his life which were not vanity — in order to play the part of the spectre. He speaks the words to Burbage, the young player who stands before him beyond the rack of waxed cloth, calling him by a name:
+
+The young player who stands before the ghost beyond the rack of cerecloth and is called Hamlet. He returns in the story out of Manningham: the burgher’s wife who bade Dick Burbage to her bed after she had seen him in Richard III, and Shakespeare answering from the capon’s blankets that William the conqueror came before Richard III.
+
+## modern-en · hamnet · 9:68
+
+bidding him listen. To a son he speaks — the son of his soul, the prince, young Hamlet — and to the son of his body, Hamnet Shakespeare, who has died in Stratford so that his namesake may live forever.
+
+The son of his body, dead in Stratford at eleven, whose namesake lives for ever. Had Hamnet lived he would have been prince Hamlet’s twin; and Hamlet, the black prince, is Hamnet Shakespeare.
+
+## modern-en · ann-hathaway · 9:69
+
+Is it possible that that player Shakespeare — a ghost by absence, and dressed in the garb of buried Denmark, a ghost by death — speaking his own words to his own son's name (had Hamnet Shakespeare lived he would have been Prince Hamlet's twin), is it possible, I want to know, or probable that he did not draw or foresee the logical conclusion of those premises: you are the dispossessed son: I am the murdered father: your mother is the guilty queen — Ann Shakespeare, born Hathaway?
+
+Ann Shakespeare, born Hathaway, whom Stephen will not let the room forget. Eight years older than the boy she tumbled in the cornfield, sweet and twentysix; she bore his children, laid pennies on his eyes, and got the secondbest bed. She died, Stephen says, sixtyseven years after she was born — and of the thirtyfour years between the day she married him and the day she buried him, the plays say nothing except what he branded her with in the fifth scene of Hamlet.
+
+## modern-en · villiers-de-lisle · 9:72
+
+—Interesting only to the parish clerk. I mean, we have the plays. I mean, when we read the poetry of _King Lear_, what does it matter to us how the poet lived? As for living, our servants can do that for us, Villiers de l'Isle-Adam said. Peeping and prying into backstage gossip of the day, the poet's drinking, the poet's debts. We have _King Lear_: and it is immortal.
+
+Who said that as for living our servants can do that for us — Russell’s authority for refusing to pry into the family life of a great man.
+
+## modern-en · georgina-johnson · 9:78
+
+Go on! You spent most of it in Georgina Johnson's bed, clergyman's daughter. Remorse of conscience.
+
+The clergyman’s daughter in whose bed Stephen spent most of the pound Russell lent him when he was hungry. Agenbite of inwit.
+
+## modern-en · socrates · 9:101
+
+—A shrew, John Eglinton said shrewdly, is not a useful portal of discovery, one should think. What useful discovery did Socrates learn from his nagging wife Xanthippe?
+
+Who learnt dialectic from Xanthippe and from his mother how to bring thoughts into the world, and whom neither the midwife’s lore nor the caudlelectures saved from the archons and their naggin of hemlock. Stephen uses him twice more: Shakespeare had a midwife to mother as he had a shrew to wife; and Maeterlinck’s if Socrates leave his house today he will find the sage seated on his doorstep.
+
+## modern-en · xanthippe · 9:101
+
+—A shrew, John Eglinton said shrewdly, is not a useful portal of discovery, one should think. What useful discovery did Socrates learn from his nagging wife Xanthippe?
+
+His wife, and John Eglinton’s example of a shrew who was not a useful portal of discovery.
+
+## modern-en · myrto · 9:102
+
+—Dialectic, Stephen answered: and from his mother, how to bring thoughts into the world. What he learnt from his other wife Myrto — let us not speak her name! — Socratididion's love poem, no man, not a woman, will ever know. But neither the midwife's wisdom nor the nagging lectures saved him from the rulers of Sinn Fein and their measure of hemlock.
+
+His other wife, absit nomen — what he learnt from her, Stephen says, no man, not a woman, will ever know.
+
+## modern-en · katharine · 9:105
+
+—He had a good stock of wit, Stephen said, and no failing memory. He carried a memory in his pocket as he trudged to London whistling _The Girl I Left Behind Me_. If the earthquake did not date it, we would know where to place poor Wat — the hare, sitting in its form, the cry of hounds, the studded bridle, and her blue-veined eyelids. That memory, _Venus and Adonis_, lay in the bedchamber of every courtesan in London. Is Katherine the shrew ugly? Hortensio calls her young and beautiful. Do you think the writer of _Antony and Cleopatra_, a passionate pilgrim, had eyes in the back of his head that he chose the ugliest wench in all Warwickshire to lie with? Good: he left her and gained the world of men. But his female characters are the women as imagined by a boy. Their life, thought, speech are lent them by males. He chose badly? He was chosen, it seems to me. If others have their will, Ann hath a way. By God, she was the one to blame. She put the charm on him, sweet and twenty-six. The grey-eyed goddess who bends over the boy Adonis, stooping to conquer, as prologue to the main act, is a bold-faced Stratford wench who tumbles in a cornfield a lover younger than herself.
+
+Whom Hortensio calls young and beautiful, against the room’s assumption that the woman Shakespeare married must have been the ugliest doxy in all Warwickshire.
+
+## modern-en · hortensio · 9:105
+
+—He had a good stock of wit, Stephen said, and no failing memory. He carried a memory in his pocket as he trudged to London whistling _The Girl I Left Behind Me_. If the earthquake did not date it, we would know where to place poor Wat — the hare, sitting in its form, the cry of hounds, the studded bridle, and her blue-veined eyelids. That memory, _Venus and Adonis_, lay in the bedchamber of every courtesan in London. Is Katherine the shrew ugly? Hortensio calls her young and beautiful. Do you think the writer of _Antony and Cleopatra_, a passionate pilgrim, had eyes in the back of his head that he chose the ugliest wench in all Warwickshire to lie with? Good: he left her and gained the world of men. But his female characters are the women as imagined by a boy. Their life, thought, speech are lent them by males. He chose badly? He was chosen, it seems to me. If others have their will, Ann hath a way. By God, she was the one to blame. She put the charm on him, sweet and twenty-six. The grey-eyed goddess who bends over the boy Adonis, stooping to conquer, as prologue to the main act, is a bold-faced Stratford wench who tumbles in a cornfield a lover younger than herself.
+
+Who calls her so.
+
+## modern-en · adonis · 9:105
+
+—He had a good stock of wit, Stephen said, and no failing memory. He carried a memory in his pocket as he trudged to London whistling _The Girl I Left Behind Me_. If the earthquake did not date it, we would know where to place poor Wat — the hare, sitting in its form, the cry of hounds, the studded bridle, and her blue-veined eyelids. That memory, _Venus and Adonis_, lay in the bedchamber of every courtesan in London. Is Katherine the shrew ugly? Hortensio calls her young and beautiful. Do you think the writer of _Antony and Cleopatra_, a passionate pilgrim, had eyes in the back of his head that he chose the ugliest wench in all Warwickshire to lie with? Good: he left her and gained the world of men. But his female characters are the women as imagined by a boy. Their life, thought, speech are lent them by males. He chose badly? He was chosen, it seems to me. If others have their will, Ann hath a way. By God, she was the one to blame. She put the charm on him, sweet and twenty-six. The grey-eyed goddess who bends over the boy Adonis, stooping to conquer, as prologue to the main act, is a bold-faced Stratford wench who tumbles in a cornfield a lover younger than herself.
+
+The boy the greyeyed goddess bends over, stooping to conquer — and in Stephen’s reading a boldfaced Stratford wench tumbling a lover younger than herself in a cornfield. The poem’s title at the head of the same sentence is a book and carries no card.
+
+## modern-en · piper · 9:115
+
+—Are you going? John Eglinton's active eyebrows asked. Shall we see you at Moore's tonight? Piper is coming.
+
+Back from Berlin and coming to Moore’s tonight, which is the news that makes Mr Best pipe. He is the man who met Herr Bleibtreu and brought home the Rutland theory.
+
+## modern-en · louis-h-victory · 9:119
+
+Mystical parlour in Dawson Chambers. _Isis Unveiled_. Their Buddhist text we tried to pawn. Cross-legged under an umbrella-shade, he sits enthroned, an Aztec logos, functioning on astral planes, their oversoul, great-great-soul. The faithful followers of Hermes await the light, ripe for discipleship, gathered around him. Louis H. Victory. T. Caulfield Irwin. Lotus-ladies tend them, their pineal glands aglow. Filled with his god, he sits enthroned, Buddha under the palm. Swallower of souls, engulfer. He-souls, she-souls, shoals of souls. Engulfed, with wailing cries, whirled, whirling, they bewail.
+
+One of the two poets Stephen lists among the faithful hermetists waiting for the light, ripe for chelaship.
+
+## modern-en · t-caulfield-irwin · 9:119
+
+Mystical parlour in Dawson Chambers. _Isis Unveiled_. Their Buddhist text we tried to pawn. Cross-legged under an umbrella-shade, he sits enthroned, an Aztec logos, functioning on astral planes, their oversoul, great-great-soul. The faithful followers of Hermes await the light, ripe for discipleship, gathered around him. Louis H. Victory. T. Caulfield Irwin. Lotus-ladies tend them, their pineal glands aglow. Filled with his god, he sits enthroned, Buddha under the palm. Swallower of souls, engulfer. He-souls, she-souls, shoals of souls. Engulfed, with wailing cries, whirled, whirling, they bewail.
+
+The other.
+
+## modern-en · colum · 9:126
+
+Young Colum and Starkey. George Roberts is handling the business end. Longworth will give it a good review in the _Express_. Oh, will he? I liked Colum's _Drover_. Yes, I think he has that strange thing genius. Do you think he really has genius? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you'll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell's joke about Moore and Martyn? That Moore is Martyn's wild oats? Awfully clever, isn't it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the sorrowful countenance here in Dublin. In a saffron kilt? O'Neill Russell? Oh yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Young Colum, whose Drover Russell liked and in whose line about the Grecian vase Yeats found that queer thing genius. One of the younger poets whose verses Russell is gathering into a sheaf.
+
+## modern-en · starkey · 9:126
+
+Young Colum and Starkey. George Roberts is handling the business end. Longworth will give it a good review in the _Express_. Oh, will he? I liked Colum's _Drover_. Yes, I think he has that strange thing genius. Do you think he really has genius? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you'll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell's joke about Moore and Martyn? That Moore is Martyn's wild oats? Awfully clever, isn't it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the sorrowful countenance here in Dublin. In a saffron kilt? O'Neill Russell? Oh yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Another of them, whom Russell twice tells Stephen to bring along tonight.
+
+## modern-en · george-roberts · 9:126
+
+Young Colum and Starkey. George Roberts is handling the business end. Longworth will give it a good review in the _Express_. Oh, will he? I liked Colum's _Drover_. Yes, I think he has that strange thing genius. Do you think he really has genius? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you'll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell's joke about Moore and Martyn? That Moore is Martyn's wild oats? Awfully clever, isn't it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the sorrowful countenance here in Dublin. In a saffron kilt? O'Neill Russell? Oh yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Who is doing the commercial part of the anthology.
+
+## modern-en · longworth · 9:126
+
+Young Colum and Starkey. George Roberts is handling the business end. Longworth will give it a good review in the _Express_. Oh, will he? I liked Colum's _Drover_. Yes, I think he has that strange thing genius. Do you think he really has genius? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you'll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell's joke about Moore and Martyn? That Moore is Martyn's wild oats? Awfully clever, isn't it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the sorrowful countenance here in Dublin. In a saffron kilt? O'Neill Russell? Oh yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Editor of the Express, who will give the sheaf a good puff — and who is awfully sick, Mulligan says, after what Stephen wrote about Lady Gregory’s book in his paper.
+
+## modern-en · george-moore · 9:115
+
+—Are you going? John Eglinton's active eyebrows asked. Shall we see you at Moore's tonight? Piper is coming.
+
+George Moore, at whose house they are all going tonight, and whom Miss Mitchell’s joke makes Martyn’s wild oats. Our national epic has yet to be written and Moore is the man for it: a knight of the rueful countenance here in Dublin. Mulligan closes the episode on him — Monsieur Moore, lecturer on French letters to the youth of Ireland. Not the Tommy Moore of episode 8 nor Moore street.
+
+## modern-en · martyn · 9:126
+
+Young Colum and Starkey. George Roberts is handling the business end. Longworth will give it a good review in the _Express_. Oh, will he? I liked Colum's _Drover_. Yes, I think he has that strange thing genius. Do you think he really has genius? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you'll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell's joke about Moore and Martyn? That Moore is Martyn's wild oats? Awfully clever, isn't it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the sorrowful countenance here in Dublin. In a saffron kilt? O'Neill Russell? Oh yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Edward Martyn, the other half of the joke, and Sancho to Moore’s Quixote.
+
+## modern-en · miss-mitchell · 9:126
+
+Young Colum and Starkey. George Roberts is handling the business end. Longworth will give it a good review in the _Express_. Oh, will he? I liked Colum's _Drover_. Yes, I think he has that strange thing genius. Do you think he really has genius? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you'll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell's joke about Moore and Martyn? That Moore is Martyn's wild oats? Awfully clever, isn't it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the sorrowful countenance here in Dublin. In a saffron kilt? O'Neill Russell? Oh yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Whose joke it was. Awfully clever, isn’t it?
+
+## modern-en · don-quixote · 9:126
+
+Young Colum and Starkey. George Roberts is handling the business end. Longworth will give it a good review in the _Express_. Oh, will he? I liked Colum's _Drover_. Yes, I think he has that strange thing genius. Do you think he really has genius? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you'll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell's joke about Moore and Martyn? That Moore is Martyn's wild oats? Awfully clever, isn't it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the sorrowful countenance here in Dublin. In a saffron kilt? O'Neill Russell? Oh yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Whom Moore and Martyn remind one of.
+
+## modern-en · sancho-panza · 9:126
+
+Young Colum and Starkey. George Roberts is handling the business end. Longworth will give it a good review in the _Express_. Oh, will he? I liked Colum's _Drover_. Yes, I think he has that strange thing genius. Do you think he really has genius? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you'll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell's joke about Moore and Martyn? That Moore is Martyn's wild oats? Awfully clever, isn't it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the sorrowful countenance here in Dublin. In a saffron kilt? O'Neill Russell? Oh yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+And his squire.
+
+## modern-en · dulcinea · 9:126
+
+Young Colum and Starkey. George Roberts is handling the business end. Longworth will give it a good review in the _Express_. Oh, will he? I liked Colum's _Drover_. Yes, I think he has that strange thing genius. Do you think he really has genius? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you'll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell's joke about Moore and Martyn? That Moore is Martyn's wild oats? Awfully clever, isn't it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the sorrowful countenance here in Dublin. In a saffron kilt? O'Neill Russell? Oh yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+And his lady — and who would she be, in the Dublin version of the joke?
+
+## modern-en · dr-sigerson · 9:126
+
+Young Colum and Starkey. George Roberts is handling the business end. Longworth will give it a good review in the _Express_. Oh, will he? I liked Colum's _Drover_. Yes, I think he has that strange thing genius. Do you think he really has genius? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you'll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell's joke about Moore and Martyn? That Moore is Martyn's wild oats? Awfully clever, isn't it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the sorrowful countenance here in Dublin. In a saffron kilt? O'Neill Russell? Oh yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Who says our national epic has yet to be written.
+
+## modern-en · oneill-russell · 9:126
+
+Young Colum and Starkey. George Roberts is handling the business end. Longworth will give it a good review in the _Express_. Oh, will he? I liked Colum's _Drover_. Yes, I think he has that strange thing genius. Do you think he really has genius? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you'll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell's joke about Moore and Martyn? That Moore is Martyn's wild oats? Awfully clever, isn't it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the sorrowful countenance here in Dublin. In a saffron kilt? O'Neill Russell? Oh yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Proposed for the saffron kilt and the grand old tongue. Not the Russell of this episode, who is A. E.
+
+## modern-en · james-stephens-writer · 9:126
+
+Young Colum and Starkey. George Roberts is handling the business end. Longworth will give it a good review in the _Express_. Oh, will he? I liked Colum's _Drover_. Yes, I think he has that strange thing genius. Do you think he really has genius? Yeats admired his line: _As in wild earth a Grecian vase_. Did he? I hope you'll be able to come tonight. Malachi Mulligan is coming too. Moore asked him to bring Haines. Did you hear Miss Mitchell's joke about Moore and Martyn? That Moore is Martyn's wild oats? Awfully clever, isn't it? They remind one of Don Quixote and Sancho Panza. Our national epic has yet to be written, Dr Sigerson says. Moore is the man for it. A knight of the sorrowful countenance here in Dublin. In a saffron kilt? O'Neill Russell? Oh yes, he must speak the grand old tongue. And his Dulcinea? James Stephens is doing some clever sketches. We are becoming important, it seems.
+
+Who is doing some clever sketches. We are becoming important, it seems. Not the head centre of the Fenians whom Bloom and Kevin Egan remember.
+
+## modern-en · cordelia · 9:127
+
+Cordelia. _Cordoglio_ — heartache. Lear's loneliest daughter.
+
+Cordoglio. Lir’s loneliest daughter — the one word Stephen answers Russell’s literary evening with, having just handed over Mr Deasy’s letter and been given nothing.
+
+## modern-en · lir · 9:127
+
+Cordelia. _Cordoglio_ — heartache. Lear's loneliest daughter.
+
+Whose loneliest daughter she is. The older edition writes Lir, the Irish sea god whose children were turned into swans; the modern edition writes Lear and makes it Shakespeare’s king. Joyce’s line holds both at once.
+
+## modern-en · norman-editor · 9:129
+
+—Thank you very much, Mr Russell, Stephen said, rising. If you will be so kind as to give the letter to Mr Norman...
+
+Editor of the Irish Homestead, to whom Russell will give Mr Deasy’s letter if he considers it important. We have so much correspondence. Not the Connolly Norman of episode 1.
+
+## modern-en · synge · 9:133
+
+Synge has promised me an article for _Dana_ too. Are we going to have readers? I feel we are. The Gaelic League wants something in Irish. I hope you will come round tonight. Bring Starkey.
+
+Who has promised Russell an article for Dana; who writes as Shakespeare does, Mulligan says; who is out in pampooties to murder Stephen for pissing on his halldoor in Glasthule; and who has left off wearing black to be like nature.
+
+## modern-en · drummond · 9:158
+
+Drummond of Hawthornden helped you over that difficult bit.
+
+Who helped Stephen over that stile, he admits to himself the moment the figure is out of his mouth.
+
+## modern-en · renan · 9:163
+
+—If that were the birthmark of genius, he said, genius would be common as dirt. The plays of Shakespeare's later years, which Renan admired so much, breathe a different spirit.
+
+Who admired the plays of Shakespeare’s later years so much, and the play — the Tempest — written after the Sea Venture came home from Bermudas with Patsy Caliban aboard.
+
+## modern-en · odysseus · 9:167
+
+—If you want to know what events cast their shadow over the hellish period of _King Lear_, _Othello_, _Hamlet_, _Troilus and Cressida_ — look to see when and how the shadow lifts. What softens the heart of a man, shipwrecked in dire storms, tried like another Ulysses — Pericles, Prince of Tyre?
+
+Tried, like another Ulysses: the shipwrecked man whose heart is softened when a child, a girl, is placed in his arms. He turns up again as the man Moore makes quote Aristotle on the seacoast of Bohemia.
+
+## modern-en · pericles · 9:167
+
+—If you want to know what events cast their shadow over the hellish period of _King Lear_, _Othello_, _Hamlet_, _Troilus and Cressida_ — look to see when and how the shadow lifts. What softens the heart of a man, shipwrecked in dire storms, tried like another Ulysses — Pericles, Prince of Tyre?
+
+Prince of Tyre, in whose arms Marina is placed.
+
+## modern-en · marina · 9:169
+
+—A child, a girl, placed in his arms: Marina.
+
+A child of storm, the daughter given back to him. My dearest wife, Pericles says, was like this maid.
+
+## modern-en · miranda · 9:175
+
+—Marina, Stephen said, a child of storm. Miranda, a wonder. Perdita, that which was lost. What was lost is given back to him: his daughter's child. _My dearest wife_, Pericles says, _was like this maid_. Will any man love the daughter if he has not loved the mother?
+
+A wonder: the second of the three daughters of the late plays, between Marina and Perdita, in Stephen’s list of what was lost and given back.
+
+## modern-en · perdita · 9:175
+
+—Marina, Stephen said, a child of storm. Miranda, a wonder. Perdita, that which was lost. What was lost is given back to him: his daughter's child. _My dearest wife_, Pericles says, _was like this maid_. Will any man love the daughter if he has not loved the mother?
+
+That which was lost.
+
+## modern-en · francis-bacon · 9:171
+
+Good Bacon: gone stale. Shakespeare — Bacon's wild oats theory. Code-crackers on the main roads. Seekers on the great quest. What town, good masters? Hidden behind names: A.E., the eternal one: Magee, who is John Eglinton. East of the sun, west of the moon: the Land of Youth. Booted and ready, the two of them.
+
+Good Bacon: gone musty. Shakespeare Bacon’s wild oats, and the cypherjugglers going the highroads after him — the first of the four names Stephen runs together into Rutlandbaconsouthamptonshakespeare.
+
+## modern-en · brandes · 9:173
+
+—Mr Brandes accepts it, Stephen said, as the first play of the closing period.
+
+Georg Brandes, who accepts Pericles as the first play of the closing period.
+
+## modern-en · sidney-lee · 9:174
+
+—Does he? What does Mr Sidney Lee — or Mr Simon Lazarus, as some say his real name is — say about it?
+
+Or Mr Simon Lazarus, as some aver his name is — John Eglinton’s way of asking what the other authority says.
+
+## modern-en · bernard-shaw · 9:181
+
+—I hope Mr Dedalus will work out his theory for the public's enlightenment. And we ought to mention another Irish commentator, Mr George Bernard Shaw. Nor should we forget Mr Frank Harris. His articles on Shakespeare in the _Saturday Review_ were surely brilliant. Oddly enough, he too presents us with an unhappy relationship with the Dark Lady of the Sonnets. The favoured rival is William Herbert, Earl of Pembroke. I admit that if the poet must be rejected, such a rejection would seem more in harmony with — what shall I say? — our notions of what ought not to have been.
+
+Another Irish commentator the quaker librarian thinks they ought to mention.
+
+## modern-en · frank-harris · 9:181
+
+—I hope Mr Dedalus will work out his theory for the public's enlightenment. And we ought to mention another Irish commentator, Mr George Bernard Shaw. Nor should we forget Mr Frank Harris. His articles on Shakespeare in the _Saturday Review_ were surely brilliant. Oddly enough, he too presents us with an unhappy relationship with the Dark Lady of the Sonnets. The favoured rival is William Herbert, Earl of Pembroke. I admit that if the poet must be rejected, such a rejection would seem more in harmony with — what shall I say? — our notions of what ought not to have been.
+
+Whose articles on Shakespeare in the Saturday Review were surely brilliant, and who too draws an unhappy relation with the dark lady of the sonnets. Not the old Harris of Nassau street whose fieldglasses Bloom means to have seen to.
+
+## modern-en · dark-lady · 9:181
+
+—I hope Mr Dedalus will work out his theory for the public's enlightenment. And we ought to mention another Irish commentator, Mr George Bernard Shaw. Nor should we forget Mr Frank Harris. His articles on Shakespeare in the _Saturday Review_ were surely brilliant. Oddly enough, he too presents us with an unhappy relationship with the Dark Lady of the Sonnets. The favoured rival is William Herbert, Earl of Pembroke. I admit that if the poet must be rejected, such a rejection would seem more in harmony with — what shall I say? — our notions of what ought not to have been.
+
+Whom the commentators keep finding, and whose favoured rival, on Frank Harris’s reading, is William Herbert.
+
+## modern-en · william-herbert · 9:181
+
+—I hope Mr Dedalus will work out his theory for the public's enlightenment. And we ought to mention another Irish commentator, Mr George Bernard Shaw. Nor should we forget Mr Frank Harris. His articles on Shakespeare in the _Saturday Review_ were surely brilliant. Oddly enough, he too presents us with an unhappy relationship with the Dark Lady of the Sonnets. The favoured rival is William Herbert, Earl of Pembroke. I admit that if the poet must be rejected, such a rejection would seem more in harmony with — what shall I say? — our notions of what ought not to have been.
+
+Earl of Pembroke: the favoured rival. If the poet must be rejected, the quaker librarian owns, such a rejection would seem more in harmony with our notions of what ought not to have been.
+
+## modern-en · lucrece · 9:186
+
+—The soul has already been struck mortally — a poison poured in the porch of a sleeping ear. But those who are killed in sleep cannot know the manner of their death unless their Creator grants their souls that knowledge in the life to come. The poisoning and the adultery that prompted it — King Hamlet's ghost could not have known of these unless he were given knowledge by his creator. That is why the speech — his lean, unlovely English — is always turned elsewhere, backward. Ravisher and ravished, what he would but would not, go with him from Lucrece's blue-circled ivory breasts to Imogen's breast, bare, with its mole spotted five times. He goes back, weary of the creation he has piled up to hide himself from himself, an old dog licking an old sore. But because loss is his gain, he passes on towards eternity in undiminished personality, untaught by the wisdom he has written or by the laws he has revealed. His visor is up. He is a ghost, a shadow now — the wind by Elsinore's rocks, or what you will — the sea's voice, a voice heard only in the heart of him who is the substance of his shadow — the son, of one substance with the father.
+
+Whose bluecircled ivory globes are the first of the two the ghost’s speech is always turned back towards.
+
+## modern-en · imogen · 9:186
+
+—The soul has already been struck mortally — a poison poured in the porch of a sleeping ear. But those who are killed in sleep cannot know the manner of their death unless their Creator grants their souls that knowledge in the life to come. The poisoning and the adultery that prompted it — King Hamlet's ghost could not have known of these unless he were given knowledge by his creator. That is why the speech — his lean, unlovely English — is always turned elsewhere, backward. Ravisher and ravished, what he would but would not, go with him from Lucrece's blue-circled ivory breasts to Imogen's breast, bare, with its mole spotted five times. He goes back, weary of the creation he has piled up to hide himself from himself, an old dog licking an old sore. But because loss is his gain, he passes on towards eternity in undiminished personality, untaught by the wisdom he has written or by the laws he has revealed. His visor is up. He is a ghost, a shadow now — the wind by Elsinore's rocks, or what you will — the sea's voice, a voice heard only in the heart of him who is the substance of his shadow — the son, of one substance with the father.
+
+And the second: her breast, bare, with its mole cinquespotted.
+
+## modern-en · johann-most · 9:194
+
+Brood of mockers: Photius, false Malachi, Johann Most.
+
+Third in the brood of mockers — Photius, pseudomalachi, Johann Most — whose blasphemy Stephen answers with the whole creed run together in one breath.
+
+## modern-en · vining · 9:207
+
+—The bard's fellow countrymen, John Eglinton answered, are perhaps rather tired of our brilliant theorising. I hear that an actress played Hamlet for the four hundred and eighth time last night in Dublin. Vining argued that the prince was a woman. Has no one made him out to be an Irishman? Judge Barton, I believe, is searching for some clues. Hamlet swears — His Highness, not His Lordship — by Saint Patrick.
+
+Who held that the prince was a woman.
+
+## modern-en · judge-barton · 9:207
+
+—The bard's fellow countrymen, John Eglinton answered, are perhaps rather tired of our brilliant theorising. I hear that an actress played Hamlet for the four hundred and eighth time last night in Dublin. Vining argued that the prince was a woman. Has no one made him out to be an Irishman? Judge Barton, I believe, is searching for some clues. Hamlet swears — His Highness, not His Lordship — by Saint Patrick.
+
+Who is searching for some clues that Hamlet was an Irishman: he swears — His Highness, not His Lordship — by saint Patrick.
+
+## modern-en · willie-hughes · 9:208
+
+—The most brilliant of all is that story of Wilde's, Mr Best said, lifting his shining notebook. That _Portrait of Mr W.H._ where he proves that the sonnets were written for a Willie Hughes, a man of all hues.
+
+A man all hues, for whom Wilde proves the sonnets were written in the Portrait of Mr W. H. Or Hughie Wills, Stephen thinks: Mr William Himself. W. H.: who am I?
+
+## modern-en · jove · 9:217
+
+There are many more girls. Take her for me. In mating season. Jove, send them a cool rutting time. Yes, coo to her like a turtle-dove.
+
+A cool ruttime send them: the one line of Blake’s pairing time that Stephen turns on the blond ephebe in front of him. Everywhere else in this book the name is only the exclamation.
+
+## modern-en · aphrodite · 9:252
+
+—Jehovah, collector of foreskins, is no more. I found him over in the museum where I went to pay homage to the foam-born Aphrodite. The Greek mouth that has never been twisted in prayer. Every day we must do homage to her. _Life of life, thy lips enkindle._
+
+The foamborn, whom Mulligan went over to the museum to hail, and to whom he says we must do homage every day. The Greek mouth that has never been twisted in prayer.
+
+## modern-en · griselda · 9:255
+
+—We want to hear more, John Eglinton decided with Mr Best's approval. We begin to be interested in Mrs Shakespeare. Till now we had thought of her — if at all — as a patient Griselda, a Penelope stay-at-home.
+
+Patient Griselda, one of the two figures the room had settled Mrs Shakespeare into before Stephen began — the other being a Penelope stayathome.
+
+## modern-en · walt-whitman · 9:256
+
+—Antisthenes, pupil of Gorgias, Stephen said, took the palm of beauty from Lord Menelaus's wife, Argive Helen — the wooden horse of Troy, in whom a score of heroes hid — and handed it to poor Penelope. Twenty years Shakespeare lived in London and, during part of that time, he drew a salary equal to that of the Lord Chancellor of Ireland. His life was rich. His art, more than the art of feudalism as Walt Whitman called it, is the art of excess. Hot herring pies, green mugs of sweet wine, honey sauces, sugar of roses, marzipan, gooseberry-stuffed pigeons, ring-shaped sweets. Sir Walter Raleigh, when they arrested him, had half a million francs' worth on his back, including a pair of fancy corsets. The money-grubbing Queen Elizabeth had enough underwear to rival the Queen of Sheba. Twenty years he idled there between married love and its chaste delights and adulterous love and its foul pleasures. You know Manningham's story of the citizen's wife who invited Dick Burbage to her bed after she had seen him play _Richard III_, and how Shakespeare, overhearing, without more ado about nothing, seized the opportunity and, when Burbage came knocking at the gate, answered from the warm sheets: _William the Conqueror came before Richard III._ And the gay lady, mistress Fitton — mount and cry Oh! — and his dainty favourites, Lady Penelope Rich, a fine quality woman fit for a player, and the prostitutes of the Bankside, a penny a time.
+
+Who called it the art of feudalism; Stephen calls Shakespeare’s the art of surfeit.
+
+## modern-en · walter-raleigh · 9:256
+
+—Antisthenes, pupil of Gorgias, Stephen said, took the palm of beauty from Lord Menelaus's wife, Argive Helen — the wooden horse of Troy, in whom a score of heroes hid — and handed it to poor Penelope. Twenty years Shakespeare lived in London and, during part of that time, he drew a salary equal to that of the Lord Chancellor of Ireland. His life was rich. His art, more than the art of feudalism as Walt Whitman called it, is the art of excess. Hot herring pies, green mugs of sweet wine, honey sauces, sugar of roses, marzipan, gooseberry-stuffed pigeons, ring-shaped sweets. Sir Walter Raleigh, when they arrested him, had half a million francs' worth on his back, including a pair of fancy corsets. The money-grubbing Queen Elizabeth had enough underwear to rival the Queen of Sheba. Twenty years he idled there between married love and its chaste delights and adulterous love and its foul pleasures. You know Manningham's story of the citizen's wife who invited Dick Burbage to her bed after she had seen him play _Richard III_, and how Shakespeare, overhearing, without more ado about nothing, seized the opportunity and, when Burbage came knocking at the gate, answered from the warm sheets: _William the Conqueror came before Richard III._ And the gay lady, mistress Fitton — mount and cry Oh! — and his dainty favourites, Lady Penelope Rich, a fine quality woman fit for a player, and the prostitutes of the Bankside, a penny a time.
+
+Who, when they arrested him, had half a million francs on his back including a pair of fancy stays.
+
+## modern-en · elizabeth-i · 9:256
+
+—Antisthenes, pupil of Gorgias, Stephen said, took the palm of beauty from Lord Menelaus's wife, Argive Helen — the wooden horse of Troy, in whom a score of heroes hid — and handed it to poor Penelope. Twenty years Shakespeare lived in London and, during part of that time, he drew a salary equal to that of the Lord Chancellor of Ireland. His life was rich. His art, more than the art of feudalism as Walt Whitman called it, is the art of excess. Hot herring pies, green mugs of sweet wine, honey sauces, sugar of roses, marzipan, gooseberry-stuffed pigeons, ring-shaped sweets. Sir Walter Raleigh, when they arrested him, had half a million francs' worth on his back, including a pair of fancy corsets. The money-grubbing Queen Elizabeth had enough underwear to rival the Queen of Sheba. Twenty years he idled there between married love and its chaste delights and adulterous love and its foul pleasures. You know Manningham's story of the citizen's wife who invited Dick Burbage to her bed after she had seen him play _Richard III_, and how Shakespeare, overhearing, without more ado about nothing, seized the opportunity and, when Burbage came knocking at the gate, answered from the warm sheets: _William the Conqueror came before Richard III._ And the gay lady, mistress Fitton — mount and cry Oh! — and his dainty favourites, Lady Penelope Rich, a fine quality woman fit for a player, and the prostitutes of the Bankside, a penny a time.
+
+The gombeenwoman, who had underlinen enough to vie with her of Sheba; and again, at the end of the same speech, fay Elizabeth, otherwise carrotty Bess, the gross virgin who inspired the Merry Wives. The modern edition writes Queen Elizabeth both times.
+
+## modern-en · sheba · 9:256
+
+—Antisthenes, pupil of Gorgias, Stephen said, took the palm of beauty from Lord Menelaus's wife, Argive Helen — the wooden horse of Troy, in whom a score of heroes hid — and handed it to poor Penelope. Twenty years Shakespeare lived in London and, during part of that time, he drew a salary equal to that of the Lord Chancellor of Ireland. His life was rich. His art, more than the art of feudalism as Walt Whitman called it, is the art of excess. Hot herring pies, green mugs of sweet wine, honey sauces, sugar of roses, marzipan, gooseberry-stuffed pigeons, ring-shaped sweets. Sir Walter Raleigh, when they arrested him, had half a million francs' worth on his back, including a pair of fancy corsets. The money-grubbing Queen Elizabeth had enough underwear to rival the Queen of Sheba. Twenty years he idled there between married love and its chaste delights and adulterous love and its foul pleasures. You know Manningham's story of the citizen's wife who invited Dick Burbage to her bed after she had seen him play _Richard III_, and how Shakespeare, overhearing, without more ado about nothing, seized the opportunity and, when Burbage came knocking at the gate, answered from the warm sheets: _William the Conqueror came before Richard III._ And the gay lady, mistress Fitton — mount and cry Oh! — and his dainty favourites, Lady Penelope Rich, a fine quality woman fit for a player, and the prostitutes of the Bankside, a penny a time.
+
+The queen whose wardrobe is the comparison. The modern edition names her the Queen of Sheba.
+
+## modern-en · manningham · 9:256
+
+—Antisthenes, pupil of Gorgias, Stephen said, took the palm of beauty from Lord Menelaus's wife, Argive Helen — the wooden horse of Troy, in whom a score of heroes hid — and handed it to poor Penelope. Twenty years Shakespeare lived in London and, during part of that time, he drew a salary equal to that of the Lord Chancellor of Ireland. His life was rich. His art, more than the art of feudalism as Walt Whitman called it, is the art of excess. Hot herring pies, green mugs of sweet wine, honey sauces, sugar of roses, marzipan, gooseberry-stuffed pigeons, ring-shaped sweets. Sir Walter Raleigh, when they arrested him, had half a million francs' worth on his back, including a pair of fancy corsets. The money-grubbing Queen Elizabeth had enough underwear to rival the Queen of Sheba. Twenty years he idled there between married love and its chaste delights and adulterous love and its foul pleasures. You know Manningham's story of the citizen's wife who invited Dick Burbage to her bed after she had seen him play _Richard III_, and how Shakespeare, overhearing, without more ado about nothing, seized the opportunity and, when Burbage came knocking at the gate, answered from the warm sheets: _William the Conqueror came before Richard III._ And the gay lady, mistress Fitton — mount and cry Oh! — and his dainty favourites, Lady Penelope Rich, a fine quality woman fit for a player, and the prostitutes of the Bankside, a penny a time.
+
+Whose story of the burgher’s wife, Dick Burbage and William the conqueror Stephen retells to prove the twenty years were not chaste.
+
+## modern-en · mistress-fitton · 9:256
+
+—Antisthenes, pupil of Gorgias, Stephen said, took the palm of beauty from Lord Menelaus's wife, Argive Helen — the wooden horse of Troy, in whom a score of heroes hid — and handed it to poor Penelope. Twenty years Shakespeare lived in London and, during part of that time, he drew a salary equal to that of the Lord Chancellor of Ireland. His life was rich. His art, more than the art of feudalism as Walt Whitman called it, is the art of excess. Hot herring pies, green mugs of sweet wine, honey sauces, sugar of roses, marzipan, gooseberry-stuffed pigeons, ring-shaped sweets. Sir Walter Raleigh, when they arrested him, had half a million francs' worth on his back, including a pair of fancy corsets. The money-grubbing Queen Elizabeth had enough underwear to rival the Queen of Sheba. Twenty years he idled there between married love and its chaste delights and adulterous love and its foul pleasures. You know Manningham's story of the citizen's wife who invited Dick Burbage to her bed after she had seen him play _Richard III_, and how Shakespeare, overhearing, without more ado about nothing, seized the opportunity and, when Burbage came knocking at the gate, answered from the warm sheets: _William the Conqueror came before Richard III._ And the gay lady, mistress Fitton — mount and cry Oh! — and his dainty favourites, Lady Penelope Rich, a fine quality woman fit for a player, and the prostitutes of the Bankside, a penny a time.
+
+The gay lakin, mount and cry O — one of the women the sonnets have been fitted to.
+
+## modern-en · william-davenant · 9:258
+
+—The height of high society. And Sir William Davenant of Oxford's mother, with her cup of sweet wine for any comer.
+
+Of Oxford — or rather his mother, with her cup of canary for any cockcanary.
+
+## modern-en · margaret-mary · 9:260
+
+—Blessed Margaret Mary Whatshername!
+
+Margaret Mary Alacoque, of the Sacred Heart, whose name Mulligan turns into a piece of filth with his pious eyes upturned. The modern edition writes Margaret Mary Whatshername and keeps the shape of the joke without the word.
+
+## modern-en · henry-viii · 9:261
+
+—And King Henry's daughter — Henry of six wives. And other lady friends from neighbouring estates, as Lawn Tennyson, gentleman poet, sings. But all those twenty years, what do you suppose poor Penelope in Stratford was doing behind the diamond windowpanes?
+
+Whose daughter is one of the lady friends in Stephen’s list. The modern edition writes King Henry.
+
+## modern-en · gerard · 9:262
+
+Do and do. Thing done. In a garden in Fetter Lane, of Gerard the herbalist, he walks, grey-auburn-haired. An azure harebell like her veins. Lids of Juno's eyes, violets. He walks. One life is all. One body. Do. But do. Far away, in a stench of lust and squalor, hands are laid on whiteness.
+
+The herbalist of Fetter lane, in whose rosery Shakespeare walks greyedauburn in the one wholly quiet paragraph of this episode.
+
+## modern-en · shylock · 9:294
+
+—And the sense of property, Stephen said. He drew Shylock out of his own deep pocket. The son of a malt dealer and moneylender, he was himself a grain dealer and moneylender, with ten loads of corn hoarded during the famine riots. His borrowers are no doubt those worthy gentlemen mentioned by Chettle — Falstaff — who testified to his honest dealing. He sued a fellow actor for the price of a few bags of malt and exacted his pound of flesh in interest for every loan. How else could an ostler and call-boy get rich quick? All events were grist to his mill. _Shylock_ chimes with the Jew-baiting that followed the hanging and quartering of the queen's physician Lopez — his Jewish heart plucked out while the man was still alive: _Hamlet_ and _Macbeth_ with the arrival on the throne of a Scottish pseudo-philosopher with a taste for witch-burning. The lost Armada is his joke in _Love's Labour's Lost_. His pageant plays, the histories, sail full-bellied on a tide of patriotic enthusiasm. Warwickshire Jesuits are tried and we get the porter's theory of equivocation. The _Sea Venture_ comes home from Bermuda and the play Renan admired is written with Patsy Caliban, our American cousin. The sweet sonnets follow Sidney's. As for flirtatious Elizabeth, otherwise carrot-headed Bess, the gross virgin who inspired _The Merry Wives of Windsor_, let some German professor spend his whole life groping for deep hidden meanings in the depths of the laundry basket.
+
+Whom Shakespeare drew out of his own long pocket: the son of a maltjobber and moneylender who was himself a cornjobber and moneylender, and exacted his pound of flesh in interest for every money lent.
+
+## modern-en · chettle · 9:294
+
+—And the sense of property, Stephen said. He drew Shylock out of his own deep pocket. The son of a malt dealer and moneylender, he was himself a grain dealer and moneylender, with ten loads of corn hoarded during the famine riots. His borrowers are no doubt those worthy gentlemen mentioned by Chettle — Falstaff — who testified to his honest dealing. He sued a fellow actor for the price of a few bags of malt and exacted his pound of flesh in interest for every loan. How else could an ostler and call-boy get rich quick? All events were grist to his mill. _Shylock_ chimes with the Jew-baiting that followed the hanging and quartering of the queen's physician Lopez — his Jewish heart plucked out while the man was still alive: _Hamlet_ and _Macbeth_ with the arrival on the throne of a Scottish pseudo-philosopher with a taste for witch-burning. The lost Armada is his joke in _Love's Labour's Lost_. His pageant plays, the histories, sail full-bellied on a tide of patriotic enthusiasm. Warwickshire Jesuits are tried and we get the porter's theory of equivocation. The _Sea Venture_ comes home from Bermuda and the play Renan admired is written with Patsy Caliban, our American cousin. The sweet sonnets follow Sidney's. As for flirtatious Elizabeth, otherwise carrot-headed Bess, the gross virgin who inspired _The Merry Wives of Windsor_, let some German professor spend his whole life groping for deep hidden meanings in the depths of the laundry basket.
+
+Falstaff, who reported his uprightness of dealing — the divers of worship among his borrowers.
+
+## modern-en · falstaff · 9:294
+
+—And the sense of property, Stephen said. He drew Shylock out of his own deep pocket. The son of a malt dealer and moneylender, he was himself a grain dealer and moneylender, with ten loads of corn hoarded during the famine riots. His borrowers are no doubt those worthy gentlemen mentioned by Chettle — Falstaff — who testified to his honest dealing. He sued a fellow actor for the price of a few bags of malt and exacted his pound of flesh in interest for every loan. How else could an ostler and call-boy get rich quick? All events were grist to his mill. _Shylock_ chimes with the Jew-baiting that followed the hanging and quartering of the queen's physician Lopez — his Jewish heart plucked out while the man was still alive: _Hamlet_ and _Macbeth_ with the arrival on the throne of a Scottish pseudo-philosopher with a taste for witch-burning. The lost Armada is his joke in _Love's Labour's Lost_. His pageant plays, the histories, sail full-bellied on a tide of patriotic enthusiasm. Warwickshire Jesuits are tried and we get the porter's theory of equivocation. The _Sea Venture_ comes home from Bermuda and the play Renan admired is written with Patsy Caliban, our American cousin. The sweet sonnets follow Sidney's. As for flirtatious Elizabeth, otherwise carrot-headed Bess, the gross virgin who inspired _The Merry Wives of Windsor_, let some German professor spend his whole life groping for deep hidden meanings in the depths of the laundry basket.
+
+The fat knight, whom John Eglinton feels is his supreme creation, and who was not a family man.
+
+## modern-en · lopez · 9:294
+
+—And the sense of property, Stephen said. He drew Shylock out of his own deep pocket. The son of a malt dealer and moneylender, he was himself a grain dealer and moneylender, with ten loads of corn hoarded during the famine riots. His borrowers are no doubt those worthy gentlemen mentioned by Chettle — Falstaff — who testified to his honest dealing. He sued a fellow actor for the price of a few bags of malt and exacted his pound of flesh in interest for every loan. How else could an ostler and call-boy get rich quick? All events were grist to his mill. _Shylock_ chimes with the Jew-baiting that followed the hanging and quartering of the queen's physician Lopez — his Jewish heart plucked out while the man was still alive: _Hamlet_ and _Macbeth_ with the arrival on the throne of a Scottish pseudo-philosopher with a taste for witch-burning. The lost Armada is his joke in _Love's Labour's Lost_. His pageant plays, the histories, sail full-bellied on a tide of patriotic enthusiasm. Warwickshire Jesuits are tried and we get the porter's theory of equivocation. The _Sea Venture_ comes home from Bermuda and the play Renan admired is written with Patsy Caliban, our American cousin. The sweet sonnets follow Sidney's. As for flirtatious Elizabeth, otherwise carrot-headed Bess, the gross virgin who inspired _The Merry Wives of Windsor_, let some German professor spend his whole life groping for deep hidden meanings in the depths of the laundry basket.
+
+The queen’s leech, hanged and quartered, his jew’s heart plucked forth while he was yet alive: the jewbaiting that Shylock chimes with.
+
+## modern-en · philip-sidney · 9:294
+
+—And the sense of property, Stephen said. He drew Shylock out of his own deep pocket. The son of a malt dealer and moneylender, he was himself a grain dealer and moneylender, with ten loads of corn hoarded during the famine riots. His borrowers are no doubt those worthy gentlemen mentioned by Chettle — Falstaff — who testified to his honest dealing. He sued a fellow actor for the price of a few bags of malt and exacted his pound of flesh in interest for every loan. How else could an ostler and call-boy get rich quick? All events were grist to his mill. _Shylock_ chimes with the Jew-baiting that followed the hanging and quartering of the queen's physician Lopez — his Jewish heart plucked out while the man was still alive: _Hamlet_ and _Macbeth_ with the arrival on the throne of a Scottish pseudo-philosopher with a taste for witch-burning. The lost Armada is his joke in _Love's Labour's Lost_. His pageant plays, the histories, sail full-bellied on a tide of patriotic enthusiasm. Warwickshire Jesuits are tried and we get the porter's theory of equivocation. The _Sea Venture_ comes home from Bermuda and the play Renan admired is written with Patsy Caliban, our American cousin. The sweet sonnets follow Sidney's. As for flirtatious Elizabeth, otherwise carrot-headed Bess, the gross virgin who inspired _The Merry Wives of Windsor_, let some German professor spend his whole life groping for deep hidden meanings in the depths of the laundry basket.
+
+Whose sugared sonnets Shakespeare’s follow, and out of whose Arcadia the underplot of King Lear in which Edmund figures is lifted and spatchcocked on to a Celtic legend older than history. Not the Mr Sidney Lee of 9:174.
+
+## modern-en · coleridge · 9:299
+
+—A myriad-minded man, Mr Best reminded. Coleridge called him myriad-minded.
+
+Who called him myriadminded — Mr Best’s one contribution to the case for the defence.
+
+## modern-en · athena · 9:331
+
+—Himself his own father, Son-Mulligan told himself. Wait. I am pregnant with an idea. I have an unborn child in my brain. Pallas Athena! A play! The play's the thing! Let me give birth!
+
+Who came out of her father’s head, and whom Mulligan invokes when he announces that he is big with child: I have an unborn child in my brain. A play! Let me parturiate!
+
+## modern-en · volumnia · 9:333
+
+—As for his family, Stephen said, his mother's name lives in the Forest of Arden. Her death brought from him the scene with Volumnia in _Coriolanus_. His boy-son's death is the death scene of young Arthur in _King John_. Hamlet, the black prince, is Hamnet Shakespeare. Who the girls in _The Tempest_, in _Pericles_, in _Winter's Tale_ are, we know. Who Cleopatra — fleshpot of Egypt — and Cressida and Venus are, we may guess. But there is another member of his family who is on record.
+
+Whose scene in Coriolanus came out of the death of Shakespeare’s mother.
+
+## modern-en · young-arthur · 9:333
+
+—As for his family, Stephen said, his mother's name lives in the Forest of Arden. Her death brought from him the scene with Volumnia in _Coriolanus_. His boy-son's death is the death scene of young Arthur in _King John_. Hamlet, the black prince, is Hamnet Shakespeare. Who the girls in _The Tempest_, in _Pericles_, in _Winter's Tale_ are, we know. Who Cleopatra — fleshpot of Egypt — and Cressida and Venus are, we may guess. But there is another member of his family who is on record.
+
+Whose deathscene in King John came out of his boyson’s death.
+
+## modern-en · cleopatra · 9:333
+
+—As for his family, Stephen said, his mother's name lives in the Forest of Arden. Her death brought from him the scene with Volumnia in _Coriolanus_. His boy-son's death is the death scene of young Arthur in _King John_. Hamlet, the black prince, is Hamnet Shakespeare. Who the girls in _The Tempest_, in _Pericles_, in _Winter's Tale_ are, we know. Who Cleopatra — fleshpot of Egypt — and Cressida and Venus are, we may guess. But there is another member of his family who is on record.
+
+Fleshpot of Egypt: one of the three Stephen says we may guess at, where the girls of the late plays we know. The play named a hundred lines earlier is a book and carries no card.
+
+## modern-en · cressida · 9:333
+
+—As for his family, Stephen said, his mother's name lives in the Forest of Arden. Her death brought from him the scene with Volumnia in _Coriolanus_. His boy-son's death is the death scene of young Arthur in _King John_. Hamlet, the black prince, is Hamnet Shakespeare. Who the girls in _The Tempest_, in _Pericles_, in _Winter's Tale_ are, we know. Who Cleopatra — fleshpot of Egypt — and Cressida and Venus are, we may guess. But there is another member of his family who is on record.
+
+The second of the three. The modern edition spells her Cressida.
+
+## modern-en · gilbert-shakespeare · 9:340
+
+STEPHEN: He had three brothers: Gilbert, Edmund, Richard. Gilbert in his old age told some gentlemen he once got a free pass from Master Gatherer when he went and saw his brother Master Will the playwright up in London in a wrestling play with a man on his back. The playhouse atmosphere filled Gilbert's soul. He is nowhere in the works: but an Edmund and a Richard are recorded in the plays of sweet William.
+
+The brother who is nowhere in the works: in his old age he told some cavaliers that he once got a pass for nowt from Maister Gatherer and saw his brud Maister Wull up in Lunnon in a wrastling play. The playhouse sausage filled Gilbert’s soul.
+
+## modern-en · edmund-shakespeare · 9:340
+
+STEPHEN: He had three brothers: Gilbert, Edmund, Richard. Gilbert in his old age told some gentlemen he once got a free pass from Master Gatherer when he went and saw his brother Master Will the playwright up in London in a wrestling play with a man on his back. The playhouse atmosphere filled Gilbert's soul. He is nowhere in the works: but an Edmund and a Richard are recorded in the plays of sweet William.
+
+The brother who lay dying in Southwark while King Lear was being written, and whose name went to the bastard in it.
+
+## modern-en · richard-shakespeare · 9:340
+
+STEPHEN: He had three brothers: Gilbert, Edmund, Richard. Gilbert in his old age told some gentlemen he once got a free pass from Master Gatherer when he went and saw his brother Master Will the playwright up in London in a wrestling play with a man on his back. The playhouse atmosphere filled Gilbert's soul. He is nowhere in the works: but an Edmund and a Richard are recorded in the plays of sweet William.
+
+The third brother, whose name went to the crookback. Stephen keeps him and Edmund for the last and calls them, with his own uncle Richie Goulding folded into the joke, those two noble kinsmen nuncle Richie and nuncle Edmund.
+
+## modern-en · richard-iii · 9:256
+
+—Antisthenes, pupil of Gorgias, Stephen said, took the palm of beauty from Lord Menelaus's wife, Argive Helen — the wooden horse of Troy, in whom a score of heroes hid — and handed it to poor Penelope. Twenty years Shakespeare lived in London and, during part of that time, he drew a salary equal to that of the Lord Chancellor of Ireland. His life was rich. His art, more than the art of feudalism as Walt Whitman called it, is the art of excess. Hot herring pies, green mugs of sweet wine, honey sauces, sugar of roses, marzipan, gooseberry-stuffed pigeons, ring-shaped sweets. Sir Walter Raleigh, when they arrested him, had half a million francs' worth on his back, including a pair of fancy corsets. The money-grubbing Queen Elizabeth had enough underwear to rival the Queen of Sheba. Twenty years he idled there between married love and its chaste delights and adulterous love and its foul pleasures. You know Manningham's story of the citizen's wife who invited Dick Burbage to her bed after she had seen him play _Richard III_, and how Shakespeare, overhearing, without more ado about nothing, seized the opportunity and, when Burbage came knocking at the gate, answered from the warm sheets: _William the Conqueror came before Richard III._ And the gay lady, mistress Fitton — mount and cry Oh! — and his dainty favourites, Lady Penelope Rich, a fine quality woman fit for a player, and the prostitutes of the Bankside, a penny a time.
+
+A whoreson crookback, misbegotten, who makes love to a widowed Ann and wins her; the only king of all his kings unshielded by Shakespeare’s reverence. Richard the conqueror, third brother, came after William the conquered.
+
+## modern-en · edmund-lear · 9:345
+
+STEPHEN: In his trinity of black Wills — the villain rogues — Iago, Richard Crookback, Edmund in _King Lear_ — two bear the wicked uncles' names. Indeed, that last play was written or being written while his brother Edmund lay dying in Southwark.
+
+The bastard of the underplot, one of the trinity of black Wills with Iago and Richard Crookback: two of the three bear the wicked uncles’ names.
+
+## modern-en · john-of-gaunt · 9:349
+
+STEPHEN: _(With increasing urgency)_ He has hidden his own name — a fair name, William — in the plays: a bit-player here, a clown there, as a painter of old Italy set his face in a dark corner of his canvas. He has revealed it in the sonnets, where there is Will in abundance. Like John of Gaunt, his name is dear to him, as dear as the coat of arms and crest he lobbied for — on a bend sable, a spear or steeled argent — _honorificabilitudinitatibus_ — dearer than his glory of greatest shake-scene in the country. What's in a name? That is what we ask ourselves in childhood when we write the name we are told is ours. A star, a day-star, a fireball rose at his birth. It shone by day in the heavens alone, brighter than Venus in the night, and by night it shone over delta in Cassiopeia, the reclining constellation which is the signature of his initial among the stars. His eyes watched it, low on the horizon, eastward of the Bear, as he walked by the drowsy summer fields at midnight, returning from Shottery and from her arms.
+
+Whose name was dear to him, as Shakespeare’s own name was dear to Shakespeare. Not the horse Nosey Flynn lost money on in episode 8.
+
+## modern-en · icarus · 9:362
+
+Fabulous craftsman. The hawk-like man. You flew. Where to? Newhaven-Dieppe, steerage passenger. Paris and back. The plover. Icarus. _Father!_ he cried. Sea-drenched, fallen, floundering. A plover you are. A plover you'll be.
+
+Pater, ait: the boy who flew and fell, and the figure Stephen turns on his own Paris year. Seabedabbled, fallen, weltering.
+
+## modern-en · grimm · 9:364
+
+—That's very interesting because that brother motif, don't you know, we find also in the old Irish myths. Just what you say. The three brothers Shakespeare. In Grimm too, don't you know, the fairy tales. The third brother who always marries the sleeping beauty and wins the best prize.
+
+In whose fairytales Mr Best finds the brother motive too — the third brother that always marries the sleeping beauty and wins the best prize.
+
+## modern-en · stephen-brother · 9:377
+
+Where is your brother? At the Apothecaries' Hall. My whetstone. Him, then Cranly, Mulligan: now these. Speech, speech. But act. Act speech. They mock you to test you. Act. Be acted on.
+
+Where is your brother? Apothecaries’ hall. My whetstone — one line, and the only mention of him in the argument about brothers.
+
+## modern-en · esau · 9:379
+
+I am tired of my voice, the voice of Esau. My kingdom for a drink.
+
+Whose voice Stephen is tired of hearing come out of his own mouth. My kingdom for a drink.
+
+## modern-en · george-meredith · 9:382
+
+—That was Will's way, John Eglinton defended. We should not now combine a Norse saga with an excerpt from a novel by George Meredith. _What do you want?_ Moore would say. He puts Bohemia on the seacoast and makes Ulysses quote Aristotle.
+
+Whose novel John Eglinton will not have combined with a Norse saga, and whose Que voulez-vous? Moore would say.
+
+## modern-en · prospero · 9:383
+
+—Why? Stephen answered himself. Because the theme of the false or the usurping or the adulterous brother — or all three in one — is to Shakespeare what the poor are not: always with him. The note of banishment — banishment from the heart, banishment from home — sounds uninterruptedly from _The Two Gentlemen of Verona_ onward till Prospero breaks his staff, buries it certain fathoms in the earth, and drowns his book. It doubles itself in the middle of his life, reflects itself in another, repeats itself: rising action, complication, crisis, catastrophe. It repeats itself again when he is near the grave, when his married daughter Susan, chip off the old block, is accused of adultery. But it was the original sin that darkened his understanding, weakened his will, and left in him a strong inclination to evil. The words are those of the bishops of Maynooth. An original sin and, like original sin, committed by another in whose sin he too has sinned. It is between the lines of his last written words. It is petrified on his tombstone, under which her four bones are not to be laid. Age has not withered it. Beauty and peace have not done it away. It is in infinite variety, everywhere in the world he has created: in _Much Ado About Nothing_, twice in _As You Like It_, in _The Tempest_, in _Hamlet_, in _Measure for Measure_ — and in all the other plays which I have not read.
+
+Who breaks his staff, buries it certain fathoms in the earth and drowns his book; and who returns in the epilogue as prosperous Prospero, the good man rewarded.
+
+## modern-en · susanna · 9:271
+
+—The burden of proof is with you, not with me, he said, frowning. If you deny that in the fifth scene of _Hamlet_ he has branded her with infamy, tell me why there is no mention of her during the thirty-four years between the day she married him and the day she buried him. All those women saw their men down and under: Mary, her good man John; Ann, her poor dear Will, when he went and died on her, raging that he was the first to go; Joan, her four brothers; Judith, her husband and all her sons; Susan, her husband too — while Susan's daughter Elizabeth, to use granddaddy's words, married her second husband, having killed her first.
+
+The married daughter, chip of the old block, accused of adultery near the end of his life; and in the list of widows, Susan, her husband too.
+
+## modern-en · judith · 9:271
+
+—The burden of proof is with you, not with me, he said, frowning. If you deny that in the fifth scene of _Hamlet_ he has branded her with infamy, tell me why there is no mention of her during the thirty-four years between the day she married him and the day she buried him. All those women saw their men down and under: Mary, her good man John; Ann, her poor dear Will, when he went and died on her, raging that he was the first to go; Joan, her four brothers; Judith, her husband and all her sons; Susan, her husband too — while Susan's daughter Elizabeth, to use granddaddy's words, married her second husband, having killed her first.
+
+Her sister: her husband and all her sons.
+
+## modern-en · joan-shakespeare · 9:271
+
+—The burden of proof is with you, not with me, he said, frowning. If you deny that in the fifth scene of _Hamlet_ he has branded her with infamy, tell me why there is no mention of her during the thirty-four years between the day she married him and the day she buried him. All those women saw their men down and under: Mary, her good man John; Ann, her poor dear Will, when he went and died on her, raging that he was the first to go; Joan, her four brothers; Judith, her husband and all her sons; Susan, her husband too — while Susan's daughter Elizabeth, to use granddaddy's words, married her second husband, having killed her first.
+
+His sister: her four brothers.
+
+## modern-en · mary-arden · 9:271
+
+—The burden of proof is with you, not with me, he said, frowning. If you deny that in the fifth scene of _Hamlet_ he has branded her with infamy, tell me why there is no mention of her during the thirty-four years between the day she married him and the day she buried him. All those women saw their men down and under: Mary, her good man John; Ann, her poor dear Will, when he went and died on her, raging that he was the first to go; Joan, her four brothers; Judith, her husband and all her sons; Susan, her husband too — while Susan's daughter Elizabeth, to use granddaddy's words, married her second husband, having killed her first.
+
+His mother, whose name lives in the forest of Arden, and whose death brought from him the scene with Volumnia. Mary, her goodman John, at the head of the list of women who saw their men down and under.
+
+## modern-en · john-shakespeare · 9:271
+
+—The burden of proof is with you, not with me, he said, frowning. If you deny that in the fifth scene of _Hamlet_ he has branded her with infamy, tell me why there is no mention of her during the thirty-four years between the day she married him and the day she buried him. All those women saw their men down and under: Mary, her good man John; Ann, her poor dear Will, when he went and died on her, raging that he was the first to go; Joan, her four brothers; Judith, her husband and all her sons; Susan, her husband too — while Susan's daughter Elizabeth, to use granddaddy's words, married her second husband, having killed her first.
+
+His father, in the months after whose death he wrote the play. The corpse of John Shakespeare does not walk the night. From hour to hour it rots and rots.
+
+## modern-en · elizabeth-hall · 9:271
+
+—The burden of proof is with you, not with me, he said, frowning. If you deny that in the fifth scene of _Hamlet_ he has branded her with infamy, tell me why there is no mention of her during the thirty-four years between the day she married him and the day she buried him. All those women saw their men down and under: Mary, her good man John; Ann, her poor dear Will, when he went and died on her, raging that he was the first to go; Joan, her four brothers; Judith, her husband and all her sons; Susan, her husband too — while Susan's daughter Elizabeth, to use granddaddy's words, married her second husband, having killed her first.
+
+Susan’s daughter, who, to use granddaddy’s words, wed her second having killed her first; and Lizzie, grandpa’s lump of love, in the epilogue.
+
+## modern-en · don-jose · 9:387
+
+—He is, Stephen said. The boy of act one is the mature man of act five. All in all. In _Cymbeline_, in _Othello_, he is both pimp and cuckold. He acts and is acted upon. Lover of an ideal or a perversion, like Jose he kills the real Carmen. His unrelenting intellect is the horn-maddened Iago ceaselessly willing that the Moor in him shall suffer.
+
+Who kills the real Carmen — the lover of an ideal or a perversion, in Stephen’s figure for the man who acts and is acted on.
+
+## modern-en · carmen · 9:387
+
+—He is, Stephen said. The boy of act one is the mature man of act five. All in all. In _Cymbeline_, in _Othello_, he is both pimp and cuckold. He acts and is acted upon. Lover of an ideal or a perversion, like Jose he kills the real Carmen. His unrelenting intellect is the horn-maddened Iago ceaselessly willing that the Moor in him shall suffer.
+
+Whom he kills.
+
+## modern-en · dumas-fils · 9:390
+
+—And what a character Iago is! undaunted John Eglinton exclaimed. When all is said, Dumas _fils_ — or is it Dumas _pere?_ — is right. After God, Shakespeare has created the most.
+
+Or is it Dumas père? — John Eglinton cannot remember which of them said that after God Shakespeare has created most.
+
+## modern-en · dumas-pere · 9:390
+
+—And what a character Iago is! undaunted John Eglinton exclaimed. When all is said, Dumas _fils_ — or is it Dumas _pere?_ — is right. After God, Shakespeare has created the most.
+
+The other one.
+
+## modern-en · maeterlinck · 9:391
+
+—Man delights him not, nor woman neither, Stephen said. He returns after a life of absence to that spot of earth where he was born, where he has always been, man and boy, a silent witness, and there, his journey of life ended, he plants his mulberry tree in the earth. Then dies. The motion is ended. Gravediggers bury Hamlet _pere_ and Hamlet _fils_. A king and a prince at last in death, with incidental music. And what though murdered and betrayed, bewept by all frail tender hearts — for Dane or Dubliner, sorrow for the dead is the only husband from whom they refuse to be divorced. If you like the epilogue, look long on it: prosperous Prospero, the good man rewarded; Lizzie, grandpa's darling; and Uncle Richie, the bad man taken off by poetic justice to the place where the wicked go. Strong curtain. He found in the world without, as actual, what was in his world within as possible. Maeterlinck says: _If Socrates leaves his house today, he will find the sage seated on his doorstep. If Judas goes forth tonight, it is to Judas his steps will tend._ Every life is many days, day after day. We walk through ourselves, meeting robbers, ghosts, giants, old men, young men, wives, widows, brothers-in-love — but always meeting ourselves. The playwright who wrote the folio of this world and wrote it badly — He gave us light first and the sun two days later — the lord of things as they are, whom the most Roman of Catholics call _dio boia_, hangman god, is doubtless all in all in all of us — ostler and butcher — and would be pimp and cuckold too, but that in the economy of heaven, foretold by Hamlet, there are no more marriages: glorified man, an androgynous angel, being a wife unto himself.
+
+Who says that if Socrates leave his house today he will find the sage seated on his doorstep, and if Judas go forth tonight it is to Judas his steps will tend. Mulligan names him again on the stairs, with the Abbey players creating a new art for Europe like the Greeks or M. Maeterlinck.
+
+## modern-en · judas · 9:391
+
+—Man delights him not, nor woman neither, Stephen said. He returns after a life of absence to that spot of earth where he was born, where he has always been, man and boy, a silent witness, and there, his journey of life ended, he plants his mulberry tree in the earth. Then dies. The motion is ended. Gravediggers bury Hamlet _pere_ and Hamlet _fils_. A king and a prince at last in death, with incidental music. And what though murdered and betrayed, bewept by all frail tender hearts — for Dane or Dubliner, sorrow for the dead is the only husband from whom they refuse to be divorced. If you like the epilogue, look long on it: prosperous Prospero, the good man rewarded; Lizzie, grandpa's darling; and Uncle Richie, the bad man taken off by poetic justice to the place where the wicked go. Strong curtain. He found in the world without, as actual, what was in his world within as possible. Maeterlinck says: _If Socrates leaves his house today, he will find the sage seated on his doorstep. If Judas goes forth tonight, it is to Judas his steps will tend._ Every life is many days, day after day. We walk through ourselves, meeting robbers, ghosts, giants, old men, young men, wives, widows, brothers-in-love — but always meeting ourselves. The playwright who wrote the folio of this world and wrote it badly — He gave us light first and the sun two days later — the lord of things as they are, whom the most Roman of Catholics call _dio boia_, hangman god, is doubtless all in all in all of us — ostler and butcher — and would be pimp and cuckold too, but that in the economy of heaven, foretold by Hamlet, there are no more marriages: glorified man, an androgynous angel, being a wife unto himself.
+
+Whose steps tend to himself.
+
+## modern-en · bleibtreu · 9:404
+
+—Well, in that case, he said, I don't see why you should expect payment for it, since you don't believe it yourself. Dowden believes there is some mystery in _Hamlet_ but will say no more. Herr Bleibtreu, the man Piper met in Berlin, who is developing that Rutland theory, believes that the secret is hidden in the Stratford monument. He is going to visit the present duke, Piper says, and prove to him that his ancestor wrote the plays. It will come as a surprise to his grace. But he believes his theory.
+
+The man Piper met in Berlin, who is working up the Rutland theory and believes the secret is hidden in the Stratford monument. He believes his theory, John Eglinton says, which is more than Stephen will say for his own.
+
+## modern-en · duke-of-rutland · 9:404
+
+—Well, in that case, he said, I don't see why you should expect payment for it, since you don't believe it yourself. Dowden believes there is some mystery in _Hamlet_ but will say no more. Herr Bleibtreu, the man Piper met in Berlin, who is developing that Rutland theory, believes that the secret is hidden in the Stratford monument. He is going to visit the present duke, Piper says, and prove to him that his ancestor wrote the plays. It will come as a surprise to his grace. But he believes his theory.
+
+Whom Herr Bleibtreu is going to visit and prove to that his ancestor wrote the plays. It will come as a surprise to his grace.
+
+## modern-en · fresh-nelly · 9:410
+
+—I called upon the bard Kinch at his summer residence in upper Mecklenburg Street and found him deep in the study of the _Summa Contra Gentiles_ in the company of two ladies with venereal disease, Fresh Nelly and Rosalie, the Coal Quay whore.
+
+One of the two gonorrheal ladies Mulligan says he found the bard Kinch studying the Summa contra Gentiles in the company of; and a character in the play he conceives on the stairs.
+
+## modern-en · rosalie · 9:410
+
+—I called upon the bard Kinch at his summer residence in upper Mecklenburg Street and found him deep in the study of the _Summa Contra Gentiles_ in the company of two ladies with venereal disease, Fresh Nelly and Rosalie, the Coal Quay whore.
+
+The coalquay whore. The other one.
+
+## modern-en · medical-dick · 9:462
+
+TOBY TOSTOFF (a ruined Pole) CRAB (a bushranger) MEDICAL DICK ) and ) (two birds with one stone) MEDICAL DAVY ) MOTHER GROGAN (a water-carrier) FRESH NELLY and ROSALIE (the Coal Quay whore).
+
+Of the rhyme Mulligan pianos out in the middle of the brothers scene — then outspoke medical Dick to his comrade medical Davy — and of the playbill on the stairs: two birds with one stone.
+
+## modern-en · medical-davy · 9:462
+
+TOBY TOSTOFF (a ruined Pole) CRAB (a bushranger) MEDICAL DICK ) and ) (two birds with one stone) MEDICAL DAVY ) MOTHER GROGAN (a water-carrier) FRESH NELLY and ROSALIE (the Coal Quay whore).
+
+His comrade.
+
+## modern-en · toby-tostoff · 9:462
+
+TOBY TOSTOFF (a ruined Pole) CRAB (a bushranger) MEDICAL DICK ) and ) (two birds with one stone) MEDICAL DAVY ) MOTHER GROGAN (a water-carrier) FRESH NELLY and ROSALIE (the Coal Quay whore).
+
+A ruined Pole. First on the playbill of Everyman His Own Wife, a national immorality in three orgasms, by Ballocky Mulligan.
+
+## modern-en · crab · 9:462
+
+TOBY TOSTOFF (a ruined Pole) CRAB (a bushranger) MEDICAL DICK ) and ) (two birds with one stone) MEDICAL DAVY ) MOTHER GROGAN (a water-carrier) FRESH NELLY and ROSALIE (the Coal Quay whore).
+
+A bushranger. Second on it.
+
+## modern-en · aengus · 9:412
+
+—Come, Kinch. Come, wandering Aengus of the birds.
+
+Wandering Ængus of the birds, whom Mulligan calls Stephen on the way out, and whom Stephen has already claimed on the portico: here I watched the birds for augury.
+
+## modern-en · mccurdy-atkinson · 9:443
+
+—Longworth and McCurdy Atkinson were there...
+
+The same that had the wooden leg, in Mulligan’s limerick on the stairs, and one of the two who were there when Longworth got angry.
+
+## modern-en · lady-gregory · 9:450
+
+—Longworth is awfully angry, he said, after what you wrote about that old bag Lady Gregory. You inquisitional drunken Jew-Jesuit! She gets you a job on the paper and then you go and tear her drivel to pieces. Couldn't you do the Yeats treatment?
+
+That old hake Gregory, whose drivel Stephen slated in the Express after she got him the job on the paper. The modern edition gives her the title and writes Lady Gregory.
+
+## modern-en · ancient-mariner · 9:473
+
+—The Wandering Jew, Buck Mulligan whispered with a clown's awe. Did you see his eye? He looked upon you with lust. I fear thee, Ancient Mariner. Oh, Kinch, thou art in peril. Get yourself some protection.
+
+I fear thee, ancient mariner — Mulligan’s word for Bloom at the door, in the same breath as the wandering jew.
+
+## modern-en · wandering-jew · 9:473
+
+—The Wandering Jew, Buck Mulligan whispered with a clown's awe. Did you see his eye? He looked upon you with lust. I fear thee, Ancient Mariner. Oh, Kinch, thou art in peril. Get yourself some protection.
+
+Did you see his eye? He looked upon you to lust after you. The figure Mulligan fastens on Bloom as he passes out between them, bowing, greeting.
+
+## modern-en · cymbeline · 9:480
+
+Cease to strive. Peace of the druid priests of Cymbeline, priestly: from wide earth an altar.
+
+Whose druid priests give Stephen the last words of the episode: laud we the gods, and let our crooked smokes climb to their nostrils from our bless’d altars.
+
+## modern-en · phaedo · 9:441
+
+The dour recluse still there — he has his cake — and the gentle young man, darling of pleasure, Phaedo's lovable fair hair.
+
+Whose toyable fair hair is Stephen’s word for Mr Best, the douce youngling, minion of pleasure, standing beside the dour recluse.
+
+## modern-en · lucy · 9:439
+
+Forgot: no more than he forgot the whipping lousy Lucy gave him. And left the thirty-year-old woman. And why no other children born? And his first child a girl?
+
+Sir Thomas Lucy, who had him whipped for poaching — one of the two things Stephen says Shakespeare forgot no more than he forgot anything. The name is keyed, not aliased: 12:513 is S. Lucy among the saints.
+
+## modern-en · dowden · 9:285
+
+—He died dead drunk, Buck Mulligan capped. A quart of ale is a dish for a king. Oh, I must tell you what Dowden said!
+
+Edward Dowden of Highfield house, the professor whose answer to the charge against the bard was that all we can say is that life ran very high in those days. William Shakespeare and company, limited: the people’s William. For terms apply.
+
+## modern-en · justice-madden · 9:237
+
+—...in which everyone can find his own. So Mr Justice Madden, in his _Diary of Master William Silence_, has found the hunting terms... Yes? What is it?
+
+In whose Diary of Master William Silence the hunting terms have been found, and whom Mr Lyster is quoting when the attendant interrupts him with Bloom’s card.
+
+## modern-en · oisin · 9:235
+
+Harsh gargoyle face that fought against me over our cheap dinner in the Rue Saint-Andre-des-Arts. In words of words for words, just words. Oisin debating with Saint Patrick. A faun-man he met in Clamart woods, brandishing a wine bottle. _It's Good Friday!_ Irish murder. His image, wandering, he met. I mine. I met a fool in the forest.
+
+Oisin with Patrick: the pagan poet arguing with the saint, which is what Stephen makes of his own quarrelling with Mulligan in Paris, in words of words for words.
+
+## modern-en · thoth · 9:148
+
+Coffined thoughts around me, in mummy-cases, embalmed in spice of words. Thoth, god of libraries, a bird-god, moon-crowned. And I heard the voice of that Egyptian high priest. _In painted chambers loaded with tile-books._
+
+God of libraries, a birdgod, moonycrowned, presiding over the coffined thoughts in their mummycases while the room is empty.
+
+## modern-en · achilles · 9:147
+
+Here he ponders things that were not: what Caesar would have lived to do had he believed the soothsayer: what might have been: possibilities of the possible as possible: things not known: what name Achilles bore when he lived among women.
+
+What name Achilles bore when he lived among women — one of the things not known that the vestal’s lamp watches over.
+
+## modern-en · soothsayer · 9:147
+
+Here he ponders things that were not: what Caesar would have lived to do had he believed the soothsayer: what might have been: possibilities of the possible as possible: things not known: what name Achilles bore when he lived among women.
+
+Whom Cæsar did not believe: what he would have lived to do had he believed him is the first of the possibilities of the possible as possible.
+
+## modern-en · bob-kenny · 9:317
+
+Hurrying to her squalid death-chamber from gay Paris — on the quayside I touched his hand. The voice, new warmth, speaking. Dr Bob Kenny is attending her. The eyes that wish me well. But do not know me.
+
+Who is attending Stephen’s mother, in the sentence he hears his father speak on the quayside as he hurries home from Paris to her deathbed.
+
+## modern-en · magee-mor · 9:315
+
+Lean, he lay back. Shy, deny thy kindred, the exceptionally righteous. Shy, supping with the godless, he sneaks his cup. A father in Ulster Antrim told him to come. Visits him here on quarter days. Mr Magee, sir, there's a gentleman to see you. Me? Says he's your father, sir. Give me my Wordsworth. Enter Magee the Elder, a rugged rough-headed kern, in trousers with a buttoned codpiece, his lower legs caked with mud of ten forests, a willow wand in his hand.
+
+John Eglinton’s father, as Stephen imagines him coming up from Ultonian Antrim on quarter days: a rugged rough rugheaded kern, in strossers with a buttoned codpiece, his nether stocks bemired with clauber of ten forests. Mr Magee, sir, there’s a gentleman to see you. Me? Says he’s your father, sir.
+
+## modern-en · wordsworth · 6:375
+
+Mr Bloom walked unnoticed along his row, by saddened angels, crosses, broken pillars, family vaults, stone figures praying with upcast eyes, old Ireland's hearts and hands. More sensible to spend the money on some charity for the living. Pray for the repose of the soul of. Does anybody really? Plant him and have done with it. Like down a coal chute. Then lump them together to save time. All Souls' Day. The twenty-seventh — I'll be at his grave. Ten shillings for the gardener. He keeps it free of weeds. Old man himself. Bent double with his shears clipping. Near death's door. 'Who passed away.' 'Who departed this life.' As if they did it voluntarily. Got the shove, all of them. 'Who kicked the bucket.' More interesting if they told you what they were. So-and-So, wheelwright. I was a traveling salesman for cork linoleum. I paid five shillings in the pound to my creditors. Or a woman with her saucepan. I cooked good Irish stew. Eulogy in a country churchyard — that poem by whoever it is, Wordsworth or Thomas Campbell. 'Entered into rest,' the Protestants put it. Old Dr Murren's. 'The great physician called him home.' Well, it's God's acre for them. Nice country residence. Newly plastered and painted. Ideal spot to have a quiet smoke and read the Church Times. Wedding ads they never try to decorate. Rusty wreaths hung on knobs, garlands of bronze foil. Better value for the money. Still, the real flowers are more poetic. The metal kind gets rather tiresome — never withering. Expresses nothing. Immortelles.
+
+Give me my Wordsworth — what the son says when the father comes up the stairs.
+
+## modern-en · nell-gwynn · 9:283
+
+—Antiquity mentions that Aristotle — the schoolboy from Stagira, the bald heathen sage, Stephen said — who, when dying in exile, freed and endowed his slaves, paid tribute to his elders, willed to be laid in earth near the bones of his dead wife, and bade his friends be kind to an old mistress (don't forget Nell Gwynn — Herpyllis) and let her live in his villa.
+
+Don’t forget Nell Gwynn Herpyllis: Stephen’s gloss on the old mistress Aristotle’s will provides for.
+
+## modern-en · herpyllis · 9:283
+
+—Antiquity mentions that Aristotle — the schoolboy from Stagira, the bald heathen sage, Stephen said — who, when dying in exile, freed and endowed his slaves, paid tribute to his elders, willed to be laid in earth near the bones of his dead wife, and bade his friends be kind to an old mistress (don't forget Nell Gwynn — Herpyllis) and let her live in his villa.
+
+The mistress herself, whom the dying philosopher bids his friends be kind to and let live in his villa.
+
+## modern-en · boccaccio · 9:318
+
+—A father, Stephen said, battling against hopelessness, is a necessary evil. He wrote the play in the months following his father's death. If you maintain that he — a greying man with two marriageable daughters, with thirty-five years of life, _in the middle of the journey of our life_, with fifty years of experience — is the beardless undergraduate from Wittenberg, then you must also maintain that his seventy-year-old mother is the lustful queen. No. The corpse of John Shakespeare does not walk the night. From hour to hour it rots and rots. He rests, stripped of fatherhood, having bequeathed that mystical estate to his son. Boccaccio's Calandrino was the first and last man who believed himself pregnant. Fatherhood, in the sense of conscious begetting, is unknown to man. It is a mystical estate, an apostolic succession, from only begetter to only begotten. On that mystery — and not on the Madonna, which the cunning Italian intellect threw to the mob of Europe — the church is founded, and founded irremovably, because founded, like the world, macro and microcosm, upon the void. Upon uncertainty, upon improbability. _Amor matris_ — mother's love — subjective and objective genitive — may be the only true thing in life. Paternity may be a legal fiction. Who is the father of any son that any son should love him, or he any son?
+
+Whose Calandrino is the one man who ever felt himself with child.
+
+## modern-en · calandrino · 9:318
+
+—A father, Stephen said, battling against hopelessness, is a necessary evil. He wrote the play in the months following his father's death. If you maintain that he — a greying man with two marriageable daughters, with thirty-five years of life, _in the middle of the journey of our life_, with fifty years of experience — is the beardless undergraduate from Wittenberg, then you must also maintain that his seventy-year-old mother is the lustful queen. No. The corpse of John Shakespeare does not walk the night. From hour to hour it rots and rots. He rests, stripped of fatherhood, having bequeathed that mystical estate to his son. Boccaccio's Calandrino was the first and last man who believed himself pregnant. Fatherhood, in the sense of conscious begetting, is unknown to man. It is a mystical estate, an apostolic succession, from only begetter to only begotten. On that mystery — and not on the Madonna, which the cunning Italian intellect threw to the mob of Europe — the church is founded, and founded irremovably, because founded, like the world, macro and microcosm, upon the void. Upon uncertainty, upon improbability. _Amor matris_ — mother's love — subjective and objective genitive — may be the only true thing in life. Paternity may be a legal fiction. Who is the father of any son that any son should love him, or he any son?
+
+The first and last such man.
+
+## modern-en · othello · 9:387
+
+—He is, Stephen said. The boy of act one is the mature man of act five. All in all. In _Cymbeline_, in _Othello_, he is both pimp and cuckold. He acts and is acted upon. Lover of an ideal or a perversion, like Jose he kills the real Carmen. His unrelenting intellect is the horn-maddened Iago ceaselessly willing that the Moor in him shall suffer.
+
+The moor in him whom the hornmad Iago ceaselessly wills to suffer: Shakespeare as bawd and cuckold, acting and acted on.

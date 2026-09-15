@@ -56,7 +56,7 @@ SPLIT={
            (7,126):'simon-dedalus',(7,137):'simon-dedalus',
            (7,151):'simon-dedalus',(7,156):'simon-dedalus',
            (7,166):'simon-dedalus',(7,168):'simon-dedalus',
-           (7,258):'stephen',(7,497):'stephen',(8,9):'simon-dedalus'},None),
+           (7,258):'stephen',(7,497):'stephen',(8,9):'simon-dedalus',(9,136):'stephen',(9,181):'stephen',(9,224):'stephen',(9,355):'stephen'},None),
  # Deasy calls him Mr Dedalus; from episode 6 the same two words are his father.
  'Mr Dedalus':({(2,137):'stephen',(2,154):'stephen',(2,195):'stephen',
               (6,3):'simon-dedalus',(6,12):'simon-dedalus',
@@ -83,11 +83,11 @@ SPLIT={
               (7,113):'simon-dedalus',(7,116):'simon-dedalus',
               (7,126):'simon-dedalus',(7,151):'simon-dedalus',
               (7,156):'simon-dedalus',(7,166):'simon-dedalus',
-              (7,168):'simon-dedalus'},None),
+              (7,168):'simon-dedalus',(9,136):'stephen',(9,181):'stephen',(9,355):'stephen'},None),
  # 12:513 is S. Ursula of the eleven thousand virgins, a different woman.
  'Ursula':({(1,59):'ursula'},None),
  # 9:294 is Aubrey the theatre owner in the Shakespeare argument.
- 'Aubrey':({(1,70):'aubrey-oxford'},None),
+ 'Aubrey':({(1,70):'aubrey-oxford',(9,294):'john-aubrey'},None),
  # 10:542 is Cahill's corner, a place.
  'Mrs Cahill':({(1,158):'mrs-cahill'},None),
  # 15:513 is one of the gold-and-silver names of the Circe masque.
@@ -114,9 +114,9 @@ SPLIT={
  # Shakespeare and Hamlet are argued over for the whole of episode 9 and named
  # in eleven episodes; only the two mentions of episode 1 are keyed here.
  'Shakespeare':({(1,275):'shakespeare',(2,74):'shakespeare',(2,113):'shakespeare',
-                 (6,168):'shakespeare',(6,333):'shakespeare',(8,16):'shakespeare'},None),
+                 (6,168):'shakespeare',(6,333):'shakespeare',(8,16):'shakespeare',(9,18):'shakespeare',(9,19):'shakespeare',(9,44):'shakespeare',(9,46):'shakespeare',(9,64):'shakespeare',(9,66):'shakespeare',(9,98):'shakespeare',(9,103):'shakespeare',(9,154):'shakespeare',(9,163):'shakespeare',(9,171):'shakespeare',(9,181):'shakespeare',(9,198):'shakespeare',(9,201):'shakespeare',(9,256):'shakespeare',(9,287):'shakespeare',(9,364):'shakespeare',(9,381):'shakespeare',(9,383):'shakespeare',(9,390):'shakespeare',(9,69):['shakespeare',None,None],(9,184):'shakespeare',(9,328):'shakespeare',(9,423):'shakespeare'},None),
  'Hamlet':({(1,232):'hamlet',(1,269):'hamlet',(1,275):'hamlet',(2,74):'hamlet',
-           (3,79):'hamlet',(5,65):'hamlet',(6,333):'hamlet',(7,154):'hamlet',(8,17):'hamlet'},None),
+           (3,79):'hamlet',(5,65):'hamlet',(6,333):'hamlet',(7,154):'hamlet',(8,17):'hamlet',(9,18):'hamlet',(9,19):['hamlet', 'hamlet'],(9,28):'hamlet',(9,42):[None, None],(9,59):'king-hamlet',(9,67):'hamlet',(9,68):'hamlet',(9,69):'hamlet',(9,154):'hamlet',(9,159):'hamlet',(9,186):'king-hamlet',(9,207):'hamlet',(9,333):'hamlet',(9,391):['king-hamlet', 'hamlet', 'hamlet'],(9,427):'hamlet',(9,51):'hamlet'},None),
  # Joseph is Joseph the Joiner at 1:288 and 1:295 and eleven other men elsewhere.
  'Joseph':({(1,288):'joseph-the-joiner',(1,295):'joseph-the-joiner',
             (3,43):'joseph-the-joiner',(5,107):'joseph-the-joiner'},None),
@@ -134,10 +134,10 @@ SPLIT={
  # 10:235 is Temple bar. 3:35 is the same man, in an episode not yet read.
  'Temple':({(2,123):'temple',(3,35):'temple'},None),
  # 8:111 and 8:144 name him in full: the eminent poet A. E., Mr Geo. Russell.
- 'Russell':({(2,123):'russell',(8,111):'russell',(8,144):'russell'},None),
+ 'Russell':({(2,123):'russell',(8,111):'russell',(8,144):'russell',(9,19):'russell',(9,40):'russell',(9,70):'russell',(9,121):'russell',(9,129):'russell',(9,144):'russell',(9,314):'russell'},None),
  # 7:42 is Phil Blake's weekly Pat and Bull story.
  # 7:42 is Phil Blake of the weekly Pat and Bull story.
- 'Blake':({(2,6):'blake',(7,42):'phil-blake'},None),
+ 'Blake':({(2,6):'blake',(7,42):'phil-blake',(9,32):'blake'},None),
  # 17:587 is Henry Price, basket and fancy goods.
  'Price':({(2,151):'henry-blackwood-price',(2,152):'henry-blackwood-price'},None),
  # Both dukes' horses gallop again in Circe at 15:1115.
@@ -155,7 +155,7 @@ SPLIT={
                  (6,330):['john-oconnell','oconnell']},None),
  'Parnell':({(2,174):'parnell',(6,155):'parnell',(6,346):'parnell',
              (6,374):'parnell',(8,134):'parnell',(8,141):'parnell'},None),
- 'Helen':({(2,174):'helen',(7,276):'helen',(7,519):'helen'},None),
+ 'Helen':({(2,174):'helen',(7,276):'helen',(7,519):'helen',(9,256):'helen'},None),
  'Albert Edward':({(2,128):'albert-edward'},None),
  # 4:29 to 4:33 are Larry O'Rourke the publican on the corner of Dorset
  # street, a different man entirely.
@@ -168,7 +168,7 @@ SPLIT={
  # is Richard Shakespeare, in the argument about the brothers.
  'Richie':({(3,17):'richie-goulding',(3,21):'richie-goulding',(3,24):'richie-goulding',
             (3,25):'richie-goulding',(3,26):'richie-goulding',
-            (6,24):'richie-goulding'},None),
+            (6,24):'richie-goulding',(9,375):'richard-shakespeare',(9,391):'richard-shakespeare'},None),
  # 12:172 is Sara Curran of the Tommy Moore song and 14:57 is the Sara of a lay.
  'Sara':({(3,11):'aunt-sara',(3,41):'aunt-sara'},None),
  # 6:22 is the same woman, in an episode not yet read.
@@ -202,14 +202,14 @@ SPLIT={
  # The older edition spells it A E and the modern one A.E., as it does in five
  # later episodes that have not been read.
  # 7:407 is George Russell again, signing himself A. E.
- '(?:A E|A\\.\s?E\\.)':({(3,57):'russell',(7,407):'russell',(8,111):'russell',(8,144):'russell'},None),
+ '(?:A E|A\\.\s?E\\.)':({(3,57):'russell',(7,407):'russell',(8,111):'russell',(8,144):'russell',(9,20):'russell',(9,25):'russell',(9,171):'russell'},None),
  # The high king, not Buck Mulligan and not Saint Malachy: the alias is dropped
  # at 3:67 by SUPPRESS below and the key carries it. 12:50 names him the ardri.
  'Malachi':({(3,67):'king-malachi',(12,50):'king-malachi'},None),
  # Adam and Eve's is a church and a tavern in five episodes; Adam Findlater,
  # Villiers de l'Isle-Adam and an Adam's apple are three more.
  'Adam':({(3,7):'adam',(3,77):'adam'},None),
- 'Eve':({(3,7):'eve'},None),
+ 'Eve':({(3,7):'eve',(9,218):'eve'},None),
  # 12:360 is the church of Saint Fiacre in Horto.
  'Fiacre':({(3,51):'fiacre'},None),
  # 15:991 is a match: STEPHEN: Lucifer. Thanks.
@@ -360,7 +360,7 @@ SPLIT={
  # Simon Dedalus named in full for the first time; from episode 6 he is present.
  # The head centre of episode 3 gets his name here. 9:126 is the other James
  # Stephens, the writer doing some clever sketches.
- 'James Stephens':({(4,159):'head-centre',(8,133):'head-centre',
+ 'James Stephens':({(9,126):'james-stephens-writer',(4,159):'head-centre',(8,133):'head-centre',
                     (12,234):'head-centre',(15,433):'head-centre'},None),
 
  # --- episode 5. Bloom alone for a second morning, and the names he thinks
@@ -398,9 +398,9 @@ SPLIT={
  # 1:318 is Michael's host, the embattled angels of the church, in an episode
  # that had already been signed off without him.
  'Michael':({(1,318):'saint-michael',(5,109):'saint-michael'},None),
- 'Satan':({(5,109):'satan'},None),
+ 'Satan':({(5,109):'satan',(9,13):'satan',(9,274):'satan'},None),
  # Saint Patrick is named in nine episodes and only this one is read.
- 'Saint Patrick':({(5,95):'saint-patrick',(8,179):'saint-patrick'},None),
+ 'Saint Patrick':({(5,95):'saint-patrick',(8,179):'saint-patrick',},None),
  # 12:513 and 15:78 are the patriarch; this is the blind father of the play.
  'Abraham':({(5,65):'leah-abraham'},None),
  # The modern edition spells her Mary, which is also the gospel sister at 5:87.
@@ -409,7 +409,7 @@ SPLIT={
             (5,87):'martha-and-mary',
             (6,330):'martha-clifford',(6,386):'martha-clifford',
             (7,24):'martha-and-mary'},None),
- 'Mary':({(5,87):'martha-and-mary',(7,24):'martha-and-mary',(8,128):'mary-slavey',(8,130):'mary-slavey'},None),
+ 'Mary':({(5,87):'martha-and-mary',(7,24):'martha-and-mary',(8,128):'mary-slavey',(8,130):'mary-slavey',(9,271):'mary-arden'},None),
  # 11:516 is the Iveagh home, a hostel named after him.
  'Iveagh':({(5,91):'lord-iveagh'},None),
  # --- episode 7. The newspaper office: Stephen and Bloom in the same room for
@@ -472,7 +472,7 @@ SPLIT={
  'Flood':({(7,378):'flood',(7,380):'flood'},None),
  'Kavanagh':({(7,330):'kavanagh'},None),
  # 7:520 is two women in one line: poor Penelope, then Penelope Rich.
- 'Penelope':({(7,519):'penelope',(7,520):['penelope','penelope-rich']},None),
+ 'Penelope':({(7,519):'penelope',(7,520):['penelope','penelope-rich'],(9,255):'penelope',(9,256):['penelope',None],(9,261):'ann-hathaway'},None),
  'Gallaher':({(7,326):'ignatius-gallaher',(7,336):'ignatius-gallaher',
               (7,358):'ignatius-gallaher',(7,378):'ignatius-gallaher'},None),
  'Long John':({(7,45):'long-john-fanning'},None),
@@ -570,7 +570,7 @@ SPLIT={
  'M[\u2019\']Intosh':({(6,360):'macintosh'},None),
  # The italic setting of "That's not Mulcahy" hides 6:325 from the alias.
  'Mulcahy':({(6,325):'terence-mulcahy'},None),
- 'C(?:\u00e6|ae)sar':({(6,337):'julius-caesar'},None),
+ 'C(?:\u00e6|ae)sar':({(6,337):'julius-caesar',(9,147):'julius-caesar'},None),
  'Charley':({(6,355):'mccoy',(6,356):'mccoy'},None),
  # 5:148 is the man of the song; four other M'Carthys are four other men.
  'M[’\']Carthy':({(5,148):'mccarthy-of-the-song'},None),
@@ -587,7 +587,7 @@ SPLIT={
             # 6:25 is 'the help of God and His blessed mother'.
             (6,25):'blessed-virgin',
             # 7:294 is Mulligan's jibe again: whose mother is beastly dead.
-            (7,294):'may-dedalus',(8,9):'may-dedalus'},None),
+            (7,294):'may-dedalus',(8,9):'may-dedalus',(9,69):'ann-hathaway',(9,318):'mary-arden',(9,333):'mary-arden'},None),
  # ---- episode 8. Every name below was listed across all 18 episodes before
  # being keyed; the comment says what the other occurrences are.
  # The prophet on Dowie's handbill, and again on the ball of paper thrown to
@@ -606,8 +606,8 @@ SPLIT={
  'Ham':({(8,208):'ham'},None),
  # The goddesses in the round hall. Venus is a statue, a planet and half a
  # dozen epithets elsewhere in the book; Juno is Juno's eyes in episode 9.
- 'Venus':({(8,260):'venus'},None),
- 'Juno':({(8,260):'juno'},None),
+ 'Venus':({(8,260):'venus',(9,254):'venus',(9,313):'venus',(9,333):'venus'},None),
+ 'Juno':({(8,260):'juno',(9,262):'juno'},None),
  # The archduke Otto of the Habsburg story. 17:108 is Thomas Otto, harlequin.
  'Otto':({(8,255):'archduke-otto'},None),
  # The owner of the filly. Elsewhere the name is the banking house.
@@ -628,11 +628,11 @@ SPLIT={
  'Rock':({(8,189):'rock'},None),
  # Tommy Moore over the urinal. 8:255 is Moore street and episode 9 is George
  # Moore the novelist, so the surname is keyed to this one paragraph.
- 'Moore':({(8,121):'tom-moore'},None),
+ 'Moore':({(8,121):'tom-moore',(9,115):'george-moore',(9,126):'george-moore',(9,382):'george-moore',(9,416):'george-moore',(9,418):'george-moore'},None),
  # The song's chief, whose name sits inside Gutenberg italics in the older
  # edition, where the trailing underscore defeats the alias guard.
  'MacTrigger':({(8,208):'mactrigger',(8,223):'mactrigger'},None),
- 'Don Giovanni':({(8,325):'don-giovanni',(8,330):'don-giovanni'},None),
+ 'Don Giovanni':({(8,325):'don-giovanni',(8,330):'don-giovanni',(9,184):'don-giovanni'},None),
  # Nosey Flynn by his bare surname. The guard lets "Flynn" through inside
  # "O'Flynn", so the name can never be aliased: 8:198, 12:513 and 15:1340 are
  # Father O'Flynn, and 13:88 and 12:349 are outside the read episodes.
@@ -647,6 +647,97 @@ SPLIT={
  'Blazes Boylan':({(8,228):'blazes-boylan'},None),
  'Blazes':({(8,238):'blazes-boylan'},None),
  'Richie Goulding':({(8,110):'richie-goulding'},None),
+ # ---- episode 9. The library argument, where a first name is almost never a
+ # first name. Every table was listed across all 18 episodes before being keyed.
+ # The bare surname Best is the adjective everywhere else in the book, so only
+ # the three paragraphs where it is the man are keyed; "Mr Best" is an alias.
+ 'Best':({(9,280):'mr-best',(9,290):'mr-best',(9,365):['mr-best','mr-best'],(9,286):'mr-best'},None),
+ # Ann Hathaway by her first name. Every other Ann in the book is the Mary Ann
+ # of Mulligan's ballad or queen Ann's pudding at 13:24.
+ 'Ann':({(9,105):'ann-hathaway',(9,269):'ann-hathaway',(9,271):'ann-hathaway',
+         (9,310):'ann-hathaway',(9,381):'ann-hathaway'},None),
+ 'Ann Shakespeare':({(9,69):'ann-hathaway'},None),
+ 'Hamnet Shakespeare':({(9,68):'hamnet',(9,69):'hamnet',(9,333):'hamnet'},None),
+ 'William Shakespeare':({(9,287):'shakespeare'},None),
+ # Will is the auxiliary verb five times in this episode and the man four times.
+ 'Will':({(9,308):'shakespeare',(9,310):'shakespeare',(9,349):'shakespeare',
+          (9,382):'shakespeare',(9,309):'shakespeare',(9,340):'shakespeare'},None),
+ # 9:181 and 9:258 are William Herbert and sir William Davenant, whose full
+ # names are aliases; 9:237 is Master William Silence, which is a book.
+ 'William':({(9,210):'shakespeare',(9,256):'shakespeare',
+             (9,287):[None,'shakespeare'],(9,340):'shakespeare',
+             (9,349):'shakespeare',(9,381):'shakespeare'},None),
+ # Three Richards in ten paragraphs: the king in the play, the brother, and
+ # Mr Best's own name, which is the joke he makes of it.
+ 'Richard':({(9,256):['richard-iii','richard-iii'],
+             (9,340):['richard-shakespeare','richard-shakespeare'],
+             (9,342):['mr-best','richard-shakespeare'],
+             (9,346):'richard-shakespeare',(9,374):'richard-shakespeare',
+             (9,381):['richard-iii','richard-shakespeare','richard-iii']},None),
+ # Two Edmunds: the bastard in King Lear and the brother dying in Southwark.
+ # 7:378 is Edmund Burke, 8:144 is Arthur Edmund, 12:513 Edmund Ignatius Rice.
+ 'Edmund':({(9,340):['edmund-shakespeare','edmund-shakespeare'],
+            (9,345):['edmund-lear','edmund-shakespeare'],
+            (9,346):'edmund-shakespeare',(9,374):'edmund-shakespeare',
+            (9,375):'edmund-shakespeare',(9,381):'edmund-lear'},None),
+ 'Gilbert':({(9,340):['gilbert-shakespeare','gilbert-shakespeare']},None),
+ # 9:105 names the poem first and the boy second; 9:349 is the planet Venus.
+ 'Adonis':({(9,105):[None,'adonis']},None),
+ 'Griselda':({(9,255):'griselda'},None),
+ # The Shakespeare women, each named once in the roll of widows at 9:271.
+ 'Joan':({(9,271):'joan-shakespeare'},None),
+ 'Susan':({(9,271):'susanna',(9,383):'susanna'},None),
+ 'Judith':({(9,271):'judith'},None),
+ # 9:271 is Susan's daughter; 9:294 is the queen; the modern edition writes
+ # Queen Elizabeth at 9:256 where Joyce writes Eliza Tudor.
+ 'Elizabeth':({(9,256):'elizabeth-i',(9,271):'elizabeth-hall',
+               (9,294):'elizabeth-i'},None),
+ 'Eliza Tudor':({(9,256):'elizabeth-i'},None),
+ 'Bess':({(9,294):'elizabeth-i'},None),
+ 'Lizzie':({(9,391):'elizabeth-hall'},None),
+ # 9:271 is Shakespeare's father; every other John in this episode is Eglinton.
+ 'John':({(9,271):'john-shakespeare',(9,291):'john-eglinton',
+          (9,403):'john-eglinton',(9,435):[None,'john-eglinton']},None),
+ # Lir's loneliest daughter in the older edition, Lear's in the modern one.
+ # Every other Lear in the book is the title of the play.
+ 'Lir':({(9,127):'lir'},None),
+ 'Lear':({(9,127):'lir'},None),
+ 'Cordelia':({(9,127):'cordelia'},None),
+ # 9:19 is the earl; every other Essex in the book is Essex bridge or gate.
+ 'Essex':({(9,19):'essex'},None),
+ # 9:25 is William Quan Judge the theosophist; 9:207 and 9:385 are Judge Barton
+ # and Judge Eglinton, both of whom have their own spans.
+ 'Judge':({(9,25):'judge-theosophist'},None),
+ # 16:15 is friar Bacon and 16:160 is the authorship theory again.
+ 'Bacon':({(9,171):'francis-bacon',(9,328):'francis-bacon'},None),
+ # The poet of the Arcadia. 9:174 is Mr Sidney Lee and 12:50 is Sidney Parade.
+ 'Sidney':({(9,294):'philip-sidney',(9,381):'philip-sidney'},None),
+ 'Shylock':({(9,294):'shylock'},None),
+ 'Lopez':({(9,294):'lopez'},None),
+ # 12:356 is the fair of Carmen and 15:743 is the opera.
+ 'Carmen':({(9,387):'carmen'},None),
+ # 15:689 is Judas Iacchia, who is somebody else entirely.
+ 'Judas':({(9,391):'judas',(9,467):'judas'},None),
+ # Everywhere else in the book the name is only the exclamation, by Jove.
+ 'Jove':({(9,217):'jove'},None),
+ 'Sheba':({(9,256):'sheba'},None),
+ # 16:189, 16:252 and 16:269 are the Achilles heel as an idiom.
+ 'Achilles':({(9,147):'achilles'},None),
+ 'Cleopatra':({(9,333):'cleopatra'},None),
+ 'Volumnia':({(9,333):'volumnia'},None),
+ # 12:513 is S. Richard among the saints; this Arthur is the boy in King John.
+ 'Arthur':({(9,333):'young-arthur'},None),
+ # 17:11 is Synge street, which the alias guard would have taken.
+ 'Synge':({(9,133):'synge',(9,203):'synge',(9,231):'synge',(9,448):'synge'},None),
+ # 1:55 is Connolly Norman of Dottyville.
+ 'Norman':({(9,129):'norman-editor'},None),
+ # 14:56 is the novelist again and 15:900 is Master Jack Meredith.
+ 'Meredith':({(9,382):'george-meredith'},None),
+ # 12:513 is S. Lucy.
+ 'Lucy':({(9,439):'lucy'},None),
+ # 10:510 is Mulligan calling Farrell Wandering Ængus; 12:50 is Angus the Culdee.
+ 'Ængus':({(9,412):'aengus',(9,472):'aengus'},None),
+ 'Aengus':({(9,412):'aengus',(9,472):'aengus'},None),
 }
 
 # Figures the text names only by a description. (episode, paragraph) -> [(pattern, id)]
@@ -834,6 +925,94 @@ PHRASE={
  (8,353):[(r'The blind stripling','blind-stripling'),(r'The blind young man','blind-stripling')],
  (8,360):[(r'the blind man','blind-stripling')],
  (8,365):[(r'His Excellency the [Ll]ord [Ll]ieutenant','lord-lieutenant')],
+ # ---- episode 9
+ (9,0):[(r'[Qq]uaker librarian','lyster')],
+ (9,3):[(r'A noiseless attendant','library-attendant')],
+ (9,5):[(r'attendant','library-attendant')],
+ (9,25):[(r'H\.\s?P\.\s?B\.','blavatsky'),(r'K\.\s?H\.','koot-hoomi'),
+          (r'repentant [sS]ophia','sophia')],
+ (9,32):[(r'very peripatetic','aristotle'),(r'the roaming philosopher','aristotle')],
+ (9,40):[(r'the auric egg of','russell'),(r'the golden aura of','russell')],
+ (9,59):[(r'the ghost from _?limbo patrum_?','king-hamlet'),(r'the ghost from limbo','king-hamlet')],
+ (9,66):[(r'It is the ghost, the king','king-hamlet')],
+ (9,100):[(r'[Qq]uaker librarian','lyster')],
+ (9,105):[(r'The greyeyed goddess','venus'),(r'The grey-eyed goddess','venus'),(r'Kath[ae]rine','katharine')],
+ (9,112):[(r'A tall figure in bearded homespun','russell')],
+ (9,119):[(r'Buddh(?![a-z])','buddha')],
+ (9,121):[(r'[Qq]uaker librarian','lyster')],
+ (9,135):[(r'[Qq]uaker librarian','lyster')],
+ (9,144):[(r'the outgoer','russell')],
+ # The Egyptian highpriest of John F Taylor's speech in episode 7, whose voice
+ # Stephen hears again in the silence of the library.
+ (7,423):[(r'some high ?priest','egyptian-highpriest')],
+ (7,425):[(r'that Egyptian high ?priest','egyptian-highpriest')],
+ (9,148):[(r'that Egyptian high ?priest','egyptian-highpriest')],
+ (9,164):[(r'[Qq]uaker librarian','lyster')],
+ (9,180):[(r'[Qq]uaker librarian','lyster')],
+ (9,194):[(r'pseudomalachi','mulligan'),(r'false Malachi','mulligan')],
+ (9,198):[(r'[Qq]uaker librarian','lyster')],
+ # Joyce writes saint Patrick lowercase at 9:207 and drops the saint entirely
+ # at 9:235, where the modern edition supplies it.
+ (9,207):[(r'[Ss]aint Patrick','saint-patrick')],
+ (9,235):[(r'(?:[Ss]aint )?Patrick','saint-patrick')],
+ (9,209):[(r'[Qq]uaker librarian','lyster')],
+ (9,219):[(r'[Qq]uaker librarian','lyster')],
+ (9,236):[(r'an attendant','library-attendant')],
+ (9,238):[(r'the attendant','library-attendant'),(r'a gentleman here','leopold')],
+ (9,244):[(r'A patient silhouette','leopold')],
+ (9,246):[(r'a bowing dark figure','leopold')],
+ (9,250):[(r'Bloom','leopold')],
+ (9,283):[(r'that Stagyrite schoolurchin','aristotle')],
+ # Joyce runs the two names together; the modern edition hyphenates them and
+ # the alias and the key reach both halves there.
+ (9,286):[(r'Best(?=eglinton)','mr-best'),(r'(?<=Best)eglinton','john-eglinton')],
+ (9,294):[(r'a Scotch philosophaster','james-i'),(r'a Scottish pseudo-philosopher','james-i')],
+ (9,301):[(r'Saint Thomas','thomas-aquinas')],
+ (9,306):[(r'Saint Thomas','thomas-aquinas')],
+ (9,314):[(r'Eglintonus','john-eglinton'),(r'John Eglinton the Chronicler','john-eglinton')],
+ (9,318):[(r'the madonna','blessed-virgin'),(r'the Madonna','blessed-virgin')],
+ (9,328):[(r'bulldog of Aquin(?:as)?','thomas-aquinas')],
+ (9,329):[(r'Eglintoneyes','john-eglinton')],
+ (9,331):[(r'Sonmulligan','mulligan'),(r'Son-Mulligan','mulligan')],
+ (9,335):[(r'[Qq]uaker librarian','lyster')],
+ (9,340):[(r'STEPHEN','stephen')],
+ (9,341):[(r'MAGEEGLINJOHN','john-eglinton'),(r'JOHN MAGEE-EGLINTON','john-eglinton')],
+ (9,342):[(r'BEST','mr-best')],
+ (9,343):[(r'BUCKMULLIGAN','mulligan'),(r'BUCK MULLIGAN','mulligan')],
+ (9,345):[(r'STEPHEN','stephen')],
+ (9,346):[(r'BEST','mr-best')],
+ (9,348):[(r'QUAKERLYSTER','lyster'),(r'QUAKER LYSTER','lyster')],
+ (9,349):[(r'STEPHEN','stephen')],
+ (9,355):[(r'[Qq]uaker librarian','lyster')],
+ (9,366):[(r'[Qq]uaker librarian','lyster')],
+ (9,369):[(r'An attendant','library-attendant')],
+ (9,387):[(r'the moor in him','othello'),(r'the Moor in him','othello')],
+ (9,407):[(r'Fraidrine','fred-ryan')],
+ (9,427):[(r'[Qq]uaker’s pate','lyster'),(r"[Qq]uaker's bald pate",'lyster')],
+ (9,441):[(r'The dour recluse','john-eglinton'),
+          (r'the douce youngling','mr-best'),(r'the gentle young man','mr-best')],
+ (9,462):[(r'MOTHER GROGAN','mother-grogan')],
+ (9,469):[(r'A man passed out between them','leopold')],
+ (9,476):[(r'A dark back','leopold')],
+ (9,7):[(r'de [lL][aA] Palice','de-la-palice')],
+ (9,18):[(r'old Ben(?! Jonson)','ben-jonson')],
+ (9,55):[(r'[Ff]at [Bb]oy','pickwick-fat-boy')],
+ (9,147):[(r'the soothsayer','soothsayer')],
+ (9,157):[(r'mother Dana','dana-goddess')],
+ (9,167):[(r'another Ulysses','odysseus')],
+ (9,174):[(r'Simon Lazarus','sidney-lee')],
+ (9,184):[(r'dongiovannism','don-giovanni')],
+ (9,181):[(r'[Dd]ark [Ll]ady','dark-lady')],
+ (9,255):[(r'Mrs Shakespeare','ann-hathaway')],
+ (9,260):[(r'Margaret Mary','margaret-mary')],
+ (9,261):[(r'H(?:arry|enry) of six wives','henry-viii')],
+ (9,315):[(r'Magee the Elder','magee-mor')],
+ (9,377):[(r'your brother','stephen-brother')],
+ (9,382):[(r'makes Ulysses','odysseus')],
+ (9,390):[(r'Dumas _fils_','dumas-fils'),(r'Dumas _p[èe]re','dumas-pere')],
+ (9,404):[(r'the present duke','duke-of-rutland')],
+ (9,473):[(r'[Ww]andering [Jj]ew','wandering-jew'),(r'[Aa]ncient [Mm]ariner','ancient-mariner')],
+ (9,480):[(r'Cymbeline','cymbeline')],
 }
 
 # (matched text, episode, paragraph) -> the alias hit is dropped there
@@ -860,6 +1039,9 @@ SUPPRESS={
  # 11:465 is the money Bloom spent in the pub -- Seven Davy Byrne's -- in a
  # column of the day's expenses, not the publican himself.
  ('Davy Byrne',11,465),
+ # 9:117 is Peter Piper pecking a peck of pickled pepper, not the man who is
+ # back from Berlin and coming to Moore's tonight.
+ ('Piper',9,117),
 }
 
 def bind(edition,ch,pi,text,entities):

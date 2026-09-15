@@ -1977,3 +1977,655 @@ Who designed the museum, and whose cream curves of stone Bloom stares at, heart 
 ## The farmer’s daughter · reference
 
 Whose bag Bloom had to pick up and hand to her at Limerick junction, travelling to Ennis last year, in the list of what people leave behind them in trains and cloakrooms.
+
+## The Egyptian highpriest · reference
+
+Whose speech to the youthful Moses John F Taylor reported in episode 7 — the voice raised in a tone of like haughtiness and like pride, setting Isis and Osiris, Horus and Ammon Ra against the local and obscure idol of the Jews. Stephen hears it again in the silence of the library: and I heard the voice of that Egyptian highpriest.
+
+## Aubrey · reference
+
+John Aubrey, whose Brief Lives is the authority for Shakespeare having held horses at the playhouse door: how else could Aubrey’s ostler and callboy get rich quick? Not the Aubrey of Magdalen whom Mulligan quotes in episode 1.
+
+## Mr Lyster · reference
+
+The quaker librarian, urbane and creaking, who purrs about Wilhelm Meister, tiptoes in and out on his neatsleather all through the argument, and is called away three times — by an attendant, by a gentleman from the Freeman, and by Father Dineen. Most zealous, most fair, most kind, most honest broadbrim. He is the one who asks Stephen outright whether he thinks she was unfaithful to the poet.
+
+## John Eglinton · reference
+
+W. K. Magee, who signs himself John Eglinton, editing Dana: the carping voice of the room, with active eyebrows, a spare body and a sizar’s stern frown. He makes his blood boil to hear Aristotle compared with Plato, will not have his belief shaken that Shakespeare is Hamlet, and tells Stephen at the end that he is a delusion who has brought them all this way to show them a French triangle. Stephen names him eight ways in one afternoon — littlejohn, Judge, Second, Steadfast John, Eclecticon, Eglintonus Chronolologos, Eglinton Johannes, Magee.
+
+## Mr Best · reference
+
+Tall, young, mild, light, with a new large clean bright notebook, who says don’t you know at every turn and cares more for the light touch than for the argument. He brings in Mallarmé and the prose poems, the brother motive in Grimm, and the story of Mr W. H., and he hopes Stephen will say a good word for Richard, don’t you know, for his sake.
+
+## The attendant · reference
+
+Noiseless at the door, who sets it open but slightly and beckons Mr Lyster out with a noiseless beck; who brings in the card from the Freeman; and who calls from the doorway that Father Dineen wants him.
+
+## Evans · reference
+
+The attendant Mr Lyster calls to conduct the gentleman from the Freeman to the provincial papers.
+
+## Father Dineen · reference
+
+Who wants Mr Lyster, and takes him out of the room at the one moment when the quaker librarian has asked the question he most wants answered.
+
+## Goethe · reference
+
+Of the priceless pages of Wilhelm Meister, the great poet on a great brother poet, whose judgments Mr Lyster always feels are so true. True in the larger analysis. Stephen gives him back later in a harder saying that Mr Magee likes to quote: beware of what you wish for in youth, because you will get it in middle life.
+
+## Monsieur de la Palice · reference
+
+Who was alive fifteen minutes before his death — Stephen’s sneer at the quaker librarian’s larger analysis, out of the French song about the obvious.
+
+## Yeats · reference
+
+The shining seven, W.B. calls them. He admired Colum’s line about the Grecian vase in the wild earth, and Mulligan asks Stephen at the end why he could not have done the Yeats touch on Lady Gregory’s book instead of slating it.
+
+## Messer Brunetto · reference
+
+Brunetto Latini, Dante’s master, from whom Stephen takes the word for John Eglinton’s stare: a basilisk — and when the serpent sees the man, it poisons him. Messer Brunetto, I thank thee for the word.
+
+## Kathleen · reference
+
+Gaptoothed Kathleen, her four beautiful green fields and the stranger in her house: Ireland herself in the play, whom Cranly’s eleven true Wicklowmen were to free. The modern edition writes Kathleen Ireland and takes the riddle out of it.
+
+## Ben Jonson · reference
+
+Old Ben, who admired Shakespeare on this side idolatry. The older edition gives only the first name, as John Eglinton would say it among people who know; the modern edition supplies the surname.
+
+## James I · reference
+
+One of the three men the schools have proposed as the real author of Hamlet, in Russell’s list of the questions he thinks purely academic. He returns unnamed at 9:294 as the Scotch philosophaster with a turn for witchroasting whose accession is dated by Hamlet and Macbeth.
+
+## Essex · reference
+
+The second of them.
+
+## Gustave Moreau · reference
+
+Whose painting is the painting of ideas, in Russell’s argument that art has to reveal formless spiritual essences and not the poet’s drinking and the poet’s debts.
+
+## Shelley · reference
+
+Whose deepest poetry brings the mind into contact with the eternal wisdom, Russell says; and whose figure of the mind as a fading coal Stephen turns against him, in the intense instant of imagination. Mulligan quotes him too over the foamborn Aphrodite: life of life, thy lips enkindle.
+
+## Plato · reference
+
+The other half of the argument. Aristotle was once Plato’s schoolboy, Stephen says, and has remained so, John Eglinton hopes; and which of the two would have banished me from his commonwealth? Hamlet’s monologue on the afterlife of his princely soul is as shallow as Plato’s, and the dialogues are the form Mr Best thinks the theory ought to take, like the Platonic dialogues Wilde wrote.
+
+## Dunlop · reference
+
+First of the theosophists in Stephen’s silent catalogue of the Dublin lodge: Daniel Nicol Dunlop, of the yogibogeybox in Dawson chambers.
+
+## Judge · reference
+
+The noblest Roman of them all, second in the same list.
+
+## K. H. · reference
+
+Their master, whose identity is no secret to adepts: the mahatma the Dublin theosophists took their instruction from.
+
+## Mrs Cooper Oakley · reference
+
+Who once glimpsed our very illustrious sister H. P. B.’s elemental — the story that makes Stephen break out in mock scandal: you naughtn’t to look, missus, when a lady’s ashowing of her elemental.
+
+## Sophia · reference
+
+Repentant sophia, departed to the plane of buddhi: the fallen wisdom of the gnostic scheme, bridesister to the Christ in the theosophical account Stephen is mocking.
+
+## Jubainville · reference
+
+Whose book Mr Best was showing Haines when Haines got enthusiastic about the Lovesongs of Connacht and went off to Gill’s to buy them: d’Arbois de Jubainville on the Irish mythological cycle.
+
+## Hyde · reference
+
+Douglas Hyde, whose Lovesongs of Connacht Haines has gone to buy, and whose own verse — bound thee forth, my booklet, quick, to greet the callous public — Stephen recites in his head, lean unlovely English and all.
+
+## Mallarmé · reference
+
+The finest flower of corruption France produces, in Russell’s judgment; and to Mr Best the author of the wonderful prose poems Stephen MacKenna used to read to him in Paris, including the one about Hamlet: il se promène, lisant au livre de lui-même.
+
+## Homer · reference
+
+Whose Phæacians live the desirable life revealed only to the poor of heart, Russell says; and whom Mulligan invokes at the end, chanting Longworth’s puff of Lady Gregory: the most beautiful book that has come out of our country in my time. One thinks of Homer.
+
+## Stephen MacKenna · reference
+
+Who used to read Mallarmé’s prose poems to Mr Best in Paris.
+
+## Robert Greene · reference
+
+Who called Shakespeare a deathsman of the soul — the phrase Stephen opens the argument with. The modern edition turns it round and calls him a death-dealer of the soul.
+
+## The fat boy in Pickwick · reference
+
+Who wants to make your flesh creep, and is John Eglinton’s comparison for Stephen insisting that Hamlet is a ghoststory.
+
+## King Hamlet · reference
+
+The ghost from limbo patrum, returning to the world that has forgotten him. Who is King Hamlet? is the question the whole theory turns on, and Stephen’s answer is Shakespeare himself, playing the part in his own play and speaking his own son’s name to the young player in front of him.
+
+## Drake · reference
+
+Whose canvasclimbers chew their sausages among the groundlings at the Globe, in the hour of a day in mid June that Stephen builds for them.
+
+## Burbage · reference
+
+The young player who stands before the ghost beyond the rack of cerecloth and is called Hamlet. He returns in the story out of Manningham: the burgher’s wife who bade Dick Burbage to her bed after she had seen him in Richard III, and Shakespeare answering from the capon’s blankets that William the conqueror came before Richard III.
+
+## Hamnet Shakespeare · reference
+
+The son of his body, dead in Stratford at eleven, whose namesake lives for ever. Had Hamnet lived he would have been prince Hamlet’s twin; and Hamlet, the black prince, is Hamnet Shakespeare.
+
+## Ann Hathaway · reference
+
+Ann Shakespeare, born Hathaway, whom Stephen will not let the room forget. Eight years older than the boy she tumbled in the cornfield, sweet and twentysix; she bore his children, laid pennies on his eyes, and got the secondbest bed. She died, Stephen says, sixtyseven years after she was born — and of the thirtyfour years between the day she married him and the day she buried him, the plays say nothing except what he branded her with in the fifth scene of Hamlet.
+
+## Villiers de l’Isle · reference
+
+Who said that as for living our servants can do that for us — Russell’s authority for refusing to pry into the family life of a great man.
+
+## Georgina Johnson · reference
+
+The clergyman’s daughter in whose bed Stephen spent most of the pound Russell lent him when he was hungry. Agenbite of inwit.
+
+## Socrates · reference
+
+Who learnt dialectic from Xanthippe and from his mother how to bring thoughts into the world, and whom neither the midwife’s lore nor the caudlelectures saved from the archons and their naggin of hemlock. Stephen uses him twice more: Shakespeare had a midwife to mother as he had a shrew to wife; and Maeterlinck’s if Socrates leave his house today he will find the sage seated on his doorstep.
+
+## Xanthippe · reference
+
+His wife, and John Eglinton’s example of a shrew who was not a useful portal of discovery.
+
+## Myrto · reference
+
+His other wife, absit nomen — what he learnt from her, Stephen says, no man, not a woman, will ever know.
+
+## Katharine the shrew · reference
+
+Whom Hortensio calls young and beautiful, against the room’s assumption that the woman Shakespeare married must have been the ugliest doxy in all Warwickshire.
+
+## Hortensio · reference
+
+Who calls her so.
+
+## Adonis · reference
+
+The boy the greyeyed goddess bends over, stooping to conquer — and in Stephen’s reading a boldfaced Stratford wench tumbling a lover younger than herself in a cornfield. The poem’s title at the head of the same sentence is a book and carries no card.
+
+## Piper · reference
+
+Back from Berlin and coming to Moore’s tonight, which is the news that makes Mr Best pipe. He is the man who met Herr Bleibtreu and brought home the Rutland theory.
+
+## Louis H. Victory · reference
+
+One of the two poets Stephen lists among the faithful hermetists waiting for the light, ripe for chelaship.
+
+## T. Caulfield Irwin · reference
+
+The other.
+
+## Colum · reference
+
+Young Colum, whose Drover Russell liked and in whose line about the Grecian vase Yeats found that queer thing genius. One of the younger poets whose verses Russell is gathering into a sheaf.
+
+## Starkey · reference
+
+Another of them, whom Russell twice tells Stephen to bring along tonight.
+
+## George Roberts · reference
+
+Who is doing the commercial part of the anthology.
+
+## Longworth · reference
+
+Editor of the Express, who will give the sheaf a good puff — and who is awfully sick, Mulligan says, after what Stephen wrote about Lady Gregory’s book in his paper.
+
+## Moore · reference
+
+George Moore, at whose house they are all going tonight, and whom Miss Mitchell’s joke makes Martyn’s wild oats. Our national epic has yet to be written and Moore is the man for it: a knight of the rueful countenance here in Dublin. Mulligan closes the episode on him — Monsieur Moore, lecturer on French letters to the youth of Ireland. Not the Tommy Moore of episode 8 nor Moore street.
+
+## Martyn · reference
+
+Edward Martyn, the other half of the joke, and Sancho to Moore’s Quixote.
+
+## Miss Mitchell · reference
+
+Whose joke it was. Awfully clever, isn’t it?
+
+## Don Quixote · reference
+
+Whom Moore and Martyn remind one of.
+
+## Sancho Panza · reference
+
+And his squire.
+
+## Dulcinea · reference
+
+And his lady — and who would she be, in the Dublin version of the joke?
+
+## Dr Sigerson · reference
+
+Who says our national epic has yet to be written.
+
+## O’Neill Russell · reference
+
+Proposed for the saffron kilt and the grand old tongue. Not the Russell of this episode, who is A. E.
+
+## James Stephens · reference
+
+Who is doing some clever sketches. We are becoming important, it seems. Not the head centre of the Fenians whom Bloom and Kevin Egan remember.
+
+## Cordelia · reference
+
+Cordoglio. Lir’s loneliest daughter — the one word Stephen answers Russell’s literary evening with, having just handed over Mr Deasy’s letter and been given nothing.
+
+## Lir · reference
+
+Whose loneliest daughter she is. The older edition writes Lir, the Irish sea god whose children were turned into swans; the modern edition writes Lear and makes it Shakespeare’s king. Joyce’s line holds both at once.
+
+## Mr Norman · reference
+
+Editor of the Irish Homestead, to whom Russell will give Mr Deasy’s letter if he considers it important. We have so much correspondence. Not the Connolly Norman of episode 1.
+
+## Synge · reference
+
+Who has promised Russell an article for Dana; who writes as Shakespeare does, Mulligan says; who is out in pampooties to murder Stephen for pissing on his halldoor in Glasthule; and who has left off wearing black to be like nature.
+
+## Mother Dana · reference
+
+The goddess who weaves and unweaves, in Stephen’s figure for the artist weaving and unweaving his image out of new stuff time after time. The modern edition writes Mother Nature and loses her; the magazine of the same name, which Russell and Fred Ryan write for, is not she.
+
+## Drummond of Hawthornden · reference
+
+Who helped Stephen over that stile, he admits to himself the moment the figure is out of his mouth.
+
+## Renan · reference
+
+Who admired the plays of Shakespeare’s later years so much, and the play — the Tempest — written after the Sea Venture came home from Bermudas with Patsy Caliban aboard.
+
+## Ulysses · reference
+
+Tried, like another Ulysses: the shipwrecked man whose heart is softened when a child, a girl, is placed in his arms. He turns up again as the man Moore makes quote Aristotle on the seacoast of Bohemia.
+
+## Pericles · reference
+
+Prince of Tyre, in whose arms Marina is placed.
+
+## Marina · reference
+
+A child of storm, the daughter given back to him. My dearest wife, Pericles says, was like this maid.
+
+## Miranda · reference
+
+A wonder: the second of the three daughters of the late plays, between Marina and Perdita, in Stephen’s list of what was lost and given back.
+
+## Perdita · reference
+
+That which was lost.
+
+## Bacon · reference
+
+Good Bacon: gone musty. Shakespeare Bacon’s wild oats, and the cypherjugglers going the highroads after him — the first of the four names Stephen runs together into Rutlandbaconsouthamptonshakespeare.
+
+## Mr Brandes · reference
+
+Georg Brandes, who accepts Pericles as the first play of the closing period.
+
+## Mr Sidney Lee · reference
+
+Or Mr Simon Lazarus, as some aver his name is — John Eglinton’s way of asking what the other authority says.
+
+## Mr George Bernard Shaw · reference
+
+Another Irish commentator the quaker librarian thinks they ought to mention.
+
+## Mr Frank Harris · reference
+
+Whose articles on Shakespeare in the Saturday Review were surely brilliant, and who too draws an unhappy relation with the dark lady of the sonnets. Not the old Harris of Nassau street whose fieldglasses Bloom means to have seen to.
+
+## The dark lady of the sonnets · reference
+
+Whom the commentators keep finding, and whose favoured rival, on Frank Harris’s reading, is William Herbert.
+
+## William Herbert · reference
+
+Earl of Pembroke: the favoured rival. If the poet must be rejected, the quaker librarian owns, such a rejection would seem more in harmony with our notions of what ought not to have been.
+
+## Lucrece · reference
+
+Whose bluecircled ivory globes are the first of the two the ghost’s speech is always turned back towards.
+
+## Imogen · reference
+
+And the second: her breast, bare, with its mole cinquespotted.
+
+## Johann Most · reference
+
+Third in the brood of mockers — Photius, pseudomalachi, Johann Most — whose blasphemy Stephen answers with the whole creed run together in one breath.
+
+## Vining · reference
+
+Who held that the prince was a woman.
+
+## Judge Barton · reference
+
+Who is searching for some clues that Hamlet was an Irishman: he swears — His Highness, not His Lordship — by saint Patrick.
+
+## Willie Hughes · reference
+
+A man all hues, for whom Wilde proves the sonnets were written in the Portrait of Mr W. H. Or Hughie Wills, Stephen thinks: Mr William Himself. W. H.: who am I?
+
+## Jove · reference
+
+A cool ruttime send them: the one line of Blake’s pairing time that Stephen turns on the blond ephebe in front of him. Everywhere else in this book the name is only the exclamation.
+
+## Aphrodite · reference
+
+The foamborn, whom Mulligan went over to the museum to hail, and to whom he says we must do homage every day. The Greek mouth that has never been twisted in prayer.
+
+## Griselda · reference
+
+Patient Griselda, one of the two figures the room had settled Mrs Shakespeare into before Stephen began — the other being a Penelope stayathome.
+
+## Walt Whitman · reference
+
+Who called it the art of feudalism; Stephen calls Shakespeare’s the art of surfeit.
+
+## Sir Walter Raleigh · reference
+
+Who, when they arrested him, had half a million francs on his back including a pair of fancy stays.
+
+## Eliza Tudor · reference
+
+The gombeenwoman, who had underlinen enough to vie with her of Sheba; and again, at the end of the same speech, fay Elizabeth, otherwise carrotty Bess, the gross virgin who inspired the Merry Wives. The modern edition writes Queen Elizabeth both times.
+
+## Her of Sheba · reference
+
+The queen whose wardrobe is the comparison. The modern edition names her the Queen of Sheba.
+
+## Manningham · reference
+
+Whose story of the burgher’s wife, Dick Burbage and William the conqueror Stephen retells to prove the twenty years were not chaste.
+
+## Mistress Fitton · reference
+
+The gay lakin, mount and cry O — one of the women the sonnets have been fitted to.
+
+## Sir William Davenant · reference
+
+Of Oxford — or rather his mother, with her cup of canary for any cockcanary.
+
+## Blessed Margaret Mary · reference
+
+Margaret Mary Alacoque, of the Sacred Heart, whose name Mulligan turns into a piece of filth with his pious eyes upturned. The modern edition writes Margaret Mary Whatshername and keeps the shape of the joke without the word.
+
+## Harry of six wives · reference
+
+Whose daughter is one of the lady friends in Stephen’s list. The modern edition writes King Henry.
+
+## Gerard · reference
+
+The herbalist of Fetter lane, in whose rosery Shakespeare walks greyedauburn in the one wholly quiet paragraph of this episode.
+
+## Shylock · reference
+
+Whom Shakespeare drew out of his own long pocket: the son of a maltjobber and moneylender who was himself a cornjobber and moneylender, and exacted his pound of flesh in interest for every money lent.
+
+## Chettle · reference
+
+Falstaff, who reported his uprightness of dealing — the divers of worship among his borrowers.
+
+## Falstaff · reference
+
+The fat knight, whom John Eglinton feels is his supreme creation, and who was not a family man.
+
+## Lopez · reference
+
+The queen’s leech, hanged and quartered, his jew’s heart plucked forth while he was yet alive: the jewbaiting that Shylock chimes with.
+
+## Sidney · reference
+
+Whose sugared sonnets Shakespeare’s follow, and out of whose Arcadia the underplot of King Lear in which Edmund figures is lifted and spatchcocked on to a Celtic legend older than history. Not the Mr Sidney Lee of 9:174.
+
+## Coleridge · reference
+
+Who called him myriadminded — Mr Best’s one contribution to the case for the defence.
+
+## Pallas Athena · reference
+
+Who came out of her father’s head, and whom Mulligan invokes when he announces that he is big with child: I have an unborn child in my brain. A play! Let me parturiate!
+
+## Volumnia · reference
+
+Whose scene in Coriolanus came out of the death of Shakespeare’s mother.
+
+## Young Arthur · reference
+
+Whose deathscene in King John came out of his boyson’s death.
+
+## Cleopatra · reference
+
+Fleshpot of Egypt: one of the three Stephen says we may guess at, where the girls of the late plays we know. The play named a hundred lines earlier is a book and carries no card.
+
+## Cressid · reference
+
+The second of the three. The modern edition spells her Cressida.
+
+## Gilbert Shakespeare · reference
+
+The brother who is nowhere in the works: in his old age he told some cavaliers that he once got a pass for nowt from Maister Gatherer and saw his brud Maister Wull up in Lunnon in a wrastling play. The playhouse sausage filled Gilbert’s soul.
+
+## Edmund Shakespeare · reference
+
+The brother who lay dying in Southwark while King Lear was being written, and whose name went to the bastard in it.
+
+## Richard Shakespeare · reference
+
+The third brother, whose name went to the crookback. Stephen keeps him and Edmund for the last and calls them, with his own uncle Richie Goulding folded into the joke, those two noble kinsmen nuncle Richie and nuncle Edmund.
+
+## Richard Crookback · reference
+
+A whoreson crookback, misbegotten, who makes love to a widowed Ann and wins her; the only king of all his kings unshielded by Shakespeare’s reverence. Richard the conqueror, third brother, came after William the conquered.
+
+## Edmund in King Lear · reference
+
+The bastard of the underplot, one of the trinity of black Wills with Iago and Richard Crookback: two of the three bear the wicked uncles’ names.
+
+## John o’Gaunt · reference
+
+Whose name was dear to him, as Shakespeare’s own name was dear to Shakespeare. Not the horse Nosey Flynn lost money on in episode 8.
+
+## Icarus · reference
+
+Pater, ait: the boy who flew and fell, and the figure Stephen turns on his own Paris year. Seabedabbled, fallen, weltering.
+
+## Grimm · reference
+
+In whose fairytales Mr Best finds the brother motive too — the third brother that always marries the sleeping beauty and wins the best prize.
+
+## Stephen’s brother · reference
+
+Where is your brother? Apothecaries’ hall. My whetstone — one line, and the only mention of him in the argument about brothers.
+
+## Esau · reference
+
+Whose voice Stephen is tired of hearing come out of his own mouth. My kingdom for a drink.
+
+## George Meredith · reference
+
+Whose novel John Eglinton will not have combined with a Norse saga, and whose Que voulez-vous? Moore would say.
+
+## Prospero · reference
+
+Who breaks his staff, buries it certain fathoms in the earth and drowns his book; and who returns in the epilogue as prosperous Prospero, the good man rewarded.
+
+## Susan · reference
+
+The married daughter, chip of the old block, accused of adultery near the end of his life; and in the list of widows, Susan, her husband too.
+
+## Judith · reference
+
+Her sister: her husband and all her sons.
+
+## Joan · reference
+
+His sister: her four brothers.
+
+## Mary Shakespeare · reference
+
+His mother, whose name lives in the forest of Arden, and whose death brought from him the scene with Volumnia. Mary, her goodman John, at the head of the list of women who saw their men down and under.
+
+## John Shakespeare · reference
+
+His father, in the months after whose death he wrote the play. The corpse of John Shakespeare does not walk the night. From hour to hour it rots and rots.
+
+## Elizabeth · reference
+
+Susan’s daughter, who, to use granddaddy’s words, wed her second having killed her first; and Lizzie, grandpa’s lump of love, in the epilogue.
+
+## José · reference
+
+Who kills the real Carmen — the lover of an ideal or a perversion, in Stephen’s figure for the man who acts and is acted on.
+
+## Carmen · reference
+
+Whom he kills.
+
+## Dumas fils · reference
+
+Or is it Dumas père? — John Eglinton cannot remember which of them said that after God Shakespeare has created most.
+
+## Dumas père · reference
+
+The other one.
+
+## Maeterlinck · reference
+
+Who says that if Socrates leave his house today he will find the sage seated on his doorstep, and if Judas go forth tonight it is to Judas his steps will tend. Mulligan names him again on the stairs, with the Abbey players creating a new art for Europe like the Greeks or M. Maeterlinck.
+
+## Judas · reference
+
+Whose steps tend to himself.
+
+## Herr Bleibtreu · reference
+
+The man Piper met in Berlin, who is working up the Rutland theory and believes the secret is hidden in the Stratford monument. He believes his theory, John Eglinton says, which is more than Stephen will say for his own.
+
+## The present duke · reference
+
+Whom Herr Bleibtreu is going to visit and prove to that his ancestor wrote the plays. It will come as a surprise to his grace.
+
+## Fresh Nelly · reference
+
+One of the two gonorrheal ladies Mulligan says he found the bard Kinch studying the Summa contra Gentiles in the company of; and a character in the play he conceives on the stairs.
+
+## Rosalie · reference
+
+The coalquay whore. The other one.
+
+## Medical Dick · reference
+
+Of the rhyme Mulligan pianos out in the middle of the brothers scene — then outspoke medical Dick to his comrade medical Davy — and of the playbill on the stairs: two birds with one stone.
+
+## Medical Davy · reference
+
+His comrade.
+
+## Toby Tostoff · reference
+
+A ruined Pole. First on the playbill of Everyman His Own Wife, a national immorality in three orgasms, by Ballocky Mulligan.
+
+## Crab · reference
+
+A bushranger. Second on it.
+
+## Ængus · reference
+
+Wandering Ængus of the birds, whom Mulligan calls Stephen on the way out, and whom Stephen has already claimed on the portico: here I watched the birds for augury.
+
+## F. M’Curdy Atkinson · reference
+
+The same that had the wooden leg, in Mulligan’s limerick on the stairs, and one of the two who were there when Longworth got angry.
+
+## Gregory · reference
+
+That old hake Gregory, whose drivel Stephen slated in the Express after she got him the job on the paper. The modern edition gives her the title and writes Lady Gregory.
+
+## The ancient mariner · reference
+
+I fear thee, ancient mariner — Mulligan’s word for Bloom at the door, in the same breath as the wandering jew.
+
+## The wandering jew · reference
+
+Did you see his eye? He looked upon you to lust after you. The figure Mulligan fastens on Bloom as he passes out between them, bowing, greeting.
+
+## Cymbeline · reference
+
+Whose druid priests give Stephen the last words of the episode: laud we the gods, and let our crooked smokes climb to their nostrils from our bless’d altars.
+
+## Phedo · reference
+
+Whose toyable fair hair is Stephen’s word for Mr Best, the douce youngling, minion of pleasure, standing beside the dour recluse.
+
+## Lousy Lucy · reference
+
+Sir Thomas Lucy, who had him whipped for poaching — one of the two things Stephen says Shakespeare forgot no more than he forgot anything. The name is keyed, not aliased: 12:513 is S. Lucy among the saints.
+
+## Dowden · reference
+
+Edward Dowden of Highfield house, the professor whose answer to the charge against the bard was that all we can say is that life ran very high in those days. William Shakespeare and company, limited: the people’s William. For terms apply.
+
+## Mr Justice Madden · reference
+
+In whose Diary of Master William Silence the hunting terms have been found, and whom Mr Lyster is quoting when the attendant interrupts him with Bloom’s card.
+
+## Oisin · reference
+
+Oisin with Patrick: the pagan poet arguing with the saint, which is what Stephen makes of his own quarrelling with Mulligan in Paris, in words of words for words.
+
+## Thoth · reference
+
+God of libraries, a birdgod, moonycrowned, presiding over the coffined thoughts in their mummycases while the room is empty.
+
+## Achilles · reference
+
+What name Achilles bore when he lived among women — one of the things not known that the vestal’s lamp watches over.
+
+## The soothsayer · reference
+
+Whom Cæsar did not believe: what he would have lived to do had he believed him is the first of the possibilities of the possible as possible.
+
+## Dr Bob Kenny · reference
+
+Who is attending Stephen’s mother, in the sentence he hears his father speak on the quayside as he hurries home from Paris to her deathbed.
+
+## Magee Mor Matthew · reference
+
+John Eglinton’s father, as Stephen imagines him coming up from Ultonian Antrim on quarter days: a rugged rough rugheaded kern, in strossers with a buttoned codpiece, his nether stocks bemired with clauber of ten forests. Mr Magee, sir, there’s a gentleman to see you. Me? Says he’s your father, sir.
+
+## Wordsworth · reference
+
+Give me my Wordsworth — what the son says when the father comes up the stairs.
+
+## Nell Gwynn · reference
+
+Don’t forget Nell Gwynn Herpyllis: Stephen’s gloss on the old mistress Aristotle’s will provides for.
+
+## Herpyllis · reference
+
+The mistress herself, whom the dying philosopher bids his friends be kind to and let live in his villa.
+
+## Boccaccio · reference
+
+Whose Calandrino is the one man who ever felt himself with child.
+
+## Calandrino · reference
+
+The first and last such man.
+
+## The moor · reference
+
+The moor in him whom the hornmad Iago ceaselessly wills to suffer: Shakespeare as bawd and cuckold, acting and acted on.

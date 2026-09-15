@@ -1,12 +1,12 @@
 # Ulysses character package — IN PROGRESS
 
-**Episodes 1 to 8 of 18 are authored. The rest are not.** Status stays
+**Episodes 1 to 9 of 18 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole book is
 covered.
 
-Current state: 494 entities authored, 492 bound in the older edition and 491 in
-the modern one, 3,104 and 3,137 exact mentions, 79 focused tests. Content
-revision 2026-09-15.8.
+Current state: 657 entities authored, 655 bound in the older edition and 652 in
+the modern one, 3,580 and 3,615 exact mentions, 90 focused tests. Content
+revision 2026-09-15.9.
 
 ## What is hard about this book
 
@@ -690,6 +690,131 @@ because Python keeps only the last literal and the earlier keys simply cease to
 exist. `Tables.test_no_split_or_phrase_key_is_declared_twice` now parses the
 source and fails on any repeated key in `SPLIT` or `PHRASE`.
 
+## Editorial checks — episode 9 (*Scylla and Charybdis*)
+
+The librarian's office in Kildare street. 482 paragraphs, 163 new entities, and
+by some distance the densest episode in the book for names: Stephen's
+Shakespeare theory calls up the poet's three brothers, his father, mother, wife,
+two daughters, granddaughter and dead son, a dozen of his characters, the
+commentators who have written about him, the four men who have been proposed as
+the real author, and the whole Dublin literary set who will be at Moore's
+tonight.
+
+**1. Namesakes.** The first name is almost never a first name here:
+
+- *Hamlet* is three things in the same paragraph. The **prince** (9:18, 9:19,
+  9:28, 9:67, 9:68, 9:69, 9:154, 9:159, 9:207, 9:333, 9:391, 9:427), the **dead
+  king** (9:59, 9:66, 9:186, and the first of the two at 9:391 — *Gravediggers
+  bury Hamlet père and Hamlet fils*), and thirteen times **the play**, which
+  carries no card at all. Keyed by occurrence.
+- *Richard* is the king in the play, the third Shakespeare brother, and **Mr
+  Best's own name**, which is the joke he makes of it: *That is my name,
+  Richard, don't you know. I hope you are going to say a good word for
+  Richard.* Two spans, two men, one paragraph.
+- *Edmund* is the bastard of the *King Lear* underplot and the brother who lay
+  dying in Southwark while it was written — both in 9:345, keyed by occurrence.
+- *Will* is the auxiliary verb five times and the man four times; *William* is
+  William Herbert, sir William Davenant, Master William Silence (a book) and
+  Shakespeare himself five times over.
+- *Ann* is Ann Hathaway here and Mary Ann of Mulligan's ballad everywhere else.
+  She also answers to **Penelope** at 9:261 and to *your mother* at 9:69.
+- *Best* — the bare surname is the adjective in fourteen paragraphs elsewhere
+  (*best value in Dub*), so only 9:280, 9:286, 9:290 and 9:365 are keyed and
+  *Mr Best* is the alias.
+- *Judge* is the theosophist at 9:25, Judge Barton at 9:207 and Judge Eglinton
+  at 9:385. *Sidney* is Sir Philip at 9:294 and 9:381 and Mr Sidney Lee at
+  9:174. *Moore* is George Moore here and Tommy Moore in episode 8. *Norman* is
+  the editor of the Homestead here and Connolly Norman of Dottyville in episode
+  1. *Meredith* is the novelist here and Master Jack Meredith in episode 15.
+  *Lucy* is Sir Thomas Lucy here and S. Lucy among the saints at 12:513, which
+  is why the name is keyed after an alias was tried and caught the saint.
+- **James Stephens** is the sketcher, not the head centre of the Fenians whom
+  Bloom and Kevin Egan remember — the episode 3 card said so before this
+  episode was read, and the key proves it.
+- *Aubrey* at 9:294 is **John Aubrey** of the Brief Lives, not the Aubrey of
+  Magdalen Mulligan quotes in episode 1.
+
+**2. Person or not.** Not cast: the plays and poems, which are named forty times
+over (*Paradise Lost*, *King Lear*, *Pericles*, *The Tempest*, *Venus and
+Adonis*, *Antony and Cleopatra*, *Troilus and Cressida*, *Wilhelm Meister*,
+*Isis Unveiled*, *The Sorrows of Satan*, *Diary of Master William Silence*,
+*Hooks and Eyes for Believers' Breeches*); **Sackerson**, the bear that growls
+in the pit at Paris garden, and **poor Wat**, the hare in *Venus and Adonis*,
+which are animals as the racehorses of episode 8 were; *Dana* and the
+*Homestead* and the *Express* and *Saturday Review*, which are magazines; and
+*Ikey Moses* at 9:250, which is Mulligan's slur and not the prophet.
+
+**3. Scriptural, mythological and stage figures.** Cast: **Socrates,
+Xanthippe, Myrto, Plato, Aristotle, Antisthenes, Gorgias, Achilles, Homer,
+Penelope, Helen, Menelaus, Ulysses, Thoth, Aphrodite, Pallas Athena, Venus,
+Juno, Adonis, Jove, Ængus, Oisin, Mananaan, Lir, Esau, Judas, Eve** and the
+saints and heresiarchs the argument runs through. **Christ carries no card**,
+here as everywhere in this package — not in Russell's *clergymen's discussions
+of the historicity of Jesus*, not in *Hiesos Kristos* at 9:24 (the modern
+edition writes Jesus Christ), and not in the whole creed Stephen runs together
+in one breath at 9:195. **Jehovah** at 9:252 and **old Nobodaddy** at 9:306 are
+left unbound for the same reason: this package does not cast God.
+
+**4. Ambiguous references, deliberately unbound.** *Rutland* and *Southampton*
+inside Joyce's compound **Rutlandbaconsouthamptonshakespeare** are the rival
+claimants, and the modern edition's hyphens make them separable — but the duke
+of 9:404 is *the present duke*, a different man two centuries later, and no
+card is invented for a name that only a hyphen produced. *Miriam* at 9:183,
+whom Stephen imagines Mr Best thouing and theeing, is never placed. *The six
+brave medicals* at 9:8, *Cranly's eleven true Wicklowmen* and *the Tinahely
+twelve* at 9:15, *the daughters of Erin* at 9:464 and *a plump of pressmen* at
+9:215 are groups. *Peter Piper* at 9:117 is the tongue-twister and is
+suppressed, because the alias for the man who is back from Berlin was reaching
+it.
+
+Bound from description, because the text settles them: *the quaker librarian*
+in thirteen paragraphs and *the quaker's pate* at 9:427 are **Mr Lyster**; *a
+tall figure in bearded homespun* at 9:112 and *the outgoer* at 9:144 are
+**Russell**; *the dour recluse* and *the douce youngling* at 9:441 are
+**Eglinton** and **Best**; *a patient silhouette*, *a bowing dark figure*, *a
+man passed out between them* and *a dark back* are **Bloom**, who crosses the
+room twice and is named once, by Mulligan, off a visiting card; *that Egyptian
+highpriest* at 9:148 is the one out of John F Taylor's speech in episode 7, who
+now has a card and is bound there too; *a Scotch philosophaster* at 9:294 is
+**James I**; *the bulldog of Aquin* is **Aquinas**; *the mobled queen* at 9:313
+is **Ann**.
+
+**5. Spot-read.** Forty mentions, twenty from each edition under two seeds; all
+forty were right. The adjacency sweep over all 595 mentions in the older edition
+and 608 in the modern found one wrong referent — **Peter Piper at 9:117**, bound
+to the man from Berlin by his own alias — which is now suppressed. The
+unkeyed-hit sweep found fourteen more paragraphs that needed keys, the most
+important being **Mr Dedalus at 9:136, 9:181 and 9:355, which is Stephen**: from
+episode 6 those two words have been his father, and this is the first episode
+since episode 2 where they are the son again.
+
+**6. Both editions independently.** Two entities are reachable in the older
+edition alone:
+
+- **mother Dana** at 9:157, the goddess who weaves and unweaves, becomes
+  *Mother Nature* in the modern edition and is lost.
+- **Aubrey** at 9:294 is dropped: *How else could an ostler and call-boy get
+  rich quick?*
+
+Everything else that diverges was made to bind in both. The modern edition
+**supplies names**: *old Ben Jonson* for *old Ben*, *Madame Blavatsky* for
+*H. P. B.*, *Queen Elizabeth* for *Eliza Tudor*, *Saint Patrick* at 9:207 and
+9:235 where Joyce writes *saint Patrick* and then only *Patrick*, *Mrs
+Shakespeare* for *Mrs S.*, *Magee the Elder* for *Magee Mor Matthew*, *Lady
+Gregory* for *Gregory*, *Father Conmee* for *Conmee*, and *Shakespeare* at
+9:184, 9:309, 9:340 and 9:423 where Joyce writes *he*, *Which will?*, *Maister
+Wull* and *Shakes*. It **respells**: Katharine/Katherine, Cressid/Cressida,
+Phedo/Phaedo, Mallarmé/Mallarme, Ængus/Aengus, Cæsar/Caesar, José/Jose,
+Aquin/Aquinas. And it **splits Joyce's compounds** a third time, which is what
+makes *Rutland-Bacon-Southampton-Shakespeare* bind Bacon and Shakespeare at
+9:328 and *Best-Eglinton* bind both men at 9:286 where the older edition has
+`Besteglinton` in one word — that one is bound in both, by a pair of lookaround
+patterns that split the compound without overlapping.
+
+The italic audit over episodes 1–9 now reports two more cases, and both are
+correct as they stand: `_Pericles,_` at 9:333 and `_Troilus and Cressida_` at
+9:167 are play titles and carry no card.
+
 ## Source defects — recorded, not repaired
 
 No edition byte was touched.
@@ -704,15 +829,18 @@ No edition byte was touched.
 | **The modern edition deletes two Dublin names at 4:37** — *Adam Findlaters or Dan Tallons* becomes *successful businessmen* — and *Hanlon's* at 4:13. | Not repaired. Adam Findlater is an `omittedEntity` for the modern edition; Dan Tallon survives at 17:109; the milkman is bound in both editions on the phrase each one uses. |
 | **The modern edition supplies four more names in episode 8** — *Boylan's men* at 8:35 for Joyce's truncated *Boyl:*, *Lot's wife* at 8:35 for *Pillar of salt*, *Boylan* at 8:255 for *He*, and *the blind man* at 8:360 for *he*. | Not repaired. Each is bound in the modern edition and left unbound in the older one. Lot's wife exists in the modern edition alone and is an `omittedEntity` for the older edition. |
 | **The modern edition supplies surnames in episode 8** — *Reuben J. Dodd* at 8:12 and 8:364, *Charles Stewart Parnell* at 8:141, *Mr George Russell* for *Mr Geo. Russell*, *Tom Moore* for *Tommy Moore*, and *McCoy* for *M'Coy* from this episode on. | Not repaired. Every form is bound to the same card, and the card says which edition prints which. |
+| **The modern edition drops two names in episode 9** — *mother Dana* at 9:157 becomes *Mother Nature*, and *Aubrey's ostler and callboy* at 9:294 becomes *an ostler and call-boy*. | Not repaired. Both are `omittedEntities` for the modern edition, and a reader of that edition is never offered either card. |
+| **The modern edition splits Joyce's compounds a third time in episode 9** — `Rutlandbaconsouthamptonshakespeare` becomes *Rutland-Bacon-Southampton-Shakespeare* and `Besteglinton` becomes *Best-Eglinton*, which makes names bindable that a single word hides. | Not repaired. Bacon and Shakespeare bind at 9:328 in the modern edition only. Besteglinton is bound in both, by lookaround patterns that split the compound without overlapping spans. |
 
 ## Remaining work
 
-- **Episodes 9–18.** 4,822 paragraphs, and the three longest are 15 (*Circe*,
+- **Episodes 10–18.** 4,340 paragraphs, and the three longest are 15 (*Circe*,
   1,441 paragraphs), 17 (*Ithaca*, 654) and 11 (*Sirens*, 635). Episode 18
   (*Penelope*) is eight paragraphs of Molly's monologue and will be the densest
-  page-for-page in the book. Episode 9 (*Scylla and Charybdis*, 482 paragraphs)
-  is next: the library, the Shakespeare argument, and a second James Stephens
-  at 9:126 who is not the head centre.
+  page-for-page in the book. Episode 10 (*Wandering Rocks*, 546 paragraphs) is
+  next, and is the one episode that walks the whole city: nineteen sections,
+  almost every named Dubliner in the book, and the Dedalus daughters, who will
+  give the `Dedalus` table its third owner.
 - **Two names are already waiting in unread territory.** *Stephen* at 15:1133
   sits inside a stage direction in Gutenberg italics and will need a key when
   *Circe* is read; *Patrice* at 16:212 is **the faubourg Saint Patrice**, not
@@ -738,6 +866,6 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_ulysses.py --check`, then `python3 -m unittest
-discover -s books/characters -p 'test_*.py'` — 79 focused tests for this book so
+discover -s books/characters -p 'test_*.py'` — 90 focused tests for this book so
 far. No edition changes, no network generation, no API spend: every card here was
 written in the authoring conversation and committed as a file.
