@@ -134,7 +134,40 @@
   touch-action: pan-y;
   user-select: none;
   -webkit-user-select: none;
+  position: relative;
 }
+
+.lab-cover-entry {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--lab-cover-ground) 88%, black) 28%);
+  pointer-events: auto;
+}
+.lab-cover-entry button {
+  width: 100%;
+  min-height: 64px;
+  display: grid;
+  gap: 2px;
+  padding: 10px 14px;
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, white 25%, transparent);
+  background: color-mix(in srgb, var(--lab-cover-ground) 80%, transparent);
+  color: #fffaf0;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  backdrop-filter: blur(18px) saturate(.9);
+}
+.lab-cover-entry button:first-child { border-radius: 12px 12px 0 0; }
+.lab-cover-entry button:last-child { border-radius: 0 0 12px 12px; }
+.lab-cover-entry button.is-primary { background: color-mix(in srgb, var(--lab-cover-ground) 62%, white 10%); }
+.lab-cover-entry strong { font: 600 1.05rem/1.2 'EB Garamond', Georgia, serif; }
+.lab-cover-entry span { color: rgba(255,250,240,.76); font: 400 .82rem/1.3 system-ui, sans-serif; }
+.lab-cover-entry button:focus-visible { outline: 2px solid #fffaf0; outline-offset: -3px; }
 
 .lab-chapter-cover.is-tone-1 { --lab-cover-ground:#5b4636; --lab-cover-shade:#3f3026; --lab-cover-accent:#d8c5a0; }
 .lab-chapter-cover.is-tone-2 { --lab-cover-ground:#482c32; --lab-cover-shade:#301d22; --lab-cover-accent:#dbc17e; }

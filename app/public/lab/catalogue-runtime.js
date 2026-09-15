@@ -1209,7 +1209,8 @@ import {
    * (pride-and-prejudice among them) had no book page at all.
    */
   async function openBookPage(bookId) {
-    return selectBook(bookId, 'book-detail', true)
+    if (!await selectBook(bookId, 'library', true)) return false
+    return openReader()
   }
 
   /** Straight into the reader — the resume paths (recap Continue, finished books) still use it. */
@@ -1313,7 +1314,7 @@ import {
     const bookButton = event.target.closest('[data-catalogue-book]')
     if (bookButton) {
       event.preventDefault(); event.stopImmediatePropagation()
-      await selectBook(bookButton.dataset.catalogueBook, 'book-detail', true)
+      await openBookPage(bookButton.dataset.catalogueBook)
       return
     }
     const editionCard = event.target.closest('[data-catalogue-edition][data-select-edition]')
@@ -1455,7 +1456,13 @@ import {
     const requestedView = params.get('view') || (requested ? 'book-detail' : null)
     const allowedViews = new Set(['landing', 'library', 'library-index', 'book-detail', 'edition'])
     return selectBook(state.booksById.has(requested) ? requested : 'odyssey', allowedViews.has(requestedView) ? requestedView : routeView)
-  }).then(() => {
+      .then(() => ({ openRequestedBook: Boolean(requested && requestedView === 'book-detail') }))
+  }).then(({ openRequestedBook }) => {
+    if (openRequestedBook) {
+      window.__tinctLabPreReader.ready = true
+      openReader()
+      return
+    }
     if (isLibraryCurrent() && isBackForwardLoad()) restoreLibrary()
     else if (isLibraryCurrent()) removeSession(LIBRARY_RETURN_SESSION_KEY)
     window.__tinctLabPreReader.ready = true

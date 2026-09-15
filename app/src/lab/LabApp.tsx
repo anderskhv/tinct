@@ -658,9 +658,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     readerMode: (showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'compare' : 'read',
   }
   const countedPageRef = useRef<string | null>(null)
-  const initialFrontispieceRef = useRef(Boolean(readerHandoff && !readerHandoff.savedPlace))
+  const initialFrontispieceRef = useRef(Boolean(readerHandoff && (!readerHandoff.savedPlace || readerHandoff.startAtSavedPlace)))
   const [chapterCoverTitle, setChapterCoverTitle] = useState<string | null>(() => (
-    readerHandoff && !readerHandoff.savedPlace ? book.bookTitle : null
+    readerHandoff && (!readerHandoff.savedPlace || readerHandoff.startAtSavedPlace) ? book.bookTitle : null
   ))
   const explicitStartAnchor = useMemo(() => (
     readerHandoff?.startAtSavedPlace
@@ -673,7 +673,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   ), [book.chapterNumber, readerHandoff])
   const [prefaceCoverBook, setPrefaceCoverBook] = useState<string | null>(null)
   const approvedPreface = chromeV2 ? getBookPreface(book.bookId || 'bible') : undefined
-  const prefaceVisible = Boolean(approvedPreface && (prefaceCoverBook === book.bookId || chapterCoverTitle === book.bookTitle))
+  const prefaceVisible = Boolean(approvedPreface && prefaceCoverBook === book.bookId)
   const pendingMapHighlightRef = useRef<LabHighlight | null>(null)
   const [openAtEnd, setOpenAtEnd] = useState(false)
   const [pageMetrics, setPageMetrics] = useState<LabPageMetrics | null>(null)
@@ -1019,7 +1019,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     readerStateRef,
     sourceLocked: Boolean(source || readerHandoff),
     resolveBeforePaint: chromeV2,
-    writesSuspended: prefaceVisible || handoffWritesSuspended || remoteResumePending || Boolean(readerLoadError) || (chromeV2 && tocOpen),
+    writesSuspended: prefaceVisible || Boolean(chapterCoverTitle) || handoffWritesSuspended || remoteResumePending || Boolean(readerLoadError) || (chromeV2 && tocOpen),
     authToken,
     // Same shape the reading-memory hook takes: an explicit token means an
     // explicit identity, so the position record is reconciled against the
@@ -1080,7 +1080,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     },
   })
   const initialResolving = !initialPositionResolved || remoteResumePending
-  const positionWritesSuspended = prefaceVisible || handoffWritesSuspended || initialResolving || Boolean(readerLoadError)
+  const positionWritesSuspended = prefaceVisible || Boolean(chapterCoverTitle) || handoffWritesSuspended || initialResolving || Boolean(readerLoadError)
   // The library's first paint comes from a snapshot (labLibraryBoot.ts). The
   // reader knows the account and the place: hand them over when leaving for
   // the library and whenever the page is hidden, so the library never has to
@@ -3145,10 +3145,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       landingChapterRef.current = null
       openAtEndRef.current = false
       setOpenAtEnd(false)
-      const first = readingPagesRef.current[0]
-      pageAnchorRef.current = pageAnchorOf(first)
-      readingPageIndexRef.current = 0
-      setReadingPageIndex(0)
+      const exactStartIndex = explicitStartAnchor
+        ? readingPagesRef.current.findIndex(page => {
+            const anchor = pageAnchorOf(page)
+            return anchor?.paragraphIndex === explicitStartAnchor.paragraphIndex && anchor.wordIndex === explicitStartAnchor.wordIndex
+          })
+        : -1
+      const startIndex = exactStartIndex >= 0 ? exactStartIndex : 0
+      const first = readingPagesRef.current[startIndex]
+      pageAnchorRef.current = explicitStartAnchor ?? pageAnchorOf(first)
+      if (explicitStartAnchor) placeRef.current = explicitStartAnchor
+      readingPageIndexRef.current = startIndex
+      setReadingPageIndex(startIndex)
       return
     }
     const reading = readingPagesRef.current
@@ -3170,7 +3178,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (listen.playing) void browseToChapter(next, 'start')
       else void goToChapter(next, 'start')
     }
-  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, markChapterFinished, desktopSpread, quietDesktopAfterTurn, chapterEndNeedsPage, chapterEndPage])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, explicitStartAnchor, goToChapter, goToPage, listen.playing, markChapterFinished, desktopSpread, quietDesktopAfterTurn, chapterEndNeedsPage, chapterEndPage])
 
   const goPrev = useCallback(() => {
     if (chapterEndPage) { setChapterEndPage(false); return }
@@ -4052,6 +4060,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                 }
               }}
               onToggleControls={() => setReaderControlsVisible(visible => !visible)}
+              onBefore={chapterCoverTitle === book.bookTitle && approvedPreface ? () => setPrefaceCoverBook(book.bookId) : undefined}
+              onStart={chapterCoverTitle === book.bookTitle ? () => goNext() : undefined}
+              continued={Boolean(readerHandoff?.savedPlace && !readerHandoff.startAtSavedPlace)}
             />
           ) : <LabPassage
             pendingLayout={chromeV2 && measuredPaging && (nativeMeasuredContent !== readerParagraphs || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
@@ -4606,9 +4617,19 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       {prefaceVisible && approvedPreface && <LabBookPreface
         key={approvedPreface.bookId}
         preface={approvedPreface} title={book.bookTitle} cover={`/covers/v2/${approvedPreface.bookId}.webp`}
-        continued={prefaceCoverBook === book.bookId || (readerHandoff ? Boolean(readerHandoff.savedPlace) : Boolean(boot.resume))}
-        reopened={prefaceCoverBook === book.bookId}
+        continued={readerHandoff ? Boolean(readerHandoff.savedPlace && !readerHandoff.startAtSavedPlace) : Boolean(boot.resume)}
         ready={!initialResolving && book.paragraphs.length > 0}
+        cast={book.cast}
+        onBack={() => setPrefaceCoverBook(null)}
+        onAsk={(question) => {
+          setPrefaceCoverBook(null)
+          setDraft(question)
+          handleChat()
+        }}
+        onTalk={() => {
+          setPrefaceCoverBook(null)
+          handleTalk()
+        }}
         onRead={() => {
           setPrefaceCoverBook(null)
           if (chapterCoverTitle === book.bookTitle) goNext()

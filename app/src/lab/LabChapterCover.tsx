@@ -10,6 +10,9 @@ interface LabChapterCoverProps {
   accent?: string
   onPageTurn: (direction: LabPageTurnDirection) => void
   onToggleControls: () => void
+  onBefore?: () => void
+  onStart?: () => void
+  continued?: boolean
 }
 
 export function labCoverTone(title: string): number {
@@ -18,7 +21,7 @@ export function labCoverTone(title: string): number {
   return hash % 5
 }
 
-export function LabChapterCover({ title, series, editionLabel, imageSrc, ground, accent, onPageTurn, onToggleControls }: LabChapterCoverProps) {
+export function LabChapterCover({ title, series, editionLabel, imageSrc, ground, accent, onPageTurn, onToggleControls, onBefore, onStart, continued = false }: LabChapterCoverProps) {
   const coverRef = useRef<HTMLElement>(null)
   const pointerRef = useRef<{ x: number; y: number; at: number } | null>(null)
 
@@ -76,6 +79,15 @@ export function LabChapterCover({ title, series, editionLabel, imageSrc, ground,
         <h2>{title}</h2>
         <span className="lab-chapter-cover-rule" aria-hidden="true" />
         <small>{editionLabel}</small>
+      </div>}
+      {onStart && <div className="lab-cover-entry" data-testid="lab-cover-entry"
+        onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()}>
+        {onBefore && <button type="button" onClick={onBefore}>
+          <strong>Before you begin</strong><span>A little context. Meet the characters. Ask or talk.</span>
+        </button>}
+        <button type="button" className="is-primary" onClick={onStart}>
+          <strong>{continued ? 'Continue reading' : 'Start reading'}</strong><span>{continued ? 'Return to your place.' : 'Straight to page one.'}</span>
+        </button>
       </div>}
     </article>
   )

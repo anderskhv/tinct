@@ -1,89 +1,67 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import type { BookPreface } from '../data/bookPrefaces'
+import type { LabCastMember } from './labSource'
 import './labBookPreface.css'
 
-/** A separate document view: it never receives or changes a reading location. */
-export function LabBookPreface({ preface, title, cover, continued, reopened, ready = true, onRead }: {
-  preface: BookPreface; title: string; cover: string; continued: boolean; reopened: boolean; ready?: boolean; onRead: () => void
+/** Optional preparation: it never receives or changes a reading location. */
+export function LabBookPreface({ preface, title, cover, continued, ready = true, cast = [], onRead, onBack = onRead, onAsk = () => {}, onTalk = () => {} }: {
+  preface: BookPreface
+  title: string
+  cover: string
+  continued: boolean
+  ready?: boolean
+  cast?: LabCastMember[]
+  onRead: () => void
+  reopened?: boolean
+  onBack?: () => void
+  onAsk?: (question: string) => void
+  onTalk?: () => void
 }) {
   const dialog = useRef<HTMLDialogElement>(null)
-  const scroller = useRef<HTMLDivElement>(null)
   const heading = useRef<HTMLHeadingElement>(null)
-  const coverHeading = useRef<HTMLSpanElement>(null)
-  const [view, setView] = useState<'cover' | 'preface'>('cover')
-  const viewRef = useRef(view)
-  viewRef.current = view
-  const onReadRef = useRef(onRead)
-  onReadRef.current = onRead
-  const historyId = useRef(`preface:${preface.bookId}:${Date.now()}`)
-  const depth = useRef(0)
-  const leaving = useRef(false)
-  const initialReopened = useRef(reopened)
-  const readingLabel = continued ? 'Continue reading' : 'Begin reading'
+  const [fullPreface, setFullPreface] = useState(false)
+  const [question, setQuestion] = useState('')
+  const readingLabel = continued ? 'Continue reading' : 'Start reading'
 
-  useEffect(() => {
-    // Reload always returns to the saved reader, never auto-opens the essay.
-    const push = () => history.pushState({ ...history.state, tinctPreface: historyId.current, view: 'cover' }, '')
-    if (initialReopened.current) {
-      if (depth.current === 0) { push(); depth.current = 1 }
-      else history.replaceState({ ...history.state, tinctPreface: historyId.current, view: 'cover' }, '')
-    }
-    const back = () => {
-      if (leaving.current) { onReadRef.current(); return }
-      if (history.state?.tinctPreface === historyId.current) {
-        depth.current = initialReopened.current ? 1 : 0
-        setView('cover')
-      } else if (initialReopened.current) { depth.current = 0; onReadRef.current() }
-      else { depth.current = 0; setView('cover') }
-    }
-    window.addEventListener('popstate', back)
-    return () => {
-      window.removeEventListener('popstate', back)
-      if (history.state?.tinctPreface === historyId.current) {
-        const { tinctPreface: _preface, view: _view, ...rest } = history.state
-        history.replaceState(rest, '')
-      }
-    }
-  }, [])
   useLayoutEffect(() => {
     const node = dialog.current
     const previous = document.activeElement as HTMLElement | null
     node?.showModal()
+    heading.current?.focus({ preventScroll: true })
     return () => { node?.close(); if (previous?.isConnected) previous.focus({ preventScroll: true }) }
   }, [])
-  useLayoutEffect(() => {
-    if (scroller.current) scroller.current.scrollTop = 0
-    if (view === 'preface') heading.current?.focus({ preventScroll: true })
-    else coverHeading.current?.focus({ preventScroll: true })
-  }, [view])
-  const backToCover = () => { if (view === 'preface') history.back() }
-  const read = () => {
-    if (!ready || leaving.current) return
-    leaving.current = true
-    if (depth.current) history.go(-depth.current)
-    else onReadRef.current()
-  }
-  return <dialog ref={dialog} className="lab-book-preface" data-testid="lab-book-preface" data-view={view}
-    aria-label={view === 'preface' ? `${title}: Before you begin` : `${title} cover`}
-    onCancel={event => { event.preventDefault(); if (view === 'preface') backToCover(); else read() }}>
-    <div className="lab-preface-scroll" ref={scroller}>
+
+  const openingCast = cast.slice(0, 4)
+  return <dialog ref={dialog} className="lab-book-preface" data-testid="lab-book-preface" data-view="preparation"
+    aria-label={`${title}: Before you begin`} onCancel={event => { event.preventDefault(); onBack() }}>
+    <div className="lab-preface-scroll">
       <header className="lab-preface-top">
-        {view === 'preface' ? <button type="button" onClick={backToCover}>← Back to cover</button> : <button type="button" disabled={!ready} onClick={read}>{continued ? '← Back to book' : 'Begin reading'}</button>}
-        <span ref={coverHeading} tabIndex={-1}>{title}</span>
+        <button type="button" onClick={onBack}>← Back to cover</button>
+        <span>{title}</span>
+        <button type="button" disabled={!ready} onClick={onRead}>{readingLabel}</button>
       </header>
-      {view === 'cover' ? <div className="lab-preface-cover-layout">
+      <div className="lab-preface-cover-layout lab-preface-preparation">
         <img src={cover} alt={`${title} cover`} width="540" height="810" className="lab-preface-cover-art" />
         <section className="lab-preface-preview" lang="en">
-          <h1>{title}</h1>
+          <h1 ref={heading} tabIndex={-1}>Before you begin</h1>
           <p>{preface.preview}</p>
-          <button type="button" className="lab-preface-primary" disabled={!ready} onClick={read}>{readingLabel}</button>
+          <button type="button" className="lab-preface-secondary" aria-expanded={fullPreface} onClick={() => setFullPreface(value => !value)}>
+            {fullPreface ? 'Close full preface' : 'Read full preface'}
+          </button>
+          {fullPreface && <div className="lab-preface-full">{preface.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div>}
+          {openingCast.length > 0 && <section className="lab-preface-cast">
+            <h2>Meet the characters</h2>
+            {openingCast.map(member => <article key={member.id}><strong>{member.name}</strong><p>{member.introduction}</p></article>)}
+          </section>}
+          <section className="lab-preface-ask">
+            <h2>Ask or talk about the book</h2>
+            <button type="button" className="lab-preface-suggestion" onClick={() => setQuestion('What should I notice at the beginning?')}>What should I notice at the beginning?</button>
+            <textarea value={question} onChange={event => setQuestion(event.target.value)} placeholder="What would you like to know before you begin?" rows={2} />
+            <div><button type="button" disabled={!question.trim()} onClick={() => onAsk(question.trim())}>Ask</button><button type="button" onClick={onTalk}>Talk</button></div>
+          </section>
+          <button type="button" className="lab-preface-primary" disabled={!ready} onClick={onRead}>{readingLabel}</button>
         </section>
-      </div> : <article className="lab-preface-article" lang="en">
-        <h1 ref={heading} tabIndex={-1}>Before you begin</h1>
-        <p className="lab-preface-byline">{title} · A preface by Tinct <span>English</span></p>
-        {preface.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
-        <button type="button" className="lab-preface-primary" disabled={!ready} onClick={read}>{readingLabel}</button>
-      </article>}
+      </div>
     </div>
   </dialog>
 }
