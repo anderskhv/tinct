@@ -42,8 +42,21 @@ Interpretation rules:
 
 ## Hard Rules
 
+- Approved work continues through diagnosis, implementation, deployment, actual
+  acceptance, correction of failures, and retest. Resume unfinished acceptance
+  after interruptions and continue an approved reader queue without per-stage
+  root or user handoffs. Routine environment repair and agent-created checkpoints
+  are not user blockers. Stop only when the work is complete, an explicit budget
+  or material token/spend limit is reached, or a genuine user decision or access
+  dependency is required. Preserve scope, safety, pacing, and one serialized
+  deployment owner. When a genuine blocker exists, every report to Anders includes
+  a concise `Needs your decision` line with the concrete choice and recommendation;
+  do not invent blockers or re-ask for already approved work.
 - Until Tinct has more than 10 users, deploy-after-verify is the default. After `npm run build` and `npm run verify-bundle` pass, deploy with `npm run deploy` from `app/` using the Node 24 nvm path. Do not ask first. Skip deploy only if Anders says local-only. Never run raw `wrangler deploy`. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle.
 - Do not call Anthropic APIs during development. The production reader chat may use Claude, but development content generation must happen in the agent conversation and be written to files.
+- While Anders assigns content work to Claude, Codex owns code and technical
+  pipelines only. Codex does not author or semantically approve translations,
+  character copy, narration, or other book content.
 - Do not run `generate-editions.cjs` for development work.
 - Keep app, content, and audio work separated as described in `docs/workflow-boundaries.md`.
 - Preserve user changes. Never revert, reset, or clean unrelated files unless Anders explicitly asks.
@@ -124,6 +137,13 @@ For non-trivial bugs:
 ## Product And UX Notes
 
 - Tinct should feel warm, literary, clean, and focused.
+- Anders prefers faithful previews of the actual result. Before presenting a
+  faithful design preview, inspect the current phone and desktop components,
+  styles and relevant state; preserve their surrounding copy, controls and
+  layout unless the approved change says otherwise. Match the target viewport
+  and theme, label placeholder or estimated data, and state intentional
+  differences and verification limits. If the current UI cannot be inspected,
+  label the work clearly as a rough concept sketch rather than implying fidelity.
 - Reading position is sacred. View, edition, language, font, and layout changes must not lose the reader's place.
 - The library taxonomy is Houses -> Shelves -> Books. Every production book must be classified into this taxonomy when it is added or registered.
 - Default reader is a single edition. Split/Compare is opt-in and should sync roughly by paragraph/sentence within the same chapter.

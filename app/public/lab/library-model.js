@@ -521,6 +521,27 @@ export function readingTimeLine(wordCount, readerWpm = null) {
   }
 }
 
+/**
+ * Compact catalogue length from the catalogue's one coherent book word count.
+ * The page figure uses the established 275-words-per-page estimate and the
+ * time uses the same 250-wpm reading basis as the book detail. It is omitted
+ * when the catalogue has no word count rather than substituting reader pages
+ * or another edition's audio duration.
+ */
+export function catalogueLengthLine(wordCount) {
+  const minutes = readingMinutes(wordCount)
+  if (minutes === null) return null
+  const pages = Math.max(1, Math.round(wordCount / 275))
+  const hours = Math.max(1, Math.round(minutes / 60))
+  const hourLabel = `${hours} ${hours === 1 ? 'hour' : 'hours'}`
+  return {
+    value: `${pages} pages ≈ ${hourLabel}`,
+    ariaLabel: `Estimated ${pages} pages, approximately ${hourLabel} of reading at ${DEFAULT_WORDS_PER_MINUTE} words a minute`,
+    pages,
+    hours,
+  }
+}
+
 // --------------------------------------------------------- centred shelf
 
 /**

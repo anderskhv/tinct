@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   REVEAL_SESSION_KEY,
   bookDescription,
+  catalogueLengthLine,
   libraryViewFromLocation,
   claimReveal,
   columnise,
@@ -209,6 +210,18 @@ describe('locked library model', () => {
     expect(readingTimeLine(120_000)).toEqual({ value: '8 hr', wordsPerMinute: 250, measured: false, note: 'at 250 words a minute' })
     expect(readingTimeLine(120_000, 400)).toEqual({ value: '5 hr', wordsPerMinute: 400, measured: true, note: 'at your 400 words a minute' })
     expect(readingTimeLine(null)).toBeNull()
+  })
+
+  it('uses the catalogue word count for one estimated pages and reading-hours line', () => {
+    expect(catalogueLengthLine(88_000)).toEqual({
+      value: '320 pages ≈ 6 hours',
+      ariaLabel: 'Estimated 320 pages, approximately 6 hours of reading at 250 words a minute',
+      pages: 320,
+      hours: 6,
+    })
+    expect(catalogueLengthLine(10_000)?.value).toBe('36 pages ≈ 1 hour')
+    expect(catalogueLengthLine(null)).toBeNull()
+    expect(catalogueLengthLine(0)).toBeNull()
   })
 
   it('reads a words-per-minute out of the reader speed records, ignoring thin or absurd ones', () => {

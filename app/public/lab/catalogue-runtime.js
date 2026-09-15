@@ -12,6 +12,7 @@ import {
   LIBRARY_SHELF_SESSION_KEY,
   READING_MEMORY_DEVICE_KEY,
   bookDescription,
+  catalogueLengthLine,
   claimReveal,
   filterIndexBooks,
   indexHouses,
@@ -37,7 +38,7 @@ import {
   writeReaderOrigin,
   shelfScrollLeft,
   showPopularShelf,
-} from './library-model.js?v=20260912-withheld-1'
+} from './library-model.js?v=20260915-reading-length-1'
 
 {
   const root = document.querySelector('#tinct-onboarding-worlds-v5')
@@ -708,8 +709,14 @@ import {
     })
   }
 
-  /** A cover cell: art when the book has it, else the typographic placeholder; title and author underneath. */
-  const bookCell = book => `<button type="button" class="lib-cell" data-catalogue-book="${escapeHtml(book.id)}">${coverImage(book)}<span class="lib-cover-copy"><span class="lib-cell-t">${escapeHtml(book.title)}</span><span class="lib-cell-a">${escapeHtml(book.author)}</span></span></button>`
+  /** A cover cell: art when the book has it, then one honest length line, title and author. */
+  const bookCell = book => {
+    const length = catalogueLengthLine(book.wordCount)
+    const lengthMarkup = length
+      ? `<span class="lib-length" aria-label="${escapeHtml(length.ariaLabel)}">${escapeHtml(length.value)}</span>`
+      : ''
+    return `<button type="button" class="lib-cell" data-catalogue-book="${escapeHtml(book.id)}">${coverImage(book)}<span class="lib-cover-copy">${lengthMarkup}<span class="lib-cell-t">${escapeHtml(book.title)}</span><span class="lib-cell-a">${escapeHtml(book.author)}</span></span></button>`
+  }
   const bookCells = (books, attr = '') => `<div class="lib-cells"${attr ? ` ${attr}` : ''}>${books.map(bookCell).join('')}</div>`
 
   function renderIndex() {
