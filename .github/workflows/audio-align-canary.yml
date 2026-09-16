@@ -58,7 +58,7 @@ jobs:
             --batch artifacts/audio-highlight-cloud-resume-2026-09-16/canary-democracy-ch19.json \
             --commit "${GITHUB_SHA}" \
             --artifacts "$ARTIFACT_DIR" \
-            --cloud SECURE \
+            --cloud COMMUNITY \
             --helper v4 \
             --arms "off auto" \
             --max-seconds 1800 \
