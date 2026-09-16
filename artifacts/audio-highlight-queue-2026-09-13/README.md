@@ -85,3 +85,25 @@ Both files are the `[{bookId, edition, chapter}, ...]` shape `cloud_cohort.py
 only in the scratchpad because the session container has been reclaimed
 mid-batch before, most recently for the 43 hours between 2026-09-14 02:41 and
 2026-09-15 22:00.
+
+## Batch F drops (2026-09-16) — two repair classes, not one
+
+Cohort F asked for 45 chapters and built 39. The six drops are in
+`batch-f-dropped.json` and split into two different problems:
+
+**Census/registry mismatch (3).** `measure-for-measure` ch30,
+`merry-wives-of-windsor` ch25 and ch28 — "edition has no such chapter". The
+2026-09-11 census counts chapters that the edition JSON does not contain, so
+any queue built from the census alone will keep asking for chapters that cannot
+exist. This inflates the "untimed chapters" totals; the 374 Priority-1 verse
+figure is an upper bound, not a work list.
+
+**Incomplete recordings (3).** `measure-for-measure` ch12 (paragraphs 25-32),
+ch15 (1-5), `merry-wives-of-windsor` ch23 (53-60) — the manifest omits spoken
+paragraphs. These belong with the existing broken-media repair queue in
+`blocked-missing-recordings.json`: alignment cannot fix them and neither can
+the markup fix. Note the omissions are contiguous runs at a chapter boundary,
+which suggests a truncated generation run rather than scattered bad files.
+
+Neither class is a gate failure. Keeping them separate matters because the
+first is a bookkeeping error on our side and the second is missing audio.
