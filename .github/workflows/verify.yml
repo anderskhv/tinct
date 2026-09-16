@@ -32,3 +32,18 @@ jobs:
         env:
           CI: true
       - run: npm run verify-bundle
+
+  reading-benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+      - name: Test offline reading benchmark
+        run: node --test benchmarks/reading-companion/benchmark.test.mjs
+      - name: Verify frozen source excerpts
+        run: node benchmarks/reading-companion/benchmark.mjs validate benchmarks/reading-companion/cases.json .
+      - name: Prepare calibration requests without inference
+        run: node benchmarks/reading-companion/benchmark.mjs prepare benchmarks/reading-companion/cases.json benchmarks/reading-companion/candidates.json /tmp/tinct-benchmark-ci calibration
