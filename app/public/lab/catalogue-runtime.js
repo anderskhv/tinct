@@ -117,8 +117,8 @@ import {
 
   function defaultEdition(book) {
     const editions = selectableEditions(book).filter(edition => edition.availability.chapterText)
-    return editions.find(edition => edition.style === 'original' && edition.language === 'en')
-      || editions.find(edition => edition.style === 'modern' && edition.language === 'en')
+    return editions.find(edition => edition.style === 'modern' && edition.language === 'en')
+      || editions.find(edition => edition.style === 'original' && edition.language === 'en')
       || editions[0]
   }
 
@@ -185,6 +185,11 @@ import {
   }
   function updateShelfArrows() {
     const shelf=root.querySelector('[data-popular-shelf]')
+    if (state.libraryMode === 'new' && state.shelfBooks.length) {
+      root.querySelector('[data-shelf-scroll="-1"]').disabled = state.shelfIndex === 0
+      root.querySelector('[data-shelf-scroll="1"]').disabled = state.shelfIndex === state.shelfBooks.length - 1
+      return
+    }
     if (!centreSnap.matches && isLibraryCurrent()) writeSession('tinct:entry-shelf-left',String(shelf.scrollLeft))
     root.querySelector('[data-shelf-scroll="-1"]').disabled=shelf.scrollLeft<2
     root.querySelector('[data-shelf-scroll="1"]').disabled=shelf.scrollLeft+shelf.clientWidth>=shelf.scrollWidth-2
@@ -558,8 +563,80 @@ import {
       return
     }
     const book = state.shelfBooks[state.shelfIndex]
+    const length = catalogueLengthLine(book.wordCount)
+    const atmosphere = root.querySelector('[data-lib-atmos]')
+    if (atmosphere) {
+      atmosphere.style.setProperty('--lib-cover-art', book.art?.src ? `url("${book.art.src.replace(/["\\]/g, '')}")` : 'none')
+      atmosphere.style.setProperty('--lib-accent', book.cover?.accent || '#c9a45c')
+    }
     renderFeatured()
-    caption.innerHTML = `<h2 class="lib-h1" data-popular-title>${escapeHtml(book.title)}</h2><p class="lib-lede" data-popular-blurb>${escapeHtml(bookDescription(book))}</p>`
+    caption.innerHTML = `<span class="lib-author">${escapeHtml(book.author)}</span><h2 class="lib-h1" data-popular-title>${escapeHtml(book.title)}</h2><p class="lib-lede" data-popular-blurb>${escapeHtml(bookDescription(book))}</p>${length ? `<span class="lib-readtime" aria-label="Estimated reading time ${escapeHtml(length.hours)} hours"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>About ${escapeHtml(length.hours)} ${length.hours === 1 ? 'hour' : 'hours'} to read</span>` : ''}`
+  }
+
+  function renderFirstCategory() {
+    const host = root.querySelector('[data-first-category]')
+    if (!host || !state.catalogue || state.libraryMode !== 'new') { if (host) host.innerHTML = ''; return }
+    const first = indexHouses(state.catalogue)[0]
+    if (!first) { host.innerHTML = ''; return }
+    const source = state.catalogue.houses?.find(house => house.id === first.id)
+    host.innerHTML = `<h2>${escapeHtml(first.title)}</h2><p>${escapeHtml(source?.subtitle || '')}</p><div class="lib-first-category-covers">${first.books.slice(0, 8).map(book => `<button type="button" data-catalogue-book="${escapeHtml(book.id)}" aria-label="Open ${escapeHtml(book.title)}">${coverImage(book)}</button>`).join('')}</div>`
+  }
+
+  let reelPosition = 0
+  let reelDrag = null
+  let reelClickBlockedUntil = 0
+
+  function paintReel(position = reelPosition) {
+    const shelf = root.querySelector('[data-popular-shelf]')
+    if (!shelf) return
+    const step = window.innerWidth < 600 ? 177 : 205
+    shelf.querySelectorAll('[data-shelf-index]').forEach(item => {
+      const distance = Number(item.dataset.shelfIndex) - position
+      const amount = Math.abs(distance)
+      const scale = 1 - Math.min(amount, 3) * .075
+      const lift = Math.min(amount, 3) * 13
+      const angle = Math.max(-1.6, Math.min(1.6, distance)) * -16
+      item.style.transform = `translateX(calc(-50% + ${distance * step}px)) translateY(${lift}px) rotateY(${angle}deg) scale(${scale})`
+      item.style.opacity = String(Math.max(.24, 1 - amount * .2))
+      item.style.zIndex = String(10 - Math.round(amount))
+    })
+  }
+
+  function bindReel(shelf) {
+    shelf.onpointerdown = event => {
+      if (event.button !== 0) return
+      reelDrag = { pointerId: event.pointerId, x: event.clientX, y: event.clientY, initial: reelPosition, moved: 0 }
+      shelf.setPointerCapture(event.pointerId)
+      shelf.classList.add('is-dragging')
+    }
+    shelf.onpointermove = event => {
+      if (!reelDrag || reelDrag.pointerId !== event.pointerId) return
+      const dx = event.clientX - reelDrag.x
+      const dy = event.clientY - reelDrag.y
+      if (Math.abs(dy) > Math.abs(dx) + 12 && reelDrag.moved < 5) {
+        shelf.releasePointerCapture(event.pointerId)
+        reelDrag = null
+        shelf.classList.remove('is-dragging')
+        paintReel(state.shelfIndex)
+        return
+      }
+      reelDrag.moved = Math.max(reelDrag.moved, Math.abs(dx))
+      const step = window.innerWidth < 600 ? 177 : 205
+      const raw = reelDrag.initial - dx / step
+      reelPosition = raw < 0 ? raw * .22 : raw > state.shelfBooks.length - 1 ? state.shelfBooks.length - 1 + (raw - state.shelfBooks.length + 1) * .22 : raw
+      paintReel()
+    }
+    const finish = event => {
+      if (!reelDrag || reelDrag.pointerId !== event.pointerId) return
+      const moved = reelDrag.moved
+      reelDrag = null
+      shelf.classList.remove('is-dragging')
+      if (shelf.hasPointerCapture(event.pointerId)) shelf.releasePointerCapture(event.pointerId)
+      if (moved > 6) reelClickBlockedUntil = Date.now() + 350
+      setShelfIndex(Math.round(reelPosition))
+    }
+    shelf.onpointerup = finish
+    shelf.onpointercancel = finish
   }
 
   /**
@@ -579,9 +656,11 @@ import {
       item.setAttribute('aria-current', String(selected))
       if (selected) {
         if (focus) item.focus({ preventScroll: true })
-        if (scroll && (centreSnap.matches || focus)) centreShelfItem(shelf, item)
       }
     })
+    reelPosition = next
+    paintReel()
+    updateShelfArrows()
     if (changed || !root.querySelector('[data-popular-title]')) renderCaption()
   }
 
@@ -683,7 +762,7 @@ import {
     const section = root.querySelector('[data-library-popular]')
     library().dataset.libraryMode = state.libraryMode
     shelfSize = popularShelfSize(window.innerWidth)
-    state.shelfBooks = showPopularShelf(state.libraryMode) ? (centreSnap.matches ? popularBooks(state.catalogue, shelfSize) : fullShelf(state.catalogue)) : []
+    state.shelfBooks = showPopularShelf(state.libraryMode) ? popularBooks(state.catalogue, shelfSize) : []
     state.shelfIndex = moveSelection(state.shelfIndex, 0, state.shelfBooks.length)
     section.hidden = state.shelfBooks.length === 0
     if (section.hidden) {
@@ -702,15 +781,10 @@ import {
       last?.addEventListener('animationend', () => shelf.classList.remove('is-revealing'), { once: true })
     }
     renderCaption()
-    observeShelfCentre(shelf)
-    shelf.addEventListener('scroll', updateShelfArrows, {passive:true})
-    requestAnimationFrame(updateShelfArrows)
-    // Put the focused cover in the middle once the row has a width.
-    requestAnimationFrame(() => {
-      if (!centreSnap.matches) {shelf.scrollLeft=Number(readSession('tinct:entry-shelf-left'))||0;updateShelfArrows();return}
-      const item = shelf.querySelector(`[data-shelf-index="${state.shelfIndex}"]`)
-      if (item) centreShelfItem(shelf, item)
-    })
+    reelPosition = state.shelfIndex
+    bindReel(shelf)
+    requestAnimationFrame(() => paintReel())
+    renderFirstCategory()
   }
 
   /** A cover cell: art when the book has it, then one honest length line, title and author. */
@@ -808,6 +882,7 @@ import {
     arrangeSearch()
     root.querySelector('[data-library-search]').placeholder = searchPlaceholder(state.catalogue)
     renderPopular()
+    renderFirstCategory()
     renderIndex()
   }
 
@@ -830,7 +905,13 @@ import {
       if (requestedEdition) state.selectedEditionKey = requestedEdition.key
     }
     const resumeCompare = v1Editions(book).find(edition => edition.key === state.pendingResume?.compareEditionKey && edition.availability.compare)
-    if (changingBook) { state.compareEditionKey = resumeCompare?.key || null; state.previewCompareKey = null; state.sampleExpanded = false }
+    if (changingBook) {
+      const humanEditions = v1Editions(book).filter(edition => edition.key !== state.selectedEditionKey && edition.group === 'human' && edition.language === 'en' && edition.availability.compare)
+      const defaultHuman = humanEditions.find(edition => edition.key === 'web-en') || humanEditions.find(edition => edition.key === 'original-en') || humanEditions[0]
+      state.compareEditionKey = resumeCompare?.key || (!state.pendingResume && !state.explicitStart ? defaultHuman?.key : null) || null
+      state.previewCompareKey = null
+      state.sampleExpanded = false
+    }
     if (state.explicitStart && explicitSetup?.compareEditionKey) state.compareEditionKey = explicitSetup.compareEditionKey
     applyWorld(book)
     renderDetail(book)
@@ -1229,7 +1310,7 @@ import {
   root.addEventListener('click', async event => {
     const target = event.target instanceof Element ? event.target : null
     const scrollButton = target?.closest('[data-shelf-scroll]')
-    if (scrollButton) { const shelf = root.querySelector('[data-popular-shelf]'); shelf.scrollBy({left:Number(scrollButton.dataset.shelfScroll)*shelf.clientWidth*.75,behavior:reducedMotion()?'auto':'smooth'}); return }
+    if (scrollButton) { setShelfIndex(state.shelfIndex + Number(scrollButton.dataset.shelfScroll), true); return }
     if (target?.closest('[data-search-drawer]')) { revealSearch(); return }
     if (target?.closest('[data-search-toggle]')) { toggleSearch(); return }
     if (target?.closest('[data-open-full-library]')) { navigateView('library-index'); window.scrollTo(0,0); return }
@@ -1267,11 +1348,12 @@ import {
     const shelfBook = event.target.closest('[data-shelf-book]')
     if (shelfBook) {
       event.preventDefault(); event.stopImmediatePropagation()
+      if (Date.now() < reelClickBlockedUntil) return
       const index = Number(shelfBook.dataset.shelfIndex)
       // A tap on a cover that sits back brings it to the middle; a tap on the
       // cover in the middle opens its book page — the same page every other
       // route into a book opens. No cover jumps straight into the reader.
-      if (!centreSnap.matches || (state.libraryMode === 'new' && Number.isInteger(index) && index !== state.shelfIndex)) {
+      if (state.libraryMode === 'new' && Number.isInteger(index) && index !== state.shelfIndex) {
         setShelfIndex(index)
         return
       }

@@ -4,7 +4,8 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
 import { LabApp } from './LabApp'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
-import { LAB_ACCESSIBILITY_FONTS, LAB_PREFS_KEY, LAB_READING_FONTS, readLabPrefs } from './labPrefs'
+import { THE_HISTORIES } from '../data/bookRegistry'
+import { DEFAULT_LAB_PREFS, writeLabPrefs, LAB_ACCESSIBILITY_FONTS, LAB_PREFS_KEY, LAB_READING_FONTS, readLabPrefs } from './labPrefs'
 import {
   LAB_V2_SHEET_HEIGHT_PX,
   LAB_V2_THEMES,
@@ -191,4 +192,19 @@ describe('account', () => {
     const link = screen.getByTestId('lab-v2-account-sign-in')
     expect(link.classList.contains('lab-v2-row')).toBe(true)
   })
+})
+
+it('makes audiobook following an explicit setting in the current reader menu', () => {
+  openSheet()
+  const select = screen.getByTestId('lab-v2-audio-edition') as HTMLSelectElement
+  expect(select.value).toBe('')
+  expect(select.textContent).toContain('Follow primary edition')
+})
+
+it('restores a non-Bible audiobook before opening reader settings', () => {
+  writeLabPrefs({ ...DEFAULT_LAB_PREFS, primaryEdition: 'modern-en', audioEdition: 'original-en', audioFollowsPrimary: false }, 'phone')
+  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'the-histories', bookTitle: 'The Histories', editions: THE_HISTORIES.editions }} authToken={null} />)
+  openReading()
+  expect((screen.getByTestId('lab-v2-audio-edition') as HTMLSelectElement).value).toBe('original-en')
+  expect((screen.getByTestId('lab-v2-main-edition') as HTMLSelectElement).value).toBe('modern-en')
 })

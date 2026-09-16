@@ -1,6 +1,6 @@
 # Library glass reel and librarian
 
-Status: implementation approved by Anders on September 16, 2026; implementation and release pending.
+Status: implementation complete and locally verified on September 16, 2026; production release evidence pending.
 
 ## Approved visual reference
 
@@ -33,4 +33,10 @@ Release through GitHub Actions using the approved npm run deploy path after gate
 
 ## Current checkpoint
 
-The exact pre-Explore mobile and desktop references have been copied to the remote implementation branch. No production code has changed and no deployment has occurred. This existing desktop task has no direct cloud shell; explicit creation of a cloud continuation or authorization of the existing Developer fallback was requested because task creation requires an explicit user instruction. Next action: start the authorized execution route with this brief and both references, implement, verify and release.
+The exact pre-Explore mobile and desktop references remain on the implementation branch. The branch was reconciled with `main` before implementation. The production library now has the shallow cover reel, cover-derived light, current summaries, one reading-time estimate, the first real Philosophy category, the full catalogue, and one shared Search / Talk / Chat glass dock.
+
+The secondary `labLibraryAssistant` Vite entry owns the three dock modes without replacing the static library boot. Search covers all eligible catalogue metadata. Typed and voice librarian sessions use the existing authenticated/guest policy and transports, keep their state in memory, reject ineligible recommendation ids, and never read or write book chat history or reading-position state. Talk uses the current GPT Live controller and call UI, starts only from the Talk gesture, and keeps mute, end, reconnect and error behavior. No schema, dependency, pricing, edition default, Before you begin flow, or book content changed.
+
+Focused regressions cover catalogue eligibility/search, actionable recommendation ids, the library-only prompt boundary, sign-out cancellation and stale responses, preserved search drafts, explicit voice start/end cleanup, the library-specific voice caption, approved markup, and returning-reader boot/resume. After reconciling the concurrent book-preparation work, the full suite passes: 186 files and 2,354 tests on Node 24.13.0. The first full run exposed an existing network-dependent issue-status test; its failure path now stubs the failed Supabase request deterministically. Build and final bundle/doc checks are recorded with the release evidence below.
+
+Automated local Chromium screenshots remain unavailable in this cloud runner because the Playwright browser download endpoint returned 502/timeouts. This does not relax the production acceptance requirement: responsive screenshots and interaction checks will be made against the deployed site through the connected browser, headless and without granting microphone access. Provider transport is mocked in development; no Anthropic request or physical/audible voice acceptance is part of these checks.

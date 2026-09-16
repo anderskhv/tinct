@@ -106,3 +106,10 @@ describe('Lab reader handoff', () => {
   })
 
 })
+
+it('retains an explicit audiobook when returning to a saved book without a new audio choice', () => {
+  const handoff = consumeLabReaderHandoff(storageWith({ kind: 'open-reader', bookId: 'the-histories', primaryEditionKey: 'modern-en', savedPlace: { bookId: 'the-histories', chapterNumber: 2, paragraphIndex: 1 } }))
+  const prefs = prefsFromLabReaderHandoff({ ...DEFAULT_LAB_PREFS, audioEdition: 'original-en', audioFollowsPrimary: false }, handoff)
+  expect(prefs).toMatchObject({ primaryEdition: 'modern-en', audioEdition: 'original-en', audioFollowsPrimary: false })
+  expect(handoff?.savedPlace).toMatchObject({ chapterNumber: 2, paragraphIndex: 1 })
+})

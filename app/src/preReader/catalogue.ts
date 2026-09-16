@@ -452,8 +452,8 @@ export function getBookDetailViewModel(
 }
 
 function defaultEdition(book: PreReaderBookViewModel): PreReaderEditionViewModel | undefined {
-  return book.editions.find(edition => edition.style === 'original' && edition.language === 'en')
-    || book.editions.find(edition => edition.style === 'modern' && edition.language === 'en')
+  return book.editions.find(edition => edition.style === 'modern' && edition.language === 'en')
+    || book.editions.find(edition => edition.style === 'original' && edition.language === 'en')
     || book.editions[0]
 }
 

@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { handleFixesCount, handleReportStatus } from './worker/routes/issueStatus'
 
 const configuredEnv = {
@@ -7,6 +7,7 @@ const configuredEnv = {
 }
 
 describe('issue status routes', () => {
+  afterEach(() => vi.unstubAllGlobals())
   it('returns unknown report status when Supabase is not configured', async () => {
     const response = await handleReportStatus(
       new Request('https://tinct.app/api/report-status?id=018f1fdb-3e20-7fe3-9e73-fb2b2af4c001'),
@@ -39,6 +40,7 @@ describe('issue status routes', () => {
   })
 
   it('returns zero fixes when the count query fails', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('Supabase unavailable') }))
     const response = await handleFixesCount(
       new Request('https://tinct.app/api/fixes-count'),
       configuredEnv,

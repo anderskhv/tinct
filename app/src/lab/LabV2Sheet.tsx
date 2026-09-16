@@ -1,4 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react'
+import { matchingAudioEditions } from '../utils/audioEditionSelection'
 import type { Edition } from '../types'
 import { useAuth } from '../hooks/useAuth'
 import { useBalance } from '../hooks/useBalance'
@@ -37,6 +38,7 @@ export interface LabV2SheetProps {
   prefs: LabPrefs
   onPrefs: (prefs: LabPrefs) => void
   editions: Edition[]
+  audioEditions?: Edition[]
   /** Current reader path; the sign-in page returns here. */
   returnTo?: string
 }
@@ -161,7 +163,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, returnTo }: LabV2SheetProps) {
+export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), returnTo }: LabV2SheetProps) {
   const auth = useAuth()
   const balance = useBalance(auth.session, auth.profile, auth.user, {
     authLoading: auth.isLoading,
@@ -267,6 +269,13 @@ export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, 
                   value={prefs.compareOpen ? prefs.compareEdition : ''}
                   options={[{ value: '', label: 'None' }, ...editionOptions.filter(option => option.value !== prefs.primaryEdition)]}
                   onChange={value => onPrefs({ ...prefs, compareEdition: value || prefs.compareEdition, compareOpen: value !== '' })}
+                />
+                <SelectRow
+                  label="Audiobook"
+                  testId="lab-v2-audio-edition"
+                  value={prefs.audioFollowsPrimary === false ? prefs.audioEdition : ''}
+                  options={[{ value: '', label: 'Follow primary edition' }, ...audioEditions.map(edition => ({ value: edition.key, label: edition.label }))]}
+                  onChange={value => onPrefs({ ...prefs, audioEdition: value || prefs.primaryEdition, audioFollowsPrimary: value === '' })}
                 />
               </div>
               <div className="lab-v2-foot">
