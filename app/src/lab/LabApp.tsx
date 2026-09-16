@@ -4632,7 +4632,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       />
 
       {prefaceCoverBook === book.bookId && approvedPreface && <LabBookPreface
-        open={prefaceVisible}
+        open={prefaceVisible && accountPrompt === null}
         key={approvedPreface.bookId}
         preface={approvedPreface} title={book.bookTitle} cover={`/covers/v2/${approvedPreface.bookId}.webp`}
         continued={readerHandoff ? Boolean(readerHandoff.savedPlace && !readerHandoff.startAtSavedPlace) : Boolean(boot.resume)}
