@@ -89,7 +89,7 @@ it.each(['?chrome=v2', '?chrome=v2&voiceTrial=full'])('persists research sources
     : new Response('{}', { status: 404 })))
   render(<LabApp pathname="/lab/phone" search={search} source={fallbackLabSource()} authToken="test-token" />)
   act(() => captured.options?.appendLocalMessage({ id: 'question', role: 'user', content: 'Has Keller commented?', timestamp: Date.now(), bookId: 'bible', source: 'voice' }))
-  await act(async () => { await captured.options?.onApplicationTool?.('search_reading_sources', { query: 'Tim Keller Genesis 1' }, 'research') })
+  await act(async () => { const result = await captured.options?.onApplicationTool?.('search_reading_sources', { query: 'Tim Keller Genesis 1' }, 'research'); expect(result?.responseInstructions).toContain("I've added the source links in chat.") })
   const answer = { id: 'answer', role: 'assistant' as const, content: 'Keller discusses creation.', timestamp: Date.now(), bookId: 'bible', source: 'voice' as const }
   act(() => { captured.options?.appendLocalMessage(answer); captured.options?.recordMessage(answer, 1, 0) })
   fireEvent.click(screen.getByTestId('lab-super'))

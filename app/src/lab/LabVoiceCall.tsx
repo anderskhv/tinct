@@ -36,6 +36,8 @@ interface LabVoiceCallProps {
   bookLine?: string
   /** The newest thing the assistant said, for the caption while she speaks. */
   utterance?: string | null
+  /** Context-specific listening prompt. The reader surface keeps its page prompt by default. */
+  idleCaption?: string
   onMuteToggle: () => void
   onEnd: () => void
   onReconnect: () => void
@@ -88,6 +90,7 @@ export function LabVoiceCall({
   preparationWelcome,
   bookLine,
   utterance = null,
+  idleCaption,
   onMuteToggle,
   onEnd,
   onReconnect,
@@ -100,7 +103,12 @@ export function LabVoiceCall({
   }, [view])
 
   const motion = reducedMotion ? 'still' : view.motion
-  const caption = preparationWelcome && (view.status === 'live' || view.status === 'listening' || view.status === 'connecting') ? preparationWelcome : labCallCaption(view, utterance)
+  const defaultCaption = labCallCaption(view, utterance)
+  const caption = preparationWelcome && !utterance && (view.status === 'live' || view.status === 'listening' || view.status === 'connecting')
+    ? preparationWelcome
+    : idleCaption && !utterance && (view.status === 'listening' || view.status === 'live')
+      ? idleCaption
+      : defaultCaption
   return (
     <div
       className={`lab-call is-${view.status}`}

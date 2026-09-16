@@ -41,6 +41,15 @@ describe('the call surface', () => {
     expect(circle().getAttribute('data-broken')).toBe('false')
   })
 
+  it('accepts a library-specific listening prompt without changing the reader default', () => {
+    const { unmount } = renderCall({}, { idleCaption: 'Tell me what you feel like reading.' })
+    expect(screen.getByText('Tell me what you feel like reading.')).toBeTruthy()
+    expect(screen.queryByText('Ask about this page.')).toBeNull()
+    unmount()
+    renderCall()
+    expect(screen.getByText('Ask about this page.')).toBeTruthy()
+  })
+
   it('turns a broken ring and says Thinking', () => {
     renderCall({ activity: 'thinking' })
     expect(screen.getByTestId('lab-call-status').textContent).toBe('Thinking.')
