@@ -38,3 +38,16 @@ describe('LabSettingsSheet', () => {
     expect(screen.getByTestId('lab-account-sign-in').getAttribute('href')).toBe('/lab/sign-in?returnTo=%2Flab%2Fdesktop%3Fvoice%3Dv2')
   })
 })
+
+it('always offers audiobook following or an explicit recording in settings', () => {
+  const onPrefs = vi.fn()
+  const editions = [{ key: 'modern-en', language: 'en' as const, style: 'modern' as const, label: 'Modern', aligned: true, hasAudio: true }, { key: 'original-en', language: 'en' as const, style: 'original' as const, label: 'Human', aligned: true, hasAudio: true }]
+  render(<LabSettingsSheet open section="reading" onSection={() => {}} onClose={() => {}} prefs={{ ...DEFAULT_LAB_PREFS, primaryEdition: 'modern-en', audioEdition: 'modern-en' }} onPrefs={onPrefs} editions={editions} audioEditions={editions} />)
+  fireEvent.click(screen.getByTestId('lab-settings-reading'))
+  const select = screen.getByLabelText('Audiobook') as HTMLSelectElement
+  expect(select.value).toBe('')
+  fireEvent.change(select, { target: { value: 'original-en' } })
+  expect(onPrefs).toHaveBeenLastCalledWith(expect.objectContaining({ audioEdition: 'original-en', audioFollowsPrimary: false }))
+  fireEvent.change(select, { target: { value: '' } })
+  expect(onPrefs).toHaveBeenLastCalledWith(expect.objectContaining({ audioEdition: 'modern-en', audioFollowsPrimary: true }))
+})

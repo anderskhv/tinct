@@ -174,3 +174,8 @@ describe('pre-reader catalogue layer', () => {
     expect(source).not.toContain('useReadingPosition')
   })
 })
+
+it('defaults a fresh introduction to modern English while retaining explicit edition choices', () => {
+  expect(getEditionSelectionViewModel('the-histories')?.selectedEditionKey).toBe('modern-en')
+  expect(getEditionSelectionViewModel('the-histories', 'original-en')?.selectedEditionKey).toBe('original-en')
+})

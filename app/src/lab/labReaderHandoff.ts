@@ -60,7 +60,9 @@ export function prefsFromLabReaderHandoff(current: LabPrefs, handoff: ReaderHand
   const book = getBook(handoff.bookId)
   if (!book) return current
   const primary = book.editions.find(edition => edition.key === handoff.primaryEditionKey)!
+  const savedOverride = handoff.savedPlace && current.audioFollowsPrimary === false ? current.audioEdition : undefined
   const audio = handoff.audioEditionKey
+    || savedOverride
     || (primary.hasAudio ? primary.key : book.editions.find(edition => edition.hasAudio)?.key)
     || primary.key
   const compare = handoff.compareEditionKey
@@ -71,6 +73,7 @@ export function prefsFromLabReaderHandoff(current: LabPrefs, handoff: ReaderHand
     primaryEdition: primary.key,
     compareEdition: compare,
     audioEdition: audio,
+    audioFollowsPrimary: handoff.audioEditionKey ? handoff.audioEditionKey === primary.key : !savedOverride,
     // A library entry can omit a pair without withdrawing the reader’s preference.
     compareOpen: Boolean(handoff.compareEditionKey) || current.compareOpen,
   }

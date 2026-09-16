@@ -1,4 +1,4 @@
-import { ReadIcon, ChatIcon } from './LabReaderIcons'
+import { ReadIcon, ChatIcon, TalkIcon } from './LabReaderIcons'
 import { isAudioHeld, isEditionDiscoverable } from '../data/audioAvailability'
 import { useCharacterCards } from '../services/characters/useCharacterCards'
 import { resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
@@ -303,15 +303,6 @@ function FullscreenIcon({ on }: { on?: boolean }) {
   )
 }
 
-function TalkIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <rect x="4.2" y="9" width="2.6" height="6" rx="1.1" />
-      <rect x="10.7" y="5" width="2.6" height="14" rx="1.1" />
-      <rect x="17.2" y="8" width="2.6" height="8" rx="1.1" />
-    </svg>
-  )
-}
 
 function CompareIcon() {
   return (
@@ -381,7 +372,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [book, setBook] = useState<LabSource>(() => readerHandoff ? pendingLabSourceForHandoff(readerHandoff) : boot.book)
   const [readerLoadError, setReaderLoadError] = useState('')
   const [prefs, setPrefs] = useState<LabPrefs>(() => {
-    const stored = syncLabAudioEdition(readLabPrefs(appearanceProfile))
+    // Resolve audio only after the handoff identifies the book. Bible defaults
+    // would otherwise erase another book's explicit audiobook on reload.
+    const stored = readLabPrefs(appearanceProfile)
     const restored = readerHandoff
       ? prefsFromLabReaderHandoff(stored, readerHandoff)
       : prefsFromLabResumePlace(stored, boot.resume)
@@ -645,6 +638,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         }
       : null
   ), [book.chapterNumber, readerHandoff])
+  const [preparationChat, setPreparationChat] = useState(false)
   const [prefaceCoverBook, setPrefaceCoverBook] = useState<string | null>(null)
   const approvedPreface = chromeV2 ? getBookPreface(book.bookId || 'bible') : undefined
   const prefaceVisible = Boolean(approvedPreface && prefaceCoverBook === book.bookId)
@@ -3997,6 +3991,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           prefs={prefs}
           onPrefs={updatePrefs}
           editions={bookEditions}
+          audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
           returnTo={signInReturnTo}
         />
       )}
@@ -4200,6 +4195,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         )}
         {((!showPhoneChrome && desktopAskOpen && !desktopVoiceOpen) || phoneAsk) && (
           <LabAskPane
+            preparationSuggestions={preparationChat}
             chromeV2={chromeV2}
             focusTurnId={chromeV2 ? contentsConversation?.messages.find(message => message.role === 'user')?.id : undefined}
             onBackToContents={chromeV2 && contentsConversation ? returnToContents : undefined}
@@ -4214,7 +4210,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             attachment={askAttachment?.bookId === book.bookId ? askAttachment : null}
             onRemoveAttachment={() => setAskAttachment(null)}
             onDraftChange={(text) => { dictation.stop(); setDraft(text) }}
-            onSubmit={(text) => { dictation.stop(); handleAsk(text) }}
+            onSubmit={(text) => { setPreparationChat(false); dictation.stop(); handleAsk(text) }}
             onMic={handleMic}
             onVoiceMode={chromeV2 ? () => {
               dictation.stop()
@@ -4222,7 +4218,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             } : handleVoiceMode}
             onRetry={ask.retryTyped}
             notice={chromeV2 ? (dictation.notice || ask.notice) : ask.notice}
-            onDone={phoneAsk && !chromeV2 ? undefined : () => { dictation.stop(); closePhoneAsk() }}
+            onDone={phoneAsk && !chromeV2 ? undefined : () => { setPreparationChat(false); dictation.stop(); closePhoneAsk() }}
             phoneSheet={!!phoneAsk}
             desktopCompanion={!showPhoneChrome ? (chrome === 'talking' ? 'talk' : 'chat') : undefined}
             onKeyboardOpenChange={setPhoneKeyboardOpen}
@@ -4609,8 +4605,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         continued={readerHandoff ? Boolean(readerHandoff.savedPlace && !readerHandoff.startAtSavedPlace) : Boolean(boot.resume)}
         ready={!initialResolving && book.paragraphs.length > 0}
         cast={book.cast}
+        editions={bookEditions}
+        audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
+        audioChoice={prefs.audioFollowsPrimary === false ? prefs.audioEdition : ''}
+        onAudioChoice={value => updatePrefs({ ...prefs, audioEdition: value || prefs.primaryEdition, audioFollowsPrimary: value === '' })}
+        primaryEdition={prefs.primaryEdition}
+        secondaryEdition={prefs.compareOpen ? prefs.compareEdition : ''}
+        onEditions={(primary, secondary) => updatePrefs({ ...prefs, primaryEdition: primary, compareEdition: secondary || prefs.compareEdition, compareOpen: Boolean(secondary) })}
         onBack={() => setPrefaceCoverBook(null)}
         onAsk={(question) => {
+          setPreparationChat(true)
           setPrefaceCoverBook(null)
           setDraft(question)
           handleChat()

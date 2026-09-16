@@ -193,6 +193,7 @@ describe('lab prefs', () => {
 
     expect(migrated.version).toBe(2)
     expect(migrated.shared).toEqual({
+      audioFollowsPrimary: true,
       primaryEdition: 'web-en',
       compareEdition: 'kjv-en',
       audioEdition: 'web-en',
@@ -380,5 +381,23 @@ describe('the reading faces', () => {
     writeLabPrefs({ ...DEFAULT_LAB_PREFS, fontFamily: 'atkinson' })
     expect(readLabPrefs().fontFamily).toBe('atkinson')
     expect(parseLabStoredPrefs(JSON.parse(localStorage.getItem(LAB_PREFS_KEY)!)).phone.fontFamily).toBe('atkinson')
+  })
+})
+
+describe('explicit audiobook choice', () => {
+  const editions = [
+    { key: 'modern-en', language: 'en' as const, style: 'modern' as const, label: 'Modern', aligned: true, hasAudio: true },
+    { key: 'original-en', language: 'en' as const, style: 'original' as const, label: 'Human', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da' as const, style: 'modern' as const, label: 'Danish', aligned: true },
+  ]
+  it('follows a changed primary by default but keeps an explicit same-language recording', () => {
+    const prefs = { ...DEFAULT_LAB_PREFS, primaryEdition: 'modern-en', audioEdition: 'original-en' }
+    expect(syncLabAudioEdition(prefs, editions).audioEdition).toBe('modern-en')
+    expect(syncLabAudioEdition({ ...prefs, audioFollowsPrimary: false }, editions).audioEdition).toBe('original-en')
+    expect(syncLabAudioEdition({ ...prefs, audioFollowsPrimary: false, primaryEdition: 'modern-da' }, editions)).toMatchObject({ audioEdition: 'modern-da', audioFollowsPrimary: true })
+  })
+  it('persists the explicit override across reload and appearance profiles', () => {
+    writeLabPrefs({ ...DEFAULT_LAB_PREFS, primaryEdition: 'modern-en', audioEdition: 'original-en', audioFollowsPrimary: false }, 'phone')
+    expect(readLabPrefs('desktop')).toMatchObject({ audioEdition: 'original-en', audioFollowsPrimary: false })
   })
 })
