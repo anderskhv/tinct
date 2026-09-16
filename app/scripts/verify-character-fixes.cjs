@@ -83,12 +83,21 @@ async function run(conf, engine) {
       await p.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true')
       await p.waitForTimeout(1000)
 
+      // Multiple .lab-page-wrap containers can exist in the DOM at once
+      // (adjacent pages pre-rendered for pagination); .first() plus a raw
+      // coordinate check is not enough to confirm the match is the actual
+      // visible, tappable instance -- confirm elementFromPoint at the
+      // candidate's own center resolves back to this same element.
       const word = p.locator(`.lab-page-wrap [data-paragraph-index="${m.paragraphIndex}"][data-word-index="${wordIndex}"]`).first()
       const onPage = async () => {
         if (!(await word.count())) return false
         const box = await word.boundingBox()
         const vp = p.viewportSize()
-        return box && box.x >= 0 && box.y >= 0 && box.x + box.width <= vp.width && box.y + box.height <= vp.height
+        if (!box || box.x < 0 || box.y < 0 || box.x + box.width > vp.width || box.y + box.height > vp.height) return false
+        return word.evaluate((el, { cx, cy }) => {
+          const top = document.elementFromPoint(cx, cy)
+          return !!top && (top === el || el.contains(top) || top.contains(el))
+        }, { cx: box.x + box.width / 2, cy: box.y + box.height / 2 })
       }
       let paged = false
       for (let i = 0; i < 25 && !(await onPage()); i++) { await p.keyboard.press('ArrowRight'); await p.waitForTimeout(180); paged = true }
