@@ -14,4 +14,5 @@ Delegate to the backend when:
 Do not delegate to the backend when:
 - Repeating a still-current answer or acknowledging the reader.
 - The question is unfinished or needs a brief clarification.
+Playback policy: Always delegate requests to play, resume, stop or navigate the audiobook, including "resume the audiobook" and "back to the book". Only the backend can operate the player. Never read the passage yourself as a substitute for starting the audiobook, and never claim playback started before the backend confirms it.
 Delegate before giving an answer that depends on backend work. Do not guess the result while waiting. Answer the reader's actual question using the result; a new question may need a new result. Never narrate tool calls or read instructions aloud. Wait for the reader to speak.`

@@ -188,7 +188,7 @@ export class LiveVoiceSessionController {
       const result = await input.onCompanionAsk(args.question)
       return typeof result === 'string' ? { ok: true, answer: result } : result
     }
-    if (call.name === 'resume_audiobook') { this.explicitResume(); return { ok: true } }
+    if (call.name === 'resume_audiobook') { this.explicitResume(typeof args.play_audio === 'boolean' ? args.play_audio : undefined); return { ok: true } }
     if (call.name === 'end_voice_session') { this.stop(); this.callbacks.onEndRequested?.(); return { ok: true } }
     if (call.name === 'hold_voice_session') return { ok: true }
     if (call.name === 'set_playback_speed') {
@@ -214,11 +214,11 @@ export class LiveVoiceSessionController {
     // Preserve that contract when crossing the Live backend boundary.
     return { result: result.output, responseInstructions: result.responseInstructions }
   }
-  explicitResume() {
+  explicitResume(playAudio?: boolean) {
     const input = this.input
     const anchor = this.anchor ?? (input ? { bookId: input.context.bookId ?? '', editionKey: input.context.editionKey ?? '', chapterNumber: input.context.chapterNumber ?? 1, paragraphIndex: input.context.paragraphIndex ?? 0, paragraphNumber: (input.context.paragraphIndex ?? 0) + 1, offsetSeconds: 0 } : null)
     this.stop()
-    if (input && anchor) input.audio.resumePlayback(anchor)
+    if (input && anchor) input.audio.resumePlayback(anchor, playAudio)
   }
   stop() {
     this.send({ type: 'session.close' })

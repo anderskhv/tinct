@@ -1,6 +1,6 @@
 # Live conversation corrections — September 16, 2026
 
-Status: implemented and verified locally; production acceptance pending.
+Status: initial release deployed; final playback correction verified locally, awaiting deployment.
 
 The Live migration dropped the explicit Realtime trial's passage retrieval and
 outside-source research contract. It also inferred turn state from a 120 ms audio
@@ -26,7 +26,7 @@ shared reader voice failures, not a Job-specific content problem.
   Navigation honors the handler's resume-playback outcome. Tool results retain
   their response guidance, including research failure handling.
 
-Local checks: 184 test files / 2,329 tests passed; build and bundle verification
+Local checks: 184 test files / 2,331 tests passed; build and bundle verification
 passed. Added regressions cover Live/default versus explicit Realtime research
 and resume, sources, controls inventory, caption pauses and noise, stable UI,
 function results and navigation playback outcomes. A muted headless phone browser
@@ -40,6 +40,24 @@ synthetic spoken test. Evidence directory: `output/voice-refinement-2026-09-16/`
 
 Prompt reference: https://developers.openai.com/api/docs/guides/live-prompting
 
-Next action: deploy this commit, verify its exact bundle and production smoke,
-then exercise the actual Live prompt with a paused spoken Keller question and
-reader controls in an isolated, muted browser.
+Initial deployment: `16d52b37`, bundle `index-BXMG7Xh_.js`,
+[deploy 35082659561](https://github.com/anderskhv/tinct/actions/runs/35082659561)
+passed including exact-bundle verification and production smoke.
+
+Actual production synthetic speech waited through the pause after "Tim Keller"
+and answered the complete Job question through the research contract. A spoken
+interruption asking for the book title was answered with *Walking with God
+through Pain and Suffering*. The signed-out test could not run authenticated
+research and correctly identified its attribution as unverified background.
+Live status remained unchanged throughout both checks.
+
+Production speed and undo succeeded. The subsequent spoken resume test failed:
+Live read the excerpt instead of invoking the player. The corrected Live prompt
+now explicitly forbids that substitution and always delegates playback. The
+resume tool also carries an explicit `play_audio` flag; caption quality no longer
+determines whether an understood audio request starts playback. Prior-mode
+restoration remains the behavior for a page-only return.
+
+Next action: deploy the playback correction, verify its exact bundle and smoke,
+and repeat the actual spoken playback acceptance. Synthetic acoustics do not
+certify every accent, background-noise condition or physical device.

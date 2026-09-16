@@ -333,15 +333,18 @@ export function useLabAsk(options: UseLabAskOptions) {
   }, [options.conversationId, conversations, chatBookId])
   const talkInstructions = useMemo(
     () => buildLabVoiceControlInstructions(
-      buildDirectVoiceInstructions(askContext),
+      buildDirectVoiceInstructions(askContext) + (!options.voiceTrial ? '\nFor resume_audiobook, set play_audio=true when the reader asks to hear, play or resume audio. Set play_audio=false for returning to the page; the app restores the prior reading mode. Use the understood request, not potentially garbled transcript captions.' : ''),
       (selectedConversationTurns ?? (options.voiceTrial ? turns : rememberedLabTurns)).map(turn => ({ ...turn, content: chapterChatHistoryContent(turn) })),
     ),
     [askContext, rememberedLabTurns, selectedConversationTurns, turns, options.voiceTrial],
   )
   const tinctVoiceTools = useTinctVoiceTools(options.voiceToolAdapter)
   const mergedVoiceTools = useMemo(
-    () => mergeLabVoiceTools([...LAB_VOICE_TOOLS.filter(tool => tool.name !== 'ask_companion'), BOOK_PASSAGE_TOOL, VOICE_RESEARCH_TOOL]),
-    [],
+    () => mergeLabVoiceTools([...LAB_VOICE_TOOLS.filter(tool => tool.name !== 'ask_companion'), BOOK_PASSAGE_TOOL, VOICE_RESEARCH_TOOL]).map(tool =>
+      !options.voiceTrial && tool && typeof tool === 'object' && 'name' in tool && tool.name === 'resume_audiobook'
+        ? { ...tool, parameters: { type: 'object', properties: { play_audio: { type: 'boolean', description: 'True for an explicit request to play or resume audio. False to return to the page and restore its previous mode.' } }, required: ['play_audio'], additionalProperties: false } }
+        : tool),
+    [options.voiceTrial],
   )
 
   const onTinctVoiceTool = useCallback(async (
@@ -411,9 +414,9 @@ export function useLabAsk(options: UseLabAskOptions) {
     visibleText: talkInstructions,
     isAudioPlaying: false,
     pausePlayback: () => null,
-    resumePlayback: () => {
+    resumePlayback: (_anchor, playAudio) => {
       setNotice(null)
-      optionsRef.current.onResumeListen?.(isVoiceV2 ? labVoiceRequestsAudio(lastVoiceRequestRef.current) : true)
+      optionsRef.current.onResumeListen?.(playAudio ?? (isVoiceV2 ? labVoiceRequestsAudio(lastVoiceRequestRef.current) : true))
     },
     onEndConversation: () => optionsRef.current.onResumeListen?.(false),
     recordMessage: recordTurn,

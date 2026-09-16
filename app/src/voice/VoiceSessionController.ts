@@ -46,7 +46,7 @@ import {
 
 export interface VoiceAudioEngine {
   pausePlayback: () => AudioPlaybackPause | null
-  resumePlayback: (anchor: AudioPlaybackAnchor) => void
+  resumePlayback: (anchor: AudioPlaybackAnchor, playAudio?: boolean) => void
   /** Lab-only. Production audio engines leave this unset. */
   setPlaybackSpeed?: (rate: number) => void
   /**

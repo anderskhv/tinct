@@ -36,7 +36,7 @@ export interface UseVoiceSessionOptions {
   readerProfile?: VoiceReaderProfile
   isAudioPlaying: boolean
   pausePlayback: () => AudioPlaybackPause | null
-  resumePlayback: (anchor: AudioPlaybackAnchor) => void
+  resumePlayback: (anchor: AudioPlaybackAnchor, playAudio?: boolean) => void
   recordMessage: (message: ChatMessage, chapterNumber: number, paragraphIndex?: number) => void
   appendLocalMessage: (message: ChatMessage) => void
   onNeedAuth: () => void

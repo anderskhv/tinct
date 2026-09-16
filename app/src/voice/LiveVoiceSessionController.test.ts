@@ -61,5 +61,18 @@ it.each([false, true])('honors the navigation playback outcome (%s)', async (res
   controller.handleEvent({ type: 'response.event', delegation_id: 'd1', event: { type: 'response.completed' } })
   await vi.waitFor(() => expect(skip).toHaveBeenCalledOnce())
   expect(resume).toHaveBeenCalledTimes(resumePlayback ? 1 : 0)
-  if (resumePlayback) expect(resume).toHaveBeenCalledWith(anchor)
+  if (resumePlayback) expect(resume).toHaveBeenCalledWith(anchor, undefined)
+})
+
+
+it.each([false, true])('uses explicit tool playback intent despite a garbled caption (%s)', async (playAudio) => {
+  const resume = vi.fn()
+  const controller = new LiveVoiceSessionController({ onSnapshot: vi.fn(), onTurn: vi.fn() })
+  const anchor = { bookId: 'bible', editionKey: 'web-en', chapterNumber: 443, paragraphIndex: 1, paragraphNumber: 2, offsetSeconds: 0 }
+  Object.assign(controller, { input: { context: anchor, audio: { resumePlayback: resume } }, anchor })
+  controller.handleEvent({ type: 'session.input_transcript.delta', delta: 'Please \uFFFD audiobook' })
+  controller.handleEvent({ type: 'response.event', delegation_id: 'd1', event: { type: 'response.created' } })
+  controller.handleEvent({ type: 'response.event', delegation_id: 'd1', event: { type: 'response.output_item.done', item: { type: 'function_call', name: 'resume_audiobook', call_id: 'resume', arguments: JSON.stringify({ play_audio: playAudio }) } } })
+  controller.handleEvent({ type: 'response.event', delegation_id: 'd1', event: { type: 'response.completed' } })
+  await vi.waitFor(() => expect(resume).toHaveBeenCalledWith(anchor, playAudio))
 })
