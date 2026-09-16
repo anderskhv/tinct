@@ -86,3 +86,19 @@ it('blocks held-edition playback without fetching audio or changing follow state
   expect(fetch).not.toHaveBeenCalled(); expect(createAudio).not.toHaveBeenCalled()
   expect(h.result.current.playing).toBe(false); expect(h.result.current.follow).toEqual({kind:'none'})
 })
+
+it('returns from conversation at the current sentence while ordinary resume stays exact', async () => {
+  const audio = new EventTarget() as HTMLAudioElement
+  Object.assign(audio, { src: '', currentTime: 0, playbackRate: 1, pause: vi.fn(), load: vi.fn(), removeAttribute: vi.fn(), play: vi.fn().mockResolvedValue(undefined) })
+  const text = 'First sentence. Second sentence has more words.'
+  const words = text.split(' ').map((text, index) => ({ text, start: index, end: index + 1 }))
+  const h = renderHook(() => useLabListen({ paragraphs: [text], followParagraphs: [{ index: 0, text, file: 'p0.mp3', words }], createAudio: () => audio }))
+  await act(async () => { await h.result.current.startAtPlace({ paragraphIndex: 0 }) })
+  audio.currentTime = 4.6
+  act(() => h.result.current.pause())
+  await act(async () => h.result.current.resume())
+  expect(audio.currentTime).toBe(4.6)
+  act(() => h.result.current.pause())
+  await act(async () => h.result.current.resume(true))
+  expect(audio.currentTime).toBe(2)
+})

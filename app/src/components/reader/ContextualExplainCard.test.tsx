@@ -16,7 +16,7 @@ it('requests once across parent rerenders and opens an unsent follow-up', async 
   await screen.findByText('A complete explanation.')
   rerender(<ContextualExplainCard passage="The passage." request={vi.fn(first)} onAsk={onAsk} onClose={vi.fn()} />)
   expect(first).toHaveBeenCalledTimes(1)
-  fireEvent.click(screen.getByRole('button', { name: /Ask a follow-up/ }))
+  fireEvent.click(screen.getByRole('button', { name: /Chat about this explanation/ }))
   expect(onAsk).toHaveBeenCalledOnce()
 })
 
@@ -31,4 +31,16 @@ it('keeps the passage on failure and retries only when asked', async () => {
   fireEvent.click(screen.getByRole('button', { name: 'Try again' }))
   await waitFor(() => expect(screen.getByText('Recovered explanation.')).toBeTruthy())
   expect(request).toHaveBeenCalledTimes(2)
+})
+
+it('renders the full formatted explanation and passes the exact answer to Chat', async () => {
+  const answer = '**Bold** and ***emphasised***.\n\n' + 'A long explanation. '.repeat(70)
+  const onAsk = vi.fn()
+  const { container } = render(<ContextualExplainCard passage="Selected text" request={async () => answer} onAsk={onAsk} onClose={vi.fn()} />)
+  await screen.findByText('Bold')
+  expect(container.querySelector('strong em')?.textContent).toBe('emphasised')
+  expect(container.textContent).toContain('A long explanation. '.repeat(70).trim())
+  expect(screen.queryByText('A little more')).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: 'Chat about this explanation' }))
+  expect(onAsk).toHaveBeenCalledWith(answer)
 })

@@ -8,7 +8,7 @@ import type { ChatMessage } from '../types'
 import { useAuth } from '../hooks/useAuth'
 import { useTinctVoiceTools } from '../hooks/useTinctVoiceTools'
 import { useVoiceSession } from '../hooks/useVoiceSession'
-import { COMPANION_EFFORT_TYPED, COMPANION_MODEL } from '../companionModel'
+import { COMPANION_EFFORT_VOICE, COMPANION_EFFORT_TYPED, COMPANION_MODEL } from '../companionModel'
 import { apiUrl } from '../utils/apiUrl'
 import { trackEvent } from '../utils/analytics'
 import { migrateWithheldEdition } from '../data/withheldEditions'
@@ -139,6 +139,7 @@ export function useLabAsk(options: UseLabAskOptions) {
   const [notice, setNotice] = useState<string | null>(null)
   const dismissNotice = useCallback(() => setNotice(null), [])
   const [starting, setStarting] = useState(false)
+  const voiceStartRequestRef = useRef(0)
   const [assistantPace, setAssistantPace] = useState<AssistantPace>('normal')
   const sendingRef = useRef(false)
   const gatedChapterRef = useRef<ChapterChatRequest | undefined>(undefined)
@@ -147,7 +148,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     chapterRequest?: ChapterChatRequest
     context: LabAskContext
     userTurn: LabAskTurn
-    attachment?: { highlightedText?: string; onSuccess?: () => void }
+    attachment?: { highlightedText?: string; onAccepted?: () => void }
   } | null>(null)
   const optionsRef = useRef(options)
   optionsRef.current = options
@@ -426,8 +427,8 @@ export function useLabAsk(options: UseLabAskOptions) {
     authToken: liveToken,
     isAnonymous: !liveToken,
     labGuest: true,
-    bookId: options.voiceTrial ? (options.bookId || LAB_CHAT_BOOK_ID) : LAB_CHAT_BOOK_ID,
-    ...(options.voiceTrial ? { editionKey: askEditionKey, editionLabel: options.editionLabel } : {}),
+    bookId: options.bookId || LAB_CHAT_BOOK_ID,
+    editionKey: askEditionKey, editionLabel: options.editionLabel,
     bookTitle: options.bookTitle,
     bookAuthor: options.bookAuthor,
     chapterNumber: options.chapterNumber ?? 1,
@@ -442,6 +443,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       setNotice(null)
       optionsRef.current.onResumeListen?.(isVoiceV2 ? labVoiceRequestsAudio(lastVoiceRequestRef.current) : true)
     },
+    onEndConversation: () => optionsRef.current.onResumeListen?.(false),
     recordMessage: recordTurn,
     appendLocalMessage,
     onNeedAuth: () => setNotice(LAB_COPY.signInVoice),
@@ -480,6 +482,7 @@ export function useLabAsk(options: UseLabAskOptions) {
   const startVoice = useCallback(async (): Promise<boolean> => {
     if (voice.isActive || starting) return true
     if (!gateAiAction('voice')) return false
+    const request = ++voiceStartRequestRef.current
     voice.unlockAudio()
     setNotice(null)
     const knownToken = options.authToken !== undefined ? options.authToken : sessionToken
@@ -489,8 +492,10 @@ export function useLabAsk(options: UseLabAskOptions) {
       sessionToken,
       readSession: readSupabaseAccessToken,
     })
+    if (request !== voiceStartRequestRef.current) return false
     if (!knownToken) setStarting(true)
     const snapshot = await voice.start({ authToken })
+    if (request !== voiceStartRequestRef.current) return false
     setStarting(false)
     if (snapshot.error) {
       setNotice(snapshot.error)
@@ -504,11 +509,13 @@ export function useLabAsk(options: UseLabAskOptions) {
   }, [gateAiAction, options.authToken, sessionToken, starting, voice.isActive, voice.start])
 
   const stopVoice = useCallback(() => {
+    voiceStartRequestRef.current++
     setStarting(false)
     voice.stop()
   }, [voice.stop])
 
   const failStart = useCallback((message?: string) => {
+    voiceStartRequestRef.current++
     setStarting(false)
     voice.stop()
     setNotice(current => current || message || LAB_COPY.voiceStartFailed)
@@ -525,8 +532,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   const sendTyped = useCallback(async (
     content: string,
     chapterRequest?: ChapterChatRequest,
-    retry?: { context: LabAskContext; userTurn: LabAskTurn; attachment?: { highlightedText?: string; onSuccess?: () => void } },
-    attachment?: { highlightedText?: string; onSuccess?: () => void },
+    retry?: { context: LabAskContext; userTurn: LabAskTurn; attachment?: { highlightedText?: string; onAccepted?: () => void } },
+    attachment?: { highlightedText?: string; onAccepted?: () => void },
   ) => {
     const text = content.trim()
     const gated = gatedChapterRef.current
@@ -586,6 +593,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         chapterAction: chapterRequest?.action,
       }, requestChapter, requestParagraph)
     }
+    if (!retry) attachment?.onAccepted?.()
     setNotice(null)
 
     const fail = (message: string, detail?: { type: string; status?: number; attempts?: number; partial?: boolean }) => {
@@ -776,7 +784,6 @@ export function useLabAsk(options: UseLabAskOptions) {
         // Let a chapter skip commit (header + listen chapter) before Play.
         window.setTimeout(() => optionsRef.current.onResumeListen?.(), 0)
       }
-      attachment?.onSuccess?.()
     } catch (error) {
       fail(error instanceof LabChatError ? error.message : LAB_COPY.askUnavailable)
     } finally {
@@ -785,46 +792,77 @@ export function useLabAsk(options: UseLabAskOptions) {
     }
   }, [askContextNow, gateAiAction, options.authToken, options.conversationId, options.chapterNumber, options.paragraphIndex, readTrail, recordTurn, sessionToken, turns, conversations, viewerId])
 
+  const keepExplanation = useCallback((passage: string, answer: string, paragraphIndex: number) => {
+    if (!answer.trim()) return
+    const bookId = chatBookIdRef.current
+    const chapterNumber = optionsRef.current.chapterNumber ?? 1
+    const timestamp = Date.now()
+    const added: LabAskTurn[] = [
+      { id: nextId(), bookId, chapterNumber, paragraphIndex, timestamp, role: 'user', source: 'typed', content: 'Explain this passage.', highlightedText: passage },
+      { id: nextId(), bookId, chapterNumber, paragraphIndex, timestamp: timestamp + 1, role: 'assistant', source: 'typed', content: answer },
+    ]
+    setTurns(current => [...current, ...added])
+    for (const turn of added) recordTurn({ ...turn, timestamp: turn.timestamp!, source: 'text', isComplete: true }, chapterNumber, paragraphIndex)
+  }, [recordTurn])
+
+  const explanationRef = useRef<{ key: string; time: number; text: string; promise: Promise<string>; listeners: Set<(text: string) => void> } | null>(null)
   const explainSelection = useCallback(async (input: {
     text: string
     editionKey: string
     editionLabel?: string
     paragraphs: string[]
     paragraphIndex: number
+    speculative?: boolean
   }, onDelta: (text: string) => void): Promise<string> => {
     const text = input.text.trim()
-    if (!text || !gateAiAction('chat')) throw new LabChatError('unavailable')
+    if (!text || (input.speculative && !signedIn)) throw new LabChatError('unavailable')
     const requestBookId = chatBookIdRef.current
-    const context: LabAskContext = {
-      ...askContextNow([]),
-      editionKey: input.editionKey,
-      editionLabel: input.editionLabel,
-      paragraphs: input.paragraphs,
-      paragraphIndex: input.paragraphIndex,
+    const key = JSON.stringify([requestBookId, optionsRef.current.chapterNumber, input.editionKey, input.paragraphIndex, input.paragraphs, text])
+    const cached = explanationRef.current
+    if (cached?.key === key && Date.now() - cached.time < 60_000) {
+      if (cached.text) onDelta(cached.text)
+      cached.listeners.add(onDelta)
+      try { return await cached.promise } finally { cached.listeners.delete(onDelta) }
     }
-    const authToken = await resolveLabVoiceToken({ override: optionsRef.current.authToken, sessionToken, readSession: readSupabaseAccessToken })
-    if (requestBookId !== chatBookIdRef.current) throw new LabChatError('unavailable')
-    const headers: Record<string, string> = { 'Content-Type': 'application/json' }
-    if (authToken) headers.Authorization = `Bearer ${authToken}`
-    const response = await fetch(apiUrl(authToken ? '/api/chat' : '/api/lab-chat'), {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        model: COMPANION_MODEL,
-        max_tokens: 700,
-        stream: true,
-        effort: COMPANION_EFFORT_TYPED,
-        system: buildLabAskInstructions(context),
-        messages: [{
-          role: 'user',
-          content: `Explain this selected passage clearly and concisely for a reader at this point in the book. Discuss its meaning and significance without using knowledge from later in the work.\n\n<selected_passage>\n${text}\n</selected_passage>`,
-        }],
-        ...labCompanionBookFields(context),
-      }),
-    })
-    if (!response.ok) throw new LabChatError(`http_${response.status}`)
-    return readAnthropicResponse(response, onDelta)
-  }, [askContextNow, gateAiAction, sessionToken])
+    if (!gateAiAction('chat')) throw new LabChatError('unavailable')
+    const entry = { key, time: Date.now(), text: '', promise: Promise.resolve(''), listeners: new Set([onDelta]) }
+    explanationRef.current = entry
+    entry.promise = (async () => {
+      const context: LabAskContext = {
+        ...askContextNow([]),
+        editionKey: input.editionKey,
+        editionLabel: input.editionLabel,
+        paragraphs: input.paragraphs,
+        paragraphIndex: input.paragraphIndex,
+      }
+      const authToken = await resolveLabVoiceToken({ override: optionsRef.current.authToken, sessionToken, readSession: readSupabaseAccessToken })
+      if (requestBookId !== chatBookIdRef.current) throw new LabChatError('unavailable')
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+      if (authToken) headers.Authorization = `Bearer ${authToken}`
+      const response = await fetch(apiUrl(authToken ? '/api/chat' : '/api/lab-chat'), {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          model: COMPANION_MODEL,
+          max_tokens: 700,
+          stream: true,
+          effort: COMPANION_EFFORT_VOICE,
+          system: buildLabAskInstructions(context),
+          messages: [{
+            role: 'user',
+            content: `Explain this selected passage clearly and concisely for a reader at this point in the book. Discuss its meaning and significance without using knowledge from later in the work.\n\n<selected_passage>\n${text}\n</selected_passage>`,
+          }],
+          ...labCompanionBookFields(context),
+        }),
+      })
+      if (!response.ok) throw new LabChatError(`http_${response.status}`)
+      return readAnthropicResponse(response, value => { entry.text = value; entry.listeners.forEach(listener => listener(value)) })
+    })()
+    try { return await entry.promise } catch (error) {
+      if (explanationRef.current === entry) explanationRef.current = null
+      throw error
+    } finally { entry.listeners.clear() }
+  }, [askContextNow, gateAiAction, sessionToken, signedIn])
 
   return {
     turns,
@@ -855,6 +893,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     toggleInChatVoice,
     sendTyped,
     explainSelection,
+    keepExplanation,
     retryTyped: failedTyped && failedTyped.userTurn.bookId === chatBookId ? () => {
       void sendTyped(failedTyped.text, failedTyped.chapterRequest, failedTyped, failedTyped.attachment)
     } : undefined,

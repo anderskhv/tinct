@@ -172,3 +172,19 @@ it('selects only explicit trial models without changing the default', async () =
     expect(await response.json()).toMatchObject({model:expected})
   }
 })
+
+it('creates GPT Live sessions through the server and exposes only the SDP answer', async () => {
+  const fetcher = vi.fn().mockResolvedValue(new Response(JSON.stringify({ session: { id: 'live_test' }, transport: { type: 'webrtc', sdp: 'answer' } }), { status: 201 }))
+  vi.stubGlobal('fetch', fetcher)
+  try {
+    const request = new Request('https://tinct.app/api/lab-voice-session', { method: 'POST', body: JSON.stringify({ protocol: 'live', sdp: 'v=0\r\n', instructions: 'Use the companion.', tools: [{ type: 'function', name: 'ask_companion', parameters: { type: 'object', properties: {} } }] }) })
+    const { ctx } = makeExecutionContext()
+    const response = await handleLabVoiceSession(request, env, ctx, async () => true)
+    expect(response.status).toBe(200)
+    expect(fetcher.mock.calls[0][0]).toBe('https://api.openai.com/v1/live/sessions')
+    const body = JSON.parse(fetcher.mock.calls[0][1].body)
+    expect(body.session.model).toBe('gpt-live-1')
+    expect(body.session.delegation.responses.parallel_tool_calls).toBe(false)
+    expect(await response.json()).toEqual({ session: { id: 'live_test' }, transport: { type: 'webrtc', sdp: 'answer' }, model: 'gpt-live-1' })
+  } finally { vi.unstubAllGlobals() }
+})

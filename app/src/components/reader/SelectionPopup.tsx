@@ -56,7 +56,7 @@ export interface SelectionPopupProps {
   onUpdateHighlightNote?: (id: string, note: string) => void
   onRequestNote: (color?: HighlightColor) => void
   // Main toolbar actions
-  onExplain: () => void
+  onExplain: (answer?: string) => void
   onRequestExplanation?: (onDelta: (text: string) => void) => Promise<string>
   onCopy: () => void
   onShare?: (text: string) => void
@@ -194,8 +194,9 @@ export function SelectionPopup({
   const applyNoteColor = (color: HighlightColor) => {
     setLastColor(color)
     try { localStorage.setItem('tinct-highlight-color', color) } catch { /* private mode */ }
+    if (selection.existingHighlightId) onUpdateHighlightNote?.(selection.existingHighlightId, noteInput.trim())
     onColorClick(color)
-    setPopupMode('note')
+    dismissPopup()
   }
   const dismissRef = useRef(dismissPopup)
   dismissRef.current = dismissPopup
@@ -388,7 +389,7 @@ export function SelectionPopup({
             <>
               {selection.existingHighlightId && <button type="button" className="popup-menu-action" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}><DeleteIcon /><span>Delete highlight</span></button>}
               <button type="button" className="popup-menu-action" onClick={openContextualExplanation}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Explain</span></button>
-              <button type="button" className="popup-menu-action" onClick={() => onRequestNote(lastColor)}><NoteIcon /><span>Highlight &amp; note</span></button>
+              <button type="button" className="popup-menu-action" onClick={() => onRequestNote(lastColor)}><NoteIcon /><span>Highlight</span></button>
               <button type="button" className="popup-menu-action" onClick={onCopy}><CopyIcon /><span>Copy</span></button>
             </>
           ) : <>
@@ -396,7 +397,7 @@ export function SelectionPopup({
             : <button type="button" className="popup-menu-action" onClick={() => applyColor(lastColor)}><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true"><path d="m3 10 7-7 3 3-7 7H3zM2 15h12" /></svg><span>Highlight</span></button>}
           {(popupMode === 'colors' || selection.existingHighlightId) && <div className="popup-colors" aria-label="Highlight colour">{HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => applyColor(c.key)} />)}</div>}
           <button type="button" className="popup-menu-action" onClick={onCopy}><CopyIcon /><span>Copy</span></button>
-          <button type="button" className="popup-menu-action" onClick={onExplain}><ChatIcon /><span>Ask</span></button>
+          <button type="button" className="popup-menu-action" onClick={() => onExplain()}><ChatIcon /><span>Ask</span></button>
           <button type="button" className="popup-menu-action" onClick={onRequestNote}><NoteIcon /><span>{selection.existingNote ? 'Edit note' : 'Add note'}</span></button>
           {character && <div className="popup-menu-secondary"><button type="button" onClick={onDefine}>Dictionary</button><button type="button" onClick={() => { setGalleryId(null); setPopupMode('gallery') }}>Character gallery</button></div>}
           </>}

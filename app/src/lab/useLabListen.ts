@@ -11,7 +11,7 @@ import {
   type LabAudioClip,
   type LabAudioTitleClip,
 } from './labListen'
-import { nextHearingSpeed, parseHearingSpeed, playbackTimeSeconds, seekAcrossClips } from './labHearing'
+import { sentenceStartWordIndex, nextHearingSpeed, parseHearingSpeed, playbackTimeSeconds, seekAcrossClips } from './labHearing'
 import { playAudioTransition, setAudioSource } from '../utils/audioPlayback'
 import {
   alignTimedWordsToText,
@@ -412,13 +412,25 @@ export function useLabListen(options: UseLabListenOptions) {
     setFollow({ kind: 'none' })
   }, [])
 
-  const resume = useCallback(() => {
+  const resume = useCallback((fromSentenceStart = false) => {
     if (optionsRef.current.playbackUnavailable) return false
     const request = ++playRequestRef.current
     const audio = audioRef.current
     if (!audio?.src) {
       void start()
       return
+    }
+    if (fromSentenceStart) {
+      const clip = clipsRef.current[clipIndexRef.current]
+      const words = clip?.kind === 'paragraph' ? clip.words : undefined
+      if (words?.length) {
+        let index = 0
+        while (index + 1 < words.length && words[index + 1].start <= audio.currentTime) index++
+        audio.currentTime = words[sentenceStartWordIndex(words, index)].start
+      } else {
+        // Without verified word timings, the current paragraph is the safe boundary.
+        audio.currentTime = 0
+      }
     }
     applyRate(audio, speed)
     audio.play().then(() => {

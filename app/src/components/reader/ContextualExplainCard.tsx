@@ -1,14 +1,15 @@
+import { LabMarkdown } from '../../lab/LabMarkdown'
+import { ChatIcon, ReadIcon } from '../../lab/LabReaderIcons'
 import { useEffect, useRef, useState } from 'react'
 
 export function ContextualExplainCard({ passage, request, onAsk, onClose }: {
   passage: string
   request: (onDelta: (text: string) => void) => Promise<string>
-  onAsk: () => void
+  onAsk: (answer: string) => void
   onClose: () => void
 }) {
   const [status, setStatus] = useState<'loading' | 'streaming' | 'ready' | 'error'>('loading')
   const [answer, setAnswer] = useState('')
-  const [expanded, setExpanded] = useState(false)
   const [attempt, setAttempt] = useState(0)
   const requestRef = useRef(request)
   requestRef.current = request
@@ -17,7 +18,6 @@ export function ContextualExplainCard({ passage, request, onAsk, onClose }: {
     let active = true
     setStatus('loading')
     setAnswer('')
-    setExpanded(false)
     void requestRef.current((text) => {
       if (!active) return
       setAnswer(text)
@@ -32,7 +32,6 @@ export function ContextualExplainCard({ passage, request, onAsk, onClose }: {
     return () => { active = false }
   }, [attempt, passage])
 
-  const canExpand = answer.length > 420
   return (
     <section className="lab-contextual-explain" aria-label="Explanation">
       <div className="lab-contextual-explain-scroll">
@@ -46,18 +45,13 @@ export function ContextualExplainCard({ passage, request, onAsk, onClose }: {
             </>
           )}
           {(status === 'streaming' || status === 'ready') && (
-            <p className={`lab-contextual-explain-answer${canExpand && !expanded ? ' is-collapsed' : ''}`}>{answer}</p>
+            <LabMarkdown>{answer}</LabMarkdown>
           )}
         </div>
-        {status === 'ready' && canExpand && (
-          <button type="button" className="lab-contextual-explain-link" aria-expanded={expanded} onClick={() => setExpanded(value => !value)}>
-            {expanded ? 'Show less' : 'A little more'}
-          </button>
-        )}
       </div>
       <footer>
-        <button type="button" onClick={onAsk}>Ask a follow-up <span aria-hidden="true">↗</span></button>
-        <button type="button" onClick={onClose}>Back to reading</button>
+        <button type="button" aria-label="Chat about this explanation" title="Chat about this explanation" onClick={() => onAsk(answer)}><ChatIcon /></button>
+        <button type="button" aria-label="Back to reading" title="Back to reading" onClick={onClose}><ReadIcon /></button>
       </footer>
     </section>
   )

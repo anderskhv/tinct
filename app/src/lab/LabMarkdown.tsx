@@ -1,9 +1,10 @@
 import { Fragment, type ReactNode } from 'react'
 
-const INLINE_MARKDOWN = /(\*\*[^*\n]+\*\*|__[^_\n]+__|`[^`\n]+`|\*[^*\n]+\*|_[^_\n]+_|\[[^\]\n]+\]\(https?:\/\/[^)\s]+(?: "[^"\n]*")?\))/g
+const INLINE_MARKDOWN = /(\*\*\*[^*\n]+\*\*\*|\*\*[^*\n]+\*\*|__[^_\n]+__|`[^`\n]+`|\*[^*\n]+\*|_[^_\n]+_|\[[^\]\n]+\]\(https?:\/\/[^)\s]+(?: "[^"\n]*")?\))/g
 
 function inlineNodes(value: string): ReactNode[] {
   return value.split(INLINE_MARKDOWN).filter(Boolean).map((part, index) => {
+    if (part.startsWith('***') && part.endsWith('***')) return <strong key={index}><em>{part.slice(3, -3)}</em></strong>
     if ((part.startsWith('**') && part.endsWith('**')) || (part.startsWith('__') && part.endsWith('__'))) {
       return <strong key={index}>{part.slice(2, -2)}</strong>
     }

@@ -63,6 +63,7 @@ export interface VoiceSessionCallbacks {
   onNeedAuth?: () => void
   onInsufficientBalance?: () => void
   onUsage?: () => void
+  onEndRequested?: () => void
   onLatency?: (sample: VoiceLatencySample) => void
   /** Lab-only. Production leaves this unset. */
   onSetAssistantPace?: (pace: AssistantPace) => void

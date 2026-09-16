@@ -1,3 +1,4 @@
+import { ReadIcon, ChatIcon } from './LabReaderIcons'
 import { isAudioHeld, isEditionDiscoverable } from '../data/audioAvailability'
 import { useCharacterCards } from '../services/characters/useCharacterCards'
 import { resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
@@ -267,14 +268,6 @@ function SkipIcon({ direction, seconds = 15 }: { direction: 'back' | 'forward'; 
   )
 }
 
-function ReadIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M3.5 5.5c2.7-.8 5.2-.2 8.5 1.8v11c-3.3-2-5.8-2.6-8.5-1.8v-11Zm17 0c-2.7-.8-5.2-.2-8.5 1.8v11c3.3-2 5.8-2.6 8.5-1.8v-11Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-    </svg>
-  )
-}
-
 function GearIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -306,25 +299,6 @@ function FullscreenIcon({ on }: { on?: boolean }) {
           <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" />
         </>
       )}
-    </svg>
-  )
-}
-
-function ChatIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M4.4 10.8c0-3.1 2.9-5.6 6.5-5.6s6.5 2.5 6.5 5.6-2.9 5.6-6.5 5.6c-.7 0-1.4-.1-2.1-.3L5 17.6l.5-2.8c-.7-1.1-1.1-2.5-1.1-4Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M11.2 16.6c.6.2 1.3.4 2.1.4 3.6 0 6.5-2.2 6.5-5 0-1.1-.5-2.2-1.2-3"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
     </svg>
   )
 }
@@ -2194,7 +2168,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       setBrowseWhileListening(false)
       setInTheBookOpen(false)
     }
-    if (listen.src) listen.resume()
+    if (listen.src) listen.resume(true)
     else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
   }, [ask, listen, voiceTrial, chromeV2, callOpen])
   resumeListenRef.current = (forceAudio = true) => resumeListenAfterAsk(forceAudio)
@@ -2677,6 +2651,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     observer.observe(el)
     return () => observer.disconnect()
   }, [selectionPopup?.x, selectionPopup?.y, selectionPopup?.showBelow, popupMode, noteInput])
+
+  useEffect(() => {
+    if (!selectionPopup || selectionPopup.existingHighlightId || selectionPopup.text.trim().split(/\s+/).length < 2) return
+    const timer = window.setTimeout(() => {
+      const editionKey = selectionPopup.editionKey || readerEditionKey
+      const compare = editionKey === prefs.compareEdition && editionKey !== prefs.primaryEdition
+      void ask.explainSelection({ text: selectionPopup.text, editionKey,
+        editionLabel: editionLabelFor(editionKey, bookEditions),
+        paragraphs: compare ? book.compareParagraphs : book.paragraphs,
+        paragraphIndex: selectionPopup.paragraphIndex, speculative: true,
+      }, () => {}).catch(() => { /* Speculation must never open an error or account prompt. */ })
+    }, 180)
+    return () => window.clearTimeout(timer)
+  }, [selectionPopup, readerEditionKey, prefs.compareEdition, prefs.primaryEdition, book.paragraphs, book.compareParagraphs, bookEditions, ask.explainSelection])
 
   const dismissSelectionPopup = useCallback(() => {
     setSelectionPopup(null)
@@ -3723,7 +3711,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const attachment = askAttachment?.bookId === book.bookId ? askAttachment : null
     void ask.sendTyped(value, undefined, undefined, {
       highlightedText: attachment?.text,
-      onSuccess: () => {
+      onAccepted: () => {
         setDraft('')
         setAskAttachment(null)
       },
@@ -4778,8 +4766,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             }
             setPopupMode('note')
           }}
-          onExplain={() => {
+          onExplain={(answer) => {
             const text = selectionPopup.text
+            if (answer) ask.keepExplanation(text, answer, selectionPopup.paragraphIndex)
             dismissSelectionPopup()
             handleChat()
             setAskAttachment({ bookId: book.bookId, text })

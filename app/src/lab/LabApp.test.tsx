@@ -388,12 +388,8 @@ describe('lab chrome', () => {
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     openDesktopAsk()
     fireEvent.click(screen.getByTestId('lab-ask-mic'))
-    await waitFor(() => {
-      expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/lab-voice-session'))).toBe(true)
-    })
-    expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/voice-session') && !String(call[0]).includes('/api/lab-voice-session'))).toBe(false)
-    const init = fetchMock.mock.calls.find(call => String(call[0]).includes('/api/lab-voice-session'))?.[1] as RequestInit
-    expect((init.headers as Record<string, string>).Authorization).toBeUndefined()
+    // Live needs an SDP offer: no billed session is created while microphone permission is pending.
+    expect(fetchMock.mock.calls.some(call => /\/api\/(lab-)?voice-session/.test(String(call[0])))).toBe(false)
     expect(screen.queryByText('Sign in to ask by voice.')).toBeNull()
     expect(screen.queryByText('Sign in to ask about this page.')).toBeNull()
   })
@@ -1146,7 +1142,7 @@ describe('lab chrome', () => {
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
     })
-    expect(audio.currentTime).toBe(8)
+    expect(audio.currentTime).toBe(0)
     expect(audio.paused).toBe(false)
   })
 
@@ -1206,7 +1202,7 @@ describe('lab chrome', () => {
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
     })
-    expect(audio.currentTime).toBe(8)
+    expect(audio.currentTime).toBe(0)
     expect(audio.paused).toBe(false)
     expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
     expect(screen.getByTestId('lab-reading-stage')).toBeTruthy()
@@ -1305,7 +1301,7 @@ describe('lab chrome', () => {
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
     })
-    expect(audio.currentTime).toBe(8)
+    expect(audio.currentTime).toBe(0)
     expect(audio.paused).toBe(false)
   })
 
@@ -1332,7 +1328,7 @@ describe('lab chrome', () => {
     await waitFor(() => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
     })
-    expect(audio.currentTime).toBe(8)
+    expect(audio.currentTime).toBe(0)
   })
 
   it('seeks the real audio element and only marks the living circle', async () => {
@@ -1625,7 +1621,7 @@ describe('lab chrome', () => {
     })
     expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
     expect(screen.getByTestId('lab-status').textContent).toBe('Hearing · Book 1')
-    expect(audio.currentTime).toBe(3)
+    expect(audio.currentTime).toBe(0)
     expect(audio.paused).toBe(false)
 
   })
@@ -2711,7 +2707,7 @@ describe('lab passage headline pages', () => {
       const words = screen.getAllByTestId('lab-word')
       const whole = [1, 2, 3].map(i => words[i].textContent?.trim()).join(' ')
       await selectWords(1, 3, 51)
-      fireEvent.click(screen.getByRole('button', { name: 'Highlight & note', exact: true }))
+      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
       await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
       fireEvent.pointerDown(document.body, { pointerId: 52, pointerType: 'mouse', clientX: 10, clientY: 10 })
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
@@ -2741,7 +2737,7 @@ describe('lab passage headline pages', () => {
       render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       const words = screen.getAllByTestId('lab-word')
       await selectWords(1, 2, 61)
-      fireEvent.click(screen.getByRole('button', { name: 'Highlight & note', exact: true }))
+      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
       await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
       fireEvent.pointerDown(document.body, { pointerId: 62, pointerType: 'mouse', clientX: 10, clientY: 10 })
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
@@ -2765,7 +2761,7 @@ describe('lab passage headline pages', () => {
       render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       const words = screen.getAllByTestId('lab-word')
       await selectWords(1, 2, 71)
-      fireEvent.click(screen.getByRole('button', { name: 'Highlight & note', exact: true }))
+      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
       await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
       fireEvent.pointerDown(document.body, { pointerId: 72, pointerType: 'mouse', clientX: 10, clientY: 10 })
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
@@ -2783,7 +2779,7 @@ describe('lab passage headline pages', () => {
     })
   })
 
-  it('saves only after Highlight and recolors that same range without closing', async () => {
+  it('saves a note and recolors the same range before closing', async () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
     const page = screen.getByTestId('lab-book')
     vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({
@@ -2796,15 +2792,17 @@ describe('lab passage headline pages', () => {
     fireEvent.pointerUp(words[3], { pointerId: 9, pointerType: 'mouse', clientX: 220, clientY: 200 })
     expect(document.querySelector('.selection-popup')).toBeTruthy()
     expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(0)
-    fireEvent.click(screen.getByRole('button', { name: 'Highlight & note', exact: true }))
+    fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
     await waitFor(() => expect(localStorage.getItem('tinct-lab-highlights')).toContain('gold'))
+    fireEvent.change(screen.getByRole('textbox', { name: 'Highlight note' }), { target: { value: 'Remember this.' } })
     fireEvent.click(screen.getByTitle('Highlight Sky'))
     await waitFor(() => {
       const saved = JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')
       expect(saved).toHaveLength(1)
       expect(saved[0].color).toBe('sky')
+      expect(saved[0].note).toBe('Remember this.')
     })
-    expect(document.querySelector('.selection-popup')).toBeTruthy()
+    expect(document.querySelector('.selection-popup')).toBeNull()
     await waitFor(() => expect(screen.getAllByTestId('lab-word')[1].className).toContain('is-hl-sky'))
   })
 
@@ -2815,7 +2813,7 @@ describe('lab passage headline pages', () => {
     fireEvent.pointerDown(words[1], { pointerId: 91, pointerType: 'mouse', clientX: 150, clientY: 200 })
     fireEvent.pointerMove(words[3], { pointerId: 91, pointerType: 'mouse', clientX: 230, clientY: 200 })
     fireEvent.pointerUp(words[3], { pointerId: 91, pointerType: 'mouse', clientX: 230, clientY: 200 })
-    fireEvent.click(screen.getByRole('button', { name: 'Highlight & note', exact: true }))
+    fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
     await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
 
     fireEvent.pointerDown(document.body, { pointerId: 92, pointerType: 'touch', clientX: 10, clientY: 10 })
@@ -4726,4 +4724,26 @@ it('dismisses V2 speed controls with Done, outside tap and Escape without changi
   fireEvent.keyDown(document, { key: 'Escape' })
   expect(screen.queryByTestId('lab-audio-speed-popover')).toBeNull()
   expect(audio.paused).toBe(false)
+})
+
+it('selects a short final line by vertical proximity on touch after a 240ms hold', () => {
+  vi.useFakeTimers()
+  const onSelectRange = vi.fn()
+  const { container } = render(<LabPassage chapterTitle="Short lines" readingPage={{ paragraphIndex: 0, from: 0, to: 2, segments: [{ paragraphIndex: 0, from: 0, to: 2 }, { paragraphIndex: 1, from: 0, to: 1 }, { paragraphIndex: 2, from: 0, to: 2 }] }} paragraphs={['Opening words', 'End.', 'Next section']} compareParagraphs={[]} compare={false} mode="reading" follow={{ kind: 'none' }} followParagraphs={[]} markedIndexes={new Set()} chapterNumber={1} onSelectRange={onSelectRange} />)
+  const words = screen.getAllByTestId('lab-word')
+  words.forEach((word, index) => {
+    const top = index < 2 ? 100 : index === 2 ? 130 : 160
+    const left = index < 3 ? 50 + (index === 1 ? 70 : 0) : 300 + (index - 3) * 60
+    vi.spyOn(word, 'getBoundingClientRect').mockReturnValue({ left, right: left + 45, top, bottom: top + 20, width: 45, height: 20, x: left, y: top, toJSON() {} })
+  })
+  const surface = container.querySelector('.lab-passage')!
+  const prior = document.elementFromPoint
+  document.elementFromPoint = () => surface
+  try {
+    fireEvent.pointerDown(words[0], { pointerId: 810, pointerType: 'touch', clientX: 60, clientY: 110 })
+    act(() => vi.advanceTimersByTime(240))
+    fireEvent.pointerMove(surface, { pointerId: 810, pointerType: 'touch', clientX: 310, clientY: 140 })
+    fireEvent.pointerUp(surface, { pointerId: 810, pointerType: 'touch', clientX: 310, clientY: 140 })
+    expect(onSelectRange).toHaveBeenCalledWith(expect.objectContaining({ endParagraphIndex: 1, toWord: 1 }), 310, 140, undefined)
+  } finally { document.elementFromPoint = prior; vi.useRealTimers() }
 })

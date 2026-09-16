@@ -1,3 +1,4 @@
+import { LiveVoiceSessionController } from '../voice/LiveVoiceSessionController'
 import type { VoiceTrial } from '../voice/voiceTrial'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
@@ -41,6 +42,7 @@ export interface UseVoiceSessionOptions {
   onNeedAuth: () => void
   onInsufficientBalance: () => void
   onUsage?: () => void
+  onEndConversation?: () => void
   mode?: VoiceSessionMode
   /** Lab-only. Production AudioStrip leaves this unset so buildVoiceInstructions runs. */
   instructions?: string
@@ -84,10 +86,11 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
   const [latencySamples, setLatencySamples] = useState<VoiceLatencySample[]>([])
   const optionsRef = useRef(options)
   optionsRef.current = options
-  const controllerRef = useRef<VoiceSessionController | null>(null)
+  const controllerRef = useRef<VoiceSessionController | LiveVoiceSessionController | null>(null)
 
   useEffect(() => {
-    const controller = new VoiceSessionController({
+    const Controller = options.voiceTrial ? VoiceSessionController : LiveVoiceSessionController
+    const controller = new Controller({
       onSnapshot: setUi,
       onTurn: (role, text, meta) => {
         const opts = optionsRef.current
@@ -108,6 +111,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       onNeedAuth: () => optionsRef.current.onNeedAuth(),
       onInsufficientBalance: () => optionsRef.current.onInsufficientBalance(),
       onUsage: () => optionsRef.current.onUsage?.(),
+      onEndRequested: () => optionsRef.current.onEndConversation?.(),
       onLatency: (sample) => {
         setLatencySamples(previous => {
           const next = [...previous, sample].slice(-20)
@@ -137,7 +141,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       controller.dispose()
       controllerRef.current = null
     }
-  }, [])
+  }, [options.voiceTrial])
 
   const buildContext = useCallback((): VoiceReaderContext => {
     const opts = optionsRef.current

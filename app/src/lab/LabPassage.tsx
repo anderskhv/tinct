@@ -511,7 +511,7 @@ export function LabPassage({
         if (dragRef.current !== drag) return
         drag.selecting = true
         setLocalSelecting(buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, selectionPlace, selectionPlace))
-      }, 300)
+      }, 240)
     }
   }
 
@@ -537,9 +537,9 @@ export function LabPassage({
     const target = pointTarget || event.target as Element
     let place = wordPlaceFromTarget(target)
     const sameSide = !!(target as Element)?.closest('.lab-book-col-compare') === drag.comparison
-    // Mouse selection should continue through inter-word and inter-line space.
+    // Selection follows the nearest line through whitespace, including short touch lines.
     // Keep Compare isolated; the second Read leaf still belongs to the primary.
-    if (!place && drag.pointerType === 'mouse' && sameSide) {
+    if (!place && sameSide) {
       let nearest: Element | null = null
       let best = Infinity
       for (const word of event.currentTarget.querySelectorAll('[data-testid="lab-word"]')) {
@@ -548,7 +548,7 @@ export function LabPassage({
         if (!box.width || !box.height) continue
         const dx = Math.max(box.left - event.clientX, 0, event.clientX - box.right)
         const dy = Math.max(box.top - event.clientY, 0, event.clientY - box.bottom)
-        const distance = dx * dx + dy * dy
+        const distance = dy * dy * 10000 + dx * dx
         if (distance < best) { best = distance; nearest = word }
       }
       place = wordPlaceFromTarget(nearest)
