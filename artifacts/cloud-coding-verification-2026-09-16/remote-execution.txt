@@ -1,0 +1,43 @@
+Tinct cloud coding execution proof
+Date: 2026-09-16
+
+Environment
+  Runtime: existing attached Tinct cloud coding environment
+  Remote checkout path category: /workspace/scratch/<workspace-id>/tinct
+  Repository: anderskhv/tinct
+  Branch: codex/cloud-execution-proof-20260916
+  Fetched origin/main checkout commit: e2415af30379a2d91927a7c106564b2ab1cb2e7e
+
+Runtime versions
+  Command: npx --yes -p node@24.13.0 -c 'node --version && npm --version'
+  Exit: 0
+  node --version: v24.13.0
+  npm --version: 11.9.0
+  Note: npm emitted its existing http-proxy deprecation warning; no value or secret was recorded.
+
+Audio GPU launch preflight unit proof
+  Command: python3 tools/audio-highlight/gpu/test_preflight_launch.py
+  Exit: 0
+  Result:
+    ....
+    ----------------------------------------------------------------------
+    Ran 4 tests in 0.000s
+
+    OK
+
+Focused repository code test
+  Working directory: app
+  Command: npx --yes node@24.13.0 "$(command -v npm)" test -- --run src/utils/audioPlayback.test.ts
+  Exit: 0
+  Result:
+    Test Files  1 passed (1)
+    Tests       5 passed (5)
+    Duration    461ms
+
+Boundaries observed
+  No app code was modified.
+  No deployment or merge was performed.
+  No audio or GPU job was started.
+  No corpus was downloaded.
+  No secret or account-specific checkout prefix was recorded.
+  No Mac or Documents checkout was used or required.
