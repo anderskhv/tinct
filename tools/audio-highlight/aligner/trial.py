@@ -9,7 +9,8 @@ GATE=.85
 # Pinned helper revisions (provenance in PINS.md). v1 is the verbatim f5b23de7 helper the
 # acceptance results were measured against; v2 adds the approved expected-side markup
 # normalisation (DECISIONS.md 2026-09-11); v3 adds gluing, the mirror case and the
-# contraction table (run 3, 2026-09-12); v4 adds the lettered-footnote structural rule.\n# Default v4; --helper v1 reproduces run 1 exactly
+# contraction table (run 3, 2026-09-12); v4 adds the lettered-footnote structural rule.
+# Default v4; --helper v1 reproduces run 1 exactly
 # and --helper v2 reproduces run 2.
 HELPERS={'v1':'pinned_words_sidecar_lib','v2':'pinned_words_sidecar_lib_v2','v3':'pinned_words_sidecar_lib_v3'};DEFAULT_HELPER='v3'
 def select_helper(name):
