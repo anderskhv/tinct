@@ -1,3 +1,4 @@
+import { useTextRangeHighlights } from './useTextRangeHighlights'
 import { comparisonSegment } from './LabDesktopPaginator'
 import { Fragment, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { LAB_COPY } from './labCopy'
@@ -407,6 +408,7 @@ export function LabPassage({
   const lastSelectionPageTurnAtRef = useRef(0)
   const pageStageRef = useRef<HTMLDivElement>(null)
   const articleRef = useRef<HTMLElement>(null)
+  useTextRangeHighlights(articleRef)
   const [endOverflow, setEndOverflow] = useState(false)
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
@@ -511,7 +513,7 @@ export function LabPassage({
         if (dragRef.current !== drag) return
         drag.selecting = true
         setLocalSelecting(buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, selectionPlace, selectionPlace))
-      }, 240)
+      }, 160)
     }
   }
 
@@ -520,7 +522,8 @@ export function LabPassage({
     if (!drag) return
     if (!drag.selecting) {
       const distance = Math.max(Math.abs(event.clientX - drag.startX), Math.abs(event.clientY - drag.startY))
-      if (drag.touch && distance > 10 && longPressRef.current) {
+      if (drag.touch && distance > 10 && longPressRef.current
+        && event.timeStamp - drag.startedAt < 100) {
         clearTimeout(longPressRef.current)
         longPressRef.current = null
         drag.start = null

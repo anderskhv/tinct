@@ -2,7 +2,7 @@
 
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, cleanup, createEvent, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { LAB_DESKTOP_PANES, PRODUCTION_DESKTOP_PANES } from './labChrome'
 import { LabApp } from './LabApp'
@@ -2511,9 +2511,10 @@ describe('lab passage headline pages', () => {
     expect(select).not.toHaveBeenCalled()
 
     fireEvent.pointerDown(word, { pointerId: 8, pointerType: 'touch', clientX: 195, clientY: 200 })
-    act(() => { vi.advanceTimersByTime(299) })
+    act(() => { vi.advanceTimersByTime(159) })
     expect(select).not.toHaveBeenCalled()
     act(() => { vi.advanceTimersByTime(1) })
+    expect(word.className).toContain('is-selecting')
     fireEvent.pointerUp(word, { pointerId: 8, pointerType: 'touch', clientX: 195, clientY: 200 })
     expect(select).toHaveBeenCalledOnce()
     expect(select.mock.calls[0][0].text).toBe('me')
@@ -4746,4 +4747,22 @@ it('selects a short final line by vertical proximity on touch after a 240ms hold
     fireEvent.pointerUp(surface, { pointerId: 810, pointerType: 'touch', clientX: 310, clientY: 140 })
     expect(onSelectRange).toHaveBeenCalledWith(expect.objectContaining({ endParagraphIndex: 1, toWord: 1 }), 310, 140, undefined)
   } finally { document.elementFromPoint = prior; vi.useRealTimers() }
+})
+
+it.each([[120, true], [50, false]])('distinguishes slow selection movement at %ims from a quick swipe', (elapsed, expected) => {
+  vi.useFakeTimers()
+  const select = vi.fn()
+  render(<LabPassage chapterTitle="Test" paragraphs={['Tell me O Muse']} compareParagraphs={[]} compare={false} mode="reading" follow={{kind:'none'}} followParagraphs={[]} markedIndexes={new Set()} onSelectRange={select} readingPage={{paragraphIndex:0,from:0,to:4}} />)
+  const word = screen.getAllByTestId('lab-word')[1]
+  const down = createEvent.pointerDown(word, {pointerId:42,pointerType:'touch',clientX:180,clientY:200})
+  Object.defineProperty(down,'timeStamp',{value:1000})
+  fireEvent(word,down)
+  const move = createEvent.pointerMove(word,{pointerId:42,pointerType:'touch',clientX:202,clientY:200})
+  Object.defineProperty(move,'timeStamp',{value:1000+elapsed})
+  fireEvent(word,move)
+  act(()=>vi.advanceTimersByTime(160))
+  expect(word.classList.contains('is-selecting')).toBe(expected)
+  fireEvent.pointerUp(word,{pointerId:42,pointerType:'touch',clientX:202,clientY:200})
+  expect(select).toHaveBeenCalledTimes(expected?1:0)
+  vi.useRealTimers()
 })

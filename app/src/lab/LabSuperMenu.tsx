@@ -12,7 +12,7 @@ export interface LabSuperMenuProps {
 }
 
 /** The monoline icons from the canvas, all on the same 22 px, 1.6 weight. */
-function RowIcon({ id }: { id: LabSuperMenuId }) {
+export function RowIcon({ id }: { id: LabSuperMenuId }) {
   const common = { width: 22, height: 22, viewBox: '0 0 24 24', 'aria-hidden': true } as const
   if (id === 'chat') {
     return (

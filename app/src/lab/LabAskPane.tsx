@@ -133,9 +133,6 @@ export function LabAskPane({
   historyStatus = 'ready',
 }: LabAskPaneProps) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
-  const attachmentTextRef = useRef<HTMLParagraphElement | null>(null)
-  const [attachmentExpanded, setAttachmentExpanded] = useState(false)
-  const [attachmentOverflows, setAttachmentOverflows] = useState(false)
   const [copiedTurn, setCopiedTurn] = useState<string | null>(null)
   // Auto-grow. The measurement collapses the field to 0px to read its
   // scrollHeight, which for that moment makes the content overflow the box by
@@ -154,18 +151,6 @@ export function LabAskPane({
     field.style.height = `${Math.min(content, LAB_ASK_MAX_COMPOSER_PX)}px`
     if (content > LAB_ASK_MAX_COMPOSER_PX) field.style.overflowY = 'auto'
   }, [draft, chromeV2])
-  useLayoutEffect(() => {
-    setAttachmentExpanded(false)
-    const node = attachmentTextRef.current
-    if (!node || !attachment) { setAttachmentOverflows(false); return }
-    const measure = () => {
-      const lineHeight = Number.parseFloat(getComputedStyle(node).lineHeight) || 24
-      setAttachmentOverflows(node.scrollHeight > lineHeight * 2 + 1)
-    }
-    measure()
-    window.addEventListener('resize', measure)
-    return () => window.removeEventListener('resize', measure)
-  }, [attachment?.text])
   const copyTurn = async (turn: LabAskTurn) => {
     try {
       await navigator.clipboard.writeText(turn.content)
@@ -426,16 +411,8 @@ export function LabAskPane({
       {attachment && (
         <section className="lab-ask-attachment" data-testid="lab-ask-attachment" aria-label="Highlighted passage attached to question">
           <span className="lab-ask-attachment-label">Highlight:</span>
-          <p
-            ref={attachmentTextRef}
-            className={`lab-ask-attachment-text${attachmentExpanded ? ' is-expanded' : ''}`}
-          >{attachment.text}</p>
+          <p className="lab-ask-attachment-text" tabIndex={0}>{attachment.text}</p>
           <div className="lab-ask-attachment-actions">
-            {attachmentOverflows && (
-              <button type="button" onClick={() => setAttachmentExpanded(value => !value)}>
-                {attachmentExpanded ? 'Collapse' : 'Expand'}
-              </button>
-            )}
             <button type="button" onClick={() => {
               onRemoveAttachment?.()
               window.requestAnimationFrame(() => textareaRef.current?.focus())

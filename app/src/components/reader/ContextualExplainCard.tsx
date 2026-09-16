@@ -1,12 +1,13 @@
 import { LabMarkdown } from '../../lab/LabMarkdown'
-import { ChatIcon, ReadIcon } from '../../lab/LabReaderIcons'
+import { RowIcon } from '../../lab/LabSuperMenu.tsx'
 import { useEffect, useRef, useState } from 'react'
 
-export function ContextualExplainCard({ passage, request, onAsk, onClose }: {
+export function ContextualExplainCard({ passage, request, onAsk, onTalk }: {
   passage: string
   request: (onDelta: (text: string) => void) => Promise<string>
   onAsk: (answer: string) => void
-  onClose: () => void
+  onTalk?: (answer: string) => void
+  onClose?: () => void
 }) {
   const [status, setStatus] = useState<'loading' | 'streaming' | 'ready' | 'error'>('loading')
   const [answer, setAnswer] = useState('')
@@ -20,8 +21,9 @@ export function ContextualExplainCard({ passage, request, onAsk, onClose }: {
     setAnswer('')
     void requestRef.current((text) => {
       if (!active) return
-      setAnswer(text)
-      setStatus('streaming')
+      // Reveal complete paragraphs; subsequent paragraphs arrive below the first.
+      const boundary = text.lastIndexOf('\n\n')
+      if (boundary > 0) { setAnswer(text.slice(0, boundary)); setStatus('streaming') }
     }).then((text) => {
       if (!active) return
       setAnswer(text)
@@ -35,9 +37,8 @@ export function ContextualExplainCard({ passage, request, onAsk, onClose }: {
   return (
     <section className="lab-contextual-explain" aria-label="Explanation">
       <div className="lab-contextual-explain-scroll">
-        <blockquote>{passage}</blockquote>
         <div role="status" aria-live="polite" aria-busy={status === 'loading' || status === 'streaming'}>
-          {status === 'loading' && <p className="lab-contextual-explain-wait">Finding the meaning in this passage…</p>}
+          {status === 'loading' && <p className="lab-contextual-explain-wait">Loading…</p>}
           {status === 'error' && (
             <>
               <p>The explanation couldn’t be loaded. Your passage is still here.</p>
@@ -50,8 +51,12 @@ export function ContextualExplainCard({ passage, request, onAsk, onClose }: {
         </div>
       </div>
       <footer>
-        <button type="button" aria-label="Chat about this explanation" title="Chat about this explanation" onClick={() => onAsk(answer)}><ChatIcon /></button>
-        <button type="button" aria-label="Back to reading" title="Back to reading" onClick={onClose}><ReadIcon /></button>
+        <button className="lab-super-row" type="button" aria-label="Chat about this explanation" onClick={() => onAsk(answer)} disabled={!answer}>
+          <span className="lab-super-row-icon"><RowIcon id="chat" /></span><span className="lab-super-row-label">Chat</span>
+        </button>
+        {onTalk && <button className="lab-super-row" type="button" aria-label="Talk about this explanation" onClick={() => onTalk(answer)} disabled={!answer}>
+          <span className="lab-super-row-icon"><RowIcon id="talk" /></span><span className="lab-super-row-label">Talk</span>
+        </button>}
       </footer>
     </section>
   )

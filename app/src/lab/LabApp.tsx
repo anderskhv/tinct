@@ -2618,7 +2618,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   useLayoutEffect(() => {
     if (!selectionPopup) return
     const el = popupRef.current
-    if (!el) return
+    if (!el || el.classList.contains('is-lab')) return
     const clamp = () => {
       const rect = el.getBoundingClientRect()
       if (rect.width <= 0 || rect.height <= 0) return
@@ -4773,6 +4773,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             handleChat()
             setAskAttachment({ bookId: book.bookId, text })
             setDraft('')
+          }}
+          onTalkExplanation={(answer) => {
+            ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex)
+            dismissSelectionPopup()
+            // Let the explanation enter the hook's context before starting voice.
+            requestAnimationFrame(() => handleTalk())
           }}
           onRequestExplanation={(onDelta) => {
             const editionKey = selectionPopup.editionKey || readerEditionKey

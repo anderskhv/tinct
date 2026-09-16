@@ -1155,12 +1155,39 @@
   .lab-contextual-explain-scroll { max-height: 43dvh; }
 }
 
-.lab-ask-attachment-text {
-  display: -webkit-box;
+/* WebKit only paints custom text highlights on selectable text. Pointer handlers
+   still suppress native selection and own the long-press/drag interaction. */
+.lab .has-text-range-highlights, .lab .has-text-range-highlights * {
+  -webkit-user-select: text;
+  user-select: text;
+}
+/* September 16 follow-up: keep selection actions beside their passage. */
+.lab .selection-popup.is-lab.is-compact {
+  left: var(--anchored-popup-x, 12px) !important;
+  top: var(--anchored-popup-y, 88px) !important;
+  right: auto !important;
+  bottom: auto !important;
   margin: 0;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  transform: none !important;
+  width: min(340px, calc(100vw - 24px));
+}
+.lab .selection-popup.is-lab.is-contextual-explain { max-height: min(440px, calc(100dvh - 120px)); }
+.lab-contextual-explain-scroll { max-height: min(28dvh, 250px); padding: 18px 20px 10px; }
+.lab-contextual-explain-wait { min-height: 28px; font-size: 14px; color: var(--lab-muted); }
+.lab-contextual-explain footer { display: block; padding: 0; }
+.lab .lab-contextual-explain footer .lab-super-row { display: flex; width: 100%; min-height: 48px; padding: 0 18px 0 0; border-radius: 0; font: 18px/1.4 'EB Garamond', Georgia, serif; }
+.lab-contextual-explain footer .lab-super-row-icon { width: 56px; flex: 0 0 56px; display: grid; place-items: center; }
+.lab-contextual-explain footer button:disabled { opacity: .4; cursor: default; }
+.lab .lab-ask-attachment-text { display: block; max-height: 100px; overflow-y: auto; overscroll-behavior: contain; -webkit-line-clamp: unset; }
+.lab .lab-passage.has-text-range-highlights .lab-hearing-word[class*="is-hl-"],
+.lab .lab-passage.has-text-range-highlights .lab-highlight-gap,
+.lab .lab-passage.has-text-range-highlights .lab-hearing-word[class~="is-selecting"] { background: transparent !important; }
+
+.lab-ask-attachment-text {
+  display: block;
+  margin: 0;
+  max-height: 100px;
+  overflow-y: auto;
   font: 0.98rem/1.4 'EB Garamond', Georgia, serif;
   color: var(--lab-ink);
 }
@@ -7291,3 +7318,4 @@
     padding: 4px 16px 10px;
   }
 }
+

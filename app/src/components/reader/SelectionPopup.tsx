@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties, type RefObject } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type RefObject } from 'react'
 import type { CharacterSelection } from '../../services/characters/characterCards'
 import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import type { DictResult } from '../../services/dictionary'
@@ -56,6 +56,7 @@ export interface SelectionPopupProps {
   onUpdateHighlightNote?: (id: string, note: string) => void
   onRequestNote: (color?: HighlightColor) => void
   // Main toolbar actions
+  onTalkExplanation?: (answer: string) => void
   onExplain: (answer?: string) => void
   onRequestExplanation?: (onDelta: (text: string) => void) => Promise<string>
   onCopy: () => void
@@ -145,6 +146,7 @@ export function SelectionPopup({
   onUpdateHighlightNote,
   onRequestNote,
   onExplain,
+  onTalkExplanation,
   onRequestExplanation,
   onCopy,
   onDeleteHighlight,
@@ -165,6 +167,31 @@ export function SelectionPopup({
     setExplainPlacement({ edge: above > below ? 'top' : 'bottom', available: Math.max(230, above > below ? above : below) })
     setPopupMode('explain')
   }
+  useLayoutEffect(() => {
+    if (!lab || !popupRef.current) return
+    const el = popupRef.current
+    const place = () => {
+      const boxes = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
+        .flatMap(node => Array.from(node.getClientRects()))
+        .filter(box => box.width && box.height && box.bottom > 76 && box.top < window.innerHeight - 32)
+      const top = boxes.length ? Math.min(...boxes.map(box => box.top)) : selection.y
+      const bottom = boxes.length ? Math.max(...boxes.map(box => box.bottom)) : selection.y
+      const height = el.offsetHeight
+      const low = window.innerHeight - 32
+      const above = top - 12 - height
+      const below = bottom + 12
+      const y = below + height <= low ? below : above >= 76 ? above
+        : Math.max(76, Math.min(low - height, top - height - 12))
+      const x = Math.max(12, Math.min(window.innerWidth - el.offsetWidth - 12, selection.x - el.offsetWidth / 2))
+      el.style.setProperty('--anchored-popup-x', `${x}px`)
+      el.style.setProperty('--anchored-popup-y', `${y}px`)
+    }
+    place()
+    const observer = typeof ResizeObserver === 'function' ? new ResizeObserver(place) : null
+    observer?.observe(el)
+    window.addEventListener('resize', place)
+    return () => { observer?.disconnect(); window.removeEventListener('resize', place) }
+  }, [lab, popupMode, selection.x, selection.y, popupRef])
   const homeMode = homeModeFor(selection)
   const [galleryId, setGalleryId] = useState<string | null>(null)
   useEffect(() => { setGalleryId(null) }, [selection.character])
@@ -256,7 +283,7 @@ export function SelectionPopup({
       onTouchEnd={e => e.stopPropagation()}
     >
       {contextualExplain && popupMode === 'explain' && (
-        <ContextualExplainCard passage={selection.text} request={onRequestExplanation} onAsk={onExplain} onClose={dismissPopup} />
+        <ContextualExplainCard passage={selection.text} request={onRequestExplanation} onAsk={onExplain} onTalk={onTalkExplanation} />
       )}
       {character && (popupMode === 'character' || popupMode === 'gallery') && (
         <div className="popup-character">
