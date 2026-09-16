@@ -59,7 +59,7 @@ jobs:
             --commit "${GITHUB_SHA}" \
             --artifacts "$ARTIFACT_DIR" \
             --cloud SECURE \
-            --helper v3 \
+            --helper v4 \
             --arms "off auto" \
             --max-seconds 1800 \
             --deadline-minutes 35
