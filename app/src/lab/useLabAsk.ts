@@ -357,7 +357,10 @@ export function useLabAsk(options: UseLabAskOptions) {
       const bookId = optionsRef.current.bookId
       const token = await resolveLabVoiceToken({ override: optionsRef.current.authToken, sessionToken, readSession: readSupabaseAccessToken })
       const result = await researchVoiceQuestion(arguments_.query, token)
-      if (turn === voiceResearchTurnRef.current && bookId === optionsRef.current.bookId && result.sources) voiceSourcesRef.current = result.sources
+      if (turn !== voiceResearchTurnRef.current || bookId !== optionsRef.current.bookId) {
+        return { output: { ok: false, reason: 'superseded_question' }, responseInstructions: 'This search belongs to an earlier question. Do not answer it or say source links were added to chat. Follow the current question instead.' }
+      }
+      if (result.sources) voiceSourcesRef.current = result.sources
       return result
     }
     if (name === 'get_book_passage') {
