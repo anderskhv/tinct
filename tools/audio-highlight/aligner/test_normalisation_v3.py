@@ -167,6 +167,12 @@ class CloudOrchestratorPin(unittest.TestCase):
   self.assertIn('os.environ.get("TINCT_HELPER", "v4")',pod)
   self.assertIn("'v4':'pinned_words_sidecar_lib_v4'",trial_source)
   self.assertIn(hashlib.sha256(Path(v4.__file__).read_bytes()).hexdigest(),pins)
+  import sys
+  sys.path.insert(0,str(root/'tools'/'audio-highlight'/'gpu'))
+  import orchestrate
+  result=orchestrate.validate_remote_helper_payload('unused','v4',root.as_uri())
+  self.assertEqual(result['helper'],'v4')
+  self.assertIn('pinned_words_sidecar_lib_v4.py',result['files'])
 
 class Pins(unittest.TestCase):
  def test_pins_file_records_all_three_helper_hashes(self):
