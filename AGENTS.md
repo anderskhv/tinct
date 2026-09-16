@@ -71,7 +71,7 @@ Interpretation rules:
   deployment owner. When a genuine blocker exists, every report to Anders includes
   a concise `Needs your decision` line with the concrete choice and recommendation;
   do not invent blockers or re-ask for already approved work.
-- Until Tinct has more than 10 users, deploy-after-verify is the default. After `npm run build` and `npm run verify-bundle` pass, deploy with `npm run deploy` from `app/` using the Node 24 nvm path. Do not ask first. Skip deploy only if Anders says local-only. Never run raw `wrangler deploy`. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle.
+- Until Tinct has more than 10 users, deploy-after-verify is the default. After `npm run build` and `npm run verify-bundle` pass, release through the GitHub Actions deploy workflow using Node 24.13.0 and `npm run deploy` from `app/`. Do not ask first. Skip deploy only if Anders says local-only. Never run raw `wrangler deploy`. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle.
 - Do not call Anthropic APIs during development. The production reader chat may use Claude, but development content generation must happen in the agent conversation and be written to files.
 - While Anders assigns content work to Claude, Codex owns code and technical
   pipelines only. Codex does not author or semantically approve translations,
@@ -93,11 +93,13 @@ npm run build
 npm run verify-bundle
 ```
 
-After those gates pass, deploy with the Node 24 nvm install. Do not ask first unless Anders said local-only:
+After those gates pass, release through GitHub Actions on Node 24.13.0.
+In an authorized remote deployment environment with the existing deploy credential,
+the equivalent command is:
 
 ```bash
 cd app
-export PATH=/Users/andershvelplund/.nvm/versions/node/v24.13.0/bin:$PATH
+node --version  # must be Node 24; configured by the remote environment
 npm run deploy
 ```
 
