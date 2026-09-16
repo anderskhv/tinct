@@ -3,7 +3,7 @@ from __future__ import annotations
 import importlib.util
 import argparse,dataclasses,difflib,hashlib,importlib,importlib.metadata,json,os,platform,signal,subprocess,sys,time
 from pathlib import Path
-import pinned_words_sidecar_lib_v3 as lib
+import pinned_words_sidecar_lib_v4 as lib
 from spoken_policy import validate_map
 GATE=.85
 # Pinned helper revisions (provenance in PINS.md). v1 is the verbatim f5b23de7 helper the
