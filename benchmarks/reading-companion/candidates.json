@@ -1,0 +1,26 @@
+{
+  "run_id": "tinct-reading-pilot-2026-09-16",
+  "repeats": 3,
+  "candidates": [
+    {
+      "id": "sonnet",
+      "provider": "anthropic",
+      "model": "claude-sonnet-5",
+      "endpoint": "Messages API",
+      "effort": "low",
+      "temperature": "provider-default",
+      "max_output_tokens": 1024,
+      "tools": "none"
+    },
+    {
+      "id": "terra",
+      "provider": "openai",
+      "model": "gpt-5.6-terra",
+      "endpoint": "Responses API",
+      "effort": "provider-default",
+      "temperature": "provider-default",
+      "max_output_tokens": 1024,
+      "tools": "none"
+    }
+  ]
+}
