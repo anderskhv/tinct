@@ -83,6 +83,38 @@ errors), 0 duplicate ids, 0 duplicate/colliding mention spans, all
 pre-existing card content verified unchanged where a rebuild tool was
 used (`crime-and-punishment`, `anna-karenina`).
 
+## Real-browser verification caught a bug round-trip checking missed
+
+The first full verification run (64 checks, extending
+`app/scripts/verify-character-fixes.cjs`) came back 60/64 — and this time
+the failures were NOT the earlier page-boundary test artifact (both
+desktop *and* phone failed identically, which that artifact never did).
+Both failures were the two `brothers-karamazov` additions.
+
+Root cause: `nikolay-parfenovitch` and `pyotr-ilyitch` were the first
+`add_entity.py` additions this session to use *two* aliases each (a full
+form and a shortened form — "Nikolay Parfenovitch Nelyudov" and "Nikolay
+Parfenovitch"). The tool's `bind()` function matched every alias
+independently without deduplicating overlaps, so both alias patterns
+matched at the same starting position in the text, producing **two
+mentions for the same character at overlapping spans**. That's malformed
+relative to how `build_generic.py` (used everywhere else this session)
+already handles the same situation — it keeps only the longest overlapping
+match. Round-trip validation (which only checks each mention's text
+against its own offsets) had no way to catch this, since both individual
+mentions were internally consistent; only tapping the actual word in the
+actual reader surfaced it, where it silently fell through to a plain
+dictionary lookup instead of opening the character card. Isolated the
+cause by testing a known-working existing character (`ivan`) in the same
+book first, which resolved correctly, ruling out any edition-wide problem.
+
+Fixed `add_entity.py` to dedupe the same way `build_generic.py` does,
+removed and re-added both entities, re-validated round-trip (0 errors),
+and re-ran the full 64-check suite: **64/64 pass.** This is the reason
+real-browser verification is a required step for every book touched by
+this tool, not an optional nice-to-have on top of round-trip checking —
+this specific bug class was invisible to the data-only check.
+
 ## Reviewed, no fix made
 
 - **`paradise-lost`** — flagged terms beyond the first 15 are abstract
