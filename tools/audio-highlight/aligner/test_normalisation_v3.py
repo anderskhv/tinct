@@ -11,7 +11,8 @@ from pathlib import Path
 from types import SimpleNamespace as NS
 import pinned_words_sidecar_lib as v1
 import pinned_words_sidecar_lib_v2 as v2
-import pinned_words_sidecar_lib_v3 as v3\nimport pinned_words_sidecar_lib_v4 as v4
+import pinned_words_sidecar_lib_v3 as v3
+import pinned_words_sidecar_lib_v4 as v4
 import trial
 
 def heard(words,step=.2):return [v3.HeardWord(w,round(i*step,3),round((i+1)*step,3)) for i,w in enumerate(words)]
@@ -139,7 +140,19 @@ class GateAndTimestamps(unittest.TestCase):
   self.assertEqual([p['source'] for p in r['provenance']],['observed']*4)
   trial.select_helper(trial.DEFAULT_HELPER)
 
-class LetteredFootnoteMarkers(unittest.TestCase):\n def test_whole_paragraph_letter_and_bracket_are_unspoken(self):\n  d=ratio('k [ See the history.]',['See','the','history.'],lib=v4)\n  self.assertEqual((d.stats.expected_words,d.stats.matched_words),(3,3))\n  self.assertEqual(d.unspoken,[0,1])\n def test_missing_spoken_words_still_fail_or_reduce_the_ratio(self):\n  d=ratio('k [ See the old detailed history.]',['See','history.'],lib=v4)\n  self.assertLess(d.stats.match_ratio,.85)\n def test_inline_and_uppercase_brackets_are_not_reclassified(self):\n  self.assertEqual(ratio('a [word] remains',['a','word','remains'],lib=v4).unspoken,[])\n  self.assertEqual(ratio('I [ See the history.]',['See','the','history.'],lib=v4).unspoken,[])\n\nclass Pins(unittest.TestCase):
+class LetteredFootnoteMarkers(unittest.TestCase):
+ def test_whole_paragraph_letter_and_bracket_are_unspoken(self):
+  d=ratio('k [ See the history.]',['See','the','history.'],lib=v4)
+  self.assertEqual((d.stats.expected_words,d.stats.matched_words),(3,3))
+  self.assertEqual(d.unspoken,[0,1])
+ def test_missing_spoken_words_still_fail_or_reduce_the_ratio(self):
+  d=ratio('k [ See the old detailed history.]',['See','history.'],lib=v4)
+  self.assertLess(d.stats.match_ratio,.85)
+ def test_inline_and_uppercase_brackets_are_not_reclassified(self):
+  self.assertEqual(ratio('a [word] remains',['a','word','remains'],lib=v4).unspoken,[])
+  self.assertEqual(ratio('I [ See the history.]',['See','the','history.'],lib=v4).unspoken,[])
+
+class Pins(unittest.TestCase):
  def test_pins_file_records_all_three_helper_hashes(self):
   pins=(Path(__file__).parent/'PINS.md').read_text()
   for module in (v1,v2,v3,v4):
