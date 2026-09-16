@@ -110,7 +110,7 @@ if [ -n "$JS_FILE" ]; then
 
   # 4. Worker audio route baked in
   echo "4. Audio (Worker)"
-  if grep -q "/api/audio-file" <<<"$JS_CONTENT"; then
+  if grep -q "audio-route" <<<"$CONFIG_MARKERS"; then
     pass "Worker audio route is in bundle"
   else
     fail "Worker audio route MISSING from bundle — audio will be broken"

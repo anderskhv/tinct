@@ -35,6 +35,7 @@ async function readGraph(url) {
   return [source, ...children].join('\n')
 }
 readGraph(entry).then(source => {
+  if (source.includes('/api/audio-file')) console.log('audio-route')
   if (source.includes('supabase.co')) console.log('supabase-url')
   if (source.includes('eyJhbGciOi')) console.log('supabase-key')
 }).catch(error => { console.error(error.message); process.exitCode = 1 })
