@@ -1554,9 +1554,9 @@ One of the two revivalists who worked Dublin the year before, whom Bloom sets be
 
 The other half of Torry and Alexander, the revival that worked Dublin last year. Bloom remembers the pair as one act and does not separate them; the name is his measure of how often this trade comes round.
 
-## Dedalus’s daughter · reference
+## Dilly Dedalus · reference
 
-Lobbing about outside Dillon’s auctionrooms on Bachelor’s walk, waiting for her father, with some old furniture going under the hammer inside. Bloom knows her eyes at once from the father, counts the fifteen children, and notes the dress in flitters and the underfed look of her. The episode does not give her a first name.
+The daughter Bloom sees in episode 8 lobbing about outside Dillon’s auctionrooms on Bachelor’s walk, waiting for her father, with the dress in flitters and the underfed look of her; episode 10 gives her the name he did not have. She gets a shilling and two pennies out of Mr Dedalus while the lacquey rings, asks for more, and is found afterwards by Stephen at the bookcart in Bedford row with a coverless French primer she bought for a penny. She is drowning, he thinks, and does not save her.
 
 ## The old applewoman · reference
 
@@ -1858,9 +1858,9 @@ Who told Nosey Flynn about the slice of luck Boylan had over the boxingmatch, an
 
 Who won that match against the soldier in the Portobello barracks. Boylan had him down in the county Carlow for near a month before it came off, sucking duck eggs by God till further orders, and kept him off the boose.
 
-## The soldier in the Portobello barracks · reference
+## Sergeantmajor Bennett · reference
 
-The man Myler Keogh beat in the barracks, on whom Boylan had his slice of luck. The episode gives him no name and nobody in the pub asks for one.
+The man Myler Keogh beat in the barracks, on whom Boylan had his slice of luck. Episode 8 gives him no name and nobody in the pub asks for one; the placard in the milliner’s window that stops Master Dignam in episode 10 names him — Myler Keogh, Dublin’s pet lamb, will meet sergeantmajor Bennett, the Portobello bruiser, for a purse of fifty sovereigns.
 
 ## Lord Howard de Walden · reference
 
@@ -1962,9 +1962,9 @@ Of the dyeworks, whose ad would bring Bloom to two fifteen if he gets it. Five g
 
 Recorder of Dublin, going into the freemasons’ hall solemn as Troy after his good lunch in Earlsfort terrace, with the tales of the bench and the assizes and I sentenced him to ten years. Wellmeaning old man, and the devil on moneylenders: he gave Reuben J a great strawcalling.
 
-## His Excellency the lord lieutenant · reference
+## William Humble, earl of Dudley · reference
 
-On the placard for the Mirus bazaar, sixteenth of June, in aid of funds for Mercer’s hospital. Bloom thinks of going out to Ballsbridge on the strength of it and dropping in on Keyes: sure to know someone on the gate.
+His Excellency the lord lieutenant: on the placard for the Mirus bazaar in episode 8 — sixteenth of June, in aid of funds for Mercer’s hospital — and in person through the last section of episode 10, driving out from the viceregal lodge after luncheon with lady Dudley and lieutenantcolonel Heseltine and crossing the whole city to inaugurate it. He is most cordially greeted on his way through the metropolis: Kernan greets him vainly from the wrong side of the river, Simon Dedalus brings his hat low, John Wyse Nolan smiles with unseen coldness, and Boylan’s hands in his pockets forget to salute.
 
 ## Handel · reference
 
@@ -2629,3 +2629,455 @@ The first and last such man.
 ## The moor · reference
 
 The moor in him whom the hornmad Iago ceaselessly wills to suffer: Shakespeare as bawd and cuckold, acting and acted on.
+
+## Brother Swan · reference
+
+The person to see about the Dignam boy at Artane: the first name in the episode, and the errand that starts Father Conmee walking.
+
+## The onelegged sailor · reference
+
+Swinging himself onward by lazy jerks of his crutches and growling For England, home and beauty at the windows of Eccles street. Father Conmee blesses him in the sun without giving him the silver crown in his purse; a stout lady gives him a copper; and the generous white arm at number 7 flings a coin over the area railings for one of the urchins to pick up.
+
+## Cardinal Wolsey · reference
+
+Whose words come to Father Conmee over the soldiers and sailors with their legs shot off: if I had served my God as I have served my king He would not have abandoned me in my old days.
+
+## Mrs Sheehy · reference
+
+The wife of Mr David Sheehy M.P., who meets Father Conmee under the treeshade of Mountjoy square and is very well indeed, thank you, and whose boys are getting on well at Belvedere.
+
+## Father provincial · reference
+
+To whom Father Conmee’s letter is addressed, and which Master Brunny Lynam posts for him into the bright red letterbox at the corner of Fitzgibbon street.
+
+## Jack Sohan · reference
+
+First of the three little schoolboys from Belvedere whom Father Conmee stops at the corner of Mountjoy square.
+
+## Ger Gallaher · reference
+
+The second. Not the Ignatius Gallaher of episode 7, who went to London and was the smartest fellow that ever scalded a tooth.
+
+## Brunny Lynam · reference
+
+The third, and the one given the letter. But mind you don’t post yourself into the box, little man.
+
+## Lady Maxwell · reference
+
+Whom Mr Denis J Maginni most respectfully took the curbstone to pass at the corner of Dignam’s court, and whose call is the reason Father Conmee has not yet read his nones.
+
+## Mrs M’Guinness · reference
+
+Stately, silverhaired, who bows to Father Conmee from the farther footpath along which she sails. A fine carriage she had. Like Mary, queen of Scots, something. And to think that she was a pawnbroker — the same pawnbroker who would give the Dedalus girls nothing on Stephen’s books.
+
+## Mary, queen of Scots · reference
+
+Whose something the pawnbroker’s bearing puts Father Conmee in mind of. Such a queenly mien.
+
+## The reverend T. R. Greene · reference
+
+Whose name is on the board of the shutup free church in Great Charles street: will (D.V.) speak. The incumbent, they called him, and Father Conmee felt it incumbent on him to say a few words. But one should be charitable. Invincible ignorance.
+
+## Mr William Gallagher · reference
+
+Standing in the doorway of his shop on the North Strand road, who salutes Father Conmee and is saluted, in a smell of baconflitches and ample cools of butter.
+
+## Constable 57C · reference
+
+On his beat, who stops to pass the time of day with Corny Kelleher outside the undertaker’s. That’s a fine day, Mr Kelleher. It’s very close. And then, with bated breath: I seen that particular party last evening.
+
+## The bargeman · reference
+
+With a hat of dirty straw, seated amidships of the turfbarge moored under the trees of Charleville Mall, smoking and staring at a branch of poplar above him. It was idyllic, and set Father Conmee thinking on the providence of the Creator who had made turf to be in bogs.
+
+## The reverend Nicholas Dudley C. C. · reference
+
+Of saint Agatha’s church, north William street, who steps off an inward bound tram on to Newcomen bridge at the moment Father Conmee steps on to an outward bound one. Not the earl of Dudley whose cavalcade closes the episode.
+
+## The gentleman with the glasses · reference
+
+Opposite Father Conmee in the tramcar, who has finished explaining and looks down.
+
+## His wife · reference
+
+Father Conmee supposed. A tiny yawn opened her mouth; she raised her small gloved fist, yawned ever so gently, and smiled tinily, sweetly.
+
+## The awkward man · reference
+
+Sitting on the edge of the seat at the other side of her — and, in the same breath, the awkward old man with the shaky head in whose mouth Father Conmee placed the host with difficulty at the altarrails.
+
+## The old woman on the tram · reference
+
+Who rises suddenly at Annesley bridge to alight with her basket and her marketnet, and whom the conductor helps down. One of those good souls who had always to be told twice that they have been absolved.
+
+## The Belgian jesuit · reference
+
+Whose book _Le Nombre des Élus_ seemed to Father Conmee a reasonable plea, over the millions of black and brown and yellow souls that had not received the baptism of water.
+
+## Lord Talbot de Malahide · reference
+
+Immediate hereditary lord admiral of Malahide and the seas adjoining, whose name pleases Father Conmee along with the road. Then came the call to arms and she was maid, wife and widow in one day.
+
+## Mary Rochfort · reference
+
+Daughter of lord Molesworth, first countess of Belvedere: the listless lady, no more young, walking alone the shore of lough Ennel in the evening, not startled when an otter plunged. Who could know the truth?
+
+## Lord Molesworth · reference
+
+Her father. Not Molesworth street, which is where Bloom sends the blind stripling in episode 8.
+
+## Lord Belvedere · reference
+
+The jealous husband, who could not know either — nor her confessor, if she had not committed adultery fully with her husband’s brother.
+
+## Her husband’s brother · reference
+
+The third of the three who knew: only God knew, and she, and he.
+
+## The flushed young man · reference
+
+Who comes from a gap of a hedge in the Clongowes fields and raises his cap abruptly as Father Conmee passes.
+
+## The young woman with the daisies · reference
+
+Who comes after him with wild nodding daisies in her hand, and bends with slow care to detach a clinging twig from her light skirt. Father Conmee blessed both gravely and turned a thin page of his breviary. She detaches the twig again, one section later, while Ned Lambert is showing the clergyman round the abbey.
+
+## Katey Dedalus · reference
+
+One of the four sisters in the closesteaming kitchen, who lifts the kettlelid in a pad of her stained skirt and asks what is in it. Peasoup, from Sister Mary Patrick.
+
+## Boody Dedalus · reference
+
+Who asks whether the books were pawned, stamps her foot at the answer, and says grace over the yellow soup: our father who art not in heaven.
+
+## Maggy Dedalus · reference
+
+At the range, boiling shirts in the pot, who took the books to M’Guinness’s and got nothing on them, and who would pawn Dilly’s French primer too if she got the chance.
+
+## Sister Mary Patrick · reference
+
+Who gave them the peasoup.
+
+## The stout lady · reference
+
+Who stops, takes a copper coin from her purse, and drops it into the sailor’s cap.
+
+## The two barefoot urchins · reference
+
+Sucking long liquorice laces, who halt near the sailor and gape at his stump with their yellowslobbered mouths — and one of whom runs for the coin the white arm flings from the window and drops it into the minstrel’s cap. There, sir.
+
+## The blond girl in Thornton’s · reference
+
+Who beds the wicker basket with rustling fibre and lays fat pears head by tail with ripe shamefaced peaches, and lets Boylan take a red carnation from the tall stemglass and look into the cut of her blouse. Yes, sir. I will, sir.
+
+## Miss Dunne · reference
+
+Boylan’s typist, who hides the Capel street library copy of The Woman in White far back in her drawer, types the date, scribbles sixteens and capital esses on the jotter, and hopes to goodness he won’t keep her there till seven.
+
+## Marion · reference
+
+The one in the novel Miss Dunne is not getting on with. Is he in love with that one, Marion? Change it and get another by Mary Cecil Haye. Not Marion Bloom, whose name is the same and who is the reason Boylan is in a hurry.
+
+## Mary Cecil Haye · reference
+
+Whose books Miss Dunne would rather have.
+
+## Marie Kendall · reference
+
+Charming soubrette, on the large poster Miss Dunne stares at, on the poster outside Dan Lowry’s that smiles a dauby smile on Lenehan and M’Coy, in the milliner’s window where Master Dignam sees her beside the two puckers, and on the hoarding that smiles daubily upon the viceroy. Mustard hair and dauby cheeks. She’s not nicelooking, is she?
+
+## Susy Nagle · reference
+
+Whose concertina skirt Miss Dunne would like the dressmaker to copy. They kick out grand.
+
+## Shannon · reference
+
+Who, with all the boatclub swells, never took his eyes off her.
+
+## Crotty · reference
+
+The name Ned Lambert calls into the dark of the abbey before he finds it is J. J. O’Molloy.
+
+## The reverend Hugh C. Love · reference
+
+Of Rathcoffey, present address Saint Michael’s, Sallins: the clergyman with the refined accent whom Ned Lambert shows round the council chamber of saint Mary’s abbey, and who is writing a book about the Fitzgeralds and will bring a camera next week. He is also the landlord who has distrained on Father Cowley for rent, which is what makes Ben Dollard say the gombeen man’s writ is not worth the paper it is printed on.
+
+## Silken Thomas · reference
+
+Who proclaimed himself a rebel in that chamber in 1534. This is the most historic spot in all Dublin.
+
+## The earl of Kildare · reference
+
+The great earl, the Fitzgerald Mor, of the story Ned Lambert forgot to tell: I’m bloody sorry I did it, says he, but I declare to God I thought the archbishop was inside. Hot members they were all of them, the Geraldines.
+
+## The archbishop · reference
+
+Whom he thought was inside Cashel cathedral when he set fire to it.
+
+## The elderly female · reference
+
+With false teeth and a black silk skirt of great amplitude, who passes the lawyers of the past on her way out of the courts, having heard the case in lunacy of Potterton, the summons of the owners of the Lady Cairns against the owners of the barque Mona, and the reservation of judgment in Harvey against the Ocean Accident and Guarantee Corporation. She turns up a third time at the door of Reuben J Dodd’s office and smiles credulously on the representative of His Majesty.
+
+## Potterton · reference
+
+Whose case in lunacy she heard in the lord chancellor’s court.
+
+## Harvey · reference
+
+Whose case against the Ocean Accident and Guarantee Corporation stood over. Not the Harvey Duff of episode 8, who is an informer out of a play.
+
+## Delahunt · reference
+
+Of Camden street, who had the catering at the Glencree dinner, and whose port Mrs Bloom was well primed with on the Featherbed Mountain going home.
+
+## Sir Charles Cameron · reference
+
+One of the speakers at the same dinner, in Lenehan’s telling.
+
+## The jarvey · reference
+
+Who drove them home from Glencree, and to whom Bloom pointed out the great bear and Hercules and the dragon along with Chris Callinan.
+
+## Leopold von Sacher Masoch · reference
+
+Author of Tales of the Ghetto, the third book on the bookseller’s counter. That I had, Bloom says, pushing it by. The other Leopold in the shop is himself.
+
+## The shopman · reference
+
+Uncombed grey head, unshaven reddened face, onions on his breath, who lets two volumes fall on the counter, coughs behind the dingy curtain, pukes phlegm on the floor and puts his boot on it, and taps the book Bloom takes: Sweets of Sin. That’s a good one.
+
+## James Lovebirch · reference
+
+Author of Fair Tyrants. Know the kind that is. Had it? Yes.
+
+## Raoul · reference
+
+For him! For Raoul! — the lover in Sweets of Sin, out of the sentence Bloom reads twice and carries with him for the rest of the day.
+
+## The beautiful woman · reference
+
+Who throws off her sabletrimmed wrap, displaying her queenly shoulders and heaving embonpoint. You are late, he spoke hoarsely.
+
+## The lacquey · reference
+
+At the door of Dillon’s auctionrooms, who shakes his handbell twice again and views himself in the chalked mirror of the cabinet. Barang! Bang! Mr Dedalus curses his bloody blatant soul and he shakes the lolling clapper but feebly, aware of comment. The modern edition calls him the footman.
+
+## The halfmile wheelmen · reference
+
+J. A. Jackson, W. E. Wylie, A. Munro and H. T. Gahan, spurred to their sprint by the bang of the lastlap bell, their stretched necks wagging as they negotiate the curve by the College library.
+
+## The quartermile handicappers · reference
+
+M. C. Green, H. Shrift, T. M. Patey, C. Scaife, J. B. Jeffs, G. N. Morphy, F. Stevenson, C. Adderly and W. C. Huggard, who start in pursuit along the far side of the wall as the viceroy’s carriages go by.
+
+## Little sister Monica · reference
+
+Of the nuns who taught Dilly to be so saucy. The little nuns! Nice little things! O, sure they wouldn’t do anything!
+
+## Mr Crimmins · reference
+
+The publican Tom Kernan has just sold tea to for Pulbrook Robertson, and whose best gin he takes a thimbleful of. Now, you’re talking straight, Mr Crimmins.
+
+## Neary · reference
+
+From whom Kernan got the stylish coat for half a sovereign. Scott of Dawson street. Never built under three guineas. Some Kildare street club toff had it probably.
+
+## John Mulligan · reference
+
+The manager of the Hibernian bank, who gave Kernan a very sharp eye yesterday on Carlisle bridge as if he remembered him. Not Buck Mulligan, whose alias is kept off this paragraph by hand — and the name is keyed, not aliased, because 14:47 gives Buck the full comic style Malachi Roland St John Mulligan.
+
+## Sam · reference
+
+Ned Lambert’s brother, whom Kernan thinks he sees over the way and who turns out to be the windscreen of a motorcar flashing in the sun. He’s as like it as damn it.
+
+## Sir Jonah Barrington · reference
+
+Whose reminiscences Kernan must ask Ned Lambert to lend him: the gaming at Daly’s, and the fellow who got his hand nailed to the table by a dagger.
+
+## Lord Edward Fitzgerald · reference
+
+Who escaped from major Sirr somewhere about here, by the stables behind Moira house. Fine dashing young nobleman. Good stock, of course.
+
+## Major Sirr · reference
+
+Whom he escaped from.
+
+## The sham squire · reference
+
+That ruffian, with his violet gloves, who gave him away.
+
+## Ingram · reference
+
+Whose poem it is — they rose in dark and evil days — that Ben Dollard sings so touchingly. They were gentlemen.
+
+## Old Russell · reference
+
+The lapidary in whose webbed window Stephen watches the timedulled chain proved, burnishing his gem again with a smeared shammy rag and holding it at the point of his Moses’ beard. Grandfather ape gloating on a stolen hoard. Not the Russell of the library, who is A. E.
+
+## The two old women · reference
+
+Fresh from their whiff of the briny, who trudge through Irishtown along London bridge road, one with a sanded tired umbrella, one with a midwife’s bag in which eleven cockles rolled — and who halt again at Haddington road corner to view with wonder the lord mayor and lady mayoress without his golden chain. The episode does not give them names.
+
+## Heenan · reference
+
+In the faded 1860 print in Clohissey’s window, boxing Sayers before staring backers in square hats. And they are throbbing: heroes’ hearts.
+
+## Sayers · reference
+
+The other heavyweight in the print.
+
+## The huckster · reference
+
+At the slanted bookcart in Bedford row. Twopence each. Four for sixpence.
+
+## Abbot Peter Salanka · reference
+
+The most blessed abbot to all true believers divulged, whose charms and invocations fill the eighth and ninth book of Moses Stephen turns over: how to soften chapped hands, recipe for white wine vinegar, how to win a woman’s love.
+
+## Nonesuch Charles · reference
+
+Whose Stuart face Stephen sees in his sister’s, lank locks falling at its sides, as she crouched feeding the fire with broken boots.
+
+## Dan Kelly · reference
+
+Whose token is the pinchbeck bracelet she fingers late abed under a quilt of old overcoats.
+
+## Chardenal · reference
+
+Whose French primer Dilly bought from the other cart for a penny, and is still straining her sight over in Fownes’s street when the cavalcade goes by.
+
+## Alderman Cowley · reference
+
+Hailed by Councillor Nannetti on the steps of the City hall. Not Father Bob Cowley, who is barricaded up in Windsor avenue on the other side of the same episode.
+
+## Councillor Abraham Lyon · reference
+
+Ascending the same steps with him. Not Bantam Lyons, who is backing a horse someone gave him.
+
+## Lobengula · reference
+
+Half of what Ben Dollard says the subsheriff’s new bailiff is a cross between.
+
+## Lynchehaun · reference
+
+The other half. He’s well worth seeing, mind you.
+
+## The policeman at the Castleyard gate · reference
+
+Who touches his forehead as Martin Cunningham’s party passes out. God bless you, Martin Cunningham said, cheerily.
+
+## Boyd · reference
+
+The friend Mr Power suggests they try for the Dignam subscription, and whom Martin Cunningham disposes of in two words. Boyd? Touch me not.
+
+## Jimmy Henry · reference
+
+The assistant town clerk, a dapper little man in a shower of hail suit who walks uncertainly on bad corns and will not glance at the list. Hell open to christians they were having about their damned Irish language. O, my corns! Come upstairs for goodness’ sake till I sit down somewhere.
+
+## Old Barlow · reference
+
+The macebearer, laid up with asthma: no mace on the table, nothing in order, no quorum even.
+
+## Hutchinson · reference
+
+The lord mayor, in Llandudno while the council sits.
+
+## Lorcan Sherlock · reference
+
+Little Lorcan Sherlock, doing _locum tenens_ for him.
+
+## The waitress · reference
+
+At the D. B. C., who takes the order for two mélanges and scones and butter and cakes, and whose tray Buck Mulligan helps to unload.
+
+## Professor Pokorny · reference
+
+Of Vienna, who can find no trace of hell in ancient Irish myth — which Haines finds rather interesting, given what is on Stephen’s mind.
+
+## Almidano Artifoni · reference
+
+Stephen’s singing teacher, round mustachioed, who tells him in Italian that he had such ideas too when he was young, that the world is a brute, and that his voice would be a source of income: instead, you sacrifice yourself. He trots in vain after the Dalkey tram with a baton of rolled music held up as a signal, and his sturdy trousers are swallowed by a closing door in the last line of the episode.
+
+## Goldsmith · reference
+
+Whose knobby poll Artifoni gazes over Stephen’s shoulder at, outside Trinity.
+
+## Mr Lewis Werner · reference
+
+Whose cheerful windows on Merrion square are as far as Cashel Boyle O’Connor Fitzmaurice Tisdall Farrell walks before turning and striding back. Not the Louis Werner who is touring Molly Bloom in episode 6.
+
+## Mrs Stoer · reference
+
+One of the three women sitting in the parlour with the blind down at the Dignams’, sniffling and sipping the superior tawny sherry uncle Barney brought from Tunney’s.
+
+## Mrs Quigley · reference
+
+The second of them.
+
+## Mrs MacDowell · reference
+
+The third. Not Gerty MacDowell, who passes the viceregal cavalcade at the end of the episode carrying cork lino letters for her father.
+
+## Stoer · reference
+
+The boy whose old fellow welted hell out of him for the packets of fags with the pictures of soubrettes in them.
+
+## Fitzsimons · reference
+
+The best pucker going for strength. One puck in the wind from that fellow would knock you into the middle of next week, man.
+
+## Jem Corbet · reference
+
+The best pucker for science, before Fitzsimons knocked the stuffings out of him, dodging and all.
+
+## Father Conroy · reference
+
+To whom Paddy Dignam went to confession on Saturday night, which is why his son hopes he is in purgatory now.
+
+## Lieutenantcolonel Heseltine · reference
+
+In the first carriage with the earl and countess of Dudley.
+
+## The honourable Mrs Paget · reference
+
+In the second carriage of the viceregal cavalcade with Miss de Courcy and the honourable Gerald Ward, one of the three ladies Blazes Boylan offers the bold admiration of his eyes and the red flower between his lips.
+
+## Miss de Courcy · reference
+
+With her.
+
+## The honourable Gerald Ward · reference
+
+A. D. C. in attendance, who is agreeably surprised when Denis Breen, shifting his tomes to his left breast, salutes the second carriage — and who makes haste to reply.
+
+## Mr Dudley White · reference
+
+B. L., M. A., who does not salute the viceregal carriages, being undecided on Arran quay whether he should arrive at Phibsborough more quickly by a triple change of tram or by hailing a car or on foot through Smithfield.
+
+## Miss Kennedy · reference
+
+Gold, whose head appears with Miss Douce’s above the crossblind of the Ormond hotel at the start of the cavalcade and watches and admires it at the end.
+
+## Miss Douce · reference
+
+Bronze, beside her.
+
+## Gerty MacDowell · reference
+
+Carrying the Catesby’s cork lino letters for her father who was laid up, who knew by the style it was the lord and lady lieutenant but could not see what Her Excellency had on, because the tram and Spring’s big yellow furniture van stopped in front of her.
+
+## Her father · reference
+
+Who was laid up, and for whom she is carrying the letters.
+
+## Mr M. E. Solomons · reference
+
+In the window of the Austro-Hungarian viceconsulate, at whose head Farrell stares through a fierce eyeglass across the carriages.
+
+## King Billy · reference
+
+Whose horse’s foreleg paws the air over the spot where Mrs Breen plucks her hastening husband back from under the hoofs of the outriders.
+
+## Wolfe Tone · reference
+
+Whose statue was not on the slab the five sandwichmen eel themselves around between Monypeny’s corner and it.

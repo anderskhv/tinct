@@ -1,12 +1,12 @@
 # Ulysses character package — IN PROGRESS
 
-**Episodes 1 to 9 of 18 are authored. The rest are not.** Status stays
+**Episodes 1 to 10 of 18 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole book is
 covered.
 
-Current state: 657 entities authored, 655 bound in the older edition and 652 in
-the modern one, 3,580 and 3,615 exact mentions, 90 focused tests. Content
-revision 2026-09-15.9.
+Current state: 770 entities authored, 768 bound in the older edition and 765 in
+the modern one, 4,022 and 4,095 exact mentions, 98 focused tests. Content
+revision 2026-09-15.10.
 
 ## What is hard about this book
 
@@ -815,6 +815,120 @@ The italic audit over episodes 1–9 now reports two more cases, and both are
 correct as they stand: `_Pericles,_` at 9:333 and `_Troilus and Cressida_` at
 9:167 are play titles and carry no card.
 
+## Editorial checks — episode 10 (*Wandering Rocks*)
+
+Nineteen sections between three and four o'clock, walking the whole city. 546
+paragraphs, 113 new entities, and almost every named Dubliner in the book
+somewhere in it — with each section interrupted once by a sentence from another
+one, so that a name can arrive forty paragraphs before or after the scene it
+belongs to.
+
+**1. Namesakes.** This is the episode that makes the key-by-default rule pay:
+
+- *Dedalus* now has three owners. **Simon** through the auctionrooms and the
+  quay (twenty-four paragraphs of *Mr Dedalus*), **Stephen** at the lapidary's
+  and the bookcart and in Mulligan's mouth at the D.B.C., and **the four
+  sisters** — Katey, Boody, Maggy and Dilly. At 10:71 and 10:84 the surname
+  covers two girls at once and carries no card; each is bound on her own first
+  name.
+- *Russell* at 10:371 is **the lapidary**, old Russell with the smeared shammy
+  rag, and not A. E. of the library.
+- *Mulligan* at 10:349 is **John Mulligan**, the manager of the Hibernian bank,
+  and Buck's alias is suppressed there by hand. His own name had to be keyed
+  rather than aliased too: 14:47 gives Buck the full comic style **Malachi
+  Roland St John Mulligan**, which an alias would have taken.
+- *Cowley* is **Father Bob Cowley** in thirteen paragraphs and **Alderman
+  Cowley** on the steps of the City hall. *Lyon* at 10:457 is **Councillor
+  Abraham Lyon**, not Bantam Lyons, who is backing a horse in the next section.
+- *Gallaher* at 10:12 is **Ger Gallaher**, a Belvedere schoolboy, not Ignatius
+  Gallaher of episode 7. *Werner* at 10:525 is **Lewis Werner**, whose windows
+  are on Merrion square, not the Louis Werner who is touring Molly in episode 6.
+  *Dudley* at 10:33 is **the reverend Nicholas Dudley C. C.**, not the earl
+  whose cavalcade closes the episode.
+- *Marion* at 10:161 is the one in *The Woman in White* that Miss Dunne cannot
+  get on with, and Molly's name is kept off it. *Harvey* at 10:287 is a litigant
+  in the court of appeal, not the Harvey Duff of episode 8. *Greene* at 10:23 is
+  the reverend T. R. Greene and at 10:542 Roger Greene's office.
+
+**Three people get their names in this episode.** The daughter Bloom watched
+outside Dillon's auctionrooms in episode 8 is **Dilly**; the soldier Myler Keogh
+beat in episode 8 is **sergeantmajor Bennett**, off the placard in the
+milliner's window; and the lord lieutenant of the Mirus bazaar placard is
+**William Humble, earl of Dudley**, who drives across the city in the last
+section. All three cards were rewritten and the old ones folded in, so that a
+reader who meets them in episode 8 and again here gets one card and not two.
+
+**2. Person or not.** The rule applied to Dublin's shopfronts: a named tradesman
+whose shop is only a location is **not cast** — Grogan's the Tobacconist,
+Youkstetter's, Daniel Bergin's, Mangan's late Fehrenbach's, Ruggy O'Donohoe's,
+Madame Doyle, Clohissey's, Thornton's, Dillon's, Dan Lowry's, Lynam's, Marcus
+Tertius Moses, Micky Anderson, Pigott's, Lundy Foot's, Roger Greene, Reddy and
+Daughter, Shackleton's, Peter Kennedy, Scott of Dawson street, Mrs M. E. White,
+Tom Devan, Kavanagh's winerooms — while a named tradesman the text says somebody
+dealt with **is**: William Gallagher, who salutes Father Conmee from his
+doorway; Crimmins, who has just bought tea from Kernan and pours him a gin;
+Neary, who sold Kernan the coat. Not cast either: **Jacko** at 10:444, the
+monkey who put the nuts; *Henry Clay* at 10:475, a cigar; *the gentleman Henry,
+dernier cri James* at 10:542, two wax models in a window; and *Maria Monk* and
+*Aristotle's Masterpiece* at 10:265, which are books.
+
+**3. Scriptural, mythological and stage figures.** **Cardinal Wolsey** on the
+ways of kings; **Mary, queen of Scots** in the pawnbroker's bearing; **Silken
+Thomas**, **the earl of Kildare** and **lord Edward Fitzgerald** out of the
+history Ned Lambert and Kernan walk through; **Moses** at 10:371, in the point
+of the lapidary's beard; **nonesuch Charles**, whose Stuart face Stephen sees in
+his sister's; **Lobengula** and **Lynchehaun**, the two halves of the
+subsheriff's new bailiff; **abbot Peter Salanka** and **mumbling Joachim** of
+the charms; **Ængus of the birds**, whom Mulligan calls Farrell. Christ is not
+cast, here as everywhere: *for the love of the lord Jesus* at 10:302 and *where
+Jesus left the jews* at 10:329 carry no card.
+
+**4. Ambiguous references, deliberately unbound.** *Mr Bloom's dental windows*
+at 10:529 is a different Bloom, the dentist, and Leopold's key is kept off it.
+*The lord mayor and lady mayoress without his golden chain* at 10:545 is what
+the two old women take the viceroy and his wife for, and neither the mistake nor
+the correction is bound. *The auctioneer* inside Dillon's, *the conductor* on
+the tram, *the constable on his beat* at 10:30 (bound, because he is Constable
+57C four paragraphs later), *the draymen*, *the outriders* and *the obsequious
+policemen* are crowd. The **two old women** with the umbrella and the midwife's
+bag, who cross the episode twice, are almost certainly the pair from the strand
+in episode 3 — but this episode never says so, and they get a card of their own
+rather than a guess.
+
+Bound from description: *the wife* at 10:252 and 10:255 is **Molly**, in
+Lenehan's story of the Glencree dinner; *your poor mother* at 10:318 is **May
+Dedalus**; *your uncle John, the cornetplayer* at 10:302 is the **Goulding**
+brother named once in episode 3; *uncle Barney* is **Bernard Corrigan**, Dignam's
+brother-in-law; *Jack* at 10:175, 10:178 and 10:200 is **J. J. O'Molloy**, whom
+Ned Lambert calls by his first name in the dark of the abbey.
+
+**5. Spot-read.** Forty mentions, twenty from each edition under two seeds; all
+forty were right. The adjacency sweep over all 588 mentions in the older edition
+and 596 in the modern found no wrong referent. The unkeyed-hit sweep found
+thirty-one paragraphs still needing keys and all were added — the largest single
+batch in the book so far, because this episode puts Simon, Stephen, Bloom,
+Kernan, Cowley, Menton, Fanning, Dignam and Boylan into sections that never name
+them in full.
+
+The test suite caught the one real mis-binding: **the alias `John Mulligan` was
+reaching 14:47**, where Buck is *Malachi Roland St John Mulligan*. It is keyed
+now. That is the third alias in three episodes to be caught reaching past the
+episode that justified it (Piper into a tongue-twister, Lucy into the calendar
+of saints, and now this one), and the standing rule has been written into the
+handoff: **run the whole-book occurrence list on every alias, not only on every
+key.**
+
+**6. Both editions independently.** Every entity that binds in episode 10 binds
+in both editions. One paragraph diverges: **10:444**, where Ben Dollard names
+the moneylender a second time — *You can tell Barabbas from me* — and the modern
+edition writes *you can tell that crook from me*. Two more differences were
+found by the census and closed rather than recorded, because in each case the
+older edition used a lowercase initial the alias could not reach: *lady Dudley*
+at 10:541 and *lord Edward Fitzgerald* at 10:360, both of which now carry the
+lowercase form as a second alias. The modern edition also sets the throwaway's
+headline in capitals — **ELIJAH IS COMING** — which the case-sensitive key could
+not reach until a capitalised pattern was added.
+
 ## Source defects — recorded, not repaired
 
 No edition byte was touched.
@@ -831,16 +945,17 @@ No edition byte was touched.
 | **The modern edition supplies surnames in episode 8** — *Reuben J. Dodd* at 8:12 and 8:364, *Charles Stewart Parnell* at 8:141, *Mr George Russell* for *Mr Geo. Russell*, *Tom Moore* for *Tommy Moore*, and *McCoy* for *M'Coy* from this episode on. | Not repaired. Every form is bound to the same card, and the card says which edition prints which. |
 | **The modern edition drops two names in episode 9** — *mother Dana* at 9:157 becomes *Mother Nature*, and *Aubrey's ostler and callboy* at 9:294 becomes *an ostler and call-boy*. | Not repaired. Both are `omittedEntities` for the modern edition, and a reader of that edition is never offered either card. |
 | **The modern edition splits Joyce's compounds a third time in episode 9** — `Rutlandbaconsouthamptonshakespeare` becomes *Rutland-Bacon-Southampton-Shakespeare* and `Besteglinton` becomes *Best-Eglinton*, which makes names bindable that a single word hides. | Not repaired. Bacon and Shakespeare bind at 9:328 in the modern edition only. Besteglinton is bound in both, by lookaround patterns that split the compound without overlapping spans. |
+| **The modern edition drops Barabbas at 10:444** — *You can tell Barabbas from me* becomes *you can tell that crook from me*. | Not repaired. Reuben J is bound there in the older edition only; he is bound in both at 10:412 and 10:542, so he is not an `omittedEntity`. |
+| **The modern edition sets the throwaway's headline in capitals** — ELIJAH IS COMING at 10:115 and 10:351, where Joyce writes *Elijah is coming*. | Not repaired. A capitalised key pattern was added so the prophet binds in both editions. |
 
 ## Remaining work
 
-- **Episodes 10–18.** 4,340 paragraphs, and the three longest are 15 (*Circe*,
+- **Episodes 11–18.** 3,794 paragraphs, and the three longest are 15 (*Circe*,
   1,441 paragraphs), 17 (*Ithaca*, 654) and 11 (*Sirens*, 635). Episode 18
   (*Penelope*) is eight paragraphs of Molly's monologue and will be the densest
-  page-for-page in the book. Episode 10 (*Wandering Rocks*, 546 paragraphs) is
-  next, and is the one episode that walks the whole city: nineteen sections,
-  almost every named Dubliner in the book, and the Dedalus daughters, who will
-  give the `Dedalus` table its third owner.
+  page-for-page in the book. Episode 11 (*Sirens*, 635 paragraphs) is next: the
+  Ormond bar, where Miss Kennedy and Miss Douce — bound for the first time in
+  episode 10, over the crossblind — do the talking.
 - **Two names are already waiting in unread territory.** *Stephen* at 15:1133
   sits inside a stage direction in Gutenberg italics and will need a key when
   *Circe* is read; *Patrice* at 16:212 is **the faubourg Saint Patrice**, not
@@ -866,6 +981,6 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_ulysses.py --check`, then `python3 -m unittest
-discover -s books/characters -p 'test_*.py'` — 90 focused tests for this book so
+discover -s books/characters -p 'test_*.py'` — 98 focused tests for this book so
 far. No edition changes, no network generation, no API spend: every card here was
 written in the authoring conversation and committed as a file.

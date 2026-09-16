@@ -6,7 +6,7 @@ it resolves some of Joyce's run-together words and normalises punctuation, but
 it does not rewrite the prose and it does not modernise the names. Where the two
 differ on a name the difference is recorded on the card.
 
-Episodes 1 to 9 are authored. The rest are not.
+Episodes 1 to 10 are authored. The rest are not.
 
 Scope: named persons — the Dublin cast, the figures they remember, and the
 writers, saints, heresiarchs and stage characters they quote. Peoples, places,
@@ -453,7 +453,7 @@ for row in [
 ('blumenfeld','Blumenfeld','Whom Gallaher is in with now.','Blumenfeld'),
 ('pyatt','Pyatt','He was all their daddies, the editor says. Lenehan makes him the father of scare journalism and the brother-in-law of Chris Callinan.','Pyatt'),
 ('chris-callinan','Chris Callinan','His brother-in-law, in Lenehan’s footnote. Lenehan tells a longer story about him and Bloom on the Featherbed Mountain in episode 10.','Chris Callinan'),
-('lady-dudley','Lady Dudley','Walking home through the park to see the trees blown down by the cyclone, who thought she would buy a view of Dublin and was offered a commemoration postcard of Joe Brady instead. Right outside the viceregal lodge, imagine.','Lady Dudley'),
+('lady-dudley','Lady Dudley','Walking home through the park to see the trees blown down by the cyclone, who thought she would buy a view of Dublin and was offered a commemoration postcard of Joe Brady instead. Right outside the viceregal lodge, imagine.','Lady Dudley|lady Dudley'),
 ('bobrikoff','General Bobrikoff','The lord lieutenant of Finland, shot. You look as though you had done the deed, J. J. O’Molloy tells Stephen and Mr O’Madden Burke, looking at their ties.','General Bobrikoff|Bobrikoff'),
 ('jakes-mccarthy','Jakes M’Carthy','Father, Son and Holy Ghost and Jakes M’Carthy — the editor’s formula for putting everybody into it. The modern edition spells him McCarthy.','Jakes M’Carthy|Jakes M\'Carthy|Jakes McCarthy'),
 # --- what they quote
@@ -488,7 +488,7 @@ for row in [
 ('dowie','Dowie','Dr John Alexander Dowie, restorer of the church in Zion, who is the Elijah of the handbill. Bloom prices the enterprise as he would any other: paying game.','Dowie'),
 ('torry','Torry','One of the two revivalists who worked Dublin the year before, whom Bloom sets beside Dowie as the same trade returning. Polygamy, he adds, thinking of Zion: his wife will put the stopper on that.','Torry'),
 ('alexander-evangelist','Alexander','The other half of Torry and Alexander, the revival that worked Dublin last year. Bloom remembers the pair as one act and does not separate them; the name is his measure of how often this trade comes round.','',),
-('dedalus-daughter','Dedalus’s daughter','Lobbing about outside Dillon’s auctionrooms on Bachelor’s walk, waiting for her father, with some old furniture going under the hammer inside. Bloom knows her eyes at once from the father, counts the fifteen children, and notes the dress in flitters and the underfed look of her. The episode does not give her a first name.','',),
+('dedalus-daughter','Dilly Dedalus','The daughter Bloom sees in episode 8 lobbing about outside Dillon’s auctionrooms on Bachelor’s walk, waiting for her father, with the dress in flitters and the underfed look of her; episode 10 gives her the name he did not have. She gets a shilling and two pennies out of Mr Dedalus while the lacquey rings, asks for more, and is found afterwards by Stephen at the bookcart in Bedford row with a coverless French primer she bought for a penny. She is drowning, he thinks, and does not save her.','Dilly Dedalus|Dilly'),
 ('applewoman','The old applewoman','Two apples a penny, two for a penny, at the corner of the bridge. Bloom buys two Banbury cakes from her for a penny and breaks them up for the gulls, who take every morsel and give him not even a caw.','',),
 ('hy-franks','Dr Hy Franks','The quack for the clap whose strictly confidential bills used to be stuck up in all the greenhouses, and who never paid a red for the privilege. Bloom the canvasser reads the city as a hoarding and grades the work.','Hy Franks'),
 ('maginni','Maginni','The dancing master, whose self advertisement Bloom sets against Franks: he got fellows to stick the bills up, or stuck them up himself on the q. t., running in to loosen a button.','Maginni'),
@@ -567,7 +567,7 @@ for row in [
 ('davy-byrne-curate','The curate','Who serves the burgundy and the gorgonzola sandwich. Seven d., sir. Thank you, sir. The modern edition calls him the barman.','',),
 ('jack-mooney','Jack Mooney','Who told Nosey Flynn about the slice of luck Boylan had over the boxingmatch, and so put the whole story into Davy Byrne’s with Bloom standing there eating his sandwich.','Jack Mooney'),
 ('myler-keogh','Myler Keogh','Who won that match against the soldier in the Portobello barracks. Boylan had him down in the county Carlow for near a month before it came off, sucking duck eggs by God till further orders, and kept him off the boose.','Myler Keogh'),
-('portobello-soldier','The soldier in the Portobello barracks','The man Myler Keogh beat in the barracks, on whom Boylan had his slice of luck. The episode gives him no name and nobody in the pub asks for one.','',),
+('portobello-soldier','Sergeantmajor Bennett','The man Myler Keogh beat in the barracks, on whom Boylan had his slice of luck. Episode 8 gives him no name and nobody in the pub asks for one; the placard in the milliner’s window that stops Master Dignam in episode 10 names him — Myler Keogh, Dublin’s pet lamb, will meet sergeantmajor Bennett, the Portobello bruiser, for a purse of fifty sovereigns.','Bennett'),
 ('howard-de-walden','Lord Howard de Walden','Whose Zinfandel is the favourite for the Gold cup, having won at Epsom. The race is run this afternoon and is on every tongue in the pub.','Lord Howard de Walden'),
 ('morny-cannon','Morny Cannon','The jockey riding Zinfandel for the Gold cup, in the tip Nosey Flynn passes on as though it were his own.','Morny Cannon'),
 ('rothschild','Rothschild','Whose filly it was that won in a thunderstorm with wadding in her ears, blue jacket and yellow cap, in the race Nosey Flynn could have got seven to one on.','',),
@@ -593,7 +593,7 @@ for row in [
 ('don-giovanni','Don Giovanni','Whom the statue invites to supper, in the line Bloom hums going up Dawson street: Don Giovanni, a cenar teco m’invitasti. He tries it in English and it doesn’t go properly, and stops on the one word he wants: what does that teco mean? Tonight perhaps.','',),
 ('billy-prescott','Billy Prescott','Of the dyeworks, whose ad would bring Bloom to two fifteen if he gets it. Five guineas about. On the pig’s back.','Billy Prescott'),
 ('frederick-falkiner','Sir Frederick Falkiner','Recorder of Dublin, going into the freemasons’ hall solemn as Troy after his good lunch in Earlsfort terrace, with the tales of the bench and the assizes and I sentenced him to ten years. Wellmeaning old man, and the devil on moneylenders: he gave Reuben J a great strawcalling.','Falkiner'),
-('lord-lieutenant','His Excellency the lord lieutenant','On the placard for the Mirus bazaar, sixteenth of June, in aid of funds for Mercer’s hospital. Bloom thinks of going out to Ballsbridge on the strength of it and dropping in on Keyes: sure to know someone on the gate.','',),
+('lord-lieutenant','William Humble, earl of Dudley','His Excellency the lord lieutenant: on the placard for the Mirus bazaar in episode 8 — sixteenth of June, in aid of funds for Mercer’s hospital — and in person through the last section of episode 10, driving out from the viceregal lodge after luncheon with lady Dudley and lieutenantcolonel Heseltine and crossing the whole city to inaugurate it. He is most cordially greeted on his way through the metropolis: Kernan greets him vainly from the wrong side of the river, Simon Dedalus brings his hat low, John Wyse Nolan smiles with unseen coldness, and Boylan’s hands in his pockets forget to salute.','William Humble|earl of Dudley|Earl of Dudley|lord Dudley|Lord Dudley'),
 ('handel','Handel','Whose Messiah was first given in aid of Mercer’s hospital, which the Mirus bazaar is being held for now. Yes. Handel.','Handel'),
 ('thomas-deane','Sir Thomas Deane','Who designed the museum, and whose cream curves of stone Bloom stares at, heart quopping, while he turns out his pockets at the gate. Handsome building. Sir Thomas Deane was the Greek architecture.','Deane'),
 ('farmers-daughter','The farmer’s daughter','Whose bag Bloom had to pick up and hand to her at Limerick junction, travelling to Ennis last year, in the list of what people leave behind them in trains and cloakrooms.','',),
@@ -768,12 +768,142 @@ for row in [
 ('othello','The moor','The moor in him whom the hornmad Iago ceaselessly wills to suffer: Shakespeare as bawd and cuckold, acting and acted on.','',),
 ]:add(*row)
 
+# ========================= EPISODE 10 — Wandering Rocks
+for row in [
+# --- 1. Father Conmee walks to Artane
+('brother-swan','Brother Swan','The person to see about the Dignam boy at Artane: the first name in the episode, and the errand that starts Father Conmee walking.','Brother Swan'),
+('onelegged-sailor','The onelegged sailor','Swinging himself onward by lazy jerks of his crutches and growling For England, home and beauty at the windows of Eccles street. Father Conmee blesses him in the sun without giving him the silver crown in his purse; a stout lady gives him a copper; and the generous white arm at number 7 flings a coin over the area railings for one of the urchins to pick up.','',),
+('wolsey','Cardinal Wolsey','Whose words come to Father Conmee over the soldiers and sailors with their legs shot off: if I had served my God as I have served my king He would not have abandoned me in my old days.','Wolsey'),
+('mrs-sheehy','Mrs Sheehy','The wife of Mr David Sheehy M.P., who meets Father Conmee under the treeshade of Mountjoy square and is very well indeed, thank you, and whose boys are getting on well at Belvedere.','Mrs Sheehy'),
+('father-provincial','Father provincial','To whom Father Conmee’s letter is addressed, and which Master Brunny Lynam posts for him into the bright red letterbox at the corner of Fitzgibbon street.','',),
+('jack-sohan','Jack Sohan','First of the three little schoolboys from Belvedere whom Father Conmee stops at the corner of Mountjoy square.','Jack Sohan'),
+('ger-gallaher','Ger Gallaher','The second. Not the Ignatius Gallaher of episode 7, who went to London and was the smartest fellow that ever scalded a tooth.','Ger Gallaher'),
+('brunny-lynam','Brunny Lynam','The third, and the one given the letter. But mind you don’t post yourself into the box, little man.','Brunny Lynam'),
+('lady-maxwell','Lady Maxwell','Whom Mr Denis J Maginni most respectfully took the curbstone to pass at the corner of Dignam’s court, and whose call is the reason Father Conmee has not yet read his nones.','Lady Maxwell'),
+('mrs-mcguinness','Mrs M’Guinness','Stately, silverhaired, who bows to Father Conmee from the farther footpath along which she sails. A fine carriage she had. Like Mary, queen of Scots, something. And to think that she was a pawnbroker — the same pawnbroker who would give the Dedalus girls nothing on Stephen’s books.','M’Guinness|M\'Guinness|McGuinness'),
+('mary-queen-of-scots','Mary, queen of Scots','Whose something the pawnbroker’s bearing puts Father Conmee in mind of. Such a queenly mien.','Mary, queen of Scots|Mary, Queen of Scots'),
+('tr-greene','The reverend T. R. Greene','Whose name is on the board of the shutup free church in Great Charles street: will (D.V.) speak. The incumbent, they called him, and Father Conmee felt it incumbent on him to say a few words. But one should be charitable. Invincible ignorance.','T. R. Greene|T.R. Greene'),
+('william-gallagher','Mr William Gallagher','Standing in the doorway of his shop on the North Strand road, who salutes Father Conmee and is saluted, in a smell of baconflitches and ample cools of butter.','William Gallagher'),
+('constable-57c','Constable 57C','On his beat, who stops to pass the time of day with Corny Kelleher outside the undertaker’s. That’s a fine day, Mr Kelleher. It’s very close. And then, with bated breath: I seen that particular party last evening.','',),
+('turf-bargeman','The bargeman','With a hat of dirty straw, seated amidships of the turfbarge moored under the trees of Charleville Mall, smoking and staring at a branch of poplar above him. It was idyllic, and set Father Conmee thinking on the providence of the Creator who had made turf to be in bogs.','',),
+('nicholas-dudley','The reverend Nicholas Dudley C. C.','Of saint Agatha’s church, north William street, who steps off an inward bound tram on to Newcomen bridge at the moment Father Conmee steps on to an outward bound one. Not the earl of Dudley whose cavalcade closes the episode.','Nicholas Dudley'),
+('tram-gentleman','The gentleman with the glasses','Opposite Father Conmee in the tramcar, who has finished explaining and looks down.','',),
+('tram-gentlemans-wife','His wife','Father Conmee supposed. A tiny yawn opened her mouth; she raised her small gloved fist, yawned ever so gently, and smiled tinily, sweetly.','',),
+('awkward-man','The awkward man','Sitting on the edge of the seat at the other side of her — and, in the same breath, the awkward old man with the shaky head in whose mouth Father Conmee placed the host with difficulty at the altarrails.','',),
+('tram-old-woman','The old woman on the tram','Who rises suddenly at Annesley bridge to alight with her basket and her marketnet, and whom the conductor helps down. One of those good souls who had always to be told twice that they have been absolved.','',),
+('belgian-jesuit','The Belgian jesuit','Whose book _Le Nombre des Élus_ seemed to Father Conmee a reasonable plea, over the millions of black and brown and yellow souls that had not received the baptism of water.','',),
+('lord-talbot','Lord Talbot de Malahide','Immediate hereditary lord admiral of Malahide and the seas adjoining, whose name pleases Father Conmee along with the road. Then came the call to arms and she was maid, wife and widow in one day.','Lord Talbot de Malahide'),
+('mary-rochfort','Mary Rochfort','Daughter of lord Molesworth, first countess of Belvedere: the listless lady, no more young, walking alone the shore of lough Ennel in the evening, not startled when an otter plunged. Who could know the truth?','Mary Rochfort'),
+('lord-molesworth','Lord Molesworth','Her father. Not Molesworth street, which is where Bloom sends the blind stripling in episode 8.','',),
+('lord-belvedere','Lord Belvedere','The jealous husband, who could not know either — nor her confessor, if she had not committed adultery fully with her husband’s brother.','',),
+('belvedere-brother','Her husband’s brother','The third of the three who knew: only God knew, and she, and he.','',),
+('flushed-young-man','The flushed young man','Who comes from a gap of a hedge in the Clongowes fields and raises his cap abruptly as Father Conmee passes.','',),
+('young-woman-daisies','The young woman with the daisies','Who comes after him with wild nodding daisies in her hand, and bends with slow care to detach a clinging twig from her light skirt. Father Conmee blessed both gravely and turned a thin page of his breviary. She detaches the twig again, one section later, while Ned Lambert is showing the clergyman round the abbey.','',),
+# --- 2. the Dedalus kitchen
+('katey-dedalus','Katey Dedalus','One of the four sisters in the closesteaming kitchen, who lifts the kettlelid in a pad of her stained skirt and asks what is in it. Peasoup, from Sister Mary Patrick.','Katey Dedalus'),
+('boody-dedalus','Boody Dedalus','Who asks whether the books were pawned, stamps her foot at the answer, and says grace over the yellow soup: our father who art not in heaven.','Boody Dedalus'),
+('maggy-dedalus','Maggy Dedalus','At the range, boiling shirts in the pot, who took the books to M’Guinness’s and got nothing on them, and who would pawn Dilly’s French primer too if she got the chance.','Maggy Dedalus'),
+('sister-mary-patrick','Sister Mary Patrick','Who gave them the peasoup.','Sister Mary Patrick'),
+('stout-lady','The stout lady','Who stops, takes a copper coin from her purse, and drops it into the sailor’s cap.','',),
+('barefoot-urchins','The two barefoot urchins','Sucking long liquorice laces, who halt near the sailor and gape at his stump with their yellowslobbered mouths — and one of whom runs for the coin the white arm flings from the window and drops it into the minstrel’s cap. There, sir.','',),
+# --- 3. Boylan, Miss Dunne, the abbey
+('thornton-blond-girl','The blond girl in Thornton’s','Who beds the wicker basket with rustling fibre and lays fat pears head by tail with ripe shamefaced peaches, and lets Boylan take a red carnation from the tall stemglass and look into the cut of her blouse. Yes, sir. I will, sir.','',),
+('miss-dunne','Miss Dunne','Boylan’s typist, who hides the Capel street library copy of The Woman in White far back in her drawer, types the date, scribbles sixteens and capital esses on the jotter, and hopes to goodness he won’t keep her there till seven.','Miss Dunne'),
+('marion-woman-in-white','Marion','The one in the novel Miss Dunne is not getting on with. Is he in love with that one, Marion? Change it and get another by Mary Cecil Haye. Not Marion Bloom, whose name is the same and who is the reason Boylan is in a hurry.','',),
+('mary-cecil-haye','Mary Cecil Haye','Whose books Miss Dunne would rather have.','Mary Cecil Haye'),
+('marie-kendall','Marie Kendall','Charming soubrette, on the large poster Miss Dunne stares at, on the poster outside Dan Lowry’s that smiles a dauby smile on Lenehan and M’Coy, in the milliner’s window where Master Dignam sees her beside the two puckers, and on the hoarding that smiles daubily upon the viceroy. Mustard hair and dauby cheeks. She’s not nicelooking, is she?','Marie Kendall'),
+('susy-nagle','Susy Nagle','Whose concertina skirt Miss Dunne would like the dressmaker to copy. They kick out grand.','Susy Nagle'),
+('shannon','Shannon','Who, with all the boatclub swells, never took his eyes off her.','Shannon'),
+('crotty','Crotty','The name Ned Lambert calls into the dark of the abbey before he finds it is J. J. O’Molloy.','Crotty'),
+('hugh-c-love','The reverend Hugh C. Love','Of Rathcoffey, present address Saint Michael’s, Sallins: the clergyman with the refined accent whom Ned Lambert shows round the council chamber of saint Mary’s abbey, and who is writing a book about the Fitzgeralds and will bring a camera next week. He is also the landlord who has distrained on Father Cowley for rent, which is what makes Ben Dollard say the gombeen man’s writ is not worth the paper it is printed on.','Hugh C. Love'),
+('silken-thomas','Silken Thomas','Who proclaimed himself a rebel in that chamber in 1534. This is the most historic spot in all Dublin.','',),
+('earl-of-kildare','The earl of Kildare','The great earl, the Fitzgerald Mor, of the story Ned Lambert forgot to tell: I’m bloody sorry I did it, says he, but I declare to God I thought the archbishop was inside. Hot members they were all of them, the Geraldines.','',),
+('cashel-archbishop','The archbishop','Whom he thought was inside Cashel cathedral when he set fire to it.','',),
+# --- 4. Rochford's machine and Lenehan's story
+('elderly-female-courts','The elderly female','With false teeth and a black silk skirt of great amplitude, who passes the lawyers of the past on her way out of the courts, having heard the case in lunacy of Potterton, the summons of the owners of the Lady Cairns against the owners of the barque Mona, and the reservation of judgment in Harvey against the Ocean Accident and Guarantee Corporation. She turns up a third time at the door of Reuben J Dodd’s office and smiles credulously on the representative of His Majesty.','',),
+('potterton','Potterton','Whose case in lunacy she heard in the lord chancellor’s court.','Potterton'),
+('harvey-litigant','Harvey','Whose case against the Ocean Accident and Guarantee Corporation stood over. Not the Harvey Duff of episode 8, who is an informer out of a play.','',),
+('delahunt','Delahunt','Of Camden street, who had the catering at the Glencree dinner, and whose port Mrs Bloom was well primed with on the Featherbed Mountain going home.','Delahunt'),
+('sir-charles-cameron','Sir Charles Cameron','One of the speakers at the same dinner, in Lenehan’s telling.','Charles Cameron'),
+('glencree-jarvey','The jarvey','Who drove them home from Glencree, and to whom Bloom pointed out the great bear and Hercules and the dragon along with Chris Callinan.','',),
+# --- 5. the bookshop
+('sacher-masoch','Leopold von Sacher Masoch','Author of Tales of the Ghetto, the third book on the bookseller’s counter. That I had, Bloom says, pushing it by. The other Leopold in the shop is himself.','Leopold von Sacher Masoch|Leopold von Sacher-Masoch|Sacher Masoch|Sacher-Masoch'),
+('bookshop-man','The shopman','Uncombed grey head, unshaven reddened face, onions on his breath, who lets two volumes fall on the counter, coughs behind the dingy curtain, pukes phlegm on the floor and puts his boot on it, and taps the book Bloom takes: Sweets of Sin. That’s a good one.','',),
+('james-lovebirch','James Lovebirch','Author of Fair Tyrants. Know the kind that is. Had it? Yes.','James Lovebirch'),
+('raoul','Raoul','For him! For Raoul! — the lover in Sweets of Sin, out of the sentence Bloom reads twice and carries with him for the rest of the day.','Raoul'),
+('sweets-of-sin-woman','The beautiful woman','Who throws off her sabletrimmed wrap, displaying her queenly shoulders and heaving embonpoint. You are late, he spoke hoarsely.','',),
+('lacquey','The lacquey','At the door of Dillon’s auctionrooms, who shakes his handbell twice again and views himself in the chalked mirror of the cabinet. Barang! Bang! Mr Dedalus curses his bloody blatant soul and he shakes the lolling clapper but feebly, aware of comment. The modern edition calls him the footman.','',),
+('halfmile-wheelmen','The halfmile wheelmen','J. A. Jackson, W. E. Wylie, A. Munro and H. T. Gahan, spurred to their sprint by the bang of the lastlap bell, their stretched necks wagging as they negotiate the curve by the College library.','',),
+('quartermile-handicappers','The quartermile handicappers','M. C. Green, H. Shrift, T. M. Patey, C. Scaife, J. B. Jeffs, G. N. Morphy, F. Stevenson, C. Adderly and W. C. Huggard, who start in pursuit along the far side of the wall as the viceroy’s carriages go by.','',),
+# --- 6. Simon and Dilly
+('sister-monica','Little sister Monica','Of the nuns who taught Dilly to be so saucy. The little nuns! Nice little things! O, sure they wouldn’t do anything!','Sister Monica'),
+# --- 7. Mr Kernan
+('crimmins','Mr Crimmins','The publican Tom Kernan has just sold tea to for Pulbrook Robertson, and whose best gin he takes a thimbleful of. Now, you’re talking straight, Mr Crimmins.','Crimmins'),
+('neary','Neary','From whom Kernan got the stylish coat for half a sovereign. Scott of Dawson street. Never built under three guineas. Some Kildare street club toff had it probably.','Neary'),
+('john-mulligan','John Mulligan','The manager of the Hibernian bank, who gave Kernan a very sharp eye yesterday on Carlisle bridge as if he remembered him. Not Buck Mulligan, whose alias is kept off this paragraph by hand — and the name is keyed, not aliased, because 14:47 gives Buck the full comic style Malachi Roland St John Mulligan.','',),
+('sam-lambert','Sam','Ned Lambert’s brother, whom Kernan thinks he sees over the way and who turns out to be the windscreen of a motorcar flashing in the sun. He’s as like it as damn it.','',),
+('jonah-barrington','Sir Jonah Barrington','Whose reminiscences Kernan must ask Ned Lambert to lend him: the gaming at Daly’s, and the fellow who got his hand nailed to the table by a dagger.','Jonah Barrington'),
+('lord-edward-fitzgerald','Lord Edward Fitzgerald','Who escaped from major Sirr somewhere about here, by the stables behind Moira house. Fine dashing young nobleman. Good stock, of course.','Lord Edward Fitzgerald|lord Edward Fitzgerald'),
+('major-sirr','Major Sirr','Whom he escaped from.','Major Sirr'),
+('sham-squire','The sham squire','That ruffian, with his violet gloves, who gave him away.','',),
+('ingram','Ingram','Whose poem it is — they rose in dark and evil days — that Ben Dollard sings so touchingly. They were gentlemen.','Ingram'),
+# --- 8. Stephen at the lapidary's
+('russell-lapidary','Old Russell','The lapidary in whose webbed window Stephen watches the timedulled chain proved, burnishing his gem again with a smeared shammy rag and holding it at the point of his Moses’ beard. Grandfather ape gloating on a stolen hoard. Not the Russell of the library, who is A. E.','',),
+('two-old-women','The two old women','Fresh from their whiff of the briny, who trudge through Irishtown along London bridge road, one with a sanded tired umbrella, one with a midwife’s bag in which eleven cockles rolled — and who halt again at Haddington road corner to view with wonder the lord mayor and lady mayoress without his golden chain. The episode does not give them names.','',),
+('heenan','Heenan','In the faded 1860 print in Clohissey’s window, boxing Sayers before staring backers in square hats. And they are throbbing: heroes’ hearts.','Heenan'),
+('sayers','Sayers','The other heavyweight in the print.','Sayers'),
+('bookcart-huckster','The huckster','At the slanted bookcart in Bedford row. Twopence each. Four for sixpence.','',),
+('peter-salanka','Abbot Peter Salanka','The most blessed abbot to all true believers divulged, whose charms and invocations fill the eighth and ninth book of Moses Stephen turns over: how to soften chapped hands, recipe for white wine vinegar, how to win a woman’s love.','Peter Salanka'),
+('charles-stuart','Nonesuch Charles','Whose Stuart face Stephen sees in his sister’s, lank locks falling at its sides, as she crouched feeding the fire with broken boots.','',),
+('dan-kelly','Dan Kelly','Whose token is the pinchbeck bracelet she fingers late abed under a quilt of old overcoats.','Dan Kelly'),
+('chardenal','Chardenal','Whose French primer Dilly bought from the other cart for a penny, and is still straining her sight over in Fownes’s street when the cavalcade goes by.','Chardenal'),
+# --- 9. Cowley, Dollard, the subsheriff's office
+('alderman-cowley','Alderman Cowley','Hailed by Councillor Nannetti on the steps of the City hall. Not Father Bob Cowley, who is barricaded up in Windsor avenue on the other side of the same episode.','Alderman Cowley'),
+('abraham-lyon','Councillor Abraham Lyon','Ascending the same steps with him. Not Bantam Lyons, who is backing a horse someone gave him.','Abraham Lyon'),
+('lobengula','Lobengula','Half of what Ben Dollard says the subsheriff’s new bailiff is a cross between.','Lobengula'),
+('lynchehaun','Lynchehaun','The other half. He’s well worth seeing, mind you.','Lynchehaun'),
+('castle-policeman','The policeman at the Castleyard gate','Who touches his forehead as Martin Cunningham’s party passes out. God bless you, Martin Cunningham said, cheerily.','',),
+('boyd','Boyd','The friend Mr Power suggests they try for the Dignam subscription, and whom Martin Cunningham disposes of in two words. Boyd? Touch me not.','Boyd'),
+('jimmy-henry','Jimmy Henry','The assistant town clerk, a dapper little man in a shower of hail suit who walks uncertainly on bad corns and will not glance at the list. Hell open to christians they were having about their damned Irish language. O, my corns! Come upstairs for goodness’ sake till I sit down somewhere.','Jimmy Henry'),
+('barlow','Old Barlow','The macebearer, laid up with asthma: no mace on the table, nothing in order, no quorum even.','Barlow'),
+('hutchinson','Hutchinson','The lord mayor, in Llandudno while the council sits.','Hutchinson'),
+('lorcan-sherlock','Lorcan Sherlock','Little Lorcan Sherlock, doing _locum tenens_ for him.','Lorcan Sherlock'),
+# --- 10. the D.B.C.
+('dbc-waitress','The waitress','At the D. B. C., who takes the order for two mélanges and scones and butter and cakes, and whose tray Buck Mulligan helps to unload.','',),
+('pokorny','Professor Pokorny','Of Vienna, who can find no trace of hell in ancient Irish myth — which Haines finds rather interesting, given what is on Stephen’s mind.','Pokorny'),
+# --- 11. Artifoni, Farrell, the blind stripling
+('artifoni','Almidano Artifoni','Stephen’s singing teacher, round mustachioed, who tells him in Italian that he had such ideas too when he was young, that the world is a brute, and that his voice would be a source of income: instead, you sacrifice yourself. He trots in vain after the Dalkey tram with a baton of rolled music held up as a signal, and his sturdy trousers are swallowed by a closing door in the last line of the episode.','Almidano Artifoni|Artifoni'),
+('goldsmith','Goldsmith','Whose knobby poll Artifoni gazes over Stephen’s shoulder at, outside Trinity.','Goldsmith'),
+('lewis-werner','Mr Lewis Werner','Whose cheerful windows on Merrion square are as far as Cashel Boyle O’Connor Fitzmaurice Tisdall Farrell walks before turning and striding back. Not the Louis Werner who is touring Molly Bloom in episode 6.','Lewis Werner'),
+# --- 12. Master Dignam
+('mrs-stoer','Mrs Stoer','One of the three women sitting in the parlour with the blind down at the Dignams’, sniffling and sipping the superior tawny sherry uncle Barney brought from Tunney’s.','Mrs Stoer'),
+('mrs-quigley','Mrs Quigley','The second of them.','Mrs Quigley'),
+('mrs-macdowell','Mrs MacDowell','The third. Not Gerty MacDowell, who passes the viceregal cavalcade at the end of the episode carrying cork lino letters for her father.','Mrs MacDowell'),
+('stoer-boy','Stoer','The boy whose old fellow welted hell out of him for the packets of fags with the pictures of soubrettes in them.','',),
+('fitzsimons','Fitzsimons','The best pucker going for strength. One puck in the wind from that fellow would knock you into the middle of next week, man.','Fitzsimons'),
+('jem-corbet','Jem Corbet','The best pucker for science, before Fitzsimons knocked the stuffings out of him, dodging and all.','Jem Corbet'),
+('father-conroy','Father Conroy','To whom Paddy Dignam went to confession on Saturday night, which is why his son hopes he is in purgatory now.','Father Conroy'),
+# --- 13. the viceregal cavalcade
+('heseltine','Lieutenantcolonel Heseltine','In the first carriage with the earl and countess of Dudley.','Heseltine|H. G. Heseltine|H.G. Heseltine'),
+('mrs-paget','The honourable Mrs Paget','In the second carriage of the viceregal cavalcade with Miss de Courcy and the honourable Gerald Ward, one of the three ladies Blazes Boylan offers the bold admiration of his eyes and the red flower between his lips.','Mrs Paget'),
+('miss-de-courcy','Miss de Courcy','With her.','de Courcy'),
+('gerald-ward','The honourable Gerald Ward','A. D. C. in attendance, who is agreeably surprised when Denis Breen, shifting his tomes to his left breast, salutes the second carriage — and who makes haste to reply.','Gerald Ward'),
+('dudley-white','Mr Dudley White','B. L., M. A., who does not salute the viceregal carriages, being undecided on Arran quay whether he should arrive at Phibsborough more quickly by a triple change of tram or by hailing a car or on foot through Smithfield.','Dudley White'),
+('miss-kennedy','Miss Kennedy','Gold, whose head appears with Miss Douce’s above the crossblind of the Ormond hotel at the start of the cavalcade and watches and admires it at the end.','Miss Kennedy'),
+('miss-douce','Miss Douce','Bronze, beside her.','Miss Douce'),
+('gerty-macdowell','Gerty MacDowell','Carrying the Catesby’s cork lino letters for her father who was laid up, who knew by the style it was the lord and lady lieutenant but could not see what Her Excellency had on, because the tram and Spring’s big yellow furniture van stopped in front of her.','Gerty MacDowell'),
+('gerty-father','Her father','Who was laid up, and for whom she is carrying the letters.','',),
+('me-solomons','Mr M. E. Solomons','In the window of the Austro-Hungarian viceconsulate, at whose head Farrell stares through a fierce eyeglass across the carriages.','M. E. Solomons|M.E. Solomons'),
+('king-billy','King Billy','Whose horse’s foreleg paws the air over the spot where Mrs Breen plucks her hastening husband back from under the hoofs of the outriders.','King Billy'),
+('wolfe-tone','Wolfe Tone','Whose statue was not on the slab the five sandwichmen eel themselves around between Monypeny’s corner and it.','Wolfe Tone'),
+]:add(*row)
+
 updates={}
 for e in entities:e['snapshots']=[dict(after=list(at),body=body) for at,body in updates.get(e['id'],[])]
-print(len(entities),'entities authored: episodes 1-9')
+print(len(entities),'entities authored: episodes 1-10')
 BASE=Path(__file__).resolve().parent
 (BASE/'editorial.json').write_text(json.dumps(dict(
  bookId='ulysses',
- contentVersion='2026-09-15.9',
- coverage='Both full English editions, episodes 1-9 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.',
+ contentVersion='2026-09-15.10',
+ coverage='Both full English editions, episodes 1-10 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

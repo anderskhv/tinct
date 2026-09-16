@@ -2328,7 +2328,7 @@ The other half of Torry and Alexander, the revival that worked Dublin last year.
 
 From Butler’s monument house corner he glanced along Bachelor’s walk. Dedalus’ daughter there still outside Dillon’s auctionrooms. Must be selling off some old furniture. Knew her eyes at once from the father. Lobbing about waiting for him. Home always breaks up when the mother goes. Fifteen children he had. Birth every year almost. That’s in their theology or the priest won’t give the poor woman the confession, the absolution. Increase and multiply. Did you ever hear such an idea? Eat you out of house and home. No families themselves to feed. Living on the fat of the land. Their butteries and larders. I’d like to see them do the black fast Yom Kippur. Crossbuns. One meal and a collation for fear he’d collapse on the altar. A housekeeper of one of those fellows if you could pick it out of her. Never pick it out of her. Like getting £. s. d. out of him. Does himself well. No guests. All for number one. Watching his water. Bring your own bread and butter. His reverence: mum’s the word.
 
-Lobbing about outside Dillon’s auctionrooms on Bachelor’s walk, waiting for her father, with some old furniture going under the hammer inside. Bloom knows her eyes at once from the father, counts the fifteen children, and notes the dress in flitters and the underfed look of her. The episode does not give her a first name.
+The daughter Bloom sees in episode 8 lobbing about outside Dillon’s auctionrooms on Bachelor’s walk, waiting for her father, with the dress in flitters and the underfed look of her; episode 10 gives her the name he did not have. She gets a shilling and two pennies out of Mr Dedalus while the lacquey rings, asks for more, and is found afterwards by Stephen at the bookcart in Bedford row with a coverless French primer she bought for a penny. She is drowning, he thinks, and does not save her.
 
 ## original-en · applewoman · 8:21
 
@@ -2774,11 +2774,11 @@ Who told Nosey Flynn about the slice of luck Boylan had over the boxingmatch, an
 
 Who won that match against the soldier in the Portobello barracks. Boylan had him down in the county Carlow for near a month before it came off, sucking duck eggs by God till further orders, and kept him off the boose.
 
-## original-en · portobello-soldier · 8:236
+## original-en · portobello-soldier · 6:176
 
-—He had a good slice of luck, Jack Mooney was telling me, over that boxingmatch Myler Keogh won again that soldier in the Portobello barracks. By God, he had the little kipper down in the county Carlow he was telling me...
+—I hope not, Martin Cunningham said. That will be a great race tomorrow in Germany. The Gordon Bennett.
 
-The man Myler Keogh beat in the barracks, on whom Boylan had his slice of luck. The episode gives him no name and nobody in the pub asks for one.
+The man Myler Keogh beat in the barracks, on whom Boylan had his slice of luck. Episode 8 gives him no name and nobody in the pub asks for one; the placard in the milliner’s window that stops Master Dignam in episode 10 names him — Myler Keogh, Dublin’s pet lamb, will meet sergeantmajor Bennett, the Portobello bruiser, for a purse of fifty sovereigns.
 
 ## original-en · howard-de-walden · 8:247
 
@@ -2934,7 +2934,7 @@ Recorder of Dublin, going into the freemasons’ hall solemn as Troy after his g
 
 Hello, placard. Mirus bazaar. His Excellency the lord lieutenant. Sixteenth. Today it is. In aid of funds for Mercer’s hospital. _The Messiah_ was first given for that. Yes. Handel. What about going out there: Ballsbridge. Drop in on Keyes. No use sticking to him like a leech. Wear out my welcome. Sure to know someone on the gate.
 
-On the placard for the Mirus bazaar, sixteenth of June, in aid of funds for Mercer’s hospital. Bloom thinks of going out to Ballsbridge on the strength of it and dropping in on Keyes: sure to know someone on the gate.
+His Excellency the lord lieutenant: on the placard for the Mirus bazaar in episode 8 — sixteenth of June, in aid of funds for Mercer’s hospital — and in person through the last section of episode 10, driving out from the viceregal lodge after luncheon with lady Dudley and lieutenantcolonel Heseltine and crossing the whole city to inaugurate it. He is most cordially greeted on his way through the metropolis: Kernan greets him vainly from the wrong side of the river, Simon Dedalus brings his hat low, John Wyse Nolan smiles with unseen coldness, and Boylan’s hands in his pockets forget to salute.
 
 ## original-en · handel · 8:365
 
@@ -3931,6 +3931,684 @@ The first and last such man.
 —He is, Stephen said. The boy of act one is the mature man of act five. All in all. In _Cymbeline,_ in _Othello_ he is bawd and cuckold. He acts and is acted on. Lover of an ideal or a perversion, like José he kills the real Carmen. His unremitting intellect is the hornmad Iago ceaselessly willing that the moor in him shall suffer.
 
 The moor in him whom the hornmad Iago ceaselessly wills to suffer: Shakespeare as bawd and cuckold, acting and acted on.
+
+## original-en · brother-swan · 10:0
+
+The superior, the very reverend John Conmee S. J. reset his smooth watch in his interior pocket as he came down the presbytery steps. Five to three. Just nice time to walk to Artane. What was that boy’s name again? Dignam. Yes. _Vere dignum et iustum est._ Brother Swan was the person to see. Mr Cunningham’s letter. Yes. Oblige him, if possible. Good practical catholic: useful at mission time.
+
+The person to see about the Dignam boy at Artane: the first name in the episode, and the errand that starts Father Conmee walking.
+
+## original-en · onelegged-sailor · 10:1
+
+A onelegged sailor, swinging himself onward by lazy jerks of his crutches, growled some notes. He jerked short before the convent of the sisters of charity and held out a peaked cap for alms towards the very reverend John Conmee S. J. Father Conmee blessed him in the sun for his purse held, he knew, one silver crown.
+
+Swinging himself onward by lazy jerks of his crutches and growling For England, home and beauty at the windows of Eccles street. Father Conmee blesses him in the sun without giving him the silver crown in his purse; a stout lady gives him a copper; and the generous white arm at number 7 flings a coin over the area railings for one of the urchins to pick up.
+
+## original-en · wolsey · 10:2
+
+Father Conmee crossed to Mountjoy square. He thought, but not for long, of soldiers and sailors, whose legs had been shot off by cannonballs, ending their days in some pauper ward, and of cardinal Wolsey’s words: _If I had served my God as I have served my king He would not have abandoned me in my old days._ He walked by the treeshade of sunnywinking leaves: and towards him came the wife of Mr David Sheehy M.P.
+
+Whose words come to Father Conmee over the soldiers and sailors with their legs shot off: if I had served my God as I have served my king He would not have abandoned me in my old days.
+
+## original-en · mrs-sheehy · 10:6
+
+—Good afternoon, Mrs Sheehy.
+
+The wife of Mr David Sheehy M.P., who meets Father Conmee under the treeshade of Mountjoy square and is very well indeed, thank you, and whose boys are getting on well at Belvedere.
+
+## original-en · father-provincial · 10:11
+
+O, lest he forget. That letter to father provincial.
+
+To whom Father Conmee’s letter is addressed, and which Master Brunny Lynam posts for him into the bright red letterbox at the corner of Fitzgibbon street.
+
+## original-en · jack-sohan · 10:12
+
+Father Conmee stopped three little schoolboys at the corner of Mountjoy square. Yes: they were from Belvedere. The little house. Aha. And were they good boys at school? O. That was very good now. And what was his name? Jack Sohan. And his name? Ger. Gallaher. And the other little man? His name was Brunny Lynam. O, that was a very nice name to have.
+
+First of the three little schoolboys from Belvedere whom Father Conmee stops at the corner of Mountjoy square.
+
+## original-en · ger-gallaher · 10:12
+
+Father Conmee stopped three little schoolboys at the corner of Mountjoy square. Yes: they were from Belvedere. The little house. Aha. And were they good boys at school? O. That was very good now. And what was his name? Jack Sohan. And his name? Ger. Gallaher. And the other little man? His name was Brunny Lynam. O, that was a very nice name to have.
+
+The second. Not the Ignatius Gallaher of episode 7, who went to London and was the smartest fellow that ever scalded a tooth.
+
+## original-en · brunny-lynam · 10:12
+
+Father Conmee stopped three little schoolboys at the corner of Mountjoy square. Yes: they were from Belvedere. The little house. Aha. And were they good boys at school? O. That was very good now. And what was his name? Jack Sohan. And his name? Ger. Gallaher. And the other little man? His name was Brunny Lynam. O, that was a very nice name to have.
+
+The third, and the one given the letter. But mind you don’t post yourself into the box, little man.
+
+## original-en · lady-maxwell · 10:19
+
+Mr Denis J Maginni, professor of dancing &c, in silk hat, slate frockcoat with silk facings, white kerchief tie, tight lavender trousers, canary gloves and pointed patent boots, walking with grave deportment most respectfully took the curbstone as he passed lady Maxwell at the corner of Dignam’s court.
+
+Whom Mr Denis J Maginni most respectfully took the curbstone to pass at the corner of Dignam’s court, and whose call is the reason Father Conmee has not yet read his nones.
+
+## original-en · mrs-mcguinness · 10:20
+
+Was that not Mrs M’Guinness?
+
+Stately, silverhaired, who bows to Father Conmee from the farther footpath along which she sails. A fine carriage she had. Like Mary, queen of Scots, something. And to think that she was a pawnbroker — the same pawnbroker who would give the Dedalus girls nothing on Stephen’s books.
+
+## original-en · mary-queen-of-scots · 10:22
+
+A fine carriage she had. Like Mary, queen of Scots, something. And to think that she was a pawnbroker! Well, now! Such a... what should he say?... such a queenly mien.
+
+Whose something the pawnbroker’s bearing puts Father Conmee in mind of. Such a queenly mien.
+
+## original-en · tr-greene · 10:23
+
+Father Conmee walked down Great Charles street and glanced at the shutup free church on his left. The reverend T. R. Greene B.A. will (D.V.) speak. The incumbent they called him. He felt it incumbent on him to say a few words. But one should be charitable. Invincible ignorance. They acted according to their lights.
+
+Whose name is on the board of the shutup free church in Great Charles street: will (D.V.) speak. The incumbent, they called him, and Father Conmee felt it incumbent on him to say a few words. But one should be charitable. Invincible ignorance.
+
+## original-en · william-gallagher · 10:28
+
+Father Conmee began to walk along the North Strand road and was saluted by Mr William Gallagher who stood in the doorway of his shop. Father Conmee saluted Mr William Gallagher and perceived the odours that came from baconflitches and ample cools of butter. He passed Grogan’s the Tobacconist against which newsboards leaned and told of a dreadful catastrophe in New York. In America those things were continually happening. Unfortunate people to die like that, unprepared. Still, an act of perfect contrition.
+
+Standing in the doorway of his shop on the North Strand road, who salutes Father Conmee and is saluted, in a smell of baconflitches and ample cools of butter.
+
+## original-en · constable-57c · 10:30
+
+Father Conmee passed H. J. O’Neill’s funeral establishment where Corny Kelleher totted figures in the daybook while he chewed a blade of hay. A constable on his beat saluted Father Conmee and Father Conmee saluted the constable. In Youkstetter’s, the porkbutcher’s, Father Conmee observed pig’s puddings, white and black and red, lie neatly curled in tubes.
+
+On his beat, who stops to pass the time of day with Corny Kelleher outside the undertaker’s. That’s a fine day, Mr Kelleher. It’s very close. And then, with bated breath: I seen that particular party last evening.
+
+## original-en · turf-bargeman · 10:31
+
+Moored under the trees of Charleville Mall Father Conmee saw a turfbarge, a towhorse with pendent head, a bargeman with a hat of dirty straw seated amidships, smoking and staring at a branch of poplar above him. It was idyllic: and Father Conmee reflected on the providence of the Creator who had made turf to be in bogs whence men might dig it out and bring it to town and hamlet to make fires in the houses of poor people.
+
+With a hat of dirty straw, seated amidships of the turfbarge moored under the trees of Charleville Mall, smoking and staring at a branch of poplar above him. It was idyllic, and set Father Conmee thinking on the providence of the Creator who had made turf to be in bogs.
+
+## original-en · nicholas-dudley · 10:33
+
+Off an inward bound tram stepped the reverend Nicholas Dudley C. C. of saint Agatha’s church, north William street, on to Newcomen bridge.
+
+Of saint Agatha’s church, north William street, who steps off an inward bound tram on to Newcomen bridge at the moment Father Conmee steps on to an outward bound one. Not the earl of Dudley whose cavalcade closes the episode.
+
+## original-en · tram-gentleman · 10:36
+
+It was a peaceful day. The gentleman with the glasses opposite Father Conmee had finished explaining and looked down. His wife, Father Conmee supposed. A tiny yawn opened the mouth of the wife of the gentleman with the glasses. She raised her small gloved fist, yawned ever so gently, tiptapping her small gloved fist on her opening mouth and smiled tinily, sweetly.
+
+Opposite Father Conmee in the tramcar, who has finished explaining and looks down.
+
+## original-en · tram-gentlemans-wife · 10:36
+
+It was a peaceful day. The gentleman with the glasses opposite Father Conmee had finished explaining and looked down. His wife, Father Conmee supposed. A tiny yawn opened the mouth of the wife of the gentleman with the glasses. She raised her small gloved fist, yawned ever so gently, tiptapping her small gloved fist on her opening mouth and smiled tinily, sweetly.
+
+Father Conmee supposed. A tiny yawn opened her mouth; she raised her small gloved fist, yawned ever so gently, and smiled tinily, sweetly.
+
+## original-en · awkward-man · 10:37
+
+Father Conmee perceived her perfume in the car. He perceived also that the awkward man at the other side of her was sitting on the edge of the seat.
+
+Sitting on the edge of the seat at the other side of her — and, in the same breath, the awkward old man with the shaky head in whose mouth Father Conmee placed the host with difficulty at the altarrails.
+
+## original-en · tram-old-woman · 10:39
+
+At Annesley bridge the tram halted and, when it was about to go, an old woman rose suddenly from her place to alight. The conductor pulled the bellstrap to stay the car for her. She passed out with her basket and a marketnet: and Father Conmee saw the conductor help her and net and basket down: and Father Conmee thought that, as she had nearly passed the end of the penny fare, she was one of those good souls who had always to be told twice _bless you, my child,_ that they have been absolved, _pray for me._ But they had so many worries in life, so many cares, poor creatures.
+
+Who rises suddenly at Annesley bridge to alight with her basket and her marketnet, and whom the conductor helps down. One of those good souls who had always to be told twice that they have been absolved.
+
+## original-en · belgian-jesuit · 10:41
+
+Father Conmee thought of the souls of black and brown and yellow men and of his sermon on saint Peter Claver S. J. and the African mission and of the propagation of the faith and of the millions of black and brown and yellow souls that had not received the baptism of water when their last hour came like a thief in the night. That book by the Belgian jesuit, _Le Nombre des Élus,_ seemed to Father Conmee a reasonable plea. Those were millions of human souls created by God in His Own likeness to whom the faith had not (D.V.) been brought. But they were God’s souls, created by God. It seemed to Father Conmee a pity that they should all be lost, a waste, if one might say.
+
+Whose book _Le Nombre des Élus_ seemed to Father Conmee a reasonable plea, over the millions of black and brown and yellow souls that had not received the baptism of water.
+
+## original-en · lord-talbot · 10:43
+
+The Malahide road was quiet. It pleased Father Conmee, road and name. The joybells were ringing in gay Malahide. Lord Talbot de Malahide, immediate hereditary lord admiral of Malahide and the seas adjoining. Then came the call to arms and she was maid, wife and widow in one day. Those were old worldish days, loyal times in joyous townlands, old times in the barony.
+
+Immediate hereditary lord admiral of Malahide and the seas adjoining, whose name pleases Father Conmee along with the road. Then came the call to arms and she was maid, wife and widow in one day.
+
+## original-en · mary-rochfort · 10:44
+
+Father Conmee, walking, thought of his little book _Old Times in the Barony_ and of the book that might be written about jesuit houses and of Mary Rochfort, daughter of lord Molesworth, first countess of Belvedere.
+
+Daughter of lord Molesworth, first countess of Belvedere: the listless lady, no more young, walking alone the shore of lough Ennel in the evening, not startled when an otter plunged. Who could know the truth?
+
+## original-en · lord-molesworth · 10:44
+
+Father Conmee, walking, thought of his little book _Old Times in the Barony_ and of the book that might be written about jesuit houses and of Mary Rochfort, daughter of lord Molesworth, first countess of Belvedere.
+
+Her father. Not Molesworth street, which is where Bloom sends the blind stripling in episode 8.
+
+## original-en · lord-belvedere · 10:45
+
+A listless lady, no more young, walked alone the shore of lough Ennel, Mary, first countess of Belvedere, listlessly walking in the evening, not startled when an otter plunged. Who could know the truth? Not the jealous lord Belvedere and not her confessor if she had not committed adultery fully, _eiaculatio seminis inter vas naturale mulieris,_ with her husband’s brother? She would half confess if she had not all sinned as women did. Only God knew and she and he, her husband’s brother.
+
+The jealous husband, who could not know either — nor her confessor, if she had not committed adultery fully with her husband’s brother.
+
+## original-en · belvedere-brother · 10:45
+
+A listless lady, no more young, walked alone the shore of lough Ennel, Mary, first countess of Belvedere, listlessly walking in the evening, not startled when an otter plunged. Who could know the truth? Not the jealous lord Belvedere and not her confessor if she had not committed adultery fully, _eiaculatio seminis inter vas naturale mulieris,_ with her husband’s brother? She would half confess if she had not all sinned as women did. Only God knew and she and he, her husband’s brother.
+
+The third of the three who knew: only God knew, and she, and he.
+
+## original-en · flushed-young-man · 10:55
+
+A flushed young man came from a gap of a hedge and after him came a young woman with wild nodding daisies in her hand. The young man raised his cap abruptly: the young woman abruptly bent and with slow care detached from her light skirt a clinging twig.
+
+Who comes from a gap of a hedge in the Clongowes fields and raises his cap abruptly as Father Conmee passes.
+
+## original-en · young-woman-daisies · 10:55
+
+A flushed young man came from a gap of a hedge and after him came a young woman with wild nodding daisies in her hand. The young man raised his cap abruptly: the young woman abruptly bent and with slow care detached from her light skirt a clinging twig.
+
+Who comes after him with wild nodding daisies in her hand, and bends with slow care to detach a clinging twig from her light skirt. Father Conmee blessed both gravely and turned a thin page of his breviary. She detaches the twig again, one section later, while Ned Lambert is showing the clergyman round the abbey.
+
+## original-en · katey-dedalus · 10:71
+
+He swung himself violently forward past Katey and Boody Dedalus, halted and growled:
+
+One of the four sisters in the closesteaming kitchen, who lifts the kettlelid in a pad of her stained skirt and asks what is in it. Peasoup, from Sister Mary Patrick.
+
+## original-en · boody-dedalus · 10:71
+
+He swung himself violently forward past Katey and Boody Dedalus, halted and growled:
+
+Who asks whether the books were pawned, stamps her foot at the answer, and says grace over the yellow soup: our father who art not in heaven.
+
+## original-en · maggy-dedalus · 10:86
+
+Maggy at the range rammed down a greyish mass beneath bubbling suds twice with her potstick and wiped her brow.
+
+At the range, boiling shirts in the pot, who took the books to M’Guinness’s and got nothing on them, and who would pawn Dilly’s French primer too if she got the chance.
+
+## original-en · sister-mary-patrick · 10:103
+
+—Sister Mary Patrick, Maggy said.
+
+Who gave them the peasoup.
+
+## original-en · stout-lady · 10:74
+
+A stout lady stopped, took a copper coin from her purse and dropped it into the cap held out to her. The sailor grumbled thanks, glanced sourly at the unheeding windows, sank his head and swung himself forward four strides.
+
+Who stops, takes a copper coin from her purse, and drops it into the sailor’s cap.
+
+## original-en · barefoot-urchins · 10:77
+
+Two barefoot urchins, sucking long liquorice laces, halted near him, gaping at his stump with their yellowslobbered mouths.
+
+Sucking long liquorice laces, who halt near the sailor and gape at his stump with their yellowslobbered mouths — and one of whom runs for the coin the white arm flings from the window and drops it into the minstrel’s cap. There, sir.
+
+## original-en · thornton-blond-girl · 10:117
+
+The blond girl in Thornton’s bedded the wicker basket with rustling fibre. Blazes Boylan handed her the bottle swathed in pink tissue paper and a small jar.
+
+Who beds the wicker basket with rustling fibre and lays fat pears head by tail with ripe shamefaced peaches, and lets Boylan take a red carnation from the tall stemglass and look into the cut of her blouse. Yes, sir. I will, sir.
+
+## original-en · miss-dunne · 10:160
+
+Miss Dunne hid the Capel street library copy of _The Woman in White_ far back in her drawer and rolled a sheet of gaudy notepaper into her typewriter.
+
+Boylan’s typist, who hides the Capel street library copy of The Woman in White far back in her drawer, types the date, scribbles sixteens and capital esses on the jotter, and hopes to goodness he won’t keep her there till seven.
+
+## original-en · marion-woman-in-white · 10:161
+
+Too much mystery business in it. Is he in love with that one, Marion? Change it and get another by Mary Cecil Haye.
+
+The one in the novel Miss Dunne is not getting on with. Is he in love with that one, Marion? Change it and get another by Mary Cecil Haye. Not Marion Bloom, whose name is the same and who is the reason Boylan is in a hurry.
+
+## original-en · mary-cecil-haye · 10:161
+
+Too much mystery business in it. Is he in love with that one, Marion? Change it and get another by Mary Cecil Haye.
+
+Whose books Miss Dunne would rather have.
+
+## original-en · marie-kendall · 10:166
+
+Then she stared at the large poster of Marie Kendall, charming soubrette, and, listlessly lolling, scribbled on the jotter sixteens and capital esses. Mustard hair and dauby cheeks. She’s not nicelooking, is she? The way she’s holding up her bit of a skirt. Wonder will that fellow be at the band tonight. If I could get that dressmaker to make a concertina skirt like Susy Nagle’s. They kick out grand. Shannon and all the boatclub swells never took his eyes off her. Hope to goodness he won’t keep me here till seven.
+
+Charming soubrette, on the large poster Miss Dunne stares at, on the poster outside Dan Lowry’s that smiles a dauby smile on Lenehan and M’Coy, in the milliner’s window where Master Dignam sees her beside the two puckers, and on the hoarding that smiles daubily upon the viceroy. Mustard hair and dauby cheeks. She’s not nicelooking, is she?
+
+## original-en · susy-nagle · 10:166
+
+Then she stared at the large poster of Marie Kendall, charming soubrette, and, listlessly lolling, scribbled on the jotter sixteens and capital esses. Mustard hair and dauby cheeks. She’s not nicelooking, is she? The way she’s holding up her bit of a skirt. Wonder will that fellow be at the band tonight. If I could get that dressmaker to make a concertina skirt like Susy Nagle’s. They kick out grand. Shannon and all the boatclub swells never took his eyes off her. Hope to goodness he won’t keep me here till seven.
+
+Whose concertina skirt Miss Dunne would like the dressmaker to copy. They kick out grand.
+
+## original-en · shannon · 10:166
+
+Then she stared at the large poster of Marie Kendall, charming soubrette, and, listlessly lolling, scribbled on the jotter sixteens and capital esses. Mustard hair and dauby cheeks. She’s not nicelooking, is she? The way she’s holding up her bit of a skirt. Wonder will that fellow be at the band tonight. If I could get that dressmaker to make a concertina skirt like Susy Nagle’s. They kick out grand. Shannon and all the boatclub swells never took his eyes off her. Hope to goodness he won’t keep me here till seven.
+
+Who, with all the boatclub swells, never took his eyes off her.
+
+## original-en · crotty · 10:173
+
+—Who’s that? Ned Lambert asked. Is that Crotty?
+
+The name Ned Lambert calls into the dark of the abbey before he finds it is J. J. O’Molloy.
+
+## original-en · hugh-c-love · 10:192
+
+—The reverend Hugh C. Love, Rathcoffey. Present address: Saint Michael’s, Sallins. Nice young chap he is. He’s writing a book about the Fitzgeralds he told me. He’s well up in history, faith.
+
+Of Rathcoffey, present address Saint Michael’s, Sallins: the clergyman with the refined accent whom Ned Lambert shows round the council chamber of saint Mary’s abbey, and who is writing a book about the Fitzgeralds and will bring a camera next week. He is also the landlord who has distrained on Father Cowley for rent, which is what makes Ben Dollard say the gombeen man’s writ is not worth the paper it is printed on.
+
+## original-en · silken-thomas · 10:178
+
+—Yes, sir, Ned Lambert said heartily. We are standing in the historic council chamber of saint Mary’s abbey where silken Thomas proclaimed himself a rebel in 1534. This is the most historic spot in all Dublin. O’Madden Burke is going to write something about it one of these days. The old bank of Ireland was over the way till the time of the union and the original jews’ temple was here too before they built their synagogue over in Adelaide road. You were never here before, Jack, were you?
+
+Who proclaimed himself a rebel in that chamber in 1534. This is the most historic spot in all Dublin.
+
+## original-en · earl-of-kildare · 10:196
+
+—God! he cried. I forgot to tell him that one about the earl of Kildare after he set fire to Cashel cathedral. You know that one? _I’m bloody sorry I did it,_ says he, _but I declare to God I thought the archbishop was inside._ He mightn’t like it, though. What? God, I’ll tell him anyhow. That was the great earl, the Fitzgerald Mor. Hot members they were all of them, the Geraldines.
+
+The great earl, the Fitzgerald Mor, of the story Ned Lambert forgot to tell: I’m bloody sorry I did it, says he, but I declare to God I thought the archbishop was inside. Hot members they were all of them, the Geraldines.
+
+## original-en · cashel-archbishop · 10:196
+
+—God! he cried. I forgot to tell him that one about the earl of Kildare after he set fire to Cashel cathedral. You know that one? _I’m bloody sorry I did it,_ says he, _but I declare to God I thought the archbishop was inside._ He mightn’t like it, though. What? God, I’ll tell him anyhow. That was the great earl, the Fitzgerald Mor. Hot members they were all of them, the Geraldines.
+
+Whom he thought was inside Cashel cathedral when he set fire to it.
+
+## original-en · elderly-female-courts · 10:211
+
+Lawyers of the past, haughty, pleading, beheld pass from the consolidated taxing office to Nisi Prius court Richie Goulding carrying the costbag of Goulding, Collis and Ward and heard rustling from the admiralty division of king’s bench to the court of appeal an elderly female with false teeth smiling incredulously and a black silk skirt of great amplitude.
+
+With false teeth and a black silk skirt of great amplitude, who passes the lawyers of the past on her way out of the courts, having heard the case in lunacy of Potterton, the summons of the owners of the Lady Cairns against the owners of the barque Mona, and the reservation of judgment in Harvey against the Ocean Accident and Guarantee Corporation. She turns up a third time at the door of Reuben J Dodd’s office and smiles credulously on the representative of His Majesty.
+
+## original-en · potterton · 10:287
+
+An elderly female, no more young, left the building of the courts of chancery, king’s bench, exchequer and common pleas, having heard in the lord chancellor’s court the case in lunacy of Potterton, in the admiralty division the summons, exparte motion, of the owners of the Lady Cairns versus the owners of the barque Mona, in the court of appeal reservation of judgment in the case of Harvey versus the Ocean Accident and Guarantee Corporation.
+
+Whose case in lunacy she heard in the lord chancellor’s court.
+
+## original-en · harvey-litigant · 10:287
+
+An elderly female, no more young, left the building of the courts of chancery, king’s bench, exchequer and common pleas, having heard in the lord chancellor’s court the case in lunacy of Potterton, in the admiralty division the summons, exparte motion, of the owners of the Lady Cairns versus the owners of the barque Mona, in the court of appeal reservation of judgment in the case of Harvey versus the Ocean Accident and Guarantee Corporation.
+
+Whose case against the Ocean Accident and Guarantee Corporation stood over. Not the Harvey Duff of episode 8, who is an informer out of a play.
+
+## original-en · delahunt · 10:252
+
+—But wait till I tell you, he said. Delahunt of Camden street had the catering and yours truly was chief bottlewasher. Bloom and the wife were there. Lashings of stuff we put up: port wine and sherry and curacoa to which we did ample justice. Fast and furious it was. After liquids came solids. Cold joints galore and mince pies...
+
+Of Camden street, who had the catering at the Glencree dinner, and whose port Mrs Bloom was well primed with on the Featherbed Mountain going home.
+
+## original-en · sir-charles-cameron · 10:247
+
+—There was a long spread out at Glencree reformatory, Lenehan said eagerly. The annual dinner, you know. Boiled shirt affair. The lord mayor was there, Val Dillon it was, and sir Charles Cameron and Dan Dawson spoke and there was music. Bartell d’Arcy sang and Benjamin Dollard...
+
+One of the speakers at the same dinner, in Lenehan’s telling.
+
+## original-en · glencree-jarvey · 10:259
+
+—The lad stood to attention anyhow, he said with a sigh. She’s a gamey mare and no mistake. Bloom was pointing out all the stars and the comets in the heavens to Chris Callinan and the jarvey: the great bear and Hercules and the dragon, and the whole jingbang lot. But, by God, I was lost, so to speak, in the milky way. He knows them all, faith. At last she spotted a weeny weeshy one miles away. _And what star is that, Poldy?_ says she. By God, she had Bloom cornered. _That one, is it?_ says Chris Callinan, _sure that’s only what you might call a pinprick._ By God, he wasn’t far wide of the mark.
+
+Who drove them home from Glencree, and to whom Bloom pointed out the great bear and Hercules and the dragon along with Chris Callinan.
+
+## original-en · sacher-masoch · 10:266
+
+He laid both books aside and glanced at the third: _Tales of the Ghetto_ by Leopold von Sacher Masoch.
+
+Author of Tales of the Ghetto, the third book on the bookseller’s counter. That I had, Bloom says, pushing it by. The other Leopold in the shop is himself.
+
+## original-en · bookshop-man · 10:268
+
+The shopman let two volumes fall on the counter.
+
+Uncombed grey head, unshaven reddened face, onions on his breath, who lets two volumes fall on the counter, coughs behind the dingy curtain, pukes phlegm on the floor and puts his boot on it, and taps the book Bloom takes: Sweets of Sin. That’s a good one.
+
+## original-en · james-lovebirch · 10:272
+
+Mr Bloom, alone, looked at the titles. _Fair Tyrants_ by James Lovebirch. Know the kind that is. Had it? Yes.
+
+Author of Fair Tyrants. Know the kind that is. Had it? Yes.
+
+## original-en · raoul · 10:278
+
+_—All the dollarbills her husband gave her were spent in the stores on wondrous gowns and costliest frillies. For him! For Raoul!_
+
+For him! For Raoul! — the lover in Sweets of Sin, out of the sentence Bloom reads twice and carries with him for the rest of the day.
+
+## original-en · sweets-of-sin-woman · 10:283
+
+The beautiful woman threw off her sabletrimmed wrap, displaying her queenly shoulders and heaving embonpoint. An imperceptible smile played round her perfect lips as she turned to him calmly.
+
+Who throws off her sabletrimmed wrap, displaying her queenly shoulders and heaving embonpoint. You are late, he spoke hoarsely.
+
+## original-en · lacquey · 10:104
+
+The lacquey rang his bell.
+
+At the door of Dillon’s auctionrooms, who shakes his handbell twice again and views himself in the chalked mirror of the cabinet. Barang! Bang! Mr Dedalus curses his bloody blatant soul and he shakes the lolling clapper but feebly, aware of comment. The modern edition calls him the footman.
+
+## original-en · halfmile-wheelmen · 10:299
+
+Bang of the lastlap bell spurred the halfmile wheelmen to their sprint. J. A. Jackson, W. E. Wylie, A. Munro and H. T. Gahan, their stretched necks wagging, negotiated the curve by the College library.
+
+J. A. Jackson, W. E. Wylie, A. Munro and H. T. Gahan, spurred to their sprint by the bang of the lastlap bell, their stretched necks wagging as they negotiate the curve by the College library.
+
+## original-en · quartermile-handicappers · 10:545
+
+Thither of the wall the quartermile flat handicappers, M. C. Green, H. Shrift, T. M. Patey, C. Scaife, J. B. Jeffs, G. N. Morphy, F. Stevenson, C. Adderly and W. C. Huggard, started in pursuit. Striding past Finn’s hotel Cashel Boyle O’Connor Fitzmaurice Tisdall Farrell stared through a fierce eyeglass across the carriages at the head of Mr M. E. Solomons in the window of the Austro-Hungarian viceconsulate. Deep in Leinster street by Trinity’s postern a loyal king’s man, Hornblower, touched his tallyho cap. As the glossy horses pranced by Merrion square Master Patrick Aloysius Dignam, waiting, saw salutes being given to the gent with the topper and raised also his new black cap with fingers greased by porksteak paper. His collar too sprang up. The viceroy, on his way to inaugurate the Mirus bazaar in aid of funds for Mercer’s hospital, drove with his following towards Lower Mount street. He passed a blind stripling opposite Broadbent’s. In Lower Mount street a pedestrian in a brown macintosh, eating dry bread, passed swiftly and unscathed across the viceroy’s path. At the Royal Canal bridge, from his hoarding, Mr Eugene Stratton, his blub lips agrin, bade all comers welcome to Pembroke township. At Haddington road corner two sanded women halted themselves, an umbrella and a bag in which eleven cockles rolled to view with wonder the lord mayor and lady mayoress without his golden chain. On Northumberland and Lansdowne roads His Excellency acknowledged punctually salutes from rare male walkers, the salute of two small schoolboys at the garden gate of the house said to have been admired by the late queen when visiting the Irish capital with her husband, the prince consort, in 1849 and the salute of Almidano Artifoni’s sturdy trousers swallowed by a closing door.
+
+M. C. Green, H. Shrift, T. M. Patey, C. Scaife, J. B. Jeffs, G. N. Morphy, F. Stevenson, C. Adderly and W. C. Huggard, who start in pursuit along the far side of the wall as the viceroy’s carriages go by.
+
+## original-en · sister-monica · 10:341
+
+—The little nuns! Nice little things! O, sure they wouldn’t do anything! O, sure they wouldn’t really! Is it little sister Monica!
+
+Of the nuns who taught Dilly to be so saucy. The little nuns! Nice little things! O, sure they wouldn’t do anything!
+
+## original-en · crimmins · 10:343
+
+From the sundial towards James’s gate walked Mr Kernan, pleased with the order he had booked for Pulbrook Robertson, boldly along James’s street, past Shackleton’s offices. Got round him all right. How do you do, Mr Crimmins? First rate, sir. I was afraid you might be up in your other establishment in Pimlico. How are things going? Just keeping alive. Lovely weather we’re having. Yes, indeed. Good for the country. Those farmers are always grumbling. I’ll just take a thimbleful of your best gin, Mr Crimmins. A small gin, sir. Yes, sir. Terrible affair that _General Slocum_ explosion. Terrible, terrible! A thousand casualties. And heartrending scenes. Men trampling down women and children. Most brutal thing. What do they say was the cause? Spontaneous combustion. Most scandalous revelation. Not a single lifeboat would float and the firehose all burst. What I can’t understand is how the inspectors ever allowed a boat like that... Now, you’re talking straight, Mr Crimmins. You know why? Palm oil. Is that a fact? Without a doubt. Well now, look at that. And America they say is the land of the free. I thought we were bad here.
+
+The publican Tom Kernan has just sold tea to for Pulbrook Robertson, and whose best gin he takes a thimbleful of. Now, you’re talking straight, Mr Crimmins.
+
+## original-en · neary · 10:349
+
+Mr Kernan halted and preened himself before the sloping mirror of Peter Kennedy, hairdresser. Stylish coat, beyond a doubt. Scott of Dawson street. Well worth the half sovereign I gave Neary for it. Never built under three guineas. Fits me down to the ground. Some Kildare street club toff had it probably. John Mulligan, the manager of the Hibernian bank, gave me a very sharp eye yesterday on Carlisle bridge as if he remembered me.
+
+From whom Kernan got the stylish coat for half a sovereign. Scott of Dawson street. Never built under three guineas. Some Kildare street club toff had it probably.
+
+## original-en · john-mulligan · 10:349
+
+Mr Kernan halted and preened himself before the sloping mirror of Peter Kennedy, hairdresser. Stylish coat, beyond a doubt. Scott of Dawson street. Well worth the half sovereign I gave Neary for it. Never built under three guineas. Fits me down to the ground. Some Kildare street club toff had it probably. John Mulligan, the manager of the Hibernian bank, gave me a very sharp eye yesterday on Carlisle bridge as if he remembered me.
+
+The manager of the Hibernian bank, who gave Kernan a very sharp eye yesterday on Carlisle bridge as if he remembered him. Not Buck Mulligan, whose alias is kept off this paragraph by hand — and the name is keyed, not aliased, because 14:47 gives Buck the full comic style Malachi Roland St John Mulligan.
+
+## original-en · sam-lambert · 10:352
+
+Mr Kernan glanced in farewell at his image. High colour, of course. Grizzled moustache. Returned Indian officer. Bravely he bore his stumpy body forward on spatted feet, squaring his shoulders. Is that Ned Lambert’s brother over the way, Sam? What? Yes. He’s as like it as damn it. No. The windscreen of that motorcar in the sun there. Just a flash like that. Damn like him.
+
+Ned Lambert’s brother, whom Kernan thinks he sees over the way and who turns out to be the windscreen of a motorcar flashing in the sun. He’s as like it as damn it.
+
+## original-en · jonah-barrington · 10:360
+
+Times of the troubles. Must ask Ned Lambert to lend me those reminiscences of sir Jonah Barrington. When you look back on it all now in a kind of retrospective arrangement. Gaming at Daly’s. No cardsharping then. One of those fellows got his hand nailed to the table by a dagger. Somewhere here lord Edward Fitzgerald escaped from major Sirr. Stables behind Moira house.
+
+Whose reminiscences Kernan must ask Ned Lambert to lend him: the gaming at Daly’s, and the fellow who got his hand nailed to the table by a dagger.
+
+## original-en · lord-edward-fitzgerald · 10:360
+
+Times of the troubles. Must ask Ned Lambert to lend me those reminiscences of sir Jonah Barrington. When you look back on it all now in a kind of retrospective arrangement. Gaming at Daly’s. No cardsharping then. One of those fellows got his hand nailed to the table by a dagger. Somewhere here lord Edward Fitzgerald escaped from major Sirr. Stables behind Moira house.
+
+Who escaped from major Sirr somewhere about here, by the stables behind Moira house. Fine dashing young nobleman. Good stock, of course.
+
+## original-en · major-sirr · 10:360
+
+Times of the troubles. Must ask Ned Lambert to lend me those reminiscences of sir Jonah Barrington. When you look back on it all now in a kind of retrospective arrangement. Gaming at Daly’s. No cardsharping then. One of those fellows got his hand nailed to the table by a dagger. Somewhere here lord Edward Fitzgerald escaped from major Sirr. Stables behind Moira house.
+
+Whom he escaped from.
+
+## original-en · sham-squire · 10:362
+
+Fine dashing young nobleman. Good stock, of course. That ruffian, that sham squire, with his violet gloves gave him away. Course they were on the wrong side. They rose in dark and evil days. Fine poem that is: Ingram. They were gentlemen. Ben Dollard does sing that ballad touchingly. Masterly rendition.
+
+That ruffian, with his violet gloves, who gave him away.
+
+## original-en · ingram · 10:362
+
+Fine dashing young nobleman. Good stock, of course. That ruffian, that sham squire, with his violet gloves gave him away. Course they were on the wrong side. They rose in dark and evil days. Fine poem that is: Ingram. They were gentlemen. Ben Dollard does sing that ballad touchingly. Masterly rendition.
+
+Whose poem it is — they rose in dark and evil days — that Ben Dollard sings so touchingly. They were gentlemen.
+
+## original-en · russell-lapidary · 10:371
+
+Old Russell with a smeared shammy rag burnished again his gem, turned it and held it at the point of his Moses’ beard. Grandfather ape gloating on a stolen hoard.
+
+The lapidary in whose webbed window Stephen watches the timedulled chain proved, burnishing his gem again with a smeared shammy rag and holding it at the point of his Moses’ beard. Grandfather ape gloating on a stolen hoard. Not the Russell of the library, who is A. E.
+
+## original-en · two-old-women · 10:373
+
+Two old women fresh from their whiff of the briny trudged through Irishtown along London bridge road, one with a sanded tired umbrella, one with a midwife’s bag in which eleven cockles rolled.
+
+Fresh from their whiff of the briny, who trudge through Irishtown along London bridge road, one with a sanded tired umbrella, one with a midwife’s bag in which eleven cockles rolled — and who halt again at Haddington road corner to view with wonder the lord mayor and lady mayoress without his golden chain. The episode does not give them names.
+
+## original-en · heenan · 10:376
+
+Stephen went down Bedford row, the handle of the ash clacking against his shoulderblade. In Clohissey’s window a faded 1860 print of Heenan boxing Sayers held his eye. Staring backers with square hats stood round the roped prizering. The heavyweights in tight loincloths proposed gently each to other his bulbous fists. And they are throbbing: heroes’ hearts.
+
+In the faded 1860 print in Clohissey’s window, boxing Sayers before staring backers in square hats. And they are throbbing: heroes’ hearts.
+
+## original-en · sayers · 10:376
+
+Stephen went down Bedford row, the handle of the ash clacking against his shoulderblade. In Clohissey’s window a faded 1860 print of Heenan boxing Sayers held his eye. Staring backers with square hats stood round the roped prizering. The heavyweights in tight loincloths proposed gently each to other his bulbous fists. And they are throbbing: heroes’ hearts.
+
+The other heavyweight in the print.
+
+## original-en · bookcart-huckster · 10:378
+
+—Twopence each, the huckster said. Four for sixpence.
+
+At the slanted bookcart in Bedford row. Twopence each. Four for sixpence.
+
+## original-en · peter-salanka · 10:384
+
+Who wrote this? Charms and invocations of the most blessed abbot Peter Salanka to all true believers divulged. As good as any other abbot’s charms, as mumbling Joachim’s. Down, baldynoddle, or we’ll wool your wool.
+
+The most blessed abbot to all true believers divulged, whose charms and invocations fill the eighth and ninth book of Moses Stephen turns over: how to soften chapped hands, recipe for white wine vinegar, how to win a woman’s love.
+
+## original-en · charles-stuart · 10:389
+
+A Stuart face of nonesuch Charles, lank locks falling at its sides. It glowed as she crouched feeding the fire with broken boots. I told her of Paris. Late lieabed under a quilt of old overcoats, fingering a pinchbeck bracelet, Dan Kelly’s token. _Nebrakada femininum._
+
+Whose Stuart face Stephen sees in his sister’s, lank locks falling at its sides, as she crouched feeding the fire with broken boots.
+
+## original-en · dan-kelly · 10:389
+
+A Stuart face of nonesuch Charles, lank locks falling at its sides. It glowed as she crouched feeding the fire with broken boots. I told her of Paris. Late lieabed under a quilt of old overcoats, fingering a pinchbeck bracelet, Dan Kelly’s token. _Nebrakada femininum._
+
+Whose token is the pinchbeck bracelet she fingers late abed under a quilt of old overcoats.
+
+## original-en · chardenal · 10:393
+
+He took the coverless book from her hand. Chardenal’s French primer.
+
+Whose French primer Dilly bought from the other cart for a penny, and is still straining her sight over in Fownes’s street when the cavalcade goes by.
+
+## original-en · alderman-cowley · 10:457
+
+On the steps of the City hall Councillor Nannetti, descending, hailed Alderman Cowley and Councillor Abraham Lyon ascending.
+
+Hailed by Councillor Nannetti on the steps of the City hall. Not Father Bob Cowley, who is barricaded up in Windsor avenue on the other side of the same episode.
+
+## original-en · abraham-lyon · 10:457
+
+On the steps of the City hall Councillor Nannetti, descending, hailed Alderman Cowley and Councillor Abraham Lyon ascending.
+
+Ascending the same steps with him. Not Bantam Lyons, who is backing a horse someone gave him.
+
+## original-en · lobengula · 10:437
+
+—Come along with me to the subsheriff’s office, he said. I want to show you the new beauty Rock has for a bailiff. He’s a cross between Lobengula and Lynchehaun. He’s well worth seeing, mind you. Come along. I saw John Henry Menton casually in the Bodega just now and it will cost me a fall if I don’t... Wait awhile... We’re on the right lay, Bob, believe you me.
+
+Half of what Ben Dollard says the subsheriff’s new bailiff is a cross between.
+
+## original-en · lynchehaun · 10:437
+
+—Come along with me to the subsheriff’s office, he said. I want to show you the new beauty Rock has for a bailiff. He’s a cross between Lobengula and Lynchehaun. He’s well worth seeing, mind you. Come along. I saw John Henry Menton casually in the Bodega just now and it will cost me a fall if I don’t... Wait awhile... We’re on the right lay, Bob, believe you me.
+
+The other half. He’s well worth seeing, mind you.
+
+## original-en · castle-policeman · 10:449
+
+The policeman touched his forehead.
+
+Who touches his forehead as Martin Cunningham’s party passes out. God bless you, Martin Cunningham said, cheerily.
+
+## original-en · boyd · 10:455
+
+—Boyd? Martin Cunningham said shortly. Touch me not.
+
+The friend Mr Power suggests they try for the Dignam subscription, and whom Martin Cunningham disposes of in two words. Boyd? Touch me not.
+
+## original-en · jimmy-henry · 10:466
+
+—There’s Jimmy Henry, Mr Power said, just heading for Kavanagh’s.
+
+The assistant town clerk, a dapper little man in a shower of hail suit who walks uncertainly on bad corns and will not glance at the list. Hell open to christians they were having about their damned Irish language. O, my corns! Come upstairs for goodness’ sake till I sit down somewhere.
+
+## original-en · barlow · 10:477
+
+Hell open to christians they were having, Jimmy Henry said pettishly, about their damned Irish language. Where was the marshal, he wanted to know, to keep order in the council chamber. And old Barlow the macebearer laid up with asthma, no mace on the table, nothing in order, no quorum even, and Hutchinson, the lord mayor, in Llandudno and little Lorcan Sherlock doing _locum tenens_ for him. Damned Irish language, language of our forefathers.
+
+The macebearer, laid up with asthma: no mace on the table, nothing in order, no quorum even.
+
+## original-en · hutchinson · 10:477
+
+Hell open to christians they were having, Jimmy Henry said pettishly, about their damned Irish language. Where was the marshal, he wanted to know, to keep order in the council chamber. And old Barlow the macebearer laid up with asthma, no mace on the table, nothing in order, no quorum even, and Hutchinson, the lord mayor, in Llandudno and little Lorcan Sherlock doing _locum tenens_ for him. Damned Irish language, language of our forefathers.
+
+The lord mayor, in Llandudno while the council sits.
+
+## original-en · lorcan-sherlock · 10:477
+
+Hell open to christians they were having, Jimmy Henry said pettishly, about their damned Irish language. Where was the marshal, he wanted to know, to keep order in the council chamber. And old Barlow the macebearer laid up with asthma, no mace on the table, nothing in order, no quorum even, and Hutchinson, the lord mayor, in Llandudno and little Lorcan Sherlock doing _locum tenens_ for him. Damned Irish language, language of our forefathers.
+
+Little Lorcan Sherlock, doing _locum tenens_ for him.
+
+## original-en · dbc-waitress · 10:501
+
+—I’ll take a _mélange,_ Haines said to the waitress.
+
+At the D. B. C., who takes the order for two mélanges and scones and butter and cakes, and whose tray Buck Mulligan helps to unload.
+
+## original-en · pokorny · 10:514
+
+—Eternal punishment, Haines said, nodding curtly. I see. I tackled him this morning on belief. There was something on his mind, I saw. It’s rather interesting because professor Pokorny of Vienna makes an interesting point out of that.
+
+Of Vienna, who can find no trace of hell in ancient Irish myth — which Haines finds rather interesting, given what is on Stephen’s mind.
+
+## original-en · artifoni · 10:145
+
+_—Ma!_ Almidano Artifoni said.
+
+Stephen’s singing teacher, round mustachioed, who tells him in Italian that he had such ideas too when he was young, that the world is a brute, and that his voice would be a source of income: instead, you sacrifice yourself. He trots in vain after the Dalkey tram with a baton of rolled music held up as a signal, and his sturdy trousers are swallowed by a closing door in the last line of the episode.
+
+## original-en · goldsmith · 10:146
+
+He gazed over Stephen’s shoulder at Goldsmith’s knobby poll.
+
+Whose knobby poll Artifoni gazes over Stephen’s shoulder at, outside Trinity.
+
+## original-en · lewis-werner · 10:525
+
+Cashel Boyle O’Connor Fitzmaurice Tisdall Farrell walked as far as Mr Lewis Werner’s cheerful windows, then turned and strode back along Merrion square, his stickumbrelladustcoat dangling.
+
+Whose cheerful windows on Merrion square are as far as Cashel Boyle O’Connor Fitzmaurice Tisdall Farrell walks before turning and striding back. Not the Louis Werner who is touring Molly Bloom in episode 6.
+
+## original-en · mrs-stoer · 10:532
+
+Opposite Ruggy O’Donohoe’s Master Patrick Aloysius Dignam, pawing the pound and a half of Mangan’s, late Fehrenbach’s, porksteaks he had been sent for, went along warm Wicklow street dawdling. It was too blooming dull sitting in the parlour with Mrs Stoer and Mrs Quigley and Mrs MacDowell and the blind down and they all at their sniffles and sipping sups of the superior tawny sherry uncle Barney brought from Tunney’s. And they eating crumbs of the cottage fruitcake, jawing the whole blooming time and sighing.
+
+One of the three women sitting in the parlour with the blind down at the Dignams’, sniffling and sipping the superior tawny sherry uncle Barney brought from Tunney’s.
+
+## original-en · mrs-quigley · 10:532
+
+Opposite Ruggy O’Donohoe’s Master Patrick Aloysius Dignam, pawing the pound and a half of Mangan’s, late Fehrenbach’s, porksteaks he had been sent for, went along warm Wicklow street dawdling. It was too blooming dull sitting in the parlour with Mrs Stoer and Mrs Quigley and Mrs MacDowell and the blind down and they all at their sniffles and sipping sups of the superior tawny sherry uncle Barney brought from Tunney’s. And they eating crumbs of the cottage fruitcake, jawing the whole blooming time and sighing.
+
+The second of them.
+
+## original-en · mrs-macdowell · 10:532
+
+Opposite Ruggy O’Donohoe’s Master Patrick Aloysius Dignam, pawing the pound and a half of Mangan’s, late Fehrenbach’s, porksteaks he had been sent for, went along warm Wicklow street dawdling. It was too blooming dull sitting in the parlour with Mrs Stoer and Mrs Quigley and Mrs MacDowell and the blind down and they all at their sniffles and sipping sups of the superior tawny sherry uncle Barney brought from Tunney’s. And they eating crumbs of the cottage fruitcake, jawing the whole blooming time and sighing.
+
+The third. Not Gerty MacDowell, who passes the viceregal cavalcade at the end of the episode carrying cork lino letters for her father.
+
+## original-en · stoer-boy · 10:533
+
+After Wicklow lane the window of Madame Doyle, courtdress milliner, stopped him. He stood looking in at the two puckers stripped to their pelts and putting up their props. From the sidemirrors two mourning Masters Dignam gaped silently. Myler Keogh, Dublin’s pet lamb, will meet sergeantmajor Bennett, the Portobello bruiser, for a purse of fifty sovereigns. Gob, that’d be a good pucking match to see. Myler Keogh, that’s the chap sparring out to him with the green sash. Two bar entrance, soldiers half price. I could easy do a bunk on ma. Master Dignam on his left turned as he turned. That’s me in mourning. When is it? May the twentysecond. Sure, the blooming thing is all over. He turned to the right and on his right Master Dignam turned, his cap awry, his collar sticking up. Buttoning it down, his chin lifted, he saw the image of Marie Kendall, charming soubrette, beside the two puckers. One of them mots that do be in the packets of fags Stoer smokes that his old fellow welted hell out of him for one time he found out.
+
+The boy whose old fellow welted hell out of him for the packets of fags with the pictures of soubrettes in them.
+
+## original-en · fitzsimons · 10:534
+
+Master Dignam got his collar down and dawdled on. The best pucker going for strength was Fitzsimons. One puck in the wind from that fellow would knock you into the middle of next week, man. But the best pucker for science was Jem Corbet before Fitzsimons knocked the stuffings out of him, dodging and all.
+
+The best pucker going for strength. One puck in the wind from that fellow would knock you into the middle of next week, man.
+
+## original-en · jem-corbet · 10:534
+
+Master Dignam got his collar down and dawdled on. The best pucker going for strength was Fitzsimons. One puck in the wind from that fellow would knock you into the middle of next week, man. But the best pucker for science was Jem Corbet before Fitzsimons knocked the stuffings out of him, dodging and all.
+
+The best pucker for science, before Fitzsimons knocked the stuffings out of him, dodging and all.
+
+## original-en · father-conroy · 10:539
+
+Pa was inside it and ma crying in the parlour and uncle Barney telling the men how to get it round the bend. A big coffin it was, and high and heavylooking. How was that? The last night pa was boosed he was standing on the landing there bawling out for his boots to go out to Tunney’s for to boose more and he looked butty and short in his shirt. Never see him again. Death, that is. Pa is dead. My father is dead. He told me to be a good son to ma. I couldn’t hear the other things he said but I saw his tongue and his teeth trying to say it better. Poor pa. That was Mr Dignam, my father. I hope he’s in purgatory now because he went to confession to Father Conroy on Saturday night.
+
+To whom Paddy Dignam went to confession on Saturday night, which is why his son hopes he is in purgatory now.
+
+## original-en · heseltine · 10:541
+
+William Humble, earl of Dudley, and lady Dudley, accompanied by lieutenantcolonel Heseltine, drove out after luncheon from the viceregal lodge. In the following carriage were the honourable Mrs Paget, Miss de Courcy and the honourable Gerald Ward A. D. C. in attendance.
+
+In the first carriage with the earl and countess of Dudley.
+
+## original-en · mrs-paget · 10:541
+
+William Humble, earl of Dudley, and lady Dudley, accompanied by lieutenantcolonel Heseltine, drove out after luncheon from the viceregal lodge. In the following carriage were the honourable Mrs Paget, Miss de Courcy and the honourable Gerald Ward A. D. C. in attendance.
+
+In the second carriage of the viceregal cavalcade with Miss de Courcy and the honourable Gerald Ward, one of the three ladies Blazes Boylan offers the bold admiration of his eyes and the red flower between his lips.
+
+## original-en · miss-de-courcy · 10:541
+
+William Humble, earl of Dudley, and lady Dudley, accompanied by lieutenantcolonel Heseltine, drove out after luncheon from the viceregal lodge. In the following carriage were the honourable Mrs Paget, Miss de Courcy and the honourable Gerald Ward A. D. C. in attendance.
+
+With her.
+
+## original-en · gerald-ward · 10:541
+
+William Humble, earl of Dudley, and lady Dudley, accompanied by lieutenantcolonel Heseltine, drove out after luncheon from the viceregal lodge. In the following carriage were the honourable Mrs Paget, Miss de Courcy and the honourable Gerald Ward A. D. C. in attendance.
+
+A. D. C. in attendance, who is agreeably surprised when Denis Breen, shifting his tomes to his left breast, salutes the second carriage — and who makes haste to reply.
+
+## original-en · dudley-white · 10:542
+
+The cavalcade passed out by the lower gate of Phoenix park saluted by obsequious policemen and proceeded past Kingsbridge along the northern quays. The viceroy was most cordially greeted on his way through the metropolis. At Bloody bridge Mr Thomas Kernan beyond the river greeted him vainly from afar. Between Queen’s and Whitworth bridges lord Dudley’s viceregal carriages passed and were unsaluted by Mr Dudley White, B. L., M. A., who stood on Arran quay outside Mrs M. E. White’s, the pawnbroker’s, at the corner of Arran street west stroking his nose with his forefinger, undecided whether he should arrive at Phibsborough more quickly by a triple change of tram or by hailing a car or on foot through Smithfield, Constitution hill and Broadstone terminus. In the porch of Four Courts Richie Goulding with the costbag of Goulding, Collis and Ward saw him with surprise. Past Richmond bridge at the doorstep of the office of Reuben J Dodd, solicitor, agent for the Patriotic Insurance Company, an elderly female about to enter changed her plan and retracing her steps by King’s windows smiled credulously on the representative of His Majesty. From its sluice in Wood quay wall under Tom Devan’s office Poddle river hung out in fealty a tongue of liquid sewage. Above the crossblind of the Ormond hotel, gold by bronze, Miss Kennedy’s head by Miss Douce’s head watched and admired. On Ormond quay Mr Simon Dedalus, steering his way from the greenhouse for the subsheriff’s office, stood still in midstreet and brought his hat low. His Excellency graciously returned Mr Dedalus’ greeting. From Cahill’s corner the reverend Hugh C. Love, M. A., made obeisance unperceived, mindful of lords deputies whose hands benignant had held of yore rich advowsons. On Grattan bridge Lenehan and M’Coy, taking leave of each other, watched the carriages go by. Passing by Roger Greene’s office and Dollard’s big red printinghouse Gerty MacDowell, carrying the Catesby’s cork lino letters for her father who was laid up, knew by the style it was the lord and lady lieutenant but she couldn’t see what Her Excellency had on because the tram and Spring’s big yellow furniture van had to stop in front of her on account of its being the lord lieutenant. Beyond Lundy Foot’s from the shaded door of Kavanagh’s winerooms John Wyse Nolan smiled with unseen coldness towards the lord lieutenantgeneral and general governor of Ireland. The Right Honourable William Humble, earl of Dudley, G. C. V. O., passed Micky Anderson’s all times ticking watches and Henry and James’s wax smartsuited freshcheeked models, the gentleman Henry, _dernier cri_ James. Over against Dame gate Tom Rochford and Nosey Flynn watched the approach of the cavalcade. Tom Rochford, seeing the eyes of lady Dudley fixed on him, took his thumbs quickly out of the pockets of his claret waistcoat and doffed his cap to her. A charming _soubrette,_ great Marie Kendall, with dauby cheeks and lifted skirt smiled daubily from her poster upon William Humble, earl of Dudley, and upon lieutenantcolonel H. G. Heseltine, and also upon the honourable Gerald Ward A. D. C. From the window of the D. B. C. Buck Mulligan gaily, and Haines gravely, gazed down on the viceregal equipage over the shoulders of eager guests, whose mass of forms darkened the chessboard whereon John Howard Parnell looked intently. In Fownes’s street Dilly Dedalus, straining her sight upward from Chardenal’s first French primer, saw sunshades spanned and wheelspokes spinning in the glare. John Henry Menton, filling the doorway of Commercial Buildings, stared from winebig oyster eyes, holding a fat gold hunter watch not looked at in his fat left hand not feeling it. Where the foreleg of King Billy’s horse pawed the air Mrs Breen plucked her hastening husband back from under the hoofs of the outriders. She shouted in his ear the tidings. Understanding, he shifted his tomes to his left breast and saluted the second carriage. The honourable Gerald Ward A. D. C., agreeably surprised, made haste to reply. At Ponsonby’s corner a jaded white flagon H. halted and four tallhatted white flagons halted behind him, E.L.Y.’S, while outriders pranced past and carriages. Opposite Pigott’s music warerooms Mr Denis J Maginni, professor of dancing &c, gaily apparelled, gravely walked, outpassed by a viceroy and unobserved. By the provost’s wall came jauntily Blazes Boylan, stepping in tan shoes and socks with skyblue clocks to the refrain of _My girl’s a Yorkshire girl._
+
+B. L., M. A., who does not salute the viceregal carriages, being undecided on Arran quay whether he should arrive at Phibsborough more quickly by a triple change of tram or by hailing a car or on foot through Smithfield.
+
+## original-en · miss-kennedy · 10:452
+
+Bronze by gold, Miss Kennedy’s head by Miss Douce’s head, appeared above the crossblind of the Ormond hotel.
+
+Gold, whose head appears with Miss Douce’s above the crossblind of the Ormond hotel at the start of the cavalcade and watches and admires it at the end.
+
+## original-en · miss-douce · 10:452
+
+Bronze by gold, Miss Kennedy’s head by Miss Douce’s head, appeared above the crossblind of the Ormond hotel.
+
+Bronze, beside her.
+
+## original-en · gerty-macdowell · 10:542
+
+The cavalcade passed out by the lower gate of Phoenix park saluted by obsequious policemen and proceeded past Kingsbridge along the northern quays. The viceroy was most cordially greeted on his way through the metropolis. At Bloody bridge Mr Thomas Kernan beyond the river greeted him vainly from afar. Between Queen’s and Whitworth bridges lord Dudley’s viceregal carriages passed and were unsaluted by Mr Dudley White, B. L., M. A., who stood on Arran quay outside Mrs M. E. White’s, the pawnbroker’s, at the corner of Arran street west stroking his nose with his forefinger, undecided whether he should arrive at Phibsborough more quickly by a triple change of tram or by hailing a car or on foot through Smithfield, Constitution hill and Broadstone terminus. In the porch of Four Courts Richie Goulding with the costbag of Goulding, Collis and Ward saw him with surprise. Past Richmond bridge at the doorstep of the office of Reuben J Dodd, solicitor, agent for the Patriotic Insurance Company, an elderly female about to enter changed her plan and retracing her steps by King’s windows smiled credulously on the representative of His Majesty. From its sluice in Wood quay wall under Tom Devan’s office Poddle river hung out in fealty a tongue of liquid sewage. Above the crossblind of the Ormond hotel, gold by bronze, Miss Kennedy’s head by Miss Douce’s head watched and admired. On Ormond quay Mr Simon Dedalus, steering his way from the greenhouse for the subsheriff’s office, stood still in midstreet and brought his hat low. His Excellency graciously returned Mr Dedalus’ greeting. From Cahill’s corner the reverend Hugh C. Love, M. A., made obeisance unperceived, mindful of lords deputies whose hands benignant had held of yore rich advowsons. On Grattan bridge Lenehan and M’Coy, taking leave of each other, watched the carriages go by. Passing by Roger Greene’s office and Dollard’s big red printinghouse Gerty MacDowell, carrying the Catesby’s cork lino letters for her father who was laid up, knew by the style it was the lord and lady lieutenant but she couldn’t see what Her Excellency had on because the tram and Spring’s big yellow furniture van had to stop in front of her on account of its being the lord lieutenant. Beyond Lundy Foot’s from the shaded door of Kavanagh’s winerooms John Wyse Nolan smiled with unseen coldness towards the lord lieutenantgeneral and general governor of Ireland. The Right Honourable William Humble, earl of Dudley, G. C. V. O., passed Micky Anderson’s all times ticking watches and Henry and James’s wax smartsuited freshcheeked models, the gentleman Henry, _dernier cri_ James. Over against Dame gate Tom Rochford and Nosey Flynn watched the approach of the cavalcade. Tom Rochford, seeing the eyes of lady Dudley fixed on him, took his thumbs quickly out of the pockets of his claret waistcoat and doffed his cap to her. A charming _soubrette,_ great Marie Kendall, with dauby cheeks and lifted skirt smiled daubily from her poster upon William Humble, earl of Dudley, and upon lieutenantcolonel H. G. Heseltine, and also upon the honourable Gerald Ward A. D. C. From the window of the D. B. C. Buck Mulligan gaily, and Haines gravely, gazed down on the viceregal equipage over the shoulders of eager guests, whose mass of forms darkened the chessboard whereon John Howard Parnell looked intently. In Fownes’s street Dilly Dedalus, straining her sight upward from Chardenal’s first French primer, saw sunshades spanned and wheelspokes spinning in the glare. John Henry Menton, filling the doorway of Commercial Buildings, stared from winebig oyster eyes, holding a fat gold hunter watch not looked at in his fat left hand not feeling it. Where the foreleg of King Billy’s horse pawed the air Mrs Breen plucked her hastening husband back from under the hoofs of the outriders. She shouted in his ear the tidings. Understanding, he shifted his tomes to his left breast and saluted the second carriage. The honourable Gerald Ward A. D. C., agreeably surprised, made haste to reply. At Ponsonby’s corner a jaded white flagon H. halted and four tallhatted white flagons halted behind him, E.L.Y.’S, while outriders pranced past and carriages. Opposite Pigott’s music warerooms Mr Denis J Maginni, professor of dancing &c, gaily apparelled, gravely walked, outpassed by a viceroy and unobserved. By the provost’s wall came jauntily Blazes Boylan, stepping in tan shoes and socks with skyblue clocks to the refrain of _My girl’s a Yorkshire girl._
+
+Carrying the Catesby’s cork lino letters for her father who was laid up, who knew by the style it was the lord and lady lieutenant but could not see what Her Excellency had on, because the tram and Spring’s big yellow furniture van stopped in front of her.
+
+## original-en · gerty-father · 10:542
+
+The cavalcade passed out by the lower gate of Phoenix park saluted by obsequious policemen and proceeded past Kingsbridge along the northern quays. The viceroy was most cordially greeted on his way through the metropolis. At Bloody bridge Mr Thomas Kernan beyond the river greeted him vainly from afar. Between Queen’s and Whitworth bridges lord Dudley’s viceregal carriages passed and were unsaluted by Mr Dudley White, B. L., M. A., who stood on Arran quay outside Mrs M. E. White’s, the pawnbroker’s, at the corner of Arran street west stroking his nose with his forefinger, undecided whether he should arrive at Phibsborough more quickly by a triple change of tram or by hailing a car or on foot through Smithfield, Constitution hill and Broadstone terminus. In the porch of Four Courts Richie Goulding with the costbag of Goulding, Collis and Ward saw him with surprise. Past Richmond bridge at the doorstep of the office of Reuben J Dodd, solicitor, agent for the Patriotic Insurance Company, an elderly female about to enter changed her plan and retracing her steps by King’s windows smiled credulously on the representative of His Majesty. From its sluice in Wood quay wall under Tom Devan’s office Poddle river hung out in fealty a tongue of liquid sewage. Above the crossblind of the Ormond hotel, gold by bronze, Miss Kennedy’s head by Miss Douce’s head watched and admired. On Ormond quay Mr Simon Dedalus, steering his way from the greenhouse for the subsheriff’s office, stood still in midstreet and brought his hat low. His Excellency graciously returned Mr Dedalus’ greeting. From Cahill’s corner the reverend Hugh C. Love, M. A., made obeisance unperceived, mindful of lords deputies whose hands benignant had held of yore rich advowsons. On Grattan bridge Lenehan and M’Coy, taking leave of each other, watched the carriages go by. Passing by Roger Greene’s office and Dollard’s big red printinghouse Gerty MacDowell, carrying the Catesby’s cork lino letters for her father who was laid up, knew by the style it was the lord and lady lieutenant but she couldn’t see what Her Excellency had on because the tram and Spring’s big yellow furniture van had to stop in front of her on account of its being the lord lieutenant. Beyond Lundy Foot’s from the shaded door of Kavanagh’s winerooms John Wyse Nolan smiled with unseen coldness towards the lord lieutenantgeneral and general governor of Ireland. The Right Honourable William Humble, earl of Dudley, G. C. V. O., passed Micky Anderson’s all times ticking watches and Henry and James’s wax smartsuited freshcheeked models, the gentleman Henry, _dernier cri_ James. Over against Dame gate Tom Rochford and Nosey Flynn watched the approach of the cavalcade. Tom Rochford, seeing the eyes of lady Dudley fixed on him, took his thumbs quickly out of the pockets of his claret waistcoat and doffed his cap to her. A charming _soubrette,_ great Marie Kendall, with dauby cheeks and lifted skirt smiled daubily from her poster upon William Humble, earl of Dudley, and upon lieutenantcolonel H. G. Heseltine, and also upon the honourable Gerald Ward A. D. C. From the window of the D. B. C. Buck Mulligan gaily, and Haines gravely, gazed down on the viceregal equipage over the shoulders of eager guests, whose mass of forms darkened the chessboard whereon John Howard Parnell looked intently. In Fownes’s street Dilly Dedalus, straining her sight upward from Chardenal’s first French primer, saw sunshades spanned and wheelspokes spinning in the glare. John Henry Menton, filling the doorway of Commercial Buildings, stared from winebig oyster eyes, holding a fat gold hunter watch not looked at in his fat left hand not feeling it. Where the foreleg of King Billy’s horse pawed the air Mrs Breen plucked her hastening husband back from under the hoofs of the outriders. She shouted in his ear the tidings. Understanding, he shifted his tomes to his left breast and saluted the second carriage. The honourable Gerald Ward A. D. C., agreeably surprised, made haste to reply. At Ponsonby’s corner a jaded white flagon H. halted and four tallhatted white flagons halted behind him, E.L.Y.’S, while outriders pranced past and carriages. Opposite Pigott’s music warerooms Mr Denis J Maginni, professor of dancing &c, gaily apparelled, gravely walked, outpassed by a viceroy and unobserved. By the provost’s wall came jauntily Blazes Boylan, stepping in tan shoes and socks with skyblue clocks to the refrain of _My girl’s a Yorkshire girl._
+
+Who was laid up, and for whom she is carrying the letters.
+
+## original-en · me-solomons · 10:545
+
+Thither of the wall the quartermile flat handicappers, M. C. Green, H. Shrift, T. M. Patey, C. Scaife, J. B. Jeffs, G. N. Morphy, F. Stevenson, C. Adderly and W. C. Huggard, started in pursuit. Striding past Finn’s hotel Cashel Boyle O’Connor Fitzmaurice Tisdall Farrell stared through a fierce eyeglass across the carriages at the head of Mr M. E. Solomons in the window of the Austro-Hungarian viceconsulate. Deep in Leinster street by Trinity’s postern a loyal king’s man, Hornblower, touched his tallyho cap. As the glossy horses pranced by Merrion square Master Patrick Aloysius Dignam, waiting, saw salutes being given to the gent with the topper and raised also his new black cap with fingers greased by porksteak paper. His collar too sprang up. The viceroy, on his way to inaugurate the Mirus bazaar in aid of funds for Mercer’s hospital, drove with his following towards Lower Mount street. He passed a blind stripling opposite Broadbent’s. In Lower Mount street a pedestrian in a brown macintosh, eating dry bread, passed swiftly and unscathed across the viceroy’s path. At the Royal Canal bridge, from his hoarding, Mr Eugene Stratton, his blub lips agrin, bade all comers welcome to Pembroke township. At Haddington road corner two sanded women halted themselves, an umbrella and a bag in which eleven cockles rolled to view with wonder the lord mayor and lady mayoress without his golden chain. On Northumberland and Lansdowne roads His Excellency acknowledged punctually salutes from rare male walkers, the salute of two small schoolboys at the garden gate of the house said to have been admired by the late queen when visiting the Irish capital with her husband, the prince consort, in 1849 and the salute of Almidano Artifoni’s sturdy trousers swallowed by a closing door.
+
+In the window of the Austro-Hungarian viceconsulate, at whose head Farrell stares through a fierce eyeglass across the carriages.
+
+## original-en · king-billy · 10:542
+
+The cavalcade passed out by the lower gate of Phoenix park saluted by obsequious policemen and proceeded past Kingsbridge along the northern quays. The viceroy was most cordially greeted on his way through the metropolis. At Bloody bridge Mr Thomas Kernan beyond the river greeted him vainly from afar. Between Queen’s and Whitworth bridges lord Dudley’s viceregal carriages passed and were unsaluted by Mr Dudley White, B. L., M. A., who stood on Arran quay outside Mrs M. E. White’s, the pawnbroker’s, at the corner of Arran street west stroking his nose with his forefinger, undecided whether he should arrive at Phibsborough more quickly by a triple change of tram or by hailing a car or on foot through Smithfield, Constitution hill and Broadstone terminus. In the porch of Four Courts Richie Goulding with the costbag of Goulding, Collis and Ward saw him with surprise. Past Richmond bridge at the doorstep of the office of Reuben J Dodd, solicitor, agent for the Patriotic Insurance Company, an elderly female about to enter changed her plan and retracing her steps by King’s windows smiled credulously on the representative of His Majesty. From its sluice in Wood quay wall under Tom Devan’s office Poddle river hung out in fealty a tongue of liquid sewage. Above the crossblind of the Ormond hotel, gold by bronze, Miss Kennedy’s head by Miss Douce’s head watched and admired. On Ormond quay Mr Simon Dedalus, steering his way from the greenhouse for the subsheriff’s office, stood still in midstreet and brought his hat low. His Excellency graciously returned Mr Dedalus’ greeting. From Cahill’s corner the reverend Hugh C. Love, M. A., made obeisance unperceived, mindful of lords deputies whose hands benignant had held of yore rich advowsons. On Grattan bridge Lenehan and M’Coy, taking leave of each other, watched the carriages go by. Passing by Roger Greene’s office and Dollard’s big red printinghouse Gerty MacDowell, carrying the Catesby’s cork lino letters for her father who was laid up, knew by the style it was the lord and lady lieutenant but she couldn’t see what Her Excellency had on because the tram and Spring’s big yellow furniture van had to stop in front of her on account of its being the lord lieutenant. Beyond Lundy Foot’s from the shaded door of Kavanagh’s winerooms John Wyse Nolan smiled with unseen coldness towards the lord lieutenantgeneral and general governor of Ireland. The Right Honourable William Humble, earl of Dudley, G. C. V. O., passed Micky Anderson’s all times ticking watches and Henry and James’s wax smartsuited freshcheeked models, the gentleman Henry, _dernier cri_ James. Over against Dame gate Tom Rochford and Nosey Flynn watched the approach of the cavalcade. Tom Rochford, seeing the eyes of lady Dudley fixed on him, took his thumbs quickly out of the pockets of his claret waistcoat and doffed his cap to her. A charming _soubrette,_ great Marie Kendall, with dauby cheeks and lifted skirt smiled daubily from her poster upon William Humble, earl of Dudley, and upon lieutenantcolonel H. G. Heseltine, and also upon the honourable Gerald Ward A. D. C. From the window of the D. B. C. Buck Mulligan gaily, and Haines gravely, gazed down on the viceregal equipage over the shoulders of eager guests, whose mass of forms darkened the chessboard whereon John Howard Parnell looked intently. In Fownes’s street Dilly Dedalus, straining her sight upward from Chardenal’s first French primer, saw sunshades spanned and wheelspokes spinning in the glare. John Henry Menton, filling the doorway of Commercial Buildings, stared from winebig oyster eyes, holding a fat gold hunter watch not looked at in his fat left hand not feeling it. Where the foreleg of King Billy’s horse pawed the air Mrs Breen plucked her hastening husband back from under the hoofs of the outriders. She shouted in his ear the tidings. Understanding, he shifted his tomes to his left breast and saluted the second carriage. The honourable Gerald Ward A. D. C., agreeably surprised, made haste to reply. At Ponsonby’s corner a jaded white flagon H. halted and four tallhatted white flagons halted behind him, E.L.Y.’S, while outriders pranced past and carriages. Opposite Pigott’s music warerooms Mr Denis J Maginni, professor of dancing &c, gaily apparelled, gravely walked, outpassed by a viceroy and unobserved. By the provost’s wall came jauntily Blazes Boylan, stepping in tan shoes and socks with skyblue clocks to the refrain of _My girl’s a Yorkshire girl._
+
+Whose horse’s foreleg paws the air over the spot where Mrs Breen plucks her hastening husband back from under the hoofs of the outriders.
+
+## original-en · wolfe-tone · 10:165
+
+Five tallwhitehatted sandwichmen between Monypeny’s corner and the slab where Wolfe Tone’s statue was not, eeled themselves turning H. E. L. Y.’S and plodded back as they had come.
+
+Whose statue was not on the slab the five sandwichmen eel themselves around between Monypeny’s corner and it.
 
 ## modern-en · stephen · 1:3
 
@@ -6246,7 +6924,7 @@ The other half of Torry and Alexander, the revival that worked Dublin last year.
 
 From Butler's monument house corner he glanced along Bachelor's Walk. Dedalus's daughter still standing outside Dillon's auction rooms. Must be selling off some old furniture. Recognised her eyes at once — same as the father's. Hanging about waiting for him. Home always falls apart when the mother goes. Fifteen children he had. A birth every year, almost. That's in their theology — or the priest won't give the poor woman confession, absolution. Go forth and multiply. Did you ever hear such a thing? Eat you out of house and home. No families of their own to feed. Living on the fat of the land. Their pantries and larders. I'd like to see them try the Yom Kippur fast. Hot cross buns. One meal and a snack for fear the priest collapses at the altar. A housekeeper of one of those fellows — if you could get anything out of her. You'd never get it out of her. Like getting money out of him. Does himself well. No guests. All for number one. Watching his spending. Bring your own bread and butter. His Reverence: mum's the word.
 
-Lobbing about outside Dillon’s auctionrooms on Bachelor’s walk, waiting for her father, with some old furniture going under the hammer inside. Bloom knows her eyes at once from the father, counts the fifteen children, and notes the dress in flitters and the underfed look of her. The episode does not give her a first name.
+The daughter Bloom sees in episode 8 lobbing about outside Dillon’s auctionrooms on Bachelor’s walk, waiting for her father, with the dress in flitters and the underfed look of her; episode 10 gives her the name he did not have. She gets a shilling and two pennies out of Mr Dedalus while the lacquey rings, asks for more, and is found afterwards by Stephen at the bookcart in Bedford row with a coverless French primer she bought for a penny. She is drowning, he thinks, and does not save her.
 
 ## modern-en · applewoman · 8:21
 
@@ -6698,11 +7376,11 @@ Who told Nosey Flynn about the slice of luck Boylan had over the boxingmatch, an
 
 Who won that match against the soldier in the Portobello barracks. Boylan had him down in the county Carlow for near a month before it came off, sucking duck eggs by God till further orders, and kept him off the boose.
 
-## modern-en · portobello-soldier · 8:236
+## modern-en · portobello-soldier · 6:176
 
-—He had a good slice of luck, Jack Mooney was telling me, over that boxing match Myler Keogh won against that soldier in the Portobello Barracks. By God, he had the little fighter down in County Carlow, he was telling me...
+—I hope not, Martin Cunningham said. That will be a great race tomorrow in Germany. The Gordon Bennett Cup.
 
-The man Myler Keogh beat in the barracks, on whom Boylan had his slice of luck. The episode gives him no name and nobody in the pub asks for one.
+The man Myler Keogh beat in the barracks, on whom Boylan had his slice of luck. Episode 8 gives him no name and nobody in the pub asks for one; the placard in the milliner’s window that stops Master Dignam in episode 10 names him — Myler Keogh, Dublin’s pet lamb, will meet sergeantmajor Bennett, the Portobello bruiser, for a purse of fifty sovereigns.
 
 ## modern-en · howard-de-walden · 8:247
 
@@ -6858,7 +7536,7 @@ Recorder of Dublin, going into the freemasons’ hall solemn as Troy after his g
 
 Hello — a placard. Mirus Bazaar. His Excellency the Lord Lieutenant. Sixteenth of June. That's today. In aid of funds for Mercer's Hospital. _The Messiah_ was first performed for that charity. Yes. Handel. What about going out there: Ballsbridge. Drop in on Keyes. No use sticking to him like a leech. I'll wear out my welcome. Bound to know someone at the gate.
 
-On the placard for the Mirus bazaar, sixteenth of June, in aid of funds for Mercer’s hospital. Bloom thinks of going out to Ballsbridge on the strength of it and dropping in on Keyes: sure to know someone on the gate.
+His Excellency the lord lieutenant: on the placard for the Mirus bazaar in episode 8 — sixteenth of June, in aid of funds for Mercer’s hospital — and in person through the last section of episode 10, driving out from the viceregal lodge after luncheon with lady Dudley and lieutenantcolonel Heseltine and crossing the whole city to inaugurate it. He is most cordially greeted on his way through the metropolis: Kernan greets him vainly from the wrong side of the river, Simon Dedalus brings his hat low, John Wyse Nolan smiles with unseen coldness, and Boylan’s hands in his pockets forget to salute.
 
 ## modern-en · handel · 8:365
 
@@ -7843,3 +8521,681 @@ The first and last such man.
 —He is, Stephen said. The boy of act one is the mature man of act five. All in all. In _Cymbeline_, in _Othello_, he is both pimp and cuckold. He acts and is acted upon. Lover of an ideal or a perversion, like Jose he kills the real Carmen. His unrelenting intellect is the horn-maddened Iago ceaselessly willing that the Moor in him shall suffer.
 
 The moor in him whom the hornmad Iago ceaselessly wills to suffer: Shakespeare as bawd and cuckold, acting and acted on.
+
+## modern-en · brother-swan · 10:0
+
+The superior, the very Reverend John Conmee S.J., reset his smooth watch in his inside pocket as he came down the presbytery steps. Five to three. Just nice time to walk to Artane. What was that boy's name again? Dignam. Yes. _Vere dignum et iustum est_ — truly worthy and just. Brother Swan was the person to see. Mr Cunningham's letter. Yes. Oblige him, if possible. Good practical Catholic: useful at mission time.
+
+The person to see about the Dignam boy at Artane: the first name in the episode, and the errand that starts Father Conmee walking.
+
+## modern-en · onelegged-sailor · 10:1
+
+A one-legged sailor, swinging himself forward by lazy jerks of his crutches, growled some notes. He jerked to a stop before the convent of the Sisters of Charity and held out a peaked cap for alms towards the very Reverend John Conmee S.J. Father Conmee blessed him in the sun, for his purse held, he knew, only one silver crown.
+
+Swinging himself onward by lazy jerks of his crutches and growling For England, home and beauty at the windows of Eccles street. Father Conmee blesses him in the sun without giving him the silver crown in his purse; a stout lady gives him a copper; and the generous white arm at number 7 flings a coin over the area railings for one of the urchins to pick up.
+
+## modern-en · wolsey · 10:2
+
+Father Conmee crossed to Mountjoy Square. He thought, but not for long, of soldiers and sailors whose legs had been shot off by cannonballs, ending their days in some pauper ward, and of Cardinal Wolsey's words: _If I had served my God as I have served my king, He would not have abandoned me in my old days._ He walked in the shade of trees with sunnily winking leaves: and towards him came the wife of Mr David Sheehy M.P.
+
+Whose words come to Father Conmee over the soldiers and sailors with their legs shot off: if I had served my God as I have served my king He would not have abandoned me in my old days.
+
+## modern-en · mrs-sheehy · 10:6
+
+—Good afternoon, Mrs Sheehy.
+
+The wife of Mr David Sheehy M.P., who meets Father Conmee under the treeshade of Mountjoy square and is very well indeed, thank you, and whose boys are getting on well at Belvedere.
+
+## modern-en · father-provincial · 10:11
+
+Oh, lest he forget. That letter to Father Provincial.
+
+To whom Father Conmee’s letter is addressed, and which Master Brunny Lynam posts for him into the bright red letterbox at the corner of Fitzgibbon street.
+
+## modern-en · jack-sohan · 10:12
+
+Father Conmee stopped three little schoolboys at the corner of Mountjoy Square. Yes: they were from Belvedere. The junior house. Aha. And were they good boys at school? Oh. That was very good now. And what was his name? Jack Sohan. And his name? Ger Gallaher. And the other little man? His name was Brunny Lynam. Oh, that was a very nice name to have.
+
+First of the three little schoolboys from Belvedere whom Father Conmee stops at the corner of Mountjoy square.
+
+## modern-en · ger-gallaher · 10:12
+
+Father Conmee stopped three little schoolboys at the corner of Mountjoy Square. Yes: they were from Belvedere. The junior house. Aha. And were they good boys at school? Oh. That was very good now. And what was his name? Jack Sohan. And his name? Ger Gallaher. And the other little man? His name was Brunny Lynam. Oh, that was a very nice name to have.
+
+The second. Not the Ignatius Gallaher of episode 7, who went to London and was the smartest fellow that ever scalded a tooth.
+
+## modern-en · brunny-lynam · 10:12
+
+Father Conmee stopped three little schoolboys at the corner of Mountjoy Square. Yes: they were from Belvedere. The junior house. Aha. And were they good boys at school? Oh. That was very good now. And what was his name? Jack Sohan. And his name? Ger Gallaher. And the other little man? His name was Brunny Lynam. Oh, that was a very nice name to have.
+
+The third, and the one given the letter. But mind you don’t post yourself into the box, little man.
+
+## modern-en · lady-maxwell · 10:19
+
+Mr Denis J. Maginni, professor of dancing etc., in silk hat, slate frock-coat with silk facings, white kerchief tie, tight lavender trousers, canary gloves, and pointed patent boots, walking with grave deportment, most respectfully stepped onto the kerb as he passed Lady Maxwell at the corner of Dignam's Court.
+
+Whom Mr Denis J Maginni most respectfully took the curbstone to pass at the corner of Dignam’s court, and whose call is the reason Father Conmee has not yet read his nones.
+
+## modern-en · mrs-mcguinness · 10:20
+
+Was that not Mrs McGuinness?
+
+Stately, silverhaired, who bows to Father Conmee from the farther footpath along which she sails. A fine carriage she had. Like Mary, queen of Scots, something. And to think that she was a pawnbroker — the same pawnbroker who would give the Dedalus girls nothing on Stephen’s books.
+
+## modern-en · mary-queen-of-scots · 10:22
+
+A fine bearing she had. Like Mary, Queen of Scots, somehow. And to think that she was a pawnbroker! Well, now! Such a — what should he say? — such a queenly bearing.
+
+Whose something the pawnbroker’s bearing puts Father Conmee in mind of. Such a queenly mien.
+
+## modern-en · tr-greene · 10:23
+
+Father Conmee walked down Great Charles Street and glanced at the shuttered Protestant church on his left. The Reverend T.R. Greene B.A. will (God willing) speak. The incumbent, they called him. He felt it incumbent on him to say a few words. But one should be charitable. Invincible ignorance. They acted according to their lights.
+
+Whose name is on the board of the shutup free church in Great Charles street: will (D.V.) speak. The incumbent, they called him, and Father Conmee felt it incumbent on him to say a few words. But one should be charitable. Invincible ignorance.
+
+## modern-en · william-gallagher · 10:28
+
+Father Conmee began to walk along the North Strand Road and was greeted by Mr William Gallagher who stood in the doorway of his shop. Father Conmee greeted Mr William Gallagher and caught the smells coming from bacon sides and generous blocks of butter. He passed Grogan's the Tobacconist, against which newsboards leaned and told of a dreadful catastrophe in New York. In America those things were continually happening. Unfortunate people, to die like that, unprepared. Still, an act of perfect contrition could save them.
+
+Standing in the doorway of his shop on the North Strand road, who salutes Father Conmee and is saluted, in a smell of baconflitches and ample cools of butter.
+
+## modern-en · constable-57c · 10:30
+
+Father Conmee passed H.J. O'Neill's funeral establishment where Corny Kelleher added up figures in the daybook while he chewed a blade of hay. A constable on his beat greeted Father Conmee and Father Conmee greeted the constable. In Youkstetter's, the pork butcher's, Father Conmee observed pig's puddings — white and black and red — lying neatly curled in tubes.
+
+On his beat, who stops to pass the time of day with Corny Kelleher outside the undertaker’s. That’s a fine day, Mr Kelleher. It’s very close. And then, with bated breath: I seen that particular party last evening.
+
+## modern-en · turf-bargeman · 10:31
+
+Moored under the trees of Charleville Mall, Father Conmee saw a turf barge, a tow-horse with hanging head, a bargeman with a hat of dirty straw seated in the middle, smoking and staring at a branch of poplar above him. It was idyllic: and Father Conmee reflected on the providence of the Creator who had made turf to be in bogs where men might dig it out and bring it to town and hamlet to make fires in the houses of poor people.
+
+With a hat of dirty straw, seated amidships of the turfbarge moored under the trees of Charleville Mall, smoking and staring at a branch of poplar above him. It was idyllic, and set Father Conmee thinking on the providence of the Creator who had made turf to be in bogs.
+
+## modern-en · nicholas-dudley · 10:33
+
+Off an inward-bound tram stepped the Reverend Nicholas Dudley C.C. of Saint Agatha's Church, North William Street, onto Newcomen Bridge.
+
+Of saint Agatha’s church, north William street, who steps off an inward bound tram on to Newcomen bridge at the moment Father Conmee steps on to an outward bound one. Not the earl of Dudley whose cavalcade closes the episode.
+
+## modern-en · tram-gentleman · 10:36
+
+It was a peaceful day. The gentleman with the glasses opposite Father Conmee had finished explaining something and looked down. His wife, Father Conmee supposed. A tiny yawn opened the mouth of the wife of the gentleman with the glasses. She raised her small gloved fist, yawned ever so gently, tip-tapping her small gloved fist on her opening mouth, and smiled tinily, sweetly.
+
+Opposite Father Conmee in the tramcar, who has finished explaining and looks down.
+
+## modern-en · tram-gentlemans-wife · 10:36
+
+It was a peaceful day. The gentleman with the glasses opposite Father Conmee had finished explaining something and looked down. His wife, Father Conmee supposed. A tiny yawn opened the mouth of the wife of the gentleman with the glasses. She raised her small gloved fist, yawned ever so gently, tip-tapping her small gloved fist on her opening mouth, and smiled tinily, sweetly.
+
+Father Conmee supposed. A tiny yawn opened her mouth; she raised her small gloved fist, yawned ever so gently, and smiled tinily, sweetly.
+
+## modern-en · awkward-man · 10:37
+
+Father Conmee detected her perfume in the tram. He noticed also that the awkward man on the other side of her was sitting on the edge of the seat.
+
+Sitting on the edge of the seat at the other side of her — and, in the same breath, the awkward old man with the shaky head in whose mouth Father Conmee placed the host with difficulty at the altarrails.
+
+## modern-en · tram-old-woman · 10:39
+
+At Annesley Bridge the tram halted and, when it was about to go, an old woman rose suddenly from her place to get off. The conductor pulled the bell-strap to stop the tram for her. She passed out with her basket and a shopping net: and Father Conmee saw the conductor help her and her net and basket down: and Father Conmee thought that, as she had nearly passed the end of the penny fare, she was one of those good souls who always had to be told twice — _bless you, my child_ — that they had been absolved — _pray for me_. But they had so many worries in life, so many cares, poor creatures.
+
+Who rises suddenly at Annesley bridge to alight with her basket and her marketnet, and whom the conductor helps down. One of those good souls who had always to be told twice that they have been absolved.
+
+## modern-en · belgian-jesuit · 10:41
+
+Father Conmee thought of the souls of black and brown and yellow men, and of his sermon on Saint Peter Claver S.J. and the African mission, and of the propagation of the faith, and of the millions of black and brown and yellow souls that had not received the baptism of water when their last hour came like a thief in the night. That book by the Belgian Jesuit, _The Number of the Elect_, seemed to Father Conmee a reasonable argument. Those were millions of human souls created by God in His own likeness, to whom the faith had not — God willing — been brought. But they were God's souls, created by God. It seemed to Father Conmee a pity that they should all be lost — a waste, if one might say.
+
+Whose book _Le Nombre des Élus_ seemed to Father Conmee a reasonable plea, over the millions of black and brown and yellow souls that had not received the baptism of water.
+
+## modern-en · lord-talbot · 10:43
+
+The Malahide Road was quiet. It pleased Father Conmee — road and name. The joybells were ringing in gay Malahide. Lord Talbot de Malahide, hereditary lord admiral of Malahide and the adjoining seas. Then came the call to arms and she was maid, wife, and widow in one day. Those were old-world days, loyal times in joyous townlands, old times in the barony.
+
+Immediate hereditary lord admiral of Malahide and the seas adjoining, whose name pleases Father Conmee along with the road. Then came the call to arms and she was maid, wife and widow in one day.
+
+## modern-en · mary-rochfort · 10:44
+
+Father Conmee, walking, thought of his little book _Old Times in the Barony_ and of the book that might be written about Jesuit houses, and of Mary Rochfort, daughter of Lord Molesworth, first Countess of Belvedere.
+
+Daughter of lord Molesworth, first countess of Belvedere: the listless lady, no more young, walking alone the shore of lough Ennel in the evening, not startled when an otter plunged. Who could know the truth?
+
+## modern-en · lord-molesworth · 10:44
+
+Father Conmee, walking, thought of his little book _Old Times in the Barony_ and of the book that might be written about Jesuit houses, and of Mary Rochfort, daughter of Lord Molesworth, first Countess of Belvedere.
+
+Her father. Not Molesworth street, which is where Bloom sends the blind stripling in episode 8.
+
+## modern-en · lord-belvedere · 10:45
+
+A listless lady, no longer young, walked alone along the shore of Lough Ennel — Mary, first Countess of Belvedere, listlessly walking in the evening, not startled when an otter plunged. Who could know the truth? Not the jealous Lord Belvedere and not her confessor — if she had not committed adultery fully, _ejaculation of seed within the natural vessel of the woman_, with her husband's brother? She would half confess if she had not fully sinned as women do. Only God knew, and she and he — her husband's brother.
+
+The jealous husband, who could not know either — nor her confessor, if she had not committed adultery fully with her husband’s brother.
+
+## modern-en · belvedere-brother · 10:45
+
+A listless lady, no longer young, walked alone along the shore of Lough Ennel — Mary, first Countess of Belvedere, listlessly walking in the evening, not startled when an otter plunged. Who could know the truth? Not the jealous Lord Belvedere and not her confessor — if she had not committed adultery fully, _ejaculation of seed within the natural vessel of the woman_, with her husband's brother? She would half confess if she had not fully sinned as women do. Only God knew, and she and he — her husband's brother.
+
+The third of the three who knew: only God knew, and she, and he.
+
+## modern-en · flushed-young-man · 10:55
+
+A flushed young man came from a gap in a hedge and after him came a young woman with wild nodding daisies in her hand. The young man raised his cap abruptly: the young woman abruptly bent and with slow care detached from her light skirt a clinging twig.
+
+Who comes from a gap of a hedge in the Clongowes fields and raises his cap abruptly as Father Conmee passes.
+
+## modern-en · young-woman-daisies · 10:55
+
+A flushed young man came from a gap in a hedge and after him came a young woman with wild nodding daisies in her hand. The young man raised his cap abruptly: the young woman abruptly bent and with slow care detached from her light skirt a clinging twig.
+
+Who comes after him with wild nodding daisies in her hand, and bends with slow care to detach a clinging twig from her light skirt. Father Conmee blessed both gravely and turned a thin page of his breviary. She detaches the twig again, one section later, while Ned Lambert is showing the clergyman round the abbey.
+
+## modern-en · katey-dedalus · 10:71
+
+He swung himself violently forward past Katey and Boody Dedalus, halted, and growled:
+
+One of the four sisters in the closesteaming kitchen, who lifts the kettlelid in a pad of her stained skirt and asks what is in it. Peasoup, from Sister Mary Patrick.
+
+## modern-en · boody-dedalus · 10:71
+
+He swung himself violently forward past Katey and Boody Dedalus, halted, and growled:
+
+Who asks whether the books were pawned, stamps her foot at the answer, and says grace over the yellow soup: our father who art not in heaven.
+
+## modern-en · maggy-dedalus · 10:86
+
+Maggy at the range rammed down a greyish mass beneath bubbling suds twice with her pot-stick and wiped her brow.
+
+At the range, boiling shirts in the pot, who took the books to M’Guinness’s and got nothing on them, and who would pawn Dilly’s French primer too if she got the chance.
+
+## modern-en · sister-mary-patrick · 10:103
+
+—Sister Mary Patrick, Maggy said.
+
+Who gave them the peasoup.
+
+## modern-en · stout-lady · 10:74
+
+A stout lady stopped, took a copper coin from her purse, and dropped it into the cap held out to her. The sailor grumbled thanks, glanced sourly at the unheeding windows, sank his head, and swung himself forward four strides.
+
+Who stops, takes a copper coin from her purse, and drops it into the sailor’s cap.
+
+## modern-en · barefoot-urchins · 10:77
+
+Two barefoot urchins, sucking long liquorice laces, halted near him, gaping at his stump with their yellow-slobbered mouths.
+
+Sucking long liquorice laces, who halt near the sailor and gape at his stump with their yellowslobbered mouths — and one of whom runs for the coin the white arm flings from the window and drops it into the minstrel’s cap. There, sir.
+
+## modern-en · thornton-blond-girl · 10:117
+
+The blond girl in Thornton's fruit shop lined the wicker basket with rustling fibre. Blazes Boylan handed her the bottle swathed in pink tissue paper and a small jar.
+
+Who beds the wicker basket with rustling fibre and lays fat pears head by tail with ripe shamefaced peaches, and lets Boylan take a red carnation from the tall stemglass and look into the cut of her blouse. Yes, sir. I will, sir.
+
+## modern-en · miss-dunne · 10:160
+
+Miss Dunne hid the Capel Street library copy of _The Woman in White_ far back in her drawer and rolled a sheet of gaudy notepaper into her typewriter.
+
+Boylan’s typist, who hides the Capel street library copy of The Woman in White far back in her drawer, types the date, scribbles sixteens and capital esses on the jotter, and hopes to goodness he won’t keep her there till seven.
+
+## modern-en · marion-woman-in-white · 10:161
+
+Too much mystery business in it. Is he in love with that one, Marion? Change it and get another by Mary Cecil Haye.
+
+The one in the novel Miss Dunne is not getting on with. Is he in love with that one, Marion? Change it and get another by Mary Cecil Haye. Not Marion Bloom, whose name is the same and who is the reason Boylan is in a hurry.
+
+## modern-en · mary-cecil-haye · 10:161
+
+Too much mystery business in it. Is he in love with that one, Marion? Change it and get another by Mary Cecil Haye.
+
+Whose books Miss Dunne would rather have.
+
+## modern-en · marie-kendall · 10:166
+
+Then she stared at the large poster of Marie Kendall, charming soubrette, and, listlessly lounging, scribbled on the jotter sixteens and capital S's. Carrot-coloured hair and painted cheeks. She's not good-looking, is she? The way she's holding up her bit of a skirt. I wonder if that fellow will be at the band tonight. If I could get that dressmaker to make a concertina skirt like Susy Nagle's. They kick out grand. Shannon and all the boat-club swells never took his eyes off her. I hope to goodness he won't keep me here till seven.
+
+Charming soubrette, on the large poster Miss Dunne stares at, on the poster outside Dan Lowry’s that smiles a dauby smile on Lenehan and M’Coy, in the milliner’s window where Master Dignam sees her beside the two puckers, and on the hoarding that smiles daubily upon the viceroy. Mustard hair and dauby cheeks. She’s not nicelooking, is she?
+
+## modern-en · susy-nagle · 10:166
+
+Then she stared at the large poster of Marie Kendall, charming soubrette, and, listlessly lounging, scribbled on the jotter sixteens and capital S's. Carrot-coloured hair and painted cheeks. She's not good-looking, is she? The way she's holding up her bit of a skirt. I wonder if that fellow will be at the band tonight. If I could get that dressmaker to make a concertina skirt like Susy Nagle's. They kick out grand. Shannon and all the boat-club swells never took his eyes off her. I hope to goodness he won't keep me here till seven.
+
+Whose concertina skirt Miss Dunne would like the dressmaker to copy. They kick out grand.
+
+## modern-en · shannon · 10:166
+
+Then she stared at the large poster of Marie Kendall, charming soubrette, and, listlessly lounging, scribbled on the jotter sixteens and capital S's. Carrot-coloured hair and painted cheeks. She's not good-looking, is she? The way she's holding up her bit of a skirt. I wonder if that fellow will be at the band tonight. If I could get that dressmaker to make a concertina skirt like Susy Nagle's. They kick out grand. Shannon and all the boat-club swells never took his eyes off her. I hope to goodness he won't keep me here till seven.
+
+Who, with all the boatclub swells, never took his eyes off her.
+
+## modern-en · crotty · 10:173
+
+—Who's that? Ned Lambert asked. Is that Crotty?
+
+The name Ned Lambert calls into the dark of the abbey before he finds it is J. J. O’Molloy.
+
+## modern-en · hugh-c-love · 10:192
+
+—The Reverend Hugh C. Love, Rathcoffey. Present address: Saint Michael's, Sallins. Nice young chap he is. He's writing a book about the Fitzgeralds, he told me. He's well up in history, indeed.
+
+Of Rathcoffey, present address Saint Michael’s, Sallins: the clergyman with the refined accent whom Ned Lambert shows round the council chamber of saint Mary’s abbey, and who is writing a book about the Fitzgeralds and will bring a camera next week. He is also the landlord who has distrained on Father Cowley for rent, which is what makes Ben Dollard say the gombeen man’s writ is not worth the paper it is printed on.
+
+## modern-en · silken-thomas · 10:178
+
+—Yes, sir, Ned Lambert said heartily. We are standing in the historic council chamber of Saint Mary's Abbey, where Silken Thomas proclaimed himself a rebel in 1534. This is the most historic spot in all Dublin. O'Madden Burke is going to write something about it one of these days. The old Bank of Ireland was across the way till the time of the Union, and the original Jewish temple was here too before they built their synagogue over in Adelaide Road. You were never here before, Jack, were you?
+
+Who proclaimed himself a rebel in that chamber in 1534. This is the most historic spot in all Dublin.
+
+## modern-en · earl-of-kildare · 10:196
+
+—God! he cried. I forgot to tell him that story about the Earl of Kildare after he set fire to Cashel Cathedral. You know that one? _I'm bloody sorry I did it_, says he, _but I declare to God I thought the archbishop was inside._ He mightn't like it, though. What? God, I'll tell him anyway. That was the great earl, the Fitzgerald Mor. Hot-blooded, they were, all of them, the Geraldines.
+
+The great earl, the Fitzgerald Mor, of the story Ned Lambert forgot to tell: I’m bloody sorry I did it, says he, but I declare to God I thought the archbishop was inside. Hot members they were all of them, the Geraldines.
+
+## modern-en · cashel-archbishop · 10:196
+
+—God! he cried. I forgot to tell him that story about the Earl of Kildare after he set fire to Cashel Cathedral. You know that one? _I'm bloody sorry I did it_, says he, _but I declare to God I thought the archbishop was inside._ He mightn't like it, though. What? God, I'll tell him anyway. That was the great earl, the Fitzgerald Mor. Hot-blooded, they were, all of them, the Geraldines.
+
+Whom he thought was inside Cashel cathedral when he set fire to it.
+
+## modern-en · elderly-female-courts · 10:211
+
+Lawyers of the past, haughty, pleading, watched pass from the Consolidated Taxing Office to the Nisi Prius Court Richie Goulding carrying the cost-bag of Goulding, Collis and Ward, and heard rustling from the Admiralty Division of King's Bench to the Court of Appeal an elderly woman with false teeth, smiling incredulously, in a black silk skirt of great size.
+
+With false teeth and a black silk skirt of great amplitude, who passes the lawyers of the past on her way out of the courts, having heard the case in lunacy of Potterton, the summons of the owners of the Lady Cairns against the owners of the barque Mona, and the reservation of judgment in Harvey against the Ocean Accident and Guarantee Corporation. She turns up a third time at the door of Reuben J Dodd’s office and smiles credulously on the representative of His Majesty.
+
+## modern-en · potterton · 10:287
+
+An elderly woman, no longer young, left the building of the Courts of Chancery, King's Bench, Exchequer and Common Pleas, having heard in the Lord Chancellor's Court the case in lunacy of Potterton, in the Admiralty Division the summons, ex parte motion, of the owners of the Lady Cairns versus the owners of the barque Mona, in the Court of Appeal reservation of judgment in the case of Harvey versus the Ocean Accident and Guarantee Corporation.
+
+Whose case in lunacy she heard in the lord chancellor’s court.
+
+## modern-en · harvey-litigant · 10:287
+
+An elderly woman, no longer young, left the building of the Courts of Chancery, King's Bench, Exchequer and Common Pleas, having heard in the Lord Chancellor's Court the case in lunacy of Potterton, in the Admiralty Division the summons, ex parte motion, of the owners of the Lady Cairns versus the owners of the barque Mona, in the Court of Appeal reservation of judgment in the case of Harvey versus the Ocean Accident and Guarantee Corporation.
+
+Whose case against the Ocean Accident and Guarantee Corporation stood over. Not the Harvey Duff of episode 8, who is an informer out of a play.
+
+## modern-en · delahunt · 10:252
+
+—But wait till I tell you, he said. Delahunt of Camden Street did the catering and yours truly was chief bottle-washer. Bloom and the wife were there. Lashings of stuff we put up: port wine and sherry and curacao, to which we did ample justice. Fast and furious it was. After the drinks came the food. Cold joints galore and mince pies...
+
+Of Camden street, who had the catering at the Glencree dinner, and whose port Mrs Bloom was well primed with on the Featherbed Mountain going home.
+
+## modern-en · sir-charles-cameron · 10:247
+
+—There was a big spread at Glencree Reformatory, Lenehan said eagerly. The annual dinner, you know. Black-tie affair. The Lord Mayor was there — Val Dillon it was — and Sir Charles Cameron, and Dan Dawson spoke, and there was music. Bartell d'Arcy sang and Benjamin Dollard...
+
+One of the speakers at the same dinner, in Lenehan’s telling.
+
+## modern-en · glencree-jarvey · 10:259
+
+—I was at full attention, anyway, he said with a sigh. She's a spirited mare and no mistake. Bloom was pointing out all the stars and the comets in the heavens to Chris Callinan and the driver: the Great Bear and Hercules and the Dragon, and the whole lot. But, by God, I was lost, so to speak, in the Milky Way. He knows them all, honestly. At last she spotted a tiny little one miles away. _And what star is that, Poldy?_ says she. By God, she had Bloom cornered. _That one, is it?_ says Chris Callinan, _sure that's only what you might call a pinprick._ By God, he wasn't far wrong.
+
+Who drove them home from Glencree, and to whom Bloom pointed out the great bear and Hercules and the dragon along with Chris Callinan.
+
+## modern-en · sacher-masoch · 10:266
+
+He laid both books aside and glanced at the third: _Tales of the Ghetto_ by Leopold von Sacher-Masoch.
+
+Author of Tales of the Ghetto, the third book on the bookseller’s counter. That I had, Bloom says, pushing it by. The other Leopold in the shop is himself.
+
+## modern-en · bookshop-man · 10:268
+
+The shopman let two volumes fall on the counter.
+
+Uncombed grey head, unshaven reddened face, onions on his breath, who lets two volumes fall on the counter, coughs behind the dingy curtain, pukes phlegm on the floor and puts his boot on it, and taps the book Bloom takes: Sweets of Sin. That’s a good one.
+
+## modern-en · james-lovebirch · 10:272
+
+Mr Bloom, alone, looked at the titles. _Fair Tyrants_ by James Lovebirch. Know the kind that is. Had it? Yes.
+
+Author of Fair Tyrants. Know the kind that is. Had it? Yes.
+
+## modern-en · raoul · 10:278
+
+_—All the dollar bills her husband gave her were spent in the stores on wondrous gowns and costliest underwear. For him! For Raoul!_
+
+For him! For Raoul! — the lover in Sweets of Sin, out of the sentence Bloom reads twice and carries with him for the rest of the day.
+
+## modern-en · sweets-of-sin-woman · 10:283
+
+The beautiful woman threw off her sable-trimmed wrap, displaying her queenly shoulders and heaving bosom. An imperceptible smile played round her perfect lips as she turned to him calmly.
+
+Who throws off her sabletrimmed wrap, displaying her queenly shoulders and heaving embonpoint. You are late, he spoke hoarsely.
+
+## modern-en · lacquey · 10:104
+
+The footman rang his bell.
+
+At the door of Dillon’s auctionrooms, who shakes his handbell twice again and views himself in the chalked mirror of the cabinet. Barang! Bang! Mr Dedalus curses his bloody blatant soul and he shakes the lolling clapper but feebly, aware of comment. The modern edition calls him the footman.
+
+## modern-en · halfmile-wheelmen · 10:299
+
+The clang of the final-lap bell spurred the half-mile cyclists to their sprint. J.A. Jackson, W.E. Wylie, A. Munro and H.T. Gahan, their stretched necks wagging, negotiated the curve by the College Library.
+
+J. A. Jackson, W. E. Wylie, A. Munro and H. T. Gahan, spurred to their sprint by the bang of the lastlap bell, their stretched necks wagging as they negotiate the curve by the College library.
+
+## modern-en · quartermile-handicappers · 10:545
+
+Along the far side of the wall, the quarter-mile flat handicappers — M.C. Green, H. Shrift, T.M. Patey, C. Scaife, J.B. Jeffs, G.N. Morphy, F. Stevenson, C. Adderly, and W.C. Huggard — started in pursuit. Striding past Finn's Hotel, Cashel Boyle O'Connor Fitzmaurice Tisdall Farrell stared through a fierce eyeglass across the carriages at the head of Mr M.E. Solomons in the window of the Austro-Hungarian Vice-Consulate. Deep in Leinster Street by Trinity's postern gate, a loyal king's man, Hornblower, touched his hunting cap. As the glossy horses pranced by Merrion Square, Master Patrick Aloysius Dignam, waiting, saw salutes being given to the gent with the top hat and raised also his new black cap with fingers greased by pork-steak paper. His collar too sprang up. The Viceroy, on his way to inaugurate the Mirus Bazaar in aid of funds for Mercer's Hospital, drove with his following towards Lower Mount Street. He passed a blind young man opposite Broadbent's. In Lower Mount Street a pedestrian in a brown mackintosh, eating dry bread, passed swiftly and unscathed across the Viceroy's path. At the Royal Canal Bridge, from his billboard, Mr Eugene Stratton, his thick lips grinning, bade all comers welcome to Pembroke Township. At Haddington Road corner, two sand-gritted women halted themselves — an umbrella and a bag in which eleven cockles rolled — to view with wonder the Lord Mayor and Lady Mayoress without his golden chain. On Northumberland and Lansdowne Roads, His Excellency acknowledged punctually salutes from rare male walkers, the salute of two small schoolboys at the garden gate of the house said to have been admired by the late Queen when visiting the Irish capital with her husband, the Prince Consort, in 1849, and the salute of Almidano Artifoni's sturdy trousers, swallowed by a closing door.
+
+M. C. Green, H. Shrift, T. M. Patey, C. Scaife, J. B. Jeffs, G. N. Morphy, F. Stevenson, C. Adderly and W. C. Huggard, who start in pursuit along the far side of the wall as the viceroy’s carriages go by.
+
+## modern-en · sister-monica · 10:341
+
+—The little nuns! Nice little things! Oh, sure they wouldn't do anything! Oh, sure they wouldn't really! Is it little Sister Monica!
+
+Of the nuns who taught Dilly to be so saucy. The little nuns! Nice little things! O, sure they wouldn’t do anything!
+
+## modern-en · crimmins · 10:343
+
+From the sundial towards James's Gate walked Mr Kernan, pleased with the order he had booked for Pulbrook Robertson, boldly along James's Street, past Shackleton's offices. Got round him all right. How do you do, Mr Crimmins? First rate, sir. I was afraid you might be up at your other establishment in Pimlico. How are things going? Just keeping alive. Lovely weather we're having. Yes, indeed. Good for the country. Those farmers are always grumbling. I'll just take a thimbleful of your best gin, Mr Crimmins. A small gin, sir. Yes, sir. Terrible affair, that _General Slocum_ explosion. Terrible, terrible! A thousand casualties. And heart-rending scenes. Men trampling down women and children. Most brutal thing. What do they say was the cause? Spontaneous combustion. Most scandalous revelation. Not a single lifeboat would float and the fire hoses all burst. What I can't understand is how the inspectors ever allowed a boat like that... Now you're talking straight, Mr Crimmins. You know why? Bribery. Is that a fact? Without a doubt. Well now, look at that. And America, they say, is the land of the free. I thought we were bad here.
+
+The publican Tom Kernan has just sold tea to for Pulbrook Robertson, and whose best gin he takes a thimbleful of. Now, you’re talking straight, Mr Crimmins.
+
+## modern-en · neary · 10:349
+
+Mr Kernan halted and admired himself before the sloping mirror of Peter Kennedy, hairdresser. Stylish coat, beyond a doubt. Scott of Dawson Street. Well worth the half-sovereign I gave Neary for it. Never built for under three guineas. Fits me perfectly. Some Kildare Street club toff had it, probably. John Mulligan, the manager of the Hibernian Bank, gave me a very sharp eye yesterday on Carlisle Bridge, as if he remembered me.
+
+From whom Kernan got the stylish coat for half a sovereign. Scott of Dawson street. Never built under three guineas. Some Kildare street club toff had it probably.
+
+## modern-en · john-mulligan · 10:349
+
+Mr Kernan halted and admired himself before the sloping mirror of Peter Kennedy, hairdresser. Stylish coat, beyond a doubt. Scott of Dawson Street. Well worth the half-sovereign I gave Neary for it. Never built for under three guineas. Fits me perfectly. Some Kildare Street club toff had it, probably. John Mulligan, the manager of the Hibernian Bank, gave me a very sharp eye yesterday on Carlisle Bridge, as if he remembered me.
+
+The manager of the Hibernian bank, who gave Kernan a very sharp eye yesterday on Carlisle bridge as if he remembered him. Not Buck Mulligan, whose alias is kept off this paragraph by hand — and the name is keyed, not aliased, because 14:47 gives Buck the full comic style Malachi Roland St John Mulligan.
+
+## modern-en · sam-lambert · 10:352
+
+Mr Kernan glanced in farewell at his image. High colour, of course. Grizzled moustache. Returned Indian officer. Bravely he bore his stumpy body forward on spatted feet, squaring his shoulders. Is that Ned Lambert's brother across the way — Sam? What? Yes. He's the dead spit of him. No. The windscreen of that motor car in the sun there. Just a flash like that. Dead ringer for him.
+
+Ned Lambert’s brother, whom Kernan thinks he sees over the way and who turns out to be the windscreen of a motorcar flashing in the sun. He’s as like it as damn it.
+
+## modern-en · jonah-barrington · 10:360
+
+Times of the troubles. Must ask Ned Lambert to lend me those reminiscences of Sir Jonah Barrington. When you look back on it all now in a kind of retrospective arrangement. Gambling at Daly's. No cheating at cards then. One of those fellows got his hand nailed to the table by a dagger. Somewhere here Lord Edward Fitzgerald escaped from Major Sirr. Stables behind Moira House.
+
+Whose reminiscences Kernan must ask Ned Lambert to lend him: the gaming at Daly’s, and the fellow who got his hand nailed to the table by a dagger.
+
+## modern-en · lord-edward-fitzgerald · 10:360
+
+Times of the troubles. Must ask Ned Lambert to lend me those reminiscences of Sir Jonah Barrington. When you look back on it all now in a kind of retrospective arrangement. Gambling at Daly's. No cheating at cards then. One of those fellows got his hand nailed to the table by a dagger. Somewhere here Lord Edward Fitzgerald escaped from Major Sirr. Stables behind Moira House.
+
+Who escaped from major Sirr somewhere about here, by the stables behind Moira house. Fine dashing young nobleman. Good stock, of course.
+
+## modern-en · major-sirr · 10:360
+
+Times of the troubles. Must ask Ned Lambert to lend me those reminiscences of Sir Jonah Barrington. When you look back on it all now in a kind of retrospective arrangement. Gambling at Daly's. No cheating at cards then. One of those fellows got his hand nailed to the table by a dagger. Somewhere here Lord Edward Fitzgerald escaped from Major Sirr. Stables behind Moira House.
+
+Whom he escaped from.
+
+## modern-en · sham-squire · 10:362
+
+Fine dashing young nobleman. Good stock, of course. That ruffian — that sham squire — with his violet gloves, gave him away. Of course they were on the wrong side. They rose in dark and evil days. Fine poem, that: Ingram. They were gentlemen. Ben Dollard does sing that ballad beautifully. Masterly rendition.
+
+That ruffian, with his violet gloves, who gave him away.
+
+## modern-en · ingram · 10:362
+
+Fine dashing young nobleman. Good stock, of course. That ruffian — that sham squire — with his violet gloves, gave him away. Of course they were on the wrong side. They rose in dark and evil days. Fine poem, that: Ingram. They were gentlemen. Ben Dollard does sing that ballad beautifully. Masterly rendition.
+
+Whose poem it is — they rose in dark and evil days — that Ben Dollard sings so touchingly. They were gentlemen.
+
+## modern-en · russell-lapidary · 10:371
+
+Old Russell with a smeared chamois rag burnished his gem again, turned it and held it at the point of his Moses-like beard. Grandfather ape gloating on a stolen hoard.
+
+The lapidary in whose webbed window Stephen watches the timedulled chain proved, burnishing his gem again with a smeared shammy rag and holding it at the point of his Moses’ beard. Grandfather ape gloating on a stolen hoard. Not the Russell of the library, who is A. E.
+
+## modern-en · two-old-women · 10:373
+
+Two old women fresh from their whiff of sea air trudged through Irishtown along London Bridge Road, one with a sand-gritted tired umbrella, one with a midwife's bag in which eleven cockles rolled.
+
+Fresh from their whiff of the briny, who trudge through Irishtown along London bridge road, one with a sanded tired umbrella, one with a midwife’s bag in which eleven cockles rolled — and who halt again at Haddington road corner to view with wonder the lord mayor and lady mayoress without his golden chain. The episode does not give them names.
+
+## modern-en · heenan · 10:376
+
+Stephen went down Bedford Row, the handle of the ashplant clacking against his shoulder blade. In Clohissey's window a faded 1860 print of Heenan boxing Sayers caught his eye. Staring supporters with square hats stood round the roped prize ring. The heavyweights in tight loin-cloths offered gently each to the other his bulbous fists. And they are throbbing: heroes' hearts.
+
+In the faded 1860 print in Clohissey’s window, boxing Sayers before staring backers in square hats. And they are throbbing: heroes’ hearts.
+
+## modern-en · sayers · 10:376
+
+Stephen went down Bedford Row, the handle of the ashplant clacking against his shoulder blade. In Clohissey's window a faded 1860 print of Heenan boxing Sayers caught his eye. Staring supporters with square hats stood round the roped prize ring. The heavyweights in tight loin-cloths offered gently each to the other his bulbous fists. And they are throbbing: heroes' hearts.
+
+The other heavyweight in the print.
+
+## modern-en · bookcart-huckster · 10:378
+
+—Twopence each, the old bookseller said. Four for sixpence.
+
+At the slanted bookcart in Bedford row. Twopence each. Four for sixpence.
+
+## modern-en · peter-salanka · 10:384
+
+Who wrote this? Charms and invocations of the most blessed Abbot Peter Salanka to all true believers revealed. As good as any other abbot's charms, as mumbling Joachim's. Down, baldy, or we'll skin you.
+
+The most blessed abbot to all true believers divulged, whose charms and invocations fill the eighth and ninth book of Moses Stephen turns over: how to soften chapped hands, recipe for white wine vinegar, how to win a woman’s love.
+
+## modern-en · charles-stuart · 10:389
+
+A Stuart face, like King Charles — lank locks falling at its sides. It glowed as she crouched feeding the fire with broken boots. I told her about Paris. Late lying in bed under a quilt of old overcoats, fingering a cheap bracelet, Dan Kelly's token. _Nebrakada femininum._
+
+Whose Stuart face Stephen sees in his sister’s, lank locks falling at its sides, as she crouched feeding the fire with broken boots.
+
+## modern-en · dan-kelly · 10:389
+
+A Stuart face, like King Charles — lank locks falling at its sides. It glowed as she crouched feeding the fire with broken boots. I told her about Paris. Late lying in bed under a quilt of old overcoats, fingering a cheap bracelet, Dan Kelly's token. _Nebrakada femininum._
+
+Whose token is the pinchbeck bracelet she fingers late abed under a quilt of old overcoats.
+
+## modern-en · chardenal · 10:393
+
+He took the coverless book from her hand. Chardenal's French Primer.
+
+Whose French primer Dilly bought from the other cart for a penny, and is still straining her sight over in Fownes’s street when the cavalcade goes by.
+
+## modern-en · alderman-cowley · 10:457
+
+On the steps of the City Hall, Councillor Nannetti, descending, hailed Alderman Cowley and Councillor Abraham Lyon ascending.
+
+Hailed by Councillor Nannetti on the steps of the City hall. Not Father Bob Cowley, who is barricaded up in Windsor avenue on the other side of the same episode.
+
+## modern-en · abraham-lyon · 10:457
+
+On the steps of the City Hall, Councillor Nannetti, descending, hailed Alderman Cowley and Councillor Abraham Lyon ascending.
+
+Ascending the same steps with him. Not Bantam Lyons, who is backing a horse someone gave him.
+
+## modern-en · lobengula · 10:437
+
+—Come along with me to the sub-sheriff's office, he said. I want to show you the new beauty Rock has for a bailiff. He's a cross between Lobengula and Lynchehaun. He's well worth seeing, mind you. Come along. I saw John Henry Menton by chance in the Bodega just now and I'll be in trouble if I don't... Wait a while... We're on the right track, Bob, believe you me.
+
+Half of what Ben Dollard says the subsheriff’s new bailiff is a cross between.
+
+## modern-en · lynchehaun · 10:437
+
+—Come along with me to the sub-sheriff's office, he said. I want to show you the new beauty Rock has for a bailiff. He's a cross between Lobengula and Lynchehaun. He's well worth seeing, mind you. Come along. I saw John Henry Menton by chance in the Bodega just now and I'll be in trouble if I don't... Wait a while... We're on the right track, Bob, believe you me.
+
+The other half. He’s well worth seeing, mind you.
+
+## modern-en · castle-policeman · 10:449
+
+The policeman touched his forehead.
+
+Who touches his forehead as Martin Cunningham’s party passes out. God bless you, Martin Cunningham said, cheerily.
+
+## modern-en · boyd · 10:455
+
+—Boyd? Martin Cunningham said shortly. Hands off.
+
+The friend Mr Power suggests they try for the Dignam subscription, and whom Martin Cunningham disposes of in two words. Boyd? Touch me not.
+
+## modern-en · jimmy-henry · 10:466
+
+—There's Jimmy Henry, Mr Power said, just heading for Kavanagh's.
+
+The assistant town clerk, a dapper little man in a shower of hail suit who walks uncertainly on bad corns and will not glance at the list. Hell open to christians they were having about their damned Irish language. O, my corns! Come upstairs for goodness’ sake till I sit down somewhere.
+
+## modern-en · barlow · 10:477
+
+Hell open to Christians they were having, Jimmy Henry said peevishly, about their damned Irish language. Where was the marshal, he wanted to know, to keep order in the council chamber? And old Barlow the mace-bearer laid up with asthma, no mace on the table, nothing in order, no quorum even, and Hutchinson the Lord Mayor in Llandudno and little Lorcan Sherlock acting as his _locum tenens_. Damned Irish language, language of our forefathers.
+
+The macebearer, laid up with asthma: no mace on the table, nothing in order, no quorum even.
+
+## modern-en · hutchinson · 10:477
+
+Hell open to Christians they were having, Jimmy Henry said peevishly, about their damned Irish language. Where was the marshal, he wanted to know, to keep order in the council chamber? And old Barlow the mace-bearer laid up with asthma, no mace on the table, nothing in order, no quorum even, and Hutchinson the Lord Mayor in Llandudno and little Lorcan Sherlock acting as his _locum tenens_. Damned Irish language, language of our forefathers.
+
+The lord mayor, in Llandudno while the council sits.
+
+## modern-en · lorcan-sherlock · 10:477
+
+Hell open to Christians they were having, Jimmy Henry said peevishly, about their damned Irish language. Where was the marshal, he wanted to know, to keep order in the council chamber? And old Barlow the mace-bearer laid up with asthma, no mace on the table, nothing in order, no quorum even, and Hutchinson the Lord Mayor in Llandudno and little Lorcan Sherlock acting as his _locum tenens_. Damned Irish language, language of our forefathers.
+
+Little Lorcan Sherlock, doing _locum tenens_ for him.
+
+## modern-en · dbc-waitress · 10:501
+
+—I'll take a _melange_, Haines said to the waitress.
+
+At the D. B. C., who takes the order for two mélanges and scones and butter and cakes, and whose tray Buck Mulligan helps to unload.
+
+## modern-en · pokorny · 10:514
+
+—Eternal punishment, Haines said, nodding curtly. I see. I challenged him this morning on his beliefs. There was something on his mind, I could see. It's rather interesting because Professor Pokorny of Vienna makes an interesting point out of that.
+
+Of Vienna, who can find no trace of hell in ancient Irish myth — which Haines finds rather interesting, given what is on Stephen’s mind.
+
+## modern-en · artifoni · 10:145
+
+—_But no!_ Almidano Artifoni said.
+
+Stephen’s singing teacher, round mustachioed, who tells him in Italian that he had such ideas too when he was young, that the world is a brute, and that his voice would be a source of income: instead, you sacrifice yourself. He trots in vain after the Dalkey tram with a baton of rolled music held up as a signal, and his sturdy trousers are swallowed by a closing door in the last line of the episode.
+
+## modern-en · goldsmith · 10:146
+
+He gazed over Stephen's shoulder at the statue of Goldsmith's knobbly head.
+
+Whose knobby poll Artifoni gazes over Stephen’s shoulder at, outside Trinity.
+
+## modern-en · lewis-werner · 10:525
+
+Cashel Boyle O'Connor Fitzmaurice Tisdall Farrell walked as far as Mr Lewis Werner's cheerful windows, then turned and strode back along Merrion Square, his stick-umbrella-dustcoat dangling.
+
+Whose cheerful windows on Merrion square are as far as Cashel Boyle O’Connor Fitzmaurice Tisdall Farrell walks before turning and striding back. Not the Louis Werner who is touring Molly Bloom in episode 6.
+
+## modern-en · mrs-stoer · 10:532
+
+Opposite Ruggy O'Donohoe's, Master Patrick Aloysius Dignam, clutching the pound and a half of Mangan's — late Fehrenbach's — pork steaks he had been sent for, went along warm Wicklow Street, dawdling. It was too blooming dull sitting in the parlour with Mrs Stoer and Mrs Quigley and Mrs MacDowell and the blinds down and them all sniffling and sipping the good sherry Uncle Barney brought from Tunney's. And them eating crumbs of the cottage fruitcake, jawing on the whole blooming time and sighing.
+
+One of the three women sitting in the parlour with the blind down at the Dignams’, sniffling and sipping the superior tawny sherry uncle Barney brought from Tunney’s.
+
+## modern-en · mrs-quigley · 10:532
+
+Opposite Ruggy O'Donohoe's, Master Patrick Aloysius Dignam, clutching the pound and a half of Mangan's — late Fehrenbach's — pork steaks he had been sent for, went along warm Wicklow Street, dawdling. It was too blooming dull sitting in the parlour with Mrs Stoer and Mrs Quigley and Mrs MacDowell and the blinds down and them all sniffling and sipping the good sherry Uncle Barney brought from Tunney's. And them eating crumbs of the cottage fruitcake, jawing on the whole blooming time and sighing.
+
+The second of them.
+
+## modern-en · mrs-macdowell · 10:532
+
+Opposite Ruggy O'Donohoe's, Master Patrick Aloysius Dignam, clutching the pound and a half of Mangan's — late Fehrenbach's — pork steaks he had been sent for, went along warm Wicklow Street, dawdling. It was too blooming dull sitting in the parlour with Mrs Stoer and Mrs Quigley and Mrs MacDowell and the blinds down and them all sniffling and sipping the good sherry Uncle Barney brought from Tunney's. And them eating crumbs of the cottage fruitcake, jawing on the whole blooming time and sighing.
+
+The third. Not Gerty MacDowell, who passes the viceregal cavalcade at the end of the episode carrying cork lino letters for her father.
+
+## modern-en · stoer-boy · 10:533
+
+After Wicklow Lane, the window of Madame Doyle, court-dress milliner, stopped him. He stood looking in at the two boxers stripped to the waist and putting up their fists. From the side mirrors, two mourning Master Dignams gaped silently. Myler Keogh, Dublin's pet lamb, will meet Sergeant-Major Bennett, the Portobello bruiser, for a purse of fifty sovereigns. That'd be a good fight to see. Myler Keogh — that's the chap squaring up to him with the green sash. Two-bob entrance, soldiers half price. I could easily bunk off from Ma. Master Dignam on his left turned as he turned. That's me in mourning. When is it? May the twenty-second. Sure, the blooming thing is all over. He turned to the right and on his right Master Dignam turned, his cap crooked, his collar sticking up. Buttoning it down, his chin lifted, he saw the image of Marie Kendall, charming soubrette, beside the two boxers. One of those girls you see on the cigarette cards that Stoer smokes — his old man belted hell out of him one time he found out.
+
+The boy whose old fellow welted hell out of him for the packets of fags with the pictures of soubrettes in them.
+
+## modern-en · fitzsimons · 10:534
+
+Master Dignam got his collar down and dawdled on. The best boxer for strength was Fitzsimons. One punch in the stomach from that fellow would knock you into the middle of next week, man. But the best boxer for science was Jem Corbet, before Fitzsimons knocked the stuffing out of him — dodging and all.
+
+The best pucker going for strength. One puck in the wind from that fellow would knock you into the middle of next week, man.
+
+## modern-en · jem-corbet · 10:534
+
+Master Dignam got his collar down and dawdled on. The best boxer for strength was Fitzsimons. One punch in the stomach from that fellow would knock you into the middle of next week, man. But the best boxer for science was Jem Corbet, before Fitzsimons knocked the stuffing out of him — dodging and all.
+
+The best pucker for science, before Fitzsimons knocked the stuffings out of him, dodging and all.
+
+## modern-en · father-conroy · 10:539
+
+Pa was inside it and Ma crying in the parlour and Uncle Barney telling the men how to get it round the bend. A big coffin it was, and high and heavy-looking. How was that? The last night Pa was drunk, he was standing on the landing bawling out for his boots to go out to Tunney's for more drink, and he looked pudgy and short in his shirt. Never see him again. Death, that is. Pa is dead. My father is dead. He told me to be a good son to Ma. I couldn't hear the other things he said but I saw his tongue and his teeth trying to say it better. Poor Pa. That was Mr Dignam, my father. I hope he's in purgatory now because he went to confession to Father Conroy on Saturday night.
+
+To whom Paddy Dignam went to confession on Saturday night, which is why his son hopes he is in purgatory now.
+
+## modern-en · heseltine · 10:541
+
+William Humble, Earl of Dudley, and Lady Dudley, accompanied by Lieutenant-Colonel Heseltine, drove out after luncheon from the Viceregal Lodge. In the following carriage were the Honourable Mrs Paget, Miss de Courcy, and the Honourable Gerald Ward A.D.C. in attendance.
+
+In the first carriage with the earl and countess of Dudley.
+
+## modern-en · mrs-paget · 10:541
+
+William Humble, Earl of Dudley, and Lady Dudley, accompanied by Lieutenant-Colonel Heseltine, drove out after luncheon from the Viceregal Lodge. In the following carriage were the Honourable Mrs Paget, Miss de Courcy, and the Honourable Gerald Ward A.D.C. in attendance.
+
+In the second carriage of the viceregal cavalcade with Miss de Courcy and the honourable Gerald Ward, one of the three ladies Blazes Boylan offers the bold admiration of his eyes and the red flower between his lips.
+
+## modern-en · miss-de-courcy · 10:541
+
+William Humble, Earl of Dudley, and Lady Dudley, accompanied by Lieutenant-Colonel Heseltine, drove out after luncheon from the Viceregal Lodge. In the following carriage were the Honourable Mrs Paget, Miss de Courcy, and the Honourable Gerald Ward A.D.C. in attendance.
+
+With her.
+
+## modern-en · gerald-ward · 10:541
+
+William Humble, Earl of Dudley, and Lady Dudley, accompanied by Lieutenant-Colonel Heseltine, drove out after luncheon from the Viceregal Lodge. In the following carriage were the Honourable Mrs Paget, Miss de Courcy, and the Honourable Gerald Ward A.D.C. in attendance.
+
+A. D. C. in attendance, who is agreeably surprised when Denis Breen, shifting his tomes to his left breast, salutes the second carriage — and who makes haste to reply.
+
+## modern-en · dudley-white · 10:542
+
+The cavalcade passed out by the lower gate of Phoenix Park, saluted by obsequious policemen, and proceeded past Kingsbridge along the northern quays. The Viceroy was most cordially greeted on his way through the city. At Bloody Bridge, Mr Thomas Kernan beyond the river greeted him vainly from afar. Between Queen's and Whitworth Bridges, Lord Dudley's viceregal carriages passed and were unsaluted by Mr Dudley White, B.L., M.A., who stood on Arran Quay outside Mrs M.E. White's pawnbroker's at the corner of Arran Street West, stroking his nose with his forefinger, undecided whether he should arrive at Phibsborough more quickly by a triple change of tram or by hailing a cab or on foot through Smithfield, Constitution Hill, and Broadstone Terminus. In the porch of the Four Courts, Richie Goulding with the cost-bag of Goulding, Collis and Ward saw him with surprise. Past Richmond Bridge, at the doorstep of the office of Reuben J. Dodd, solicitor, agent for the Patriotic Insurance Company, an elderly woman about to enter changed her plan and, retracing her steps by King's windows, smiled credulously on the representative of His Majesty. From its sluice in Wood Quay wall under Tom Devan's office, the Poddle River hung out in fealty a tongue of liquid sewage. Above the crossblind of the Ormond Hotel, gold by bronze, Miss Kennedy's head by Miss Douce's head watched and admired. On Ormond Quay, Mr Simon Dedalus, steering his way from the pub to the sub-sheriff's office, stood still in mid-street and doffed his hat low. His Excellency graciously returned Mr Dedalus's greeting. From Cahill's corner the Reverend Hugh C. Love, M.A., made a bow unperceived, mindful of Lord Deputies whose benign hands had in times past bestowed rich church livings. On Grattan Bridge, Lenehan and McCoy, taking leave of each other, watched the carriages go by. Passing by Roger Greene's office and Dollard's big red printing house, Gerty MacDowell, carrying the Catesby's cork linoleum letters for her father who was laid up, knew by the style it was the Lord and Lady Lieutenant but she couldn't see what Her Excellency had on because the tram and Spring's big yellow furniture van had to stop in front of her on account of its being the Lord Lieutenant. Beyond Lundy Foot's, from the shaded door of Kavanagh's wine rooms, John Wyse Nolan smiled with unseen coldness towards the Lord Lieutenant General and General Governor of Ireland. The Right Honourable William Humble, Earl of Dudley, G.C.V.O., passed Micky Anderson's perpetually ticking watches and Henry and James's wax-suited, fresh-cheeked models — the gentleman Henry, the latest-fashion James. Across from Dame Gate, Tom Rochford and Nosey Flynn watched the approach of the cavalcade. Tom Rochford, seeing the eyes of Lady Dudley fixed on him, took his thumbs quickly out of the pockets of his claret waistcoat and doffed his cap to her. A charming _soubrette_, great Marie Kendall, with painted cheeks and lifted skirt, smiled daubily from her poster upon William Humble, Earl of Dudley, and upon Lieutenant-Colonel H.G. Heseltine, and also upon the Honourable Gerald Ward A.D.C. From the window of the D.B.C., Buck Mulligan gaily, and Haines gravely, gazed down on the viceregal procession over the shoulders of eager guests, whose mass of forms darkened the chessboard whereon John Howard Parnell stared intently. In Fownes's Street, Dilly Dedalus, straining her sight upward from Chardenal's First French Primer, saw parasols spread and wheel-spokes spinning in the glare. John Henry Menton, filling the doorway of Commercial Buildings, stared from wine-big oyster eyes, holding a fat gold hunter watch — unlooked-at — in his fat left hand — unfelt. Where the foreleg of King Billy's horse pawed the air, Mrs Breen plucked her hastening husband back from under the hoofs of the outriders. She shouted the news in his ear. Understanding, he shifted his law books to his left breast and saluted the second carriage. The Honourable Gerald Ward A.D.C., agreeably surprised, made haste to reply. At Ponsonby's corner a weary white-hatted H. halted, and four tall-white-hatted colleagues halted behind him — E.L.Y.'S — while outriders pranced past and carriages. Opposite Pigott's Music Warerooms, Mr Denis J. Maginni, professor of dancing etc., gaily apparelled, gravely walked, outpassed by a viceroy and unobserved. By the Provost's wall came jauntily Blazes Boylan, stepping in tan shoes and socks with sky-blue clocks to the refrain of _My Girl's a Yorkshire Girl_.
+
+B. L., M. A., who does not salute the viceregal carriages, being undecided on Arran quay whether he should arrive at Phibsborough more quickly by a triple change of tram or by hailing a car or on foot through Smithfield.
+
+## modern-en · miss-kennedy · 10:452
+
+Bronze by gold, Miss Kennedy's head by Miss Douce's head, appeared above the crossblind of the Ormond Hotel.
+
+Gold, whose head appears with Miss Douce’s above the crossblind of the Ormond hotel at the start of the cavalcade and watches and admires it at the end.
+
+## modern-en · miss-douce · 10:452
+
+Bronze by gold, Miss Kennedy's head by Miss Douce's head, appeared above the crossblind of the Ormond Hotel.
+
+Bronze, beside her.
+
+## modern-en · gerty-macdowell · 10:542
+
+The cavalcade passed out by the lower gate of Phoenix Park, saluted by obsequious policemen, and proceeded past Kingsbridge along the northern quays. The Viceroy was most cordially greeted on his way through the city. At Bloody Bridge, Mr Thomas Kernan beyond the river greeted him vainly from afar. Between Queen's and Whitworth Bridges, Lord Dudley's viceregal carriages passed and were unsaluted by Mr Dudley White, B.L., M.A., who stood on Arran Quay outside Mrs M.E. White's pawnbroker's at the corner of Arran Street West, stroking his nose with his forefinger, undecided whether he should arrive at Phibsborough more quickly by a triple change of tram or by hailing a cab or on foot through Smithfield, Constitution Hill, and Broadstone Terminus. In the porch of the Four Courts, Richie Goulding with the cost-bag of Goulding, Collis and Ward saw him with surprise. Past Richmond Bridge, at the doorstep of the office of Reuben J. Dodd, solicitor, agent for the Patriotic Insurance Company, an elderly woman about to enter changed her plan and, retracing her steps by King's windows, smiled credulously on the representative of His Majesty. From its sluice in Wood Quay wall under Tom Devan's office, the Poddle River hung out in fealty a tongue of liquid sewage. Above the crossblind of the Ormond Hotel, gold by bronze, Miss Kennedy's head by Miss Douce's head watched and admired. On Ormond Quay, Mr Simon Dedalus, steering his way from the pub to the sub-sheriff's office, stood still in mid-street and doffed his hat low. His Excellency graciously returned Mr Dedalus's greeting. From Cahill's corner the Reverend Hugh C. Love, M.A., made a bow unperceived, mindful of Lord Deputies whose benign hands had in times past bestowed rich church livings. On Grattan Bridge, Lenehan and McCoy, taking leave of each other, watched the carriages go by. Passing by Roger Greene's office and Dollard's big red printing house, Gerty MacDowell, carrying the Catesby's cork linoleum letters for her father who was laid up, knew by the style it was the Lord and Lady Lieutenant but she couldn't see what Her Excellency had on because the tram and Spring's big yellow furniture van had to stop in front of her on account of its being the Lord Lieutenant. Beyond Lundy Foot's, from the shaded door of Kavanagh's wine rooms, John Wyse Nolan smiled with unseen coldness towards the Lord Lieutenant General and General Governor of Ireland. The Right Honourable William Humble, Earl of Dudley, G.C.V.O., passed Micky Anderson's perpetually ticking watches and Henry and James's wax-suited, fresh-cheeked models — the gentleman Henry, the latest-fashion James. Across from Dame Gate, Tom Rochford and Nosey Flynn watched the approach of the cavalcade. Tom Rochford, seeing the eyes of Lady Dudley fixed on him, took his thumbs quickly out of the pockets of his claret waistcoat and doffed his cap to her. A charming _soubrette_, great Marie Kendall, with painted cheeks and lifted skirt, smiled daubily from her poster upon William Humble, Earl of Dudley, and upon Lieutenant-Colonel H.G. Heseltine, and also upon the Honourable Gerald Ward A.D.C. From the window of the D.B.C., Buck Mulligan gaily, and Haines gravely, gazed down on the viceregal procession over the shoulders of eager guests, whose mass of forms darkened the chessboard whereon John Howard Parnell stared intently. In Fownes's Street, Dilly Dedalus, straining her sight upward from Chardenal's First French Primer, saw parasols spread and wheel-spokes spinning in the glare. John Henry Menton, filling the doorway of Commercial Buildings, stared from wine-big oyster eyes, holding a fat gold hunter watch — unlooked-at — in his fat left hand — unfelt. Where the foreleg of King Billy's horse pawed the air, Mrs Breen plucked her hastening husband back from under the hoofs of the outriders. She shouted the news in his ear. Understanding, he shifted his law books to his left breast and saluted the second carriage. The Honourable Gerald Ward A.D.C., agreeably surprised, made haste to reply. At Ponsonby's corner a weary white-hatted H. halted, and four tall-white-hatted colleagues halted behind him — E.L.Y.'S — while outriders pranced past and carriages. Opposite Pigott's Music Warerooms, Mr Denis J. Maginni, professor of dancing etc., gaily apparelled, gravely walked, outpassed by a viceroy and unobserved. By the Provost's wall came jauntily Blazes Boylan, stepping in tan shoes and socks with sky-blue clocks to the refrain of _My Girl's a Yorkshire Girl_.
+
+Carrying the Catesby’s cork lino letters for her father who was laid up, who knew by the style it was the lord and lady lieutenant but could not see what Her Excellency had on, because the tram and Spring’s big yellow furniture van stopped in front of her.
+
+## modern-en · gerty-father · 10:542
+
+The cavalcade passed out by the lower gate of Phoenix Park, saluted by obsequious policemen, and proceeded past Kingsbridge along the northern quays. The Viceroy was most cordially greeted on his way through the city. At Bloody Bridge, Mr Thomas Kernan beyond the river greeted him vainly from afar. Between Queen's and Whitworth Bridges, Lord Dudley's viceregal carriages passed and were unsaluted by Mr Dudley White, B.L., M.A., who stood on Arran Quay outside Mrs M.E. White's pawnbroker's at the corner of Arran Street West, stroking his nose with his forefinger, undecided whether he should arrive at Phibsborough more quickly by a triple change of tram or by hailing a cab or on foot through Smithfield, Constitution Hill, and Broadstone Terminus. In the porch of the Four Courts, Richie Goulding with the cost-bag of Goulding, Collis and Ward saw him with surprise. Past Richmond Bridge, at the doorstep of the office of Reuben J. Dodd, solicitor, agent for the Patriotic Insurance Company, an elderly woman about to enter changed her plan and, retracing her steps by King's windows, smiled credulously on the representative of His Majesty. From its sluice in Wood Quay wall under Tom Devan's office, the Poddle River hung out in fealty a tongue of liquid sewage. Above the crossblind of the Ormond Hotel, gold by bronze, Miss Kennedy's head by Miss Douce's head watched and admired. On Ormond Quay, Mr Simon Dedalus, steering his way from the pub to the sub-sheriff's office, stood still in mid-street and doffed his hat low. His Excellency graciously returned Mr Dedalus's greeting. From Cahill's corner the Reverend Hugh C. Love, M.A., made a bow unperceived, mindful of Lord Deputies whose benign hands had in times past bestowed rich church livings. On Grattan Bridge, Lenehan and McCoy, taking leave of each other, watched the carriages go by. Passing by Roger Greene's office and Dollard's big red printing house, Gerty MacDowell, carrying the Catesby's cork linoleum letters for her father who was laid up, knew by the style it was the Lord and Lady Lieutenant but she couldn't see what Her Excellency had on because the tram and Spring's big yellow furniture van had to stop in front of her on account of its being the Lord Lieutenant. Beyond Lundy Foot's, from the shaded door of Kavanagh's wine rooms, John Wyse Nolan smiled with unseen coldness towards the Lord Lieutenant General and General Governor of Ireland. The Right Honourable William Humble, Earl of Dudley, G.C.V.O., passed Micky Anderson's perpetually ticking watches and Henry and James's wax-suited, fresh-cheeked models — the gentleman Henry, the latest-fashion James. Across from Dame Gate, Tom Rochford and Nosey Flynn watched the approach of the cavalcade. Tom Rochford, seeing the eyes of Lady Dudley fixed on him, took his thumbs quickly out of the pockets of his claret waistcoat and doffed his cap to her. A charming _soubrette_, great Marie Kendall, with painted cheeks and lifted skirt, smiled daubily from her poster upon William Humble, Earl of Dudley, and upon Lieutenant-Colonel H.G. Heseltine, and also upon the Honourable Gerald Ward A.D.C. From the window of the D.B.C., Buck Mulligan gaily, and Haines gravely, gazed down on the viceregal procession over the shoulders of eager guests, whose mass of forms darkened the chessboard whereon John Howard Parnell stared intently. In Fownes's Street, Dilly Dedalus, straining her sight upward from Chardenal's First French Primer, saw parasols spread and wheel-spokes spinning in the glare. John Henry Menton, filling the doorway of Commercial Buildings, stared from wine-big oyster eyes, holding a fat gold hunter watch — unlooked-at — in his fat left hand — unfelt. Where the foreleg of King Billy's horse pawed the air, Mrs Breen plucked her hastening husband back from under the hoofs of the outriders. She shouted the news in his ear. Understanding, he shifted his law books to his left breast and saluted the second carriage. The Honourable Gerald Ward A.D.C., agreeably surprised, made haste to reply. At Ponsonby's corner a weary white-hatted H. halted, and four tall-white-hatted colleagues halted behind him — E.L.Y.'S — while outriders pranced past and carriages. Opposite Pigott's Music Warerooms, Mr Denis J. Maginni, professor of dancing etc., gaily apparelled, gravely walked, outpassed by a viceroy and unobserved. By the Provost's wall came jauntily Blazes Boylan, stepping in tan shoes and socks with sky-blue clocks to the refrain of _My Girl's a Yorkshire Girl_.
+
+Who was laid up, and for whom she is carrying the letters.
+
+## modern-en · me-solomons · 10:545
+
+Along the far side of the wall, the quarter-mile flat handicappers — M.C. Green, H. Shrift, T.M. Patey, C. Scaife, J.B. Jeffs, G.N. Morphy, F. Stevenson, C. Adderly, and W.C. Huggard — started in pursuit. Striding past Finn's Hotel, Cashel Boyle O'Connor Fitzmaurice Tisdall Farrell stared through a fierce eyeglass across the carriages at the head of Mr M.E. Solomons in the window of the Austro-Hungarian Vice-Consulate. Deep in Leinster Street by Trinity's postern gate, a loyal king's man, Hornblower, touched his hunting cap. As the glossy horses pranced by Merrion Square, Master Patrick Aloysius Dignam, waiting, saw salutes being given to the gent with the top hat and raised also his new black cap with fingers greased by pork-steak paper. His collar too sprang up. The Viceroy, on his way to inaugurate the Mirus Bazaar in aid of funds for Mercer's Hospital, drove with his following towards Lower Mount Street. He passed a blind young man opposite Broadbent's. In Lower Mount Street a pedestrian in a brown mackintosh, eating dry bread, passed swiftly and unscathed across the Viceroy's path. At the Royal Canal Bridge, from his billboard, Mr Eugene Stratton, his thick lips grinning, bade all comers welcome to Pembroke Township. At Haddington Road corner, two sand-gritted women halted themselves — an umbrella and a bag in which eleven cockles rolled — to view with wonder the Lord Mayor and Lady Mayoress without his golden chain. On Northumberland and Lansdowne Roads, His Excellency acknowledged punctually salutes from rare male walkers, the salute of two small schoolboys at the garden gate of the house said to have been admired by the late Queen when visiting the Irish capital with her husband, the Prince Consort, in 1849, and the salute of Almidano Artifoni's sturdy trousers, swallowed by a closing door.
+
+In the window of the Austro-Hungarian viceconsulate, at whose head Farrell stares through a fierce eyeglass across the carriages.
+
+## modern-en · king-billy · 10:542
+
+The cavalcade passed out by the lower gate of Phoenix Park, saluted by obsequious policemen, and proceeded past Kingsbridge along the northern quays. The Viceroy was most cordially greeted on his way through the city. At Bloody Bridge, Mr Thomas Kernan beyond the river greeted him vainly from afar. Between Queen's and Whitworth Bridges, Lord Dudley's viceregal carriages passed and were unsaluted by Mr Dudley White, B.L., M.A., who stood on Arran Quay outside Mrs M.E. White's pawnbroker's at the corner of Arran Street West, stroking his nose with his forefinger, undecided whether he should arrive at Phibsborough more quickly by a triple change of tram or by hailing a cab or on foot through Smithfield, Constitution Hill, and Broadstone Terminus. In the porch of the Four Courts, Richie Goulding with the cost-bag of Goulding, Collis and Ward saw him with surprise. Past Richmond Bridge, at the doorstep of the office of Reuben J. Dodd, solicitor, agent for the Patriotic Insurance Company, an elderly woman about to enter changed her plan and, retracing her steps by King's windows, smiled credulously on the representative of His Majesty. From its sluice in Wood Quay wall under Tom Devan's office, the Poddle River hung out in fealty a tongue of liquid sewage. Above the crossblind of the Ormond Hotel, gold by bronze, Miss Kennedy's head by Miss Douce's head watched and admired. On Ormond Quay, Mr Simon Dedalus, steering his way from the pub to the sub-sheriff's office, stood still in mid-street and doffed his hat low. His Excellency graciously returned Mr Dedalus's greeting. From Cahill's corner the Reverend Hugh C. Love, M.A., made a bow unperceived, mindful of Lord Deputies whose benign hands had in times past bestowed rich church livings. On Grattan Bridge, Lenehan and McCoy, taking leave of each other, watched the carriages go by. Passing by Roger Greene's office and Dollard's big red printing house, Gerty MacDowell, carrying the Catesby's cork linoleum letters for her father who was laid up, knew by the style it was the Lord and Lady Lieutenant but she couldn't see what Her Excellency had on because the tram and Spring's big yellow furniture van had to stop in front of her on account of its being the Lord Lieutenant. Beyond Lundy Foot's, from the shaded door of Kavanagh's wine rooms, John Wyse Nolan smiled with unseen coldness towards the Lord Lieutenant General and General Governor of Ireland. The Right Honourable William Humble, Earl of Dudley, G.C.V.O., passed Micky Anderson's perpetually ticking watches and Henry and James's wax-suited, fresh-cheeked models — the gentleman Henry, the latest-fashion James. Across from Dame Gate, Tom Rochford and Nosey Flynn watched the approach of the cavalcade. Tom Rochford, seeing the eyes of Lady Dudley fixed on him, took his thumbs quickly out of the pockets of his claret waistcoat and doffed his cap to her. A charming _soubrette_, great Marie Kendall, with painted cheeks and lifted skirt, smiled daubily from her poster upon William Humble, Earl of Dudley, and upon Lieutenant-Colonel H.G. Heseltine, and also upon the Honourable Gerald Ward A.D.C. From the window of the D.B.C., Buck Mulligan gaily, and Haines gravely, gazed down on the viceregal procession over the shoulders of eager guests, whose mass of forms darkened the chessboard whereon John Howard Parnell stared intently. In Fownes's Street, Dilly Dedalus, straining her sight upward from Chardenal's First French Primer, saw parasols spread and wheel-spokes spinning in the glare. John Henry Menton, filling the doorway of Commercial Buildings, stared from wine-big oyster eyes, holding a fat gold hunter watch — unlooked-at — in his fat left hand — unfelt. Where the foreleg of King Billy's horse pawed the air, Mrs Breen plucked her hastening husband back from under the hoofs of the outriders. She shouted the news in his ear. Understanding, he shifted his law books to his left breast and saluted the second carriage. The Honourable Gerald Ward A.D.C., agreeably surprised, made haste to reply. At Ponsonby's corner a weary white-hatted H. halted, and four tall-white-hatted colleagues halted behind him — E.L.Y.'S — while outriders pranced past and carriages. Opposite Pigott's Music Warerooms, Mr Denis J. Maginni, professor of dancing etc., gaily apparelled, gravely walked, outpassed by a viceroy and unobserved. By the Provost's wall came jauntily Blazes Boylan, stepping in tan shoes and socks with sky-blue clocks to the refrain of _My Girl's a Yorkshire Girl_.
+
+Whose horse’s foreleg paws the air over the spot where Mrs Breen plucks her hastening husband back from under the hoofs of the outriders.
+
+## modern-en · wolfe-tone · 10:165
+
+Five tall-white-hatted sandwich-board men between Monypeny's corner and the slab where Wolfe Tone's statue was not, turned themselves around — H.E.L.Y.'S — and plodded back the way they had come.
+
+Whose statue was not on the slab the five sandwichmen eel themselves around between Monypeny’s corner and it.
