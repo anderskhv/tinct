@@ -45,4 +45,15 @@ Physical iOS Safari's native selection UI cannot be certified by headless WebKit
 this supersedes the prior report's assumption that pointer prevention alone
 suppressed it. No book content was changed.
 
-Deployment and production acceptance pending.
+Production app commit: `500035bf`; bundle `index-DCS84t4a.js`.
+[Deploy 35085668816](https://github.com/anderskhv/tinct/actions/runs/35085668816)
+passed tests, deployment, exact-bundle validation and production smoke checks.
+The same Job 6 touch and popup checks passed on `https://tinct.app/lab/phone`
+at 390×844 in Chromium and WebKit. Loading and ready card coordinates and
+size were identical in both engines. Desktop/phone Chat and recolor regressions
+also passed on production. Screenshots and JSON results are in the evidence folder.
+
+Original workspace documentation check: 12 files, zero errors or review reminders.
+
+Next action: this feedback batch is deployed and accepted within the physical
+iOS verification limit above. No user deployment or routine acceptance step remains.
