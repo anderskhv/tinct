@@ -2,7 +2,7 @@
 
 Reviewed: 2026-09-16
 
-Status: implemented and under final acceptance; production deployment pending.
+Status: shipped and verified on production, September 16, 2026.
 Anders approved implementation, tests and production deployment of this whole batch.
 
 ## Scope and mechanism
@@ -35,21 +35,39 @@ Anders approved implementation, tests and production deployment of this whole ba
   are collected independently for both speakers; playback metering drives speaking
   state. Tool results are submitted before backend continuation.
 
-## Verification
+## Verification and deployment
 
-Final full suite: 183 files and 2,315 tests passed. Build and bundle
-verification passed. Headless Chromium desktop and WebKit 390×844 accepted
-same-ID recolour/note, full formatted scrolling explanation, complete Chat context,
-and draft clearing before the mocked answer. No page errors. Screenshots exposed
-an existing WebKit popup translucency issue; this batch makes Explain opaque.
-Final rebuilt desktop and phone visual checks passed on index-BuzCdP5A.js. Actual voice-provider connection remains pending deployment.
+Final full suite: 183 files and 2,315 tests passed. Build and bundle verification
+passed. GitHub production deploy [35074466321](https://github.com/anderskhv/tinct/actions/runs/35074466321)
+succeeded, including exact-bundle byte verification and production smoke test.
+Release app commit: `a33d6f114ddd9b8a8b6f7dda1ca528e76b7e7fef`.
+Production bundle: `index-Cb5kzdkL.js`.
 
-Evidence is in `output/reader-feedback-2026-09-16/` in the isolated release checkout.
-Physical finger interaction and audible voice quality are not certified by muted
-browser tests. Documentation maintenance files exist in the original working tree
-but are absent from current remote main; they are not silently reconstructed here.
-The original checker initially reports one existing product-brief word-limit error.
+Isolated headless Chromium desktop and WebKit 390×844 accepted same-ID recolour
+with note preservation, full formatted scrolling explanation, complete Chat
+context and draft clearing before the controlled answer on tinct.app. No page
+errors. Screenshots wait for entrance animation completion; Explain is opaque.
+The companion provider was mocked in accordance with project development rules.
 
-Next action: finish final gates, publish current-main commit, verify exact deployed
-bundle and silently verify GPT Live session access; record results here and in the
-original authoritative product/feedback notes.
+A muted Chromium session with synthetic microphone input verified the real
+OpenAI GPT Live handshake (HTTP 200, `gpt-live-1`, `session.started`), backend
+function execution (`set_audiobook_speed`), and stored speed 1.25. The backend
+continued successfully after the tool result. The first acceptance run exposed an
+old route default that selected full Realtime; the final correction removes it
+while retaining explicit comparison trials and current reader voice controls.
+
+Physical finger interaction, audible voice quality and real explanation latency
+are not certified by these tests. Sentence return uses verified word timings;
+without those timings, it restarts the paragraph. No content or narration authored.
+
+Evidence: `output/reader-feedback-2026-09-16/`. The authoritative product brief
+and first-reader feedback plan are maintained in the original working tree; those
+files and the documentation checker are absent from current remote main.
+The product brief is now 1,076 words, within its 1,100-word limit. The mandatory
+checker was run, but its final pass could not finish reading the iCloud-only
+`CLAUDE.md` placeholder despite download requests. That pointer remains unverified;
+no review dates were advanced for unrelated documents.
+
+Next action: this approved batch is complete. Measure explanation latency and
+assess physical touch/voice comfort when real usage evidence becomes available;
+this is not an automatic monitoring commitment.
