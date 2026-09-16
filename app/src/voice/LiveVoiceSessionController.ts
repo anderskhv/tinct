@@ -21,6 +21,7 @@ export class LiveVoiceSessionController {
   private analyser: AnalyserNode | null = null
   private generation = 0
   private ready = false
+  private readerLocation = ''
   private anchor: AudioPlaybackAnchor | null = null
   private captions = { user: '', assistant: '' }
   private responses = new Map<string, { id: string; calls: ToolCall[] }>()
@@ -44,13 +45,21 @@ export class LiveVoiceSessionController {
   }
   setMicMuted(muted: boolean) { this.stream?.getAudioTracks().forEach(track => { track.enabled = !muted }); this.emit({ micMuted: muted }) }
   setAssistantPace(pace: AssistantPace) { this.send({ type: 'session.instructions.append', delegation_id: null, content: `The reader requests a ${pace} speaking pace. Apply it to subsequent speech.` }) }
-  updateContext(context: VoiceReaderContext) {
+  updateContext(context: VoiceReaderContext, instructions?: string) {
     if (!this.input) return
     if (this.input.context.bookId !== context.bookId) { this.stop(); return }
-    if (JSON.stringify(this.input.context) === JSON.stringify(context)) return
+    if (JSON.stringify(this.input.context) === JSON.stringify(context) && (!instructions || instructions === this.input.instructions)) return
     this.input.context = context
-    this.send({ type: 'session.thinking.append', delegation_id: null, content: JSON.stringify(context).slice(0, 1500) })
-    this.send({ type: 'session.update', session: { delegation: { type: 'responses', responses: { instructions: (this.input.instructions || '') + '\nCurrent reader context supersedes prior location:\n' + JSON.stringify(context) } } } })
+    if (instructions) this.input.instructions = instructions
+    // Frontend context is location only. In the reader visibleText carries the
+    // entire backend prompt; truncating its JSON can leak conflicting role and
+    // tool instructions into Live after the first turn.
+    const location = JSON.stringify({ book: context.bookTitle, chapter: context.chapterLabel, chapterNumber: context.chapterNumber, paragraphIndex: context.paragraphIndex, edition: context.editionLabel })
+    if (location !== this.readerLocation) {
+      this.readerLocation = location
+      this.send({ type: 'session.thinking.append', delegation_id: null, content: `Reader location (reference data): ${location}` })
+    }
+    this.send({ type: 'session.update', session: { delegation: { type: 'responses', responses: { instructions: this.input.instructions || buildVoiceInstructions(context) } } } })
   }
   private flush(role: 'user' | 'assistant') {
     const text = this.captions[role].replace(/\uFFFD/g, '').trim()
@@ -224,6 +233,7 @@ export class LiveVoiceSessionController {
     this.send({ type: 'session.close' })
     this.generation++
     this.ready = false
+    this.readerLocation = ''
     this.flush('user'); this.flush('assistant')
     this.stream?.getTracks().forEach(track => track.stop())
     this.dc?.close(); this.pc?.close()

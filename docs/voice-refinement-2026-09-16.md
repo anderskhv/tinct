@@ -26,7 +26,7 @@ shared reader voice failures, not a Job-specific content problem.
   Navigation honors the handler's resume-playback outcome. Tool results retain
   their response guidance, including research failure handling.
 
-Local checks: 184 test files / 2,331 tests passed; build and bundle verification
+Local checks: 184 test files / 2,332 tests passed; build and bundle verification
 passed. Added regressions cover Live/default versus explicit Realtime research
 and resume, sources, controls inventory, caption pauses and noise, stable UI,
 function results and navigation playback outcomes. A muted headless phone browser
@@ -61,3 +61,20 @@ restoration remains the behavior for a page-only return.
 Next action: deploy the playback correction, verify its exact bundle and smoke,
 and repeat the actual spoken playback acceptance. Synthetic acoustics do not
 certify every accent, background-noise condition or physical device.
+
+
+Further acceptance: `b5589981` deployed as `index-Zb5L2Ggh.js` through
+[deploy 35083342475](https://github.com/anderskhv/tinct/actions/runs/35083342475),
+with green exact-bundle verification and smoke. Fresh spoken resume called
+`resume_audiobook` with `play_audio:true` and the actual player entered playback;
+the final-bundle Keller interruption check also passed. A longer spoken control
+sequence exposed inconsistent later delegation despite successful speed and undo.
+
+The context writer was sending truncated full reader JSON (including the
+backend prompt in `visibleText`) into Live after each transcript update. This
+violates the frontend/backend boundary and can inject competing instructions.
+The correction sends only concise location facts to Live when location changes,
+and replaces the backend instructions with the current prompt/history instead
+of appending a duplicate context blob. A regression checks both separation and
+suppression of redundant frontend updates. Full tests/build/bundle gates pass;
+repeat the longer spoken control sequence after this correction deploys.

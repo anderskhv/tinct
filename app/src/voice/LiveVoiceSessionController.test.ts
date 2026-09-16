@@ -76,3 +76,22 @@ it.each([false, true])('uses explicit tool playback intent despite a garbled cap
   controller.handleEvent({ type: 'response.event', delegation_id: 'd1', event: { type: 'response.completed' } })
   await vi.waitFor(() => expect(resume).toHaveBeenCalledWith(anchor, playAudio))
 })
+
+
+it('keeps backend prompts out of Live context after transcript and location updates', () => {
+  const controller = new LiveVoiceSessionController({ onSnapshot: vi.fn(), onTurn: vi.fn() })
+  const sent: Array<any> = []
+  const context = { bookId: 'bible', bookTitle: 'The Bible', chapterLabel: 'Job 8', chapterNumber: 444, paragraphIndex: 0, visibleText: 'Old backend prompt' }
+  Object.assign(controller, { ready: true, dc: { readyState: 'open', send: (value: string) => sent.push(JSON.parse(value)) }, input: { context, instructions: context.visibleText } })
+  const prompt = 'You listen, reason and speak yourself. Full private conversation history.'
+  controller.updateContext({ ...context, visibleText: prompt }, prompt)
+  controller.updateContext({ ...context, visibleText: prompt + ' Updated turn.' }, prompt + ' Updated turn.')
+  const frontend = sent.filter(event => event.type === 'session.thinking.append')
+  expect(frontend).toHaveLength(1)
+  expect(frontend[0].content).toContain('Job 8')
+  expect(frontend[0].content).not.toContain('speak yourself')
+  expect(frontend[0].content).not.toContain('conversation history')
+  expect(sent.at(-1).session.delegation.responses.instructions).toBe(prompt + ' Updated turn.')
+  controller.updateContext({ ...context, paragraphIndex: 1, visibleText: prompt }, prompt)
+  expect(sent.filter(event => event.type === 'session.thinking.append')).toHaveLength(2)
+})

@@ -166,7 +166,9 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
   }, [])
 
   useEffect(() => {
-    controllerRef.current?.updateContext(buildContext())
+    const controller = controllerRef.current
+    if (controller instanceof LiveVoiceSessionController) controller.updateContext(buildContext(), options.instructions)
+    else controller?.updateContext(buildContext())
   }, [
     buildContext,
     options.bookId,
@@ -180,6 +182,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     options.readingObjective,
     options.chapterParagraphs,
     options.visibleText,
+    options.instructions,
     options.readerProfile,
   ])
 
