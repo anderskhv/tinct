@@ -1,12 +1,12 @@
 # Ulysses character package — IN PROGRESS
 
-**Episodes 1 to 13 of 18 are authored. The rest are not.** Status stays
+**Episodes 1 to 14 of 18 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole book is
 covered.
 
-Current state: 1,186 entities authored, 1,184 bound in the older edition and
-1,181 in the modern one, 5,623 and 5,663 exact mentions, 138 focused tests.
-Content revision 2026-09-16.13.
+Current state: 1,289 entities authored, 1,287 bound in the older edition and
+1,284 in the modern one, 5,944 and 5,982 exact mentions, 157 focused tests.
+Content revision 2026-09-16.14.
 
 ## What is hard about this book
 
@@ -1296,6 +1296,226 @@ misprint as a second alias so that a reader of the modern edition is still
 offered his card at 13:130; doctor O'Hare and O'Connor are bound by phrases that
 accept either spelling.
 
+## Editorial checks — episode 14 (*Oxen of the Sun*)
+
+The lying-in hospital in Holles street, 65 paragraphs and 113,740 characters of
+them, 103 new entities. The episode is written as a march through the history of
+English prose, and every pastiche renames the same eight men: they are *sir
+Leopold* and *young Stephen* in the Malory, *Mr Leopold* and *Mr Stephen* in the
+Bunyan and the Defoe, *Leop. Bloom* and *Stephen D.* in the Pepys diary, *Mr
+Canvasser Bloom* and *Mr Coadjutor Deacon Dedalus* in the parliamentary report,
+*Mr L. Bloom (Pubb. Canv.)* and *Mr S. Dedalus (Div. Scep.)* in the scientific
+one, and *Mr Cautious Calmer* and *Young Boasthard* in the allegory. **A large
+part of the work here was not finding people at all. It was deciding which of
+Joyce's disguises is a card and which is only a costume**: a name he writes as a
+name gets one — Le Fécondateur, Glory Allelujurum, Young Boasthard, Mr Ape
+Swillale — and a pastiche title that is only an office, Mr Canvasser Bloom or Mr
+Delegate Madden, is bound to the man and carries no card of its own.
+
+**1. Namesakes.** Four of the men at the table are named for the first time in
+this episode — Lynch, Madden, Crotthers and Punch Costello — and three of the
+four had to be keyed rather than aliased.
+
+- **Lynch** is *Lynch's castle* in the citizen's catalogue at 12:417 and the
+  mob's verb — *Lynch him!* — at 15:501, so every Lynch in this episode is
+  keyed. His christian name is worse: **Vincent** is Vincent O'Brien conducting
+  the Messiah at 15:547, the solicitors *Wright and Flint, Vincent and Gillett*
+  at 12:59, and the sons of S. Vincent in the procession of saints at 12:513.
+- **Madden** is *O'Madden Burke* eighteen times in episodes 7, 10 and 11, *Mr
+  Justice Madden* of the *Diary of Master William Silence* at 9:237, and **O.
+  Madden the jockey** who rides Sceptre at 7:193, 10:234 and again in this
+  episode at 14:45. The student is keyed to seven paragraphs. **14:59 is left
+  unbound**: *Madden back Madden's a maddening back* comes in the middle of the
+  drunks' racing talk and the text does not settle whether the man being backed
+  is the jockey or the student who lost five drachmas on him.
+- **Costello** needed no key, but his christian name did twice over. **Frank**
+  is Frank Harris on Shakespeare at 9:181 and Frank O'Hara the window-blind
+  supplier at 17:335; **Francis** is Francis Xavier's church, Francis street,
+  poor Francis of the friars, Francis Froedman, Francis Dennehy, Francis Wade
+  and Dr Francis Brady. That *Francis was reminding Stephen of years before when
+  they had been at school together in Conmee's time* is Punch Costello is
+  settled inside the book: the Defoe pastiche calls him *Frank (that was his
+  name)* and the Smollett one *honest Frank Costello*.
+- **Crotthers** is the only one of the four who occurs nowhere else and could be
+  aliased outright.
+
+Eight more names in this episode belong to somebody else somewhere in the book.
+**Malachi's almanac** at 14:29 is the prophecy of the archbishop of Armagh, not
+Buck Mulligan, so *Malachi* is suppressed in that paragraph and keyed to
+`saint-malachy` — the same alias that was suppressed at 3:67 for the high king
+and at 12:513 for the saint in the procession. **Leopold** at 14:48 is not Bloom
+but *Leopold the embryologist*, standing between Hertwig and Valenti in a list of
+seven. **Lusk** at 14:48 is another of the seven and not the village of the
+pasturelands at 12:26 or the place the turnkey's daughter got Fitzharris off from
+at 8:133. **Mina** at 14:49 is Mina Purefoy and not Mina Kennedy, who is *Mina*
+nine times in episode 11. **Charley** at 14:49 is the eldest Purefoy and not
+M'Coy at 6:355 or Charley MacDowell at 13:36; **Mamy** is a Purefoy and not Mamy
+Dillon at 18:7; **Joan** is Darby's and not Shakespeare's sister at 9:271.
+**Bass** is two different things in two adjacent paragraphs: *Bass's mare* at
+14:45 is **Mr W. Bass** who owns Sceptre, and *number one Bass bottled by Messrs
+Bass and Co at Burton-on-Trent* at 14:46 is the ale Bloom is staring at. The
+owner is keyed and the ale carries no card; the same key resolves *Bass's mare*
+at 12:347, which had been left unbound in episode 12, and *big bug Bass* at
+14:59.
+
+**And the one new Stephen.** *The ruffin cly the nab of Stephen Hand as give me
+the jady coppaleen* at 14:59 is not Stephen Dedalus. He is bound by phrase, and
+he is the only man in the book besides James Stephens and S. Stephen Protomartyr
+who answers to the name.
+
+**2. Person or not.** Cast: the seven at the table and the two who come in late
+— Dixon, Lynch, Madden, Crotthers, Punch Costello, Lenehan, Stephen, Bloom,
+Mulligan and Bannon; the hospital — Dr Andrew Horne, nurse Callan, nurse
+Quigley, the dead doctor O'Hare, and Mina and Theodore Purefoy with their nine
+children named one after another; the women and men in the talk — Kitty the
+wardmaid at the Mater, Bridie Kelly of Hatch street, Madame Grissel Steevens,
+the Ephesian matron, Hagar the Egyptian; and the professional names the
+pastiches reach for — Mr Austin Meldon, W. Lane the jockey, Mr W. Bass,
+Lafayette the photographer, Jenatzy the motor racer, Monsieur Poyntz the
+*marchand de capotes*, Mr Quinnell the printer, and the joke doctors O'Gargle,
+Rinderpest, Diet and Quiet.
+
+Not cast: *Horne's house* and *Horne's hall*, which are the premises and not the
+master, exactly as *Barney Kiernan's* is the premises everywhere but 12:188; *Mr
+Gavin Low's yard in Prussia street*; *Lambay Island*, *Omphalos*, *Mona Island*,
+*Alba Longa*, *Burke's of Denzille and Holles*; *Sceptre* and *Throwaway*, which
+are horses; *Bos Bovum*; *number one Bass*; the songs and pieces — *Staboo
+Stabella*, *Etienne chanson*, the *Rose of Castile*, the *colleen bawn*, *Mona,
+my true love*; and the books — the *Maid's Tragedy*, the *Metamorphoses*, the
+*Descent of Man*, Malachi's almanac.
+
+Three entries here are named concepts rather than men and are called that on
+their cards. **Phenomenon** is the allegory's name for the visible world: it is a
+land Boasthard finds himself in, but it is also set in parallel with *the god
+Bringforth* and it *has commanded them to do by the book Law*, so it acts twice
+and is cast. **The Minotaur** is a monster in a fable the outlandish delegate
+cites, not an animal of the book's world. **Pious**, **Chaste**, **Grace**,
+**Preservative**, **Offspring**, **Bird-in-the-Hand**, **King Delightful** and
+**Bringforth** are the agents of the Bunyan allegory — they tell, point, beguile,
+give and command. The allegory's *places* and *things* are not cast:
+Believe-on-Me, Two-in-the-Bush, Carnal Concupiscence, the bottle Holiness, the
+tube Understanding, the book Law, the spike Bitterness, the shield Killchild and
+the plague Allpox.
+
+**3. The seven Bunyan names, and the one that is not settled.** *Mr Cavil and Mr
+Sometimes Godly, Mr Ape Swillale, Mr False Franklin, Mr Dainty Dixon, Young
+Boasthard and Mr Cautious Calmer* is a list of seven for a table of eight, and
+six of the seven are fixed by sentences within two paragraphs of the list:
+
+| Bunyan name | The man | What fixes him |
+| --- | --- | --- |
+| Young Boasthard | Stephen | *he that had erst challenged to be so doughty waxed wan* at 14:26, after Lynch bids him have a care for his hellprate |
+| Mr Cautious Calmer | Bloom | *Master Bloom, at the braggart's side, spoke to him calming words* at 14:26 |
+| Mr Sometimes Godly | Madden | *Master Madden, being godly certain whiles* at 14:26 |
+| Mr Ape Swillale | Punch Costello | *like a curse of God ape* at 14:22, and *fell hard again to his yale* at 14:26 |
+| Mr False Franklin | Lenehan | *the franklin that hight Lenehan*, four times from 14:17 |
+| Mr Dainty Dixon | Dixon | the surname is in the name |
+| **Mr Cavil** | **not settled** | — |
+
+**Mr Cavil is left unattached.** Crotthers is the one man at the table the list
+does not otherwise account for, and Lynch is the one who *were in doubt that the
+world was now right evil governed* at 14:19. Either reading is available and the
+episode does not choose, so the card says so and no man is bound to it. This is
+the only identification in the episode that the text refuses.
+
+**4. Scriptural, mythological and pastiche figures.** **The Blessed Virgin** is
+bound three times — *so God's angel to Mary quoth* at 14:8, *by our Virgin
+Mother* at 14:19, and *our mighty mother and mother most venerable* in Stephen's
+mariolatry at 14:21 — and **Eve** twice in the same paragraph, as *the second
+Eve* and as *our grandam*. **Saint Peter** is *that blessed Peter on which rock
+was holy church for all ages founded* at 14:19 and *Pope Peter's but a pissabed*
+at 14:31; *Peter Piscator who lives in the house that Jack built* at 14:21 is
+bound by phrase so that the whole name takes one span. **Christ is not cast
+here, and he is not cast anywhere else in this package either**: *the vicar of
+Christ*, *Jesu our alther liege Lord*, *King Jesus*, *our Agenbuyer, Healer and
+Herd* and *the blood of the Lamb* carry no card. Fourteen episodes have now been
+authored without a card for him and episode 13 recorded the same thing — the
+release owner should treat it as a standing scope decision and tell this lane if
+it is the wrong one, because reversing it touches every episode at once.
+
+New gods and saints: **Thor** the hammerhurler, **Mahound** whose magic wrought
+the vessels, **Nobodaddy** — Blake's old god, and the same word Stephen used at
+9:306, so that mention is bound now too — **Lilith** patron of abortions,
+**Saint Ultan of Arbraccan**, **Saint Foutinus**, **Saint Swithin**, **Herod**,
+**father Cronion**, the goddesses **Partula** and **Pertunda**, **Mananaun**, and
+**Apollo**, whose alias also reaches back to *Apollo that was* at 6:377.
+**Virgilius** is Virgil in his medieval character as magician, which is the only
+character the sentence gives him. **Ovid** is named only as *the elegant Latin
+poet* whose genius handed the Minotaur down *in the pages of his Metamorphoses*,
+and is bound on the description.
+
+Two puns are bound as two names. *Master John Fletcher and Master Francis
+Beaumont* become, three sentences later, *Beau Mount and Lecher*; **Beau Mount**
+is keyed to Beaumont and **Lecher** to Fletcher. And **Malthus** is bound inside
+*Malthusiasts* at 14:54, the same way *Si* and *opold* were split inside
+*Siopold* in episode 11.
+
+**5. Ambiguous references, deliberately unbound.** *Isaacs* at 14:55 — *Righto,
+Isaacs, shove em out of the bleeding limelight* — is not the Rufus Isaacs K. C.
+of 17:222 and the text gives nothing else. *Timothy of the battered naggin* at
+14:55 is a drinking tag with no man behind it. *Namby Amby* at 14:60 is paired
+with *the buck*, who is Mulligan and is bound; Namby Amby is not. *The seer* and
+*the sage* at 14:41 are two voices in the ghost story and the paragraph names
+neither. *An outlandish delegate* at 14:40 is the one delegate in the report
+whose nationality is not given, where *the Caledonian envoy* in the same
+paragraph is plainly Crotthers and is bound. *The resident* whose chair stood
+vacant at 14:47 may be Horne or the resident medical officer. *His coz* at 14:29
+is Bannon's cousin in Mullingar and *the influential third cousin of Mr Purefoy
+in the Treasury Remembrancer's office* at 14:49 is a name the sentence withholds;
+both are left alone. *His mother* watching the lad on the urn at 14:51 is not
+named, and neither is the lad — he has a card of his own that says so. *Parallax*
+at 14:43 stays Bloom's word for a measurement, not a man. *The johnny in the
+black duds* at 14:64 could be Stephen in mourning or the man in the macintosh.
+
+Bound from description, where the episode does settle it: *the young blood in
+the primrose vest* at 14:36 and *the dressy young blade* at 14:38 are **Mulligan**,
+whose *primrose elegance* is named at 14:47; *the young surgeon* at 14:36 and
+*the smiling surgeon* at 14:53 are **Dixon**, who has just left the table to
+deliver the child; *the second female infirmarian* at 14:40 is **nurse Callan**;
+*the young poet* at 14:47 is **Stephen** and *that vigilant wanderer* in the same
+sentence is **Bloom**; *old Glory Allelujurum*, who asks after *Wilhelmina, my
+life*, is **Theodore Purefoy**, and the card is his own because the name is; *the
+head of the firm* at 14:42 is **Rudolph**; *the daughter of a gallant major* at
+14:39 is **Molly**; and *Mal M's brother* at 14:29 is the **Mulligan's brother**
+who has been down in Westmeath with the Bannons since episode 1.
+
+**6. Spot-read.** Twenty-four mentions under two seeds, twelve from each
+edition; all twenty-four correct. The adjacency sweep listed all 223 distinct
+name-to-card pairs in the episode and every one was read against its own
+sentence before the build. The dead-alias sweep
+found one — *Doctor O'Hare* matched nothing, because the text writes *O'Hare
+Doctor* — and the italic sweep for episode 14 is clean: no
+alias in the package loses a match to Gutenberg underscores anywhere in this
+episode.
+
+**Extend, do not duplicate.** The sweep also caught a card about to be written
+twice: **doctor O'Hare** already had one from episode 13, where Bloom remembers
+nurse Callan brushing his coat. Episode 14 tells us he is dead, so his card was
+extended rather than a second one made. The same rule applied to **medical Dick**
+and **medical Davy**, who had cards from the playbill in episode 9 but whose
+lowercase mentions in the rhyme were unbound in both episodes and are bound now;
+to **Dixon**, **Lenehan**, **nurse Callan**, **Dr Horne**, **Childs** and
+**M'Intosh**, whose cards this episode genuinely adds to; and to **Hamlet**,
+whose card said *the play* and now says plainly that it carries the prince as
+well, which is how episode 9 had been using it all along.
+
+**7. Both editions independently.** A paragraph-by-paragraph word comparison of
+all 65 paragraphs finds thirty-seven that differ in words, and **the modern edition of
+this episode changes no name at all and interpolates no gloss** — the first
+episode since episode 10 where that is true, after *Henry Flower (Bloom's pen
+name)* twice in episode 11, *the Citizen (the nationalist)* seventy times in
+episode 12 and *Howth (the headland)* four times in episode 13. What it does
+instead is unwind the archaism: *thou*, *thy* and *thee* to *you* and *your*
+fifty-six times of a hundred and forty-one edits in all, *hath* to *has*, *spake* to *spoke*, *nay* to *no*, *divers* to *various*,
+*sedulously* to *diligently*, *animadversions* to *critical remarks*,
+*encomiums* to *praise*, *whence*, *whither*, *thither* and *thence* to *where*
+and *there*. Every entity that binds in episode 14 binds in both editions.
+
+One rendering in that list is a mistranslation rather than a modernisation and is
+recorded below: *Smarts they still, sickness soothing: in twelve moons thrice an
+hundred* at 14:8 — three hundred deliveries in a year — becomes *They ease pain,
+soothing the sick: three hundred months*.
+
 ## Source defects — recorded, not repaired
 
 No edition byte was touched.
@@ -1321,15 +1541,25 @@ No edition byte was touched.
 | **The modern edition of episode 12 changes no name at all**, but modernises twenty-one paragraphs of archaic words (*sooth*, *straightway*, *whence*, *thou*, *doth*, *withal*, *hath*, *yea*, *saith*, *therein*, *thereof*, *whereof*, *divers*, *lo*, *thither*) and two sums (*quid* to *pound*, *bob* to *shillings*). | Not repaired, and nothing is lost: every entity that binds in episode 12 binds in both editions. |
 | **The modern edition of episode 13 corrupts four proper names and one abbreviation with a botched O-to-Oh replacement** — *doctor Oh'Hare* at 13:98, *Oh'Hara's tower* at 13:115, *poor man Oh'Connor* at 13:116, *Canon Oh'Hanlon* at 13:130 and *Care of P. Oh. Dolphin's Barn* at 13:110. The same edition prints Canon O'Hanlon correctly fifteen times in the same episode. | Not repaired — no edition byte is touched. Canon O'Hanlon carries `Oh’Hanlon` as a second alias, and doctor O'Hare and O'Connor are bound by phrases that accept either spelling, so a reader of the modern edition is still offered all three cards. The release owner should see this before integration: it is a text corruption, not a modernisation. |
 | **The modern edition interpolates *(the headland)* after *Howth*** at 13:107, 13:109, 13:111 and 13:114. | Not repaired, and not bound. This is the third gloss this edition adds to Joyce's sentences, after *Henry Flower (Bloom's pen name)* in episode 11 and *the Citizen (the nationalist)* in episode 12. |
+| **The modern edition of episode 14 changes no name and adds no gloss**, but one of its renderings loses the sense: *Smarts they still, sickness soothing: in twelve moons thrice an hundred* at 14:8 — three hundred deliveries in twelve months — becomes *They ease pain, soothing the sick: three hundred months*. | Not repaired. No card depends on it; recorded because it is a meaning change and not a modernisation, and because the release owner is tracking this edition's reliability. |
 
 ## Remaining work
 
-- **Episodes 14–18.** 2,459 paragraphs, and the two longest are 15 (*Circe*,
-  1,441 paragraphs) and 17 (*Ithaca*, 654). Episode 14 (*Oxen of the Sun*, 65
-  paragraphs) is next: the lying-in hospital in Holles street, nurse Callan and
-  Mrs Purefoy, both of whom are already on the page. Episode 18 (*Penelope*) is
-  eight paragraphs of Molly's monologue and will be the densest page-for-page in
-  the book.
+- **Episodes 15–18.** 2,394 paragraphs, and the two longest are 15 (*Circe*,
+  1,441 paragraphs) and 17 (*Ithaca*, 654). Episode 15 is next, and it is the
+  hardest in the book: a hallucinated night-town in which the dead, the
+  furniture and the soap all speak, everybody in the book comes back under a new
+  name, and every stage direction is in Gutenberg italics — which is exactly
+  where aliases stop reaching. Episode 18 (*Penelope*) is eight paragraphs of
+  Molly's monologue and will be the densest page-for-page in the book.
+- **Episode 14 left four threads for episode 15 and one for episode 16.** The
+  nine medical students walk past in a body at 15:619 and Punch Costello returns
+  as a hobgoblin at 15:601, so `Lynch` and `Madden` both need keys there; the
+  Kitty of 14:35 and 14:36 is very likely the Kitty Ricketts of the brothel, but
+  episode 14 does not say so and her card does not claim it; Nurse Callan and
+  Nurse Quigley burst through the ringkeepers together at 15:701. *Mr W. Bass*
+  is named in full at 16:226 — *Mr W. Bass's Sceptre* — and should be keyed when
+  episode 16 is read.
 - **Two names are already waiting in unread territory.** *Stephen* at 15:1133
   sits inside a stage direction in Gutenberg italics and will need a key when
   *Circe* is read; *Patrice* at 16:212 is **the faubourg Saint Patrice**, not
@@ -1355,7 +1585,7 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_ulysses.py --check`, then `python3 -m unittest
-discover -s books/characters -p 'test_*.py'` — 138 focused tests for this book so
+discover -s books/characters -p 'test_*.py'` — 157 focused tests for this book so
 far. The build takes about twenty minutes of CPU for both editions at this size;
 run it in the background and wait on the log. No edition changes, no network generation, no API spend: every card here was
 written in the authoring conversation and committed as a file.

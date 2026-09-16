@@ -6,7 +6,7 @@ it resolves some of Joyce's run-together words and normalises punctuation, but
 it does not rewrite the prose and it does not modernise the names. Where the two
 differ on a name the difference is recorded on the card.
 
-Episodes 1 to 13 are authored. The rest are not.
+Episodes 1 to 14 are authored. The rest are not.
 
 Scope: named persons — the Dublin cast, the figures they remember, and the
 writers, saints, heresiarchs and stage characters they quote. Peoples, places,
@@ -38,8 +38,8 @@ def add(id,name,body,aliases='',category='reference',kind='person'):
 # ========================= EPISODE 1 — Telemachus
 for row in [
 # --- the three in the tower
-('stephen','Stephen Dedalus','The young man who wakes in the Martello tower at Sandycove: a poet and a teacher, in mourning for his mother and unwilling to say why he would not kneel at her deathbed. He pays the rent of the tower and carries its key. Mulligan calls him Kinch; the older edition and the modern edition agree on every form of his name.','Stephen Dedalus|Stephen|Kinch','central'),
-('mulligan','Buck Mulligan','Malachi Mulligan, a medical student, who shares the tower with Stephen and opens the book shaving on its roof with a mock mass. He is Stephen’s friend and his tormentor in the same breath: he mimics him, borrows from him, and told his own mother that it was only Dedalus whose mother was beastly dead.','Buck Mulligan|Malachi Mulligan|Mulligan|Malachi','major'),
+('stephen','Stephen Dedalus','The young man who wakes in the Martello tower at Sandycove: a poet and a teacher, in mourning for his mother and unwilling to say why he would not kneel at her deathbed. He pays the rent of the tower and carries its key. Mulligan calls him Kinch; the older edition and the modern edition agree on every form of his name.','Stephen Dedalus|Stephen|Kinch|Bous Stephanoumenos|Stephaneforos','central'),
+('mulligan','Buck Mulligan','Malachi Mulligan, a medical student, who shares the tower with Stephen and opens the book shaving on its roof with a mock mass. He is Stephen’s friend and his tormentor in the same breath: he mimics him, borrows from him, and told his own mother that it was only Dedalus whose mother was beastly dead.','Buck Mulligan|Malachi Mulligan|Mulligan|Malachi|Malachias|Mullee','major'),
 ('haines','Haines','The Englishman staying in the tower, down from Oxford, collecting Irish folk sayings for a book. He raved all night about shooting a black panther, apologises for it in the morning, pays the milkwoman, and tells Stephen that England has treated Ireland rather unfairly and that history is to blame.','Haines','major'),
 # --- Stephen's dead mother, who is present in the episode without being named
 ('may-dedalus','Stephen’s mother','Dead a year, and the presence the episode turns on. Stephen would not kneel and pray at her bedside when she asked him, and she comes to him in a dream in her loose brown graveclothes smelling of wax and rosewood. Mulligan says the aunt thinks Stephen killed her. She is not named in this episode.','',),
@@ -76,7 +76,7 @@ for row in [
 ('wilde','Oscar Wilde','Whose Caliban Mulligan quotes at the cracked mirror, and whom he says the age has grown out of along with paradoxes.','Wilde'),
 ('caliban','Caliban','Whose rage at not seeing his face in a mirror Mulligan offers Stephen as the joke of the cracked lookingglass.','Caliban','reference','literary-figure'),
 ('shakespeare','Shakespeare','Whose grandfather, Mulligan says, Stephen proves by algebra to be Hamlet’s grandson — and who is himself the ghost of his own father.','',),
-('hamlet','Hamlet','The play Haines asks Stephen for his idea of, and whose Elsinore the tower and cliffs remind him of.','',),
+('hamlet','Hamlet','The play Haines asks Stephen for his idea of, and whose Elsinore the tower and cliffs remind him of. The card carries the prince as well as the play: the library argument names him constantly, and in episode 14 he is the prince to whom Hamlet his father showeth no blister of combustion.',''),
 ('thomas-aquinas','Thomas Aquinas','And the fiftyfive reasons he has made out to prop the theory up, which Mulligan says he is not equal to before a few pints. Stephen calls him Aquinas tunbelly on the strand, frate porcospino, and quotes his morose delectation.','Thomas Aquinas|Aquinas'),
 ('loyola','Loyola','Whom Mulligan tells Stephen to chuck and come down: the Sassenach wants his morning rashers.','Loyola'),
 ('fergus','Fergus','Who rules the brazen cars in the song Mulligan drones down the staircase, and which Stephen sang alone in the house at his mother’s open door.','',),
@@ -268,7 +268,7 @@ for row in [
 ('the-postmistress','The postmistress','Who searches the pigeonhole at Westland row and hands Bloom back his card with a letter, while he holds his rolled newspaper against his nostrils and looks at the recruiting poster.','',),
 # --- the people he meets and passes
 ('mccoy-wife','Mrs M’Coy','Whose engagement is not settled yet: a reedy freckled soprano with a cheeseparing nose, nice enough for a little ballad. Her husband brings her up so as to borrow a valise, which is the wheeze Bloom did not fall for.','',),
-('bantam-lyons','Bantam Lyons','Who takes Bloom’s newspaper at his armpit with yellow blacknailed fingers to look up the French horse running at Ascot, hears him say twice that he was going to throw it away, and speeds off towards Conway’s corner to back Throwaway. Bloom never learns what he has said.','Bantam Lyons','major'),
+('bantam-lyons','Bantam Lyons','Who takes Bloom’s newspaper at his armpit with yellow blacknailed fingers to look up the French horse running at Ascot, hears him say twice that he was going to throw it away, and speeds off towards Conway’s corner to back Throwaway. Bloom never learns what he has said.','Bantam Lyons|Bantam','major'),
 ('bob-doran','Bob Doran','On one of his periodical bends, in Conway’s with Bantam Lyons when M’Coy was there.','',),
 ('hoppy-holohan','Hoppy Holohan','Who told M’Coy about the funeral, and came into Conway’s for a wet. You know Hoppy?','Hoppy Holohan|Holohan|Hoppy'),
 ('corny-kelleher','Corny Kelleher','Who Bloom daresays bagged the funeral job for O’Neill’s, singing with his eyes shut. Police tout, he adds, and goes off into the tooraloom song. He manages the undertaker’s, and turns up wherever the day’s business is.','Kelleher','major'),
@@ -373,14 +373,14 @@ for row in [
 ('mulcahy-widow','Mulcahy’s widow','Who had the statue put up.','',),
 ('major-gamble','Major Gamble','Who calls Mount Jerome his garden — the protestant cemetery on the other side of the city.','Major Gamble'),
 ('spurgeon','Spurgeon','Of the caretaker’s other joke, the one about the bulletin: Spurgeon went to heaven 4 a.m. this morning. 11 p.m. (closing time). Not arrived yet. Peter.','Spurgeon'),
-('macintosh','M’Intosh','The thirteenth man at the graveside, a lankylooking galoot in a macintosh who was not in the chapel and whom nobody knows. Bloom says the word for the coat; Hynes writes it down as a name, and it is the name he keeps for the rest of the book.','',),
+('macintosh','M’Intosh','The thirteenth man at the graveside, a lankylooking galoot in a macintosh who was not in the chapel and whom nobody knows. Bloom says the word for the coat; Hynes writes it down as a name, and it is the name he keeps for the rest of the book. Outside Burke’s the drunks give him three more: Dusty Rhodes, Bartle the Bread, and Walking Mackintosh of lonely canyon. That, sir, was once a prosperous cit. Slung her hook, she did. Here see lost love.',''),
 ('louis-byrne','Louis Byrne','Under whom M’Coy got the job in the morgue after the Freeman.','Louis Byrne'),
 ('joe-cuffe','Cuffe','Who sold the cattle at about twentyseven quid each. Bloom worked for him once, and was given the order of the boot for it.','',),
 ('james-mccann','James M’Cann','Whose hobby is developing the waterways — to row me o’er the ferry. Not the McCann of Stephen’s list of debts.','James M’Cann|James M\'Cann'),
 ('wren','Wren','The auctioneer at whose sale there was an old crock of a safety bicycle the other day, but a lady\u2019s \u2014 in Bloom\u2019s plan for cycling down the canal to see Milly. The modern edition drops the sentence.','Wren'),
 ('fogarty','Fogarty','Our friend Fogarty, whom Mr Power wonders about and Mr Dedalus says to ask Tom Kernan about: though lost to sight, to memory dear — which means Kernan owes him money.','Fogarty'),
 ('jimmy-geary','Jimmy Geary','The sexton, before whose door an old tramp sat emptying the dirt and stones out of his boot. After life’s journey.','Jimmy Geary'),
-('childs','Childs','Murdered in the last house of the gloomy gardens. His brother was tried for it and Seymour Bushe got him off; the crown had no evidence, only circumstantial. A later episode gives the name: Samuel Childs.','Childs'),
+('childs','Childs','Murdered in the last house of the gloomy gardens. His brother was tried for it and Seymour Bushe got him off; the crown had no evidence, only circumstantial. A later episode gives the name: Samuel Childs. The scientific report calls it the fratricidal case known as the Childs Murder, rendered memorable by the impassioned plea of Mr Advocate Bushe; and in Mulligan’s ghost story Haines is the third brother, whose real name was Childs.','Childs'),
 ('seymour-bushe','Seymour Bushe','The K.C. who got him off, and whose polished periods the newspaper men remember in episode 7.','Seymour Bushe|Bushe'),
 ('mrs-riordan','Mrs Riordan','Who died in Our Lady’s Hospice for the dying: her feeding cup, and the screen round her bed for her to die. Molly knew her at the City Arms hotel.','Mrs Riordan'),
 ('mesias','Mesias','The tailor who is to turn Bloom’s grey suit. One in a million, Bloom calls him later. Episode 11 gives him his full style: George Robert Mesias, tailor and cutter, of number five Eden quay, who made the indigoblue serge suit of the young gentleman in the hackney car.','Mesias'),
@@ -406,7 +406,7 @@ for row in [
 ('machugh','Professor MacHugh','Unshaven and blackspectacled, eating water biscuits by the window, who teaches the blatant Latin language and would rather profess Greek. He jeers at Dan Dawson’s speech, sets Rome’s cloacal obsession against the radiance of the intellect, and recites John F Taylor’s speech from memory.','MacHugh','major'),
 ('jj-omolloy','J. J. O’Molloy','Cleverest fellow at the junior bar he used to be, with a hectic flush and practice dwindling, turning the pink pages of the file and asking the editor for money he does not get. He quotes Seymour Bushe on the Moses of Michelangelo. The others call him Jack.','J. J. O’Molloy|J. J. O\'Molloy|O’Molloy|O\'Molloy','major'),
 ('myles-crawford','Myles Crawford','The editor: a scarlet beaked face crested by a comb of feathery hair, bold blue eyes, in and out of his sanctum all afternoon, jingling his keys, declaiming, and pretty well on. He tells Stephen to write something with a bite in it, and sends Keyes a message that will not go into a newspaper.','Myles Crawford','major'),
-('lenehan','Lenehan','Who comes out of the inner office with Sport’s tissues, gives the Gold cup to Sceptre with O. Madden up, lights everybody’s cigarettes, and will not be put off his riddle: what opera resembles a railwayline? The Rose of Castile. Rows of cast steel. In episode 11 he waits in the Ormond for Boylan with impatience, peeps round the sandwichbell at Miss Kennedy, drones his solfa fable of the fox and the stork at her in vain, and coaxes Miss Douce into sounding her garter: Sonnez la cloche! O do! There’s no-one. Then Boylan walks out on him.','Lenehan','major'),
+('lenehan','Lenehan','Who comes out of the inner office with Sport’s tissues, gives the Gold cup to Sceptre with O. Madden up, lights everybody’s cigarettes, and will not be put off his riddle: what opera resembles a railwayline? The Rose of Castile. Rows of cast steel. In episode 11 he waits in the Ormond for Boylan with impatience, peeps round the sandwichbell at Miss Kennedy, drones his solfa fable of the fox and the stork at her in vain, and coaxes Miss Douce into sounding her garter: Sonnez la cloche! O do! There’s no-one. Then Boylan walks out on him. In episode 14 he is the franklin that hight Lenehan, prompt each when to pour them ale, mean in fortunes and hankering about the coffeehouses; he loses on Sceptre with Madden, praises W. Lane’s riding, and tells the idyll of his queen and the chestnuts in bloom.','Lenehan','major'),
 ('omadden-burke','Mr O’Madden Burke','Tall in copious grey of Donegal tweed, who brings Stephen in — Youth led by Experience visits Notoriety — and speaks in the manner of a man quoting himself. They went forth to battle, but they always fell.','O’Madden Burke|O\'Madden Burke','major'),
 ('the-newsboy','The newsboy','Seized by the collar as the others scamper down the steps: it wasn’t me, sir, it was the big fellow shoved me, sir. He was waiting for the racing special.','',),
 ('pat-farrell','Pat Farrell','The big fellow who shoved him, named by the boy and pointed out round the doorframe.','Pat Farrell'),
@@ -507,9 +507,9 @@ for row in [
 ('lots-wife','Lot’s wife','Who looked back and was turned to a pillar of salt, in the two words Joyce gives the thought about women’s curiosity: Pillar of salt. Only the modern edition supplies the name, which is why she is unreachable in the older text.','',),
 ('barefoot-arab','The barefoot arab','Standing over the grating outside Harrison’s breathing in the noonreek of mockturtle and jampuffs. Deaden the gnaw of hunger that way, Bloom thinks. Pleasure or pain is it?','',),
 ('luke-doyle','Luke Doyle','In whose house at Dolphin’s Barn the charades were played, long ago, where Bloom first knew Josie Powell. U. p: up comes back to him out of the same evening.','Luke Doyle'),
-('mina-purefoy','Mina Purefoy','Three days bad in the lying-in hospital in Holles street, with a houseful of kids at home and a very stiff birth, the nurse told Mrs Breen. Bloom asks after her under the wrong name, Mrs Beaufoy, because Philip Beaufoy of the prize titbit is in his head; and she stays in his head for the rest of the episode.','Mina Purefoy|Mrs Purefoy'),
-('theodore-purefoy','Theodore Purefoy','The Methodist husband. Method in his madness: saffron bun and milk and soda in the educational dairy, eating with a stopwatch, thirtytwo chews to the minute, and hardy annuals he presents her with. Bloom saw him marching bareheaded out at the Three Jolly Topers with his eldest boy carrying one in a marketnet.','Theodore Purefoy'),
-('dr-horne','Dr Horne','Master of the lying-in hospital in Holles street, who got Mrs Purefoy in. Bloom hears the name from Mrs Breen and keeps it with the three days and the forceps.','Dr Horne'),
+('mina-purefoy','Mina Purefoy','Three days bad in the lying-in hospital in Holles street, with a houseful of kids at home and a very stiff birth, the nurse told Mrs Breen. Bloom asks after her under the wrong name, Mrs Beaufoy, because Philip Beaufoy of the prize titbit is in his head; and she stays in his head for the rest of the episode.','Mina Purefoy|Mrs Purefoy|Wilhelmina'),
+('theodore-purefoy','Theodore Purefoy','The Methodist husband. Method in his madness: saffron bun and milk and soda in the educational dairy, eating with a stopwatch, thirtytwo chews to the minute, and hardy annuals he presents her with. Bloom saw him marching bareheaded out at the Three Jolly Topers with his eldest boy carrying one in a marketnet.','Theodore Purefoy|Doady'),
+('dr-horne','Dr Horne','Master of the lying-in hospital in Holles street, who got Mrs Purefoy in. Bloom hears the name from Mrs Breen and keeps it with the three days and the forceps. Episode 14 gives him his first name and his house: of that house A. Horne is lord, seventy beds keeps he there, and the scientific report names him Dr A. Horne (Lic. in Midw., F. K. Q. C. P. I.), the able and popular master of the National Maternity Hospital, 29, 30 and 31 Holles street. The nurse keeps the wassailers quiet against lord Andrew coming. Horne’s house and Horne’s hall are the premises and carry no card.','Dr Horne'),
 ('farrell','Cashel Boyle O’Connor Fitzmaurice Tisdall Farrell','The bony form who strides along the curbstone staring through a heavystringed glass, a tiny hat gripped tight as a skullpiece on his head, a dustcoat and stick and umbrella dangling from his arm. He always walks outside the lampposts. He has enough of them, Mrs Breen says of the names.','Cashel Boyle O’Connor Fitzmaurice Tisdall Farrell|Cashel Boyle O\'Connor Fitzmaurice Tisdall Farrell'),
 ('alf-bergan','Alf Bergan','One of the two Bloom would take his oath wrote the U. p: up postcard for a lark in the Scotch house. Be a feast for the gods, he thinks, to see Breen take it round to a solicitor.','Alf Bergan'),
 # --- the Irish Times, the vicereine's paper, the police
@@ -534,7 +534,7 @@ for row in [
 ('horsepoliceman','The horsepoliceman','Who got a run for his money the day Joe Chamberlain was given his degree in Trinity, his horse’s hoofs clattering after Bloom down Abbey street until he came a wallop on the cobblestones. Must have cracked his skull. Bloom dived into Manning’s and was not souped.','',),
 ('joe-chamberlain','Joe Chamberlain','Given his degree in Trinity, with the medicals and the Trinity jibs out for trouble and the students yelling that they will hang him on a sourapple tree. Up the Boers.','Joe Chamberlain'),
 ('de-wet','De Wet','The Boer general the students cheer in the same breath as they threaten to hang Joe Chamberlain. Three cheers for De Wet: the war is two years over and the slogans are still on the street.','De Wet'),
-('dixon','Dixon','The young medical who dressed the bee sting for Bloom in the Mater, and is now in Holles street where Mrs Purefoy is. Wheels within wheels.','Dixon'),
+('dixon','Dixon','Who dressed the bee sting for Bloom in the Mater and is now at Horne’s: Dixon yclept junior of saint Mary Merciable’s, the young surgeon who leaves the table to deliver Mina Purefoy and comes back to rebuke the company for reviling Miss Callan and the profession both. Mr Dainty Dixon in the Bunyan list, and the one the students follow out to Burke’s.','Dixon|Dix'),
 ('harvey-duff','Harvey Duff','The informer of Boucicault’s play, whose name has become the thing itself: Corny Kelleher he has Harvey Duff in his eye. The modern edition glosses it — a Harvey Duff, an informer — where Joyce lets the name carry it.','Harvey Duff'),
 ('mary-slavey','Mary','The slavey at the backdoor in the scene Bloom runs off in his head, ironing with her fat arms while the plainclothes man works round to what the young master was saying. Are those yours, Mary? There are great times coming, Mary. Ah, gelong with your great times coming.','',),
 ('turnkey-daughter','The turnkey’s daughter','Who got James Stephens out of Richmond, and off from Lusk, while he put up in the Buckingham Palace hotel under their very noses.','',),
@@ -740,8 +740,8 @@ for row in [
 ('duke-of-rutland','The present duke','Whom Herr Bleibtreu is going to visit and prove to that his ancestor wrote the plays. It will come as a surprise to his grace.','',),
 ('fresh-nelly','Fresh Nelly','One of the two gonorrheal ladies Mulligan says he found the bard Kinch studying the Summa contra Gentiles in the company of; and a character in the play he conceives on the stairs.','Fresh Nelly|FRESH NELLY'),
 ('rosalie','Rosalie','The coalquay whore. The other one.','Rosalie|ROSALIE'),
-('medical-dick','Medical Dick','Of the rhyme Mulligan pianos out in the middle of the brothers scene — then outspoke medical Dick to his comrade medical Davy — and of the playbill on the stairs: two birds with one stone.','MEDICAL DICK'),
-('medical-davy','Medical Davy','His comrade.','MEDICAL DAVY'),
+('medical-dick','Medical Dick','Of the rhyme Mulligan pianos out in the middle of the brothers scene — then outspoke medical Dick to his comrade medical Davy — and of the playbill on the stairs: two birds with one stone. The drunks strike the same ballad up outside Burke’s.','MEDICAL DICK|medical Dick'),
+('medical-davy','Medical Davy','His comrade, in the library and again outside Burke’s.','MEDICAL DAVY|medical Davy'),
 ('toby-tostoff','Toby Tostoff','A ruined Pole. First on the playbill of Everyman His Own Wife, a national immorality in three orgasms, by Ballocky Mulligan.','TOBY TOSTOFF'),
 ('crab','Crab','A bushranger. Second on it.','CRAB'),
 ('aengus','Ængus','Wandering Ængus of the birds, whom Mulligan calls Stephen on the way out, and whom Stephen has already claimed on the portico: here I watched the birds for augury.','',),
@@ -1337,8 +1337,8 @@ for row in [
 ('archangel-gabriel','The archangel Gabriel','To whom Our Blessed Lady said be it done unto me according to Thy Word, in what Father Conroy told Gerty in confession.','archangel Gabriel'),
 # --- the people in Bloom's head on the strand
 ('doctor-fell','Doctor Fell','Of the rhyme — I do not love thee, Doctor Fell, the reason why I cannot tell — which is Gerty’s case against her father’s face.','Doctor Fell'),
-('nurse-callan','Nurse Callan','Of the lying-in hospital in Holles street, who used to look over some nights when Molly was in the Coffee Palace, and whom Bloom wonders is there still.','nurse Callan'),
-('doctor-ohare','Doctor O’Hare','The young doctor at the hospital whose coat Bloom noticed nurse Callan brushing. The modern edition misprints him as doctor Oh’Hare.','',),
+('nurse-callan','Nurse Callan','Of the lying-in hospital in Holles street, who used to look over some nights when Molly was in the Coffee Palace, and whom Bloom wonders is there still. She is there: the watcher in ward wary who undoes the gate to him, tells him O’Hare Doctor is in heaven, and enters the commons to tell young Mr Dixon that he is needed in the ward. The scientific report calls her the second female infirmarian; Costello and Lynch make free with her name the moment she is out of the room, and Dixon comes back and stops them.','nurse Callan'),
+('doctor-ohare','Doctor O’Hare','The young doctor at the hospital whose coat Bloom noticed nurse Callan brushing. The modern edition misprints him as doctor Oh’Hare. Episode 14 answers Bloom at the door: O’Hare Doctor is in heaven, died in Mona Island of bellycrab three year agone come Childermas, with masspriest to shrive him, holy housel and sick men’s oil to his limbs. The nun rues death for friend so young.','O’Hare Doctor'),
 ('mrs-duggan','Mrs Duggan','Who told Bloom in the City Arms about the husband rolling in drunk with the stink of the pub off him like a polecat, and asking in the morning was I drunk last night.','Mrs Duggan'),
 ('mrs-clinch','Mrs Clinch','Whom Bloom nearly spoke to in the dark of the Appian way, thinking she was somebody else.','Mrs Clinch'),
 ('wilkins','Wilkins','Who drew a picture of Venus in the high school with all his belongings on show, and whose wife Bloom thinks has her work cut out for her.','Wilkins'),
@@ -1368,12 +1368,143 @@ for row in [
 ('miss-cummins','Miss Cummins','Author of _The Lamplighter_ and _Mabel Vaughan_ and other tales, in which Gerty read about turning a freewheel at the lamp. Not the Cummins of Francis street where J. J. O’Molloy pawned his watch.','Miss Cummins'),
 ]:add(*row)
 
+# ========================= EPISODE 14 — Oxen of the Sun
+for row in [
+# --- the hospital in Holles street
+('nurse-quigley','Nurse Quigley','Who bids them hist from the door when Punch Costello attacks his bawdy catch, an ancient and a sad matron of a sedate look and christian walking, in habit dun beseeming her megrims and wrinkled visage. Her mind was to have all orderly against lord Andrew came. Not Mrs Quigley of the Dignam parlour.','nurse Quigley'),
+('eblana-woman','The woman of Eblana','Who died in Horne’s house a matter of some year agone, and over whose case all the leeches and pothecaries had taken counsel the self night next before her death. Young Madden tells it: the husband would not let her death, and she and the babe both died.','',),
+('eblana-husband','Her goodman husband','Who by rede of palmer and bedesman, and for a vow he had made to Saint Ultan of Arbraccan, would not let her death — and at whom the whole table cries out that the wife should live and the babe die.','',),
+# --- the scholars at the board
+('lynch','Vincent Lynch','A scholar of medicine at Horne’s table, called Vin. Lynch and a Scots fellow in the diary pastiche though the Scotchman is Crotthers. He doubts that the world is right governed, bids Stephen have a care to flout and witwanton when the thunder comes, boasts of his Kitty who is wardmaid at the Mater, and argues that natality and mortality alike obey a law of numeration as yet unascertained.','',),
+('madden','William Madden','A scholar of medicine, called Will. Madden and Mr Delegate Madden and Mr T. Lenehan’s fellow loser on the Gold cup. He maintains it were hard the wife should die, is godly certain whiles, and knocks the braggart on the ribs upon that crack of doom. He lost five drachmas on Sceptre for a whim of the rider’s name.','',),
+('crotthers','J. Crotthers','The Scot of the company, one from Alba Longa, at the foot of the table in his striking Highland garb with his face glowing from the briny airs of the Mull of Galloway. He sings young Malachi’s praise of the unicorn, reports old Glory Allelujurum’s call after Wilhelmina, and lays most infant deaths to neglect, criminal abortion and infanticide.','Crotthers'),
+('costello','Punch Costello','Frank Costello, the eccentric of the table and the drunkest man in it, who dings with his fist on the board and would sing _Staboo Stabella_ about a wench put in pod in Almany. Nurse Quigley silences him; the others revile him for a chuff and a losel and a curse of God ape. He says he would dishonest any woman whoso she were, and swears he was bred up most particular to honour thy father and thy mother.','Punch Costello|Costello|Punch'),
+('costello-father','Costello’s father','A headborough, who could ill keep his son to school to learn his letters and the use of the globes, matriculated him at the university to study the mechanics, and shed a pint of tears as often as Frank came home with naked pockets. The boy took the bit between his teeth like a raw colt and was more familiar with the justiciary and the parish beadle than with his volumes.',''),
+]:add(*row)
+for row in [
+# --- the Bunyan pastiche: the seven at the table under allegorical names
+('young-boasthard','Young Boasthard','Stephen under his Bunyan name. He is the one who had erst challenged to be so doughty and waxed wan at the thunder; he carries in his bosom a spike named Bitterness which could not by words be done away, and he will not accept to die like the rest and pass away.','Boasthard'),
+('cautious-calmer','Mr Cautious Calmer','Bloom under his Bunyan name, from the calming words he spoke at the braggart’s side: that it was no other thing but a hubbub noise, the discharge of fluid from the thunderhead, and all of the order of a natural phenomenon. Bare Calmer is keyed, because calmer is also an ordinary word in this book.','Cautious Calmer'),
+('mr-dainty-dixon','Mr Dainty Dixon','Dixon in the Bunyan list of the company at commons in Manse of Mothers.','Dainty Dixon'),
+('mr-false-franklin','Mr False Franklin','Lenehan, who is the franklin that hight Lenehan through the whole of the middle of the episode, in the same list.','False Franklin'),
+('mr-sometimes-godly','Mr Sometimes Godly','Madden, who was being godly certain whiles two paragraphs before the list is read out.','Sometimes Godly'),
+('mr-ape-swillale','Mr Ape Swillale','Punch Costello, whom the table called a curse of God ape for his drunken drool and who fell hard again to his yale when the thunder had passed.','Ape Swillale'),
+('mr-cavil','Mr Cavil','The seventh of the Bunyan company, and the one the episode does not settle. Six of the seven names are fixed by the sentences around them; this one is not, and both Lynch, who was in doubt that the world was now right evil governed, and Crotthers, who is otherwise absent from the list, answer to it. No man is bound to this card.','',),
+# --- the figures of the allegory itself
+('bringforth','Bringforth','The god whose voice is in the thunderclap, and whose commandment to bring forth the company have spilled and abused.','Bringforth','reference','literary-figure'),
+('phenomenon','Phenomenon','The land Boasthard finds himself in, where he must for a certain one day die, and the power that commands men to make shows with wives by the book Law.','','reference','literary-figure'),
+('bird-in-the-hand','Bird-in-the-Hand','The whore of an eyepleasing exterior who beguiled Boasthard wrongways from the true path with her flatteries — Ho, you pretty man, turn aside hither — and had him in her grot named Two-in-the-Bush, or, by some learned, Carnal Concupiscence.','Bird-in-the-Hand','reference','literary-figure'),
+('king-delightful','King Delightful','To whom belongs the land called Believe-on-Me, the land of promise where there is no death and no birth neither wiving nor mothering.','king Delightful','reference','literary-figure'),
+('pious','Pious','Who had told Boasthard of that land.','','reference','literary-figure'),
+('chaste','Chaste','Who had pointed him to the way to it.','Chaste','reference','literary-figure'),
+('grace','Grace','Who was not there to find the bottle Holiness that Boasthard lived withal in his youth.','','reference','literary-figure'),
+('preservative','Preservative','Who had given the company a stout shield of oxengut, so that they cared nothing for the foul plague Allpox nor for the monsters.','','reference','literary-figure'),
+('offspring','Offspring','The wicked devil they take no hurt from, by virtue of that same shield, which was named Killchild.','Offspring','reference','literary-figure'),
+]:add(*row)
+for row in [
+# --- the Purefoy household
+('glory-allelujurum','Glory Allelujurum','What the students call Theodore Purefoy: the elderly man with dundrearies who was round again today, preferring through his nose a request to have word of Wilhelmina, my life. Crotthers extols the virile potency of the old bucko that could still knock another child out of her.','Glory Allelujurum'),
+('mortimer-purefoy','Mortimer Edward Purefoy','The bouncing boy born at the end of the vigil, a Purefoy if ever there was one, with the true Purefoy nose. He is to be christened after the influential third cousin of Mr Purefoy in the Treasury Remembrancer’s office, Dublin Castle.','Mortimer Edward'),
+('charley-purefoy','Charley','First of the Purefoy children grouped in Mina’s imagination about the bedside. Bare Charley is M’Coy in episode 6 and Charley MacDowell in episode 13, so this one is keyed.',''),
+('mary-alice-purefoy','Mary Alice','The second.','Mary Alice'),
+('frederick-albert-purefoy','Frederick Albert','The third, and the one who did not live: the text puts him in the row with _if he had lived_ after his name.','Frederick Albert'),
+('mamy-purefoy','Mamy','The fourth.','',),
+('budgy-purefoy','Budgy','The fifth, christened Victoria Frances.','Budgy|Victoria Frances'),
+('tom-purefoy','Tom','The sixth.','',),
+('violet-purefoy','Violet Constance Louisa','The seventh.','Violet Constance Louisa'),
+('bobsy-purefoy','Bobsy','Darling little Bobsy, the eighth, called after lord Bobs of Waterford and Candahar.','Bobsy'),
+('lord-bobs','Lord Bobs','Lord Roberts of Waterford and Candahar, our famous hero of the South African war, whom the youngest Purefoy but one is named for.','lord Bobs'),
+]:add(*row)
+for row in [
+# --- Dublin people this episode names for the first time
+('stephen-hand','Stephen Hand','Who gave the drunk speaker the jady coppaleen: he struck a telegramboy, opened the paddock wire from big bug Bass to the depot, shoved him a joey and grahamised it — mare on form, hot order. Not Stephen Dedalus, and the only other Stephen in the book.','Stephen Hand'),
+('bridie-kelly','Bridie Kelly','The poor waif of a drizzling night in Hatch street, hard by the bonded stores, whom Bloom had for a bare shilling and her luckpenny: his first night, the bridenight. He will never forget the name. In terror she flees away through the murk, the bride of darkness, a daughter of night.','Bridie Kelly|Bridie'),
+('austin-meldon','Mr Austin Meldon','The noted physician, whose case of a wolf in the stomach Dixon offers as the alternative explanation of Mulligan’s incipient ventripotence.','Austin Meldon'),
+('doctor-ogargle','Doctor O’Gargle','Who, Lynch says, chucks the nuns under the chin at the Mater hospice — the bedside manner it is that they use there. He had it from his Kitty, who has been wardmaid there any time these seven months.','O’Gargle'),
+('father-cantekissem','Father Cantekissem','Dear little Father Cantekissem, whom the young blood in the primrose vest is as bad as, feigning a womanish simper with immodest squirmings of his body.','Cantekissem'),
+('doctor-rinderpest','Doctor Rinderpest','The bestquoted cowcatcher in all Muscovy, whom the emperor’s chief tailtickler is sending over with a bolus or two of physic to take the bull by the horns. Stephen invents him out of the cattle disease of Mr Deasy’s letter.','Doctor Rinderpest'),
+('kitty','Kitty','Lynch’s girl, wardmaid at the Mater hospice these seven months, who told him today that she would dance in a deluge before ever she would starve in an ark of salvation, and whose philosophy of the two things the original garb is fittest for is cut short by a bell.','',),
+('monsieur-poyntz','Monsieur Poyntz','A _marchand de capotes_, from whom Lynch can have for a _livre_ as snug a cloak of the French fashion as ever kept a lady from wetting.','Monsieur Poyntz|Poyntz'),
+('w-lane','W. Lane','A whacking fine whip, Lenehan says: four winners yesterday and three today. Mount him on the camel or the boisterous buffalo and the victory in a hack canter is still his. He rode Throwaway past Sceptre in the straight.','W. Lane'),
+('w-bass','Mr W. Bass','Owner of Sceptre, the mare Lenehan had poor luck with. Big bug Bass, whose paddock wire to the depot Stephen Hand is said to have opened. Not the number one Bass bottled by Messrs Bass and Co at Burton-on-Trent that Bloom is staring at across the table.','',),
+('lafayette','Lafayette','Dublin’s premier photographic artist, of Westmoreland street, whose inspired pencil has limned for ages yet to come the voluptuous loveliness whose image no lure or peril or threat or degradation can efface from Bloom’s heart.','Lafayette'),
+('jenatzy','Jenatzy','Who, one of the drunks will lay two to one, licks him ruddy well hollow — a motor racer, in a paragraph of live axles and gradients one in nine.','Jenatzy'),
+('our-lady-of-the-cherries','Our Lady of the Cherries','The darker friend of Floey, Atty and Tiny at Roundtown, with a comely brace of cherries pendent from an ear bringing out the foreign warmth of her skin, and with I know not what of arresting in her pose. The episode gives her this name and no other.','Our Lady of the Cherries'),
+('urn-lad','The lad on the urn','A lad of four or five in linseywoolsey standing on the grey urn at Roundtown, secured by a circle of girlish fond hands, frowning a little with a perhaps too conscious enjoyment of the danger, and glancing at whiles towards his mother on the _piazzetta_. The episode does not name him.','',),
+]:add(*row)
+for row in [
+# --- the fable of the Irish bull
+('farmer-nicholas','Farmer Nicholas','The bravest cattlebreeder of them all, who sent the bull to our island with an emerald ring in his nose, and who, being a eunuch, had first had him properly gelded by a college of doctors who were no better off than himself. The lord Harry calls him an old whoremaster that kept seven trulls in his house.','farmer Nicholas'),
+('lord-harry','The lord Harry','Farmer Nicholas’s cousin german, who found in himself a wonderful likeness to a bull, read in a blackthumbed chapbook that he was a lefthanded descendant of _Bos Bovum_, put his head into a cow’s drinkingtrough before all his courtiers and came out with his new name. He could learn no word of the bulls’ language but the first personal pronoun, which he chalked on rocks and teahouse tables and bales of cotton.','lord Harry|Lord Harry'),
+# --- Mulligan's project, and the types of the Restoration pastiche
+('le-fecondateur','Le Fécondateur','Mulligan in the French of the Sterne pastiche, tripping in with his half bottle cracked _avec lui_ in a circle of the best wits of the town, and his authority on the rain in Cape Horn.','Le Fécondateur'),
+('sir-fopling-popinjay','Sir Fopling Popinjay','One of the two idlers Mulligan means to withdraw from the round of idle pleasures of, in laying out his national fertilising farm.','Fopling Popinjay','reference','literary-figure'),
+('sir-milksop-quidnunc','Sir Milksop Quidnunc','The other.','Milksop Quidnunc','reference','literary-figure'),
+('mr-quinnell','Mr Quinnell','At whose shop Mulligan had his pasteboard cards printed that day, bearing the legend in fair italics: Mr Malachi Mulligan. Fertiliser and Incubator. Lambay Island.','Quinnell'),
+# --- proverb and type figures of the drunken coda
+('doctor-diet','Doctor Diet','Of the proverb Bloom thinks at the nurse in the hallway, the first of the two physicians left when the students have run.','Doctor Diet','reference','literary-figure'),
+('doctor-quiet','Doctor Quiet','The second.','Doctor Quiet','reference','literary-figure'),
+('darby-and-joan','Darby and Joan','Darby Dullman and his Joan, whom Theodore Purefoy is bidden not to envy: a canting jay and a rheumeyed curdog is all their progeny, copulation without population.','Darby Dullman','reference','literary-figure'),
+('boniface','Boniface','The landlord, hailed by the old comedy name when the absinthe is called for at closing time.','Boniface','reference','literary-figure'),
+('nursery-jack','Jack','Of the house that Jack built — where Peter Piscator lives, in Stephen’s gloss on the Trinity — and again as dedal Jack who reared the mansion in the Darwinian verse three paragraphs on.','','reference','literary-figure'),
+]:add(*row)
+for row in [
+# --- the old Irish physicians, and the saints of the first debate
+('the-oshiels','The O’Shiels','First of the three families of greatest doctors among the Celts, who sedulously set down the divers methods by which the sick and the relapsed found again health.','O’Shiels'),
+('the-ohickeys','The O’Hickeys','The second of them.','O’Hickeys'),
+('the-olees','The O’Lees','The third.','O’Lees'),
+('saint-ultan','Saint Ultan of Arbraccan','To whom the husband of the woman of Eblana had made the vow that cost her her life.','Saint Ultan'),
+('saint-foutinus','Saint Foutinus','By whose engines the company witness, all and several, that Punch Costello is able to do any manner of thing that lay in man to do.','Foutinus'),
+('saint-swithin','Saint Swithin','Until whose day Bannon’s coz and Mulligan’s brother will stay in Mullingar yet, a month.','Saint Swithin'),
+('lilith','Lilith','Patron of abortions, in Stephen’s list of the ways bigness is wrought that are not the ordinary way.','Lilith','reference','deity'),
+('virgilius','Virgilius','Virgil in his medieval character as magician, cited by Stephen for conception by the influence of the occident.','Virgilius'),
+('mahound','Mahound','The name the middle ages gave Mohammed, and a magician in this sentence: by his magic the vessels on the enchanted board were wrought out of seasand and the air, by a warlock with his breath that he blases into them like to bubbles.','Mahound','reference','deity'),
+('thor','Thor','The hammerhurler, who thundered loud on left in anger awful and frightened the hellprate out of young Boasthard.','Thor','reference','deity'),
+('nobodaddy','Nobodaddy','Blake’s name for the old god, which Stephen uses twice: in the library, for whoever will tell us at doomsday leet whether these be sins or virtues, and here for the one in his cups making the noise in the street.','Nobodaddy','reference','deity'),
+('john-fletcher','Master John Fletcher','One of the two delicate poets of the hymen minim Stephen gives the table, _To bed, to bed_, out of the _Maid’s Tragedy_. Dixon says they were better named Beau Mount and Lecher.','John Fletcher|Fletcher'),
+('francis-beaumont','Master Francis Beaumont','The other, and the one Dixon’s pun christens Beau Mount.','Francis Beaumont|Beaumont'),
+('hagar','Hagar the Egyptian','With whom it had gone as hard as it went with the female domestic, had the hussy’s scouringbrush not been her tutelary angel.','Hagar'),
+('grissel-steevens','Madame Grissel Steevens','Whose case was not forgotten in the debate on swineheaded and doghaired infants.','Grissel Steevens|Grissel'),
+('ephesian-matron','The Ephesian matron','Whom Mulligan says Mina Purefoy would have to be another of, for the child to be other than her husband’s.','Ephesian matron','reference','literary-figure'),
+('minotaur','The Minotaur','Whose fable the outlandish delegate cites in support of copulation between women and the males of brutes.','Minotaur','reference','literary-figure'),
+('ovid','Ovid','The elegant Latin poet whose genius handed that fable down to us in the pages of his _Metamorphoses_. The episode names the book and not the man.','',),
+('herod','Herod','Whose slaughter of the innocents were the truer name, the narrator tells Purefoy, for copulation without population.','Herod'),
+('cronion','Father Cronion','Time, who has dealt lightly here, in the paragraph of the Purefoy children about the bedside.','Cronion','reference','deity'),
+('partula','Partula','Roman goddess of birth, in the toast that ends the Purefoy paragraph: _Per deam Partulam et Pertundam nunc est bibendum_.','Partulam','reference','deity'),
+('pertunda','Pertunda','The other goddess of that toast.','Pertundam','reference','deity'),
+('mananaun','Mananaun','Mananaun MacLir, whose vendetta the seer murmurs when Haines has vanished through the panel.','Mananaun','reference','deity'),
+('theosophos','Theosophos','Who told Stephen that any object, intensely regarded, may be a gate of access to the incorruptible eon of the gods, and who told him about the lords of the moon — Stephen having been initiated into the mysteries of karmic law by Egyptian priests in a previous existence.','Theosophos'),
+('charles-darwin','Mr Darwin','The late ingenious Mr Darwin, whose missing link of creation’s chain Bloom puts Costello in mind of.','Darwin'),
+('malthus','Malthus','Inside the word Malthusiasts, which is what Purefoy is told to let go hang along with all scholarment.','',),
+('apollo','Apollo','The god, and the statue: one of the plastercast reproductions of the classical statues Mulligan would have ladies in a particular condition surrounded with. Bloom thought of him once before, at the grave.','Apollo','reference','deity'),
+]:add(*row)
+for row in [
+# --- the embryologists of the scientific pastiche
+('empedocles','Empedocles of Trinacria','Whose view that the right ovary is responsible for the birth of males the scientific report puts first among the answers to Bloom’s question about the future determination of sex.','Empedocles'),
+('culpepper','Culpepper','First of the seven embryologists who incline to opine that it is a mixture of both.','Culpepper'),
+('spallanzani','Spallanzani','The second.','Spallanzani'),
+('blumenbach','Blumenbach','The third.','Blumenbach'),
+('lusk-embryologist','Lusk','The fourth. Not Lusk of the pasturelands, nor Lusk that the turnkey’s daughter got the prisoner off from.','',),
+('hertwig','Hertwig','The fifth.','Hertwig'),
+('leopold-embryologist','Leopold','The sixth, and the one name in the list that is also Bloom’s: an embryologist, not the man asking the question.','',),
+('valenti','Valenti','The seventh and last of them.','Valenti'),
+# --- the Landor pastiche: Stephen's schoolfellows and the ladies of the idyll
+('glaucon','Glaucon','First of the three schoolfellows of Conmee’s time whom Francis asks Stephen after. Where were they now? Neither knew.','Glaucon'),
+('alcibiades','Alcibiades','The second of them.','Alcibiades'),
+('pisistratus','Pisistratus','The third.','Pisistratus'),
+('phyllis','Phyllis','Who could not contain herself at the Gold cup, waved her scarf and cried Huzzah, Sceptre wins, and when Throwaway drew level was silent, her eyes sad anemones: Juno, she cried, I am undone.','Phyllis'),
+('lalage','Lalage','Who were scarce fair beside Lenehan’s queen of today, in her yellow shoes and frock of muslin.','Lalage'),
+('glycera','Glycera','From whom, or from Chloe, Conmee had a witty letter to keep the page of his brevier book.','Glycera'),
+('chloe','Chloe','The other possible writer of it.','Chloe'),
+('periplipomenes','Periplipomenes','Who sells buns with Corinth fruit in them in his booth near the bridge.','Periplipomenes'),
+]:add(*row)
+
 updates={}
 for e in entities:e['snapshots']=[dict(after=list(at),body=body) for at,body in updates.get(e['id'],[])]
-print(len(entities),'entities authored: episodes 1-13')
+print(len(entities),'entities authored: episodes 1-14')
 BASE=Path(__file__).resolve().parent
 (BASE/'editorial.json').write_text(json.dumps(dict(
  bookId='ulysses',
- contentVersion='2026-09-16.13',
- coverage='Both full English editions, episodes 1-13 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.',
+ contentVersion='2026-09-16.14',
+ coverage='Both full English editions, episodes 1-14 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')
