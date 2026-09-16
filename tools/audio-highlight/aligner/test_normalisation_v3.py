@@ -173,6 +173,18 @@ class CloudOrchestratorPin(unittest.TestCase):
   result=orchestrate.validate_remote_helper_payload('unused','v4',root.as_uri())
   self.assertEqual(result['helper'],'v4')
   self.assertIn('pinned_words_sidecar_lib_v4.py',result['files'])
+ def test_exact_payload_fails_when_requested_helper_is_omitted(self):
+  import shutil,tempfile,sys
+  root=Path(__file__).parents[3]
+  sys.path.insert(0,str(root/'tools'/'audio-highlight'/'gpu'))
+  import orchestrate
+  with tempfile.TemporaryDirectory() as directory:
+   replica=Path(directory)
+   shutil.copytree(root/'tools',replica/'tools')
+   pod=replica/'tools'/'audio-highlight'/'gpu'/'pod_job.py'
+   pod.write_text(pod.read_text().replace(', "pinned_words_sidecar_lib_v4.py"',''))
+   with self.assertRaisesRegex(RuntimeError,'exact pod helper payload failed import'):
+    orchestrate.validate_remote_helper_payload('unused','v4',replica.as_uri())
 
 class Pins(unittest.TestCase):
  def test_pins_file_records_all_three_helper_hashes(self):
