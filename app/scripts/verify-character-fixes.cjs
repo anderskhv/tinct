@@ -31,6 +31,17 @@ const CASES = [
   // Don Quixote / Great Expectations: this session's screening fixes.
   ['don-quixote', 'original-en', undefined, 'anselmo', 'Anselmo', 'anselmo-new'],
   ['great-expectations', 'original-en', undefined, 'magwitch', undefined, 'provis-alias'],
+  // 10-random-books batch: essays-montaigne, divine-comedy, ulysses fixes,
+  // plus one sanity-check tap each on 3 books judged clean (no fix made).
+  ['essays-montaigne', 'original-en', undefined, 'cicero', 'Cicero', 'cicero-new'],
+  ['essays-montaigne', 'modern-en', undefined, 'the-body-and-experience', undefined, 'body-experience-modern-alias'],
+  ['divine-comedy', 'original-en', undefined, 'saint-peter', undefined, 'saint-peter-new'],
+  ['divine-comedy', 'modern-en', undefined, 'virgil', undefined, 'virgil-modern-alias'],
+  ['ulysses', 'original-en', undefined, 'joe-hynes', undefined, 'joe-hynes-new'],
+  ['ulysses', 'original-en', undefined, 'corny-kelleher', undefined, 'corny-kelleher-new'],
+  ['frankenstein', 'original-en', undefined, 'henry-clerval', undefined, 'sanity-frankenstein'],
+  ['midsummer', 'original-en', undefined, 'puck', undefined, 'sanity-midsummer'],
+  ['oedipus-at-colonus', 'original-en', undefined, 'theseus', undefined, 'sanity-oedipus-colonus'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {

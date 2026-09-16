@@ -118,4 +118,46 @@ ENTITIES = [
         'subtitle': "A singing teacher, an acquaintance of Stephen's family",
         'body': "An Italian voice instructor who encourages Stephen, in a brief street encounter, to think again about a singing career rather than the uncertain path he is currently on. Their conversation is warm but does not change Stephen's course.",
     },
+    {
+        'id': 'joe-hynes', 'kind': 'person', 'storyRole': 'supporting',
+        'aliases': ['Joe Hynes', 'Hynes'],
+        'subtitle': 'A journalist and one of Bloom’s acquaintances',
+        'body': "A newspaperman who joins Bloom and others at Paddy Dignam's funeral and later appears in the pub scene, taking down names and notes for his reporting as he moves through the day.",
+    },
+    {
+        'id': 'ned-lambert', 'kind': 'person', 'storyRole': 'supporting',
+        'aliases': ['Ned Lambert'],
+        'subtitle': "One of Bloom's fellow mourners",
+        'body': "A corn merchant among the group of men who accompany Paddy Dignam's funeral procession and reappear together over the course of the day.",
+    },
+    {
+        'id': 'alf-bergan', 'kind': 'person', 'storyRole': 'reference',
+        'aliases': ['Alf Bergan'],
+        'subtitle': 'A Dubliner encountered in the pub scene',
+        'body': "One of the men gathered in Barney Kiernan's pub, part of the joking, gossiping company Bloom finds himself among there.",
+    },
+    {
+        'id': 'jack-power', 'kind': 'person', 'storyRole': 'supporting',
+        'aliases': ['Jack Power'],
+        'subtitle': "One of Bloom's fellow mourners",
+        'body': "One of the group who rides with Bloom to Paddy Dignam's funeral and stays with the party through the day's events.",
+    },
+    {
+        'id': 'tom-kernan', 'kind': 'person', 'storyRole': 'supporting',
+        'aliases': ['Tom Kernan'],
+        'subtitle': 'A tea salesman among the funeral party',
+        'body': "A commercial traveller and acquaintance who is expected at, and later joins, Paddy Dignam's funeral.",
+    },
+    {
+        'id': 'corny-kelleher', 'kind': 'person', 'storyRole': 'supporting',
+        'aliases': ['Corny Kelleher'],
+        'subtitle': "An undertaker's assistant",
+        'body': "Works for the undertaker handling Paddy Dignam's funeral arrangements, and turns up again later in the day elsewhere in the city.",
+    },
+    {
+        'id': 'crofton', 'kind': 'person', 'storyRole': 'reference',
+        'aliases': ['Crofton'],
+        'subtitle': 'A Dubliner mentioned in conversation and later in the pub scene',
+        'body': "A minor acquaintance first mentioned in passing conversation, who later appears in person among the company in Barney Kiernan's pub.",
+    },
 ]
