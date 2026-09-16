@@ -31,15 +31,12 @@ import {
   type LabPlaybackSkip,
 } from './labAsk'
 import {
-  buildLabTalkInstructions,
   LabChatError,
   labCompanionBookFields,
-  queryLabCompanion,
   readAnthropicResponse,
-  type CompanionAskNotify,
 } from './labCompanion'
 import { buildLabReadingTrail, openingLineOf, recordTrailVisit, type LabReadingTrailEntry, type LabTrailVisit } from './labReadingTrail'
-import { buildLabTalkInstructionsV2, LAB_VOICE_TOOLS_V2, labConversationStateV2, queryLabCompanionV2 } from './labVoiceV2'
+import { labConversationStateV2 } from './labVoiceV2'
 import type { LabVoiceVersion } from './labRoute'
 import { readSupabaseAccessToken, resolveLabVoiceToken } from './labAuth'
 import { LAB_COPY } from './labCopy'
@@ -336,18 +333,15 @@ export function useLabAsk(options: UseLabAskOptions) {
   }, [options.conversationId, conversations, chatBookId])
   const talkInstructions = useMemo(
     () => buildLabVoiceControlInstructions(
-      options.voiceTrial ? buildDirectVoiceInstructions(askContext) : isVoiceV2 ? buildLabTalkInstructionsV2(askContext) : buildLabTalkInstructions(askContext),
+      buildDirectVoiceInstructions(askContext),
       (selectedConversationTurns ?? (options.voiceTrial ? turns : rememberedLabTurns)).map(turn => ({ ...turn, content: chapterChatHistoryContent(turn) })),
-    ) + (options.quietCompanionHandoff && !options.voiceTrial ? '\nIn this reader, call ask_companion silently and wait for its result. Do not speak a looking-up or waiting message before or during the call. The interface shows the waiting state. When the answer is available, speak the supplied answer completely.' : ''),
-    [askContext, isVoiceV2, rememberedLabTurns, selectedConversationTurns, turns, options.quietCompanionHandoff, options.voiceTrial],
+    ),
+    [askContext, rememberedLabTurns, selectedConversationTurns, turns, options.voiceTrial],
   )
   const tinctVoiceTools = useTinctVoiceTools(options.voiceToolAdapter)
   const mergedVoiceTools = useMemo(
-    () => mergeLabVoiceTools(options.voiceTrial ? [...LAB_VOICE_TOOLS.filter(tool => tool.name !== 'ask_companion'), BOOK_PASSAGE_TOOL, VOICE_RESEARCH_TOOL] : isVoiceV2 ? LAB_VOICE_TOOLS_V2 : LAB_VOICE_TOOLS).map(tool =>
-      options.quietCompanionHandoff && tool && typeof tool === 'object' && 'name' in tool && tool.name === 'ask_companion'
-        ? { ...tool, description: "Ask Tinct's reading companion for a book answer. Call silently, wait for the result, then speak the supplied answer. Never use for playback controls." }
-        : tool),
-    [isVoiceV2, options.quietCompanionHandoff, options.voiceTrial],
+    () => mergeLabVoiceTools([...LAB_VOICE_TOOLS.filter(tool => tool.name !== 'ask_companion'), BOOK_PASSAGE_TOOL, VOICE_RESEARCH_TOOL]),
+    [],
   )
 
   const onTinctVoiceTool = useCallback(async (
@@ -355,7 +349,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     arguments_: Record<string, unknown>,
     callId: string,
   ) => {
-    if (optionsRef.current.voiceTrial && name === 'search_reading_sources') {
+    if (name === 'search_reading_sources') {
       const turn = voiceResearchTurnRef.current
       const bookId = optionsRef.current.bookId
       const token = await resolveLabVoiceToken({ override: optionsRef.current.authToken, sessionToken, readSession: readSupabaseAccessToken })
@@ -363,31 +357,13 @@ export function useLabAsk(options: UseLabAskOptions) {
       if (turn === voiceResearchTurnRef.current && bookId === optionsRef.current.bookId && result.sources) voiceSourcesRef.current = result.sources
       return result
     }
-    if (optionsRef.current.voiceTrial && name === 'get_book_passage') {
+    if (name === 'get_book_passage') {
       return retrieveVoicePassage(askContextNow(await readTrail()), arguments_)
     }
     const result = await tinctVoiceTools.onTool(name, arguments_, callId)
     optionsRef.current.onVoiceToolAction?.(labVoiceActionEntry(name, arguments_, callId, result))
     return result
   }, [tinctVoiceTools.onTool, askContextNow, readTrail, sessionToken])
-
-  const onCompanionAsk = useCallback(async (question: string, notify?: CompanionAskNotify) => {
-    const authToken = await resolveLabVoiceToken({
-      override: optionsRef.current.authToken,
-      sessionToken,
-      readSession: readSupabaseAccessToken,
-    })
-    const query = isVoiceV2 ? queryLabCompanionV2 : queryLabCompanion
-    const context = askContextNow(await readTrail())
-    return query({
-      authToken,
-      system: buildLabAskInstructions(context),
-      question,
-      context,
-      onDelta: notify?.onDelta,
-      onFirstSpeakable: notify?.onFirstSpeakable,
-    })
-  }, [askContextNow, isVoiceV2, readTrail, sessionToken])
 
   const lastVoiceRequestRef = useRef('')
   const appendLocalMessage = useCallback((message: ChatMessage) => {
@@ -398,12 +374,8 @@ export function useLabAsk(options: UseLabAskOptions) {
     const content = (withVoiceSources(message).content || '').trim()
     if (!content) return
     if (message.role === 'user') lastVoiceRequestRef.current = content
-    // Direct Realtime owns its command turn. Stopping from this transcript
-    // callback would tear down the connection before its tool can reply.
-    if (!optionsRef.current.voiceTrial && message.role === 'user' && isResumeListenCommand(content)) {
-      optionsRef.current.onResumeListen?.(isVoiceV2 ? labVoiceRequestsAudio(content) : true)
-      return
-    }
+    // Both Live and Realtime own command execution. A transcript must not
+    // tear down the transport before the matching tool has run.
     const incoming: LabAskTurn = {
       id: message.id || nextId(),
       role: message.role === 'assistant' ? 'assistant' : 'user',
@@ -456,7 +428,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       tinctVoiceTools.resetUndo()
       optionsRef.current.onVoiceToolSessionStart?.()
     },
-    onCompanionAsk: options.voiceTrial ? undefined : onCompanionAsk,
+    onCompanionAsk: undefined,
     voiceTrial: options.voiceTrial,
     honorModelResume: true,
     quietCompanionHandoff: options.quietCompanionHandoff,

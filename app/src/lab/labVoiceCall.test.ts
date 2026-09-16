@@ -243,3 +243,15 @@ describe('the caption under the status word', () => {
     expect(labCallCaption({ status: 'speaking' }, null)).toBeNull()
   })
 })
+
+
+it('keeps full duplex Live stable across activity changes while honoring mute and disconnect', () => {
+  for (const activity of ['listening', 'thinking', 'speaking', 'checking', 'preparing'] as const) {
+    const live = view({ fullDuplex: true, activity })
+    expect(live.statusText).toBe('Live')
+    expect(live.motion).toBe('pulse')
+    expect(live.broken).toBe(false)
+    expect(view({ fullDuplex: true, activity, micMuted: true }).statusText).toBe('Microphone off')
+    expect(view({ fullDuplex: true, activity, connection: 'disconnected' }).statusText).toBe('Disconnected')
+  }
+})

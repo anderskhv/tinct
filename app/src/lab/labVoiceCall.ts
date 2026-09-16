@@ -16,6 +16,7 @@ import type { LabConversationState } from './labAsk'
 import type { VoiceConnectionState } from '../voice/VoiceSessionController'
 
 export type LabCallStatus =
+  | 'live'
   | 'connecting'
   | 'listening'
   | 'thinking'
@@ -27,6 +28,7 @@ export type LabCallStatus =
 export type LabCallMotion = 'breathe' | 'rotate' | 'pulse' | 'still'
 
 export const LAB_CALL_COPY = {
+  live: 'Live',
   connecting: 'Connecting.',
   listening: 'Listening.',
   thinking: 'Thinking.',
@@ -58,6 +60,7 @@ export interface LabCallInput {
   /** Microphone / assistant activity, already derived from session events. */
   activity: LabConversationState
   micMuted: boolean
+  fullDuplex?: boolean
 }
 
 export interface LabCallView {
@@ -92,6 +95,7 @@ function activityStatus(activity: LabConversationState): LabCallStatus {
 }
 
 const STATUS_TEXT: Record<LabCallStatus, string> = {
+  live: LAB_CALL_COPY.live,
   connecting: LAB_CALL_COPY.connecting,
   listening: LAB_CALL_COPY.listening,
   thinking: LAB_CALL_COPY.thinking,
@@ -101,6 +105,7 @@ const STATUS_TEXT: Record<LabCallStatus, string> = {
 }
 
 const MOTION: Record<LabCallStatus, LabCallMotion> = {
+  live: 'pulse',
   connecting: 'rotate',
   listening: 'breathe',
   thinking: 'rotate',
@@ -148,7 +153,7 @@ export function labCallView(input: LabCallInput): LabCallView {
     }
   }
 
-  const activity = activityStatus(input.activity)
+  const activity = input.fullDuplex ? 'live' : activityStatus(input.activity)
   // Muting closes the microphone; it does not stop the assistant. While she
   // speaks the circle keeps following her voice and the closed microphone is
   // carried alongside it.
@@ -193,6 +198,7 @@ export function labCallUtterance(turns: ReadonlyArray<{ role: 'user' | 'assistan
  * nothing, because the status word already says what is happening.
  */
 export function labCallCaption(view: Pick<LabCallView, 'status'>, utterance: string | null): string | null {
+  if (view.status === 'live') return utterance || LAB_CALL_COPY.askAboutPage
   if (view.status === 'speaking') return utterance
   if (view.status === 'listening') return LAB_CALL_COPY.askAboutPage
   return null
@@ -212,7 +218,7 @@ export function labCallCue(previous: LabCallView | null, next: LabCallView): Lab
     return previous.connected ? 'dropped' : null
   }
   if (
-    next.status === 'listening'
+    (next.status === 'listening' || next.status === 'live')
     && (previous.status === 'connecting' || previous.status === 'disconnected')
   ) {
     return 'ready'

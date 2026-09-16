@@ -75,7 +75,7 @@ export function labAskDividerDate(timestamp: number | undefined, now = Date.now(
  */
 export function labAskTurnUnanswered(turns: LabAskTurn[], index: number, typedLoading: boolean): boolean {
   const turn = turns[index]
-  if (!turn || turn.role !== 'user') return false
+  if (!turn || turn.role !== 'user' || turn.source === 'voice') return false
   const next = turns[index + 1]
   if (next) return next.role !== 'assistant'
   return !typedLoading

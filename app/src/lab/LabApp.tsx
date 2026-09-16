@@ -2320,6 +2320,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const callView = labCallView({
     connection: callConnection,
     activity: ask.conversationState,
+    fullDuplex: !voiceTrial,
     micMuted: ask.micMuted,
   })
   // The first transport fact the session reports ends the grace window.

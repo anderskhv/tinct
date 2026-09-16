@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { LAB_ASK_LOAD_MORE_PX, LAB_ASK_MAX_COMPOSER_PX, LAB_ASK_WINDOW, LabAskPane } from './LabAskPane'
+import { LAB_ASK_LOAD_MORE_PX, LAB_ASK_MAX_COMPOSER_PX, LAB_ASK_WINDOW, labAskTurnUnanswered, LabAskPane } from './LabAskPane'
 import type { LabConversationState } from './labAsk'
 
 afterEach(() => {
@@ -933,4 +933,14 @@ describe('lab ask thread and the account history that arrives late', () => {
     render(<LabAskPane {...props} typedLoading turns={reconciled.filter(turn => turn.id !== 'now-a')} />)
     expect(screen.queryByTestId('lab-ask-unanswered')).toBeNull()
   })
+})
+
+
+it('does not label Live transcript fragments as failed questions', () => {
+  const turns = [
+    { role: 'user' as const, content: 'Wait, has', source: 'voice' as const },
+    { role: 'user' as const, content: 'Tim Keller written about suffering?', source: 'voice' as const },
+  ]
+  expect(labAskTurnUnanswered(turns, 0, false)).toBe(false)
+  expect(labAskTurnUnanswered(turns, 1, false)).toBe(false)
 })

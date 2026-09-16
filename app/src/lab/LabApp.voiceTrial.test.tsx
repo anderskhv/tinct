@@ -20,13 +20,13 @@ afterEach(() => {
   localStorage.clear()
 })
 
-it('lets a direct voice resume command finish before closing the call successfully', async () => {
+it.each(['?chrome=v2', '?chrome=v2&voiceTrial=full'])('lets a direct voice resume command finish before closing the call successfully (%s)', async (search) => {
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('{}', { status: 404 })))
   vi.stubGlobal('navigator', {
     ...navigator,
     mediaDevices: { getUserMedia: () => new Promise(() => {}) },
   })
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2&voiceTrial=full" source={fallbackLabSource()} authToken={null} />)
+  render(<LabApp pathname="/lab/phone" search={search} source={fallbackLabSource()} authToken={null} />)
   fireEvent.click(screen.getByTestId('lab-super'))
   fireEvent.click(screen.getByTestId('lab-super-row-talk'))
   await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
@@ -68,10 +68,10 @@ it('keeps an account rejection visible after the V2 call closes, without an audi
   expect(screen.queryByTestId('lab-voice-notice')).toBeNull()
 })
 
-it('returns a spoken back-to-book request to silent reading with no stale failure', async () => {
+it.each(['?chrome=v2', '?chrome=v2&voiceTrial=full'])('returns a spoken back-to-book request to silent reading with no stale failure (%s)', async (search) => {
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('{}', { status: 404 })))
   vi.stubGlobal('navigator', { ...navigator, mediaDevices: { getUserMedia: () => new Promise(() => {}) } })
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2&voiceTrial=full" source={fallbackLabSource()} authToken={null} />)
+  render(<LabApp pathname="/lab/phone" search={search} source={fallbackLabSource()} authToken={null} />)
   expect(screen.getByTestId('lab-root').getAttribute('data-voice-history-fixture')).toBe('false')
   fireEvent.click(screen.getByTestId('lab-super'))
   fireEvent.click(screen.getByTestId('lab-super-row-talk'))
@@ -83,11 +83,11 @@ it('returns a spoken back-to-book request to silent reading with no stale failur
   expect(screen.getByTestId('lab-listen-status').getAttribute('data-playing')).toBe('false')
 })
 
-it('persists research sources as clickable links beside the voice answer', async () => {
+it.each(['?chrome=v2', '?chrome=v2&voiceTrial=full'])('persists research sources as clickable links beside the voice answer (%s)', async (search) => {
   vi.stubGlobal('fetch', vi.fn(async input => String(input).includes('/voice-research')
     ? Response.json({ ok: true, notes: 'A sourced note.', sources: [{ title: 'Sermon archive', url: 'https://gospelinlife.com/example' }] })
     : new Response('{}', { status: 404 })))
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2&voiceTrial=full" source={fallbackLabSource()} authToken="test-token" />)
+  render(<LabApp pathname="/lab/phone" search={search} source={fallbackLabSource()} authToken="test-token" />)
   act(() => captured.options?.appendLocalMessage({ id: 'question', role: 'user', content: 'Has Keller commented?', timestamp: Date.now(), bookId: 'bible', source: 'voice' }))
   await act(async () => { await captured.options?.onApplicationTool?.('search_reading_sources', { query: 'Tim Keller Genesis 1' }, 'research') })
   const answer = { id: 'answer', role: 'assistant' as const, content: 'Keller discusses creation.', timestamp: Date.now(), bookId: 'bible', source: 'voice' as const }
@@ -100,10 +100,10 @@ it('persists research sources as clickable links beside the voice answer', async
   expect(localStorage.getItem('tinct:chat-history:bible')).toContain('https://gospelinlife.com/example')
 })
 
-it('also closes voice without starting audio when the model uses the open-reader tool', async () => {
+it.each(['?chrome=v2', '?chrome=v2&voiceTrial=full'])('also closes voice without starting audio when the model uses the open-reader tool (%s)', async (search) => {
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('{}', { status: 404 })))
   vi.stubGlobal('navigator', { ...navigator, mediaDevices: { getUserMedia: () => new Promise(() => {}) } })
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2&voiceTrial=full" source={fallbackLabSource()} authToken={null} />)
+  render(<LabApp pathname="/lab/phone" search={search} source={fallbackLabSource()} authToken={null} />)
   fireEvent.click(screen.getByTestId('lab-super'))
   fireEvent.click(screen.getByTestId('lab-super-row-talk'))
   await screen.findByTestId('lab-call')
@@ -111,4 +111,18 @@ it('also closes voice without starting audio when the model uses the open-reader
   expect(screen.queryByTestId('lab-call')).toBeNull()
   expect(screen.getByTestId('lab-listen-status').getAttribute('data-playing')).toBe('false')
   expect(screen.queryByTestId('lab-voice-notice')).toBeNull()
+})
+
+
+it('gives default Live the direct research, passage and reader controls contract', () => {
+  vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('{}', { status: 404 })))
+  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+  const options = captured.options!
+  expect(options.voiceTrial).toBeNull()
+  expect(options.instructions).toContain('Tim Keller')
+  expect(options.instructions).toContain('not a ban on outside knowledge')
+  expect(options.instructions).not.toContain('ask_companion')
+  const names = (options.tools as Array<{name: string}>).map(tool => tool.name)
+  expect(names).toEqual(expect.arrayContaining(['search_reading_sources', 'get_book_passage', 'resume_audiobook', 'end_voice_session', 'get_reading_history', 'set_audiobook_speed', 'undo_last_tinct_action', 'open_tinct_view']))
+  expect(names).not.toContain('ask_companion')
 })

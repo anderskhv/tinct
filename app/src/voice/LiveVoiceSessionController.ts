@@ -19,12 +19,10 @@ export class LiveVoiceSessionController {
   private audio: HTMLAudioElement | null = null
   private context: AudioContext | null = null
   private analyser: AnalyserNode | null = null
-  private meter: ReturnType<typeof setInterval> | null = null
   private generation = 0
   private ready = false
   private anchor: AudioPlaybackAnchor | null = null
   private captions = { user: '', assistant: '' }
-  private captionTimers: Partial<Record<'user' | 'assistant', ReturnType<typeof setTimeout>>> = {}
   private responses = new Map<string, { id: string; calls: ToolCall[] }>()
   private handled = new Set<string>()
   private toolQueue: Promise<void> = Promise.resolve()
@@ -55,16 +53,16 @@ export class LiveVoiceSessionController {
     this.send({ type: 'session.update', session: { delegation: { type: 'responses', responses: { instructions: (this.input.instructions || '') + '\nCurrent reader context supersedes prior location:\n' + JSON.stringify(context) } } } })
   }
   private flush(role: 'user' | 'assistant') {
-    clearTimeout(this.captionTimers[role])
-    const text = this.captions[role].trim()
+    const text = this.captions[role].replace(/\uFFFD/g, '').trim()
     this.captions[role] = ''
-    if (text) this.callbacks.onTurn(role, text)
+    if (/[\p{L}\p{N}]/u.test(text)) this.callbacks.onTurn(role, text)
   }
   private caption(role: 'user' | 'assistant', delta: string) {
     this.captions[role] += delta
-    clearTimeout(this.captionTimers[role])
-    // Live emits fragments, not final turns. Batch each speaker independently.
-    this.captionTimers[role] = setTimeout(() => this.flush(role), 1500)
+    // A pause is not the end of a question. Keep its fragments together until
+    // the backend starts work, or the session ends. Output pauses may be long
+    // too: flush on the reader's next utterance, not on every breath.
+    if (role === 'user') this.flush('assistant')
     if (role === 'user') this.emit({ userSpeechStarted: true })
   }
   private fail(message: string) { this.stop(); this.emit({ error: message, connection: 'disconnected' }) }
@@ -96,12 +94,6 @@ export class LiveVoiceSessionController {
         if (this.context) {
           this.analyser = this.context.createAnalyser()
           this.context.createMediaStreamSource(event.streams[0]).connect(this.analyser)
-          this.meter = setInterval(() => {
-            if (!current()) return
-            const speaking = (this.getAssistantLevel() ?? 0) > 0.008
-            if (speaking && this.ui.activity !== 'speaking') this.emit({ activity: 'speaking', state: 'answering' })
-            else if (!speaking && this.ui.activity === 'speaking') this.emit({ activity: 'listening', state: 'listening' })
-          }, 120)
         }
       }
       pc.onconnectionstatechange = () => {
@@ -159,7 +151,10 @@ export class LiveVoiceSessionController {
     else if (event.type === 'response.event' && event.event && event.delegation_id) {
       const nested = event.event
       const key = event.delegation_id
-      if (nested.type === 'response.created') this.responses.set(key, { id: nested.response?.id ?? '', calls: [] })
+      if (nested.type === 'response.created') {
+        this.flush('user')
+        this.responses.set(key, { id: nested.response?.id ?? '', calls: [] })
+      }
       const response = this.responses.get(key)
       if (!response) return
       if (nested.type === 'response.output_item.done' && nested.item?.type === 'function_call' && nested.item.call_id && nested.item.name) {
@@ -190,7 +185,6 @@ export class LiveVoiceSessionController {
     if (call.name === 'ask_companion') {
       if (typeof args.question !== 'string' || !input.onCompanionAsk) return { ok: false }
       this.flush('user')
-      this.emit({ activity: 'checking_text' })
       const result = await input.onCompanionAsk(args.question)
       return typeof result === 'string' ? { ok: true, answer: result } : result
     }
@@ -210,11 +204,15 @@ export class LiveVoiceSessionController {
     if (isLabPlaybackSkip(call.name)) {
       if (!input.audio.skipPlayback) return { ok: false }
       const outcome = await input.audio.skipPlayback(call.name)
+      if (this.input === input && outcome?.resumePlayback) this.explicitResume()
       return { ok: true, outcome }
     }
     const allowed = (input.tools ?? input.applicationTools ?? []).some(tool => tool && typeof tool === 'object' && 'name' in tool && tool.name === call.name)
     if (!allowed || !this.callbacks.onApplicationTool) return { ok: false, error: 'Unknown control' }
-    return (await this.callbacks.onApplicationTool(call.name, args, call.callId)).output
+    const result = await this.callbacks.onApplicationTool(call.name, args, call.callId)
+    // The direct voice tools return both evidence and how to handle failures.
+    // Preserve that contract when crossing the Live backend boundary.
+    return { result: result.output, responseInstructions: result.responseInstructions }
   }
   explicitResume() {
     const input = this.input
@@ -227,8 +225,6 @@ export class LiveVoiceSessionController {
     this.generation++
     this.ready = false
     this.flush('user'); this.flush('assistant')
-    if (this.meter) clearInterval(this.meter)
-    this.meter = null
     this.stream?.getTracks().forEach(track => track.stop())
     this.dc?.close(); this.pc?.close()
     if (this.audio) { this.audio.pause(); this.audio.srcObject = null }

@@ -87,7 +87,7 @@ export function drawVoiceOrb(ctx: CanvasRenderingContext2D, frame: VoiceOrbFrame
   const cx = width / 2
   const cy = height / 2
   let radius = Math.min(width, height) * 0.38
-  const swell = status === 'speaking' ? level : 0
+  const swell = status === 'speaking' || status === 'live' ? level : 0
   if (swell > 0) radius *= 1 + swell * 0.14
   const rotation = time * (status === 'thinking' ? 0.9 : 0.22)
   const tilt = status === 'thinking' ? 0.55 + 0.2 * Math.sin(time) : 0.35
