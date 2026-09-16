@@ -8,11 +8,30 @@ Use this file as the Codex source of truth. Older `CLAUDE.md` files may contain 
 
 ## Directories
 
-- Git root: `/Users/andershvelplund/Documents/Projects/Tinct`
-- App root: `/Users/andershvelplund/Documents/Projects/Tinct/app`
-- Book factory: `/Users/andershvelplund/Documents/Projects/Tinct/books`
-- QA tooling: `/Users/andershvelplund/Documents/Projects/Tinct/qa`
+- Git root: the current checkout root (`git rev-parse --show-toplevel`).
+- App root: `app/` under that checkout.
+- Book factory: `books/` under that checkout.
+- QA tooling: `qa/` under that checkout.
 - User-provided screenshots: `/Users/andershvelplund/Documents/Screenshots`. When Anders says to review or see screenshots, look there first.
+
+### Cloud-first operation — approved September 16, 2026
+
+New coding, tests, builds and generated assets belong in the Tinct cloud
+coding environment. GitHub Actions remains the production release route.
+The historical `/Users/andershvelplund/Documents/Projects/Tinct` tree and its
+Documents siblings are preservation sources, not development destinations.
+Do not install dependencies, build, fetch Git objects, create worktrees, or
+write generated assets there. Read-only migration inspection and narrow
+migration documentation updates are permitted. Do not delete historical files
+until their unique contents and recovery have been verified.
+
+For an explicitly needed local fallback, use the existing
+`/Users/andershvelplund/Developer/Tinct` checkout outside iCloud; do not create
+another full copy. A local fallback still requires the Mac to remain awake.
+Existing tasks are not automatically migrated when a cloud environment is
+created: preserve their unfinished work and resume it from remote branches.
+Cloud setup and full migration are complete only after recorded remote
+verification; do not infer completion from these instructions.
 
 Run `git` commands from the repository root. Run `npm`, `npx`, Vite, and Wrangler commands from `app/`.
 
