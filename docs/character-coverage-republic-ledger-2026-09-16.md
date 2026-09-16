@@ -1,5 +1,109 @@
 # Character coverage ledger — The Republic (2026-09-16)
 
+## Pass 2 addendum (same day, same session — full historical/mythological/philosophical sweep)
+
+The first pass below (13 → 28 cards) treated most of the mythological,
+Homeric, and historical allusion class as a documented, deferred gap.
+Production evidence overturned that call: `docs/reader-feedback-2026-09-14.md`
+records that Codex's own diagnostics had **already found Themistocles**
+(along with Zedekiah and Euthydemus) as a genuinely missing/broken click
+target in the live package, not a stylistic omission. That means "single-
+mention historical allusion" is not, in fact, a valid exclusion class for
+this app's actual coverage bar — every named individual the source text
+identifies is expected to resolve to a card.
+
+This pass authors the full deferred list from Pass 1: every Olympian god
+cited in the poetry critique or the Book X cosmology, every Homeric
+hero/figure cited as an example, every historical lawgiver/statesman
+Thrasymachus or Socrates names, and every poet, musician, or philosopher
+cited as an authority — **70 more entities**, bringing the package to
+**99 cards / edition** (593 mentions original-en, 589 modern-en). All
+compiled and round-trip-validated in both editions independently, 0 drops,
+0 alias-overlap ambiguities (the compiler's own overlap check raised on
+none of them).
+
+Also re-located and re-confirmed the historical draft question: a full
+unrestricted `git fetch origin` (this session initially had a shallow,
+narrow clone) pulled in the repo's complete branch list and history.
+Commit `00375fb8d355d32997dddff4c5ecabcac28bbb0e` is **still not
+reachable** — `git cat-file -e` fails even against the now-complete
+history. This confirms it is not merely a shallow-clone artifact of this
+sandbox; it genuinely never reached `origin`. Treated as before: not
+reused, not assumed accepted, not something this pass can compare against.
+
+### Spelling-variant aliases added
+
+Confirmed by direct search that `modern-en` uses different spellings for
+three figures than `original-en`: Athena/Athene, Chiron/Cheiron,
+Heraclitus/Heracleitus. Both spellings are aliased to the same entity so
+each edition binds independently and correctly (per the assignment's
+"do not assume offsets or paragraph structures match" instruction, checked
+for spelling too, not just position).
+
+### Roman-name aliasing
+
+The Book X cosmology passage identifies planets by their Roman names
+(Jupiter, Saturn, Mars, Venus, Mercury) as parenthetical glosses on the
+same Greek deities discussed elsewhere (Zeus, Cronus, Ares, Aphrodite) plus
+one, Hermes, who is otherwise unnamed in this text. Per the instruction to
+"use Greek names... in newly written card copy while retaining the
+edition's naming variants as matching aliases," each entity's card name
+and body use the Greek form; the Roman form is included only as a
+matching alias (`hermes` is the one exception with no separate Greek-name
+mention elsewhere in the text — its card is authored around the "Mercury"
+occurrence itself).
+
+### Spoiler audit (explicit second-pass step, per instruction)
+
+Wrote a script comparing every character's `firstMention` chapter against
+any "Book N" cross-references named in its own body text. Found and fixed
+7 real forward-leaks: `zeus`, `aphrodite`, `ares`, `cronus` (bodies
+originally explained their Roman/planetary alias by pointing ahead to the
+Book X passage — removed), and three more serious ones — `odysseus` and
+`ajax` (bodies originally described their Book X afterlife-myth fates at
+their earlier, Book I/V first mentions) and `homer` (body originally
+stated the Book X argument's conclusion — that his poetry is excluded from
+the city — at his Book I first mention). All 7 rewritten to first-mention-
+safe content only. Re-ran the check after the fix: 0 remaining flags. This
+check only catches explicit "Book N" phrasing; it is a real but partial
+spoiler audit, not a claim that every sentence was manually re-read for
+subtler leaks.
+
+### Unnamed-figure disposition
+
+Added one `unnamed individual` card: `the-seriphian`, the man Themistocles
+addresses in the anecdote at Book I — identified only by his home island,
+never named. Kind `person`, body states plainly that he is not a named
+individual. This is the disposition category the assignment calls
+"Unnamed individual or role requiring contextual treatment."
+
+### Still not done
+
+- No second independent reviewer has looked at this package; it is one
+  agent's read.
+- No in-reader/browser verification is possible from this sandbox (no
+  `playwright`, no dev server) — flagged as before.
+- The dialogue's own participants (Socrates, Glaucon, etc.) were not
+  re-audited in this pass beyond the spoiler check above; Pass 1's account
+  of them stands.
+- This pass focused on named individuals. It did not separately re-audit
+  the `the-guardians` / `the-den` / `philosopher-kings` /
+  `ring-of-gyges` non-individual concept cards against the new "Group,
+  place or other non-individual, with a justified exclusion" category —
+  they are pre-existing, already-justified concept cards, not new
+  candidates, so no new disposition was written for them, but this is
+  worth an explicit note rather than a silent gap.
+
+### Result
+
+**13 → 99 cards / edition** across the two passes today. This is
+believed to be a genuinely comprehensive sweep of every named individual
+(including divine and mythological figures) in the source text, but is
+stated as "believed," not certified — see verification limits above and
+the independent-review requirement in the assignment, which has not yet
+happened for this package.
+
+
 Scope: `books/characters/entities/the-republic.py` → compiled via
 `books/characters/build_generic.py the-republic` → released to
 `app/public/data/characters/the-republic.v1.json`. Both `original-en` and
