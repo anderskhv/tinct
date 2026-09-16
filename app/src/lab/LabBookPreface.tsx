@@ -62,10 +62,10 @@ export function LabBookPreface({ open = true, preface, title, cover, continued, 
         <section className="lab-preface-preview" lang="en">
           <h1 ref={heading} tabIndex={-1}>Preface</h1>
           <div className="lab-preface-intro-row">
-          <div id="preparation-preface-text" className={`lab-preface-full${fullPreface || desktop ? '' : ' is-collapsed'}`}>
-            {(fullPreface || desktop ? preface.paragraphs : preface.paragraphs.slice(0, 1)).map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+          <div id="preparation-preface-text" className={`lab-preface-full${fullPreface ? '' : ' is-collapsed'}`}>
+            {(fullPreface ? preface.paragraphs : preface.paragraphs.slice(0, 1)).map((paragraph, index) => <p key={index}>{paragraph}</p>)}
           </div>
-          {!desktop && <button type="button" className="lab-preface-intro-toggle" aria-label="Preface" aria-controls="preparation-preface-text" aria-expanded={fullPreface} onClick={() => setFullPreface(value => !value)}><span aria-hidden="true">{fullPreface ? '−' : '+'}</span></button>}
+          {<button type="button" className="lab-preface-intro-toggle" aria-label="Preface" aria-controls="preparation-preface-text" aria-expanded={fullPreface} onClick={() => setFullPreface(value => !value)}><span aria-hidden="true">{fullPreface ? '−' : '+'}</span></button>}
           </div>
         </section>
         <section className="lab-preface-cast">
