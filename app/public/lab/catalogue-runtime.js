@@ -117,8 +117,8 @@ import {
 
   function defaultEdition(book) {
     const editions = selectableEditions(book).filter(edition => edition.availability.chapterText)
-    return editions.find(edition => edition.style === 'original' && edition.language === 'en')
-      || editions.find(edition => edition.style === 'modern' && edition.language === 'en')
+    return editions.find(edition => edition.style === 'modern' && edition.language === 'en')
+      || editions.find(edition => edition.style === 'original' && edition.language === 'en')
       || editions[0]
   }
 
@@ -830,7 +830,13 @@ import {
       if (requestedEdition) state.selectedEditionKey = requestedEdition.key
     }
     const resumeCompare = v1Editions(book).find(edition => edition.key === state.pendingResume?.compareEditionKey && edition.availability.compare)
-    if (changingBook) { state.compareEditionKey = resumeCompare?.key || null; state.previewCompareKey = null; state.sampleExpanded = false }
+    if (changingBook) {
+      const humanEditions = v1Editions(book).filter(edition => edition.key !== state.selectedEditionKey && edition.group === 'human' && edition.language === 'en' && edition.availability.compare)
+      const defaultHuman = humanEditions.find(edition => edition.key === 'web-en') || humanEditions.find(edition => edition.key === 'original-en') || humanEditions[0]
+      state.compareEditionKey = resumeCompare?.key || (!state.pendingResume && !state.explicitStart ? defaultHuman?.key : null) || null
+      state.previewCompareKey = null
+      state.sampleExpanded = false
+    }
     if (state.explicitStart && explicitSetup?.compareEditionKey) state.compareEditionKey = explicitSetup.compareEditionKey
     applyWorld(book)
     renderDetail(book)
