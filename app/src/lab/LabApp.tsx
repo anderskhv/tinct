@@ -354,8 +354,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/lab')
   const layoutOverride = labLayoutOverride(path)
   const voiceTrial = labVoiceTrial(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
-  const voiceVersion = voiceTrial ? 'v2' : labVoiceVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   const chromeV2 = labChromeVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : '')) === 'v2'
+  const voiceVersion = (chromeV2 || voiceTrial) ? 'v2' : labVoiceVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   // The face on the page. A reader who has never picked one reads V2's new
   // default in V2 and the face today's reader has always set in V1.
   const [isPhone, setIsPhone] = useState(() => readPhoneSurface(layoutOverride))

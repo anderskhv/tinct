@@ -57,10 +57,10 @@ export function labChromeVersion(pathname: string, search?: string): LabChromeVe
   return params.get('chrome')?.trim().toLowerCase() === 'v2' ? 'v2' : 'v1'
 }
 
-/** The tested full voice experience is the default for the new reader. */
+/** Realtime comparisons are explicit; ordinary Talk uses GPT Live. */
 export function labVoiceTrial(pathname: string, search?: string): import('../voice/voiceTrial').VoiceTrial | null {
   if (labChromeVersion(pathname, search) !== 'v2') return null
   const query = search ?? pathname.split('#')[0].split('?')[1] ?? ''
   const value = new URLSearchParams(query).get('voiceTrial')
-  return value === null ? 'full' : value === 'full' || value === 'mini' ? value : null
+  return value === 'full' || value === 'mini' ? value : null
 }
