@@ -57,3 +57,6 @@ Original workspace documentation check: 12 files, zero errors or review reminder
 
 Next action: this feedback batch is deployed and accepted within the physical
 iOS verification limit above. No user deployment or routine acceptance step remains.
+
+The subsequent [compact glass explanation](explanation-glass-2026-09-16.md)
+replaces the 285px reserved area with four lines and an explicit expand control.

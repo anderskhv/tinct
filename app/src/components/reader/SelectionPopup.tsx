@@ -171,6 +171,8 @@ export function SelectionPopup({
     if (!lab || !popupRef.current) return
     const el = popupRef.current
     const place = () => {
+      // Preserve the compact anchor while CSS expands the card to the reader.
+      if (el.querySelector('.lab-contextual-explain.is-expanded')) return
       const boxes = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
         .flatMap(node => Array.from(node.getClientRects()))
         .filter(box => box.width && box.height && box.bottom > 76 && box.top < window.innerHeight - 32)

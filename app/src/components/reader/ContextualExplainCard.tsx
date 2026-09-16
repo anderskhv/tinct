@@ -1,4 +1,5 @@
 import { LabMarkdown } from '../../lab/LabMarkdown'
+import { VoiceExpandIcon } from '../../lab/LabVoiceIcons'
 import { RowIcon } from '../../lab/LabSuperMenu.tsx'
 import { useEffect, useRef, useState } from 'react'
 
@@ -10,6 +11,7 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk }: {
   onClose?: () => void
 }) {
   const [status, setStatus] = useState<'loading' | 'streaming' | 'ready' | 'error'>('loading')
+  const [expanded, setExpanded] = useState(false)
   const [answer, setAnswer] = useState('')
   const [attempt, setAttempt] = useState(0)
   const requestRef = useRef(request)
@@ -35,7 +37,12 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk }: {
   }, [attempt, passage])
 
   return (
-    <section className="lab-contextual-explain" aria-label="Explanation">
+    <section className={`lab-contextual-explain${expanded ? ' is-expanded' : ''}`} aria-label="Explanation">
+      <div className="lab-contextual-explain-heading">
+        <button type="button" aria-label={expanded ? 'Collapse explanation' : 'Expand explanation'} aria-expanded={expanded} onClick={() => setExpanded(value => !value)}>
+          <VoiceExpandIcon size={16} /><span>{expanded ? 'Reduce' : 'Expand'}</span>
+        </button>
+      </div>
       <div className="lab-contextual-explain-scroll">
         <div role="status" aria-live="polite" aria-busy={status === 'loading' || status === 'streaming'}>
           {status === 'loading' && <p className="lab-contextual-explain-wait">Loading…</p>}
