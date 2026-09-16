@@ -29,6 +29,7 @@ import ast
 import json
 import os
 import secrets
+import subprocess
 import sys
 import tarfile
 import tempfile
