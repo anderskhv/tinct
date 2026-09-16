@@ -1,0 +1,81 @@
+name: audio-align-canary
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: audio-align-canary
+  cancel-in-progress: false
+
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      RUNPOD_API_KEY: ${{ secrets.RUNPOD_API_KEY }}
+      TINCT_GPU_BUDGET: '15'
+      TINCT_GPU_SPENT: '0.70'
+      ARTIFACT_DIR: artifacts/audio-highlight-cloud-resume-2026-09-16/run
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fail closed unless the remote guard can enforce the envelope
+        run: |
+          test -n "${RUNPOD_API_KEY}" || {
+            echo '::error::RUNPOD_API_KEY is not configured'
+            exit 2
+          }
+          mkdir -p "$ARTIFACT_DIR"
+          python3 tools/audio-highlight/runpod_guard.py status \
+            --budget "$TINCT_GPU_BUDGET" \
+            --spent "$TINCT_GPU_SPENT" \
+            --max-rate 1.00 \
+            --max-minutes 50 \
+            --json-out "$ARTIFACT_DIR/preflight-guard.json"
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          report = json.loads((Path(os.environ["ARTIFACT_DIR"]) / "preflight-guard.json").read_text())
+          failures = []
+          if report.get("actions"):
+              failures.append("owned pod already exceeds a guard limit")
+          if report.get("unownedRunningPods"):
+              failures.append("unowned billing pod is running")
+          if float(report.get("estimatedTotalSpend", 0)) >= float(os.environ["TINCT_GPU_BUDGET"]):
+              failures.append("authorized aggregate envelope is exhausted")
+          if failures:
+              raise SystemExit("; ".join(failures))
+          PY
+
+      - name: Align the frozen one-chapter canary
+        run: |
+          python3 tools/audio-highlight/gpu/orchestrate.py run \
+            --name "tinct-words-cloud-resume-${GITHUB_RUN_ID}" \
+            --batch artifacts/audio-highlight-cloud-resume-2026-09-16/canary-democracy-ch19.json \
+            --commit "${GITHUB_SHA}" \
+            --artifacts "$ARTIFACT_DIR" \
+            --cloud SECURE \
+            --helper v3 \
+            --arms "off auto" \
+            --max-seconds 1800 \
+            --deadline-minutes 35
+
+      - name: Record provider billing when available
+        if: always()
+        run: |
+          python3 tools/audio-highlight/gpu/billing_check.py "$ARTIFACT_DIR" \
+            > "$ARTIFACT_DIR/billing.txt" 2>&1 || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: audio-align-canary-${{ github.run_id }}
+          path: artifacts/audio-highlight-cloud-resume-2026-09-16/run
+          retention-days: 14
