@@ -27,6 +27,8 @@ jobs:
           cache-dependency-path: app/package-lock.json
       - name: Set up cloud checkout
         run: bash ../scripts/cloud-setup.sh
+      - name: Test audio GPU launch preflight
+        run: python3 ../tools/audio-highlight/gpu/test_preflight_launch.py
       - run: npm test
       - run: npm run build
         env:
