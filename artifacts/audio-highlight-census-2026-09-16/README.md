@@ -43,3 +43,26 @@ hoc HTTP probe. A direct request to `/api/audio-file` from the session
 container returns 403, and a probe that treats an exception as "not published"
 reports everything as missing. That mistake sent a 39-chapter batch at work
 that was already done.
+
+## Batch G: what the 28 edition completions are really worth
+
+The cohort built 33 of 36. Three chapters dropped on 404 recordings —
+`oedipus-rex` ch8, `aristotle-politics` ch2 and ch6 — which matters more than
+the count suggests, because both of those editions were on the list *because*
+they needed only those chapters. They are blocked by missing audio, not by
+alignment, and belong with the broken-media repair queue.
+
+Netting out what alignment alone can reach:
+
+```
+28  editions the queue targets
+-2  oedipus-rex, aristotle-politics — 404 recordings
+-2  candide, communist-manifesto — single chapter each, known gate failures
+-1  federalist-papers — needs all 3, and ch48 is a known gate failure
+────
+23  reachable, at best, and only if every remaining chapter passes
+```
+
+At the ~50% rate prose has been getting, expect roughly half of the 23. The
+honest planning number for this batch is "around a dozen editions completed",
+not 28.
