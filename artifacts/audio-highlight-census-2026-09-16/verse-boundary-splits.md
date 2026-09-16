@@ -80,3 +80,26 @@ The 808 came from a census four days and ~1700 publishes stale (the real
 Priority-1 verse backlog is far smaller), and the pass rate on fresh verse is
 0 of 8, not the ~50% I implied. What survives is the narrower measured result:
 the markup fix took batch E to 12 of 13 with 11 publishes, all verified.
+
+## Update: this is not a verse problem
+
+Batch G is prose and Greek translation — no Shakespeare — and its first four
+chapters fail the same way. Of its first ten failing paragraphs, **five are
+boundary splits and five are genuine differences**, the same roughly even
+division seen in verse.
+
+The splits here come from a third source I had not isolated: the double hyphen
+used as an em dash, which Gutenberg writes closed up.
+
+| edition token | Whisper heard |
+|---|---|
+| `now--'tis no long toil--and` | `now 'tis no long toil and` |
+| `Kithaeron. . . .` | `Kithaeron.` |
+| `"I dislike him."--Why?--"I am not a match for` | (split at each `--`) |
+
+So the decision in this file is wider than I first described. It is not "should
+verse be reachable"; it is that **about half of every remaining gate failure,
+across genres, is a whitespace disagreement rather than a misreading.** The
+proposed rule and its safety property are unchanged — a merge must exactly
+reconstruct a token the edition text supplies — but the payoff is
+correspondingly larger and so is the risk surface. Still Anders's call.
