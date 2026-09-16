@@ -1,0 +1,33 @@
+name: reading-benchmark-collection
+on:
+  push:
+    branches: ['cursor/reading-benchmark-collection']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: reading-benchmark-collection
+  cancel-in-progress: false
+jobs:
+  credentials:
+    runs-on: ubuntu-latest
+    outputs:
+      ready: ${{ steps.check.outputs.ready }}
+    steps:
+      - id: check
+        name: Check benchmark credential availability without exposing values
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        shell: bash
+        run: |
+          ready=true
+          for name in OPENAI_API_KEY ANTHROPIC_API_KEY; do
+            if [ -n "${!name}" ]; then
+              echo "$name: configured"
+            else
+              echo "::notice::$name is not configured in this GitHub Actions context"
+              ready=false
+            fi
+          done
+          echo "ready=$ready" >> "$GITHUB_OUTPUT"
