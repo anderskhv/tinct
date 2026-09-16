@@ -73,7 +73,7 @@ export function LabChapterCover({ title, series, editionLabel, imageSrc, ground,
         else if (tap == null && Math.abs(deltaX) <= 10 && Math.abs(deltaY) <= 10) onToggleControls()
       }}
     >
-      {imageSrc ? <img className="lab-chapter-cover-art" src={imageSrc} alt={`${title} cover`} draggable={false} /> : <div className="lab-chapter-cover-book">
+      {imageSrc ? <img className="lab-chapter-cover-art" src={imageSrc} alt={`${title} cover`} draggable={false} onLoad={event => { const image = event.currentTarget; if (image.naturalHeight) coverRef.current?.style.setProperty('--lab-cover-ratio', String(image.naturalWidth / image.naturalHeight)) }} /> : <div className="lab-chapter-cover-book">
         <span className="lab-chapter-cover-series">{series}</span>
         <span className="lab-chapter-cover-mark" aria-hidden="true">{title.slice(0, 1)}</span>
         <h2>{title}</h2>

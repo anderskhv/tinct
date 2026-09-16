@@ -77,3 +77,12 @@ it('offers the shared audiobook selector without changing the text edition', () 
   expect(onAudioChoice).toHaveBeenCalledWith('original-en')
   expect(onEditions).not.toHaveBeenCalled()
 })
+
+it('shows the entire preface and inline character roles on desktop', () => {
+  vi.stubGlobal('matchMedia', () => ({ matches: true, addEventListener: vi.fn(), removeEventListener: vi.fn() }))
+  render(<LabBookPreface preface={preface} title="The Odyssey" cover="/cover.webp" continued={false} onRead={vi.fn()} cast={[{ id: 'odysseus', name: 'Odysseus', epithet: 'King of Ithaca', introduction: 'His journey home.' }]} />)
+  expect(screen.getByText('Reviewed second paragraph.')).toBeTruthy()
+  expect(screen.queryByRole('button', { name: 'Preface', exact: true })).toBeNull()
+  expect(screen.getByRole('button', { name: /Odysseus/ }).textContent).toContain('King of Ithaca')
+  vi.unstubAllGlobals()
+})

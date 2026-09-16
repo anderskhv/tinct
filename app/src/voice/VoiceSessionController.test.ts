@@ -1112,6 +1112,23 @@ describe('VoiceSessionController lab greeting and cancel', () => {
     expect(session?.session?.instructions).not.toContain(LAB_VOICE_GREETING)
   })
 
+  it('speaks a preparation welcome once and restores the normal welcome next session', () => {
+    const sent: string[] = []
+    const turns: Array<{ role: string; text: string }> = []
+    const controller = new VoiceSessionController({ onSnapshot: () => {}, onTurn: (role, text) => turns.push({ role, text }) })
+    const greeting = 'Let’s prepare you for your reading of The Art of War.'
+    const input = { audio: audioEngine({ anchor: ANCHOR, wasPlaying: false }), honorModelResume: true, send: (data: string) => sent.push(data), greet: true }
+    controller.testPrimeSession({ ...input, greeting })
+    expect(sent.map(value => JSON.parse(value)).find(event => event.type === 'response.create').response.instructions).toContain(greeting)
+    controller.testRealtime({ type: 'response.output_audio_transcript.done', transcript: greeting })
+    expect(turns).toEqual([{ role: 'assistant', text: greeting }])
+    sent.length = 0
+    controller.testPrimeSession(input)
+    const instructions = sent.map(value => JSON.parse(value)).find(event => event.type === 'response.create').response.instructions
+    expect(instructions).toContain(LAB_VOICE_GREETING)
+    expect(instructions).not.toContain(greeting)
+  })
+
   it('does not glue the greeting when both transcript event names fire', () => {
     const sent: string[] = []
     const turns: Array<{ role: string; text: string }> = []

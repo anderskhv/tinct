@@ -77,6 +77,7 @@ interface LabVoiceDesktopPanelProps {
   turns: LabAskTurn[]
   getAssistantLevel?: () => number | null
   reducedMotion?: boolean
+  preparationWelcome?: string
   notice?: string | null
   onMuteToggle: () => void
   onEnd: () => void
@@ -90,6 +91,7 @@ export function LabVoiceDesktopPanel({
   getAssistantLevel,
   reducedMotion = false,
   notice,
+  preparationWelcome,
   onMuteToggle,
   onEnd,
   onReconnect,
@@ -159,7 +161,7 @@ export function LabVoiceDesktopPanel({
       </div>
       <div className="lab-voice-panel-thread" data-testid="lab-voice-panel-thread" ref={threadRef} onScroll={onScroll}>
         {turns.length === 0 && (
-          <p className="lab-voice-panel-empty" data-testid="lab-voice-panel-empty">{LAB_CALL_COPY.askAboutPage}</p>
+          <p className="lab-voice-panel-empty" data-testid="lab-voice-panel-empty">{preparationWelcome || LAB_CALL_COPY.askAboutPage}</p>
         )}
         {turns.map(turn => (
           <div

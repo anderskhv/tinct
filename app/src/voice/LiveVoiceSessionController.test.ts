@@ -95,3 +95,17 @@ it('keeps backend prompts out of Live context after transcript and location upda
   controller.updateContext({ ...context, paragraphIndex: 1, visibleText: prompt }, prompt)
   expect(sent.filter(event => event.type === 'session.thinking.append')).toHaveLength(2)
 })
+
+it('sends the preparation welcome to Live once, without a Realtime response trigger', () => {
+  const controller = new LiveVoiceSessionController({ onSnapshot: vi.fn(), onTurn: vi.fn() })
+  const sent: Array<any> = []
+  const greeting = 'Let’s prepare you for your reading of The Art of War.'
+  Object.assign(controller, { dc: { readyState: 'open', send: (value: string) => sent.push(JSON.parse(value)) }, input: { greeting } })
+  controller.handleEvent({ type: 'session.started' })
+  controller.handleEvent({ type: 'session.started' })
+  expect(sent).toHaveLength(1)
+  expect(sent[0].type).toBe('session.instructions.append')
+  expect(sent[0].delegation_id).toBeNull()
+  expect(sent[0].content).toContain(greeting)
+  expect(controller.getSnapshot().connection).toBe('connected')
+})

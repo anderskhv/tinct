@@ -457,7 +457,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     setNotice(null)
   }, [isVoiceV2, voice.userSpeechStarted, voice.activity])
 
-  const startVoice = useCallback(async (): Promise<boolean> => {
+  const startVoice = useCallback(async (greeting?: string): Promise<boolean> => {
     if (voice.isActive || starting) return true
     if (!gateAiAction('voice')) return false
     const request = ++voiceStartRequestRef.current
@@ -472,7 +472,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     })
     if (request !== voiceStartRequestRef.current) return false
     if (!knownToken) setStarting(true)
-    const snapshot = await voice.start({ authToken })
+    const snapshot = await voice.start({ authToken, greeting })
     if (request !== voiceStartRequestRef.current) return false
     setStarting(false)
     if (snapshot.error) {

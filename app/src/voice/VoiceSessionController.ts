@@ -94,6 +94,7 @@ export interface VoiceUiSnapshot {
 }
 
 export interface StartVoiceSessionInput {
+  greeting?: string
   authToken: string | null
   isAnonymous: boolean
   /** Lab-only. Production App.tsx leaves this unset so /app still requires sign-in. */
@@ -235,6 +236,7 @@ export class VoiceSessionController {
   private sessionVadReady = false
   private firstUserTurnCommitted = false
   private firstAssistantDone = false
+  private greeting = LAB_VOICE_GREETING
   private greetingRequested = false
   private assistantDraft = ''
   private assistantTranscriptFamily: 'output' | 'audio' | null = null
@@ -279,6 +281,7 @@ export class VoiceSessionController {
   }
 
   async start(input: StartVoiceSessionInput): Promise<void> {
+    this.greeting = input.greeting || LAB_VOICE_GREETING
     if (this.machine.state !== 'reading') {
       this.handleMicTap()
       return
@@ -502,11 +505,13 @@ export class VoiceSessionController {
     send?: (data: string) => void
     sessionVadReady?: boolean
     audioTracks?: Array<{ enabled: boolean; kind?: string }>
+    greeting?: string
     greet?: boolean
     shouldResumeBook?: boolean
     applicationTools?: readonly unknown[]
     voiceVersion?: VoiceVersion
   }): void {
+    this.greeting = input.greeting || LAB_VOICE_GREETING
     this.voiceVersion = input.voiceVersion === 'v2' ? 'v2' : 'v1'
     this.resetV2Turn()
     this.activity = 'idle'
@@ -2073,7 +2078,7 @@ export class VoiceSessionController {
     this.sendEvent({
       type: 'response.create',
       response: {
-        instructions: `Speak this exact line and then stop. Do not add any other word.\n\n${LAB_VOICE_GREETING}\n\nDo not greet. Do not say hello. Do not repeat listening. Do not mention the book. Do not ask a question. Do not call any tools.`,
+        instructions: `Speak this exact line and then stop. Do not add any other word.\n\n${this.greeting}\n\nDo not greet beyond the exact line. Do not say hello. Do not repeat the line. Do not ask a question. Do not call any tools.`,
       },
     })
   }
@@ -2130,7 +2135,7 @@ export class VoiceSessionController {
 
   private isGreetingOnly(text: string): boolean {
     const normalized = text.replace(/\s+/g, ' ').trim()
-    return normalized === LAB_VOICE_GREETING || /^I'm listening\.(?:\s*listening\.)*$/i.test(normalized)
+    return normalized === this.greeting || /^I'm listening\.(?:\s*listening\.)*$/i.test(normalized)
   }
 
   private shouldEmitAssistantTurn(text: string): boolean {
@@ -2145,7 +2150,7 @@ export class VoiceSessionController {
     const current = this.assistantDraft
     const trimmedPiece = piece.replace(/^\s+/, '')
     if (current.endsWith(piece) || current.endsWith(trimmedPiece) || current === piece) return
-    const greeting = LAB_VOICE_GREETING
+    const greeting = this.greeting
     const normalized = current.replace(/\s+/g, ' ').trim()
     if (normalized === greeting || /^I'm listening\.(?:\s*listening\.)*$/i.test(normalized)) {
       this.assistantDraft = greeting
@@ -2167,7 +2172,7 @@ export class VoiceSessionController {
   private keepAssistantDraft(text: string): void {
     const next = text.trim()
     if (!next) return
-    const greeting = LAB_VOICE_GREETING
+    const greeting = this.greeting
     if (next === greeting || /^I'm listening\.(?:\s*listening\.)*$/i.test(next.replace(/\s+/g, ' '))) {
       this.assistantDraft = greeting
       return

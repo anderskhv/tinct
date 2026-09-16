@@ -8,8 +8,8 @@ import { ChatIcon, TalkIcon } from './LabReaderIcons'
 import './labBookPreface.css'
 
 /** Optional preparation: it never receives or changes a reading location. */
-export function LabBookPreface({ preface, title, cover, continued, ready = true, cast = [], onRead, onBack = onRead, onAsk = () => {}, onTalk = () => {}, editions = [], primaryEdition = '', secondaryEdition = '', onEditions = () => {}, audioEditions = [], audioChoice = '', onAudioChoice = () => {} }: {
-  preface: BookPreface; title: string; cover: string; continued: boolean; ready?: boolean;
+export function LabBookPreface({ open = true, preface, title, cover, continued, ready = true, cast = [], onRead, onBack = onRead, onAsk = () => {}, onTalk = () => {}, editions = [], primaryEdition = '', secondaryEdition = '', onEditions = () => {}, audioEditions = [], audioChoice = '', onAudioChoice = () => {} }: {
+  open?: boolean; preface: BookPreface; title: string; cover: string; continued: boolean; ready?: boolean;
   cast?: LabCastMember[]; onRead: () => void; reopened?: boolean; onBack?: () => void;
   onAsk?: (question: string) => void; onTalk?: () => void;
   audioEditions?: Edition[]; audioChoice?: string; onAudioChoice?: (value: string) => void;
@@ -44,10 +44,11 @@ export function LabBookPreface({ preface, title, cover, continued, ready = true,
   useLayoutEffect(() => {
     const node = dialog.current
     const previous = document.activeElement as HTMLElement | null
+    if (!open) return
     node?.showModal()
     heading.current?.focus({ preventScroll: true })
     return () => { node?.close(); if (previous?.isConnected) previous.focus({ preventScroll: true }) }
-  }, [])
+  }, [open])
   return <dialog ref={dialog} className="lab-book-preface" data-testid="lab-book-preface" data-view="preparation"
     aria-label={`${title}: Before you begin`} onCancel={event => { event.preventDefault(); onBack() }}>
     <img className="lab-preparation-background" src={cover} alt="" />
@@ -61,17 +62,16 @@ export function LabBookPreface({ preface, title, cover, continued, ready = true,
         <section className="lab-preface-preview" lang="en">
           <h1 ref={heading} tabIndex={-1}>Preface</h1>
           <div className="lab-preface-intro-row">
-          <div id="preparation-preface-text" className={`lab-preface-full${fullPreface ? '' : ' is-collapsed'}`}>
-            {(fullPreface ? preface.paragraphs : preface.paragraphs.slice(0, desktop ? 2 : 1)).map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+          <div id="preparation-preface-text" className={`lab-preface-full${fullPreface || desktop ? '' : ' is-collapsed'}`}>
+            {(fullPreface || desktop ? preface.paragraphs : preface.paragraphs.slice(0, 1)).map((paragraph, index) => <p key={index}>{paragraph}</p>)}
           </div>
-          <button type="button" className="lab-preface-intro-toggle" aria-label="Preface" aria-controls="preparation-preface-text" aria-expanded={fullPreface} onClick={() => setFullPreface(value => !value)}><span aria-hidden="true">{fullPreface ? '−' : '+'}</span></button>
+          {!desktop && <button type="button" className="lab-preface-intro-toggle" aria-label="Preface" aria-controls="preparation-preface-text" aria-expanded={fullPreface} onClick={() => setFullPreface(value => !value)}><span aria-hidden="true">{fullPreface ? '−' : '+'}</span></button>}
           </div>
         </section>
         <section className="lab-preface-cast">
           <h2><button type="button" aria-expanded={showCast} aria-controls="preparation-cast" onClick={() => setShowCast(value => !value)}>Characters <span aria-hidden="true">{showCast ? '−' : '+'}</span></button></h2>
           {showCast && <div id="preparation-cast">{openingCast.length ? openingCast.map(member => <article key={member.id}>
-            <h3><button type="button" className="lab-preparation-expand" aria-expanded={expandedCharacters.has(member.id)} aria-controls={`preparation-person-${member.id}`} onClick={() => setExpandedCharacters(current => { const next = new Set(current); if (next.has(member.id)) next.delete(member.id); else next.add(member.id); return next })}>{member.name}<span aria-hidden="true">{expandedCharacters.has(member.id) ? '−' : '+'}</span></button></h3>
-            {desktop && member.epithet && <p>{member.epithet}</p>}
+            <h3><button type="button" className="lab-preparation-expand" aria-expanded={expandedCharacters.has(member.id)} aria-controls={`preparation-person-${member.id}`} onClick={() => setExpandedCharacters(current => { const next = new Set(current); if (next.has(member.id)) next.delete(member.id); else next.add(member.id); return next })}><span className="lab-character-identity">{member.name}{desktop && member.epithet && <small>{member.epithet}</small>}</span><span aria-hidden="true">{expandedCharacters.has(member.id) ? '−' : '+'}</span></button></h3>
             {expandedCharacters.has(member.id) && <div id={`preparation-person-${member.id}`}><p>{member.introduction}</p></div>}
           </article>) : <p>Character introductions aren’t available for this book yet.</p>}</div>}
         </section>
