@@ -5,7 +5,7 @@
   "contentVersion": "2026-09-12.1",
   "normalization": "prose-reader-v1",
   "offsetUnit": "utf16",
-  "reviewStatus": "authoring-agent-reviewed",
+  "reviewStatus": "agent-drafted-2026-09-17-pending-independent-review",
   "editions": {
     "original-en": {
       "sourcePath": "app/public/data/editions/anna-karenina-original-en.json",
@@ -8613,6 +8613,42 @@
                   "chapterNumber": 6,
                   "paragraphIndex": 3,
                   "throughOffset": 180
+                }
+              ],
+              "editorialBasis": "Reviewed baseline identity at first mention; no concealed identity or later plot development."
+            }
+          ]
+        },
+        {
+          "id": "varenka",
+          "kind": "person",
+          "storyRole": "major",
+          "roleVisibleAt": {
+            "chapterNumber": 64,
+            "paragraphIndex": 3,
+            "offset": 912
+          },
+          "firstMention": {
+            "chapterNumber": 64,
+            "paragraphIndex": 3,
+            "offset": 912
+          },
+          "snapshots": [
+            {
+              "id": "varenka-1",
+              "availableAt": {
+                "chapterNumber": 64,
+                "paragraphIndex": 3,
+                "offset": 912
+              },
+              "name": "Varenka",
+              "subtitle": "A young woman Kitty befriends abroad",
+              "body": "An adopted companion of the invalid Madame Stahl at the German spa where Kitty goes to recover. Her quiet, purposeful devotion to helping others makes a deep impression on Kitty during a difficult time.",
+              "evidence": [
+                {
+                  "chapterNumber": 64,
+                  "paragraphIndex": 3,
+                  "throughOffset": 912
                 }
               ],
               "editorialBasis": "Reviewed baseline identity at first mention; no concealed identity or later plot development."
@@ -23508,6 +23544,24 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 64,
+          "paragraphIndex": 3,
+          "startOffset": 905,
+          "endOffset": 912,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 64,
+          "paragraphIndex": 3,
+          "startOffset": 943,
+          "endOffset": 963,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 64,
           "paragraphIndex": 3,
@@ -23526,6 +23580,24 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 64,
+          "paragraphIndex": 3,
+          "startOffset": 1137,
+          "endOffset": 1157,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 64,
+          "paragraphIndex": 4,
+          "startOffset": 3,
+          "endOffset": 23,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 64,
           "paragraphIndex": 4,
@@ -23541,6 +23613,15 @@
           "startOffset": 202,
           "endOffset": 207,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 64,
+          "paragraphIndex": 5,
+          "startOffset": 232,
+          "endOffset": 252,
+          "text": "Mademoiselle Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -23661,6 +23742,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 1,
+          "startOffset": 238,
+          "endOffset": 245,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 65,
           "paragraphIndex": 1,
@@ -23697,6 +23787,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 5,
+          "startOffset": 52,
+          "endOffset": 59,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "levin",
           "chapterNumber": 65,
           "paragraphIndex": 6,
@@ -23721,6 +23820,15 @@
           "startOffset": 211,
           "endOffset": 216,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 13,
+          "startOffset": 1,
+          "endOffset": 21,
+          "text": "Mademoiselle Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -23751,6 +23859,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 16,
+          "startOffset": 68,
+          "endOffset": 88,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "levin",
           "chapterNumber": 65,
           "paragraphIndex": 16,
@@ -23769,12 +23886,75 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 17,
+          "startOffset": 83,
+          "endOffset": 90,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 17,
+          "startOffset": 283,
+          "endOffset": 290,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 17,
+          "startOffset": 446,
+          "endOffset": 453,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 18,
+          "startOffset": 64,
+          "endOffset": 71,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 20,
+          "startOffset": 50,
+          "endOffset": 57,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 22,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "levin",
           "chapterNumber": 65,
           "paragraphIndex": 23,
           "startOffset": 21,
           "endOffset": 26,
           "text": "Levin",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 26,
+          "startOffset": 106,
+          "endOffset": 113,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -23787,12 +23967,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 27,
+          "startOffset": 148,
+          "endOffset": 155,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "levin",
           "chapterNumber": 65,
           "paragraphIndex": 28,
           "startOffset": 23,
           "endOffset": 28,
           "text": "Levin",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 29,
+          "startOffset": 28,
+          "endOffset": 35,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -23814,6 +24012,24 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 32,
+          "startOffset": 1,
+          "endOffset": 8,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 32,
+          "startOffset": 11,
+          "endOffset": 18,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 65,
           "paragraphIndex": 33,
@@ -23823,12 +24039,138 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 33,
+          "startOffset": 219,
+          "endOffset": 239,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 36,
+          "startOffset": 40,
+          "endOffset": 47,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 37,
+          "startOffset": 1,
+          "endOffset": 8,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 38,
+          "startOffset": 4,
+          "endOffset": 11,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 0,
+          "startOffset": 60,
+          "endOffset": 67,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 1,
+          "startOffset": 611,
+          "endOffset": 618,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 1,
+          "startOffset": 655,
+          "endOffset": 662,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 1,
+          "startOffset": 754,
+          "endOffset": 761,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 2,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 2,
+          "startOffset": 95,
+          "endOffset": 115,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 3,
+          "startOffset": 104,
+          "endOffset": 111,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 3,
+          "startOffset": 132,
+          "endOffset": 139,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 4,
+          "startOffset": 22,
+          "endOffset": 29,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 4,
           "startOffset": 31,
           "endOffset": 36,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 5,
+          "startOffset": 27,
+          "endOffset": 34,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -23850,6 +24192,33 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 6,
+          "startOffset": 215,
+          "endOffset": 222,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 6,
+          "startOffset": 251,
+          "endOffset": 258,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 7,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 7,
@@ -23859,12 +24228,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 8,
+          "startOffset": 67,
+          "endOffset": 74,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 11,
+          "startOffset": 40,
+          "endOffset": 47,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 12,
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 12,
+          "startOffset": 143,
+          "endOffset": 150,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -23886,12 +24282,48 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 13,
+          "startOffset": 465,
+          "endOffset": 472,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 13,
+          "startOffset": 492,
+          "endOffset": 499,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 14,
           "startOffset": 46,
           "endOffset": 51,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 14,
+          "startOffset": 97,
+          "endOffset": 104,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 15,
+          "startOffset": 24,
+          "endOffset": 31,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -23904,12 +24336,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 15,
+          "startOffset": 79,
+          "endOffset": 86,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 17,
+          "startOffset": 15,
+          "endOffset": 22,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 18,
           "startOffset": 72,
           "endOffset": 77,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 18,
+          "startOffset": 82,
+          "endOffset": 89,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -23922,12 +24381,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 20,
+          "startOffset": 42,
+          "endOffset": 49,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 21,
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 21,
+          "startOffset": 66,
+          "endOffset": 73,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -23949,6 +24426,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 26,
+          "startOffset": 62,
+          "endOffset": 69,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 27,
@@ -23964,6 +24450,15 @@
           "startOffset": 93,
           "endOffset": 98,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 30,
+          "startOffset": 87,
+          "endOffset": 94,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -23985,12 +24480,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 34,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 34,
           "startOffset": 44,
           "endOffset": 49,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 37,
+          "startOffset": 87,
+          "endOffset": 94,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 41,
+          "startOffset": 53,
+          "endOffset": 60,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24003,6 +24525,24 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 43,
+          "startOffset": 45,
+          "endOffset": 52,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 45,
+          "startOffset": 46,
+          "endOffset": 53,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 45,
@@ -24012,12 +24552,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 46,
+          "startOffset": 35,
+          "endOffset": 42,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 47,
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 47,
+          "startOffset": 194,
+          "endOffset": 201,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24039,6 +24597,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 50,
+          "startOffset": 15,
+          "endOffset": 22,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 51,
@@ -24054,6 +24621,15 @@
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 0,
+          "startOffset": 106,
+          "endOffset": 113,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24102,6 +24678,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 1,
+          "startOffset": 537,
+          "endOffset": 544,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 67,
           "paragraphIndex": 1,
@@ -24120,12 +24705,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 2,
+          "startOffset": 635,
+          "endOffset": 642,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 67,
           "paragraphIndex": 2,
           "startOffset": 812,
           "endOffset": 817,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 2,
+          "startOffset": 841,
+          "endOffset": 848,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24147,12 +24750,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 2,
+          "startOffset": 1193,
+          "endOffset": 1200,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 67,
           "paragraphIndex": 2,
           "startOffset": 1279,
           "endOffset": 1284,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 2,
+          "startOffset": 1395,
+          "endOffset": 1402,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24174,12 +24795,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 2,
+          "startOffset": 1790,
+          "endOffset": 1797,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 67,
           "paragraphIndex": 3,
           "startOffset": 78,
           "endOffset": 83,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 3,
+          "startOffset": 233,
+          "endOffset": 240,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24192,6 +24831,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 4,
+          "startOffset": 158,
+          "endOffset": 165,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 67,
           "paragraphIndex": 4,
@@ -24201,12 +24849,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 4,
+          "startOffset": 209,
+          "endOffset": 216,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 67,
           "paragraphIndex": 5,
           "startOffset": 38,
           "endOffset": 43,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 5,
+          "startOffset": 225,
+          "endOffset": 232,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24252,6 +24918,15 @@
           "startOffset": 74,
           "endOffset": 79,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 13,
+          "startOffset": 9,
+          "endOffset": 16,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24345,6 +25020,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 2,
+          "startOffset": 245,
+          "endOffset": 252,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 68,
           "paragraphIndex": 2,
@@ -24390,12 +25074,48 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 7,
+          "startOffset": 75,
+          "endOffset": 95,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 8,
+          "startOffset": 5,
+          "endOffset": 25,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 9,
+          "startOffset": 23,
+          "endOffset": 30,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 68,
           "paragraphIndex": 10,
           "startOffset": 21,
           "endOffset": 26,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 11,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24417,12 +25137,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 14,
+          "startOffset": 51,
+          "endOffset": 58,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 68,
           "paragraphIndex": 15,
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 15,
+          "startOffset": 51,
+          "endOffset": 58,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24471,6 +25209,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 29,
+          "startOffset": 22,
+          "endOffset": 29,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 68,
           "paragraphIndex": 38,
@@ -24516,12 +25263,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 46,
+          "startOffset": 150,
+          "endOffset": 157,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 68,
           "paragraphIndex": 56,
           "startOffset": 33,
           "endOffset": 38,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 57,
+          "startOffset": 54,
+          "endOffset": 61,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24534,12 +25299,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 58,
+          "startOffset": 40,
+          "endOffset": 47,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 68,
           "paragraphIndex": 60,
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 60,
+          "startOffset": 666,
+          "endOffset": 673,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24561,12 +25344,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 1,
+          "startOffset": 110,
+          "endOffset": 117,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 1,
           "startOffset": 1267,
           "endOffset": 1272,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 1,
+          "startOffset": 1786,
+          "endOffset": 1793,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24597,12 +25398,48 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 14,
+          "startOffset": 57,
+          "endOffset": 64,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 15,
+          "startOffset": 29,
+          "endOffset": 36,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 16,
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 16,
+          "startOffset": 25,
+          "endOffset": 32,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 17,
+          "startOffset": 63,
+          "endOffset": 70,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24615,12 +25452,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 19,
+          "startOffset": 36,
+          "endOffset": 43,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 20,
           "startOffset": 66,
           "endOffset": 71,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 20,
+          "startOffset": 80,
+          "endOffset": 87,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 21,
+          "startOffset": 16,
+          "endOffset": 23,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24633,12 +25497,48 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 24,
+          "startOffset": 81,
+          "endOffset": 88,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 27,
+          "startOffset": 26,
+          "endOffset": 33,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 29,
+          "startOffset": 29,
+          "endOffset": 36,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 30,
           "startOffset": 26,
           "endOffset": 31,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 31,
+          "startOffset": 181,
+          "endOffset": 188,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24651,12 +25551,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 32,
+          "startOffset": 57,
+          "endOffset": 64,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 34,
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 34,
+          "startOffset": 49,
+          "endOffset": 56,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24669,12 +25587,66 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 36,
+          "startOffset": 100,
+          "endOffset": 107,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 37,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 40,
+          "startOffset": 33,
+          "endOffset": 40,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 44,
+          "startOffset": 27,
+          "endOffset": 34,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 45,
           "startOffset": 4,
           "endOffset": 9,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 47,
+          "startOffset": 26,
+          "endOffset": 33,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 49,
+          "startOffset": 23,
+          "endOffset": 30,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24705,6 +25677,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 56,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 56,
@@ -24714,12 +25695,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 57,
+          "startOffset": 1,
+          "endOffset": 8,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 57,
           "startOffset": 48,
           "endOffset": 53,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 58,
+          "startOffset": 41,
+          "endOffset": 48,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -24741,12 +25740,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 60,
+          "startOffset": 22,
+          "endOffset": 29,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 60,
           "startOffset": 66,
           "endOffset": 71,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 61,
+          "startOffset": 39,
+          "endOffset": 46,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -34206,6 +35223,15 @@
           "startOffset": 454,
           "endOffset": 459,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 112,
+          "paragraphIndex": 0,
+          "startOffset": 654,
+          "endOffset": 661,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -44307,6 +45333,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 0,
+          "startOffset": 779,
+          "endOffset": 786,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 158,
           "paragraphIndex": 0,
@@ -44388,12 +45423,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 2,
+          "startOffset": 84,
+          "endOffset": 91,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 158,
           "paragraphIndex": 2,
           "startOffset": 144,
           "endOffset": 161,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 3,
+          "startOffset": 77,
+          "endOffset": 84,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 4,
+          "startOffset": 38,
+          "endOffset": 45,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -44421,6 +45483,15 @@
           "startOffset": 158,
           "endOffset": 175,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 4,
+          "startOffset": 209,
+          "endOffset": 216,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -44505,6 +45576,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 11,
+          "startOffset": 1,
+          "endOffset": 8,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 158,
           "paragraphIndex": 11,
@@ -44514,12 +45594,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 12,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 158,
           "paragraphIndex": 13,
           "startOffset": 50,
           "endOffset": 67,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 14,
+          "startOffset": 18,
+          "endOffset": 25,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -44550,6 +45648,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 14,
+          "startOffset": 243,
+          "endOffset": 250,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 158,
           "paragraphIndex": 14,
@@ -44565,6 +45672,15 @@
           "startOffset": 38,
           "endOffset": 43,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 16,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -44595,12 +45711,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 16,
+          "startOffset": 306,
+          "endOffset": 313,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 158,
           "paragraphIndex": 16,
           "startOffset": 411,
           "endOffset": 416,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 17,
+          "startOffset": 1,
+          "endOffset": 8,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 18,
+          "startOffset": 30,
+          "endOffset": 37,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -44736,6 +45879,15 @@
           "startOffset": 48,
           "endOffset": 53,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 159,
+          "paragraphIndex": 8,
+          "startOffset": 111,
+          "endOffset": 118,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -44907,6 +46059,15 @@
           "startOffset": 177,
           "endOffset": 184,
           "text": "Vronsky",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 159,
+          "paragraphIndex": 38,
+          "startOffset": 47,
+          "endOffset": 54,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -45234,12 +46395,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 160,
+          "paragraphIndex": 9,
+          "startOffset": 33,
+          "endOffset": 40,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "levin",
           "chapterNumber": 160,
           "paragraphIndex": 10,
           "startOffset": 30,
           "endOffset": 35,
           "text": "Levin",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 160,
+          "paragraphIndex": 13,
+          "startOffset": 19,
+          "endOffset": 26,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 160,
+          "paragraphIndex": 16,
+          "startOffset": 96,
+          "endOffset": 103,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -45396,6 +46584,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 161,
+          "paragraphIndex": 0,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 161,
           "paragraphIndex": 0,
@@ -45411,6 +46608,15 @@
           "startOffset": 392,
           "endOffset": 409,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 161,
+          "paragraphIndex": 2,
+          "startOffset": 806,
+          "endOffset": 813,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -45477,6 +46683,42 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 161,
+          "paragraphIndex": 4,
+          "startOffset": 1487,
+          "endOffset": 1494,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 161,
+          "paragraphIndex": 4,
+          "startOffset": 1978,
+          "endOffset": 1985,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 161,
+          "paragraphIndex": 4,
+          "startOffset": 2114,
+          "endOffset": 2121,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 161,
+          "paragraphIndex": 4,
+          "startOffset": 2442,
+          "endOffset": 2449,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 161,
           "paragraphIndex": 4,
@@ -45513,12 +46755,48 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 7,
+          "startOffset": 166,
+          "endOffset": 173,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 162,
           "paragraphIndex": 7,
           "startOffset": 329,
           "endOffset": 346,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 8,
+          "startOffset": 42,
+          "endOffset": 49,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 8,
+          "startOffset": 263,
+          "endOffset": 270,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 8,
+          "startOffset": 454,
+          "endOffset": 461,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -45531,12 +46809,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 11,
+          "startOffset": 97,
+          "endOffset": 104,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 162,
           "paragraphIndex": 13,
           "startOffset": 34,
           "endOffset": 51,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 13,
+          "startOffset": 136,
+          "endOffset": 143,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -45549,12 +46845,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 15,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 162,
           "paragraphIndex": 18,
           "startOffset": 93,
           "endOffset": 110,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 19,
+          "startOffset": 29,
+          "endOffset": 36,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 19,
+          "startOffset": 142,
+          "endOffset": 149,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -45585,12 +46908,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 22,
+          "startOffset": 42,
+          "endOffset": 49,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 162,
           "paragraphIndex": 22,
           "startOffset": 74,
           "endOffset": 79,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 22,
+          "startOffset": 99,
+          "endOffset": 106,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -45618,6 +46959,15 @@
           "startOffset": 148,
           "endOffset": 165,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 163,
+          "paragraphIndex": 0,
+          "startOffset": 170,
+          "endOffset": 177,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -45792,12 +47142,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 163,
+          "paragraphIndex": 16,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 163,
           "paragraphIndex": 16,
           "startOffset": 37,
           "endOffset": 42,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 163,
+          "paragraphIndex": 16,
+          "startOffset": 100,
+          "endOffset": 107,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -45819,6 +47187,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 163,
+          "paragraphIndex": 19,
+          "startOffset": 48,
+          "endOffset": 55,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "stiva",
           "chapterNumber": 163,
           "paragraphIndex": 22,
@@ -45834,6 +47211,15 @@
           "startOffset": 55,
           "endOffset": 72,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 163,
+          "paragraphIndex": 22,
+          "startOffset": 130,
+          "endOffset": 137,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -46161,6 +47547,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 163,
+          "paragraphIndex": 39,
+          "startOffset": 4,
+          "endOffset": 11,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 163,
           "paragraphIndex": 40,
@@ -46383,6 +47778,15 @@
           "startOffset": 0,
           "endOffset": 5,
           "text": "Levin",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 164,
+          "paragraphIndex": 14,
+          "startOffset": 113,
+          "endOffset": 120,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -49509,6 +50913,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 172,
+          "paragraphIndex": 55,
+          "startOffset": 463,
+          "endOffset": 470,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "dolly",
           "chapterNumber": 173,
           "paragraphIndex": 0,
@@ -49785,6 +51198,15 @@
           "startOffset": 482,
           "endOffset": 500,
           "text": "Darya Alexandrovna",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 173,
+          "paragraphIndex": 15,
+          "startOffset": 849,
+          "endOffset": 856,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -72900,6 +74322,42 @@
               "editorialBasis": "Reviewed baseline identity at first mention; no concealed identity or later plot development."
             }
           ]
+        },
+        {
+          "id": "varenka",
+          "kind": "person",
+          "storyRole": "major",
+          "roleVisibleAt": {
+            "chapterNumber": 64,
+            "paragraphIndex": 3,
+            "offset": 850
+          },
+          "firstMention": {
+            "chapterNumber": 64,
+            "paragraphIndex": 3,
+            "offset": 850
+          },
+          "snapshots": [
+            {
+              "id": "varenka-1",
+              "availableAt": {
+                "chapterNumber": 64,
+                "paragraphIndex": 3,
+                "offset": 850
+              },
+              "name": "Varenka",
+              "subtitle": "A young woman Kitty befriends abroad",
+              "body": "An adopted companion of the invalid Madame Stahl at the German spa where Kitty goes to recover. Her quiet, purposeful devotion to helping others makes a deep impression on Kitty during a difficult time.",
+              "evidence": [
+                {
+                  "chapterNumber": 64,
+                  "paragraphIndex": 3,
+                  "throughOffset": 850
+                }
+              ],
+              "editorialBasis": "Reviewed baseline identity at first mention; no concealed identity or later plot development."
+            }
+          ]
         }
       ],
       "mentions": [
@@ -87826,6 +89284,24 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 64,
+          "paragraphIndex": 3,
+          "startOffset": 843,
+          "endOffset": 850,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 64,
+          "paragraphIndex": 3,
+          "startOffset": 881,
+          "endOffset": 901,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 64,
           "paragraphIndex": 3,
@@ -87844,12 +89320,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 64,
+          "paragraphIndex": 3,
+          "startOffset": 1065,
+          "endOffset": 1085,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 64,
+          "paragraphIndex": 4,
+          "startOffset": 27,
+          "endOffset": 47,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 64,
           "paragraphIndex": 4,
           "startOffset": 594,
           "endOffset": 599,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 64,
+          "paragraphIndex": 5,
+          "startOffset": 197,
+          "endOffset": 217,
+          "text": "Mademoiselle Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -87979,6 +89482,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 1,
+          "startOffset": 231,
+          "endOffset": 238,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 65,
           "paragraphIndex": 1,
@@ -88015,6 +89527,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 5,
+          "startOffset": 51,
+          "endOffset": 58,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "levin",
           "chapterNumber": 65,
           "paragraphIndex": 6,
@@ -88039,6 +89560,15 @@
           "startOffset": 201,
           "endOffset": 206,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 13,
+          "startOffset": 1,
+          "endOffset": 21,
+          "text": "Mademoiselle Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88069,6 +89599,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 16,
+          "startOffset": 58,
+          "endOffset": 78,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "levin",
           "chapterNumber": 65,
           "paragraphIndex": 16,
@@ -88087,12 +89626,75 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 17,
+          "startOffset": 79,
+          "endOffset": 86,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 17,
+          "startOffset": 247,
+          "endOffset": 254,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 17,
+          "startOffset": 350,
+          "endOffset": 357,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 18,
+          "startOffset": 67,
+          "endOffset": 74,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 20,
+          "startOffset": 46,
+          "endOffset": 53,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 22,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "levin",
           "chapterNumber": 65,
           "paragraphIndex": 23,
           "startOffset": 21,
           "endOffset": 26,
           "text": "Levin",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 26,
+          "startOffset": 97,
+          "endOffset": 104,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88105,12 +89707,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 27,
+          "startOffset": 130,
+          "endOffset": 137,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "levin",
           "chapterNumber": 65,
           "paragraphIndex": 28,
           "startOffset": 24,
           "endOffset": 29,
           "text": "Levin",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 29,
+          "startOffset": 16,
+          "endOffset": 23,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88132,6 +89752,24 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 32,
+          "startOffset": 1,
+          "endOffset": 8,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 32,
+          "startOffset": 11,
+          "endOffset": 18,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 65,
           "paragraphIndex": 33,
@@ -88141,12 +89779,138 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 33,
+          "startOffset": 149,
+          "endOffset": 169,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 36,
+          "startOffset": 32,
+          "endOffset": 39,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 37,
+          "startOffset": 1,
+          "endOffset": 8,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 65,
+          "paragraphIndex": 38,
+          "startOffset": 4,
+          "endOffset": 11,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 0,
+          "startOffset": 47,
+          "endOffset": 54,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 1,
+          "startOffset": 562,
+          "endOffset": 569,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 1,
+          "startOffset": 603,
+          "endOffset": 610,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 1,
+          "startOffset": 691,
+          "endOffset": 698,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 2,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 2,
+          "startOffset": 96,
+          "endOffset": 116,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 3,
+          "startOffset": 101,
+          "endOffset": 108,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 3,
+          "startOffset": 130,
+          "endOffset": 137,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 4,
+          "startOffset": 22,
+          "endOffset": 29,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 4,
           "startOffset": 31,
           "endOffset": 36,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 5,
+          "startOffset": 13,
+          "endOffset": 20,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88168,6 +89932,33 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 6,
+          "startOffset": 214,
+          "endOffset": 221,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 6,
+          "startOffset": 257,
+          "endOffset": 264,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 7,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 7,
@@ -88177,12 +89968,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 8,
+          "startOffset": 64,
+          "endOffset": 71,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 11,
+          "startOffset": 37,
+          "endOffset": 44,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 12,
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 12,
+          "startOffset": 139,
+          "endOffset": 146,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88204,12 +90022,48 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 13,
+          "startOffset": 419,
+          "endOffset": 426,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 13,
+          "startOffset": 446,
+          "endOffset": 453,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 14,
           "startOffset": 46,
           "endOffset": 51,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 14,
+          "startOffset": 96,
+          "endOffset": 103,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 15,
+          "startOffset": 24,
+          "endOffset": 31,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88222,6 +90076,24 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 15,
+          "startOffset": 75,
+          "endOffset": 82,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 17,
+          "startOffset": 11,
+          "endOffset": 18,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 18,
@@ -88231,12 +90103,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 18,
+          "startOffset": 81,
+          "endOffset": 88,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 19,
           "startOffset": 65,
           "endOffset": 70,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 20,
+          "startOffset": 30,
+          "endOffset": 37,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88267,6 +90157,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 26,
+          "startOffset": 67,
+          "endOffset": 74,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 27,
@@ -88282,6 +90181,15 @@
           "startOffset": 99,
           "endOffset": 104,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 30,
+          "startOffset": 83,
+          "endOffset": 90,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88303,12 +90211,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 34,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 34,
           "startOffset": 44,
           "endOffset": 49,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 37,
+          "startOffset": 100,
+          "endOffset": 107,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 41,
+          "startOffset": 53,
+          "endOffset": 60,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88321,6 +90256,24 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 43,
+          "startOffset": 29,
+          "endOffset": 36,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 45,
+          "startOffset": 37,
+          "endOffset": 44,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 45,
@@ -88330,12 +90283,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 46,
+          "startOffset": 30,
+          "endOffset": 37,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 66,
           "paragraphIndex": 47,
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 47,
+          "startOffset": 180,
+          "endOffset": 187,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88354,6 +90325,15 @@
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 66,
+          "paragraphIndex": 50,
+          "startOffset": 15,
+          "endOffset": 22,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88381,6 +90361,15 @@
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 0,
+          "startOffset": 93,
+          "endOffset": 100,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88420,6 +90409,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 1,
+          "startOffset": 577,
+          "endOffset": 584,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 67,
           "paragraphIndex": 1,
@@ -88447,12 +90445,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 2,
+          "startOffset": 603,
+          "endOffset": 610,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 67,
           "paragraphIndex": 2,
           "startOffset": 754,
           "endOffset": 759,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 2,
+          "startOffset": 786,
+          "endOffset": 793,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88474,12 +90490,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 2,
+          "startOffset": 1141,
+          "endOffset": 1148,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 67,
           "paragraphIndex": 2,
           "startOffset": 1210,
           "endOffset": 1215,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 2,
+          "startOffset": 1317,
+          "endOffset": 1324,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88492,12 +90526,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 2,
+          "startOffset": 1689,
+          "endOffset": 1696,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 67,
           "paragraphIndex": 3,
           "startOffset": 92,
           "endOffset": 97,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 3,
+          "startOffset": 241,
+          "endOffset": 248,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88510,6 +90562,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 4,
+          "startOffset": 172,
+          "endOffset": 179,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 67,
           "paragraphIndex": 4,
@@ -88519,12 +90580,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 4,
+          "startOffset": 221,
+          "endOffset": 228,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 67,
           "paragraphIndex": 5,
           "startOffset": 38,
           "endOffset": 43,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 5,
+          "startOffset": 222,
+          "endOffset": 229,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88570,6 +90649,15 @@
           "startOffset": 51,
           "endOffset": 56,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 67,
+          "paragraphIndex": 13,
+          "startOffset": 9,
+          "endOffset": 16,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88654,6 +90742,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 2,
+          "startOffset": 236,
+          "endOffset": 243,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 68,
           "paragraphIndex": 2,
@@ -88699,12 +90796,48 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 7,
+          "startOffset": 74,
+          "endOffset": 94,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 8,
+          "startOffset": 5,
+          "endOffset": 25,
+          "text": "Mademoiselle Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 9,
+          "startOffset": 23,
+          "endOffset": 30,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 68,
           "paragraphIndex": 10,
           "startOffset": 29,
           "endOffset": 34,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 11,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88726,12 +90859,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 14,
+          "startOffset": 52,
+          "endOffset": 59,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 68,
           "paragraphIndex": 15,
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 15,
+          "startOffset": 57,
+          "endOffset": 64,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88780,6 +90931,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 29,
+          "startOffset": 22,
+          "endOffset": 29,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 68,
           "paragraphIndex": 38,
@@ -88825,12 +90985,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 46,
+          "startOffset": 158,
+          "endOffset": 165,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 68,
           "paragraphIndex": 56,
           "startOffset": 29,
           "endOffset": 34,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 57,
+          "startOffset": 51,
+          "endOffset": 58,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88843,12 +91021,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 58,
+          "startOffset": 41,
+          "endOffset": 48,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 68,
           "paragraphIndex": 60,
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 68,
+          "paragraphIndex": 60,
+          "startOffset": 660,
+          "endOffset": 667,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88870,12 +91066,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 1,
+          "startOffset": 107,
+          "endOffset": 114,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 1,
           "startOffset": 1229,
           "endOffset": 1234,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 1,
+          "startOffset": 1731,
+          "endOffset": 1738,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88906,12 +91120,48 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 14,
+          "startOffset": 57,
+          "endOffset": 64,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 15,
+          "startOffset": 29,
+          "endOffset": 36,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 16,
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 16,
+          "startOffset": 25,
+          "endOffset": 32,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 17,
+          "startOffset": 52,
+          "endOffset": 59,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88924,12 +91174,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 19,
+          "startOffset": 29,
+          "endOffset": 36,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 20,
           "startOffset": 72,
           "endOffset": 77,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 20,
+          "startOffset": 87,
+          "endOffset": 94,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 21,
+          "startOffset": 7,
+          "endOffset": 14,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88942,12 +91219,48 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 24,
+          "startOffset": 79,
+          "endOffset": 86,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 27,
+          "startOffset": 21,
+          "endOffset": 28,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 29,
+          "startOffset": 23,
+          "endOffset": 30,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 30,
           "startOffset": 26,
           "endOffset": 31,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 31,
+          "startOffset": 179,
+          "endOffset": 186,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88960,12 +91273,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 32,
+          "startOffset": 56,
+          "endOffset": 63,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 34,
           "startOffset": 0,
           "endOffset": 5,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 34,
+          "startOffset": 50,
+          "endOffset": 57,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -88978,12 +91309,66 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 36,
+          "startOffset": 96,
+          "endOffset": 103,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 37,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 40,
+          "startOffset": 28,
+          "endOffset": 35,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 44,
+          "startOffset": 26,
+          "endOffset": 33,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 45,
           "startOffset": 4,
           "endOffset": 9,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 47,
+          "startOffset": 17,
+          "endOffset": 24,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 49,
+          "startOffset": 24,
+          "endOffset": 31,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -89014,6 +91399,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 56,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 56,
@@ -89023,12 +91417,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 57,
+          "startOffset": 1,
+          "endOffset": 8,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 57,
           "startOffset": 44,
           "endOffset": 49,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 58,
+          "startOffset": 36,
+          "endOffset": 43,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -89050,12 +91462,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 60,
+          "startOffset": 22,
+          "endOffset": 29,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 69,
           "paragraphIndex": 60,
           "startOffset": 59,
           "endOffset": 64,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 69,
+          "paragraphIndex": 61,
+          "startOffset": 34,
+          "endOffset": 41,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -98443,6 +100873,15 @@
           "startOffset": 432,
           "endOffset": 437,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 112,
+          "paragraphIndex": 0,
+          "startOffset": 626,
+          "endOffset": 633,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -108436,6 +110875,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 0,
+          "startOffset": 715,
+          "endOffset": 722,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 158,
           "paragraphIndex": 0,
@@ -108526,12 +110974,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 2,
+          "startOffset": 81,
+          "endOffset": 88,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 158,
           "paragraphIndex": 2,
           "startOffset": 135,
           "endOffset": 152,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 3,
+          "startOffset": 72,
+          "endOffset": 79,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 4,
+          "startOffset": 28,
+          "endOffset": 35,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -108559,6 +111034,15 @@
           "startOffset": 149,
           "endOffset": 166,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 4,
+          "startOffset": 202,
+          "endOffset": 209,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -108643,6 +111127,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 11,
+          "startOffset": 1,
+          "endOffset": 8,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 158,
           "paragraphIndex": 11,
@@ -108652,12 +111145,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 12,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 158,
           "paragraphIndex": 13,
           "startOffset": 42,
           "endOffset": 59,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 14,
+          "startOffset": 10,
+          "endOffset": 17,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -108688,6 +111199,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 14,
+          "startOffset": 222,
+          "endOffset": 229,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 158,
           "paragraphIndex": 14,
@@ -108715,6 +111235,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 16,
+          "startOffset": 49,
+          "endOffset": 56,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 158,
           "paragraphIndex": 16,
@@ -108733,12 +111262,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 16,
+          "startOffset": 311,
+          "endOffset": 318,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 158,
           "paragraphIndex": 16,
           "startOffset": 397,
           "endOffset": 402,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 17,
+          "startOffset": 1,
+          "endOffset": 8,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 158,
+          "paragraphIndex": 18,
+          "startOffset": 30,
+          "endOffset": 37,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -108874,6 +111430,15 @@
           "startOffset": 49,
           "endOffset": 54,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 159,
+          "paragraphIndex": 8,
+          "startOffset": 120,
+          "endOffset": 127,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -109045,6 +111610,15 @@
           "startOffset": 196,
           "endOffset": 203,
           "text": "Vronsky",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 159,
+          "paragraphIndex": 38,
+          "startOffset": 46,
+          "endOffset": 53,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -109363,12 +111937,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 160,
+          "paragraphIndex": 9,
+          "startOffset": 33,
+          "endOffset": 40,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "levin",
           "chapterNumber": 160,
           "paragraphIndex": 10,
           "startOffset": 30,
           "endOffset": 35,
           "text": "Levin",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 160,
+          "paragraphIndex": 13,
+          "startOffset": 20,
+          "endOffset": 27,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 160,
+          "paragraphIndex": 16,
+          "startOffset": 94,
+          "endOffset": 101,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -109525,6 +112126,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 161,
+          "paragraphIndex": 0,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 161,
           "paragraphIndex": 0,
@@ -109540,6 +112150,15 @@
           "startOffset": 345,
           "endOffset": 362,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 161,
+          "paragraphIndex": 2,
+          "startOffset": 764,
+          "endOffset": 771,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -109606,6 +112225,33 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 161,
+          "paragraphIndex": 4,
+          "startOffset": 1431,
+          "endOffset": 1438,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 161,
+          "paragraphIndex": 4,
+          "startOffset": 1920,
+          "endOffset": 1927,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 161,
+          "paragraphIndex": 4,
+          "startOffset": 2326,
+          "endOffset": 2333,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 161,
           "paragraphIndex": 4,
@@ -109642,12 +112288,48 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 7,
+          "startOffset": 158,
+          "endOffset": 165,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 162,
           "paragraphIndex": 7,
           "startOffset": 313,
           "endOffset": 330,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 8,
+          "startOffset": 43,
+          "endOffset": 50,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 8,
+          "startOffset": 265,
+          "endOffset": 272,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 8,
+          "startOffset": 457,
+          "endOffset": 464,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -109660,12 +112342,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 11,
+          "startOffset": 92,
+          "endOffset": 99,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 162,
           "paragraphIndex": 13,
           "startOffset": 40,
           "endOffset": 57,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 13,
+          "startOffset": 87,
+          "endOffset": 94,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -109678,12 +112378,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 15,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "koznishev",
           "chapterNumber": 162,
           "paragraphIndex": 18,
           "startOffset": 93,
           "endOffset": 110,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 19,
+          "startOffset": 20,
+          "endOffset": 27,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 19,
+          "startOffset": 158,
+          "endOffset": 165,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -109714,12 +112441,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 22,
+          "startOffset": 42,
+          "endOffset": 49,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 162,
           "paragraphIndex": 22,
           "startOffset": 72,
           "endOffset": 77,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 162,
+          "paragraphIndex": 22,
+          "startOffset": 97,
+          "endOffset": 104,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -109747,6 +112492,15 @@
           "startOffset": 150,
           "endOffset": 167,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 163,
+          "paragraphIndex": 0,
+          "startOffset": 172,
+          "endOffset": 179,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -109912,12 +112666,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 163,
+          "paragraphIndex": 16,
+          "startOffset": 0,
+          "endOffset": 7,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 163,
           "paragraphIndex": 16,
           "startOffset": 20,
           "endOffset": 25,
           "text": "Kitty",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 163,
+          "paragraphIndex": 16,
+          "startOffset": 92,
+          "endOffset": 99,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -109939,6 +112711,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 163,
+          "paragraphIndex": 19,
+          "startOffset": 50,
+          "endOffset": 57,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "stiva",
           "chapterNumber": 163,
           "paragraphIndex": 22,
@@ -109954,6 +112735,15 @@
           "startOffset": 49,
           "endOffset": 66,
           "text": "Sergey Ivanovitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 163,
+          "paragraphIndex": 22,
+          "startOffset": 106,
+          "endOffset": 113,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -110290,6 +113080,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 163,
+          "paragraphIndex": 39,
+          "startOffset": 4,
+          "endOffset": 11,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "kitty",
           "chapterNumber": 163,
           "paragraphIndex": 40,
@@ -110512,6 +113311,15 @@
           "startOffset": 0,
           "endOffset": 5,
           "text": "Levin",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 164,
+          "paragraphIndex": 14,
+          "startOffset": 109,
+          "endOffset": 116,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {
@@ -113629,6 +116437,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "varenka",
+          "chapterNumber": 172,
+          "paragraphIndex": 55,
+          "startOffset": 444,
+          "endOffset": 451,
+          "text": "Varenka",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "dolly",
           "chapterNumber": 173,
           "paragraphIndex": 0,
@@ -113905,6 +116722,15 @@
           "startOffset": 472,
           "endOffset": 490,
           "text": "Darya Alexandrovna",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "varenka",
+          "chapterNumber": 173,
+          "paragraphIndex": 15,
+          "startOffset": 840,
+          "endOffset": 847,
+          "text": "Varenka",
           "resolution": "reviewed-name"
         },
         {

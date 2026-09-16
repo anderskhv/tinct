@@ -42,6 +42,19 @@ const CASES = [
   ['frankenstein', 'original-en', undefined, 'henry-clerval', undefined, 'sanity-frankenstein'],
   ['midsummer', 'original-en', undefined, 'puck', undefined, 'sanity-midsummer'],
   ['oedipus-at-colonus', 'original-en', undefined, 'theseus', undefined, 'sanity-oedipus-colonus'],
+  // round 3: crime-and-punishment patronymic-spelling fix + 6 more books
+  ['crime-and-punishment', 'original-en', undefined, 'raskolnikov', undefined, 'raskolnikov-patronymic'],
+  ['crime-and-punishment', 'original-en', undefined, 'luzhin', undefined, 'luzhin-patronymic'],
+  ['anna-karenina', 'original-en', undefined, 'varenka', undefined, 'varenka-new'],
+  ['iliad', 'original-en', undefined, 'meriones', undefined, 'meriones-new'],
+  ['iliad', 'modern-en', undefined, 'odysseus', undefined, 'iliad-modern-alias-sanity'],
+  ['the-histories', 'modern-en', undefined, 'amasis', undefined, 'amasis-new'],
+  ['odyssey', 'original-en', undefined, 'aegisthus', undefined, 'aegisthus-new'],
+  ['odyssey', 'original-en', undefined, 'mentor', undefined, 'mentor-new'],
+  ['the-aeneid', 'original-en', undefined, 'mezentius', undefined, 'mezentius-new'],
+  ['confessions', 'original-en', undefined, 'moses', undefined, 'confessions-moses-new'],
+  ['brothers-karamazov', 'original-en', undefined, 'nikolay-parfenovitch', undefined, 'nikolay-parfenovitch-new'],
+  ['brothers-karamazov', 'original-en', undefined, 'pyotr-ilyitch', undefined, 'pyotr-ilyitch-new'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {

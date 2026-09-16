@@ -5,7 +5,7 @@ EDITIONS = ['original-en', 'modern-en']
 ENTITIES = [
     {
         'id': 'raskolnikov', 'kind': 'person', 'storyRole': 'central',
-        'aliases': ['Rodion Romanovich Raskolnikov', 'Rodion Romanovitch', 'Raskolnikov', 'Rodya', 'Rodenka'],
+        'aliases': ['Rodion Romanovitch Raskolnikov', 'Rodion Romanovich Raskolnikov', 'Rodion Romanovitch', 'Rodion Romanovich', 'Raskolnikov', 'Rodya', 'Rodenka'],
         'subtitle': 'A destitute former student in St. Petersburg',
         'body': "Living in a cramped, rented garret and behind on rent he cannot pay, he has withdrawn from friends and studies alike to brood over an idea he cannot quite bring himself to name. He sets out one hot evening on what he calls, to himself, only a rehearsal.",
     },
@@ -41,7 +41,7 @@ ENTITIES = [
     },
     {
         'id': 'luzhin', 'kind': 'person', 'storyRole': 'major',
-        'aliases': ['Pyotr Petrovich Luzhin', 'Luzhin', 'Pyotr Petrovich'],
+        'aliases': ['Pyotr Petrovitch Luzhin', 'Pyotr Petrovich Luzhin', 'Luzhin', 'Pyotr Petrovitch', 'Pyotr Petrovich'],
         'subtitle': "Dunya's wealthy, self-satisfied fiancé",
         'body': "A middle-aged lawyer of some means who has proposed to Dunya expecting a wife grateful enough to defer to him in everything. Raskolnikov takes an instant dislike to him, sight unseen, from his sister's letter alone.",
     },

@@ -117,4 +117,10 @@ ENTITIES = [
         'subtitle': "Kitty and Dolly's mother",
         'body': "Anxious over her youngest daughter's marriage prospects, she weighs Vronsky's more brilliant match against Levin's steadier, less fashionable one. Her worry shapes much of Kitty's early hesitation.",
     },
+    {
+        'id': 'varenka', 'kind': 'person', 'storyRole': 'major',
+        'aliases': ['Mademoiselle Varenka', 'Varenka'],
+        'subtitle': "A young woman Kitty befriends abroad",
+        'body': "An adopted companion of the invalid Madame Stahl at the German spa where Kitty goes to recover. Her quiet, purposeful devotion to helping others makes a deep impression on Kitty during a difficult time.",
+    },
 ]
