@@ -238,7 +238,21 @@ def expected_comparison_keys(expected_tokens: Sequence[str]) -> List[Optional[st
         unspoken.append(
             not has_word and (changed or DASH_ONLY.fullmatch(text) is not None),
         )
-    # Some source editions encode a whole lettered footnote as ``a [ text ]``.\n    # The lowercase letter and standalone opening bracket are editorial markers,\n    # not narrated words. Restrict this to the whole-paragraph convention so\n    # ordinary bracketed prose, speaker labels and list markers remain audible.\n    if (\n        len(expected_tokens) >= 3\n        and re.fullmatch(r"[a-z]", expected_tokens[0]) is not None\n        and expected_tokens[1] == "["\n        and expected_tokens[-1].endswith("]")\n    ):\n        unspoken[0] = True\n        unspoken[1] = True\n\n    is_dot = [\n        not unspoken[i] and ELLIPSIS_PIECE.fullmatch(stripped[i]) is not None
+    # Some source editions encode a whole lettered footnote as ``a [ text ]``.
+    # The lowercase letter and standalone opening bracket are editorial markers,
+    # not narrated words. Restrict this to the whole-paragraph convention so
+    # ordinary bracketed prose, speaker labels and list markers remain audible.
+    if (
+        len(expected_tokens) >= 3
+        and re.fullmatch(r"[a-z]", expected_tokens[0]) is not None
+        and expected_tokens[1] == "["
+        and expected_tokens[-1].endswith("]")
+    ):
+        unspoken[0] = True
+        unspoken[1] = True
+
+    is_dot = [
+        not unspoken[i] and ELLIPSIS_PIECE.fullmatch(stripped[i]) is not None
         for i in range(len(stripped))
     ]
     for i, dot in enumerate(is_dot):
