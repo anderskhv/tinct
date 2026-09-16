@@ -850,7 +850,7 @@ export function useLabAsk(options: UseLabAskOptions) {
           system: buildLabAskInstructions(context),
           messages: [{
             role: 'user',
-            content: `Explain this selected passage clearly and concisely for a reader at this point in the book. Discuss its meaning and significance without using knowledge from later in the work.\n\n<selected_passage>\n${text}\n</selected_passage>`,
+            content: `Explain this selected passage clearly and concisely for a reader at this point in the book. Start with a self-contained opening paragraph of one or two short sentences, followed by a blank line. Then add the useful detail in short paragraphs, so the reader can begin before the rest arrives. Do not repeat the full selected passage. Discuss its meaning and significance without using knowledge from later in the work.\n\n<selected_passage>\n${text}\n</selected_passage>`,
           }],
           ...labCompanionBookFields(context),
         }),
