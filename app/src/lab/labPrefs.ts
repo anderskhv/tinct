@@ -83,6 +83,8 @@ export interface LabSharedPrefs {
   primaryEdition: string
   compareEdition: string
   audioEdition: string
+  /** Omitted in older preferences: narration follows the primary edition. */
+  audioFollowsPrimary?: boolean
   audioSpeed: number
   compareOpen: boolean
 }
@@ -145,6 +147,7 @@ export const DEFAULT_LAB_PREFS: LabPrefs = {
   primaryEdition: LAB_EDITION_KEY,
   compareEdition: LAB_COMPARE_EDITION_KEY,
   audioEdition: LAB_EDITION_KEY,
+  audioFollowsPrimary: true,
   audioSpeed: 1,
   darkMode: false,
   theme: 'system',
@@ -212,10 +215,13 @@ export function bibleAudioEditions(): Edition[] {
   return BIBLE.editions.filter(edition => edition.hasAudio)
 }
 
-/** Lab Hear locks narration to the primary edition when it has audio. */
+/** Follow text by default; preserve an explicit, available same-language audiobook. */
 export function syncLabAudioEdition(prefs: LabPrefs, editions: Edition[] = bibleEditions()): LabPrefs {
-  const audioEdition = resolveAudioEditionKey(prefs.audioEdition, prefs.primaryEdition, editions)
-  return audioEdition === prefs.audioEdition ? prefs : { ...prefs, audioEdition }
+  const primary = editions.find(edition => edition.key === prefs.primaryEdition)
+  const explicit = prefs.audioFollowsPrimary === false && editions.some(edition => edition.key === prefs.audioEdition && edition.hasAudio && edition.language === primary?.language)
+  const audioEdition = explicit ? prefs.audioEdition : resolveAudioEditionKey(undefined, prefs.primaryEdition, editions)
+  const audioFollowsPrimary = explicit ? false : true
+  return audioEdition === prefs.audioEdition && prefs.audioFollowsPrimary === audioFollowsPrimary ? prefs : { ...prefs, audioEdition, audioFollowsPrimary }
 }
 
 export function effectiveLabAudioEdition(prefs: LabPrefs, editions: Edition[] = bibleEditions()): string {
@@ -312,6 +318,7 @@ function parseShared(raw: unknown, fallback: LabSharedPrefs): LabSharedPrefs {
     audioEdition: typeof src.audioEdition === 'string' && src.audioEdition
       ? src.audioEdition
       : fallback.audioEdition,
+    audioFollowsPrimary: src.audioFollowsPrimary !== false,
     audioSpeed: parsedSpeed,
     compareOpen: typeof src.compareOpen === 'boolean' ? src.compareOpen : fallback.compareOpen,
   }
@@ -332,6 +339,7 @@ const DEFAULT_LAB_SHARED: LabSharedPrefs = {
   primaryEdition: DEFAULT_LAB_PREFS.primaryEdition,
   compareEdition: DEFAULT_LAB_PREFS.compareEdition,
   audioEdition: DEFAULT_LAB_PREFS.audioEdition,
+  audioFollowsPrimary: true,
   audioSpeed: DEFAULT_LAB_PREFS.audioSpeed,
   compareOpen: DEFAULT_LAB_PREFS.compareOpen,
 }

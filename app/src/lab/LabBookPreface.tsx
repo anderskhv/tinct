@@ -1,32 +1,18 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { loadOnboardingData } from '../utils/onboardingData'
+import { LabAudiobookSelect } from './LabAudiobookSelect'
 import type { Edition } from '../types'
 import type { BookPreface } from '../data/bookPrefaces'
 import type { LabCastMember } from './labSource'
 import { ChatIcon, TalkIcon } from './LabReaderIcons'
 import './labBookPreface.css'
 
-// Local design sample: brief identities condensed from the reviewed Histories
-// character package. Full snapshots contain later events and must not be used
-// as introductions at the beginning. Production needs an approved intro layer.
-const historiesIntroductions: LabCastMember[] = [
-  { id: 'croesus', name: 'Croesus', epithet: '', introduction: 'King of Lydia, known for his immense wealth.' },
-  { id: 'cyrus', name: 'Cyrus', epithet: '', introduction: 'Founder of the Persian Empire.' },
-  { id: 'xerxes', name: 'Xerxes', epithet: '', introduction: 'A Persian king, and son of Darius.' },
-  { id: 'themistocles', name: 'Themistocles', epithet: '', introduction: 'An Athenian statesman.' },
-]
-
-const characterDetails: Record<string, string> = {
-  croesus: 'Lydia, rather than Persia, is his kingdom. His wealth is key to how he is introduced: it puts questions of prosperity, wisdom and good fortune close to the surface of his story.',
-  cyrus: 'He represents the founding generation of Persian power. Keeping him distinct from the later Persian kings will help you follow the history as it moves between rulers and generations.',
-  xerxes: 'He belongs to a later generation of Persian rulers than Cyrus. His relationship to Darius gives you a useful family connection to hold on to as the narrative moves between generations.',
-  themistocles: 'An important political figure on the Athenian side of the history. Think of him as a statesman rather than a king: a different kind of public power from that of the rulers introduced alongside him.',
-}
-
 /** Optional preparation: it never receives or changes a reading location. */
-export function LabBookPreface({ preface, title, cover, continued, ready = true, cast = [], onRead, onBack = onRead, onAsk = () => {}, onTalk = () => {}, editions = [], primaryEdition = '', secondaryEdition = '', onEditions = () => {} }: {
+export function LabBookPreface({ preface, title, cover, continued, ready = true, cast = [], onRead, onBack = onRead, onAsk = () => {}, onTalk = () => {}, editions = [], primaryEdition = '', secondaryEdition = '', onEditions = () => {}, audioEditions = [], audioChoice = '', onAudioChoice = () => {} }: {
   preface: BookPreface; title: string; cover: string; continued: boolean; ready?: boolean;
   cast?: LabCastMember[]; onRead: () => void; reopened?: boolean; onBack?: () => void;
   onAsk?: (question: string) => void; onTalk?: () => void;
+  audioEditions?: Edition[]; audioChoice?: string; onAudioChoice?: (value: string) => void;
   editions?: Edition[]; primaryEdition?: string; secondaryEdition?: string; onEditions?: (primary: string, secondary: string) => void
 }) {
   const dialog = useRef<HTMLDialogElement>(null)
@@ -44,7 +30,17 @@ export function LabBookPreface({ preface, title, cover, continued, ready = true,
     return () => media.removeEventListener('change', resize)
   }, [])
   const [expandedCharacters, setExpandedCharacters] = useState<Set<string>>(() => new Set())
-  const openingCast = preface.bookId === 'the-histories' ? historiesIntroductions : cast.slice(0, 4)
+  const [introCast, setIntroCast] = useState<LabCastMember[]>([])
+  useEffect(() => {
+    let cancelled = false
+    setIntroCast([])
+    void loadOnboardingData<{ cast?: { name: string; role?: string; description: string }[] }>(preface.bookId, 'en').then(({ data }) => {
+      if (cancelled || !Array.isArray(data?.cast)) return
+      setIntroCast(data.cast.filter(member => typeof member.name === 'string' && typeof member.description === 'string').map((member, index) => ({ id: `intro-${index}`, name: member.name, epithet: member.role || '', introduction: member.description })))
+    })
+    return () => { cancelled = true }
+  }, [preface.bookId])
+  const openingCast = introCast.length ? introCast : cast
   useLayoutEffect(() => {
     const node = dialog.current
     const previous = document.activeElement as HTMLElement | null
@@ -75,8 +71,8 @@ export function LabBookPreface({ preface, title, cover, continued, ready = true,
           <h2><button type="button" aria-expanded={showCast} aria-controls="preparation-cast" onClick={() => setShowCast(value => !value)}>Characters <span aria-hidden="true">{showCast ? '−' : '+'}</span></button></h2>
           {showCast && <div id="preparation-cast">{openingCast.length ? openingCast.map(member => <article key={member.id}>
             <h3><button type="button" className="lab-preparation-expand" aria-expanded={expandedCharacters.has(member.id)} aria-controls={`preparation-person-${member.id}`} onClick={() => setExpandedCharacters(current => { const next = new Set(current); if (next.has(member.id)) next.delete(member.id); else next.add(member.id); return next })}>{member.name}<span aria-hidden="true">{expandedCharacters.has(member.id) ? '−' : '+'}</span></button></h3>
-            {desktop && <p>{member.introduction}</p>}
-            {expandedCharacters.has(member.id) && <div id={`preparation-person-${member.id}`}>{!desktop && <p>{member.introduction}</p>}{preface.bookId === 'the-histories' && <p>{characterDetails[member.id]}</p>}</div>}
+            {desktop && member.epithet && <p>{member.epithet}</p>}
+            {expandedCharacters.has(member.id) && <div id={`preparation-person-${member.id}`}><p>{member.introduction}</p></div>}
           </article>) : <p>Character introductions aren’t available for this book yet.</p>}</div>}
         </section>
         <section className="lab-preparation-customize">
@@ -91,6 +87,9 @@ export function LabBookPreface({ preface, title, cover, continued, ready = true,
           {showEditions && <div id="preparation-editions">
             <label htmlFor="preparation-primary-edition">Primary edition</label><select id="preparation-primary-edition" value={primaryEdition} onChange={event => onEditions(event.target.value, event.target.value === secondaryEdition ? primaryEdition : secondaryEdition)}>{editions.map(edition => <option key={edition.key} value={edition.key}>{editionName(edition)}</option>)}</select>
             <label htmlFor="preparation-secondary-edition">Secondary edition</label><select id="preparation-secondary-edition" value={secondaryEdition} onChange={event => onEditions(primaryEdition, event.target.value)}><option value="">None</option>{editions.filter(edition => edition.key !== primaryEdition).map(edition => <option key={edition.key} value={edition.key}>{editionName(edition)}</option>)}</select>
+            <label htmlFor="preparation-audiobook">Audiobook</label>
+            <LabAudiobookSelect id="preparation-audiobook" value={audioChoice} primaryLabel={editions.find(edition => edition.key === primaryEdition)?.label || primaryEdition} editions={audioEditions} onChange={onAudioChoice} />
+            {audioEditions.length === 0 && <p>No audiobook is available in this language.</p>}
             <p>You can change these later in settings.</p>
           </div>}
         </section>}

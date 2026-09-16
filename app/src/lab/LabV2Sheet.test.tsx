@@ -192,3 +192,10 @@ describe('account', () => {
     expect(link.classList.contains('lab-v2-row')).toBe(true)
   })
 })
+
+it('makes audiobook following an explicit setting in the current reader menu', () => {
+  openSheet()
+  const select = screen.getByTestId('lab-v2-audio-edition') as HTMLSelectElement
+  expect(select.value).toBe('')
+  expect(select.textContent).toContain('Follow primary edition')
+})

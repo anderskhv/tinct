@@ -3989,6 +3989,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           prefs={prefs}
           onPrefs={updatePrefs}
           editions={bookEditions}
+          audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
           returnTo={signInReturnTo}
         />
       )}
@@ -4603,6 +4604,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         ready={!initialResolving && book.paragraphs.length > 0}
         cast={book.cast}
         editions={bookEditions}
+        audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
+        audioChoice={prefs.audioFollowsPrimary === false ? prefs.audioEdition : ''}
+        onAudioChoice={value => updatePrefs({ ...prefs, audioEdition: value || prefs.primaryEdition, audioFollowsPrimary: value === '' })}
         primaryEdition={prefs.primaryEdition}
         secondaryEdition={prefs.compareOpen ? prefs.compareEdition : ''}
         onEditions={(primary, secondary) => updatePrefs({ ...prefs, primaryEdition: primary, compareEdition: secondary || prefs.compareEdition, compareOpen: Boolean(secondary) })}

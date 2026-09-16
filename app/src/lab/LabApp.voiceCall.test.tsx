@@ -265,3 +265,15 @@ describe('Talk without the Chrome V2 flag', () => {
     expect(screen.queryByTestId('lab-call-bar')).toBeNull()
   })
 })
+
+it('opens the existing reader call from the preparation menu', async () => {
+  HTMLDialogElement.prototype.showModal = function () { this.open = true }
+  HTMLDialogElement.prototype.close = function () { this.open = false }
+  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken={null} />)
+  fireEvent.click(screen.getByTestId('lab-header-chapter'))
+  fireEvent.click(screen.getByRole('button', { name: 'Cover', exact: true }))
+  expect(screen.getByTestId('lab-book-preface')).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: 'Talk', exact: true }))
+  await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
+  expect(screen.queryByTestId('lab-book-preface')).toBeNull()
+})

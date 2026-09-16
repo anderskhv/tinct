@@ -66,3 +66,14 @@ it('keeps edition choices optional and swaps the pair when primary becomes secon
   fireEvent.change(screen.getByLabelText('Secondary edition'), { target: { value: '' } })
   expect(onEditions).toHaveBeenLastCalledWith('modern-en', '')
 })
+
+it('offers the shared audiobook selector without changing the text edition', () => {
+  const onAudioChoice = vi.fn()
+  const onEditions = vi.fn()
+  const editions = [{ key: 'modern-en', label: 'Modern', language: 'en' as const, style: 'modern' as const, aligned: true, hasAudio: true }, { key: 'original-en', label: 'Human', language: 'en' as const, style: 'original' as const, aligned: true, hasAudio: true }]
+  render(<LabBookPreface preface={preface} title="The Odyssey" cover="/cover.webp" continued={false} onRead={vi.fn()} editions={editions} audioEditions={editions} primaryEdition="modern-en" audioChoice="" onAudioChoice={onAudioChoice} onEditions={onEditions} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Select your editions' }))
+  fireEvent.change(screen.getByLabelText('Audiobook'), { target: { value: 'original-en' } })
+  expect(onAudioChoice).toHaveBeenCalledWith('original-en')
+  expect(onEditions).not.toHaveBeenCalled()
+})

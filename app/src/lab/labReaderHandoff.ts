@@ -71,6 +71,7 @@ export function prefsFromLabReaderHandoff(current: LabPrefs, handoff: ReaderHand
     primaryEdition: primary.key,
     compareEdition: compare,
     audioEdition: audio,
+    audioFollowsPrimary: !handoff.audioEditionKey || handoff.audioEditionKey === primary.key,
     // A library entry can omit a pair without withdrawing the reader’s preference.
     compareOpen: Boolean(handoff.compareEditionKey) || current.compareOpen,
   }
