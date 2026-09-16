@@ -1,12 +1,12 @@
 # Ulysses character package — IN PROGRESS
 
-**Episodes 1 to 11 of 18 are authored. The rest are not.** Status stays
+**Episodes 1 to 12 of 18 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole book is
 covered.
 
-Current state: 801 entities authored, 799 bound in the older edition and 796 in
-the modern one, 4,583 and 4,623 exact mentions, 116 focused tests. Content
-revision 2026-09-16.11.
+Current state: 1,138 entities authored, 1,136 bound in the older edition and
+1,133 in the modern one, 5,267 and 5,307 exact mentions, 129 focused tests.
+Content revision 2026-09-16.12.
 
 ## What is hard about this book
 
@@ -1071,6 +1071,130 @@ editorial gloss — *Henry Flower (Bloom's pen name)* — at 11:203 and 11:617. 
 gloss is recorded below and is not bound: the parenthesis is the modern editor's
 and not Joyce's.
 
+## Editorial checks — episode 12 (*Cyclops*)
+
+Five o'clock in Barney Kiernan's, 566 paragraphs, and by far the largest single
+addition to this package: **337 new entities**, more than the first eleven
+episodes put together minus one. The episode is told by a man who never gives
+his name, and it is interrupted thirty-three times by parodies — a heroic
+catalogue, a spiritualist séance, a hanging reported as a society wedding, a
+society wedding of trees, a parliamentary debate, a boxing report, an
+earthquake, a procession of saints — each of which arrives carrying a list of
+names. Five of those lists account for most of the episode's cast: the tribal
+images on the citizen's girdle (12:50), the Friends of the Emerald Isle
+(12:177), the clergy at the Gaelic sports meeting (12:241), the wedding guests
+at Pine Valley (12:360) and the blessed company that blesses the public house
+(12:513).
+
+**1. Namesakes.** The sweep that now runs before a word of an episode is
+authored — build the package and list every binding that already stands in the
+paragraphs about to be read — found **two wrong bindings shipping in the
+package today**, both from aliases granted in earlier episodes:
+
+- **`Shannon`**, granted for the boatclub swell Molly remembers at 10:166, was
+  binding **the river** at 12:26 and 12:356 and **Carrick-on-Shannon** at
+  16:252. The alias is withdrawn and the man is keyed.
+- **`Stephen`** was binding **S. Stephen Protomartyr** in the procession of
+  saints at 12:513. It is suppressed there by hand, as the two other Stephens
+  in unread episodes already were.
+
+Fourteen more aliases were caught by the same sweep before they could ship,
+this time on the new cards: *Troy* is the city at 2:174, 7:459 and 9:256 and
+troy measure at 6:296; *Terence* is Terence Mulcahy's headstone at 6:323;
+*Dante* is Mrs Riordan at 17:119; *MacMahon* is a Paris bar at 3:44; *Jumbo* is
+Ben Jumbo Dollard at 15:699; *Blackwood* is sir John Blackwood and Blackwood
+Price in episode 2; *Celestine* is a pope at 17:7; *Fintan* is James Fintan
+Lalor at 17:475; *Cummins* is the author of *The Lamplighter* at 13:71; *Bride*
+is Bride Street at 3:6 **and inside this episode at 12:205**; *Garryowen* is the
+tune the massed bands blare at 15:1326; *Giltrap* is a family name at 13:20;
+*Barney Kiernan* is the premises everywhere but 12:188, where the dog's verse
+curses the man. All fourteen are keyed instead.
+
+Four more aliases matched nothing at all and would have shipped as silent
+omissions: **`Sheila`** sits inside Gutenberg italics (*_Sheila, my own_*) and
+is the fifth instance of the library-wide italic trap; **`Rose of Viterbo`**
+never occurs, because Joyce writes *the saints Rose of Lima and of Viterbo*;
+**`Deadwood Dick`** is plural in the text; and **`Jacob agus Jacob`** has its
+middle word in italics. Each is bound by a phrase instead.
+
+**Two cards were about to be duplicated and were caught by the builder**, which
+refuses a repeated id and reports an entity that binds nowhere: *old Methusalem
+Bloom* at 12:461, *Virag* at 12:492 and 12:505 and *Nagyaságos uram Lipóti
+Virag* at 12:551 are **Rudolph Bloom**, whose card has carried him unnamed since
+episode 6; and *Lanty MacHale* had been written twice, once as the man and once
+as his goat.
+
+**2. Person or not.** The catalogues are burlesques, and each needed the line
+drawn in the same place as the shopfronts of episode 10. On the citizen's
+girdle the men and women are cast — Cuchulin, Shane O'Neill, Peg Woffington,
+Dante, Columbus, Napoleon, Cleopatra, Paracelsus, Lady Godiva, Balor of the
+Evil Eye — and so are the four sages the list naturalises by giving them Irish
+christian names: **Patrick W. Shakespeare, Brian Confucius, Murtagh Gutenberg
+and Patricio Velasquez**, each bound to the man himself. Not cast on the same
+string: *the Rose of Castile*, *the Man for Galway*, *The Man that Broke the
+Bank at Monte Carlo*, *The Man in the Gap*, *The Woman Who Didn't*, *the Bold
+Soldier Boy*, *Arrah na Pogue*, *the Lily of Killarney* and *the Last of the
+Mohicans*, which are songs, plays and novels; and *Dolly Mount*, *Sidney
+Parade* and *Ben Howth*, which are places wearing hats.
+
+The **Friends of the Emerald Isle** are cast in full, all eighteen of them,
+because in the parody they are persons who brawl, bleed and pick each other's
+pockets. So are the **trees at the Pine Valley wedding**, who are guests before
+they are foliage. So are the **twenty-four clergy and two laymen** the
+newspaper reports present. The **procession of saints** is cast entire, and its
+two doublings are recorded rather than smoothed: the litany walks
+**S. Columcille and S. Columba** past as two saints when they are one, and
+**S. Bride** and **S. Brigid** likewise. **S. Marion Calpensis** is Molly under
+the rock of Gibraltar, and **S. Owen Caniculus** is Garryowen canonised.
+
+Not cast: *the fair of Carmen*, *Sidney Parade*, *the house of Abraham and
+Isaac and Jacob* at 12:513 (a scriptural formula, and Christ is not cast
+anywhere in this package), *the blessing of God and Mary and Patrick* at 12:437
+and *the holy mother of God* at 12:363 (for the same reason), *Robbing Peter to
+pay Paul* at 12:461, *the Molly Maguires* at 12:364, *the father and mother of a
+beating* at 12:253, and *Bride street*, *Adam and Eve's*, *the Henry Street
+Warehouse* and *Messrs Arthur Guinness* among the places.
+
+**3. Scriptural, mythological and stage figures.** Elijah, who ascends over
+Donohoe's in Little Green street at an angle of fortyfive degrees; Moses, sworn
+by in the witnessbox and invoked in the last line but one; Shylock, whom Joe
+Hynes hopes is landed; Ahasuerus, the citizen's name for Bloom; the Bride of
+Lammermoor, Captain Nemo, Tristan and Isolde and the Colleen Bawn off the
+girdle; and the whole calendar of 12:513.
+
+**4. Ambiguous references, deliberately unbound.** **The citizen is never
+named** and is bound on the words *the citizen* alone. **The narrator is never
+named either** — he is bound once, on *Collector of bad and doubtful debts*,
+which is the only description the episode gives him; every *I* and *says I* in
+566 paragraphs is left alone. *Crofter or Crofton or Crawford* is one man whom
+three people call three things in one sentence, and all three are bound to the
+Crofton of episodes 6 and 10, because the text says it is the same pensioner
+out of the collector general's. *Inspector Troy* at 15:1235 is probably old
+Troy of the D. M. P. promoted, and is left for episode 15 to settle. *The old
+one at the City Arms* and *her cracked loodheramaun of a nephew* get cards but
+no names, because they have none.
+
+Bound from description: *the mother* at 12:133 and *the old prostitute of a
+mother* at 12:205 are **Mrs Mooney**; *Jack Mooney's sister* is **Bob Doran's
+wife**; *the poor old woman* at 12:385 is Ireland in the song; *the lout* at
+12:172 is the nephew; *Dunne, says he* at 12:274 is the false name J. J.
+O'Molloy gave at the pawnbroker's counter.
+
+**5. Spot-read.** Forty mentions, twenty from each edition under two seeds. The
+adjacency sweep ran over every mention in the episode, the unkeyed-hit sweep
+ran before authoring and again after, and the dead-key and dead-phrase sweeps
+are clean.
+
+**6. Both editions independently.** This is the **lightest modernisation in the
+book**: a paragraph-by-paragraph word comparison of all 566 paragraphs finds
+**no name changed anywhere**, twenty-one paragraphs of archaic-word swaps
+(*sooth* to *truth*, *straightway* to *immediately*, *whence* to *where*, *thou*
+to *you*, *doth* to *does*, *quid* to *pound*, *bob* to *shillings*), and one
+systematic interpolation: the modern edition capitalises Joyce's lowercase
+*citizen* and adds a gloss after it — **the Citizen (the nationalist)**, seventy
+times, and nowhere else in the book. It is recorded below and is not bound: the
+parenthesis is the modern editor's.
+
 ## Source defects — recorded, not repaired
 
 No edition byte was touched.
@@ -1092,14 +1216,17 @@ No edition byte was touched.
 | **The modern edition undoes three of Joyce's episode 11 portmanteaux** — *Bloowhose* at 11:120, *greaseabloom* at 11:130, 11:134 and 11:628, and *Bloohimwhom* / *Bloo smi qui go* at 11:208 — and prints the plain name instead. | Not repaired. Bloom is bound in both editions in all five paragraphs: by keyed patterns in the older one, by his own key in the modern one. |
 | **The modern edition interpolates an editorial gloss into Joyce's sentence** — *Henry Flower (Bloom's pen name)* at 11:203 and 11:617. These are the only two parentheses of their kind in the book. | Not repaired, and not bound: the words are the modern editor's and not Joyce's. Henry Flower binds on the name itself in both editions. The release owner should know that this edition adds words to the text. |
 | **The modern edition capitalises Joyce's lowercase *miss*** all through episode 11 (*miss Douce*, *miss Kennedy*, *miss Dou*, *miss Kenn*). | Not repaired. `Douce` was added as a second alias so the barmaid binds under both spellings, and Miss Kennedy is keyed paragraph by paragraph. |
+| **The modern edition interpolates a gloss into Joyce's text seventy times in episode 12** — every *the citizen* becomes *the Citizen (the nationalist)*. It is the only place in the book where this happens, and the parenthesis is the modern editor's, not Joyce's. | Not repaired. The citizen binds in both editions on *the citizen* and *the Citizen*; the parenthesis carries no card. The release owner should know that this edition adds words to the text here as it does at 11:203 and 11:617. |
+| **The modern edition of episode 12 changes no name at all**, but modernises twenty-one paragraphs of archaic words (*sooth*, *straightway*, *whence*, *thou*, *doth*, *withal*, *hath*, *yea*, *saith*, *therein*, *thereof*, *whereof*, *divers*, *lo*, *thither*) and two sums (*quid* to *pound*, *bob* to *shillings*). | Not repaired, and nothing is lost: every entity that binds in episode 12 binds in both editions. |
 
 ## Remaining work
 
-- **Episodes 12–18.** 3,159 paragraphs, and the two longest are 15 (*Circe*,
-  1,441 paragraphs) and 17 (*Ithaca*, 654). Episode 12 (*Cyclops*, 566
-  paragraphs) is next: Barney Kiernan's, the nameless narrator, and the
-  citizen. Episode 18 (*Penelope*) is eight paragraphs of Molly's monologue and
-  will be the densest page-for-page in the book.
+- **Episodes 13–18.** 2,593 paragraphs, and the two longest are 15 (*Circe*,
+  1,441 paragraphs) and 17 (*Ithaca*, 654). Episode 13 (*Nausicaa*, 134
+  paragraphs) is next: the strand, Gerty MacDowell and her grandpapa Giltrap's
+  dog, both of whom episode 12 has already put on the page. Episode 18
+  (*Penelope*) is eight paragraphs of Molly's monologue and will be the densest
+  page-for-page in the book.
 - **Two names are already waiting in unread territory.** *Stephen* at 15:1133
   sits inside a stage direction in Gutenberg italics and will need a key when
   *Circe* is read; *Patrice* at 16:212 is **the faubourg Saint Patrice**, not
@@ -1125,6 +1252,7 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_ulysses.py --check`, then `python3 -m unittest
-discover -s books/characters -p 'test_*.py'` — 116 focused tests for this book so
-far. No edition changes, no network generation, no API spend: every card here was
+discover -s books/characters -p 'test_*.py'` — 129 focused tests for this book so
+far. The build takes about twenty minutes of CPU for both editions at this size;
+run it in the background and wait on the log. No edition changes, no network generation, no API spend: every card here was
 written in the authoring conversation and committed as a file.

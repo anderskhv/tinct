@@ -172,7 +172,7 @@ The golden-mouthed: the one word Stephen thinks at the gold points glistening in
 
 ## Joseph the Joiner · reference
 
-With whom the queerest young fellow of Mulligan’s ballad cannot agree.
+With whom the queerest young fellow of Mulligan’s ballad cannot agree. He walks the procession of saints in episode 12 as S. Joseph, between S. Alfred and S. Denis.
 
 ## Butterly · reference
 
@@ -480,7 +480,7 @@ Named next, with the question Egan leaves hanging: know how he died? The answer 
 
 ## Brian Boru · reference
 
-The high king whose warriors Egan means when he talks of Ireland. The older edition calls them the Dalcassians, which is the name of his people and not of a man; the modern edition puts the king in place of the people, so this card exists in the modern edition alone.
+The high king whose warriors Egan means when he talks of Ireland. He is on the citizen’s girdle in episode 12 as Brian of Kincora, third among the tribal images. The older edition calls them the Dalcassians, which is the name of his people and not of a man; the modern edition puts the king in place of the people, so this card exists in the modern edition alone.
 
 ## Colonel Richard Burke · reference
 
@@ -824,7 +824,7 @@ The two women linked together in the rain that night in the Coombe, whose flat D
 
 ## Poor papa · major
 
-Bloom’s father, who used to talk of Kate Bateman in Leah and of the scene where the old blind Abraham knows his son’s voice. He is not named in this episode, and Bloom is glad he did not go into the room to look at his face. That day. O, dear! O, dear!
+Bloom’s father, who used to talk of Kate Bateman in Leah and of the scene where the old blind Abraham knows his son’s voice. Episode 12 gives him his names at last, and gives them against his son: old Methusalem Bloom the robbing bagman, who swamped the country with baubles and penny diamonds on loans by post and poisoned himself with prussic acid; Virag, says Martin Cunningham, the father’s name, changed by deedpoll; and Nagyaságos uram Lipóti Virag of Messrs Alexander Thom’s, seen off to the Meadow of Murmuring Waters by a large and appreciative gathering in the last parody but one. He is not named in this episode, and Bloom is glad he did not go into the room to look at his face. That day. O, dear! O, dear!
 
 ## Bob Cowley · reference
 
@@ -984,7 +984,7 @@ For example too, among the old popes keen on music and art and statues and pictu
 
 ## Martha and Mary · reference
 
-The two sisters of Bethany, in whose house Christ sat talking — the picture Bloom half remembers when his correspondent’s name slides into the gospel: old master or faked for money. He is sitting in their house, talking. Mysterious.
+The two sisters of Bethany, one of whom walks the procession of saints in episode 12 as S. Martha of Bethany, and in whose house Christ sat talking — the picture Bloom half remembers when his correspondent’s name slides into the gospel: old master or faked for money. He is sitting in their house, talking. Mysterious.
 
 ## The old woman peeping · reference
 
@@ -1060,7 +1060,7 @@ Molly’s namesake, who had his office in the same house. Not her father.
 
 ## Crofton · reference
 
-Who met Mr Power one evening bringing his woman a pound of rumpsteak — the only evidence Bloom has for the story.
+Who met Mr Power one evening bringing his woman a pound of rumpsteak — the only evidence Bloom has for the story. He comes into Barney Kiernan’s in episode 12 on the castle car with Martin Cunningham and Jack Power, a pensioner out of the collector general’s and an orangeman or presbyterian, and nobody there can settle his name: a fellow named Crofter or Crofton, or Crawford, in one sentence. No offence, Crofton.
 
 ## Sir John Gray · reference
 
@@ -1824,7 +1824,7 @@ The head bailiff, standing at the bar of the Burton blowing the foamy crown from
 
 ## Father O’Flynn · reference
 
-Of the song, who would make hares of them all — Bloom’s guess at who would keep order in the communal kitchen of the future.
+Of the song, who would make hares of them all — Bloom’s guess at who would keep order in the communal kitchen of the future. He comes up Little Britain street at the end of the procession of saints in episode 12, under a canopy of cloth of gold, attended by Malachy and Patrick, to bless Barney Kiernan’s public house.
 
 ## The old woman that lived in a shoe · reference
 
@@ -3205,3 +3205,1351 @@ The boy of the ballad Ben Dollard sings: last of his name and race, his father f
 ## The yeoman captain · reference
 
 The false priest of the ballad, who sits vested in the gloomy chamber to shrive the boy and then rustles a soldier out of his cassock. They know it all by heart, Bloom thinks. The thrill they itch for.
+
+## The narrator · major
+
+The nameless man who tells this episode: a collector of bad and doubtful debts, chasing Geraghty for Moses Herzog’s tea and sugar, who meets Joe Hynes at Stony Batter and drinks the afternoon out in Barney Kiernan’s on Joe’s money. How are the mighty fallen, he says of his own trade. He never gives his name and nobody in the bar uses it.
+
+## The citizen · central
+
+The huge nationalist in the corner of Barney Kiernan’s with his dog, his cruiskeen lawn and his load of papers, working for the cause: the man who made the Gaelic sports revival and got away James Stephens, champion of all Ireland at putting the sixteen pound shot. He reads out the births and deaths of the _Irish Independent_ to prove it a national disgrace, talks Ireland’s ruined trades and emptied harbours, and ends the episode throwing a biscuitbox after Bloom down Little Britain street. The modern edition capitalises him and adds a gloss, the Citizen (the nationalist); Joyce writes him lowercase throughout.
+
+## Garryowen · major
+
+Old Giltrap’s dog, a mangy red setter that the citizen keeps beside him and feeds at the ratepayers’ expense: growls at Bloom from the moment he comes in, ate a good part of a constabulary man’s breeches in Santry, and is credited by the newspaper parody with reciting Celtic verse under the name Owen Garry. The curse of my curses, seven days every day, on you, Barney Kiernan.
+
+## Troy · reference
+
+Of the Dublin Metropolitan police, retired, who is passing the time of day with the narrator at the corner of Arbour hill in the first sentence and gives him the wrinkle about Geraghty. The modern edition spells out D. M. P. as the Dublin police.
+
+## Moses Herzog · reference
+
+Of 13 Saint Kevin’s parade, merchant: the hop-of-my-thumb who sold Geraghty five pounds of tea and three stone of sugar on weekly instalments and cannot get a penny of it. He drink me my teas. He eat me my sugars. Because he no pay me my moneys?
+
+## Michael E. Geraghty · reference
+
+Of 29 Arbour hill, gentleman: an old plumber, the most notorious bloody robber you would meet in a day’s walk, with a face all pockmarks that would hold a shower of rain. I dare him, says he, and I doubledare him to send you round here again — for trading without a licence.
+
+## Terry · reference
+
+Terence O’Ryan, the barman in Barney Kiernan’s, who pulls the pints, brings the dog its water and its biscuit tin, and lends Alf the smutty yankee pictures he borrows off Corny Kelleher. The chivalrous Terence of the parody hands forth the crystal cup of foamy ebon ale.
+
+## Barney Kiernan · reference
+
+The publican whose house the episode is drunk in — Bernard Kiernan and Co, limited, 8, 9 and 10 Little Britain street, wholesale grocers and licensed for consumption on the premises. The dog’s verse curses him by name for having no sup of water to cool its courage.
+
+## Willy Murray · reference
+
+Whom Alf Bergan says he saw in Capel street not five minutes ago with Paddy Dignam, which is the difficulty, Dignam having been buried that morning.
+
+## H. Rumbold · reference
+
+Master barber, of 7 Hunter Street, Liverpool, who writes to the High Sheriff of Dublin offering his services at five guineas: i have a special nack of putting the noose once in he can’t get out. The parody makes him the worldrenowned headsman, stepping on to the scaffold in faultless morning dress and his favourite flower.
+
+## Joe Gann · reference
+
+Whom Rumbold hanged in Bootle jail on the 12 of February 1900, in the first line of his testimonials.
+
+## Arthur Chace · reference
+
+Private, hanged in Pentonville prison for the fowl murder of Jessie Tilsit, with Rumbold assisting.
+
+## Jessie Tilsit · reference
+
+Whom he murdered.
+
+## Billington · reference
+
+The hangman Rumbold was assistant to when the awful murderer Toad Smith was executed.
+
+## Toad Smith · reference
+
+The awful murderer.
+
+## Herr Professor Luitpold Blumenduft · reference
+
+The distinguished scientist whose medical evidence explains, at enormous length, the phenomenon Alf Bergan reports of the hanged man — the parody Bloom is interrupted before he can give in his own words.
+
+## Giltrap · reference
+
+Whose dog the citizen goes round the pubs with. Gerty MacDowell’s grandpapa, though nobody here says so.
+
+## Pisser Burke · reference
+
+Who was stopping in the City Arms hotel at the same time as the Blooms and is the narrator’s source for everything discreditable in this episode: the old one with the cracked nephew, the wife in rivers of tears with Mrs O’Dowd, the card party, the headache once a month. He takes them all off chewing the fat.
+
+## Mrs O’Dowd · reference
+
+Who kept the City Arms hotel, and cried her eyes out with Mrs Bloom in the telling.
+
+## The old one at the City Arms · reference
+
+Who had a cracked loodheramaun of a nephew and a will worth getting into; Bloom played bézique with her and would not eat meat of a Friday, and took the nephew round Dublin to teach him the evils of alcohol and brought him home drunk as a boiled owl.
+
+## The nephew · reference
+
+The cracked loodheramaun himself, afterwards in Power’s the blender’s in Cope street and going home footless in a cab five nights a week.
+
+## Martin Murphy · reference
+
+The Bantry jobber, whose _Irish Independent_ the citizen reads the English births and deaths out of. How’s that for a national press?
+
+## William Field · reference
+
+M. P., of the cattle traders, who was at the City Arms meeting about the foot and mouth disease and goes over to London tonight with Nannetti to ask about it on the floor of the house.
+
+## Dirty Dan · reference
+
+The dodger off Island bridge who sold the same horses twice over to the government to fight the Boers: Blazes Boylan’s father, in the narrator’s account of how English gold got into the family. Old Whatwhat, who called about the poor and water rate.
+
+## Jimmy Johnson · reference
+
+In whose name Joe Hynes administers the oath to Alf Bergan — the truth, the whole truth and nothing but the truth, so help you Jimmy Johnson.
+
+## Signior Brini · reference
+
+The eyetallyano from Summerhill, papal Zouave to the Holy Father, whose picture with Smashall Sweeney’s moustaches hangs on the Breens’ wall: a cousin of Denis Breen’s old fellow, on whose account Mrs Breen carries her nose cockahoop. A nobody, two pair back and passages, at seven shillings a week.
+
+## James Wought · reference
+
+Alias Saphiro alias Spark and Spiro: the bottlenosed swindler of the Canada case, who advertised a passage to Canada for twenty bob and swindled skivvies and badhachs from the county Meath and his own kidney too. Remanded.
+
+## Zaretsky · reference
+
+The ancient Hebrew who wept in the witnessbox with his hat on him in that case, swearing by the holy Moses he was stuck for two quid.
+
+## Master Courtenay · reference
+
+Sitting in his own chamber, who gave his rede on the same afternoon in the legal parody.
+
+## Master Justice Andrews · reference
+
+Sitting without a jury in the probate court, weighing the claim of the first chargeant on the estate of the late Jacob Halliday.
+
+## Jacob Halliday · reference
+
+Vintner, deceased, whose will is propounded there — versus Livingstone, an infant, of unsound mind, and another.
+
+## Livingstone · reference
+
+An infant, of unsound mind, on the other side of the suit over Jacob Halliday's estate in the probate court.
+
+## Norman W. Tupper · reference
+
+Wealthy Chicago contractor, in the smutty yankee picture Terry borrows off Corny Kelleher: he bounces in with his peashooter just in time to be late.
+
+## Mrs Norman W. Tupper · reference
+
+The pretty but faithless wife, found in the lap of officer Taylor, and named again in the litany of who loves whom.
+
+## Officer Taylor · reference
+
+In whose lap Norman W. Tupper finds his pretty but faithless wife, and who loves her back in the litany of who loves whom.
+
+## Jenny · reference
+
+O jakers, Jenny, says Joe to the picture, how short your shirt is. The girl of the smutty print and of the song.
+
+## Junius · reference
+
+Whose identity nobody ever settled, which is J. J. O’Molloy’s answer to Ned Lambert asking who Bloom is.
+
+## Kakachakachak · reference
+
+Surnamed Forty Warts, the Alaki’s immediate predecessor in the dynasty, out of whose skull the lovingcup of usquebaugh is drunk.
+
+## The Alaki of Abeakuta · reference
+
+His Majesty the Zulu chief of the _United Irishman_ skit, presented with an illuminated bible by the great squaw Victoria, who signs his mark in the visitors’ book at Cottonopolis and dances a charming old Abeakutic wardance, swallowing several knives and forks.
+
+## Lord Walkup of Walkup on Eggs · reference
+
+Gold Stick in Waiting, who presents the Manchester cotton magnates to him; Massa Walkup in the Alaki’s reply.
+
+## The reverend Ananias Praisegod Barebones · reference
+
+British chaplain, who freely translates the dusky potentate’s happy speech.
+
+## Casement · reference
+
+Whose report on the Congo Free State J. J. O’Molloy has read and cannot name until the citizen names him. He’s an Irishman, says the citizen.
+
+## Cuchulin · reference
+
+First of the images on the citizen’s girdle: the hero of the Ulster cycle, the hound of Culann.
+
+## Conn of hundred battles · reference
+
+High king of Ireland, second on the string.
+
+## Niall of nine hostages · reference
+
+High king, third.
+
+## Art MacMurragh · reference
+
+King of Leinster, who kept the English out of his own country for thirty years.
+
+## Shane O’Neill · reference
+
+The O’Neill of Tyrone, who went to Elizabeth’s court in his own dress and came home to fight her.
+
+## Father John Murphy · reference
+
+Of Boolavogue, who led the Wexford men in ninetyeight.
+
+## Owen Roe · reference
+
+O’Neill, who beat the Scots at Benburb and died before he could use the victory.
+
+## Patrick Sarsfield · reference
+
+Earl of Lucan, who rode to Ballyneety and afterwards took the wild geese to France; named again by John Wyse Nolan over the broken treatystone of Limerick.
+
+## Red Hugh O’Donnell · reference
+
+Of Tirconnell, who escaped from Dublin castle over the Wicklow mountains.
+
+## Red Jim MacDermott · reference
+
+The Fenian informer, on the same string as the men he betrayed.
+
+## Soggarth Eoghan O’Growney · reference
+
+The priest of the Gaelic League whose Irish lessons taught the language back to Dublin.
+
+## Michael Dwyer · reference
+
+Of the Wicklow hills, who held out five years after ninetyeight.
+
+## Francy Higgins · reference
+
+The Sham Squire, who sold Lord Edward Fitzgerald — already named in episode 10, where Ned Lambert walks Kernan past the spot.
+
+## Henry Joy M’Cracken · reference
+
+Of Belfast, hanged in ninetyeight at the Cornmarket.
+
+## Goliath · reference
+
+The Philistine giant, on an Irish hero’s girdle like everybody else.
+
+## Horace Wheatley · reference
+
+The English music-hall comedian, one of the jokes in the string.
+
+## Thomas Conneff · reference
+
+The runner.
+
+## Peg Woffington · reference
+
+The Dublin actress who took London and played Sir Harry Wildair in breeches.
+
+## Captain Moonlight · reference
+
+The name signed to the land war’s night letters, as if he were a man.
+
+## Captain Boycott · reference
+
+The Mayo land agent whose name the Land League turned into a verb.
+
+## Dante Alighieri · reference
+
+On the string between Captain Boycott and Christopher Columbus.
+
+## Christopher Columbus · reference
+
+Next to him.
+
+## S. Fursa · reference
+
+The Irish saint whose visions of the other world went into Europe before Dante’s.
+
+## S. Brendan · reference
+
+The navigator, who sailed west and is claimed here as an ancestor.
+
+## Marshal MacMahon · reference
+
+Of the Irish brigade’s descent, marshal of France and president of the republic.
+
+## Charlemagne · reference
+
+On the same girdle as Marshal MacMahon, among the Irish heroes and heroines of antiquity.
+
+## The Mother of the Maccabees · reference
+
+Who watched her seven sons die rather than eat swine’s flesh.
+
+## Benjamin Franklin · reference
+
+Among the Irish heroes and heroines of antiquity.
+
+## Napoleon Bonaparte · reference
+
+And so is he.
+
+## John L. Sullivan · reference
+
+The Boston Strong Boy, last bareknuckle champion of the world, and Irish enough for the list.
+
+## Savourneen Deelish · reference
+
+The girl of the parting song, standing in the list as if she were a person of record.
+
+## Paracelsus · reference
+
+Physician and alchemist, next to Julius Caesar.
+
+## Sir Thomas Lipton · reference
+
+The tea merchant and yachtsman.
+
+## William Tell · reference
+
+With the apple.
+
+## Michelangelo Hayes · reference
+
+The Dublin caricaturist, whose christian name does the joke for him.
+
+## The Bride of Lammermoor · reference
+
+Lucy Ashton out of Scott, on the string among the living.
+
+## Peter the Hermit · reference
+
+Who preached the first crusade.
+
+## Peter the Packer · reference
+
+Lord Chief Justice O’Brien, so called for the juries he packed — the only Peter of the two the citizen means unkindly.
+
+## Dark Rosaleen · reference
+
+Ireland under her song name, in a list of persons.
+
+## Brian Confucius · reference
+
+Confucius with an Irish christian name, one of four sages the citizen’s girdle naturalises — with Patrick W. Shakespeare, Murtagh Gutenberg and Patricio Velasquez.
+
+## Murtagh Gutenberg · reference
+
+Gutenberg, likewise made Irish.
+
+## Patricio Velasquez · reference
+
+And Velázquez.
+
+## Captain Nemo · reference
+
+Out of Jules Verne, on the same string.
+
+## Tristan · reference
+
+Of Tristan and Isolde.
+
+## Isolde · reference
+
+Whose tower stands in the list of Irish scenes at 12:417 as well.
+
+## The first Prince of Wales · reference
+
+Whom Edward the First is said to have presented to the Welsh as a prince born in Wales and speaking no English.
+
+## Dick Turpin · reference
+
+The highwayman.
+
+## Ludwig Beethoven · reference
+
+So spelled on the citizen’s girdle, between Dick Turpin and the Colleen Bawn.
+
+## The Colleen Bawn · reference
+
+Eily O’Connor of Boucicault’s play, drowned in the Shannon.
+
+## Waddler Healy · reference
+
+A Dublin character of the streets, on the girdle between Beethoven and Angus the Culdee. The text does not connect him with Tim Healy of episode 7 and neither does this package.
+
+## Angus the Culdee · reference
+
+Who wrote the martyrology of the Irish saints.
+
+## Valentine Greatrakes · reference
+
+The Waterford stroker, who cured by laying on of hands.
+
+## Arthur Wellesley · reference
+
+The duke of Wellington, whose three birthplaces are counted among the Irish scenes at 12:417.
+
+## Boss Croker · reference
+
+Of Tammany Hall, born in Cork.
+
+## Herodotus · reference
+
+Between Boss Croker and Jack the Giantkiller.
+
+## Jack the Giantkiller · reference
+
+Out of the nursery tale.
+
+## Lady Godiva · reference
+
+Of Coventry.
+
+## Balor of the Evil Eye · reference
+
+The Fomorian whose one eye killed what it looked at — the only one-eyed figure named in the Cyclops episode.
+
+## Acky Nagle · reference
+
+Of the Nagle brothers’ public house in Earl street.
+
+## Joe Nagle · reference
+
+His brother, next on the string.
+
+## Alessandro Volta · reference
+
+Whose name Joyce knew from the cinema he opened in Mary street.
+
+## Jeremiah O’Donovan Rossa · reference
+
+The Fenian, whose dynamite campaign was run from New York.
+
+## Don Philip O’Sullivan Beare · reference
+
+Last on the string: the exile who wrote the Catholic history of Ireland in Spain.
+
+## Commendatore Bacibaci Beninobenone · reference
+
+The semiparalysed doyen of the Friends of the Emerald Isle, who has to be assisted to his seat by a powerful steam crane and is afterwards extricated from underneath the presidential armchair with several hundred watches in his thirtytwo pockets.
+
+## Monsieur Pierrepaul Petitépatant · reference
+
+Second of the delegation.
+
+## The Grandjoker Vladinmire Pokethankertscheff · reference
+
+Third.
+
+## The Archjoker Leopold Rudolph von Schwanzenbad-Hodenthaler · reference
+
+Fourth, and carrying Bloom’s own two christian names into the joke.
+
+## Countess Marha Virága Kisászony Putrápesthi · reference
+
+Fifth, whose second name is Virag in Hungarian dress.
+
+## Hiram Y. Bomboost · reference
+
+Sixth.
+
+## Count Athanatos Karamelopulos · reference
+
+Seventh.
+
+## Ali Baba Backsheesh Rahat Lokum Effendi · reference
+
+Eighth.
+
+## Señor Hidalgo Caballero Don Pecadillo y Palabras y Paternoster de la Malora de la Malaria · reference
+
+Ninth, and the longest name in the delegation but one.
+
+## Hokopoko Harakiri · reference
+
+Tenth.
+
+## Hi Hung Chang · reference
+
+Eleventh.
+
+## Olaf Kobberkeddelsen · reference
+
+Twelfth.
+
+## Mynheer Trik van Trumps · reference
+
+Thirteenth.
+
+## Pan Poleaxe Paddyrisky · reference
+
+Fourteenth: Paderewski with a shillelagh.
+
+## Goosepond Prhklstr Kratchinabritchisitch · reference
+
+Fifteenth.
+
+## Borus Hupinkoff · reference
+
+Sixteenth.
+
+## Herr Hurhausdirektorpresident Hans Chuechli-Steuerli · reference
+
+Seventeenth.
+
+## Kriegfried Ueberallgemein · reference
+
+Last of the delegation, and carrying the longest title in the book: nationalgymnasiummuseumsanatoriumandsuspensoriumsordinaryprivatdocentgeneralhistoryspecialprofessordoctor.
+
+## Constable MacFadden · reference
+
+The baby policeman, a readywitted ninefooter summoned by special courier from Booterstown, who settles the delegates’ brawl over the date of Saint Patrick’s birth by proposing the seventeenth of the month.
+
+## Avvocato Pagamimi · reference
+
+Beninobenone’s legal adviser, who explains that the watches in his client’s thirtytwo pockets were abstracted in the hope of bringing their owners to their senses.
+
+## Speranza · reference
+
+Lady Wilde under her pen name, whose plaintive muse wrote the melody the York street brass and reed band play over the scaffold.
+
+## Catalani · reference
+
+The soprano — called here the eunuch Catalani — whose piercingly lovely notes beglamoured our greatgreatgrandmothers.
+
+## Rienzi · reference
+
+Whose revolution is when the commendatore’s patriarchal sombrero came into the family.
+
+## Dr Pippi · reference
+
+His medical adviser in attendance, who removes the sombrero for the prayer.
+
+## Sheila · reference
+
+The hero’s betrothed, who is folded in a loving embrace on the scaffold — Sheila, my own — and is engaged to an Oxford graduate before the execution is over.
+
+## The Oxford graduate · reference
+
+Noted for his chivalry towards the fair sex, who steps forward with visiting card, bankbook and genealogical tree, solicits her hand and is accepted on the spot; the bearer of one of the most timehonoured names in Albion’s history.
+
+## Lieutenantcolonel Tomkin-Maxwell ffrenchmullan Tomlinson · reference
+
+The stern provostmarshal presiding, who had blown a considerable number of sepoys from the cannonmouth without flinching and cannot now restrain his natural emotion.
+
+## Messrs John Round and Sons · reference
+
+The worldfamous Sheffield cutlers who supply the disembowelling appliances — a firm, but the executioner’s tools are theirs by name.
+
+## Raftery · reference
+
+The blind Connacht poet, whose satirical effusions the newspaper compares Garryowen’s verse with.
+
+## Donal MacConsidine · reference
+
+The other satirist of the comparison.
+
+## The Little Sweet Branch · reference
+
+The graceful pseudonym under which a writer of lovesongs has familiarised the bookloving world.
+
+## Mr Joseph M’Carthy Hynes · reference
+
+The wellknown and highly respected worker in the cause of our old tongue who makes the eloquent appeal for the revival of the ancient Gaelic sports — Joe Hynes with a middle name, in the newspaper’s version of the argument in the bar.
+
+## Finn MacCool · reference
+
+By whom the ancient Gaelic sports were practised morning and evening, in Joseph M’Carthy Hynes’s appeal for their revival.
+
+## Thomas Osborne Davis · reference
+
+Whose evergreen verses _A nation once again_ the citizen sings at the close of the meeting.
+
+## The very rev. William Delany · reference
+
+S. J., LL. D.: first of the clergy reported present at the meeting in Little Britain street.
+
+## The rt rev. Gerald Molloy · reference
+
+D. D., second of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The rev. P. J. Kavanagh · reference
+
+C. S. Sp., third of the clergy at that meeting of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The rev. T. Waters · reference
+
+C. C., fourth of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The rev. John M. Ivers · reference
+
+P. P., fifth of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The rev. P. J. Cleary · reference
+
+O. S. F., sixth of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The rev. L. J. Hickey · reference
+
+O. P., seventh of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The very rev. Fr. Nicholas · reference
+
+O. S. F. C., eighth of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The very rev. B. Gorman · reference
+
+O. D. C., ninth; not the Timothy canon Gorman further down the same list.
+
+## The rev. T. Maher · reference
+
+S. J., tenth of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The very rev. James Murphy · reference
+
+S. J., eleventh; not the Father John Murphy of Boolavogue on the citizen’s girdle.
+
+## The rev. John Lavery · reference
+
+V. F., twelfth of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The very rev. William Doherty · reference
+
+D. D., thirteenth of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The rev. Peter Fagan · reference
+
+O. M., fourteenth of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The rev. T. Brangan · reference
+
+O. S. A., fifteenth of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The rev. J. Flavin · reference
+
+C. C., sixteenth of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The rev. M. A. Hackett · reference
+
+C. C., seventeenth of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The rev. W. Hurley · reference
+
+C. C., eighteenth of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The rt rev. Mgr M’Manus · reference
+
+V. G., nineteenth of the clergy at the meeting of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The rev. B. R. Slattery · reference
+
+O. M. I., twentieth of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The very rev. M. D. Scally · reference
+
+P. P., twentyfirst of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The rev. F. T. Purcell · reference
+
+O. P., twentysecond of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## The very rev. Timothy canon Gorman · reference
+
+P. P., twentythird; not the B. Gorman higher up the same list.
+
+## The rev. J. Flanagan · reference
+
+C. C., last of the clergy reported present at the meeting of the clergy reported present at the Gaelic sports meeting in Little Britain street.
+
+## P. Fay · reference
+
+One of the two laymen the report troubles to name.
+
+## T. Quirke · reference
+
+The other, and then etc., etc.
+
+## Ole Pfotts Wettstein · reference
+
+Bennett’s second, who threw in the towel while the Portobello bruiser was being counted out.
+
+## The twelve tribes of Iar · reference
+
+The jury of the legal parody: one man for every tribe, of the tribe of Patrick and of Hugh and of Owen and of Conn and of Oscar and of Fergus and of Finn and of Dermot and of Cormac and of Kevin and of Caolte and of Ossian, twelve good men and true, sworn by Him Who is from everlasting.
+
+## Juvenal · reference
+
+In whose time Irish wool was sold in Rome, by the citizen’s account of the trade.
+
+## Jacquard de Lyon · reference
+
+Since when we have had our Huguenot poplin.
+
+## Tacitus · reference
+
+Read Tacitus and Ptolemy, even Giraldus Cambrensis, says the citizen: his three authorities for what Ireland was.
+
+## Ptolemy · reference
+
+The second of them, whose map has Ireland on it.
+
+## Giraldus Cambrensis · reference
+
+The third, and the least friendly witness of the three.
+
+## King Philip of Spain · reference
+
+Who offered to pay customs duties for the right to fish in Irish waters.
+
+## The earl of Desmond · reference
+
+Who could make a treaty with the emperor Charles the Fifth himself.
+
+## The emperor Charles the Fifth · reference
+
+With whom he made it.
+
+## Henry Tudor · reference
+
+Whose harps the citizen will not have on the first Irish battleship.
+
+## Milesius · reference
+
+Whose three sons are the three crowns on the blue field, the oldest flag afloat.
+
+## Sir John Beresford · reference
+
+The old ruffian who called a flogging a rump and dozen, where the modern God’s Englishman calls it caning on the breech.
+
+## Granuaile · reference
+
+Grace O’Malley, whose sons went to the land of the free and remember the land of bondage.
+
+## Ulysses Browne of Camus · reference
+
+Fieldmarshal to Maria Teresa, one of the wild geese John Wyse Nolan counts up: and what did we ever get for it?
+
+## Maria Teresa · reference
+
+Whose fieldmarshal he was.
+
+## O’Donnell, duke of Tetuan · reference
+
+Another of them, in Spain.
+
+## George the elector · reference
+
+First of the sausageeating bastards on the throne, in Joe Hynes’s account of the house of Hanover.
+
+## Old Vic · reference
+
+Queen Victoria as the bar remembers her: blind drunk in her royal palace every night of God with her jorum of mountain dew, her coachman carting her up body and bones to bed while she pulls him by the whiskers and sings him bits of Ehren on the Rhine. The same queen who is a scion of the house of Brunswick on Alf Bergan’s testoon at 12:85 and the great squaw Victoria of the Alaki’s bible at 12:442.
+
+## Edward Guelph-Wettin · reference
+
+Edward the peacemaker, of whom there is a bloody sight more pox than pax, whose room in Maynooth the bishops did up in his racing colours. The earl of Dublin, no less.
+
+## Cromwell · reference
+
+Sanctimonious Cromwell and his ironsides, who put the women and children of Drogheda to the sword with the bible text God is love pasted round the mouth of his cannon.
+
+## Solomon of Droma · reference
+
+To whom, with Manus Tomaltach og MacDonogh, the Book of Ballymote is attributed, and with it the muchtreasured facecloth the citizen swabs himself dry with.
+
+## Manus Tomaltach og MacDonogh · reference
+
+The other author of the Book of Ballymote.
+
+## Li Chi Han · reference
+
+Who lovey up kissy Cha Pu Chow.
+
+## Cha Pu Chow · reference
+
+Whom he loves.
+
+## Jumbo · reference
+
+The elephant, who loves Alice the elephant.
+
+## Alice · reference
+
+The elephant he loves.
+
+## Old Mr Verschoyle · reference
+
+With the ear trumpet, who loves old Mrs Verschoyle.
+
+## Old Mrs Verschoyle · reference
+
+With the turnedin eye, who is loved by him.
+
+## Mary Kelly · reference
+
+Whom Constable 14A loves.
+
+## Constable 14A · reference
+
+Who loves her; the bobby Paddy Leonard knew the night Bob Doran was near being lagged.
+
+## Messrs Alexander Thom’s · reference
+
+Printers to His Majesty, where Lipóti Virag was lately employed, in the farewell report of his departure for the Meadow of Murmuring Waters.
+
+## Mr George Fottrell · reference
+
+The much respected clerk of the crown and peace, whose headgear was found after the earthquake on the third basaltic ridge of the giant’s causeway.
+
+## Mercalli · reference
+
+On whose scale the observatory of Dunsink registered all eleven shocks.
+
+## The chevalier Jean Wyse de Neaulan · reference
+
+Grand high chief ranger of the Irish National Foresters: John Wyse Nolan ennobled and married off to a fir tree, because he said something about reafforesting the land.
+
+## Miss Fir Conifer · reference
+
+Of Pine Valley, the bride, given away by her father the M’Conifer of the Glands in green mercerised silk with hip insertions of acorn bronze.
+
+## The M’Conifer of the Glands · reference
+
+Her father.
+
+## Miss Larch Conifer · reference
+
+One of the two maids of honour, sisters of the bride.
+
+## Miss Spruce Conifer · reference
+
+The other.
+
+## Lady Sylvester Elmshade · reference
+
+First of the guests who graced the ceremony by their presence.
+
+## Mrs Barbara Lovebirch · reference
+
+Second. Not James Lovebirch of _Fair Tyrants_, whose book Molly did not like.
+
+## Mrs Poll Ash · reference
+
+Third.
+
+## Mrs Holly Hazeleyes · reference
+
+Fourth.
+
+## Miss Daphne Bays · reference
+
+Fifth, and the only guest whose name was a tree before it was a woman.
+
+## Miss Dorothy Canebrake · reference
+
+Sixth.
+
+## Mrs Clyde Twelvetrees · reference
+
+Seventh.
+
+## Mrs Rowan Greene · reference
+
+Eighth.
+
+## Mrs Helen Vinegadding · reference
+
+Ninth.
+
+## Miss Virginia Creeper · reference
+
+Tenth.
+
+## Miss Gladys Beech · reference
+
+Eleventh.
+
+## Miss Olive Garth · reference
+
+Twelfth.
+
+## Miss Blanche Maple · reference
+
+Thirteenth.
+
+## Mrs Maud Mahogany · reference
+
+Fourteenth.
+
+## Miss Myra Myrtle · reference
+
+Fifteenth.
+
+## Miss Priscilla Elderflower · reference
+
+Sixteenth.
+
+## Miss Bee Honeysuckle · reference
+
+Seventeenth.
+
+## Miss Grace Poplar · reference
+
+Eighteenth.
+
+## Miss O Mimosa San · reference
+
+Nineteenth, out of _The Geisha_ by way of the shrubbery.
+
+## Miss Rachel Cedarfrond · reference
+
+Twentieth.
+
+## Miss Lilian Lilac · reference
+
+One of the Misses Lilac.
+
+## Miss Viola Lilac · reference
+
+The other.
+
+## Miss Timidity Aspenall · reference
+
+Twentythird.
+
+## Mrs Kitty Dewey-Mosse · reference
+
+Twentyfourth.
+
+## Miss May Hawthorne · reference
+
+Twentyfifth.
+
+## Mrs Gloriana Palme · reference
+
+Twentysixth.
+
+## Mrs Liana Forrest · reference
+
+Twentyseventh.
+
+## Mrs Arabella Blackwood · reference
+
+Twentyeighth.
+
+## Mrs Norma Holyoake · reference
+
+Of Oakholme Regis, last of the guests.
+
+## Senhor Enrique Flor · reference
+
+Who presided at the organ with his wellknown ability and played _Woodman, spare that tree_ at the conclusion of the service.
+
+## Benedict of Spoleto · reference
+
+Whose monks head the procession, before the Carthusians and Camaldolesi.
+
+## Peter Nolasco · reference
+
+Whose children walk with the friars of Augustine and the Trinitarians.
+
+## Albert bishop · reference
+
+Who leads the children of Elijah prophet down from Carmel mount with Teresa of Avila.
+
+## Teresa of Avila · reference
+
+Calced and other, at the head of the Carmelites.
+
+## Poor Francis · reference
+
+Whose sons walk brown and grey: capuchins, cordeliers, minimes and observants.
+
+## Clara · reference
+
+Whose daughters walk with them.
+
+## Dominic · reference
+
+Whose sons are the friars preachers.
+
+## Vincent · reference
+
+Whose sons come after the friars preachers.
+
+## S. Wolstan · reference
+
+Whose monks come next.
+
+## Ignatius · reference
+
+And Ignatius his children.
+
+## The reverend brother Edmund Ignatius Rice · reference
+
+Who leads the confraternity of the christian brothers.
+
+## S. Cyr · reference
+
+First of all the saints and martyrs, virgins and confessors who come after.
+
+## S. Isidore Arator · reference
+
+Isidore the Ploughman.
+
+## S. James the Less · reference
+
+Third.
+
+## S. Phocas of Sinope · reference
+
+The gardener who dug his own grave for his executioners.
+
+## S. Julian Hospitator · reference
+
+Who killed his parents by mistake and kept a ferry in penance.
+
+## S. Felix de Cantalice · reference
+
+Sixth.
+
+## S. Simon Stylites · reference
+
+Who lived on a pillar.
+
+## S. Stephen Protomartyr · reference
+
+The first martyr, stoned — and not Stephen Dedalus, whose alias had to be kept off this paragraph by hand.
+
+## S. John of God · reference
+
+Whose name is also the asylum the narrator says their friend is out in, off his head, in the first page of the episode.
+
+## S. Ferreol · reference
+
+Tenth.
+
+## S. Leugarde · reference
+
+Eleventh.
+
+## S. Theodotus · reference
+
+Twelfth.
+
+## S. Vulmar · reference
+
+Thirteenth.
+
+## S. Richard · reference
+
+Fourteenth.
+
+## S. Vincent de Paul · reference
+
+Of the Lazarists and the charities that carry his name.
+
+## S. Martin of Todi · reference
+
+Sixteenth.
+
+## S. Martin of Tours · reference
+
+Who cut his cloak in two for a beggar.
+
+## S. Alfred · reference
+
+Eighteenth.
+
+## S. Denis · reference
+
+Who carried his own head to Montmartre.
+
+## S. Cornelius · reference
+
+Twentyfirst.
+
+## S. Leopold · reference
+
+Twentysecond, and Bloom’s own name among the saints.
+
+## S. Bernard · reference
+
+Twentythird.
+
+## S. Terence · reference
+
+Twentyfourth.
+
+## S. Edward · reference
+
+Twentyfifth.
+
+## S. Owen Caniculus · reference
+
+Owen the little dog: the citizen’s Garryowen canonised, or Owen Garry as the newspaper has him.
+
+## S. Anonymous · reference
+
+First of the six saints whose names are the names of having no name: Anonymous, Eponymous, Pseudonymous, Homonymous, Paronymous and Synonymous.
+
+## S. Eponymous · reference
+
+The second of them.
+
+## S. Pseudonymous · reference
+
+The third.
+
+## S. Homonymous · reference
+
+The fourth.
+
+## S. Paronymous · reference
+
+The fifth.
+
+## S. Synonymous · reference
+
+The sixth.
+
+## S. Laurence O’Toole · reference
+
+Archbishop of Dublin when the Normans came.
+
+## S. James of Dingle and Compostella · reference
+
+Whose pilgrim road ran from Kerry to Galicia.
+
+## S. Columcille · reference
+
+Of Iona, who is also S. Columba two words later in the same procession: the litany gives him both his names and walks him past twice.
+
+## S. Celestine · reference
+
+Thirtieth.
+
+## S. Colman · reference
+
+Of Cloyne, or of Lindisfarne, or one of the hundred and more Colmans in the Irish calendar.
+
+## S. Kevin · reference
+
+Of Glendalough, whose parade Moses Herzog lives on.
+
+## S. Frigidian · reference
+
+Of Lucca, an Irishman abroad.
+
+## S. Senan · reference
+
+Of Scattery island.
+
+## S. Fachtna · reference
+
+Of Ross.
+
+## S. Gall · reference
+
+Columbanus’s companion, who gave his name to a Swiss canton.
+
+## S. Fintan · reference
+
+Of Clonenagh.
+
+## S. John Nepomuc · reference
+
+Of Prague, drowned for keeping the seal of confession — which is the crime the croppy boy’s false priest broke in episode 11.
+
+## S. Ives of Brittany · reference
+
+Patron of lawyers, walking behind Thomas Aquinas.
+
+## S. Michan · reference
+
+Of the church and the crypt on whose land this whole episode takes place: in Michan’s land, bedight in sable armour, comes O’Bloom the son of Rory.
+
+## S. Herman-Joseph · reference
+
+Of Steinfeld.
+
+## S. Aloysius Gonzaga · reference
+
+First of the three patrons of holy youth.
+
+## S. Stanislaus Kostka · reference
+
+The second.
+
+## S. John Berchmans · reference
+
+The third.
+
+## S. Gervasius · reference
+
+One of the three saints Gervasius, Servasius and Bonifacius.
+
+## S. Servasius · reference
+
+The second of them.
+
+## S. Bonifacius · reference
+
+The third.
+
+## S. Brigid · reference
+
+Of Kildare, who walks this procession twice under both her names: S. Bride among the Irish saints and S. Brigid among the virgins.
+
+## S. Kieran · reference
+
+Of Clonmacnois.
+
+## S. Jarlath of Tuam · reference
+
+Whose see is in Connacht.
+
+## S. Finbarr · reference
+
+Of Cork.
+
+## S. Pappin of Ballymun · reference
+
+Of a parish on the north edge of Dublin, walking the procession with S. Finbarr of Cork.
+
+## Brother Aloysius Pacificus · reference
+
+Who walks with Brother Louis Bellicosus: peace and war in two habits.
+
+## Brother Louis Bellicosus · reference
+
+The warlike one of the pair.
+
+## S. Rose of Lima · reference
+
+One of the two saints Rose, of Lima and of Viterbo.
+
+## S. Rose of Viterbo · reference
+
+The other.
+
+## S. Mary of Egypt · reference
+
+The penitent of the desert.
+
+## S. Lucy · reference
+
+Of Syracuse, who carries her eyes on a dish among the blessed symbols. Not Lousy Lucy of episode 9, whose alias had to be kept off this paragraph.
+
+## S. Attracta · reference
+
+Of Killaraght.
+
+## S. Dympna · reference
+
+Of Gheel, patron of the mad.
+
+## S. Ita · reference
+
+Of Killeedy, foster mother of the Irish saints.
+
+## S. Marion Calpensis · reference
+
+Molly Bloom canonised under the rock of Gibraltar: Calpe is the rock, and Marion is her name. The only saint in the procession born in this book.
+
+## The Blessed Sister Teresa of the Child Jesus · reference
+
+Of Lisieux, beatified the year before the book was finished and walking here among the older saints.
+
+## S. Barbara · reference
+
+Of the tower and the lightning, between S. Teresa of the Child Jesus and S. Scholastica in the procession.
+
+## S. Scholastica · reference
+
+Benedict’s sister.
+
+## S. Ursula · reference
+
+With eleven thousand virgins, last of the blessed company. Not the Ursula out of whose room Buck Mulligan pinched the shaving mirror.
+
+## Malachy · reference
+
+Who attends Father O’Flynn with Patrick under the canopy of cloth of gold at the end of the procession: the archbishop of Armagh, not the high king Malachi of the citizen’s girdle and not Buck Mulligan, whose alias is suppressed here.
+
+## O’Connell Fitzsimon · reference
+
+A chieftain descended from chieftains, who takes toll of the herds and fatlings coming into the shining palace of the Inisfail parody: the superintendent of the Dublin cattle market.
+
+## Bungiveagh · reference
+
+One of the noble twin brothers who brew the foamy ebon ale in their divine alevats, cunning as the sons of deathless Leda: Lord Iveagh with a bung in his name.
+
+## Bungardilaun · reference
+
+The other brother, Lord Ardilaun.
+
+## Leda · reference
+
+Whose deathless sons the brewers are as cunning as.
+
+## Black Liz · reference
+
+Our hen, who lays eggs for us and is so glad when she lays her egg — and under whom good uncle Leo puts his hand and takes her fresh egg.
+
+## Joseph Manuo · reference
+
+The name Bob Doran gave himself when he was calling himself a Frenchy for the two shawls in the Bride street shebeen, talking against the Catholic religion.
+
+## The mother · reference
+
+Who kept a kip in Hardwicke street and procures rooms to street couples: the bumbailiff’s widow, mother of the little sleepwalking bitch Bob Doran married and of Jack Mooney, who made him toe the line.
+
+## Bob Doran’s wife · reference
+
+Jack Mooney’s sister, who used to be stravaging about the landings at two in the morning without a stitch on her and now wags her tail up the aisle of the chapel in patent boots and violets, nice as pie, doing the little lady.
+
+## Mr Cowe Conacre · reference
+
+Multifarnham, Nationalist: who asks the right honourable gentleman in the house of commons whether the government has ordered these animals slaughtered without medical evidence, and follows it with the Mitchelstown telegram.
+
+## Mr Allfours · reference
+
+Tamoshant, Conservative: the answer to the honourable member’s question is in the affirmative.
+
+## Mr Orelli O’Reilly · reference
+
+Montenotte, Nationalist: who asks whether similar orders have been issued for the slaughter of human animals who dare to play Irish games in the Phoenix park. The answer is in the negative.
+
+## Mr Staylewit · reference
+
+Buncombe, Independent: Don’t hesitate to shoot. (Ironical opposition cheers.)
+
+## Cummins · reference
+
+Of Francis street, in whose private office J. J. O’Molloy pawned his gold watch where no-one would know him, and where the narrator was with Pisser Burke releasing his boots out of the pop.
+
+## Dunne · reference
+
+The name J. J. O’Molloy gave at the counter. What’s your name, sir? Dunne, says he. Ay, and done, says I.
+
+## Deadwood Dick · reference
+
+Of the slouch hats in the newspaper picture, firing at a man strung up in a tree with a bonfire under him: Black Beast Burned in Omaha, Ga.
+
+## Lanty MacHale · reference
+
+Whose goat would go a piece of the road with everyone — the narrator’s figure for Bloom, who is neither one thing nor the other.
+
+## Messrs Jacob agus Jacob · reference
+
+The makers of the silver casket presented to Lipóti Virag on his departure, tastefully executed in the style of ancient Celtic ornament.
+
+## Messrs Michael Meade and Son · reference
+
+Of 159 Great Brunswick street, to whom the work of salvage and removal of human remains after the earthquake is entrusted.
+
+## The poor old woman · reference
+
+Who told us the French were on the sea and landed at Killala: Ireland herself, in the song Ned Lambert quotes against the citizen’s patience.
+
+## Bloom the dentist · reference
+
+The other Bloom of Dublin, whose dental windows Father Conmee’s eye passes in episode 10 and whom Jack Power takes for a cousin of Leopold’s in episode 12. Not at all, says Martin Cunningham. Only namesakes.
