@@ -39,9 +39,11 @@ jobs:
       - name: Enforce GPU limits
         env:
           RUNPOD_API_KEY: ${{ secrets.RUNPOD_API_KEY }}
-          # Kept in step with the currently authorized original-audio envelope:
-          # $15 total, $1/hr per pod, 50-minute stop deadline.
+          # Current authorization is $15 aggregate. Carry the approximately
+          # $0.70 already spent into every check rather than resetting the
+          # envelope when execution moves off the Mac.
           TINCT_GPU_BUDGET: '15'
+          TINCT_GPU_SPENT: '0.70'
           TINCT_GPU_MAX_RATE: '1.00'
           TINCT_GPU_MAX_MINUTES: '50'
         run: |
@@ -53,6 +55,7 @@ jobs:
           python3 tools/audio-highlight/runpod_guard.py \
             "${{ inputs.stop_all == true && 'stop-all' || 'enforce' }}" \
             --budget "$TINCT_GPU_BUDGET" \
+            --spent "$TINCT_GPU_SPENT" \
             --max-rate "$TINCT_GPU_MAX_RATE" \
             --max-minutes "$TINCT_GPU_MAX_MINUTES" \
             --json-out guard-report.json \
