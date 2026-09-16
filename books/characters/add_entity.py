@@ -26,6 +26,15 @@ def u16(text):
 
 
 def bind(book_id, edition_key, aliases):
+    """Bind every alias, then drop shorter matches that overlap a longer
+    one at the same position (multiple aliases for one entity, e.g. a
+    full name and its shortened form, otherwise create two mentions for
+    the same word span -- ambiguous at read time, since the live reader's
+    resolveCharacter() picks the *narrowest* overlapping mention and only
+    resolves if all narrowest matches agree on character id; two mentions
+    for the same id at different widths are themselves harmless there,
+    but this keeps the compiled data equivalent to what build_generic.py
+    would produce and avoids the redundancy entirely)."""
     path = ROOT / f'app/public/data/editions/{book_id}-{edition_key}.json'
     if not path.exists():
         return None
@@ -35,11 +44,19 @@ def bind(book_id, edition_key, aliases):
     for c in data['chapters']:
         for pi, p in enumerate(c['paragraphs']):
             text = normalized(p)
+            candidates = []
             for pat in patterns:
                 for m in pat.finditer(text):
-                    mentions.append({'chapterNumber': c['number'], 'paragraphIndex': pi,
-                                      'startOffset': u16(text[:m.start()]), 'endOffset': u16(text[:m.end()]),
-                                      'text': text[m.start():m.end()], 'resolution': 'reviewed-name'})
+                    candidates.append((m.start(), m.end()))
+            chosen = []
+            for a, b in sorted(set(candidates), key=lambda z: (-(z[1] - z[0]), z[0])):
+                if any(a < cb and b > ca for ca, cb in chosen):
+                    continue  # overlaps an already-chosen, longer-or-equal span
+                chosen.append((a, b))
+            for a, b in sorted(chosen):
+                mentions.append({'chapterNumber': c['number'], 'paragraphIndex': pi,
+                                  'startOffset': u16(text[:a]), 'endOffset': u16(text[:b]),
+                                  'text': text[a:b], 'resolution': 'reviewed-name'})
     mentions.sort(key=lambda m: (m['chapterNumber'], m['paragraphIndex'], m['startOffset']))
     return mentions
 
