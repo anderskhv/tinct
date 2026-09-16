@@ -136,4 +136,34 @@ ENTITIES = [
         'subtitle': 'A blunt, formidable family friend of the Rostovs',
         'body': "Known throughout Moscow for saying exactly what she thinks regardless of rank, she is one of the few people who can speak plainly to the Rostov family in a crisis. Her bluntness comes from real affection, not indifference.",
     },
+    {
+        'id': 'anna-pavlovna', 'kind': 'person', 'storyRole': 'major',
+        'aliases': ['Anna Pávlovna Schérer', 'Anna Pávlovna', 'Anna Pavlovna Scherer', 'Anna Pavlovna'],
+        'subtitle': "Maid of honor to the Empress, hostess of the St. Petersburg soiree that opens the novel",
+        'body': "A practiced society hostess whose evening party gathers most of the novel's St. Petersburg characters in its opening pages. She manages her guests' conversation and marriages alike with the same brisk attention, and her drawing room recurs as a barometer of court opinion.",
+    },
+    {
+        'id': 'lise', 'kind': 'person', 'storyRole': 'major',
+        'aliases': ['Lise Meinen', 'Lise', 'the little princess'],
+        'subtitle': "Prince Andrew's pregnant young wife",
+        'body': "A pretty, sociable young woman known in company as “the little princess,” she is expecting her first child and is charming and popular in the drawing rooms her husband finds tiresome. Andrew's evident weariness with their marriage is plain from their first appearance together.",
+    },
+    {
+        'id': 'count-bezukhov', 'kind': 'person', 'storyRole': 'supporting',
+        'aliases': ['Count Bezúkhov', 'old Count Bezúkhov', 'Count Bezukhov', 'old Count Bezukhov'],
+        'subtitle': "Pierre's father, a wealthy and celebrated grandee of Catherine's court",
+        'body': "One of the great nobles of Catherine the Great's reign, now gravely ill in Moscow. Pierre is his illegitimate son, and the question of his fortune and title occupies Moscow society and his relations well before the novel's opening scenes are over.",
+    },
+    {
+        'id': 'mademoiselle-bourienne', 'kind': 'person', 'storyRole': 'supporting',
+        'aliases': ['Mademoiselle Bourienne'],
+        'subtitle': "Princess Mary's French companion",
+        'body': "A Frenchwoman who lives with the Bolkónski family at Bald Hills as Princess Mary's paid companion, present in the household through the strict routine old Prince Bolkónski keeps for his daughter.",
+    },
+    {
+        'id': 'bagration', 'kind': 'person', 'storyRole': 'major',
+        'aliases': ['Bagratión', 'Bagration', 'Prince Bagratión', 'Prince Bagration'],
+        'subtitle': "A Russian general serving under Kutúzov",
+        'body': "A historical Russian commander who leads troops under Kutúzov's overall command during the 1805 campaign. Several officers in the novel, including Prince Andrew's circle, serve under or alongside him.",
+    },
 ]
