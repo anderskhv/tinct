@@ -53,5 +53,5 @@ passed against that build. Long attachment scrolling and a visible voice control
 also passed locally. Earlier deploy 35080782218 correctly declined the superseded
 commit after the opening-paragraph refinement reached main.
 
-Next action: this refinement batch is complete. Anders may provide the separate
-voice-mode feedback next; no unprovided voice changes have been inferred.
+Next action: this refinement batch is complete. Subsequent voice feedback was
+handled in the [Live conversation correction](voice-refinement-2026-09-16.md).

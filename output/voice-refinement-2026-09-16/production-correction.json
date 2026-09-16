@@ -1,0 +1,1190 @@
+{
+  "events": [
+    {
+      "at": 1789553990469,
+      "type": "session.started"
+    },
+    {
+      "at": 1789554004245,
+      "type": "session.input_transcript.delta",
+      "delta": " Has"
+    },
+    {
+      "at": 1789554004393,
+      "type": "session.input_transcript.delta",
+      "delta": " Tim"
+    },
+    {
+      "at": 1789554004441,
+      "type": "session.usage.updated"
+    },
+    {
+      "at": 1789554004541,
+      "type": "session.input_transcript.delta",
+      "delta": " Keller"
+    },
+    {
+      "at": 1789554005274,
+      "type": "session.input_transcript.delta",
+      "delta": "... written"
+    },
+    {
+      "at": 1789554005424,
+      "type": "session.input_transcript.delta",
+      "delta": " about"
+    },
+    {
+      "at": 1789554005666,
+      "type": "session.input_transcript.delta",
+      "delta": " suffering"
+    },
+    {
+      "at": 1789554005764,
+      "type": "session.input_transcript.delta",
+      "delta": " in"
+    },
+    {
+      "at": 1789554005852,
+      "type": "session.input_transcript.delta",
+      "delta": " the"
+    },
+    {
+      "at": 1789554005938,
+      "type": "session.input_transcript.delta",
+      "delta": " Book"
+    },
+    {
+      "at": 1789554005997,
+      "type": "session.input_transcript.delta",
+      "delta": " of"
+    },
+    {
+      "at": 1789554006163,
+      "type": "session.input_transcript.delta",
+      "delta": " Job"
+    },
+    {
+      "at": 1789554006247,
+      "type": "session.delegation.created"
+    },
+    {
+      "at": 1789554006247,
+      "type": "response.event",
+      "nested": "response.created"
+    },
+    {
+      "at": 1789554006291,
+      "type": "response.event",
+      "nested": "response.in_progress"
+    },
+    {
+      "at": 1789554006688,
+      "type": "session.updated"
+    },
+    {
+      "at": 1789554007170,
+      "type": "response.event",
+      "nested": "response.output_item.added",
+      "item": {
+        "id": "fc_03fbfc9a0e8aa864006aaa6d57275087d19fe2091af5425389",
+        "type": "function_call",
+        "status": "in_progress",
+        "arguments": "",
+        "call_id": "call_xFUxiFkgGiCXYW1d8lf1XxLO",
+        "name": "search_reading_sources"
+      }
+    },
+    {
+      "at": 1789554007170,
+      "type": "response.event",
+      "nested": "response.function_call_arguments.delta",
+      "deltaBackend": "{\""
+    },
+    {
+      "at": 1789554007171,
+      "type": "response.event",
+      "nested": "response.function_call_arguments.delta",
+      "deltaBackend": "query"
+    },
+    {
+      "at": 1789554007181,
+      "type": "response.event",
+      "nested": "response.function_call_arguments.delta",
+      "deltaBackend": "\":\""
+    },
+    {
+      "at": 1789554007208,
+      "type": "response.event",
+      "nested": "response.function_call_arguments.delta",
+      "deltaBackend": "Tim"
+    },
+    {
+      "at": 1789554007209,
+      "type": "response.event",
+      "nested": "response.function_call_arguments.delta",
+      "deltaBackend": " Keller"
+    },
+    {
+      "at": 1789554007215,
+      "type": "response.event",
+      "nested": "response.function_call_arguments.delta",
+      "deltaBackend": " written"
+    },
+    {
+      "at": 1789554007218,
+      "type": "response.event",
+      "nested": "response.function_call_arguments.delta",
+      "deltaBackend": " about"
+    },
+    {
+      "at": 1789554007230,
+      "type": "response.event",
+      "nested": "response.function_call_arguments.delta",
+      "deltaBackend": " suffering"
+    },
+    {
+      "at": 1789554007230,
+      "type": "response.event",
+      "nested": "response.function_call_arguments.delta",
+      "deltaBackend": " in"
+    },
+    {
+      "at": 1789554007230,
+      "type": "response.event",
+      "nested": "response.function_call_arguments.delta",
+      "deltaBackend": " the"
+    },
+    {
+      "at": 1789554007231,
+      "type": "response.event",
+      "nested": "response.function_call_arguments.delta",
+      "deltaBackend": " Book"
+    },
+    {
+      "at": 1789554007288,
+      "type": "response.event",
+      "nested": "response.function_call_arguments.delta",
+      "deltaBackend": " of"
+    },
+    {
+      "at": 1789554007296,
+      "type": "response.event",
+      "nested": "response.function_call_arguments.delta",
+      "deltaBackend": " Job"
+    },
+    {
+      "at": 1789554007299,
+      "type": "response.event",
+      "nested": "response.function_call_arguments.delta",
+      "deltaBackend": "\"}"
+    },
+    {
+      "at": 1789554007347,
+      "type": "response.event",
+      "nested": "response.function_call_arguments.done"
+    },
+    {
+      "at": 1789554007347,
+      "type": "response.event",
+      "nested": "response.output_item.done",
+      "item": {
+        "id": "fc_03fbfc9a0e8aa864006aaa6d57275087d19fe2091af5425389",
+        "type": "function_call",
+        "status": "completed",
+        "arguments": "{\"query\":\"Tim Keller written about suffering in the Book of Job\"}",
+        "call_id": "call_xFUxiFkgGiCXYW1d8lf1XxLO",
+        "name": "search_reading_sources"
+      }
+    },
+    {
+      "at": 1789554007578,
+      "type": "response.event",
+      "nested": "response.completed"
+    },
+    {
+      "at": 1789554007837,
+      "type": "response.event",
+      "nested": "response.created"
+    },
+    {
+      "at": 1789554007869,
+      "type": "session.output_transcript.delta",
+      "delta": " Mm."
+    },
+    {
+      "at": 1789554007914,
+      "type": "response.event",
+      "nested": "response.in_progress"
+    },
+    {
+      "at": 1789554008085,
+      "type": "session.output_transcript.delta",
+      "delta": " Okay,"
+    },
+    {
+      "at": 1789554008661,
+      "type": "session.output_transcript.delta",
+      "delta": " I'll"
+    },
+    {
+      "at": 1789554008861,
+      "type": "session.output_transcript.delta",
+      "delta": " look"
+    },
+    {
+      "at": 1789554009064,
+      "type": "session.output_transcript.delta",
+      "delta": " that"
+    },
+    {
+      "at": 1789554009246,
+      "type": "session.output_transcript.delta",
+      "delta": " up."
+    },
+    {
+      "at": 1789554009649,
+      "type": "response.event",
+      "nested": "response.output_item.added",
+      "item": {
+        "id": "msg_03fbfc9a0e8aa864006aaa6d59a35087d18c31a590d907227d",
+        "type": "message",
+        "status": "in_progress",
+        "content": [],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    },
+    {
+      "at": 1789554009649,
+      "type": "response.event",
+      "nested": "response.content_part.added"
+    },
+    {
+      "at": 1789554009652,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": "Yes"
+    },
+    {
+      "at": 1789554009654,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": "."
+    },
+    {
+      "at": 1789554009660,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " Tim"
+    },
+    {
+      "at": 1789554009850,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " Keller"
+    },
+    {
+      "at": 1789554010075,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " wrote"
+    },
+    {
+      "at": 1789554010288,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " *"
+    },
+    {
+      "at": 1789554010501,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": "Walking"
+    },
+    {
+      "at": 1789554010501,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " with"
+    },
+    {
+      "at": 1789554010711,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " God"
+    },
+    {
+      "at": 1789554010922,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " through"
+    },
+    {
+      "at": 1789554011136,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " Pain"
+    },
+    {
+      "at": 1789554011142,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " and"
+    },
+    {
+      "at": 1789554011146,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " S"
+    },
+    {
+      "at": 1789554011419,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": "uffering"
+    },
+    {
+      "at": 1789554011653,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": "*,"
+    },
+    {
+      "at": 1789554011931,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " where"
+    },
+    {
+      "at": 1789554011942,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " Job"
+    },
+    {
+      "at": 1789554011942,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " is"
+    },
+    {
+      "at": 1789554012210,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " a"
+    },
+    {
+      "at": 1789554012488,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " major"
+    },
+    {
+      "at": 1789554012750,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " biblical"
+    },
+    {
+      "at": 1789554012762,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " lens"
+    },
+    {
+      "at": 1789554013004,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " for"
+    },
+    {
+      "at": 1789554013016,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " thinking"
+    },
+    {
+      "at": 1789554013255,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " about"
+    },
+    {
+      "at": 1789554013268,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " undes"
+    },
+    {
+      "at": 1789554013272,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": "erved"
+    },
+    {
+      "at": 1789554013276,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " suffering"
+    },
+    {
+      "at": 1789554013280,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": "."
+    },
+    {
+      "at": 1789554013522,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " He"
+    },
+    {
+      "at": 1789554013536,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " emphasizes"
+    },
+    {
+      "at": 1789554013539,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " that"
+    },
+    {
+      "at": 1789554013542,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " Job"
+    },
+    {
+      "at": 1789554013544,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " does"
+    },
+    {
+      "at": 1789554013822,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " not"
+    },
+    {
+      "at": 1789554013822,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " receive"
+    },
+    {
+      "at": 1789554014053,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " a"
+    },
+    {
+      "at": 1789554014062,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " full"
+    },
+    {
+      "at": 1789554014327,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " explanation"
+    },
+    {
+      "at": 1789554014334,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " for"
+    },
+    {
+      "at": 1789554014581,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " his"
+    },
+    {
+      "at": 1789554014854,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " pain"
+    },
+    {
+      "at": 1789554014865,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": ";"
+    },
+    {
+      "at": 1789554014865,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " instead"
+    },
+    {
+      "at": 1789554015119,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": ","
+    },
+    {
+      "at": 1789554015131,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " the"
+    },
+    {
+      "at": 1789554015379,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " book"
+    },
+    {
+      "at": 1789554015646,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " presses"
+    },
+    {
+      "at": 1789554015925,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " toward"
+    },
+    {
+      "at": 1789554016184,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " humility"
+    },
+    {
+      "at": 1789554016184,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " before"
+    },
+    {
+      "at": 1789554016421,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " God"
+    },
+    {
+      "at": 1789554016457,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": "’s"
+    },
+    {
+      "at": 1789554016457,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " wisdom"
+    },
+    {
+      "at": 1789554016695,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " and"
+    },
+    {
+      "at": 1789554016925,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " a"
+    },
+    {
+      "at": 1789554017206,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " deeper"
+    },
+    {
+      "at": 1789554017217,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " encounter"
+    },
+    {
+      "at": 1789554017217,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " with"
+    },
+    {
+      "at": 1789554017475,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " God"
+    },
+    {
+      "at": 1789554017482,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " himself"
+    },
+    {
+      "at": 1789554017733,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": ".\n\n"
+    },
+    {
+      "at": 1789554017748,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": "I"
+    },
+    {
+      "at": 1789554017753,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " can"
+    },
+    {
+      "at": 1789554017763,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": "’t"
+    },
+    {
+      "at": 1789554017987,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " verify"
+    },
+    {
+      "at": 1789554018238,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " particular"
+    },
+    {
+      "at": 1789554018506,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " Keller"
+    },
+    {
+      "at": 1789554018773,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " passages"
+    },
+    {
+      "at": 1789554018783,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " right"
+    },
+    {
+      "at": 1789554018785,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " now"
+    },
+    {
+      "at": 1789554018788,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": ","
+    },
+    {
+      "at": 1789554018790,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " so"
+    },
+    {
+      "at": 1789554018792,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " I"
+    },
+    {
+      "at": 1789554018795,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " wouldn"
+    },
+    {
+      "at": 1789554019048,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": "’t"
+    },
+    {
+      "at": 1789554019048,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " want"
+    },
+    {
+      "at": 1789554019048,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " to"
+    },
+    {
+      "at": 1789554019289,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " attribute"
+    },
+    {
+      "at": 1789554019292,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " an"
+    },
+    {
+      "at": 1789554019458,
+      "type": "session.usage.updated"
+    },
+    {
+      "at": 1789554019530,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " exact"
+    },
+    {
+      "at": 1789554019539,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " claim"
+    },
+    {
+      "at": 1789554019539,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " or"
+    },
+    {
+      "at": 1789554019553,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " quotation"
+    },
+    {
+      "at": 1789554019553,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " to"
+    },
+    {
+      "at": 1789554019553,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " him"
+    },
+    {
+      "at": 1789554019555,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": "."
+    },
+    {
+      "at": 1789554019780,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " But"
+    },
+    {
+      "at": 1789554020034,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " that"
+    },
+    {
+      "at": 1789554020291,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " broad"
+    },
+    {
+      "at": 1789554020300,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " connection"
+    },
+    {
+      "at": 1789554020302,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " is"
+    },
+    {
+      "at": 1789554020305,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " consistent"
+    },
+    {
+      "at": 1789554020309,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " with"
+    },
+    {
+      "at": 1789554020525,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " his"
+    },
+    {
+      "at": 1789554020539,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " well"
+    },
+    {
+      "at": 1789554020787,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": "-known"
+    },
+    {
+      "at": 1789554021046,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " approach"
+    },
+    {
+      "at": 1789554021056,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": ":"
+    },
+    {
+      "at": 1789554021068,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " suffering"
+    },
+    {
+      "at": 1789554021068,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " is"
+    },
+    {
+      "at": 1789554021068,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " not"
+    },
+    {
+      "at": 1789554021298,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " necessarily"
+    },
+    {
+      "at": 1789554021314,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " evidence"
+    },
+    {
+      "at": 1789554021314,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " of"
+    },
+    {
+      "at": 1789554021558,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " personal"
+    },
+    {
+      "at": 1789554021566,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " wrongdoing"
+    },
+    {
+      "at": 1789554021819,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": ","
+    },
+    {
+      "at": 1789554022074,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " and"
+    },
+    {
+      "at": 1789554022350,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " faith"
+    },
+    {
+      "at": 1789554022355,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " can"
+    },
+    {
+      "at": 1789554022615,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " involve"
+    },
+    {
+      "at": 1789554022873,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " honest"
+    },
+    {
+      "at": 1789554022896,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " lament"
+    },
+    {
+      "at": 1789554022896,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " rather"
+    },
+    {
+      "at": 1789554023132,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " than"
+    },
+    {
+      "at": 1789554023388,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " simple"
+    },
+    {
+      "at": 1789554023398,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": " answers"
+    },
+    {
+      "at": 1789554023403,
+      "type": "response.event",
+      "nested": "response.output_text.delta",
+      "deltaBackend": "."
+    },
+    {
+      "at": 1789554023466,
+      "type": "response.event",
+      "nested": "response.output_text.done"
+    },
+    {
+      "at": 1789554023466,
+      "type": "response.event",
+      "nested": "response.content_part.done"
+    },
+    {
+      "at": 1789554023468,
+      "type": "response.event",
+      "nested": "response.output_item.done",
+      "item": {
+        "id": "msg_03fbfc9a0e8aa864006aaa6d59a35087d18c31a590d907227d",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "Yes. Tim Keller wrote *Walking with God through Pain and Suffering*, where Job is a major biblical lens for thinking about undeserved suffering. He emphasizes that Job does not receive a full explanation for his pain; instead, the book presses toward humility before God’s wisdom and a deeper encounter with God himself.\n\nI can’t verify particular Keller passages right now, so I wouldn’t want to attribute an exact claim or quotation to him. But that broad connection is consistent with his well-known approach: suffering is not necessarily evidence of personal wrongdoing, and faith can involve honest lament rather than simple answers."
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    },
+    {
+      "at": 1789554023687,
+      "type": "response.event",
+      "nested": "response.completed"
+    },
+    {
+      "at": 1789554024265,
+      "type": "session.output_transcript.delta",
+      "delta": " Yes."
+    },
+    {
+      "at": 1789554025036,
+      "type": "session.output_transcript.delta",
+      "delta": " In"
+    },
+    {
+      "at": 1789554025438,
+      "type": "session.output_transcript.delta",
+      "delta": " *Walking"
+    },
+    {
+      "at": 1789554026060,
+      "type": "session.output_transcript.delta",
+      "delta": " with"
+    },
+    {
+      "at": 1789554026266,
+      "type": "session.output_transcript.delta",
+      "delta": " God"
+    },
+    {
+      "at": 1789554026449,
+      "type": "session.output_transcript.delta",
+      "delta": " through"
+    },
+    {
+      "at": 1789554026836,
+      "type": "session.output_transcript.delta",
+      "delta": " Pain"
+    },
+    {
+      "at": 1789554027082,
+      "type": "session.input_transcript.delta",
+      "delta": " No"
+    },
+    {
+      "at": 1789554027263,
+      "type": "session.output_transcript.delta",
+      "delta": " and..."
+    },
+    {
+      "at": 1789554027383,
+      "type": "session.updated"
+    },
+    {
+      "at": 1789554027849,
+      "type": "session.input_transcript.delta",
+      "delta": ", sorry"
+    },
+    {
+      "at": 1789554028168,
+      "type": "session.input_transcript.delta",
+      "delta": ". I"
+    },
+    {
+      "at": 1789554028750,
+      "type": "session.input_transcript.delta",
+      "delta": " mean"
+    },
+    {
+      "at": 1789554029392,
+      "type": "session.input_transcript.delta",
+      "delta": ", what is"
+    },
+    {
+      "at": 1789554029529,
+      "type": "session.input_transcript.delta",
+      "delta": " the"
+    },
+    {
+      "at": 1789554030183,
+      "type": "session.input_transcript.delta",
+      "delta": " title of"
+    },
+    {
+      "at": 1789554030345,
+      "type": "session.input_transcript.delta",
+      "delta": " his"
+    },
+    {
+      "at": 1789554030748,
+      "type": "session.input_transcript.delta",
+      "delta": " book"
+    },
+    {
+      "at": 1789554031140,
+      "type": "session.input_transcript.delta",
+      "delta": " about"
+    },
+    {
+      "at": 1789554031873,
+      "type": "session.output_transcript.delta",
+      "delta": " His book"
+    },
+    {
+      "at": 1789554032073,
+      "type": "session.input_transcript.delta",
+      "delta": " suffering"
+    },
+    {
+      "at": 1789554032085,
+      "type": "session.output_transcript.delta",
+      "delta": " is"
+    },
+    {
+      "at": 1789554032285,
+      "type": "session.output_transcript.delta",
+      "delta": " called"
+    },
+    {
+      "at": 1789554032454,
+      "type": "session.output_transcript.delta",
+      "delta": " "
+    },
+    {
+      "at": 1789554032666,
+      "type": "session.output_transcript.delta",
+      "delta": "*Walking"
+    },
+    {
+      "at": 1789554033266,
+      "type": "session.output_transcript.delta",
+      "delta": " with"
+    },
+    {
+      "at": 1789554033482,
+      "type": "session.output_transcript.delta",
+      "delta": " God"
+    },
+    {
+      "at": 1789554033662,
+      "type": "session.output_transcript.delta",
+      "delta": " through"
+    },
+    {
+      "at": 1789554034056,
+      "type": "session.output_transcript.delta",
+      "delta": " Pain"
+    },
+    {
+      "at": 1789554034266,
+      "type": "session.output_transcript.delta",
+      "delta": " and"
+    },
+    {
+      "at": 1789554034442,
+      "type": "session.usage.updated"
+    },
+    {
+      "at": 1789554034483,
+      "type": "session.output_transcript.delta",
+      "delta": " Suffering"
+    },
+    {
+      "at": 1789554034654,
+      "type": "session.output_transcript.delta",
+      "delta": "*."
+    }
+  ],
+  "status": [
+    "Live"
+  ],
+  "speechStart": 1789553990537,
+  "speechEnd": 1789554000374.4167,
+  "correctionStart": 1789554025485,
+  "micState": "running",
+  "micTime": 52.61866666666667,
+  "bundle": "/assets/index-DoEZc0-j.js",
+  "answered": true,
+  "contextHasKellerPolicy": true
+}
