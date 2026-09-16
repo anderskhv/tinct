@@ -1,11 +1,12 @@
 const {chromium,webkit}=require('playwright');const assert=require('assert');const fs=require('fs');
+const base=process.env.BASE_URL||'http://127.0.0.1:5201';
 const out=process.env.ARTIFACT_DIR||'../output/before-begin-design-2026-09-16';fs.mkdirSync(out,{recursive:true});
 (async()=>{const results=[];for(const [name,engine,width,height] of [['phone',webkit,390,844],['desktop',chromium,1440,950]]){
 const b=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}: {})});const p=await b.newPage({viewport:{width,height},hasTouch:name==='phone',isMobile:name==='phone'});let requests=0;
-await p.addInitScript(()=>{HTMLMediaElement.prototype.play=()=>Promise.resolve();navigator.mediaDevices.getUserMedia=()=>Promise.reject(new Error('No microphone in visual review'))});
+await p.addInitScript(()=>{sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'the-histories',primaryEditionKey:'modern-en',compareEditionKey:'original-en'}));HTMLMediaElement.prototype.play=()=>Promise.resolve();navigator.mediaDevices.getUserMedia=()=>Promise.reject(new Error('No microphone in visual review'))});
 await p.route('**/api/{chat,lab-chat,voice-session,lab-voice-session}*',r=>{requests++;return r.abort()});
 p.on('pageerror',err=>{throw err});
-await p.goto('http://127.0.0.1:5201/'+(name==='phone'?'lab/phone?chrome=v2&':'reader?')+'beforeBeginDraft=1');
+await p.goto(base+'/'+(name==='phone'?'lab/phone?chrome=v2&':'reader?')+'beforeBeginDraft=1');
 await p.getByRole('button',{name:/Before you begin/}).waitFor();await p.waitForTimeout(1000);await p.screenshot({path:out+'/'+name+'-cover.png'});
 await p.getByRole('button',{name:/Before you begin/}).click();await p.getByRole('heading',{name:'Preface',exact:true}).waitFor();await p.screenshot({path:out+'/'+name+'-preparation.png'});
 await p.getByRole('button',{name:'Select your editions',exact:true}).click();
