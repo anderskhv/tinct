@@ -25,11 +25,13 @@ timer; this script does not replace it.
 from __future__ import annotations
 
 import argparse
+import ast
 import json
 import os
 import secrets
 import sys
 import tarfile
+import tempfile
 import time
 import urllib.error
 import urllib.request
@@ -89,6 +91,32 @@ def agent_get(base: str, token: str, path: str, timeout: int = 60) -> tuple[int,
         return error.code, error.read()
     except Exception as error:  # noqa: BLE001 — proxy not up yet, resets, timeouts
         return 0, str(error).encode()
+
+
+def validate_remote_helper_payload(commit: str, helper: str, raw_base: str | None = None) -> dict:
+    """Fetch and import the exact immutable pod payload before creating a billed pod."""
+    raw = raw_base or f"https://raw.githubusercontent.com/anderskhv/tinct/{commit}"
+    with tempfile.TemporaryDirectory(prefix="tinct-audio-payload-") as directory:
+        root = Path(directory)
+        pod_source = urllib.request.urlopen(f"{raw}/tools/audio-highlight/gpu/pod_job.py", timeout=60).read()
+        tree = ast.parse(pod_source.decode())
+        files = None
+        for node in tree.body:
+            if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == "ALIGNER_FILES" for t in node.targets):
+                files = ast.literal_eval(node.value)
+                break
+        if not isinstance(files, list) or not all(isinstance(name, str) for name in files):
+            raise RuntimeError("pod ALIGNER_FILES is absent or invalid")
+        for name in files:
+            data = urllib.request.urlopen(f"{raw}/tools/audio-highlight/aligner/{name}", timeout=60).read()
+            (root / name).write_bytes(data)
+        probe = subprocess.run(
+            [sys.executable, "-c", f"import trial; trial.select_helper({helper!r}); print(trial.DEFAULT_HELPER)"],
+            cwd=root, capture_output=True, text=True, timeout=30,
+        )
+        if probe.returncode != 0:
+            raise RuntimeError("exact pod helper payload failed import: " + (probe.stdout + probe.stderr)[-1200:])
+        return {"helper": helper, "files": files, "default": probe.stdout.strip()}
 
 
 def create_pod(args, batch: list[dict], token: str) -> dict:
@@ -166,6 +194,8 @@ def run(args) -> int:
     def save():
         ledger.write_text(json.dumps(record, indent=1))
 
+    record["helperPayloadPreflight"] = validate_remote_helper_payload(args.commit, args.helper)
+    save()
     pod = create_pod(args, batch, token)
     pod_id = pod["id"]
     record.update(podId=pod_id, gpu=(pod.get("machine") or {}).get("gpuDisplayName") or pod.get("gpuTypeId"),
