@@ -1,0 +1,128 @@
+// Read-only verification against the real Lab reader: real production
+// reader code, real character assets, mocked /api/** only (no chat/account
+// calls). No app code is modified by this script.
+const { chromium } = require('playwright')
+const fs = require('node:fs')
+const assert = require('node:assert/strict')
+
+const origin = process.env.TEST_ORIGIN || 'http://127.0.0.1:5197'
+const dir = process.env.ARTIFACT_DIR || '/tmp/tinct-verify-character-fixes'
+fs.mkdirSync(dir, { recursive: true })
+
+function normalized(text) {
+  return text.replace(/\n/g, ' ').replace(/ {2,}/g, ' ')
+}
+
+// [book, edition, chapterNumber, characterId, expectedName, label]
+const CASES = [
+  // Bible: the exact homonym-conflation fixes from this session.
+  ['bible', 'kjv-en', 931, 'herod-the-great', 'Herod', 'herod-the-great-not-antipas'],
+  ['bible', 'kjv-en', 975, 'mary-mother-of-jesus', 'Mary', 'mary-mother-not-bethany'],
+  ['bible', 'kjv-en', 983, 'mary-of-bethany', 'Mary', 'mary-bethany-not-mother'],
+  ['bible', 'kjv-en', 1019, 'john-apostle', 'John', 'john-apostle-not-baptist'],
+  ['bible', 'kjv-en', 932, 'john-the-baptist', 'John', 'john-baptist-not-apostle'],
+  // Bible: a bulk TIPNR addition and the Zidkijah/Zedekiah cross-edition alias.
+  ['bible', 'kjv-en', 774, 'zedekiah-son-of-maaseiah', 'Zedekiah', 'zedekiah-son-of-maaseiah'],
+  // Republic: the gyges/ring-of-gyges split and a new mythological figure.
+  ['the-republic', 'original-en', 2, 'gyges', 'Gyges', 'gyges-not-ring'],
+  ['the-republic', 'original-en', 1, 'themistocles', 'Themistocles', 'themistocles-new'],
+  // War and Peace: a major new addition.
+  ['war-and-peace', 'original-en', 4, 'anna-mikhaylovna', undefined, 'anna-mikhaylovna-new'],
+  // Don Quixote / Great Expectations: this session's screening fixes.
+  ['don-quixote', 'original-en', undefined, 'anselmo', 'Anselmo', 'anselmo-new'],
+  ['great-expectations', 'original-en', undefined, 'magwitch', undefined, 'provis-alias'],
+]
+
+function findMention(book, edition, characterId, chapterHint) {
+  const asset = JSON.parse(fs.readFileSync(`public/data/characters/${book}.v1.json`, 'utf8'))
+  const ed = asset.editions[edition]
+  const candidates = ed.mentions.filter(m => m.characterId === characterId && (chapterHint === undefined || m.chapterNumber === chapterHint))
+  assert.ok(candidates.length, `no mention found for ${book}/${edition}/${characterId} (chapter hint ${chapterHint})`)
+  const m = candidates[0]
+  const character = ed.characters.find(c => c.id === characterId)
+  assert.ok(character, `no character record for ${characterId}`)
+  return { m, character, asset }
+}
+
+async function run(conf, engine) {
+  const b = await engine.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' })
+  const results = []
+  try {
+    for (const [book, edition, chapterHint, characterId, expectedNameSubstring, label] of CASES) {
+      const { m, character } = findMention(book, edition, characterId, chapterHint)
+      const source = JSON.parse(fs.readFileSync(`public/data/editions/${book}-${edition}.json`, 'utf8'))
+      const chapter = source.chapters.find(c => c.number === m.chapterNumber)
+      const text = normalized(chapter.paragraphs[m.paragraphIndex])
+      const wordIndex = [...text.matchAll(/\S+/g)].findIndex(w => w.index < m.endOffset && w.index + w[0].length > m.startOffset)
+      assert.ok(wordIndex >= 0, `${label}: could not locate word index`)
+
+      const p = await b.newPage({ viewport: conf.width ? { width: conf.width, height: conf.height } : undefined, isMobile: conf.name === 'phone', hasTouch: conf.name === 'phone' })
+      p.setDefaultTimeout(15000)
+      const pageErrors = []
+      p.on('pageerror', e => pageErrors.push(e.message))
+      await p.route('**/api/**', r => r.fulfill({ status: 404, body: '{}' }))
+      await p.addInitScript(({ book, edition, ch, paragraphIndex }) => {
+        sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({
+          kind: 'open-reader', bookId: book, primaryEditionKey: edition,
+          savedPlace: { bookId: book, chapterNumber: ch, paragraphIndex, page: 0 },
+        }))
+      }, { book, edition, ch: m.chapterNumber, paragraphIndex: m.paragraphIndex })
+
+      await p.goto(origin + '/reader')
+      await p.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true')
+      await p.waitForTimeout(1000)
+
+      const word = p.locator(`.lab-page-wrap [data-paragraph-index="${m.paragraphIndex}"][data-word-index="${wordIndex}"]`).first()
+      const onPage = async () => {
+        if (!(await word.count())) return false
+        const box = await word.boundingBox()
+        const vp = p.viewportSize()
+        return box && box.x >= 0 && box.y >= 0 && box.x + box.width <= vp.width && box.y + box.height <= vp.height
+      }
+      let paged = false
+      for (let i = 0; i < 25 && !(await onPage()); i++) { await p.keyboard.press('ArrowRight'); await p.waitForTimeout(180); paged = true }
+      const found = await onPage()
+      if (!found) {
+        await p.screenshot({ path: `${dir}/${conf.name}-${label}-notfound.png` })
+        results.push({ label, status: 'WORD_NOT_FOUND_ON_ANY_PAGE', device: conf.name, book, characterId })
+        await p.close(); continue
+      }
+
+      if (conf.name === 'desktop') await word.click()
+      else {
+        const box = await word.boundingBox()
+        await word.dispatchEvent('pointerdown', { pointerType: 'touch', pointerId: 1, clientX: box.x + 3, clientY: box.y + 3 })
+        await p.waitForTimeout(300)
+        await word.dispatchEvent('pointerup', { pointerType: 'touch', pointerId: 1, clientX: box.x + 3, clientY: box.y + 3 })
+      }
+
+      let popupText = null, status = 'PASS'
+      try {
+        await p.locator('[data-popup-mode="character"]').waitFor({ timeout: 5000 })
+        popupText = await p.locator('.popup-character h2').innerText().catch(() => null)
+        const expected = expectedNameSubstring || character.snapshots[0].name
+        if (!popupText || !popupText.includes(expected)) status = `WRONG_NAME (got "${popupText}", expected to include "${expected}")`
+      } catch (e) {
+        status = 'NO_CARD_OPENED'
+      }
+      if (pageErrors.length) status += ` + JS_ERRORS: ${pageErrors.join('; ')}`
+      await p.screenshot({ path: `${dir}/${conf.name}-${label}.png` })
+      results.push({ label, status, device: conf.name, book, characterId, expectedName: expectedNameSubstring || character.snapshots[0].name, gotName: popupText, paged })
+      await p.close()
+    }
+  } finally {
+    await b.close()
+  }
+  return results
+}
+
+;(async () => {
+  const all = []
+  all.push(...await run({ name: 'desktop', width: 1440, height: 950 }, chromium))
+  all.push(...await run({ name: 'phone', width: 390, height: 844 }, chromium))
+  fs.writeFileSync(`${dir}/results.json`, JSON.stringify(all, null, 2))
+  const failures = all.filter(r => r.status !== 'PASS')
+  console.log(JSON.stringify(all, null, 2))
+  console.log(`\n${all.length - failures.length}/${all.length} passed.`)
+  if (failures.length) { console.log('FAILURES:', JSON.stringify(failures, null, 2)); process.exitCode = 1 }
+})().catch(e => { console.error(e); process.exitCode = 1 })
