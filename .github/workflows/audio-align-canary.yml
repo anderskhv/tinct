@@ -26,6 +26,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Verify launch preflight invariant
+        run: python3 tools/audio-highlight/gpu/test_preflight_launch.py
+
       - name: Fail closed unless the remote guard can enforce the envelope
         run: |
           test -n "${RUNPOD_API_KEY}" || {
@@ -39,20 +42,9 @@ jobs:
             --max-rate 1.00 \
             --max-minutes 50 \
             --json-out "$ARTIFACT_DIR/preflight-guard.json"
-          python3 - <<'PY'
-          import json, os
-          from pathlib import Path
-          report = json.loads((Path(os.environ["ARTIFACT_DIR"]) / "preflight-guard.json").read_text())
-          failures = []
-          if report.get("actions"):
-              failures.append("owned pod already exceeds a guard limit")
-          if report.get("unownedRunningPods"):
-              failures.append("unowned billing pod is running")
-          if float(report.get("estimatedTotalSpend", 0)) >= float(os.environ["TINCT_GPU_BUDGET"]):
-              failures.append("authorized aggregate envelope is exhausted")
-          if failures:
-              raise SystemExit("; ".join(failures))
-          PY
+          python3 tools/audio-highlight/gpu/preflight_launch.py \
+            "$ARTIFACT_DIR/preflight-guard.json" \
+            --budget "$TINCT_GPU_BUDGET"
 
       - name: Align the frozen one-chapter canary
         run: |
