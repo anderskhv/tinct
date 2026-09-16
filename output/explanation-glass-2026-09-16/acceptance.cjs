@@ -29,7 +29,12 @@ const ranges=await p.evaluate(()=>[...CSS.highlights.values()].flatMap(h=>[...h]
 await p.screenshot({path:out+'/'+name+'-selection.png'});
 await p.getByRole('button',{name:'Explain',exact:true}).click();await p.getByText('Loading…',{exact:true}).waitFor();
 await p.locator('.selection-popup').evaluate(async e=>{await Promise.all(e.getAnimations({subtree:true}).map(a=>a.finished.catch(()=>{})))});
-const finish=await p.locator('.selection-popup').evaluate(e=>({background:getComputedStyle(e).backgroundColor,blur:getComputedStyle(e).backdropFilter}));console.log(finish);const loading=await p.locator('.selection-popup').boundingBox();await p.screenshot({path:out+'/'+name+'-loading.png'});release();await p.locator('.lab-contextual-explain strong em').waitFor();
+const finish=await p.locator('.selection-popup').evaluate(e=>({background:getComputedStyle(e).backgroundColor,blur:getComputedStyle(e).backdropFilter}));console.log(finish);const loading=await p.locator('.selection-popup').boundingBox();await p.screenshot({path:out+'/'+name+'-loading.png'});
+await p.getByRole('button',{name:'Expand explanation',exact:true}).click();
+assert((await p.locator('.selection-popup').boundingBox()).height>790);
+await p.getByRole('button',{name:'Collapse explanation',exact:true}).click();
+assert.deepEqual(await p.locator('.selection-popup').boundingBox(),loading);
+release();await p.locator('.lab-contextual-explain strong em').waitFor();
 await p.waitForTimeout(100);const ready=await p.locator('.selection-popup').boundingBox();assert.deepEqual(ready,loading);
 const chat=await p.getByRole('button',{name:'Chat about this explanation'}).boundingBox(),talk=await p.getByRole('button',{name:'Talk about this explanation'}).boundingBox();assert.equal(chat.y,talk.y);assert(chat.x+chat.width<=talk.x+1);
 const scroll=await p.locator('.lab-contextual-explain-scroll').evaluate(e=>({height:e.clientHeight,content:e.scrollHeight}));assert(scroll.content>scroll.height);

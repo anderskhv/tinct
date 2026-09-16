@@ -22,4 +22,19 @@ Light and dark screenshots were inspected. API replies are mocked; no microphone
 or audible playback is used. Physical iOS compositing remains unverified.
 Evidence: `output/explanation-glass-2026-09-16/`.
 
-Deployment and production acceptance pending.
+Production commit `6140233a`; bundle `index-CEa4QOMr.js`.
+[Deploy 35089934678](https://github.com/anderskhv/tinct/actions/runs/35089934678)
+passed, including exact-bundle comparison and smoke tests. Production phone
+Chromium/WebKit acceptance passed loading expansion/collapse, ready expansion/
+collapse, fixed geometry and four-line height. Desktop/light and phone Chat,
+formatting and recolor regressions passed on tinct.app. Screenshots and production
+JSON are saved in the evidence directory.
+
+Documentation check: 12 maintained historical files, zero errors/reminders.
+The newly merged cloud-first/archive policy prevents writing generated assets or
+product updates into the historical Documents tree. Its product brief therefore
+still describes the preceding release; this tracked report owns the current
+follow-up behavior until documentation migration reconciles that brief.
+
+Next action: this visual feedback batch is deployed and production-accepted;
+no user deployment or routine acceptance action remains.
