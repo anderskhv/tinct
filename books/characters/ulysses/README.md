@@ -1,12 +1,12 @@
 # Ulysses character package — IN PROGRESS
 
-**Episodes 1 to 12 of 18 are authored. The rest are not.** Status stays
+**Episodes 1 to 13 of 18 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole book is
 covered.
 
-Current state: 1,138 entities authored, 1,136 bound in the older edition and
-1,133 in the modern one, 5,267 and 5,307 exact mentions, 129 focused tests.
-Content revision 2026-09-16.12.
+Current state: 1,186 entities authored, 1,184 bound in the older edition and
+1,181 in the modern one, 5,623 and 5,663 exact mentions, 138 focused tests.
+Content revision 2026-09-16.13.
 
 ## What is hard about this book
 
@@ -1195,6 +1195,107 @@ systematic interpolation: the modern edition capitalises Joyce's lowercase
 times, and nowhere else in the book. It is recorded below and is not bound: the
 parenthesis is the modern editor's.
 
+## Editorial checks — episode 13 (*Nausicaa*)
+
+Sandymount strand at dusk, 134 paragraphs, 48 new entities. The episode is two
+voices: the first half is Gerty MacDowell's, written in the language of the
+women's magazines she reads, and the second is Bloom's, written in his own. The
+cast is small and almost entirely new — three girls, three children and the
+people in their heads — but the episode is also where **the modern edition's
+text is at its least trustworthy**, and that is the finding worth carrying
+forward.
+
+**1. Namesakes.** Bare *Tommy* is Tommy Moore at 8:121 and 12:172, Tom Rochford
+at 10:221 and Tommy Tittlemouse at 15:554, so the twin is keyed and only *Tommy
+Caffrey* is aliased. Bare *Jacky* is Jacky Tar in the citizen's creed at 12:380.
+*Reggy* at 8:174 is another Reggy entirely — *Kiss me, Reggy!* — so Gerty's boy
+with the bicycle is keyed too. *Cummins* at 13:71 is **Miss Cummins, author of
+The Lamplighter**, and not the Cummins of Francis street where J. J. O'Molloy
+pawned his watch in episode 12: two people one episode apart, and the second one
+got a card of her own. *Charley* is M'Coy at 6:355 and Gerty's brother here.
+*Peter* at 13:60 is **Bloom**, whom Cissy Caffrey calls my uncle Peter over
+there when she goes to ask him the time.
+
+**Extend, do not duplicate.** *Floey* at 13:110 is the **Floey Dillon** already
+on the page from episode 6, linked with Molly under the lilactree; her card was
+extended rather than a second one written for Mat Dillon's bevy of daughters.
+*Her father* at 13:36 is the **gerty-father** of episode 10, who was laid up;
+episode 13 says what with. *S. Bernard* of the procession of saints in episode
+12 is the **saint Bernard** whose famous prayer of Mary the reverend John Hughes
+preaches on here, and the one-word card he had is now a real one.
+
+**2. Person or not.** Cast: the three girl friends, the twins and the baby; the
+two Wylie brothers; the women of the magazines Gerty lives by — Madame Vera
+Verity of the Woman Beautiful page, the Widow Welch of the female pills, Flora
+MacFlimsy, Martin Harvey the matinee idol, Louis J Walsh of Magherafelt who
+wrote the poem she copied out; the church party — Canon O'Hanlon, Father Conroy
+and the reverend John Hughes S. J.; and the people in Bloom's head on the rocks
+— nurse Callan, doctor O'Hare, Mrs Duggan, Mrs Clinch, Wilkins, Mrs Bracegirdle,
+Maud Branscombe, Jemina Brown, Grace Darling, Mother Shipton, Archimedes, Rip
+van Winkle, Henny Doyle, lieutenant Mulvey, Giuglini, Old Betty, Davy Jones and
+Morris who kissed the cow.
+
+Not cast: *the Miss White* at 13:34, which is a euphemism for where Cissy wanted
+to go and not a person; *queen Ann's pudding*; *Dame Fashion*; *Mr Right*; *the
+Lily of Killarney* and *Leah* at 13:116, which are the two pieces at the
+theatre; *Cuffe street* at 13:93 and *George's street* at 13:54, which are
+streets and not Joe Cuffe or anybody George; and *Barney Kiernan's* at 13:116,
+which is the premises, as everywhere but 12:188.
+
+**3. Scriptural and devotional figures.** The litany of Our Lady of Loreto runs
+under the whole first half, and **the Blessed Virgin** is bound on *Mary, star
+of the sea* at 13:0, on *holy Mary* at 13:35, on the *prayer of Mary* at 13:41
+and on Gerty's *child of Mary badge* at 13:71. **Saint Joseph** comes after Him
+and the Blessed Virgin in what Gerty knows; **saint Denis** is Cissy's oath;
+**Saint Dominic** is the novena Father Conroy might come to the convent for; and
+**the archangel Gabriel** is who Our Blessed Lady said be it done unto me to.
+Christ is not cast, here as everywhere: *Who came first* at 13:21 carries no
+card.
+
+**4. Ambiguous references, deliberately unbound.** *Tom* at 13:36 — *Charley was
+home on his holidays and Tom and Mr Dignam and Mrs and Patsy and Freddy Dignam*
+— could be another MacDowell brother or any Tom in the book, and the text does
+not say; it is left unbound. *Tight boots? No. She's lame!* at 13:85 is the
+episode's turn and belongs to Gerty, who is already bound four times in the
+paragraph before it. The **gentleman lodger** out of the Congested Districts
+Board, the **old Betty** whose joints are on the rack, and the **nobleman with
+the foreign name from the land of song** who had his wife put into a madhouse
+are bound where they are described and nowhere else; the last of them gets no
+card, because the text gives him no name and no second appearance.
+
+Bound from description: *Gabriel Conroy's brother is curate* at 13:111 is
+**Father Conroy**, who has been at the altar for twenty paragraphs — the episode
+identifies him in Bloom's half-attention and never notices it has done so.
+
+**5. Spot-read.** Forty mentions, twenty from each edition under two seeds. The
+adjacency sweep ran over every mention in the episode; the dead-key and
+dead-phrase sweeps are clean.
+
+**6. Both editions independently.** This is where episode 13 earns its place in
+the source-defects table. A paragraph-by-paragraph word comparison of all 134
+paragraphs finds thirty-six that differ. Most are the usual modernisation —
+*whence* to *where*, *mayhap* to *maybe*, *hath* to *has*, *fortnight* to *two
+weeks*, *in sooth* to *in truth*, *billy winks* to *bedtime*. But two of them
+are not modernisation at all:
+
+- **A botched global replacement of O with Oh has corrupted four proper names
+  and one abbreviation**: *doctor O'Hare* becomes **doctor Oh'Hare** at 13:98,
+  *O'Hara's tower* becomes **Oh'Hara's tower** at 13:115, *poor man O'Connor*
+  becomes **poor man Oh'Connor** at 13:116, *Canon O'Hanlon* becomes **Canon
+  Oh'Hanlon** at 13:130 — and *Care of P. O. Dolphin's Barn* becomes **Care of
+  P. Oh. Dolphin's Barn** at 13:110. The same edition prints Canon O'Hanlon
+  correctly fifteen times in this episode and mangles him once. Nowhere else in
+  the book does this happen.
+- **The gloss habit again**: *Howth* becomes **Howth (the headland)** at 13:107,
+  13:109, 13:111 and 13:114. This is the third parenthesis this edition has been
+  caught interpolating, after *Henry Flower (Bloom's pen name)* in episode 11
+  and *the Citizen (the nationalist)* seventy times in episode 12.
+
+Both are recorded below and neither is repaired. Canon O'Hanlon carries the
+misprint as a second alias so that a reader of the modern edition is still
+offered his card at 13:130; doctor O'Hare and O'Connor are bound by phrases that
+accept either spelling.
+
 ## Source defects — recorded, not repaired
 
 No edition byte was touched.
@@ -1218,15 +1319,17 @@ No edition byte was touched.
 | **The modern edition capitalises Joyce's lowercase *miss*** all through episode 11 (*miss Douce*, *miss Kennedy*, *miss Dou*, *miss Kenn*). | Not repaired. `Douce` was added as a second alias so the barmaid binds under both spellings, and Miss Kennedy is keyed paragraph by paragraph. |
 | **The modern edition interpolates a gloss into Joyce's text seventy times in episode 12** — every *the citizen* becomes *the Citizen (the nationalist)*. It is the only place in the book where this happens, and the parenthesis is the modern editor's, not Joyce's. | Not repaired. The citizen binds in both editions on *the citizen* and *the Citizen*; the parenthesis carries no card. The release owner should know that this edition adds words to the text here as it does at 11:203 and 11:617. |
 | **The modern edition of episode 12 changes no name at all**, but modernises twenty-one paragraphs of archaic words (*sooth*, *straightway*, *whence*, *thou*, *doth*, *withal*, *hath*, *yea*, *saith*, *therein*, *thereof*, *whereof*, *divers*, *lo*, *thither*) and two sums (*quid* to *pound*, *bob* to *shillings*). | Not repaired, and nothing is lost: every entity that binds in episode 12 binds in both editions. |
+| **The modern edition of episode 13 corrupts four proper names and one abbreviation with a botched O-to-Oh replacement** — *doctor Oh'Hare* at 13:98, *Oh'Hara's tower* at 13:115, *poor man Oh'Connor* at 13:116, *Canon Oh'Hanlon* at 13:130 and *Care of P. Oh. Dolphin's Barn* at 13:110. The same edition prints Canon O'Hanlon correctly fifteen times in the same episode. | Not repaired — no edition byte is touched. Canon O'Hanlon carries `Oh’Hanlon` as a second alias, and doctor O'Hare and O'Connor are bound by phrases that accept either spelling, so a reader of the modern edition is still offered all three cards. The release owner should see this before integration: it is a text corruption, not a modernisation. |
+| **The modern edition interpolates *(the headland)* after *Howth*** at 13:107, 13:109, 13:111 and 13:114. | Not repaired, and not bound. This is the third gloss this edition adds to Joyce's sentences, after *Henry Flower (Bloom's pen name)* in episode 11 and *the Citizen (the nationalist)* in episode 12. |
 
 ## Remaining work
 
-- **Episodes 13–18.** 2,593 paragraphs, and the two longest are 15 (*Circe*,
-  1,441 paragraphs) and 17 (*Ithaca*, 654). Episode 13 (*Nausicaa*, 134
-  paragraphs) is next: the strand, Gerty MacDowell and her grandpapa Giltrap's
-  dog, both of whom episode 12 has already put on the page. Episode 18
-  (*Penelope*) is eight paragraphs of Molly's monologue and will be the densest
-  page-for-page in the book.
+- **Episodes 14–18.** 2,459 paragraphs, and the two longest are 15 (*Circe*,
+  1,441 paragraphs) and 17 (*Ithaca*, 654). Episode 14 (*Oxen of the Sun*, 65
+  paragraphs) is next: the lying-in hospital in Holles street, nurse Callan and
+  Mrs Purefoy, both of whom are already on the page. Episode 18 (*Penelope*) is
+  eight paragraphs of Molly's monologue and will be the densest page-for-page in
+  the book.
 - **Two names are already waiting in unread territory.** *Stephen* at 15:1133
   sits inside a stage direction in Gutenberg italics and will need a key when
   *Circe* is read; *Patrice* at 16:212 is **the faubourg Saint Patrice**, not
@@ -1252,7 +1355,7 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_ulysses.py --check`, then `python3 -m unittest
-discover -s books/characters -p 'test_*.py'` — 129 focused tests for this book so
+discover -s books/characters -p 'test_*.py'` — 138 focused tests for this book so
 far. The build takes about twenty minutes of CPU for both editions at this size;
 run it in the background and wait on the log. No edition changes, no network generation, no API spend: every card here was
 written in the authoring conversation and committed as a file.

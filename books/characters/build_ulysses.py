@@ -1,7 +1,7 @@
 """Reviewed bindings for Ulysses.
 
 Joyce in both editions, 18 episodes, 7,148 paragraphs per edition. Episodes 1 to
-12 are authored; episodes 13-18 are not.
+13 are authored; episodes 14-18 are not.
 
 Every table below has `None` for its default, so a name that an unread episode
 will give to somebody else carries no card at all outside the paragraphs keyed
@@ -56,7 +56,7 @@ SPLIT={
            (7,126):'simon-dedalus',(7,137):'simon-dedalus',
            (7,151):'simon-dedalus',(7,156):'simon-dedalus',
            (7,166):'simon-dedalus',(7,168):'simon-dedalus',
-           (7,258):'stephen',(7,497):'stephen',(8,9):'simon-dedalus',(9,136):'stephen',(9,181):'stephen',(9,224):'stephen',(9,355):'stephen',(10,504):'stephen',(11,120):'simon-dedalus',(11,136):'simon-dedalus',(11,143):'simon-dedalus',(11,152):'simon-dedalus',(11,176):'simon-dedalus',(11,178):'simon-dedalus',(11,182):'simon-dedalus',(11,188):'simon-dedalus',(11,196):'simon-dedalus',(11,290):'simon-dedalus',(11,293):'simon-dedalus',(11,299):'simon-dedalus',(11,303):'simon-dedalus',(11,306):'simon-dedalus',(11,314):'simon-dedalus',(11,316):'simon-dedalus',(11,327):'simon-dedalus',(11,343):'simon-dedalus',(11,356):'simon-dedalus',(11,366):'simon-dedalus',(11,384):'simon-dedalus',(11,397):'simon-dedalus',(11,439):'simon-dedalus',(11,440):'simon-dedalus',(11,443):'simon-dedalus',(11,460):'simon-dedalus',(11,506):'simon-dedalus',(11,566):'simon-dedalus',(11,575):'simon-dedalus',(11,595):'simon-dedalus',(11,607):'simon-dedalus',(11,619):'simon-dedalus'},None),
+           (7,258):'stephen',(7,497):'stephen',(8,9):'simon-dedalus',(9,136):'stephen',(9,181):'stephen',(9,224):'stephen',(9,355):'stephen',(10,504):'stephen',(11,120):'simon-dedalus',(11,136):'simon-dedalus',(11,143):'simon-dedalus',(11,152):'simon-dedalus',(11,176):'simon-dedalus',(11,178):'simon-dedalus',(11,182):'simon-dedalus',(11,188):'simon-dedalus',(11,196):'simon-dedalus',(11,290):'simon-dedalus',(11,293):'simon-dedalus',(11,299):'simon-dedalus',(11,303):'simon-dedalus',(11,306):'simon-dedalus',(11,314):'simon-dedalus',(11,316):'simon-dedalus',(11,327):'simon-dedalus',(11,343):'simon-dedalus',(11,356):'simon-dedalus',(11,366):'simon-dedalus',(11,384):'simon-dedalus',(11,397):'simon-dedalus',(11,439):'simon-dedalus',(11,440):'simon-dedalus',(11,443):'simon-dedalus',(11,460):'simon-dedalus',(11,506):'simon-dedalus',(11,566):'simon-dedalus',(11,575):'simon-dedalus',(11,595):'simon-dedalus',(11,607):'simon-dedalus',(11,619):'simon-dedalus',(13,116):'simon-dedalus'},None),
  # Deasy calls him Mr Dedalus; from episode 6 the same two words are his father.
  'Mr Dedalus':({(2,137):'stephen',(2,154):'stephen',(2,195):'stephen',
               (6,3):'simon-dedalus',(6,12):'simon-dedalus',
@@ -116,10 +116,10 @@ SPLIT={
  'Shakespeare':({(1,275):'shakespeare',(2,74):'shakespeare',(2,113):'shakespeare',
                  (6,168):'shakespeare',(6,333):'shakespeare',(8,16):'shakespeare',(9,18):'shakespeare',(9,19):'shakespeare',(9,44):'shakespeare',(9,46):'shakespeare',(9,64):'shakespeare',(9,66):'shakespeare',(9,98):'shakespeare',(9,103):'shakespeare',(9,154):'shakespeare',(9,163):'shakespeare',(9,171):'shakespeare',(9,181):'shakespeare',(9,198):'shakespeare',(9,201):'shakespeare',(9,256):'shakespeare',(9,287):'shakespeare',(9,364):'shakespeare',(9,381):'shakespeare',(9,383):'shakespeare',(9,390):'shakespeare',(9,69):['shakespeare',None,None],(9,184):'shakespeare',(9,328):'shakespeare',(9,423):'shakespeare',(10,506):'shakespeare',(11,474):'shakespeare',(12,50):'shakespeare'},None),
  'Hamlet':({(1,232):'hamlet',(1,269):'hamlet',(1,275):'hamlet',(2,74):'hamlet',
-           (3,79):'hamlet',(5,65):'hamlet',(6,333):'hamlet',(7,154):'hamlet',(8,17):'hamlet',(9,18):'hamlet',(9,19):['hamlet', 'hamlet'],(9,28):'hamlet',(9,42):[None, None],(9,59):'king-hamlet',(9,67):'hamlet',(9,68):'hamlet',(9,69):'hamlet',(9,154):'hamlet',(9,159):'hamlet',(9,186):'king-hamlet',(9,207):'hamlet',(9,333):'hamlet',(9,391):['king-hamlet', 'hamlet', 'hamlet'],(9,427):'hamlet',(9,51):'hamlet'},None),
+           (3,79):'hamlet',(5,65):'hamlet',(6,333):'hamlet',(7,154):'hamlet',(8,17):'hamlet',(9,18):'hamlet',(9,19):['hamlet', 'hamlet'],(9,28):'hamlet',(9,42):[None, None],(9,59):'king-hamlet',(9,67):'hamlet',(9,68):'hamlet',(9,69):'hamlet',(9,154):'hamlet',(9,159):'hamlet',(9,186):'king-hamlet',(9,207):'hamlet',(9,333):'hamlet',(9,391):['king-hamlet', 'hamlet', 'hamlet'],(9,427):'hamlet',(9,51):'hamlet',(13,96):'hamlet'},None),
  # Joseph is Joseph the Joiner at 1:288 and 1:295 and eleven other men elsewhere.
  'Joseph':({(1,288):'joseph-the-joiner',(1,295):'joseph-the-joiner',
-            (3,43):'joseph-the-joiner',(5,107):'joseph-the-joiner',(12,513):'joseph-the-joiner'},None),
+            (3,43):'joseph-the-joiner',(5,107):'joseph-the-joiner',(12,513):'joseph-the-joiner',(13,21):'joseph-the-joiner'},None),
  # --- episode 2. Every one of these names belongs to somebody else elsewhere in
  # the book, which is why none of them is an alias. The comments say who.
  # 5:65 and 5:101 are Cantrell and Cochrane's ginger ale.
@@ -144,7 +144,7 @@ SPLIT={
  'Westminster':({(2,141):'duke-of-westminster'},None),
  'Beaufort':({(2,141):'duke-of-beaufort'},None),
  # Gerty MacDowell has episode 13 to herself; this is a schoolgirl of Stephen's.
- 'Gerty':({(2,20):'school-gerty'},None),
+ 'Gerty':({(2,20):'school-gerty',(13,16):'gerty-macdowell',(13,19):'gerty-macdowell',(13,20):'gerty-macdowell',(13,21):'gerty-macdowell',(13,22):'gerty-macdowell',(13,23):'gerty-macdowell',(13,24):'gerty-macdowell',(13,32):'gerty-macdowell',(13,35):'gerty-macdowell',(13,36):'gerty-macdowell',(13,37):'gerty-macdowell',(13,38):'gerty-macdowell',(13,40):'gerty-macdowell',(13,49):'gerty-macdowell',(13,50):'gerty-macdowell',(13,54):'gerty-macdowell',(13,55):'gerty-macdowell',(13,56):'gerty-macdowell',(13,58):'gerty-macdowell',(13,61):'gerty-macdowell',(13,62):'gerty-macdowell',(13,64):'gerty-macdowell',(13,65):'gerty-macdowell',(13,66):'gerty-macdowell',(13,70):'gerty-macdowell',(13,71):'gerty-macdowell',(13,77):'gerty-macdowell',(13,78):'gerty-macdowell',(13,82):'gerty-macdowell',(13,83):'gerty-macdowell',(13,84):'gerty-macdowell',(13,94):'gerty-macdowell',(13,96):'gerty-macdowell',(13,132):'gerty-macdowell'},None),
  # Named in nine episodes, and in eight of them nobody has read him yet.
  # Two O'Connells in one episode: Daniel, whose circle and monument the
  # funeral passes, and John, the caretaker. 6:330 names both, four lines
@@ -168,7 +168,7 @@ SPLIT={
  # is Richard Shakespeare, in the argument about the brothers.
  'Richie':({(3,17):'richie-goulding',(3,21):'richie-goulding',(3,24):'richie-goulding',
             (3,25):'richie-goulding',(3,26):'richie-goulding',
-            (6,24):'richie-goulding',(9,375):'richard-shakespeare',(9,391):'richard-shakespeare',(11,228):'richie-goulding',(11,237):'richie-goulding',(11,292):'richie-goulding',(11,307):'richie-goulding',(11,334):'richie-goulding',(11,373):'richie-goulding',(11,375):'richie-goulding',(11,376):'richie-goulding',(11,380):'richie-goulding',(11,383):'richie-goulding',(11,385):'richie-goulding',(11,396):'richie-goulding',(11,400):'richie-goulding',(11,414):'richie-goulding',(11,434):'richie-goulding',(11,438):'richie-goulding',(11,440):'richie-goulding',(11,468):'richie-goulding',(11,512):'richie-goulding',(11,521):'richie-goulding',(11,537):'richie-goulding',(11,578):'richie-goulding',(11,627):'richie-goulding'},None),
+            (6,24):'richie-goulding',(9,375):'richard-shakespeare',(9,391):'richard-shakespeare',(11,228):'richie-goulding',(11,237):'richie-goulding',(11,292):'richie-goulding',(11,307):'richie-goulding',(11,334):'richie-goulding',(11,373):'richie-goulding',(11,375):'richie-goulding',(11,376):'richie-goulding',(11,380):'richie-goulding',(11,383):'richie-goulding',(11,385):'richie-goulding',(11,396):'richie-goulding',(11,400):'richie-goulding',(11,414):'richie-goulding',(11,434):'richie-goulding',(11,438):'richie-goulding',(11,440):'richie-goulding',(11,468):'richie-goulding',(11,512):'richie-goulding',(11,521):'richie-goulding',(11,537):'richie-goulding',(11,578):'richie-goulding',(11,627):'richie-goulding',(13,88):'richie-goulding'},None),
  # 12:172 is Sara Curran of the Tommy Moore song and 14:57 is the Sara of a lay.
  'Sara':({(3,11):'aunt-sara',(3,41):'aunt-sara',(12,172):'curran'},None),
  # 6:22 is the same woman, in an episode not yet read.
@@ -202,7 +202,7 @@ SPLIT={
  # The older edition spells it A E and the modern one A.E., as it does in five
  # later episodes that have not been read.
  # 7:407 is George Russell again, signing himself A. E.
- '(?:A E|A\\.\s?E\\.)':({(3,57):'russell',(7,407):'russell',(8,111):'russell',(8,144):'russell',(9,20):'russell',(9,25):'russell',(9,171):'russell'},None),
+ '(?:A E|A\\.\s?E\\.)':({(3,57):'russell',(7,407):'russell',(8,111):'russell',(8,144):'russell',(9,20):'russell',(9,25):'russell',(9,171):'russell',(13,93):'russell'},None),
  # The high king, not Buck Mulligan and not Saint Malachy: the alias is dropped
  # at 3:67 by SUPPRESS below and the key carries it. 12:50 names him the ardri.
  'Malachi':({(3,67):'king-malachi',(12,50):'king-malachi',(12,513):'saint-malachy'},None),
@@ -221,7 +221,7 @@ SPLIT={
  # the surname belongs to five people. Leopold, Marion, Milly, Rudolph and
  # Rudy are all Bloom, and 4:38 is Slieve Bloom, a mountain range in Offaly,
  # which is why there is no bare 'Bloom' key at all.
- 'Mr Leopold Bloom':({(4,0):'leopold',(11,617):'leopold'},None),
+ 'Mr Leopold Bloom':({(4,0):'leopold',(11,617):'leopold',(13,106):'leopold'},None),
  # The bare surname is keyed only where somebody says it to his face, and
  # 4:38 -- Slieve Bloom, the mountains in Offaly -- is deliberately not a key.
  'Bloom':({(5,12):'leopold',(5,131):'leopold',(6,2):'leopold',
@@ -257,7 +257,7 @@ SPLIT={
          (7,216):'leopold',(7,220):'leopold',(7,223):'leopold',
          (7,228):'leopold',(7,313):'leopold',(7,349):'leopold',
          (7,487):'leopold',(7,491):'leopold',(7,494):'leopold',
-         (7,498):'leopold',(7,501):'leopold',(7,314):'molly',(8,204):'leopold',(8,288):'leopold',(10,241):'leopold',(10,252):'leopold',(10,255):'leopold',(10,259):'leopold',(10,263):'leopold',(10,459):'leopold',(11,46):'leopold',(11,88):'leopold',(11,109):'leopold',(11,120):'leopold',(11,130):'leopold',(11,134):'leopold',(11,159):'leopold',(11,203):'leopold',(11,208):'leopold',(11,228):'leopold',(11,237):'leopold',(11,258):'leopold',(11,292):'leopold',(11,298):'leopold',(11,306):'leopold',(11,334):'leopold',(11,335):'leopold',(11,348):'leopold',(11,352):'leopold',(11,372):'leopold',(11,374):'leopold',(11,378):'leopold',(11,381):'leopold',(11,382):'leopold',(11,385):'leopold',(11,398):'leopold',(11,401):'leopold',(11,409):'leopold',(11,410):'leopold',(11,414):'leopold',(11,434):'leopold',(11,436):'leopold',(11,439):'leopold',(11,440):'leopold',(11,443):'leopold',(11,444):'leopold',(11,454):'leopold',(11,456):'leopold',(11,462):'leopold',(11,463):'leopold',(11,464):'leopold',(11,468):'leopold',(11,469):'leopold',(11,470):'leopold',(11,486):'leopold',(11,512):'leopold',(11,521):'leopold',(11,537):'leopold',(11,541):'leopold',(11,559):'leopold',(11,560):'leopold',(11,562):'leopold',(11,565):'leopold',(11,594):'leopold',(11,608):'leopold',(11,611):'leopold',(11,616):'leopold',(11,617):'leopold',(11,621):'leopold',(11,628):'leopold',(12,56):'leopold',(12,120):'leopold',(12,136):'leopold',(12,138):'leopold',(12,152):'leopold',(12,153):'leopold',(12,159):'leopold',(12,166):'leopold',(12,172):'leopold',(12,173):'leopold',(12,175):'leopold',(12,180):'leopold',(12,195):'leopold',(12,197):'leopold',(12,199):'leopold',(12,201):'leopold',(12,217):'leopold',(12,220):'leopold',(12,222):'leopold',(12,238):'leopold',(12,239):'leopold',(12,240):'leopold',(12,246):'leopold',(12,251):'leopold',(12,257):'leopold',(12,259):'leopold',(12,286):'leopold',(12,288):'leopold',(12,292):'leopold',(12,314):'leopold',(12,315):'leopold',(12,318):'leopold',(12,320):'leopold',(12,323):'leopold',(12,334):'leopold',(12,354):'leopold',(12,355):'leopold',(12,381):'leopold',(12,384):'leopold',(12,402):'leopold',(12,405):'leopold',(12,407):'leopold',(12,409):'leopold',(12,413):'leopold',(12,420):'leopold',(12,424):'leopold',(12,429):'leopold',(12,454):'leopold',(12,456):'leopold',(12,479):'leopold',(12,481):'leopold',(12,497):'leopold',(12,565):'leopold',(12,461):['leopold','leopold','rudolph-bloom'],(12,491):'bloom-the-dentist'},None),
+         (7,498):'leopold',(7,501):'leopold',(7,314):'molly',(8,204):'leopold',(8,288):'leopold',(10,241):'leopold',(10,252):'leopold',(10,255):'leopold',(10,259):'leopold',(10,263):'leopold',(10,459):'leopold',(11,46):'leopold',(11,88):'leopold',(11,109):'leopold',(11,120):'leopold',(11,130):'leopold',(11,134):'leopold',(11,159):'leopold',(11,203):'leopold',(11,208):'leopold',(11,228):'leopold',(11,237):'leopold',(11,258):'leopold',(11,292):'leopold',(11,298):'leopold',(11,306):'leopold',(11,334):'leopold',(11,335):'leopold',(11,348):'leopold',(11,352):'leopold',(11,372):'leopold',(11,374):'leopold',(11,378):'leopold',(11,381):'leopold',(11,382):'leopold',(11,385):'leopold',(11,398):'leopold',(11,401):'leopold',(11,409):'leopold',(11,410):'leopold',(11,414):'leopold',(11,434):'leopold',(11,436):'leopold',(11,439):'leopold',(11,440):'leopold',(11,443):'leopold',(11,444):'leopold',(11,454):'leopold',(11,456):'leopold',(11,462):'leopold',(11,463):'leopold',(11,464):'leopold',(11,468):'leopold',(11,469):'leopold',(11,470):'leopold',(11,486):'leopold',(11,512):'leopold',(11,521):'leopold',(11,537):'leopold',(11,541):'leopold',(11,559):'leopold',(11,560):'leopold',(11,562):'leopold',(11,565):'leopold',(11,594):'leopold',(11,608):'leopold',(11,611):'leopold',(11,616):'leopold',(11,617):'leopold',(11,621):'leopold',(11,628):'leopold',(12,56):'leopold',(12,120):'leopold',(12,136):'leopold',(12,138):'leopold',(12,152):'leopold',(12,153):'leopold',(12,159):'leopold',(12,166):'leopold',(12,172):'leopold',(12,173):'leopold',(12,175):'leopold',(12,180):'leopold',(12,195):'leopold',(12,197):'leopold',(12,199):'leopold',(12,201):'leopold',(12,217):'leopold',(12,220):'leopold',(12,222):'leopold',(12,238):'leopold',(12,239):'leopold',(12,240):'leopold',(12,246):'leopold',(12,251):'leopold',(12,257):'leopold',(12,259):'leopold',(12,286):'leopold',(12,288):'leopold',(12,292):'leopold',(12,314):'leopold',(12,315):'leopold',(12,318):'leopold',(12,320):'leopold',(12,323):'leopold',(12,334):'leopold',(12,354):'leopold',(12,355):'leopold',(12,381):'leopold',(12,384):'leopold',(12,402):'leopold',(12,405):'leopold',(12,407):'leopold',(12,409):'leopold',(12,413):'leopold',(12,420):'leopold',(12,424):'leopold',(12,429):'leopold',(12,454):'leopold',(12,456):'leopold',(12,479):'leopold',(12,481):'leopold',(12,497):'leopold',(12,565):'leopold',(12,461):['leopold','leopold','rudolph-bloom'],(12,491):'bloom-the-dentist',(13,80):'leopold',(13,86):'leopold',(13,91):'leopold',(13,104):'leopold',(13,106):'leopold',(13,114):'leopold',(13,117):'leopold',(13,119):'leopold',(13,124):'leopold',(13,128):'leopold'},None),
  'Mr Bloom':({(4,5):'leopold',(4,7):'leopold',(4,47):'leopold',
               (5,0):'leopold',(5,19):'leopold',(5,22):'leopold',
               (5,25):'leopold',(5,32):'leopold',(5,38):'leopold',
@@ -298,11 +298,11 @@ SPLIT={
               (7,183):'leopold',(7,208):'leopold',(7,212):'leopold',
               (7,216):'leopold',(7,220):'leopold',(7,223):'leopold',
               (7,228):'leopold',(7,487):'leopold',(7,491):'leopold',
-              (7,494):'leopold',(7,498):'leopold',(7,501):'leopold',(8,1):'leopold',(8,33):'leopold',(8,34):'leopold',(8,43):'leopold',(8,46):'leopold',(8,52):'leopold',(8,56):'leopold',(8,63):'leopold',(8,67):'leopold',(8,72):'leopold',(8,75):'leopold',(8,77):'leopold',(8,85):'leopold',(8,90):'leopold',(8,92):'leopold',(8,97):'leopold',(8,100):'leopold',(8,102):'leopold',(8,106):'leopold',(8,109):'leopold',(8,143):'leopold',(8,158):'leopold',(8,190):'leopold',(8,223):'leopold',(8,229):'leopold',(8,243):'leopold',(8,253):'leopold',(8,315):'leopold',(8,322):'leopold',(8,323):'leopold',(8,336):'leopold',(8,338):'leopold',(8,340):'leopold',(8,341):'leopold',(8,342):'leopold',(8,344):'leopold',(8,354):'leopold',(8,366):'leopold',(10,265):'leopold',(10,272):'leopold',(10,284):'leopold',(10,289):'leopold',(11,159):'leopold',(11,439):'leopold',(11,440):'leopold',(11,454):'leopold',(11,469):'leopold',(11,616):'leopold',(12,461):'leopold'},None),
+              (7,494):'leopold',(7,498):'leopold',(7,501):'leopold',(8,1):'leopold',(8,33):'leopold',(8,34):'leopold',(8,43):'leopold',(8,46):'leopold',(8,52):'leopold',(8,56):'leopold',(8,63):'leopold',(8,67):'leopold',(8,72):'leopold',(8,75):'leopold',(8,77):'leopold',(8,85):'leopold',(8,90):'leopold',(8,92):'leopold',(8,97):'leopold',(8,100):'leopold',(8,102):'leopold',(8,106):'leopold',(8,109):'leopold',(8,143):'leopold',(8,158):'leopold',(8,190):'leopold',(8,223):'leopold',(8,229):'leopold',(8,243):'leopold',(8,253):'leopold',(8,315):'leopold',(8,322):'leopold',(8,323):'leopold',(8,336):'leopold',(8,338):'leopold',(8,340):'leopold',(8,341):'leopold',(8,342):'leopold',(8,344):'leopold',(8,354):'leopold',(8,366):'leopold',(10,265):'leopold',(10,272):'leopold',(10,284):'leopold',(10,289):'leopold',(11,159):'leopold',(11,439):'leopold',(11,440):'leopold',(11,454):'leopold',(11,469):'leopold',(11,616):'leopold',(12,461):'leopold',(13,86):'leopold',(13,91):'leopold',(13,104):'leopold',(13,114):'leopold',(13,117):'leopold',(13,119):'leopold',(13,124):'leopold',(13,128):'leopold'},None),
  'Mrs Marion Bloom':({(4,63):'molly',(5,50):'molly',(11,316):'molly'},None),
- 'Mrs Marion':({(4,63):'molly',(4,146):'molly',(11,316):'molly',(11,319):'molly'},None),
+ 'Mrs Marion':({(4,63):'molly',(4,146):'molly',(11,316):'molly',(11,319):'molly',(13,88):'molly'},None),
  'Marion':({(4,63):'molly',(4,94):'molly',(4,146):'molly',(5,50):'molly',
-            (6,305):'molly',(10,161):'marion-woman-in-white',(11,316):'molly',(11,319):'molly',(11,320):'molly',(12,261):'molly',(12,513):'marion-calpensis'},None),
+            (6,305):'molly',(10,161):'marion-woman-in-white',(11,316):'molly',(11,319):'molly',(11,320):'molly',(12,261):'molly',(12,513):'marion-calpensis',(13,88):'molly'},None),
  'Milly Bloom':({(4,86):'milly'},None),
  'Mr and Mrs L\\. M\\. Bloom':({(4,164):'leopold'},None),
  # Poldy is hers for him. Molly is his for her, except where the book uses the
@@ -312,10 +312,10 @@ SPLIT={
  'Molly':({(4,27):'molly',(4,57):'molly',(4,87):'molly',
            (5,81):'molly',(5,95):'molly',(5,99):'molly',(5,102):'molly',
            (6,6):'molly',(6,28):'molly',(6,32):'molly',(6,103):'molly',
-           (6,266):'molly',(6,330):'molly',(6,388):'molly',(8,33):'molly',(8,35):'molly',(8,36):'molly',(8,45):'molly',(8,81):'molly',(8,105):'molly',(8,116):'molly',(8,118):'molly',(8,162):'molly',(8,253):'molly',(8,333):'molly',(8,356):'molly',(11,330):'molly',(11,348):'molly',(11,499):'molly',(11,528):'molly',(11,545):'molly',(11,614):'molly',(11,616):'molly'},None),
+           (6,266):'molly',(6,330):'molly',(6,388):'molly',(8,33):'molly',(8,35):'molly',(8,36):'molly',(8,45):'molly',(8,81):'molly',(8,105):'molly',(8,116):'molly',(8,118):'molly',(8,162):'molly',(8,253):'molly',(8,333):'molly',(8,356):'molly',(11,330):'molly',(11,348):'molly',(11,499):'molly',(11,528):'molly',(11,545):'molly',(11,614):'molly',(11,616):'molly',(13,86):'molly',(13,88):'molly',(13,91):'molly',(13,92):'molly',(13,93):'molly',(13,98):'molly',(13,100):'molly',(13,101):'molly',(13,102):'molly',(13,110):'molly',(13,115):'molly',(13,116):'molly'},None),
  'Milly':({(4,67):'milly',(4,68):'milly',(4,85):'milly',(4,87):'milly',
            (4,135):'milly',(4,136):'milly',(4,146):'milly',
-           (6,32):'milly',(6,56):'milly',(6,204):'milly',(6,376):'milly',(8,36):'milly',(8,37):'milly',(8,42):'milly',(8,46):'milly',(8,211):'milly',(8,255):'milly',(8,349):'milly',(11,458):'milly',(11,534):'milly'},None),
+           (6,32):'milly',(6,56):'milly',(6,204):'milly',(6,376):'milly',(8,36):'milly',(8,37):'milly',(8,42):'milly',(8,46):'milly',(8,211):'milly',(8,255):'milly',(8,349):'milly',(11,458):'milly',(11,534):'milly',(13,86):'milly',(13,93):'milly',(13,115):'milly'},None),
  # 16:19 and 16:23 are Boylan the billsticker, whom nobody in the book connects
  # with this one, and 12:260 is a Mr Boylan in the citizen's deaf-man story.
  'Boylan':({(4,84):'blazes-boylan',(4,95):'blazes-boylan',(4,135):'blazes-boylan',
@@ -325,7 +325,7 @@ SPLIT={
             (5,19):'paddy-dignam',(5,28):'paddy-dignam',(5,34):'paddy-dignam',
             (6,74):'paddy-dignam',(6,197):'paddy-dignam',(6,204):'paddy-dignam',
             (6,271):'paddy-dignam',(6,339):'paddy-dignam',(6,385):'paddy-dignam',
-            (6,388):'paddy-dignam',(7,39):'paddy-dignam',(7,99):'paddy-dignam',(8,56):'paddy-dignam',(8,135):'paddy-dignam',(8,208):'paddy-dignam',(10,0):'paddy-dignam',(10,356):'paddy-dignam',(10,480):'paddy-dignam',(10,487):'paddy-dignam',(10,246):'dignam-son',(10,532):'dignam-son',(10,533):'dignam-son',(10,534):'dignam-son',(10,535):'dignam-son',(10,537):'dignam-son',(10,545):'dignam-son',(10,539):'paddy-dignam',(11,444):'paddy-dignam',(11,462):'paddy-dignam',(11,595):'paddy-dignam',(11,614):'paddy-dignam',(12,96):'paddy-dignam',(12,98):'paddy-dignam',(12,102):'paddy-dignam',(12,107):'paddy-dignam',(12,108):'paddy-dignam',(12,117):'paddy-dignam',(12,127):'paddy-dignam',(12,130):'paddy-dignam',(12,131):'paddy-dignam',(12,134):'paddy-dignam',(12,195):'paddy-dignam',(12,200):'paddy-dignam',(12,201):'paddy-dignam'},None),
+            (6,388):'paddy-dignam',(7,39):'paddy-dignam',(7,99):'paddy-dignam',(8,56):'paddy-dignam',(8,135):'paddy-dignam',(8,208):'paddy-dignam',(10,0):'paddy-dignam',(10,356):'paddy-dignam',(10,480):'paddy-dignam',(10,487):'paddy-dignam',(10,246):'dignam-son',(10,532):'dignam-son',(10,533):'dignam-son',(10,534):'dignam-son',(10,535):'dignam-son',(10,537):'dignam-son',(10,545):'dignam-son',(10,539):'paddy-dignam',(11,444):'paddy-dignam',(11,462):'paddy-dignam',(11,595):'paddy-dignam',(11,614):'paddy-dignam',(12,96):'paddy-dignam',(12,98):'paddy-dignam',(12,102):'paddy-dignam',(12,107):'paddy-dignam',(12,108):'paddy-dignam',(12,117):'paddy-dignam',(12,127):'paddy-dignam',(12,130):'paddy-dignam',(12,131):'paddy-dignam',(12,134):'paddy-dignam',(12,195):'paddy-dignam',(12,200):'paddy-dignam',(12,201):'paddy-dignam',(13,36):'paddy-dignam',(13,91):'paddy-dignam',(13,96):'paddy-dignam',(13,114):'paddy-dignam',(13,116):'paddy-dignam',(13,20):'mrs-dignam',(13,98):'mrs-dignam'},None),
  'Paddy Dignam':({(6,197):'paddy-dignam',(6,204):'paddy-dignam',(5,28):'paddy-dignam',(5,34):'paddy-dignam',(11,595):'paddy-dignam',(12,96):'paddy-dignam',(12,102):'paddy-dignam',(12,131):'paddy-dignam',(12,134):'paddy-dignam'},None),
  # 6:103 is Molly's namesake Tweedy, crown solicitor for Waterford; from episode
  # 16 on, Madam Marion Tweedy is Molly herself.
@@ -338,7 +338,7 @@ SPLIT={
  # 18:5 is Williams and Woods, the jam makers.
  'Woods':({(4,40):'woods'},None),
  # 8:85, 13:98 and 15:203 are Mrs Beaufoy, who is Mrs Purefoy under a slip.
- 'Beaufoy':({(4,162):'philip-beaufoy',(4,163):'philip-beaufoy',(8,85):'mina-purefoy',(8,87):'philip-beaufoy'},None),
+ 'Beaufoy':({(4,162):'philip-beaufoy',(4,163):'philip-beaufoy',(8,85):'mina-purefoy',(8,87):'philip-beaufoy',(13,98):'mina-purefoy'},None),
  'Philip Beaufoy':({(4,162):'philip-beaufoy',(8,87):'philip-beaufoy'},None),
  # Two occurrences in the paragraph, and the first is the title of the book.
  'Ruby':({(4,117):[None,'ruby']},None),
@@ -372,7 +372,7 @@ SPLIT={
  # Leopold is Bloom at 5:67 and the queen's son at 5:121, twelve lines after
  # Bloom notices that the duke of Albany had his own name.
  'Leopold':({(5,67):'leopold',(5,121):'duke-of-albany',
-             (6,56):'leopold',(6,171):'leopold',(6,354):'leopold',(8,255):'archduke-leopold',(11,334):'leopold',(11,378):'leopold',(11,382):'leopold',(11,434):'leopold',(11,617):'leopold',(12,261):'leopold',(12,513):'saint-leopold'},None),
+             (6,56):'leopold',(6,171):'leopold',(6,354):'leopold',(8,255):'archduke-leopold',(11,334):'leopold',(11,378):'leopold',(11,382):'leopold',(11,434):'leopold',(11,617):'leopold',(12,261):'leopold',(12,513):'saint-leopold',(13,80):'leopold',(13,106):'leopold'},None),
  # Henry is Bloom's pen name here; John Henry Menton, Henry Campbell and Henry
  # Blackwood Price are three other men.
  # 6:75 is the mourning-card verse -- dear Henry fled to his home up above --
@@ -393,7 +393,7 @@ SPLIT={
  'Denis Carey':({(5,100):'carey'},None),
  # Peter is the apostle only at 5:107; at 5:95 and 5:100 he is Peter Claver and
  # Peter Carey, both of whom have their own span.
- 'Peter':({(5,107):'saint-peter',(6,264):'saint-peter',(6,333):'saint-peter'},None),
+ 'Peter':({(5,107):'saint-peter',(6,264):'saint-peter',(6,333):'saint-peter',(13,60):'leopold'},None),
  'Paul':({(5,107):'saint-paul'},None),
  # 1:318 is Michael's host, the embattled angels of the church, in an episode
  # that had already been signed off without him.
@@ -404,12 +404,12 @@ SPLIT={
  # 12:513 and 15:78 are the patriarch; this is the blind father of the play.
  'Abraham':({(5,65):'leah-abraham'},None),
  # The modern edition spells her Mary, which is also the gospel sister at 5:87.
- '(?:Mairy|Mary)':({(5,84):'mairy',(11,465):'mairy'},None),
+ '(?:Mairy|Mary)':({(5,84):'mairy',(11,465):'mairy',(13,0):'blessed-virgin',(13,35):'blessed-virgin',(13,41):'blessed-virgin',(13,71):'blessed-virgin',(13,86):['mairy','martha-and-mary']},None),
  'Martha':({(5,78):'martha-clifford',(5,80):'martha-clifford',
             (5,87):'martha-and-mary',
             (6,330):'martha-clifford',(6,386):'martha-clifford',
-            (7,24):'martha-and-mary',(11,25):'martha-opera',(11,159):'martha-clifford',(11,413):['martha-opera','martha-clifford'],(11,420):'martha-opera',(11,424):'martha-opera',(11,457):'martha-opera',(11,472):'martha-clifford',(12,513):'martha-and-mary'},None),
- 'Mary':({(5,87):'martha-and-mary',(7,24):'martha-and-mary',(8,128):'mary-slavey',(8,130):'mary-slavey',(9,271):'mary-arden',(10,45):'mary-rochfort'},None),
+            (7,24):'martha-and-mary',(11,25):'martha-opera',(11,159):'martha-clifford',(11,413):['martha-opera','martha-clifford'],(11,420):'martha-opera',(11,424):'martha-opera',(11,457):'martha-opera',(11,472):'martha-clifford',(12,513):'martha-and-mary',(13,116):'martha-clifford',(13,86):'martha-and-mary'},None),
+ 'Mary':({(5,87):'martha-and-mary',(7,24):'martha-and-mary',(8,128):'mary-slavey',(8,130):'mary-slavey',(9,271):'mary-arden',(10,45):'mary-rochfort',(13,0):'blessed-virgin',(13,35):'blessed-virgin',(13,41):'blessed-virgin',(13,71):'blessed-virgin'},None),
  # 11:516 is the Iveagh home, a hostel named after him.
  'Iveagh':({(5,91):'lord-iveagh'},None),
  # --- episode 7. The newspaper office: Stephen and Bloom in the same room for
@@ -450,7 +450,7 @@ SPLIT={
             (7,500):'myles-crawford',(7,506):'myles-crawford',
             (7,508):'myles-crawford',(7,511):'myles-crawford',
             (7,517):'myles-crawford',(7,525):'myles-crawford',
-            (7,538):'myles-crawford',(12,314):'myles-crawford',(12,463):'crofton',(12,521):'crofton'},None),
+            (7,538):'myles-crawford',(12,314):'myles-crawford',(12,463):'crofton',(12,521):'crofton',(13,116):'myles-crawford'},None),
  'Ned':({(7,105):'ned-lambert',(7,109):'ned-lambert',(7,111):'ned-lambert',
        (7,114):'ned-lambert',(7,119):'ned-lambert',(7,120):'ned-lambert',
        (7,128):'ned-lambert',(7,148):'ned-lambert',(7,150):'ned-lambert',
@@ -544,7 +544,7 @@ SPLIT={
  'John Henry':({(6,257):'john-henry-menton',(10,358):'john-henry-menton',(10,437):'john-henry-menton',(10,542):'john-henry-menton',(12,76):'john-henry-menton'},None),
  'Corny':({(6,34):'corny-kelleher',(6,190):'corny-kelleher',(12,277):'corny-kelleher',(12,299):'corny-kelleher',(12,327):'corny-kelleher'},None),
  # 6:24 names Richie first and then the firm: Goulding, Collis and Ward.
- 'Goulding':({(6,24):['richie-goulding',None],(8,110):'richie-goulding',(11,228):'richie-goulding',(11,236):'richie-goulding',(11,258):'richie-goulding',(11,334):'richie-goulding',(11,335):'richie-goulding',(11,352):'richie-goulding',(11,372):'richie-goulding',(11,383):'richie-goulding',(11,434):'richie-goulding',(11,439):'richie-goulding',(11,440):'richie-goulding',(11,443):'richie-goulding',(11,455):'richie-goulding',(11,521):'richie-goulding',(11,537):'richie-goulding',(11,578):'richie-goulding',(11,611):'richie-goulding'},None),
+ 'Goulding':({(6,24):['richie-goulding',None],(8,110):'richie-goulding',(11,228):'richie-goulding',(11,236):'richie-goulding',(11,258):'richie-goulding',(11,334):'richie-goulding',(11,335):'richie-goulding',(11,352):'richie-goulding',(11,372):'richie-goulding',(11,383):'richie-goulding',(11,434):'richie-goulding',(11,439):'richie-goulding',(11,440):'richie-goulding',(11,443):'richie-goulding',(11,455):'richie-goulding',(11,521):'richie-goulding',(11,537):'richie-goulding',(11,578):'richie-goulding',(11,611):'richie-goulding',(13,88):'richie-goulding'},None),
  # Reuben J Dodd, and Mr Dedalus calling him Barabbas.
  'Reuben':({(6,108):'reuben-j',(6,118):'reuben-j',(6,129):'reuben-j',
             (6,133):'reuben-j',(8,364):'reuben-j',(10,412):'reuben-j',(10,542):'reuben-j',(11,587):'reuben-j',(12,307):'reuben-j'},None),
@@ -571,7 +571,7 @@ SPLIT={
  # The italic setting of "That's not Mulcahy" hides 6:325 from the alias.
  'Mulcahy':({(6,325):'terence-mulcahy'},None),
  'C(?:\u00e6|ae)sar':({(6,337):'julius-caesar',(9,147):'julius-caesar'},None),
- 'Charley':({(6,355):'mccoy',(6,356):'mccoy'},None),
+ 'Charley':({(6,355):'mccoy',(6,356):'mccoy',(13,36):'charley-macdowell'},None),
  # 5:148 is the man of the song; four other M'Carthys are four other men.
  'M[’\']Carthy':({(5,148):'mccarthy-of-the-song'},None),
 
@@ -587,7 +587,7 @@ SPLIT={
             # 6:25 is 'the help of God and His blessed mother'.
             (6,25):'blessed-virgin',
             # 7:294 is Mulligan's jibe again: whose mother is beastly dead.
-            (7,294):'may-dedalus',(8,9):'may-dedalus',(9,69):'ann-hathaway',(9,318):'mary-arden',(9,333):'mary-arden',(10,318):'may-dedalus',(12,133):'mrs-mooney',(12,205):'mrs-mooney'},None),
+            (7,294):'may-dedalus',(8,9):'may-dedalus',(9,69):'ann-hathaway',(9,318):'mary-arden',(9,333):'mary-arden',(10,318):'may-dedalus',(12,133):'mrs-mooney',(12,205):'mrs-mooney',(13,36):'gerty-mother',(13,37):'gerty-mother'},None),
  # ---- episode 8. Every name below was listed across all 18 episodes before
  # being keyed; the comment says what the other occurrences are.
  # The prophet on Dowie's handbill, and again on the ball of paper thrown to
@@ -606,7 +606,7 @@ SPLIT={
  'Ham':({(8,208):'ham'},None),
  # The goddesses in the round hall. Venus is a statue, a planet and half a
  # dozen epithets elsewhere in the book; Juno is Juno's eyes in episode 9.
- 'Venus':({(8,260):'venus',(9,254):'venus',(9,313):'venus',(9,333):'venus'},None),
+ 'Venus':({(8,260):'venus',(9,254):'venus',(9,313):'venus',(9,333):'venus',(13,93):'venus',(13,107):'venus'},None),
  'Juno':({(8,260):'juno',(9,262):'juno'},None),
  # The archduke Otto of the Habsburg story. 17:108 is Thomas Otto, harlequin.
  'Otto':({(8,255):'archduke-otto'},None),
@@ -642,16 +642,16 @@ SPLIT={
  # "O'Flynn", so the name can never be aliased: 8:198, 12:513 and 15:1340 are
  # Father O'Flynn, and 13:88 and 12:349 are outside the read episodes.
  'Flynn':({(8,205):'nosey-flynn',(8,241):'nosey-flynn',
-           (8,260):'nosey-flynn',(8,323):'nosey-flynn',(12,349):'nosey-flynn'},None),
+           (8,260):'nosey-flynn',(8,323):'nosey-flynn',(12,349):'nosey-flynn',(13,88):'nosey-flynn'},None),
  'Father O[’\']Flynn':({(8,198):'father-oflynn',(12,513):'father-oflynn'},None),
  'Jack Power':({(8,122):'jack-power',(10,329):'jack-power',(12,463):'jack-power',(12,491):'jack-power',(12,501):'jack-power',(12,533):'jack-power',(12,541):'jack-power'},None),
  # Denis Breen by his first name, in his wife's mouth.
- 'Denis':({(8,103):'denis-breen',(12,513):'saint-denis'},None),
+ 'Denis':({(8,103):'denis-breen',(12,513):'saint-denis',(13,46):'saint-denis'},None),
  # Theodore Purefoy, named only by his first name and his cousin in the castle.
  'Theodore':({(8,113):'theodore-purefoy'},None),
  'Blazes Boylan':({(8,228):'blazes-boylan',(10,117):'blazes-boylan',(10,120):'blazes-boylan',(10,122):'blazes-boylan',(10,128):'blazes-boylan',(10,131):'blazes-boylan',(10,134):'blazes-boylan',(10,137):'blazes-boylan',(10,142):'blazes-boylan',(10,468):'blazes-boylan',(10,542):'blazes-boylan',(10,543):'blazes-boylan',(11,226):'blazes-boylan',(11,230):'blazes-boylan',(11,241):'blazes-boylan',(11,254):'blazes-boylan',(11,256):'blazes-boylan',(11,263):'blazes-boylan',(11,284):'blazes-boylan',(11,336):'blazes-boylan',(11,432):'blazes-boylan'},None),
  'Blazes':({(8,238):'blazes-boylan',(11,226):'blazes-boylan',(11,230):'blazes-boylan',(11,241):'blazes-boylan',(11,245):'blazes-boylan',(11,254):'blazes-boylan',(11,256):'blazes-boylan',(11,263):'blazes-boylan',(11,284):'blazes-boylan',(11,317):'blazes-boylan',(11,336):'blazes-boylan',(11,432):'blazes-boylan',(12,245):'blazes-boylan',(12,248):'blazes-boylan',(12,260):'blazes-boylan'},None),
- 'Richie Goulding':({(8,110):'richie-goulding',(10,211):'richie-goulding',(10,542):'richie-goulding',(11,228):'richie-goulding',(11,334):'richie-goulding',(11,383):'richie-goulding',(11,434):'richie-goulding',(11,440):'richie-goulding',(11,521):'richie-goulding',(11,537):'richie-goulding'},None),
+ 'Richie Goulding':({(8,110):'richie-goulding',(10,211):'richie-goulding',(10,542):'richie-goulding',(11,228):'richie-goulding',(11,334):'richie-goulding',(11,383):'richie-goulding',(11,434):'richie-goulding',(11,440):'richie-goulding',(11,521):'richie-goulding',(11,537):'richie-goulding',(13,88):'richie-goulding'},None),
  # ---- episode 9. The library argument, where a first name is almost never a
  # first name. Every table was listed across all 18 episodes before being keyed.
  # The bare surname Best is the adjective everywhere else in the book, so only
@@ -823,7 +823,7 @@ SPLIT={
  'Si Dedalus':({(11,397):'simon-dedalus',(11,440):'simon-dedalus',(11,619):'simon-dedalus'},None),
  # 4:0 and 11:617 are Mr Leopold Bloom and carry the longer key; 13, 15 and 17
  # are unread.
- 'Leopold Bloom':({(11,378):'leopold',(11,434):'leopold'},None),
+ 'Leopold Bloom':({(11,378):'leopold',(11,434):'leopold',(13,80):'leopold',(13,106):'leopold'},None),
  # --- episode 12
  # Old Troy of the D. M. P. at the corner of Arbour hill. The name is the city
  # of Troy at 2:174, 7:459 and 9:256, troy measure at 6:296, "solemn as Troy"
@@ -831,14 +831,14 @@ SPLIT={
  'Troy':({(12,0):'old-troy',(12,3):'old-troy',(12,5):'old-troy'},None),
  # The citizen's dog. 13:24 and 15:206 are the same animal, but 15:1326 is the
  # tune the massed bands blare, so the name is keyed rather than aliased.
- 'Garry(?:owen)?':({(12,27):'garryowen',(12,47):'garryowen',(12,136):'garryowen',(12,185):'garryowen',(12,187):'garryowen',(12,563):'garryowen'},None),
+ 'Garry(?:owen)?':({(12,27):'garryowen',(12,47):'garryowen',(12,136):'garryowen',(12,185):'garryowen',(12,187):'garryowen',(12,563):'garryowen',(13,24):'garryowen'},None),
  # Terry the barman. 6:323 is Terence Mulcahy on the headstone.
  'Ter(?:ry|ence)':({(12,46):'terry-oryan',(12,79):'terry-oryan',(12,82):'terry-oryan',(12,83):'terry-oryan',(12,84):'terry-oryan',(12,131):'terry-oryan',(12,138):'terry-oryan',(12,154):'terry-oryan',(12,171):'terry-oryan',(12,189):'terry-oryan',(12,194):'terry-oryan',(12,325):'terry-oryan',(12,327):'terry-oryan',(12,367):'terry-oryan',(12,368):'terry-oryan',(12,459):'terry-oryan',(12,508):'terry-oryan'},None),
  # The publican, cursed by name in the dog's verse. Everywhere else in the book
  # -- 11:476, 13:116, 16:251, 16:278 -- Barney Kiernan's is the premises.
  'Barney Kiernan':({(12,188):'barney-kiernan'},None),
  # Whose dog it is. 13:20 is the Giltrap family, 13:24 and 13:37 grandpapa.
- 'Giltrap':({(12,191):'giltrap'},None),
+ 'Giltrap':({(12,191):'giltrap',(13,24):'giltrap',(13,37):'giltrap'},None),
  # 17:119 is Mrs Riordan, called Dante; 16:176 is the poet again.
  'Dante':({(12,50):'dante-alighieri'},None),
  # 3:44 is the bar MacMahon in Paris.
@@ -867,6 +867,26 @@ SPLIT={
  # Circe makes a Lipoti Virag of its own, so the name is keyed here.
  'Virag':({(12,492):'rudolph-bloom',(12,505):'rudolph-bloom',(12,551):'rudolph-bloom'},None),
  'the [Cc]itizen':({(12,17):'citizen',(12,21):'citizen',(12,27):'citizen',(12,37):'citizen',(12,57):'citizen',(12,73):'citizen',(12,86):'citizen',(12,118):'citizen',(12,137):'citizen',(12,151):'citizen',(12,169):'citizen',(12,172):'citizen',(12,173):'citizen',(12,176):'citizen',(12,180):'citizen',(12,182):'citizen',(12,216):'citizen',(12,217):'citizen',(12,235):'citizen',(12,249):'citizen',(12,267):'citizen',(12,287):'citizen',(12,289):'citizen',(12,291):'citizen',(12,313):'citizen',(12,317):'citizen',(12,321):'citizen',(12,323):'citizen',(12,324):'citizen',(12,331):'citizen',(12,333):'citizen',(12,335):'citizen',(12,337):'citizen',(12,354):'citizen',(12,356):'citizen',(12,358):'citizen',(12,361):'citizen',(12,363):'citizen',(12,371):'citizen',(12,373):'citizen',(12,377):'citizen',(12,379):'citizen',(12,383):'citizen',(12,387):'citizen',(12,392):'citizen',(12,412):'citizen',(12,423):'citizen',(12,431):'citizen',(12,433):'citizen',(12,437):'citizen',(12,441):'citizen',(12,446):'citizen',(12,448):'citizen',(12,450):'citizen',(12,455):'citizen',(12,481):'citizen',(12,493):'citizen',(12,499):'citizen',(12,502):'citizen',(12,505):'citizen',(12,509):'citizen',(12,511):'citizen',(12,527):'citizen',(12,530):'citizen',(12,536):'citizen',(12,541):'citizen',(12,546):'citizen',(12,548):'citizen',(12,560):'citizen'},None),
+ # --- episode 13
+ # Mat Dillon's bevy of daughters at the charades in Luke Doyle's house.
+ 'Tiny':({(13,110):'tiny-dillon'},None),
+ 'Atty':({(13,110):'atty-dillon'},None),
+ 'Floey':({(13,110):'floey-dillon'},None),
+ 'Maimy':({(13,110):'maimy-dillon'},None),
+ 'Louy':({(13,110):'louy-dillon'},None),
+ 'Hetty':({(13,110):'hetty-dillon'},None),
+ # The charade syllables at 13:110 and the one that comes back in the half sleep.
+ 'Rip':({(13,110):'rip-van-winkle'},None),
+ 'Winkle':({(13,110):'rip-van-winkle',(13,127):'rip-van-winkle'},None),
+ # 8:174 is another Reggy entirely: Kiss me, Reggy!
+ 'Reggy':({(13,23):'reggy-wylie',(13,66):'reggy-wylie',(13,71):'reggy-wylie'},None),
+ # Bare Tommy is Tommy Moore at 8:121 and 12:172, Tom Rochford at 10:221 and
+ # Tommy Tittlemouse at 15:554.
+ 'Tommy':({(13,5):'tommy-caffrey',(13,6):'tommy-caffrey',(13,7):'tommy-caffrey',(13,8):'tommy-caffrey',(13,13):'tommy-caffrey',(13,15):'tommy-caffrey',(13,16):'tommy-caffrey',(13,17):'tommy-caffrey',(13,25):'tommy-caffrey',(13,26):'tommy-caffrey',(13,27):'tommy-caffrey',(13,38):'tommy-caffrey',(13,52):'tommy-caffrey',(13,74):'tommy-caffrey',(13,76):'tommy-caffrey',(13,84):'tommy-caffrey',(13,94):'tommy-caffrey'},None),
+ # Bare Jacky is Jacky Tar at 12:380.
+ 'Jacky':({(13,6):'jacky-caffrey',(13,7):'jacky-caffrey',(13,8):'jacky-caffrey',(13,9):'jacky-caffrey',(13,25):'jacky-caffrey',(13,38):'jacky-caffrey',(13,51):'jacky-caffrey',(13,52):'jacky-caffrey',(13,72):'jacky-caffrey',(13,76):'jacky-caffrey',(13,79):'jacky-caffrey',(13,84):'jacky-caffrey',(13,94):'jacky-caffrey'},None),
+ # The modern edition of episode 13 misprints four names by turning O into Oh.
+ 'Oh[’\']Hanlon':({(13,130):'canon-ohanlon'},None),
 }
 
 # Figures the text names only by a description. (episode, paragraph) -> [(pattern, id)]
@@ -1302,6 +1322,14 @@ PHRASE={
  (12,434):[(r'officer Taylor','officer-taylor'),(r'Alice, the elephant','alice-elephant'),(r'Constable 14A','constable-14a')],
  (12,513):[(r'the daughters of Clara','saint-clara'),(r'the sons of Dominic','saint-dominic'),(r'the sons of Vincent','saint-vincent-founder'),(r'Ignatius his children','saint-ignatius'),(r'of Viterbo','rose-of-viterbo'),(r'S\. Alfred','saint-alfred'),(r'S\. Cornelius','saint-cornelius'),(r'S\. Bernard','saint-bernard'),(r'S\. Terence','saint-terence'),(r'S\. Edward','saint-edward'),(r'S\. Kevin','saint-kevin'),(r'S\. Barbara','saint-barbara')],
  (12,551):[(r'Jacob _agus_ Jacob','jacob-agus-jacob')],
+ # --- episode 13
+ (13,36):[(r'[Hh]er mother','gerty-mother'),(r'Poor father','gerty-father')],
+ (13,103):[(r'long John','long-john-fanning')],
+ (13,37):[(r'her mother','gerty-mother')],
+ (13,78):[(r'the gentleman lodger','congested-districts-lodger')],
+ (13,98):[(r'young doctor Oh?[’\']Hare','doctor-ohare')],
+ (13,111):[(r'(?<=Gabriel Conroy’s )brother','father-conroy')],
+ (13,116):[(r'Poor man Oh?[’\']Connor','mr-oconnor')],
 }
 
 # (matched text, episode, paragraph) -> the alias hit is dropped there

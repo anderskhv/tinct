@@ -6,7 +6,7 @@ it resolves some of Joyce's run-together words and normalises punctuation, but
 it does not rewrite the prose and it does not modernise the names. Where the two
 differ on a name the difference is recorded on the card.
 
-Episodes 1 to 12 are authored. The rest are not.
+Episodes 1 to 13 are authored. The rest are not.
 
 Scope: named persons — the Dublin cast, the figures they remember, and the
 writers, saints, heresiarchs and stage characters they quote. Peoples, places,
@@ -359,7 +359,7 @@ for row in [
 # --- the funeral party at Glasnevin
 ('john-henry-menton','John Henry Menton','Solicitor, commissioner for oaths and affidavits, in whose office Dignam used to be. He danced with Molly at Mat Dillon’s seventeen golden years ago and has disliked Bloom ever since an evening at bowls, and asks Ned Lambert in God’s name what she married a coon like that for. Bloom points out the dinge in his hat and gets a short thank you.','John Henry Menton','major'),
 ('mat-dillon','Mat Dillon','Jolly Mat of Roundtown, in whose house Molly and Menton danced: convivial evenings, cold fowl, cigars, the Tantalus glasses. Heart of gold really.','Mat Dillon'),
-('floey-dillon','Floey Dillon','Linked with Molly under the lilactree, laughing, on the same evening.','Floey Dillon'),
+('floey-dillon','Floey Dillon','Linked with Molly under the lilactree, laughing, on the same evening. One of Mat Dillon’s bevy of daughters — Tiny, Atty, Floey, Maimy, Louy, Hetty — at the charades in Luke Doyle’s house in Dolphin’s barn, the year before Bloom and Molly.','Floey Dillon'),
 ('wisdom-hely','Wisdom Hely','The stationer Bloom travelled for, in blottingpaper.','Wisdom Hely'),
 ('dick-tivy','Dick Tivy','The solid man of Cork, with whom Ned Lambert stopped for the races, and who has nothing between himself and heaven — which is Ned Lambert’s way of saying he is bald.','Dick Tivy'),
 ('dignam-son','The boy with the wreath','Paddy Dignam’s eldest, in a brandnew collar, sleekcombed, who carries one of the two wreaths, is beckoned to kneel by Corny Kelleher, and stands at the gravehead holding it with both hands. Martin Cunningham is trying to get him into Artane. He has episode 10 to himself, carrying home a pound and a half of porksteaks.','',),
@@ -892,7 +892,7 @@ for row in [
 ('miss-kennedy','Mina Kennedy','Gold: the barmaid of the Ormond, of 4 Lismore terrace, Drumcondra, whose head appears with Miss Douce’s above the crossblind at the start of the viceregal cavalcade in episode 10 and watches and admires it at the end. In episode 11 she reads on behind the bar through Lenehan’s fable of the fox and the stork, plugs both ears with her little fingers rather than hear about the old fogey in Boyd’s, and serves the two gentlemen with tankards. Sadly, gold no more, she twines a loose hair behind an ear. Episode 11 gives her the first name Mina.','Miss Kennedy|Mina Kennedy'),
 ('miss-douce','Lydia Douce','Bronze, beside her at the crossblind in episode 10, and the centre of episode 11: back from her holidays at Rostrevor sunburnt and lying out on the strand all day, with a rose on her breast and a shell from the seaside on the counter. She holds the seahorn to George Lidwell’s ear, and at Lenehan’s coaxing snaps her nipped garter smackwarm against her thigh — Sonnez la cloche — for Blazes Boylan, who drinks his sloegin and goes anyway. Episode 11 gives her the first name Lydia.','Miss Douce|Douce|Lydia|Lydia Douce'),
 ('gerty-macdowell','Gerty MacDowell','Carrying the Catesby’s cork lino letters for her father who was laid up, who knew by the style it was the lord and lady lieutenant but could not see what Her Excellency had on, because the tram and Spring’s big yellow furniture van stopped in front of her.','Gerty MacDowell'),
-('gerty-father','Her father','Who was laid up, and for whom she is carrying the letters.','',),
+('gerty-father','Her father','Who was laid up, and for whom she is carrying the Catesby’s cork lino letters in episode 10. Episode 13 says what is wrong with the house: the demon drink, a carbuncly nose with pimples on it, deeds of violence in the home circle, and a hand lifted to a woman. With all his faults Gerty loves him still when he sings _Tell me, Mary, how to woo thee_ or _My love and cottage near Rochelle_, and he could not even go to Dignam’s funeral on account of the gout.','',),
 ('me-solomons','Mr M. E. Solomons','In the window of the Austro-Hungarian viceconsulate, at whose head Farrell stares through a fierce eyeglass across the carriages.','M. E. Solomons|M.E. Solomons'),
 ('king-billy','King Billy','Whose horse’s foreleg paws the air over the spot where Mrs Breen plucks her hastening husband back from under the hoofs of the outriders.','King Billy'),
 ('wolfe-tone','Wolfe Tone','Whose statue was not on the slab the five sandwichmen eel themselves around between Monypeny’s corner and it.','Wolfe Tone'),
@@ -1229,7 +1229,7 @@ for row in [
 ('saint-denis','S. Denis','Who carried his own head to Montmartre.','',),
 ('saint-cornelius','S. Cornelius','Twentyfirst.','',),
 ('saint-leopold','S. Leopold','Twentysecond, and Bloom’s own name among the saints.','',),
-('saint-bernard','S. Bernard','Twentythird.','',),
+('saint-bernard','S. Bernard','Of Clairvaux, who walks the procession of saints in episode 12 between S. Leopold and S. Terence, and whose famous prayer of Mary is what the reverend John Hughes preaches on at Sandymount in episode 13: that it was not recorded in any age that those who implored her powerful protection were ever abandoned by her.','',),
 ('saint-terence','S. Terence','Twentyfourth.','',),
 ('saint-edward','S. Edward','Twentyfifth.','',),
 ('owen-caniculus','S. Owen Caniculus','Owen the little dog: the citizen’s Garryowen canonised, or Owen Garry as the newspaper has him.','Owen Caniculus'),
@@ -1306,12 +1306,74 @@ for row in [
 ('bloom-the-dentist','Bloom the dentist','The other Bloom of Dublin, whose dental windows Father Conmee’s eye passes in episode 10 and whom Jack Power takes for a cousin of Leopold’s in episode 12. Not at all, says Martin Cunningham. Only namesakes.','',),
 ]:add(*row)
 
+# ========================= EPISODE 13 — Nausicaa
+for row in [
+# --- the three girl friends and the children on the strand
+('cissy-caffrey','Cissy Caffrey','The eldest of the Caffreys and the loudest of the three girl friends on Sandymount strand: a truerhearted lass never drew the breath of life, with a laugh in her gipsylike eyes and a frolicsome word on her cherryripe lips. She minds the twins and baby Boardman, runs down the slope after the ball with long gandery strides, and goes over to ask the gentleman on the rocks the time — my uncle Peter over there, she calls him — and comes back with her tongue out.','Cissy Caffrey|Cissy|Ciss|Cissycums','major'),
+('edy-boardman','Edy Boardman','Squinty Edy, shortsighted and with her specs like an old maid, who rocks the baby in the pushcar, asks Gerty a penny for her thoughts, and asks her whether she is heartbroken about her best boy throwing her over. An irritable little gnat, Gerty thinks, poking her nose into what is no concern of hers.','Edy Boardman|Edy','major'),
+('tommy-caffrey','Tommy Caffrey','One of the twins, scarce four years old, in a sailor suit with H. M. S. Belleisle on the cap: headstrong, sanded and tearful when Jacky knocks him into his own castle, and a man already since he was out of pinnies.','Tommy Caffrey|Master Tommy'),
+('jacky-caffrey','Jacky Caffrey','The other twin, selfwilled and as bold as brass, who builds the castle, fells his brother for wanting a frontdoor in it like the Martello tower, and kicks the ball down towards the seaweedy rocks where the gentleman in black is sitting.','Jacky Caffrey|Master Jacky'),
+('baby-boardman','Baby Boardman','Eleven months and nine days old, a perfect little dote in his new fancy bib, who says a jink a jink a jawbo when Cissy asks him for big, big, and ruins the bib before they go home. Master Boardman junior, for whom the sandman is on his way.','baby Boardman|Master Boardman junior'),
+('bertha-supple','Bertha Supple','Gerty’s friend, who told Edy Boardman the deliberate lie about the kid gloves in bed and the milk footbath when she was at daggers drawn with her, gave Gerty the confession album with the coralpink cover, and told her in dead secret about the gentleman lodger out of the Congested Districts Board.','Bertha Supple'),
+('winny-rippingham','Winny Rippingham','Gerty’s friend, so stagestruck about actors’ photographs that she wanted the two of them always to dress the same on account of a play.','Winny Rippingham'),
+('congested-districts-lodger','The gentleman lodger','Staying with the Supples out of the Congested Districts Board, who had pictures cut out of papers of skirtdancers and highkickers and used to do something not very nice in the bed — the thing Bertha Supple made Gerty swear never to tell.','',),
+# --- the Wylies
+('reggy-wylie','Reggy Wylie','The boy with the bicycle off the London bridge road who used to ride up and down in front of Gerty’s window and turn his freewheel at the lamp: still in short trousers at the party in Stoer’s when he stole an arm round her waist and snatched a half kiss that landed on the end of her nose. His father keeps him in in the evenings now studying for the intermediate, and Gerty can throw her cap at who she likes because it is leap year.','Reggy Wylie'),
+('we-wylie','W. E. Wylie','His elder brother, who is racing in the bicycle races in Trinity college university and is to be a doctor — the one whose wife Gerty would have been plain Mrs Wylie, where she would be Mrs Reggy Wylie T. C. D.','W. E. Wylie'),
+# --- the MacDowell household
+('gerty-mother','Gerty’s mother','Whose raging splitting headaches Gerty rubs the menthol cone on, whose taking pinches of snuff is the one thing they ever had words about, and whose birthday it was the night Mr Dignam came and they were to have had a group taken.','',),
+('charley-macdowell','Charley','Gerty’s brother, home on his holidays that night.','',),
+('freddy-dignam','Freddy Dignam','One of the Dignams at the same party, with Patsy and Mr Dignam and Mrs.','Freddy Dignam'),
+('mr-tunney','Mr Tunney','The grocer, whose christmas almanac Gerty tacks up every fortnight with the chlorate of lime: the picture of halcyon days, a young gentleman in a threecornered hat offering flowers to his ladylove through a lattice window.','Mr Tunney'),
+# --- the women's pages and the shopwindows Gerty lives by
+('madame-vera-verity','Madame Vera Verity','Directress of the Woman Beautiful page of the Princess Novelette, who first advised Gerty to try eyebrowleine and gave her that haunting expression so becoming in leaders of fashion.','Madame Vera Verity|Vera Verity'),
+('widow-welch','The Widow Welch','Whose female pills did Gerty much less good than the iron jelloids.','Widow Welch'),
+('flora-macflimsy','Flora MacFlimsy','The spoilt beauty of the American satire, and the sort Cissy Caffrey is emphatically not.','Flora MacFlimsy'),
+('martin-harvey','Martin Harvey','The matinee idol whose photo Gerty has, and whose image the gentleman on the rocks is — only for the moustache, which she prefers.','Martin Harvey'),
+('louis-j-walsh','Louis J Walsh','Of Magherafelt, who wrote _Art thou real, my ideal?_ — the poem Gerty found round the potherbs and copied out of the newspaper.','Louis J Walsh'),
+# --- the church at Sandymount
+('canon-ohanlon','Canon O’Hanlon','Who conducts the benediction in the church beside the waves: puts in the incense, censes the Blessed Sacrament, reads _Panem de coelo praestitisti eis_ off the card, and locks the tabernacle door at the end. Afterwards he takes tea and fried mutton chops with catsup in the priest’s house while the canarybird clock cuckoos. The modern edition misprints his name as Canon Oh’Hanlon at 13:130 and gets it right everywhere else.','Canon O’Hanlon|O’Hanlon|Oh’Hanlon'),
+('john-hughes','The reverend John Hughes S. J.','The missioner conducting the men’s temperance retreat — rosary, sermon and benediction — whose sermon tells them what the great saint Bernard said of the Virgin’s intercessory power.','John Hughes|Father Hughes'),
+('archangel-gabriel','The archangel Gabriel','To whom Our Blessed Lady said be it done unto me according to Thy Word, in what Father Conroy told Gerty in confession.','archangel Gabriel'),
+# --- the people in Bloom's head on the strand
+('doctor-fell','Doctor Fell','Of the rhyme — I do not love thee, Doctor Fell, the reason why I cannot tell — which is Gerty’s case against her father’s face.','Doctor Fell'),
+('nurse-callan','Nurse Callan','Of the lying-in hospital in Holles street, who used to look over some nights when Molly was in the Coffee Palace, and whom Bloom wonders is there still.','nurse Callan'),
+('doctor-ohare','Doctor O’Hare','The young doctor at the hospital whose coat Bloom noticed nurse Callan brushing. The modern edition misprints him as doctor Oh’Hare.','',),
+('mrs-duggan','Mrs Duggan','Who told Bloom in the City Arms about the husband rolling in drunk with the stink of the pub off him like a polecat, and asking in the morning was I drunk last night.','Mrs Duggan'),
+('mrs-clinch','Mrs Clinch','Whom Bloom nearly spoke to in the dark of the Appian way, thinking she was somebody else.','Mrs Clinch'),
+('wilkins','Wilkins','Who drew a picture of Venus in the high school with all his belongings on show, and whose wife Bloom thinks has her work cut out for her.','Wilkins'),
+('mrs-bracegirdle','Mrs Bracegirdle','One of the actresses whose _amours_ come to Bloom with Nell Gwynn and Maud Branscombe when he thinks what it is that makes the stage setting.','Mrs Bracegirdle|bracegirdle'),
+('maud-branscombe','Maud Branscombe','The third of them.','Maud Branscombe'),
+('jemina-brown','Jemina Brown','Of the rhyme the place puts into Bloom’s head — her maiden name was Jemina Brown and she lived with her mother in Irishtown.','Jemina Brown'),
+('grace-darling','Grace Darling','Who rowed out to the wreck from the Longstone light, and who comes into Bloom’s head with the lighthouses and the wreckers, and again in his half sleep.','Grace Darling|Grace darling'),
+('mother-shipton','Mother Shipton','Whose prophecy about ships around they fly in the twinkling Bloom half remembers with the signs of rain.','Mother Shipton'),
+('archimedes','Archimedes','Whose burning glass Bloom gets to at last after the heather goes on fire and the broken bottles in the furze. I have it! My memory’s not so bad.','Archimedes'),
+('rip-van-winkle','Rip van Winkle','Whom Bloom played in the charades at Luke Doyle’s in Dolphin’s barn: Rip, a tear in Henny Doyle’s overcoat; Van, a breadvan delivering; Winkle, cockles and periwinkles. Then he did Rip van Winkle coming back, and Molly leaned on the sideboard watching.','Rip van Winkle'),
+('henny-doyle','Henny Doyle','Whose overcoat had the tear in it that did for Rip.','Henny Doyle'),
+('mulvey','Lieutenant Mulvey','Who kissed Molly under the Moorish wall beside the gardens at Gibraltar when she was fifteen — the first kiss, which she told Bloom about, and which she is still thinking of after the Glencree dinner.','Mulvey'),
+('giuglini','Giuglini','The tenor, whose beginning Bloom remembers with the fine voice of the painter in Lombard street west.','Giuglini'),
+('mr-oconnor','O’Connor','Poor man O’Connor, wife and five children poisoned by mussels here — the sewage. Hopeless. The modern edition misprints him as Oh’Connor.','',),
+('old-betty','Old Betty','Whose joints are on the rack when rain is coming.','Old Betty'),
+('davy-jones','Davy Jones','Into whose locker the crew and cargo go in smithereens while the moon looks down so peaceful.','Davy Jones'),
+('morris','Morris','Who said everyone to his taste when he kissed the cow.','Morris'),
+# --- Mat Dillon's bevy of daughters, at the charades in Dolphin's barn
+('tiny-dillon','Tiny','First of Mat Dillon’s bevy of daughters at the charades in Luke Doyle’s house, in the year before Bloom and Molly.','',),
+('atty-dillon','Atty','The second.','',),
+('maimy-dillon','Maimy','The fourth.','',),
+('louy-dillon','Louy','The fifth.','',),
+('hetty-dillon','Hetty','The sixth and last of them.','',),
+]:add(*row)
+
+for row in [
+('miss-cummins','Miss Cummins','Author of _The Lamplighter_ and _Mabel Vaughan_ and other tales, in which Gerty read about turning a freewheel at the lamp. Not the Cummins of Francis street where J. J. O’Molloy pawned his watch.','Miss Cummins'),
+]:add(*row)
+
 updates={}
 for e in entities:e['snapshots']=[dict(after=list(at),body=body) for at,body in updates.get(e['id'],[])]
-print(len(entities),'entities authored: episodes 1-12')
+print(len(entities),'entities authored: episodes 1-13')
 BASE=Path(__file__).resolve().parent
 (BASE/'editorial.json').write_text(json.dumps(dict(
  bookId='ulysses',
- contentVersion='2026-09-16.12',
- coverage='Both full English editions, episodes 1-12 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.',
+ contentVersion='2026-09-16.13',
+ coverage='Both full English editions, episodes 1-13 of 18. Named persons, and the writers, saints, heresiarchs and stage figures the characters quote. Peoples, places, newspapers, songs, pubs and shops are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

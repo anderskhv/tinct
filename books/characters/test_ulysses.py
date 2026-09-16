@@ -1,6 +1,6 @@
 """Guards for the Ulysses character package.
 
-Episodes 1 to 12 of 18 are authored. These tests pin the identifications that took a
+Episodes 1 to 13 of 18 are authored. These tests pin the identifications that took a
 reading to make, and the traps that a later pass must not undo.
 """
 import json,unittest
@@ -13,8 +13,8 @@ def ids(ed,ch,pi):return sorted({m['characterId'] for m in mentions(ed) if m['ch
 CARDS={e['id']:e for e in json.loads(open('ulysses/editorial.json').read())['entities']}
 
 class Ulysses(unittest.TestCase):
-    def test_only_the_first_twelve_episodes_are_authored(self):
-        self.assertIn('episodes 1-12 of 18',REPORT['scope'])
+    def test_only_the_first_thirteen_episodes_are_authored(self):
+        self.assertIn('episodes 1-13 of 18',REPORT['scope'])
         for ed in ['original-en','modern-en']:
             self.assertEqual(REPORT['editions'][ed]['chapters'],18,ed)
             self.assertEqual(REPORT['editions'][ed]['paragraphs'],7148,ed)
@@ -69,7 +69,7 @@ class Ulysses(unittest.TestCase):
         from build_ulysses import SPLIT
         table,default=SPLIT['Dedalus']
         self.assertIsNone(default)
-        self.assertTrue(all(ch in (1,2,6,7,8,9,10,11) for ch,_ in table))
+        self.assertTrue(all(ch in (1,2,6,7,8,9,10,11,12,13) for ch,_ in table))
         for ed in ['original-en','modern-en']:
             self.assertIn((1,23),where(ed,'stephen'),ed)
             for k in [(6,1),(10,1)]:
@@ -190,7 +190,7 @@ class Ulysses(unittest.TestCase):
             self.assertEqual([(1,232),(1,269),(1,275),(2,74),(3,79),(5,65),(6,333),
                               (7,154),(8,17),(9,18),(9,19),(9,28),(9,67),
                               (9,68),(9,69),(9,154),(9,159),(9,207),(9,333),
-                              (9,391),(9,427)],
+                              (9,391),(9,427),(13,96)],
                              [k for k in where(ed,'hamlet') if k!=(9,51)],ed)
             # 9:51 is the prince in the modern edition only: Joyce writes
             # "Khaki Hamlets don't hesitate to shoot", which the plural hides.
@@ -239,7 +239,7 @@ class Ulysses(unittest.TestCase):
             self.assertEqual([(2,123),(3,35)],where(ed,'temple'),ed)  # 3:35 is the same man
             self.assertEqual([(2,123),(3,57),(7,407),(8,111),(8,143),(8,144),(8,145),
                               (9,19),(9,20),(9,25),(9,40),(9,70),(9,112),(9,121),
-                              (9,129),(9,144),(9,171),(9,314)],
+                              (9,129),(9,144),(9,171),(9,314),(13,93)],
                              where(ed,'russell'),ed)
             self.assertEqual([(2,6),(9,32)],where(ed,'blake'),ed)
             self.assertEqual([(2,151),(2,152)],where(ed,'henry-blackwood-price'),ed)
@@ -599,10 +599,10 @@ class LotusEaters(unittest.TestCase):
         for ed in ['original-en','modern-en']:
             self.assertIn((5,78),where(ed,'martha-clifford'),ed)
             self.assertIn((6,330),where(ed,'martha-clifford'),ed)
-            self.assertEqual([(5,87),(7,24),(12,513)],where(ed,'martha-and-mary'),ed)
+            self.assertEqual([(5,87),(7,24),(12,513),(13,86)],where(ed,'martha-and-mary'),ed)
             # 5:87 names them once each; 7:24 names them again, in the other
             # order, over the same picture.
-            self.assertEqual(5,len([m for m in mentions(ed)
+            self.assertEqual(8,len([m for m in mentions(ed)
                                     if m['characterId']=='martha-and-mary']),ed)
 
     def test_michael_reaches_back_into_episode_one(self):
@@ -622,7 +622,7 @@ class LotusEaters(unittest.TestCase):
         self.assertIn('Muhammad',said('modern-en','mohammed'))
         for ed in ['original-en','modern-en']:
             self.assertEqual([(5,45),(5,63)],where(ed,'mccoy-wife'),ed)
-            self.assertEqual([(5,84),(11,465)],where(ed,'mairy'),ed)
+            self.assertEqual([(5,84),(11,465),(13,86)],where(ed,'mairy'),ed)
         O={(m['characterId'],m['paragraphIndex']) for m in mentions('original-en')
            if m['chapterNumber']==5}
         M={(m['characterId'],m['paragraphIndex']) for m in mentions('modern-en')
@@ -1554,6 +1554,73 @@ class Cyclops(unittest.TestCase):
     def test_both_editions_bind_the_same_cast_in_episode_twelve(self):
         O={m['characterId'] for m in mentions('original-en') if m['chapterNumber']==12}
         M={m['characterId'] for m in mentions('modern-en') if m['chapterNumber']==12}
+        self.assertEqual(set(),O-M)
+        self.assertEqual(set(),M-O)
+
+class Nausicaa(unittest.TestCase):
+    def test_the_strand_party(self):
+        for ed in ['original-en','modern-en']:
+            for cid in ['cissy-caffrey','edy-boardman','tommy-caffrey','jacky-caffrey',
+                        'baby-boardman','gerty-macdowell']:
+                w=[k for k in where(ed,cid) if k[0]==13]
+                self.assertTrue(w,(ed,cid))
+
+    def test_the_twins_first_names_belong_to_other_men(self):
+        # Bare Tommy is Tommy Moore at 8:121 and 12:172, Tom Rochford at 10:221
+        # and Tommy Tittlemouse at 15:554; bare Jacky is Jacky Tar at 12:380.
+        for ed in ['original-en','modern-en']:
+            for k in [(8,121),(10,221),(12,172),(15,554)]:
+                self.assertNotIn('tommy-caffrey',ids(ed,*k),(ed,k))
+            self.assertNotIn('jacky-caffrey',ids(ed,12,380),ed)
+            self.assertIn('tommy-caffrey',ids(ed,13,7),ed)
+            self.assertIn('jacky-caffrey',ids(ed,13,9),ed)
+
+    def test_reggy_and_cummins_are_not_the_other_ones(self):
+        # 8:174 is another Reggy; 12:274 is Cummins of Francis street.
+        for ed in ['original-en','modern-en']:
+            self.assertNotIn('reggy-wylie',ids(ed,8,174),ed)
+            self.assertEqual([(13,71)],where(ed,'miss-cummins'),ed)
+            self.assertNotIn('miss-cummins',ids(ed,12,274),ed)
+            self.assertNotIn('cummins-of-francis-street',ids(ed,13,71),ed)
+
+    def test_uncle_peter_is_bloom(self):
+        # Cissy Caffrey's name for the gentleman on the rocks.
+        for ed in ['original-en','modern-en']:
+            self.assertIn('leopold',ids(ed,13,60),ed)
+            self.assertIn('Peter',said(ed,'leopold'),ed)
+
+    def test_floey_dillon_keeps_one_card(self):
+        for ed in ['original-en','modern-en']:
+            w=where(ed,'floey-dillon')
+            self.assertIn((13,110),w,ed)
+            self.assertTrue([k for k in w if k[0]<13],ed)
+
+    def test_gabriel_conroys_brother_is_father_conroy(self):
+        for ed in ['original-en','modern-en']:
+            self.assertIn('father-conroy',ids(ed,13,111),ed)
+            self.assertIn('gabriel-conroy',ids(ed,13,111),ed)
+
+    def test_the_litany_binds_the_virgin_and_not_christ(self):
+        for ed in ['original-en','modern-en']:
+            for k in [(13,0),(13,35),(13,41),(13,71)]:
+                self.assertIn('blessed-virgin',ids(ed,*k),(ed,k))
+            # 13:21 is Who came first, and He carries no card
+            self.assertIn('joseph-the-joiner',ids(ed,13,21),ed)
+            self.assertEqual([],[m for m in mentions(ed)
+                                 if m['chapterNumber']==13 and m['text'] in ('Christ','Him','Who')],ed)
+
+    def test_the_modern_edition_misprints_four_names(self):
+        # A botched O-to-Oh replacement: the cards still bind in both editions.
+        self.assertIn('Oh’Hanlon',said('modern-en','canon-ohanlon'))
+        self.assertNotIn('Oh’Hanlon',said('original-en','canon-ohanlon'))
+        for ed in ['original-en','modern-en']:
+            self.assertIn((13,130),where(ed,'canon-ohanlon'),ed)
+            self.assertEqual([(13,98)],where(ed,'doctor-ohare'),ed)
+            self.assertEqual([(13,116)],where(ed,'mr-oconnor'),ed)
+
+    def test_both_editions_bind_the_same_cast_in_episode_thirteen(self):
+        O={m['characterId'] for m in mentions('original-en') if m['chapterNumber']==13}
+        M={m['characterId'] for m in mentions('modern-en') if m['chapterNumber']==13}
         self.assertEqual(set(),O-M)
         self.assertEqual(set(),M-O)
 

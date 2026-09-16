@@ -1096,7 +1096,7 @@ Jolly Mat of Roundtown, in whose house Molly and Menton danced: convivial evenin
 
 ## Floey Dillon · reference
 
-Linked with Molly under the lilactree, laughing, on the same evening.
+Linked with Molly under the lilactree, laughing, on the same evening. One of Mat Dillon’s bevy of daughters — Tiny, Atty, Floey, Maimy, Louy, Hetty — at the charades in Luke Doyle’s house in Dolphin’s barn, the year before Bloom and Molly.
 
 ## Wisdom Hely · reference
 
@@ -3068,7 +3068,7 @@ Carrying the Catesby’s cork lino letters for her father who was laid up, who k
 
 ## Her father · reference
 
-Who was laid up, and for whom she is carrying the letters.
+Who was laid up, and for whom she is carrying the Catesby’s cork lino letters in episode 10. Episode 13 says what is wrong with the house: the demon drink, a carbuncly nose with pimples on it, deeds of violence in the home circle, and a hand lifted to a woman. With all his faults Gerty loves him still when he sings _Tell me, Mary, how to woo thee_ or _My love and cottage near Rochelle_, and he could not even go to Dignam’s funeral on account of the gout.
 
 ## Mr M. E. Solomons · reference
 
@@ -4272,7 +4272,7 @@ Twentysecond, and Bloom’s own name among the saints.
 
 ## S. Bernard · reference
 
-Twentythird.
+Of Clairvaux, who walks the procession of saints in episode 12 between S. Leopold and S. Terence, and whose famous prayer of Mary is what the reverend John Hughes preaches on at Sandymount in episode 13: that it was not recorded in any age that those who implored her powerful protection were ever abandoned by her.
 
 ## S. Terence · reference
 
@@ -4553,3 +4553,195 @@ Who told us the French were on the sea and landed at Killala: Ireland herself, i
 ## Bloom the dentist · reference
 
 The other Bloom of Dublin, whose dental windows Father Conmee’s eye passes in episode 10 and whom Jack Power takes for a cousin of Leopold’s in episode 12. Not at all, says Martin Cunningham. Only namesakes.
+
+## Cissy Caffrey · major
+
+The eldest of the Caffreys and the loudest of the three girl friends on Sandymount strand: a truerhearted lass never drew the breath of life, with a laugh in her gipsylike eyes and a frolicsome word on her cherryripe lips. She minds the twins and baby Boardman, runs down the slope after the ball with long gandery strides, and goes over to ask the gentleman on the rocks the time — my uncle Peter over there, she calls him — and comes back with her tongue out.
+
+## Edy Boardman · major
+
+Squinty Edy, shortsighted and with her specs like an old maid, who rocks the baby in the pushcar, asks Gerty a penny for her thoughts, and asks her whether she is heartbroken about her best boy throwing her over. An irritable little gnat, Gerty thinks, poking her nose into what is no concern of hers.
+
+## Tommy Caffrey · reference
+
+One of the twins, scarce four years old, in a sailor suit with H. M. S. Belleisle on the cap: headstrong, sanded and tearful when Jacky knocks him into his own castle, and a man already since he was out of pinnies.
+
+## Jacky Caffrey · reference
+
+The other twin, selfwilled and as bold as brass, who builds the castle, fells his brother for wanting a frontdoor in it like the Martello tower, and kicks the ball down towards the seaweedy rocks where the gentleman in black is sitting.
+
+## Baby Boardman · reference
+
+Eleven months and nine days old, a perfect little dote in his new fancy bib, who says a jink a jink a jawbo when Cissy asks him for big, big, and ruins the bib before they go home. Master Boardman junior, for whom the sandman is on his way.
+
+## Bertha Supple · reference
+
+Gerty’s friend, who told Edy Boardman the deliberate lie about the kid gloves in bed and the milk footbath when she was at daggers drawn with her, gave Gerty the confession album with the coralpink cover, and told her in dead secret about the gentleman lodger out of the Congested Districts Board.
+
+## Winny Rippingham · reference
+
+Gerty’s friend, so stagestruck about actors’ photographs that she wanted the two of them always to dress the same on account of a play.
+
+## The gentleman lodger · reference
+
+Staying with the Supples out of the Congested Districts Board, who had pictures cut out of papers of skirtdancers and highkickers and used to do something not very nice in the bed — the thing Bertha Supple made Gerty swear never to tell.
+
+## Reggy Wylie · reference
+
+The boy with the bicycle off the London bridge road who used to ride up and down in front of Gerty’s window and turn his freewheel at the lamp: still in short trousers at the party in Stoer’s when he stole an arm round her waist and snatched a half kiss that landed on the end of her nose. His father keeps him in in the evenings now studying for the intermediate, and Gerty can throw her cap at who she likes because it is leap year.
+
+## W. E. Wylie · reference
+
+His elder brother, who is racing in the bicycle races in Trinity college university and is to be a doctor — the one whose wife Gerty would have been plain Mrs Wylie, where she would be Mrs Reggy Wylie T. C. D.
+
+## Gerty’s mother · reference
+
+Whose raging splitting headaches Gerty rubs the menthol cone on, whose taking pinches of snuff is the one thing they ever had words about, and whose birthday it was the night Mr Dignam came and they were to have had a group taken.
+
+## Charley · reference
+
+Gerty’s brother, home on his holidays that night.
+
+## Freddy Dignam · reference
+
+One of the Dignams at the same party, with Patsy and Mr Dignam and Mrs.
+
+## Mr Tunney · reference
+
+The grocer, whose christmas almanac Gerty tacks up every fortnight with the chlorate of lime: the picture of halcyon days, a young gentleman in a threecornered hat offering flowers to his ladylove through a lattice window.
+
+## Madame Vera Verity · reference
+
+Directress of the Woman Beautiful page of the Princess Novelette, who first advised Gerty to try eyebrowleine and gave her that haunting expression so becoming in leaders of fashion.
+
+## The Widow Welch · reference
+
+Whose female pills did Gerty much less good than the iron jelloids.
+
+## Flora MacFlimsy · reference
+
+The spoilt beauty of the American satire, and the sort Cissy Caffrey is emphatically not.
+
+## Martin Harvey · reference
+
+The matinee idol whose photo Gerty has, and whose image the gentleman on the rocks is — only for the moustache, which she prefers.
+
+## Louis J Walsh · reference
+
+Of Magherafelt, who wrote _Art thou real, my ideal?_ — the poem Gerty found round the potherbs and copied out of the newspaper.
+
+## Canon O’Hanlon · reference
+
+Who conducts the benediction in the church beside the waves: puts in the incense, censes the Blessed Sacrament, reads _Panem de coelo praestitisti eis_ off the card, and locks the tabernacle door at the end. Afterwards he takes tea and fried mutton chops with catsup in the priest’s house while the canarybird clock cuckoos. The modern edition misprints his name as Canon Oh’Hanlon at 13:130 and gets it right everywhere else.
+
+## The reverend John Hughes S. J. · reference
+
+The missioner conducting the men’s temperance retreat — rosary, sermon and benediction — whose sermon tells them what the great saint Bernard said of the Virgin’s intercessory power.
+
+## The archangel Gabriel · reference
+
+To whom Our Blessed Lady said be it done unto me according to Thy Word, in what Father Conroy told Gerty in confession.
+
+## Doctor Fell · reference
+
+Of the rhyme — I do not love thee, Doctor Fell, the reason why I cannot tell — which is Gerty’s case against her father’s face.
+
+## Nurse Callan · reference
+
+Of the lying-in hospital in Holles street, who used to look over some nights when Molly was in the Coffee Palace, and whom Bloom wonders is there still.
+
+## Doctor O’Hare · reference
+
+The young doctor at the hospital whose coat Bloom noticed nurse Callan brushing. The modern edition misprints him as doctor Oh’Hare.
+
+## Mrs Duggan · reference
+
+Who told Bloom in the City Arms about the husband rolling in drunk with the stink of the pub off him like a polecat, and asking in the morning was I drunk last night.
+
+## Mrs Clinch · reference
+
+Whom Bloom nearly spoke to in the dark of the Appian way, thinking she was somebody else.
+
+## Wilkins · reference
+
+Who drew a picture of Venus in the high school with all his belongings on show, and whose wife Bloom thinks has her work cut out for her.
+
+## Mrs Bracegirdle · reference
+
+One of the actresses whose _amours_ come to Bloom with Nell Gwynn and Maud Branscombe when he thinks what it is that makes the stage setting.
+
+## Maud Branscombe · reference
+
+The third of them.
+
+## Jemina Brown · reference
+
+Of the rhyme the place puts into Bloom’s head — her maiden name was Jemina Brown and she lived with her mother in Irishtown.
+
+## Grace Darling · reference
+
+Who rowed out to the wreck from the Longstone light, and who comes into Bloom’s head with the lighthouses and the wreckers, and again in his half sleep.
+
+## Mother Shipton · reference
+
+Whose prophecy about ships around they fly in the twinkling Bloom half remembers with the signs of rain.
+
+## Archimedes · reference
+
+Whose burning glass Bloom gets to at last after the heather goes on fire and the broken bottles in the furze. I have it! My memory’s not so bad.
+
+## Rip van Winkle · reference
+
+Whom Bloom played in the charades at Luke Doyle’s in Dolphin’s barn: Rip, a tear in Henny Doyle’s overcoat; Van, a breadvan delivering; Winkle, cockles and periwinkles. Then he did Rip van Winkle coming back, and Molly leaned on the sideboard watching.
+
+## Henny Doyle · reference
+
+Whose overcoat had the tear in it that did for Rip.
+
+## Lieutenant Mulvey · reference
+
+Who kissed Molly under the Moorish wall beside the gardens at Gibraltar when she was fifteen — the first kiss, which she told Bloom about, and which she is still thinking of after the Glencree dinner.
+
+## Giuglini · reference
+
+The tenor, whose beginning Bloom remembers with the fine voice of the painter in Lombard street west.
+
+## O’Connor · reference
+
+Poor man O’Connor, wife and five children poisoned by mussels here — the sewage. Hopeless. The modern edition misprints him as Oh’Connor.
+
+## Old Betty · reference
+
+Whose joints are on the rack when rain is coming.
+
+## Davy Jones · reference
+
+Into whose locker the crew and cargo go in smithereens while the moon looks down so peaceful.
+
+## Morris · reference
+
+Who said everyone to his taste when he kissed the cow.
+
+## Tiny · reference
+
+First of Mat Dillon’s bevy of daughters at the charades in Luke Doyle’s house, in the year before Bloom and Molly.
+
+## Atty · reference
+
+The second.
+
+## Maimy · reference
+
+The fourth.
+
+## Louy · reference
+
+The fifth.
+
+## Hetty · reference
+
+The sixth and last of them.
+
+## Miss Cummins · reference
+
+Author of _The Lamplighter_ and _Mabel Vaughan_ and other tales, in which Gerty read about turning a freewheel at the lamp. Not the Cummins of Francis street where J. J. O’Molloy pawned his watch.
