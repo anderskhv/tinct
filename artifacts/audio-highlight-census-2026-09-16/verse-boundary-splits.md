@@ -103,3 +103,35 @@ across genres, is a whitespace disagreement rather than a misreading.** The
 proposed rule and its safety property are unchanged — a merge must exactly
 reconstruct a token the edition text supplies — but the payoff is
 correspondingly larger and so is the risk surface. Still Anders's call.
+
+## Correction: count chapters, not paragraphs
+
+I said the split class was worth "about half of every remaining gate failure."
+That used paragraph counts, and paragraphs are the wrong unit — one bad
+paragraph fails a whole chapter, so what matters is how many *chapters* flip.
+
+Batch G's nine analysed exclusions, prose and Greek translation:
+
+```
+failing paragraphs   7 splits / 11 genuine   (39% splits)
+failing chapters     2 of 9 would pass       (22%)
+```
+
+The gap is the point. `bacchae` ch11 has four splits in it and still fails,
+because it also has three genuine mishearings. Fixing splits only helps a
+chapter where splits are its *only* problem.
+
+Combined with the verse sample:
+
+```
+verse    4 of 8 chapters would flip   (50%)
+prose    2 of 9 chapters would flip   (22%)
+────
+total    6 of 17                      (35%)
+```
+
+So the honest value of the proposed rule is about a third of currently failing
+chapters, concentrated in verse, not the half I implied. That is still worth
+having — it would have completed two more editions in this batch alone
+(`frankenstein`, `jekyll-and-hyde`, each needing exactly one chapter) — but it
+is not the unlock I made it sound like.
