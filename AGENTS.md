@@ -8,11 +8,30 @@ Use this file as the Codex source of truth. Older `CLAUDE.md` files may contain 
 
 ## Directories
 
-- Git root: `/Users/andershvelplund/Documents/Projects/Tinct`
-- App root: `/Users/andershvelplund/Documents/Projects/Tinct/app`
-- Book factory: `/Users/andershvelplund/Documents/Projects/Tinct/books`
-- QA tooling: `/Users/andershvelplund/Documents/Projects/Tinct/qa`
+- Git root: the current checkout root (`git rev-parse --show-toplevel`).
+- App root: `app/` under that checkout.
+- Book factory: `books/` under that checkout.
+- QA tooling: `qa/` under that checkout.
 - User-provided screenshots: `/Users/andershvelplund/Documents/Screenshots`. When Anders says to review or see screenshots, look there first.
+
+### Cloud-first operation — approved September 16, 2026
+
+New coding, tests, builds and generated assets belong in the Tinct cloud
+coding environment. GitHub Actions remains the production release route.
+The historical `/Users/andershvelplund/Documents/Projects/Tinct` tree and its
+Documents siblings are preservation sources, not development destinations.
+Do not install dependencies, build, fetch Git objects, create worktrees, or
+write generated assets there. Read-only migration inspection and narrow
+migration documentation updates are permitted. Do not delete historical files
+until their unique contents and recovery have been verified.
+
+For an explicitly needed local fallback, use the existing
+`/Users/andershvelplund/Developer/Tinct` checkout outside iCloud; do not create
+another full copy. A local fallback still requires the Mac to remain awake.
+Existing tasks are not automatically migrated when a cloud environment is
+created: preserve their unfinished work and resume it from remote branches.
+Cloud setup and full migration are complete only after recorded remote
+verification; do not infer completion from these instructions.
 
 Run `git` commands from the repository root. Run `npm`, `npx`, Vite, and Wrangler commands from `app/`.
 
@@ -52,7 +71,7 @@ Interpretation rules:
   deployment owner. When a genuine blocker exists, every report to Anders includes
   a concise `Needs your decision` line with the concrete choice and recommendation;
   do not invent blockers or re-ask for already approved work.
-- Until Tinct has more than 10 users, deploy-after-verify is the default. After `npm run build` and `npm run verify-bundle` pass, deploy with `npm run deploy` from `app/` using the Node 24 nvm path. Do not ask first. Skip deploy only if Anders says local-only. Never run raw `wrangler deploy`. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle.
+- Until Tinct has more than 10 users, deploy-after-verify is the default. After `npm run build` and `npm run verify-bundle` pass, release through the GitHub Actions deploy workflow using Node 24.13.0 and `npm run deploy` from `app/`. Do not ask first. Skip deploy only if Anders says local-only. Never run raw `wrangler deploy`. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle.
 - Do not call Anthropic APIs during development. The production reader chat may use Claude, but development content generation must happen in the agent conversation and be written to files.
 - While Anders assigns content work to Claude, Codex owns code and technical
   pipelines only. Codex does not author or semantically approve translations,
@@ -74,11 +93,13 @@ npm run build
 npm run verify-bundle
 ```
 
-After those gates pass, deploy with the Node 24 nvm install. Do not ask first unless Anders said local-only:
+After those gates pass, release through GitHub Actions on Node 24.13.0.
+In an authorized remote deployment environment with the existing deploy credential,
+the equivalent command is:
 
 ```bash
 cd app
-export PATH=/Users/andershvelplund/.nvm/versions/node/v24.13.0/bin:$PATH
+node --version  # must be Node 24; configured by the remote environment
 npm run deploy
 ```
 
