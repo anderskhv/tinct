@@ -2,7 +2,7 @@
 
 Reviewed: 2026-09-16
 
-Status: implemented and verified locally; production acceptance pending.
+Status: shipped and verified on production, September 16, 2026.
 Anders approved these corrections from five supplied screenshots. Voice-mode
 feedback can be supplied separately; no new voice-model change is part of this batch.
 
@@ -20,7 +20,8 @@ feedback can be supplied separately; no new voice-model change is part of this b
   the quick-swipe path; slower movement keeps the selection hold alive. The short
   line targeting correction from the earlier release remains.
 - Explain omits the repeated quote, limits its scroll area to 28dvh/250px, shows
-  a small Loading indicator and reveals complete paragraphs while the request
+  a small Loading indicator and requests a short opening paragraph. It reveals
+  complete paragraphs while the request
   continues. Chat and Talk use the actual reader menu icons and row styles.
   Outside press/Escape dismisses the card.
 - Both actions retain the delivered explanation and selected passage in the
@@ -45,4 +46,12 @@ finger comfort or audible voice behavior. Old browsers retain span painting.
 No new model-latency claim; paragraph delivery uses the existing request.
 
 Evidence: `output/reader-refinement-2026-09-16/`.
-Next action: deploy, check the exact production bundle and repeat acceptance.
+Production app commit: `5409bbad`. [Deploy 35080914057](https://github.com/anderskhv/tinct/actions/runs/35080914057)
+passed, including exact-bundle verification and smoke tests. Production serves
+`index-CiI-TB-E.js`. Desktop, phone, dark Job 7, and outgoing Talk context checks
+passed against that build. Long attachment scrolling and a visible voice control
+also passed locally. Earlier deploy 35080782218 correctly declined the superseded
+commit after the opening-paragraph refinement reached main.
+
+Next action: this refinement batch is complete. Anders may provide the separate
+voice-mode feedback next; no unprovided voice changes have been inferred.
