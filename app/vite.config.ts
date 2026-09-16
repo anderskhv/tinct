@@ -76,6 +76,7 @@ export default defineConfig(({ mode, command }) => {
         labAuthStatus: path.resolve(process.cwd(), 'src/labAuthStatus.ts'),
         labSignIn: path.resolve(process.cwd(), 'src/labSignIn.ts'),
         labReadingMemory: path.resolve(process.cwd(), 'src/labReadingMemory.ts'),
+        labLibraryAssistant: path.resolve(process.cwd(), 'src/labLibraryAssistant.tsx'),
       },
       output: {
         entryFileNames: chunk => chunk.name === 'labAuthStatus'
@@ -84,6 +85,8 @@ export default defineConfig(({ mode, command }) => {
             ? 'lab/sign-in-runtime.js'
             : chunk.name === 'labReadingMemory'
               ? 'lab/reading-memory.js'
+              : chunk.name === 'labLibraryAssistant'
+                ? 'lab/library-assistant.js'
               : 'assets/[name]-[hash].js',
       },
     },

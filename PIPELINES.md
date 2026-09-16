@@ -1,6 +1,6 @@
 # Tinct Pipelines
 
-Last updated: 2026-08-20
+Last updated: 2026-09-16
 
 Use this as the quick overview before opening Claude, Codex, or RunPod. Keep it short and current. Git history keeps the detailed record.
 
@@ -22,7 +22,7 @@ python3 books/wip_inventory.py --audio
 
 - RunPod: Kokoro audio batch may be active; verify from the pod or with `books/wip_inventory.py --audio`.
 - Claude: Treasure Island Danish cleanup may be active; keep Claude scoped to translation/editorial work.
-- Codex: no long-running app process.
+- Codex: library glass reel and librarian implementation is in release verification; see `docs/library-glass-librarian-2026-09-16.md`.
 
 ## Working Tree
 

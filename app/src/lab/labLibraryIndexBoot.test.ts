@@ -43,6 +43,15 @@ const leftReaderOn = (bookId: string, at = Date.now() - 20_000) => {
 }
 
 describe('lab/index.html boot script', () => {
+  it('ships the approved glass library controls without the rejected Explore or full-library affordances', () => {
+    expect(html).toContain('data-library-assistant-root')
+    expect(html).toContain('/lab/library-assistant.js?v=20260916-library-glass-1')
+    expect(html).toContain('data-first-category')
+    expect(html).not.toContain('See full library')
+    expect(html).not.toContain('>Explore<')
+    expect(html.indexOf('data-reading-memory-recap')).toBeLessThan(html.indexOf('data-library-assistant-root'))
+  })
+
   it('is a blocking classic script in <head>, before the panels (the production CSP forbids inline scripts)', () => {
     const tag = html.match(/<script src="\/lab\/library-boot\.js\?v=[\d-]+"><\/script>/)?.[0]
     expect(tag).toBeTruthy()
