@@ -117,8 +117,8 @@ export class LiveVoiceSessionController {
         if (!current()) return
         try {
           const data = JSON.parse(String(event.data)) as LiveEvent
-          if (data.type === 'session.started') { this.ready = true; started(); this.emit({ connection: 'connected', activity: 'listening', state: 'listening' }) }
-          else this.handleEvent(data)
+          if (data.type === 'session.started') started()
+          this.handleEvent(data)
         } catch { /* Ignore malformed event frames. */ }
       })
       dc.addEventListener('close', () => { if (current() && this.ui.isActive) this.fail('Voice connection lost. Reconnect to continue.') })
@@ -153,7 +153,13 @@ export class LiveVoiceSessionController {
   }
   /** Exposed for deterministic protocol regression tests. */
   handleEvent(event: LiveEvent) {
-    if (event.type === 'session.input_transcript.delta') this.caption('user', event.delta ?? '')
+    if (event.type === 'session.started') {
+      if (this.ready) return
+      this.ready = true
+      this.emit({ connection: 'connected', activity: 'listening', state: 'listening' })
+      if (this.input?.greeting) this.send({ type: 'session.instructions.append', delegation_id: null, content: `The reader opened this conversation to prepare for the book. Say this opening line now, once: ${JSON.stringify(this.input.greeting)} Then pause for the reader. Keep the introduction spoiler-free unless asked otherwise.` })
+    }
+    else if (event.type === 'session.input_transcript.delta') this.caption('user', event.delta ?? '')
     else if (event.type === 'session.output_transcript.delta') this.caption('assistant', event.delta ?? '')
     else if (event.type === 'session.closed') this.stop()
     else if (event.type === 'error') this.emit({ error: event.error?.message || 'Voice could not complete that request.' })

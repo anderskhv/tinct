@@ -275,5 +275,25 @@ it('opens the existing reader call from the preparation menu', async () => {
   expect(screen.getByTestId('lab-book-preface')).toBeTruthy()
   fireEvent.click(screen.getByRole('button', { name: 'Talk', exact: true }))
   await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
-  expect(screen.queryByTestId('lab-book-preface')).toBeNull()
+  expect((screen.getByTestId('lab-book-preface') as HTMLDialogElement).open).toBe(false)
+  expect(screen.getByTestId('lab-call-caption').textContent).toContain('Let’s prepare you for your reading of The Odyssey.')
+  fireEvent.click(screen.getByTestId('lab-call-end'))
+  await waitFor(() => expect((screen.getByTestId('lab-book-preface') as HTMLDialogElement).open).toBe(true))
+})
+
+it('returns from preparation Chat with its disclosures and reading place intact', async () => {
+  HTMLDialogElement.prototype.showModal = function () { this.open = true }
+  HTMLDialogElement.prototype.close = function () { this.open = false }
+  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken={null} />)
+  const before = readerPlace()
+  fireEvent.click(screen.getByTestId('lab-header-chapter'))
+  fireEvent.click(screen.getByRole('button', { name: 'Cover', exact: true }))
+  fireEvent.click(screen.getByRole('button', { name: 'Preface', exact: true }))
+  fireEvent.click(screen.getByRole('button', { name: 'Chat', exact: true }))
+  await waitFor(() => expect(screen.getByTestId('lab-ask-pane')).toBeTruthy())
+  expect((screen.getByTestId('lab-book-preface') as HTMLDialogElement).open).toBe(false)
+  fireEvent.keyDown(window, { key: 'Escape' })
+  await waitFor(() => expect((screen.getByTestId('lab-book-preface') as HTMLDialogElement).open).toBe(true))
+  expect(screen.getByRole('button', { name: 'Preface', exact: true }).getAttribute('aria-expanded')).toBe('true')
+  expect(readerPlace()).toBe(before)
 })

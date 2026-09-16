@@ -2,7 +2,7 @@
 .lab-book-preface::backdrop { background: #3c352a; }
 .lab-preparation-background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .lab-preparation-shade { position: absolute; inset: 0; background: linear-gradient(180deg,rgba(20,17,12,.15),rgba(20,17,12,.1) 50%,rgba(20,17,12,.35)); }
-.lab-preparation-frame { position: relative; width: min(650px,calc(100% - 32px)); margin: 28px auto 0; max-height: calc(100dvh - 56px); display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,.58); border-radius: 30px; background: linear-gradient(145deg,rgba(255,252,244,.82),rgba(246,240,227,.70) 55%,rgba(238,231,214,.78)); box-shadow: 0 24px 64px rgba(24,21,16,.22), 0 4px 14px rgba(24,21,16,.08), inset 0 1px 0 rgba(255,255,255,.8), inset 0 -1px 0 rgba(255,255,255,.24); -webkit-backdrop-filter: blur(32px) saturate(135%); backdrop-filter: blur(32px) saturate(135%); overflow: hidden; }
+.lab-preparation-frame { position: relative; width: min(650px,calc(100% - 32px)); margin: 0 auto; top: 50%; transform: translateY(-50%); max-height: calc(100dvh - 56px); display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,.58); border-radius: 30px; background: linear-gradient(145deg,rgba(255,252,244,.82),rgba(246,240,227,.70) 55%,rgba(238,231,214,.78)); box-shadow: 0 24px 64px rgba(24,21,16,.22), 0 4px 14px rgba(24,21,16,.08), inset 0 1px 0 rgba(255,255,255,.8), inset 0 -1px 0 rgba(255,255,255,.24); -webkit-backdrop-filter: blur(32px) saturate(135%); backdrop-filter: blur(32px) saturate(135%); overflow: hidden; }
 .lab .lab-book-preface button { font: inherit; color: inherit; cursor: pointer; min-height: 44px; }
 .lab .lab-preface-top { display: flex; justify-content: space-between; flex-shrink: 0; padding: 12px 16px 4px; }
 .lab .lab-preface-top button { border: 1px solid rgba(255,255,255,.45); border-radius: 50%; background: linear-gradient(155deg,rgba(255,255,255,.52),rgba(176,158,127,.24)); box-shadow: 0 4px 9px rgba(46,38,24,.16), 0 1px 2px rgba(46,38,24,.10), inset 0 1px 0 rgba(255,255,255,.75), inset 0 -1px 0 rgba(93,75,44,.10); font-size: 25px; width: 44px; }
@@ -25,7 +25,7 @@
 .lab .lab-book-preface button:focus-visible { outline: 2px solid #756142; outline-offset: 2px; }
 .lab .lab-preparation-questions { display: flex; gap: 8px; flex-wrap: wrap; padding: 10px 16px 16px; }
 .lab .lab-preparation-questions button { font: 16px/1.3 'EB Garamond',Georgia,serif; padding: 10px 14px; min-height: 44px; border: 1px solid var(--lab-border); border-radius: 22px; background: var(--lab-surface); color: var(--lab-ink); text-align: left; cursor: pointer; }
-@media(min-width: 900px) { .lab-preparation-frame { margin-top: 60px; max-height: calc(100dvh - 120px); } .lab .lab-preface-scroll { padding: 16px 40px 28px; } }
+@media(min-width: 900px) { .lab-preparation-frame { margin-top: 0; max-height: calc(100dvh - 120px); } .lab .lab-preface-scroll { padding: 16px 40px 28px; } }
 .lab .lab-ask.is-empty .lab-preparation-questions { margin-bottom: auto; flex-shrink: 0; }
 
 .lab .lab-preparation-expand { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; border: 0; background: transparent; padding: 0; text-align: left; }
@@ -57,28 +57,36 @@
 }
 /* WebKit can leave a dialog's sibling image unblurred despite supporting
    backdrop-filter. A denser tint keeps that image from competing with text. */
-@supports (-webkit-touch-callout: none) {
+@supports (font: -apple-system-body) {
   .lab-preparation-frame { background: linear-gradient(145deg,rgba(255,252,244,.95),rgba(246,240,227,.89) 55%,rgba(238,231,214,.92)); }
 }
 @media (prefers-reduced-transparency: reduce) {
   .lab-preparation-frame { background: #f2eddf; }
 }
 
-.lab .lab-preface-intro-row { display: grid; grid-template-columns: minmax(0,1fr) 32px; gap: 12px; }
+.lab .lab-preface-intro-row { display: grid; grid-template-columns: minmax(0,1fr) 22px; gap: 12px; }
 .lab .lab-book-preface .lab-preface-intro-toggle { align-self: start; justify-self: center; width: 44px; height: 44px; padding: 0; margin-top: calc(1.5 * 19px * var(--lab-font-size,1.3) / 1.3 * var(--lab-line-height,1.55) - 22px); border: 0; border-radius: 50%; background: transparent; font: 22px system-ui,sans-serif; color: rgba(40,37,31,.6); }
 
+/* Each disclosure uses the same right-hand icon column. */
+.lab .lab-preparation-expand > span[aria-hidden], .lab .lab-preface-cast h2 span { flex: 0 0 22px; text-align: center; }
+.lab .lab-preface-cast .lab-character-identity { font: inherit; opacity: 1; }
+.lab .lab-character-identity small { font: 400 16px/1.3 'EB Garamond',Georgia,serif; color: #625a4d; margin-left: 12px; }
 @media (min-width: 1000px) {
-  .lab-preparation-frame { width: min(1120px,calc(100% - 96px)); margin-top: 48px; max-height: calc(100dvh - 96px); }
-  .lab .lab-preface-scroll { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(280px,1fr); column-gap: 44px; row-gap: 28px; padding: 24px 40px 32px; align-items: start; }
-  .lab .lab-preface-preview { grid-column: 1; grid-row: 1; }
-  .lab .lab-preface-full.is-collapsed { -webkit-line-clamp: 10; }
-  .lab .lab-book-preface .lab-preface-intro-toggle { margin-top: 0; align-self: center; }
-  .lab .lab-preface-cast { grid-column: 2; grid-row: 1; margin: 0; padding: 0 0 0 28px; border-top: 0; border-left: 1px solid rgba(83,71,49,.16); }
-  .lab .lab-preface-cast h2 { margin-bottom: 10px; font-size: 28px; }
+  .lab-preparation-frame { width: min(1400px,calc(100% - 64px)); margin-top: 0; max-height: calc(100dvh - 48px); }
+  .lab .lab-preface-scroll { display: grid; grid-template-columns: minmax(0,1.65fr) minmax(340px,1fr); grid-template-rows: auto auto 1fr; column-gap: 36px; row-gap: 16px; padding: 12px 32px 24px; align-items: start; }
+  .lab .lab-preface-preview { grid-column: 1; grid-row: 1 / 4; }
+  .lab .lab-preface-intro-row { display: block; }
+  .lab .lab-preface-full { font-size: calc(18px * var(--lab-font-size,1.3) / 1.3); line-height: 1.45; }
+  .lab .lab-preface-full p { margin-bottom: .8em; }
+  .lab .lab-preface-cast { grid-column: 2; grid-row: 1; margin: 0; padding: 0; border: 0; }
+  .lab .lab-preface-cast h2 { margin-bottom: 8px; font-size: 28px; }
   .lab .lab-preface-cast h2 button { padding: 0; min-height: 34px; }
-  .lab .lab-preface-cast article { padding: 8px 0; }
-  .lab .lab-preface-cast article p { margin-bottom: 4px; padding-right: 16px; }
-  .lab .lab-preparation-customize { grid-column: 1; grid-row: 2; margin: 0; padding-top: 20px; }
-  .lab .lab-preparation-editions { grid-column: 2; grid-row: 2; margin: 0; padding-top: 16px; }
-  .lab .lab-preparation-dock { max-width: 430px; padding-left: 0; }
+  .lab .lab-preface-cast article { padding: 0; }
+  .lab .lab-preface-cast article p { margin-bottom: 8px; padding-right: 16px; }
+  .lab .lab-character-identity { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 12px; }
+  .lab .lab-character-identity small { margin-left: 0; }
+  .lab .lab-preparation-customize { grid-column: 2; grid-row: 2; margin: 0; padding-top: 16px; }
+  .lab .lab-preparation-customize h2 { font-size: 22px; margin-bottom: 10px; }
+  .lab .lab-preparation-editions { grid-column: 2; grid-row: 3; margin: 0; padding-top: 8px; }
+  .lab .lab-preparation-dock { padding-left: 0; padding-right: 0; }
 }

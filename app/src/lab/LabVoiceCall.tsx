@@ -30,6 +30,7 @@ interface LabVoiceCallProps {
   /** Real assistant loudness, 0-1, or null when the audio path exposes none. */
   getAssistantLevel?: () => number | null
   reducedMotion?: boolean
+  preparationWelcome?: string
   notice?: string | null
   /** "The Odyssey, Book IX": the book and chapter the conversation is about. */
   bookLine?: string
@@ -84,6 +85,7 @@ export function LabVoiceCall({
   getAssistantLevel,
   reducedMotion = false,
   notice,
+  preparationWelcome,
   bookLine,
   utterance = null,
   onMuteToggle,
@@ -98,7 +100,7 @@ export function LabVoiceCall({
   }, [view])
 
   const motion = reducedMotion ? 'still' : view.motion
-  const caption = labCallCaption(view, utterance)
+  const caption = preparationWelcome && (view.status === 'live' || view.status === 'listening' || view.status === 'connecting') ? preparationWelcome : labCallCaption(view, utterance)
   return (
     <div
       className={`lab-call is-${view.status}`}

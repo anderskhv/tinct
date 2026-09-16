@@ -190,13 +190,14 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     controllerRef.current?.unlockLabAudioContext()
   }, [])
 
-  const start = useCallback(async (overrides?: { authToken?: string | null }) => {
+  const start = useCallback(async (overrides?: { authToken?: string | null; greeting?: string }) => {
     const opts = optionsRef.current
     opts.onSessionStart?.()
     const authToken = overrides?.authToken !== undefined ? overrides.authToken : opts.authToken
     if (opts.honorModelResume) controllerRef.current?.unlockLabAudioContext()
     await controllerRef.current?.start({
       authToken,
+      greeting: overrides?.greeting,
       isAnonymous: !authToken,
       labGuest: opts.labGuest === true,
       context: buildContext(),

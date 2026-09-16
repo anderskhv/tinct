@@ -7358,3 +7358,7 @@
     padding: 4px 16px 10px;
   }
 }
+
+/* Match desktop entry actions to the actual contained portrait artwork. */
+.lab[data-chrome-version="v2"].is-desktop .lab-chapter-cover { container-type: size; }
+.lab[data-chrome-version="v2"].is-desktop .lab-cover-entry { width: min(100%, calc(100cqh * var(--lab-cover-ratio, .667))); left: 50%; right: auto; transform: translateX(-50%); box-sizing: border-box; }

@@ -640,8 +640,26 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   ), [book.chapterNumber, readerHandoff])
   const [preparationChat, setPreparationChat] = useState(false)
   const [prefaceCoverBook, setPrefaceCoverBook] = useState<string | null>(null)
+  const [preparationCompanion, setPreparationCompanion] = useState(false)
+  const preparationReturnRef = useRef<string | null>(null)
+  const returnToPreparation = useCallback(() => {
+    const origin = preparationReturnRef.current
+    preparationReturnRef.current = null
+    setPreparationCompanion(false)
+    if (origin !== book.bookId) return false
+    setPrefaceCoverBook(origin)
+    setPreparationChat(false)
+    return true
+  }, [book.bookId])
+  useEffect(() => {
+    if (preparationReturnRef.current && preparationReturnRef.current !== book.bookId) {
+      preparationReturnRef.current = null
+      setPreparationCompanion(false)
+      setPreparationChat(false)
+    }
+  }, [book.bookId])
   const approvedPreface = chromeV2 ? getBookPreface(book.bookId || 'bible') : undefined
-  const prefaceVisible = Boolean(approvedPreface && prefaceCoverBook === book.bookId)
+  const prefaceVisible = Boolean(approvedPreface && prefaceCoverBook === book.bookId && !preparationCompanion)
   const pendingMapHighlightRef = useRef<LabHighlight | null>(null)
   const [openAtEnd, setOpenAtEnd] = useState(false)
   const [pageMetrics, setPageMetrics] = useState<LabPageMetrics | null>(null)
@@ -2129,6 +2147,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     ask.stopVoice()
     if (chromeV2) ask.dismissNotice()
+    if (!forceHearing && preparationReturnRef.current === book.bookId) {
+      stayInAskRef.current = false
+      pausedForAskRef.current = false
+      setVoiceGate('off')
+      setPhoneAskOpen(false)
+      setDesktopAskOpen(false)
+      setPeekBook(false)
+      setChrome('reading')
+      returnToPreparation()
+      return
+    }
+    if (forceHearing) { preparationReturnRef.current = null; setPreparationCompanion(false); setPrefaceCoverBook(null) }
     if (stayInAskRef.current) {
       stayInAskRef.current = false
       setVoiceGate('off')
@@ -2164,7 +2194,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     if (listen.src) listen.resume(true)
     else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
-  }, [ask, listen, voiceTrial, chromeV2, callOpen])
+  }, [ask, listen, voiceTrial, chromeV2, callOpen, book.bookId, returnToPreparation])
   resumeListenRef.current = (forceAudio = true) => resumeListenAfterAsk(forceAudio)
   const closeAccountPrompt = useCallback(() => {
     const request = accountPrompt
@@ -3378,12 +3408,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [book.bookId, book.chapterNumber, goToChapter, notePlace])
 
   const startCallVoice = useCallback(() => {
-    void ask.startVoice().then((started) => {
+    const greeting = preparationReturnRef.current === book.bookId ? `Let’s prepare you for your reading of ${book.bookTitle}.` : undefined
+    void ask.startVoice(greeting).then((started) => {
       // A start the account policy or the microphone refused leaves nothing to
       // show a call for; the notice already says why.
-      if (!started) setCallOpen(false)
+      if (!started) { setCallOpen(false); returnToPreparation() }
     })
-  }, [ask])
+  }, [ask, book.bookId, book.bookTitle, returnToPreparation])
 
   const handleTalk = useCallback(() => {
     dictation.stop()
@@ -4170,6 +4201,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         )}
         {desktopVoiceOpen && !callMinimized && (
           <LabVoiceDesktopPanel
+            preparationWelcome={preparationCompanion ? `Let’s prepare you for your reading of ${book.bookTitle}.` : undefined}
             view={callView}
             turns={ask.turns}
             getAssistantLevel={ask.getAssistantLevel}
@@ -4599,7 +4631,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         desktop={!showPhoneChrome}
       />
 
-      {prefaceVisible && approvedPreface && <LabBookPreface
+      {prefaceCoverBook === book.bookId && approvedPreface && <LabBookPreface
+        open={prefaceVisible}
         key={approvedPreface.bookId}
         preface={approvedPreface} title={book.bookTitle} cover={`/covers/v2/${approvedPreface.bookId}.webp`}
         continued={readerHandoff ? Boolean(readerHandoff.savedPlace && !readerHandoff.startAtSavedPlace) : Boolean(boot.resume)}
@@ -4614,13 +4647,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         onEditions={(primary, secondary) => updatePrefs({ ...prefs, primaryEdition: primary, compareEdition: secondary || prefs.compareEdition, compareOpen: Boolean(secondary) })}
         onBack={() => setPrefaceCoverBook(null)}
         onAsk={(question) => {
+          preparationReturnRef.current = book.bookId || 'bible'
+          setPreparationCompanion(true)
           setPreparationChat(true)
-          setPrefaceCoverBook(null)
           setDraft(question)
           handleChat()
         }}
         onTalk={() => {
-          setPrefaceCoverBook(null)
+          preparationReturnRef.current = book.bookId || 'bible'
+          setPreparationCompanion(true)
           handleTalk()
         }}
         onRead={() => {
@@ -4700,6 +4735,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
       {callFullScreen && (
         <LabVoiceCall
+          preparationWelcome={preparationCompanion ? `Let’s prepare you for your reading of ${book.bookTitle}.` : undefined}
           view={callView}
           getAssistantLevel={ask.getAssistantLevel}
           reducedMotion={reducedMotion}
