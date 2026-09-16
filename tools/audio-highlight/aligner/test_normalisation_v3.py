@@ -152,6 +152,11 @@ class LetteredFootnoteMarkers(unittest.TestCase):
   self.assertEqual(ratio('a [word] remains',['a','word','remains'],lib=v4).unspoken,[])
   self.assertEqual(ratio('I [ See the history.]',['See','the','history.'],lib=v4).unspoken,[])
 
+class CloudOrchestratorPin(unittest.TestCase):
+ def test_cloud_orchestrator_accepts_v4(self):
+  source=(Path(__file__).parents[1]/'gpu'/'orchestrate.py').read_text()
+  self.assertIn('default="v4", choices=["v1", "v2", "v3", "v4"]',source)
+
 class Pins(unittest.TestCase):
  def test_pins_file_records_all_three_helper_hashes(self):
   pins=(Path(__file__).parent/'PINS.md').read_text()
