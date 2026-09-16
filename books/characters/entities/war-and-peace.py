@@ -72,7 +72,7 @@ ENTITIES = [
     },
     {
         'id': 'old-prince-bolkonski', 'kind': 'person', 'storyRole': 'major',
-        'aliases': ['old Prince Bolkónski', 'old Prince Bolkonski'],
+        'aliases': ['old Prince Bolkónski', 'old Prince Bolkonski', 'Prince Nicholas Andréevich Bolkónski', 'Prince Nicholas Andreevich Bolkonski', 'Nicholas Andréevich', 'Nicholas Andreevich'],
         'subtitle': "Andrew and Mary's father, a retired general",
         'body': "Exacting, sharp-tongued, and unable to tolerate idleness in himself or anyone near him, he keeps a strict household on his country estate. His children love him without ever quite feeling at ease around him.",
     },
@@ -108,13 +108,13 @@ ENTITIES = [
     },
     {
         'id': 'denisov', 'kind': 'person', 'storyRole': 'supporting',
-        'aliases': ['Denísov', 'Denisov'],
+        'aliases': ['Denísov', 'Denisov', 'Vasíli Dmítrich', 'Vasili Dmitrich'],
         'subtitle': "Nicholas Rostov's hussar commander and friend",
         'body': "Blustering, warmhearted, and given to a speech impediment that softens his fierce reputation, he takes young Nicholas Rostov under his wing in the regiment. He later falls under Natasha's spell during a visit to Moscow.",
     },
     {
         'id': 'kutuzov', 'kind': 'person', 'storyRole': 'major',
-        'aliases': ['Kutúzov', 'Kutuzov'],
+        'aliases': ['Kutúzov', 'Kutuzov', 'Michael Ilariónovich Kutúzov', 'Michael Ilarionovich Kutuzov'],
         'subtitle': 'The aging Russian commander-in-chief',
         'body': "Patient, unglamorous, and often distrusted by the younger officers around him, he commands the Russian armies against Napoleon with a fatalism that looks like weakness until events prove otherwise. His calm is deliberate, not accidental.",
     },
@@ -165,5 +165,35 @@ ENTITIES = [
         'aliases': ['Bagratión', 'Bagration', 'Prince Bagratión', 'Prince Bagration'],
         'subtitle': "A Russian general serving under Kutúzov",
         'body': "A historical Russian commander who leads troops under Kutúzov's overall command during the 1805 campaign. Several officers in the novel, including Prince Andrew's circle, serve under or alongside him.",
+    },
+    {
+        'id': 'anna-mikhaylovna', 'kind': 'person', 'storyRole': 'major',
+        'aliases': ['Anna Mikháylovna Drubetskáya', 'Anna Mikhaylovna Drubetskaya', 'Princess Drubetskáya', 'Princess Drubetskaya', 'Anna Mikháylovna', 'Anna Mikhaylovna'],
+        'subtitle': "A once-wealthy widowed princess, devoted to advancing her son Borís",
+        'body': "Reduced in circumstances but well connected, she works the St. Petersburg drawing rooms on her son Borís's behalf, calling in old favors from figures like Prince Vasíli with a mixture of pride and open pleading.",
+    },
+    {
+        'id': 'tushin', 'kind': 'person', 'storyRole': 'supporting',
+        'aliases': ['Túshin', 'Captain Túshin', 'Tushin', 'Captain Tushin'],
+        'subtitle': "An unassuming artillery captain",
+        'body': "A small, unmilitary-looking artillery officer whose battery holds its position under heavy fire more effectively than his superiors expect, without his ever seeking credit for it.",
+    },
+    {
+        'id': 'alpatych', 'kind': 'person', 'storyRole': 'supporting',
+        'aliases': ['Alpátych', 'Alpatych'],
+        'subtitle': "Old Prince Bolkónski's estate steward",
+        'body': "The long-serving overseer of Bald Hills, entrusted with managing the old Prince's affairs and later with practical tasks during the family's most difficult moments.",
+    },
+    {
+        'id': 'speransky', 'kind': 'person', 'storyRole': 'supporting',
+        'aliases': ['Speránski', 'Speransky'],
+        'subtitle': "A reforming Russian statesman at the height of his influence",
+        'body': "A historical figure introduced at the peak of his career in Petersburg, driving legal and administrative reforms with an authority that draws Prince Andrew's attention when he arrives in the capital.",
+    },
+    {
+        'id': 'hippolyte', 'kind': 'person', 'storyRole': 'reference',
+        'aliases': ['Hippolyte', 'Hippolyte Kurágin'],
+        'subtitle': "Prince Vasíli's elder son, Anatole and Hélène's brother",
+        'body': "Described by his own father as a quiet fool, in contrast to his more actively troublesome brother Anatole. He appears chiefly as a fixture of the Kurágin family and Petersburg drawing rooms.",
     },
 ]

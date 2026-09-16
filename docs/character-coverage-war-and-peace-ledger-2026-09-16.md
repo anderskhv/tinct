@@ -96,3 +96,42 @@ exist."
 `app/public/data/characters/war-and-peace.v1.json` on branch
 `claude/great-clarke-mugpy4` for Codex integration/app-verification
 (including the browser checks this sandbox cannot run) and publication.
+
+## Pass 2 addendum (same day — patronymics and a major missing character)
+
+Frequency-scanned every Russian patronymic-pattern word (`-ovich`, `-ovna`,
+`-evich`, `-evna`, `-ich`) across the full `original-en` text and
+cross-checked against the 27-card set from Pass 1.
+
+**Biggest find: Anna Mikháylovna Drubetskáya (Princess Drubetskáya), Borís's
+mother — 101+ mentions, entirely missing.** She is a materially larger
+presence in the text than several already-carded `major`-tier characters
+(more mentions than Denísov, Dólokhov, or Hélène). Added as `major`.
+
+Also added: `tushin` (Captain Túshin, the unassuming artillery officer —
+60 mentions), `alpatych` (old Prince Bolkónski's steward — 112 mentions),
+`speransky` (the reforming statesman — 47 mentions), `hippolyte` (Prince
+Vasíli's elder son — 46 mentions). All four were named as the next-priority
+candidates in the Pass 1 ledger; this pass acts on that list rather than
+leaving it as an unactioned recommendation.
+
+Added missing patronymic/address-form aliases to three existing central/
+major cards: `old-prince-bolkonski` (`Prince Nicholas Andréevich
+Bolkónski`, `Nicholas Andréevich`), `kutuzov` (`Michael Ilariónovich
+Kutúzov`), `denisov` (`Vasíli Dmítrich`, his own patronymic form of
+address, used repeatedly in dialogue). Checked each new alias against
+every other character's existing aliases for word-level overlap before
+adding; `build_generic.py`'s own ambiguity check (which raises on any
+same-span claim by two different ids) also passed clean, both editions,
+0 raises.
+
+32 cards / edition now (9,682 mentions original-en / 9,495 modern-en).
+Round-trip validated in both editions, 0 errors; all 27 Pass-1 card bodies
+verified byte-identical (alias-only changes, no body regressions).
+
+**Still not done:** most other characters' patronymic/nickname/
+address-form range remains unaudited (this pass covered 3 of 27 existing
+cards plus the 5 new additions' own obvious forms). The ~20 further
+recurring officers/generals documented as a backlog in Pass 1 remain
+unauthored. No in-reader/browser verification (same limit as every other
+ledger this session).
