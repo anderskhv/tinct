@@ -83,7 +83,7 @@ export function LabChapterCover({ title, series, editionLabel, imageSrc, ground,
       {onStart && <div className="lab-cover-entry" data-testid="lab-cover-entry"
         onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()}>
         {onBefore && <button type="button" onClick={onBefore}>
-          <strong>Before you begin</strong><span>A little context. Meet the characters. Ask or talk.</span>
+          <strong>Before you begin</strong><span>Read the preface. Meet the characters. Ask or talk.</span>
         </button>}
         <button type="button" className="is-primary" onClick={onStart}>
           <strong>{continued ? 'Continue reading' : 'Start reading'}</strong><span>{continued ? 'Return to your place.' : 'Straight to page one.'}</span>

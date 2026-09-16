@@ -6,6 +6,8 @@ import { isLabPath } from './lab/labRoute'
 import { isNativeCapacitor } from './utils/nativePlatform'
 import { startReaderLoadTrace } from './utils/readerLoadTrace'
 import './index.css'
+import { prepareBeforeBeginDesign } from './lab/beforeBeginDesign'
+prepareBeforeBeginDesign()
 
 // Detect Capacitor (Android/iOS native app) and E-ink devices.
 // `window.Capacitor` exists in the web bundle too; only the native shell counts.
