@@ -42,7 +42,7 @@ jobs:
         with:
           node-version: '24.13.0'
       - name: Test offline reading benchmark
-        run: node --test benchmarks/reading-companion/benchmark.test.mjs
+        run: node --test benchmarks/reading-companion/*.test.mjs
       - name: Verify frozen source excerpts
         run: node benchmarks/reading-companion/benchmark.mjs validate benchmarks/reading-companion/cases.json .
       - name: Prepare calibration requests without inference

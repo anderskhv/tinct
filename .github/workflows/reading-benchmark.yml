@@ -3,6 +3,11 @@ on:
   push:
     branches: ['cursor/reading-benchmark-collection']
   workflow_dispatch:
+    inputs:
+      run_paid:
+        description: 'Run the approved 144-answer pilot (maximum $10); false runs checks only'
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -31,3 +36,65 @@ jobs:
             fi
           done
           echo "ready=$ready" >> "$GITHUB_OUTPUT"
+
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+      - name: Test benchmark and provider adapters without network calls
+        run: node --test benchmarks/reading-companion/*.test.mjs
+      - name: Verify frozen passages
+        run: node benchmarks/reading-companion/benchmark.mjs validate benchmarks/reading-companion/cases.json .
+  collect:
+    needs: [credentials, tests]
+    if: >-
+      needs.credentials.outputs.ready == 'true' &&
+      github.run_attempt == 1 &&
+      ((github.event_name == 'workflow_dispatch' && inputs.run_paid) ||
+       (github.event_name == 'push' && github.event.head_commit.message == 'Run approved reading benchmark 2026-09-16'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+      - name: Freeze run configuration and prepare matched requests
+        run: |
+          node --input-type=module -e "
+            import fs from 'node:fs';
+            const c=JSON.parse(fs.readFileSync('benchmarks/reading-companion/candidates.json'));
+            c.run_id='approved-2026-09-16-'+process.env.GITHUB_RUN_ID;
+            fs.writeFileSync('/tmp/tinct-benchmark-config.json',JSON.stringify(c));
+          "
+          node benchmarks/reading-companion/benchmark.mjs prepare benchmarks/reading-companion/cases.json /tmp/tinct-benchmark-config.json /tmp/tinct-benchmark-input
+      - name: Collect approved paired answers (no retries)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node benchmarks/reading-companion/collect.mjs /tmp/tinct-benchmark-input/manifest.json /tmp/tinct-benchmark-output
+      - name: Create blinded review
+        run: node benchmarks/reading-companion/benchmark.mjs blind /tmp/tinct-benchmark-input/manifest.json /tmp/tinct-benchmark-output/results.jsonl /tmp/tinct-benchmark-review
+      - name: Preserve operator data separately from blind review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-operator-${{ github.run_id }}
+          retention-days: 30
+          path: |
+            /tmp/tinct-benchmark-input/
+            /tmp/tinct-benchmark-output/
+            /tmp/tinct-benchmark-review/private-key.json
+      - name: Save reviewer packet (no model mapping)
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-blind-review-${{ github.run_id }}
+          retention-days: 30
+          path: |
+            /tmp/tinct-benchmark-review/review.html
+            /tmp/tinct-benchmark-review/review.json
+            /tmp/tinct-benchmark-review/ratings.json
