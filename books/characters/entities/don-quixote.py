@@ -129,4 +129,22 @@ ENTITIES = [
         'subtitle': "Don Quixote's housekeeper",
         'body': "Long in his service and thoroughly exasperated by his fixation on knight errantry, she is just as eager as the niece to see his library and his armor disappear for good. Her complaints to the curate help set the book-burning in motion.",
     },
+    {
+        'id': 'anselmo', 'kind': 'person', 'storyRole': 'supporting',
+        'aliases': ['Anselmo'],
+        'subtitle': 'A wealthy Florentine, subject of the interpolated "Ill-Advised Curiosity"',
+        'body': "A young gentleman of Florence, close friend of Lothario since childhood, whose story is read aloud from a manuscript found at the inn. He marries Camilla and, restless with a curiosity he cannot let go of, asks something of his best friend that he should not.",
+    },
+    {
+        'id': 'lothario', 'kind': 'person', 'storyRole': 'supporting',
+        'aliases': ['Lothario'],
+        'subtitle': "Anselmo's closest friend, in the same interpolated story",
+        'body': "Anselmo's lifelong friend, drawn reluctantly into a test of loyalty Anselmo devises for him regarding Camilla. He resists at first, warning Anselmo plainly against the whole idea.",
+    },
+    {
+        'id': 'camilla', 'kind': 'person', 'storyRole': 'supporting',
+        'aliases': ['Camilla'],
+        'subtitle': "Anselmo's wife, in the same interpolated story",
+        'body': "A virtuous young woman married to Anselmo, whose devotion becomes the subject of the test her husband sets for his friend Lothario.",
+    },
 ]

@@ -5,7 +5,7 @@
   "contentVersion": "2026-09-12.1",
   "normalization": "prose-reader-v1",
   "offsetUnit": "utf16",
-  "reviewStatus": "authoring-agent-reviewed",
+  "reviewStatus": "agent-drafted-2026-09-16-pending-independent-review",
   "editions": {
     "original-en": {
       "sourcePath": "app/public/data/editions/great-expectations-original-en.json",
@@ -4082,30 +4082,30 @@
           "storyRole": "central",
           "roleVisibleAt": {
             "chapterNumber": 40,
-            "paragraphIndex": 26,
-            "offset": 9
+            "paragraphIndex": 22,
+            "offset": 41
           },
           "firstMention": {
             "chapterNumber": 40,
-            "paragraphIndex": 26,
-            "offset": 9
+            "paragraphIndex": 22,
+            "offset": 41
           },
           "snapshots": [
             {
               "id": "magwitch-1",
               "availableAt": {
                 "chapterNumber": 40,
-                "paragraphIndex": 26,
-                "offset": 9
+                "paragraphIndex": 22,
+                "offset": 41
               },
-              "name": "Magwitch",
+              "name": "Provis",
               "subtitle": "An escaped convict Pip meets on the marshes",
               "body": "Starving and shackled when Pip stumbles on him among the graves, he terrifies the boy into bringing him food and a file. He is recaptured before long, but the encounter does not end there.",
               "evidence": [
                 {
                   "chapterNumber": 40,
-                  "paragraphIndex": 26,
-                  "throughOffset": 9
+                  "paragraphIndex": 22,
+                  "throughOffset": 41
                 }
               ],
               "editorialBasis": "Reviewed baseline identity at first mention; no concealed identity or later plot development."
@@ -25438,6 +25438,15 @@
         {
           "characterId": "magwitch",
           "chapterNumber": 40,
+          "paragraphIndex": 22,
+          "startOffset": 35,
+          "endOffset": 41,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
           "paragraphIndex": 26,
           "startOffset": 1,
           "endOffset": 9,
@@ -25571,12 +25580,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 70,
+          "startOffset": 427,
+          "endOffset": 433,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 40,
           "paragraphIndex": 70,
           "startOffset": 501,
           "endOffset": 508,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 74,
+          "startOffset": 265,
+          "endOffset": 271,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -25778,12 +25805,66 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 97,
+          "startOffset": 4,
+          "endOffset": 10,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 98,
+          "startOffset": 4,
+          "endOffset": 10,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "pip",
           "chapterNumber": 40,
           "paragraphIndex": 98,
           "startOffset": 22,
           "endOffset": 25,
           "text": "Pip",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 98,
+          "startOffset": 43,
+          "endOffset": 49,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 98,
+          "startOffset": 73,
+          "endOffset": 79,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 100,
+          "startOffset": 15,
+          "endOffset": 21,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 100,
+          "startOffset": 87,
+          "endOffset": 93,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -25808,9 +25889,27 @@
           "characterId": "magwitch",
           "chapterNumber": 40,
           "paragraphIndex": 100,
+          "startOffset": 252,
+          "endOffset": 258,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 100,
           "startOffset": 301,
           "endOffset": 309,
           "text": "Magwitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 101,
+          "startOffset": 17,
+          "endOffset": 23,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -25841,6 +25940,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 102,
+          "startOffset": 165,
+          "endOffset": 171,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "pip",
           "chapterNumber": 40,
           "paragraphIndex": 102,
@@ -25856,6 +25964,15 @@
           "startOffset": 0,
           "endOffset": 7,
           "text": "Wemmick",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 104,
+          "startOffset": 150,
+          "endOffset": 156,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -25877,6 +25994,24 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 110,
+          "startOffset": 161,
+          "endOffset": 167,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 110,
+          "startOffset": 412,
+          "endOffset": 418,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 40,
           "paragraphIndex": 111,
@@ -25895,6 +26030,24 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 113,
+          "startOffset": 77,
+          "endOffset": 83,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 113,
+          "startOffset": 85,
+          "endOffset": 91,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 40,
           "paragraphIndex": 114,
@@ -25910,6 +26063,15 @@
           "startOffset": 68,
           "endOffset": 75,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 115,
+          "startOffset": 33,
+          "endOffset": 39,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -25940,6 +26102,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 116,
+          "startOffset": 128,
+          "endOffset": 134,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "pip",
           "chapterNumber": 40,
           "paragraphIndex": 116,
@@ -25955,6 +26126,15 @@
           "startOffset": 70,
           "endOffset": 77,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 41,
+          "paragraphIndex": 0,
+          "startOffset": 97,
+          "endOffset": 103,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -26045,6 +26225,15 @@
           "startOffset": 0,
           "endOffset": 7,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 41,
+          "paragraphIndex": 6,
+          "startOffset": 15,
+          "endOffset": 21,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -26171,6 +26360,15 @@
           "startOffset": 249,
           "endOffset": 256,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 41,
+          "paragraphIndex": 26,
+          "startOffset": 282,
+          "endOffset": 288,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -26759,6 +26957,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 42,
+          "paragraphIndex": 43,
+          "startOffset": 106,
+          "endOffset": 112,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "compeyson",
           "chapterNumber": 42,
           "paragraphIndex": 44,
@@ -26783,6 +26990,24 @@
           "startOffset": 39,
           "endOffset": 46,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 42,
+          "paragraphIndex": 45,
+          "startOffset": 124,
+          "endOffset": 130,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 43,
+          "paragraphIndex": 0,
+          "startOffset": 56,
+          "endOffset": 62,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -26831,6 +27056,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 43,
+          "paragraphIndex": 2,
+          "startOffset": 86,
+          "endOffset": 92,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 43,
           "paragraphIndex": 2,
@@ -26858,6 +27092,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 43,
+          "paragraphIndex": 2,
+          "startOffset": 254,
+          "endOffset": 260,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "estella",
           "chapterNumber": 43,
           "paragraphIndex": 3,
@@ -26882,6 +27125,15 @@
           "startOffset": 32,
           "endOffset": 39,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 43,
+          "paragraphIndex": 4,
+          "startOffset": 46,
+          "endOffset": 52,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -26918,6 +27170,15 @@
           "startOffset": 140,
           "endOffset": 143,
           "text": "Joe",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 43,
+          "paragraphIndex": 5,
+          "startOffset": 157,
+          "endOffset": 163,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -27830,6 +28091,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 45,
+          "paragraphIndex": 3,
+          "startOffset": 810,
+          "endOffset": 816,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "estella",
           "chapterNumber": 45,
           "paragraphIndex": 3,
@@ -28262,6 +28532,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 46,
+          "paragraphIndex": 11,
+          "startOffset": 9,
+          "endOffset": 15,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 46,
           "paragraphIndex": 11,
@@ -28415,6 +28694,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 46,
+          "paragraphIndex": 27,
+          "startOffset": 136,
+          "endOffset": 142,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "compeyson",
           "chapterNumber": 46,
           "paragraphIndex": 28,
@@ -28514,12 +28802,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 46,
+          "paragraphIndex": 34,
+          "startOffset": 25,
+          "endOffset": 31,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 46,
+          "paragraphIndex": 34,
+          "startOffset": 117,
+          "endOffset": 123,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 46,
           "paragraphIndex": 35,
           "startOffset": 84,
           "endOffset": 91,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 46,
+          "paragraphIndex": 35,
+          "startOffset": 234,
+          "endOffset": 240,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -28541,6 +28856,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 46,
+          "paragraphIndex": 39,
+          "startOffset": 216,
+          "endOffset": 222,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 46,
           "paragraphIndex": 39,
@@ -28556,6 +28880,15 @@
           "startOffset": 456,
           "endOffset": 463,
           "text": "Estella",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 46,
+          "paragraphIndex": 41,
+          "startOffset": 122,
+          "endOffset": 128,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -28799,6 +29132,24 @@
           "startOffset": 56,
           "endOffset": 59,
           "text": "Pip",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 47,
+          "paragraphIndex": 21,
+          "startOffset": 187,
+          "endOffset": 193,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 47,
+          "paragraphIndex": 21,
+          "startOffset": 241,
+          "endOffset": 247,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -29810,6 +30161,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 5,
+          "startOffset": 12,
+          "endOffset": 18,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 50,
           "paragraphIndex": 7,
@@ -29828,6 +30188,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 9,
+          "startOffset": 225,
+          "endOffset": 231,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 50,
           "paragraphIndex": 13,
@@ -29843,6 +30212,15 @@
           "startOffset": 0,
           "endOffset": 7,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 17,
+          "startOffset": 31,
+          "endOffset": 37,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -29882,6 +30260,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 22,
+          "startOffset": 199,
+          "endOffset": 205,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 50,
           "paragraphIndex": 25,
@@ -29891,12 +30278,48 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 26,
+          "startOffset": 32,
+          "endOffset": 38,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 26,
+          "startOffset": 82,
+          "endOffset": 88,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 26,
+          "startOffset": 246,
+          "endOffset": 252,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 50,
           "paragraphIndex": 27,
           "startOffset": 15,
           "endOffset": 22,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 28,
+          "startOffset": 33,
+          "endOffset": 39,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -29918,12 +30341,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 32,
+          "startOffset": 118,
+          "endOffset": 124,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "compeyson",
           "chapterNumber": 50,
           "paragraphIndex": 34,
           "startOffset": 59,
           "endOffset": 68,
           "text": "Compeyson",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 34,
+          "startOffset": 366,
+          "endOffset": 372,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -30350,6 +30791,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 51,
+          "paragraphIndex": 20,
+          "startOffset": 262,
+          "endOffset": 268,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 51,
           "paragraphIndex": 20,
@@ -30395,6 +30845,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 51,
+          "paragraphIndex": 22,
+          "startOffset": 35,
+          "endOffset": 41,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "jaggers",
           "chapterNumber": 51,
           "paragraphIndex": 23,
@@ -30437,6 +30896,15 @@
           "startOffset": 35,
           "endOffset": 46,
           "text": "Mr. Jaggers",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 51,
+          "paragraphIndex": 24,
+          "startOffset": 124,
+          "endOffset": 130,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -31007,6 +31475,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 52,
+          "paragraphIndex": 10,
+          "startOffset": 181,
+          "endOffset": 187,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 52,
           "paragraphIndex": 14,
@@ -31061,6 +31538,24 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 52,
+          "paragraphIndex": 15,
+          "startOffset": 356,
+          "endOffset": 362,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 52,
+          "paragraphIndex": 20,
+          "startOffset": 271,
+          "endOffset": 277,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "wemmick",
           "chapterNumber": 52,
           "paragraphIndex": 20,
@@ -31094,6 +31589,15 @@
           "startOffset": 218,
           "endOffset": 225,
           "text": "Wemmick",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 52,
+          "paragraphIndex": 22,
+          "startOffset": 680,
+          "endOffset": 686,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -31358,12 +31862,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 53,
+          "paragraphIndex": 52,
+          "startOffset": 706,
+          "endOffset": 712,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 53,
+          "paragraphIndex": 53,
+          "startOffset": 96,
+          "endOffset": 102,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "orlick",
           "chapterNumber": 53,
           "paragraphIndex": 54,
           "startOffset": 337,
           "endOffset": 343,
           "text": "Orlick",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 53,
+          "paragraphIndex": 54,
+          "startOffset": 377,
+          "endOffset": 383,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -31394,12 +31925,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 53,
+          "paragraphIndex": 56,
+          "startOffset": 162,
+          "endOffset": 168,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "orlick",
           "chapterNumber": 53,
           "paragraphIndex": 56,
           "startOffset": 179,
           "endOffset": 185,
           "text": "Orlick",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 53,
+          "paragraphIndex": 56,
+          "startOffset": 345,
+          "endOffset": 351,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -31592,6 +32141,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 53,
+          "paragraphIndex": 75,
+          "startOffset": 1769,
+          "endOffset": 1775,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "startop",
           "chapterNumber": 53,
           "paragraphIndex": 75,
@@ -31607,6 +32165,15 @@
           "startOffset": 12,
           "endOffset": 19,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 53,
+          "paragraphIndex": 76,
+          "startOffset": 291,
+          "endOffset": 297,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -31652,6 +32219,15 @@
           "startOffset": 38,
           "endOffset": 45,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 54,
+          "paragraphIndex": 0,
+          "startOffset": 431,
+          "endOffset": 437,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -31745,6 +32321,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 54,
+          "paragraphIndex": 54,
+          "startOffset": 346,
+          "endOffset": 352,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "startop",
           "chapterNumber": 54,
           "paragraphIndex": 54,
@@ -31817,6 +32402,24 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 54,
+          "paragraphIndex": 61,
+          "startOffset": 268,
+          "endOffset": 274,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 54,
+          "paragraphIndex": 61,
+          "startOffset": 786,
+          "endOffset": 792,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "startop",
           "chapterNumber": 54,
           "paragraphIndex": 62,
@@ -31832,6 +32435,15 @@
           "startOffset": 123,
           "endOffset": 136,
           "text": "Abel Magwitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 54,
+          "paragraphIndex": 63,
+          "startOffset": 148,
+          "endOffset": 154,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -31868,6 +32480,15 @@
           "startOffset": 180,
           "endOffset": 188,
           "text": "Magwitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 54,
+          "paragraphIndex": 68,
+          "startOffset": 190,
+          "endOffset": 196,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -38675,30 +39296,30 @@
           "storyRole": "central",
           "roleVisibleAt": {
             "chapterNumber": 40,
-            "paragraphIndex": 26,
-            "offset": 9
+            "paragraphIndex": 22,
+            "offset": 41
           },
           "firstMention": {
             "chapterNumber": 40,
-            "paragraphIndex": 26,
-            "offset": 9
+            "paragraphIndex": 22,
+            "offset": 41
           },
           "snapshots": [
             {
               "id": "magwitch-1",
               "availableAt": {
                 "chapterNumber": 40,
-                "paragraphIndex": 26,
-                "offset": 9
+                "paragraphIndex": 22,
+                "offset": 41
               },
-              "name": "Magwitch",
+              "name": "Provis",
               "subtitle": "An escaped convict Pip meets on the marshes",
               "body": "Starving and shackled when Pip stumbles on him among the graves, he terrifies the boy into bringing him food and a file. He is recaptured before long, but the encounter does not end there.",
               "evidence": [
                 {
                   "chapterNumber": 40,
-                  "paragraphIndex": 26,
-                  "throughOffset": 9
+                  "paragraphIndex": 22,
+                  "throughOffset": 41
                 }
               ],
               "editorialBasis": "Reviewed baseline identity at first mention; no concealed identity or later plot development."
@@ -60121,6 +60742,15 @@
         {
           "characterId": "magwitch",
           "chapterNumber": 40,
+          "paragraphIndex": 22,
+          "startOffset": 35,
+          "endOffset": 41,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
           "paragraphIndex": 26,
           "startOffset": 1,
           "endOffset": 9,
@@ -60263,12 +60893,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 70,
+          "startOffset": 366,
+          "endOffset": 372,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 40,
           "paragraphIndex": 70,
           "startOffset": 440,
           "endOffset": 447,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 74,
+          "startOffset": 259,
+          "endOffset": 265,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -60470,12 +61118,66 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 97,
+          "startOffset": 4,
+          "endOffset": 10,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 98,
+          "startOffset": 4,
+          "endOffset": 10,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "pip",
           "chapterNumber": 40,
           "paragraphIndex": 98,
           "startOffset": 24,
           "endOffset": 27,
           "text": "Pip",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 98,
+          "startOffset": 43,
+          "endOffset": 49,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 98,
+          "startOffset": 73,
+          "endOffset": 79,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 100,
+          "startOffset": 15,
+          "endOffset": 21,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 100,
+          "startOffset": 78,
+          "endOffset": 84,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -60500,9 +61202,27 @@
           "characterId": "magwitch",
           "chapterNumber": 40,
           "paragraphIndex": 100,
+          "startOffset": 237,
+          "endOffset": 243,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 100,
           "startOffset": 286,
           "endOffset": 294,
           "text": "Magwitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 101,
+          "startOffset": 17,
+          "endOffset": 23,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -60533,6 +61253,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 102,
+          "startOffset": 169,
+          "endOffset": 175,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "pip",
           "chapterNumber": 40,
           "paragraphIndex": 102,
@@ -60548,6 +61277,15 @@
           "startOffset": 0,
           "endOffset": 7,
           "text": "Wemmick",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 104,
+          "startOffset": 150,
+          "endOffset": 156,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -60569,6 +61307,24 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 110,
+          "startOffset": 155,
+          "endOffset": 161,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 110,
+          "startOffset": 404,
+          "endOffset": 410,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 40,
           "paragraphIndex": 111,
@@ -60587,6 +61343,24 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 113,
+          "startOffset": 60,
+          "endOffset": 66,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 113,
+          "startOffset": 68,
+          "endOffset": 74,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 40,
           "paragraphIndex": 114,
@@ -60602,6 +61376,15 @@
           "startOffset": 67,
           "endOffset": 74,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 115,
+          "startOffset": 33,
+          "endOffset": 39,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -60632,6 +61415,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 40,
+          "paragraphIndex": 116,
+          "startOffset": 112,
+          "endOffset": 118,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "pip",
           "chapterNumber": 40,
           "paragraphIndex": 116,
@@ -60647,6 +61439,15 @@
           "startOffset": 39,
           "endOffset": 46,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 41,
+          "paragraphIndex": 0,
+          "startOffset": 84,
+          "endOffset": 90,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -60737,6 +61538,15 @@
           "startOffset": 0,
           "endOffset": 7,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 41,
+          "paragraphIndex": 6,
+          "startOffset": 15,
+          "endOffset": 21,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -60863,6 +61673,15 @@
           "startOffset": 247,
           "endOffset": 254,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 41,
+          "paragraphIndex": 26,
+          "startOffset": 280,
+          "endOffset": 286,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -61451,6 +62270,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 42,
+          "paragraphIndex": 43,
+          "startOffset": 107,
+          "endOffset": 113,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "compeyson",
           "chapterNumber": 42,
           "paragraphIndex": 44,
@@ -61475,6 +62303,24 @@
           "startOffset": 39,
           "endOffset": 46,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 42,
+          "paragraphIndex": 45,
+          "startOffset": 124,
+          "endOffset": 130,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 43,
+          "paragraphIndex": 0,
+          "startOffset": 56,
+          "endOffset": 62,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -61532,6 +62378,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 43,
+          "paragraphIndex": 2,
+          "startOffset": 90,
+          "endOffset": 96,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 43,
           "paragraphIndex": 2,
@@ -61559,6 +62414,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 43,
+          "paragraphIndex": 2,
+          "startOffset": 252,
+          "endOffset": 258,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "estella",
           "chapterNumber": 43,
           "paragraphIndex": 3,
@@ -61583,6 +62447,15 @@
           "startOffset": 32,
           "endOffset": 39,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 43,
+          "paragraphIndex": 4,
+          "startOffset": 46,
+          "endOffset": 52,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -61619,6 +62492,15 @@
           "startOffset": 145,
           "endOffset": 148,
           "text": "Joe",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 43,
+          "paragraphIndex": 5,
+          "startOffset": 162,
+          "endOffset": 168,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -62531,6 +63413,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 45,
+          "paragraphIndex": 3,
+          "startOffset": 778,
+          "endOffset": 784,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "estella",
           "chapterNumber": 45,
           "paragraphIndex": 3,
@@ -62963,6 +63854,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 46,
+          "paragraphIndex": 11,
+          "startOffset": 8,
+          "endOffset": 14,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 46,
           "paragraphIndex": 11,
@@ -63116,6 +64016,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 46,
+          "paragraphIndex": 27,
+          "startOffset": 141,
+          "endOffset": 147,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "compeyson",
           "chapterNumber": 46,
           "paragraphIndex": 28,
@@ -63224,12 +64133,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 46,
+          "paragraphIndex": 34,
+          "startOffset": 23,
+          "endOffset": 29,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 46,
+          "paragraphIndex": 34,
+          "startOffset": 99,
+          "endOffset": 105,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 46,
           "paragraphIndex": 35,
           "startOffset": 78,
           "endOffset": 85,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 46,
+          "paragraphIndex": 35,
+          "startOffset": 224,
+          "endOffset": 230,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -63251,6 +64187,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 46,
+          "paragraphIndex": 39,
+          "startOffset": 203,
+          "endOffset": 209,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 46,
           "paragraphIndex": 39,
@@ -63266,6 +64211,15 @@
           "startOffset": 453,
           "endOffset": 460,
           "text": "Estella",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 46,
+          "paragraphIndex": 41,
+          "startOffset": 112,
+          "endOffset": 118,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -63509,6 +64463,24 @@
           "startOffset": 50,
           "endOffset": 53,
           "text": "Pip",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 47,
+          "paragraphIndex": 21,
+          "startOffset": 202,
+          "endOffset": 208,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 47,
+          "paragraphIndex": 21,
+          "startOffset": 259,
+          "endOffset": 265,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -64520,6 +65492,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 5,
+          "startOffset": 12,
+          "endOffset": 18,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 50,
           "paragraphIndex": 7,
@@ -64538,6 +65519,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 9,
+          "startOffset": 214,
+          "endOffset": 220,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 50,
           "paragraphIndex": 13,
@@ -64553,6 +65543,15 @@
           "startOffset": 0,
           "endOffset": 7,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 17,
+          "startOffset": 31,
+          "endOffset": 37,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -64592,6 +65591,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 22,
+          "startOffset": 191,
+          "endOffset": 197,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 50,
           "paragraphIndex": 25,
@@ -64601,12 +65609,48 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 26,
+          "startOffset": 32,
+          "endOffset": 38,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 26,
+          "startOffset": 83,
+          "endOffset": 89,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 26,
+          "startOffset": 240,
+          "endOffset": 246,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 50,
           "paragraphIndex": 27,
           "startOffset": 15,
           "endOffset": 22,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 28,
+          "startOffset": 33,
+          "endOffset": 39,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -64628,12 +65672,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 32,
+          "startOffset": 106,
+          "endOffset": 112,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "compeyson",
           "chapterNumber": 50,
           "paragraphIndex": 34,
           "startOffset": 55,
           "endOffset": 64,
           "text": "Compeyson",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 50,
+          "paragraphIndex": 34,
+          "startOffset": 371,
+          "endOffset": 377,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -65060,6 +66122,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 51,
+          "paragraphIndex": 20,
+          "startOffset": 264,
+          "endOffset": 270,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 51,
           "paragraphIndex": 20,
@@ -65105,6 +66176,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 51,
+          "paragraphIndex": 22,
+          "startOffset": 35,
+          "endOffset": 41,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "jaggers",
           "chapterNumber": 51,
           "paragraphIndex": 23,
@@ -65147,6 +66227,15 @@
           "startOffset": 35,
           "endOffset": 46,
           "text": "Mr. Jaggers",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 51,
+          "paragraphIndex": 24,
+          "startOffset": 117,
+          "endOffset": 123,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -65717,6 +66806,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 52,
+          "paragraphIndex": 10,
+          "startOffset": 173,
+          "endOffset": 179,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "herbert-pocket",
           "chapterNumber": 52,
           "paragraphIndex": 14,
@@ -65771,6 +66869,33 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 52,
+          "paragraphIndex": 15,
+          "startOffset": 372,
+          "endOffset": 378,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 52,
+          "paragraphIndex": 18,
+          "startOffset": 207,
+          "endOffset": 213,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 52,
+          "paragraphIndex": 20,
+          "startOffset": 253,
+          "endOffset": 259,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "wemmick",
           "chapterNumber": 52,
           "paragraphIndex": 20,
@@ -65804,6 +66929,15 @@
           "startOffset": 214,
           "endOffset": 221,
           "text": "Wemmick",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 52,
+          "paragraphIndex": 22,
+          "startOffset": 668,
+          "endOffset": 674,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -66068,12 +67202,39 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 53,
+          "paragraphIndex": 52,
+          "startOffset": 710,
+          "endOffset": 716,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 53,
+          "paragraphIndex": 53,
+          "startOffset": 94,
+          "endOffset": 100,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "orlick",
           "chapterNumber": 53,
           "paragraphIndex": 54,
           "startOffset": 333,
           "endOffset": 339,
           "text": "Orlick",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 53,
+          "paragraphIndex": 54,
+          "startOffset": 369,
+          "endOffset": 375,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -66104,12 +67265,30 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 53,
+          "paragraphIndex": 56,
+          "startOffset": 160,
+          "endOffset": 166,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "orlick",
           "chapterNumber": 53,
           "paragraphIndex": 56,
           "startOffset": 177,
           "endOffset": 183,
           "text": "Orlick",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 53,
+          "paragraphIndex": 56,
+          "startOffset": 344,
+          "endOffset": 350,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -66302,6 +67481,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 53,
+          "paragraphIndex": 75,
+          "startOffset": 1657,
+          "endOffset": 1663,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "startop",
           "chapterNumber": 53,
           "paragraphIndex": 75,
@@ -66317,6 +67505,15 @@
           "startOffset": 12,
           "endOffset": 19,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 53,
+          "paragraphIndex": 76,
+          "startOffset": 274,
+          "endOffset": 280,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -66362,6 +67559,15 @@
           "startOffset": 38,
           "endOffset": 45,
           "text": "Herbert",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 54,
+          "paragraphIndex": 0,
+          "startOffset": 431,
+          "endOffset": 437,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -66455,6 +67661,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 54,
+          "paragraphIndex": 54,
+          "startOffset": 342,
+          "endOffset": 348,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "startop",
           "chapterNumber": 54,
           "paragraphIndex": 54,
@@ -66527,6 +67742,24 @@
           "resolution": "reviewed-name"
         },
         {
+          "characterId": "magwitch",
+          "chapterNumber": 54,
+          "paragraphIndex": 61,
+          "startOffset": 255,
+          "endOffset": 261,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 54,
+          "paragraphIndex": 61,
+          "startOffset": 787,
+          "endOffset": 793,
+          "text": "Provis",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "startop",
           "chapterNumber": 54,
           "paragraphIndex": 62,
@@ -66542,6 +67775,15 @@
           "startOffset": 121,
           "endOffset": 134,
           "text": "Abel Magwitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 54,
+          "paragraphIndex": 63,
+          "startOffset": 146,
+          "endOffset": 152,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {
@@ -66578,6 +67820,15 @@
           "startOffset": 180,
           "endOffset": 188,
           "text": "Magwitch",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "magwitch",
+          "chapterNumber": 54,
+          "paragraphIndex": 68,
+          "startOffset": 191,
+          "endOffset": 197,
+          "text": "Provis",
           "resolution": "reviewed-name"
         },
         {

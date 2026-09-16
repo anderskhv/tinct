@@ -23,7 +23,7 @@ ENTITIES = [
     },
     {
         'id': 'magwitch', 'kind': 'person', 'storyRole': 'central',
-        'aliases': ['Abel Magwitch', 'Magwitch'],
+        'aliases': ['Abel Magwitch', 'Magwitch', 'Provis'],
         'subtitle': 'An escaped convict Pip meets on the marshes',
         'body': "Starving and shackled when Pip stumbles on him among the graves, he terrifies the boy into bringing him food and a file. He is recaptured before long, but the encounter does not end there.",
     },
