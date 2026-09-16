@@ -1155,8 +1155,25 @@
   .lab-contextual-explain-scroll { max-height: 43dvh; }
 }
 
-/* WebKit only paints custom text highlights on selectable text. Pointer handlers
-   still suppress native selection and own the long-press/drag interaction. */
+/* Selection owns the paginated text surface before the browser chooses to pan.
+   Keep this independent of whether a comparison edition is enabled. */
+.lab .lab-passage.owns-text-selection,
+.lab .lab-passage.owns-text-selection * {
+  touch-action: pinch-zoom;
+  -webkit-touch-callout: none;
+}
+/* Reserve the same reading area through loading, paragraph streaming and errors. */
+.lab .lab-contextual-explain-scroll {
+  height: min(34dvh, 285px);
+  min-height: min(34dvh, 285px);
+  max-height: min(34dvh, 285px);
+  box-sizing: border-box;
+}
+.lab .lab-contextual-explain footer { display: flex; }
+.lab .lab-contextual-explain footer .lab-super-row { flex: 1; width: 50%; }
+
+/* WebKit needs selectable text to paint custom highlights. Non-passive touch
+   and selectstart handlers suppress native selection on this passage. */
 .lab .has-text-range-highlights, .lab .has-text-range-highlights * {
   -webkit-user-select: text;
   user-select: text;
@@ -1174,7 +1191,7 @@
 .lab .selection-popup.is-lab.is-contextual-explain { max-height: min(440px, calc(100dvh - 120px)); }
 .lab-contextual-explain-scroll { max-height: min(28dvh, 250px); padding: 18px 20px 10px; }
 .lab-contextual-explain-wait { min-height: 28px; font-size: 14px; color: var(--lab-muted); }
-.lab-contextual-explain footer { display: block; padding: 0; }
+.lab-contextual-explain footer { display: flex; padding: 0; }
 .lab .lab-contextual-explain footer .lab-super-row { display: flex; width: 100%; min-height: 48px; padding: 0 18px 0 0; border-radius: 0; font: 18px/1.4 'EB Garamond', Georgia, serif; }
 .lab-contextual-explain footer .lab-super-row-icon { width: 56px; flex: 0 0 56px; display: grid; place-items: center; }
 .lab-contextual-explain footer button:disabled { opacity: .4; cursor: default; }

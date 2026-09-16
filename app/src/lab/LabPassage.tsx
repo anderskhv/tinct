@@ -405,7 +405,6 @@ export function LabPassage({
     pointerType: string
   } | null>(null)
   const longPressRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const lastSelectionPageTurnAtRef = useRef(0)
   const pageStageRef = useRef<HTMLDivElement>(null)
   const articleRef = useRef<HTMLElement>(null)
   useTextRangeHighlights(articleRef)
@@ -416,6 +415,33 @@ export function LabPassage({
   useEffect(() => () => {
     if (longPressRef.current) clearTimeout(longPressRef.current)
   }, [])
+
+  // Pointer cancellation alone does not cancel Safari's native long-press
+  // selection. React touch listeners are passive, so own these native events
+  // explicitly on the paginated passage (never on popup controls).
+  useEffect(() => {
+    const article = articleRef.current
+    if (!article || hearing || !onSelectRange || onSeekToWord) return
+    const preventNativeTouch = (event: TouchEvent) => {
+      if (event.touches.length > 1) return
+      const target = event.target as Element | null
+      if (target?.closest('button, a, input, textarea, select')) return
+      if (dragRef.current || selectingRange || wordPlaceFromTarget(target)) {
+        event.preventDefault()
+      }
+    }
+    const preventNativeSelection = (event: Event) => {
+      if (dragRef.current) event.preventDefault()
+    }
+    article.addEventListener('touchstart', preventNativeTouch, { passive: false })
+    article.addEventListener('touchmove', preventNativeTouch, { passive: false })
+    article.addEventListener('selectstart', preventNativeSelection)
+    return () => {
+      article.removeEventListener('touchstart', preventNativeTouch)
+      article.removeEventListener('touchmove', preventNativeTouch)
+      article.removeEventListener('selectstart', preventNativeSelection)
+    }
+  }, [hearing, onSelectRange, onSeekToWord, selectingRange])
 
   // The tail measurement strips `is-tail-full`, forces a layout with the tail
   // start-aligned, then puts the class back. Doing that after every commit
@@ -483,6 +509,7 @@ export function LabPassage({
   }
 
   const onPointerDown = (event: React.PointerEvent) => {
+    if (dragRef.current) return
     if (event.button != null && event.button !== 0) return
     if ((event.target as HTMLElement).closest('.lab-mark-btn, button, a, input, textarea, select')) return
     // Hearing still owns the same page surface. It must accept edge taps and
@@ -512,6 +539,8 @@ export function LabPassage({
       longPressRef.current = setTimeout(() => {
         if (dragRef.current !== drag) return
         drag.selecting = true
+        const native = window.getSelection()
+        if (native?.anchorNode && articleRef.current?.contains(native.anchorNode)) native.removeAllRanges()
         setLocalSelecting(buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, selectionPlace, selectionPlace))
       }, 160)
     }
@@ -534,6 +563,7 @@ export function LabPassage({
       drag.selecting = true
       setLocalSelecting(buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, drag.start, drag.start))
     }
+    event.preventDefault()
     const pointTarget = typeof document.elementFromPoint === 'function'
       ? document.elementFromPoint(event.clientX, event.clientY)
       : null
@@ -561,23 +591,6 @@ export function LabPassage({
     if (changed && drag.start && drag.end && onSelectRange) {
       setLocalSelecting(buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, drag.start, drag.end))
     }
-    if (!drag.start || !onPageTurn || Date.now() - lastSelectionPageTurnAtRef.current < 900) return
-    const rect = event.currentTarget.getBoundingClientRect()
-    const direction = event.clientX >= rect.right - 20 ? 1 : event.clientX <= rect.left + 20 ? -1 : null
-    if (direction == null) return
-    lastSelectionPageTurnAtRef.current = Date.now()
-    const surface = event.currentTarget
-    onPageTurn(direction)
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      const current = dragRef.current
-      if (!current?.start || !current.selecting) return
-      const words = surface.querySelectorAll<HTMLElement>('[data-testid="lab-word"]')
-      const boundary = direction > 0 ? words[0] : words[words.length - 1]
-      const boundaryPlace = wordPlaceFromTarget(boundary)
-      if (!boundaryPlace) return
-      current.end = boundaryPlace
-      setLocalSelecting(buildHighlightRange(paragraphs, current.start, current.end))
-    }))
   }
 
   const onPointerEnd = (event: React.PointerEvent) => {
@@ -740,6 +753,7 @@ export function LabPassage({
         'lab-passage',
         'lab-book',
         'is-reading',
+        !hearing && onSelectRange && !onSeekToWord ? 'owns-text-selection' : '',
         hearing && !browseWhileListening ? 'is-hearing' : '',
         (followActive || inlineHearingPaint) && linesFollow.kind === 'paragraph' ? 'has-paragraph-follow' : '',
         inlineHearingPaint ? 'is-inline-hearing' : '',

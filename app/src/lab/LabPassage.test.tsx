@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
@@ -635,6 +635,47 @@ describe('mouse word lookup and dragging', () => {
     fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 10, clientY: 20 })
     fireEvent.pointerDown(word, { pointerType: 'mouse', button: 2, clientX: 10, clientY: 20 })
     fireEvent.pointerUp(word, { pointerType: 'mouse', button: 2, clientX: 10, clientY: 20 })
+    expect(select).not.toHaveBeenCalled()
+  })
+})
+
+
+describe('touch selection owns the gesture', () => {
+  it('blocks native selection/panning and never turns or swaps at a page edge', () => {
+    vi.useFakeTimers()
+    try {
+      const select = vi.fn(), turn = vi.fn(), swap = vi.fn()
+      render(<LabPassage {...passageProps(['one two three four'], { paragraphIndex: 0, from: 0, to: 4 })}
+        onSelectRange={select} onPageTurn={turn} onCompareSwap={swap} />)
+      const word = screen.getAllByTestId('lab-word')[0]
+      const surface = screen.getByTestId('lab-book')
+      vi.spyOn(surface, 'getBoundingClientRect').mockReturnValue({ left: 0, right: 390, top: 0, bottom: 700, width: 390, height: 700 } as DOMRect)
+      fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 100, clientY: 200 })
+      expect(fireEvent.touchStart(word, { touches: [{ clientX: 100, clientY: 200 }] })).toBe(false)
+      expect(fireEvent(word, new Event('selectstart', { bubbles: true, cancelable: true }))).toBe(false)
+      act(() => vi.advanceTimersByTime(170))
+      expect(word.classList.contains('is-selecting')).toBe(true)
+      fireEvent.pointerMove(word, { pointerType: 'touch', clientX: 388, clientY: 200 })
+      expect(fireEvent.touchMove(word, { touches: [{ clientX: 388, clientY: 200 }] })).toBe(false)
+      act(() => vi.advanceTimersByTime(1000))
+      fireEvent.pointerMove(word, { pointerType: 'touch', clientX: 2, clientY: 200 })
+      fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 100, clientY: 400 })
+      expect(select).toHaveBeenCalledOnce()
+      expect(turn).not.toHaveBeenCalled()
+      expect(swap).not.toHaveBeenCalled()
+      expect(fireEvent(word, new Event('selectstart', { bubbles: true, cancelable: true }))).toBe(true)
+    } finally { vi.useRealTimers() }
+  })
+
+  it('still permits a quick swipe starting on a word', () => {
+    const swap = vi.fn(), select = vi.fn()
+    render(<LabPassage {...passageProps(['one two'], { paragraphIndex: 0, from: 0, to: 2 })}
+      onSelectRange={select} onCompareSwap={swap} />)
+    const word = screen.getAllByTestId('lab-word')[0]
+    fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 100, clientY: 200 })
+    fireEvent.pointerMove(word, { pointerType: 'touch', clientX: 100, clientY: 310 })
+    fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 100, clientY: 310 })
+    expect(swap).toHaveBeenCalledOnce()
     expect(select).not.toHaveBeenCalled()
   })
 })

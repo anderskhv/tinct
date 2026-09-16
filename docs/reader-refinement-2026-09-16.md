@@ -55,3 +55,11 @@ commit after the opening-paragraph refinement reached main.
 
 Next action: this refinement batch is complete. Subsequent voice feedback was
 handled in the [Live conversation correction](voice-refinement-2026-09-16.md).
+
+## Subsequent physical-device feedback
+
+The assumption above that pointer prevention suppressed native Safari selection
+was contradicted by Anders's next screenshot. See the
+[selection stability correction](selection-stability-2026-09-16.md) for the
+replacement touch arbitration, removed selection-driven page turns and fixed
+explanation geometry.

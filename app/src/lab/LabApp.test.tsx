@@ -2580,7 +2580,7 @@ describe('lab passage headline pages', () => {
     expect(turn).toHaveBeenCalledWith(1)
   })
 
-  it('turns one page when an active long-press selection reaches the page edge', () => {
+  it('keeps the page still when an active long-press selection reaches the page edge', () => {
     vi.useFakeTimers()
     vi.spyOn(Date, 'now').mockReturnValue(2_000)
     const turn = vi.fn()
@@ -2608,7 +2608,7 @@ describe('lab passage headline pages', () => {
     fireEvent.pointerDown(word, { pointerId: 10, pointerType: 'touch', clientX: 195, clientY: 200 })
     act(() => { vi.advanceTimersByTime(400) })
     fireEvent.pointerMove(page, { pointerId: 10, pointerType: 'touch', clientX: 385, clientY: 200 })
-    expect(turn).toHaveBeenCalledWith(1)
+    expect(turn).not.toHaveBeenCalled()
   })
 
   it('keeps selected word boxes separate from whitespace', () => {
