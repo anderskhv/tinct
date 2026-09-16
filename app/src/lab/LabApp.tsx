@@ -372,7 +372,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [book, setBook] = useState<LabSource>(() => readerHandoff ? pendingLabSourceForHandoff(readerHandoff) : boot.book)
   const [readerLoadError, setReaderLoadError] = useState('')
   const [prefs, setPrefs] = useState<LabPrefs>(() => {
-    const stored = syncLabAudioEdition(readLabPrefs(appearanceProfile))
+    // Resolve audio only after the handoff identifies the book. Bible defaults
+    // would otherwise erase another book's explicit audiobook on reload.
+    const stored = readLabPrefs(appearanceProfile)
     const restored = readerHandoff
       ? prefsFromLabReaderHandoff(stored, readerHandoff)
       : prefsFromLabResumePlace(stored, boot.resume)
