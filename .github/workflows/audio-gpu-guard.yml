@@ -12,6 +12,9 @@ name: audio-gpu-guard
 # the guard exits 2 and this job reports that it is not yet armed.
 
 on:
+  push:
+    branches:
+      - 'codex/audio-guard-check-20260916'
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
