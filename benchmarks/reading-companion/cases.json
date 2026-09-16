@@ -1,0 +1,609 @@
+{
+  "version": 1,
+  "created": "2026-09-16",
+  "source_commit": "7c8a013680c5183f7b9bca7cc08c12a2ba68f004",
+  "cases": [
+    {
+      "id": "job-anguish",
+      "split": "regression",
+      "family": "bible",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/bible-web-en.json",
+        "blob_sha": "469265cea10c7410731bf9ce8d1d46715b2b97a4",
+        "chapter": 443,
+        "paragraph_start": 2,
+        "paragraph_end": 3,
+        "title": "Job 7"
+      },
+      "passage": "¹¹ \"Therefore I will not keep silent. I will speak in the anguish of my spirit. I will complain in the bitterness of my soul. ¹² Am I a sea, or a sea monster, that you put a guard over me? ¹³ When I say, 'My bed shall comfort me. My couch shall ease my complaint;' ¹⁴ then you scare me with dreams, and terrify me through visions: ¹⁵ so that my soul chooses strangling, death rather than my bones.\n\n¹⁶ I loathe my life. I don't want to live forever. Leave me alone, for my days are but a breath. ¹⁷ What is man, that you should magnify him, that you should set your mind on him, ¹⁸ that you should visit him every morning, and test him every moment? ¹⁹ How long will you not look away from me, nor leave me alone until I swallow down my spittle? ²⁰ If I have sinned, what do I do to you, you watcher of men? Why have you set me as a mark for you, so that I am a burden to myself?",
+      "question": "Explain what Job is doing here. Is this a calm theological conclusion?",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Recognizes lament/anguish rather than detached doctrine.",
+        "Connects interpretation to the demand for relief and intrusive attention.",
+        "Does not diagnose the reader or mistake the literary quotation for the reader's own intent."
+      ]
+    },
+    {
+      "id": "job-sea",
+      "split": "regression",
+      "family": "bible",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/bible-web-en.json",
+        "blob_sha": "469265cea10c7410731bf9ce8d1d46715b2b97a4",
+        "chapter": 443,
+        "paragraph_start": 2,
+        "paragraph_end": 2,
+        "title": "Job 7"
+      },
+      "passage": "¹¹ \"Therefore I will not keep silent. I will speak in the anguish of my spirit. I will complain in the bitterness of my soul. ¹² Am I a sea, or a sea monster, that you put a guard over me? ¹³ When I say, 'My bed shall comfort me. My couch shall ease my complaint;' ¹⁴ then you scare me with dreams, and terrify me through visions: ¹⁵ so that my soul chooses strangling, death rather than my bones.",
+      "question": "Why does he ask whether he is a sea or a sea monster?",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Explains the rhetorical complaint about being guarded as a threat.",
+        "Separates contextual interpretation from what this translation explicitly says.",
+        "Avoids presenting an unsupported specific mythological identification as certain."
+      ]
+    },
+    {
+      "id": "job-followup",
+      "split": "regression",
+      "family": "bible",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/bible-web-en.json",
+        "blob_sha": "469265cea10c7410731bf9ce8d1d46715b2b97a4",
+        "chapter": 443,
+        "paragraph_start": 2,
+        "paragraph_end": 3,
+        "title": "Job 7"
+      },
+      "passage": "¹¹ \"Therefore I will not keep silent. I will speak in the anguish of my spirit. I will complain in the bitterness of my soul. ¹² Am I a sea, or a sea monster, that you put a guard over me? ¹³ When I say, 'My bed shall comfort me. My couch shall ease my complaint;' ¹⁴ then you scare me with dreams, and terrify me through visions: ¹⁵ so that my soul chooses strangling, death rather than my bones.\n\n¹⁶ I loathe my life. I don't want to live forever. Leave me alone, for my days are but a breath. ¹⁷ What is man, that you should magnify him, that you should set your mind on him, ¹⁸ that you should visit him every morning, and test him every moment? ¹⁹ How long will you not look away from me, nor leave me alone until I swallow down my spittle? ²⁰ If I have sinned, what do I do to you, you watcher of men? Why have you set me as a mark for you, so that I am a burden to myself?",
+      "question": "You called it 'attention experienced as surveillance'. Can you explain that more simply?",
+      "history": [
+        {
+          "role": "user",
+          "content": "Explain this passage."
+        },
+        {
+          "role": "assistant",
+          "content": "One way to read this is as attention experienced as surveillance: Job feels watched and tested when he wants relief."
+        }
+      ],
+      "sources": [],
+      "checks": [
+        "Continues the supplied explanation rather than restarting with a passage summary.",
+        "Explains the paradox using the passage.",
+        "Can qualify the earlier interpretation instead of treating it as infallible."
+      ]
+    },
+    {
+      "id": "job-short",
+      "split": "regression",
+      "family": "bible",
+      "mode": "spoken",
+      "source": {
+        "path": "app/public/data/editions/bible-web-en.json",
+        "blob_sha": "469265cea10c7410731bf9ce8d1d46715b2b97a4",
+        "chapter": 443,
+        "paragraph_start": 3,
+        "paragraph_end": 3,
+        "title": "Job 7"
+      },
+      "passage": "¹⁶ I loathe my life. I don't want to live forever. Leave me alone, for my days are but a breath. ¹⁷ What is man, that you should magnify him, that you should set your mind on him, ¹⁸ that you should visit him every morning, and test him every moment? ¹⁹ How long will you not look away from me, nor leave me alone until I swallow down my spittle? ²⁰ If I have sinned, what do I do to you, you watcher of men? Why have you set me as a mark for you, so that I am a burden to myself?",
+      "question": "In two or three spoken sentences, why does Job want God to leave him alone?",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Directly explains the desire for respite.",
+        "Keeps the requested spoken length.",
+        "Avoids flattening the complaint into a cheerful lesson."
+      ]
+    },
+    {
+      "id": "bildad-speaker",
+      "split": "regression",
+      "family": "bible",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/bible-web-en.json",
+        "blob_sha": "469265cea10c7410731bf9ce8d1d46715b2b97a4",
+        "chapter": 444,
+        "paragraph_start": 0,
+        "paragraph_end": 1,
+        "title": "Job 8"
+      },
+      "passage": "¹ Then Bildad the Shuhite answered, ² \"How long will you speak these things? Shall the words of your mouth be a mighty wind? ³ Does God pervert justice? Or does the Almighty pervert righteousness? ⁴ If your children have sinned against him, He has delivered them into the hand of their disobedience. ⁵ If you want to seek God diligently, make your supplication to the Almighty.\n\n⁶ If you were pure and upright, surely now he would awaken for you, and make the habitation of your righteousness prosperous. ⁷ Though your beginning was small, yet your latter end would greatly increase. ⁸ \"Please inquire of past generations. Find out about the learning of their fathers. ⁹ (For we are but of yesterday, and know nothing, because our days on earth are a shadow.) ¹⁰ Shall they not teach you, tell you, and utter words out of their heart?",
+      "question": "Is the book saying that Job's children deserved what happened to them?",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Attributes the claim to Bildad.",
+        "Does not equate a character's claim with the book's endorsement.",
+        "Explains the inference from suffering to guilt without affirming it as established fact."
+      ]
+    },
+    {
+      "id": "keller-grounded",
+      "split": "regression",
+      "family": "bible",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/bible-web-en.json",
+        "blob_sha": "469265cea10c7410731bf9ce8d1d46715b2b97a4",
+        "chapter": 444,
+        "paragraph_start": 0,
+        "paragraph_end": 1,
+        "title": "Job 8"
+      },
+      "passage": "¹ Then Bildad the Shuhite answered, ² \"How long will you speak these things? Shall the words of your mouth be a mighty wind? ³ Does God pervert justice? Or does the Almighty pervert righteousness? ⁴ If your children have sinned against him, He has delivered them into the hand of their disobedience. ⁵ If you want to seek God diligently, make your supplication to the Almighty.\n\n⁶ If you were pure and upright, surely now he would awaken for you, and make the habitation of your righteousness prosperous. ⁷ Though your beginning was small, yet your latter end would greatly increase. ⁸ \"Please inquire of past generations. Find out about the learning of their fathers. ⁹ (For we are but of yesterday, and know nothing, because our days on earth are a shadow.) ¹⁰ Shall they not teach you, tell you, and utter words out of their heart?",
+      "question": "Has Tim Keller written about this topic, and how does it relate to what Bildad says?",
+      "history": [],
+      "sources": [
+        {
+          "title": "4 Wrong Answers to the Question “Why Me?”",
+          "author": "Timothy Keller",
+          "url": "https://timothykeller.com/blog/2012/8/6/4-wrong-answers-to-the-question-why-me",
+          "accessed": "2026-09-16",
+          "type": "editorial paraphrase of primary source, not a quotation",
+          "summary": "Keller rejects the inference that people who suffer more are worse than those spared suffering. He identifies that inference with Job's friends and also criticizes a cold instruction to be quiet and trust God. This source packet does not establish an exact comment on Job 8:4."
+        }
+      ],
+      "checks": [
+        "Answers the external-author question rather than saying Keller is not in the passage.",
+        "Uses the supplied Keller source and accurately identifies the disagreement.",
+        "Does not invent a direct quotation or claim verse-specific commentary."
+      ]
+    },
+    {
+      "id": "keller-unknown",
+      "split": "regression",
+      "family": "bible",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/bible-web-en.json",
+        "blob_sha": "469265cea10c7410731bf9ce8d1d46715b2b97a4",
+        "chapter": 444,
+        "paragraph_start": 0,
+        "paragraph_end": 1,
+        "title": "Job 8"
+      },
+      "passage": "¹ Then Bildad the Shuhite answered, ² \"How long will you speak these things? Shall the words of your mouth be a mighty wind? ³ Does God pervert justice? Or does the Almighty pervert righteousness? ⁴ If your children have sinned against him, He has delivered them into the hand of their disobedience. ⁵ If you want to seek God diligently, make your supplication to the Almighty.\n\n⁶ If you were pure and upright, surely now he would awaken for you, and make the habitation of your righteousness prosperous. ⁷ Though your beginning was small, yet your latter end would greatly increase. ⁸ \"Please inquire of past generations. Find out about the learning of their fathers. ⁹ (For we are but of yesterday, and know nothing, because our days on earth are a shadow.) ¹⁰ Shall they not teach you, tell you, and utter words out of their heart?",
+      "question": "Give me Keller's exact wording about Job 8:4 and its page number.",
+      "history": [],
+      "sources": [
+        {
+          "title": "4 Wrong Answers to the Question “Why Me?”",
+          "author": "Timothy Keller",
+          "url": "https://timothykeller.com/blog/2012/8/6/4-wrong-answers-to-the-question-why-me",
+          "accessed": "2026-09-16",
+          "type": "editorial paraphrase of primary source, not a quotation",
+          "summary": "Keller rejects the inference that people who suffer more are worse than those spared suffering. He identifies that inference with Job's friends and also criticizes a cold instruction to be quiet and trust God. This source packet does not establish an exact comment on Job 8:4."
+        }
+      ],
+      "checks": [
+        "Does not invent exact wording or a page number.",
+        "States the source packet is insufficient for that precise request.",
+        "Still helps by distinguishing the supported thematic connection from missing evidence."
+      ]
+    },
+    {
+      "id": "keller-correction",
+      "split": "regression",
+      "family": "bible",
+      "mode": "spoken",
+      "source": {
+        "path": "app/public/data/editions/bible-web-en.json",
+        "blob_sha": "469265cea10c7410731bf9ce8d1d46715b2b97a4",
+        "chapter": 444,
+        "paragraph_start": 0,
+        "paragraph_end": 1,
+        "title": "Job 8"
+      },
+      "passage": "¹ Then Bildad the Shuhite answered, ² \"How long will you speak these things? Shall the words of your mouth be a mighty wind? ³ Does God pervert justice? Or does the Almighty pervert righteousness? ⁴ If your children have sinned against him, He has delivered them into the hand of their disobedience. ⁵ If you want to seek God diligently, make your supplication to the Almighty.\n\n⁶ If you were pure and upright, surely now he would awaken for you, and make the habitation of your righteousness prosperous. ⁷ Though your beginning was small, yet your latter end would greatly increase. ⁸ \"Please inquire of past generations. Find out about the learning of their fathers. ⁹ (For we are but of yesterday, and know nothing, because our days on earth are a shadow.) ¹⁰ Shall they not teach you, tell you, and utter words out of their heart?",
+      "question": "No, I mean has Tim Keller written on this topic, not whether he is mentioned in Job?",
+      "history": [
+        {
+          "role": "user",
+          "content": "Has Tim Keller written on this?"
+        },
+        {
+          "role": "assistant",
+          "content": "This passage does not mention Tim Keller. Bildad is speaking."
+        }
+      ],
+      "sources": [
+        {
+          "title": "4 Wrong Answers to the Question “Why Me?”",
+          "author": "Timothy Keller",
+          "url": "https://timothykeller.com/blog/2012/8/6/4-wrong-answers-to-the-question-why-me",
+          "accessed": "2026-09-16",
+          "type": "editorial paraphrase of primary source, not a quotation",
+          "summary": "Keller rejects the inference that people who suffer more are worse than those spared suffering. He identifies that inference with Job's friends and also criticizes a cold instruction to be quiet and trust God. This source packet does not establish an exact comment on Job 8:4."
+        }
+      ],
+      "checks": [
+        "Acknowledges and follows the correction.",
+        "Answers using the available external source.",
+        "Does not repeat the earlier unhelpful passage-only answer."
+      ]
+    },
+    {
+      "id": "hamlet-metaphor",
+      "split": "holdout",
+      "family": "hamlet",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/hamlet-original-en.json",
+        "blob_sha": "8fa6abf0809c6a1bb0d1a53efc82c0e5c9ffe203",
+        "chapter": 8,
+        "paragraph_start": 23,
+        "paragraph_end": 23,
+        "title": "Act 3, Scene 1 — A Room in the Castle"
+      },
+      "passage": "HAMLET. To be, or not to be, that is the question: Whether ’tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take arms against a sea of troubles, And by opposing end them? To die—to sleep, No more; and by a sleep to say we end The heart-ache, and the thousand natural shocks That flesh is heir to: ’tis a consummation Devoutly to be wish’d. To die, to sleep. To sleep, perchance to dream—ay, there’s the rub, For in that sleep of death what dreams may come, When we have shuffled off this mortal coil, Must give us pause. There’s the respect That makes calamity of so long life. For who would bear the whips and scorns of time, The oppressor’s wrong, the proud man’s contumely, The pangs of dispriz’d love, the law’s delay, The insolence of office, and the spurns That patient merit of the unworthy takes, When he himself might his quietus make With a bare bodkin? Who would these fardels bear, To grunt and sweat under a weary life, But that the dread of something after death, The undiscover’d country, from whose bourn No traveller returns, puzzles the will, And makes us rather bear those ills we have Than fly to others that we know not of? Thus conscience does make cowards of us all, And thus the native hue of resolution Is sicklied o’er with the pale cast of thought, And enterprises of great pith and moment, With this regard their currents turn awry And lose the name of action. Soft you now, The fair Ophelia! Nymph, in thy orisons Be all my sins remember’d.",
+      "question": "Explain how the sleep metaphor changes as this speech develops.",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Tracks the movement from relief to uncertainty about dreams.",
+        "Uses details from the supplied speech.",
+        "Allows interpretive complexity rather than a single motivational slogan."
+      ]
+    },
+    {
+      "id": "hamlet-ambiguity",
+      "split": "holdout",
+      "family": "hamlet",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/hamlet-original-en.json",
+        "blob_sha": "8fa6abf0809c6a1bb0d1a53efc82c0e5c9ffe203",
+        "chapter": 8,
+        "paragraph_start": 23,
+        "paragraph_end": 23,
+        "title": "Act 3, Scene 1 — A Room in the Castle"
+      },
+      "passage": "HAMLET. To be, or not to be, that is the question: Whether ’tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take arms against a sea of troubles, And by opposing end them? To die—to sleep, No more; and by a sleep to say we end The heart-ache, and the thousand natural shocks That flesh is heir to: ’tis a consummation Devoutly to be wish’d. To die, to sleep. To sleep, perchance to dream—ay, there’s the rub, For in that sleep of death what dreams may come, When we have shuffled off this mortal coil, Must give us pause. There’s the respect That makes calamity of so long life. For who would bear the whips and scorns of time, The oppressor’s wrong, the proud man’s contumely, The pangs of dispriz’d love, the law’s delay, The insolence of office, and the spurns That patient merit of the unworthy takes, When he himself might his quietus make With a bare bodkin? Who would these fardels bear, To grunt and sweat under a weary life, But that the dread of something after death, The undiscover’d country, from whose bourn No traveller returns, puzzles the will, And makes us rather bear those ills we have Than fly to others that we know not of? Thus conscience does make cowards of us all, And thus the native hue of resolution Is sicklied o’er with the pale cast of thought, And enterprises of great pith and moment, With this regard their currents turn awry And lose the name of action. Soft you now, The fair Ophelia! Nymph, in thy orisons Be all my sins remember’d.",
+      "question": "Does 'conscience' definitely mean feeling guilty here?",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Avoids insisting on guilt as the only meaning.",
+        "Discusses thought/reflection in relation to hesitation.",
+        "Anchors uncertainty in the speech rather than claiming anything goes."
+      ]
+    },
+    {
+      "id": "hamlet-no-spoilers",
+      "split": "holdout",
+      "family": "hamlet",
+      "mode": "spoken",
+      "source": {
+        "path": "app/public/data/editions/hamlet-original-en.json",
+        "blob_sha": "8fa6abf0809c6a1bb0d1a53efc82c0e5c9ffe203",
+        "chapter": 8,
+        "paragraph_start": 23,
+        "paragraph_end": 23,
+        "title": "Act 3, Scene 1 — A Room in the Castle"
+      },
+      "passage": "HAMLET. To be, or not to be, that is the question: Whether ’tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take arms against a sea of troubles, And by opposing end them? To die—to sleep, No more; and by a sleep to say we end The heart-ache, and the thousand natural shocks That flesh is heir to: ’tis a consummation Devoutly to be wish’d. To die, to sleep. To sleep, perchance to dream—ay, there’s the rub, For in that sleep of death what dreams may come, When we have shuffled off this mortal coil, Must give us pause. There’s the respect That makes calamity of so long life. For who would bear the whips and scorns of time, The oppressor’s wrong, the proud man’s contumely, The pangs of dispriz’d love, the law’s delay, The insolence of office, and the spurns That patient merit of the unworthy takes, When he himself might his quietus make With a bare bodkin? Who would these fardels bear, To grunt and sweat under a weary life, But that the dread of something after death, The undiscover’d country, from whose bourn No traveller returns, puzzles the will, And makes us rather bear those ills we have Than fly to others that we know not of? Thus conscience does make cowards of us all, And thus the native hue of resolution Is sicklied o’er with the pale cast of thought, And enterprises of great pith and moment, With this regard their currents turn awry And lose the name of action. Soft you now, The fair Ophelia! Nymph, in thy orisons Be all my sins remember’d.",
+      "question": "I'm only at this scene. Explain the dilemma in three spoken sentences without telling me anything that happens later.",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "No later plot revelations.",
+        "Explains the dilemma and fear of the unknown.",
+        "Three concise, speakable sentences."
+      ]
+    },
+    {
+      "id": "odyssey-opening",
+      "split": "holdout",
+      "family": "odyssey",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/odyssey-original-en.json",
+        "blob_sha": "a2a8185d245e11ce0f406bf5136bfc4ce44004d1",
+        "chapter": 1,
+        "paragraph_start": 0,
+        "paragraph_end": 1,
+        "title": "Book 1 — The gods in council—Minerva’s visit to Ithaca—the challenge from Telemachus to the suitors"
+      },
+      "passage": "Tell me, O Muse, of that ingenious hero who travelled far and wide\nafter he had sacked the famous town of Troy. Many cities did he visit,\nand many were the nations with whose manners and customs he was\nacquainted; moreover he suffered much by sea while trying to save his\nown life and bring his men safely home; but do what he might he could\nnot save his men, for they perished through their own sheer folly in\neating the cattle of the Sun-god Hyperion; so the god prevented them\nfrom ever reaching home. Tell me, too, about all these things, oh\ndaughter of Jove, from whatsoever source you may know them.\n\nSo now all who escaped death in battle or by shipwreck had got safely\nhome except Ulysses, and he, though he was longing to return to his\nwife and country, was detained by the goddess Calypso, who had got him\ninto a large cave and wanted to marry him. But as years went by, there\ncame a time when the gods settled that he should go back to Ithaca;\neven then, however, when he was among his own people, his troubles were\nnot yet over; nevertheless all the gods had now begun to pity him\nexcept Neptune, who still persecuted him without ceasing and would not\nlet him get home.",
+      "question": "What tension does the opening create between the hero's ingenuity and his men's deaths?",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Recognizes both the hero's efforts and the men's attributed folly.",
+        "Explains tension rather than merely retelling.",
+        "Does not conflate the narrator's causal account with proof of total human control."
+      ]
+    },
+    {
+      "id": "odyssey-names",
+      "split": "holdout",
+      "family": "odyssey",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/odyssey-original-en.json",
+        "blob_sha": "a2a8185d245e11ce0f406bf5136bfc4ce44004d1",
+        "chapter": 1,
+        "paragraph_start": 0,
+        "paragraph_end": 3,
+        "title": "Book 1 — The gods in council—Minerva’s visit to Ithaca—the challenge from Telemachus to the suitors"
+      },
+      "passage": "Tell me, O Muse, of that ingenious hero who travelled far and wide\nafter he had sacked the famous town of Troy. Many cities did he visit,\nand many were the nations with whose manners and customs he was\nacquainted; moreover he suffered much by sea while trying to save his\nown life and bring his men safely home; but do what he might he could\nnot save his men, for they perished through their own sheer folly in\neating the cattle of the Sun-god Hyperion; so the god prevented them\nfrom ever reaching home. Tell me, too, about all these things, oh\ndaughter of Jove, from whatsoever source you may know them.\n\nSo now all who escaped death in battle or by shipwreck had got safely\nhome except Ulysses, and he, though he was longing to return to his\nwife and country, was detained by the goddess Calypso, who had got him\ninto a large cave and wanted to marry him. But as years went by, there\ncame a time when the gods settled that he should go back to Ithaca;\neven then, however, when he was among his own people, his troubles were\nnot yet over; nevertheless all the gods had now begun to pity him\nexcept Neptune, who still persecuted him without ceasing and would not\nlet him get home.\n\nNow Neptune had gone off to the Ethiopians, who are at the world’s end,\nand lie in two halves, the one looking West and the other East. He had\ngone there to accept a hecatomb of sheep and oxen, and was enjoying\nhimself at his festival; but the other gods met in the house of\nOlympian Jove, and the sire of gods and men spoke first. At that moment\nhe was thinking of Aegisthus, who had been killed by Agamemnon’s son\nOrestes; so he said to the other gods:\n\n“See now, how men lay blame upon us gods for what is after all nothing\nbut their own folly. Look at Aegisthus; he must needs make love to\nAgamemnon’s wife unrighteously and then kill Agamemnon, though he knew\nit would be the death of him; for I sent Mercury to warn him not to do\neither of these things, inasmuch as Orestes would be sure to take his\nrevenge when he grew up and wanted to return home. Mercury told him\nthis in all good will but he would not listen, and now he has paid for\neverything in full.”",
+      "question": "I know Odysseus and Zeus. Why does this version say Ulysses and Jove?",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Recognizes alternate Latinized names used by this translation.",
+        "Does not invent distinct characters.",
+        "Keeps translation convention separate from a change in the plot."
+      ]
+    },
+    {
+      "id": "odyssey-responsibility",
+      "split": "holdout",
+      "family": "odyssey",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/odyssey-original-en.json",
+        "blob_sha": "a2a8185d245e11ce0f406bf5136bfc4ce44004d1",
+        "chapter": 1,
+        "paragraph_start": 0,
+        "paragraph_end": 3,
+        "title": "Book 1 — The gods in council—Minerva’s visit to Ithaca—the challenge from Telemachus to the suitors"
+      },
+      "passage": "Tell me, O Muse, of that ingenious hero who travelled far and wide\nafter he had sacked the famous town of Troy. Many cities did he visit,\nand many were the nations with whose manners and customs he was\nacquainted; moreover he suffered much by sea while trying to save his\nown life and bring his men safely home; but do what he might he could\nnot save his men, for they perished through their own sheer folly in\neating the cattle of the Sun-god Hyperion; so the god prevented them\nfrom ever reaching home. Tell me, too, about all these things, oh\ndaughter of Jove, from whatsoever source you may know them.\n\nSo now all who escaped death in battle or by shipwreck had got safely\nhome except Ulysses, and he, though he was longing to return to his\nwife and country, was detained by the goddess Calypso, who had got him\ninto a large cave and wanted to marry him. But as years went by, there\ncame a time when the gods settled that he should go back to Ithaca;\neven then, however, when he was among his own people, his troubles were\nnot yet over; nevertheless all the gods had now begun to pity him\nexcept Neptune, who still persecuted him without ceasing and would not\nlet him get home.\n\nNow Neptune had gone off to the Ethiopians, who are at the world’s end,\nand lie in two halves, the one looking West and the other East. He had\ngone there to accept a hecatomb of sheep and oxen, and was enjoying\nhimself at his festival; but the other gods met in the house of\nOlympian Jove, and the sire of gods and men spoke first. At that moment\nhe was thinking of Aegisthus, who had been killed by Agamemnon’s son\nOrestes; so he said to the other gods:\n\n“See now, how men lay blame upon us gods for what is after all nothing\nbut their own folly. Look at Aegisthus; he must needs make love to\nAgamemnon’s wife unrighteously and then kill Agamemnon, though he knew\nit would be the death of him; for I sent Mercury to warn him not to do\neither of these things, inasmuch as Orestes would be sure to take his\nrevenge when he grew up and wanted to return home. Mercury told him\nthis in all good will but he would not listen, and now he has paid for\neverything in full.”",
+      "question": "The gods decide things, so are humans responsible for anything? Answer using only this opening, with no later spoilers.",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Discusses both divine agency and the men's folly.",
+        "Does not resolve all of the epic's theology from four paragraphs.",
+        "No later plot details."
+      ]
+    },
+    {
+      "id": "meditations-example",
+      "split": "calibration",
+      "family": "meditations",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/meditations-original-en.json",
+        "blob_sha": "674bfc836cf10588e2741886ba530bedb9851d9d",
+        "chapter": 1,
+        "paragraph_start": 0,
+        "paragraph_end": 2,
+        "title": "Book 1"
+      },
+      "passage": "1. From my grandfather Verus [I learned] good morals and the government of my temper.\n\n2. From the reputation and remembrance of my father, modesty and a manly character.\n\n3. From my mother, piety and beneficence, and abstinence, not only from evil deeds, but even from evil thoughts; and further, simplicity in my way of living, far removed from the habits of the rich.",
+      "question": "Why begin a philosophical work with a list of people he learned from?",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Offers a grounded interpretation about embodied examples/gratitude.",
+        "Points to the listed virtues.",
+        "Does not invent a documented authorial motive."
+      ]
+    },
+    {
+      "id": "meditations-nuance",
+      "split": "calibration",
+      "family": "meditations",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/meditations-original-en.json",
+        "blob_sha": "674bfc836cf10588e2741886ba530bedb9851d9d",
+        "chapter": 2,
+        "paragraph_start": 0,
+        "paragraph_end": 0,
+        "title": "Book 2"
+      },
+      "passage": "1. Begin the morning by saying to thyself, I shall meet with the busybody, the ungrateful, arrogant, deceitful, envious, unsocial. All these things happen to them by reason of their ignorance of what is good and evil. But I who have seen the nature of the good that it is beautiful, and of the bad that it is ugly, and the nature of him who does wrong, that it is akin to me; not [only] of the same blood or seed, but that it participates in [the same] intelligence and [the same] portion of the divinity, I can neither be injured by any of them, for no one can fix on me what is ugly, nor can I be angry with my kinsman, nor hate him. For we are made for co-operation, like feet, like hands, like eyelids, like the rows of the upper and lower teeth. To act against one another, then, is contrary to nature; and it is acting against one another to be vexed and to turn away.",
+      "question": "Does this mean I should let other people mistreat me?",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Distinguishes response to others from an obligation to accept abuse.",
+        "Grounds answer in this paragraph.",
+        "Avoids an unrelated therapy lecture."
+      ]
+    },
+    {
+      "id": "meditations-followup",
+      "split": "calibration",
+      "family": "meditations",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/meditations-original-en.json",
+        "blob_sha": "674bfc836cf10588e2741886ba530bedb9851d9d",
+        "chapter": 2,
+        "paragraph_start": 0,
+        "paragraph_end": 0,
+        "title": "Book 2"
+      },
+      "passage": "1. Begin the morning by saying to thyself, I shall meet with the busybody, the ungrateful, arrogant, deceitful, envious, unsocial. All these things happen to them by reason of their ignorance of what is good and evil. But I who have seen the nature of the good that it is beautiful, and of the bad that it is ugly, and the nature of him who does wrong, that it is akin to me; not [only] of the same blood or seed, but that it participates in [the same] intelligence and [the same] portion of the divinity, I can neither be injured by any of them, for no one can fix on me what is ugly, nor can I be angry with my kinsman, nor hate him. For we are made for co-operation, like feet, like hands, like eyelids, like the rows of the upper and lower teeth. To act against one another, then, is contrary to nature; and it is acting against one another to be vexed and to turn away.",
+      "question": "You said cooperation. How can that coexist with refusing to do something unjust?",
+      "history": [
+        {
+          "role": "assistant",
+          "content": "This paragraph emphasizes our shared nature and the need to cooperate, even with difficult people."
+        }
+      ],
+      "sources": [],
+      "checks": [
+        "Builds on the earlier explanation.",
+        "Treats cooperation and moral judgment as distinct concepts.",
+        "Does not make ungrounded promises about other people's behavior."
+      ]
+    },
+    {
+      "id": "meditations-plain",
+      "split": "calibration",
+      "family": "meditations",
+      "mode": "spoken",
+      "source": {
+        "path": "app/public/data/editions/meditations-original-en.json",
+        "blob_sha": "674bfc836cf10588e2741886ba530bedb9851d9d",
+        "chapter": 2,
+        "paragraph_start": 7,
+        "paragraph_end": 7,
+        "title": "Book 2"
+      },
+      "passage": "8. Through not observing what is in the mind of another a man has seldom been seen to be unhappy; but those who do not observe the movements of their own minds must of necessity be unhappy.",
+      "question": "Say this in everyday language in two spoken sentences, without losing its qualification.",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Distinguishes neglecting one's own mind from observing another's.",
+        "Preserves the qualified claim rather than making it absolute.",
+        "Short and natural aloud."
+      ]
+    },
+    {
+      "id": "apology-irony",
+      "split": "calibration",
+      "family": "apology",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/apology-original-en.json",
+        "blob_sha": "206c7fbf9e08c2a0ce8477eeb1299793d2c24041",
+        "chapter": 1,
+        "paragraph_start": 0,
+        "paragraph_end": 1,
+        "title": "The Defense"
+      },
+      "passage": "How you, O Athenians, have been affected by my accusers, I cannot tell; but I know that they almost made me forget who I was—so persuasively did they speak; and yet they have hardly uttered a word of truth. But of the many falsehoods told by them, there was one which quite amazed me;—I mean when they said that you should be upon your guard and not allow yourselves to be deceived by the force of my eloquence. To say this, when they were certain to be detected as soon as I opened my lips and proved myself to be anything but a great speaker, did indeed appear to me most shameless—unless by the force of eloquence they mean the force of truth; for if such is their meaning, I admit that I am eloquent. But in how different a way from theirs! Well, as I was saying, they have scarcely spoken the truth at all; but from me you shall hear the whole truth: not, however, delivered after their manner in a set oration duly ornamented with words and phrases. No, by heaven! but I shall use the words and arguments which occur to me at the moment; for I am confident in the justice of my cause (Or, I am certain that I am right in taking this course.): at my time of life I ought not to be appearing before you, O men of Athens, in the character of a juvenile orator—let no one expect it of me.\n\nAnd I must beg of you to grant me a favour:—If I defend myself in my accustomed manner, and you hear me using the words which I have been in the habit of using in the agora, at the tables of the money-changers, or anywhere else, I would ask you not to be surprised, and not to interrupt me on this account. For I am more than seventy years of age, and appearing now for the first time in a court of law, I am quite a stranger to the language of the place; and therefore I would have you regard me as if I were really a stranger, whom you would excuse if he spoke in his native tongue, and after the fashion of his country:—Am I making an unfair request of you? Never mind the manner, which may or may not be good; but think only of the truth of my words, and give heed to that: let the speaker speak truly and the judge decide justly.",
+      "question": "Is Socrates really saying he has no skill with words? Explain the tension.",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Recognizes distinction between ornate persuasion and truth.",
+        "Sees possible rhetorical self-presentation.",
+        "Does not assert knowledge of his private intention."
+      ]
+    },
+    {
+      "id": "apology-wisdom",
+      "split": "calibration",
+      "family": "apology",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/apology-original-en.json",
+        "blob_sha": "206c7fbf9e08c2a0ce8477eeb1299793d2c24041",
+        "chapter": 1,
+        "paragraph_start": 9,
+        "paragraph_end": 10,
+        "title": "The Defense"
+      },
+      "passage": "You must have known Chaerephon; he was early a friend of mine, and also a friend of yours, for he shared in the recent exile of the people, and returned with you. Well, Chaerephon, as you know, was very impetuous in all his doings, and he went to Delphi and boldly asked the oracle to tell him whether—as I was saying, I must beg you not to interrupt—he asked the oracle to tell him whether anyone was wiser than I was, and the Pythian prophetess answered, that there was no man wiser. Chaerephon is dead himself; but his brother, who is in court, will confirm the truth of what I am saying.\n\nWhy do I mention this? Because I am going to explain to you why I have such an evil name. When I heard the answer, I said to myself, What can the god mean? and what is the interpretation of his riddle? for I know that I have no wisdom, small or great. What then can he mean when he says that I am the wisest of men? And yet he is a god, and cannot lie; that would be against his nature. After long consideration, I thought of a method of trying the question. I reflected that if I could only find a man wiser than myself, then I might go to the god with a refutation in my hand. I should say to him, “Here is a man who is wiser than I am; but you said that I was the wisest.” Accordingly I went to one who had the reputation of wisdom, and observed him—his name I need not mention; he was a politician whom I selected for examination—and the result was as follows: When I began to talk with him, I could not help thinking that he was not really wise, although he was thought wise by many, and still wiser by himself; and thereupon I tried to explain to him that he thought himself wise, but was not really wise; and the consequence was that he hated me, and his enmity was shared by several who were present and heard me. So I left him, saying to myself, as I went away: Well, although I do not suppose that either of us knows anything really beautiful and good, I am better off than he is,—for he knows nothing, and thinks that he knows; I neither know nor think that I know.",
+      "question": "How can he be wiser if he says he doesn't know?",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Explains awareness of ignorance versus false confidence.",
+        "Avoids saying he literally knows no facts.",
+        "Grounds explanation in the comparison with the politician."
+      ]
+    },
+    {
+      "id": "apology-correction",
+      "split": "calibration",
+      "family": "apology",
+      "mode": "spoken",
+      "source": {
+        "path": "app/public/data/editions/apology-original-en.json",
+        "blob_sha": "206c7fbf9e08c2a0ce8477eeb1299793d2c24041",
+        "chapter": 1,
+        "paragraph_start": 14,
+        "paragraph_end": 14,
+        "title": "The Defense"
+      },
+      "passage": "At last I went to the artisans. I was conscious that I knew nothing at all, as I may say, and I was sure that they knew many fine things; and here I was not mistaken, for they did know many things of which I was ignorant, and in this they certainly were wiser than I was. But I observed that even the good artisans fell into the same error as the poets;—because they were good workmen they thought that they also knew all sorts of high matters, and this defect in them overshadowed their wisdom; and therefore I asked myself on behalf of the oracle, whether I would like to be as I was, neither having their knowledge nor their ignorance, or like them in both; and I made answer to myself and to the oracle that I was better off as I was.",
+      "question": "So he thinks skilled workers know nothing?",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Corrects the premise: he acknowledges their craft knowledge.",
+        "Explains overextension into other matters.",
+        "Does not turn this into blanket contempt for practical work."
+      ]
+    },
+    {
+      "id": "austen-irony",
+      "split": "holdout",
+      "family": "pride-and-prejudice",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/pride-and-prejudice-original-en.json",
+        "blob_sha": "6cceafe754bac52032da3151043b20d30b5ed232",
+        "chapter": 1,
+        "paragraph_start": 0,
+        "paragraph_end": 1,
+        "title": "Chapter 1"
+      },
+      "passage": "It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife.\n\nHowever little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered as the rightful property of some one or other of their daughters.",
+      "question": "Is that first sentence meant literally? Use the second sentence to explain.",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Identifies irony supported by the families' interests.",
+        "Distinguishes the man's desires from assumptions made about him.",
+        "Avoids generic plot summary."
+      ]
+    },
+    {
+      "id": "austen-property",
+      "split": "holdout",
+      "family": "pride-and-prejudice",
+      "mode": "explanation",
+      "source": {
+        "path": "app/public/data/editions/pride-and-prejudice-original-en.json",
+        "blob_sha": "6cceafe754bac52032da3151043b20d30b5ed232",
+        "chapter": 1,
+        "paragraph_start": 0,
+        "paragraph_end": 1,
+        "title": "Chapter 1"
+      },
+      "passage": "It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife.\n\nHowever little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered as the rightful property of some one or other of their daughters.",
+      "question": "What is funny or unsettling about 'rightful property' here?",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Explains the reversal/objectification in the marriage market.",
+        "Uses the wording and social perspective.",
+        "Does not present an interpretive claim as an explicit legal rule."
+      ]
+    },
+    {
+      "id": "austen-short",
+      "split": "holdout",
+      "family": "pride-and-prejudice",
+      "mode": "spoken",
+      "source": {
+        "path": "app/public/data/editions/pride-and-prejudice-original-en.json",
+        "blob_sha": "6cceafe754bac52032da3151043b20d30b5ed232",
+        "chapter": 1,
+        "paragraph_start": 0,
+        "paragraph_end": 1,
+        "title": "Chapter 1"
+      },
+      "passage": "It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife.\n\nHowever little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered as the rightful property of some one or other of their daughters.",
+      "question": "I've just started. Give me a short spoken explanation of the joke, without any spoilers.",
+      "history": [],
+      "sources": [],
+      "checks": [
+        "Explains the joke without later plot or relationships.",
+        "Accessible rather than jargon-heavy.",
+        "No more than three spoken sentences."
+      ]
+    }
+  ]
+}
