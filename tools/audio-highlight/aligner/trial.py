@@ -12,7 +12,7 @@ GATE=.85
 # contraction table (run 3, 2026-09-12); v4 adds the lettered-footnote structural rule.
 # Default v4; --helper v1 reproduces run 1 exactly
 # and --helper v2 reproduces run 2.
-HELPERS={'v1':'pinned_words_sidecar_lib','v2':'pinned_words_sidecar_lib_v2','v3':'pinned_words_sidecar_lib_v3'};DEFAULT_HELPER='v3'
+HELPERS={'v1':'pinned_words_sidecar_lib','v2':'pinned_words_sidecar_lib_v2','v3':'pinned_words_sidecar_lib_v3','v4':'pinned_words_sidecar_lib_v4'};DEFAULT_HELPER='v4'
 def select_helper(name):
  global lib;lib=importlib.import_module(HELPERS[name]);return lib
 
