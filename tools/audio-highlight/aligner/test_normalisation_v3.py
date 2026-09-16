@@ -153,9 +153,20 @@ class LetteredFootnoteMarkers(unittest.TestCase):
   self.assertEqual(ratio('I [ See the history.]',['See','the','history.'],lib=v4).unspoken,[])
 
 class CloudOrchestratorPin(unittest.TestCase):
- def test_cloud_orchestrator_accepts_v4(self):
-  source=(Path(__file__).parents[1]/'gpu'/'orchestrate.py').read_text()
-  self.assertIn('default="v4", choices=["v1", "v2", "v3", "v4"]',source)
+ def test_v4_is_plumbed_from_workflow_through_pod(self):
+  root=Path(__file__).parents[3]
+  workflow=(root/'.github'/'workflows'/'audio-align-canary.yml').read_text()
+  orchestrator=(root/'tools'/'audio-highlight'/'gpu'/'orchestrate.py').read_text()
+  pod=(root/'tools'/'audio-highlight'/'gpu'/'pod_job.py').read_text()
+  trial_source=(root/'tools'/'audio-highlight'/'aligner'/'trial.py').read_text()
+  pins=(root/'tools'/'audio-highlight'/'aligner'/'PINS.md').read_text()
+  self.assertIn('--helper v4',workflow)
+  self.assertIn('default="v4", choices=["v1", "v2", "v3", "v4"]',orchestrator)
+  self.assertIn('TINCT_HELPER',orchestrator)
+  self.assertIn('pinned_words_sidecar_lib_v4.py',pod)
+  self.assertIn('os.environ.get("TINCT_HELPER", "v4")',pod)
+  self.assertIn("'v4':'pinned_words_sidecar_lib_v4'",trial_source)
+  self.assertIn(hashlib.sha256(Path(v4.__file__).read_bytes()).hexdigest(),pins)
 
 class Pins(unittest.TestCase):
  def test_pins_file_records_all_three_helper_hashes(self):
