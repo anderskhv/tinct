@@ -64,6 +64,19 @@ jobs:
             --json-out guard-report.json \
             --apply
 
+      - name: Assert and expose post-guard state
+        run: |
+          python3 - <<'PY'
+          import json
+          report=json.load(open('guard-report.json'))
+          active=[p for p in report.get('ownedPods',[]) if p.get('status') != 'EXITED']
+          summary={k:report.get(k) for k in ('checkedAt','estimatedRunningCost','estimatedTotalSpend','budget','actions','unownedRunningPods')}
+          summary['activeOwnedPods']=active
+          print('::notice title=GPU guard post-state::'+json.dumps(summary,separators=(',',':')))
+          if active:
+              raise SystemExit('owned pod remains non-EXITED after enforce')
+          PY
+
       - uses: actions/upload-artifact@v4
         if: always() && hashFiles('guard-report.json') != ''
         with:
