@@ -1,12 +1,12 @@
 # Ulysses character package — IN PROGRESS
 
-**Episodes 1 to 10 of 18 are authored. The rest are not.** Status stays
+**Episodes 1 to 11 of 18 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole book is
 covered.
 
-Current state: 770 entities authored, 768 bound in the older edition and 765 in
-the modern one, 4,022 and 4,095 exact mentions, 98 focused tests. Content
-revision 2026-09-15.10.
+Current state: 801 entities authored, 799 bound in the older edition and 796 in
+the modern one, 4,583 and 4,623 exact mentions, 116 focused tests. Content
+revision 2026-09-16.11.
 
 ## What is hard about this book
 
@@ -929,6 +929,148 @@ lowercase form as a second alias. The modern edition also sets the throwaway's
 headline in capitals — **ELIJAH IS COMING** — which the case-sensitive key could
 not reach until a capitalised pattern was added.
 
+## Editorial checks — episode 11 (*Sirens*)
+
+Four o'clock in the bar of the Ormond hotel, 635 paragraphs, 31 new entities.
+The first sixty paragraphs are an overture: fragments of every phrase the
+episode will use, arriving before the scene that explains them. Names come
+apart and fuse together here more than anywhere else in the book so far —
+*Bloowho*, *Greaseabloom*, *Siopold*, *Bronzelydia by Minagold*, *Big Benaben*,
+*Lidlydiawell*, *Lid Ker Cow De and Doll* — and the sound of a name is as often
+the thing on the page as the name itself.
+
+**1. Namesakes.**
+
+- *Kennedy* is the barmaid here and two shopfronts in episode 10: **Peter
+  Kennedy, hairdresser** at 10:349 and **James and Charles Kennedy,
+  rectifiers** at 10:435. The name is keyed, not aliased.
+- *Mina* is **Miss Kennedy** in this episode and **Mina Purefoy**, in labour in
+  Holles street, in every other one — 8:86, 8:135, 14:49, 15:1235, 15:1340,
+  17:571 and 18:0.
+- *Pat* is **bald Pat the waiter** in twenty-five paragraphs here, and five
+  other men elsewhere: Kevin Egan's Pat at 3:59, **Pat Farrell** at 7:201,
+  **Pat Claffey** the pawnbroker's daughter at 8:35, **Pat Kinsella** of the
+  Harp theatre at 8:160 and **Pat Tobin** at 16:182.
+- *Ben* is **Ben Dollard** in thirty-five paragraphs and **Ben Howth**, the head
+  above the bay with the rhododendrons on it, at 11:355 and 11:587.
+- *Tom* is **Tom Rochford** at 11:283 and **Tom Kernan** at 11:483 (*sir Tom*)
+  and 11:627. *George* is **George Lidwell** except at 11:467, which is **George
+  Robert Mesias**, the tailor of episode 6 given his full style and address.
+- *Lionel* is the tenor of Flotow's *Martha* — the name the episode gives Simon
+  Dedalus while he sings and Bloom while he listens — and also **Lionel Marks**,
+  in whose saleshop window Bloom reads Robert Emmet's last words. 11:617 has
+  both, in that order, and is keyed by occurrence.
+- *Martha* is two women in the same episode and twice in the same paragraph:
+  **the lost one of the opera**, called back from the saloon, and **Martha
+  Clifford**, to whom Bloom is writing at the table. 11:413 carries both.
+- *Peake* at 6:74 is a name in the *Freeman*'s deaths column — Bloom himself
+  asks *what Peake is that?* — and **little Peake** at 11:375 is who Richie
+  Goulding was in the gods of the old Royal with. They are not shown to be the
+  same man and are not treated as one.
+- *Plasto* at 4:25 and 6:82 is the maker's legend sweated into the crown of
+  Bloom's hat; at 11:467 **John Plasto**, hatter, of number one Great Brunswick
+  street, is a man with a trade and an address. Only the man is bound.
+- *Lambert* at 3:68 is **Lambert Simnel**, a scullion crowned. Plain *Lambert*
+  is **Ned Lambert**, and this episode's 11:438 turned up three paragraphs in
+  episode 10 that had been left unbound for the same reason — 10:73, 10:186 and
+  10:188, where the clergyman calls him *Mr Lambert*. All six are keyed now.
+- *Tweedy* at 11:321 is the surname that completes **Marion Tweedy** in Ben
+  Dollard's and Simon Dedalus's recollection, and is bound to Molly rather than
+  to her father; *the old drummajor* two lines later is **major Tweedy**.
+
+**The alias that was reaching.** Listing every binding already standing in
+episode 11 before a word of it was authored found **`Boyd` on 11:102** — *that
+old fogey in Boyd's*, a shop on the quay, not the Boyd whom Martin Cunningham
+disposes of in two words at the Dignam subscription. That is the fourth alias in
+four episodes to be caught reaching past what justified it, and it was caught by
+the same sweep that the handoff now demands.
+
+**2. Person or not.** The episode 10 rule again, and Dublin's shopfronts again:
+*Moulang's* pipes, *Wine's* antiques, *Carroll's* dusky battered plate,
+*Cantwell's* offices, *Ceppi's* virgins, *Bassi's* blessed virgins, *Graham
+Lemon's* pineapple rock, *Elvery's* elephant, *Daly's*, *Barry's*, *Barney
+Kiernan's*, *Lionel Marks's* antique saleshop and the *Iveagh home* are
+locations and are **not cast**. Two names on the same walk **are**: **Aaron
+Figatner**, whose name Bloom's eye reads and whose sound he turns over (*Why do
+I always think Figather?*), and **Prosper Loré**, whose *huguenot name* is the
+next thought. In both cases the text attends to the name as a man's name and
+not to the shop behind it; Figatner walks through Circe as a person besides.
+
+Not people at all: the **Collard grand** (a piano), **Cantrell and Cochrane's**
+on the gilt mirror (ginger ale), **number one Bass** (a drink), **Sceptre** (a
+horse), **Power** at 11:292 and after (whiskey, not Jack Power), **Goulding,
+Collis, Ward** and **Messrs Callan, Coleman and Co** (firms on a bag and in an
+advertisement), **Chickabiddy's owny Mumpsypum** (the signatures of a
+breach-of-promise letter read out in court), and **Bright's bright eye** (a
+disease that carries a physician's name).
+
+Unnamed people who **are** cast, because the text gives each of them something
+to do: **bald Pat**, **the boots**, **the two gentlemen with tankards**, **the
+shopgirl in Daly's**, **the old fogey in Boyd's**, **the barber in Drago's**,
+**the chap in Keogh's**, **Nannetti's father** and **the whore of the lane**.
+
+**3. Scriptural, mythological and stage figures.** **The croppy boy** of the
+ballad and **the yeoman captain** who shrives him in a false priest's cassock;
+**Lionel** and **Martha** out of Flotow; **Dolores**, queen of the eastern seas,
+out of *Floradora*; **Flora**, to whose lips the dewdrops pearl did hie;
+**Don Giovanni**, whose minuet Cowley is playing; **Judas Iscariot**, in whose
+ear Ben Dollard will put a barleystraw; **Elijah**, still coming, in the column
+of Bloom's expenses; and **Robert Emmet**, whose last words and **Meyerbeer's**
+seven last words meet in one shop window at the end.
+
+**4. Ambiguous references, deliberately unbound.** *Bronze* and *gold* run
+through the whole episode as the two barmaids' names, and are left as the
+colours they also are — binding either would put a card on half the paragraphs
+in the book's most colour-ridden chapter. *Bronzelid* at 11:601 could be
+bronze-Lydia or bronze-Lidwell and carries no card. *Lidlyd* at 11:35,
+*Blmstup* and *Yrfmstbyes* at 11:559 are past recovering. The croppy boy's
+**mother** at 11:527 and his father and brothers at 11:533 are inside the
+ballad and get no cards of their own, and neither does the **traitor servant**
+who opens the door at 11:517. *By Jove* at 11:153 is an oath.
+
+One reading was made and is recorded rather than hidden: **11:384**, *Wise
+child that knows her father, Dedalus said*, is bound to **Simon Dedalus**. The
+sentence belongs to Stephen's argument in the library, which Bloom was not at;
+the only Dedalus Bloom has spoken with today is the father, in the funeral
+carriage. If a later reader disagrees, the key is one line.
+
+Bound from description: *the wife* at 11:311 and 11:599 is **Molly**; *his
+wife* at 11:406 is **May Dedalus**, worn out and now sung over; *the long
+fellow* at 11:289 is **Long John Fanning**; *your landlord* at 11:341 and *the
+landlord* at 11:496 are **the reverend Hugh C. Love**, the pun on whose name is
+the whole of the first; *Dedalus' son* at 11:120 and *the famous son* at 11:177
+are **Stephen**, and *a famous father* in the same line is **Simon**.
+
+**5. Spot-read.** Forty mentions, twenty from each edition under two seeds; all
+forty right. The unkeyed-hit sweep ran before authoring and again after, and the
+dead-key and dead-phrase sweeps are clean: every key and every phrase pattern
+written for this episode matches something in at least one edition.
+
+The adjacency sweep over all 660 mentions in the episode found no wrong
+referent, but it did find four names taking two spans where they should take
+one, and all four were fixed before the package was written: *Si Dedalus* at
+11:397, 11:440 and 11:619 was binding once as *Si* and again as *Dedalus*;
+*John Plasto* at 11:467 and *Leopold Bloom* at 11:378 and 11:434 the same way.
+It also found **Gould** at 11:414 — *charmed him Gould Lidwell* — which is
+Goulding cut short by the music and now binds to him.
+
+**6. Both editions independently.** Every entity that binds in episode 11 binds
+in both editions — but this is the episode where they differ most, and three of
+the differences are Joyce's portmanteaux taken apart:
+
+- *Bloowhose dark eye* at 11:120 becomes *Bloom's dark eye*.
+- *greaseabloom* at 11:130, 11:134 and 11:628 becomes *Greasy Bloom*.
+- *Winsomely she on Bloohimwhom smiled. Bloo smi qui go.* at 11:208 becomes
+  *Winsomely she on Bloom, him, whom smiled. Bloom smiled quickly, going.*
+
+In each case the older edition is bound by a keyed pattern and the modern one by
+Bloom's own key, so a reader of either is offered the same card. The modern
+edition also capitalises Joyce's lowercase *miss* everywhere in the episode,
+which is why **Douce** was added as a second alias, and it interpolates an
+editorial gloss — *Henry Flower (Bloom's pen name)* — at 11:203 and 11:617. The
+gloss is recorded below and is not bound: the parenthesis is the modern editor's
+and not Joyce's.
+
 ## Source defects — recorded, not repaired
 
 No edition byte was touched.
@@ -947,15 +1089,17 @@ No edition byte was touched.
 | **The modern edition splits Joyce's compounds a third time in episode 9** — `Rutlandbaconsouthamptonshakespeare` becomes *Rutland-Bacon-Southampton-Shakespeare* and `Besteglinton` becomes *Best-Eglinton*, which makes names bindable that a single word hides. | Not repaired. Bacon and Shakespeare bind at 9:328 in the modern edition only. Besteglinton is bound in both, by lookaround patterns that split the compound without overlapping spans. |
 | **The modern edition drops Barabbas at 10:444** — *You can tell Barabbas from me* becomes *you can tell that crook from me*. | Not repaired. Reuben J is bound there in the older edition only; he is bound in both at 10:412 and 10:542, so he is not an `omittedEntity`. |
 | **The modern edition sets the throwaway's headline in capitals** — ELIJAH IS COMING at 10:115 and 10:351, where Joyce writes *Elijah is coming*. | Not repaired. A capitalised key pattern was added so the prophet binds in both editions. |
+| **The modern edition undoes three of Joyce's episode 11 portmanteaux** — *Bloowhose* at 11:120, *greaseabloom* at 11:130, 11:134 and 11:628, and *Bloohimwhom* / *Bloo smi qui go* at 11:208 — and prints the plain name instead. | Not repaired. Bloom is bound in both editions in all five paragraphs: by keyed patterns in the older one, by his own key in the modern one. |
+| **The modern edition interpolates an editorial gloss into Joyce's sentence** — *Henry Flower (Bloom's pen name)* at 11:203 and 11:617. These are the only two parentheses of their kind in the book. | Not repaired, and not bound: the words are the modern editor's and not Joyce's. Henry Flower binds on the name itself in both editions. The release owner should know that this edition adds words to the text. |
+| **The modern edition capitalises Joyce's lowercase *miss*** all through episode 11 (*miss Douce*, *miss Kennedy*, *miss Dou*, *miss Kenn*). | Not repaired. `Douce` was added as a second alias so the barmaid binds under both spellings, and Miss Kennedy is keyed paragraph by paragraph. |
 
 ## Remaining work
 
-- **Episodes 11–18.** 3,794 paragraphs, and the three longest are 15 (*Circe*,
-  1,441 paragraphs), 17 (*Ithaca*, 654) and 11 (*Sirens*, 635). Episode 18
-  (*Penelope*) is eight paragraphs of Molly's monologue and will be the densest
-  page-for-page in the book. Episode 11 (*Sirens*, 635 paragraphs) is next: the
-  Ormond bar, where Miss Kennedy and Miss Douce — bound for the first time in
-  episode 10, over the crossblind — do the talking.
+- **Episodes 12–18.** 3,159 paragraphs, and the two longest are 15 (*Circe*,
+  1,441 paragraphs) and 17 (*Ithaca*, 654). Episode 12 (*Cyclops*, 566
+  paragraphs) is next: Barney Kiernan's, the nameless narrator, and the
+  citizen. Episode 18 (*Penelope*) is eight paragraphs of Molly's monologue and
+  will be the densest page-for-page in the book.
 - **Two names are already waiting in unread territory.** *Stephen* at 15:1133
   sits inside a stage direction in Gutenberg italics and will need a key when
   *Circe* is read; *Patrice* at 16:212 is **the faubourg Saint Patrice**, not
@@ -975,12 +1119,12 @@ No edition byte was touched.
   are all named again in episodes 11, 13, 15 and 17, and 17:39 is the
   paragraph that states the relationships outright: *his aunt Sara, wife of
   Richie (Richard) Goulding*. Those keys should be extended, not aliased, when
-  those episodes are read. 11:385 in particular is this Walter, crosseyed, and
-  is deliberately left unbound until episode 11 is read in full.
+  those episodes are read. 11:385 is this Walter, crosseyed, and is bound now
+  that episode 11 has been read; aunt Sara and Crissie are still waiting.
 
 ## Validation
 
 `python3 books/characters/build_ulysses.py --check`, then `python3 -m unittest
-discover -s books/characters -p 'test_*.py'` — 98 focused tests for this book so
+discover -s books/characters -p 'test_*.py'` — 116 focused tests for this book so
 far. No edition changes, no network generation, no API spend: every card here was
 written in the authoring conversation and committed as a file.

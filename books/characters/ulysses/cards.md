@@ -372,7 +372,7 @@ Her leman.
 
 ## Uncle Richie · major
 
-Richie Goulding, Stephen’s uncle on his mother’s side, in his broad bed with a sturdy forearm over the hillock of his knees, drafting bills of costs on a lapboard and whistling the aria from the opera. He offers Stephen malt, a chippendale chair and a rasher fried with a herring, and admits there is nothing in the house but backache pills. Stephen’s father calls him the drunken little costdrawer.
+Richie Goulding, Stephen’s uncle on his mother’s side, in his broad bed with a sturdy forearm over the hillock of his knees, drafting bills of costs on a lapboard and whistling the aria from the opera. He offers Stephen malt, a chippendale chair and a rasher fried with a herring, and admits there is nothing in the house but backache pills. Stephen’s father calls him the drunken little costdrawer. In episode 11 he carries the bag of Goulding, Collis and Ward into the Ormond diningroom, eats steak and kidney across the table from Bloom, cocks his lips to whistle All is lost now, and tells again — a flush struggling in his pale — the night Si Dedalus sang ’Twas rank and fame in Ned Lambert’s house. Coming out with a whopper now, Bloom thinks. Believes his own lies. Does really.
 
 ## Aunt Sara · reference
 
@@ -392,7 +392,7 @@ Richie’s brother, named in Stephen’s father’s catalogue of the family he m
 
 ## Simon Dedalus · major
 
-Stephen’s father, present in this episode only as the voice in his son’s head — my consubstantial father’s voice — mimicking the Gouldings and asking, and and and and tell us, Stephen, how is uncle Si. In episode 6 he is in the funeral carriage all morning, and from there on every Mr Dedalus and every bare Dedalus in the book is him and not his son.
+Stephen’s father, present in this episode only as the voice in his son’s head — my consubstantial father’s voice — mimicking the Gouldings and asking, and and and and tell us, Stephen, how is uncle Si. In episode 6 he is in the funeral carriage all morning, and from there on every Mr Dedalus and every bare Dedalus in the book is him and not his son. He holds the floor of the newspaper office in episode 7, damns Father Cowley’s landlord on the quay in episode 10, and in episode 11 he walks into the Ormond for a half glass of whisky, is coaxed to the piano by Ben Dollard and Bob Cowley, and sings M’appari to a bar that goes quiet for him. While he sings, the episode calls him Lionel, then Lionel Simon, and at the top note Siopold. Richie Goulding, his brother-in-law, who never speaks to him as they pass by, tells Bloom about another night he sang. Si Dedalus, they call him.
 
 ## Mrs Florence MacCabe · reference
 
@@ -800,7 +800,7 @@ Who Bloom daresays bagged the funeral job for O’Neill’s, singing with his ey
 
 ## Tom Kernan · reference
 
-From whom Bloom means to get tea, and cannot ask at a funeral.
+The tea traveller, from whom Bloom means to get tea and cannot ask at a funeral. He struts into the Ormond in episode 11 in the middle of the singing, tells the authentic fact of how Walter Bapty lost his voice, overrules Qui sdegno in favour of The Croppy Boy — our native Doric — and pronounces the result most trenchant, upon my soul and honour it is. The episode calls him Tomgin.
 
 ## Hornblower · reference
 
@@ -828,7 +828,7 @@ Bloom’s father, who used to talk of Kate Bateman in Leah and of the scene wher
 
 ## Bob Cowley · reference
 
-Who lent M’Coy his valise for the Wicklow regatta concert last year and never heard tidings of it from that good day to this.
+Father Cowley, barricaded up against his landlord, who lent M’Coy his valise for the Wicklow regatta concert last year and never heard tidings of it from that good day to this. In episode 11 he accompanies from the Ormond piano — the way he sits in to it, Bloom thinks, like one together, mutual understanding — plays Simon Dedalus in on M’appari and Ben Dollard through The Croppy Boy, and stuns himself with it: kind of drunkenness.
 
 ## Vance · reference
 
@@ -1020,7 +1020,7 @@ Who was taking Tom Kernan off to his face last night.
 
 ## Ben Dollard · major
 
-Whose singing of The Croppy Boy Tom Kernan called the most trenchant rendering he ever heard in the whole course of his experience.
+Big Ben, base barreltone: a ships’ chandler once, failed to the tune of ten thousand pounds and now in the Iveagh home, who in episode 11 pushes Father Cowley into the Ormond saloon, plumps himself on the stool with his gouty paws, bawls Love and War, and is talked into The Croppy Boy in F sharp major. Tom Kernan calls it the most trenchant rendition of that ballad, upon his soul and honour; the bar chinks glasses to him afterwards, Benaben, Benben.
 
 ## Dan Dawson · reference
 
@@ -1192,7 +1192,7 @@ Who died in Our Lady’s Hospice for the dying: her feeding cup, and the screen 
 
 ## Mesias · reference
 
-The tailor who is to turn Bloom’s grey suit. One in a million, Bloom calls him later.
+The tailor who is to turn Bloom’s grey suit. One in a million, Bloom calls him later. Episode 11 gives him his full style: George Robert Mesias, tailor and cutter, of number five Eden quay, who made the indigoblue serge suit of the young gentleman in the hackney car.
 
 ## Alderman Hooper · reference
 
@@ -1264,7 +1264,7 @@ The editor: a scarlet beaked face crested by a comb of feathery hair, bold blue 
 
 ## Lenehan · major
 
-Who comes out of the inner office with Sport’s tissues, gives the Gold cup to Sceptre with O. Madden up, lights everybody’s cigarettes, and will not be put off his riddle: what opera resembles a railwayline? The Rose of Castile. Rows of cast steel.
+Who comes out of the inner office with Sport’s tissues, gives the Gold cup to Sceptre with O. Madden up, lights everybody’s cigarettes, and will not be put off his riddle: what opera resembles a railwayline? The Rose of Castile. Rows of cast steel. In episode 11 he waits in the Ormond for Boylan with impatience, peeps round the sandwichbell at Miss Kennedy, drones his solfa fable of the fox and the stork at her in vain, and coaxes Miss Douce into sounding her garter: Sonnez la cloche! O do! There’s no-one. Then Boylan walks out on him.
 
 ## Mr O’Madden Burke · major
 
@@ -1940,7 +1940,7 @@ Whose bookstore Bloom passes, with Why I left the church of Rome in the window, 
 
 ## The blind stripling · reference
 
-Tapping the curbstone with his slender cane at the Dawson street crossing, who wants to go to Molesworth street and South Frederick street. Bloom tells him about the van that is not moving, touches the thin elbow and takes the limp seeing hand across, tries a common remark about the rain, and gets Thanks, sir. Knows I’m a man. Voice.
+Tapping the curbstone with his slender cane at the Dawson street crossing, who wants to go to Molesworth street and South Frederick street. Bloom tells him about the van that is not moving, touches the thin elbow and takes the limp seeing hand across, tries a common remark about the rain, and gets Thanks, sir. Knows I’m a man. Voice. Episode 11 says who he is: the piano tuner who tuned the Ormond piano that morning for the smoking concert and played it so exquisitely — blind too, poor fellow, not twenty I’m sure he was — and who left his tuningfork behind on it. The tapping that comes nearer through the second half of that episode is his, crossing the city to fetch it back.
 
 ## Penrose · reference
 
@@ -3054,13 +3054,13 @@ A. D. C. in attendance, who is agreeably surprised when Denis Breen, shifting hi
 
 B. L., M. A., who does not salute the viceregal carriages, being undecided on Arran quay whether he should arrive at Phibsborough more quickly by a triple change of tram or by hailing a car or on foot through Smithfield.
 
-## Miss Kennedy · reference
+## Mina Kennedy · reference
 
-Gold, whose head appears with Miss Douce’s above the crossblind of the Ormond hotel at the start of the cavalcade and watches and admires it at the end.
+Gold: the barmaid of the Ormond, of 4 Lismore terrace, Drumcondra, whose head appears with Miss Douce’s above the crossblind at the start of the viceregal cavalcade in episode 10 and watches and admires it at the end. In episode 11 she reads on behind the bar through Lenehan’s fable of the fox and the stork, plugs both ears with her little fingers rather than hear about the old fogey in Boyd’s, and serves the two gentlemen with tankards. Sadly, gold no more, she twines a loose hair behind an ear. Episode 11 gives her the first name Mina.
 
-## Miss Douce · reference
+## Lydia Douce · reference
 
-Bronze, beside her.
+Bronze, beside her at the crossblind in episode 10, and the centre of episode 11: back from her holidays at Rostrevor sunburnt and lying out on the strand all day, with a rose on her breast and a shell from the seaside on the counter. She holds the seahorn to George Lidwell’s ear, and at Lenehan’s coaxing snaps her nipped garter smackwarm against her thigh — Sonnez la cloche — for Blazes Boylan, who drinks his sloegin and goes anyway. Episode 11 gives her the first name Lydia.
 
 ## Gerty MacDowell · reference
 
@@ -3081,3 +3081,127 @@ Whose horse’s foreleg paws the air over the spot where Mrs Breen plucks her ha
 ## Wolfe Tone · reference
 
 Whose statue was not on the slab the five sandwichmen eel themselves around between Monypeny’s corner and it.
+
+## Pat · reference
+
+The waiter of the Ormond: bald Pat, bothered Pat, hard of hearing, who serves the two diners their liver and their steak and kidney, brings pen, ink and a pad to blot, and mitres the napkins while the singing goes on. Bloom signs to him to set the door of the bar ajar so that the song will carry, and tips him twopence going. Pat is a waiter who waits while you wait.
+
+## The boots · reference
+
+The bar-boy who bangs his tray of chattering china on the counter, asks whose beau the man at the window is, and sniffs Imperthnthn thnthnthn at Miss Douce when she threatens to report him. Most aggravating young brat, she says: if he doesn’t conduct himself she will wring his ear for him a yard long. He is eavesdropping again in the hallway when the singing ends.
+
+## Mrs de Massey · reference
+
+Who keeps the Ormond, and to whom Miss Douce threatens to complain of the boots and his impertinent insolence. She is named once and never appears.
+
+## George Lidwell · reference
+
+Solicitor, suave, who comes into the bar in the afternoon, takes the moist hand Miss Douce gives him and holds it, and asks her, when she brings him the seahorn she carried back from the seaside, what the wild waves are saying. He drinks his Guinness through The Croppy Boy, and learns that she was not lonely walking in the moonlight by the sea: she was with a gentleman friend.
+
+## The two gentlemen with tankards · reference
+
+Who drink cool stout at the bar and pass a remark about the weather while Miss Kennedy waves her Independent about looking for where the lord lieutenant is going. They clap Simon Dedalus, order two more, and one of them is sure he knows the name Dollard: that is to say, he had heard the name of. Dollard, was it? Dollard, yes.
+
+## The shopgirl in Daly’s · reference
+
+Who sells Bloom two sheets of cream vellum paper and two envelopes for his letter to Martha, dares to say twopence, and smiles on him going. Girl there civil, he thinks. Does that to all.
+
+## The old fogey in Boyd’s · reference
+
+Whom Miss Douce asked for something for her skin and got For your what? says he. Goggle eye, greasy nose and a bit of beard: the thought of being married to him, and of the night he was in the Antient Concert Rooms, sets both barmaids shrieking before Bloom has reached the bridge.
+
+## The barber in Drago’s · reference
+
+Who always looked at Bloom’s face in the glass when Bloom spoke to his face — the thing Bloom remembers when he finds he would rather see a singer than only hear him through a door.
+
+## The chap in Keogh’s · reference
+
+Who gave them the number, after Ben Dollard and Bob Cowley had searched all Holles street for the Blooms on the night of the borrowed dress suit.
+
+## Nannetti’s father · reference
+
+Who hawked plaster figures about and wheedled at doors as Bloom does, the thought that comes to Bloom going by Ceppi’s virgins with their oils bright on them. Religion pays.
+
+## The whore of the lane · reference
+
+A frowsy whore in a black straw sailor hat askew, off her beat, who comes glazily along the quay towards Bloom in the daylight. She knew Molly and had him decked; he turns into a shop window and lets her pass. Looks a fright in the day, he thinks, and then: O, well, she has to live like the rest.
+
+## Aaron Figatner · reference
+
+Whose name Bloom’s dark eye reads going along the quay. Why do I always think Figather? Gathering figs, I think.
+
+## Prosper Loré · reference
+
+Whose huguenot name comes a few doors further on in the same walk. The two names are what the street gives Bloom to think about while he carries the sweets of sin in his breast.
+
+## Barton James · reference
+
+Of number one Harmony avenue, Donnybrook: driver of hackney car number three hundred and twentyfour, set down with his address in the flat voice of a street directory in the middle of Boylan’s jingling progress across the city.
+
+## John Plasto · reference
+
+Hatter, of number one Great Brunswick street, who made the very dressy straw hat of the young gentleman riding in that car. The same maker’s name is sweated into the leather headband of Bloom’s own high grade hat.
+
+## Joe Maas · reference
+
+The tenor Richie Goulding heard sing All is lost now one night. Maas was the boy. Massboy. A lyrical tenor if you like. Never forget it. Never.
+
+## M’Guckin · reference
+
+The other tenor of Richie’s comparison, allowed his due and no more: Ah, what M’Guckin! Yes. In his way. Choirboy style.
+
+## Walter Bapty · reference
+
+The singing master who lost his voice when a husband took him by the throat. Scoundrel, said he, you’ll sing no more lovesongs. Authentic fact, in Tom Kernan’s ginhot telling of it.
+
+## Barraclough · reference
+
+The authority on voice production Richie Goulding descants on while Bloom, hardly listening, draws and plucks the elastic thong of his packet until it snaps.
+
+## Lablache · reference
+
+The bass Father Cowley names in one word when Ben Dollard comes off The Croppy Boy to be praisefed at the bar.
+
+## Jenny Lind · reference
+
+Whose soup — stock, sage, raw eggs, half a pint of cream — is what Bloom decides a singer must be abstemious enough to live on. For creamy dreamy.
+
+## Michael Gunn · reference
+
+Who gave the Blooms the box at the theatre, the night a chap in the dresscircle stared down into Molly with his operaglass for all he was worth.
+
+## The Shah of Persia · reference
+
+Who liked the tuning up best of all the music, and wiped his nose in the curtain too. Custom of his country perhaps. That’s music too.
+
+## Little Peake · reference
+
+With whom Richie Goulding was in the gods of the old Royal the night the first note came and he never forgot it. The Peake whose name Bloom reads in the deaths column in episode 6 is not shown to be the same man.
+
+## Mickey Rooney · reference
+
+Whose band employs the chap that wallops the big drum — his vocation, Bloom decides, wondering how it first struck him, sitting at home after pig’s cheek and cabbage rehearsing his band part. Pom. Pompedy.
+
+## Lionel · reference
+
+The tenor of Flotow’s Martha, whose air M’appari Simon Dedalus is at last coaxed into singing. For the length of the song the episode calls the singer Lionel, then Lionel Simon; at the top note singer and listener fuse into one word, Siopold; and when Bloom walks out up the quay he is Lionelleopold.
+
+## Martha · reference
+
+The lost one of the opera, called back by name from the saloon — Martha! Ah, Martha! Come, you lost one — while Bloom sits over his liver with a letter to his own Martha half written. Coincidence, he thinks. Still the name: Martha. How strange! Today.
+
+## Dolores · reference
+
+The queen of the eastern seas in the song Miss Douce trills while she polishes a tumbler: O, Idolores. She returns at the end of Bloom’s Spanish daydream — under a peartree alone patio this hour in old Madrid, one side in shadow, Dolores shedolores.
+
+## Flora · reference
+
+To whose lips the dewdrops pearl did hie, in the song coming from the saloon while Lenehan lisps his low whistle of decoy over the counter.
+
+## The croppy boy · reference
+
+The boy of the ballad Ben Dollard sings: last of his name and race, his father fallen at the siege of Ross and all his brothers at Gorey, who confesses to a false priest that he has cursed three times since Easter and did not pray for his mother’s rest, and who died at Geneva barrack and was laid at Passage. Bloom listens to the confession and gets up to go before the end.
+
+## The yeoman captain · reference
+
+The false priest of the ballad, who sits vested in the gloomy chamber to shrive the boy and then rustles a soldier out of his cassock. They know it all by heart, Bloom thinks. The thrill they itch for.
