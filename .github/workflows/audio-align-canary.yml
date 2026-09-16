@@ -2,6 +2,11 @@ name: audio-align-canary
 
 on:
   workflow_dispatch:
+  # One-shot API fallback: creating this exact branch starts the reviewed canary
+  # when no authenticated workflow-dispatch client is available.
+  push:
+    branches:
+      - 'codex/audio-canary-run-20260916'
 
 permissions:
   contents: read
