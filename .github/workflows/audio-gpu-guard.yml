@@ -39,9 +39,9 @@ jobs:
       - name: Enforce GPU limits
         env:
           RUNPOD_API_KEY: ${{ secrets.RUNPOD_API_KEY }}
-          # Kept in step with the approved envelope: $25 total, $1/hr per pod,
-          # 50-minute stop deadline.
-          TINCT_GPU_BUDGET: '25'
+          # Kept in step with the currently authorized original-audio envelope:
+          # $15 total, $1/hr per pod, 50-minute stop deadline.
+          TINCT_GPU_BUDGET: '15'
           TINCT_GPU_MAX_RATE: '1.00'
           TINCT_GPU_MAX_MINUTES: '50'
         run: |
