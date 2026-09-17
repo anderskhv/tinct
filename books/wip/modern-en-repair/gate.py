@@ -10,6 +10,8 @@ Checks, per paragraph, against original-en:
   - word count >= 75% of source (not condensed) and <= 140% (not padded)
   - not verbatim (normalised) for paragraphs >= 25 words
   - similarity <= 0.85 for paragraphs >= 25 words (not a light word-swap)
+  - quote-mark count matches source (catches a dropped closing quote; note
+    that an ODD count is legitimate in continuation-quote monologues)
   - proper-noun check: capitalised tokens in source appear in candidate
 Exit 1 with a list of failing indices and reasons; exit 0 on PASS.
 """
@@ -27,6 +29,9 @@ for i,(s,c) in enumerate(zip(src,cand)):
     else:
         if s.count("?")!=c.count("?"): r.append(f"?-parity {s.count('?')}->{c.count('?')}")
         if s.count("!")!=c.count("!"): r.append(f"!-parity {s.count('!')}->{c.count('!')}")
+        sq=s.count("\u201c")+s.count("\u201d")+s.count('"')
+        cq=c.count("\u201c")+c.count("\u201d")+c.count('"')
+        if sq!=cq: r.append(f"quote-parity {sq}->{cq}")
         sw,cw=len(s.split()),len(c.split())
         if sw>=8 and cw<0.75*sw: r.append(f"short {cw}/{sw}")
         if sw>=8 and cw>1.4*sw: r.append(f"long {cw}/{sw}")
