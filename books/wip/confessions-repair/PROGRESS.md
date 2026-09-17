@@ -44,7 +44,7 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 | 6 | frozen (sha256 73bb3730…) | done — 32 findings (1 major, 3 moderate, 28 minor); question-mark parity independently confirmed 31/31 per-paragraph (drafter's own total of "32/32" was a notes arithmetic error) | done — 19/27 paragraphs changed, independently diffed and confirmed matching corrector's own claim | done — major + all 3 moderates confirmed, zero collateral edits (word-level diff traced every change to a finding); one ungrammatical seam in the review's own proposed wording (para 8) found and fixed directly | **accepted** (sha256 70b98614…) |
 | 8 | frozen (sha256 50155610…) | done — 14 findings (2 major, 3 moderate, 9 minor); question-mark parity independently confirmed 54/54; "serenity"→"certainty" interpretive choice rejected (analysis below) | done — 13/31 paragraphs changed, independently diffed and confirmed matching corrector's claim exactly | done — both majors + all 3 moderates confirmed, zero collateral edits, whole-chapter intensity confirmed intact | **accepted** (sha256 55319d3f…) |
 | 9 | frozen (sha256 76800a80…) | done — 21 findings (1 major, 3 moderate, 17 minor); question-mark parity independently confirmed 39/39; "The Master"→"The Teacher" accepted (standard modern title of De Magistro); drafter's claim of using double quotes was false — systemic single-quote defect found | done — 20/38 paragraphs changed, independently diffed and confirmed matching corrector's claim exactly | done — major + all 3 moderates confirmed, zero collateral edits, independent full-file quote scan confirms zero remaining single-quote usage | **accepted** (sha256 37ca4807…) |
-| 10 | frozen (sha256 3c37ac38…) | done — combined 1 major, 10 moderate, 31 minor (41 total); question-mark parity independently confirmed 132/132; major is a 5th direction-inversion instance (para 58); pride/confession paradox (para 62) confirmed intact | done — 29/70 paragraphs changed, independently diffed and confirmed matching corrector's claim exactly | verification in progress (Opus) | — |
+| 10 | frozen (sha256 3c37ac38…) | done — combined 1 major, 10 moderate, 31 minor (41 total); question-mark parity independently confirmed 132/132; major is a 5th direction-inversion instance (para 58); pride/confession paradox (para 62) confirmed intact | done — 29/70 paragraphs changed, independently diffed and confirmed matching corrector's claim exactly | done — major + all 10 moderates confirmed, zero collateral edits, paradox confirmed intact and sharper, exclamation-mark parity also verified (19/19) | **accepted** (sha256 1d3d1861…) |
 | 12 | queued | — | — | — | — |
 | 13 | queued | — | — | — | — |
 
@@ -110,9 +110,21 @@ Baptism, the Ostia vision, and Monica's death.
 - Final: `book09-accepted.json`, sha256 `37ca480790b5496dee6141be387b787ec1cefd83b6f7eebeffca3e5887700caf` — capitalization fixed directly.
 - Danish not touched.
 
+## Book 10 — editorially accepted (2026-09-17)
+
+Memory epistemology, the "happy life," threefold-lust self-examination, pride/confession paradox. Longest book so far (70 paragraphs).
+
+- Candidate: `book10-candidate.json`, sha256 `3c37ac38119e956c7b61dede2a39086c35c2a20dfa7813b4aa60ba12f6026795` (Sonnet draft, frozen). Drafter self-caught and fixed 4 question-mark mismatches on its own mechanical check.
+- Review: split into two parallel Opus passes given length — `book10-review-part1.md` (paragraphs 0-34, memory: 0 major, 2 moderate, 10 minor) and `book10-review-part2.md` (paragraphs 35-69, threefold-lust/pride paradox: 1 major, 8 moderate, 21 minor). Combined: 1 major, 10 moderate, 31 minor. Major was a 5th instance of the project's dominant direction-inversion defect (God as agent vs. patient of an adverse verdict, para 58). Part-2 reviewer also ran a bonus exclamation-mark parity check and caught 3 softened paragraphs not in original scope.
+- Corrected: `book10-corrected.json`, `book10-corrections-log.md` — Sonnet, 29/70 paragraphs changed (independently diffed, confirmed exact match).
+- Verification: `book10-verification.md` — Opus, re-derived diff set exactly, confirmed major + all 10 moderates fixed, zero collateral edits, pride/confession paradox (para 62) confirmed intact and sharper (not resolved into false confidence or despair), exclamation-mark parity also verified (19/19, was 15/19 pre-correction).
+- Final: `book10-accepted.json`, sha256 `1d3d1861f3b0fe2993f6163c087a5c3b62ba09e60df8c1f39ca4cbea25df3165`.
+- **Documented deliberate divergences from source (not defects):** para 45 supplies "John the Baptist" for a gap in Pusey's elliptical text (reviewer-sanctioned addition, on the record); para 62 uses "empty glory" rather than a literal "vainglory" (style preference, reviewer confirmed not a defect).
+- Danish not touched.
+
 ## Next action
 
-Move to Book 10 (next untouched-passthrough book, and the longest at 70 paragraphs): draft → independent review → correct → verify. Standing gates: question-mark parity against source (mechanical, independently counted), direct JSON diffing for all change-list claims, extra scrutiny on comparisons/causal claims/stated positions for direction-inversion (confirmed in Books 4, 5, 6, 8 — the dominant defect class), and independent quote-style scans (a systemic defect surfaced undetected by drafter self-report in Book 9).
+Book 11 was found genuinely modernized in the original whole-book audit (avg similarity 0.242) — skip, no repair needed. Move to Book 12 (next untouched-passthrough book, 42 paragraphs): draft → independent review → correct → verify. Standing gates: question-mark parity (and now also exclamation-mark parity, per the Book 10 bonus finding) against source, independently counted; direct JSON diffing for all change-list claims; extra scrutiny on comparisons/causal claims/stated positions for direction-inversion (confirmed in Books 4, 5, 6, 8, 10 — the dominant defect class across the whole project so far); independent quote-style scans.
 
 ## Models actually used
 
