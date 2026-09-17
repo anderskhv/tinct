@@ -38,7 +38,7 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 
 | Book | Draft (Sonnet) | Independent review (Opus) | Corrected | Verified | Accepted |
 |---|---|---|---|---|---|
-| 3 | in progress | — | — | — | — |
+| 3 | frozen (sha256 9598b9ba…) | in progress (Opus) | — | — | — |
 | 4 | queued | — | — | — | — |
 | 5 | queued | — | — | — | — |
 | 6 | queued | — | — | — | — |
@@ -48,13 +48,13 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 | 12 | queued | — | — | — | — |
 | 13 | queued | — | — | — | — |
 
-## Frozen candidates (hashes recorded on freeze, i.e. once independent review has run against them)
+## Frozen candidates (hashes recorded on freeze)
 
-(none frozen yet — Book 3 draft in progress)
+- Book 3: `books/wip/confessions-repair/book03-candidate.json`, sha256 `9598b9ba4b1d1fec1f6d1ec2353a486ea244797d5f5d726232ab1d1017860e6e`, drafted by Sonnet, frozen 2026-09-17. Drafter notes: `book03-candidate-notes.md`.
 
 ## Next action
 
-Book 3 draft in progress (Sonnet). On completion: freeze candidate, hash it, run independent Opus review in ~3-paragraph packets against locked source, then correct + re-verify.
+Book 3 candidate frozen; independent Opus review in progress (~3-paragraph packets against locked source, then whole-chapter read). On completion: apply corrections for confirmed findings, independent re-verify, then move to Book 4.
 
 ## Models actually used
 
