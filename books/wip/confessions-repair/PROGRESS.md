@@ -38,7 +38,7 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 
 | Book | Draft (Sonnet) | Independent review (Opus) | Corrected | Verified | Accepted |
 |---|---|---|---|---|---|
-| 3 | frozen (sha256 9598b9ba…) | done — 53 findings (6 major, 12 moderate, 35 minor) | done — 18/21 paragraphs edited | verification in progress (Opus) | — |
+| 3 | frozen (sha256 9598b9ba…) | done — 53 findings (6 major, 12 moderate, 35 minor) | done — 18/21 paragraphs edited | done — 6/6 majors confirmed fixed; 5 new clause-level issues found and fixed directly (no further round) | **accepted** (sha256 c7a80e65…) |
 | 4 | queued | — | — | — | — |
 | 5 | queued | — | — | — | — |
 | 6 | queued | — | — | — | — |
@@ -48,13 +48,19 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 | 12 | queued | — | — | — | — |
 | 13 | queued | — | — | — | — |
 
-## Frozen candidates (hashes recorded on freeze)
+## Book 3 — editorially accepted (2026-09-17)
 
-- Book 3: `books/wip/confessions-repair/book03-candidate.json`, sha256 `9598b9ba4b1d1fec1f6d1ec2353a486ea244797d5f5d726232ab1d1017860e6e`, drafted by Sonnet, frozen 2026-09-17. Drafter notes: `book03-candidate-notes.md`.
+- Candidate: `book03-candidate.json`, sha256 `9598b9ba4b1d1fec1f6d1ec2353a486ea244797d5f5d726232ab1d1017860e6e` (Sonnet draft, frozen).
+- Review: `book03-review.md` — Opus, 53 findings (6 major, 12 moderate, 35 minor), packet-by-packet + whole-chapter read.
+- Corrected: `book03-corrected.json`, `book03-corrections-log.md` — Sonnet, 18/21 paragraphs edited, all 6 majors + 4 flattened questions + systemic interpretive-connective additions fixed.
+- Verification: `book03-verification.md` — Opus, independently re-derived from source (not drafter's log). All 6 majors confirmed fixed. Found 5 newly introduced issues (1 moderate blocking, 4 minor) plus 2 partial residuals (F8, F38) and one factual error in the corrections log's own reasoning (harmless — conclusion still correct).
+- Final: `book03-accepted.json`, sha256 `c7a80e65a5c83b205f7808bfb05cdb2ba8472595dd0624482471cdd072716793` — the 5 verification-flagged clauses fixed directly (single-clause, source-anchored, no further review round per verifier's own recommendation). See `book03-final-fixes.md`.
+- **Scope of "accepted":** this book only, one of 13 in Confessions. Not a whole-title acceptance. Verifier flagged two systemic drafting habits (flattened rhetorical questions; added interpretive connectives closing source ambiguity) as a standing watch-item for Books 4–13 — future review passes should check for these specifically, not assume they're isolated to Book 3.
+- Danish (`modern-da`) not touched — flagged for later re-translation once more of the title is repaired.
 
 ## Next action
 
-Book 3 candidate frozen; independent Opus review in progress (~3-paragraph packets against locked source, then whole-chapter read). On completion: apply corrections for confirmed findings, independent re-verify, then move to Book 4.
+Move to Book 4 (next untouched-passthrough book): draft → independent review → correct → verify, watching specifically for the two systemic habits noted above.
 
 ## Models actually used
 
