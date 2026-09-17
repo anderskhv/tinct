@@ -111,16 +111,23 @@ def worker(args):
   for mode in getattr(args,'arms',['off','auto']):
    directory=args.output/e['key']/mode;passed=[];expected=[[] for _ in range(e['text_paragraph_count'])];result=dict(key=e['key'],group=e['group'],mode=mode,status='running',reasons=[],paragraphs=[])
    write(directory/'chapter.json',result)
+   arm_failed=False
    for r in e['paragraphs']:
     audio=args.input.parent/r['path']
     if sha(audio)!=r['sha256']:raise ValueError('audio changed: '+str(audio))
-    selected=paragraph(model,audio,r['text'],mode,directory/f"p{r['index']}.diagnostic.json",configuration=dict(model=getattr(args,'model_sha256',None),device=getattr(args,'device','cuda'),compute=getattr(args,'compute_type','float16')))
+    try:
+     selected=paragraph(model,audio,r['text'],mode,directory/f"p{r['index']}.diagnostic.json",configuration=dict(model=getattr(args,'model_sha256',None),device=getattr(args,'device','cuda'),compute=getattr(args,'compute_type','float16')))
+    except Exception as error:
+     result['status']='rejected';result['processing_error']=dict(paragraph=r['index'],type=type(error).__name__,message=str(error))
+     result['reasons'].append(dict(paragraph=r['index'],reasons=['processing_invariant_error']))
+     write(directory/'chapter.json',result);arm_failed=True;break
     words=selected['candidate_words'];stats=selected['stats'];expected[r['index']]=selected['expected_tokens'];passed.append((r['index'],r['file'],words))
     reasons=list(selected['rejection_reasons'])
     if any(w['end']>r['duration']+.1 for w in words):reasons.append('timing_exceeds_decoded_audio')
     result['paragraphs'].append(dict(index=r['index'],ratio=selected['match_ratio'],reasons=reasons))
     if reasons:result['reasons'].append(dict(paragraph=r['index'],reasons=reasons))
     write(directory/'chapter.json',result)
+   if arm_failed:continue
    book,edition,ch=e['key'].split('/')
    candidate=lib.build_sidecar(book,edition,int(ch[2:]),e['title'],passed)
    totals=dict(expectedWords=0,heardWords=0,matchedWords=0)
