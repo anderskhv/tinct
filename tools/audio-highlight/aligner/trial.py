@@ -20,8 +20,19 @@ def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def write(p,obj):
  p=Path(p);p.parent.mkdir(parents=True,exist_ok=True);tmp=p.with_suffix(p.suffix+'.tmp');tmp.write_text(json.dumps(obj,indent=2,ensure_ascii=False));tmp.replace(p)
 def tree_hash(path):return hashlib.sha256(json.dumps([(str(p.relative_to(path)),sha(p)) for p in sorted(Path(path).rglob('*')) if p.is_file() and '.cache' not in p.parts],separators=(',',':')).encode()).hexdigest()
+def restore_source_tokens(aligned,source_expected,acoustic_expected):
+ if len(source_expected)!=len(acoustic_expected) or len(aligned)!=len(source_expected):
+  raise ValueError(f'source/acoustic token mapping changed: source={len(source_expected)} acoustic={len(acoustic_expected)} aligned={len(aligned)}')
+ restored=[]
+ for word,source in zip(aligned,source_expected):
+  item=dict(word);item['text']=source;restored.append(item)
+ return restored
+
 def attempt(model,audio,text,mode):
+ source_expected=lib.chapter_words_from_text(text.replace('\n',' '))
  expected=lib.chapter_words_from_text(lib.clean_text(text.replace('\n',' ')))
+ if len(source_expected)!=len(expected):
+  raise ValueError(f'source/acoustic token mapping changed: source={len(source_expected)} acoustic={len(expected)}')
  tokenizer=getattr(getattr(model,'hf_tokenizer',None),'encode',None)
  counter=(lambda text:len(tokenizer(' '+text,add_special_tokens=False).ids)) if tokenizer else None
  bias=lib.build_bias_request(expected,mode,count_tokens=counter)
@@ -45,12 +56,13 @@ def attempt(model,audio,text,mode):
   aligned,stats=lib.align_tokens_with_stats(expected,heard);unspoken=set()
   opcodes=list(difflib.SequenceMatcher(None,[lib.canonical_alignment_token(t) for t in expected],[lib.canonical_alignment_token(w.raw) for w in heard],autojunk=False).get_opcodes())
   observed={i:j1+i-i1 for tag,i1,i2,j1,j2 in opcodes if tag=='equal' for i in range(i1,i2)}
+ aligned=restore_source_tokens(aligned,source_expected,expected)
  provenance=[dict(index=i,source='observed' if i in observed else 'unspoken' if i in unspoken else 'interpolated',heard_index=observed.get(i)) for i in range(len(expected))]
  assert len(observed)==stats.matched_words
  reasons=[]
  if stats.match_ratio<GATE:reasons.append('observed_alignment_below_85_percent')
  if not aligned and expected:reasons.append('no_timed_words')
- return dict(asr_seconds=asr_seconds,alignment_seconds=time.monotonic()-alignment_start,request=kwargs,mode=mode,raw_segments=raw,heard_words=[dataclasses.asdict(w) for w in heard],expected_tokens=expected,opcodes=opcodes,provenance=provenance,unresolved_gaps=[o for o in opcodes if o[0]!='equal'],**normalisation,candidate_words=aligned,stats=dataclasses.asdict(stats),match_ratio=stats.match_ratio,rejection_reasons=reasons,seconds=time.monotonic()-started)
+ return dict(asr_seconds=asr_seconds,alignment_seconds=time.monotonic()-alignment_start,request=kwargs,mode=mode,raw_segments=raw,heard_words=[dataclasses.asdict(w) for w in heard],expected_tokens=source_expected,acoustic_expected_tokens=expected,opcodes=opcodes,provenance=provenance,unresolved_gaps=[o for o in opcodes if o[0]!='equal'],**normalisation,candidate_words=aligned,stats=dataclasses.asdict(stats),match_ratio=stats.match_ratio,rejection_reasons=reasons,seconds=time.monotonic()-started)
 
 def paragraph(model,audio,text,mode,out,configuration=None):
  signature=hashlib.sha256(json.dumps(dict(audio=sha(audio),text=text,mode=mode,configuration=configuration,helper=sha(lib.__file__),runner=sha(__file__)),sort_keys=True).encode()).hexdigest()
