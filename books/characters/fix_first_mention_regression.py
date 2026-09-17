@@ -55,10 +55,25 @@ def process(book):
                 assert c['roleVisibleAt'] == c['firstMention'], f'{book}/{ek}/{c["id"]}: roleVisibleAt != firstMention, needs manual review'
                 c['firstMention'] = new_point
                 c['roleVisibleAt'] = new_point
+                fm = point_key(new_point)
                 total_fixed += 1
-                print(book, ek, c['id'], 'firstMention/roleVisibleAt moved to', new_point, '(was', fm, ')')
+                print(book, ek, c['id'], 'firstMention/roleVisibleAt moved to', new_point, '(was', earliest, 'is now', fm, ')')
+            # The card only renders once some snapshot's availableAt <= the
+            # tap's cutoff point. releasedCard() requires the *earliest*
+            # snapshot's availableAt to be no later than firstMention (the
+            # verifier separately requires it to be no earlier), so the
+            # earliest snapshot must sit at exactly firstMention. Moving
+            # firstMention back without also pulling this snapshot back
+            # left the card unreachable at its own firstMention -- the
+            # actual remaining cause of the browser-verification failures.
+            earliest_snap = min(c['snapshots'], key=lambda s: point_key(s['availableAt']))
+            if point_key(earliest_snap['availableAt']) != fm:
+                assert point_key(earliest_snap['availableAt']) > fm, f'{book}/{ek}/{c["id"]}: earliest snapshot before firstMention'
+                before = earliest_snap['availableAt']
+                earliest_snap['availableAt'] = dict(c['firstMention'])
+                print(book, ek, c['id'], 'snapshot availableAt moved to', earliest_snap['availableAt'], '(was', before, ')')
     path.write_text(json.dumps(pkg, ensure_ascii=False, indent=2) + '\n')
-    print(book, total_fixed, 'characters fixed')
+    print(book, total_fixed, 'characters with firstMention fixed')
 
 
 if __name__ == '__main__':
