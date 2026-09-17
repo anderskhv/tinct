@@ -122,3 +122,6 @@
 
 /* Let the cover glow fade before the reel clipping boundary. */
 #tinct-onboarding-worlds-v5 .lib .lib-shelf{mask-image:linear-gradient(to bottom,#000 calc(100% - 14px),transparent)}
+
+/* A quiet boundary before the catalogue; no rule below the cover reel. */
+#tinct-onboarding-worlds-v5 .lib .lib-browse-label{border-top:1px solid rgba(244,237,223,.12);padding-top:18px}

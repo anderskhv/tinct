@@ -20,6 +20,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    try {
    await page.addInitScript(()=>{
     HTMLMediaElement.prototype.play=()=>Promise.resolve()
+    window.AudioContext=undefined;window.webkitAudioContext=undefined
     if(navigator.mediaDevices) navigator.mediaDevices.getUserMedia=async()=>{throw Error('Disabled for acceptance')}
    })
    await page.route('**/*',async route=>{
@@ -131,6 +132,45 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
     return window.__tinctLabPreReader.libraryState().shelf.map(id=>({id,time:model.catalogueLengthLine(catalogue.books.find(b=>b.id===id).wordCount)}))
    })
    assert(times.every(b=>b.time), 'all featured books have reading estimates: '+JSON.stringify(times))
+
+   // Exercise actual assistant markup with mic/audio disabled, never a paid call.
+   await page.locator('.library-glass-dock').getByRole('button',{name:'Chat',exact:true}).click()
+   const chat=page.getByRole('dialog',{name:'Chat with the librarian',exact:true})
+   await chat.waitFor()
+   let cb=await chat.boundingBox()
+   if(width<=600){
+    assert(Math.abs(cb.width-width)<2 && Math.abs(cb.height-height)<2,'mobile chat fills available viewport')
+    assert.equal(await page.locator('.library-glass-dock').isVisible(),false)
+    await page.setViewportSize({width,height:420});await page.waitForTimeout(200)
+    cb=await chat.boundingBox()
+    assert(cb.y+cb.height<=422,'chat follows reduced keyboard viewport')
+    const composer=await chat.locator('form').boundingBox()
+    assert(composer.y+composer.height<=422,'composer remains visible')
+    await page.setViewportSize({width,height});await page.waitForTimeout(200)
+   }else assert(cb.width<=622 && cb.height<height,'desktop chat remains a window')
+   await review('library-chat')
+   await chat.getByRole('button',{name:'Close',exact:true}).click()
+   assert(await page.locator('.library-glass-dock').isVisible())
+   await page.locator('.library-glass-dock').getByRole('button',{name:'Talk',exact:true}).click()
+   const talk=page.getByRole('dialog',{name:'Talk with the librarian',exact:true})
+   await talk.waitFor()
+   const call=talk.getByTestId('lab-call')
+   await call.waitFor()
+   await page.waitForTimeout(400)
+   const tb=await talk.boundingBox(),orb=await call.locator('.lab-call-circle').boundingBox(),end=await call.getByTestId('lab-call-end').boundingBox()
+   assert(Math.abs(orb.x+orb.width/2-(tb.x+tb.width/2))<3,'voice orb is centred')
+   assert(end.y+end.height<=tb.y+tb.height,'end control remains inside window')
+   assert.equal(await call.evaluate(n=>getComputedStyle(n).display),'grid','voice styling applies outside reader')
+   assert.equal(await call.locator('.lab-voice-control-disc').last().evaluate(n=>getComputedStyle(n).borderRadius),'50%','round voice controls')
+   if(width<=600){
+    assert(Math.abs(tb.width-width)<2 && Math.abs(tb.height-height)<2,'mobile Talk fills available viewport')
+    assert.equal(await page.locator('.library-glass-dock').isVisible(),false)
+   }else assert(tb.width<=562 && tb.height<height,'desktop voice remains bounded')
+   await review('library-talk')
+   await call.getByTestId('lab-call-end').click()
+   assert.equal(await talk.count(),0)
+   assert(await page.locator('.library-glass-dock').isVisible())
+   assert.notEqual(await page.evaluate(()=>document.body.style.overflow),'hidden','close restores library scrolling')
    results.push({engine,name,landing,library})
    } catch(error) {
     failures.push({engine,name,error:String(error)})

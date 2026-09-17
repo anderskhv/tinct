@@ -57,3 +57,10 @@ Anonymous Explain, Chat and spoken questions share ten AI interactions; further
 AI use offers an account with the existing first month free. Book opening and
 reading do not trigger an account nudge, and reading remains available without AI.
 [Iteration verification and release status](library-iteration-2026-09-17.md).
+
+## Library conversation surfaces — September 17 follow-up
+
+A dim divider precedes Browse the library. Mobile librarian Chat and Talk occupy
+the visible screen and hide the dock until closed. Desktop retains its chat window
+and uses a bounded, centred voice surface with round Mute/End controls.
+[Verification and release status](library-voice-layout-2026-09-17.md).
