@@ -37,7 +37,7 @@ jobs:
           git fetch --no-tags origin codex/audio-runner-reviewed
           mkdir -p "$ARTIFACT_DIR"
           python3 tools/audio-highlight/gpu/verify_active_batch.py \
-            --batch "$ARTIFACT_DIR/resolved-batch.json" \
+            --batch artifacts/audio-highlight-cloud-resume-2026-09-16/active-batch.json \
             --ledger artifacts/audio-highlight-cloud-resume-2026-09-16/runpod-spend-ledger.json \
             --reviewed-commit "$(git rev-parse FETCH_HEAD)" \
             --evidence "$ARTIFACT_DIR/active-batch-preflight.json" \
