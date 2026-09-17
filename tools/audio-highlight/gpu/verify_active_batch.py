@@ -127,8 +127,8 @@ def check_target(row: dict) -> dict:
         **row,
         "key": key,
         "wordsStatus": words_status,
-        "manifestSha256": hashlib.sha256(manifest_body).hexdigest(),
-        "editionSha256": hashlib.sha256(edition_body).hexdigest(),
+        "manifestSha256": hashlib.sha256(json.dumps(manifest, sort_keys=True, separators=(",", ":")).encode()).hexdigest(),
+        "editionSha256": hashlib.sha256(json.dumps(edition_data, sort_keys=True, separators=(",", ":")).encode()).hexdigest(),
         "sourceParagraphs": len(paragraphs),
         "recordings": len(entries),
         "audioSeconds": round(total_seconds, 3),
@@ -141,6 +141,7 @@ def main() -> int:
     parser.add_argument("--ledger", type=Path, required=True)
     parser.add_argument("--reviewed-commit", required=True)
     parser.add_argument("--evidence", type=Path, required=True)
+    parser.add_argument("--resolved-batch", type=Path, required=True)
     parser.add_argument("--github-env", type=Path)
     args = parser.parse_args()
     integrity = verify_trigger_integrity(args.reviewed_commit)
