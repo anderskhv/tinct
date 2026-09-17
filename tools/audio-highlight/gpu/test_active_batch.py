@@ -36,8 +36,8 @@ class ActiveBatchValidationTest(unittest.TestCase):
     @mock.patch("verify_active_batch.subprocess.check_output")
     def test_trigger_allows_only_active_batch_and_unchanged_runner(self, output, run):
         output.side_effect = [
-            (active.ACTIVE_PATH + "\n").encode(),
-            b"trigger-sha\n",
+            active.ACTIVE_PATH + "\n",
+            "trigger-sha\n",
         ]
         run.return_value.returncode = 0
         result = active.verify_trigger_integrity("reviewed-sha")
@@ -46,7 +46,7 @@ class ActiveBatchValidationTest(unittest.TestCase):
 
     @mock.patch("verify_active_batch.subprocess.check_output")
     def test_trigger_rejects_executable_change(self, output):
-        output.return_value = (active.ACTIVE_PATH + "\ntools/audio-highlight/aligner/trial.py\n").encode()
+        output.return_value = active.ACTIVE_PATH + "\ntools/audio-highlight/aligner/trial.py\n"
         with self.assertRaisesRegex(ValueError, "only active-batch"):
             active.verify_trigger_integrity("reviewed-sha")
 
