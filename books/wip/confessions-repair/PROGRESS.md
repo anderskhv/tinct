@@ -42,7 +42,7 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 | 4 | frozen (sha256 e5dd8853…) | done — 27 findings (1 major, 6 moderate, 20 minor; review's own summary table had an arithmetic error, 18→20) | done — 19/31 paragraphs edited | done — major + all 6 moderates confirmed fixed; 1 trivial spelling inconsistency found and fixed directly | **accepted** (sha256 52e0f9fc…) |
 | 5 | frozen (sha256 810b5a38…) | done — 21 findings (1 major, 4 moderate, 16 minor); question-mark parity independently confirmed 18/18 | done — drafter's own change-list was wrong (cited nonexistent indices 25/26/28, missed idx 20); diffed the files directly: 16/25 paragraphs actually changed | done — major + all 4 moderates confirmed; paragraph 20's undocumented edit verified genuine (single-token quote-style fix, matches Mo4, matches source's own punctuation) | **accepted** (sha256 40c8f607…) |
 | 6 | frozen (sha256 73bb3730…) | done — 32 findings (1 major, 3 moderate, 28 minor); question-mark parity independently confirmed 31/31 per-paragraph (drafter's own total of "32/32" was a notes arithmetic error) | done — 19/27 paragraphs changed, independently diffed and confirmed matching corrector's own claim | done — major + all 3 moderates confirmed, zero collateral edits (word-level diff traced every change to a finding); one ungrammatical seam in the review's own proposed wording (para 8) found and fixed directly | **accepted** (sha256 70b98614…) |
-| 8 | frozen (sha256 50155610…) | done — 14 findings (2 major, 3 moderate, 9 minor); question-mark parity independently confirmed 54/54; "serenity"→"certainty" interpretive choice rejected (analysis below) | done — 13/31 paragraphs changed, independently diffed and confirmed matching corrector's claim exactly | verification in progress (Opus) | — |
+| 8 | frozen (sha256 50155610…) | done — 14 findings (2 major, 3 moderate, 9 minor); question-mark parity independently confirmed 54/54; "serenity"→"certainty" interpretive choice rejected (analysis below) | done — 13/31 paragraphs changed, independently diffed and confirmed matching corrector's claim exactly | done — both majors + all 3 moderates confirmed, zero collateral edits, whole-chapter intensity confirmed intact | **accepted** (sha256 55319d3f…) |
 | 9 | queued | — | — | — | — |
 | 10 | queued | — | — | — | — |
 | 12 | queued | — | — | — | — |
@@ -87,9 +87,21 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 - Final: `book06-accepted.json`, sha256 `70b98614c8b54fe8eec3222e4f6a681143d8086f34b41a429acac4744b70af4d` — the paragraph 8 seam fixed directly.
 - Danish not touched.
 
+## Book 8 — editorially accepted (2026-09-17)
+
+The conversion book — highest-stakes chapter reviewed so far.
+
+- Candidate: `book08-candidate.json`, sha256 `50155610c6ac2bf48c8ee5c4b0b0af76ca0b43d209ff8da13d1ff46e9390d946` (Sonnet draft, frozen). Question-mark parity 54/54 achieved after drafter caught and self-corrected two compressed rhetorical-question pairs on its own mechanical check.
+- Review: `book08-review.md` — Opus, 14 findings (2 major, 3 moderate, 9 minor). Both majors were direction-inversions in the two most consequential sentences in the book: the two-wills argument's own conclusion (para 22) and the closing clause about Monica's joy (para 31, wrongly attributed to grandchildren, contradicting the preceding clause). Reviewer also rejected the drafter's flagged "serenity"→"certainty" interpretive substitution near tolle-lege with a textual argument (Augustine already has certainty per paras 1/13/19; the deficit resolved at tolle-lege is affective peace, not more certainty).
+- Corrected: `book08-corrected.json`, `book08-corrections-log.md` — Sonnet, 13/31 paragraphs changed (independently diffed by the orchestrator, confirmed exact match). Both majors fixed, all 3 moderates fixed including restoring "peace" in place of "certainty", 8/9 minors applied.
+- Verification: `book08-verification.md` — Opus, re-derived diff set exactly, confirmed both majors + all 3 moderates fixed against source, zero collateral edits, whole-chapter read confirmed the garden weeping / two-wills imagery / tolle-lege scene all land at full intensity with no new seams.
+- Final: `book08-accepted.json`, sha256 `55319d3f8939e9e7504eed1e393c0e0a89c86645bb61d9ed5214efd294de6719`.
+- **Out-of-scope defect found, not fixed:** the live `app/public/data/editions/confessions-original-en.json` itself contains "often years" where it should read "ten years" (Book 8, likely an OCR error from the 1838 scan) — confirmed present in both the live file and our staged source copy. This is a live-edition file, out of scope for this content-only repair work; flagging for whoever owns that file. Our accepted Book 8 text deliberately keeps "ten years" (the evidently correct reading) rather than propagating the source typo, per the review's explicit recommendation — noted as a documented divergence from the (flawed) locked source, not a silent one.
+- Danish not touched.
+
 ## Next action
 
-Book 7 was found genuinely modernized in the original whole-book audit (avg similarity 0.163) — skip, no repair needed. Move to Book 8 (next untouched-passthrough book): draft → independent review → correct → verify. Standing gates: question-mark parity against source (mechanical, independently counted), direct JSON diffing for all change-list claims (never trust agent self-report — caught real errors in Books 5 and partially avoided in Book 6), extra scrutiny on comparisons/causal claims/stated positions for direction-inversion (now the most common defect class in this project: Books 4, 5, 6).
+Move to Book 9 (next untouched-passthrough book): draft → independent review → correct → verify. Standing gates: question-mark parity against source (mechanical, independently counted), direct JSON diffing for all change-list claims (never trust agent self-report), extra scrutiny on comparisons/causal claims/stated positions for direction-inversion (now confirmed in every one of Books 4, 5, 6, 8 — the dominant defect class in this project).
 
 ## Models actually used
 
