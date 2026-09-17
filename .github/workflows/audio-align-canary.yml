@@ -55,7 +55,7 @@ jobs:
         run: |
           python3 tools/audio-highlight/gpu/orchestrate.py run \
             --name "tinct-words-cloud-resume-${GITHUB_RUN_ID}" \
-            --batch artifacts/audio-highlight-cloud-resume-2026-09-16/ready-batch-20260917-04.json \
+            --batch artifacts/audio-highlight-cloud-resume-2026-09-16/ready-batch-20260917-05.json \
             --commit "${GITHUB_SHA}" \
             --artifacts "$ARTIFACT_DIR" \
             --cloud COMMUNITY \
