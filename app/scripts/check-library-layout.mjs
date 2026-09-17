@@ -101,6 +101,11 @@ try {
   assert.equal(await prep.locator('.lab-preface-full p').first().evaluate(n=>getComputedStyle(n).textAlign),'left')
   assert.equal(await prep.getByRole('button',{name:'Characters',exact:true}).getAttribute('aria-expanded'),'false')
   await page.screenshot({path:output+'/'+name+'-preparation.png'})
+  // Small review images in the cloud log make acceptance inspectable alongside artifacts.
+  const review=(await page.screenshot({type:'jpeg',quality:45})).toString('base64')
+  console.log('REVIEW_BEGIN '+name)
+  for(let i=0;i<review.length;i+=3000) console.log('REVIEW_CHUNK '+review.slice(i,i+3000))
+  console.log('REVIEW_END '+name)
   await prep.getByRole('button',{name:'Preface',exact:true}).click()
   const expanded=await frame.boundingBox()
   assert.deepEqual(expanded,beforeExpand,'preface expansion must not resize or move frame')
