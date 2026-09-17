@@ -27,7 +27,7 @@ jobs:
         run: |
           for attempt in $(seq 1 96); do
             if curl -sf https://tinct.app/lab/entry-responsive.css -o /tmp/live-entry.css && cmp -s public/lab/entry-responsive.css /tmp/live-entry.css; then
-              bundle=$(curl -sf https://tinct.app/reader | grep -oE '/assets/index-[A-Za-z0-9_-]+\\.js' | head -1)
+              bundle=$(curl -sf https://tinct.app/reader | grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' | head -1)
               test -n "$bundle"
               echo "TINCT_EXPECTED_BUNDLE=$bundle" >> "$GITHUB_ENV"
               exit 0
