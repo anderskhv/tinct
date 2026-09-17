@@ -84,8 +84,8 @@ def validate_spend(ledger: object, reviewed: object | None = None) -> float:
             cost = float(row.get("estimatedCost", -1))
             if not math.isfinite(cost) or cost < 0:
                 raise ValueError(f"spend attempt {index} has invalid estimatedCost")
-            if row.get("pod") and (row.get("status") != "EXITED" or row.get("terminateHttp") != 204):
-                raise ValueError(f"spend attempt {index} lacks proven teardown")
+            if not row.get("pod") or row.get("status") != "EXITED" or row.get("terminateHttp") != 204:
+                raise ValueError(f"spend attempt {index} lacks pod identity or proven teardown")
     costs = []
     for index, row in enumerate(attempts):
         if not isinstance(row, dict):
