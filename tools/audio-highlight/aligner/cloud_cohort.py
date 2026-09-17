@@ -41,6 +41,10 @@ def sha(raw: bytes) -> str:
     return hashlib.sha256(raw).hexdigest()
 
 
+def sha_json(value: object) -> str:
+    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+
+
 def decoded_duration(path: Path) -> float:
     """Seconds of actual decodable audio. Raises if the file does not decode."""
     with av.open(str(path)) as container:
@@ -80,6 +84,10 @@ def build(target: dict, out: Path, group: str, editions: dict) -> dict:
         editions[(book, edition)] = text
         cached = text
 
+    expected_edition = target.get("expectedEditionSha256")
+    if expected_edition and sha_json(cached) != expected_edition:
+        raise RuntimeError(f"{key}: edition text changed after preflight")
+
     texts, title = paragraph_list(cached, chapter)
     if texts is None:
         return {"key": key, "dropped": "edition has no such chapter"}
@@ -87,6 +95,9 @@ def build(target: dict, out: Path, group: str, editions: dict) -> dict:
     status, manifest = prodapi.chapter_manifest(book, edition, chapter)
     if status != 200 or not manifest:
         return {"key": key, "dropped": f"manifest HTTP {status}"}
+    expected_manifest = target.get("expectedManifestSha256")
+    if expected_manifest and sha_json(manifest) != expected_manifest:
+        raise RuntimeError(f"{key}: manifest changed after preflight")
 
     entries = {p["paragraph"]: p for p in manifest.get("paragraphs", []) if p.get("paragraph", -1) >= 0}
     extra = sorted(set(entries) - set(range(len(texts))))
