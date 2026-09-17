@@ -2,6 +2,9 @@ name: library-production-review
 on:
   push:
     branches: [codex/library-production-review-20260917]
+concurrency:
+  group: library-production-visual-review
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -23,7 +26,7 @@ jobs:
       - name: Wait for the approved release
         run: |
           for attempt in $(seq 1 36); do
-            if curl -sf https://tinct.app/reader | grep -q '/assets/index-BDPb64j1.js'; then exit 0; fi
+            if curl -sf https://tinct.app/reader | grep -q '/assets/index-IbdNB-Q0.js'; then exit 0; fi
             sleep 5
           done
           exit 1

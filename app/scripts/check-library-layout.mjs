@@ -99,7 +99,7 @@ try {
   await page.screenshot({path:output+'/'+name+'-cover.png'})
   assert.equal(new URL(page.url()).pathname,name==='phone'?'/lab/phone':'/reader')
   const bundle=await page.locator('script[src*="/assets/index-"]').getAttribute('src')
-  assert.equal(bundle, '/assets/index-BDPb64j1.js', 'exact deployed reader bundle')
+  assert.equal(bundle, '/assets/index-IbdNB-Q0.js', 'exact deployed reader bundle')
   console.log('VERIFIED_READER '+name+' '+page.url()+' '+bundle)
   await page.getByRole('button',{name:/Before you begin/}).click()
   const prep=page.locator('[data-testid="lab-book-preface"]')
