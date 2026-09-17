@@ -22,3 +22,13 @@ Release evidence and limits are in [the reader feedback plan](reader-feedback-20
 
 Production verification for this update is recorded in the linked release plan;
 the plan distinguishes controlled browser/voice fixtures from live model testing.
+
+
+## Library and book preparation — September 17
+
+The library displays all eligible books under the existing Houses and Shelves,
+below an interactive cover reel. Desktop book clicks, drag, horizontal scrolling
+and keyboard selection work. Preparation uses a stable dark frame, left-aligned
+scrollable preface, compact optional characters, and existing text/comparison/audio
+edition controls; cover artwork moves into place without becoming a magnified
+background. [Release and verification](library-preparation-polish-2026-09-17.md).
