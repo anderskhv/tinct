@@ -14,6 +14,7 @@ from pathlib import Path
 BASE = "https://tinct.app"
 UA = "tinct-active-audio-batch/1.0"
 ACTIVE_PATH = "artifacts/audio-highlight-cloud-resume-2026-09-16/active-batch.json"
+LEDGER_PATH = "artifacts/audio-highlight-cloud-resume-2026-09-16/runpod-spend-ledger.json"
 RUNNER_PATHS = (".github/workflows/audio-align-canary.yml", "tools/audio-highlight")
 MAX_TARGETS = 20
 MAX_AUDIO_SECONDS = 7200.0
@@ -72,8 +73,9 @@ def validate_spend(ledger: object) -> float:
 
 def verify_trigger_integrity(reviewed: str) -> dict:
     changed = subprocess.check_output(["git", "diff", "--name-only", f"{reviewed}..HEAD"], text=True).splitlines()
-    if set(changed) - {ACTIVE_PATH}:
-        raise ValueError("trigger commit may change only active-batch.json: " + ", ".join(changed))
+    expected = {ACTIVE_PATH, LEDGER_PATH}
+    if set(changed) != expected or len(changed) != len(expected):
+        raise ValueError("trigger commit must change exactly active-batch.json and runpod-spend-ledger.json: " + ", ".join(changed))
     runner_diff = subprocess.run(["git", "diff", "--quiet", reviewed, "HEAD", "--", *RUNNER_PATHS])
     if runner_diff.returncode != 0:
         raise ValueError("runner/tool tree differs from reviewed runner")
