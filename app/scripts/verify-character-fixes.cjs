@@ -87,6 +87,12 @@ const CASES = [
   ['war-and-peace', 'original-en', undefined, 'dorokhov', undefined, 'wp-dorokhov-new'],
   ['war-and-peace', 'original-en', undefined, 'makar-alexeevich', undefined, 'wp-makar-alexeevich-new'],
   ['war-and-peace', 'original-en', undefined, 'mortier', undefined, 'wp-mortier-new'],
+  ['war-and-peace', 'original-en', undefined, 'count-rostov', 'Count Rostóv', 'wp-ilya-alias'],
+  ['war-and-peace', 'original-en', undefined, 'natasha', 'Natásha', 'wp-natalie-alias'],
+  ['war-and-peace', 'original-en', undefined, 'princess-mary', undefined, 'wp-marie-alias'],
+  ['war-and-peace', 'original-en', undefined, 'tit-the-cook', undefined, 'wp-tit-new'],
+  ['war-and-peace', 'original-en', undefined, 'simon-chekmar', undefined, 'wp-simon-chekmar-new'],
+  ['war-and-peace', 'original-en', undefined, 'louis-xvi', undefined, 'wp-louis-xvi-new'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
