@@ -36,7 +36,7 @@ Full-book diagnostic (structural integrity + close paragraph comparison across ~
 | Ch35 (full chapter, preserving sound paragraphs) | queued | — | — | — | — |
 | Ch36 (full chapter, preserving sound paragraphs) | done — 1/80 paragraphs changed (para 48, fire geography + invented rescue + omitted aftermath fixed), independently diffed and confirmed | queued | — | — | — |
 | Ch37 (full chapter, preserving sound paragraphs) | queued | — | — | — | — |
-| Ch38 / Conclusion (full chapter, preserving sound paragraphs) | queued | — | — | — | — |
+| Ch38 / Conclusion (full chapter, preserving sound paragraphs) | done — 4/24 paragraphs changed (paras 1, 10, 12, 13: kitchen staging, Adèle epilogue, "bone of his bone" ending, reciprocity passage all restored), independently diffed and confirmed | queued | — | — | — |
 | Adèle accent fix (10 paragraphs, ch11/12/38) | not started (trivial, direct fix, no review cycle needed) | — | — | — | — |
 
 ## Models used
