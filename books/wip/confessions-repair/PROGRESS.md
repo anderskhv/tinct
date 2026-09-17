@@ -40,7 +40,7 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 |---|---|---|---|---|---|
 | 3 | frozen (sha256 9598b9ba…) | done — 53 findings (6 major, 12 moderate, 35 minor) | done — 18/21 paragraphs edited | done — 6/6 majors confirmed fixed; 5 new clause-level issues found and fixed directly (no further round) | **accepted** (sha256 c7a80e65…) |
 | 4 | frozen (sha256 e5dd8853…) | done — 27 findings (1 major, 6 moderate, 20 minor; review's own summary table had an arithmetic error, 18→20) | done — 19/31 paragraphs edited | done — major + all 6 moderates confirmed fixed; 1 trivial spelling inconsistency found and fixed directly | **accepted** (sha256 52e0f9fc…) |
-| 5 | frozen (sha256 810b5a38…) | done — 21 findings (1 major, 4 moderate, 16 minor); question-mark parity independently confirmed 18/18 | done — drafter's own change-list was wrong (cited nonexistent indices 25/26/28, missed idx 20); I diffed the files directly: 16/25 paragraphs actually changed | verification in progress (Opus) | — |
+| 5 | frozen (sha256 810b5a38…) | done — 21 findings (1 major, 4 moderate, 16 minor); question-mark parity independently confirmed 18/18 | done — drafter's own change-list was wrong (cited nonexistent indices 25/26/28, missed idx 20); diffed the files directly: 16/25 paragraphs actually changed | done — major + all 4 moderates confirmed; paragraph 20's undocumented edit verified genuine (single-token quote-style fix, matches Mo4, matches source's own punctuation) | **accepted** (sha256 40c8f607…) |
 | 6 | queued | — | — | — | — |
 | 8 | queued | — | — | — | — |
 | 9 | queued | — | — | — | — |
@@ -68,9 +68,19 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 - **Carry-forward finding:** drafter self-certification of "no flattened questions" was false in both Book 3 and Book 4. Per-paragraph question-mark parity against source is now a standing blocking mechanical gate for every future candidate and corrected file — do not trust drafter self-report on this.
 - Danish not touched.
 
+## Book 5 — editorially accepted (2026-09-17)
+
+- Candidate: `book05-candidate.json`, sha256 `810b5a38410ea7684bf4bb3e17abab3de05fee38a70e69d99625a38d1960c67c` (Sonnet draft, frozen). Question-mark parity 18/18 achieved on first draft — the Book 3/4 flattening regression did not recur, confirming the carry-forward gate works.
+- Review: `book05-review.md` — Opus, 21 findings (1 major, 4 moderate, 16 minor), including independent question-mark re-count. Major + 1 moderate were direction-inversions (source's stated position flipped) in paragraphs the drafter had not self-flagged as risky.
+- Corrected: `book05-corrected.json`, `book05-corrections-log.md` — Sonnet, 16/25 paragraphs changed. **Process defect caught:** the drafter's own change-list report cited nonexistent paragraph indices (25/26/28 in a 25-paragraph file) and omitted an actually-changed paragraph (20). Caught by diffing the JSON directly rather than trusting the log — now standing practice.
+- Verification: `book05-verification.md` — Opus, re-derived the true diff set independently (matched mine exactly), gave paragraph 20 priority scrutiny since it was undocumented — confirmed genuine (single-token quote-style fix required by the whole-file quote-convention finding, and matches Pusey's own punctuation). Major + all 4 moderates confirmed.
+- Final: `book05-accepted.json`, sha256 `40c8f607927859ccc5586fbb462447193c79cabde308ea5b9311faeadbb206c2`.
+- **Standing practice, carried forward:** never trust a drafter's or corrector's self-reported change-list — diff the JSON files directly, every time, for every book.
+- Danish not touched.
+
 ## Next action
 
-Move to Book 5 (next untouched-passthrough book): draft → independent review → correct → verify, enforcing the question-mark-parity gate as a mechanical check (not just a review-time finding) and continuing to watch for added interpretive connectives.
+Move to Book 6 (next untouched-passthrough book): draft → independent review → correct → verify. Standing gates: question-mark parity against source (mechanical, not self-reported), direct JSON diffing for all change-list claims (never trust agent self-report), watch for added interpretive connectives and dropped/garbled clauses.
 
 ## Models actually used
 
