@@ -203,6 +203,15 @@ class SourceTokenTextInvariant(unittest.TestCase):
   aligned=[{'text':'one','start':0,'end':1},{'text':'two','start':1,'end':2}]
   with self.assertRaisesRegex(ValueError,'mapping changed at index 0'):
    trial.restore_source_tokens(aligned,['one','two'],['two','one'])
+ def test_removed_verse_marker_is_preserved_as_zero_span_source_token(self):
+  trial.select_helper('v4')
+  result=trial.attempt(Model(['Greet','Mary']),'unused','⁶ Greet Mary','off')
+  self.assertEqual(result['acoustic_expected_tokens'],['Greet','Mary'])
+  self.assertEqual(result['expected_tokens'],['⁶','Greet','Mary'])
+  self.assertEqual([word['text'] for word in result['candidate_words']],['⁶','Greet','Mary'])
+  self.assertEqual(result['candidate_words'][0]['start'],result['candidate_words'][0]['end'])
+  self.assertLessEqual(result['candidate_words'][0]['end'],result['candidate_words'][1]['start'])
+  self.assertEqual(result['rejection_reasons'],[])
 
 class Pins(unittest.TestCase):
  def test_pins_file_records_all_three_helper_hashes(self):
