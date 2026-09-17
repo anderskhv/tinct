@@ -8,10 +8,10 @@ export function preparationEditionLabel(edition: Edition): string {
   if (edition.key === 'modern-en') return 'Modern English, Tinct (AI-generated)'
   if (edition.style === 'modern') return `Modern ${language}, Tinct (AI-generated)`
   if (edition.translator) {
-    const name = edition.label.replace(/\s+Translation/i, '').replace(/\s*\(\d{3,4}\)\s*$/, '').trim()
+    const name = edition.label.replace(/\s+Translation/i, '').replace(/\s*\([^)]*\)\s*$/, '').trim()
     return `${name || edition.translator}, ${language} translation${edition.year ? ` (${edition.year})` : ''}`
   }
   // Preserve named editions (KJV, WEB, etc.); do not guess their provenance.
-  if (/^Original(?:\s|$)/i.test(edition.label)) return `Original ${language}${edition.year ? ` (${edition.year})` : ''}`
+  if (/^(?:Original|Shakespeare)(?:\s|$)/i.test(edition.label)) return `Original ${language}${edition.year ? ` (${edition.year})` : ''}`
   return edition.label
 }

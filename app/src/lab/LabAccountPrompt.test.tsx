@@ -105,7 +105,7 @@ describe('LabSecondBookNudge', () => {
 })
 
 describe('lab account prompt in the reader', () => {
-  it('sends three anonymous chats, holds the fourth behind the sheet, and keeps the draft on dismiss', async () => {
+  it('sends ten anonymous chats, holds the fourth behind the sheet, and keeps the draft on dismiss', async () => {
     const fetchMock = chatFetch()
     vi.stubGlobal('fetch', fetchMock)
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)

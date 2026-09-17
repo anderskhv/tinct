@@ -209,7 +209,7 @@ describe('locked library model', () => {
     expect(formatReadingTime(150)).toBe('2 hr 30 min')
     expect(formatReadingTime(700)).toBe('11 hr')
     expect(formatReadingTime(0)).toBeNull()
-    expect(readingTimeLine(120_000)).toEqual({ value: '8 hr', wordsPerMinute: 250, measured: false, note: 'at 250 words a minute' })
+    expect(readingTimeLine(120_000)).toEqual({ value: '10–15 hours', wordsPerMinute: null, measured: false, note: 'estimated at 140–200 words a minute; pauses and notes take extra time' })
     expect(readingTimeLine(120_000, 400)).toEqual({ value: '5 hr', wordsPerMinute: 400, measured: true, note: 'at your 400 words a minute' })
     expect(readingTimeLine(null)).toBeNull()
   })

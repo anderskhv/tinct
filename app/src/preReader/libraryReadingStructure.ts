@@ -88,9 +88,9 @@ function readStructure(publicDirectory: string, bookId: string, editionKey: stri
 export function publishedWordCount(publicDirectory: string, bookId: string, editionKey: string): number | null {
   const whole = path.join(publicDirectory, 'data', 'editions', `${bookId}-${editionKey}.json`)
   const directory = path.dirname(manifestPathFor(publicDirectory, bookId, editionKey))
-  const files = fs.existsSync(whole) ? [whole] : fs.existsSync(directory)
+  const files = hasChapterShards(publicDirectory,bookId,editionKey)
     ? fs.readdirSync(directory).filter(name => name.endsWith('.json') && name !== 'manifest.json').map(name => path.join(directory,name))
-    : []
+    : fs.existsSync(whole) ? [whole] : []
   let total = 0
   const count = (value: unknown): void => {
     if (!value || typeof value !== 'object') return

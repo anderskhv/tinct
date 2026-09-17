@@ -115,3 +115,7 @@
 
 @property --lib-accent{syntax:"<color>";inherits:true;initial-value:#c9a45c}
 .lib-atmos{transition:background-color 1500ms ease,--lib-accent 1500ms ease}
+
+.lib-atmos .lib-art-layer{position:absolute;inset:-100px;background-size:cover;background-position:50% 30%;filter:blur(85px) saturate(1.25);opacity:0;transition:opacity 1500ms ease;mask-image:linear-gradient(#000, #000 45%,transparent 100%);pointer-events:none}
+.lib-atmos .lib-art-layer.is-visible{opacity:.34}
+@media(prefers-reduced-motion:reduce){.lib-atmos .lib-art-layer{transition:none}}

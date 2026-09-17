@@ -94,6 +94,22 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    assert(library.desc.length>90,'full description remains')
    if(height>=660)assert(library.description.bottom<library.dock.top,name+' full description above dock')
    if(height>=660)assert(library.category.top<library.dock.top-35,name+' first category visible before dock')
+   if(touch && engine==='chromium' && width<600){
+    const cd=await context.newCDPSession(page)
+    const shelf=await page.locator('[data-popular-shelf]').boundingBox()
+    const selected=()=>page.locator('[data-shelf-index][aria-current="true"]').getAttribute('data-shelf-index')
+    const before=await selected()
+    const x=shelf.x+shelf.width/2,y=shelf.y+shelf.height/2
+    for(const direction of [-1,1]){
+     await cd.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]})
+     for(let step=1;step<=6;step++) await cd.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+direction*step*8,y:y+2}]})
+     await cd.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]})
+     await page.waitForTimeout(450)
+     if(direction===-1) assert.notEqual(await selected(),before,'short native touch swipe advances')
+    }
+    assert.equal(await selected(),before,'reverse touch swipe returns')
+    await cd.detach()
+   }
    const row=page.locator('.lib-category-track').first()
    await row.scrollIntoViewIfNeeded()
    if(!touch){

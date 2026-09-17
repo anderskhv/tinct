@@ -222,13 +222,6 @@ export function SelectionPopup({
     onColorClick(color)
     setPopupMode('colors')
   }
-  const applyNoteColor = (color: HighlightColor) => {
-    setLastColor(color)
-    try { localStorage.setItem('tinct-highlight-color', color) } catch { /* private mode */ }
-    if (selection.existingHighlightId) onUpdateHighlightNote?.(selection.existingHighlightId, noteInput.trim())
-    onColorClick(color)
-    dismissPopup()
-  }
   const dismissRef = useRef(dismissPopup)
   dismissRef.current = dismissPopup
   useEffect(() => {

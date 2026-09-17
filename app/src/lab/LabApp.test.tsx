@@ -2896,7 +2896,7 @@ describe('lab passage headline pages', () => {
   })
 
   it('does not focus the composer when the account sheet hands a held draft back on the phone', async () => {
-    // Two of the three anonymous actions are already spent, so the chat below
+    // Two of the ten anonymous actions are already spent, so the chat below
     // takes the last one and the one after it is held.
     localStorage.setItem('tinct:lab-ai-actions', '9')
     const focus = vi.spyOn(HTMLInputElement.prototype, 'focus')

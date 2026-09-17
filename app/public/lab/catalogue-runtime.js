@@ -558,6 +558,28 @@ import {
     root.querySelector('[data-popular-lead-row]').textContent = lead.row
   }
 
+  let atmosphereBusy = false
+  let atmospherePending = null
+  let atmosphereCurrent = ''
+  let atmosphereLayer = 0
+  function blendAtmosphere(book) {
+    atmospherePending = book
+    if (atmosphereBusy || atmosphereCurrent === book.id) return
+    const atmosphere = root.querySelector('[data-lib-atmos]')
+    if (!atmosphere) return
+    if (!atmosphere.querySelector('.lib-art-layer')) {
+      for (let i=0;i<2;i++) { const layer=document.createElement('div');layer.className='lib-art-layer';atmosphere.append(layer) }
+    }
+    const layers=atmosphere.querySelectorAll('.lib-art-layer')
+    atmosphereLayer=1-atmosphereLayer
+    layers[atmosphereLayer].style.backgroundImage=book.art?.src ? `url("${book.art.src.replace(/["\\\\]/g,'')}")` : 'none'
+    layers[atmosphereLayer].classList.add('is-visible')
+    layers[1-atmosphereLayer].classList.remove('is-visible')
+    atmosphereCurrent=book.id
+    atmosphereBusy=true
+    setTimeout(()=>{atmosphereBusy=false;if(atmospherePending?.id!==atmosphereCurrent) blendAtmosphere(atmospherePending)},reducedMotion()?0:1500)
+  }
+
   function renderCaption() {
     const caption = root.querySelector('[data-popular-caption]')
     if (state.libraryMode !== 'new' || !state.shelfBooks.length) {
@@ -572,6 +594,7 @@ import {
       atmosphere.style.backgroundColor = colour
       atmosphere.style.setProperty('--lib-accent', book.cover?.accent || '#c9a45c')
     }
+    blendAtmosphere(book)
     renderFeatured()
     caption.innerHTML = `<span class="lib-author">${escapeHtml(book.author)}</span><h2 class="lib-h1" data-popular-title>${escapeHtml(book.title)}</h2>${length ? `<span class="lib-readtime" title="${escapeHtml(length.ariaLabel)}" aria-label="${escapeHtml(length.ariaLabel)}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>${escapeHtml(length.value)}</span>` : ''}<p class="lib-lede" data-popular-blurb>${escapeHtml(bookDescription(book))}</p>`
   }
@@ -1586,7 +1609,15 @@ import {
   if (window.__tinctLabBoot?.state?.returning) state.libraryMode = 'returning'
   if (window.__tinctLabLibraryMode === 'new' || window.__tinctLabLibraryMode === 'returning') state.libraryMode = window.__tinctLabLibraryMode
   // The shelf selection outlives a trip into a book or the reader.
-  state.shelfIndex = Number.parseInt(readSession(LIBRARY_SHELF_SESSION_KEY) ?? (window.innerWidth <= 600 ? '3' : '2'), 10) || 0
+  let initialShelf = readSession(LIBRARY_SHELF_SESSION_KEY)
+  if (initialShelf === null && window.innerWidth <= 600) {
+    const choices = [3,1,2,0] // Notes, Meditations, Frankenstein, The Prince.
+    const visits = Number.parseInt(readLocal('tinct:featured-visit') || '0',10) || 0
+    initialShelf = String(choices[Math.max(0,visits) % choices.length])
+    writeSession(LIBRARY_SHELF_SESSION_KEY,initialShelf)
+    try { localStorage.setItem('tinct:featured-visit', String(visits+1)) } catch {}
+  }
+  state.shelfIndex = Number.parseInt(initialShelf ?? '2',10) || 0
   state.searchRevealed = searchRevealed(safeSessionStorage())
   // Focus reaching the field in a closed drawer (Tab, or the tap on its
   // <label>) opens the drawer; see revealSearch.

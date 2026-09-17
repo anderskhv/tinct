@@ -511,13 +511,13 @@ export function listeningTimeLine(wordCount) {
 export function readingTimeLine(wordCount, readerWpm = null) {
   const measured = Number.isFinite(readerWpm) && readerWpm > 0
   const wpm = measured ? readerWpm : DEFAULT_WORDS_PER_MINUTE
-  const label = formatReadingTime(readingMinutes(wordCount, wpm))
+  const label = measured ? formatReadingTime(readingMinutes(wordCount, wpm)) : catalogueLengthLine(wordCount)?.value.replace(/^About /,'').replace(/ to read$/,'')
   if (!label) return null
   return {
     value: label,
-    wordsPerMinute: Math.round(wpm),
+    wordsPerMinute: measured ? Math.round(wpm) : null,
     measured,
-    note: measured ? `at your ${Math.round(wpm)} words a minute` : `at ${DEFAULT_WORDS_PER_MINUTE} words a minute`,
+    note: measured ? `at your ${Math.round(wpm)} words a minute` : 'estimated at 140–200 words a minute; pauses and notes take extra time',
   }
 }
 
