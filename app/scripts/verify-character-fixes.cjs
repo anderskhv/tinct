@@ -123,6 +123,14 @@ const CASES = [
   ['divine-comedy', 'original-en', undefined, 'buonconte', undefined, 'dc-buonconte-new'],
   ['divine-comedy', 'original-en', undefined, 'marco-lombardo', undefined, 'dc-marco-lombardo-new'],
   ['divine-comedy', 'original-en', undefined, 'branca-doria', undefined, 'dc-branca-doria-new'],
+  // moby-dick: new characters plus the Gabriel homonym split and Yarman alias
+  ['moby-dick', 'original-en', undefined, 'gabriel-prophet', 'Gabriel', 'md-gabriel-prophet'],
+  ['moby-dick', 'original-en', undefined, 'derick-de-deer', 'Derick De Deer', 'md-yarman-alias'],
+  ['moby-dick', 'original-en', undefined, 'hosea-hussey', undefined, 'md-hosea-hussey-new'],
+  ['moby-dick', 'original-en', undefined, 'peter-coffin', undefined, 'md-peter-coffin-new'],
+  ['moby-dick', 'original-en', undefined, 'radney', undefined, 'md-radney-new'],
+  ['moby-dick', 'original-en', undefined, 'captain-gardiner', undefined, 'md-captain-gardiner-new'],
+  ['moby-dick', 'original-en', undefined, 'dr-bunger', undefined, 'md-dr-bunger-new'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
