@@ -199,6 +199,10 @@ class SourceTokenTextInvariant(unittest.TestCase):
  def test_restore_fails_closed_when_cleaning_changes_token_count(self):
   with self.assertRaisesRegex(ValueError,'source/acoustic token mapping changed'):
    trial.restore_source_tokens([{'text':'one','start':0,'end':1}],['one','two'],['one'])
+ def test_restore_rejects_same_count_but_mispaired_tokens(self):
+  aligned=[{'text':'one','start':0,'end':1},{'text':'two','start':1,'end':2}]
+  with self.assertRaisesRegex(ValueError,'mapping changed at index 0'):
+   trial.restore_source_tokens(aligned,['one','two'],['two','one'])
 
 class Pins(unittest.TestCase):
  def test_pins_file_records_all_three_helper_hashes(self):
