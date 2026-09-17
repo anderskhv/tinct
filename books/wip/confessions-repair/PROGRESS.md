@@ -41,7 +41,7 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 | 3 | frozen (sha256 9598b9ba…) | done — 53 findings (6 major, 12 moderate, 35 minor) | done — 18/21 paragraphs edited | done — 6/6 majors confirmed fixed; 5 new clause-level issues found and fixed directly (no further round) | **accepted** (sha256 c7a80e65…) |
 | 4 | frozen (sha256 e5dd8853…) | done — 27 findings (1 major, 6 moderate, 20 minor; review's own summary table had an arithmetic error, 18→20) | done — 19/31 paragraphs edited | done — major + all 6 moderates confirmed fixed; 1 trivial spelling inconsistency found and fixed directly | **accepted** (sha256 52e0f9fc…) |
 | 5 | frozen (sha256 810b5a38…) | done — 21 findings (1 major, 4 moderate, 16 minor); question-mark parity independently confirmed 18/18 | done — drafter's own change-list was wrong (cited nonexistent indices 25/26/28, missed idx 20); diffed the files directly: 16/25 paragraphs actually changed | done — major + all 4 moderates confirmed; paragraph 20's undocumented edit verified genuine (single-token quote-style fix, matches Mo4, matches source's own punctuation) | **accepted** (sha256 40c8f607…) |
-| 6 | frozen (sha256 73bb3730…) | done — 32 findings (1 major, 3 moderate, 28 minor); question-mark parity independently confirmed 31/31 per-paragraph (drafter's own total of "32/32" was a notes arithmetic error) | done — 19/27 paragraphs changed, independently diffed and confirmed matching corrector's own claim | verification in progress (Opus) | — |
+| 6 | frozen (sha256 73bb3730…) | done — 32 findings (1 major, 3 moderate, 28 minor); question-mark parity independently confirmed 31/31 per-paragraph (drafter's own total of "32/32" was a notes arithmetic error) | done — 19/27 paragraphs changed, independently diffed and confirmed matching corrector's own claim | done — major + all 3 moderates confirmed, zero collateral edits (word-level diff traced every change to a finding); one ungrammatical seam in the review's own proposed wording (para 8) found and fixed directly | **accepted** (sha256 70b98614…) |
 | 8 | queued | — | — | — | — |
 | 9 | queued | — | — | — | — |
 | 10 | queued | — | — | — | — |
@@ -78,9 +78,18 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 - **Standing practice, carried forward:** never trust a drafter's or corrector's self-reported change-list — diff the JSON files directly, every time, for every book.
 - Danish not touched.
 
+## Book 6 — editorially accepted (2026-09-17)
+
+- Candidate: `book06-candidate.json`, sha256 `73bb3730f7ce0ac95dc4d652c0607fef9de6ff683f7ce7424e19db7d56fc6ae7` (Sonnet draft, frozen).
+- Review: `book06-review.md` — Opus, 32 findings (1 major, 3 moderate, 28 minor). Major was a 4th occurrence of the direction-inversion defect class (Books 4, 5, 6) — in a paragraph the drafter had explicitly polarity-checked but still missed.
+- Corrected: `book06-corrected.json`, `book06-corrections-log.md` — Sonnet, 19/27 paragraphs changed (independently diffed by the orchestrator, confirmed exact match to the corrector's own claim — first clean self-report in this project after two prior books had reporting errors).
+- Verification: `book06-verification.md` — Opus, re-derived diff set exactly, confirmed major + all 3 moderates fixed, word-level diff confirmed zero collateral edits (every change traces to a numbered finding). Found one ungrammatical seam — inherited from the review's own proposed wording, not invented by the corrector — in paragraph 8.
+- Final: `book06-accepted.json`, sha256 `70b98614c8b54fe8eec3222e4f6a681143d8086f34b41a429acac4744b70af4d` — the paragraph 8 seam fixed directly.
+- Danish not touched.
+
 ## Next action
 
-Move to Book 6 (next untouched-passthrough book): draft → independent review → correct → verify. Standing gates: question-mark parity against source (mechanical, not self-reported), direct JSON diffing for all change-list claims (never trust agent self-report), watch for added interpretive connectives and dropped/garbled clauses.
+Book 7 was found genuinely modernized in the original whole-book audit (avg similarity 0.163) — skip, no repair needed. Move to Book 8 (next untouched-passthrough book): draft → independent review → correct → verify. Standing gates: question-mark parity against source (mechanical, independently counted), direct JSON diffing for all change-list claims (never trust agent self-report — caught real errors in Books 5 and partially avoided in Book 6), extra scrutiny on comparisons/causal claims/stated positions for direction-inversion (now the most common defect class in this project: Books 4, 5, 6).
 
 ## Models actually used
 
