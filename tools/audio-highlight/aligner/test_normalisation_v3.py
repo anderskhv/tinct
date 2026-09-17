@@ -186,6 +186,20 @@ class CloudOrchestratorPin(unittest.TestCase):
    with self.assertRaisesRegex(RuntimeError,'exact pod helper payload failed import'):
     orchestrate.validate_remote_helper_payload('unused','v4',replica.as_uri())
 
+class SourceTokenTextInvariant(unittest.TestCase):
+ def test_emits_exact_source_tokens_after_acoustic_normalisation(self):
+  trial.select_helper('v4')
+  source='CHAPTER XVIII: “Future” Part III'
+  acoustic=trial.lib.chapter_words_from_text(trial.lib.clean_text(source))
+  result=trial.attempt(Model(acoustic),'unused',source,'off')
+  self.assertEqual(result['acoustic_expected_tokens'],acoustic)
+  self.assertEqual(result['expected_tokens'],source.split())
+  self.assertEqual([word['text'] for word in result['candidate_words']],source.split())
+  self.assertEqual(result['rejection_reasons'],[])
+ def test_restore_fails_closed_when_cleaning_changes_token_count(self):
+  with self.assertRaisesRegex(ValueError,'source/acoustic token mapping changed'):
+   trial.restore_source_tokens([{'text':'one','start':0,'end':1}],['one','two'],['one'])
+
 class Pins(unittest.TestCase):
  def test_pins_file_records_all_three_helper_hashes(self):
   pins=(Path(__file__).parent/'PINS.md').read_text()
