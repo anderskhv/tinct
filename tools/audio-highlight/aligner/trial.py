@@ -3,16 +3,17 @@ from __future__ import annotations
 import importlib.util
 import argparse,dataclasses,difflib,hashlib,importlib,importlib.metadata,json,os,platform,signal,subprocess,sys,time
 from pathlib import Path
-import pinned_words_sidecar_lib_v4 as lib
+import pinned_words_sidecar_lib_v5 as lib
 from spoken_policy import validate_map
 GATE=.85
 # Pinned helper revisions (provenance in PINS.md). v1 is the verbatim f5b23de7 helper the
 # acceptance results were measured against; v2 adds the approved expected-side markup
 # normalisation (DECISIONS.md 2026-09-11); v3 adds gluing, the mirror case and the
-# contraction table (run 3, 2026-09-12); v4 adds the lettered-footnote structural rule.
-# Default v4; --helper v1 reproduces run 1 exactly
+# contraction table (run 3, 2026-09-12); v4 adds the lettered-footnote structural rule;
+# v5 drops unspoken speaker/stage/WEB cues from the scoring denominator.
+# Default v5; --helper v1 reproduces run 1 exactly
 # and --helper v2 reproduces run 2.
-HELPERS={'v1':'pinned_words_sidecar_lib','v2':'pinned_words_sidecar_lib_v2','v3':'pinned_words_sidecar_lib_v3','v4':'pinned_words_sidecar_lib_v4'};DEFAULT_HELPER='v4'
+HELPERS={'v1':'pinned_words_sidecar_lib','v2':'pinned_words_sidecar_lib_v2','v3':'pinned_words_sidecar_lib_v3','v4':'pinned_words_sidecar_lib_v4','v5':'pinned_words_sidecar_lib_v5'};DEFAULT_HELPER='v5'
 def select_helper(name):
  global lib;lib=importlib.import_module(HELPERS[name]);return lib
 
