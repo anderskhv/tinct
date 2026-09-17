@@ -23,11 +23,16 @@ def tree_hash(path):return hashlib.sha256(json.dumps([(str(p.relative_to(path)),
 def restore_source_tokens(aligned,source_expected,acoustic_expected):
  if len(source_expected)!=len(acoustic_expected) or len(aligned)!=len(source_expected):
   raise ValueError(f'source/acoustic token mapping changed: source={len(source_expected)} acoustic={len(acoustic_expected)} aligned={len(aligned)}')
+ # Equal length alone does not prove positional identity. Re-clean every source
+ # prefix so context-sensitive rules must produce this exact acoustic token.
+ for index,acoustic in enumerate(acoustic_expected):
+  prefix=lib.chapter_words_from_text(lib.clean_text(' '.join(source_expected[:index+1])))
+  if len(prefix)!=index+1 or prefix[-1]!=acoustic:
+   raise ValueError(f'source/acoustic token mapping changed at index {index}: source={source_expected[index]!r} acoustic={acoustic!r}')
  restored=[]
  for word,source in zip(aligned,source_expected):
   item=dict(word);item['text']=source;restored.append(item)
  return restored
-
 def attempt(model,audio,text,mode):
  source_expected=lib.chapter_words_from_text(text.replace('\n',' '))
  expected=lib.chapter_words_from_text(lib.clean_text(text.replace('\n',' ')))
