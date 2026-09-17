@@ -70,8 +70,10 @@ Given this session's remaining scope, item 3 is completed now (mechanical, low-r
 | Unit | Status |
 |---|---|
 | Name-consistency mechanical normalization | **done** — `modern-en-name-normalized.json`, sha256 `06811d9d3cba80f54aceef3e877914809db61423797fd6da5f73562e73c8d271`. Whole-word regex replace (Andrei→Andrew 82, Kutúzov→Kutuzov 31, Hélène→Helene 45, Nikolai→Nicholas 12, Marya→Mary 113), verified: 365/365 chapter count match, all 365 per-chapter paragraph counts match source exactly (no structural drift introduced), zero remaining instances of any of the 5 inconsistent spellings. This is a full-file candidate (not per-chapter) — safe to promote as-is since it only touches 5 specific name strings, nothing else. |
-| Ch 333-365 essayistic re-render (33 chapters) | scoped, not started — next action, substantial (needs full draft→review→correct→verify cycle per chapter, same as every other unit in this project) |
-| 21-chapter paragraph-alignment drift fix (incl. ch358 lost paragraph) | scoped, not started — next action |
+| Batch A re-render (ch333-340) | **accepted** — `tail-batchA-accepted.json`, sha256 `25780e8cd683e1996e1c9ae0e690f0c8d1ca1144daf3fde41b157cf3df539999`. Review found 1 major, 2 moderate, 7 minor — all in narrative chapters 334-335 (a referent swap breaking a plot thread, a pronoun inversion, a dropped closing sentence). The 3 essay chapters (338-340, highest risk) came back completely clean: zero findings at moderate+, all 4 specific content-preservation claims confirmed, zero inversions across 19 argumentative constructions checked. 3 fixes applied directly and independently confirmed. |
+| Batch B re-render (ch341-352) | drafted, `tail-batchB-candidate.json` — review in progress |
+| Batch C re-render (ch353-365) | drafted, `tail-batchC-candidate.json` — review in progress |
+| 21-chapter paragraph-alignment drift fix (incl. ch358 lost paragraph) | scoped, not started — next action after batches B/C accepted |
 
 ## Models used
 
