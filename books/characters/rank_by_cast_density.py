@@ -16,7 +16,15 @@ EDITIONS_DIR = ROOT / 'app/public/data/editions'
 CHARACTERS_DIR = ROOT / 'app/public/data/characters'
 
 nlp = spacy.load('en_core_web_sm', disable=['lemmatizer', 'parser'])
-nlp.max_length = 3_000_000
+nlp.max_length = 20_000_000
+CHUNK_CHARS = 500_000
+
+
+def iter_ner_chunks(nlp, text):
+    """Process in bounded chunks so memory stays flat on huge books
+    (the Bible, War and Peace) instead of scaling with text length."""
+    for start in range(0, len(text), CHUNK_CHARS):
+        yield nlp(text[start:start + CHUNK_CHARS])
 
 
 def known_name_words(book):
@@ -35,21 +43,25 @@ def known_name_words(book):
 
 
 def main():
+    import sys
+    only = set(sys.argv[1:]) or None
     results = []
     for ed_path in sorted(EDITIONS_DIR.glob('*-original-en.json')):
         book = ed_path.name[:-len('-original-en.json')]
+        if only and book not in only:
+            continue
         data = json.loads(ed_path.read_bytes())
         text = ' '.join(p for c in data['chapters'] for p in c['paragraphs'])
         known = known_name_words(book)
-        doc = nlp(text)
         surface_forms = {}
-        for ent in doc.ents:
-            if ent.label_ != 'PERSON':
-                continue
-            key = ent.text.strip()
-            if not key or not key[0].isupper():
-                continue
-            surface_forms[key] = surface_forms.get(key, 0) + 1
+        for doc in iter_ner_chunks(nlp, text):
+            for ent in doc.ents:
+                if ent.label_ != 'PERSON':
+                    continue
+                key = ent.text.strip()
+                if not key or not key[0].isupper():
+                    continue
+                surface_forms[key] = surface_forms.get(key, 0) + 1
         uncarded = 0
         for name in surface_forms:
             words = re.split(r'\W+', name)
