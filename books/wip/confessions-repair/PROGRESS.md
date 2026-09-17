@@ -40,7 +40,7 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 |---|---|---|---|---|---|
 | 3 | frozen (sha256 9598b9ba…) | done — 53 findings (6 major, 12 moderate, 35 minor) | done — 18/21 paragraphs edited | done — 6/6 majors confirmed fixed; 5 new clause-level issues found and fixed directly (no further round) | **accepted** (sha256 c7a80e65…) |
 | 4 | frozen (sha256 e5dd8853…) | done — 27 findings (1 major, 6 moderate, 20 minor; review's own summary table had an arithmetic error, 18→20) | done — 19/31 paragraphs edited | done — major + all 6 moderates confirmed fixed; 1 trivial spelling inconsistency found and fixed directly | **accepted** (sha256 52e0f9fc…) |
-| 5 | frozen (sha256 810b5a38…) | done — 21 findings (1 major, 4 moderate, 16 minor); question-mark parity independently confirmed 18/18 | in progress | — | — |
+| 5 | frozen (sha256 810b5a38…) | done — 21 findings (1 major, 4 moderate, 16 minor); question-mark parity independently confirmed 18/18 | done — drafter's own change-list was wrong (cited nonexistent indices 25/26/28, missed idx 20); I diffed the files directly: 16/25 paragraphs actually changed | verification in progress (Opus) | — |
 | 6 | queued | — | — | — | — |
 | 8 | queued | — | — | — | — |
 | 9 | queued | — | — | — | — |
