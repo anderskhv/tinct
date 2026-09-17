@@ -40,7 +40,7 @@ class ActiveBatchValidationTest(unittest.TestCase):
     @mock.patch("verify_active_batch.subprocess.check_output")
     def test_trigger_allows_only_active_batch_and_unchanged_runner(self, output, run):
         output.side_effect = [
-            active.ACTIVE_PATH + "\n",
+            active.ACTIVE_PATH + "\n" + active.LEDGER_PATH + "\n",
             "trigger-sha\n",
         ]
         run.return_value.returncode = 0
@@ -51,7 +51,7 @@ class ActiveBatchValidationTest(unittest.TestCase):
     @mock.patch("verify_active_batch.subprocess.check_output")
     def test_trigger_rejects_executable_change(self, output):
         output.return_value = active.ACTIVE_PATH + "\n" + active.LEDGER_PATH + "\ntools/audio-highlight/aligner/trial.py\n"
-        with self.assertRaisesRegex(ValueError, "only active-batch"):
+        with self.assertRaisesRegex(ValueError, "must change exactly"):
             active.verify_trigger_integrity("reviewed-sha")
 
 
@@ -136,13 +136,11 @@ class WorkerIsolationSourceTest(unittest.TestCase):
         self.assertIn("manifest changed after preflight", source)
         self.assertIn("recording {name} changed after preflight", source)
 
-    def test_mapping_exception_rejects_arm_before_candidate_build_and_continues(self):
+    def test_worker_invokes_isolated_arm_for_each_target_and_mode(self):
         source = (Path(__file__).parents[1] / "aligner" / "trial.py").read_text()
-        caught = source.index("processing_invariant_error")
-        continuation = source.index("if arm_failed:continue")
-        candidate = source.index("candidate=lib.build_sidecar")
-        self.assertLess(caught, continuation)
-        self.assertLess(continuation, candidate)
+        self.assertIn("for e in cohort:", source)
+        self.assertIn("for mode in getattr(args,'arms',['off','auto']):", source)
+        self.assertIn("execute_arm(lambda:process_arm", source)
         self.assertIn("if sha(audio)!=r['sha256']:raise ValueError('audio changed:", source)
 
 
