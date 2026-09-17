@@ -14,6 +14,7 @@ try {
   const errors = []
   page.on('pageerror', e => errors.push(e.message))
   await page.addInitScript(() => {
+   window.addEventListener('tinct:lab-reader-handoff',event => sessionStorage.setItem('qa:reader-handoff',JSON.stringify(event.detail)))
    HTMLMediaElement.prototype.play = () => Promise.resolve()
    navigator.mediaDevices.getUserMedia = async () => { throw new Error('Microphone disabled for visual acceptance') }
   })
@@ -92,9 +93,15 @@ try {
   await page.locator('[data-shelf-index][aria-current="true"]').click()
   await page.locator('[data-testid="lab-cover-entry"]').waitFor({timeout:45000})
   if(viewport.width<600) {
+   const handoff=await page.evaluate(()=>sessionStorage.getItem('qa:reader-handoff'))
+   assert(handoff,'capture the library handoff before its first reader consumes it')
+   console.log('PHONE_HANDOFF '+handoff)
+   await page.evaluate(value=>sessionStorage.setItem('tinct:lab-reader-handoff',value),handoff)
    const phoneUrl=new URL(page.url());phoneUrl.pathname='/lab/phone';phoneUrl.searchParams.set('chrome','v2')
    await page.goto(phoneUrl.href,{waitUntil:'domcontentloaded'})
-   await page.locator('[data-testid="lab-cover-entry"]').waitFor({timeout:45000})
+   await page.locator('[data-testid="lab-cover-entry"]').waitFor({timeout:45000}).catch(async error=>{
+    console.log('PHONE_BOOT_FAILURE '+JSON.stringify({url:page.url(),text:await page.locator('body').innerText()}));throw error
+   })
   }
   {
    const html=await fs.readFile('dist/app.html','utf8')
