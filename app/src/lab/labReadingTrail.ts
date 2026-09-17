@@ -111,10 +111,8 @@ export function trailFromSources(input: {
     const visible = visibleToViewer(input.viewer ?? null)
     const sessions = Object.values(input.memory.sessions)
       .filter(session => session.anchor.bookId === input.bookId && visible(session))
-    // Prefer the open edition; fall back to any edition of the same book
-    // (chapter numbering is shared across editions).
-    const sameEdition = input.editionKey ? sessions.filter(session => session.anchor.editionKey === input.editionKey) : sessions
-    for (const session of (sameEdition.length > 0 ? sameEdition : sessions)) {
+    // Reading another edition is still reading the same chapter.
+    for (const session of sessions) {
       merge(session.anchor.chapterNumber, session.lastActiveAt, {
         label: session.anchor.chapterLabel || `Chapter ${session.anchor.chapterNumber}`,
         recap: recapOf(session),

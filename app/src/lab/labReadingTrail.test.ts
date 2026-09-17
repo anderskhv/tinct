@@ -98,12 +98,12 @@ describe('reading trail', () => {
     expect(trail[4]).toEqual({ chapterNumber: 781, label: 'Jeremiah 36', openingLine: 'And it came to pass', recap: undefined })
   })
 
-  it('prefers the open edition and falls back to any edition of the same book', () => {
+  it('includes reading across editions of the same book', () => {
     const state = memory([
       session({ id: 'da', chapterNumber: 10, chapterLabel: 'Genesis 10', lastActiveAt: 10, editionKey: 'modern-da' }),
       session({ id: 'en', chapterNumber: 11, chapterLabel: 'Genesis 11', lastActiveAt: 20, editionKey: 'kjv-en' }),
     ])
-    expect(trailFromSources({ bookId: 'bible', editionKey: 'kjv-en', visits: [], memory: state }).map(entry => entry.chapterNumber)).toEqual([11])
+    expect(trailFromSources({ bookId: 'bible', editionKey: 'kjv-en', visits: [], memory: state }).map(entry => entry.chapterNumber)).toEqual([10, 11])
     expect(trailFromSources({ bookId: 'bible', editionKey: 'web-en', visits: [], memory: state }).map(entry => entry.chapterNumber)).toEqual([10, 11])
     expect(trailFromSources({ bookId: 'odyssey', editionKey: 'kjv-en', visits: [], memory: state })).toEqual([])
   })

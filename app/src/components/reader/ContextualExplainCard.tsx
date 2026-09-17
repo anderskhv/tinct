@@ -3,9 +3,10 @@ import { VoiceExpandIcon } from '../../lab/LabVoiceIcons'
 import { RowIcon } from '../../lab/LabSuperMenu.tsx'
 import { useEffect, useRef, useState } from 'react'
 
-export function ContextualExplainCard({ passage, request, onAsk, onTalk }: {
+export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady }: {
   passage: string
   request: (onDelta: (text: string) => void) => Promise<string>
+  onReady?: (answer: string) => void
   onAsk: (answer: string) => void
   onTalk?: (answer: string) => void
   onClose?: () => void
@@ -14,33 +15,40 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk }: {
   const [expanded, setExpanded] = useState(false)
   const [answer, setAnswer] = useState('')
   const [attempt, setAttempt] = useState(0)
+  const readyRef = useRef(onReady)
+  readyRef.current = onReady
   const requestRef = useRef(request)
   requestRef.current = request
 
   useEffect(() => {
+    const record = readyRef.current
     let active = true
+    let shown = ''
+    let recorded = false
     setStatus('loading')
     setAnswer('')
     void requestRef.current((text) => {
       if (!active) return
       // Reveal complete paragraphs; subsequent paragraphs arrive below the first.
       const boundary = text.lastIndexOf('\n\n')
-      if (boundary > 0) { setAnswer(text.slice(0, boundary)); setStatus('streaming') }
+      if (boundary > 0) { shown = text.slice(0, boundary); setAnswer(shown); setStatus('streaming') }
     }).then((text) => {
       if (!active) return
       setAnswer(text)
       setStatus('ready')
+      recorded = true
+      record?.(text)
     }).catch(() => {
       if (active) setStatus('error')
     })
-    return () => { active = false }
+    return () => { active = false; if (!recorded && shown) record?.(shown) }
   }, [attempt, passage])
 
   return (
     <section className={`lab-contextual-explain${expanded ? ' is-expanded' : ''}`} aria-label="Explanation">
       <div className="lab-contextual-explain-heading">
         <button type="button" aria-label={expanded ? 'Collapse explanation' : 'Expand explanation'} aria-expanded={expanded} onClick={() => setExpanded(value => !value)}>
-          <VoiceExpandIcon size={16} /><span>{expanded ? 'Reduce' : 'Expand'}</span>
+          <VoiceExpandIcon size={16} />
         </button>
       </div>
       <div className="lab-contextual-explain-scroll">

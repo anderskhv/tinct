@@ -679,3 +679,37 @@ describe('touch selection owns the gesture', () => {
     expect(select).not.toHaveBeenCalled()
   })
 })
+
+it('extends across a page only after a deliberate edge hold, retaining the original anchor', () => {
+ vi.useFakeTimers()
+ try {
+   const paragraphs = ['one two three four five six']
+   const select = vi.fn(), turn = vi.fn()
+   const base = passageProps(paragraphs, { paragraphIndex: 0, from: 0, to: 3 })
+   const { rerender } = render(<LabPassage {...base} onSelectRange={select} onPageTurn={turn} />)
+   const surface = screen.getByTestId('lab-book')
+   vi.spyOn(surface, 'getBoundingClientRect').mockReturnValue({ left: 0, right: 390, top: 0, bottom: 700, width: 390, height: 700 } as DOMRect)
+   const first = screen.getAllByTestId('lab-word')[0]
+   fireEvent.pointerDown(first, { pointerType: 'touch', clientX: 100, clientY: 200 })
+   act(() => vi.advanceTimersByTime(170))
+   fireEvent.pointerMove(first, { pointerType: 'touch', clientX: 100, clientY: 695 })
+   act(() => vi.advanceTimersByTime(699))
+   expect(turn).not.toHaveBeenCalled()
+   act(() => vi.advanceTimersByTime(1))
+   expect(turn).toHaveBeenCalledWith(1)
+   rerender(<LabPassage {...base} readingPage={{ paragraphIndex: 0, from: 3, to: 6 }} onSelectRange={select} onPageTurn={turn} />)
+   act(() => vi.advanceTimersByTime(200))
+   fireEvent.pointerUp(surface, { pointerType: 'touch', clientX: 100, clientY: 695 })
+   expect(select.mock.calls[0][0].text).toBe('one two three four')
+   act(() => vi.advanceTimersByTime(1000))
+   expect(turn).toHaveBeenCalledTimes(1)
+ } finally { vi.useRealTimers() }
+})
+
+it('keeps just the last audio word marked when paused in reading mode', () => {
+ const paragraphs = ['one two three']
+ const { container } = render(<LabPassage {...passageProps(paragraphs, { paragraphIndex: 0, from: 0, to: 3 })}
+   playing={false} inlineHearingPaint follow={{ kind: 'word', paragraphIndex: 0, wordIndex: 1 }} />)
+ expect(container.querySelector('.is-current')?.textContent).toBe('two')
+ expect(container.querySelectorAll('.is-spoken,.is-upcoming')).toHaveLength(0)
+})

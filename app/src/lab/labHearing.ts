@@ -1032,7 +1032,7 @@ export function hearingFollowPaintActive(
   playing: boolean,
   follow: FollowTarget,
 ): boolean {
-  return mode === 'hearing' && playing && follow.kind !== 'none'
+  return mode === 'hearing' && follow.kind !== 'none'
 }
 
 

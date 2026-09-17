@@ -20,9 +20,7 @@ vi.mock('../hooks/useVoiceSession', () => ({
     getAssistantLevel: () => null,
   }),
 }))
-vi.mock('../LabVoiceCall', () => ({
-  LabVoiceCall: ({ idleCaption, onEnd, onReconnect }: { idleCaption: string; onEnd: () => void; onReconnect: () => void }) => <div><span>{idleCaption}</span><button onClick={onEnd}>End</button><button onClick={onReconnect}>Reconnect</button></div>,
-}))
+
 
 import { LibraryAssistant } from '../labLibraryAssistant'
 

@@ -1484,7 +1484,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const lastBarTopRef = useRef(0)
   const lastAdjustRef = useRef<LabPageAdjust>(null)
   const beforeGrowPagesRef = useRef<ChapterHearingPage[] | null>(null)
-  const highlightsApi = useLabHighlights(book.chapterNumber, chromeV2 ? { bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition } : undefined)
+  const highlightsApi = useLabHighlights(book.chapterNumber, chromeV2 ? { bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, paragraphs: book.paragraphs, compareEditionKey: prefs.compareEdition, compareParagraphs: book.compareParagraphs } : undefined)
   const primaryCharacters = useCharacterCards(book.bookId, prefs.primaryEdition)
   // Verifying cards downloads their complete source edition. Do not fetch an
   // unused second book alongside the chapter when Compare is disabled.
@@ -2336,7 +2336,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const callFullScreen = voiceCallSurface && showPhoneChrome && callOpen && !phoneAskOpen
   // The desktop conversation: the companion panel, or the pill while minimized.
   const desktopVoiceOpen = voicePanelSurface && callOpen
-  const callUtterance = labCallUtterance(ask.turns)
+  const [callStartedAt, setCallStartedAt] = useState(0)
+  const callTurns = ask.turns.filter(turn => turn.source === 'voice' && (turn.timestamp ?? 0) >= callStartedAt)
+  const callUtterance = labCallUtterance(callTurns)
   const callBookLine = `${book.bookTitle}, ${book.chapterLabel}`
   const callConnection = callAwaitingConnection && ask.voiceConnection === 'idle'
     ? ('connecting' as const)
@@ -3417,6 +3419,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [ask, book.bookId, book.bookTitle, returnToPreparation])
 
   const handleTalk = useCallback(() => {
+    setCallStartedAt(Date.now())
     dictation.stop()
     setGearOpen(false)
     setTocOpen(false)
@@ -4095,7 +4098,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             compareParagraphs={book.compareParagraphs}
             compare={desktopCompareActive && desktopCompareEnabled}
             mode={showPhoneChrome && showHearing ? 'hearing' : 'reading'}
-            follow={showHearing && listen.playing && (chromeV2 || !browseWhileListening) ? listen.follow : { kind: 'none' }}
+            follow={(showHearing && listen.playing && (chromeV2 || !browseWhileListening) || chromeV2 && pausedTransportVisible && !listen.playing && !mobileCompareActive) ? listen.follow : { kind: 'none' }}
             followParagraphs={listen.followParagraphs}
             clips={listen.clips}
             playing={listen.playing}
@@ -4103,7 +4106,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             currentTime={listen.currentTime}
             speed={listen.speed}
             browseWhileListening={browseWhileListening}
-            inlineHearingPaint={showHearing && listen.playing && (chromeV2 ? (!showPhoneChrome || browseWhileListening) : !showPhoneChrome && !browseWhileListening)}
+            inlineHearingPaint={chromeV2 && pausedTransportVisible && !listen.playing && !mobileCompareActive || showHearing && listen.playing && (chromeV2 ? (!showPhoneChrome || browseWhileListening) : !showPhoneChrome && !browseWhileListening)}
             onSeekToWord={listen.playing ? seekAudioToWord : undefined}
             onTogglePlay={() => {
               if (listen.playing) listen.pause()
@@ -4122,15 +4125,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             readingPage={readingPage}
             chapterPages={readingPages}
             layoutKey={readerLayoutKey}
-            highlights={mobileCompareActive ? highlightsApi.allHighlights.filter(h => h.bookId === book.bookId && h.editionKey === prefs.compareEdition && h.chapterNumber === book.chapterNumber) : highlightsApi.chapterHighlights}
+            highlights={mobileCompareActive ? highlightsApi.compareHighlights : highlightsApi.chapterHighlights}
             keyboardSelection={chromeV2}
-            compareHighlights={highlightsApi.allHighlights.filter(h => h.bookId === book.bookId && h.editionKey === prefs.compareEdition && h.chapterNumber === book.chapterNumber)}
+            compareHighlights={highlightsApi.compareHighlights}
             chapterNumber={book.chapterNumber}
             selectingRange={selectionPopup?.range ?? null}
             selectingComparison={!mobileCompareActive && selectionPopup?.editionKey === prefs.compareEdition}
             pageTurn={chromeV2 ? undefined : pageTurn}
             tapZones={pageTurnAffordance.tapZones}
             onSelectRange={phoneAsk ? undefined : handleSelectRange}
+            onSelectionPageTurn={chromeV2 && !phoneAsk && !selectionPopup && !mobileCompareActive && !desktopCompareActive ? direction => { if (direction > 0) goNext(); else goPrev() } : undefined}
             onPageTurn={labPageTurnSurfaceEnabled({
               phoneChrome: showPhoneChrome,
               buttons: pageTurnAffordance.buttons,
@@ -4203,7 +4207,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           <LabVoiceDesktopPanel
             preparationWelcome={preparationCompanion ? `Let’s prepare you for your reading of ${book.bookTitle}.` : undefined}
             view={callView}
-            turns={ask.turns}
+            turns={callTurns}
             getAssistantLevel={ask.getAssistantLevel}
             reducedMotion={reducedMotion}
             notice={ask.notice}
@@ -4216,7 +4220,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         {desktopVoiceOpen && callMinimized && (
           <LabVoicePill
             view={callView}
-            turns={ask.turns}
+            turns={callTurns}
             getAssistantLevel={ask.getAssistantLevel}
             reducedMotion={reducedMotion}
             onMuteToggle={toggleCallMute}
@@ -4807,6 +4811,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             }
             setPopupMode('note')
           }}
+          onExplanationReady={(answer) => ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber })}
           onExplain={(answer) => {
             const text = selectionPopup.text
             if (answer) ask.keepExplanation(text, answer, selectionPopup.paragraphIndex)

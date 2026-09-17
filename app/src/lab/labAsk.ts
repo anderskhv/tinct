@@ -113,6 +113,7 @@ export interface LabAskContext {
   totalPages?: number
   /** Last few chapters the reader visited in this book, newest last. */
   readingTrail?: LabReadingTrailEntry[]
+  personalHistory?: string
 }
 
 const LAB_CHAPTER_CAP = 30_000
@@ -200,7 +201,7 @@ export function renderLabReadingTrail(input: Pick<LabAskContext, 'readingTrail' 
     typeof input.pageNumber === 'number' ? `page ${input.pageNumber}${typeof input.totalPages === 'number' ? ` of ${input.totalPages}` : ''}` : '',
     `paragraph ${idx + 1} of ${input.paragraphs.length}`,
   ].filter(Boolean).join(', ')
-  const lines = ['[What the reader has read recently]']
+  const lines = ['[What the reader has read recently — a limited sample, not complete history]']
   if (trail.length > 0) {
     lines.push('Earlier chapters they visited in this book, oldest first, newest last:')
     for (const entry of trail) {
@@ -210,7 +211,7 @@ export function renderLabReadingTrail(input: Pick<LabAskContext, 'readingTrail' 
       lines.push(parts.join(' — '))
     }
   } else {
-    lines.push('No earlier chapters of this book are on record for this reader yet.')
+    lines.push('No earlier chapters are included in this limited recent trail. This is not proof that the reader has not read them.')
   }
   lines.push(`Now: ${now}.`)
   lines.push(`When they say "earlier", "a few chapters back", or "wasn't he just…", these are the chapters they mean.`)
@@ -248,6 +249,7 @@ export function buildLabAskInstructions(input: LabAskContext): string {
     lines.push(renderLabReadingTrail(input))
   }
 
+  if (input.personalHistory) lines.push(input.personalHistory)
   const chapter = numberedLabChapter(input.paragraphs)
   if (chapter) {
     const lead = `Full current chapter with numbered paragraphs. This is the authoritative text. If they ask for the second paragraph, read [2]. If they ask for a paragraph that is here, read it.\n`

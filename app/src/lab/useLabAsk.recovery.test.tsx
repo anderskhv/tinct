@@ -296,3 +296,19 @@ it('never spends guest allowance or opens an account prompt during speculation',
   await expect(result.current.explainSelection({ text: 'Selected passage', editionKey: 'web-en', paragraphs: base.paragraphs, paragraphIndex: 0, speculative: true }, vi.fn())).rejects.toThrow()
   expect(fetcher).not.toHaveBeenCalled(); expect(onAccountPrompt).not.toHaveBeenCalled()
 })
+
+it('records a displayed explanation once and sends it as context for the next question', async () => {
+ const fetcher = vi.fn().mockResolvedValue(ok())
+ vi.stubGlobal('fetch', fetcher)
+ const { result } = renderHook(() => useLabAsk(base))
+ act(() => {
+   result.current.keepExplanation('Selected passage', 'A specific explanation of this passage.', 0)
+   result.current.keepExplanation('Selected passage', 'A specific explanation of this passage.', 0)
+ })
+ expect(result.current.turns.filter(turn => turn.role === 'assistant')).toHaveLength(1)
+ await act(async () => { await result.current.sendTyped('Why did you say that?') })
+ const bodies = fetcher.mock.calls.filter(([, init]) => init?.body).map(([, init]) => JSON.parse(init.body))
+ const chat = bodies.find(body => body.messages)
+ expect(JSON.stringify(chat.messages)).toContain('A specific explanation of this passage.')
+ expect(JSON.stringify(chat.messages)).toContain('Selected passage')
+})

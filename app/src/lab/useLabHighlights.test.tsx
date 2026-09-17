@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
-import { act, cleanup, renderHook } from '@testing-library/react'
-import { afterEach, expect, it } from 'vitest'
+import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
+import { afterEach, expect, it, vi } from 'vitest'
 import { useLabHighlights } from './useLabHighlights'
 import { readLabHighlights } from './labHighlights'
 afterEach(() => { cleanup(); localStorage.clear() })
@@ -24,4 +24,15 @@ it('preserves unknown older marks without fabricating a source', () => {
   expect(result.current.highlights).toHaveLength(0)
   expect(result.current.unassignedHighlights).toEqual([older])
   expect(readLabHighlights()).toEqual([older])
+})
+
+it('projects a saved secondary edition even when Compare has not loaded its text', async () => {
+ const fetcher = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ title: 'Matthew 10', paragraphs: ['¹ He saith thus. ² Other.'] }) })
+ vi.stubGlobal('fetch', fetcher)
+ localStorage.setItem('tinct-lab-highlights', JSON.stringify([{ id: 'kjv', bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 939, paragraphIndex: 0, fromWord: 1, endParagraphIndex: 0, toWord: 4, color: 'gold' }]))
+ const { result } = renderHook(() => useLabHighlights(939, { bookId: 'bible', editionKey: 'web-en', paragraphs: ['¹ He says these words. ² Other.'], compareEditionKey: 'kjv-en', compareParagraphs: [] }))
+ await waitFor(() => expect(result.current.chapterHighlights).toHaveLength(1))
+ expect(result.current.chapterHighlights[0]).toMatchObject({ id: 'kjv', fromWord: 0, toWord: 5 })
+ expect(readLabHighlights()[0].fromWord).toBe(1)
+ vi.unstubAllGlobals()
 })

@@ -56,6 +56,7 @@ export interface SelectionPopupProps {
   onUpdateHighlightNote?: (id: string, note: string) => void
   onRequestNote: (color?: HighlightColor) => void
   // Main toolbar actions
+  onExplanationReady?: (answer: string) => void
   onTalkExplanation?: (answer: string) => void
   onExplain: (answer?: string) => void
   onRequestExplanation?: (onDelta: (text: string) => void) => Promise<string>
@@ -146,6 +147,7 @@ export function SelectionPopup({
   onUpdateHighlightNote,
   onRequestNote,
   onExplain,
+  onExplanationReady,
   onTalkExplanation,
   onRequestExplanation,
   onCopy,
@@ -285,7 +287,7 @@ export function SelectionPopup({
       onTouchEnd={e => e.stopPropagation()}
     >
       {contextualExplain && popupMode === 'explain' && (
-        <ContextualExplainCard passage={selection.text} request={onRequestExplanation} onAsk={onExplain} onTalk={onTalkExplanation} />
+        <ContextualExplainCard passage={selection.text} request={onRequestExplanation} onAsk={onExplain} onTalk={onTalkExplanation} onReady={onExplanationReady} />
       )}
       {character && (popupMode === 'character' || popupMode === 'gallery') && (
         <div className="popup-character">

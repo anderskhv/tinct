@@ -28,6 +28,8 @@ export interface LabHighlight {
   toWord: number
   color: LabHighlightColor
   note?: string
+  /** Exact source wording, retained for requested history search. */
+  text?: string
   kept?: boolean
 }
 
@@ -84,6 +86,7 @@ export function createLabHighlight(
   return {
     id: `hl-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     chapterNumber,
+    text: range.text,
     paragraphIndex: range.paragraphIndex,
     fromWord: range.fromWord,
     endParagraphIndex: range.endParagraphIndex,

@@ -56,3 +56,15 @@ it('reveals complete paragraphs and offers the same answer to Talk', async () =>
   fireEvent.click(screen.getByRole('button', { name: 'Talk about this explanation' }))
   expect(onTalk).toHaveBeenCalledWith('First paragraph.')
 })
+
+it('records displayed prose quietly when dismissed before the stream completes', async () => {
+ const onReady = vi.fn()
+ const request = (delta: (text: string) => void) => {
+   delta('The visible opening.\n\nUnfinished detail')
+   return new Promise<string>(() => {})
+ }
+ const { unmount } = render(<ContextualExplainCard passage="A passage" request={request} onAsk={() => {}} onReady={onReady} />)
+ await screen.findByText('The visible opening.')
+ unmount()
+ expect(onReady).toHaveBeenCalledWith('The visible opening.')
+})

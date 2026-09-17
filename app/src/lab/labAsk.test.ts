@@ -416,11 +416,11 @@ describe('lab ask reading trail and in-book retrieval', () => {
     expect(instructions).toContain('Never say you cannot see earlier chapters')
     expect(instructions).toContain('Never claim to have looked without calling a tool')
     expect(instructions).toContain("Cite the chapter you used ('In chapter 37, verse 21…')")
-    expect(instructions).toContain('[What the reader has read recently]')
+    expect(instructions).toContain('[What the reader has read recently — a limited sample, not complete history]')
     expect(instructions).toContain('- Jeremiah 32 (chapter 777) — opens "The word that came to Jeremiah from the LORD in the tenth year of Zedekiah" — recap: Jeremiah buys a field while shut up in the court of the prison.')
     expect(instructions).toContain('- Jeremiah 36 (chapter 781) — opens "And it came to pass in the fourth year of Jehoiakim"')
     expect(instructions).toContain('Now: Jeremiah 37 (chapter 782 of 1189), page 2 of 3, paragraph 2 of 2.')
-    expect(instructions.indexOf('[What the reader has read recently]')).toBeLessThan(instructions.indexOf('Full current chapter'))
+    expect(instructions.indexOf('[What the reader has read recently — a limited sample, not complete history]')).toBeLessThan(instructions.indexOf('Full current chapter'))
     expect(instructions).toContain(LAB_ASK_LOOKUP_OFFER_RULE)
     expect(instructions).toContain('never offer to "go back and have a look"')
   })
@@ -428,8 +428,8 @@ describe('lab ask reading trail and in-book retrieval', () => {
   it('omits the retrieval rule and trail when no book is named, so plain fixtures stay tool-free', () => {
     const instructions = buildLabAskInstructions({ ...base, readingTrail: undefined })
     expect(instructions).not.toContain(LAB_ASK_BOOK_TOOLS_RULE)
-    expect(instructions).not.toContain('[What the reader has read recently]')
-    expect(renderLabReadingTrail({ ...base, readingTrail: [] })).toContain('No earlier chapters of this book are on record')
+    expect(instructions).not.toContain('[What the reader has read recently — a limited sample, not complete history]')
+    expect(renderLabReadingTrail({ ...base, readingTrail: [] })).toContain('No earlier chapters are included in this limited recent trail')
   })
 
   it('keeps the whole prompt under the worker cap even for a huge chapter', () => {
@@ -437,7 +437,7 @@ describe('lab ask reading trail and in-book retrieval', () => {
     const instructions = buildLabAskInstructions({ ...base, paragraphs: huge, bookId: 'bible', editionKey: 'kjv-en' })
     expect(instructions.length).toBeLessThanOrEqual(LAB_ASK_SYSTEM_CAP)
     expect(instructions).toContain('[…chapter continues]')
-    expect(instructions).toContain('[What the reader has read recently]')
+    expect(instructions).toContain('[What the reader has read recently — a limited sample, not complete history]')
   })
 })
 

@@ -869,7 +869,7 @@ describe('hearing follow paint', () => {
     expect(hearingFollowPaintActive('hearing', true, wordFollow)).toBe(true)
     expect(hearingFollowPaintActive('hearing', true, { kind: 'paragraph', paragraphIndex: 0 })).toBe(true)
     expect(hearingFollowPaintActive('hearing', true, { kind: 'none' })).toBe(false)
-    expect(hearingFollowPaintActive('hearing', false, wordFollow)).toBe(false)
+    expect(hearingFollowPaintActive('hearing', false, wordFollow)).toBe(true)
     expect(hearingFollowPaintActive('reading', true, wordFollow)).toBe(false)
     expect(hearingFollowPaintActive('reading', false, wordFollow)).toBe(false)
   })

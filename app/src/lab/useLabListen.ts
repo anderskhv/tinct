@@ -409,7 +409,7 @@ export function useLabListen(options: UseLabListenOptions) {
     audioRef.current?.pause()
     playingRef.current = false
     setPlaying(false)
-    setFollow({ kind: 'none' })
+    // Pause retains the verified last word; chapter/source changes still clear it.
   }, [])
 
   const resume = useCallback((fromSentenceStart = false) => {

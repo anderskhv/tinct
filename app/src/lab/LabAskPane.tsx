@@ -320,6 +320,10 @@ export function LabAskPane({
       holdReplyTop(node, heldReply)
     } else {
       if (newTurn || justOpened) setSpacer(node, null)
+      // Open on fresh writing space; the complete thread remains immediately above.
+      if (justOpened && chromeV2 && !focusTurnId && !typedLoading && spacerRef.current) {
+        spacerRef.current.style.height = `${node.clientHeight}px`
+      }
       const shouldFollow = justOpened
         || (newTurn && lastTurn.role === 'user')
         || pinnedScrollTopRef.current !== null
@@ -329,7 +333,7 @@ export function LabAskPane({
     didPositionThreadRef.current = true
     repinRef.current = false
     lastTurnIdRef.current = lastTurn?.id ?? null
-  }, [hidden, holdReplyTop, pinToBottom, pinToReplyTop, setSpacer, turns, typedLoading])
+  }, [chromeV2, focusTurnId, hidden, holdReplyTop, pinToBottom, pinToReplyTop, setSpacer, turns, typedLoading])
 
   const focusedTurnRef = useRef<string | null>(null)
   useLayoutEffect(() => {

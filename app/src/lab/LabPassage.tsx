@@ -65,6 +65,7 @@ interface LabPassageProps {
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void
   pageTurn?: { direction: 'next' | 'previous'; nonce: number } | null
   onPageTurn?: (direction: LabPageTurnDirection) => void
+  onSelectionPageTurn?: (direction: LabPageTurnDirection) => void
   /**
    * Which pointers may turn the page by tapping the outer thirds. Set by the
    * pointer, never by the window width: 'none' where a mouse has visible
@@ -368,6 +369,7 @@ export function LabPassage({
   onSeekToWord,
   pageTurn,
   onPageTurn,
+  onSelectionPageTurn,
   tapZones = 'all',
   onCompareSwap,
   onToggleControls,
@@ -404,6 +406,15 @@ export function LabPassage({
     comparison: boolean
     pointerType: string
   } | null>(null)
+  const edgeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const edgeDirectionRef = useRef<-1 | 1 | null>(null)
+  const pageTurnRef = useRef(onSelectionPageTurn ?? onPageTurn)
+  pageTurnRef.current = onSelectionPageTurn ?? onPageTurn
+  const cancelEdge = () => {
+    if (edgeTimerRef.current) clearTimeout(edgeTimerRef.current)
+    edgeTimerRef.current = null
+    edgeDirectionRef.current = null
+  }
   const longPressRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const pageStageRef = useRef<HTMLDivElement>(null)
   const articleRef = useRef<HTMLElement>(null)
@@ -414,7 +425,15 @@ export function LabPassage({
 
   useEffect(() => () => {
     if (longPressRef.current) clearTimeout(longPressRef.current)
+    cancelEdge()
   }, [])
+
+  useEffect(() => {
+    dragRef.current = null
+    setLocalSelecting(null)
+    if (longPressRef.current) clearTimeout(longPressRef.current)
+    cancelEdge()
+  }, [chapterNumber, paragraphs, compareParagraphs])
 
   // Pointer cancellation alone does not cancel Safari's native long-press
   // selection. React touch listeners are passive, so own these native events
@@ -499,6 +518,7 @@ export function LabPassage({
   }, [pageTurn])
 
   const finishPointerSelection = (event: React.PointerEvent) => {
+    cancelEdge()
     const drag = dragRef.current
     dragRef.current = null
     setLocalSelecting(null)
@@ -564,6 +584,36 @@ export function LabPassage({
       setLocalSelecting(buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, drag.start, drag.start))
     }
     event.preventDefault()
+    const bounds = event.currentTarget.getBoundingClientRect()
+    const direction = event.clientY >= bounds.bottom - 24 ? 1 : event.clientY <= bounds.top + 24 ? -1 : null
+    if (direction !== edgeDirectionRef.current) cancelEdge()
+    if (direction && !edgeTimerRef.current && pageTurnRef.current && !drag.comparison) {
+      edgeDirectionRef.current = direction
+      const advance = () => {
+        if (dragRef.current !== drag || !drag.selecting) { cancelEdge(); return }
+        const visible = Array.from(articleRef.current?.querySelectorAll<HTMLElement>('[data-testid="lab-word"]') || [])
+          .filter(word => !word.closest('.lab-book-col-compare'))
+        const edge = wordPlaceFromTarget(direction === 1 ? visible[visible.length - 1] : visible[0])
+        const lastP = paragraphs.length - 1
+        const atEnd = edge && (direction === 1
+          ? edge.paragraphIndex === lastP && edge.wordIndex >= tokenizeHearingWords(paragraphs[lastP] || '').length - 1
+          : edge.paragraphIndex === 0 && edge.wordIndex === 0)
+        if (!edge || atEnd) { cancelEdge(); return }
+        pageTurnRef.current?.(direction)
+        edgeTimerRef.current = setTimeout(() => {
+          if (dragRef.current !== drag) return
+          const after = Array.from(articleRef.current?.querySelectorAll<HTMLElement>('[data-testid="lab-word"]') || [])
+            .filter(word => !word.closest('.lab-book-col-compare'))
+          const next = wordPlaceFromTarget(direction === 1 ? after[0] : after[after.length - 1])
+          if (next && drag.start) {
+            drag.end = next
+            setLocalSelecting(buildHighlightRange(paragraphs, drag.start, next))
+          }
+          edgeTimerRef.current = setTimeout(advance, 700)
+        }, 200)
+      }
+      edgeTimerRef.current = setTimeout(advance, 700)
+    }
     const pointTarget = typeof document.elementFromPoint === 'function'
       ? document.elementFromPoint(event.clientX, event.clientY)
       : null
@@ -594,6 +644,7 @@ export function LabPassage({
   }
 
   const onPointerEnd = (event: React.PointerEvent) => {
+    cancelEdge()
     const drag = dragRef.current
     if (!drag) return
     if (longPressRef.current) {
@@ -676,6 +727,7 @@ export function LabPassage({
   }
 
   const onPointerCancel = () => {
+    cancelEdge()
     if (longPressRef.current) clearTimeout(longPressRef.current)
     longPressRef.current = null
     dragRef.current = null
@@ -713,7 +765,7 @@ export function LabPassage({
                       return (
                         <span
                           key={`${lineIndex}-${wordIndex}`}
-                          className={`${labHighlightCssClass(color, selecting)}${inlineRole ? ` is-${inlineRole}` : ''}`}
+                          className={`${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}`}
                           data-testid="lab-word"
                           data-paragraph-index={paragraphIndex}
                           data-word-index={absoluteWord}
@@ -793,6 +845,7 @@ export function LabPassage({
         if (!hearing && onSelectRange) event.preventDefault()
       }}
     >
+      {localSelecting && <span className="lab-selection-hint" role="status">Hold at the top or bottom edge to select across pages</span>}
       {showHeadline && !desktopSpread && (
         <header className="lab-passage-header">
           <h1 className="lab-passage-headline" data-testid="lab-passage-headline">
