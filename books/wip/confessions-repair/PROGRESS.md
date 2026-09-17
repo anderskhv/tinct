@@ -42,7 +42,7 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 | 4 | frozen (sha256 e5dd8853…) | done — 27 findings (1 major, 6 moderate, 20 minor; review's own summary table had an arithmetic error, 18→20) | done — 19/31 paragraphs edited | done — major + all 6 moderates confirmed fixed; 1 trivial spelling inconsistency found and fixed directly | **accepted** (sha256 52e0f9fc…) |
 | 5 | frozen (sha256 810b5a38…) | done — 21 findings (1 major, 4 moderate, 16 minor); question-mark parity independently confirmed 18/18 | done — drafter's own change-list was wrong (cited nonexistent indices 25/26/28, missed idx 20); diffed the files directly: 16/25 paragraphs actually changed | done — major + all 4 moderates confirmed; paragraph 20's undocumented edit verified genuine (single-token quote-style fix, matches Mo4, matches source's own punctuation) | **accepted** (sha256 40c8f607…) |
 | 6 | frozen (sha256 73bb3730…) | done — 32 findings (1 major, 3 moderate, 28 minor); question-mark parity independently confirmed 31/31 per-paragraph (drafter's own total of "32/32" was a notes arithmetic error) | done — 19/27 paragraphs changed, independently diffed and confirmed matching corrector's own claim | done — major + all 3 moderates confirmed, zero collateral edits (word-level diff traced every change to a finding); one ungrammatical seam in the review's own proposed wording (para 8) found and fixed directly | **accepted** (sha256 70b98614…) |
-| 8 | queued | — | — | — | — |
+| 8 | frozen (sha256 50155610…) | in progress (Opus) | — | — | — |
 | 9 | queued | — | — | — | — |
 | 10 | queued | — | — | — | — |
 | 12 | queued | — | — | — | — |
