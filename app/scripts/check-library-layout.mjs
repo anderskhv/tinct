@@ -20,8 +20,12 @@ try {
   await page.route('**/*', async route => {
    const request = route.request()
    if (request.method() !== 'GET') return route.abort()
-   if (live) return route.continue()
    const url = new URL(request.url())
+   if (url.origin === 'https://tinct.app' && url.pathname === '/reader' && viewport.width < 600) {
+    url.pathname='/lab/phone';url.searchParams.set('chrome','v2')
+    return route.fulfill({status:302,headers:{location:url.href},body:''})
+   }
+   if (live) return route.continue()
    if (url.origin !== 'https://tinct.app') return route.continue()
    const pathname = url.pathname === '/library' ? '/lab/index.html' : ['/reader','/lab/phone','/lab/desktop'].includes(url.pathname) ? '/app.html' : url.pathname
    const filename = path.resolve('dist', '.' + pathname)
@@ -91,6 +95,11 @@ try {
   await page.evaluate(()=>scrollTo(0,0))
   await page.locator('[data-shelf-index][aria-current="true"]').click()
   await page.locator('[data-testid="lab-cover-entry"]').waitFor({timeout:45000})
+  if(live) {
+   const html=await fs.readFile('dist/app.html','utf8')
+   const expected=html.match(/\/assets\/index-[A-Za-z0-9_-]+\.js/)[0]
+   assert(await page.locator('script[src]').evaluateAll((nodes,asset)=>nodes.some(n=>new URL(n.src).pathname===asset),expected),'production reader uses the deployed bundle')
+  }
   await page.screenshot({path:output+'/'+name+'-cover.png'})
   await page.getByRole('button',{name:/Before you begin/}).click()
   const prep=page.locator('[data-testid="lab-book-preface"]')
@@ -148,6 +157,10 @@ try {
   const palette=await popup.boundingBox()
   assert(palette.height<90,'compact colour palette')
   await page.screenshot({path:output+'/'+name+'-palette.png'})
+  const paletteReview=(await page.screenshot({type:'jpeg',quality:50})).toString('base64')
+  console.log('REVIEW_BEGIN '+name+'-palette')
+  for(let i=0;i<paletteReview.length;i+=3000) console.log('REVIEW_CHUNK '+paletteReview.slice(i,i+3000))
+  console.log('REVIEW_END '+name+'-palette')
   await popup.getByRole('button',{name:'Add note',exact:true}).click()
   await popup.getByRole('textbox',{name:'Highlight note'}).fill('Acceptance note')
   await popup.getByRole('button',{name:'Save note'}).click()

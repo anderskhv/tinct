@@ -667,7 +667,9 @@ import {
     }
     shelf.onpointerup = finish
     shelf.onpointercancel = finish
-    shelf.onlostpointercapture = event => { if (reelDrag) finish(event) }
+    // Touch begins with implicit capture on the cover. Its bubbled loss when
+    // capture transfers to the shelf is not the end of the gesture.
+    shelf.onlostpointercapture = event => { if (event.target === shelf && reelDrag) finish(event) }
     let wheelTimer
     shelf.onwheel = event => {
       const delta = event.shiftKey && !event.deltaX ? event.deltaY : event.deltaX

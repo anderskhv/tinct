@@ -25,3 +25,11 @@ paid-tier changes. The eleventh AI request is held behind the account sheet.
 Required acceptance: full tests, build, verify-bundle, docs, silent isolated
 Chromium/WebKit phone/tablet/desktop checks and production verification.
 No physical-device acceptance or live paid model calls claimed.
+
+Cloud verification: run 35219516515 passed 2,383 tests, build and bundle gates,
+plus preparation/selection checks. Native short-touch acceptance exposed bubbled
+implicit-capture loss prematurely finishing a reel drag; ignore descendant loss
+and finish only the shelf's own capture loss. Full matrix retest pending.
+Published text audit: Divine Comedy 111,065 words; Frankenstein 75,021;
+Niels Lyhne 68,480; War and Peace 563,543. Ranges use 140–200 words/minute;
+notes and pauses are extra. No actual print-edition page count is claimed.
