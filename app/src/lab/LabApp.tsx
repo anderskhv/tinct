@@ -1,3 +1,4 @@
+import type { VoiceExperiment, VoiceDiagnostic } from '../voice/voiceLab'
 import { ReadIcon, ChatIcon, TalkIcon } from './LabReaderIcons'
 import { isAudioHeld, isEditionDiscoverable } from '../data/audioAvailability'
 import { useCharacterCards } from '../services/characters/useCharacterCards'
@@ -315,6 +316,8 @@ function CompareIcon() {
 }
 
 export interface LabAppProps {
+  voiceExperiment?: VoiceExperiment
+  onVoiceDiagnostic?: (event: VoiceDiagnostic) => void
   pathname?: string
   /** Query string. Only `?voice=v2` on `/lab/reader` selects the Voice V2 preview. */
   search?: string
@@ -341,7 +344,7 @@ function quickCatalogueFallback(current: LabSource): QuickBookCatalogueEntry[] {
   }))
 }
 
-export function LabApp({ pathname, search, online, source, authToken }: LabAppProps) {
+export function LabApp({ pathname, search, online, source, authToken, voiceExperiment, onVoiceDiagnostic }: LabAppProps) {
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/lab')
   const layoutOverride = labLayoutOverride(path)
   const voiceTrial = labVoiceTrial(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
@@ -903,6 +906,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const lockPaginationRef = useRef(false)
 
   const ask = useLabAsk({
+    voiceExperiment, onVoiceDiagnostic,
     bookTitle: book.bookTitle,
     bookAuthor: book.bookAuthor,
     headerBook: book.headerBook,

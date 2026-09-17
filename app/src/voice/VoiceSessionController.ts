@@ -1,3 +1,4 @@
+import type { VoiceExperiment, VoiceDiagnostic } from './voiceLab'
 import { VOICE_TRIAL_MODELS, type VoiceTrial } from './voiceTrial'
 import { apiUrl } from '../utils/apiUrl'
 import { ASSISTANT_PACE_SPEED, affirmativeAnswersLookupOffer, isLabPlaybackSkip, lookupQuestionFromOffer, parseAssistantPace, parseSetPlaybackSpeedArguments, type AssistantPace, type LabPlaybackSkip, cleanLabVoiceTranscript } from '../lab/labAsk'
@@ -58,6 +59,7 @@ export interface VoiceAudioEngine {
 }
 
 export interface VoiceSessionCallbacks {
+  onVoiceDiagnostic?: (event: VoiceDiagnostic) => void
   onSnapshot: (snapshot: VoiceUiSnapshot) => void
   onBeforeUserTurn?: () => boolean
   onTurn: (role: 'user' | 'assistant', text: string, meta?: { cancelled?: boolean }) => void
@@ -95,6 +97,8 @@ export interface VoiceUiSnapshot {
 }
 
 export interface StartVoiceSessionInput {
+  voiceExperiment?: VoiceExperiment
+  onVoiceDiagnostic?: (event: VoiceDiagnostic) => void
   greeting?: string
   authToken: string | null
   isAnonymous: boolean
