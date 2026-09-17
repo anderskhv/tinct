@@ -39,7 +39,7 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 | Book | Draft (Sonnet) | Independent review (Opus) | Corrected | Verified | Accepted |
 |---|---|---|---|---|---|
 | 3 | frozen (sha256 9598b9ba…) | done — 53 findings (6 major, 12 moderate, 35 minor) | done — 18/21 paragraphs edited | done — 6/6 majors confirmed fixed; 5 new clause-level issues found and fixed directly (no further round) | **accepted** (sha256 c7a80e65…) |
-| 4 | frozen (sha256 e5dd8853…) | done — 25 findings (1 major, 6 moderate, 18 minor) | done — 19/31 paragraphs edited | verification in progress (Opus) | — |
+| 4 | frozen (sha256 e5dd8853…) | done — 27 findings (1 major, 6 moderate, 20 minor; review's own summary table had an arithmetic error, 18→20) | done — 19/31 paragraphs edited | done — major + all 6 moderates confirmed fixed; 1 trivial spelling inconsistency found and fixed directly | **accepted** (sha256 52e0f9fc…) |
 | 5 | queued | — | — | — | — |
 | 6 | queued | — | — | — | — |
 | 8 | queued | — | — | — | — |
@@ -58,9 +58,19 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 - **Scope of "accepted":** this book only, one of 13 in Confessions. Not a whole-title acceptance. Verifier flagged two systemic drafting habits (flattened rhetorical questions; added interpretive connectives closing source ambiguity) as a standing watch-item for Books 4–13 — future review passes should check for these specifically, not assume they're isolated to Book 3.
 - Danish (`modern-da`) not touched — flagged for later re-translation once more of the title is repaired.
 
+## Book 4 — editorially accepted (2026-09-17)
+
+- Candidate: `book04-candidate.json`, sha256 `e5dd88538342b951d5b3493d7f6f1919e2adbfd1f9ab32d9f617d5aecb37eb05` (Sonnet draft, frozen).
+- Review: `book04-review.md` — Opus, 27 findings (1 major, 6 moderate, 20 minor — review's own summary table undercounted minors as 18, verifier caught and corrected the arithmetic).
+- Corrected: `book04-corrected.json`, `book04-corrections-log.md` — Sonnet, 19/31 paragraphs edited: referent inversion in para 13, both flattened rhetorical questions restored (paras 9, 20 — despite the drafter's own notes falsely certifying no questions were flattened), imperative + quantifier error fixed (para 16), Hierius thread reconnected (para 22), phantasma consistency (paras 8/11), 20 minor fixes.
+- Verification: `book04-verification.md` — Opus, independently re-derived every changed span from source rather than trusting the log. Major + all 6 moderates confirmed fixed. One trivial theater/theatre spelling inconsistency found, fixed directly (no further round needed).
+- Final: `book04-accepted.json`, sha256 `52e0f9fc581c8045558b6f6ef2330651f1c33c04f2ae7a7a392b04e30151085f`.
+- **Carry-forward finding:** drafter self-certification of "no flattened questions" was false in both Book 3 and Book 4. Per-paragraph question-mark parity against source is now a standing blocking mechanical gate for every future candidate and corrected file — do not trust drafter self-report on this.
+- Danish not touched.
+
 ## Next action
 
-Move to Book 4 (next untouched-passthrough book): draft → independent review → correct → verify, watching specifically for the two systemic habits noted above.
+Move to Book 5 (next untouched-passthrough book): draft → independent review → correct → verify, enforcing the question-mark-parity gate as a mechanical check (not just a review-time finding) and continuing to watch for added interpretive connectives.
 
 ## Models actually used
 
