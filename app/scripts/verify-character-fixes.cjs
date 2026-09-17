@@ -113,6 +113,16 @@ const CASES = [
   ['the-histories', 'original-en', undefined, 'zopyros', undefined, 'hist-zopyros-new'],
   ['the-histories', 'original-en', undefined, 'masistes', undefined, 'hist-masistes-new'],
   ['the-histories', 'original-en', undefined, 'megistias', undefined, 'hist-megistias-new'],
+  // divine-comedy: new characters plus the Francis/Brutus disambiguation
+  ['divine-comedy', 'original-en', undefined, 'virgil', undefined, 'dc-mantuan-alias'],
+  ['divine-comedy', 'original-en', undefined, 'francis-of-accorso', 'Francis of Accorso', 'dc-francis-of-accorso'],
+  ['divine-comedy', 'original-en', undefined, 'saint-francis', 'Saint Francis', 'dc-saint-francis'],
+  ['divine-comedy', 'original-en', undefined, 'brutus-lucius', 'Brutus', 'dc-brutus-lucius'],
+  ['divine-comedy', 'original-en', undefined, 'brutus-marcus', 'Brutus', 'dc-brutus-marcus'],
+  ['divine-comedy', 'original-en', undefined, 'christ', undefined, 'dc-christ-new'],
+  ['divine-comedy', 'original-en', undefined, 'buonconte', undefined, 'dc-buonconte-new'],
+  ['divine-comedy', 'original-en', undefined, 'marco-lombardo', undefined, 'dc-marco-lombardo-new'],
+  ['divine-comedy', 'original-en', undefined, 'branca-doria', undefined, 'dc-branca-doria-new'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
