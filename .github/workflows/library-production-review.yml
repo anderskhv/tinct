@@ -1,0 +1,35 @@
+name: library-production-review
+on:
+  push:
+    branches: [codex/library-production-review-20260917]
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Wait for the approved release
+        run: |
+          for attempt in $(seq 1 36); do
+            if curl -sf https://tinct.app/reader | grep -q '/assets/index-BDPb64j1.js'; then exit 0; fi
+            sleep 5
+          done
+          exit 1
+      - run: LIBRARY_LIVE=1 node scripts/check-library-layout.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: production-library-visual-review
+          path: app/artifacts/library-layout
