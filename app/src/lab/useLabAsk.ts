@@ -1,3 +1,4 @@
+import type { VoiceExperiment, VoiceDiagnostic } from '../voice/voiceLab'
 import { PERSONAL_HISTORY_TOOL, personalHistoryEvidence, requestsPersonalHistory } from './labPersonalHistory'
 import { CHAPTER_CHAT_MESSAGES, buildChapterChatInstructions, chapterChatHistoryContent, loadChapterChatTarget, type ChapterChatRequest } from './labChapterChat'
 import { VOICE_RESEARCH_TOOL, researchVoiceQuestion, voiceSourceLinks, type VoiceSource } from './labVoiceResearch'
@@ -69,6 +70,8 @@ function nextId() {
 }
 
 export interface UseLabAskOptions {
+  voiceExperiment?: VoiceExperiment
+  onVoiceDiagnostic?: (event: VoiceDiagnostic) => void
   bookTitle: string
   bookAuthor: string
   /** Biblical book / registry title; display only. History is keyed by `bookId`. */
@@ -247,6 +250,7 @@ export function useLabAsk(options: UseLabAskOptions) {
 
   /** Record a finalized turn: local mirror first, then the cloud row when signed in. */
   const recordTurn = useCallback((message: ChatMessage, chapterNumber: number, paragraphIndex?: number) => {
+    if (optionsRef.current.voiceExperiment && message.source === 'voice') return
     const bookId = chatBookIdRef.current
     if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return
     const next = appendLabChatTurn(bookId, withVoiceSources(message), chapterNumber, paragraphIndex, optionsRef.current.conversationId || undefined)
@@ -396,6 +400,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   // Same hook as App.tsx + AudioStrip. Lab supplies its own instructions
   // so production buildVoiceInstructions stays the in-car brief.
   const voice = useVoiceSession({
+    voiceExperiment: options.voiceExperiment,
+    onVoiceDiagnostic: options.onVoiceDiagnostic,
     authToken: liveToken,
     isAnonymous: !liveToken,
     labGuest: true,

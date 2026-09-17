@@ -1,3 +1,4 @@
+import { parseVoiceExperiment } from '../../voice/voiceLab'
 import { VOICE_LIVE_MODEL, VOICE_LIVE_BACKEND_MODEL, LIVE_VOICE_INSTRUCTIONS } from '../../voice/liveConfig'
 import { parseVoiceTrial, VOICE_TRIAL_MODELS } from '../../voice/voiceTrial'
 import { VOICE_REALTIME_MODEL } from '../../voice/types'
@@ -51,7 +52,7 @@ export async function handleVoiceSession(
   if (!apiKey) return jsonResponse({ error: VOICE_NOT_CONFIGURED_ERROR }, 503, request)
 
   // The trial is explicit; arbitrary model names are never accepted.
-  const body = await request.json().catch(() => null) as { voiceTrial?: unknown; protocol?: unknown; sdp?: unknown; instructions?: unknown; tools?: unknown } | null
+  const body = await request.json().catch(() => null) as { voiceExperiment?: unknown; voiceTrial?: unknown; protocol?: unknown; sdp?: unknown; instructions?: unknown; tools?: unknown } | null
   const trial = parseVoiceTrial(body?.voiceTrial)
   const model = trial ? VOICE_TRIAL_MODELS[trial] : VOICE_REALTIME_MODEL
   const allowLabGuest = options?.allowLabGuest === true
@@ -61,6 +62,13 @@ export async function handleVoiceSession(
     if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
   }
 
+  const experiment = body?.voiceExperiment === undefined ? null : parseVoiceExperiment(body.voiceExperiment)
+  if (body?.voiceExperiment !== undefined) {
+    if (!user) return jsonResponse({ error: 'Administrator sign-in required' }, 403, request)
+    const adminResponse = await supabaseGet(env, `site_admins?user_id=eq.${user.id}&select=user_id&limit=1`)
+    if (!adminResponse.ok || !(await adminResponse.json() as unknown[]).length) return jsonResponse({ error: 'Administrator access required' }, 403, request)
+    if (!experiment || body.protocol !== 'live') return jsonResponse({ error: 'Invalid voice experiment' }, 400, request)
+  }
   const userId = user?.id ?? `lab-guest:${labGuestIp(request)}`
   if (allowLabGuest) {
     const rateAllowed = await checkRateLimit(`lab-voice:${labGuestIp(request)}`, env.RATE_LIMIT, 6)
@@ -112,10 +120,10 @@ export async function handleVoiceSession(
         body: JSON.stringify({
           session: {
             model: VOICE_LIVE_MODEL,
-            instructions: LIVE_VOICE_INSTRUCTIONS,
+            instructions: experiment?.frontend ?? LIVE_VOICE_INSTRUCTIONS,
             audio: { output: { voice: 'marin' } },
             delegation: { type: 'responses', responses: {
-              model: VOICE_LIVE_BACKEND_MODEL,
+              model: experiment?.model ?? VOICE_LIVE_BACKEND_MODEL,
               instructions: body.instructions,
               tools, parallel_tool_calls: false,
             } },

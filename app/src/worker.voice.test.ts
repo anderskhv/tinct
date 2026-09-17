@@ -188,3 +188,30 @@ it('creates GPT Live sessions through the server and exposes only the SDP answer
     expect(await response.json()).toEqual({ session: { id: 'live_test' }, transport: { type: 'webrtc', sdp: 'answer' }, model: 'gpt-live-1' })
   } finally { vi.unstubAllGlobals() }
 })
+
+it('rejects guest and non-admin experiment overrides before contacting OpenAI', async () => {
+  const fetcher = vi.fn(async (_url: unknown) => Response.json([])); vi.stubGlobal('fetch', fetcher)
+  const { ctx } = makeExecutionContext()
+  const make = () => new Request('https://tinct.app/api/voice-session', { method: 'POST', body: JSON.stringify({ protocol: 'live', voiceExperiment: { label: 'Test', model: 'gpt-5.6-sol', frontend: 'Speak', backend: 'Think' } }) })
+  expect((await handleLabVoiceSession(make(), env, ctx, async () => true)).status).toBe(403)
+  expect(fetcher).not.toHaveBeenCalled()
+  expect((await handleVoiceSession(make(), env, ctx, async () => ({ id: userId, email: 'test@example.com' }), async () => true)).status).toBe(403)
+  expect(fetcher.mock.calls.every(call => !String(call[0]).includes('openai.com'))).toBe(true)
+  vi.unstubAllGlobals()
+})
+
+it('uses validated admin experiment prompts and model without changing the voice model', async () => {
+  let upstream: any
+  vi.stubGlobal('fetch', vi.fn(async (url, init) => {
+    if (String(url).includes('site_admins')) return Response.json([{ user_id: userId }])
+    if (String(url).includes('profiles?')) return Response.json([{ message_balance: 100, subscription_status: 'active' }])
+    if (String(url).includes('api.openai.com')) { upstream = JSON.parse(init.body); return Response.json({ transport: { sdp: 'answer' } }) }
+    return Response.json({})
+  }))
+  const { ctx } = makeExecutionContext()
+  const body = { protocol: 'live', sdp: 'v=0\r\n', instructions: 'Resolved experiment reasoning prompt', tools: [], voiceExperiment: { label: 'Test', model: 'gpt-5.6-sol', frontend: 'Custom speaker prompt', backend: '{{passage}}' } }
+  const res = await handleVoiceSession(new Request('https://tinct.app/api/voice-session', { method: 'POST', body: JSON.stringify(body) }), env, ctx, async () => ({ id: userId, email: 'test@example.com' }), async () => true)
+  expect(res.status).toBe(200)
+  expect(upstream.session).toMatchObject({ model: 'gpt-live-1', instructions: 'Custom speaker prompt', delegation: { responses: { model: 'gpt-5.6-sol', instructions: body.instructions } } })
+  vi.unstubAllGlobals()
+})

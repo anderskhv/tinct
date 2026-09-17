@@ -129,3 +129,17 @@ it('counts one question across transcript fragments and stops before an eleventh
   expect(used).toBe(10)
   expect(onTurn).toHaveBeenCalledTimes(2)
 })
+
+it('collects experiment backend and spoken output separately without changing normal sessions', () => {
+  const onVoiceDiagnostic = vi.fn()
+  const c = new LiveVoiceSessionController({ onSnapshot: vi.fn(), onTurn: vi.fn(), onVoiceDiagnostic })
+  c.handleEvent({ type: 'session.output_transcript.delta', delta: 'Normal' })
+  expect(onVoiceDiagnostic).not.toHaveBeenCalled()
+  Object.assign(c, { input: { voiceExperiment: { label: 'Test' } } })
+  c.handleEvent({ type: 'session.output_transcript.delta', delta: 'Spoken' })
+  c.handleEvent({ type: 'response.event', delegation_id: 'd', event: { type: 'response.output_text.delta', delta: 'Backend' } })
+  expect(onVoiceDiagnostic.mock.calls.map(call => call[0])).toEqual([
+    expect.objectContaining({ type: 'assistant.transcript', text: 'Spoken' }),
+    expect.objectContaining({ type: 'backend.text', text: 'Backend', id: 'd' }),
+  ])
+})
