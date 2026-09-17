@@ -14,7 +14,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    ['small-phone',375,560,true],['phone',390,660,true],['tall-phone',430,780,true],
    ['ipad-portrait',820,1024,true],['ipad-landscape',1180,720,true],['desktop',1440,900,false]
   ]){
-   const context=await browser.newContext({viewport:{width,height},hasTouch:touch,serviceWorkers:'block'})
+   const context=await browser.newContext({viewport:{width,height},hasTouch:touch,isMobile:touch,deviceScaleFactor:touch?2:1,serviceWorkers:'block'})
    const page=await context.newPage()
    await page.bringToFront()
    try {
