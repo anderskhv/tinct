@@ -37,6 +37,15 @@ jobs:
         env:
           CI: true
       - run: npm run verify-bundle
+      - name: Install silent browser acceptance
+        run: npx playwright install --with-deps chromium
+      - name: Verify library and preparation
+        run: node scripts/check-library-layout.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: library-preparation-acceptance
+          path: app/artifacts/library-layout
 
   reading-benchmark:
     runs-on: ubuntu-latest

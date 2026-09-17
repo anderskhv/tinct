@@ -7396,3 +7396,10 @@
 .lab[data-chrome-version="v2"].is-night .lab-verse-unit:has(> .is-hl-lavender:first-child):has(> .is-hl-lavender:last-child) { background: var(--highlight-lavender, #3a2e5c); }
 .lab[data-chrome-version="v2"] .lab-verse-unit:has(> .is-selecting:first-child):has(> .is-selecting:last-child) { background: var(--highlight-gold, #f5e6c8); }
 .lab[data-chrome-version="v2"].is-night .lab-verse-unit:has(> .is-selecting:first-child):has(> .is-selecting:last-child) { background: var(--highlight-gold, #5c4a2e); }
+
+/* Approved cover entry: art remains dominant; compact choices sit on its lower edge. */
+.lab[data-chrome-version="v2"] .lab-cover-entry{background:transparent;padding:0 18px max(18px,env(safe-area-inset-bottom))}
+.lab[data-chrome-version="v2"] .lab-cover-entry button{min-height:54px;padding:9px 14px;background:#20231feb;border:1px solid #ffffff20;backdrop-filter:blur(18px)}
+.lab[data-chrome-version="v2"] .lab-cover-entry button+button{border-top:0}
+.lab[data-chrome-version="v2"] .lab-cover-entry strong{font:500 20px/1.2 'EB Garamond',Georgia,serif}
+.lab[data-chrome-version="v2"] .lab-cover-entry span{font:400 12px/1.4 system-ui,sans-serif;color:#c1c1b6}

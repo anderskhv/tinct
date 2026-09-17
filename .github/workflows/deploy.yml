@@ -70,3 +70,13 @@ jobs:
         env:
           TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
         run: bash scripts/smoke-test.sh https://tinct.app
+
+      - name: Install silent production browser
+        run: npx playwright install --with-deps chromium
+      - name: Verify production library and preparation
+        run: LIBRARY_LIVE=1 node scripts/check-library-layout.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: production-library-preparation
+          path: app/artifacts/library-layout
