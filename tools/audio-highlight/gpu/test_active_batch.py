@@ -14,14 +14,46 @@ from host_retry_gate import replacement_spend
 class ActiveBatchValidationTest(unittest.TestCase):
     def test_accepts_unique_bounded_targets(self):
         rows = [{"bookId": "book", "edition": "original-en", "chapter": 1}]
-        self.assertEqual(active.validate_rows(rows), rows)
+        self.assertEqual(active.validate_rows(rows, quarantined=set()), rows)
 
     def test_rejects_duplicate_and_extra_fields(self):
         row = {"bookId": "book", "edition": "original-en", "chapter": 1}
         with self.assertRaisesRegex(ValueError, "duplicate"):
-            active.validate_rows([row, row])
+            active.validate_rows([row, row], quarantined=set())
         with self.assertRaisesRegex(ValueError, "only"):
-            active.validate_rows([{**row, "waive": True}])
+            active.validate_rows([{**row, "waive": True}], quarantined=set())
+
+    def test_rejects_quarantined_canary_rejects(self):
+        blocked = active.quarantine_keys()
+        self.assertIn(("as-you-like-it", "original-en", 6), blocked)
+        self.assertIn(("taming-of-the-shrew", "original-en", 4), blocked)
+        self.assertIn(("henry-iv-part-2", "original-en", 12), blocked)
+        self.assertIn(("bible", "web-en", 976), blocked)
+        self.assertIn(("bible", "web-en", 417), blocked)
+        self.assertIn(("the-histories", "original-en", 1390), blocked)
+        with self.assertRaisesRegex(ValueError, "quarantined"):
+            active.validate_rows(
+                [{"bookId": "as-you-like-it", "edition": "original-en", "chapter": 6}],
+                quarantined=blocked,
+            )
+
+    def test_ready_and_active_batches_omit_quarantine(self):
+        blocked = active.quarantine_keys()
+        root = Path(__file__).parents[3]
+        for name in (
+            "active-batch.json",
+            "ready-batch-20260917-01.json",
+            "ready-batch-20260917-02.json",
+            "ready-batch-20260917-03.json",
+            "ready-batch-20260917-04.json",
+            "ready-batch-20260917-05.json",
+        ):
+            rows = json.loads((root / "artifacts/audio-highlight-cloud-resume-2026-09-16" / name).read_text())
+            overlap = {
+                (row["bookId"], row["edition"], row["chapter"])
+                for row in rows
+            } & blocked
+            self.assertEqual(overlap, set(), name)
 
     def test_spend_ledger_must_reconcile_and_round_up(self):
         ledger = {

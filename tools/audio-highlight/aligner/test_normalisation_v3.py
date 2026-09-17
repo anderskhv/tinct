@@ -13,6 +13,7 @@ import pinned_words_sidecar_lib as v1
 import pinned_words_sidecar_lib_v2 as v2
 import pinned_words_sidecar_lib_v3 as v3
 import pinned_words_sidecar_lib_v4 as v4
+import pinned_words_sidecar_lib_v5 as v5
 import trial
 
 def heard(words,step=.2):return [v3.HeardWord(w,round(i*step,3),round((i+1)*step,3)) for i,w in enumerate(words)]
@@ -153,26 +154,28 @@ class LetteredFootnoteMarkers(unittest.TestCase):
   self.assertEqual(ratio('I [ See the history.]',['See','the','history.'],lib=v4).unspoken,[])
 
 class CloudOrchestratorPin(unittest.TestCase):
- def test_v4_is_plumbed_from_workflow_through_pod(self):
+ def test_v5_is_plumbed_from_workflow_through_pod(self):
   root=Path(__file__).parents[3]
   workflow=(root/'.github'/'workflows'/'audio-align-canary.yml').read_text()
   orchestrator=(root/'tools'/'audio-highlight'/'gpu'/'orchestrate.py').read_text()
   pod=(root/'tools'/'audio-highlight'/'gpu'/'pod_job.py').read_text()
   trial_source=(root/'tools'/'audio-highlight'/'aligner'/'trial.py').read_text()
   pins=(root/'tools'/'audio-highlight'/'aligner'/'PINS.md').read_text()
-  self.assertIn('--helper v4',workflow)
-  self.assertIn('default="v4", choices=["v1", "v2", "v3", "v4"]',orchestrator)
+  self.assertIn('--helper v5',workflow)
+  self.assertNotIn('--helper v4',workflow)
+  self.assertIn('default="v5", choices=["v1", "v2", "v3", "v4", "v5"]',orchestrator)
   self.assertIn('TINCT_HELPER',orchestrator)
-  self.assertIn('pinned_words_sidecar_lib_v4.py',pod)
-  self.assertIn('os.environ.get("TINCT_HELPER", "v4")',pod)
-  self.assertIn("'v4':'pinned_words_sidecar_lib_v4'",trial_source)
+  self.assertIn('pinned_words_sidecar_lib_v5.py',pod)
+  self.assertIn('os.environ.get("TINCT_HELPER", "v5")',pod)
+  self.assertIn("'v5':'pinned_words_sidecar_lib_v5'",trial_source)
+  self.assertIn(hashlib.sha256(Path(v5.__file__).read_bytes()).hexdigest(),pins)
   self.assertIn(hashlib.sha256(Path(v4.__file__).read_bytes()).hexdigest(),pins)
   import sys
   sys.path.insert(0,str(root/'tools'/'audio-highlight'/'gpu'))
   import orchestrate
-  result=orchestrate.validate_remote_helper_payload('unused','v4',root.as_uri())
-  self.assertEqual(result['helper'],'v4')
-  self.assertIn('pinned_words_sidecar_lib_v4.py',result['files'])
+  result=orchestrate.validate_remote_helper_payload('unused','v5',root.as_uri())
+  self.assertEqual(result['helper'],'v5')
+  self.assertIn('pinned_words_sidecar_lib_v5.py',result['files'])
  def test_exact_payload_fails_when_requested_helper_is_omitted(self):
   import shutil,tempfile,sys
   root=Path(__file__).parents[3]
@@ -182,9 +185,9 @@ class CloudOrchestratorPin(unittest.TestCase):
    replica=Path(directory)
    shutil.copytree(root/'tools',replica/'tools')
    pod=replica/'tools'/'audio-highlight'/'gpu'/'pod_job.py'
-   pod.write_text(pod.read_text().replace(', "pinned_words_sidecar_lib_v4.py"',''))
+   pod.write_text(pod.read_text().replace(',\n                 "pinned_words_sidecar_lib_v5.py"',''))
    with self.assertRaisesRegex(RuntimeError,'exact pod helper payload failed import'):
-    orchestrate.validate_remote_helper_payload('unused','v4',replica.as_uri())
+    orchestrate.validate_remote_helper_payload('unused','v5',replica.as_uri())
 
 class SourceTokenTextInvariant(unittest.TestCase):
  def test_emits_exact_source_tokens_after_acoustic_normalisation(self):
@@ -213,14 +216,100 @@ class SourceTokenTextInvariant(unittest.TestCase):
   self.assertLessEqual(result['candidate_words'][0]['end'],result['candidate_words'][1]['start'])
   self.assertEqual(result['rejection_reasons'],[])
 
+class CanaryRejectNormalisation(unittest.TestCase):
+ """Real reject paragraphs from canary 35204983320. v5 must drop unspoken
+ cues before scoring; the 0.85 gate does not move."""
+ def test_shakespeare_stage_direction_wrapper_clears(self):
+  # taming-of-the-shrew/original-en ch10 p29 (auto): 0.75 under v4 because
+  # ``[_Exeunt`` is a printed wrapper ASR does not say.
+  source='[_Exeunt all but Hortensio._]'
+  heard=['Exeunt','all','but','Hortensio._']
+  self.assertLess(ratio(source,heard,lib=v4).stats.match_ratio,.85)
+  d=ratio(source,heard,lib=v5)
+  self.assertEqual(d.stats.expected_words,4)
+  self.assertEqual(d.stats.matched_words,4)
+  self.assertGreaterEqual(d.stats.match_ratio,.85)
+  trial.select_helper('v5')
+  result=trial.attempt(Model(heard),'unused',source,'off')
+  self.assertEqual(result['rejection_reasons'],[])
+  self.assertEqual([word['text'] for word in result['candidate_words']],source.split())
+  trial.select_helper(trial.DEFAULT_HELPER)
+ def test_shakespeare_allcaps_enter_names_are_dropped_before_score(self):
+  # as-you-like-it/original-en ch6 p1 (off): 0.60 under v4 because AMIENS /
+  # JAQUES / OTHERS are printed ALL-CAPS cues, not the heard spellings.
+  source='Enter AMIENS, JAQUES, and OTHERS'
+  heard=['Enter','Amian,','Jaxx,','and','others.']
+  self.assertLess(ratio(source,heard,lib=v4).stats.match_ratio,.85)
+  d=ratio(source,heard,lib=v5)
+  spoken=v5.expected_comparison_keys(source.split())
+  self.assertEqual([key for key in spoken if key is not None],['enter','and'])
+  self.assertGreaterEqual(d.stats.match_ratio,.85)
+ def test_speaker_label_is_unspoken_and_dialogue_clears(self):
+  # as-you-like-it/original-en ch6 p19: AMIENS. is a speaker cue; ASR hears
+  # the line and splits I'll.
+  source="AMIENS. And I'll sing it."
+  heard=['AMIEN,','AND','I',"'LL",'SING','IT.']
+  self.assertLess(ratio(source,heard,lib=v4).stats.match_ratio,.85)
+  trial.select_helper('v5')
+  result=trial.attempt(Model(heard),'unused',source,'off')
+  self.assertEqual(result['acoustic_expected_tokens'],['And',"I'll",'sing','it.'])
+  self.assertEqual(result['expected_tokens'],source.split())
+  self.assertEqual(result['candidate_words'][0]['text'],'AMIENS.')
+  self.assertEqual(result['candidate_words'][0]['start'],result['candidate_words'][0]['end'])
+  self.assertEqual(result['rejection_reasons'],[])
+  self.assertGreaterEqual(result['match_ratio'],.85)
+  trial.select_helper(trial.DEFAULT_HELPER)
+ def test_bible_verse_and_web_bracket_are_dropped_or_unwrapped(self):
+  # bible/web-en ch413 p6 / ch976 p5 class: superscript verse numerals and
+  # WEB [of] are edition markup. Names may still miss; the markup must not
+  # sit in the scoring denominator.
+  source='³¹ [of] the sons of Harim: Eliezer, Isshijah, Malchijah.'
+  heard=['Of','the','sons','of','Harim,','Eliezer,','Isshijah,','Malchijah.']
+  keys=v5.expected_comparison_keys(v5.chapter_words_from_text(source))
+  self.assertIsNone(keys[0])
+  self.assertEqual(keys[1],'of')
+  trial.select_helper('v4')
+  older=trial.attempt(Model(heard),'unused',source,'off')
+  trial.select_helper('v5')
+  result=trial.attempt(Model(heard),'unused',source,'off')
+  self.assertEqual(result['acoustic_expected_tokens'],['of','the','sons','of','Harim:','Eliezer,','Isshijah,','Malchijah.'])
+  self.assertEqual(result['expected_tokens'][0],'³¹')
+  self.assertEqual(result['candidate_words'][0]['text'],'³¹')
+  self.assertEqual(result['candidate_words'][0]['start'],result['candidate_words'][0]['end'])
+  self.assertNotIn('[of]',result['acoustic_expected_tokens'])
+  self.assertGreaterEqual(result['match_ratio'],.85)
+  self.assertEqual(result['rejection_reasons'],[])
+  self.assertEqual(older['acoustic_expected_tokens'][0],'[of]')
+  trial.select_helper(trial.DEFAULT_HELPER)
+ def test_bible_name_list_near_miss_drops_verse_tokens(self):
+  # Luke 3 p5 (bible/web-en/976) scored 0.840 under v4 after verse numerals
+  # were already stripped. Prove the remaining verse/WEB tokens are not
+  # scored; do not invent name matches.
+  source='²⁶ the son of Maath, the son of Mattathias, ²⁷ the son of Semein.'
+  heard=['The','son','of','Moth.','The','son','of','Matathias.','The','son','of','Semen.']
+  trial.select_helper('v5')
+  result=trial.attempt(Model(heard),'unused',source,'off')
+  self.assertEqual(result['expected_tokens'][0],'²⁶')
+  self.assertNotIn('²⁶',result['acoustic_expected_tokens'])
+  self.assertNotIn('²⁷',result['acoustic_expected_tokens'])
+  self.assertLess(result['stats']['expected_words'],len(result['expected_tokens']))
+  # Name ASR still misses; the gate stays 0.85 and is allowed to reject.
+  self.assertEqual(trial.GATE,.85)
+  self.assertLess(result['match_ratio'],.85)
+  trial.select_helper(trial.DEFAULT_HELPER)
+ def test_archaic_elision_and_hyphen_still_compare(self):
+  d=ratio("Hear'st thou? Th'art prepared.",['Hearest','thou?','Thou','art','prepared.'],lib=v5)
+  self.assertEqual((d.stats.expected_words,d.stats.matched_words),(4,4))
+  self.assertEqual(ratio('one hundred and twenty-two.',['one','hundred','and','twenty','-two.'],lib=v5).stats.match_ratio,1.0)
+
 class Pins(unittest.TestCase):
  def test_pins_file_records_all_three_helper_hashes(self):
   pins=(Path(__file__).parent/'PINS.md').read_text()
-  for module in (v1,v2,v3,v4):
+  for module in (v1,v2,v3,v4,v5):
    self.assertIn(hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest(),pins,module.__name__)
- def test_default_pin_is_v3_and_the_older_pins_are_selectable(self):
-  self.assertEqual(trial.DEFAULT_HELPER,'v4')
-  self.assertIs(trial.select_helper('v1'),v1);self.assertIs(trial.select_helper('v2'),v2);self.assertIs(trial.select_helper('v3'),v3);self.assertIs(trial.select_helper('v4'),v4)
+ def test_default_pin_is_v5_and_the_older_pins_are_selectable(self):
+  self.assertEqual(trial.DEFAULT_HELPER,'v5')
+  self.assertIs(trial.select_helper('v1'),v1);self.assertIs(trial.select_helper('v2'),v2);self.assertIs(trial.select_helper('v3'),v3);self.assertIs(trial.select_helper('v4'),v4);self.assertIs(trial.select_helper('v5'),v5)
   trial.select_helper(trial.DEFAULT_HELPER)
  def test_older_pins_still_reproduce_their_own_comparison(self):
   expected='They are—enough, now.'.split();spoken=['They','Are','Enough,','Now.']
