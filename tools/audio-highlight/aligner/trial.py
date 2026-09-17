@@ -21,23 +21,36 @@ def write(p,obj):
  p=Path(p);p.parent.mkdir(parents=True,exist_ok=True);tmp=p.with_suffix(p.suffix+'.tmp');tmp.write_text(json.dumps(obj,indent=2,ensure_ascii=False));tmp.replace(p)
 def tree_hash(path):return hashlib.sha256(json.dumps([(str(p.relative_to(path)),sha(p)) for p in sorted(Path(path).rglob('*')) if p.is_file() and '.cache' not in p.parts],separators=(',',':')).encode()).hexdigest()
 def restore_source_tokens(aligned,source_expected,acoustic_expected):
- if len(source_expected)!=len(acoustic_expected) or len(aligned)!=len(source_expected):
+ if len(aligned)!=len(acoustic_expected):
   raise ValueError(f'source/acoustic token mapping changed: source={len(source_expected)} acoustic={len(acoustic_expected)} aligned={len(aligned)}')
- # Equal length alone does not prove positional identity. Re-clean every source
- # prefix so context-sensitive rules must produce this exact acoustic token.
- for index,acoustic in enumerate(acoustic_expected):
+ # Prove a monotonic zero-or-one mapping from every exact source token to the
+ # cleaned acoustic stream. A zero delta is allowed only for source markup
+ # clean_text deliberately removes (for example standalone verse superscripts).
+ mapping=[];previous=[]
+ for index in range(len(source_expected)):
   prefix=lib.chapter_words_from_text(lib.clean_text(' '.join(source_expected[:index+1])))
-  if len(prefix)!=index+1 or prefix[-1]!=acoustic:
-   raise ValueError(f'source/acoustic token mapping changed at index {index}: source={source_expected[index]!r} acoustic={acoustic!r}')
+  if prefix[:len(previous)]!=previous or len(prefix)-len(previous) not in (0,1):
+   raise ValueError(f'source/acoustic token mapping changed at index {index}: source={source_expected[index]!r}')
+  if len(prefix)==len(previous):mapping.append(None)
+  else:
+   acoustic_index=len(previous)
+   if acoustic_index>=len(acoustic_expected) or prefix[-1]!=acoustic_expected[acoustic_index]:
+    raise ValueError(f'source/acoustic token mapping changed at index {index}: source={source_expected[index]!r} acoustic={acoustic_expected[acoustic_index] if acoustic_index<len(acoustic_expected) else None!r}')
+   mapping.append(acoustic_index)
+  previous=prefix
+ if previous!=list(acoustic_expected):
+  raise ValueError(f'source/acoustic token mapping changed at end: mapped={len(previous)} acoustic={len(acoustic_expected)}')
  restored=[]
- for word,source in zip(aligned,source_expected):
-  item=dict(word);item['text']=source;restored.append(item)
+ for index,(source,acoustic_index) in enumerate(zip(source_expected,mapping)):
+  if acoustic_index is not None:
+   item=dict(aligned[acoustic_index]);item['text']=source;restored.append(item);continue
+  next_acoustic=next((mapped for mapped in mapping[index+1:] if mapped is not None),None)
+  anchor=float(aligned[next_acoustic]['start']) if next_acoustic is not None else float(restored[-1]['end']) if restored else 0.0
+  restored.append(dict(text=source,start=round(anchor,3),end=round(anchor,3)))
  return restored
 def attempt(model,audio,text,mode):
  source_expected=lib.chapter_words_from_text(text.replace('\n',' '))
  expected=lib.chapter_words_from_text(lib.clean_text(text.replace('\n',' ')))
- if len(source_expected)!=len(expected):
-  raise ValueError(f'source/acoustic token mapping changed: source={len(source_expected)} acoustic={len(expected)}')
  tokenizer=getattr(getattr(model,'hf_tokenizer',None),'encode',None)
  counter=(lambda text:len(tokenizer(' '+text,add_special_tokens=False).ids)) if tokenizer else None
  bias=lib.build_bias_request(expected,mode,count_tokens=counter)
