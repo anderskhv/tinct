@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import { useAuth } from './hooks/useAuth'
 import { useVoiceSession } from './hooks/useVoiceSession'
+import { LabMarkdown } from './lab/LabMarkdown'
 import { LabVoiceCall } from './lab/LabVoiceCall.tsx'
 import { labCallUtterance, labCallView } from './lab/labVoiceCall'
 import { gateLabAiAction, labSignInHref } from './lab/labAccountPrompt'
@@ -264,6 +265,7 @@ export function LibraryAssistant() {
         <div><a href={labSignInHref('create', '/library')}>Create account</a><a href={labSignInHref('signin', '/library')}>Sign in</a></div>
       </div>}
       {mode === 'search' && <>
+        <a className="library-search-account" href={signedIn ? '/lab/sign-in?mode=account&returnTo=%2Flibrary' : labSignInHref('signin', '/library')}>{signedIn ? 'Account' : 'Sign in'}</a>
         <label className="library-assistant-field">{icon('search')}<input autoFocus type="search" value={searchDraft} onChange={event => setSearchDraft(event.target.value)} placeholder={`Search ${books.length} books`} aria-label="Search by title, author, subject, or description" /><button type="button" onClick={() => setSearchDraft('')} aria-label="Clear search">{searchDraft ? 'Clear' : ''}</button></label>
         <div className="library-search-results" aria-live="polite">
           {results.length ? <BookActions books={results} /> : <p>No books match “{searchDraft}”.</p>}
@@ -274,7 +276,7 @@ export function LibraryAssistant() {
           {turns.length === 0 && <p className="library-chat-empty">Tell me what you feel like reading, or name a book you loved.</p>}
           {turns.map(turn => <div key={turn.id} className={`library-chat-turn is-${turn.role}${turn.error ? ' is-error' : ''}`}>
             <span>{turn.role === 'user' ? 'You' : 'Tinct'}</span>
-            <p>{turn.pending && !turn.content ? 'Thinking…' : visibleLibrarianText(turn.content)}</p>
+            <LabMarkdown>{turn.pending && !turn.content ? 'Thinking…' : visibleLibrarianText(turn.content)}</LabMarkdown>
             {turn.role === 'assistant' && !turn.pending && <BookActions books={recommendationBookIds(turn.content, catalogue).map(id => byId.get(id)).filter((book): book is LibraryCatalogueBook => Boolean(book))} />}
           </div>)}
           {failedQuestion && !sending && <button className="library-retry" type="button" onClick={() => void sendChat(failedQuestion)}>Retry</button>}

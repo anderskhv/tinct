@@ -45,7 +45,7 @@ const leftReaderOn = (bookId: string, at = Date.now() - 20_000) => {
 describe('lab/index.html boot script', () => {
   it('ships the approved glass library controls without the rejected Explore or full-library affordances', () => {
     expect(html).toContain('data-library-assistant-root')
-    expect(html).toContain('/lab/library-assistant.js?v=20260916-library-glass-1')
+    expect(html).toMatch(/src="\/lab\/library-assistant\.js\?v=[^"]+"/)
     expect(html).toContain('data-first-category')
     expect(html).not.toContain('See full library')
     expect(html).not.toContain('>Explore<')

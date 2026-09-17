@@ -68,9 +68,9 @@
         <main class="tov5-simple-hero">
           <h1>Fall in love with the books that matter.</h1>
           <p>Immerse yourself in the world's greatest books. Read, listen and talk with them at will – in a language and style that speaks to you.</p>
+          <div class="entry-cover-field" data-entry-covers aria-hidden="true"></div><button type="button" class="entry-motion" data-entry-motion hidden aria-pressed="false">Pause covers</button>
           <div class="tov5-simple-entry"><button class="tov5-simple-start" type="button" data-start-catalogue>Start reading</button></div>
         </main>
-        <div class="entry-cover-field" data-entry-covers aria-hidden="true"></div><button type="button" class="entry-motion" data-entry-motion hidden aria-pressed="false">Pause covers</button>
       </section>
       <div class="tov5-phone" data-book-world="odyssey" data-frame="library-demo" hidden aria-hidden="true">
         <img class="tov5-world-art" src="" data-world-art alt="">
@@ -138,14 +138,14 @@
         <div class="lib-atmos" data-lib-atmos aria-hidden="true"><div class="lib-world"><span class="tov5-simple-world odyssey"></span><span class="tov5-simple-world pride"></span><span class="tov5-simple-world frankenstein"></span></div><div class="lib-world-scrim"></div></div>
         <div class="lib-content">
           <header class="lib-hdr">
-            <button type="button" class="lib-wm" data-library-home aria-label="Tinct — back to the start">Tinct.</button>
-            <nav class="lib-nav" aria-label="Site links"><div class="entry-search-slot" data-search-slot></div><button class="entry-search-toggle" type="button" data-search-toggle aria-label="Open search" aria-expanded="false" aria-controls="library-search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg></button><a class="lib-lnk" href="/about">About</a><a class="lib-pill" data-lab-auth-link data-lab-auth-name data-auth-return-to="/library" href="/lab/sign-in?returnTo=%2Flibrary">Sign in</a></nav>
+            <button type="button" class="lib-wm" data-library-home aria-label="Tinct — back to the start">t.</button>
+            <nav class="lib-nav" aria-label="Site links"><div class="entry-search-slot" data-search-slot></div><button class="entry-search-toggle" type="button" data-search-toggle aria-label="Open search" aria-expanded="false" aria-controls="library-search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg></button><a class="lib-pill" data-lab-auth-link data-lab-auth-name data-auth-return-to="/library" href="/lab/sign-in?returnTo=%2Flibrary">Sign in</a></nav>
           </header>
           <main class="lib-main">
             <section class="lib-recap" data-reading-memory-recap hidden aria-label="What you read last"></section>
-            <section class="lib-popular" data-library-popular aria-label="Popular books">
+            <section class="lib-popular" data-library-popular aria-label="Short reads">
               <header class="lib-popular-lead" data-popular-head><h1 class="lib-h1" data-popular-lead-title></h1><p class="lib-eyebrow is-dim" data-popular-lead-row></p></header>
-              <div class="entry-featured" data-featured></div><div class="lib-shelf" data-popular-shelf role="group" aria-label="Popular books"></div>
+              <div class="entry-featured" data-featured></div><div class="lib-shelf" data-popular-shelf role="group" aria-label="Short reads"></div>
 <div class="entry-shelf-arrows"><button type="button" data-shelf-scroll="-1" aria-label="Previous books">‹</button><button type="button" data-shelf-scroll="1" aria-label="Next books">›</button></div>
 <div class="lib-caption" data-popular-caption aria-live="polite"></div>
               <section class="lib-first-category" data-first-category aria-label="First library category"></section>
@@ -1421,12 +1421,13 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
 </style>
 
 <link rel="stylesheet" href="/lab/entry.css?v=20260914-mobile-covers-1">
-<link rel="stylesheet" href="/lab/library-glass.css?v=20260917-library-repair-1">
+<link rel="stylesheet" href="/lab/library-glass.css?v=20260917-responsive-1">
 <!-- Landscape phone only: one media query, added last so it wins where it overlaps. -->
 <link rel="stylesheet" href="/lab/landscape-phone.css?v=20260912-1">
-<script type="module" src="/lab/catalogue-runtime.js?v=20260917-library-repair-1"></script>
-  <script type="module" src="/lab/library-assistant.js?v=20260916-library-glass-1"></script>
+<script type="module" src="/lab/catalogue-runtime.js?v=20260917-responsive-1"></script>
+  <script type="module" src="/lab/library-assistant.js?v=20260917-responsive-1"></script>
   <script type="module" src="/lab/auth-status.js"></script>
   <script type="module" src="/lab/reading-memory.js"></script>
+<link rel="stylesheet" href="/lab/entry-responsive.css?v=20260917-1">
 </body>
 </html>

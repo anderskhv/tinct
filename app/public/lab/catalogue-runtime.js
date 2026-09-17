@@ -293,27 +293,29 @@ import {
     body.innerHTML=`<p class="entry-preface-attribution">Preface · Tinct · English</p>${preface.paragraphs.map(text=>`<p>${escapeHtml(text)}</p>`).join('')}`
     button.hidden=false
   }
+  const landingWide = window.matchMedia('(min-width:1100px) and (orientation:landscape)')
+  landingWide.addEventListener('change', () => { root.querySelector('[data-entry-covers]').replaceChildren(); renderLandingCovers() })
   let motionPaused=false,coverVisible=true
   function updateMotion() {
     const active=root.querySelector('[data-view-panel="landing"]').classList.contains('is-current')
     root.querySelector('[data-entry-covers]').classList.toggle('is-paused',motionPaused||document.hidden||!coverVisible||!active||reducedMotion())
-    const button=root.querySelector('[data-entry-motion]');button.textContent=motionPaused?'Play covers':'Pause covers';button.setAttribute('aria-pressed',String(motionPaused));button.hidden=centreSnap.matches||reducedMotion()
+    const button=root.querySelector('[data-entry-motion]');button.textContent=motionPaused?'Play covers':'Pause covers';button.setAttribute('aria-pressed',String(motionPaused));button.hidden=reducedMotion()
   }
   function renderLandingCovers() {
     const host=root.querySelector('[data-entry-covers]')
     if(!state.catalogue || !root.querySelector('[data-view-panel="landing"]').classList.contains('is-current')) {updateMotion();return}
     if(!host.children.length) {
       const shelf=fullShelf(state.catalogue).filter(book=>book.art?.src?.startsWith('/covers/v2/'))
-      if(centreSnap.matches) {
+      if(!landingWide.matches) {
         const preferred=['the-art-of-war','gilgamesh','crime-and-punishment','jane-eyre','moby-dick']
         const books=preferred.map(id=>shelf.find(book=>book.id===id)).filter(Boolean)
-        host.innerHTML=books.map(book=>coverImage(book,true)).join('')
+        host.innerHTML=`<div class="entry-cover-track">${[...books,...books].map(book=>coverImage(book,true)).join('')}</div>`
       } else {
         const books=shelf.slice(0,18)
         host.innerHTML=[0,1,2].map(col=>{const group=books.filter((_,i)=>i%3===col);return `<div class="entry-cover-column" style="--duration:${240+col*30}s">${[...group,...group].map(book=>coverImage(book)).join('')}</div>`}).join('')
       }
     }
-    if(!centreSnap.matches) host.querySelectorAll('.entry-cover-column').forEach((column,index)=>column.style.setProperty('--duration',`${(column.clientWidth*1.5+20)*6/(5+index*.3)}s`))
+    if(landingWide.matches) host.querySelectorAll('.entry-cover-column').forEach((column,index)=>column.style.setProperty('--duration',`${(column.clientWidth*1.5+20)*6/(5+index*.3)}s`))
     updateMotion()
   }
   document.addEventListener('visibilitychange',updateMotion)
@@ -570,7 +572,7 @@ import {
       atmosphere.style.setProperty('--lib-accent', book.cover?.accent || '#c9a45c')
     }
     renderFeatured()
-    caption.innerHTML = `<span class="lib-author">${escapeHtml(book.author)}</span><h2 class="lib-h1" data-popular-title>${escapeHtml(book.title)}</h2><p class="lib-lede" data-popular-blurb>${escapeHtml(bookDescription(book))}</p>${length ? `<span class="lib-readtime" aria-label="Estimated reading time ${escapeHtml(length.hours)} hours"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>About ${escapeHtml(length.hours)} ${length.hours === 1 ? 'hour' : 'hours'} to read</span>` : ''}`
+    caption.innerHTML = `<span class="lib-author">${escapeHtml(book.author)}</span><h2 class="lib-h1" data-popular-title>${escapeHtml(book.title)}</h2>${length ? `<span class="lib-readtime" aria-label="Estimated reading time ${escapeHtml(length.hours)} hours"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>About ${escapeHtml(length.hours)} ${length.hours === 1 ? 'hour' : 'hours'} to read</span>` : ''}<p class="lib-lede" data-popular-blurb>${escapeHtml(bookDescription(book))}</p>`
   }
 
   function renderFirstCategory() {
@@ -583,10 +585,12 @@ import {
   let reelDrag = null
   let reelClickBlockedUntil = 0
 
+  function reelStep() { return (root.querySelector('[data-shelf-index]')?.offsetWidth || 166) + 28 }
+
   function paintReel(position = reelPosition) {
     const shelf = root.querySelector('[data-popular-shelf]')
     if (!shelf) return
-    const step = window.innerWidth < 600 ? 177 : 205
+    const step = reelStep()
     shelf.querySelectorAll('[data-shelf-index]').forEach(item => {
       const distance = Number(item.dataset.shelfIndex) - position
       const amount = Math.abs(distance)
@@ -620,7 +624,7 @@ import {
       }
       reelDrag.moved = Math.max(reelDrag.moved, Math.abs(dx))
       if (reelDrag.moved > 6 && !shelf.hasPointerCapture(event.pointerId)) shelf.setPointerCapture(event.pointerId)
-      const step = window.innerWidth < 600 ? 177 : 205
+      const step = reelStep()
       const raw = reelDrag.initial - dx / step
       reelPosition = raw < 0 ? raw * .22 : raw > state.shelfBooks.length - 1 ? state.shelfBooks.length - 1 + (raw - state.shelfBooks.length + 1) * .22 : raw
       paintReel()
@@ -643,7 +647,7 @@ import {
       if (!delta || (!event.shiftKey && Math.abs(delta) <= Math.abs(event.deltaY))) return
       event.preventDefault()
       clearTimeout(wheelTimer)
-      const step = window.innerWidth < 600 ? 177 : 205
+      const step = reelStep()
       const pixels = delta * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? shelf.clientWidth : 1)
       reelPosition = Math.max(0, Math.min(state.shelfBooks.length - 1, reelPosition + pixels / step))
       shelf.classList.add('is-dragging')
@@ -692,6 +696,7 @@ import {
   window.addEventListener('resize', () => {
     if (!state.catalogue) return
     if (popularShelfSize(window.innerWidth) !== shelfSize) renderPopular()
+    else paintReel()
   })
 
   /** Bring an item to the middle of its row (scroll-snap does the rest). */
@@ -808,6 +813,38 @@ import {
   }
   const bookCells = (books, attr = '') => `<div class="lib-cells"${attr ? ` ${attr}` : ''}>${books.map(bookCell).join('')}</div>`
 
+  function bindCategoryTrack(track) {
+    let drag = null, suppressClickUntil = 0
+    track.ondragstart = event => event.preventDefault()
+    track.onpointerdown = event => {
+      if (event.pointerType !== 'mouse' || event.button !== 0) return
+      drag = { id: event.pointerId, x: event.clientX, left: track.scrollLeft, moved: false }
+    }
+    track.onpointermove = event => {
+      if (!drag || drag.id !== event.pointerId) return
+      const dx = event.clientX - drag.x
+      if (!drag.moved && Math.abs(dx) <= 6) return
+      drag.moved = true
+      track.classList.add('is-dragging')
+      if (!track.hasPointerCapture(event.pointerId)) track.setPointerCapture(event.pointerId)
+      track.scrollLeft = drag.left - dx
+      event.preventDefault()
+    }
+    const end = event => {
+      if (!drag || drag.id !== event.pointerId) return
+      if (drag.moved) suppressClickUntil = Date.now() + 350
+      drag = null
+      if (track.hasPointerCapture(event.pointerId)) track.releasePointerCapture(event.pointerId)
+      track.classList.remove('is-dragging')
+    }
+    track.onpointerup = end
+    track.onpointercancel = end
+    track.onlostpointercapture = end
+    track.addEventListener('click', event => {
+      if (Date.now() < suppressClickUntil) { event.preventDefault(); event.stopPropagation() }
+    }, true)
+  }
+
   function renderIndex() {
     library().dataset.searching = String(Boolean(state.query.trim()))
     const body = root.querySelector('[data-library-index]')
@@ -824,17 +861,12 @@ import {
     }
     label.textContent = 'All books'
     count.textContent = String(publishedCount(state.catalogue))
-    body.innerHTML = indexHouses(state.catalogue).map(house => {
+    body.innerHTML = '<p class="lib-browse-label">Browse the library</p>' + indexHouses(state.catalogue).map(house => {
       const source = state.catalogue.houses?.find(item => item.id === house.id)
-      const seen = new Set()
-      const shelves = (source?.shelves || []).map(shelf => {
-        const members = shelf.bookIds.map(id => house.books.find(book => book.id === id)).filter(Boolean)
-        members.forEach(book => seen.add(book.id))
-        return members.length ? `<div class="lib-catalogue-shelf"><h3>${escapeHtml(shelf.title)}</h3>${bookCells(members)}</div>` : ''
-      }).join('')
-      const rest = house.books.filter(book => !seen.has(book.id))
-      return `<section class="lib-catalogue-house" data-house-books="${escapeHtml(house.id)}"><header><h2>${escapeHtml(house.title)}</h2><p>${escapeHtml(source?.subtitle || '')}</p></header>${shelves}${rest.length ? bookCells(rest) : ''}</section>`
+      return `<section class="lib-catalogue-house" data-house-books="${escapeHtml(house.id)}"><header><h2>${escapeHtml(house.title)}</h2><p>${escapeHtml(source?.subtitle || '')}</p></header><div class="lib-category-track" tabindex="0" role="region" aria-label="${escapeHtml(house.title)} books">${bookCells(house.books)}</div></section>`
+
     }).join('')
+    body.querySelectorAll('.lib-category-track').forEach(bindCategoryTrack)
   }
 
   // Leaving and coming back. When the library is left — a book opened from
