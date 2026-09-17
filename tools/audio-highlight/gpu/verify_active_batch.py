@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import subprocess
+import sys
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -18,6 +19,8 @@ LEDGER_PATH = "artifacts/audio-highlight-cloud-resume-2026-09-16/runpod-spend-le
 RUNNER_PATHS = (".github/workflows/audio-align-canary.yml", "tools/audio-highlight")
 MAX_TARGETS = 20
 MAX_AUDIO_SECONDS = 7200.0
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "aligner"))
+from spoken_policy import is_scene_separator  # noqa: E402
 
 
 def request(url: str, headers: dict[str, str] | None = None) -> tuple[int, bytes, dict]:
@@ -86,6 +89,35 @@ def verify_trigger_integrity(reviewed: str) -> dict:
     }
 
 
+def validate_manifest(manifest: object, paragraphs: list) -> list[dict]:
+    if not isinstance(manifest, dict) or not isinstance(manifest.get("paragraphs"), list):
+        raise ValueError("manifest paragraphs must be a list")
+    entries, paragraph_ids, filenames = [], set(), set()
+    for index, item in enumerate(manifest["paragraphs"]):
+        if not isinstance(item, dict):
+            raise ValueError(f"manifest row {index} is not an object")
+        paragraph, filename = item.get("paragraph"), item.get("file")
+        if not isinstance(paragraph, int) or not isinstance(filename, str) or not filename:
+            raise ValueError(f"manifest row {index} has invalid paragraph/file")
+        if paragraph in paragraph_ids or filename in filenames:
+            raise ValueError(f"manifest row {index} duplicates paragraph or file")
+        duration = item.get("duration")
+        if not isinstance(duration, (int, float)) or duration <= 0:
+            raise ValueError(f"manifest row {index} has invalid duration")
+        paragraph_ids.add(paragraph);filenames.add(filename);entries.append(item)
+    source_ids = set(range(len(paragraphs)))
+    extra = sorted(p for p in paragraph_ids if p >= 0 and p not in source_ids)
+    if extra:
+        raise ValueError(f"manifest indexes outside current source: {extra}")
+    missing = sorted(source_ids - {p for p in paragraph_ids if p >= 0})
+    unexplained = [p for p in missing if not is_scene_separator(paragraphs[p])]
+    if unexplained:
+        raise ValueError(f"manifest omits spoken source paragraphs: {unexplained}")
+    if not entries:
+        raise ValueError("manifest has no referenced recordings")
+    return entries
+
+
 def check_target(row: dict) -> dict:
     book, edition, chapter = row["bookId"], row["edition"], row["chapter"]
     key = f"{book}/{edition}/ch{chapter}"
@@ -103,28 +135,25 @@ def check_target(row: dict) -> dict:
     chapters = edition_data.get("chapters", [])
     if chapter > len(chapters):
         raise ValueError(f"{key}: chapter absent from current edition")
-    entries = []
-    total_seconds = 0.0
-    for item in manifest.get("paragraphs", []):
-        paragraph, filename = item.get("paragraph"), item.get("file")
-        if not isinstance(paragraph, int) or not filename:
-            continue
-        status, _, headers = api_file("/api/audio-file", f"{key}/{filename}", {"Range": "bytes=0-0"})
-        size = None
-        content_range = headers.get("Content-Range")
-        if content_range and "/" in content_range:
-            size = int(content_range.rsplit("/", 1)[1])
-        if status not in (200, 206) or not size:
-            raise ValueError(f"{key}: unavailable recording p{paragraph} {filename} HTTP {status}")
-        duration = float(item.get("duration") or 0)
-        if duration <= 0:
-            raise ValueError(f"{key}: missing duration for p{paragraph}")
-        total_seconds += duration
-        entries.append(dict(paragraph=paragraph, file=filename, bytes=size, duration=duration))
-    if not entries:
-        raise ValueError(f"{key}: manifest has no referenced recordings")
     source_chapter = chapters[chapter - 1]
-    paragraphs = source_chapter.get("paragraphs", []) if isinstance(source_chapter, dict) else []
+    raw_paragraphs = source_chapter.get("paragraphs", []) if isinstance(source_chapter, dict) else []
+    paragraphs = [p if isinstance(p, str) else (p or {}).get("text", "") for p in raw_paragraphs]
+    manifest_entries = validate_manifest(manifest, paragraphs)
+    entries, total_seconds = [], 0.0
+    for item in manifest_entries:
+        paragraph, filename = item["paragraph"], item["file"]
+        status, audio, _ = api_file("/api/audio-file", f"{key}/{filename}")
+        if status != 200 or not audio:
+            raise ValueError(f"{key}: unavailable recording p{paragraph} {filename} HTTP {status}")
+        duration = float(item["duration"])
+        total_seconds += duration
+        entries.append(dict(
+            paragraph=paragraph,
+            file=filename,
+            bytes=len(audio),
+            duration=duration,
+            sha256=hashlib.sha256(audio).hexdigest(),
+        ))
     return {
         **row,
         "key": key,
@@ -134,6 +163,7 @@ def check_target(row: dict) -> dict:
         "sourceParagraphs": len(paragraphs),
         "recordings": len(entries),
         "audioSeconds": round(total_seconds, 3),
+        "audioObjects": entries,
     }
 
 
@@ -170,6 +200,7 @@ def main() -> int:
             "chapter": row["chapter"],
             "expectedEditionSha256": row["editionSha256"],
             "expectedManifestSha256": row["manifestSha256"],
+            "expectedAudioSha256": {item["file"]: item["sha256"] for item in row["audioObjects"]},
         }
         for row in results
     ]
