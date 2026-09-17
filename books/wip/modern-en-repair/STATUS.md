@@ -6,10 +6,12 @@ Process: `BRIEF.md` (Sonnet drafter, one fresh agent per chapter) ->
 per book) -> `write-chapter.py` into the live edition on this branch.
 Confessions is handled separately on `claude/friendly-albattani-qgyqfi`.
 Ulysses and Jerusalem excluded pending Anders' call. Danish not started.
+Repaired text is held out of production until its audio is regenerated
+(AUDIO-IMPACT.md).
 
 | Book | Chapters | Drafted | Gate | Opus-checked | Status |
 |---|---|---|---|---|---|
-| heart-of-darkness | 3 | 0 | – | – | pilot, in progress |
+| heart-of-darkness | 3 | 1 | pass | ch1 | pilot done, see PILOT.md; ch1 held pending slur decision |
 | the-awakening | 39 | 0 | – | – | batch 1 |
 | walden | 18 | 0 | – | – | batch 1 |
 | vindication-rights-of-woman | 15 | 0 | – | – | batch 2 |

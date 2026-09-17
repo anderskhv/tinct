@@ -63,8 +63,9 @@ Consequences, in order of preference:
    with the affected chapters recorded here so the failures are expected rather
    than alarming.
 
-Option 1 is the safe default and costs nothing while the pipeline is still on
-its pilot. Option 2 is a call for Anders.
+**Decided 2026-09-17 (Anders): option 1.** Repaired text is held out of
+production until its audio and word-timing sync are regenerated. Text and audio
+ship together, per book. Nothing repaired goes live on its own.
 
 ## Order of operations per repaired chapter
 

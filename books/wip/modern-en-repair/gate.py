@@ -40,8 +40,17 @@ for i,(s,c) in enumerate(zip(src,cand)):
             else:
                 sim=difflib.SequenceMatcher(None,norm(s),norm(c)).ratio()
                 if sim>0.85: r.append(f"light-touch sim={sim:.2f}")
-        names={w.strip('.,;:!?"\'()') for w in s.split()[1:] if w[:1].isupper() and w.strip('.,;:!?"\'()').isalpha() and len(w)>2}
-        names={n for n in names if n not in {"The","And","But","Then","There","This","That","What","When","Where","Why","How","Yes","No","Oh","Ah","Well","Now","Mr","Mrs","Miss","Sir"}}
+        # proper-noun heuristic: a capitalised token is only a name candidate when
+        # it does not open a sentence. Sentence-initial capitals ("You", "All")
+        # are ordinary words and were the gate's main false-positive source.
+        toks=s.split(); names=set()
+        for j,w in enumerate(toks):
+            if j==0: continue
+            prev=toks[j-1]
+            if prev[-1:] in '.!?:;' or prev[-2:] in ('."','!"','?"') or prev in ('"','\u201c'): continue
+            bare=w.strip('.,;:!?"\'()\u201c\u201d\u2019')
+            if w[:1].isupper() and bare.isalpha() and len(bare)>2: names.add(bare)
+        names={n for n in names if n not in {"The","And","But","Then","There","This","That","What","When","Where","Why","How","Yes","No","Oh","Ah","Well","Now","Mr","Mrs","Miss","Sir","You","All","One","Not","For","Nor","Yet","She","His","Her","Him","They","Their","Its","Was","Were","Had","Have","Been","With","Which","Who","Whom","Some","Such","Only","Even","Still","Never","Perhaps","Indeed","After","Before","Above","Below","Between","Because","Though","While","Would","Could","Should"}}
         missing=[n for n in names if n not in c]
         if missing: r.append(f"names-missing {missing[:5]}")
     if r: fails.append((i,r))
