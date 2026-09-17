@@ -86,6 +86,11 @@ class HostRetryGateTest(unittest.TestCase):
 
 
 class WorkerIsolationSourceTest(unittest.TestCase):
+    def test_cohort_fails_closed_on_source_or_manifest_drift(self):
+        source = (Path(__file__).parents[1] / "aligner" / "cloud_cohort.py").read_text()
+        self.assertIn("edition text changed after preflight", source)
+        self.assertIn("manifest changed after preflight", source)
+
     def test_mapping_exception_rejects_arm_before_candidate_build_and_continues(self):
         source = (Path(__file__).parents[1] / "aligner" / "trial.py").read_text()
         caught = source.index("processing_invariant_error")
