@@ -93,6 +93,13 @@ const CASES = [
   ['war-and-peace', 'original-en', undefined, 'tit-the-cook', undefined, 'wp-tit-new'],
   ['war-and-peace', 'original-en', undefined, 'simon-chekmar', undefined, 'wp-simon-chekmar-new'],
   ['war-and-peace', 'original-en', undefined, 'louis-xvi', undefined, 'wp-louis-xvi-new'],
+  // war-and-peace modern-en gap closed: same characters, that edition's spelling
+  ['war-and-peace', 'modern-en', undefined, 'volkonski', undefined, 'wp-modern-volkonski'],
+  ['war-and-peace', 'modern-en', undefined, 'raevski', undefined, 'wp-modern-raevski'],
+  ['war-and-peace', 'modern-en', undefined, 'narishkin', undefined, 'wp-modern-narishkin'],
+  ['war-and-peace', 'modern-en', undefined, 'theodore-ivanych', undefined, 'wp-modern-theodore-ivanych'],
+  ['war-and-peace', 'modern-en', undefined, 'dorokhov', undefined, 'wp-modern-dorokhov'],
+  ['war-and-peace', 'modern-en', undefined, 'rostopchin', undefined, 'wp-modern-rostopchin'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
