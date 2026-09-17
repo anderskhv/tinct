@@ -28,6 +28,8 @@ jobs:
           cache-dependency-path: app/package-lock.json
       - name: Set up cloud checkout
         run: bash ../scripts/cloud-setup.sh
+      - name: Check project documentation
+        run: python3 ../scripts/check-docs.py
       - name: Test audio GPU launch preflight
         run: python3 ../tools/audio-highlight/gpu/test_preflight_launch.py
       - name: Test pinned audio normalisation and cloud plumbing
