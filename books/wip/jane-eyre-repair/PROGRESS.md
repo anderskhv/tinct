@@ -32,7 +32,7 @@ Full-book diagnostic (structural integrity + close paragraph comparison across ~
 
 | Unit | Draft | Independent review | Corrected | Verified | Accepted |
 |---|---|---|---|---|---|
-| Ch27 tail (paras 146–162, 0-based ~145-161) | queued | — | — | — | — |
+| Ch27 tail (paras 146–162, 0-based ~145-161) | done — 6/163 paragraphs changed (150, 153, 158, 159, 160, 161: red-room dream imagery, packing/locket detail, gate meaning-inversion, past/future antithesis, the ~290-word collapse passage, coach fare), independently diffed and confirmed | queued | — | — | — |
 | Ch35 (full chapter, preserving sound paragraphs) | done — 1/98 paragraphs changed (para 83, meaning-inversion fixed: temptation/ambivalence restored in place of confident refusal, resolves self-contradiction with next paragraph), independently diffed and confirmed | queued | — | — | — |
 | Ch36 (full chapter, preserving sound paragraphs) | done — 1/80 paragraphs changed (para 48, fire geography + invented rescue + omitted aftermath fixed), independently diffed and confirmed | queued | — | — | — |
 | Ch37 (full chapter, preserving sound paragraphs) | queued | — | — | — | — |
