@@ -265,7 +265,7 @@ export function LibraryAssistant() {
         <div><a href={labSignInHref('create', '/library')}>Create account</a><a href={labSignInHref('signin', '/library')}>Sign in</a></div>
       </div>}
       {mode === 'search' && <>
-        <a className="library-search-account" href={labSignInHref('signin', '/library')}>{signedIn ? 'Account' : 'Sign in'}</a>
+        <a className="library-search-account" href={signedIn ? '/lab/sign-in?mode=account&returnTo=%2Flibrary' : labSignInHref('signin', '/library')}>{signedIn ? 'Account' : 'Sign in'}</a>
         <label className="library-assistant-field">{icon('search')}<input autoFocus type="search" value={searchDraft} onChange={event => setSearchDraft(event.target.value)} placeholder={`Search ${books.length} books`} aria-label="Search by title, author, subject, or description" /><button type="button" onClick={() => setSearchDraft('')} aria-label="Clear search">{searchDraft ? 'Clear' : ''}</button></label>
         <div className="library-search-results" aria-live="polite">
           {results.length ? <BookActions books={results} /> : <p>No books match “{searchDraft}”.</p>}

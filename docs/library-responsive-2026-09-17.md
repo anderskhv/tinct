@@ -24,3 +24,15 @@ Earlier preparation acceptance: [release record](library-preparation-polish-2026
 Next action: correct cloud acceptance failures, deploy, inspect production artifacts.
 Previously reported preparation-chat suggestion submission and auth return
 continuity remain separate follow-ups; this release does not modify reader state.
+
+## Cloud evidence
+
+[Verification 35206504574](https://github.com/anderskhv/tinct/actions/runs/35206504574)
+passed 2,377 tests, build/bundle gates, preparation navigation and the full
+Chromium/WebKit viewport matrix. Visuals were reviewed for phone, tablet portrait,
+tablet landscape and desktop. The animation probe now allows startup/visibility
+settling before sampling movement; reduced motion and Pause are also checked.
+
+Final refinements pending re-verification: tighter short-tablet hero, mouse-drag
+category rows, account link routed to the existing account screen. This record
+does not yet claim deployment.

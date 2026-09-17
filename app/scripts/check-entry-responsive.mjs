@@ -79,6 +79,10 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
     assert(await page.locator('.entry-cover-track').count()===1,'rotation restores row')
    }
    await page.goto('https://tinct.app/library',{waitUntil:'domcontentloaded'});await wait()
+   await page.waitForFunction(()=>{
+    const b=document.querySelector('[aria-current="true"] .lib-cover')?.getBoundingClientRect()
+    return b && Math.abs(b.left+b.width/2-innerWidth/2)<3
+   })
    const library=await page.evaluate(()=>{
     const r=s=>{const b=document.querySelector(s).getBoundingClientRect();return {top:b.top,bottom:b.bottom,width:b.width,height:b.height,left:b.left}}
     return {cover:r('[aria-current="true"] .lib-cover'),description:r('[data-popular-blurb]'),time:r('.lib-readtime'),dock:r('.library-glass-dock'),category:r('.lib-catalogue-house'),overflow:document.documentElement.scrollWidth>innerWidth,desc:document.querySelector('[data-popular-blurb]').textContent}
@@ -91,8 +95,18 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    assert(library.dock.height<=56,name+' shallow dock')
    assert(library.desc.length>90,'full description remains')
    if(height>=660)assert(library.description.bottom<library.dock.top,name+' full description above dock')
+   if(height>=660)assert(library.category.top<library.dock.top-35,name+' first category visible before dock')
    const row=page.locator('.lib-category-track').first()
    await row.scrollIntoViewIfNeeded()
+   if(!touch){
+    const r=await row.boundingBox()
+    await page.mouse.move(r.x+350,r.y+80)
+    await page.mouse.down()
+    await page.mouse.move(r.x+150,r.y+80,{steps:15})
+    await page.mouse.up()
+    assert(await row.evaluate(n=>n.scrollLeft)>50,'mouse drag scrolls category without opening a book')
+    assert(await page.locator('[data-library-index]').isVisible(),'drag remains in library')
+   }
    const moved=await row.evaluate(n=>{n.scrollLeft=250;return n.scrollLeft})
    assert(moved>0,'category row can scroll')
    await page.waitForTimeout(150)

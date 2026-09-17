@@ -813,6 +813,38 @@ import {
   }
   const bookCells = (books, attr = '') => `<div class="lib-cells"${attr ? ` ${attr}` : ''}>${books.map(bookCell).join('')}</div>`
 
+  function bindCategoryTrack(track) {
+    let drag = null, suppressClickUntil = 0
+    track.ondragstart = event => event.preventDefault()
+    track.onpointerdown = event => {
+      if (event.pointerType !== 'mouse' || event.button !== 0) return
+      drag = { id: event.pointerId, x: event.clientX, left: track.scrollLeft, moved: false }
+    }
+    track.onpointermove = event => {
+      if (!drag || drag.id !== event.pointerId) return
+      const dx = event.clientX - drag.x
+      if (!drag.moved && Math.abs(dx) <= 6) return
+      drag.moved = true
+      track.classList.add('is-dragging')
+      if (!track.hasPointerCapture(event.pointerId)) track.setPointerCapture(event.pointerId)
+      track.scrollLeft = drag.left - dx
+      event.preventDefault()
+    }
+    const end = event => {
+      if (!drag || drag.id !== event.pointerId) return
+      if (drag.moved) suppressClickUntil = Date.now() + 350
+      drag = null
+      if (track.hasPointerCapture(event.pointerId)) track.releasePointerCapture(event.pointerId)
+      track.classList.remove('is-dragging')
+    }
+    track.onpointerup = end
+    track.onpointercancel = end
+    track.onlostpointercapture = end
+    track.addEventListener('click', event => {
+      if (Date.now() < suppressClickUntil) { event.preventDefault(); event.stopPropagation() }
+    }, true)
+  }
+
   function renderIndex() {
     library().dataset.searching = String(Boolean(state.query.trim()))
     const body = root.querySelector('[data-library-index]')
@@ -834,6 +866,7 @@ import {
       return `<section class="lib-catalogue-house" data-house-books="${escapeHtml(house.id)}"><header><h2>${escapeHtml(house.title)}</h2><p>${escapeHtml(source?.subtitle || '')}</p></header><div class="lib-category-track" tabindex="0" role="region" aria-label="${escapeHtml(house.title)} books">${bookCells(house.books)}</div></section>`
 
     }).join('')
+    body.querySelectorAll('.lib-category-track').forEach(bindCategoryTrack)
   }
 
   // Leaving and coming back. When the library is left — a book opened from
