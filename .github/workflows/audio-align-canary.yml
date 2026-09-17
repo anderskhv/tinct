@@ -66,7 +66,8 @@ jobs:
             --json-out "$ARTIFACT_DIR/preflight-guard.json"
           python3 tools/audio-highlight/gpu/preflight_launch.py \
             "$ARTIFACT_DIR/preflight-guard.json" \
-            --budget "$TINCT_GPU_BUDGET"
+            --budget "$TINCT_GPU_BUDGET" \
+            --reserve 0.70
 
       - name: Align the frozen verified-ready batch
         run: |
@@ -97,7 +98,8 @@ jobs:
             --json-out "$ARTIFACT_DIR/retry-guard.json"
           python3 tools/audio-highlight/gpu/preflight_launch.py \
             "$ARTIFACT_DIR/retry-guard.json" \
-            --budget "$TINCT_GPU_BUDGET"
+            --budget "$TINCT_GPU_BUDGET" \
+            --reserve 0.70
           python3 tools/audio-highlight/gpu/orchestrate.py run \
             --name "tinct-words-cloud-resume-${GITHUB_RUN_ID}-2" \
             --batch "$ARTIFACT_DIR/resolved-batch.json" \
