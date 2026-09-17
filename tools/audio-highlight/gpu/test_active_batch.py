@@ -36,6 +36,48 @@ class ActiveBatchValidationTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "conservative"):
             active.validate_spend(ledger)
 
+    def test_spend_ledger_rejects_rollback_rewrite_and_negative_append(self):
+        reviewed = {
+            "policy": "fixed",
+            "priorEstimate": 0.70,
+            "attempts": [{"run": 1, "estimatedCost": 0.10}],
+            "exactConservativeTotal": 0.80,
+            "guardCarryForward": 0.80,
+            "aggregateBudget": 15.0,
+        }
+        current = {
+            **reviewed,
+            "attempts": [*reviewed["attempts"], {
+                "run": 2, "pod": "pod2", "estimatedCost": 0.05,
+                "status": "EXITED", "terminateHttp": 204,
+            }],
+            "exactConservativeTotal": 0.85,
+            "guardCarryForward": 0.90,
+        }
+        self.assertEqual(active.validate_spend(current, reviewed), 0.90)
+        with self.assertRaisesRegex(ValueError, "rewrites or removes"):
+            active.validate_spend({**current, "attempts": current["attempts"][1:]}, reviewed)
+        with self.assertRaisesRegex(ValueError, "rewrites reviewed priorEstimate"):
+            active.validate_spend({**current, "priorEstimate": 0.60}, reviewed)
+        bad = {**current, "attempts": [*reviewed["attempts"], {
+            "run": 2, "pod": "pod2", "estimatedCost": -0.01,
+            "status": "EXITED", "terminateHttp": 204,
+        }], "exactConservativeTotal": 0.79}
+        with self.assertRaisesRegex(ValueError, "invalid estimatedCost"):
+            active.validate_spend(bad, reviewed)
+        rewritten = json.loads(json.dumps(current))
+        rewritten["attempts"][0]["estimatedCost"] = 0.01
+        with self.assertRaisesRegex(ValueError, "rewrites or removes"):
+            active.validate_spend(rewritten, reviewed)
+
+    def test_resolves_nonpositional_chapter_number_and_rejects_duplicates(self):
+        chapters = [{"number": 8, "paragraphs": ["later"]}, {"number": 3, "paragraphs": ["wanted"]}]
+        self.assertEqual(active.resolve_chapter(chapters, 3)["paragraphs"], ["wanted"])
+        with self.assertRaisesRegex(ValueError, "matched 0"):
+            active.resolve_chapter(chapters, 4)
+        with self.assertRaisesRegex(ValueError, "matched 2"):
+            active.resolve_chapter([chapters[1], chapters[1]], 3)
+
     @mock.patch("verify_active_batch.subprocess.run")
     @mock.patch("verify_active_batch.subprocess.check_output")
     def test_trigger_allows_only_active_batch_and_unchanged_runner(self, output, run):
