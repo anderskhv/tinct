@@ -61,3 +61,10 @@ reading do not trigger an account nudge, and reading remains available without A
 The private `/lab/voice` test room allows site administrators to compare editable
 Live1 speaking/reasoning prompts and Terra/Sol/Luna backend models. It leaves
 ordinary reader voice defaults unchanged. See [test room scope and verification](voice-test-room-2026-09-17.md).
+
+## Library conversation surfaces — September 17 follow-up
+
+A dim divider precedes Browse the library. Mobile librarian Chat and Talk occupy
+the visible screen and hide the dock until closed. Desktop retains its chat window
+and uses a bounded, centred voice surface with round Mute/End controls.
+[Verification and release status](library-voice-layout-2026-09-17.md).

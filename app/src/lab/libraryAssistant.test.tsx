@@ -31,6 +31,8 @@ const catalogue = {
 }
 
 beforeEach(() => {
+  vi.stubGlobal('matchMedia', vi.fn(() => ({matches:true,addEventListener:vi.fn(),removeEventListener:vi.fn()})))
+
   mocks.auth = { user: { id: 'user-a' }, session: { access_token: 'token-a' }, isLoading: false }
   mocks.start.mockClear(); mocks.stop.mockClear(); mocks.unlockAudio.mockClear(); mocks.setMicMuted.mockClear()
   vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify(catalogue), { status: 200, headers: { 'Content-Type': 'application/json' } })))
@@ -80,4 +82,16 @@ describe('library assistant lifecycle', () => {
     await waitFor(() => expect(chatSignal?.aborted).toBe(true))
     expect(screen.queryByText('Something about justice')).toBeNull()
   })
+})
+
+it('phone conversation owns scrolling and Escape ends voice and restores the library', async () => {
+  render(<LibraryAssistant />)
+  fireEvent.click(screen.getByRole('button', { name: 'Talk' }))
+  await waitFor(() => expect(mocks.start).toHaveBeenCalled())
+  expect(document.body.style.overflow).toBe('hidden')
+  expect(document.querySelector('.library-glass-dock')?.classList.contains('is-conversation-open')).toBe(true)
+  fireEvent.keyDown(document,{key:'Escape'})
+  expect(mocks.stop).toHaveBeenCalled()
+  expect(screen.queryByRole('dialog',{name:'Talk with the librarian'})).toBeNull()
+  expect(document.body.style.overflow).toBe('')
 })
