@@ -28,6 +28,8 @@ jobs:
           cache-dependency-path: app/package-lock.json
       - name: Set up cloud checkout
         run: bash ../scripts/cloud-setup.sh
+      - name: Check project documentation
+        run: python3 ../scripts/check-docs.py docs/library-preparation-polish-2026-09-17.md
       - name: Test audio GPU launch preflight
         run: python3 ../tools/audio-highlight/gpu/test_preflight_launch.py
       - name: Test pinned audio normalisation and cloud plumbing
@@ -37,6 +39,15 @@ jobs:
         env:
           CI: true
       - run: npm run verify-bundle
+      - name: Install silent browser acceptance
+        run: npx playwright install --with-deps chromium
+      - name: Verify library and preparation
+        run: node scripts/check-library-layout.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: library-preparation-acceptance
+          path: app/artifacts/library-layout
 
   reading-benchmark:
     runs-on: ubuntu-latest

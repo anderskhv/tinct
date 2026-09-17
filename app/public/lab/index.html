@@ -145,8 +145,9 @@
             <section class="lib-recap" data-reading-memory-recap hidden aria-label="What you read last"></section>
             <section class="lib-popular" data-library-popular aria-label="Popular books">
               <header class="lib-popular-lead" data-popular-head><h1 class="lib-h1" data-popular-lead-title></h1><p class="lib-eyebrow is-dim" data-popular-lead-row></p></header>
-              <div class="entry-featured" data-featured></div><div class="entry-shelf-arrows"><button type="button" data-shelf-scroll="-1" aria-label="Previous books">‹</button><button type="button" data-shelf-scroll="1" aria-label="Next books">›</button></div><div class="lib-shelf" data-popular-shelf role="group" aria-label="Popular books"></div>
-              <div class="lib-caption" data-popular-caption aria-live="polite"></div>
+              <div class="entry-featured" data-featured></div><div class="lib-shelf" data-popular-shelf role="group" aria-label="Popular books"></div>
+<div class="entry-shelf-arrows"><button type="button" data-shelf-scroll="-1" aria-label="Previous books">‹</button><button type="button" data-shelf-scroll="1" aria-label="Next books">›</button></div>
+<div class="lib-caption" data-popular-caption aria-live="polite"></div>
               <section class="lib-first-category" data-first-category aria-label="First library category"></section>
             </section>
             <!-- The search drawer: the one search field, at the foot of whichever hero shows (the popular row or the recap). Closed it peeks; library-boot.js opens it before the first paint when this session has opened it before; catalogue-runtime.js owns it from there. No whitespace inside: an empty drawer (field in the header slot) is :empty. -->
@@ -1420,10 +1421,10 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
 </style>
 
 <link rel="stylesheet" href="/lab/entry.css?v=20260914-mobile-covers-1">
-<link rel="stylesheet" href="/lab/library-glass.css?v=20260916-library-glass-1">
+<link rel="stylesheet" href="/lab/library-glass.css?v=20260917-library-repair-1">
 <!-- Landscape phone only: one media query, added last so it wins where it overlaps. -->
 <link rel="stylesheet" href="/lab/landscape-phone.css?v=20260912-1">
-<script type="module" src="/lab/catalogue-runtime.js?v=20260916-library-glass-1"></script>
+<script type="module" src="/lab/catalogue-runtime.js?v=20260917-library-repair-1"></script>
   <script type="module" src="/lab/library-assistant.js?v=20260916-library-glass-1"></script>
   <script type="module" src="/lab/auth-status.js"></script>
   <script type="module" src="/lab/reading-memory.js"></script>

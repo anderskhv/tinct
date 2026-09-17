@@ -574,12 +574,9 @@ import {
   }
 
   function renderFirstCategory() {
+    // The first category is the start of the complete index, not a sample copy.
     const host = root.querySelector('[data-first-category]')
-    if (!host || !state.catalogue || state.libraryMode !== 'new') { if (host) host.innerHTML = ''; return }
-    const first = indexHouses(state.catalogue)[0]
-    if (!first) { host.innerHTML = ''; return }
-    const source = state.catalogue.houses?.find(house => house.id === first.id)
-    host.innerHTML = `<h2>${escapeHtml(first.title)}</h2><p>${escapeHtml(source?.subtitle || '')}</p><div class="lib-first-category-covers">${first.books.slice(0, 8).map(book => `<button type="button" data-catalogue-book="${escapeHtml(book.id)}" aria-label="Open ${escapeHtml(book.title)}">${coverImage(book)}</button>`).join('')}</div>`
+    if (host) { host.innerHTML = ''; host.hidden = true }
   }
 
   let reelPosition = 0
@@ -603,10 +600,11 @@ import {
   }
 
   function bindReel(shelf) {
+    shelf.ondragstart = event => event.preventDefault()
     shelf.onpointerdown = event => {
       if (event.button !== 0) return
       reelDrag = { pointerId: event.pointerId, x: event.clientX, y: event.clientY, initial: reelPosition, moved: 0 }
-      shelf.setPointerCapture(event.pointerId)
+      if (event.pointerType === 'mouse') event.preventDefault()
       shelf.classList.add('is-dragging')
     }
     shelf.onpointermove = event => {
@@ -614,13 +612,14 @@ import {
       const dx = event.clientX - reelDrag.x
       const dy = event.clientY - reelDrag.y
       if (Math.abs(dy) > Math.abs(dx) + 12 && reelDrag.moved < 5) {
-        shelf.releasePointerCapture(event.pointerId)
+        if (shelf.hasPointerCapture(event.pointerId)) shelf.releasePointerCapture(event.pointerId)
         reelDrag = null
         shelf.classList.remove('is-dragging')
         paintReel(state.shelfIndex)
         return
       }
       reelDrag.moved = Math.max(reelDrag.moved, Math.abs(dx))
+      if (reelDrag.moved > 6 && !shelf.hasPointerCapture(event.pointerId)) shelf.setPointerCapture(event.pointerId)
       const step = window.innerWidth < 600 ? 177 : 205
       const raw = reelDrag.initial - dx / step
       reelPosition = raw < 0 ? raw * .22 : raw > state.shelfBooks.length - 1 ? state.shelfBooks.length - 1 + (raw - state.shelfBooks.length + 1) * .22 : raw
@@ -637,6 +636,20 @@ import {
     }
     shelf.onpointerup = finish
     shelf.onpointercancel = finish
+    shelf.onlostpointercapture = event => { if (reelDrag) finish(event) }
+    let wheelTimer
+    shelf.onwheel = event => {
+      const delta = event.shiftKey && !event.deltaX ? event.deltaY : event.deltaX
+      if (!delta || (!event.shiftKey && Math.abs(delta) <= Math.abs(event.deltaY))) return
+      event.preventDefault()
+      clearTimeout(wheelTimer)
+      const step = window.innerWidth < 600 ? 177 : 205
+      const pixels = delta * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? shelf.clientWidth : 1)
+      reelPosition = Math.max(0, Math.min(state.shelfBooks.length - 1, reelPosition + pixels / step))
+      shelf.classList.add('is-dragging')
+      paintReel()
+      wheelTimer = setTimeout(() => { shelf.classList.remove('is-dragging'); setShelfIndex(Math.round(reelPosition)) }, 120)
+    }
   }
 
   /**
@@ -762,7 +775,11 @@ import {
     const section = root.querySelector('[data-library-popular]')
     library().dataset.libraryMode = state.libraryMode
     shelfSize = popularShelfSize(window.innerWidth)
-    state.shelfBooks = showPopularShelf(state.libraryMode) ? popularBooks(state.catalogue, shelfSize) : []
+    const starters = ['the-prince', 'meditations', 'frankenstein', 'notes-from-underground', 'jekyll-and-hyde', 'the-manual']
+    const eligible = filterIndexBooks(state.catalogue, '').filter(book => book.art?.src)
+    const curated = starters.map(id => eligible.find(book => book.id === id)).filter(Boolean)
+    state.shelfBooks = showPopularShelf(state.libraryMode)
+      ? (curated.length >= 3 ? curated : popularBooks(state.catalogue, shelfSize)) : []
     state.shelfIndex = moveSelection(state.shelfIndex, 0, state.shelfBooks.length)
     section.hidden = state.shelfBooks.length === 0
     if (section.hidden) {
@@ -774,12 +791,6 @@ import {
     renderPopularLead()
     shelf.className = 'lib-shelf'
     shelf.innerHTML = state.shelfBooks.map(shelfItem).join('')
-    // Slide in from the right, one after another — once per session.
-    if (centreSnap.matches && claimReveal(safeSessionStorage(), reducedMotion())) {
-      shelf.classList.add('is-revealing')
-      const last = shelf.querySelector(`[data-shelf-index="${state.shelfBooks.length - 1}"] .lib-cover`)
-      last?.addEventListener('animationend', () => shelf.classList.remove('is-revealing'), { once: true })
-    }
     renderCaption()
     reelPosition = state.shelfIndex
     bindReel(shelf)
@@ -814,8 +825,15 @@ import {
     label.textContent = 'All books'
     count.textContent = String(publishedCount(state.catalogue))
     body.innerHTML = indexHouses(state.catalogue).map(house => {
-      const expanded = house.id === state.expandedHouseId
-      return `<div class="lib-index-group"><button type="button" class="lib-row" data-index-house="${escapeHtml(house.id)}" aria-expanded="${expanded}"><span class="lib-row-t">${escapeHtml(house.title)}</span><span class="lib-row-end"><span class="lib-cnt">${house.count}</span>${chevron}</span></button>${expanded ? bookCells(house.books, `data-house-books="${escapeHtml(house.id)}"`) : ''}</div>`
+      const source = state.catalogue.houses?.find(item => item.id === house.id)
+      const seen = new Set()
+      const shelves = (source?.shelves || []).map(shelf => {
+        const members = shelf.bookIds.map(id => house.books.find(book => book.id === id)).filter(Boolean)
+        members.forEach(book => seen.add(book.id))
+        return members.length ? `<div class="lib-catalogue-shelf"><h3>${escapeHtml(shelf.title)}</h3>${bookCells(members)}</div>` : ''
+      }).join('')
+      const rest = house.books.filter(book => !seen.has(book.id))
+      return `<section class="lib-catalogue-house" data-house-books="${escapeHtml(house.id)}"><header><h2>${escapeHtml(house.title)}</h2><p>${escapeHtml(source?.subtitle || '')}</p></header>${shelves}${rest.length ? bookCells(rest) : ''}</section>`
     }).join('')
   }
 
@@ -1520,7 +1538,7 @@ import {
   if (window.__tinctLabBoot?.state?.returning) state.libraryMode = 'returning'
   if (window.__tinctLabLibraryMode === 'new' || window.__tinctLabLibraryMode === 'returning') state.libraryMode = window.__tinctLabLibraryMode
   // The shelf selection outlives a trip into a book or the reader.
-  state.shelfIndex = Number.parseInt(readSession(LIBRARY_SHELF_SESSION_KEY) ?? '', 10) || 0
+  state.shelfIndex = Number.parseInt(readSession(LIBRARY_SHELF_SESSION_KEY) ?? '2', 10) || 0
   state.searchRevealed = searchRevealed(safeSessionStorage())
   // Focus reaching the field in a closed drawer (Tab, or the tap on its
   // <label>) opens the drawer; see revealSearch.

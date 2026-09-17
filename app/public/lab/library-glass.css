@@ -1,39 +1,53 @@
-#tinct-onboarding-worlds-v5 .lib-main{padding-bottom:150px}
-#tinct-onboarding-worlds-v5 .lib-atmos::after{content:'';position:absolute;inset:-12%;background-image:var(--lib-cover-art);background-position:50% 26%;background-size:44% auto;background-repeat:no-repeat;filter:blur(84px) saturate(1.2);opacity:.24;transition:background-image .45s ease,opacity .45s ease;mix-blend-mode:screen}
-#tinct-onboarding-worlds-v5 .entry-search-toggle,
-#tinct-onboarding-worlds-v5 .entry-search-slot,
-#tinct-onboarding-worlds-v5 .lib-search-drawer,
-#tinct-onboarding-worlds-v5 .entry-featured{display:none!important}
-
-/* Approved shallow cover reel. The catalogue runtime supplies the offsets so
-   the same DOM remains keyboard, pointer and reduced-motion friendly. */
-#tinct-onboarding-worlds-v5 .lib-popular{gap:0;text-align:center}
-#tinct-onboarding-worlds-v5 .lib-popular-lead{align-items:center;gap:7px;padding-top:12px}
-#tinct-onboarding-worlds-v5 .lib-popular-lead .lib-eyebrow{order:-1;text-transform:none;letter-spacing:.02em}
-#tinct-onboarding-worlds-v5 .lib-shelf{position:relative;height:328px;margin:0 calc(-1 * var(--lib-pad-r)) 0 calc(-1 * var(--lib-pad-l));padding:0;overflow:hidden;perspective:1300px;touch-action:pan-y;cursor:grab;scroll-snap-type:none}
-#tinct-onboarding-worlds-v5 .lib-shelf.is-dragging{cursor:grabbing}
-#tinct-onboarding-worlds-v5 .lib-shelf::before{display:none!important}
-#tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item{position:absolute;top:34px;left:50%;width:166px;opacity:.3;transform-style:preserve-3d;transform-origin:50% 55%;transition:transform .38s cubic-bezier(.2,.72,.2,1),opacity .32s ease;will-change:transform,opacity}
-#tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item .lib-cover{width:166px;height:249px;border-radius:4px;box-shadow:0 24px 55px rgba(0,0,0,.44),0 2px 3px rgba(0,0,0,.45)}
-#tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item.is-selected .lib-cover{box-shadow:0 28px 64px rgba(0,0,0,.5),0 0 34px color-mix(in srgb,var(--lib-accent) 25%,transparent)}
-#tinct-onboarding-worlds-v5 .entry-shelf-arrows{display:flex;justify-content:center;gap:170px;margin-top:-17px;position:relative;z-index:3}
-#tinct-onboarding-worlds-v5 .entry-shelf-arrows button{width:36px;height:36px;border:0;border-radius:50%;background:transparent;color:var(--lib-cream);font:28px/1 Georgia,serif;opacity:.78}
-#tinct-onboarding-worlds-v5 .lib-caption{align-items:center;min-height:188px;gap:7px;padding-top:14px;text-align:center}
-#tinct-onboarding-worlds-v5 .lib-caption .lib-author{font:500 11px/1.2 var(--lib-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--lib-muted)}
-#tinct-onboarding-worlds-v5 .lib-caption .lib-lede{max-width:570px;margin:5px auto 0;font-size:18px;line-height:1.48}
-#tinct-onboarding-worlds-v5 .lib-caption .lib-readtime{display:flex;align-items:center;gap:7px;margin-top:8px;font:500 12px/1.3 var(--lib-sans);letter-spacing:.04em;color:var(--lib-muted)}
-#tinct-onboarding-worlds-v5 .lib-caption .lib-readtime svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.7}
-#tinct-onboarding-worlds-v5 .lib-first-category{margin-top:30px;text-align:left}
-#tinct-onboarding-worlds-v5 .lib-first-category h2{margin:0;font:400 25px/1.2 var(--lib-serif);color:var(--lib-cream)}
-#tinct-onboarding-worlds-v5 .lib-first-category>p{margin:5px 0 17px;color:var(--lib-muted);font:13px/1.4 var(--lib-sans)}
-#tinct-onboarding-worlds-v5 .lib-first-category-covers{display:flex;gap:15px;height:132px;overflow:hidden}
-#tinct-onboarding-worlds-v5 .lib-first-category-covers button{flex:0 0 78px;border:0;padding:0;background:none;text-align:left}
-#tinct-onboarding-worlds-v5 .lib-first-category-covers .lib-cover{width:78px;height:117px;border-radius:3px;box-shadow:0 12px 25px rgba(0,0,0,.35)}
-#tinct-onboarding-worlds-v5 .lib-index{margin-top:21px}
-
+/* The glass library owns the hero layout at every viewport. Do not inherit
+   the retired desktop feature card or the mobile scale-up cover transform. */
+#tinct-onboarding-worlds-v5 .lib .lib-main{padding-bottom:150px;gap:32px}
+#tinct-onboarding-worlds-v5 .lib-atmos{background:#071723}
+#tinct-onboarding-worlds-v5 .lib-atmos .lib-world,
+#tinct-onboarding-worlds-v5 .lib-atmos .lib-world-scrim{display:none}
+#tinct-onboarding-worlds-v5 .lib-atmos::after{content:'';position:absolute;inset:-160px;background-image:var(--lib-cover-art);background-position:50% 20%;background-size:cover;background-repeat:no-repeat;filter:blur(110px) saturate(.65);opacity:.22;mask-image:linear-gradient(#000 0%,#000 45%,transparent 100%)}
+#tinct-onboarding-worlds-v5 .lib .entry-search-toggle,
+#tinct-onboarding-worlds-v5 .lib .entry-search-slot,
+#tinct-onboarding-worlds-v5 .lib .lib-search-drawer,
+#tinct-onboarding-worlds-v5 .lib .entry-featured,
+#tinct-onboarding-worlds-v5 .lib .entry-shelf-title,
+#tinct-onboarding-worlds-v5 .lib .entry-full-library,
+#tinct-onboarding-worlds-v5 .lib .entry-library-back{display:none!important}
+#tinct-onboarding-worlds-v5 .lib .lib-popular{display:flex;flex-direction:column;gap:0;text-align:center;background:transparent;--lib-shelf-scale:1}
+#tinct-onboarding-worlds-v5 .lib .lib-popular[hidden]{display:none}
+#tinct-onboarding-worlds-v5 .lib .lib-popular-lead{align-items:center;gap:8px;padding-top:12px}
+#tinct-onboarding-worlds-v5 .lib .lib-popular-lead .lib-h1{font-size:clamp(29px,3.2vw,42px);line-height:1.15}
+#tinct-onboarding-worlds-v5 .lib .lib-popular-lead [data-popular-lead-row]{display:block;order:-1;letter-spacing:.08em}
+#tinct-onboarding-worlds-v5 .lib .lib-shelf{display:block;position:relative;height:328px;margin:0 calc(-1 * var(--lib-pad-r)) 0 calc(-1 * var(--lib-pad-l));padding:0;overflow:hidden;perspective:1300px;touch-action:pan-y;cursor:grab;scroll-snap-type:none;user-select:none;background:transparent}
+#tinct-onboarding-worlds-v5 .lib .lib-shelf.is-dragging{cursor:grabbing}
+#tinct-onboarding-worlds-v5 .lib .lib-shelf::before,
+#tinct-onboarding-worlds-v5 .lib .lib-shelf::after{display:none!important}
+#tinct-onboarding-worlds-v5 .lib .lib-shelf .lib-shelf-item{position:absolute;top:34px;left:50%;width:166px;padding:0;min-width:0;border:0;background:none;opacity:.3;transform-style:preserve-3d;transform-origin:50% 55%;transition:transform .3s cubic-bezier(.2,.72,.2,1),opacity .3s;will-change:transform}
+#tinct-onboarding-worlds-v5 .lib .lib-shelf.is-dragging .lib-shelf-item{transition:none}
+#tinct-onboarding-worlds-v5 .lib .lib-shelf .lib-shelf-item .lib-cover{display:block;width:166px;height:249px;transform:none;animation:none;outline:0;border-radius:3px;box-shadow:0 18px 32px #0006;background:transparent}
+#tinct-onboarding-worlds-v5 .lib .lib-shelf .lib-shelf-item img{pointer-events:none;-webkit-user-drag:none}
+#tinct-onboarding-worlds-v5 .lib .entry-shelf-arrows{display:flex;justify-content:center;align-items:center;gap:42px;height:30px;margin:0;padding:0;border:0;background:none}
+#tinct-onboarding-worlds-v5 .lib .entry-shelf-arrows button{width:44px;height:30px;border:0;padding:0;border-radius:0;background:none;color:var(--lib-cream);font:22px/1 Georgia,serif;opacity:.6;box-shadow:none}
+#tinct-onboarding-worlds-v5 .lib .entry-shelf-arrows button:disabled{opacity:.18}
+#tinct-onboarding-worlds-v5 .lib .lib-caption{display:flex;align-items:center;min-height:0;gap:8px;padding:18px 20px 0;text-align:center;background:transparent}
+#tinct-onboarding-worlds-v5 .lib .lib-caption .lib-author{font:400 12px/1.2 var(--lib-sans);color:var(--lib-muted)}
+#tinct-onboarding-worlds-v5 .lib .lib-caption .lib-h1{font-size:29px;line-height:1.2;margin:0}
+#tinct-onboarding-worlds-v5 .lib .lib-caption .lib-lede{display:block;max-width:540px;margin:4px auto 0;font-size:18px;line-height:1.4;overflow:visible;-webkit-line-clamp:unset}
+#tinct-onboarding-worlds-v5 .lib .lib-caption .lib-readtime{display:flex;align-items:center;gap:7px;margin-top:10px;font:400 12px/1.4 var(--lib-sans);color:var(--lib-muted)}
+#tinct-onboarding-worlds-v5 .lib .lib-caption .lib-readtime svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.7}
+#tinct-onboarding-worlds-v5 .lib .lib-index{display:flex!important;margin:0}
+#tinct-onboarding-worlds-v5 .lib:not([data-searching=true]) .lib-index-head{display:none}
+#tinct-onboarding-worlds-v5 .lib .lib-index-body{display:block;border:0}
+#tinct-onboarding-worlds-v5 .lib .lib-catalogue-house{margin:0 0 40px}
+#tinct-onboarding-worlds-v5 .lib .lib-catalogue-house>header{margin:0 0 18px}
+#tinct-onboarding-worlds-v5 .lib .lib-catalogue-house h2{font:400 27px/1.2 var(--lib-serif);margin:0}
+#tinct-onboarding-worlds-v5 .lib .lib-catalogue-house p{font:400 13px/1.4 var(--lib-sans);color:var(--lib-muted);margin:6px 0 0}
+#tinct-onboarding-worlds-v5 .lib .lib-catalogue-shelf h3{font:400 15px/1.3 var(--lib-serif);color:var(--lib-muted);margin:22px 0 0}
+#tinct-onboarding-worlds-v5 .lib .lib-cells{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:24px 20px;padding:16px 0 24px;border:0}
+#tinct-onboarding-worlds-v5 .lib .lib-cell .lib-cover{width:100%;height:auto;aspect-ratio:2/3;max-width:160px}
+@media(min-width:900px){#tinct-onboarding-worlds-v5 .lib .lib-main{max-width:1120px;margin:0 auto;padding-top:30px}}
 .library-glass-dock{position:fixed;z-index:90;left:50%;bottom:max(18px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:0;min-height:66px;padding:5px;transform:translateX(-50%);border:1px solid rgba(255,255,255,.22);border-top-color:rgba(255,255,255,.35);border-bottom-color:rgba(255,255,255,.14);border-radius:40px;background:linear-gradient(160deg,rgba(231,228,218,.12),rgba(216,216,207,.04) 48%,rgba(221,217,209,.09));box-shadow:0 8px 28px rgba(0,0,0,.4),inset 0 1px 1px rgba(255,255,255,.2);backdrop-filter:blur(12px) saturate(.82);-webkit-backdrop-filter:blur(12px) saturate(.82)}
 .library-glass-dock button{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:8px;min-width:104px;height:54px;padding:0 19px;border:0;border-radius:31px;background:transparent;color:#f4eddf;font:500 13px/1 var(--lib-sans,system-ui);cursor:pointer}
-.library-glass-dock button+button:before{content:'';position:absolute;left:0;top:13px;bottom:13px;width:1px;background:rgba(255,255,255,.13)}
+
 .library-glass-dock button[aria-pressed=true]{background:rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
 .library-glass-dock svg,.library-assistant-panel svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
@@ -64,12 +78,13 @@
 .library-voice-wrap{position:relative;min-height:520px;overflow:auto}.library-voice-wrap .lab-call{position:relative;min-height:520px;height:520px}.library-voice-wrap>.library-assistant-books{position:absolute;z-index:2;left:18px;right:18px;bottom:96px}
 
 @media(max-width:600px){
-  #tinct-onboarding-worlds-v5 .lib-popular-lead{padding-top:4px}
-  #tinct-onboarding-worlds-v5 .lib-shelf{height:294px}
-  #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item{top:27px;width:154px}
-  #tinct-onboarding-worlds-v5 .lib-shelf .lib-shelf-item .lib-cover{width:154px;height:231px}
-  #tinct-onboarding-worlds-v5 .lib-caption{min-height:202px;padding-left:8px;padding-right:8px}
-  #tinct-onboarding-worlds-v5 .lib-caption .lib-lede{font-size:16px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+  #tinct-onboarding-worlds-v5 .lib .lib-main{padding-top:24px;gap:30px}
+  #tinct-onboarding-worlds-v5 .lib .lib-shelf{height:285px}
+  #tinct-onboarding-worlds-v5 .lib .lib-shelf .lib-shelf-item{top:28px;width:154px}
+  #tinct-onboarding-worlds-v5 .lib .lib-shelf .lib-shelf-item .lib-cover{width:154px;height:231px}
+  #tinct-onboarding-worlds-v5 .lib .lib-caption{padding:14px 8px 0}
+  #tinct-onboarding-worlds-v5 .lib .lib-caption .lib-lede{font-size:17px}
+  #tinct-onboarding-worlds-v5 .lib .lib-cells{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 14px}
   .library-glass-dock{width:calc(100vw - 28px)}
   .library-glass-dock button{flex:1;min-width:0;padding:0 8px}
   .library-assistant-panel{max-height:calc(100dvh - 118px)}

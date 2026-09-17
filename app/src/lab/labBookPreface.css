@@ -1,91 +1,41 @@
-.lab .lab-book-preface { position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: #3c352a; color: #28251f; font-family: 'EB Garamond', Georgia, serif; overscroll-behavior: contain; }
-.lab-book-preface::backdrop { background: #3c352a; }
-.lab-preparation-background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.lab-preparation-shade { position: absolute; inset: 0; background: linear-gradient(180deg,rgba(20,17,12,.15),rgba(20,17,12,.1) 50%,rgba(20,17,12,.35)); }
-.lab-preparation-frame { position: relative; width: min(650px,calc(100% - 32px)); margin: 0 auto; top: 50%; transform: translateY(-50%); max-height: calc(100dvh - 56px); display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,.58); border-radius: 30px; background: linear-gradient(145deg,rgba(255,252,244,.82),rgba(246,240,227,.70) 55%,rgba(238,231,214,.78)); box-shadow: 0 24px 64px rgba(24,21,16,.22), 0 4px 14px rgba(24,21,16,.08), inset 0 1px 0 rgba(255,255,255,.8), inset 0 -1px 0 rgba(255,255,255,.24); -webkit-backdrop-filter: blur(32px) saturate(135%); backdrop-filter: blur(32px) saturate(135%); overflow: hidden; }
-.lab .lab-book-preface button { font: inherit; color: inherit; cursor: pointer; min-height: 44px; }
-.lab .lab-preface-top { display: flex; justify-content: space-between; flex-shrink: 0; padding: 12px 16px 4px; }
-.lab .lab-preface-top button { border: 1px solid rgba(255,255,255,.45); border-radius: 50%; background: linear-gradient(155deg,rgba(255,255,255,.52),rgba(176,158,127,.24)); box-shadow: 0 4px 9px rgba(46,38,24,.16), 0 1px 2px rgba(46,38,24,.10), inset 0 1px 0 rgba(255,255,255,.75), inset 0 -1px 0 rgba(93,75,44,.10); font-size: 25px; width: 44px; }
-.lab .lab-preface-scroll { min-height: 0; flex: 1 1 auto; overflow-y: auto; overscroll-behavior: contain; padding: 8px 28px 20px; }
-.lab .lab-preface-preview h1 { margin: 0 0 15px; font: 400 28px/1.2 'EB Garamond',Georgia,serif; }
-.lab .lab-preface-preview h1:focus { outline: none; }
-.lab .lab-preface-full { margin: 0; font-family: var(--lab-font-reader, 'EB Garamond', Georgia, serif); font-size: calc(19px * var(--lab-font-size, 1.3) / 1.3); line-height: var(--lab-line-height,1.55); }
-.lab .lab-preface-full p { margin: 0 0 1em; }
-.lab .lab-preface-full p:last-child { margin-bottom: 0; }
-.lab .lab-preface-full.is-collapsed { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.lab .lab-preface-cast { margin-top: 16px; padding-top: 8px; border-top: 1px solid rgba(83,71,49,.14); }
-.lab .lab-preface-cast h2 { margin: 0; font-size: 24px; font-weight: 400; }
-.lab .lab-preface-cast h2 button { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 6px 0; border: 0; background: transparent; text-align: left; }
-.lab .lab-preface-cast h2 span { font: 22px system-ui,sans-serif; opacity: .6; }
-.lab .lab-preface-cast article { padding: 4px 0; }
-.lab .lab-preface-cast p { margin: 4px 0 0; font: 18px/1.45 'EB Garamond',Georgia,serif; color: #625a4d; }
-.lab .lab-preparation-dock { display: flex; gap: 10px; padding: 5px; border: 0; background: transparent; }
-.lab .lab-preparation-dock button { display: flex; align-items: center; justify-content: center; gap: 12px; flex: 1; min-height: 52px; border: 1px solid rgba(255,255,255,.42); border-radius: 24px; background: linear-gradient(160deg,rgba(255,255,255,.36),rgba(158,138,104,.22)); box-shadow: 0 3px 7px rgba(54,43,25,.13), inset 0 1px 0 rgba(255,255,255,.65), inset 0 -1px 0 rgba(93,75,44,.08); font-size: 20px; }
-@media (hover: hover) { .lab .lab-book-preface button:hover { background-color: rgba(255,255,255,.24); } }
-.lab .lab-book-preface button:focus-visible { outline: 2px solid #756142; outline-offset: 2px; }
-.lab .lab-preparation-questions { display: flex; gap: 8px; flex-wrap: wrap; padding: 10px 16px 16px; }
-.lab .lab-preparation-questions button { font: 16px/1.3 'EB Garamond',Georgia,serif; padding: 10px 14px; min-height: 44px; border: 1px solid var(--lab-border); border-radius: 22px; background: var(--lab-surface); color: var(--lab-ink); text-align: left; cursor: pointer; }
-@media(min-width: 900px) { .lab-preparation-frame { margin-top: 0; max-height: calc(100dvh - 120px); } .lab .lab-preface-scroll { padding: 16px 40px 28px; } }
-.lab .lab-ask.is-empty .lab-preparation-questions { margin-bottom: auto; flex-shrink: 0; }
-
-.lab .lab-preparation-expand { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; border: 0; background: transparent; padding: 0; text-align: left; }
-.lab .lab-preparation-expand span { font: 22px system-ui,sans-serif; opacity: .6; }
-.lab .lab-preface-cast h3 { margin: 0; font-size: 20px; font-weight: 400; }
-.lab .lab-preface-cast article p { padding-right: 22px; margin: 2px 0 12px; }
-.lab .lab-preface-cast h3 span { font-size: 18px; }
-.lab .lab-preparation-customize { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(83,71,49,.14); }
-.lab .lab-preparation-customize h2 { margin: 0 0 14px; font-size: 24px; font-weight: 400; line-height: 1.25; }
-
-.lab .lab-preparation-editions { margin-top: 20px; padding-top: 8px; border-top: 1px solid rgba(83,71,49,.14); }
-.lab .lab-preparation-editions h2 { margin: 0; font-size: 24px; font-weight: 400; }
-.lab .lab-preparation-editions label { display: block; margin-top: 14px; font-size: 17px; }
-.lab .lab-book-preface .lab-preparation-editions select { display: block; width: 100%; min-height: 44px; margin-top: 6px; padding: 8px 10px; border: 1px solid rgba(255,255,255,.56); border-radius: 14px; background: rgba(255,252,244,.38); box-shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 2px 6px rgba(54,43,25,.04); color: inherit; font: 18px 'EB Garamond',Georgia,serif; }
-.lab .lab-preparation-editions p { margin: 12px 0 0; font-size: 16px; color: #625a4d; }
-
-/* Material changes stay within the preparation menu. */
-.lab .lab-book-preface button { -webkit-tap-highlight-color: transparent; transition: background-color 160ms ease, box-shadow 160ms ease; }
-.lab .lab-preface-top button:active, .lab .lab-preparation-dock button:active { background-color: rgba(137,114,77,.18); box-shadow: 0 1px 2px rgba(54,43,25,.08), inset 0 2px 5px rgba(54,43,25,.18); }
-.lab .lab-book-preface select:focus-visible { outline: 2px solid #756142; outline-offset: 3px; }
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .lab-preparation-frame { background: rgba(246,240,227,.96); }
-}
-@media (prefers-reduced-transparency: reduce) {
-  .lab-preparation-frame { background: #f2eddf; -webkit-backdrop-filter: none; backdrop-filter: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .lab .lab-book-preface button { transition: none; }
-}
-/* WebKit can leave a dialog's sibling image unblurred despite supporting
-   backdrop-filter. A denser tint keeps that image from competing with text. */
-@supports (font: -apple-system-body) {
-  .lab-preparation-frame { background: linear-gradient(145deg,rgba(255,252,244,.95),rgba(246,240,227,.89) 55%,rgba(238,231,214,.92)); }
-}
-@media (prefers-reduced-transparency: reduce) {
-  .lab-preparation-frame { background: #f2eddf; }
-}
-
-.lab .lab-preface-intro-row { display: grid; grid-template-columns: minmax(0,1fr) 22px; gap: 12px; }
-.lab .lab-book-preface .lab-preface-intro-toggle { align-self: start; justify-self: center; width: 44px; height: 44px; padding: 0; margin-top: calc(1.5 * 19px * var(--lab-font-size,1.3) / 1.3 * var(--lab-line-height,1.55) - 22px); border: 0; border-radius: 50%; background: transparent; font: 22px system-ui,sans-serif; color: rgba(40,37,31,.6); }
-
-/* Each disclosure uses the same right-hand icon column. */
-.lab .lab-preparation-expand > span[aria-hidden], .lab .lab-preface-cast h2 span { flex: 0 0 22px; text-align: center; }
-.lab .lab-preface-cast .lab-character-identity { font: inherit; opacity: 1; }
-.lab .lab-character-identity small { font: 400 16px/1.3 'EB Garamond',Georgia,serif; color: #625a4d; margin-left: 12px; }
-@media (min-width: 1000px) {
-  .lab-preparation-frame { width: min(1400px,calc(100% - 64px)); margin-top: 0; max-height: calc(100dvh - 48px); }
-  .lab .lab-preface-scroll { display: grid; grid-template-columns: minmax(0,1.65fr) minmax(340px,1fr); grid-template-rows: auto auto auto; column-gap: 36px; row-gap: 16px; padding: 12px 32px 24px; align-items: start; }
-  .lab .lab-preface-preview { grid-column: 1; grid-row: 1 / 4; }
-  .lab .lab-preface-full { font-size: calc(18px * var(--lab-font-size,1.3) / 1.3); line-height: 1.45; }
-  .lab .lab-preface-full p { margin-bottom: .8em; }
-  .lab .lab-preface-cast { grid-column: 2; grid-row: 1; margin: 0; padding: 0; border: 0; }
-  .lab .lab-preface-cast h2 { margin-bottom: 8px; font-size: 28px; }
-  .lab .lab-preface-cast h2 button { padding: 0; min-height: 34px; }
-  .lab .lab-preface-cast article { padding: 0; }
-  .lab .lab-preface-cast article p { margin-bottom: 8px; padding-right: 16px; }
-  .lab .lab-character-identity { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 12px; }
-  .lab .lab-character-identity small { margin-left: 0; }
-  .lab .lab-preparation-customize { grid-column: 2; grid-row: 2; margin: 0; padding-top: 16px; }
-  .lab .lab-preparation-customize h2 { font-size: 22px; margin-bottom: 10px; }
-  .lab .lab-preparation-editions { grid-column: 2; grid-row: 3; margin: 0; padding-top: 8px; }
-  .lab .lab-preparation-dock { padding-left: 0; padding-right: 0; }
-}
+/* Preparation is a fixed frame around optional, scrollable book context. */
+.lab .lab-book-preface{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#141511;color:#eae5d9;font-family:'EB Garamond',Georgia,serif;text-align:left;overscroll-behavior:contain}
+.lab-book-preface::backdrop{background:#141511}
+.lab-preparation-stage{position:relative;width:min(1200px,100%);height:100%;margin:auto;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center;gap:36px;padding:32px;background:radial-gradient(ellipse at 75% 45%,#55594430,transparent 65%)}
+.lab-preparation-background{grid-column:2;grid-row:1;width:100%;height:auto;max-height:calc(100dvh - 64px);object-fit:contain;transform-origin:top left;filter:drop-shadow(0 24px 30px #0005)}
+.lab-preparation-frame{grid-column:1;grid-row:1;width:100%;height:min(720px,calc(100dvh - 64px));min-height:0;display:flex;flex-direction:column;border:1px solid #ffffff17;border-radius:22px;background:#20231f;box-shadow:0 24px 64px #0003;overflow:hidden}
+.lab .lab-book-preface button{font:inherit;color:inherit;cursor:pointer;min-height:44px;-webkit-tap-highlight-color:transparent}
+.lab .lab-preface-top{display:flex;justify-content:space-between;align-items:center;flex-shrink:0;gap:12px;padding:18px 24px;border-bottom:1px solid #ffffff0c}
+.lab .lab-preface-top button{border:0;background:transparent;padding:8px 0;font:12px/1.4 system-ui,sans-serif;color:#b9bbae}
+.lab .lab-preface-top button:last-child{border:1px solid #f3e6c13b;border-radius:25px;background:#e6ddc6;color:#272922;padding:10px 16px}
+.lab .lab-preface-top button:disabled{opacity:.45;cursor:wait}
+.lab .lab-preface-scroll{min-height:0;flex:1;overflow-y:auto;overscroll-behavior:contain;padding:24px 28px;scrollbar-width:thin;scrollbar-color:#676c5d transparent}
+.lab .lab-preparation-eyebrow{margin:0 0 10px;font:11px/1.5 system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#adafa3}
+.lab .lab-preface-preview h1{margin:0 0 16px;font:400 36px/1.1 'EB Garamond',Georgia,serif}
+.lab .lab-preface-intro-row{display:flex;flex-direction:column;align-items:flex-start}
+.lab .lab-preface-full{font:400 20px/1.5 'EB Garamond',Georgia,serif;text-align:left}
+.lab .lab-preface-full p{text-align:left;margin:0 0 1em}
+.lab .lab-preface-full p:last-child{margin-bottom:0}
+.lab .lab-preface-full.is-collapsed{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.lab .lab-book-preface .lab-preface-intro-toggle{padding:5px 0;margin:6px 0 0;border:0;background:transparent;color:#c3c4b7;font:12px/1.4 system-ui,sans-serif;text-decoration:underline;text-underline-offset:4px}
+.lab .lab-preface-cast,.lab .lab-preparation-editions{margin-top:18px;padding-top:4px;border-top:1px solid #ffffff18}
+.lab .lab-preface-cast h2,.lab .lab-preface-cast h3,.lab .lab-preparation-editions h2{margin:0;font-weight:400}
+.lab .lab-preface-cast h2 button,.lab .lab-preparation-expand{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;padding:8px 0;border:0;background:transparent;text-align:left}
+.lab .lab-preface-cast h2 button,.lab .lab-preparation-editions h2 button{font-size:25px}
+.lab .lab-preparation-expand>span[aria-hidden],.lab .lab-preface-cast h2 span{flex:0 0 22px;text-align:center;color:#adafa3;font:20px system-ui,sans-serif}
+.lab .lab-preface-cast article{padding:0;border-top:1px solid #ffffff09}
+.lab .lab-preface-cast h3 button{font-size:20px}
+.lab .lab-preface-cast article p{margin:2px 16px 14px 0;font:18px/1.5 'EB Garamond',Georgia,serif;color:#c7c8ba;text-align:left}
+.lab .lab-character-identity{font:inherit}
+.lab .lab-preparation-customize{margin-top:18px;padding-top:18px;border-top:1px solid #ffffff18}
+.lab .lab-preparation-customize h2{margin:0 0 13px;font:400 23px/1.2 'EB Garamond',Georgia,serif}
+.lab .lab-preparation-dock{display:flex;padding:4px;border:1px solid #e5e9db33;border-radius:28px;background:linear-gradient(150deg,#ffffff1c,#ffffff04 55%,#ffffff0c);box-shadow:inset 0 1px 0 #ffffff26,0 6px 16px #0002}
+.lab .lab-preparation-dock button{display:flex;flex:1;align-items:center;justify-content:center;gap:10px;padding:8px;border:0;background:transparent;font-size:20px}
+.lab .lab-preparation-dock button+button{border-left:1px solid #ffffff1c}
+.lab .lab-preparation-editions label{display:block;margin:14px 0 7px;font:12px system-ui,sans-serif;color:#c3c4b7}
+.lab .lab-book-preface .lab-preparation-editions select{display:block;width:100%;min-height:44px;padding:10px;border:1px solid #ffffff22;border-radius:9px;background:#2d3129;color:#eae5d9;font:14px system-ui,sans-serif;color-scheme:dark}
+.lab .lab-preparation-editions p{font:12px/1.5 system-ui,sans-serif;color:#adafa3;margin:13px 0 0}
+.lab .lab-book-preface button:focus-visible,.lab .lab-book-preface select:focus-visible{outline:2px solid #e1d9bd;outline-offset:2px}
+@media(max-width:767px){.lab-preparation-stage{display:block;padding:16px}.lab-preparation-background{position:absolute;right:24px;top:16px;width:76px;height:114px;max-height:none;object-fit:contain}.lab-preparation-frame{position:relative;margin-top:130px;height:calc(100dvh - 162px);border-radius:20px}.lab .lab-preface-top{padding:12px 18px}.lab .lab-preface-scroll{padding:20px 22px}.lab .lab-preface-full{font-size:19px}.lab .lab-book-preface .lab-preparation-editions select{font-size:16px}}
+@media(max-height:600px) and (max-width:767px){.lab-preparation-background{display:none}.lab-preparation-frame{margin-top:0;height:calc(100dvh - 32px)}}
+@media(prefers-reduced-motion:reduce){.lab-preparation-frame,.lab-preparation-background{animation:none!important}}
