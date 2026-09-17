@@ -22,14 +22,26 @@ jobs:
     env:
       RUNPOD_API_KEY: ${{ secrets.RUNPOD_API_KEY }}
       TINCT_GPU_BUDGET: '15'
-      TINCT_GPU_SPENT: '0.70'
       ARTIFACT_DIR: artifacts/audio-highlight-cloud-resume-2026-09-16/run
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      - name: Verify immutable runner and live active batch
+        run: |
+          git fetch --no-tags origin codex/audio-runner-reviewed
+          mkdir -p "$ARTIFACT_DIR"
+          python3 tools/audio-highlight/gpu/verify_active_batch.py \
+            --batch artifacts/audio-highlight-cloud-resume-2026-09-16/active-batch.json \
+            --ledger artifacts/audio-highlight-cloud-resume-2026-09-16/runpod-spend-ledger.json \
+            --reviewed-commit "$(git rev-parse FETCH_HEAD)" \
+            --evidence "$ARTIFACT_DIR/active-batch-preflight.json" \
+            --github-env "$GITHUB_ENV"
 
       - name: Verify launch preflight invariant
         run: python3 tools/audio-highlight/gpu/test_preflight_launch.py
@@ -55,7 +67,7 @@ jobs:
         run: |
           python3 tools/audio-highlight/gpu/orchestrate.py run \
             --name "tinct-words-cloud-resume-${GITHUB_RUN_ID}" \
-            --batch artifacts/audio-highlight-cloud-resume-2026-09-16/ready-batch-20260917-05.json \
+            --batch artifacts/audio-highlight-cloud-resume-2026-09-16/active-batch.json \
             --commit "${GITHUB_SHA}" \
             --artifacts "$ARTIFACT_DIR" \
             --cloud COMMUNITY \
