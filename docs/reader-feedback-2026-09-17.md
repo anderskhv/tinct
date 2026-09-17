@@ -133,4 +133,13 @@ Approved: remove the seven-day local answer cache; retain all other behavior.
 The earlier persistent-cache decision above is superseded. Removed its read/write
 path and module. The 60-second current-request reuse, speculative timing, saved
 chat explanations and Chat/Talk context are unchanged. Previously stored cache
-keys are inert and never read; chat history is not cleared. Release checks pending.
+keys are inert and never read; chat history is not cleared.
+
+Released as `ad484d6e44be052b6a5ed0a43e95d2e0813ba91c`;
+[deploy 35198503002](https://github.com/anderskhv/tinct/actions/runs/35198503002)
+passed all cloud gates and production smoke. Local 2,379 tests, build and
+verify-bundle passed. Production bundle `/assets/index-HDVQ5a6-.js` passed
+Chromium desktop and WebKit phone acceptance: fresh request after reload,
+explanation history/context retained, stable card and clean chat entry unchanged.
+Provider responses were controlled fixtures. Evidence:
+`output/reader-feedback-2026-09-17/production-cache-removal.json`.
