@@ -1,0 +1,13 @@
+name: entry-release-docs
+on:
+  push:
+    branches: [codex/entry-release-evidence-20260917]
+permissions:
+  contents: read
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/check-docs.py
+      - run: python3 scripts/check-docs.py docs/library-responsive-2026-09-17.md docs/product-current.md
