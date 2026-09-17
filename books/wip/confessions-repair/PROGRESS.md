@@ -43,7 +43,7 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 | 5 | frozen (sha256 810b5a38…) | done — 21 findings (1 major, 4 moderate, 16 minor); question-mark parity independently confirmed 18/18 | done — drafter's own change-list was wrong (cited nonexistent indices 25/26/28, missed idx 20); diffed the files directly: 16/25 paragraphs actually changed | done — major + all 4 moderates confirmed; paragraph 20's undocumented edit verified genuine (single-token quote-style fix, matches Mo4, matches source's own punctuation) | **accepted** (sha256 40c8f607…) |
 | 6 | frozen (sha256 73bb3730…) | done — 32 findings (1 major, 3 moderate, 28 minor); question-mark parity independently confirmed 31/31 per-paragraph (drafter's own total of "32/32" was a notes arithmetic error) | done — 19/27 paragraphs changed, independently diffed and confirmed matching corrector's own claim | done — major + all 3 moderates confirmed, zero collateral edits (word-level diff traced every change to a finding); one ungrammatical seam in the review's own proposed wording (para 8) found and fixed directly | **accepted** (sha256 70b98614…) |
 | 8 | frozen (sha256 50155610…) | done — 14 findings (2 major, 3 moderate, 9 minor); question-mark parity independently confirmed 54/54; "serenity"→"certainty" interpretive choice rejected (analysis below) | done — 13/31 paragraphs changed, independently diffed and confirmed matching corrector's claim exactly | done — both majors + all 3 moderates confirmed, zero collateral edits, whole-chapter intensity confirmed intact | **accepted** (sha256 55319d3f…) |
-| 9 | frozen (sha256 76800a80…) | done — 21 findings (1 major, 3 moderate, 17 minor); question-mark parity independently confirmed 39/39; "The Master"→"The Teacher" accepted (standard modern title of De Magistro); drafter's claim of using double quotes was false — systemic single-quote defect found | done — 20/38 paragraphs changed, independently diffed and confirmed matching corrector's claim exactly | verification in progress (Opus) | — |
+| 9 | frozen (sha256 76800a80…) | done — 21 findings (1 major, 3 moderate, 17 minor); question-mark parity independently confirmed 39/39; "The Master"→"The Teacher" accepted (standard modern title of De Magistro); drafter's claim of using double quotes was false — systemic single-quote defect found | done — 20/38 paragraphs changed, independently diffed and confirmed matching corrector's claim exactly | done — major + all 3 moderates confirmed, zero collateral edits, independent full-file quote scan confirms zero remaining single-quote usage | **accepted** (sha256 37ca4807…) |
 | 10 | queued | — | — | — | — |
 | 12 | queued | — | — | — | — |
 | 13 | queued | — | — | — | — |
@@ -99,9 +99,20 @@ The conversion book — highest-stakes chapter reviewed so far.
 - **Out-of-scope defect found, not fixed:** the live `app/public/data/editions/confessions-original-en.json` itself contains "often years" where it should read "ten years" (Book 8, likely an OCR error from the 1838 scan) — confirmed present in both the live file and our staged source copy. This is a live-edition file, out of scope for this content-only repair work; flagging for whoever owns that file. Our accepted Book 8 text deliberately keeps "ten years" (the evidently correct reading) rather than propagating the source typo, per the review's explicit recommendation — noted as a documented divergence from the (flawed) locked source, not a silent one.
 - Danish not touched.
 
+## Book 9 — editorially accepted (2026-09-17)
+
+Baptism, the Ostia vision, and Monica's death.
+
+- Candidate: `book09-candidate.json`, sha256 `76800a80bf81c5e30985f0c759bfb37bc8c2a166ee838d1d55addfca16c766af` (Sonnet draft, frozen). Cleanest candidate yet on the project's dominant defect: no direction inversions found in the Ostia ascent/descent sequence.
+- Review: `book09-review.md` — Opus, 21 findings (1 major, 3 moderate, 17 minor). Major was a garbled/reversed tense in the Nebridius passage. One moderate was systemic: the drafter's self-check falsely claimed double-quote convention was followed; nearly every direct quotation actually used single quotes. "The Master"→"The Teacher" accepted as De Magistro's standard modern title.
+- Corrected: `book09-corrected.json`, `book09-corrections-log.md` — Sonnet, 20/38 paragraphs changed (independently diffed, confirmed exact match), including a global single-to-double quote conversion verified by independent full-file apostrophe scan.
+- Verification: `book09-verification.md` — Opus, re-derived diff set exactly, confirmed major + all 3 moderates fixed, zero collateral edits, own independent quote scan confirmed zero remaining single-quote usage. One trivial capitalization slip found (source capitalizes "Exodus" allusively; corrected text had lowercased it).
+- Final: `book09-accepted.json`, sha256 `37ca480790b5496dee6141be387b787ec1cefd83b6f7eebeffca3e5887700caf` — capitalization fixed directly.
+- Danish not touched.
+
 ## Next action
 
-Move to Book 9 (next untouched-passthrough book): draft → independent review → correct → verify. Standing gates: question-mark parity against source (mechanical, independently counted), direct JSON diffing for all change-list claims (never trust agent self-report), extra scrutiny on comparisons/causal claims/stated positions for direction-inversion (now confirmed in every one of Books 4, 5, 6, 8 — the dominant defect class in this project).
+Move to Book 10 (next untouched-passthrough book, and the longest at 70 paragraphs): draft → independent review → correct → verify. Standing gates: question-mark parity against source (mechanical, independently counted), direct JSON diffing for all change-list claims, extra scrutiny on comparisons/causal claims/stated positions for direction-inversion (confirmed in Books 4, 5, 6, 8 — the dominant defect class), and independent quote-style scans (a systemic defect surfaced undetected by drafter self-report in Book 9).
 
 ## Models actually used
 
