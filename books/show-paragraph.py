@@ -14,7 +14,7 @@ import json
 import sys
 from pathlib import Path
 
-EDITIONS_DIR = Path("/Users/andershvelplund/Documents/Projects/Tinct/app/public/data/editions")
+EDITIONS_DIR = Path(__file__).resolve().parent.parent / "app/public/data/editions"
 
 
 def load(book_id, key):

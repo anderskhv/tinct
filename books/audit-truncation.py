@@ -12,7 +12,7 @@ import json
 import sys
 from pathlib import Path
 
-EDITIONS_DIR = Path("/Users/andershvelplund/Documents/Projects/Tinct/app/public/data/editions")
+EDITIONS_DIR = Path(__file__).resolve().parent.parent / "app/public/data/editions"
 THRESHOLD = 0.75
 MIN_SOURCE_WORDS = 20  # ignore tiny paragraphs (titles, single lines)
 

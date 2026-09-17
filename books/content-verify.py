@@ -28,7 +28,7 @@ import re
 import sys
 from pathlib import Path
 
-ED = Path("/Users/andershvelplund/Documents/Projects/Tinct/app/public/data/editions")
+ED = Path(__file__).resolve().parent.parent / "app/public/data/editions"
 
 COMMON_CAPS = {
     "The", "A", "An", "He", "She", "They", "We", "I", "It", "This", "That",
