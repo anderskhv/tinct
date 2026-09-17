@@ -133,6 +133,9 @@ def build(target: dict, out: Path, group: str, editions: dict) -> dict:
                 return {"key": key, "dropped": f"{name} HTTP {code}"}
             destination.write_bytes(body)
         raw = destination.read_bytes()
+        expected_audio = (target.get("expectedAudioSha256") or {}).get(name)
+        if expected_audio and sha(raw) != expected_audio:
+            raise RuntimeError(f"{key}: recording {name} changed after preflight")
         try:
             duration = decoded_duration(destination)
         except Exception as error:
