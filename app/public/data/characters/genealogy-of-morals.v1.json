@@ -416,6 +416,42 @@
               "body": "Nietzsche's provocative image, in the First Essay, for the magnificent, terrifying animal vigor that lies at the core of every aristocratic race — the thing one is right to fear even as its bouts of savagery alternate with feats of art, friendship, and heroism."
             }
           ]
+        },
+        {
+          "id": "schopenhauer",
+          "kind": "person",
+          "storyRole": "major",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 6,
+            "offset": 472
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 6,
+            "offset": 472
+          },
+          "snapshots": [
+            {
+              "id": "schopenhauer-1",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 6,
+                "offset": 472
+              },
+              "name": "Arthur Schopenhauer",
+              "subtitle": "",
+              "body": "The philosopher of the will and of aesthetic disinterestedness, whose account of the ascetic ideal Nietzsche examines and argues against at length in the third essay.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 6,
+                  "throughOffset": 472
+                }
+              ],
+              "editorialBasis": "Reviewed baseline identity at first mention; no concealed identity or later plot development."
+            }
+          ]
         }
       ],
       "mentions": [
@@ -436,12 +472,78 @@
           "text": "Dr. Rée"
         },
         {
+          "chapterNumber": 1,
+          "paragraphIndex": 6,
+          "startOffset": 460,
+          "endOffset": 472,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 6,
+          "startOffset": 768,
+          "endOffset": 780,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "characterId": "ressentiment",
+          "chapterNumber": 2,
+          "paragraphIndex": 14,
+          "startOffset": 71,
+          "endOffset": 99,
+          "text": "resentment becoming creative"
+        },
+        {
+          "characterId": "the-blond-beast",
+          "chapterNumber": 2,
+          "paragraphIndex": 16,
+          "startOffset": 6110,
+          "endOffset": 6122,
+          "text": "blonde beast"
+        },
+        {
+          "characterId": "ressentiment",
+          "chapterNumber": 2,
+          "paragraphIndex": 18,
+          "startOffset": 91,
+          "endOffset": 127,
+          "text": "the resentful man has thought it out"
+        },
+        {
           "characterId": "immanuel-kant",
           "chapterNumber": 2,
           "paragraphIndex": 18,
           "startOffset": 2654,
           "endOffset": 2679,
           "text": "Kantian \"Thing-in-itself\""
+        },
+        {
+          "characterId": "good-and-evil-good-and-bad",
+          "chapterNumber": 2,
+          "paragraphIndex": 36,
+          "startOffset": 781,
+          "endOffset": 794,
+          "text": "Good and Evil"
+        },
+        {
+          "characterId": "the-sovereign-individual",
+          "chapterNumber": 3,
+          "paragraphIndex": 1,
+          "startOffset": 1068,
+          "endOffset": 1088,
+          "text": "sovereign individual"
+        },
+        {
+          "characterId": "bad-conscience",
+          "chapterNumber": 3,
+          "paragraphIndex": 3,
+          "startOffset": 88,
+          "endOffset": 105,
+          "text": "\"bad conscience,\""
         },
         {
           "characterId": "eugen-duhring",
@@ -460,44 +562,210 @@
           "text": "Dühring's"
         },
         {
-          "characterId": "ressentiment",
-          "chapterNumber": 2,
-          "paragraphIndex": 14,
-          "startOffset": 71,
-          "endOffset": 99,
-          "text": "resentment becoming creative"
-        },
-        {
-          "characterId": "ressentiment",
-          "chapterNumber": 2,
-          "paragraphIndex": 18,
-          "startOffset": 91,
-          "endOffset": 127,
-          "text": "the resentful man has thought it out"
-        },
-        {
-          "characterId": "good-and-evil-good-and-bad",
-          "chapterNumber": 2,
-          "paragraphIndex": 36,
-          "startOffset": 781,
-          "endOffset": 794,
-          "text": "Good and Evil"
-        },
-        {
-          "characterId": "bad-conscience",
-          "chapterNumber": 3,
-          "paragraphIndex": 3,
-          "startOffset": 88,
-          "endOffset": 105,
-          "text": "\"bad conscience,\""
-        },
-        {
           "characterId": "the-ascetic-ideal",
           "chapterNumber": 4,
           "paragraphIndex": 1,
           "startOffset": 26,
           "endOffset": 40,
           "text": "ascetic ideals"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 6,
+          "startOffset": 1012,
+          "endOffset": 1024,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 6,
+          "startOffset": 1222,
+          "endOffset": 1234,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 6,
+          "startOffset": 1261,
+          "endOffset": 1273,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 6,
+          "startOffset": 1610,
+          "endOffset": 1622,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 6,
+          "startOffset": 1870,
+          "endOffset": 1882,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 6,
+          "startOffset": 2033,
+          "endOffset": 2045,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 6,
+          "startOffset": 2899,
+          "endOffset": 2911,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 3,
+          "endOffset": 15,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 2392,
+          "endOffset": 2404,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 2786,
+          "endOffset": 2798,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 3538,
+          "endOffset": 3550,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 4432,
+          "endOffset": 4444,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 4560,
+          "endOffset": 4572,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 4770,
+          "endOffset": 4782,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 4996,
+          "endOffset": 5008,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 8,
+          "startOffset": 224,
+          "endOffset": 236,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 8,
+          "startOffset": 736,
+          "endOffset": 748,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 8,
+          "startOffset": 1112,
+          "endOffset": 1124,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 8,
+          "startOffset": 1531,
+          "endOffset": 1543,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 8,
+          "startOffset": 3007,
+          "endOffset": 3019,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 9,
+          "startOffset": 8423,
+          "endOffset": 8435,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 9,
+          "startOffset": 9098,
+          "endOffset": 9110,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
         },
         {
           "characterId": "the-ascetic-priest",
@@ -516,20 +784,22 @@
           "text": "caught sight of the ascetic priest"
         },
         {
-          "characterId": "the-sovereign-individual",
-          "chapterNumber": 3,
-          "paragraphIndex": 1,
-          "startOffset": 1068,
-          "endOffset": 1088,
-          "text": "sovereign individual"
+          "chapterNumber": 4,
+          "paragraphIndex": 28,
+          "startOffset": 3763,
+          "endOffset": 3775,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
         },
         {
-          "characterId": "the-blond-beast",
-          "chapterNumber": 2,
-          "paragraphIndex": 16,
-          "startOffset": 6110,
-          "endOffset": 6122,
-          "text": "blonde beast"
+          "chapterNumber": 4,
+          "paragraphIndex": 28,
+          "startOffset": 3823,
+          "endOffset": 3835,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
         }
       ]
     },
@@ -942,6 +1212,42 @@
               "body": "Nietzsche's provocative image, in the First Essay, for the magnificent, terrifying animal vigor that lies at the core of every aristocratic race — the thing one is right to fear even as its bouts of savagery alternate with feats of art, friendship, and heroism."
             }
           ]
+        },
+        {
+          "id": "schopenhauer",
+          "kind": "person",
+          "storyRole": "major",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 6,
+            "offset": 481
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 6,
+            "offset": 481
+          },
+          "snapshots": [
+            {
+              "id": "schopenhauer-1",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 6,
+                "offset": 481
+              },
+              "name": "Arthur Schopenhauer",
+              "subtitle": "",
+              "body": "The philosopher of the will and of aesthetic disinterestedness, whose account of the ascetic ideal Nietzsche examines and argues against at length in the third essay.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 6,
+                  "throughOffset": 481
+                }
+              ],
+              "editorialBasis": "Reviewed baseline identity at first mention; no concealed identity or later plot development."
+            }
+          ]
         }
       ],
       "mentions": [
@@ -962,12 +1268,78 @@
           "text": "Dr. Rée"
         },
         {
+          "chapterNumber": 1,
+          "paragraphIndex": 6,
+          "startOffset": 469,
+          "endOffset": 481,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 6,
+          "startOffset": 780,
+          "endOffset": 792,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "characterId": "ressentiment",
+          "chapterNumber": 2,
+          "paragraphIndex": 14,
+          "startOffset": 71,
+          "endOffset": 99,
+          "text": "resentment becoming creative"
+        },
+        {
+          "characterId": "the-blond-beast",
+          "chapterNumber": 2,
+          "paragraphIndex": 16,
+          "startOffset": 6096,
+          "endOffset": 6107,
+          "text": "blond beast"
+        },
+        {
+          "characterId": "ressentiment",
+          "chapterNumber": 2,
+          "paragraphIndex": 18,
+          "startOffset": 91,
+          "endOffset": 127,
+          "text": "the resentful man has thought it out"
+        },
+        {
           "characterId": "immanuel-kant",
           "chapterNumber": 2,
           "paragraphIndex": 18,
           "startOffset": 2658,
           "endOffset": 2683,
           "text": "Kantian \"Thing-in-itself\""
+        },
+        {
+          "characterId": "good-and-evil-good-and-bad",
+          "chapterNumber": 2,
+          "paragraphIndex": 36,
+          "startOffset": 776,
+          "endOffset": 789,
+          "text": "Good and Evil"
+        },
+        {
+          "characterId": "the-sovereign-individual",
+          "chapterNumber": 3,
+          "paragraphIndex": 1,
+          "startOffset": 1064,
+          "endOffset": 1084,
+          "text": "sovereign individual"
+        },
+        {
+          "characterId": "bad-conscience",
+          "chapterNumber": 3,
+          "paragraphIndex": 3,
+          "startOffset": 88,
+          "endOffset": 105,
+          "text": "\"bad conscience,\""
         },
         {
           "characterId": "eugen-duhring",
@@ -986,44 +1358,210 @@
           "text": "Dühring's"
         },
         {
-          "characterId": "ressentiment",
-          "chapterNumber": 2,
-          "paragraphIndex": 14,
-          "startOffset": 71,
-          "endOffset": 99,
-          "text": "resentment becoming creative"
-        },
-        {
-          "characterId": "ressentiment",
-          "chapterNumber": 2,
-          "paragraphIndex": 18,
-          "startOffset": 91,
-          "endOffset": 127,
-          "text": "the resentful man has thought it out"
-        },
-        {
-          "characterId": "good-and-evil-good-and-bad",
-          "chapterNumber": 2,
-          "paragraphIndex": 36,
-          "startOffset": 776,
-          "endOffset": 789,
-          "text": "Good and Evil"
-        },
-        {
-          "characterId": "bad-conscience",
-          "chapterNumber": 3,
-          "paragraphIndex": 3,
-          "startOffset": 88,
-          "endOffset": 105,
-          "text": "\"bad conscience,\""
-        },
-        {
           "characterId": "the-ascetic-ideal",
           "chapterNumber": 4,
           "paragraphIndex": 1,
           "startOffset": 26,
           "endOffset": 40,
           "text": "ascetic ideals"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 6,
+          "startOffset": 1012,
+          "endOffset": 1024,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 6,
+          "startOffset": 1221,
+          "endOffset": 1233,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 6,
+          "startOffset": 1260,
+          "endOffset": 1272,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 6,
+          "startOffset": 1609,
+          "endOffset": 1621,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 6,
+          "startOffset": 1869,
+          "endOffset": 1881,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 6,
+          "startOffset": 2031,
+          "endOffset": 2043,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 6,
+          "startOffset": 2898,
+          "endOffset": 2910,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 3,
+          "endOffset": 15,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 2390,
+          "endOffset": 2402,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 2782,
+          "endOffset": 2794,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 3534,
+          "endOffset": 3546,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 4425,
+          "endOffset": 4437,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 4553,
+          "endOffset": 4565,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 4763,
+          "endOffset": 4775,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 7,
+          "startOffset": 4990,
+          "endOffset": 5002,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 8,
+          "startOffset": 226,
+          "endOffset": 238,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 8,
+          "startOffset": 737,
+          "endOffset": 749,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 8,
+          "startOffset": 1112,
+          "endOffset": 1124,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 8,
+          "startOffset": 1530,
+          "endOffset": 1542,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 8,
+          "startOffset": 3000,
+          "endOffset": 3012,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 9,
+          "startOffset": 8434,
+          "endOffset": 8446,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 9,
+          "startOffset": 9111,
+          "endOffset": 9123,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
         },
         {
           "characterId": "the-ascetic-priest",
@@ -1042,20 +1580,22 @@
           "text": "caught sight of the ascetic priest"
         },
         {
-          "characterId": "the-sovereign-individual",
-          "chapterNumber": 3,
-          "paragraphIndex": 1,
-          "startOffset": 1064,
-          "endOffset": 1084,
-          "text": "sovereign individual"
+          "chapterNumber": 4,
+          "paragraphIndex": 28,
+          "startOffset": 3766,
+          "endOffset": 3778,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
         },
         {
-          "characterId": "the-blond-beast",
-          "chapterNumber": 2,
-          "paragraphIndex": 16,
-          "startOffset": 6096,
-          "endOffset": 6107,
-          "text": "blond beast"
+          "chapterNumber": 4,
+          "paragraphIndex": 28,
+          "startOffset": 3826,
+          "endOffset": 3838,
+          "text": "Schopenhauer",
+          "resolution": "reviewed-name",
+          "characterId": "schopenhauer"
         }
       ]
     }

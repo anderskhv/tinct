@@ -66,6 +66,14 @@ const CASES = [
   ['the-tempest', 'original-en', 2, 'ariel', undefined, 'speaker-label-ariel'],
   ['merry-wives-of-windsor', 'original-en', 1, 'page', 'Page', 'mww-short-form-page'],
   ['merry-wives-of-windsor', 'original-en', undefined, 'falstaff', undefined, 'mww-sanity-falstaff'],
+  // round 3 continued: 5 more books screened, real gaps fixed
+  ['jerusalem', 'original-en', undefined, 'brita', undefined, 'brita-new'],
+  ['jerusalem', 'original-en', undefined, 'mother-stina', undefined, 'mother-stina-new'],
+  ['fear-and-trembling', 'original-en', undefined, 'agnete', undefined, 'agnete-new'],
+  ['niels-lyhne', 'original-en', undefined, 'frithjof', undefined, 'frithjof-new'],
+  ['niels-lyhne', 'original-en', undefined, 'hjerrild', undefined, 'hjerrild-new'],
+  ['genealogy-of-morals', 'original-en', undefined, 'schopenhauer', undefined, 'schopenhauer-new'],
+  ['moby-dick', 'original-en', undefined, 'jonah', undefined, 'jonah-new'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
