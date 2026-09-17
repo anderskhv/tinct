@@ -100,6 +100,49 @@ def paragraph(model,audio,text,mode,out,configuration=None):
  write(out,dict(complete=True,signature=signature,attempts=attempts,selected_mode=best['mode'],audio_sha256=sha(audio),selected_reasons=best['rejection_reasons']))
  return best
 
+def process_arm(model,args,e,mode,directory,context):
+ passed=[];expected=[[] for _ in range(e['text_paragraph_count'])]
+ result=dict(key=e['key'],group=e['group'],mode=mode,status='running',reasons=[],paragraphs=[])
+ write(directory/'chapter.json',result)
+ for r in e['paragraphs']:
+  context['paragraph']=r['index']
+  audio=args.input.parent/r['path']
+  if sha(audio)!=r['sha256']:raise ValueError('audio changed: '+str(audio))
+  selected=paragraph(model,audio,r['text'],mode,directory/f"p{r['index']}.diagnostic.json",configuration=dict(model=getattr(args,'model_sha256',None),device=getattr(args,'device','cuda'),compute=getattr(args,'compute_type','float16')))
+  words=selected['candidate_words'];stats=selected['stats'];expected[r['index']]=selected['expected_tokens'];passed.append((r['index'],r['file'],words))
+  reasons=list(selected['rejection_reasons'])
+  if any(w['end']>r['duration']+.1 for w in words):reasons.append('timing_exceeds_decoded_audio')
+  result['paragraphs'].append(dict(index=r['index'],ratio=selected['match_ratio'],reasons=reasons))
+  if reasons:result['reasons'].append(dict(paragraph=r['index'],reasons=reasons))
+  write(directory/'chapter.json',result)
+ book,edition,ch=e['key'].split('/')
+ candidate=lib.build_sidecar(book,edition,int(ch[2:]),e['title'],passed)
+ totals=dict(expectedWords=0,heardWords=0,matchedWords=0)
+ for entry in candidate['paragraphs']:
+  context['paragraph']=entry['paragraph']
+  entry['file']=next(r['file'] for r in e['paragraphs'] if r['index']==entry['paragraph'])
+  diagnostic=json.loads((directory/f"p{entry['paragraph']}.diagnostic.json").read_text())
+  selected=next(a for a in diagnostic['attempts'] if a['mode']==diagnostic['selected_mode']);stats=selected['stats']
+  entry['alignment']=dict(expectedWords=stats['expected_words'],heardWords=stats['heard_words'],matchedWords=stats['matched_words'],matchRatio=selected['match_ratio'],bias=selected['mode'])
+  for field in totals:totals[field]+=entry['alignment'][field]
+ candidate.update(model='small.en',language='en',alignment=dict(**totals,matchRatio=totals['matchedWords']/max(1,totals['expectedWords']),minimumParagraphRatio=GATE,bias=mode))
+ valid,errors=lib.validate_sidecar(candidate,expected,{r['index']:dict(file=r['file'],duration=r['duration']) for r in e['paragraphs']})
+ result['validation_errors']=errors;result['status']='candidate_requires_acoustic_review' if valid and not result['reasons'] else 'rejected'
+ write(directory/'words.candidate.json',candidate);write(directory/'chapter.json',result)
+
+
+def execute_arm(action,directory,e,mode,context):
+ try:
+  action();return True
+ except Exception as error:
+  if isinstance(error,ValueError) and str(error).startswith('audio changed:'):raise
+  candidate=directory/'words.candidate.json'
+  if candidate.exists():candidate.unlink()
+  paragraph=context.get('paragraph')
+  result=dict(key=e['key'],group=e['group'],mode=mode,status='rejected',reasons=[dict(paragraph=paragraph,reasons=['processing_invariant_error'])],paragraphs=[],processing_error=dict(paragraph=paragraph,type=type(error).__name__,message=str(error)))
+  write(directory/'chapter.json',result);return False
+
+
 def worker(args):
  from faster_whisper import WhisperModel
  model_start=time.monotonic()
@@ -107,40 +150,9 @@ def worker(args):
  write(args.output/'model-load.json',dict(seconds=time.monotonic()-model_start))
  cohort=json.loads(args.input.read_text())
  for e in cohort:
-  result=dict(key=e['key'],group=e['group'],status='pending',reasons=[],paragraphs=[])
   for mode in getattr(args,'arms',['off','auto']):
-   directory=args.output/e['key']/mode;passed=[];expected=[[] for _ in range(e['text_paragraph_count'])];result=dict(key=e['key'],group=e['group'],mode=mode,status='running',reasons=[],paragraphs=[])
-   write(directory/'chapter.json',result)
-   arm_failed=False
-   for r in e['paragraphs']:
-    audio=args.input.parent/r['path']
-    if sha(audio)!=r['sha256']:raise ValueError('audio changed: '+str(audio))
-    try:
-     selected=paragraph(model,audio,r['text'],mode,directory/f"p{r['index']}.diagnostic.json",configuration=dict(model=getattr(args,'model_sha256',None),device=getattr(args,'device','cuda'),compute=getattr(args,'compute_type','float16')))
-    except Exception as error:
-     result['status']='rejected';result['processing_error']=dict(paragraph=r['index'],type=type(error).__name__,message=str(error))
-     result['reasons'].append(dict(paragraph=r['index'],reasons=['processing_invariant_error']))
-     write(directory/'chapter.json',result);arm_failed=True;break
-    words=selected['candidate_words'];stats=selected['stats'];expected[r['index']]=selected['expected_tokens'];passed.append((r['index'],r['file'],words))
-    reasons=list(selected['rejection_reasons'])
-    if any(w['end']>r['duration']+.1 for w in words):reasons.append('timing_exceeds_decoded_audio')
-    result['paragraphs'].append(dict(index=r['index'],ratio=selected['match_ratio'],reasons=reasons))
-    if reasons:result['reasons'].append(dict(paragraph=r['index'],reasons=reasons))
-    write(directory/'chapter.json',result)
-   if arm_failed:continue
-   book,edition,ch=e['key'].split('/')
-   candidate=lib.build_sidecar(book,edition,int(ch[2:]),e['title'],passed)
-   totals=dict(expectedWords=0,heardWords=0,matchedWords=0)
-   for entry in candidate['paragraphs']:
-    entry['file']=next(r['file'] for r in e['paragraphs'] if r['index']==entry['paragraph'])
-    diagnostic=json.loads((directory/f"p{entry['paragraph']}.diagnostic.json").read_text())
-    selected=next(a for a in diagnostic['attempts'] if a['mode']==diagnostic['selected_mode']);stats=selected['stats']
-    entry['alignment']=dict(expectedWords=stats['expected_words'],heardWords=stats['heard_words'],matchedWords=stats['matched_words'],matchRatio=selected['match_ratio'],bias=selected['mode'])
-    for field in totals:totals[field]+=entry['alignment'][field]
-   candidate.update(model='small.en',language='en',alignment=dict(**totals,matchRatio=totals['matchedWords']/max(1,totals['expectedWords']),minimumParagraphRatio=GATE,bias=mode))
-   valid,errors=lib.validate_sidecar(candidate,expected,{r['index']:dict(file=r['file'],duration=r['duration']) for r in e['paragraphs']})
-   result['validation_errors']=errors;result['status']='candidate_requires_acoustic_review' if valid and not result['reasons'] else 'rejected'
-   write(directory/'words.candidate.json',candidate);write(directory/'chapter.json',result)
+   directory=args.output/e['key']/mode;context=dict(paragraph=None)
+   execute_arm(lambda:process_arm(model,args,e,mode,directory,context),directory,e,mode,context)
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--input',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--model-path',type=Path,required=True);p.add_argument('--model-sha256',required=True);p.add_argument('--max-seconds',type=int,default=3300);p.add_argument('--arms',nargs='+',choices=['off','auto'],default=['off','auto']);p.add_argument('--device',choices=['cpu','cuda'],default='cuda');p.add_argument('--compute-type',choices=['int8','float16'],default='float16');p.add_argument('--run',action='store_true');p.add_argument('--resume',action='store_true');p.add_argument('--helper',choices=sorted(HELPERS),default=DEFAULT_HELPER,help='pinned helper revision (PINS.md); v1 reproduces run 1 byte for byte');p.add_argument('--worker',action='store_true',help=argparse.SUPPRESS);a=p.parse_args();select_helper(a.helper)
