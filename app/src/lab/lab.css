@@ -5210,6 +5210,14 @@
 .lab.has-phone-chrome.has-page-buttons [data-testid="lab-page-prev"] { left: 8px; }
 .lab.has-phone-chrome.has-page-buttons [data-testid="lab-page-next"] { right: 8px; }
 
+/* Selection palette: no note form until the explicit + action. */
+.lab .selection-popup.is-lab[data-popup-mode="colors"]{width:max-content!important;min-width:0!important;max-width:calc(100vw - 24px);padding:5px 10px!important;border-radius:16px}
+.lab .popup-highlight-palette{display:flex;align-items:center;gap:20px;min-height:44px;padding:0 4px}
+.lab .popup-highlight-palette .popup-color-dot{margin:0;cursor:pointer}
+.lab .popup-highlight-palette .popup-add-note{width:38px;height:40px;border:0;border-left:1px solid var(--lab-border,#cfc8b8);background:none;color:inherit;font:28px/1 system-ui;cursor:pointer}
+.lab .lab-preparation-questions{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:16px 0}
+.lab .lab-preparation-questions button{border:1px solid var(--lab-border,#cfc8b8);background:transparent;color:inherit;border-radius:14px;padding:10px 14px;font:14px/1.4 system-ui;text-align:left;cursor:pointer}
+
 /* ─────────────────────────────────────────────────────────────────────────
    Reader chrome V2 — the preview shell behind `?chrome=v2`.
 
@@ -7404,10 +7412,3 @@
 .lab[data-chrome-version="v2"] .lab-cover-entry strong{font:500 20px/1.2 'EB Garamond',Georgia,serif}
 .lab[data-chrome-version="v2"] .lab-cover-entry span{font:400 12px/1.4 system-ui,sans-serif;color:#c1c1b6}
 
-/* Selection palette: no note form until the explicit + action. */
-.lab .selection-popup.is-lab[data-popup-mode="colors"]{width:max-content!important;min-width:0!important;max-width:calc(100vw - 24px);padding:5px 10px!important;border-radius:16px}
-.lab .popup-highlight-palette{display:flex;align-items:center;gap:20px;min-height:44px;padding:0 4px}
-.lab .popup-highlight-palette .popup-color-dot{margin:0;cursor:pointer}
-.lab .popup-highlight-palette .popup-add-note{width:38px;height:40px;border:0;border-left:1px solid var(--lab-border,#cfc8b8);background:none;color:inherit;font:28px/1 system-ui;cursor:pointer}
-.lab .lab-preparation-questions{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:16px 0}
-.lab .lab-preparation-questions button{border:1px solid var(--lab-border,#cfc8b8);background:transparent;color:inherit;border-radius:14px;padding:10px 14px;font:14px/1.4 system-ui;text-align:left;cursor:pointer}

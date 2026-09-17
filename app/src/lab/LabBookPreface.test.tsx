@@ -94,3 +94,9 @@ it('keeps the desktop preface compact and expandable alongside character roles',
   expect(screen.getByText('His journey home.')).toBeTruthy()
   vi.unstubAllGlobals()
 })
+
+it('orders primary, audio and compare controls', () => {
+  render(<LabBookPreface preface={preface} title="Book" cover="/cover.webp" continued={false} onRead={vi.fn()} editions={[{key:'modern-en',label:'Modern',language:'en',style:'modern',aligned:true}]} primaryEdition="modern-en"/>)
+  fireEvent.click(screen.getByRole('button',{name:'Select your editions'}))
+  expect(Array.from(document.querySelectorAll('#preparation-editions label')).map(n=>n.textContent)).toEqual(['Primary edition','Audiobook','Compare edition'])
+})

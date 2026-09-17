@@ -186,3 +186,15 @@ describe('compact selection popup', () => {
     expect(input.dismissPopup).toHaveBeenCalledOnce()
   })
 })
+
+it('keeps the palette compact until Add note and sends Ask to the composer', () => {
+  const input=props({lab:true,popupMode:'main',onRequestExplanation:vi.fn()})
+  const {rerender}=render(<SelectionPopup {...input}/>)
+  fireEvent.click(screen.getByRole('button',{name:'Ask',exact:true}))
+  expect(input.onExplain).toHaveBeenCalledOnce()
+  rerender(<SelectionPopup {...input} popupMode="colors"/>)
+  expect(screen.queryByRole('textbox')).toBeNull()
+  expect(screen.queryByText('Copy')).toBeNull()
+  fireEvent.click(screen.getByRole('button',{name:'Add note'}))
+  expect(input.onRequestNote).toHaveBeenCalledOnce()
+})
