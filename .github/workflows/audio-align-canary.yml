@@ -69,8 +69,36 @@ jobs:
 
       - name: Align the frozen verified-ready batch
         run: |
+          set +e
           python3 tools/audio-highlight/gpu/orchestrate.py run \
-            --name "tinct-words-cloud-resume-${GITHUB_RUN_ID}" \
+            --name "tinct-words-cloud-resume-${GITHUB_RUN_ID}-1" \
+            --batch artifacts/audio-highlight-cloud-resume-2026-09-16/active-batch.json \
+            --commit "${GITHUB_SHA}" \
+            --artifacts "$ARTIFACT_DIR" \
+            --cloud COMMUNITY \
+            --helper v4 \
+            --arms "off auto" \
+            --max-seconds 1800 \
+            --deadline-minutes 35
+          first_status=$?
+          set -e
+          if [ "$first_status" -eq 0 ]; then
+            exit 0
+          fi
+          retry_spent="$(python3 tools/audio-highlight/gpu/host_retry_gate.py \
+            "$ARTIFACT_DIR/pods/tinct-words-cloud-resume-${GITHUB_RUN_ID}-1/pod.json" \
+            --base-spend "$TINCT_GPU_SPENT")"
+          python3 tools/audio-highlight/runpod_guard.py status \
+            --budget "$TINCT_GPU_BUDGET" \
+            --spent "$retry_spent" \
+            --max-rate 1.00 \
+            --max-minutes 50 \
+            --json-out "$ARTIFACT_DIR/retry-guard.json"
+          python3 tools/audio-highlight/gpu/preflight_launch.py \
+            "$ARTIFACT_DIR/retry-guard.json" \
+            --budget "$TINCT_GPU_BUDGET"
+          python3 tools/audio-highlight/gpu/orchestrate.py run \
+            --name "tinct-words-cloud-resume-${GITHUB_RUN_ID}-2" \
             --batch artifacts/audio-highlight-cloud-resume-2026-09-16/active-batch.json \
             --commit "${GITHUB_SHA}" \
             --artifacts "$ARTIFACT_DIR" \
