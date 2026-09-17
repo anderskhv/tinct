@@ -32,10 +32,10 @@ def launch_blockers(report: dict, budget: float, reserve: float = 0.0) -> list[s
     if not math.isfinite(spend) or spend < 0:
         failures.append("estimated aggregate spend is invalid")
     elif math.isfinite(budget) and budget >= 0 and math.isfinite(reserve) and reserve >= 0:
-        if spend + reserve > budget:
+        if spend + reserve >= budget:
             failures.append(
                 f"authorized aggregate envelope cannot reserve this launch "
-                f"({spend:.4f} + {reserve:.4f} > {budget:.4f})"
+                f"({spend:.4f} + {reserve:.4f} >= {budget:.4f})"
             )
     return failures
 
