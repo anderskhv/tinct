@@ -37,10 +37,11 @@ jobs:
           git fetch --no-tags origin codex/audio-runner-reviewed
           mkdir -p "$ARTIFACT_DIR"
           python3 tools/audio-highlight/gpu/verify_active_batch.py \
-            --batch artifacts/audio-highlight-cloud-resume-2026-09-16/active-batch.json \
+            --batch "$ARTIFACT_DIR/resolved-batch.json" \
             --ledger artifacts/audio-highlight-cloud-resume-2026-09-16/runpod-spend-ledger.json \
             --reviewed-commit "$(git rev-parse FETCH_HEAD)" \
             --evidence "$ARTIFACT_DIR/active-batch-preflight.json" \
+            --resolved-batch "$ARTIFACT_DIR/resolved-batch.json" \
             --github-env "$GITHUB_ENV"
 
       - name: Verify launch and batch invariants
@@ -72,7 +73,7 @@ jobs:
           set +e
           python3 tools/audio-highlight/gpu/orchestrate.py run \
             --name "tinct-words-cloud-resume-${GITHUB_RUN_ID}-1" \
-            --batch artifacts/audio-highlight-cloud-resume-2026-09-16/active-batch.json \
+            --batch "$ARTIFACT_DIR/resolved-batch.json" \
             --commit "${GITHUB_SHA}" \
             --artifacts "$ARTIFACT_DIR" \
             --cloud COMMUNITY \
@@ -99,7 +100,7 @@ jobs:
             --budget "$TINCT_GPU_BUDGET"
           python3 tools/audio-highlight/gpu/orchestrate.py run \
             --name "tinct-words-cloud-resume-${GITHUB_RUN_ID}-2" \
-            --batch artifacts/audio-highlight-cloud-resume-2026-09-16/active-batch.json \
+            --batch "$ARTIFACT_DIR/resolved-batch.json" \
             --commit "${GITHUB_SHA}" \
             --artifacts "$ARTIFACT_DIR" \
             --cloud COMMUNITY \
