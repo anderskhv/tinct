@@ -43,8 +43,12 @@ jobs:
             --evidence "$ARTIFACT_DIR/active-batch-preflight.json" \
             --github-env "$GITHUB_ENV"
 
-      - name: Verify launch preflight invariant
-        run: python3 tools/audio-highlight/gpu/test_preflight_launch.py
+      - name: Verify launch and batch invariants
+        run: |
+          python3 tools/audio-highlight/gpu/test_preflight_launch.py
+          (cd tools/audio-highlight/gpu && python3 test_active_batch.py)
+          (cd tools/audio-highlight/aligner && python3 test_normalisation_v3.py)
+
 
       - name: Fail closed unless the remote guard can enforce the envelope
         run: |
