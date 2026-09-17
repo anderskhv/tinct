@@ -28,15 +28,21 @@ Full-book diagnostic (structural integrity + close paragraph comparison across ~
 
 **Acceptance check note from the audit** (important — difflib similarity does NOT discriminate the defect): use per-paragraph word-retention ratio (flag <0.85 for source paragraphs ≥25 words) plus a read-through for fabricated imagery, not a bare similarity score — sound chapter-1 paragraphs score as low as 0.05–0.10 on difflib, identical to damaged ones, because genuine modernization changes surface text heavily too.
 
+## Important limitation surfaced during review (2026-09-17)
+
+Independent review of chapters 35 and 36 — each originally flagged for exactly ONE damaged paragraph by the diagnostic audit — found 2 additional genuinely damaged paragraphs apiece that the audit's chapter-level sampling had missed (same failure mode: invented text substituted for a dropped source passage). All 4 have now been fixed directly.
+
+**This means the original diagnostic audit's damage map is a lower bound, not a complete list.** The audit sampled ~10 of 38 chapters closely and used word-ratio scanning for the rest; it appears capable of missing isolated single-paragraph substitutions in chapters it did sample if their ratio doesn't dip far enough to be flagged (para 80's ratio in ch35 was borderline — invented text of similar length to what was cut). **Chapters 1–26 and 28–34, marked "sound" by the original audit, have NOT been paragraph-by-paragraph verified against source and may contain the same class of isolated defect.** Recommend a full 38-chapter word-ratio + spot-check pass before calling the whole book accepted, not just the 5 originally-flagged chapters. Flagging this now rather than overclaiming completeness.
+
 ## Repair units and status
 
 | Unit | Draft | Independent review | Corrected | Verified | Accepted |
 |---|---|---|---|---|---|
-| Ch27 tail (paras 146–162, 0-based ~145-161) | done — 6/163 paragraphs changed (150, 153, 158, 159, 160, 161: red-room dream imagery, packing/locket detail, gate meaning-inversion, past/future antithesis, the ~290-word collapse passage, coach fare), independently diffed and confirmed | queued | — | — | — |
-| Ch35 (full chapter, preserving sound paragraphs) | done — 1/98 paragraphs changed (para 83, meaning-inversion fixed: temptation/ambivalence restored in place of confident refusal, resolves self-contradiction with next paragraph), independently diffed and confirmed | queued | — | — | — |
-| Ch36 (full chapter, preserving sound paragraphs) | done — 1/80 paragraphs changed (para 48, fire geography + invented rescue + omitted aftermath fixed), independently diffed and confirmed | queued | — | — | — |
-| Ch37 (full chapter, preserving sound paragraphs) | done — 28/262 paragraphs changed (emotional core, multiple setup/payoff pairs, one plot-distortion fix, one continuity bug), independently diffed and confirmed matching drafter's claim exactly | queued | — | — | — |
-| Ch38 / Conclusion (full chapter, preserving sound paragraphs) | done — 4/24 paragraphs changed (paras 1, 10, 12, 13: kitchen staging, Adèle epilogue, "bone of his bone" ending, reciprocity passage all restored), independently diffed and confirmed | queued | — | — | — |
+| Ch27 tail (paras 146–162, 0-based ~145-161) | done, verified | done — Opus, all 6 paragraphs confirmed clause-by-clause against source, no new errors, emotional weight confirmed intact | n/a | **accepted** (sha256 83957fef…) | **accepted** |
+| Ch35 (full chapter, preserving sound paragraphs) | done, verified, **+2 more paragraphs fixed post-review** | done — Opus confirmed para 83's fix, but ALSO found 2 more real defects outside original scope: para 80 (fabricated "Was this prayer for me?" replacing source's actual close) and para 87 (a load-bearing hedge sentence truncated off the end). Both fixed directly (source-quoted, not paraphrased) | paras 80, 87 fixed directly, same standard as reviewed fixes | **accepted** (sha256 621a8e23…) | **accepted** |
+| Ch36 (full chapter, preserving sound paragraphs) | done, verified, **+2 more paragraphs fixed post-review** | done — Opus confirmed para 48's fire-geography fix clause-by-clause (all 7 clauses correct), continuity with para 49 resolved. ALSO found 2 more real defects outside scope: para 46 (invented "raised eyebrows" ending replacing source's bewitched-suitor line) and para 50 (invented "he was quite fond of me... not the devil" replacing Grace Poole's actual bitter closing line about wishing Jane had drowned). Both fixed directly | paras 46, 50 fixed directly | **accepted** (sha256 a8bb10d7…) | **accepted** |
+| Ch37 (full chapter, preserving sound paragraphs) | done, verified | review in progress (Opus, includes independent word-ratio re-scan of all 262 paragraphs to catch anything missed) | — | — | — |
+| Ch38 / Conclusion (full chapter, preserving sound paragraphs) | done, verified | review in progress (Opus) | — | — | — |
 | Adèle accent fix (10 paragraphs, ch11/12/38) | not started (trivial, direct fix, no review cycle needed) | — | — | — | — |
 
 ## Models used
