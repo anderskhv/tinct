@@ -41,7 +41,7 @@ import { labConversationStateV2 } from './labVoiceV2'
 import type { LabVoiceVersion } from './labRoute'
 import { readSupabaseAccessToken, resolveLabVoiceToken } from './labAuth'
 import { LAB_COPY } from './labCopy'
-import { gateLabAiAction, type LabAccountPromptRequest, type LabAiAction } from './labAccountPrompt'
+import { decideLabAiAction, gateLabAiAction, type LabAccountPromptRequest, type LabAiAction } from './labAccountPrompt'
 import { dumpLabTalkTurns, fetchLabChatHistoryCloud, LAB_CHAT_BOOK_ID } from './labTalkHistory'
 import {
   appendLabChatTurn,
@@ -220,8 +220,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   const liveToken = options.authToken !== undefined ? options.authToken : sessionToken
   const signedIn = options.signedIn ?? (Boolean(liveToken) || likelyAuthenticated)
   // Account policy (labAccountPrompt.ts), in one place, before any network
-  // call or mic session: an anonymous reader gets three free AI actions,
-  // chat and voice spending the same allowance, and the fourth shows the
+  // call or mic session: an anonymous reader gets ten free AI interactions,
+  // chat and voice spending the same allowance, and the eleventh shows the
   // account sheet and is not sent. Signed in: never gated.
   const gateAiAction = useCallback((action: LabAiAction, text?: string): boolean => {
     const decision = gateLabAiAction({ signedIn })
@@ -418,6 +418,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     onEndConversation: () => optionsRef.current.onResumeListen?.(false),
     recordMessage: recordTurn,
     appendLocalMessage,
+    onBeforeUserTurn: () => gateAiAction('voice'),
     onNeedAuth: () => setNotice(LAB_COPY.signInVoice),
     onInsufficientBalance: () => setNotice(LAB_COPY.balanceEmpty),
     mode: 'conversation',
@@ -453,7 +454,10 @@ export function useLabAsk(options: UseLabAskOptions) {
 
   const startVoice = useCallback(async (greeting?: string): Promise<boolean> => {
     if (voice.isActive || starting) return true
-    if (!gateAiAction('voice')) return false
+    if (!decideLabAiAction({ signedIn }).allowed) {
+      optionsRef.current.onAccountPrompt?.({action:'voice'})
+      return false
+    }
     const request = ++voiceStartRequestRef.current
     voice.unlockAudio()
     setNotice(null)
@@ -478,7 +482,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       return false
     }
     return true
-  }, [gateAiAction, options.authToken, sessionToken, starting, voice.isActive, voice.start])
+  }, [signedIn, options.authToken, sessionToken, starting, voice.isActive, voice.start])
 
   const stopVoice = useCallback(() => {
     voiceStartRequestRef.current++

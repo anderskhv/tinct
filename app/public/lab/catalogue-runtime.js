@@ -299,7 +299,7 @@ import {
   function updateMotion() {
     const active=root.querySelector('[data-view-panel="landing"]').classList.contains('is-current')
     root.querySelector('[data-entry-covers]').classList.toggle('is-paused',motionPaused||document.hidden||!coverVisible||!active||reducedMotion())
-    const button=root.querySelector('[data-entry-motion]');button.textContent=motionPaused?'Play covers':'Pause covers';button.setAttribute('aria-pressed',String(motionPaused));button.hidden=reducedMotion()
+    const button=root.querySelector('[data-entry-motion]');if(button) button.hidden=true
   }
   function renderLandingCovers() {
     const host=root.querySelector('[data-entry-covers]')
@@ -309,7 +309,7 @@ import {
       if(!landingWide.matches) {
         const preferred=['the-art-of-war','gilgamesh','crime-and-punishment','jane-eyre','moby-dick']
         const books=preferred.map(id=>shelf.find(book=>book.id===id)).filter(Boolean)
-        host.innerHTML=`<div class="entry-cover-track">${[...books,...books].map(book=>coverImage(book,true)).join('')}</div>`
+        host.innerHTML=`<div class="entry-cover-track">${books.map(book=>coverImage(book,true)).join('')}</div>`
       } else {
         const books=shelf.slice(0,18)
         host.innerHTML=[0,1,2].map(col=>{const group=books.filter((_,i)=>i%3===col);return `<div class="entry-cover-column" style="--duration:${240+col*30}s">${[...group,...group].map(book=>coverImage(book)).join('')}</div>`}).join('')
@@ -554,8 +554,30 @@ import {
    */
   function renderPopularLead() {
     const lead = popularLead()
-    root.querySelector('[data-popular-lead-title]').textContent = lead.title
+    root.querySelector('[data-popular-lead-title]').textContent = window.innerWidth <= 600 ? 'Featured' : lead.title
     root.querySelector('[data-popular-lead-row]').textContent = lead.row
+  }
+
+  let atmosphereBusy = false
+  let atmospherePending = null
+  let atmosphereCurrent = ''
+  let atmosphereLayer = 0
+  function blendAtmosphere(book) {
+    atmospherePending = book
+    if (atmosphereBusy || atmosphereCurrent === book.id) return
+    const atmosphere = root.querySelector('[data-lib-atmos]')
+    if (!atmosphere) return
+    if (!atmosphere.querySelector('.lib-art-layer')) {
+      for (let i=0;i<2;i++) { const layer=document.createElement('div');layer.className='lib-art-layer';atmosphere.append(layer) }
+    }
+    const layers=atmosphere.querySelectorAll('.lib-art-layer')
+    atmosphereLayer=1-atmosphereLayer
+    layers[atmosphereLayer].style.backgroundImage=book.art?.src ? `url("${book.art.src.replace(/["\\\\]/g,'')}")` : 'none'
+    layers[atmosphereLayer].classList.add('is-visible')
+    layers[1-atmosphereLayer].classList.remove('is-visible')
+    atmosphereCurrent=book.id
+    atmosphereBusy=true
+    setTimeout(()=>{atmosphereBusy=false;if(atmospherePending?.id!==atmosphereCurrent) blendAtmosphere(atmospherePending)},reducedMotion()?0:1500)
   }
 
   function renderCaption() {
@@ -568,11 +590,13 @@ import {
     const length = catalogueLengthLine(book.wordCount)
     const atmosphere = root.querySelector('[data-lib-atmos]')
     if (atmosphere) {
-      atmosphere.style.setProperty('--lib-cover-art', book.art?.src ? `url("${book.art.src.replace(/["\\]/g, '')}")` : 'none')
+      const colour = book.cover?.background || '#17262d'
+      atmosphere.style.backgroundColor = colour
       atmosphere.style.setProperty('--lib-accent', book.cover?.accent || '#c9a45c')
     }
+    blendAtmosphere(book)
     renderFeatured()
-    caption.innerHTML = `<span class="lib-author">${escapeHtml(book.author)}</span><h2 class="lib-h1" data-popular-title>${escapeHtml(book.title)}</h2>${length ? `<span class="lib-readtime" aria-label="Estimated reading time ${escapeHtml(length.hours)} hours"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>About ${escapeHtml(length.hours)} ${length.hours === 1 ? 'hour' : 'hours'} to read</span>` : ''}<p class="lib-lede" data-popular-blurb>${escapeHtml(bookDescription(book))}</p>`
+    caption.innerHTML = `<span class="lib-author">${escapeHtml(book.author)}</span><h2 class="lib-h1" data-popular-title>${escapeHtml(book.title)}</h2>${length ? `<span class="lib-readtime" title="${escapeHtml(length.ariaLabel)}" aria-label="${escapeHtml(length.ariaLabel)}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>${escapeHtml(length.value)}</span>` : ''}<p class="lib-lede" data-popular-blurb>${escapeHtml(bookDescription(book))}</p>`
   }
 
   function renderFirstCategory() {
@@ -632,15 +656,20 @@ import {
     const finish = event => {
       if (!reelDrag || reelDrag.pointerId !== event.pointerId) return
       const moved = reelDrag.moved
+      const initial = reelDrag.initial
+      const travelled = reelPosition - initial
+      const target = moved >= 28 && Math.abs(travelled) < .5 ? Math.round(initial) + Math.sign(travelled) : Math.round(reelPosition)
       reelDrag = null
       shelf.classList.remove('is-dragging')
       if (shelf.hasPointerCapture(event.pointerId)) shelf.releasePointerCapture(event.pointerId)
       if (moved > 6) reelClickBlockedUntil = Date.now() + 350
-      setShelfIndex(Math.round(reelPosition))
+      setShelfIndex(target)
     }
     shelf.onpointerup = finish
     shelf.onpointercancel = finish
-    shelf.onlostpointercapture = event => { if (reelDrag) finish(event) }
+    // Touch begins with implicit capture on the cover. Its bubbled loss when
+    // capture transfers to the shelf is not the end of the gesture.
+    shelf.onlostpointercapture = event => { if (event.target === shelf && reelDrag) finish(event) }
     let wheelTimer
     shelf.onwheel = event => {
       const delta = event.shiftKey && !event.deltaX ? event.deltaY : event.deltaX
@@ -845,6 +874,18 @@ import {
     }, true)
   }
 
+  function discoveryRows(catalogue) {
+    const houses = indexHouses(catalogue)
+    const novels = ['frankenstein','niels-lyhne','notes-from-underground','jekyll-and-hyde','ivan-ilyich','the-awakening','candide','heart-of-darkness','werther']
+    const books = filterIndexBooks(catalogue, '')
+    const short = novels.map(id => books.find(book => book.id === id)).filter(Boolean)
+    const epics = books.filter(book => book.shelfIds?.some(id => id.includes('epic')))
+    const picked = new Set([...short, ...epics].map(book => book.id))
+    const rest = houses.map(house => ({...house, books:house.books.filter(book => !picked.has(book.id))})).filter(house => house.books.length)
+    rest.sort((a,b) => Number(b.id === 'philosophy') - Number(a.id === 'philosophy'))
+    return [{id:'short-novels',title:'Short novels',books:short},{id:'epics',title:'Epics',books:epics},...rest].filter(row => row.books.length)
+  }
+
   function renderIndex() {
     library().dataset.searching = String(Boolean(state.query.trim()))
     const body = root.querySelector('[data-library-index]')
@@ -861,7 +902,7 @@ import {
     }
     label.textContent = 'All books'
     count.textContent = String(publishedCount(state.catalogue))
-    body.innerHTML = '<p class="lib-browse-label">Browse the library</p>' + indexHouses(state.catalogue).map(house => {
+    body.innerHTML = '<p class="lib-browse-label">Browse the library</p>' + discoveryRows(state.catalogue).map(house => {
       const source = state.catalogue.houses?.find(item => item.id === house.id)
       return `<section class="lib-catalogue-house" data-house-books="${escapeHtml(house.id)}"><header><h2>${escapeHtml(house.title)}</h2><p>${escapeHtml(source?.subtitle || '')}</p></header><div class="lib-category-track" tabindex="0" role="region" aria-label="${escapeHtml(house.title)} books">${bookCells(house.books)}</div></section>`
 
@@ -1570,7 +1611,15 @@ import {
   if (window.__tinctLabBoot?.state?.returning) state.libraryMode = 'returning'
   if (window.__tinctLabLibraryMode === 'new' || window.__tinctLabLibraryMode === 'returning') state.libraryMode = window.__tinctLabLibraryMode
   // The shelf selection outlives a trip into a book or the reader.
-  state.shelfIndex = Number.parseInt(readSession(LIBRARY_SHELF_SESSION_KEY) ?? '2', 10) || 0
+  let initialShelf = readSession(LIBRARY_SHELF_SESSION_KEY)
+  if (initialShelf === null && window.innerWidth <= 600) {
+    const choices = [3,1,2,0] // Notes, Meditations, Frankenstein, The Prince.
+    const visits = Number.parseInt(readLocal('tinct:featured-visit') || '0',10) || 0
+    initialShelf = String(choices[Math.max(0,visits) % choices.length])
+    writeSession(LIBRARY_SHELF_SESSION_KEY,initialShelf)
+    try { localStorage.setItem('tinct:featured-visit', String(visits+1)) } catch {}
+  }
+  state.shelfIndex = Number.parseInt(initialShelf ?? '2',10) || 0
   state.searchRevealed = searchRevealed(safeSessionStorage())
   // Focus reaching the field in a closed drawer (Tab, or the tap on its
   // <label>) opens the drawer; see revealSearch.

@@ -90,3 +90,35 @@
 }
 #tinct-onboarding-worlds-v5 .lib .lib-category-track{cursor:grab}
 #tinct-onboarding-worlds-v5 .lib .lib-category-track.is-dragging{cursor:grabbing;scroll-snap-type:none}
+
+/* A brief fan reveal settles; the reading surface never needs a pause control. */
+#tinct-onboarding-worlds-v5 .entry-motion{display:none!important}
+#tinct-onboarding-worlds-v5 .entry-cover-track{animation:none;width:100%;justify-content:center;gap:0;padding:22px 0 24px;isolation:isolate}
+#tinct-onboarding-worlds-v5 .entry-cover-track .lib-cover{flex:0 0 clamp(112px,24vw,166px);margin:0 -27px;animation:entry-fan 1100ms cubic-bezier(.18,.8,.22,1) both;transform:rotate(var(--fan-angle,0deg)) translateY(var(--fan-y,0px))}
+#tinct-onboarding-worlds-v5 .entry-cover-track .lib-cover:nth-child(1){--fan-angle:-13deg;--fan-y:14px;animation-delay:80ms}
+#tinct-onboarding-worlds-v5 .entry-cover-track .lib-cover:nth-child(2){--fan-angle:-6deg;--fan-y:4px;animation-delay:140ms;z-index:2}
+#tinct-onboarding-worlds-v5 .entry-cover-track .lib-cover:nth-child(3){animation-delay:200ms;z-index:3}
+#tinct-onboarding-worlds-v5 .entry-cover-track .lib-cover:nth-child(4){--fan-angle:6deg;--fan-y:4px;animation-delay:260ms;z-index:2}
+#tinct-onboarding-worlds-v5 .entry-cover-track .lib-cover:nth-child(5){--fan-angle:13deg;--fan-y:14px;animation-delay:320ms}
+#tinct-onboarding-worlds-v5 .entry-cover-column{animation:entry-columns-settle 1400ms cubic-bezier(.18,.8,.22,1) both!important}
+@keyframes entry-fan{from{opacity:0;transform:translateY(42px) rotate(0deg) scale(.92)}to{opacity:1;transform:rotate(var(--fan-angle,0deg)) translateY(var(--fan-y,0px))}}
+@keyframes entry-columns-settle{from{opacity:0;transform:translateY(70px)}to{opacity:1;transform:translateY(0)}}
+#tinct-onboarding-worlds-v5 .lib .lib-hdr{justify-content:flex-end}
+#tinct-onboarding-worlds-v5 .lib .lib-shelf{border:0;touch-action:pan-y;user-select:none}
+#tinct-onboarding-worlds-v5 .lib .lib-shelf::before,#tinct-onboarding-worlds-v5 .lib .lib-shelf::after{display:none}
+#tinct-onboarding-worlds-v5 .lib .lib-category-track{scrollbar-width:none;border:0}
+#tinct-onboarding-worlds-v5 .lib .lib-category-track::-webkit-scrollbar{display:none}
+.lib-atmos{transition:background-color 1500ms ease}
+.lib-atmos::after{background-image:none!important;background:radial-gradient(ellipse at 45% 15%,var(--lib-accent,#c9a45c),transparent 68%);filter:blur(80px)!important;opacity:.17!important;transition:opacity 1200ms ease}
+@media(max-width:600px){#tinct-onboarding-worlds-v5 .lib .lib-popular-lead .lib-h1{font:11px/1.4 system-ui;letter-spacing:.16em;text-transform:uppercase;color:var(--lib-muted)}}
+@media(prefers-reduced-motion:reduce){#tinct-onboarding-worlds-v5 .entry-cover-track .lib-cover,#tinct-onboarding-worlds-v5 .entry-cover-column{animation:none!important}.lib-atmos,.lib-atmos::after{transition:none!important}}
+
+@property --lib-accent{syntax:"<color>";inherits:true;initial-value:#c9a45c}
+.lib-atmos{transition:background-color 1500ms ease,--lib-accent 1500ms ease}
+
+.lib-atmos .lib-art-layer{position:absolute;inset:-100px;background-size:cover;background-position:50% 30%;filter:blur(85px) saturate(1.25);opacity:0;transition:opacity 1500ms ease;mask-image:linear-gradient(#000, #000 45%,transparent 100%);pointer-events:none}
+.lib-atmos .lib-art-layer.is-visible{opacity:.34}
+@media(prefers-reduced-motion:reduce){.lib-atmos .lib-art-layer{transition:none}}
+
+/* Let the cover glow fade before the reel clipping boundary. */
+#tinct-onboarding-worlds-v5 .lib .lib-shelf{mask-image:linear-gradient(to bottom,#000 calc(100% - 14px),transparent)}

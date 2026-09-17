@@ -113,8 +113,8 @@ import { useLabHighlights } from './useLabHighlights'
 import { useLabAsk } from './useLabAsk'
 import { readLabPositionLocal } from './labPositionStore'
 import { markReaderLoadTrace } from '../utils/readerLoadTrace'
-import { LabAccountSheet, LabSecondBookNudge } from './LabAccountPrompt.tsx'
-import { clearLabAiActionCount, labBooksReadOnDevice, labCurrentPath, markSecondBookNudgeShown, shouldShowSecondBookNudge, type LabAccountPromptRequest } from './labAccountPrompt'
+import { LabAccountSheet } from './LabAccountPrompt.tsx'
+import { clearLabAiActionCount, labCurrentPath, labBookSignInReturn, type LabAccountPromptRequest } from './labAccountPrompt'
 import { useLabListen } from './useLabListen'
 import { mapLabCompareAnchor, splitLabPagesAtAnchor } from './labCompare'
 import {
@@ -580,26 +580,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // its first transport fact. It is the only place "no report yet" is read as
   // connecting; after that, no session means no connection.
   const [callAwaitingConnection, setCallAwaitingConnection] = useState(false)
-  // Account policy (labAccountPrompt.ts): reading is always free; an
-  // anonymous reader's fourth AI action — chat and voice share one allowance
-  // of three — shows a sheet and is not sent; a second book shows one quiet
-  // line under the header, once per device.
+  // Ten shared anonymous AI interactions; opening or reading books never prompts.
   const signedIn = authToken !== undefined ? Boolean(authToken) : (Boolean(authUser) || likelyAuthenticated)
   const [accountPrompt, setAccountPrompt] = useState<LabAccountPromptRequest | null>(null)
-  const [secondBookNudge, setSecondBookNudge] = useState(() => shouldShowSecondBookNudge({
-    signedIn,
-    bookId: book.bookId || 'bible',
-    booksRead: labBooksReadOnDevice({ memory: readDeviceReadingMemory(), position: readLabPositionLocal() }),
-  }))
-  useEffect(() => {
-    if (secondBookNudge) markSecondBookNudgeShown()
-  }, [secondBookNudge])
   useEffect(() => {
     if (signedIn) {
-      setSecondBookNudge(false)
       setAccountPrompt(null)
       // Signing in spends nothing: the anonymous allowance is handed back, so
-      // a later sign-out on the same device starts from three again.
+      // a later sign-out on the same device starts from ten again.
       clearLabAiActionCount()
     }
   }, [signedIn])
@@ -4026,11 +4014,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           onPrefs={updatePrefs}
           editions={bookEditions}
           audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
-          returnTo={signInReturnTo}
+          returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
         />
-      )}
-      {!frontispieceVisible && secondBookNudge && (
-        <LabSecondBookNudge returnTo={signInReturnTo} onDismiss={() => setSecondBookNudge(false)} />
       )}
       {readerLoadError && (
         <div className="lab-reader-load-error" role="alert" data-testid="lab-reader-load-error">
@@ -4623,14 +4608,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           setPeekBook(chrome === 'hearing')
         }}
         desktop={!showPhoneChrome}
-        returnTo={signInReturnTo}
+        returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
         onLeaveToLibrary={rememberLibraryPlace}
       />
 
       <LabAccountSheet
         open={accountPrompt !== null}
         action={accountPrompt?.action ?? 'chat'}
-        returnTo={signInReturnTo}
+        returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
         onClose={closeAccountPrompt}
         desktop={!showPhoneChrome}
       />

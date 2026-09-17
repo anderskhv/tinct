@@ -9,7 +9,7 @@
  */
 export const LAB_DEFAULT_RETURN_TO = '/lab/library'
 
-const LAUNCH_ROUTE = /^\/(?:library|read\/[A-Za-z0-9_-]+(?:\/\d+)?)\/?$/
+const LAUNCH_ROUTE = /^\/(?:library|reader|read\/[A-Za-z0-9_-]+(?:\/\d+)?)\/?$/
 
 export function safeLabReturnTo(value: string | null | undefined, origin: string = location.origin): string {
   if (!value || value.includes('\\')) return LAB_DEFAULT_RETURN_TO

@@ -209,19 +209,15 @@ describe('locked library model', () => {
     expect(formatReadingTime(150)).toBe('2 hr 30 min')
     expect(formatReadingTime(700)).toBe('11 hr')
     expect(formatReadingTime(0)).toBeNull()
-    expect(readingTimeLine(120_000)).toEqual({ value: '8 hr', wordsPerMinute: 250, measured: false, note: 'at 250 words a minute' })
+    expect(readingTimeLine(120_000)).toEqual({ value: '10–15 hours', wordsPerMinute: null, measured: false, note: 'estimated at 140–200 words a minute; pauses and notes take extra time' })
     expect(readingTimeLine(120_000, 400)).toEqual({ value: '5 hr', wordsPerMinute: 400, measured: true, note: 'at your 400 words a minute' })
     expect(readingTimeLine(null)).toBeNull()
   })
 
-  it('uses the catalogue word count for one estimated pages and reading-hours line', () => {
-    expect(catalogueLengthLine(88_000)).toEqual({
-      value: '320 pages ≈ 6 hours',
-      ariaLabel: 'Estimated 320 pages, approximately 6 hours of reading at 250 words a minute',
-      pages: 320,
-      hours: 6,
-    })
-    expect(catalogueLengthLine(10_000)?.value).toBe('36 pages ≈ 1 hour')
+  it('gives a reading range without presenting invented print pagination', () => {
+    expect(catalogueLengthLine(88_000)?.value).toBe('About 8–11 hours to read')
+    expect(catalogueLengthLine(10_000)?.value).toBe('About 1–2 hours to read')
+    expect(catalogueLengthLine(110_000)?.value).toBe('About 10–14 hours to read')
     expect(catalogueLengthLine(null)).toBeNull()
     expect(catalogueLengthLine(0)).toBeNull()
   })

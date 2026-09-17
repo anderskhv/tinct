@@ -35,11 +35,25 @@ background. [Release and verification](library-preparation-polish-2026-09-17.md)
 
 ## Responsive entry surfaces — September 17
 
-The landing uses content-flow copy, animated proportional covers and Start reading
+The landing uses content-flow copy, a settling cover fan and Pick your book
 on phone/portrait tablet, with separate desktop cover columns. The library opens
 on a centred starter reel with full descriptions and estimated reading time.
 Category rows scroll horizontally; desktop rows also support mouse dragging.
+Short novels, Epics and Philosophy lead the complete catalogue. Reading estimates
+use published word counts and a disclosed 140–200 words/minute range, without
+invented print-page counts. Mobile Featured selection rotates between visits.
 Mobile removes the header and places sign-in/account access in Search. The glass
-dock is shallower; the approved book preparation remains unchanged. Librarian
+dock is shallower; preparation offers separate Talk / Chat actions and provenance-labelled editions
+in Primary, Audiobook, Compare order. Librarian
 messages use the existing safe Markdown renderer.
 [Release evidence and device-verification limits](library-responsive-2026-09-17.md).
+
+## Selection and anonymous AI — September 17 iteration
+
+Selection offers Explain, Ask, Highlight and Copy. Ask attaches the selection to
+Chat; Highlight opens colours and an optional note editor. Preparation suggestion
+cards submit immediately. Sign-in retains reader/book return parameters.
+Anonymous Explain, Chat and spoken questions share ten AI interactions; further
+AI use offers an account with the existing first month free. Book opening and
+reading do not trigger an account nudge, and reading remains available without AI.
+[Iteration verification and release status](library-iteration-2026-09-17.md).

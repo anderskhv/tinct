@@ -558,7 +558,7 @@ export function LabAskPane({
       )}
       {chromeV2 && onBackToContents && <button className="lab-ask-back-contents" onClick={onBackToContents}>← Back to contents</button>}
       {preparationSuggestions && !typedLoading && <nav className="lab-preparation-questions" aria-label="Questions before you begin">
-        {['What should I notice at the beginning?', 'Who are the main characters?', 'Help me find an angle that interests me.'].map(question => <button type="button" key={question} onClick={() => onDraftChange(question)}>{question}</button>)}
+        {['What should I notice at the beginning?', 'Who are the main characters?', 'Help me find an angle that interests me.'].map(question => <button type="button" key={question} onClick={() => onSubmit(question)}>{question}</button>)}
       </nav>}
       {empty ? (
         preparationSuggestions ? null : <p className="lab-ask-greeting">{syncing ? LAB_COPY.askHistoryLoading : LAB_COPY.askGreeting}</p>

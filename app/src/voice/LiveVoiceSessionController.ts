@@ -64,9 +64,15 @@ export class LiveVoiceSessionController {
   private flush(role: 'user' | 'assistant') {
     const text = this.captions[role].replace(/\uFFFD/g, '').trim()
     this.captions[role] = ''
+    if (role === 'user') this.userTurnAccepted = false
     if (/[\p{L}\p{N}]/u.test(text)) this.callbacks.onTurn(role, text)
   }
+  private userTurnAccepted = false
   private caption(role: 'user' | 'assistant', delta: string) {
+    if (role === 'user' && !this.userTurnAccepted && /[\p{L}\p{N}]/u.test(delta)) {
+      if (this.callbacks.onBeforeUserTurn?.() === false) { this.stop(); return }
+      this.userTurnAccepted = true
+    }
     this.captions[role] += delta
     // A pause is not the end of a question. Keep its fragments together until
     // the backend starts work, or the session ends. Output pauses may be long

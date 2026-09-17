@@ -42,6 +42,7 @@ export interface UseVoiceSessionOptions {
   onNeedAuth: () => void
   onInsufficientBalance: () => void
   onUsage?: () => void
+  onBeforeUserTurn?: () => boolean
   onEndConversation?: () => void
   mode?: VoiceSessionMode
   /** Lab-only. Production AudioStrip leaves this unset so buildVoiceInstructions runs. */
@@ -92,6 +93,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     const Controller = options.voiceTrial ? VoiceSessionController : LiveVoiceSessionController
     const controller = new Controller({
       onSnapshot: setUi,
+      onBeforeUserTurn: () => optionsRef.current.onBeforeUserTurn?.() ?? true,
       onTurn: (role, text, meta) => {
         const opts = optionsRef.current
         const message: ChatMessage = {

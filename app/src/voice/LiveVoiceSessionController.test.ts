@@ -109,3 +109,23 @@ it('sends the preparation welcome to Live once, without a Realtime response trig
   expect(sent[0].content).toContain(greeting)
   expect(controller.getSnapshot().connection).toBe('connected')
 })
+
+it('counts one question across transcript fragments and stops before an eleventh question', () => {
+  let used = 8
+  const onBeforeUserTurn = vi.fn(() => { if (used >= 10) return false; used++; return true })
+  const onTurn = vi.fn()
+  const controller = new LiveVoiceSessionController({ onSnapshot: vi.fn(), onTurn, onBeforeUserTurn })
+  const stop = vi.spyOn(controller, 'stop')
+  for (let question=0;question<2;question++) {
+    controller.handleEvent({ type:'session.input_transcript.delta',delta:'Why ' })
+    controller.handleEvent({ type:'session.input_transcript.delta',delta:'this passage?' })
+    controller.handleEvent({ type:'response.event',delegation_id:'q'+question,event:{type:'response.created'} })
+  }
+  expect(used).toBe(10)
+  expect(onBeforeUserTurn).toHaveBeenCalledTimes(2)
+  expect(onTurn).toHaveBeenCalledTimes(2)
+  controller.handleEvent({type:'session.input_transcript.delta',delta:'One more?'})
+  expect(stop).toHaveBeenCalledOnce()
+  expect(used).toBe(10)
+  expect(onTurn).toHaveBeenCalledTimes(2)
+})
