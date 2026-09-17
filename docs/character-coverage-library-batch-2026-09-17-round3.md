@@ -102,17 +102,57 @@ sufficient on its own for any change that touches a character's
 firstMention, roleVisibleAt, or snapshot availableAt, or that adds
 mentions earlier in the text than previously recorded ones.
 
+## Second pass: remaining word-frequency candidates, ~65 more books
+
+After the Shakespeare speaker-label fixes, re-ran the round-2 word-
+frequency scan's candidate list against every book not yet screened this
+session (~65 books), filtering out words that are stop-words, archaic
+grammar (Thou/Thy/Tis/Hath), stage directions (Enter/Exit/Exeunt), or
+already match an existing character's name (including its possessive).
+This surfaced 6 books with a plausible non-noise top candidate:
+
+- `jerusalem` (Brita, Mother Stina), `fear-and-trembling` (Agnete),
+  `niels-lyhne` (Frithjof, Hjerrild), `genealogy-of-morals`
+  (Schopenhauer), `moby-dick` (Jonah) — all confirmed real by reading
+  every occurrence in context and fixed (see above).
+- `frederick-douglass` ("Michael's") and `jungle-book` ("Teddy's") —
+  checked and confirmed false positives: "St. Michael's" is a place
+  name, not the already-carded Mrs. Michaels; Teddy's possessive
+  occurrences already resolve correctly through existing "Teddy"
+  mentions (the reader strips a trailing possessive before matching).
+- `beowulf` ("Higelac's") — checked and confirmed already fully bound;
+  the card's display name uses the modernized spelling "Hygelac" but
+  its mentions are correctly recorded under the text's actual spelling,
+  "Higelac", including every possessive occurrence.
+
+Every other candidate across the remaining ~55 books was stage
+directions, archaic second-person pronouns/verb forms, place names, or
+abstract nouns (States, Sovereign, Pleasure, Justice, Rome, Thebes,
+London, etc.) — the same texture of noise as round 2's "reviewed, no fix
+made" books. No further real gaps found by this method in this pass.
+
+**Limit of this method, stated plainly:** a word-frequency threshold scan
+only surfaces characters mentioned often enough to clear the threshold
+in a single book. A minor character named 3-5 times across a long text
+(the kind flagged as a real risk for `peloponnesian-war` in round 2)
+would not surface here. This round's screen should be read as "no
+frequent uncarded character found," not "no missing character exists,"
+for the ~55 books with no flagged candidate.
+
 ## Running total, this session
 
 Deep passes: The Republic (13→99), the Bible (152→~3,014), War and Peace
 (22→32). Screening-plus-fix passes: round 1 (10 books, 3 fixed), round 2
-(17 books, 9 fixed), round 3 (4 Shakespeare plays, all fixed for the
-speaker-label gap — no missing-character gaps found in this batch).
-**~72 of the library's books remain unscreened for missing characters**
-(the speaker-label-gap screen itself was not exhaustive across the whole
-library — it was found via one spot-check and fixed everywhere it was
-confirmed present; a systematic sweep for the same gap across all plays
-has not been run).
+(17 books, 9 fixed), round 3 (4 Shakespeare plays fixed for the
+speaker-label gap, plus 5 more books with real missing-character
+additions: jerusalem, fear-and-trembling, niels-lyhne,
+genealogy-of-morals, moby-dick). ~65 more books screened by word-frequency
+candidate with no further real gaps found (see above for its limits).
+
+**Total this round: 9 books fixed (4 speaker-label, 5 missing-character),
+73 books screened with no action needed, one real-browser-verification-
+caught bug (firstMention/snapshot timing) fixed along the way, one more
+(an untappable em-dash-glued mention in niels-lyhne) fixed the same way.**
 
 ## Release status
 
