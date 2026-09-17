@@ -55,6 +55,17 @@ const CASES = [
   ['confessions', 'original-en', undefined, 'moses', undefined, 'confessions-moses-new'],
   ['brothers-karamazov', 'original-en', undefined, 'nikolay-parfenovitch', undefined, 'nikolay-parfenovitch-new'],
   ['brothers-karamazov', 'original-en', undefined, 'pyotr-ilyitch', undefined, 'pyotr-ilyitch-new'],
+  // round 4: Shakespeare ALL-CAPS speaker-label occurrence-linking gap
+  // (as-you-like-it, taming-of-the-shrew, the-tempest 96-100% unbound;
+  // merry-wives-of-windsor 40% unbound on the short-form "PAGE" label).
+  ['as-you-like-it', 'original-en', 1, 'rosalind', undefined, 'speaker-label-rosalind'],
+  ['as-you-like-it', 'original-en', 1, 'orlando', undefined, 'speaker-label-orlando'],
+  ['taming-of-the-shrew', 'original-en', 2, 'petruchio', undefined, 'speaker-label-petruchio'],
+  ['taming-of-the-shrew', 'original-en', 1, 'katherina', undefined, 'speaker-label-katherina'],
+  ['the-tempest', 'original-en', 2, 'prospero', undefined, 'speaker-label-prospero'],
+  ['the-tempest', 'original-en', 2, 'ariel', undefined, 'speaker-label-ariel'],
+  ['merry-wives-of-windsor', 'original-en', 1, 'page', 'Page', 'mww-short-form-page'],
+  ['merry-wives-of-windsor', 'original-en', undefined, 'falstaff', undefined, 'mww-sanity-falstaff'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
