@@ -20,7 +20,7 @@ try {
   await page.route('**/*', async route => {
    const request = route.request()
    if (request.method() !== 'GET') return route.abort()
-   if (live && viewport.width < 600 && request.isNavigationRequest() && new URL(request.url()).pathname === '/reader') return route.fulfill({status:302,headers:{location:'https://tinct.app/lab/phone'},body:''})
+   if (live && viewport.width < 600 && request.isNavigationRequest() && new URL(request.url()).pathname === '/reader') return route.fulfill({status:302,headers:{location:'https://tinct.app/lab/phone?chrome=v2'},body:''})
    if (live) return route.continue()
    const url = new URL(request.url())
    if (url.origin !== 'https://tinct.app') return route.continue()
