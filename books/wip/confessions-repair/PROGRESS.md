@@ -39,7 +39,7 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 | Book | Draft (Sonnet) | Independent review (Opus) | Corrected | Verified | Accepted |
 |---|---|---|---|---|---|
 | 3 | frozen (sha256 9598b9ba…) | done — 53 findings (6 major, 12 moderate, 35 minor) | done — 18/21 paragraphs edited | done — 6/6 majors confirmed fixed; 5 new clause-level issues found and fixed directly (no further round) | **accepted** (sha256 c7a80e65…) |
-| 4 | frozen (sha256 e5dd8853…) | in progress (Opus) | — | — | — |
+| 4 | frozen (sha256 e5dd8853…) | done — 25 findings (1 major, 6 moderate, 18 minor) | in progress | — | — |
 | 5 | queued | — | — | — | — |
 | 6 | queued | — | — | — | — |
 | 8 | queued | — | — | — | — |
