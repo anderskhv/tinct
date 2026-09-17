@@ -100,6 +100,19 @@ const CASES = [
   ['war-and-peace', 'modern-en', undefined, 'theodore-ivanych', undefined, 'wp-modern-theodore-ivanych'],
   ['war-and-peace', 'modern-en', undefined, 'dorokhov', undefined, 'wp-modern-dorokhov'],
   ['war-and-peace', 'modern-en', undefined, 'rostopchin', undefined, 'wp-modern-rostopchin'],
+  // the-histories: new characters plus homonym-disambiguation checks
+  // (Herodotus reuses names across unrelated figures).
+  ['the-histories', 'original-en', undefined, 'aristagoras-milesian', 'Aristagoras', 'hist-aristagoras-milesian'],
+  ['the-histories', 'original-en', undefined, 'aristodemos-ancestor', 'Aristodemos', 'hist-aristodemos-ancestor'],
+  ['the-histories', 'original-en', undefined, 'aristodemos-thermopylae', 'Aristodemos', 'hist-aristodemos-thermopylae'],
+  ['the-histories', 'original-en', undefined, 'lycurgos-athenian', 'Lycurgos', 'hist-lycurgos-athenian'],
+  ['the-histories', 'original-en', undefined, 'lycurgos-spartan', 'Lycurgos', 'hist-lycurgos-spartan'],
+  ['the-histories', 'original-en', undefined, 'hegesistratos-sigeion', 'Hegesistratos', 'hist-hegesistratos-sigeion'],
+  ['the-histories', 'original-en', undefined, 'hegesistratos-diviner', 'Hegesistratos', 'hist-hegesistratos-diviner'],
+  ['the-histories', 'original-en', undefined, 'tomyris', undefined, 'hist-tomyris-new'],
+  ['the-histories', 'original-en', undefined, 'zopyros', undefined, 'hist-zopyros-new'],
+  ['the-histories', 'original-en', undefined, 'masistes', undefined, 'hist-masistes-new'],
+  ['the-histories', 'original-en', undefined, 'megistias', undefined, 'hist-megistias-new'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
