@@ -46,7 +46,7 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 | 9 | frozen (sha256 76800a80…) | done — 21 findings (1 major, 3 moderate, 17 minor); question-mark parity independently confirmed 39/39; "The Master"→"The Teacher" accepted (standard modern title of De Magistro); drafter's claim of using double quotes was false — systemic single-quote defect found | done — 20/38 paragraphs changed, independently diffed and confirmed matching corrector's claim exactly | done — major + all 3 moderates confirmed, zero collateral edits, independent full-file quote scan confirms zero remaining single-quote usage | **accepted** (sha256 37ca4807…) |
 | 10 | frozen (sha256 3c37ac38…) | done — combined 1 major, 10 moderate, 31 minor (41 total); question-mark parity independently confirmed 132/132; major is a 5th direction-inversion instance (para 58); pride/confession paradox (para 62) confirmed intact | done — 29/70 paragraphs changed, independently diffed and confirmed matching corrector's claim exactly | done — major + all 10 moderates confirmed, zero collateral edits, paradox confirmed intact and sharper, exclamation-mark parity also verified (19/19) | **accepted** (sha256 1d3d1861…) |
 | 12 | frozen (sha256 057f2f14…) | done — 0 major, 4 moderate, 10 minor; question-mark/exclamation-mark parity independently confirmed 59/59, 7/7; zero direction inversions found (first book to break that pattern); pluralism argument traced across whole book, confirmed faithful | done — 13/42 paragraphs substantively changed (plus global em-dash normalization touching all 42), independently diffed and confirmed matching corrector's claim exactly | done — all 4 moderates confirmed, zero silent drift, pluralism argument's qualifier language verified unchanged, both restored passages read as native | **accepted** (sha256 f5056668…) |
-| 13 | frozen (sha256 fc900a52…) | done — 1 major, 6 moderate, 23 minor; question-mark/exclamation-mark parity independently confirmed 54/54, 1/1; all 31 allegorical mappings verified correct direction, zero inversions in the allegory itself; major is a theological-verb inversion (para 45, "pleases"/"is pleased" swapped) distinct from the allegory; one undisclosed-but-correct source emendation flagged (para 22) | done — 28/53 paragraphs changed, independently diffed and confirmed matching corrector's claim exactly; para 22 emendation now explicitly disclosed | verification in progress (Opus) | — |
+| 13 | frozen (sha256 fc900a52…) | done — 1 major, 6 moderate, 23 minor; question-mark/exclamation-mark parity independently confirmed 54/54, 1/1; all 31 allegorical mappings verified correct direction, zero inversions in the allegory itself; major is a theological-verb inversion (para 45, "pleases"/"is pleased" swapped) distinct from the allegory; one undisclosed-but-correct source emendation flagged (para 22) | done — 28/53 paragraphs changed, independently diffed and confirmed matching corrector's claim exactly; para 22 emendation now explicitly disclosed | done — major + all 6 moderates confirmed, zero unlogged edits, closing Sabbath meditation confirmed intact, all 31 allegorical mappings confirmed undisturbed | **accepted** (sha256 181755e8…) |
 
 ## Book 3 — editorially accepted (2026-09-17)
 
@@ -133,9 +133,41 @@ Genesis 1:1-2 exegesis, formless-matter/heaven-of-heavens distinction, qualified
 - Final: `book12-accepted.json`, sha256 `f5056668e6bde90a0ba8d72f9d6a9e2b7057b98204af97da4b92afa19f060e42`.
 - Danish not touched.
 
+## Book 13 — editorially accepted (2026-09-17)
+
+Augustine's allegorical reading of Genesis 1 (creation days 2-6, the Sabbath) — the final book of Confessions.
+
+- Candidate: `book13-candidate.json`, sha256 `fc900a522c54c9a11d077fc32d6d8a88f1aae59401563650d3f8f10f330feb4d` (Sonnet draft, frozen). Drafter self-verified all 31 allegorical mappings against source before freezing.
+- Review: `book13-review.md` — Opus, 30 findings: 1 major, 6 moderate, 23 minor. All 31 allegorical mappings independently re-verified in the correct direction — zero inversions in the allegory itself (Book 13 joins Book 12 in breaking the Books 4/5/6/8/10 streak at that level). The one major was a theological-verb inversion (para 45, God as the one pleasing/delighting vs. being pleased) distinct from the allegorical scheme. One moderate flagged an undisclosed-but-textually-correct emendation of a self-contradictory locked-source line (para 22).
+- Corrected: `book13-corrected.json`, `book13-corrections-log.md` — Sonnet, 28/53 paragraphs changed (independently diffed, confirmed exact match). Para 22's emendation now explicitly disclosed with reasoning, not silently presented as verified.
+- Verification: `book13-verification.md` — Opus, re-derived diff set exactly, confirmed major + all 6 moderates fixed, zero unlogged edits, closing Sabbath/eternal-rest meditation (the culminating passage of the whole work) confirmed intact with full devotional weight, all 31 allegorical mappings confirmed undisturbed by the correction pass.
+- Final: `book13-accepted.json`, sha256 `181755e8b2aa45346d37d71f713495c97876d7bff5decc4aee70897b148c6729`.
+- Danish not touched.
+
+---
+
+## STATUS: all 13 Confessions books individually assessed (2026-09-17)
+
+**9 books repaired and individually editorially accepted:** 3, 4, 5, 6, 8, 9, 10, 12, 13 — each through full draft → independent review → correct → independent verify, with every drafter/corrector self-report independently diffed against the actual JSON rather than trusted (this caught real reporting errors in Books 5, 6, 9).
+
+**4 books already sound, preserved as-is, not touched:** 1, 2, 7, 11 (confirmed genuinely modernized in the original whole-book similarity audit, avg similarity 0.16–0.35 vs. `original-en`, vs. ~1.00 for the 9 defective books).
+
+**Recurring defect found and corrected across the pass:** direction inversion (a claim rendered as its logical opposite — swapped subject/object, flipped preposition, wrong verb polarity) — occurred in Books 4, 5, 6, 8, 10, 13 (6 of 9 corrected books); Books 3, 9, 12 had none. This is the single most important thing a spot-check of any accepted book should verify first.
+
+**What "editorially accepted" means here, precisely, per the book-level acceptance standard:** each of the 9 books individually went through the full cycle above, with independent (not self-) review and independent (not self-) verification of corrections, and every self-reported change-list was cross-checked against the actual file diff. This is NOT the same as whole-title acceptance for Confessions as a book.
+
+**NOT yet done — required before calling Confessions itself whole-title "editorially accepted":**
+1. Cross-chapter consistency check across all 13 books together (not just within each book) — names, recurring terms (Manichees, catechumen, the Elect, etc.), quote-style convention, dash convention — the em-dash and quote-style defects found separately in Books 9 and 12 suggest per-book drafting is not automatically consistent title-wide.
+2. A continuous read of the full stitched-together book for sustained voice/register consistency and literary character across all 13 books end to end (each book was read continuously on its own, not the whole title together).
+3. Re-check of representative passages (opening, middle, ending, hardest passages) after all corrections, across the whole title.
+4. Final provenance/completeness verification at the title level (translator, edition, rights — already confirmed at the start of this project: Pusey 1838, public domain).
+5. A final documented list of every changed paragraph across all 9 books, for downstream audio/timing staleness flagging (owed to whoever owns audio regeneration — not done by this agent).
+
+**Candidate paths for handoff** (all under `books/wip/confessions-repair/`, one set per book: `-source.json`, `-candidate.json`, `-candidate-notes.md`, `-review.md` [or `-review-part1.md`/`-review-part2.md` for Book 10], `-corrected.json`, `-corrections-log.md`, `-verification.md`, `-accepted.json`). The `-accepted.json` files are the ones to promote into `app/public/data/editions/confessions-modern-en.json` if/when a code-owning agent does that swap — this agent has not touched the live file.
+
 ## Next action
 
-Move to Book 13 (final book in this pass, 53 paragraphs): draft → independent review → correct → verify. Standing gates: question-mark and exclamation-mark parity against source (independently counted), direct JSON diffing for all change-list claims, extra scrutiny for direction-inversion (5 of 9 corrected books so far had one — Books 4, 5, 6, 8, 10; Book 12 broke the streak), independent quote-style and dash-convention scans. After Book 13, all 13 Confessions books will have been assessed (9 repaired/accepted, 4 already-sound preserved) and the title-level acceptance checklist (cross-chapter consistency, continuous read, provenance re-check) should run before calling Confessions itself editorially accepted.
+Run the title-level checklist above (cross-chapter consistency, continuous whole-title read) before calling Confessions whole-book accepted. Then move to the next book in the queue: Jane Eyre, War and Peace, or The Brothers Karamazov — scope for these confirmed clear by the user (supersedes the earlier DECISIONS.md scope-lock finding from initial reconnaissance). The Manual returns to the queue once its accepted first-half candidate is supplied by Anders; not blocking.
 
 ## Models actually used
 
