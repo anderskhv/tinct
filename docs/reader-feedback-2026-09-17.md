@@ -1,6 +1,6 @@
 # Reader feedback — September 17, 2026
 
-Status: approved, implementation in progress. Source: desktop and mobile feedback
+Status: shipped September 17, 2026. Source: desktop and mobile feedback
 and the approved combined plan in this task. Work uses the existing Developer
 checkout; builds/deployment retain GitHub Actions. Archived Documents is read-only.
 
@@ -31,14 +31,16 @@ checkout; builds/deployment retain GitHub Actions. Archived Documents is read-on
 
 ## Verification
 
-Pending focused regressions, full tests, build/bundle gates, serialized deployment,
-and isolated muted desktop/mobile production acceptance. No Anthropic development
+Focused regressions, full tests, build/bundle gates, serialized deployment,
+and isolated muted desktop/mobile production acceptance passed. No Anthropic development
 calls. Preserve reading-position invariants and all existing user changes.
 
 Local pre-existing AGENTS changes, an untracked auth regression, and two earlier
 reports were preserved in named Git stashes before fast-forwarding the existing
 checkout. A second stash preserves the earlier compact-preface acceptance JSON.
-These are recovery copies, not discarded changes; reconcile/restore at completion.
+These recovery copies remain in Git stashes. The auth test and completed voice-source
+report were restored; AGENTS matches the current checkout and the preface report
+has no substantive difference. The older acceptance JSON remains recoverable.
 
 ## Implementation and acceptance (September 17)
 
@@ -49,7 +51,7 @@ These are recovery copies, not discarded changes; reconcile/restore at completio
 - Chat opens on fresh space with its full history above. Displayed explanations
   persist through the existing book-scoped, versioned chat writer. Chat/Talk both
   receive the actual explanation; voice shows only the current call's turns.
-- Exact-context private explanation cache: seven days, 32 entries, 200KB limit;
+- Exact-context private explanation cache: seven days, 32 entries, 200,000-character limit;
   book/chapter/edition/text/model/reading-angle/account boundaries are included.
   Overlapping selections remain independent. No database/schema change.
 - Requested history checks durable memory across editions, legacy reading logs,
@@ -73,8 +75,7 @@ These are recovery copies, not discarded changes; reconcile/restore at completio
   use the displayed chapter. A screenshot of an old answer alone does not prove
   an incorrect request; live model interpretation was not retested.
 
-Local verification: 190 files / 2,378 tests passed, including final additions. Build and verify-bundle passed. Final release checks
-pending. Headless Chromium 1440×900 and WebKit 390×844 verified stable Explain,
+Local and release verification: 190 files / 2,378 tests passed, including final additions. Build and verify-bundle passed. GitHub Actions repeated all gates successfully. Headless Chromium 1440×900 and WebKit 390×844 verified stable Explain,
 expand sizes, clean chat entry, sent-input clearing, explanation persistence and
 next-question context. Muted voice transport fixture verified normal handoff,
 context preservation, source links and spoken acknowledgment instructions.
@@ -100,3 +101,28 @@ a page reload makes no additional provider request. Matthew 10 fixture request
 contained approximately 12,265 input characters (token count not metered).
 The archived OVERVIEW/product inventory is not present in the active checkout;
 this plan records only verified changes, without importing stale inventories.
+
+## Production release and acceptance
+
+- Commit: `52a7bc8b810a6c163c3733f4ca891a42d52e1782`.
+- [Deploy run 35197002824](https://github.com/anderskhv/tinct/actions/runs/35197002824)
+  succeeded, including production smoke and bundle verification.
+- Production bundle: `/assets/index-Bme4xt1Q.js`.
+- Production Chromium desktop and WebKit phone passed explanation loading/ready
+  geometry, expansion, chat context/history/input clearing, reload cache reuse,
+  deliberate cross-page selection, and KJV-to-WEB verse highlight projection.
+- Production voice handoff and source-link persistence passed with controlled
+  transport/research fixtures. No real microphone or paid-model call was made.
+- Evidence: `output/reader-feedback-2026-09-17/production-acceptance.json` and
+  the adjacent cross-page, edition and voice reports/screenshots.
+- Remaining verification limits: the intermittent “He who receives” menu failure
+  and the original Matthew chapter-answer mismatch did not reproduce; no claim
+  of conclusive repair for those two reports. Physical iPhone selection and live
+  microphone turn-taking are outside these isolated automated checks.
+- Next action: retain these cases as regression watchpoints; investigate with
+  event/request instrumentation if they recur.
+
+Paused-word retention is covered by focused regressions and the shipped state path.
+An additional production browser test with synthetic media did not establish word
+follow, so it is not counted as passed audio acceptance. Real playback remains
+unverified in this run; no audible testing was performed.
