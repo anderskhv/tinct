@@ -16,6 +16,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
   ]){
    const context=await browser.newContext({viewport:{width,height},hasTouch:touch,serviceWorkers:'block'})
    const page=await context.newPage()
+   await page.bringToFront()
    try {
    await page.addInitScript(()=>{
     HTMLMediaElement.prototype.play=()=>Promise.resolve()
@@ -59,7 +60,10 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    }else assert(landing.covers.left>=landing.copy.right,name+' desktop columns do not collide')
    const track=page.locator('.entry-cover-track,.entry-cover-column').first()
    const before=await track.evaluate(n=>getComputedStyle(n).transform)
-   await page.waitForTimeout(1200)
+   await page.waitForFunction(previous=>{
+    const n=document.querySelector('.entry-cover-track,.entry-cover-column')
+    return n && getComputedStyle(n).transform!==previous
+   },before,{timeout:10000})
    console.log('MOTION_STATE '+engine+' '+name+' '+JSON.stringify(await track.evaluate(n=>({
     hidden:document.hidden,state:getComputedStyle(n).animationPlayState,name:getComputedStyle(n).animationName,
     duration:getComputedStyle(n).animationDuration,transform:getComputedStyle(n).transform,

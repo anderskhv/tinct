@@ -36,3 +36,8 @@ settling before sampling movement; reduced motion and Pause are also checked.
 Final refinements pending re-verification: tighter short-tablet hero, mouse-drag
 category rows, account link routed to the existing account screen. This record
 does not yet claim deployment.
+
+The repeated run exposed first-page WebKit animation clock startup at time zero,
+despite a running animation and visible document. The probe now waits for a
+rendered transform change (bounded to ten seconds), not a fixed sleep, and brings
+only its isolated headless page to the foreground. No personal browser is used.
