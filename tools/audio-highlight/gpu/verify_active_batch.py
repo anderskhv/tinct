@@ -161,6 +161,17 @@ def main() -> int:
     }
     args.evidence.parent.mkdir(parents=True, exist_ok=True)
     args.evidence.write_text(json.dumps(report, indent=2) + "\n")
+    resolved = [
+        {
+            "bookId": row["bookId"],
+            "edition": row["edition"],
+            "chapter": row["chapter"],
+            "expectedEditionSha256": row["editionSha256"],
+            "expectedManifestSha256": row["manifestSha256"],
+        }
+        for row in results
+    ]
+    args.resolved_batch.write_text(json.dumps(resolved, indent=2) + "\n")
     if args.github_env:
         with args.github_env.open("a") as handle:
             handle.write(f"TINCT_GPU_SPENT={carry:.2f}\n")
