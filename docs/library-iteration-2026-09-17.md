@@ -1,6 +1,6 @@
 # Library and reader iteration — September 17, 2026
 
-Status: merged as PR #100; release and production acceptance receipt below.
+Status: shipped and verified on tinct.app, September 17, 2026.
 
 Approved: a settling cover reveal with “Pick your book”; quiet mobile Featured
 selection; easier horizontal swipes; no shelf rule or logo; richer, smoothly
@@ -44,13 +44,14 @@ position. Ordinary reading retains its existing route/resume tuple.
 - [Final pre-release verification](https://github.com/anderskhv/tinct/actions/runs/35221720375):
   2,384 tests in 190 files, documentation checks, build and bundle verification,
   Chromium/WebKit at 375×560, 390×660, 430×780, 820×1024, 1180×720, 1440×900.
-- Expected reader bundle: `/assets/index-Corw3DXZ.js`.
+- Production reader bundle: `/assets/index-o7qBTalU.js` (release environment build).
 - [Production deployment and acceptance](https://github.com/anderskhv/tinct/actions/runs/35222369685)
   is the authoritative release receipt: exact served bundle bytes, smoke test,
   explicit `/lab/phone?chrome=v2` and desktop preparation/selection, then the
-  live Chromium/WebKit responsive matrix. Completion requires this run to be green.
+  live Chromium/WebKit responsive matrix. The run passed, including the complete live matrix.
 - Walkthrough artifact: `production-library-preparation` in that run;
-  folders `library-layout/` and `entry-responsive/` include preparation,
+  [Download walkthrough screenshots](https://github.com/anderskhv/tinct/actions/runs/35222369685/artifacts/10497269566).
+  Folders `library-layout/` and `entry-responsive/` include preparation,
   edition choices, compact palette, landing and shelf screenshots.
 - Verified interaction scope: native short left/right touch gestures, mouse drag,
   horizontal wheel, keyboard selection, vertical catalogue access, stable frame,
