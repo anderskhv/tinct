@@ -78,9 +78,10 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    // Rotation changes the cover structure without a reload.
    if(name==='ipad-portrait'){
     await page.setViewportSize({width:1180,height:720});await page.waitForTimeout(300)
-    assert(await page.locator('.entry-cover-column').count()===3,'rotation creates columns')
+    console.log('ROTATED_VIEWPORT '+engine+' '+JSON.stringify(await page.evaluate(()=>({width:innerWidth,height:innerHeight,visualWidth:visualViewport?.width,visualHeight:visualViewport?.height,wide:matchMedia('(min-width:1100px) and (orientation:landscape)').matches,columns:document.querySelectorAll('.entry-cover-column').length,row:document.querySelectorAll('.entry-cover-track').length}))))
+    await page.waitForFunction(()=>document.querySelectorAll('.entry-cover-column').length===3,null,{timeout:10000})
     await page.setViewportSize({width,height});await page.waitForTimeout(300)
-    assert(await page.locator('.entry-cover-track').count()===1,'rotation restores row')
+    await page.waitForFunction(()=>document.querySelectorAll('.entry-cover-track').length===1,null,{timeout:10000})
    }
    await page.goto('https://tinct.app/library',{waitUntil:'domcontentloaded'});await wait()
    await page.waitForFunction(()=>{
