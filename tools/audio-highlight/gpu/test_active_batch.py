@@ -5,6 +5,7 @@ from pathlib import Path
 from unittest import mock
 
 import verify_active_batch as active
+from host_retry_gate import replacement_spend
 
 
 class ActiveBatchValidationTest(unittest.TestCase):
@@ -49,6 +50,39 @@ class ActiveBatchValidationTest(unittest.TestCase):
         output.return_value = active.ACTIVE_PATH + "\ntools/audio-highlight/aligner/trial.py\n"
         with self.assertRaisesRegex(ValueError, "only active-batch"):
             active.verify_trigger_integrity("reviewed-sha")
+
+
+class HostRetryGateTest(unittest.TestCase):
+    def good_record(self):
+        return {
+            "statusAfterStop": "EXITED",
+            "terminateHttp": 204,
+            "resultsFetched": False,
+            "estimatedCost": 0.0232,
+            "error": "RuntimeError: cuda probe failed: cuda devices 0",
+            "finalStatus": {
+                "setup": {"cuda_probe": "cuda devices 0"},
+                "progress": {
+                    "arm_chapters_passed": 0,
+                    "arm_chapters_rejected": 0,
+                    "arm_chapters_running": 0,
+                    "paragraph_diagnostics": 0,
+                },
+            },
+        }
+
+    def test_allows_one_proven_preprocessing_cuda_zero_replacement(self):
+        self.assertEqual(replacement_spend(self.good_record(), 1.0), 1.0232)
+
+    def test_rejects_any_candidate_state_or_unproven_teardown(self):
+        record = self.good_record()
+        record["finalStatus"]["progress"]["paragraph_diagnostics"] = 1
+        with self.assertRaisesRegex(ValueError, "began chapter"):
+            replacement_spend(record, 1.0)
+        record = self.good_record()
+        record["terminateHttp"] = 500
+        with self.assertRaisesRegex(ValueError, "teardown"):
+            replacement_spend(record, 1.0)
 
 
 class WorkerIsolationSourceTest(unittest.TestCase):
