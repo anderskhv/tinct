@@ -170,3 +170,9 @@ export function shouldShowSecondBookNudge(input: {
   }
   return false
 }
+
+/** Preparation has not committed a reading place; return via its explicit book entry. */
+export function labBookSignInReturn(currentPath: string, bookId: string | undefined, preparing: boolean): string {
+  if (!preparing || !bookId) return currentPath
+  return '/library?' + new URLSearchParams({ book: bookId, view: 'book-detail' }).toString()
+}

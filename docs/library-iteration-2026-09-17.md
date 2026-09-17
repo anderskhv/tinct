@@ -33,3 +33,7 @@ and finish only the shelf's own capture loss. Full matrix retest pending.
 Published text audit: Divine Comedy 111,065 words; Frankenstein 75,021;
 Niels Lyhne 68,480; War and Peace 563,543. Ranges use 140–200 words/minute;
 notes and pauses are extra. No actual print-edition page count is claimed.
+
+Preparation sign-in returns through the explicit book-detail entry because the
+one-use handoff is consumed and preparation intentionally does not write a reading
+position. Ordinary reading retains its existing route/resume tuple.

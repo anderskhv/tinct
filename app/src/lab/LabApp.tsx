@@ -114,7 +114,7 @@ import { useLabAsk } from './useLabAsk'
 import { readLabPositionLocal } from './labPositionStore'
 import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 import { LabAccountSheet } from './LabAccountPrompt.tsx'
-import { clearLabAiActionCount, labCurrentPath, type LabAccountPromptRequest } from './labAccountPrompt'
+import { clearLabAiActionCount, labCurrentPath, labBookSignInReturn, type LabAccountPromptRequest } from './labAccountPrompt'
 import { useLabListen } from './useLabListen'
 import { mapLabCompareAnchor, splitLabPagesAtAnchor } from './labCompare'
 import {
@@ -4014,7 +4014,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           onPrefs={updatePrefs}
           editions={bookEditions}
           audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
-          returnTo={signInReturnTo}
+          returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
         />
       )}
       {readerLoadError && (
@@ -4608,14 +4608,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           setPeekBook(chrome === 'hearing')
         }}
         desktop={!showPhoneChrome}
-        returnTo={signInReturnTo}
+        returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
         onLeaveToLibrary={rememberLibraryPlace}
       />
 
       <LabAccountSheet
         open={accountPrompt !== null}
         action={accountPrompt?.action ?? 'chat'}
-        returnTo={signInReturnTo}
+        returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
         onClose={closeAccountPrompt}
         desktop={!showPhoneChrome}
       />

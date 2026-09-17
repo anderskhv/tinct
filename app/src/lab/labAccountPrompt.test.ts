@@ -185,3 +185,10 @@ describe('lab account prompt: second-book nudge', () => {
     expect(storage.keys()).toEqual([])
   })
 })
+
+import { labBookSignInReturn } from './labAccountPrompt'
+it('returns preparation to its selected book without writing a fake reading position', () => {
+  expect(labBookSignInReturn('/reader', 'frankenstein', true)).toBe('/library?book=frankenstein&view=book-detail')
+  expect(labBookSignInReturn('/lab/phone?chrome=v2', 'niels-lyhne', true)).toBe('/library?book=niels-lyhne&view=book-detail')
+  expect(labBookSignInReturn('/reader?voice=v2', 'frankenstein', false)).toBe('/reader?voice=v2')
+})
