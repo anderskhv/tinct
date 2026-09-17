@@ -16,7 +16,7 @@ The current state of the handoff is `docs/audio-highlight-cloud-handoff-2026-09-
 | `prodapi.py` | nothing | Read-only production access: chapter manifests, word sidecars, edition text, object sizes. |
 | `audit_production.py` | nothing | Walks every English edition on production and records which chapters have a recording and which have a timing sidecar. A **census**, not a quality judgement. |
 | `verify_timings.py` | nothing | Checks published sidecars for identity, paragraph mapping, coverage, timestamp bounds, and agreement with the published edition text at the existing 0.85 threshold. This is the check that turns "a file is present" into "the highlighting is right". |
-| `publish_timings.py` | `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_ENDPOINT` | Validates a candidate, refuses to overwrite, uploads conditionally, re-reads the bytes production serves, and appends to a publication journal. |
+| `publish_timings.py` | `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_ENDPOINT` | Validates a candidate, refuses to overwrite unless the exact key was named with `--supersede`, uploads conditionally, re-reads the bytes production serves, and appends to a publication journal. |
 | `runpod_guard.py` | `RUNPOD_API_KEY` | Stops GPU pods that exceed the rate ceiling, the wall-clock deadline, or the spend envelope. Only touches pods whose name starts with `tinct-`, which is how every launcher names them; anything else is reported, and called out loudly if it is running and billing. |
 
 ## Running the audit
@@ -50,6 +50,15 @@ worker count modest so it stays gentle on production.
 python3 -m unittest discover -s tools/audio-highlight -p 'test_*.py'
 ```
 
+`test_publish_timings.py` exercises the publisher against a stubbed storage
+layer — no credentials, no network: a new key is created and verified against
+the bytes production serves back, an existing key is still skipped and
+journalled, a supersede without the flag is refused, a supersede with the flag
+replaces and journals the previous SHA-256 and size, a failing supersede writes
+nothing, a supersede naming a key that does not exist is refused rather than
+creating it, a concurrent writer wins over a supersede, and no environment
+variable can enable replacement.
+
 `test_runpod_guard.py` exercises the guard against a stubbed provider API, so
 the decisions it makes are verified without a RunPod key and without spending
 anything: each of the three limits stops a pod, a pod inside every limit is
@@ -69,11 +78,29 @@ that reconciliation had to come first.
 
 - The paragraph acceptance threshold stays at **0.85**. No tool here lowers it,
   and none of them fabricates a timestamp or a confidence value.
-- Publication **creates**; it never replaces. A key that already exists is
-  skipped and journalled, so two owners publishing at once cannot clobber
-  each other.
+- Publication **creates**. It replaces only an object an operator has named,
+  one key at a time, with `--supersede <key>` and a `--supersede-reason`. With
+  no such flag — the default — a key that already exists is skipped and
+  journalled, so two owners publishing at once cannot clobber each other. The
+  supersede path exists for the one real case: the chapter text changed (a
+  `modern-en` edition rewritten from a word-swap into a real translation), so
+  its audio and its timing sidecar are stale. It stays narrow on purpose:
+  - it names one exact object key (or `bookId/edition/chapter`); there is no
+    wildcard, no prefix and no "overwrite everything" switch;
+  - it is read from the command line only. A run is **refused** outright if a
+    supersede-looking environment variable (`TINCT_SUPERSEDE`,
+    `PUBLISH_SUPERSEDE`, `AUDIO_HIGHLIGHT_SUPERSEDE`, `SUPERSEDE_KEYS`) is set,
+    so replacement can never be switched on for a pipeline by a CI variable;
+  - it runs the identical validation at the identical 0.85 threshold. There is
+    no bypass flag, and a supersede that fails validation writes nothing;
+  - it refuses a key that does not already exist rather than silently creating it;
+  - it writes conditionally on the current object's ETag, so a concurrent writer
+    is still refused rather than clobbered;
+  - it journals the replaced object's SHA-256, size and ETag together with the
+    stated reason, so every replacement is auditable and reversible.
 - A published object counts as verified only after production has served the
-  bytes back and the SHA-256 matches.
+  bytes back and the SHA-256 matches. This holds for a supersede exactly as it
+  does for a creation.
 - The GPU guard acts only on pods whose name starts with `tinct-` — the prefix
   every launcher uses. Other RunPod resources are reported and left alone, and
   an unowned pod that is actually running and billing is called out as a warning
