@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import subprocess
 import sys
 import urllib.error
@@ -56,7 +57,7 @@ def validate_rows(rows: object) -> list[dict]:
     return clean
 
 
-def validate_spend(ledger: object) -> float:
+def validate_spend(ledger: object, reviewed: object | None = None) -> float:
     if not isinstance(ledger, dict):
         raise ValueError("spend ledger must be an object")
     prior = float(ledger.get("priorEstimate", -1))
@@ -65,11 +66,39 @@ def validate_spend(ledger: object) -> float:
     budget = float(ledger.get("aggregateBudget", -1))
     if prior < 0 or not isinstance(attempts, list) or carry < 0 or budget <= 0:
         raise ValueError("spend ledger fields are invalid")
-    exact = prior + sum(float(row["estimatedCost"]) for row in attempts)
+    if reviewed is not None:
+        if not isinstance(reviewed, dict):
+            raise ValueError("reviewed spend ledger is invalid")
+        for field in ("policy", "priorEstimate", "aggregateBudget"):
+            if ledger.get(field) != reviewed.get(field):
+                raise ValueError(f"spend ledger rewrites reviewed {field}")
+        baseline = reviewed.get("attempts")
+        if not isinstance(baseline, list) or attempts[:len(baseline)] != baseline:
+            raise ValueError("spend ledger rewrites or removes reviewed attempts")
+        if carry < float(reviewed.get("guardCarryForward", 0)):
+            raise ValueError("spend carry-forward rolled back")
+        appended = attempts[len(baseline):]
+        for index, row in enumerate(appended, len(baseline)):
+            if not isinstance(row, dict):
+                raise ValueError(f"spend attempt {index} is invalid")
+            cost = float(row.get("estimatedCost", -1))
+            if not math.isfinite(cost) or cost < 0:
+                raise ValueError(f"spend attempt {index} has invalid estimatedCost")
+            if row.get("pod") and (row.get("status") != "EXITED" or row.get("terminateHttp") != 204):
+                raise ValueError(f"spend attempt {index} lacks proven teardown")
+    costs = []
+    for index, row in enumerate(attempts):
+        if not isinstance(row, dict):
+            raise ValueError(f"spend attempt {index} is invalid")
+        cost = float(row.get("estimatedCost", -1))
+        if not math.isfinite(cost) or cost < 0:
+            raise ValueError(f"spend attempt {index} has invalid estimatedCost")
+        costs.append(cost)
+    exact = prior + sum(costs)
     recorded = float(ledger.get("exactConservativeTotal", -1))
-    if abs(exact - recorded) > 0.0001:
+    if not math.isfinite(recorded) or abs(exact - recorded) > 0.0001:
         raise ValueError(f"spend ledger does not reconcile: {exact:.4f} != {recorded:.4f}")
-    if carry + 1e-9 < exact or carry >= budget:
+    if not math.isfinite(carry) or carry + 1e-9 < exact or carry >= budget:
         raise ValueError("spend carry-forward is not conservative or exhausts the budget")
     return carry
 
@@ -178,7 +207,10 @@ def main() -> int:
     args = parser.parse_args()
     integrity = verify_trigger_integrity(args.reviewed_commit)
     rows = validate_rows(json.loads(args.batch.read_text()))
-    carry = validate_spend(json.loads(args.ledger.read_text()))
+    reviewed_ledger = json.loads(subprocess.check_output(
+        ["git", "show", f"{args.reviewed_commit}:{LEDGER_PATH}"], text=True
+    ))
+    carry = validate_spend(json.loads(args.ledger.read_text()), reviewed_ledger)
     results = [check_target(row) for row in rows]
     audio_seconds = round(sum(row["audioSeconds"] for row in results), 3)
     if audio_seconds > MAX_AUDIO_SECONDS:
