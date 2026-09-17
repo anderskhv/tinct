@@ -119,3 +119,6 @@
 .lib-atmos .lib-art-layer{position:absolute;inset:-100px;background-size:cover;background-position:50% 30%;filter:blur(85px) saturate(1.25);opacity:0;transition:opacity 1500ms ease;mask-image:linear-gradient(#000, #000 45%,transparent 100%);pointer-events:none}
 .lib-atmos .lib-art-layer.is-visible{opacity:.34}
 @media(prefers-reduced-motion:reduce){.lib-atmos .lib-art-layer{transition:none}}
+
+/* Let the cover glow fade before the reel clipping boundary. */
+#tinct-onboarding-worlds-v5 .lib .lib-shelf{mask-image:linear-gradient(to bottom,#000 calc(100% - 14px),transparent)}

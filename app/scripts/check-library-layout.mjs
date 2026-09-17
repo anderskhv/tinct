@@ -127,6 +127,7 @@ try {
   assert(await prep.getByLabel('Compare edition',{exact:true}).count())
   assert(await prep.getByLabel('Audiobook',{exact:true}).count())
   assert.deepEqual(await frame.boundingBox(),beforeExpand,'edition controls keep frame stable')
+  await prep.getByLabel('Compare edition',{exact:true}).scrollIntoViewIfNeeded()
   await page.screenshot({path:output+'/'+name+'-options.png'})
   assert.deepEqual(await prep.locator('#preparation-editions label').allTextContents(),['Primary edition','Audiobook','Compare edition'])
   assert.equal(await prep.locator('h1').evaluate(n=>getComputedStyle(n).outlineStyle),'none')

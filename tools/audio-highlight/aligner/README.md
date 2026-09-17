@@ -15,7 +15,8 @@ tooling, recovered so the work can run in the cloud instead of on one Mac.
 ## Helper revisions (2026-09-11)
 
 `trial.py` compares through a **pinned helper revision**, selected with
-`--helper v1|v2` (default `v2`); hashes and what each pin is are in `PINS.md`.
+`--helper v1|v2|v3|v4|v5` (default `v5`); hashes and what each pin is are in `PINS.md`.
+The next GPU canary must run after `codex/audio-runner-reviewed` includes v5.
 
 - `v1` — `pinned_words_sidecar_lib.py`, the verbatim `f5b23de7` helper above.
   Unchanged; `--helper v1` reproduces run 1's comparison exactly.

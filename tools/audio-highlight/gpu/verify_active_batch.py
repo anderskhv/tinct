@@ -17,6 +17,7 @@ BASE = "https://tinct.app"
 UA = "tinct-active-audio-batch/1.0"
 ACTIVE_PATH = "artifacts/audio-highlight-cloud-resume-2026-09-16/active-batch.json"
 LEDGER_PATH = "artifacts/audio-highlight-cloud-resume-2026-09-16/runpod-spend-ledger.json"
+QUARANTINE_PATH = "artifacts/audio-highlight-cloud-resume-2026-09-16/quarantine.json"
 RUNNER_PATHS = (".github/workflows/audio-align-canary.yml", "tools/audio-highlight")
 MAX_TARGETS = 20
 MAX_AUDIO_SECONDS = 7200.0
@@ -37,9 +38,31 @@ def api_file(route: str, path: str, headers: dict[str, str] | None = None):
     return request(f"{BASE}{route}?path={urllib.parse.quote(path, safe='')}", headers)
 
 
-def validate_rows(rows: object) -> list[dict]:
+def quarantine_keys(payload: object | None = None, root: Path | None = None) -> set[tuple[str, str, int]]:
+    if payload is None:
+        path = (root or Path(__file__).resolve().parents[3]) / QUARANTINE_PATH
+        payload = json.loads(path.read_text())
+    if not isinstance(payload, dict) or not isinstance(payload.get("chapters"), list):
+        raise ValueError("quarantine file must contain a chapters list")
+    keys: set[tuple[str, str, int]] = set()
+    for index, row in enumerate(payload["chapters"]):
+        if not isinstance(row, dict):
+            raise ValueError(f"quarantine row {index} is not an object")
+        book, edition, chapter = row.get("bookId"), row.get("edition"), row.get("chapter")
+        if not isinstance(book, str) or not book or not isinstance(edition, str) or not edition:
+            raise ValueError(f"quarantine row {index} has invalid identity")
+        if not isinstance(chapter, int) or chapter < 1:
+            raise ValueError(f"quarantine row {index} has invalid chapter")
+        keys.add((book, edition, chapter))
+    if not keys:
+        raise ValueError("quarantine file has no chapters")
+    return keys
+
+
+def validate_rows(rows: object, quarantined: set[tuple[str, str, int]] | None = None) -> list[dict]:
     if not isinstance(rows, list) or not 1 <= len(rows) <= MAX_TARGETS:
         raise ValueError(f"active batch must contain 1..{MAX_TARGETS} targets")
+    blocked = quarantined if quarantined is not None else quarantine_keys()
     clean, seen = [], set()
     for index, row in enumerate(rows):
         if not isinstance(row, dict) or set(row) != {"bookId", "edition", "chapter"}:
@@ -52,6 +75,8 @@ def validate_rows(rows: object) -> list[dict]:
         key = (book, edition, chapter)
         if key in seen:
             raise ValueError(f"duplicate target {key}")
+        if key in blocked:
+            raise ValueError(f"quarantined target {book}/{edition}/{chapter}")
         seen.add(key)
         clean.append(dict(bookId=book, edition=edition, chapter=chapter))
     return clean
