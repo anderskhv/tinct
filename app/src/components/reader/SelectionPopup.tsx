@@ -381,14 +381,19 @@ export function SelectionPopup({
         </div>
       )}
 
+      {contextualExplain && popupMode === 'colors' && <div className="popup-highlight-palette" aria-label="Highlight colour">
+        {HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => applyColor(c.key)} />)}
+        <button type="button" className="popup-add-note" aria-label={selection.existingNote ? 'Edit note' : 'Add note'} onClick={() => onRequestNote(lastColor)}>+</button>
+      </div>}
+
       {popupMode === 'note' && (
         <div className={`popup-issue-form${contextualExplain ? ' popup-highlight-note' : ''}`}>
-          {contextualExplain && <div className="popup-colors" aria-label="Highlight colour">{HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => applyNoteColor(c.key)} />)}</div>}
+          {contextualExplain && <div className="popup-colors" aria-label="Highlight colour">{HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => { onColorClick(c.key); setLastColor(c.key) }} />)}</div>}
           <textarea
             className="popup-textarea"
             value={noteInput}
             onChange={e => setNoteInput(e.target.value)}
-            placeholder={contextualExplain ? 'Add a note (optional)…' : 'Add a note to this highlight...'}
+            placeholder={contextualExplain ? 'Add a note…' : 'Add a note to this highlight...'}
             aria-label="Highlight note"
             rows={3}
             onClick={e => e.stopPropagation()}
@@ -407,20 +412,21 @@ export function SelectionPopup({
                 }
                 dismissPopup()
               }}
-            >{contextualExplain ? 'Done' : 'Save'}</button>
+            >{contextualExplain ? 'Save note' : 'Save'}</button>
           </div>
           {contextualExplain && selection.existingHighlightId && <button className="popup-button" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}>Remove highlight</button>}
         </div>
       )}
 
-      {(popupMode === 'main' || popupMode === 'colors') && (
+      {(popupMode === 'main' || (popupMode === 'colors' && !contextualExplain)) && (
         <div className="popup-compact-menu">
           {informationMode && <div className="popup-menu-heading"><button type="button" onClick={() => { setGalleryId(null); setPopupMode(informationMode) }} aria-label="Back to information">‹ Back</button></div>}
           {contextualExplain ? (
             <>
               {selection.existingHighlightId && <button type="button" className="popup-menu-action" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}><DeleteIcon /><span>Delete highlight</span></button>}
               <button type="button" className="popup-menu-action" onClick={openContextualExplanation}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Explain</span></button>
-              <button type="button" className="popup-menu-action" onClick={() => onRequestNote(lastColor)}><NoteIcon /><span>Highlight</span></button>
+              <button type="button" className="popup-menu-action" onClick={() => onExplain()}><ChatIcon /><span>Ask</span></button>
+              <button type="button" className="popup-menu-action" onClick={() => applyColor(lastColor)}><NoteIcon /><span>Highlight</span></button>
               <button type="button" className="popup-menu-action" onClick={onCopy}><CopyIcon /><span>Copy</span></button>
             </>
           ) : <>

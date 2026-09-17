@@ -214,14 +214,10 @@ describe('locked library model', () => {
     expect(readingTimeLine(null)).toBeNull()
   })
 
-  it('uses the catalogue word count for one estimated pages and reading-hours line', () => {
-    expect(catalogueLengthLine(88_000)).toEqual({
-      value: '320 pages ≈ 6 hours',
-      ariaLabel: 'Estimated 320 pages, approximately 6 hours of reading at 250 words a minute',
-      pages: 320,
-      hours: 6,
-    })
-    expect(catalogueLengthLine(10_000)?.value).toBe('36 pages ≈ 1 hour')
+  it('gives a reading range without presenting invented print pagination', () => {
+    expect(catalogueLengthLine(88_000)?.value).toBe('About 8–11 hours to read')
+    expect(catalogueLengthLine(10_000)?.value).toBe('About 1–2 hours to read')
+    expect(catalogueLengthLine(110_000)?.value).toBe('About 10–14 hours to read')
     expect(catalogueLengthLine(null)).toBeNull()
     expect(catalogueLengthLine(0)).toBeNull()
   })

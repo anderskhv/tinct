@@ -60,10 +60,10 @@ it('keeps edition choices optional and swaps the pair when primary becomes secon
   expect(screen.queryByLabelText('Primary edition')).toBeNull()
   fireEvent.click(screen.getByRole('button', { name: 'Select your editions' }))
   expect((screen.getByLabelText('Primary edition') as HTMLSelectElement).value).toBe('modern-en')
-  expect((screen.getByLabelText('Secondary edition') as HTMLSelectElement).value).toBe('original-en')
+  expect((screen.getByLabelText('Compare edition') as HTMLSelectElement).value).toBe('original-en')
   fireEvent.change(screen.getByLabelText('Primary edition'), { target: { value: 'original-en' } })
   expect(onEditions).toHaveBeenLastCalledWith('original-en', 'modern-en')
-  fireEvent.change(screen.getByLabelText('Secondary edition'), { target: { value: '' } })
+  fireEvent.change(screen.getByLabelText('Compare edition'), { target: { value: '' } })
   expect(onEditions).toHaveBeenLastCalledWith('modern-en', '')
 })
 

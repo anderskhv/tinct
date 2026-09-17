@@ -5,7 +5,7 @@ import { useVoiceSession } from './hooks/useVoiceSession'
 import { LabMarkdown } from './lab/LabMarkdown'
 import { LabVoiceCall } from './lab/LabVoiceCall.tsx'
 import { labCallUtterance, labCallView } from './lab/labVoiceCall'
-import { gateLabAiAction, labSignInHref } from './lab/labAccountPrompt'
+import { decideLabAiAction, gateLabAiAction, labSignInHref } from './lab/labAccountPrompt'
 import { readAnthropicResponse } from './lab/labCompanion'
 import { COMPANION_EFFORT_TYPED, COMPANION_MODEL } from './companionModel'
 import { apiUrl } from './utils/apiUrl'
@@ -135,6 +135,11 @@ export function LibraryAssistant() {
     resumePlayback: () => {},
     recordMessage: () => {},
     appendLocalMessage: appendVoiceMessage,
+    onBeforeUserTurn: () => {
+      const decision = gateLabAiAction({ signedIn })
+      if (!decision.allowed) setAccountAction('voice')
+      return decision.allowed
+    },
     onNeedAuth: () => setAccountAction('voice'),
     onInsufficientBalance: () => setAccountAction('voice'),
     instructions: `${system}\n\nThis is voice mode in the library. Help choose a book. Never say "Ask about this page" and never imply a book is open. When recommending books, call show_library_books with their exact catalogue ids. Open a book only after an explicit request, using open_library_book.`,
@@ -237,7 +242,7 @@ export function LibraryAssistant() {
     setMode('talk')
     setAccountAction(null)
     if (auth.isLoading) return
-    const decision = gateLabAiAction({ signedIn })
+    const decision = decideLabAiAction({ signedIn })
     if (!decision.allowed) { showAccount('voice'); return }
     voice.unlockAudio()
     await voice.start({ authToken: token })
@@ -261,7 +266,7 @@ export function LibraryAssistant() {
     {mode && <section className={`library-assistant-panel is-${mode}`} role="dialog" aria-label={mode === 'search' ? 'Search the library' : mode === 'chat' ? 'Chat with the librarian' : 'Talk with the librarian'}>
       <header><span>{mode === 'search' ? 'Find a book' : 'Your librarian'}</span><button type="button" onClick={close} aria-label="Close">{icon('close')}</button></header>
       {accountAction && <div className="library-account-prompt">
-        <p>Create a free account to keep using {accountAction === 'voice' ? 'Talk' : 'Chat'}.</p>
+        <p>You’ve used your 10 free AI interactions. Create an account for your first month of AI free, or keep browsing and reading without AI.</p>
         <div><a href={labSignInHref('create', '/library')}>Create account</a><a href={labSignInHref('signin', '/library')}>Sign in</a></div>
       </div>}
       {mode === 'search' && <>

@@ -2,14 +2,9 @@
  * Account-prompt policy for the lab reader (owner decision, 2026-09-06).
  *
  * - Reading is always free, signed in or not. Nothing here ever blocks reading.
- * - The first three AI actions are free for an anonymous reader. Chat messages
- *   and voice turns spend the same allowance, so a reader can try both before
- *   being asked: three in total, in any mix. The fourth opens a sheet asking
- *   for a free account; the turn is not sent and the reader can keep reading.
- *   Counted per device, and it survives a reload.
- * - Signed in: never prompted, never counted, and the device count is cleared.
- * - Opening a second book while anonymous shows one quiet line under the
- *   reader header, once per device.
+ * - Ten anonymous AI interactions share one device allowance across Explain,
+ *   Chat and Talk. The next request asks for an account; reading stays free.
+ * - Opening books never prompts for an account.
  *
  * Paid-tier enforcement is intentionally absent. `LAB_PAID_FEATURES` records
  * what Premium covers after the 30-day trial so the lines can be flipped in
@@ -24,7 +19,7 @@ export const LAB_SECOND_BOOK_NUDGE_KEY = 'tinct:lab-second-book-nudge'
  * AI actions an anonymous reader gets before the account sheet. One shared
  * allowance across chat and voice, so both can be tried before signing up.
  */
-export const LAB_FREE_AI_ACTIONS = 3
+export const LAB_FREE_AI_ACTIONS = 10
 
 export type LabAiAction = 'chat' | 'voice'
 

@@ -50,3 +50,5 @@ describe('safeLabReturnTo', () => {
     expect(safe(`${ORIGIN}/lab/reader?voice=v2`)).toBe('/lab/reader?voice=v2')
   })
 })
+
+it('preserves a launch-reader book through sign-in', () => { expect(safeLabReturnTo('/reader?book=niels-lyhne', 'https://tinct.app')).toBe('/reader?book=niels-lyhne') })

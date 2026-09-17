@@ -58,20 +58,13 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
     assert(landing.cta.top>=landing.covers.bottom,name+' no art/action overlap')
     assert(landing.covers.top-landing.copy.bottom<55,name+' no empty spacer')
    }else assert(landing.covers.left>=landing.copy.right,name+' desktop columns do not collide')
-   const track=page.locator('.entry-cover-track,.entry-cover-column').first()
-   const before=await track.evaluate(n=>getComputedStyle(n).transform)
-   await page.waitForFunction(previous=>{
-    const n=document.querySelector('.entry-cover-track,.entry-cover-column')
-    return n && getComputedStyle(n).transform!==previous
-   },before,{timeout:10000})
-   console.log('MOTION_STATE '+engine+' '+name+' '+JSON.stringify(await track.evaluate(n=>({
-    hidden:document.hidden,state:getComputedStyle(n).animationPlayState,name:getComputedStyle(n).animationName,
-    duration:getComputedStyle(n).animationDuration,transform:getComputedStyle(n).transform,
-    host:n.parentElement.className,rect:n.parentElement.getBoundingClientRect().toJSON(),
-    animations:n.getAnimations().map(a=>({state:a.playState,time:a.currentTime,rate:a.playbackRate}))
-   }))))
-   assert.notEqual(await track.evaluate(n=>getComputedStyle(n).transform),before,'covers animate')
-   await page.getByRole('button',{name:'Pause covers',exact:true}).click()
+   const track=page.locator('.entry-cover-track .lib-cover,.entry-cover-column').first()
+   assert.notEqual(await track.evaluate(n=>getComputedStyle(n).animationName),'none','cover reveal configured')
+   assert.equal(await page.getByRole('button',{name:'Pause covers',exact:true}).count(),0,'no pause control exposed')
+   await page.waitForTimeout(1800)
+   const settled=await track.evaluate(n=>getComputedStyle(n).transform)
+   await page.waitForTimeout(150)
+   assert.equal(await track.evaluate(n=>getComputedStyle(n).transform),settled,'reveal settles')
    await page.emulateMedia({reducedMotion:'reduce'})
    assert.equal(await track.evaluate(n=>getComputedStyle(n).animationName),'none','reduced motion')
    await page.emulateMedia({reducedMotion:'no-preference'})

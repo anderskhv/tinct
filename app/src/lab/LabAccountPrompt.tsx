@@ -13,7 +13,7 @@ interface LabAccountSheetProps {
 }
 
 /**
- * The account sheet shown on an anonymous reader's second AI action. The
+ * The account sheet shown on an anonymous reader's eleventh AI action. The
  * held-back turn is never sent; closing the sheet returns to reading. Same
  * overlay pattern as LabSettingsSheet (bottom sheet on phones, popover on
  * desktop), one title, one sentence, a cream pill and a text link.
@@ -58,6 +58,7 @@ export function LabAccountSheet({ open, action, returnTo, onClose, desktop = fal
         <a className="lab-account-primary" href={labSignInHref('create', returnTo)} data-testid="lab-account-create">
           {LAB_COPY.accountCreate}
         </a>
+        <button type="button" className="lab-account-secondary" onClick={onClose}>Keep reading without AI</button>
         <a className="lab-account-secondary" href={labSignInHref('signin', returnTo)} data-testid="lab-account-sign-in">
           {LAB_COPY.accountSignIn}
         </a>

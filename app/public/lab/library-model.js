@@ -529,17 +529,13 @@ export function readingTimeLine(wordCount, readerWpm = null) {
  * or another edition's audio duration.
  */
 export function catalogueLengthLine(wordCount) {
-  const minutes = readingMinutes(wordCount)
-  if (minutes === null) return null
-  const pages = Math.max(1, Math.round(wordCount / 275))
-  const hours = Math.max(1, Math.round(minutes / 60))
-  const hourLabel = `${hours} ${hours === 1 ? 'hour' : 'hours'}`
-  return {
-    value: `${pages} pages ≈ ${hourLabel}`,
-    ariaLabel: `Estimated ${pages} pages, approximately ${hourLabel} of reading at ${DEFAULT_WORDS_PER_MINUTE} words a minute`,
-    pages,
-    hours,
-  }
+  if (!Number.isFinite(wordCount) || wordCount <= 0) return null
+  // A planning range, not a claim about a printed edition or an individual reader.
+  const low = Math.max(1, Math.ceil(wordCount / 200 / 60))
+  const high = Math.max(low, Math.ceil(wordCount / 140 / 60))
+  const hours = low === high ? String(low) : `${low}–${high}`
+  const value = `About ${hours} ${high === 1 ? 'hour' : 'hours'} to read`
+  return { value, hours, ariaLabel: `${value}, estimated at 140–200 words a minute; pauses and notes take extra time.` }
 }
 
 // --------------------------------------------------------- centred shelf

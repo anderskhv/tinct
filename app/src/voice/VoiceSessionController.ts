@@ -59,6 +59,7 @@ export interface VoiceAudioEngine {
 
 export interface VoiceSessionCallbacks {
   onSnapshot: (snapshot: VoiceUiSnapshot) => void
+  onBeforeUserTurn?: () => boolean
   onTurn: (role: 'user' | 'assistant', text: string, meta?: { cancelled?: boolean }) => void
   onNeedAuth?: () => void
   onInsufficientBalance?: () => void
@@ -1182,6 +1183,7 @@ export class VoiceSessionController {
         const text = this.honorModelResume ? cleanLabVoiceTranscript(raw) : raw
         if (!text) return
         if (this.shouldDiscardUserTranscript()) return
+        if (this.callbacks.onBeforeUserTurn?.() === false) { this.stop(); return }
         this.lastUtteranceConfirmed = false
         this.lastUserUtterance = text
         this.callbacks.onTurn('user', text)

@@ -30,8 +30,8 @@ function memoryStorage(seed: Record<string, string> = {}): LabPromptStorage & { 
 }
 
 describe('lab account prompt: AI action gate', () => {
-  it('gives an anonymous reader three free AI actions and spends one per action', () => {
-    expect(LAB_FREE_AI_ACTIONS).toBe(3)
+  it('gives an anonymous reader ten free AI actions and spends one per action', () => {
+    expect(LAB_FREE_AI_ACTIONS).toBe(10)
     const storage = memoryStorage()
     for (let spent = 0; spent < LAB_FREE_AI_ACTIONS; spent++) {
       expect(decideLabAiAction({ signedIn: false, storage })).toEqual({ allowed: true, reason: 'free' })
@@ -41,7 +41,7 @@ describe('lab account prompt: AI action gate', () => {
     expect(storage.getItem(LAB_AI_ACTIONS_KEY)).toBe(String(LAB_FREE_AI_ACTIONS))
   })
 
-  it('gates the fourth anonymous action and keeps gating after a dismiss', () => {
+  it('gates the eleventh anonymous action and keeps gating after a dismiss', () => {
     const storage = memoryStorage()
     for (let spent = 0; spent < LAB_FREE_AI_ACTIONS; spent++) gateLabAiAction({ signedIn: false, storage })
     expect(gateLabAiAction({ signedIn: false, storage })).toEqual({ allowed: false, reason: 'account-required' })
@@ -72,6 +72,7 @@ describe('lab account prompt: AI action gate', () => {
     const afterReload = memoryStorage({ [LAB_AI_ACTIONS_KEY]: storage.getItem(LAB_AI_ACTIONS_KEY) as string })
     expect(readLabAiActionCount(afterReload)).toBe(2)
     expect(gateLabAiAction({ signedIn: false, storage: afterReload })).toEqual({ allowed: true, reason: 'free' })
+    for (let i=3;i<10;i++) expect(gateLabAiAction({ signedIn: false, storage: afterReload }).allowed).toBe(true)
     expect(gateLabAiAction({ signedIn: false, storage: afterReload })).toEqual({ allowed: false, reason: 'account-required' })
   })
 
