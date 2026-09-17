@@ -51,6 +51,16 @@ class LaunchPreflightTest(unittest.TestCase):
         failures = launch_blockers(report, 15.0, reserve=0.70)
         self.assertTrue(any("cannot reserve" in failure for failure in failures))
 
+    def test_reservation_blocks_exact_cap_boundary(self):
+        report = {
+            "ownedPods": [],
+            "actions": [],
+            "unownedRunningPods": [],
+            "estimatedTotalSpend": 14.30,
+        }
+        failures = launch_blockers(report, 15.0, reserve=0.70)
+        self.assertTrue(any("cannot reserve" in failure for failure in failures))
+
     def test_reservation_allows_current_reconciled_spend(self):
         report = {
             "ownedPods": [],
