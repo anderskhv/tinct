@@ -20,6 +20,7 @@ try {
   await page.route('**/*', async route => {
    const request = route.request()
    if (request.method() !== 'GET') return route.abort()
+   if (live && viewport.width < 600 && request.isNavigationRequest() && new URL(request.url()).pathname === '/reader') return route.fulfill({status:302,headers:{location:'https://tinct.app/lab/phone?chrome=v2'},body:''})
    if (live) return route.continue()
    const url = new URL(request.url())
    if (url.origin !== 'https://tinct.app') return route.continue()
@@ -38,6 +39,10 @@ try {
   await page.waitForTimeout(800)
   const name = viewport.width < 600 ? 'phone' : 'desktop'
   await page.screenshot({path:output+'/'+name+'.png'})
+  const libraryImage=(await page.screenshot({type:'jpeg',quality:55})).toString('base64')
+  console.log('REVIEW_BEGIN '+name+'-library')
+  for(let i=0;i<libraryImage.length;i+=3000) console.log('REVIEW_CHUNK '+libraryImage.slice(i,i+3000))
+  console.log('REVIEW_END '+name+'-library')
   const geometry = await page.evaluate(() => {
    const shelf = document.querySelector('[data-popular-shelf]')
    const book = shelf.querySelector('[aria-current="true"] .lib-cover')
@@ -92,6 +97,10 @@ try {
   await page.locator('[data-shelf-index][aria-current="true"]').click()
   await page.locator('[data-testid="lab-cover-entry"]').waitFor({timeout:45000})
   await page.screenshot({path:output+'/'+name+'-cover.png'})
+  assert.equal(new URL(page.url()).pathname,name==='phone'?'/lab/phone':'/reader')
+  const bundle=await page.locator('script[src*="/assets/index-"]').getAttribute('src')
+  assert.equal(bundle, process.env.TINCT_EXPECTED_BUNDLE, 'exact deployed reader bundle')
+  console.log('VERIFIED_READER '+name+' '+page.url()+' '+bundle)
   await page.getByRole('button',{name:/Before you begin/}).click()
   const prep=page.locator('[data-testid="lab-book-preface"]')
   await prep.waitFor()
