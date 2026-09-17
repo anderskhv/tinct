@@ -40,14 +40,18 @@ jobs:
           CI: true
       - run: npm run verify-bundle
       - name: Install silent browser acceptance
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium webkit
       - name: Verify library and preparation
         run: node scripts/check-library-layout.mjs
+      - name: Verify responsive landing and library
+        run: node scripts/check-entry-responsive.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: library-preparation-acceptance
-          path: app/artifacts/library-layout
+          path: |
+            app/artifacts/library-layout
+            app/artifacts/entry-responsive
 
   reading-benchmark:
     runs-on: ubuntu-latest

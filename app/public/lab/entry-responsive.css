@@ -1,0 +1,83 @@
+/* Entry-only layout ownership. Content determines height; browser chrome must
+   never force separately positioned copy, artwork and actions to overlap. */
+#tinct-onboarding-worlds-v5 .tov5-simple-landing{height:auto;min-height:100svh;overflow:hidden}
+#tinct-onboarding-worlds-v5 .tov5-simple-header{position:relative;inset:auto;height:auto;min-height:60px;padding:12px max(20px,env(safe-area-inset-right)) 12px max(20px,env(safe-area-inset-left))}
+#tinct-onboarding-worlds-v5 .tov5-simple-hero{position:relative;inset:auto;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;width:auto;max-width:680px;margin:0 auto;padding:24px 20px calc(24px + env(safe-area-inset-bottom));text-align:left}
+#tinct-onboarding-worlds-v5 .tov5-simple-hero h1{max-width:13ch;font-size:clamp(38px,8.5vw,60px);line-height:1.02;margin:0}
+#tinct-onboarding-worlds-v5 .tov5-simple-hero>p{max-width:40ch;margin:18px 0 0;font-size:clamp(16px,2.7vw,20px);line-height:1.45}
+#tinct-onboarding-worlds-v5 .entry-cover-field{position:relative;inset:auto;display:block;width:calc(100% + 40px);height:auto;margin:24px -20px 0;transform:none;overflow:hidden;opacity:.92;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);pointer-events:none}
+#tinct-onboarding-worlds-v5 .entry-cover-track{display:flex;gap:16px;width:max-content;padding:8px 0 14px;animation:entry-horizontal 70s linear infinite}
+#tinct-onboarding-worlds-v5 .entry-cover-field .lib-cover{display:block;flex:none;width:clamp(112px,20vw,166px);height:auto;aspect-ratio:2/3;transform:none;border-radius:3px;overflow:hidden;box-shadow:0 8px 14px #0005}
+#tinct-onboarding-worlds-v5 .entry-cover-field .lib-cover:nth-child(even){transform:none}
+#tinct-onboarding-worlds-v5 .entry-cover-field img{display:block;width:100%;height:100%;aspect-ratio:2/3;object-fit:contain}
+#tinct-onboarding-worlds-v5 .entry-cover-field.is-paused .entry-cover-track{animation-play-state:paused}
+#tinct-onboarding-worlds-v5 .entry-motion{position:relative;inset:auto;display:block;align-self:flex-end;margin:0 0 12px;padding:6px 10px;min-height:32px;border:1px solid #ffffff25;background:#07172388;border-radius:20px;color:#f4eddf;font:11px/1.2 system-ui}
+#tinct-onboarding-worlds-v5 .tov5-simple-entry{position:static;inset:auto;width:100%;margin:0}
+#tinct-onboarding-worlds-v5 .tov5-simple-start{height:50px;font-size:15px}
+@keyframes entry-horizontal{to{transform:translateX(-50%)}}
+@media(min-width:600px){
+ #tinct-onboarding-worlds-v5 .tov5-simple-hero{padding-top:40px;padding-bottom:36px}
+ #tinct-onboarding-worlds-v5 .entry-cover-field{margin-top:30px}
+}
+@media(min-width:1100px) and (orientation:landscape){
+ #tinct-onboarding-worlds-v5 .tov5-simple-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr auto auto auto 1fr;column-gap:70px;max-width:1400px;width:100%;min-height:calc(100svh - 65px);padding:40px 6%}
+ #tinct-onboarding-worlds-v5 .tov5-simple-hero h1{grid-column:1;grid-row:2;font-size:clamp(48px,5vw,72px)}
+ #tinct-onboarding-worlds-v5 .tov5-simple-hero>p{grid-column:1;grid-row:3;font-size:20px}
+ #tinct-onboarding-worlds-v5 .tov5-simple-entry{grid-column:1;grid-row:4;margin-top:28px;max-width:310px}
+ #tinct-onboarding-worlds-v5 .entry-cover-field{grid-column:2;grid-row:1/-1;display:flex;align-self:stretch;position:relative;width:100%;margin:0;gap:18px;min-height:500px;max-height:740px;transform:rotate(5deg);mask-image:linear-gradient(transparent,#000 10%,#000 90%,transparent)}
+ #tinct-onboarding-worlds-v5 .entry-cover-column{flex:1 1 0;width:0;min-width:0;display:flex;flex-direction:column;gap:18px}
+ #tinct-onboarding-worlds-v5 .entry-cover-field .lib-cover{width:100%;height:auto;aspect-ratio:2/3}
+ #tinct-onboarding-worlds-v5 .entry-motion{position:absolute;right:6%;bottom:16px;margin:0}
+}
+/* Library: content first, quiet catalogue rows, compact glass controls. */
+#tinct-onboarding-worlds-v5 .lib .lib-hdr{height:46px;min-height:0;padding:0 28px;border:0}
+#tinct-onboarding-worlds-v5 .lib .lib-wm{font-size:25px}
+#tinct-onboarding-worlds-v5 .lib .lib-pill{border:0;background:none;padding:10px;font-size:12px}
+#tinct-onboarding-worlds-v5 .lib .lib-main{padding-top:8px;padding-bottom:110px;gap:30px}
+#tinct-onboarding-worlds-v5 .lib .lib-popular-lead{padding:0;gap:0}
+#tinct-onboarding-worlds-v5 .lib .lib-popular-lead [data-popular-lead-row]{display:none}
+#tinct-onboarding-worlds-v5 .lib .lib-popular-lead .lib-h1{font-size:32px}
+#tinct-onboarding-worlds-v5 .lib .lib-shelf{height:285px}
+#tinct-onboarding-worlds-v5 .lib .lib-shelf .lib-shelf-item{top:18px}
+#tinct-onboarding-worlds-v5 .lib .lib-caption{padding:8px 12px 0;gap:6px}
+#tinct-onboarding-worlds-v5 .lib .lib-caption .lib-h1{font-size:25px}
+#tinct-onboarding-worlds-v5 .lib .lib-caption .lib-lede{max-width:650px;font-size:17px;line-height:1.4;margin:6px 0 0}
+#tinct-onboarding-worlds-v5 .lib .lib-caption .lib-readtime{margin:0;min-height:18px;flex-shrink:0}
+#tinct-onboarding-worlds-v5 .lib .lib-browse-label{font:11px/1.4 var(--lib-sans);letter-spacing:.1em;text-transform:uppercase;color:var(--lib-muted);margin:0 0 16px}
+#tinct-onboarding-worlds-v5 .lib .lib-catalogue-house{margin-bottom:30px}
+#tinct-onboarding-worlds-v5 .lib .lib-catalogue-house h2{font-size:23px}
+#tinct-onboarding-worlds-v5 .lib .lib-catalogue-house>header{margin-bottom:10px}
+#tinct-onboarding-worlds-v5 .lib .lib-category-track{overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:#ffffff25 transparent;padding-bottom:6px}
+#tinct-onboarding-worlds-v5 .lib .lib-category-track .lib-cells{display:flex;gap:18px;width:max-content;min-width:100%;padding:4px 20px 12px 0}
+#tinct-onboarding-worlds-v5 .lib .lib-category-track .lib-cell{flex:0 0 138px;width:138px;scroll-snap-align:start}
+#tinct-onboarding-worlds-v5 .lib .lib-cell .lib-length{font-size:11px}
+.library-glass-dock{min-height:52px;padding:3px;bottom:max(10px,env(safe-area-inset-bottom))}
+.library-glass-dock button{height:44px;min-width:96px;padding:0 16px}
+.library-assistant-panel{bottom:max(76px,calc(env(safe-area-inset-bottom) + 64px))}
+.library-search-account{display:flex;justify-content:flex-end;padding:10px 20px 0;color:inherit;font:13px system-ui}
+.library-chat-turn .lab-markdown{font:16px/1.5 Georgia,serif}
+.library-chat-turn .lab-markdown p{margin:0 0 12px;white-space:normal}
+.library-chat-turn .lab-markdown ul{padding-left:20px;margin:0 0 12px}
+.library-chat-turn .lab-markdown li{margin:0 0 10px}
+.library-chat-turn .lab-markdown a{color:inherit;text-decoration:underline}
+@media(max-width:600px){
+ #tinct-onboarding-worlds-v5 .lib .lib-hdr{display:none}
+ #tinct-onboarding-worlds-v5 .lib .lib-main{padding-top:max(18px,env(safe-area-inset-top));gap:24px;--lib-pad-l:20px;--lib-pad-r:20px;padding-left:20px;padding-right:20px}
+ #tinct-onboarding-worlds-v5 .lib .lib-popular-lead .lib-h1{font-size:26px}
+ #tinct-onboarding-worlds-v5 .lib .lib-shelf{height:calc(clamp(112px,22svh,150px) * 1.5 + 30px)}
+ #tinct-onboarding-worlds-v5 .lib .lib-shelf .lib-shelf-item{top:12px;width:clamp(112px,22svh,150px)}
+ #tinct-onboarding-worlds-v5 .lib .lib-shelf .lib-shelf-item .lib-cover{width:100%;height:auto;aspect-ratio:2/3}
+ #tinct-onboarding-worlds-v5 .lib .entry-shelf-arrows{display:none}
+ #tinct-onboarding-worlds-v5 .lib .lib-caption{padding:4px 0 0;gap:5px}
+ #tinct-onboarding-worlds-v5 .lib .lib-caption .lib-h1{font-size:23px}
+ #tinct-onboarding-worlds-v5 .lib .lib-caption .lib-lede{font-size:16px;line-height:1.38}
+ #tinct-onboarding-worlds-v5 .lib .lib-caption .lib-author{font-size:11px}
+ #tinct-onboarding-worlds-v5 .lib .lib-browse-label{margin-bottom:10px}
+ #tinct-onboarding-worlds-v5 .lib .lib-catalogue-house h2{font-size:22px}
+ #tinct-onboarding-worlds-v5 .lib .lib-category-track .lib-cell{flex-basis:110px;width:110px}
+ .library-glass-dock{width:calc(100vw - 32px)}
+ .library-glass-dock button{min-width:0;padding:0 8px}
+}
+@media(prefers-reduced-motion:reduce){
+ #tinct-onboarding-worlds-v5 .entry-cover-track,#tinct-onboarding-worlds-v5 .entry-cover-column{animation:none}
+}
