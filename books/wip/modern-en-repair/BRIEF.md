@@ -36,6 +36,16 @@ original, in the original order.
 ## Output
 
 Write ONLY a JSON array of strings to the path you were given. No commentary
-in the file. Then run the gate command you were given and fix every failing
-paragraph it lists until it passes. Report the final gate line and nothing
-else about your process.
+in the file. Write the whole array ONCE.
+
+Then run the gate command you were given. It prints one line per failing
+paragraph. Fix those paragraphs with the patch tool — do NOT re-emit the whole
+array, which wastes a large number of tokens on text that already passed:
+
+    python3 books/wip/modern-en-repair/patch.py <candidate> --json <patch.json>
+
+where patch.json is {"12": "new text for paragraph 12", "40": "..."} holding
+only the paragraphs you are changing. Re-run the gate and repeat until it
+prints PASS. Fix by improving the rendering, never by copying source text back.
+
+Report the final gate line and nothing else about your process.
