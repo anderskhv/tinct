@@ -32,3 +32,14 @@ and keyboard selection work. Preparation uses a stable dark frame, left-aligned
 scrollable preface, compact optional characters, and existing text/comparison/audio
 edition controls; cover artwork moves into place without becoming a magnified
 background. [Release and verification](library-preparation-polish-2026-09-17.md).
+
+## Responsive entry surfaces — September 17
+
+The landing uses content-flow copy, animated proportional covers and Start reading
+on phone/portrait tablet, with separate desktop cover columns. The library opens
+on a centred starter reel with full descriptions and estimated reading time.
+Category rows scroll horizontally; desktop rows also support mouse dragging.
+Mobile removes the header and places sign-in/account access in Search. The glass
+dock is shallower; the approved book preparation remains unchanged. Librarian
+messages use the existing safe Markdown renderer.
+[Release evidence and device-verification limits](library-responsive-2026-09-17.md).
