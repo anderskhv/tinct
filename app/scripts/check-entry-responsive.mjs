@@ -6,6 +6,7 @@ const live = process.env.LIBRARY_LIVE === '1'
 const out = 'artifacts/entry-responsive'
 await fs.mkdir(out,{recursive:true})
 const results=[]
+const failures=[]
 for(const [engine,type] of Object.entries({chromium,webkit})){
  const browser=await type.launch({headless:true,...(engine==='chromium'?{args:['--mute-audio']}:{})})
  try{
@@ -15,6 +16,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
   ]){
    const context=await browser.newContext({viewport:{width,height},hasTouch:touch,serviceWorkers:'block'})
    const page=await context.newPage()
+   try {
    await page.addInitScript(()=>{
     HTMLMediaElement.prototype.play=()=>Promise.resolve()
     if(navigator.mediaDevices) navigator.mediaDevices.getUserMedia=async()=>{throw Error('Disabled for acceptance')}
@@ -57,7 +59,13 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    }else assert(landing.covers.left>=landing.copy.right,name+' desktop columns do not collide')
    const track=page.locator('.entry-cover-track,.entry-cover-column').first()
    const before=await track.evaluate(n=>getComputedStyle(n).transform)
-   await page.waitForTimeout(250)
+   await page.waitForTimeout(1200)
+   console.log('MOTION_STATE '+engine+' '+name+' '+JSON.stringify(await track.evaluate(n=>({
+    hidden:document.hidden,state:getComputedStyle(n).animationPlayState,name:getComputedStyle(n).animationName,
+    duration:getComputedStyle(n).animationDuration,transform:getComputedStyle(n).transform,
+    host:n.parentElement.className,rect:n.parentElement.getBoundingClientRect().toJSON(),
+    animations:n.getAnimations().map(a=>({state:a.playState,time:a.currentTime,rate:a.playbackRate}))
+   }))))
    assert.notEqual(await track.evaluate(n=>getComputedStyle(n).transform),before,'covers animate')
    await page.getByRole('button',{name:'Pause covers',exact:true}).click()
    await page.emulateMedia({reducedMotion:'reduce'})
@@ -96,9 +104,14 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    })
    assert(times.every(b=>b.time), 'all featured books have reading estimates: '+JSON.stringify(times))
    results.push({engine,name,landing,library})
-   await context.close()
+   } catch(error) {
+    failures.push({engine,name,error:String(error)})
+    console.log('CASE_FAILURE '+engine+' '+name+' '+String(error))
+    await page.screenshot({path:out+'/'+engine+'-'+name+'-failure.png'}).catch(()=>{})
+   } finally {await context.close()}
   }
  }finally{await browser.close()}
 }
 await fs.writeFile(out+'/acceptance.json',JSON.stringify(results,null,2))
 console.log('RESPONSIVE_ACCEPTANCE '+JSON.stringify(results))
+assert.deepEqual(failures,[],'responsive acceptance failures')
