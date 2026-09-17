@@ -147,6 +147,15 @@ def validate_manifest(manifest: object, paragraphs: list) -> list[dict]:
     return entries
 
 
+def resolve_chapter(chapters: object, chapter_number: int) -> dict:
+    if not isinstance(chapters, list):
+        raise ValueError("edition chapters must be a list")
+    matches = [chapter for chapter in chapters if isinstance(chapter, dict) and chapter.get("number") == chapter_number]
+    if len(matches) != 1:
+        raise ValueError(f"edition chapter number {chapter_number} matched {len(matches)} records")
+    return matches[0]
+
+
 def check_target(row: dict) -> dict:
     book, edition, chapter = row["bookId"], row["edition"], row["chapter"]
     key = f"{book}/{edition}/ch{chapter}"
@@ -162,10 +171,8 @@ def check_target(row: dict) -> dict:
         raise ValueError(f"{key}: edition status {edition_status}")
     edition_data = json.loads(edition_body)
     chapters = edition_data.get("chapters", [])
-    if chapter > len(chapters):
-        raise ValueError(f"{key}: chapter absent from current edition")
-    source_chapter = chapters[chapter - 1]
-    raw_paragraphs = source_chapter.get("paragraphs", []) if isinstance(source_chapter, dict) else []
+    source_chapter = resolve_chapter(chapters, chapter)
+    raw_paragraphs = source_chapter.get("paragraphs", [])
     paragraphs = [p if isinstance(p, str) else (p or {}).get("text", "") for p in raw_paragraphs]
     manifest_entries = validate_manifest(manifest, paragraphs)
     entries, total_seconds = [], 0.0
