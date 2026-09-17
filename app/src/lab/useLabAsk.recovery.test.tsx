@@ -312,3 +312,15 @@ it('records a displayed explanation once and sends it as context for the next qu
  expect(JSON.stringify(chat.messages)).toContain('A specific explanation of this passage.')
  expect(JSON.stringify(chat.messages)).toContain('Selected passage')
 })
+
+it('requests a fresh explanation after remount', async () => {
+  const fetcher = vi.fn().mockImplementation(async () => ok())
+  vi.stubGlobal('fetch', fetcher)
+  const input = { text: 'Of the children of Ammon.', editionKey: 'web-en', paragraphs: base.paragraphs, paragraphIndex: 0 }
+  const first = renderHook(() => useLabAsk(base))
+  await act(async () => { await first.result.current.explainSelection(input, vi.fn()) })
+  first.unmount()
+  const second = renderHook(() => useLabAsk(base))
+  await act(async () => { await second.result.current.explainSelection(input, vi.fn()) })
+  expect(fetcher).toHaveBeenCalledTimes(2)
+})

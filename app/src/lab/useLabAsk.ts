@@ -1,5 +1,4 @@
 import { PERSONAL_HISTORY_TOOL, personalHistoryEvidence, requestsPersonalHistory } from './labPersonalHistory'
-import { cachedExplanation, explanationCacheKey, rememberExplanation } from './labExplanationCache'
 import { CHAPTER_CHAT_MESSAGES, buildChapterChatInstructions, chapterChatHistoryContent, loadChapterChatTarget, type ChapterChatRequest } from './labChapterChat'
 import { VOICE_RESEARCH_TOOL, researchVoiceQuestion, voiceSourceLinks, type VoiceSource } from './labVoiceResearch'
 import { labVoiceRequestsAudio } from './labVoiceControls'
@@ -798,11 +797,6 @@ export function useLabAsk(options: UseLabAskOptions) {
     const requestBookId = chatBookIdRef.current
     const requestChapter = optionsRef.current.chapterNumber
     const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text])
-    const cacheOwner = viewerId ?? null
-    const persistentKey = await explanationCacheKey([COMPANION_MODEL, key, labReadingAngle()])
-    if (viewerId !== viewerRef.current || requestBookId !== chatBookIdRef.current || requestChapter !== optionsRef.current.chapterNumber) throw new LabChatError('unavailable')
-    const stored = cachedExplanation(cacheOwner, persistentKey)
-    if (stored) { onDelta(stored); return stored }
     const cached = explanationRef.current
     if (cached?.key === key && Date.now() - cached.time < 60_000) {
       if (cached.text) onDelta(cached.text)
@@ -844,9 +838,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       return readAnthropicResponse(response, value => { entry.text = value; entry.listeners.forEach(listener => listener(value)) })
     })()
     try {
-      const answer = await entry.promise
-      if (viewerId === viewerRef.current) rememberExplanation(cacheOwner, persistentKey, answer)
-      return answer
+      return await entry.promise
     } catch (error) {
       if (explanationRef.current === entry) explanationRef.current = null
       throw error

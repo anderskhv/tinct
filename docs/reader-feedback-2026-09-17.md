@@ -126,3 +126,11 @@ Paused-word retention is covered by focused regressions and the shipped state pa
 An additional production browser test with synthetic media did not establish word
 follow, so it is not counted as passed audio acceptance. Real playback remains
 unverified in this run; no audible testing was performed.
+
+## September 17 follow-up: remove persistent explanation reuse
+
+Approved: remove the seven-day local answer cache; retain all other behavior.
+The earlier persistent-cache decision above is superseded. Removed its read/write
+path and module. The 60-second current-request reuse, speculative timing, saved
+chat explanations and Chat/Talk context are unchanged. Previously stored cache
+keys are inert and never read; chat history is not cleared. Release checks pending.

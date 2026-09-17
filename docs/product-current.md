@@ -8,8 +8,8 @@ Release evidence and limits are in [the reader feedback plan](reader-feedback-20
   desktop leaf or the phone reader viewport. Chat and Talk retain the explanation.
 - Chat opens with fresh writing space; prior messages remain above. Displayed
   explanations are recorded through the book-scoped chat history writer.
-- Exact explanations can be reused on the same device for seven days, with
-  account, passage, edition, model and reading-angle boundaries.
+- Explain shares the current speculative request for 60 seconds. There is no
+  persistent answer cache; displayed explanations remain in chat history.
 - Requested personal recall searches available/synced reading records, chats and
   highlights across editions/books. Ordinary voice context stays book-scoped.
 - Read selections extend across pages with a 700ms top/bottom edge hold, within
