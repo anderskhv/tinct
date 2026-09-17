@@ -74,6 +74,19 @@ const CASES = [
   ['niels-lyhne', 'original-en', undefined, 'hjerrild', undefined, 'hjerrild-new'],
   ['genealogy-of-morals', 'original-en', undefined, 'schopenhauer', undefined, 'schopenhauer-new'],
   ['moby-dick', 'original-en', undefined, 'jonah', undefined, 'jonah-new'],
+  // war-and-peace pilot of the full clickable-names pass: alias fixes plus
+  // a sample of the ~84 newly added minor/reference figures.
+  ['war-and-peace', 'original-en', undefined, 'napoleon', 'Napoleon', 'napoleon-buonaparte-alias'],
+  ['war-and-peace', 'original-en', undefined, 'pierre', 'Pierre', 'pierre-kirilovich-alias'],
+  ['war-and-peace', 'original-en', undefined, 'helene', 'Hélène', 'helene-bezukhova-alias'],
+  ['war-and-peace', 'original-en', undefined, 'bennigsen', undefined, 'wp-bennigsen-new'],
+  ['war-and-peace', 'original-en', undefined, 'ramballe', undefined, 'wp-ramballe-new'],
+  ['war-and-peace', 'original-en', undefined, 'julie-karagina', undefined, 'wp-julie-karagina-new'],
+  ['war-and-peace', 'original-en', undefined, 'volkonski', undefined, 'wp-volkonski-new'],
+  ['war-and-peace', 'original-en', undefined, 'alexander-tsar', undefined, 'wp-alexander-tsar-new'],
+  ['war-and-peace', 'original-en', undefined, 'dorokhov', undefined, 'wp-dorokhov-new'],
+  ['war-and-peace', 'original-en', undefined, 'makar-alexeevich', undefined, 'wp-makar-alexeevich-new'],
+  ['war-and-peace', 'original-en', undefined, 'mortier', undefined, 'wp-mortier-new'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {

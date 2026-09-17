@@ -61,7 +61,7 @@ def bind(book_id, edition_key, aliases):
     return mentions
 
 
-def add_entity(book, eid, name, subtitle, body, role, kind, aliases, editions=('original-en', 'modern-en')):
+def add_entity(book, eid, name, subtitle, body, role, kind, aliases, editions=('original-en', 'modern-en'), strict_editions=('original-en',)):
     char_path = ROOT / f'app/public/data/characters/{book}.v1.json'
     pkg = json.loads(char_path.read_text())
     for ek in editions:
@@ -73,7 +73,11 @@ def add_entity(book, eid, name, subtitle, body, role, kind, aliases, editions=('
         mentions = bind(book, ek, aliases)
         if mentions is None:
             continue
-        assert mentions, f'no matches for {eid} in {ek}'
+        if not mentions:
+            if ek in strict_editions:
+                assert mentions, f'no matches for {eid} in {ek}'
+            print(book, ek, eid, 'WARNING: no matches, skipping this edition (aliases may not match this translation\'s spelling)')
+            continue
         collisions = [m for m in mentions if (m['chapterNumber'], m['paragraphIndex'], m['startOffset'], m['endOffset']) in existing_spans]
         assert not collisions, f'{eid} in {ek} collides with existing mentions: {collisions[:3]}'
         for m in mentions:
