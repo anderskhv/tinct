@@ -91,12 +91,15 @@ Two things were caught and handled, not just noted:
 - **"Rugáy"** (a hound's name) and **"the Daniel Cooper"** (a country
   dance) were spaCy PERSON mis-tags — checked in context and excluded.
 
-**modern-en gap, stated plainly:** about half the new aliases had no
-match in that translation's spelling and were skipped per-edition rather
-than failing the whole batch. `modern-en` sits at 76 cards against
-original-en's 135 — a real, known gap, not yet closed. A follow-up pass
-reconciling modern-en's transliteration conventions against original-en's
-is still needed before this book is genuinely done end to end.
+**modern-en gap — closed same day.** Anders asked for this explicitly
+after the pilot report. `books/characters/close_wp_modern_en_gap.py`
+derived a diacritic-stripped surname alias for each of the 59 characters
+missing from modern-en, hand-verified each against that edition's actual
+text, and applied 10 explicit overrides where the translation
+transliterates further than a simple accent-strip (Suvórov→Suvorov is a
+strip; Vólkonski→Volkonsky, Raévski→Raevsky, and Narýshkin→Naryshkin are
+not — "-ski" becomes "-sky" and one is a different letter entirely).
+`modern-en` now matches original-en at 135 characters in both editions.
 
 **Not yet resolved, by design:** generic epithets used inconsistently
 across scenes for different actual people — "Uncle," "Mamma," "Papa,"
@@ -114,16 +117,18 @@ fixes, a sample of new characters including the Dorókhov/Dólokhov
 disambiguation, and the epithet-alias fixes); **128/128 passed** across
 two verification runs as the batch grew.
 
-## What "done" for war-and-peace actually requires (not yet reached)
+## What "done" for war-and-peace actually requires (status)
 
-- Close the modern-en alias gap (76 vs. 135 cards).
-- Resolve the epithet-family names (Uncle/Mamma/Papa/etc.) via
-  per-scene reading rather than blind binding.
+- ~~Close the modern-en alias gap~~ — **done**, both editions at 135.
+- Epithet-family names (Uncle/Mamma/Papa/etc.) — **left deliberately
+  unbound**, per Anders' explicit instruction; the homonym-risk reasoning
+  above stands as the reason, not an oversight.
 - A second sweep of the remaining ~600 uncarded PERSON surface forms
   (down from 818 before this pilot) — the top of that remaining list is
   now dominated by place names, religious terms, and foreign phrases, but
   it has not been individually exhausted the way the first ~1,200
-  candidates were.
+  candidates were. Not undertaken in this pass; war-and-peace is being
+  treated as closed at this level of coverage.
 
 ## Next books, in ranked order
 
