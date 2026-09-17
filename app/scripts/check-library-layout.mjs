@@ -21,10 +21,6 @@ try {
    const request = route.request()
    if (request.method() !== 'GET') return route.abort()
    const url = new URL(request.url())
-   if (url.origin === 'https://tinct.app' && url.pathname === '/reader' && viewport.width < 600) {
-    url.pathname='/lab/phone';url.searchParams.set('chrome','v2')
-    return route.fulfill({status:302,headers:{location:url.href},body:''})
-   }
    if (live) return route.continue()
    if (url.origin !== 'https://tinct.app') return route.continue()
    const pathname = url.pathname === '/library' ? '/lab/index.html' : ['/reader','/lab/phone','/lab/desktop'].includes(url.pathname) ? '/app.html' : url.pathname
@@ -95,7 +91,12 @@ try {
   await page.evaluate(()=>scrollTo(0,0))
   await page.locator('[data-shelf-index][aria-current="true"]').click()
   await page.locator('[data-testid="lab-cover-entry"]').waitFor({timeout:45000})
-  if(live) {
+  if(viewport.width<600) {
+   const phoneUrl=new URL(page.url());phoneUrl.pathname='/lab/phone';phoneUrl.searchParams.set('chrome','v2')
+   await page.goto(phoneUrl.href,{waitUntil:'domcontentloaded'})
+   await page.locator('[data-testid="lab-cover-entry"]').waitFor({timeout:45000})
+  }
+  {
    const html=await fs.readFile('dist/app.html','utf8')
    const expected=html.match(/\/assets\/index-[A-Za-z0-9_-]+\.js/)[0]
    assert(await page.locator('script[src]').evaluateAll((nodes,asset)=>nodes.some(n=>new URL(n.src).pathname===asset),expected),'production reader uses the deployed bundle')
