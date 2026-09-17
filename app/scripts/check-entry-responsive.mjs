@@ -44,16 +44,17 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    await page.goto('https://tinct.app/',{waitUntil:'domcontentloaded'});await wait()
    const landing=await page.evaluate(()=>{
     const box=s=>{const r=document.querySelector(s).getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right,width:r.width,height:r.height}}
-    return {heading:box('.tov5-simple-hero h1'),copy:box('.tov5-simple-hero>p'),covers:box('[data-entry-covers]'),cta:box('.tov5-simple-entry'),cover:box('[data-entry-covers] .lib-cover'),overflow:document.documentElement.scrollWidth>innerWidth,wide:matchMedia('(min-width:1100px) and (orientation:landscape)').matches}
+    return {heading:box('.tov5-simple-hero h1'),copy:box('.tov5-simple-hero>p'),covers:box('[data-entry-covers]'),cta:box('.tov5-simple-entry'),cover:box('[data-entry-covers] .lib-cover'),coverRatio:(()=>{const n=document.querySelector('[data-entry-covers] .lib-cover');return n.offsetWidth/n.offsetHeight})(),overflow:document.documentElement.scrollWidth>innerWidth,wide:matchMedia('(min-width:1100px) and (orientation:landscape)').matches}
    })
+   console.log('LANDING_GEOMETRY '+engine+' '+name+' '+JSON.stringify(landing))
+   await review('landing')
    assert(!landing.overflow,name+' landing page overflow')
-   assert(Math.abs(landing.cover.width/landing.cover.height-2/3)<.025,name+' proportionate covers')
+   assert(Math.abs(landing.coverRatio-2/3)<.025,name+' proportionate covers')
    if(!landing.wide){
     assert(landing.covers.top>=landing.copy.bottom+12,name+' no copy/art overlap')
     assert(landing.cta.top>=landing.covers.bottom,name+' no art/action overlap')
     assert(landing.covers.top-landing.copy.bottom<55,name+' no empty spacer')
    }else assert(landing.covers.left>=landing.copy.right,name+' desktop columns do not collide')
-   await review('landing')
    const track=page.locator('.entry-cover-track,.entry-cover-column').first()
    const before=await track.evaluate(n=>getComputedStyle(n).transform)
    await page.waitForTimeout(250)
@@ -74,13 +75,14 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
     const r=s=>{const b=document.querySelector(s).getBoundingClientRect();return {top:b.top,bottom:b.bottom,width:b.width,height:b.height,left:b.left}}
     return {cover:r('[aria-current="true"] .lib-cover'),description:r('[data-popular-blurb]'),time:r('.lib-readtime'),dock:r('.library-glass-dock'),category:r('.lib-catalogue-house'),overflow:document.documentElement.scrollWidth>innerWidth,desc:document.querySelector('[data-popular-blurb]').textContent}
    })
+   console.log('LIBRARY_GEOMETRY '+engine+' '+name+' '+JSON.stringify(library))
+   await review('library')
    assert(!library.overflow,name+' library overflow')
    assert(library.cover.top>=0 && library.cover.bottom<library.dock.top,name+' cover above dock')
    assert(library.time.height>0 && library.time.bottom<library.dock.top,name+' reading time above dock')
    assert(library.dock.height<=56,name+' shallow dock')
    assert(library.desc.length>90,'full description remains')
    if(height>=660)assert(library.description.bottom<library.dock.top,name+' full description above dock')
-   await review('library')
    const row=page.locator('.lib-category-track').first()
    await row.scrollIntoViewIfNeeded()
    const moved=await row.evaluate(n=>{n.scrollLeft=250;return n.scrollLeft})
