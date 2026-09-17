@@ -38,7 +38,7 @@ Per-paragraph `difflib` similarity between `original-en` and current `modern-en`
 
 | Book | Draft (Sonnet) | Independent review (Opus) | Corrected | Verified | Accepted |
 |---|---|---|---|---|---|
-| 3 | frozen (sha256 9598b9ba…) | in progress (Opus) | — | — | — |
+| 3 | frozen (sha256 9598b9ba…) | done — 53 findings (6 major, 12 moderate, 35 minor) | in progress | — | — |
 | 4 | queued | — | — | — | — |
 | 5 | queued | — | — | — | — |
 | 6 | queued | — | — | — | — |
