@@ -1,13 +1,18 @@
 const { chromium, webkit } = require('../../app/node_modules/playwright');
 const fs=require('fs'),assert=require('assert/strict');
+if (process.platform === 'darwin') throw new Error('Voice acceptance runs in Linux CI only; never request Mac audio permissions.');
 (async()=>{const results=[];for(const [name,engine,width,height] of [['desktop',chromium,1440,900],['phone',webkit,390,844]]){const browser=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})});const context=await browser.newContext({viewport:{width,height},serviceWorkers:'block'});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.addInitScript(() => {
     const user = { id: '00000000-0000-4000-8000-000000000001', aud: 'authenticated', email: 'fixture@example.com' };
     localStorage.setItem('sb-yazjyiqsxjystvpkyouk-auth-token', JSON.stringify({ access_token: 'fixture-token', refresh_token: 'fixture-refresh', expires_at: Math.floor(Date.now()/1000)+3600, user }));
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: 'bible', primaryEditionKey: 'web-en', savedPlace: { bookId: 'bible', chapterNumber: 444, paragraphIndex: 0, page: 0 } }));
-    window.sent = [];
-    navigator.mediaDevices.getUserMedia = async () => ({ getTracks: () => [], getAudioTracks: () => [] });
+    window.sent = []; window.trace = [];
+    window.addEventListener('unhandledrejection',e=>window.trace.push('rejection '+String(e.reason)));
+    window.AudioContext = class { state = "running"; resume() { return Promise.resolve(); } close() { return Promise.resolve(); } };
+    const fakeMedia = { getUserMedia: async () => { window.trace.push('microphone'); return { getTracks: () => [], getAudioTracks: () => [] }; }, enumerateDevices: async () => [] };
+    Object.defineProperty(navigator, 'mediaDevices', { configurable: false, value: fakeMedia });
     window.RTCPeerConnection = class {
+      constructor() { window.trace.push('peer'); }
       iceGatheringState = 'complete';
       addTrack() {}
       createDataChannel() { const dc = new EventTarget(); dc.readyState = 'open'; dc.send = data => window.sent.push(JSON.parse(data)); dc.close = () => {}; window.dc = dc; return dc; }
@@ -27,6 +32,7 @@ await page.route('**/api/**',r=>{
  return r.fulfill({status:503,json:{error:'Providers disabled'}})
 });
 await page.goto((process.env.BASE||'http://127.0.0.1:3001')+'/lab/voice');
+assert.equal(await page.evaluate(()=>navigator.mediaDevices.getUserMedia.toString().includes('microphone')),true,'Mock microphone must be installed before Talk');
 await page.getByRole('heading',{name:'Voice test room'}).waitFor();
 await page.getByLabel('Preset',{exact:true}).selectOption('1');
 await page.getByLabel('Test name').fill('Follow-up trial');
@@ -36,7 +42,7 @@ await page.getByText('Preset saved on this device.').waitFor();
 await page.screenshot({path:__dirname+'/'+name+'-settings.png'});
 await page.getByRole('button',{name:'Hide test controls'}).click();
 await page.getByTestId('lab-super').click();await page.getByTestId('lab-super-row-talk').click();
-await page.getByText('Connected',{exact:true}).waitFor();
+try { await page.getByText('Connected',{exact:true}).waitFor(); } catch(e) { console.log(JSON.stringify({name,trace:await page.evaluate(()=>window.trace),requestCount:requests.length,errors,body:await page.locator('body').innerText()})); await page.screenshot({path:__dirname+'/'+name+'-failure.png'}); throw e; }
 assert.equal(requests.length,1);assert.equal(requests[0].voiceExperiment.model,'gpt-5.6-sol');assert(requests[0].instructions.includes('nearby')===false);assert(!requests[0].instructions.includes('{{passage}}'));assert(requests[0].instructions.includes('Job 8'));
 await page.evaluate(()=>{
  window.emit({type:'session.input_transcript.delta',delta:'Why?'});
