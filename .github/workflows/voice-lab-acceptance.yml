@@ -1,14 +1,14 @@
 name: voice-lab-acceptance
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/voice-lab-acceptance.yml'
-      - 'output/voice-lab-2026-09-17/acceptance.cjs'
+  workflow_run:
+    workflows: [deploy]
+    types: [completed]
 permissions:
   contents: read
 jobs:
   voice:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     defaults:
