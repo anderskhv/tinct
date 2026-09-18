@@ -476,6 +476,20 @@ const CASES = [
   ['pride-and-prejudice', 'modern-en', 3, 'charlotte', undefined, 'pp-modern-charlotte'],
   ['pride-and-prejudice', 'modern-en', undefined, 'mary-king', undefined, 'pp-modern-mary-king'],
   ['pride-and-prejudice', 'modern-en', undefined, 'mrs-forster', undefined, 'pp-modern-mrs-forster'],
+  // Frankenstein — clickable-names pass (batch 4)
+  ['frankenstein', 'original-en', 9, 'victor', undefined, 'fk-victor-frankenstein-alias-ch9'],
+  ['frankenstein', 'original-en', 14, 'creature', undefined, 'fk-creature-daemon-ch14'],
+  ['frankenstein', 'original-en', undefined, 'beaufort', undefined, 'fk-beaufort'],
+  ['frankenstein', 'original-en', undefined, 'mr-kirwin', undefined, 'fk-mr-kirwin'],
+  ['frankenstein', 'original-en', undefined, 'the-turk', undefined, 'fk-the-turk'],
+  ['frankenstein', 'original-en', undefined, 'daniel-nugent', undefined, 'fk-daniel-nugent'],
+  ['frankenstein', 'original-en', undefined, 'cornelius-agrippa', undefined, 'fk-cornelius-agrippa'],
+  ['frankenstein', 'original-en', undefined, 'adam', undefined, 'fk-adam'],
+  ['frankenstein', 'original-en', undefined, 'werter', undefined, 'fk-werter'],
+  ['frankenstein', 'original-en', undefined, 'uncle-thomas', undefined, 'fk-uncle-thomas'],
+  ['frankenstein', 'original-en', 11, 'william', undefined, 'fk-william-bare-alias'],
+  ['frankenstein', 'modern-en', undefined, 'mr-kirwin', undefined, 'fk-modern-mr-kirwin'],
+  ['frankenstein', 'modern-en', undefined, 'beaufort', undefined, 'fk-modern-beaufort'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
