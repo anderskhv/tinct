@@ -23,6 +23,7 @@ python3 books/wip_inventory.py --audio
 - RunPod: Kokoro audio batch may be active; verify from the pod or with `books/wip_inventory.py --audio`.
 - Claude: Treasure Island Danish cleanup may be active; keep Claude scoped to translation/editorial work.
 - Codex: library glass reel and librarian implementation is in release verification; see `docs/library-glass-librarian-2026-09-16.md`.
+- Claude (cloud): Fish Audio narration pilot on `claude/eloquent-wozniak-4il2zo`, opt-in only, waiting on a Fish API key and the release owner; see `docs/fish-audio-pilot-2026-09-18.md`.
 
 ## Working Tree
 
