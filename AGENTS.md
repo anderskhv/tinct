@@ -123,6 +123,26 @@ Do not ask Anders to deploy or to verify production. When app/lab work is done:
 
 Current caveat: plain `npx tsc --noEmit` is not a clean repo gate; it reports existing unrelated errors in legacy/worker files. Prefer the project build and focused tests until the TypeScript baseline is cleaned up.
 
+## Voice (Talk)
+
+Talk runs on xAI Grok native speech-to-speech (`grok-voice-latest`, voice `eve`)
+over one browser WebSocket; see `docs/voice-grok-2026-09-18.md`.
+
+- Worker secret `XAI_API_KEY` mints single-use client secrets at
+  `/api/voice-session` (signed-in, charged) and `/api/lab-voice-session`
+  (guest, rate limited). Never put the key in browser assets or logs.
+- The runtime prompt is `GROK_VOICE_INSTRUCTIONS` in
+  `app/src/voice/grokConfig.ts`. Keep it minimal; add a constraint only for a
+  demonstrated issue. Reference text (position, excerpt, recent turns) is data
+  appended under its own header, never instructions.
+- No user-facing model selection or comparison lab. Rollback is a revert of the
+  Grok commit; `OPENAI_API_KEY` remains for typed chat and source research.
+- Real-provider check (bounded, a few cents): build, `npx wrangler dev` with
+  `app/.dev.vars` holding `XAI_API_KEY`, then
+  `node scripts/grok-voice-smoke.mjs http://127.0.0.1:8787 <question.wav> [resume.wav]`
+  from `app/`. Headless, fake microphone, muted output. Against production use
+  `https://tinct.app`. Mocked tests alone do not prove the provider connection.
+
 ## Reader And Position Invariants
 
 These are production-critical:

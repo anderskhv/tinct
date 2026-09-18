@@ -68,3 +68,10 @@ artifacts/*/pods/*/rejected/
 artifacts/*/pods/*/out/
 artifacts/*/pods/*/cohort/
 artifacts/**/*.tar.gz
+
+# Wrangler local secrets
+.dev.vars
+.dev.vars.*
+
+# Voice smoke artifacts
+app/artifacts/grok-voice-smoke*/

@@ -1,15 +1,10 @@
-import type { VoiceExperiment, VoiceDiagnostic } from '../voice/voiceLab'
-import { LiveVoiceSessionController } from '../voice/LiveVoiceSessionController'
-import type { VoiceTrial } from '../voice/voiceTrial'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
-import { VoiceSessionController, type VoiceAudioEngine, type VoiceUiSnapshot } from '../voice/VoiceSessionController'
-import type { AssistantPace, LabPlaybackSkip } from '../lab/labAsk'
-import type { CompanionAskNotify } from '../lab/labCompanion'
-import type { CompanionAskResult, VoiceVersion } from '../voice/v2/voiceV2'
+import { GrokVoiceSessionController } from '../voice/GrokVoiceSessionController'
+import { IDLE_VOICE_SNAPSHOT, type VoiceAudioEngine, type VoiceUiSnapshot } from '../voice/session'
+import type { AssistantPace } from '../lab/labAsk'
 import { nearbyParagraphWindow } from '../voice/context'
 import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceApplicationToolHandler, VoiceLatencySample, VoiceReaderContext, VoiceReaderProfile, VoiceSessionMode } from '../voice/types'
-import { VOICE_REALTIME_MODEL } from '../voice/types'
 
 let voiceMessageId = 0
 function nextVoiceMessageId() {
@@ -17,11 +12,9 @@ function nextVoiceMessageId() {
 }
 
 export interface UseVoiceSessionOptions {
-  voiceExperiment?: VoiceExperiment
-  onVoiceDiagnostic?: (event: VoiceDiagnostic) => void
   authToken: string | null
   isAnonymous: boolean
-  /** Lab-only guest/test path. Production App.tsx leaves this unset. */
+  /** Lab reader / library guest path. Production App.tsx leaves this unset. */
   labGuest?: boolean
   bookId: string
   bookTitle: string
@@ -48,55 +41,33 @@ export interface UseVoiceSessionOptions {
   onBeforeUserTurn?: () => boolean
   onEndConversation?: () => void
   mode?: VoiceSessionMode
-  /** Lab-only. Production AudioStrip leaves this unset so buildVoiceInstructions runs. */
+  /** Replaces the whole Tinct prompt (the library assistant). The reader leaves this unset. */
   instructions?: string
+  /** Reference material (data, not instructions) for the reader's position and recent conversation. */
+  reference?: string
   tools?: readonly unknown[]
   /** Production-owned functions appended to the base voice controls. */
   applicationTools?: readonly unknown[]
   onApplicationTool?: VoiceApplicationToolHandler
   /** Clears session-scoped application state such as the voice undo stack. */
   onSessionStart?: () => void
-  honorModelResume?: boolean
-  /** V2 reader: wait silently and always speak the completed companion answer. */
-  voiceTrial?: VoiceTrial | null
-  quietCompanionHandoff?: boolean
-  /** Lab-only. Production AudioStrip leaves this unset. */
+  /** Lab reader only. */
   setPlaybackSpeed?: (rate: number) => void
-  /** Lab-only. Production AudioStrip leaves this unset. */
   skipPlayback?: VoiceAudioEngine['skipPlayback']
-  /** Lab-only. Production AudioStrip leaves this unset. */
   assistantPace?: AssistantPace
   onSetAssistantPace?: (pace: AssistantPace) => void
-  /** Lab-only. Hard book questions hop to /api/lab-chat. Production leaves this unset. */
-  onCompanionAsk?: (question: string, notify?: CompanionAskNotify) => Promise<string | CompanionAskResult>
-  /** Lab-only. `'v2'` only from `/lab/reader?voice=v2`; production and V1 leave this unset. */
-  voiceVersion?: VoiceVersion
-}
-
-const IDLE_SNAPSHOT: VoiceUiSnapshot = {
-  state: 'reading',
-  mode: 'conversation',
-  activity: 'idle',
-  connection: 'idle',
-  micMuted: false,
-  resumeInSeconds: null,
-  error: null,
-  isActive: false,
-  userSpeechStarted: false,
 }
 
 export function useVoiceSession(options: UseVoiceSessionOptions) {
-  const [ui, setUi] = useState<VoiceUiSnapshot>(IDLE_SNAPSHOT)
+  const [ui, setUi] = useState<VoiceUiSnapshot>(IDLE_VOICE_SNAPSHOT)
   const [latencySamples, setLatencySamples] = useState<VoiceLatencySample[]>([])
   const optionsRef = useRef(options)
   optionsRef.current = options
-  const controllerRef = useRef<VoiceSessionController | LiveVoiceSessionController | null>(null)
+  const controllerRef = useRef<GrokVoiceSessionController | null>(null)
 
   useEffect(() => {
-    const Controller = options.voiceTrial ? VoiceSessionController : LiveVoiceSessionController
-    const controller = new Controller({
+    const controller = new GrokVoiceSessionController({
       onSnapshot: setUi,
-      onVoiceDiagnostic: event => optionsRef.current.onVoiceDiagnostic?.(event),
       onBeforeUserTurn: () => optionsRef.current.onBeforeUserTurn?.() ?? true,
       onTurn: (role, text, meta) => {
         const opts = optionsRef.current
@@ -147,7 +118,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       controller.dispose()
       controllerRef.current = null
     }
-  }, [options.voiceTrial])
+  }, [])
 
   const buildContext = useCallback((): VoiceReaderContext => {
     const opts = optionsRef.current
@@ -172,9 +143,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
   }, [])
 
   useEffect(() => {
-    const controller = controllerRef.current
-    if (controller instanceof LiveVoiceSessionController) controller.updateContext(buildContext(), options.instructions)
-    else controller?.updateContext(buildContext())
+    controllerRef.current?.updateContext(buildContext(), options.reference, options.instructions)
   }, [
     buildContext,
     options.bookId,
@@ -189,6 +158,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     options.chapterParagraphs,
     options.visibleText,
     options.instructions,
+    options.reference,
     options.readerProfile,
   ])
 
@@ -200,10 +170,9 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     const opts = optionsRef.current
     opts.onSessionStart?.()
     const authToken = overrides?.authToken !== undefined ? overrides.authToken : opts.authToken
-    if (opts.honorModelResume) controllerRef.current?.unlockLabAudioContext()
+    controllerRef.current?.unlockLabAudioContext()
     await controllerRef.current?.start({
       authToken,
-      voiceExperiment: opts.voiceExperiment,
       greeting: overrides?.greeting,
       isAnonymous: !authToken,
       labGuest: opts.labGuest === true,
@@ -217,16 +186,12 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       },
       mode: opts.mode ?? 'conversation',
       instructions: opts.instructions,
+      reference: opts.reference,
       tools: opts.tools,
       applicationTools: opts.applicationTools,
-      honorModelResume: opts.honorModelResume,
-      quietCompanionHandoff: opts.quietCompanionHandoff,
-      voiceTrial: opts.voiceTrial,
       assistantPace: opts.assistantPace,
-      onCompanionAsk: opts.onCompanionAsk,
-      voiceVersion: opts.voiceVersion,
     })
-    return controllerRef.current?.getSnapshot() ?? IDLE_SNAPSHOT
+    return controllerRef.current?.getSnapshot() ?? IDLE_VOICE_SNAPSHOT
   }, [buildContext])
 
   const stop = useCallback(() => {

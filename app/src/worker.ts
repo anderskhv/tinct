@@ -47,6 +47,7 @@ export { serveSpaWithMetaForTest } from './worker/routes/seo'
 interface Env {
   ANTHROPIC_API_KEY: string
   OPENAI_API_KEY?: string
+  XAI_API_KEY?: string
   INDEXNOW_KEY?: string
   STRIPE_SECRET_KEY?: string
   STRIPE_WEBHOOK_SECRET?: string
@@ -158,7 +159,6 @@ export default {
       case '/api/chat': return handleChat(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/lab-chat': return handleLabChat(request, env, ctx, checkRateLimit)
       case '/api/voice-research': return handleVoiceResearch(request, env, verifyUser, checkRateLimit)
-      case '/api/voice-lab': return jsonResponse({ allowed: await verifySiteAdmin(env, request) }, 200, request)
       case '/api/voice-session': return handleVoiceSession(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/lab-voice-session': return handleLabVoiceSession(request, env, ctx, checkRateLimit)
       case '/api/lab-position': return handleLabPosition(request, env, verifyUser)

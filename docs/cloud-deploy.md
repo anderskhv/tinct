@@ -10,7 +10,7 @@ From `app/`:
 npm run deploy    # builds, verifies the bundle, then deploys
 ```
 
-This pushes the Worker (`app/src/worker.ts`) and static assets from `dist/`. It does **not** re-upload Worker runtime secrets (Anthropic, Stripe, Supabase service role, etc.) — those already live on the Cloudflare Worker.
+This pushes the Worker (`app/src/worker.ts`) and static assets from `dist/`. It does **not** re-upload Worker runtime secrets (Anthropic, xAI, Stripe, Supabase service role, etc.) — those already live on the Cloudflare Worker. If Wrangler refuses `secret put` because the latest uploaded version is not the deployed one, use `npx wrangler versions secret put <NAME>`; the next `npm run deploy` carries the secret.
 
 ## Secrets required for automated deploy
 
@@ -80,7 +80,8 @@ Already on production Worker unless standing up a new account:
 ```bash
 cd app
 npx wrangler secret put ANTHROPIC_API_KEY
-npx wrangler secret put OPENAI_API_KEY
+npx wrangler secret put XAI_API_KEY      # Grok native speech-to-speech (Talk)
+npx wrangler secret put OPENAI_API_KEY   # typed-chat and voice source research only
 npx wrangler secret put SUPABASE_URL
 npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY
 npx wrangler secret put STRIPE_SECRET_KEY
