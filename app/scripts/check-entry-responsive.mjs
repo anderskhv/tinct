@@ -20,6 +20,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    try {
    await page.addInitScript(()=>{
     HTMLMediaElement.prototype.play=()=>Promise.resolve()
+    window.AudioContext=undefined;window.webkitAudioContext=undefined
     if(navigator.mediaDevices) navigator.mediaDevices.getUserMedia=async()=>{throw Error('Disabled for acceptance')}
    })
    await page.route('**/*',async route=>{
@@ -58,20 +59,13 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
     assert(landing.cta.top>=landing.covers.bottom,name+' no art/action overlap')
     assert(landing.covers.top-landing.copy.bottom<55,name+' no empty spacer')
    }else assert(landing.covers.left>=landing.copy.right,name+' desktop columns do not collide')
-   const track=page.locator('.entry-cover-track,.entry-cover-column').first()
-   const before=await track.evaluate(n=>getComputedStyle(n).transform)
-   await page.waitForFunction(previous=>{
-    const n=document.querySelector('.entry-cover-track,.entry-cover-column')
-    return n && getComputedStyle(n).transform!==previous
-   },before,{timeout:10000})
-   console.log('MOTION_STATE '+engine+' '+name+' '+JSON.stringify(await track.evaluate(n=>({
-    hidden:document.hidden,state:getComputedStyle(n).animationPlayState,name:getComputedStyle(n).animationName,
-    duration:getComputedStyle(n).animationDuration,transform:getComputedStyle(n).transform,
-    host:n.parentElement.className,rect:n.parentElement.getBoundingClientRect().toJSON(),
-    animations:n.getAnimations().map(a=>({state:a.playState,time:a.currentTime,rate:a.playbackRate}))
-   }))))
-   assert.notEqual(await track.evaluate(n=>getComputedStyle(n).transform),before,'covers animate')
-   await page.getByRole('button',{name:'Pause covers',exact:true}).click()
+   const track=page.locator('.entry-cover-track .lib-cover,.entry-cover-column').first()
+   assert.notEqual(await track.evaluate(n=>getComputedStyle(n).animationName),'none','cover reveal configured')
+   assert.equal(await page.getByRole('button',{name:'Pause covers',exact:true}).count(),0,'no pause control exposed')
+   await page.waitForTimeout(1800)
+   const settled=await track.evaluate(n=>getComputedStyle(n).transform)
+   await page.waitForTimeout(150)
+   assert.equal(await track.evaluate(n=>getComputedStyle(n).transform),settled,'reveal settles')
    await page.emulateMedia({reducedMotion:'reduce'})
    assert.equal(await track.evaluate(n=>getComputedStyle(n).animationName),'none','reduced motion')
    await page.emulateMedia({reducedMotion:'no-preference'})
@@ -101,6 +95,22 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    assert(library.desc.length>90,'full description remains')
    if(height>=660)assert(library.description.bottom<library.dock.top,name+' full description above dock')
    if(height>=660)assert(library.category.top<library.dock.top-35,name+' first category visible before dock')
+   if(touch && engine==='chromium' && width<600){
+    const cd=await context.newCDPSession(page)
+    const shelf=await page.locator('[data-popular-shelf]').boundingBox()
+    const selected=()=>page.locator('[data-shelf-index][aria-current="true"]').getAttribute('data-shelf-index')
+    const before=await selected()
+    const x=shelf.x+shelf.width/2,y=shelf.y+shelf.height/2
+    for(const direction of [-1,1]){
+     await cd.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]})
+     for(let step=1;step<=6;step++) await cd.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+direction*step*8,y:y+2}]})
+     await cd.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]})
+     await page.waitForTimeout(450)
+     if(direction===-1) assert.notEqual(await selected(),before,'short native touch swipe advances')
+    }
+    assert.equal(await selected(),before,'reverse touch swipe returns')
+    await cd.detach()
+   }
    const row=page.locator('.lib-category-track').first()
    await row.scrollIntoViewIfNeeded()
    if(!touch){
@@ -122,6 +132,45 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
     return window.__tinctLabPreReader.libraryState().shelf.map(id=>({id,time:model.catalogueLengthLine(catalogue.books.find(b=>b.id===id).wordCount)}))
    })
    assert(times.every(b=>b.time), 'all featured books have reading estimates: '+JSON.stringify(times))
+
+   // Exercise actual assistant markup with mic/audio disabled, never a paid call.
+   await page.locator('.library-glass-dock').getByRole('button',{name:'Chat',exact:true}).click()
+   const chat=page.getByRole('dialog',{name:'Chat with the librarian',exact:true})
+   await chat.waitFor()
+   let cb=await chat.boundingBox()
+   if(width<=600){
+    assert(Math.abs(cb.width-width)<2 && Math.abs(cb.height-height)<2,'mobile chat fills available viewport')
+    assert.equal(await page.locator('.library-glass-dock').isVisible(),false)
+    await page.setViewportSize({width,height:420});await page.waitForTimeout(200)
+    cb=await chat.boundingBox()
+    assert(cb.y+cb.height<=422,'chat follows reduced keyboard viewport')
+    const composer=await chat.locator('form').boundingBox()
+    assert(composer.y+composer.height<=422,'composer remains visible')
+    await page.setViewportSize({width,height});await page.waitForTimeout(200)
+   }else assert(cb.width<=622 && cb.height<height,'desktop chat remains a window')
+   await review('library-chat')
+   await chat.getByRole('button',{name:'Close',exact:true}).click()
+   assert(await page.locator('.library-glass-dock').isVisible())
+   await page.locator('.library-glass-dock').getByRole('button',{name:'Talk',exact:true}).click()
+   const talk=page.getByRole('dialog',{name:'Talk with the librarian',exact:true})
+   await talk.waitFor()
+   const call=talk.getByTestId('lab-call')
+   await call.waitFor()
+   await page.waitForTimeout(400)
+   const tb=await talk.boundingBox(),orb=await call.locator('.lab-call-circle').boundingBox(),end=await call.getByTestId('lab-call-end').boundingBox()
+   assert(Math.abs(orb.x+orb.width/2-(tb.x+tb.width/2))<3,'voice orb is centred')
+   assert(end.y+end.height<=tb.y+tb.height,'end control remains inside window')
+   assert.equal(await call.evaluate(n=>getComputedStyle(n).display),'grid','voice styling applies outside reader')
+   assert.equal(await call.locator('.lab-voice-control-disc').last().evaluate(n=>getComputedStyle(n).borderRadius),'50%','round voice controls')
+   if(width<=600){
+    assert(Math.abs(tb.width-width)<2 && Math.abs(tb.height-height)<2,'mobile Talk fills available viewport')
+    assert.equal(await page.locator('.library-glass-dock').isVisible(),false)
+   }else assert(tb.width<=562 && tb.height<height,'desktop voice remains bounded')
+   await review('library-talk')
+   await call.getByTestId('lab-call-end').click()
+   assert.equal(await talk.count(),0)
+   assert(await page.locator('.library-glass-dock').isVisible())
+   assert.notEqual(await page.evaluate(()=>document.body.style.overflow),'hidden','close restores library scrolling')
    results.push({engine,name,landing,library})
    } catch(error) {
     failures.push({engine,name,error:String(error)})

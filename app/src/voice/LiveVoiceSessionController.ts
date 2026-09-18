@@ -1,3 +1,4 @@
+import { experimentInstructions, type VoiceDiagnostic } from './voiceLab'
 import { apiUrl } from '../utils/apiUrl'
 import { isLabPlaybackSkip, parseAssistantPace, parseSetPlaybackSpeedArguments, type AssistantPace } from '../lab/labAsk'
 import { buildVoiceInstructions, VOICE_TOOLS } from './context'
@@ -30,6 +31,13 @@ export class LiveVoiceSessionController {
   constructor(private callbacks: VoiceSessionCallbacks) {}
   getSnapshot() { return this.ui }
   private emit(update: Partial<VoiceUiSnapshot>) { this.ui = { ...this.ui, ...update }; this.callbacks.onSnapshot(this.ui) }
+  private diagnose(event: Omit<VoiceDiagnostic, 'at'>) {
+    if (this.input?.voiceExperiment) this.callbacks.onVoiceDiagnostic?.({ at: Date.now(), ...event })
+  }
+  private backendInstructions(context = this.input!.context) {
+    const original = this.input!.instructions || buildVoiceInstructions(context)
+    return this.input!.voiceExperiment ? experimentInstructions(this.input!.voiceExperiment, original, context) : original
+  }
   private send(event: Record<string, unknown>) {
     if (this.ready && this.dc?.readyState === 'open') this.dc.send(JSON.stringify({ event_id: crypto.randomUUID(), ...event }))
   }
@@ -59,14 +67,22 @@ export class LiveVoiceSessionController {
       this.readerLocation = location
       this.send({ type: 'session.thinking.append', delegation_id: null, content: `Reader location (reference data): ${location}` })
     }
-    this.send({ type: 'session.update', session: { delegation: { type: 'responses', responses: { instructions: this.input.instructions || buildVoiceInstructions(context) } } } })
+    this.diagnose({ type: 'context.updated', instructions: this.backendInstructions(context) })
+    this.send({ type: 'session.update', session: { delegation: { type: 'responses', responses: { instructions: this.backendInstructions(context) } } } })
   }
   private flush(role: 'user' | 'assistant') {
     const text = this.captions[role].replace(/\uFFFD/g, '').trim()
     this.captions[role] = ''
+    if (role === 'user') this.userTurnAccepted = false
     if (/[\p{L}\p{N}]/u.test(text)) this.callbacks.onTurn(role, text)
   }
+  private userTurnAccepted = false
   private caption(role: 'user' | 'assistant', delta: string) {
+    if (role === 'user' && !this.userTurnAccepted && /[\p{L}\p{N}]/u.test(delta)) {
+      if (this.callbacks.onBeforeUserTurn?.() === false) { this.stop(); return }
+      this.userTurnAccepted = true
+    }
+    this.diagnose({ type: `${role}.transcript`, text: delta })
     this.captions[role] += delta
     // A pause is not the end of a question. Keep its fragments together until
     // the backend starts work, or the session ends. Output pauses may be long
@@ -80,7 +96,8 @@ export class LiveVoiceSessionController {
     this.stop()
     const generation = this.generation
     const startedAt = Date.now()
-    this.input = input
+    this.input = { ...input, voiceExperiment: input.voiceExperiment ? { ...input.voiceExperiment } : undefined }
+    this.diagnose({ type: 'call.started', settings: this.input.voiceExperiment, instructions: this.backendInstructions() })
     this.anchor = input.audio.pausePlayback()?.anchor ?? null
     this.emit({ isActive: true, state: 'reading', activity: 'connecting', connection: 'connecting', mode: input.mode ?? 'conversation' })
     if (!input.labGuest && !input.authToken) { this.fail('Sign in to ask by voice.'); this.callbacks.onNeedAuth?.(); return }
@@ -135,7 +152,7 @@ export class LiveVoiceSessionController {
       if (!current()) return
       const res = await fetch(apiUrl(input.labGuest && !input.authToken ? '/api/lab-voice-session' : '/api/voice-session'), {
         method: 'POST', headers: { 'Content-Type': 'application/json', ...(input.authToken ? { Authorization: `Bearer ${input.authToken}` } : {}) },
-        body: JSON.stringify({ protocol: 'live', sdp: pc.localDescription?.sdp, instructions: input.instructions || buildVoiceInstructions(input.context), tools: input.tools ?? [...VOICE_TOOLS, ...(input.applicationTools ?? [])] }),
+        body: JSON.stringify({ protocol: 'live', voiceExperiment: this.input?.voiceExperiment, sdp: pc.localDescription?.sdp, instructions: this.backendInstructions(), tools: input.tools ?? [...VOICE_TOOLS, ...(input.applicationTools ?? [])] }),
       })
       const data = await res.json() as { transport?: { sdp?: string }; error?: string }
       if (!current()) return
@@ -153,7 +170,9 @@ export class LiveVoiceSessionController {
   }
   /** Exposed for deterministic protocol regression tests. */
   handleEvent(event: LiveEvent) {
+    if (event.type === 'error') this.diagnose({ type: 'error', text: event.error?.message })
     if (event.type === 'session.started') {
+      this.diagnose({ type: 'call.connected' })
       if (this.ready) return
       this.ready = true
       this.emit({ connection: 'connected', activity: 'listening', state: 'listening' })
@@ -166,6 +185,8 @@ export class LiveVoiceSessionController {
     else if (event.type === 'response.event' && event.event && event.delegation_id) {
       const nested = event.event
       const key = event.delegation_id
+      if (nested.type === 'response.output_text.delta') this.diagnose({ type: 'backend.text', id: key, text: nested.delta })
+      if (nested.type === 'response.created' || nested.type === 'response.completed' || nested.type === 'response.failed') this.diagnose({ type: nested.type, id: key })
       if (nested.type === 'response.created') {
         this.flush('user')
         this.responses.set(key, { id: nested.response?.id ?? '', calls: [] })
@@ -183,8 +204,11 @@ export class LiveVoiceSessionController {
           for (const call of response.calls) {
             if (this.handled.has(call.callId)) continue
             this.handled.add(call.callId)
+            const toolStarted = Date.now()
+            this.diagnose({ type: 'tool.started', id: call.callId, text: call.name + ' ' + call.arguments })
             let output: unknown
             try { output = await this.runTool(call) } catch { output = { ok: false, error: 'The action could not be completed.' } }
+            this.diagnose({ type: 'tool.completed', id: call.callId, text: (JSON.stringify(output) ?? '').slice(0, 16000), durationMs: Date.now() - toolStarted })
             if (generation !== this.generation) return
             this.send({ type: 'response.item.create', item: { type: 'function_call_output', call_id: call.callId, output: JSON.stringify(output) } })
           }
@@ -236,6 +260,7 @@ export class LiveVoiceSessionController {
     if (input && anchor) input.audio.resumePlayback(anchor, playAudio)
   }
   stop() {
+    if (this.ui.isActive) this.diagnose({ type: 'call.ended' })
     this.send({ type: 'session.close' })
     this.generation++
     this.ready = false

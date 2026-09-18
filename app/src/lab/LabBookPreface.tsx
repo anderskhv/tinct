@@ -5,6 +5,7 @@ import type { Edition } from '../types'
 import type { BookPreface } from '../data/bookPrefaces'
 import type { LabCastMember } from './labSource'
 import { ChatIcon, TalkIcon } from './LabReaderIcons'
+import { preparationEditionLabel } from './preparationEditionLabel'
 import './labBookPreface.css'
 
 /** Optional preparation: it never receives or changes a reading location. */
@@ -21,7 +22,7 @@ export function LabBookPreface({ open = true, preface, title, cover, continued, 
   const frame = useRef<HTMLDivElement>(null)
   const [fullPreface, setFullPreface] = useState(false)
   const [showEditions, setShowEditions] = useState(false)
-  const editionName = (edition: Edition) => edition.key === 'modern-en' ? 'Tinct Modern English AI' : edition.label
+  const editionName = preparationEditionLabel
   const [showCast, setShowCast] = useState(false)
   const [expandedCharacters, setExpandedCharacters] = useState<Set<string>>(() => new Set())
   const [introCast, setIntroCast] = useState<LabCastMember[]>([])
@@ -91,19 +92,20 @@ export function LabBookPreface({ open = true, preface, title, cover, continued, 
           </article>) : <p>Character introductions aren’t available for this book yet.</p>}</div>}
         </section>
         <section className="lab-preparation-customize">
-          <h2>Design your own introduction</h2>
-          <nav className="lab-preparation-dock" aria-label="Design your own introduction">
-            <button type="button" onClick={() => onAsk('')}><ChatIcon /><span>Chat</span></button>
+          <h2>Find your way into the book</h2>
+          <p>A quick conversation about what might interest you.</p>
+          <nav className="lab-preparation-dock" aria-label="Find your way into the book">
             <button type="button" onClick={onTalk}><TalkIcon /><span>Talk</span></button>
+            <button type="button" onClick={() => onAsk('')}><ChatIcon /><span>Chat</span></button>
           </nav>
         </section>
         {editions.length > 0 && <section className="lab-preparation-editions">
           <h2><button type="button" className="lab-preparation-expand" aria-expanded={showEditions} aria-controls="preparation-editions" onClick={() => setShowEditions(value => !value)}>Select your editions <span aria-hidden="true">{showEditions ? '−' : '+'}</span></button></h2>
           {showEditions && <div id="preparation-editions">
             <label htmlFor="preparation-primary-edition">Primary edition</label><select id="preparation-primary-edition" value={primaryEdition} onChange={event => onEditions(event.target.value, event.target.value === secondaryEdition ? primaryEdition : secondaryEdition)}>{editions.map(edition => <option key={edition.key} value={edition.key}>{editionName(edition)}</option>)}</select>
-            <label htmlFor="preparation-secondary-edition">Secondary edition</label><select id="preparation-secondary-edition" value={secondaryEdition} onChange={event => onEditions(primaryEdition, event.target.value)}><option value="">None</option>{editions.filter(edition => edition.key !== primaryEdition).map(edition => <option key={edition.key} value={edition.key}>{editionName(edition)}</option>)}</select>
             <label htmlFor="preparation-audiobook">Audiobook</label>
             <LabAudiobookSelect id="preparation-audiobook" value={audioChoice} primaryLabel={editions.find(edition => edition.key === primaryEdition)?.label || primaryEdition} editions={audioEditions} onChange={onAudioChoice} />
+            <label htmlFor="preparation-secondary-edition">Compare edition</label><select id="preparation-secondary-edition" value={secondaryEdition} onChange={event => onEditions(primaryEdition, event.target.value)}><option value="">None</option>{editions.filter(edition => edition.key !== primaryEdition).map(edition => <option key={edition.key} value={edition.key}>{editionName(edition)}</option>)}</select>
             {audioEditions.length === 0 && <p>No audiobook is available in this language.</p>}
             <p>You can change these later in settings.</p>
           </div>}

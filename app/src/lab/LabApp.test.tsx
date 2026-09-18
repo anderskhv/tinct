@@ -2795,8 +2795,11 @@ describe('lab passage headline pages', () => {
     expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(0)
     fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
     await waitFor(() => expect(localStorage.getItem('tinct-lab-highlights')).toContain('gold'))
+    expect(screen.queryByRole('textbox', {name:'Highlight note'})).toBeNull()
+    fireEvent.click(screen.getByRole('button',{name:'Add note'}))
     fireEvent.change(screen.getByRole('textbox', { name: 'Highlight note' }), { target: { value: 'Remember this.' } })
     fireEvent.click(screen.getByTitle('Highlight Sky'))
+    fireEvent.click(screen.getByRole('button',{name:'Save note'}))
     await waitFor(() => {
       const saved = JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')
       expect(saved).toHaveLength(1)
@@ -2893,9 +2896,9 @@ describe('lab passage headline pages', () => {
   })
 
   it('does not focus the composer when the account sheet hands a held draft back on the phone', async () => {
-    // Two of the three anonymous actions are already spent, so the chat below
+    // Two of the ten anonymous actions are already spent, so the chat below
     // takes the last one and the one after it is held.
-    localStorage.setItem('tinct:lab-ai-actions', '2')
+    localStorage.setItem('tinct:lab-ai-actions', '9')
     const focus = vi.spyOn(HTMLInputElement.prototype, 'focus')
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       if (String(input).includes('/api/lab-chat')) {

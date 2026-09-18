@@ -84,6 +84,27 @@ function readStructure(publicDirectory: string, bookId: string, editionKey: stri
   }
 }
 
+/** Count actual published text, never multiply chapter totals or invent pages. */
+export function publishedWordCount(publicDirectory: string, bookId: string, editionKey: string): number | null {
+  const whole = path.join(publicDirectory, 'data', 'editions', `${bookId}-${editionKey}.json`)
+  const directory = path.dirname(manifestPathFor(publicDirectory, bookId, editionKey))
+  const files = hasChapterShards(publicDirectory,bookId,editionKey)
+    ? fs.readdirSync(directory).filter(name => name.endsWith('.json') && name !== 'manifest.json').map(name => path.join(directory,name))
+    : fs.existsSync(whole) ? [whole] : []
+  let total = 0
+  const count = (value: unknown): void => {
+    if (!value || typeof value !== 'object') return
+    if (Array.isArray(value)) { value.forEach(count); return }
+    const record = value as Record<string, unknown>
+    if (Array.isArray(record.paragraphs)) {
+      for (const paragraph of record.paragraphs) if (typeof paragraph === 'string') total += paragraph.replace(/<[^>]*>/g,' ').match(/[\p{L}\p{N}]+(?:[’'-][\p{L}\p{N}]+)*/gu)?.length ?? 0
+    }
+    if (Array.isArray(record.chapters)) record.chapters.forEach(count)
+  }
+  for (const file of files) count(JSON.parse(fs.readFileSync(file,'utf8')))
+  return total > 0 ? total : null
+}
+
 export function addLibraryReadingStructures(
   catalogue: SerializablePreReaderCatalogue,
   publicDirectory: string,
@@ -95,6 +116,7 @@ export function addLibraryReadingStructures(
       if (!edition) throw new Error(`Published book ${book.id} has no readable non-Danish edition`)
       return {
         ...book,
+        wordCount: publishedWordCount(publicDirectory, book.id, edition.key) ?? book.wordCount,
         editions: book.editions.map(item => ({
           ...item,
           chapterShards: hasChapterShards(publicDirectory, book.id, item.key),

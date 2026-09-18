@@ -105,13 +105,13 @@ describe('LabSecondBookNudge', () => {
 })
 
 describe('lab account prompt in the reader', () => {
-  it('sends three anonymous chats, holds the fourth behind the sheet, and keeps the draft on dismiss', async () => {
+  it('sends ten anonymous chats, holds the fourth behind the sheet, and keeps the draft on dismiss', async () => {
     const fetchMock = chatFetch()
     vi.stubGlobal('fetch', fetchMock)
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
     openDesktopChat()
 
-    const questions = ['Who wrote this?', 'And when?', 'Where?']
+    const questions = Array.from({length: LAB_FREE_AI_ACTIONS}, (_,i) => `Question ${i+1}?`)
     expect(questions).toHaveLength(LAB_FREE_AI_ACTIONS)
     for (const [index, question] of questions.entries()) {
       sendTyped(question)
@@ -149,21 +149,21 @@ describe('lab account prompt in the reader', () => {
   it('counts chat and voice against one allowance, so both can be tried first', async () => {
     // Two chats already spent on this device. A chat takes the third, and the
     // voice turn after it — the fourth action overall — is the one held.
-    localStorage.setItem(LAB_AI_ACTIONS_KEY, '2')
+    localStorage.setItem(LAB_AI_ACTIONS_KEY, String(LAB_FREE_AI_ACTIONS - 1))
     const fetchMock = chatFetch()
     vi.stubGlobal('fetch', fetchMock)
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
 
     openDesktopChat()
     sendTyped('Who wrote this?')
-    await waitFor(() => expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe('3'))
+    await waitFor(() => expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe(String(LAB_FREE_AI_ACTIONS)))
     expect(chatCalls(fetchMock)).toHaveLength(1)
     expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
 
     fireEvent.click(screen.getByTestId('lab-desktop-talk'))
     expect((await screen.findByTestId('lab-account-sheet')).getAttribute('data-action')).toBe('voice')
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('voice-session'))).toBe(false)
-    expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe('3')
+    expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe(String(LAB_FREE_AI_ACTIONS))
   })
 
   it('keeps the spent count across a reload and hands it back on sign-in', async () => {
@@ -180,8 +180,9 @@ describe('lab account prompt in the reader', () => {
     openDesktopChat()
     sendTyped('And when?')
     await waitFor(() => expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe('2'))
+    localStorage.setItem(LAB_AI_ACTIONS_KEY, String(LAB_FREE_AI_ACTIONS - 1))
     sendTyped('Where?')
-    await waitFor(() => expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe('3'))
+    await waitFor(() => expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe(String(LAB_FREE_AI_ACTIONS)))
     sendTyped('One more?')
     expect(await screen.findByTestId('lab-account-sheet')).toBeTruthy()
     cleanup()
@@ -246,28 +247,14 @@ describe('lab account prompt in the reader', () => {
     vi.stubGlobal('fetch', vi.fn(() => new Promise(() => { /* hang the guest voice token */ })))
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-desktop-talk'))
-    await waitFor(() => expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe('1'))
+    expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBeNull()
     expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
   })
 
-  it('shows the second-book nudge once per device for an anonymous reader, never when signed in', () => {
+  it('never nudges when another book is opened', () => {
     localStorage.setItem('tinct-lab-position', JSON.stringify({ books: {}, finished: { odyssey: [1, 2] }, lastSettledBookId: null, lastSettledAt: 0, updatedAt: 1, deviceId: 'd' }))
-    const { unmount } = render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
-    const nudge = screen.getByTestId('lab-second-book-nudge')
-    expect(nudge.textContent).toContain('Keep your place across books')
-    expect(localStorage.getItem(LAB_SECOND_BOOK_NUDGE_KEY)).toBe('1')
-    fireEvent.click(screen.getByTestId('lab-second-book-nudge-dismiss'))
-    expect(screen.queryByTestId('lab-second-book-nudge')).toBeNull()
-    unmount()
-
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     expect(screen.queryByTestId('lab-second-book-nudge')).toBeNull()
-    cleanup()
-
-    localStorage.removeItem(LAB_SECOND_BOOK_NUDGE_KEY)
-    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken="signed-in" />)
-    expect(screen.queryByTestId('lab-second-book-nudge')).toBeNull()
-    expect(localStorage.getItem(LAB_SECOND_BOOK_NUDGE_KEY)).toBeNull()
   })
 
   it('does not nudge on the first book', () => {

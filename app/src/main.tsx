@@ -1,3 +1,4 @@
+import { VoiceLab } from './lab/VoiceLab'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
@@ -37,7 +38,7 @@ if (isEink) {
 }
 
 const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
-const Root = isLabPath(pathname) ? LabApp : App
+const Root = pathname.replace(/\/+$/, '') === '/lab/voice' ? VoiceLab : isLabPath(pathname) ? LabApp : App
 if (pathname === '/reader' || pathname === '/lab/phone' || pathname === '/lab/reader') {
   startReaderLoadTrace()
 }

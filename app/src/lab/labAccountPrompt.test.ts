@@ -30,8 +30,8 @@ function memoryStorage(seed: Record<string, string> = {}): LabPromptStorage & { 
 }
 
 describe('lab account prompt: AI action gate', () => {
-  it('gives an anonymous reader three free AI actions and spends one per action', () => {
-    expect(LAB_FREE_AI_ACTIONS).toBe(3)
+  it('gives an anonymous reader ten free AI actions and spends one per action', () => {
+    expect(LAB_FREE_AI_ACTIONS).toBe(10)
     const storage = memoryStorage()
     for (let spent = 0; spent < LAB_FREE_AI_ACTIONS; spent++) {
       expect(decideLabAiAction({ signedIn: false, storage })).toEqual({ allowed: true, reason: 'free' })
@@ -41,7 +41,7 @@ describe('lab account prompt: AI action gate', () => {
     expect(storage.getItem(LAB_AI_ACTIONS_KEY)).toBe(String(LAB_FREE_AI_ACTIONS))
   })
 
-  it('gates the fourth anonymous action and keeps gating after a dismiss', () => {
+  it('gates the eleventh anonymous action and keeps gating after a dismiss', () => {
     const storage = memoryStorage()
     for (let spent = 0; spent < LAB_FREE_AI_ACTIONS; spent++) gateLabAiAction({ signedIn: false, storage })
     expect(gateLabAiAction({ signedIn: false, storage })).toEqual({ allowed: false, reason: 'account-required' })
@@ -59,7 +59,8 @@ describe('lab account prompt: AI action gate', () => {
     expect(take('chat')).toBe(true)
     expect(take('voice')).toBe(true)
     expect(take('chat')).toBe(true)
-    expect(readLabAiActionCount(storage)).toBe(3)
+    for(let i=3;i<10;i++) expect(take(i%2 ? 'chat' : 'voice')).toBe(true)
+    expect(readLabAiActionCount(storage)).toBe(10)
     expect(take('voice')).toBe(false)
     expect(take('chat')).toBe(false)
   })
@@ -72,6 +73,7 @@ describe('lab account prompt: AI action gate', () => {
     const afterReload = memoryStorage({ [LAB_AI_ACTIONS_KEY]: storage.getItem(LAB_AI_ACTIONS_KEY) as string })
     expect(readLabAiActionCount(afterReload)).toBe(2)
     expect(gateLabAiAction({ signedIn: false, storage: afterReload })).toEqual({ allowed: true, reason: 'free' })
+    for (let i=3;i<10;i++) expect(gateLabAiAction({ signedIn: false, storage: afterReload }).allowed).toBe(true)
     expect(gateLabAiAction({ signedIn: false, storage: afterReload })).toEqual({ allowed: false, reason: 'account-required' })
   })
 
@@ -182,4 +184,11 @@ describe('lab account prompt: second-book nudge', () => {
     expect(shouldShowSecondBookNudge({ signedIn: false, bookId: 'odyssey', booksRead: new Set(), storage })).toBe(false)
     expect(storage.keys()).toEqual([])
   })
+})
+
+import { labBookSignInReturn } from './labAccountPrompt'
+it('returns preparation to its selected book without writing a fake reading position', () => {
+  expect(labBookSignInReturn('/reader', 'frankenstein', true)).toBe('/library?book=frankenstein&view=book-detail')
+  expect(labBookSignInReturn('/lab/phone?chrome=v2', 'niels-lyhne', true)).toBe('/library?book=niels-lyhne&view=book-detail')
+  expect(labBookSignInReturn('/reader?voice=v2', 'frankenstein', false)).toBe('/reader?voice=v2')
 })

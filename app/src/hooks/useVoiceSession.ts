@@ -1,3 +1,4 @@
+import type { VoiceExperiment, VoiceDiagnostic } from '../voice/voiceLab'
 import { LiveVoiceSessionController } from '../voice/LiveVoiceSessionController'
 import type { VoiceTrial } from '../voice/voiceTrial'
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -16,6 +17,8 @@ function nextVoiceMessageId() {
 }
 
 export interface UseVoiceSessionOptions {
+  voiceExperiment?: VoiceExperiment
+  onVoiceDiagnostic?: (event: VoiceDiagnostic) => void
   authToken: string | null
   isAnonymous: boolean
   /** Lab-only guest/test path. Production App.tsx leaves this unset. */
@@ -42,6 +45,7 @@ export interface UseVoiceSessionOptions {
   onNeedAuth: () => void
   onInsufficientBalance: () => void
   onUsage?: () => void
+  onBeforeUserTurn?: () => boolean
   onEndConversation?: () => void
   mode?: VoiceSessionMode
   /** Lab-only. Production AudioStrip leaves this unset so buildVoiceInstructions runs. */
@@ -92,6 +96,8 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     const Controller = options.voiceTrial ? VoiceSessionController : LiveVoiceSessionController
     const controller = new Controller({
       onSnapshot: setUi,
+      onVoiceDiagnostic: event => optionsRef.current.onVoiceDiagnostic?.(event),
+      onBeforeUserTurn: () => optionsRef.current.onBeforeUserTurn?.() ?? true,
       onTurn: (role, text, meta) => {
         const opts = optionsRef.current
         const message: ChatMessage = {
@@ -197,6 +203,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     if (opts.honorModelResume) controllerRef.current?.unlockLabAudioContext()
     await controllerRef.current?.start({
       authToken,
+      voiceExperiment: opts.voiceExperiment,
       greeting: overrides?.greeting,
       isAnonymous: !authToken,
       labGuest: opts.labGuest === true,
