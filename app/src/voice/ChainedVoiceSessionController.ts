@@ -29,6 +29,7 @@ export class ChainedVoiceSessionController {
   private history: any[] = []
   private unfinished = ''
   private anchor: AudioPlaybackAnchor | null = null
+  private awaitingTranscript = false
   private speaking = false
   private speechStoppedAt = 0
   private pace: AssistantPace = 'normal'
@@ -164,7 +165,7 @@ export class ChainedVoiceSessionController {
   handleEvent(event: any) {
     if (!this.ui.isActive) return
     if (event.type === 'input_audio_buffer.speech_started') {
-      this.speaking = true; clearTimeout(this.transcriptTimer)
+      this.speaking = true; this.awaitingTranscript = true; clearTimeout(this.transcriptTimer)
       void this.player?.pause()
       this.emit({ activity: 'listening', userSpeechStarted: true })
       this.diagnose({ type: 'user.speech_started' })
@@ -200,12 +201,13 @@ export class ChainedVoiceSessionController {
       }
       const text = parts.filter(Boolean).join(' ')
       if (text) this.acceptUtterance(text)
-      else if (!this.committed.length) void this.player?.resume()
+      else if (!this.committed.length && parts.length) { this.awaitingTranscript = false; void this.player?.resume() }
     }, 120)
   }
   /** A clarification such as "yes" is always a real turn; only pending status/exact repeats retain work. */
   acceptUtterance(text: string) {
     if (!this.input || !this.ui.isActive || !text.trim()) return
+    this.awaitingTranscript = false
     this.diagnose({ type: 'user.transcript', text: text + ' ' })
     this.callbacks.onTurn('user', text)
     if (this.turn && retainsPendingQuestion(text, this.turn.question)) {
@@ -271,6 +273,8 @@ export class ChainedVoiceSessionController {
         // Keep reasoning items/encrypted state with function calls for the same response.
         messages.push(...output)
         for (const call of calls) {
+          // A spoken correction may still be transcribing. Do not execute an action over it.
+          while (current() && (this.speaking || this.awaitingTranscript)) await new Promise(resolve => setTimeout(resolve, 50))
           if (!current()) return
           this.diagnose({ type: 'tool.started', id: call.call_id, text: call.name })
           let result: unknown
@@ -357,7 +361,7 @@ export class ChainedVoiceSessionController {
     this.player = null; this.analyser?.disconnect(); this.analyser = null
     this.input = null; this.anchor = null; this.history = []; this.unfinished = ''
     this.committed = []; this.transcripts.clear(); this.processed.clear()
-    this.speaking = false; this.speechStoppedAt = 0
+    this.speaking = false; this.awaitingTranscript = false; this.speechStoppedAt = 0
     void this.context?.resume().catch(() => {})
     this.ui = idle(); this.callbacks.onSnapshot(this.ui)
   }
