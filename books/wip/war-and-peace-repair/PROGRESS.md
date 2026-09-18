@@ -141,9 +141,23 @@ Summary by batch (all now `full-batch{X}-accepted.json`, all structurally verifi
 
 **Gap found and closed: 19 chapters (15, 33, 49, 50, 61, 69, 108, 131, 195, 200, 231, 242, 250, 254, 280, 288, 291, 292, 300) fell through the cracks between the A-O batch ranges and were never actually close-read.** Staged as `full-batchP-*`; dispatched through the same draft→review→accept pipeline; see next update for result.
 
-## Merge into the live file — staged, pending batch P
+## Batch P (gap chapters) — accepted (2026-09-18)
 
-Built and dry-run-verified a merge script (`/tmp/.../merge_wp.py`, logic preserved here for continuation): for each of the 365 chapters, prefer (in order) the full-batch A-O/P accepted file, then tail-batch A/B/C, then early-flags, then spotcheck S1/S2/S3, then drift-batch D1/D2/D3 (superseded by full-batch for any overlapping chapter — 15 chapters were covered by both; full-batch wins since it's the later, more thorough pass), falling back to `modern-en-name-normalized.json` for anything still uncovered. Dry run (with batch P chapters falling back to name-normalized, pending) validated clean: 365/365 chapters, 11340/11340 paragraphs, zero structural mismatches against `war-and-peace-original-en.json`. Once batch P is accepted, re-run this merge with batch P included and write the result to `/home/user/tinct/app/public/data/editions/war-and-peace-modern-en.json`.
+The 19 gap chapters (15, 33, 49, 50, 61, 69, 108, 131, 195, 200, 231, 242, 250, 254, 280, 288, 291, 292, 300) went through the same draft → independent Opus review → accept cycle. Drafter found and fixed 5 defects (9 paragraph edits): 4 orphaned-footnote-marker restorations (ch15, ch69, ch288, ch300) and 1 dropped jeering line in the Vereshchagin lynching scene (ch254, "Torture serves a thief right."). Independent Opus review confirmed the diff matched exactly, verified all 5 fixes correct and complete against source, and independently read all 19 chapters (including the 14 marked sound) finding no further defects. Accepted as `full-batchP-accepted.json`.
+
+**This closes the full close-read: all 365 chapters have now been individually read against source at least once, across 16 batches (A-P), every fix independently reviewed by Opus.**
+
+## Merge into the live file — DONE (2026-09-18)
+
+Merged all accepted repair batches into the live edition: for each of the 365 chapters, took (in priority order) the full-batch A-P accepted file, then tail-batch A/B/C, then early-flags, then spotcheck S1/S2/S3, then drift-batch D1/D2/D3 (superseded by full-batch for the 15 chapters covered by both — full-batch wins as the later, more thorough pass). Every one of the 365 chapters was covered by an actual close-read batch — zero fallback to the whole-book name-normalization file was needed in the end.
+
+Result validated structurally clean: 365/365 chapters, 11340/11340 paragraphs, zero mismatches against `war-and-peace-original-en.json`. 148 of 365 chapters carry real content changes vs. the pre-repair live file.
+
+Written to both serving locations and kept in sync:
+- `app/public/data/editions/war-and-peace-modern-en.json` (whole-book edition file)
+- `app/public/data/editions-chapters/war-and-peace-modern-en/ch####.json` (the per-chapter split the app actually loads from, per its `manifest.json`) — regenerated from the same merged content; `paragraphCount` in the manifest verified against each regenerated file with zero mismatches.
+
+Committed and pushed. This is a content-only change (edition JSON), within this session's allowed-paths scope — no registry, app code, or deploy touched.
 
 ## Models used
 
