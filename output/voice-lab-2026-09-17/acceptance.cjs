@@ -35,7 +35,8 @@ await page.goto((process.env.BASE||'http://127.0.0.1:3001')+'/lab/voice');
 assert.equal(await page.evaluate(()=>navigator.mediaDevices.getUserMedia.toString().includes('microphone')),true,'Mock microphone must be installed before Talk');
 await page.getByRole('heading',{name:'Voice test room'}).waitFor();
 assert.equal(await page.getByLabel('Reasoning model').inputValue(),'gpt-5.6-sol');
-await page.getByLabel('Preset',{exact:true}).selectOption('1');
+assert.equal(await page.getByLabel('Test name').inputValue(),'Insight — direct');
+await page.getByLabel('Preset',{exact:true}).selectOption({label:'Insight — direct'});
 await page.getByLabel('Test name').fill('Follow-up trial');
 await page.getByLabel('Reasoning model').selectOption('gpt-5.6-sol');
 await page.getByRole('button',{name:'Save preset',exact:true}).click();
@@ -44,8 +45,11 @@ await page.screenshot({path:__dirname+'/'+name+'-settings.png'});
 await page.getByRole('button',{name:'Hide test controls'}).click();
 await page.getByTestId('lab-super').click();await page.getByTestId('lab-super-row-talk').click();
 try { await page.getByText('Connected',{exact:true}).waitFor(); } catch(e) { console.log(JSON.stringify({name,trace:await page.evaluate(()=>window.trace),requestCount:requests.length,errors,body:await page.locator('body').innerText()})); await page.screenshot({path:__dirname+'/'+name+'-failure.png'}); throw e; }
-assert.equal(requests.length,1);assert.equal(requests[0].voiceExperiment.model,'gpt-5.6-sol');assert(requests[0].instructions.includes('nearby')===false);assert(!requests[0].instructions.includes('{{passage}}'));assert(requests[0].instructions.includes('Job 8'));
+assert.equal(requests.length,1);assert.equal(requests[0].voiceExperiment.model,'gpt-5.6-sol');assert(requests[0].instructions.includes('one worthwhile insight'));assert(!requests[0].instructions.includes('{{passage}}'));assert(requests[0].instructions.includes('Job 8'));
 assert(requests[0].voiceExperiment.frontend.includes('Use no vocal backchannels'));
+assert(requests[0].voiceExperiment.frontend.includes('You can offer a grounded interpretation'));
+assert(!requests[0].instructions.includes('{{reader_reference}}'));
+assert(await page.evaluate(()=>window.sent.some(e=>e.type==='session.thinking.append' && e.content.includes('currentParagraph'))));
 assert(await page.evaluate(()=>window.sent.some(e=>e.type==='session.thinking.append' && e.content.includes('Job 8'))));
 await page.evaluate(()=>{
  window.emit({type:'session.input_transcript.delta',delta:'Why?'});
@@ -65,6 +69,6 @@ await page.getByRole('button',{name:'Hide test controls'}).click();await page.ge
 const history=await page.evaluate(()=>localStorage.getItem('tinct:chat-history:bible')||'');assert(!history.includes('A new spoken point.'));
 await page.getByRole('button',{name:'Voice test',exact:true}).click();
 const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Export all tests'}).click();const download=await downloadPromise;const downloadPath=await download.path();const report=JSON.parse(fs.readFileSync(downloadPath,'utf8'));assert(report.events.some(e=>e.type==='useful-answer.mark'));assert(report.events.some(e=>e.type==='call.started'&&e.settings.label==='Follow-up trial'));
-await page.reload();await page.getByLabel('Preset',{exact:true}).selectOption('2');assert.equal(await page.getByLabel('Test name').inputValue(),'Follow-up trial');
+await page.reload();await page.getByLabel('Preset',{exact:true}).selectOption({label:'Follow-up trial'});assert.equal(await page.getByLabel('Test name').inputValue(),'Follow-up trial');
 const bundle=await page.locator('script[src*="assets/index-"]').count()?await page.locator('script[src*="assets/index-"]').getAttribute('src'):'development';assert.deepEqual(errors,[]);results.push({name,bundle,settingsSent:true,initialLocation:true,lateResultGuard:true,exported:true,historyIsolated:true,presetSurvivedReload:true,errors});await browser.close();}
 fs.writeFileSync(__dirname+'/'+(process.env.BASE?'production':'local')+'.json',JSON.stringify(results,null,2));console.log(JSON.stringify(results))})().catch(e=>{console.error(e);process.exit(1)});
