@@ -77,5 +77,6 @@ def process(book):
 
 
 if __name__ == '__main__':
-    for b in BOOKS:
+    import sys
+    for b in (sys.argv[1:] or BOOKS):
         process(b)
