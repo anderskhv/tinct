@@ -208,3 +208,21 @@ Staged in `books/wip/war-and-peace-repair/`; nothing applied to a live file, no 
 **Observations for the app (not content work).** Footnote-slot paragraphs now read `* Contez nous çela, Vicomte.` in modern-en. Chapter-only readers reported them as bare foreign lines. The reader could style paragraphs beginning with `* ` as footnotes (smaller, indented) in all editions; that is app work for Codex, logged here only.
 
 **Next in the queue.** (1) Chapters 1–153 Gate A scan of War and Peace with the new `inline-french-with-marker` flag; (2) Confessions verification job; (3) Vindication, Walden, Awakening, Jerusalem, then Ulysses (pilot episode first); (4) the structural title repair across all three editions; (5) Danish items stay in the Danish workstream.
+
+## War and Peace chapters 1–153 — 2026-09-18 (same day, after "option a")
+
+Decision applied: the similarity classifier's LIGHT bucket is a flag for this book; the two gates are the acceptance evidence (DECISIONS.md, `books/AGENTS.md` QA Gates, `books/CLAUDE.md` 5b).
+
+| Step | Result |
+|---|---|
+| Gate A scan, 14 bundles (Sonnet, candidate-only, on the assembled edition) | 131 PASS outright; 12 chapters flagged only for parenthesised gloss slots; 6 author-intrinsic rulings (31, 47, 94, 116, 129, 150); 1 chapter to draft (146). `scan/SUMMARY.md` |
+| New flag `inline-marker-with-slot` in `edition_checks.py` | found 5 stray Maude markers left by the French pass (150 ×2, 277, 278, 300): editor sweep, Opus-verified, recorded |
+| Slot normalisation | every footnote slot now begins `* ` (gloss slots included); done in `assemble.py`, conventions and prompt amended. Reason: chapter-only readers met "(Denisov.)" lines as orphaned notes; one prefix lets the app style all slots as footnotes |
+| Editor corrections, Opus-verified | ch90 (Molière tag + English), ch91 ("pour le Roi de Prusse" idiom glossed: the joke depends on it), ch151 ("Bonjour" restored), cue sweep ch18/ch115, ch38 Buonaparte pun restored |
+| ch146 (Pierre's Moscow relapse) | drafted (Sonnet), Gate B 0 MAJOR / 8 MODERATE / 20 MINOR (Opus), one correction round, verification ACCEPT, Gate A re-read 11/5/0 → PASS with ruling. Round-one drafting drift again: an invented trigger ("as soon as he arrived"), habituation moved from Pierre to everyone, "hypochondria" softened, a dropped "superficially"; all caught by Gate B |
+| Assembly | 47 repair chapters + 79 French chapters + 17 normalised slots on baseline v2; sha256 `3de767a73d7b065a…`; 0 BLOCK; 0 French-convention flags. `assembled/CHECKS.md` |
+| Changed passages | vs main 2,120 paragraphs / 244 chapters; vs b269fb96 1,179 / 183; vs baseline v2 774 / 120 |
+
+**War and Peace modern-en is now fully through the two-gate procedure**: every one of the 365 chapters has a Gate A PASS (scan or re-read on the accepted hash), and every chapter that was drafted has a Gate B ACCEPT and a verification against the diff. What remains for this book is outside content: the structural title repair across all three editions (queue A), publication (Codex, from `assembled/`), audio regeneration on demand, character-card re-anchoring from the records, and the Danish workstream.
+
+**Next in the queue:** Confessions verification job; then Vindication, Walden, Awakening, Jerusalem; then the Ulysses pilot.
