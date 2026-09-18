@@ -1,3 +1,4 @@
+import { ChainedVoiceSessionController } from '../voice/ChainedVoiceSessionController'
 import type { VoiceExperiment, VoiceDiagnostic } from '../voice/voiceLab'
 import { LiveVoiceSessionController } from '../voice/LiveVoiceSessionController'
 import type { VoiceTrial } from '../voice/voiceTrial'
@@ -90,10 +91,10 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
   const [latencySamples, setLatencySamples] = useState<VoiceLatencySample[]>([])
   const optionsRef = useRef(options)
   optionsRef.current = options
-  const controllerRef = useRef<VoiceSessionController | LiveVoiceSessionController | null>(null)
+  const controllerRef = useRef<VoiceSessionController | LiveVoiceSessionController | ChainedVoiceSessionController | null>(null)
 
   useEffect(() => {
-    const Controller = options.voiceTrial ? VoiceSessionController : LiveVoiceSessionController
+    const Controller = options.voiceExperiment?.transport === 'chain' ? ChainedVoiceSessionController : options.voiceTrial ? VoiceSessionController : LiveVoiceSessionController
     const controller = new Controller({
       onSnapshot: setUi,
       onVoiceDiagnostic: event => optionsRef.current.onVoiceDiagnostic?.(event),
@@ -147,7 +148,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       controller.dispose()
       controllerRef.current = null
     }
-  }, [options.voiceTrial])
+  }, [options.voiceTrial, options.voiceExperiment?.transport])
 
   const buildContext = useCallback((): VoiceReaderContext => {
     const opts = optionsRef.current
@@ -165,6 +166,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       totalPages: opts.totalPages,
       readingAngle: opts.readingObjective,
       currentParagraph: current,
+      ...(opts.voiceExperiment?.transport === 'chain' ? { chapterText: opts.chapterParagraphs.join('\n\n').slice(0, 18000) } : {}),
       nearbyParagraphs: nearbyParagraphWindow(opts.chapterParagraphs, opts.paragraphIndex),
       visibleText: opts.visibleText,
       readerProfile: opts.readerProfile,
@@ -173,7 +175,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
 
   useEffect(() => {
     const controller = controllerRef.current
-    if (controller instanceof LiveVoiceSessionController) controller.updateContext(buildContext(), options.instructions)
+    if ((controller instanceof LiveVoiceSessionController || controller instanceof ChainedVoiceSessionController)) controller.updateContext(buildContext(), options.instructions)
     else controller?.updateContext(buildContext())
   }, [
     buildContext,
