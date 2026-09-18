@@ -4,6 +4,8 @@ import { verseLineRanges } from './labVerseLines'
 export interface MeasurableWord {
   text: string
   emphasis?: boolean
+  /** Display-only page-edge fragment; measured, never indexed. */
+  fragment?: true
 }
 
 /**
@@ -39,8 +41,15 @@ export function labMeasureParagraphInto(
 ): HTMLElement {
   const makeWord = (index: number): HTMLElement => {
     const span = document.createElement('span')
-    span.className = 'lab-hearing-word'
     const word = words[index]
+    // The fragment carries the CSS hyphen, so it must be measured with it.
+    if (word.fragment) {
+      span.className = 'lab-word-fragment'
+      span.setAttribute('aria-hidden', 'true')
+      span.textContent = word.text
+      return span
+    }
+    span.className = 'lab-hearing-word'
     const content: Node = isLabVerseMarker(word.text)
       ? (() => {
           const marker = document.createElement('span')

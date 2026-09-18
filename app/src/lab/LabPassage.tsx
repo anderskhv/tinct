@@ -762,6 +762,23 @@ export function LabPassage({
                         ? followWordRole(follow, paragraphIndex, absoluteWord)
                           ?? (follow.kind === 'paragraph' ? (paragraphIndex < follow.paragraphIndex ? 'spoken' : paragraphIndex > follow.paragraphIndex ? 'upcoming' : null) : null)
                         : null
+                      // The page-edge fragment is decoration, not a word: no
+                      // index, no test id, no selection, hidden from assistive
+                      // technology, and its hyphen is drawn by CSS. Nothing
+                      // that reads words or offsets can see it.
+                      if (word.fragment) {
+                        return (
+                          <span
+                            key={`${lineIndex}-${wordIndex}`}
+                            className="lab-word-fragment"
+                            data-testid="lab-word-fragment"
+                            aria-hidden="true"
+                          >
+                            {spacing}
+                            {word.text}
+                          </span>
+                        )
+                      }
                       return (
                         <span
                           key={`${lineIndex}-${wordIndex}`}

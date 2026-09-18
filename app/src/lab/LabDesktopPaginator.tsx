@@ -40,12 +40,12 @@ export function measuredDesktopPages(
     let from = 0
     let headBreak: number | undefined
     while (from < length) {
-      const segment = (to: number, tailBreak?: number): ChapterPageSegment => ({
+      const segment = (to: number, tailFragment?: number): ChapterPageSegment => ({
         paragraphIndex,
         from,
         to,
         ...(headBreak != null ? { headBreak } : {}),
-        ...(tailBreak != null ? { tailBreak } : {}),
+        ...(tailFragment != null ? { tailFragment } : {}),
       })
       const full = segment(length)
       if (fits([...segments, full], pages.length === 0)) { segments.push(full); break }
@@ -57,22 +57,24 @@ export function measuredDesktopPages(
       }
       if (low === from && segments.length) { commit(); continue }
       const to = Math.max(from + 1, low)
-      // The last line has whatever room the next whole word could not use.
+      // The last line has whatever room the next whole word could not use. The
+      // fragment is display only: `to` does not move, so this page still owns
+      // exactly the words it owned and the next page owns the broken word.
       // Longest break first: the most of the word that still fits.
-      let tailBreak: number | undefined
+      let tailFragment: number | undefined
       if (to < length && breaks) {
         const points = breaks(paragraphIndex, to)
         for (let index = points.length - 1; index >= 0; index -= 1) {
-          if (fits([...segments, segment(to + 1, points[index])], pages.length === 0)) {
-            tailBreak = points[index]
+          if (fits([...segments, segment(to, points[index])], pages.length === 0)) {
+            tailFragment = points[index]
             break
           }
         }
       }
-      segments.push(segment(tailBreak != null ? to + 1 : to, tailBreak))
+      segments.push(segment(to, tailFragment))
       commit()
-      // A broken word starts the next page as its own remainder.
-      headBreak = tailBreak
+      // Whatever this page showed of the next word, that page resumes after.
+      headBreak = tailFragment
       from = to
     }
   })

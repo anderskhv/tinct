@@ -84,6 +84,11 @@ function core(token: string): { text: string; offset: number } | null {
 export function hyphenationBreaks(token: string, lang: HyphenLang): number[] {
   const engine = engines.get(lang)
   if (!engine || !token || /\d/.test(token)) return []
+  // A word that already contains a hyphen is left alone. Breaking "well-known"
+  // would put a discretionary hyphen beside a real one, and a reader cannot
+  // tell which belongs to the text — the one place a wrong break changes what
+  // the book says rather than only how it looks.
+  if (/[-\u2010\u2011\u2013\u2014]/.test(token)) return []
   const piece = core(token)
   if (!piece || piece.text.length < HYPHEN_MIN_WORD) return []
   let parts: string[]

@@ -67,6 +67,15 @@ describe('English breaks', () => {
     expect(hyphenationBreaks(word, 'en')).toEqual([])
   })
 
+  it.each(['well-known', 'to-morrow', 'Beth\u2010shemesh', 'mother-in-law'])(
+    'leaves %s alone: a discretionary hyphen beside a real one changes what the book says',
+    (word) => { expect(hyphenationBreaks(word, 'en')).toEqual([]) },
+  )
+
+  it('still breaks a long name with no hyphen in it', () => {
+    expect(hyphenationBreaks('Nebuchadnezzar', 'en').length).toBeGreaterThan(0)
+  })
+
   it('refuses any token carrying a digit, so a verse marker is never broken', () => {
     expect(hyphenationBreaks('11', 'en')).toEqual([])
     expect(hyphenationBreaks('Genesis1', 'en')).toEqual([])

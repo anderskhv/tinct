@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { measuredDesktopPages, type WordBreakLookup } from './LabDesktopPaginator'
-import { segmentWordTexts, type ChapterPageSegment } from './labHearing'
+import { chapterPageSegments, segmentWordTexts, type ChapterPageSegment } from './labHearing'
 
 const WORDS = 'Jesus perceiving that withdrew from there Great multitudes followed him'.split(' ')
   .map(text => ({ text, emphasis: false }))
@@ -33,8 +33,8 @@ describe('measuredDesktopPages with word breaks', () => {
   it('breaks only between words when no lookup is supplied', () => {
     const pages = measuredDesktopPages([WORDS.length], fitsWithin(CAPACITY))
     for (const page of pages) {
-      for (const segment of page.segments ?? [page]) {
-        expect(segment.tailBreak).toBeUndefined()
+      for (const segment of chapterPageSegments(page)) {
+        expect(segment.tailFragment).toBeUndefined()
         expect(segment.headBreak).toBeUndefined()
       }
     }
@@ -42,12 +42,13 @@ describe('measuredDesktopPages with word breaks', () => {
 
   it('fills the last line with as much of the next word as fits', () => {
     const pages = measuredDesktopPages([WORDS.length], fitsWithin(CAPACITY), breaks)
-    const first = (pages[0].segments ?? [pages[0]])[0]
-    const second = (pages[1].segments ?? [pages[1]])[0]
-    expect(first.tailBreak).toBeDefined()
-    expect(second.headBreak).toBe(first.tailBreak)
-    // The broken word is the last of one page and the first of the next.
-    expect(first.to).toBe(second.from + 1)
+    const first = chapterPageSegments(pages[0])[0]
+    const second = chapterPageSegments(pages[1])[0]
+    expect(first.tailFragment).toBeDefined()
+    expect(second.headBreak).toBe(first.tailFragment)
+    // Ranges stay strictly adjacent: the broken word belongs to the next page
+    // alone, so every word still resolves to exactly one page.
+    expect(first.to).toBe(second.from)
   })
 
   it('prefers the longest break that still fits, so the line is filled', () => {
@@ -58,18 +59,33 @@ describe('measuredDesktopPages with word breaks', () => {
       sum + segmentWordTexts(pair, segment).reduce((n, word) => n + word.text.length, 0)
     ), 0) <= 10
     const pages = measuredDesktopPages([pair.length], fitsPair, () => [3, 5])
-    const first = (pages[0].segments ?? [pages[0]])[0]
-    expect(first.tailBreak).toBe(5)
+    const first = chapterPageSegments(pages[0])[0]
+    expect(first.tailFragment).toBe(5)
   })
 
-  it('loses no text: the pages still spell the paragraph', () => {
+  it('loses no text: owned words still spell the paragraph', () => {
+    // Ranges are adjacent and cover, so the OWNED words alone are the source —
+    // the display fragments are extra ink, not extra text.
     const pages = measuredDesktopPages([WORDS.length], fitsWithin(CAPACITY), breaks)
-    const rendered = pages
-      .flatMap(page => page.segments ?? [page])
-      .flatMap(segment => segmentWordTexts(WORDS, segment).map(word => word.text))
-      .join(' ')
-      .replace(/‐ /g, '')
-    expect(rendered).toBe(WORDS.map(word => word.text).join(' '))
+    const owned = pages
+      .flatMap(page => chapterPageSegments(page))
+      .flatMap(segment => WORDS.slice(segment.from, segment.to).map(word => word.text))
+    expect(owned).toEqual(WORDS.map(word => word.text))
+  })
+
+  it('every page-edge break reconstructs its word exactly once on screen', () => {
+    const pages = measuredDesktopPages([WORDS.length], fitsWithin(CAPACITY), breaks)
+    const segments = pages.flatMap(page => chapterPageSegments(page))
+    let checked = 0
+    for (let i = 0; i < segments.length - 1; i += 1) {
+      if (segments[i].tailFragment == null) continue
+      checked += 1
+      const drawn = segmentWordTexts(WORDS, segments[i])
+      const shownBefore = drawn[drawn.length - 1].text
+      const shownAfter = segmentWordTexts(WORDS, segments[i + 1])[0].text
+      expect(shownBefore + shownAfter).toBe(WORDS[segments[i].to].text)
+    }
+    expect(checked).toBeGreaterThan(0)
   })
 
   it('makes progress on every paragraph, however tight the page', () => {
