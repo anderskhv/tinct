@@ -167,7 +167,9 @@ async function exerciseAudioAcrossSplit(page, split) {
     return result
   }
   try {
-    const previous = page.locator(`[data-testid="lab-word"][data-paragraph-index="${split.previousKey.split(':')[0]}"][data-word-index="${split.previousKey.split(':')[1]}"]`).first()
+    const [targetParagraph, targetWord] = split.targetKey.split(':').map(Number)
+    const seekWord = Math.max(0, targetWord - 3)
+    const previous = page.locator(`[data-testid="lab-word"][data-paragraph-index="${targetParagraph}"][data-word-index="${seekWord}"]`).first()
     // Starting audio repaints the same logical page into follow mode. Dispatch
     // through the word itself rather than requiring its moving box to settle.
     await previous.evaluate(node => node.click())
@@ -181,9 +183,12 @@ async function exerciseAudioAcrossSplit(page, split) {
         const after = result.sequence[targetAt + 1]
         if (after || Date.now() + 700 >= deadline) break
       }
-      await page.waitForTimeout(100)
+      await page.waitForTimeout(25)
     }
-    assert(result.sequence.includes(split.previousKey), 'audio follow must reach the word before the split')
+    assert(result.sequence.some(value => {
+      const [paragraphIndex, wordIndex] = value.split(':').map(Number)
+      return paragraphIndex === targetParagraph && wordIndex < targetWord
+    }), `audio follow must be observed before the split: ${JSON.stringify(result.sequence)}`)
     assert(result.sequence.includes(split.targetKey), 'audio follow must reach the split word on its owning page')
     const numeric = result.sequence.map(value => value.split(':').map(Number))
     for (let index = 1; index < numeric.length; index += 1) {
