@@ -48,6 +48,9 @@ jobs:
       - name: Verify responsive landing and library
         if: ${{ !cancelled() }}
         run: node scripts/check-entry-responsive.mjs
+      - name: Verify hyphenation hardening
+        if: ${{ !cancelled() }}
+        run: node scripts/check-hyphenation-hardening.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -55,6 +58,7 @@ jobs:
           path: |
             app/artifacts/library-layout
             app/artifacts/entry-responsive
+            app/artifacts/hyphenation-hardening
 
   reading-benchmark:
     runs-on: ubuntu-latest
