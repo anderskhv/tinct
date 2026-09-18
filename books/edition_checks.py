@@ -110,7 +110,7 @@ def run(src, cand, chapters=None):
             elif re.search(r'(?<!\w)\*(?!\*)', b):
                 nxt = c['paragraphs'][j + 1] if j + 1 < len(c['paragraphs']) else ''
                 if not nxt.lstrip().startswith('*'): orphan_star.append((n, j))
-            if re.search(r'\[(Speaking in|På |Note|Translator|Editor)', b): tags.append((n, j, b[:50]))
+            if re.search(r'\[(speaking in|på |note|translator|editor)', b, re.I): tags.append((n, j, b[:50]))
 
     for x in ratios_low: F(f"ratio-low ch{x[0]} p{x[1]}: {x[2]}->{x[3]} words ({x[4]})")
     for x in ratios_high: F(f"ratio-high ch{x[0]} p{x[1]}: {x[2]}->{x[3]} words ({x[4]})")

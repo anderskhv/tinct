@@ -1,0 +1,21 @@
+Model: sonnet
+
+# Chapter 115 — French pass log
+
+## Paragraph 1
+
+**Before:** Helene had been at Erfurt during the famous meeting of the Emperors and had brought back from there her connections with Napoleonic dignitaries. At Erfurt her success had been brilliant. Napoleon himself had noticed her in the theater and said of her: "That's a superb creature." Her success as a beautiful and elegant woman did not surprise Pierre, for she had become even more attractive than before. What did surprise him was that during these last two years his wife had somehow acquired the reputation of being as charming and witty as she was beautiful. The distinguished Prince de Ligne wrote her eight-page letters. Bilibin saved up his best witticisms to deliver them in Countess Bezukhova's presence. To be received in the Countess Bezukhova's salon was considered a mark of intellectual distinction. Young men read books before attending Helene's evenings so they would have something to say in her salon, and secretaries of the embassy, and even ambassadors, confided diplomatic secrets to her, so that in a way Helene became a force. Pierre, who knew she was very stupid, sometimes attended her evenings and dinner parties — where politics, poetry, and philosophy were discussed — with a strange feeling of bewilderment and dread. At these parties he felt like a conjurer who always expects his trick to be found out. But whether because stupidity was exactly what was needed to run such a salon, or because the people being deceived found pleasure in the deception, the illusion was never exposed, and Helene Bezukhova's reputation as a lovely and clever woman became so firmly established that she could say the emptiest and most foolish things and everybody would go into raptures over every word, finding deep meaning in it that she herself never intended.
+
+**After:** Helene had been at Erfurt during the famous meeting of the Emperors and had brought back from there her connections with Napoleonic dignitaries. At Erfurt her success had been brilliant. Napoleon himself had noticed her in the theater and said of her (in French): "That's a superb creature." Her success as a beautiful and elegant woman did not surprise Pierre, for she had become even more attractive than before. What did surprise him was that during these last two years his wife had somehow acquired the reputation of being as charming and witty as she was beautiful. The distinguished Prince de Ligne wrote her eight-page letters. Bilibin saved up his best witticisms to deliver them in Countess Bezukhova's presence. To be received in the Countess Bezukhova's salon was considered a mark of intellectual distinction. Young men read books before attending Helene's evenings so they would have something to say in her salon, and secretaries of the embassy, and even ambassadors, confided diplomatic secrets to her, so that in a way Helene became a force. Pierre, who knew she was very stupid, sometimes attended her evenings and dinner parties — where politics, poetry, and philosophy were discussed — with a strange feeling of bewilderment and dread. At these parties he felt like a conjurer who always expects his trick to be found out. But whether because stupidity was exactly what was needed to run such a salon, or because the people being deceived found pleasure in the deception, the illusion was never exposed, and Helene Bezukhova's reputation as a lovely and clever woman became so firmly established that she could say the emptiest and most foolish things and everybody would go into raptures over every word, finding deep meaning in it that she herself never intended.
+
+## Paragraph 2
+
+**Before:** * "That's a superb creature."
+
+**After:** * C'est un superbe animal.
+
+## Paragraph 3
+
+**Before:** * (2) "A charming woman, as witty as she is beautiful."
+
+**After:** * (2) D'une femme charmante, aussi spirituelle que belle.

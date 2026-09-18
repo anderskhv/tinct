@@ -1,0 +1,48 @@
+Model: opus
+
+# Chapter 217 (Book Ten — Chapter 27) — fidelity review
+
+Source: `ch217-source.json` (Maude). Candidate: `ch217-candidate.json`. Paragraph count 28 = 28, including the run-on gun-table paragraphs (8–10) and the dateline pair (19–20); titles and `number` match.
+
+Paragraph indices below are 0-based; where the request used 1-based numbering for the artillery paragraphs ("8" and "12") those are indices 7 and 11 here.
+
+## Findings
+
+| ¶ (0-based) | Severity | Source | Candidate | Note |
+|---|---|---|---|---|
+| 1 | MINOR | "nor any **particular care or trouble** on the part of the Emperor and his marshals, nor was there any need of that **special and supreme** quality called genius" | "nor any **special effort** on the part of the Emperor and his marshals, nor any need for that **supreme** quality called genius" | Two nouns merged into one; "special and" migrates off "genius", where the irony sits. |
+| 2 | MINOR | "**To a proposal made by** General Campan… Napoleon agreed, **though** the so-called Duke of Elchingen (Ney) ventured to remark…" | "General Compans… **proposed** leading his division through the woods, and Napoleon agreed. The so-called Duke of Elchingen (Ney), **though**, ventured to remark…" | Every clause survives, but Napoleon's assent is demoted from main clause to coordinate, and the concessive now reads as sequence: Ney's warning appears to follow the decision rather than precede it. |
+| 3 | MINOR | "should be set up **by the morrow**" | "should be placed **by the next morning**" | More definite than the source (the morrow is the day, not the morning). |
+| 4 | MINOR | "the **dispositions for the battle** were written down from his dictation" | "the **battle plan** was written down from his dictation" | The chapter's controlling term is not held constant — see notes. |
+| 7 | MINOR | "**overwhelm with shellfire** the enemy's battery" | "**bombard** the enemy's battery" | Force lost, and "bombard" then does duty for the source's own "bombard" at ¶11 and for "shower shells on" at ¶22. *(Inherited; paragraph untouched by this pass — see confirmation below.)* |
+| 11, 22 | MINOR | "General **Fouché**" | "General **Fouche**" | French diacritic dropped, contrary to the conventions rule this pass applies elsewhere (Eckmühl, flèches, méthode, Eugène). *(Inherited.)* |
+| 17 | MINOR | "Morand's and **Gibrard's** divisions" | "Morand's and **Gerard's** divisions" | A proper noun inside a quoted document silently harmonised with the spelling at ¶25–27. Probably the right man, but the source's word does not survive. *(Inherited.)* |
+| 17, 25, 26, 27 | MINOR | "**Gérard**" | "**Gerard**" | Diacritic dropped on a French name. *(Inherited.)* |
+| 20 | MINOR | "September, 6, 1812." | "September 6, 1812 **(New Style)**." | Editorial gloss added inside the reproduced dateline of Napoleon's order — see ruling below. |
+| 21 | MINOR | "very **obscure** and confused" | "very **vague** and confused" | Obscure (unintelligible) is the charge Tolstoy repeats at ¶26 ("this unintelligible sentence"); vague (imprecise) is a different one. |
+| 21 | MINOR | "**related to Napoleon's orders to deal with** four points—four different orders" | "**consisted of** four directives—four different orders" | Relation becomes composition, and "Napoleon's" is dropped. |
+| 22 | MINOR | "**shower shells on** the Russian flèches"; "102 **guns** in all"; "the projectiles **did not carry** to" | "**bombard** the Russian flèches"; "102 in all"; "the shells **could not reach**" | Flattening, one dropped noun, and a statement of fact turned into a modal. |
+| 23 | MINOR | "Poniatowski, **advancing on the village** through the wood, met Túchkov" | "Poniatowski, advancing through the wood, met Tuchkov" | The source repeats the order's own wording when showing it failed; the repetition is trimmed. |
+| 24 | **MODERATE** | "it had to reform under grapeshot, **of which Napoleon was unaware**" | "it had to re-form under grapeshot—**something Napoleon hadn't foreseen**" | Ignorance of what was happening becomes a failure of prediction. That is precisely the distinction the source keeps separate at ¶27 ("probably **unforeseen and not heard of** by Napoleon") and the one the chapter's closing argument rests on ("he could not **know** the course of the battle"). |
+| 26 | **MODERATE** | "from the attempts **the vice-King** made to execute **the orders given him**" | "from the attempts of the Viceroy **(Eugène de Beauharnais)** to execute **it**" | Names a man the source never names anywhere in the chapter; the identification comes from outside the text. Separately, "the orders given him" narrows to "it" (the one unintelligible sentence). |
+| 27 | MINOR | "he could not **know the course of** the battle" | "he could not **follow** the battle's **progress**" | Knowledge becomes tracking, weakening the conclusion. |
+| 27 | MINOR | "like the other parts of **the disposition**"; "not one of the orders in **the disposition**" | "like the rest of **the plan**"; "not a single order in **the plan**" | Term drift — see notes. |
+
+No MAJOR findings.
+
+**Coverage:** all 28 paragraphs checked (0–27), in packets of 2–3 with neighbours, then whole-chapter.
+
+## Confirmations requested
+
+- **The two dense artillery-order paragraphs are untouched.** Indices 7 and 11 (1-based 8 and 12) are byte-identical to `ch217-baseline.json`; this pass changed only indices 2, 6, 18, 20, 22 and 26. Against the source, everything load-bearing in them survives: General Pernetti, 1st Corps, "thirty cannon of Compans's division", "all the howitzers of Dessaix's and Friant's divisions"; General Fouché, 3rd and 8th Corps, "sixteen in all", "forty guns in all directed against it". The gun table at ¶8–10 is likewise intact and still sums (24 + 30 + 8 = 62); the only change there is commas inserted into the source's run-on list and the collapse of the source's column whitespace, both cosmetic. The deviations these paragraphs carry are inherited, not introduced: "bombard" for "overwhelm with shellfire", "Fouche" without the acute, and "Compans" for the source's "Campan" (the latter mandated by the conventions table, which lists Campan as the form not to use).
+- **Every clause survives the splits.** Two paragraphs were restructured (¶2, one sentence into two; ¶26, a relative clause into an em-dash aside). Clause-by-clause both are complete: the proposal, the parenthetical "(who was to attack the flèches)", the woods, Napoleon's assent, the concessive, Ney's title and name, the danger, and the possible disorder of the division all appear at ¶2; at ¶26 the inference, the unintelligible sentence, the Viceroy's attempts, the advance from the left through Borodino to the redoubt, and Morand's and Gerard's simultaneous frontal advance all appear. The losses at ¶2 and ¶26 are of emphasis and reference ("to a proposal… Napoleon agreed"; "the orders given him"), not of clauses.
+
+## Whole-chapter notes
+
+- **Ruling on "(New Style)" at ¶20.** Not source-stated, but source-inferable, and therefore MINOR rather than blocking. The source itself supplies both dates — the narrative's "twenty-fifth of August" at ¶0 and the order's "September, 6, 1812" at ¶20 — and the twelve-day gap between them *is* the Old/New Style difference. The gloss adds no fact about events and forestalls a real misreading. Against it: it is inserted inside a document quoted verbatim, so a reader takes it for part of Napoleon's dateline, and the conventions file only sanctions "(Old style date.)"-type glosses where the source already carries such a footnote; there is no footnote slot here. *Proposal: keep the gloss but set it outside the dateline, or drop it.*
+- **Ruling on "(Eugène de Beauharnais)" at ¶26.** Not source-supported; MODERATE. "the vice-King" appears five times (¶16, 17, 25, 26, 27) and is never named in this chapter or explained. Unlike the calendar gloss, the name cannot be recovered from anything the source says — it is external historical knowledge inserted into the text. The candidate's consistent rendering of "vice-King" as "Viceroy" is fine on its own; the parenthesis is the problem. *Proposal: drop the parenthesis.*
+- **Ruling on the restored diacritics.** Correct as far as it goes, and per the conventions rule that genuine non-Russian diacritics are kept: Eckmuhl → **Eckmühl** (¶2, ¶6), fleches → **flèches** (¶2, ¶22), methode → **méthode** in the retained French "le tout se fera avec ordre et méthode" (¶18), plus the new **Eugène**. Russian names are correctly bare (Mozhaysk, Borodino, Tuchkov, Kolocha). But the same rule is not applied to **Fouché** (¶11, ¶22) or **Gérard** (¶17, ¶25, ¶26, ¶27), which remain stripped. The chapter now restores accents on places and on an added name while leaving two French generals without theirs — an internal inconsistency this pass had the opportunity to close.
+- **Term consistency.** "Disposition(s)" is the chapter's subject and its ironic refrain; the candidate renders it "the battle plan" (¶4), "these dispositions" (¶5, ¶21), "the dispositions" (¶22, ¶27) and "the plan" (¶27, twice). The source varies only between singular and plural. Worth normalising to "dispositions" throughout so that ¶4, ¶5, ¶21 and ¶27 read as the same object.
+- **The four orders.** The structure that holds the chapter together — the disposition quoted at ¶6–18, then taken apart order by order at ¶22–27 — is preserved, and the quoted wording is reused verbatim where the source reuses it (¶14 "General Compans will move through the wood to seize the first fortification" reappears exactly at ¶24; ¶17 and ¶25 match; ¶15 and ¶27 match the source's own slight variation). Numbers, unit names, generals and place names all survive.
+
+Fidelity verdict: REVISE
