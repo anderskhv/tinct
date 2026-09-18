@@ -19,15 +19,30 @@ it('streams Sol with explicit low reasoning and native search only', async () =>
   expect(body).toMatchObject({ model: 'gpt-5.6-sol', reasoning: { effort: 'low' }, stream: true, store: false, tools: [{ type: 'web_search', search_context_size: 'low' }] })
   expect(response.headers.get('cache-control')).toBe('no-store')
 })
-it('creates a transcription-only session with a more patient turn boundary', async () => {
-  const fetch_ = vi.fn().mockResolvedValue(new Response('sdp')); vi.stubGlobal('fetch', fetch_)
-  await handleVoiceChain(request({ action: 'transcription', sdp: 'offer' }), env, admin, rate)
-  expect(fetch_.mock.calls[0][0]).toContain('/realtime/calls')
-  const session = JSON.parse(fetch_.mock.calls[0][1].body.get('session'))
+it('configures transcription on client_secrets then exchanges raw SDP with the ephemeral credential', async () => {
+  const fetch_ = vi.fn()
+    .mockResolvedValueOnce(new Response(JSON.stringify({ value: 'ephemeral-secret', session: { type: 'transcription' } })))
+    .mockResolvedValueOnce(new Response('answer-sdp'))
+  vi.stubGlobal('fetch', fetch_)
+  const result = await handleVoiceChain(request({ action: 'transcription', sdp: 'offer' }), env, admin, rate)
+  expect(fetch_.mock.calls[0][0]).toBe('https://api.openai.com/v1/realtime/client_secrets')
+  const session = JSON.parse(fetch_.mock.calls[0][1].body).session
   expect(session.type).toBe('transcription')
   expect(session.audio.input.turn_detection.silence_duration_ms).toBe(900)
   expect(session.audio.input.transcription.model).toBe('gpt-live-transcribe')
+  expect(fetch_.mock.calls[1][0]).toBe('https://api.openai.com/v1/realtime/calls')
+  expect(fetch_.mock.calls[1][1]).toMatchObject({ headers: { Authorization: 'Bearer ephemeral-secret', 'Content-Type': 'application/sdp' }, body: 'offer' })
+  expect(await result.text()).toBe('answer-sdp')
 })
+it('never exchanges SDP after a rejected transcription session or exposes its secret', async () => {
+  const fetch_ = vi.fn().mockResolvedValueOnce(new Response(JSON.stringify({ error: { code: 'invalid_value', param: 'session.type', message: 'private detail' } }), { status: 400 }))
+  vi.stubGlobal('fetch', fetch_)
+  const result = await handleVoiceChain(request({ action: 'transcription', sdp: 'offer' }), env, admin, rate)
+  expect(fetch_).toHaveBeenCalledTimes(1)
+  expect(result.status).toBe(502)
+  expect(await result.json()).toEqual({ error: 'Could not create the transcription session.', stage: 'transcription_session', code: 'invalid_value' })
+})
+
 it('rejects arbitrary hosted tools, model injection and oversized speech', async () => {
   const fetch_ = vi.fn(); vi.stubGlobal('fetch', fetch_)
   const result = await handleVoiceChain(request({ action: 'answer', instructions: '', messages: [], tools: [{ type: 'mcp', server_url: 'https://evil.test' }] }), env, admin, rate)
