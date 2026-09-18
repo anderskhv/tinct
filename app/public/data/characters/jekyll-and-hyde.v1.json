@@ -1402,6 +1402,78 @@
               ]
             }
           ]
+        },
+        {
+          "id": "juggernaut",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 7,
+            "offset": 1021
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 7,
+            "offset": 1021
+          },
+          "snapshots": [
+            {
+              "id": "juggernaut-1",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 7,
+                "offset": 1021
+              },
+              "name": "Juggernaut",
+              "subtitle": "",
+              "body": "The image Enfield reaches for: Hyde trampling the child 'like some damned Juggernaut'.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 7,
+                  "throughOffset": 1021
+                }
+              ],
+              "editorialBasis": "Reviewed baseline identity at first mention; excludes paragraphs known to refer to a different same-named figure."
+            }
+          ]
+        },
+        {
+          "id": "maws",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 8,
+            "paragraphIndex": 34,
+            "offset": 199
+          },
+          "firstMention": {
+            "chapterNumber": 8,
+            "paragraphIndex": 34,
+            "offset": 199
+          },
+          "snapshots": [
+            {
+              "id": "maws-1",
+              "availableAt": {
+                "chapterNumber": 8,
+                "paragraphIndex": 34,
+                "offset": 199
+              },
+              "name": "Maw",
+              "subtitle": "Chemists",
+              "body": "Messrs. Maw, the wholesale chemists from whom Jekyll's salt was ordered.",
+              "evidence": [
+                {
+                  "chapterNumber": 8,
+                  "paragraphIndex": 34,
+                  "throughOffset": 199
+                }
+              ],
+              "editorialBasis": "Reviewed baseline identity at first mention; excludes paragraphs known to refer to a different same-named figure."
+            }
+          ]
         }
       ],
       "mentions": [
@@ -1485,6 +1557,15 @@
           "endOffset": 865,
           "text": "child",
           "resolution": "reviewed-context"
+        },
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 7,
+          "startOffset": 1011,
+          "endOffset": 1021,
+          "text": "Juggernaut",
+          "resolution": "reviewed-name",
+          "characterId": "juggernaut"
         },
         {
           "characterId": "girl",
@@ -1998,6 +2079,15 @@
           "endOffset": 362,
           "text": "Mr. Enfield",
           "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 12,
+          "startOffset": 617,
+          "endOffset": 627,
+          "text": "Juggernaut",
+          "resolution": "reviewed-name",
+          "characterId": "juggernaut"
         },
         {
           "characterId": "hyde",
@@ -3854,15 +3944,6 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "enfield",
-          "chapterNumber": 7,
-          "paragraphIndex": 8,
-          "startOffset": 138,
-          "endOffset": 149,
-          "text": "Mr. Enfield",
-          "resolution": "reviewed-name"
-        },
-        {
           "characterId": "jekyll",
           "chapterNumber": 7,
           "paragraphIndex": 8,
@@ -4268,6 +4349,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "chapterNumber": 8,
+          "paragraphIndex": 34,
+          "startOffset": 196,
+          "endOffset": 199,
+          "text": "Maw",
+          "resolution": "reviewed-name",
+          "characterId": "maws"
+        },
+        {
           "characterId": "jekyll",
           "chapterNumber": 8,
           "paragraphIndex": 34,
@@ -4293,6 +4383,15 @@
           "endOffset": 43,
           "text": "Mr. Utterson",
           "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 8,
+          "paragraphIndex": 36,
+          "startOffset": 12,
+          "endOffset": 15,
+          "text": "Maw",
+          "resolution": "reviewed-name",
+          "characterId": "maws"
         },
         {
           "characterId": "poole",
@@ -4820,15 +4919,6 @@
           "characterId": "jekyll",
           "chapterNumber": 8,
           "paragraphIndex": 85,
-          "startOffset": 91,
-          "endOffset": 97,
-          "text": "Jekyll",
-          "resolution": "reviewed-name"
-        },
-        {
-          "characterId": "jekyll",
-          "chapterNumber": 8,
-          "paragraphIndex": 85,
           "startOffset": 191,
           "endOffset": 197,
           "text": "Jekyll",
@@ -4898,15 +4988,6 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "utterson",
-          "chapterNumber": 8,
-          "paragraphIndex": 92,
-          "startOffset": 9,
-          "endOffset": 17,
-          "text": "Utterson",
-          "resolution": "reviewed-name"
-        },
-        {
           "characterId": "lanyon",
           "chapterNumber": 8,
           "paragraphIndex": 92,
@@ -4949,15 +5030,6 @@
           "startOffset": 166,
           "endOffset": 178,
           "text": "Henry Jekyll",
-          "resolution": "reviewed-name"
-        },
-        {
-          "characterId": "lanyon",
-          "chapterNumber": 9,
-          "paragraphIndex": 2,
-          "startOffset": 6,
-          "endOffset": 12,
-          "text": "Lanyon",
           "resolution": "reviewed-name"
         },
         {
@@ -7355,6 +7427,42 @@
                   "throughOffset": 987
                 }
               ]
+            }
+          ]
+        },
+        {
+          "id": "maws",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 8,
+            "paragraphIndex": 34,
+            "offset": 205
+          },
+          "firstMention": {
+            "chapterNumber": 8,
+            "paragraphIndex": 34,
+            "offset": 205
+          },
+          "snapshots": [
+            {
+              "id": "maws-1",
+              "availableAt": {
+                "chapterNumber": 8,
+                "paragraphIndex": 34,
+                "offset": 205
+              },
+              "name": "Maw",
+              "subtitle": "Chemists",
+              "body": "Messrs. Maw, the wholesale chemists from whom Jekyll's salt was ordered.",
+              "evidence": [
+                {
+                  "chapterNumber": 8,
+                  "paragraphIndex": 34,
+                  "throughOffset": 205
+                }
+              ],
+              "editorialBasis": "Reviewed baseline identity at first mention; excludes paragraphs known to refer to a different same-named figure."
             }
           ]
         }
@@ -9800,15 +9908,6 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "enfield",
-          "chapterNumber": 7,
-          "paragraphIndex": 8,
-          "startOffset": 138,
-          "endOffset": 149,
-          "text": "Mr. Enfield",
-          "resolution": "reviewed-name"
-        },
-        {
           "characterId": "jekyll",
           "chapterNumber": 7,
           "paragraphIndex": 8,
@@ -10214,6 +10313,15 @@
           "resolution": "reviewed-name"
         },
         {
+          "chapterNumber": 8,
+          "paragraphIndex": 34,
+          "startOffset": 202,
+          "endOffset": 205,
+          "text": "Maw",
+          "resolution": "reviewed-name",
+          "characterId": "maws"
+        },
+        {
           "characterId": "jekyll",
           "chapterNumber": 8,
           "paragraphIndex": 34,
@@ -10239,6 +10347,15 @@
           "endOffset": 43,
           "text": "Mr. Utterson",
           "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 8,
+          "paragraphIndex": 36,
+          "startOffset": 12,
+          "endOffset": 15,
+          "text": "Maw",
+          "resolution": "reviewed-name",
+          "characterId": "maws"
         },
         {
           "characterId": "poole",
@@ -10766,15 +10883,6 @@
           "characterId": "jekyll",
           "chapterNumber": 8,
           "paragraphIndex": 85,
-          "startOffset": 91,
-          "endOffset": 97,
-          "text": "Jekyll",
-          "resolution": "reviewed-name"
-        },
-        {
-          "characterId": "jekyll",
-          "chapterNumber": 8,
-          "paragraphIndex": 85,
           "startOffset": 192,
           "endOffset": 198,
           "text": "Jekyll",
@@ -10844,15 +10952,6 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "utterson",
-          "chapterNumber": 8,
-          "paragraphIndex": 92,
-          "startOffset": 9,
-          "endOffset": 17,
-          "text": "Utterson",
-          "resolution": "reviewed-name"
-        },
-        {
           "characterId": "lanyon",
           "chapterNumber": 8,
           "paragraphIndex": 92,
@@ -10895,15 +10994,6 @@
           "startOffset": 166,
           "endOffset": 178,
           "text": "Henry Jekyll",
-          "resolution": "reviewed-name"
-        },
-        {
-          "characterId": "lanyon",
-          "chapterNumber": 9,
-          "paragraphIndex": 2,
-          "startOffset": 6,
-          "endOffset": 12,
-          "text": "Lanyon",
           "resolution": "reviewed-name"
         },
         {
