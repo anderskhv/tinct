@@ -1,0 +1,64 @@
+Model: opus
+
+# Fidelity review — War and Peace, ch 355 (Second Epilogue, Chapter 2), candidate B
+
+Source: `pilot/ch355-source.json` (Maude, 13 paragraphs) — Candidate: `pilot/ch355-candidate-B.json` (13 paragraphs).
+Structure check: paragraph count matches (13 = 13); `number` and `title` match; no merge, split or reorder across paragraph boundaries.
+
+## Findings
+
+| ¶ | Severity | Source | Candidate | Note |
+|---|---|---|---|---|
+| 2 | MODERATE | "as the resultant of a multiplicity of variously directed forces" | "as the resultant of many forces pushing in different directions—the single outcome they all add up to" | Added explanatory clause. It is not a neutral gloss: it asserts the summation property ("add up to") that Tolstoy only introduces in ¶5 ("the sum of the components must equal the resultant"). It imports a later step of the argument into an earlier paragraph. *Proposal: delete the appended clause.* |
+| 11 | MODERATE | "conceptions under whose banner it is very easy to use words having a still less definite meaning, and which can therefore be readily introduced into any theory" | "conceptions, and under their banner it is very easy to use words with a still less definite meaning, words that can therefore be readily worked into any theory" | The source's "and which" is parallel to "under whose banner", so the natural head is *conceptions*; the source in any case leaves the referent open. The candidate fixes it on *words*, closing an ambiguity and probably choosing the other antecedent. *Proposal: keep a form that does not pin the referent.* |
+| 1 | MINOR | "for this force is understood by them all not only differently but often in quite contradictory ways" | new sentence: "Each of them understands this force not merely differently from the others, but often in flatly contradictory ways." | Causal "for" dropped (the source gives this as the *reason* the answers lose meaning). See whole-chapter note 1. |
+| 1 | MINOR | "quite contradictory"; "due to the power of some other person"; "destroy the understanding of the force"; "furnish no reply" | "flatly contradictory"; "came from the power of some other person **entirely**"; "tear down **any** understanding"; "give no answer **at all**" | Four added or sharpened intensifiers in one paragraph; each makes the candidate slightly more absolute than the source. |
+| 1 | MINOR | "contradict each other even in their statement as to **the force** on which the authority of some particular person was based" | "contradict one another even on the question of what a given person's authority rested on" | Drops the chapter's key term *force* from a sentence that is explicitly about it. |
+| 1 | MINOR | "or in general of the persons they describe" | "or whichever figure they are writing about" | Generalising plural narrowed to a singular. |
+| 2 | MINOR | "who deal with all the nations"; "how erroneous is the specialist historians' view" | "who deal with all nations **at once**"; "how mistaken … **really** is" | Two small additions. |
+| 3 | MINOR | "then his power **is itself** a force producing events" | "then his power **turns into** a force producing events all by itself" | "turns into" adds a transformation the source does not state; the source only juxtaposes the two claims. |
+| 3 | MINOR | "other things they **do not like**" | "other things they **disapprove of**" | Tolstoy's dry jab at the historians' taste is made respectable. |
+| 3 | MINOR | "at another plainly say that … and that the very ideas of 1789 were arrested" | "At another point they flatly state … **They also say** that the very ideas of 1789 were stopped" | Split is fine, but the second clause is detached from the "at another point" occasion. |
+| 4 | MINOR | "the universal historians' accounts are **all** made up of a chain of such contradictions" | "are made up, **from end to end**, of a chain of **just** such contradictions" | "all" is ambiguous (all the accounts / entirely); the candidate resolves it to "entirely" and adds "just". |
+| 4 | MINOR | "**This contradiction** occurs because" | "**It** happens because" | Loses one beat of the deliberate "contradiction / contradictions / this contradiction" drumbeat. |
+| 5 | MINOR | "another unexplained force affecting the **resultant action**" | "some other, unexplained force acting on the **outcome**" | Only place where the technical term *resultant* is abandoned; the candidate keeps it everywhere else, including ¶6 "acting on the resultant". |
+| 5 | MINOR | "in addition to the insufficient components" | "alongside **their** insufficient components" | Small added possessive. |
+| 6 | MINOR | "tries to **prove**" | "tries to **show**" | Softened; the candidate keeps "prove" for the same historians in ¶3, so the echo is uneven. |
+| 6 | MINOR | "due to other things beside Alexander's will—**such as** the activity of Stein…" | "due to other things besides Alexander's will—**to** the activity of Stein…" | Drops the exemplifying hedge; "and others" at the end keeps the list open, so the damage is limited. |
+| 6 | MINOR | "The historian **evidently** decomposes…"; "**evidently** does not equal the resultant" | "The historian, **in effect**, breaks…"; "**plainly** does not equal" | The repeated "evidently" is rendered two different ways and the echo is lost; "in effect" also shifts the modality from *clearly* to *effectively*. |
+| 6 | MINOR | "how component forces equal to one A **gave** a resultant equal to a thousand times A" | "how … component forces adding up to one A **could give** a resultant" | Modal added where the source is flatly indicative. |
+| 6 | MINOR | "to **recognize** it as the resultant of the forces"; "the force he had denied" | "to **treat** it as the resultant"; "**the very** force he had denied" | "recognize" (forced acknowledgement) neutralised; "very" added. |
+| 6 | MINOR | "they not only **contradict** the specialist historians but **contradict** themselves" | "they contradict not only the specialist historians but themselves" | Second verb elided; the source repeats it. |
+| 8 | MINOR | "again take that force to be something **quite different**" | "take that force to be something **different again**" | Degree word "quite" dropped. |
+| 8 | MINOR | source keeps "following the path laid down by the universal historians…" embedded before the main claim | candidate moves it to its own following sentence | Order of clauses within the paragraph inverted; the content and the "writers and ladies" irony survive intact. |
+| 9 | MINOR | "quite consistent **in regard to** their progenitors … **for** if historical events may be explained" | "quite consistent **with** their forerunners … . If historical events can be explained" | Causal "for" dropped again. |
+| 9 | MINOR | "for that view is not confirmed by such facts as…" | "That view is not confirmed by such facts as…" | Third dropped causal "for". |
+| 9 | MINOR | "say that this indication is the cause"; "despite their endeavors"; "any connection between" | "**declare** that this sign is the cause"; "despite **all** their efforts"; "any connection **at all** between" | Intensifier and verb-strength drift. |
+| 10 | MINOR | "all the **cunningly** devised arguments" | "every one of the **cleverly** devised arguments" | "cunningly" carries the sneer; "cleverly" reads as praise. |
+| 10 | MINOR | "another, newer force—the idea—**is added**" | "another and newer force **is now added**" | "now" added. |
+| 11 | MINOR | "why intellectual activity **is considered** by the historians of culture **to be** the cause" | "why intellectual activity **in particular should be treated** … as the cause" | "in particular" added and an obligation modal introduced. |
+| 11 | MINOR | "(**if they** do not express it, that is merely because traders and soldiers do not write history)" | "**If traders and soldiers** do not say so, that is merely because they do not write history." | The source's "they" covers all three groups (traders, agriculturists, soldiers); the candidate narrows the conditional's subject to two, tidying an asymmetry the source leaves standing. Also promotes a parenthetical aside to a main sentence. |
+| 11 | MINOR | "traders, **agriculturists**, and soldiers" | "traders, **farmers**, and soldiers" | Acceptable modernisation; noted only for the record. |
+| 9 | COSMETIC | "indications … indication"; "every vital phenomenon" | "signs … sign"; "every living phenomenon" | Consistent modernisation, no claim change. |
+| 12 | COSMETIC | "such as the campaign of 1812 **for instance**" | "such as the campaign of 1812" | Redundant tag dropped. |
+| 6 | COSMETIC | "this opinion of the specialist **historian**" | "this view of the specialist **historians**" | Singular to plural. |
+
+Counts: **0 MAJOR, 2 MODERATE, 28 MINOR, 3 COSMETIC.**
+
+## Coverage
+
+All 13 paragraphs checked: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 — read in packets (0–2, 3–5, 5–7, 8–10, 10–12) with the neighbouring paragraph on each side, then once end to end against the source.
+
+## Whole-chapter notes
+
+1. **Causal connectives.** The source's explanatory "for" is dropped three times (¶1, ¶9 twice) when the candidate splits long sentences. Individually minor; together they turn a chain of reasons into a sequence of assertions. Sentence-splitting is the point of this pass, so the fix is to carry the link over ("because", "since") rather than to restore the sentence.
+2. **Nothing dropped, nothing invented at the level of substance.** Every named historian survives with the right label: Thiers (Bonapartist, virtue and genius), Lanfrey (Republican, trickery and deception), Gervinus and Schlosser (¶3), Gervinus again (¶6). Every example survives: Stein, Metternich, Madame de Staël, Talleyrand, Fichte, Chateaubriand in the first list, Talleyrand/Chateaubriand in the second, Chateaubriand/Talleyrand/Madame de Staël in the third; *Le Contrat Social*; the equality-of-man murders and the wars from the preaching of love; the peasants and the wind. Every number matches (1789, 1812, 1789, 1813, 1813, one A, a thousand times A, considerations 1 and 2, the "third class" of historians).
+3. **Both numbered considerations are present and in order,** each with its full content: (1) history written by learned men, the traders/agriculturists/soldiers comparison and the parenthetical reason; (2) the five vague conceptions listed in the same order (spiritual activity, enlightenment, civilization, culture, ideas) with the "still less definite meaning" step. The only issue is the pronoun referent at the end of (2), logged above.
+4. **Order of the argument is preserved** at chapter scale: specialists → universal historians → their halfway analysis and the components/resultant test → Gervinus worked example → peasants and wind → historians of culture → the idea as a new unexplained force → the two considerations → the self-contradiction of 1812. Two within-paragraph reorderings (¶8, ¶12) unpack embedded clauses without changing the sequence of claims.
+5. **Negations and conditionals hold.** "not only … but", "does not equal the resultant", "does not account for the submission of millions", "in no case can one admit", "cannot be understood without an explanation", "if they do not express it", "if historical events may be explained … why not explain them", "only as long as there is but one historian", "only by a great stretch" — all present with the same polarity. The one narrowing is the subject of the ¶11 conditional.
+6. **Irony survives where it is structural** (the peasants and the wind; "writers and ladies"; "which may possibly even be of use to someone for something"; "things they do not like" → weakened; "cunningly" → weakened). No irony is lost outright, but two of Tolstoy's sneers are made polite (¶3, ¶10); these are worth restoring since the chapter's force is largely tonal.
+7. **Definiteness.** The candidate is more definite than the source in four places: ¶2 (gloss on *resultant*), ¶4 ("all" → "from end to end"), ¶11 (the relative pronoun), ¶6 ("such as" dropped). It is *less* definite in one (¶6 "could give" for "gave"). None inverts a claim.
+8. **Terminology.** *force*, *power*, *component*, *resultant* are tracked consistently (force 27/27, power 20/20, component 6/6) with the single ¶5 lapse to "outcome". Tolstoy's verbal echoes fare worse: "evidently" twice → two different words; "contradict" 8 occurrences → 6; "plainly" is displaced from ¶3 onto ¶6. The repetition is part of the hammering style of the epilogue essays.
+9. **Conventions.** Straight double quotes in the peasants' speech and straight apostrophes throughout, matching the baseline and `CONVENTIONS.md`; em dashes unspaced; no French, no footnote slots, no character names touched by the naming table; title mirrors the source. No conventions violations.
+
+Fidelity verdict: REVISE
