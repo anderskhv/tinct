@@ -9,7 +9,7 @@
  * tokens Fish's alignment covers, and writes MP3 samples plus a JSON report
  * to output/narration-pilot/ for human audition.
  *
- *   FISH_AUDIO_API_KEY=… npx vitest run src/narration/narration.live.test.ts
+ *   NARRATION_LIVE_PROBE=1 FISH_AUDIO_API_KEY=… npx vitest run src/narration/narration.live.test.ts
  */
 import { describe, expect, it } from 'vitest'
 import fs from 'node:fs'
@@ -24,7 +24,8 @@ import {
   validateNarrationAsset,
 } from './narrationCore'
 
-const API_KEY = process.env.FISH_AUDIO_API_KEY
+// Opt in explicitly: the key alone must not turn `npm test` into a paid call.
+const API_KEY = process.env.NARRATION_LIVE_PROBE === '1' ? process.env.FISH_AUDIO_API_KEY : undefined
 const MODEL = process.env.NARRATION_MODEL || 's2.1-pro'
 const VOICES = [
   { key: 'a', id: process.env.NARRATION_VOICE_A_ID || 'bbb58d698b5f46719fd04688dfac7359', label: 'Nathan' },
@@ -35,7 +36,7 @@ const EDITION = process.env.NARRATION_PROBE_EDITION || 'original-en'
 
 const describeLive = API_KEY ? describe : describe.skip
 
-describeLive('Fish Audio live probe (spends money; needs FISH_AUDIO_API_KEY)', () => {
+describeLive('Fish Audio live probe (spends money; needs NARRATION_LIVE_PROBE=1 and FISH_AUDIO_API_KEY)', () => {
   it('narrates Odyssey Book 1 sample paragraphs and measures latency, bytes and timing coverage', async () => {
     const edition = JSON.parse(fs.readFileSync(path.resolve(__dirname, `../../public/data/editions/odyssey-${EDITION}.json`), 'utf8')) as { chapters: Array<{ paragraphs: string[] }> }
     const outDir = path.resolve(__dirname, '../../../output/narration-pilot')

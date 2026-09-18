@@ -235,7 +235,7 @@ What this says:
 - The paid `s2.1-pro` tier: its latency and whether it streams
   progressively. Needs API credit on the Fish account
   (`https://fish.audio/app/developers`), then
-  `FISH_AUDIO_API_KEY=… npx vitest run src/narration/narration.live.test.ts`.
+  `NARRATION_LIVE_PROBE=1 FISH_AUDIO_API_KEY=… npx vitest run src/narration/narration.live.test.ts`.
 - End-to-end through the deployed Worker (cache hit timing, two listeners on
   one uncached passage) — needs the routes live and credit.
 - Listening quality: no human has auditioned the samples yet.
