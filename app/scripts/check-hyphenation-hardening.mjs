@@ -206,7 +206,6 @@ async function splitRestoreAcceptance(name, viewport) {
   await boot(page, {
     kind: 'open-reader', bookId: 'bible', primaryEditionKey: 'kjv-en',
     savedPlace: { bookId: 'bible', chapterNumber: 1, paragraphIndex: 0, wordIndex: 0, page: 0 },
-    startAtSavedPlace: true,
   })
   const split = await locateTrailingSplit(page)
   const fullWord = await sourceWord(page, 'bible', 'kjv-en', 1, split.targetKey)
@@ -258,7 +257,6 @@ async function languageAcceptance(name, viewport) {
   await boot(page, {
     kind: 'open-reader', bookId: 'great-expectations', primaryEditionKey: 'original-en',
     savedPlace: { bookId: 'great-expectations', chapterNumber: 1, paragraphIndex: 4, wordIndex: 0, page: 0 },
-    startAtSavedPlace: true,
   })
   const before = await pageState(page)
   assert(patternRequests.some(value => value.includes('/en-us-')), 'English patterns must be requested lazily')
