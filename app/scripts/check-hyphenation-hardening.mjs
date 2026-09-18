@@ -169,9 +169,10 @@ async function exerciseAudioAcrossSplit(page, split) {
   try {
     const [targetParagraph, targetWord] = split.targetKey.split(':').map(Number)
     const seekWord = Math.max(0, targetWord - 3)
-    const previous = page.locator(`[data-testid="lab-word"][data-paragraph-index="${targetParagraph}"][data-word-index="${seekWord}"]`).first()
-    // Starting audio repaints the same logical page into follow mode. Dispatch
-    // through the word itself rather than requiring its moving box to settle.
+    const previous = page.locator(`.lab-passage.is-inline-hearing [data-testid="lab-word"][data-paragraph-index="${targetParagraph}"][data-word-index="${seekWord}"]`).first()
+    // The native paginator keeps an off-screen measuring copy of the words.
+    // Seek through the visible inline-hearing page so this reaches the app's
+    // real seekAudioToWord handler, rather than clicking the inert copy.
     await previous.evaluate(node => node.click())
     const deadline = Date.now() + 20000
     while (Date.now() < deadline) {
