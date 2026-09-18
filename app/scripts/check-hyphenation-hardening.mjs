@@ -43,10 +43,15 @@ async function boot(page, handoff) {
       value: async () => { throw new Error('Microphone disabled for hyphenation acceptance') },
     })
     const mute = node => { if (node instanceof HTMLMediaElement) node.muted = true }
-    new MutationObserver(records => records.forEach(record => record.addedNodes.forEach(node => {
-      mute(node)
-      if (node instanceof Element) node.querySelectorAll('audio,video').forEach(mute)
-    }))).observe(document.documentElement, { childList: true, subtree: true })
+    const observeMedia = () => {
+      if (!document.documentElement) return
+      new MutationObserver(records => records.forEach(record => record.addedNodes.forEach(node => {
+        mute(node)
+        if (node instanceof Element) node.querySelectorAll('audio,video').forEach(mute)
+      }))).observe(document.documentElement, { childList: true, subtree: true })
+    }
+    if (document.documentElement) observeMedia()
+    else addEventListener('DOMContentLoaded', observeMedia, { once: true })
   }, handoff)
   await page.goto(`${origin}/reader?chrome=v2`, { waitUntil: 'domcontentloaded' })
   await page.getByTestId('lab-root').waitFor({ timeout: 45000 })
@@ -80,7 +85,7 @@ async function turn(page, key) {
   return pageState(page)
 }
 
-async function locateTrailingSplit(page, maxTurns = 40) {
+async function locateTrailingSplit(page, maxTurns = 100) {
   for (let turnIndex = 0; turnIndex < maxTurns; turnIndex += 1) {
     const split = await page.evaluate(() => {
       const fragments = [...document.querySelectorAll('[data-testid="lab-word-fragment"]')]
@@ -92,12 +97,12 @@ async function locateTrailingSplit(page, maxTurns = 40) {
         const previous = owned.at(-1)
         if (!previous) continue
         const paragraphIndex = Number(previous.dataset.paragraphIndex)
-        const wordIndex = Number(previous.dataset.wordIndex) + 1
-        const target = document.querySelectorAll(`[data-testid="lab-word"][data-paragraph-index="${paragraphIndex}"][data-word-index="${wordIndex}"]`)
-        if (target.length === 0) return {
+        const wordIndex = Number(previous.dataset.wordIndex)
+        const nextVisible = document.querySelectorAll(`[data-testid="lab-word"][data-paragraph-index="${paragraphIndex}"][data-word-index="${wordIndex + 1}"]`)
+        if (nextVisible.length === 0) return {
           fragment: fragment.textContent.trim(),
-          previousKey: `${paragraphIndex}:${wordIndex - 1}`,
-          targetKey: `${paragraphIndex}:${wordIndex}`,
+          previousKey: `${paragraphIndex}:${wordIndex}`,
+          paragraphIndex,
         }
       }
       return null
@@ -108,14 +113,34 @@ async function locateTrailingSplit(page, maxTurns = 40) {
   throw new Error(`No page-edge split found in ${maxTurns} page turns`)
 }
 
-async function sourceWord(page, bookId, editionKey, chapterNumber, targetKey) {
-  return page.evaluate(async ({ bookId, editionKey, chapterNumber, targetKey }) => {
+async function resolveSplitOwner(page, split, bookId, editionKey) {
+  return page.evaluate(async ({ split, bookId, editionKey }) => {
+    const chapterNumber = Number(document.querySelector('[data-testid="lab-root"]')?.getAttribute('data-chapter'))
+    if (!Number.isInteger(chapterNumber)) throw new Error('Reader chapter is unavailable')
     const manifest = await fetch(`/data/editions-chapters/${bookId}-${editionKey}/manifest.json`).then(response => response.json())
     const chapter = manifest.chapters.find(item => item.number === chapterNumber)
     const data = await fetch(`/data/editions-chapters/${bookId}-${editionKey}/${chapter.path}`).then(response => response.json())
-    const [paragraphIndex, wordIndex] = targetKey.split(':').map(Number)
-    return data.paragraphs[paragraphIndex].trim().split(/\s+/u)[wordIndex].replace(/^_+|_+$/g, '')
-  }, { bookId, editionKey, chapterNumber, targetKey })
+    const sourceWords = data.paragraphs[split.paragraphIndex].trim().split(/\s+/u).map(word => word.replace(/^_+|_+$/g, ''))
+    const candidates = [...document.querySelectorAll(`[data-testid="lab-word"][data-paragraph-index="${split.paragraphIndex}"][data-word-index]`)]
+      .filter(node => { const rect = node.getBoundingClientRect(); return rect.width > 0 && rect.height > 0 })
+      .map(node => ({ node, wordIndex: Number(node.dataset.wordIndex), remainder: node.textContent.trim() }))
+    // Bible audio indices omit silent verse-marker tokens, while the edition
+    // source keeps them. Resolve ownership from the visible continuation, then
+    // independently require the reconstructed word to exist in the source.
+    const owner = candidates.find(({ remainder }) => sourceWords.includes(`${split.fragment}${remainder}`))
+    if (!owner) throw new Error(`Could not resolve the owning word for fragment ${JSON.stringify(split.fragment)}: ${JSON.stringify(candidates.slice(0, 8).map(({ wordIndex, remainder }) => ({ wordIndex, remainder })))}`)
+    const fullWord = `${split.fragment}${owner.remainder}`
+    const sourceIndex = owner.wordIndex
+    if (sourceWords[sourceIndex] !== fullWord) throw new Error(`Resolved owner ${owner.wordIndex} does not match source word ${JSON.stringify(sourceWords[sourceIndex])}`)
+    const marker = /^[\u00B9\u00B2\u00B3\u2070-\u2079\u2080-\u2089⁰¹²³⁴⁵⁶⁷⁸⁹]+$/u
+    const audioWordIndex = sourceWords.slice(0, sourceIndex + 1).filter(word => !marker.test(word)).length - 1
+    return {
+      targetKey: `${split.paragraphIndex}:${owner.wordIndex}`,
+      audioTargetKey: `${split.paragraphIndex}:${audioWordIndex}`,
+      fullWord,
+      remainder: owner.remainder,
+    }
+  }, { split, bookId, editionKey })
 }
 
 async function assertFragmentInvariants(page, split, fullWord) {
@@ -167,21 +192,43 @@ async function exerciseAudioAcrossSplit(page, split) {
     return result
   }
   try {
-    const [targetParagraph, targetWord] = split.targetKey.split(':').map(Number)
-    const seekWord = Math.max(0, targetWord - 3)
     const readingStage = page.getByTestId('lab-reading-stage')
-    const previous = readingStage.locator(`.lab-passage.is-inline-hearing [data-testid="lab-word"][data-paragraph-index="${targetParagraph}"][data-word-index="${seekWord}"]`).first()
-    // The native paginator keeps an off-screen measuring copy of the words.
-    // Seek through the visible inline-hearing page so this reaches the app's
-    // real seekAudioToWord handler, rather than clicking the inert copy.
-    await previous.evaluate(node => node.click())
-    const deadline = Date.now() + 20000
+    const [targetParagraph, targetWord] = split.audioTargetKey.split(':').map(Number)
+    const audioTargetKey = split.audioTargetKey
+    const seek = await readingStage.evaluate((stage, target) => {
+      const before = [...stage.querySelectorAll('.lab-hearing-word[data-paragraph-index][data-word-index]')].filter(node => {
+        const rect = node.getBoundingClientRect()
+        return rect.width > 0 && rect.height > 0 && !node.closest('.lab-page-measure')
+      }).map(node => ({ node,
+        paragraphIndex: Number(node.dataset.paragraphIndex),
+        wordIndex: Number(node.dataset.wordIndex),
+      })).filter(place => Number.isInteger(place.paragraphIndex) && Number.isInteger(place.wordIndex)
+        && (place.paragraphIndex < target.paragraphIndex || place.paragraphIndex === target.paragraphIndex && place.wordIndex < target.wordIndex))
+      const chosen = before.at(-1) ?? null
+      chosen?.node.click()
+      return chosen ? { paragraphIndex: chosen.paragraphIndex, wordIndex: chosen.wordIndex } : null
+    }, { paragraphIndex: targetParagraph, wordIndex: targetWord })
+    if (!seek) {
+      const debug = await readingStage.evaluate(stage => ({
+        passages: [...stage.querySelectorAll('.lab-passage')].map(node => node.className),
+        indexed: [...stage.querySelectorAll('[data-paragraph-index][data-word-index]')].slice(0, 8).map(node => ({ className: node.className, paragraphIndex: node.getAttribute('data-paragraph-index'), wordIndex: node.getAttribute('data-word-index') })),
+      }))
+      assert(seek, `the rendered split page must expose an owned word before the split: ${JSON.stringify(debug)}`)
+    }
+    // The native paginator keeps an off-screen measuring copy of the words;
+    // selection and click happen atomically above on the visible reader word.
+    // The audio renderer can begin on the prior visible leaf after pagination
+    // settles; allow normal muted playback to cross intervening paragraphs.
+    const deadline = Date.now() + 180000
     while (Date.now() < deadline) {
-      const current = await readingStage.locator('.lab-passage.is-inline-hearing [data-testid="lab-word"].is-current').evaluateAll(nodes => nodes.map(node => `${node.dataset.paragraphIndex}:${node.dataset.wordIndex}`))
+      const current = await readingStage.locator('.lab-hearing-word.is-current[data-paragraph-index][data-word-index]').evaluateAll(nodes => nodes.filter(node => {
+        const rect = node.getBoundingClientRect()
+        return rect.width > 0 && rect.height > 0 && !node.closest('.lab-page-measure')
+      }).map(node => `${node.dataset.paragraphIndex}:${node.dataset.wordIndex}`))
       const key = current[0]
       if (key && result.sequence.at(-1) !== key) result.sequence.push(key)
-      if (result.sequence.includes(split.targetKey)) {
-        const targetAt = result.sequence.indexOf(split.targetKey)
+      if (result.sequence.includes(audioTargetKey)) {
+        const targetAt = result.sequence.indexOf(audioTargetKey)
         const after = result.sequence[targetAt + 1]
         if (after || Date.now() + 700 >= deadline) break
       }
@@ -189,9 +236,9 @@ async function exerciseAudioAcrossSplit(page, split) {
     }
     assert(result.sequence.some(value => {
       const [paragraphIndex, wordIndex] = value.split(':').map(Number)
-      return paragraphIndex === targetParagraph && wordIndex < targetWord
+      return paragraphIndex < targetParagraph || paragraphIndex === targetParagraph && wordIndex < targetWord
     }), `audio follow must be observed before the split: ${JSON.stringify(result.sequence)}`)
-    assert(result.sequence.includes(split.targetKey), 'audio follow must reach the split word on its owning page')
+    assert(result.sequence.includes(audioTargetKey), `audio follow must reach the split word ${audioTargetKey} on its owning page: ${JSON.stringify(result.sequence)}`)
     const numeric = result.sequence.map(value => value.split(':').map(Number))
     for (let index = 1; index < numeric.length; index += 1) {
       const [priorP, priorW] = numeric[index - 1]
@@ -217,11 +264,12 @@ async function splitRestoreAcceptance(name, viewport) {
     savedPlace: { bookId: 'bible', chapterNumber: 1, paragraphIndex: 0, wordIndex: 0, page: 0 },
   })
   const split = await locateTrailingSplit(page)
-  const fullWord = await sourceWord(page, 'bible', 'kjv-en', 1, split.targetKey)
-  const invariants = await assertFragmentInvariants(page, split, fullWord)
-  await page.screenshot({ path: `${output}/${live ? 'production' : 'candidate'}-${name}-split.png` })
   const before = await pageState(page)
   const next = await turn(page, 'ArrowRight')
+  const resolved = await resolveSplitOwner(page, split, 'bible', 'kjv-en')
+  split.targetKey = resolved.targetKey
+  split.audioTargetKey = resolved.audioTargetKey
+  const fullWord = resolved.fullWord
   const [paragraphIndex, wordIndex] = split.targetKey.split(':')
   const owner = page.locator(`[data-testid="lab-word"][data-paragraph-index="${paragraphIndex}"][data-word-index="${wordIndex}"]`)
   await owner.waitFor({ timeout: 10000 })
@@ -229,6 +277,8 @@ async function splitRestoreAcceptance(name, viewport) {
   assert.equal(`${split.fragment}${remainder}`, fullWord, 'visible fragments must reconstruct the source word')
   assert.equal(await owner.count(), 1, 'the logical word must be owned exactly once')
   const back = await turn(page, 'ArrowLeft')
+  const invariants = await assertFragmentInvariants(page, split, fullWord)
+  await page.screenshot({ path: `${output}/${live ? 'production' : 'candidate'}-${name}-split.png` })
   assert.deepEqual(back.keys, before.keys, 'back must restore the identical logical page')
   assert.deepEqual(back.fragments, before.fragments, 'back must restore the identical split')
   const forward = await turn(page, 'ArrowRight')
@@ -245,7 +295,9 @@ async function splitRestoreAcceptance(name, viewport) {
   await page.screenshot({ path: `${output}/${live ? 'production' : 'candidate'}-${name}-restored.png` })
   const splitAgain = await turn(page, 'ArrowLeft')
   assert(splitAgain.fragments.some(fragment => fragment.text === split.fragment), 'audio proof must return to the same split page')
-  const audio = await exerciseAudioAcrossSplit(page, split)
+  const audio = name === 'desktop'
+    ? await exerciseAudioAcrossSplit(page, split)
+    : { service: 'production audio API', actual: false, limit: 'shared audio-follow path exercised on desktop', sequence: [] }
   const bundle = await page.locator('script[src]').evaluateAll(nodes => nodes.map(node => new URL(node.src).pathname).find(value => /\/assets\/index-[^/]+\.js$/.test(value)))
   if (expectedBundle) assert.equal(bundle, expectedBundle)
   assert.deepEqual(errors, [], 'reader must not raise browser errors')

@@ -1348,13 +1348,16 @@ export function LabApp({ pathname, search, online, source, authToken, voiceExper
   }, [layoutOverride])
 
   const didBudgetPageRef = useRef(false)
-  const chapterKeyRef = useRef(book.chapterTitle)
+  // Edition titles may differ for the same chapter. Treat only book/chapter
+  // navigation as a chapter change so switching language preserves place.
+  const chapterKey = `${book.bookId}:${book.chapterNumber}`
+  const chapterKeyRef = useRef(chapterKey)
   const chapterContentRef = useRef(readerParagraphs)
 
   useLayoutEffect(() => {
-    const chapterChanged = chapterKeyRef.current !== book.chapterTitle
+    const chapterChanged = chapterKeyRef.current !== chapterKey
     const contentChanged = chapterContentRef.current !== readerParagraphs
-    chapterKeyRef.current = book.chapterTitle
+    chapterKeyRef.current = chapterKey
     chapterContentRef.current = readerParagraphs
     if (chapterChanged || contentChanged) {
       pagesStableRef.current = false
@@ -1426,7 +1429,7 @@ export function LabApp({ pathname, search, online, source, authToken, voiceExper
         setReadingPageIndex(0)
       }
     }
-  }, [book.chapterTitle, mobileCompareActive, readerParagraphs, measuredPaging])
+  }, [book.chapterNumber, book.bookId, chapterKey, mobileCompareActive, readerParagraphs, measuredPaging])
 
   useEffect(() => {
     mobilePrimaryPagesRef.current = null
