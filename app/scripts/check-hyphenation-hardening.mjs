@@ -169,14 +169,15 @@ async function exerciseAudioAcrossSplit(page, split) {
   try {
     const [targetParagraph, targetWord] = split.targetKey.split(':').map(Number)
     const seekWord = Math.max(0, targetWord - 3)
-    const previous = page.locator(`.lab-passage.is-inline-hearing [data-testid="lab-word"][data-paragraph-index="${targetParagraph}"][data-word-index="${seekWord}"]`).first()
+    const readingStage = page.getByTestId('lab-reading-stage')
+    const previous = readingStage.locator(`.lab-passage.is-inline-hearing [data-testid="lab-word"][data-paragraph-index="${targetParagraph}"][data-word-index="${seekWord}"]`).first()
     // The native paginator keeps an off-screen measuring copy of the words.
     // Seek through the visible inline-hearing page so this reaches the app's
     // real seekAudioToWord handler, rather than clicking the inert copy.
     await previous.evaluate(node => node.click())
     const deadline = Date.now() + 20000
     while (Date.now() < deadline) {
-      const current = await page.locator('.lab-passage.is-inline-hearing [data-testid="lab-word"].is-current').evaluateAll(nodes => nodes.map(node => `${node.dataset.paragraphIndex}:${node.dataset.wordIndex}`))
+      const current = await readingStage.locator('.lab-passage.is-inline-hearing [data-testid="lab-word"].is-current').evaluateAll(nodes => nodes.map(node => `${node.dataset.paragraphIndex}:${node.dataset.wordIndex}`))
       const key = current[0]
       if (key && result.sequence.at(-1) !== key) result.sequence.push(key)
       if (result.sequence.includes(split.targetKey)) {
