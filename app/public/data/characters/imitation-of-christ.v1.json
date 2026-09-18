@@ -1023,20 +1023,20 @@
           "storyRole": "central",
           "roleVisibleAt": {
             "chapterNumber": 1,
-            "paragraphIndex": 1,
-            "offset": 0
+            "paragraphIndex": 0,
+            "offset": 26
           },
           "firstMention": {
             "chapterNumber": 1,
-            "paragraphIndex": 1,
-            "offset": 0
+            "paragraphIndex": 0,
+            "offset": 26
           },
           "snapshots": [
             {
               "availableAt": {
                 "chapterNumber": 1,
-                "paragraphIndex": 1,
-                "offset": 0
+                "paragraphIndex": 0,
+                "offset": 26
               },
               "name": "Jesus Christ",
               "subtitle": "The book's namesake and model",
@@ -1182,28 +1182,364 @@
       ],
       "mentions": [
         {
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "startOffset": 20,
+          "endOffset": 26,
+          "text": "Christ",
           "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
           "chapterNumber": 1,
           "paragraphIndex": 1,
-          "startOffset": 70,
+          "startOffset": 93,
           "endOffset": 99,
-          "text": "These are the words of Christ"
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
         },
         {
-          "characterId": "job",
+          "chapterNumber": 1,
+          "paragraphIndex": 1,
+          "startOffset": 313,
+          "endOffset": 325,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 2,
+          "startOffset": 251,
+          "endOffset": 257,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 2,
+          "startOffset": 335,
+          "endOffset": 341,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 2,
+          "startOffset": 400,
+          "endOffset": 406,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 597,
+          "endOffset": 603,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 1,
+          "startOffset": 142,
+          "endOffset": 154,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 9,
+          "paragraphIndex": 2,
+          "startOffset": 124,
+          "endOffset": 130,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 12,
+          "paragraphIndex": 2,
+          "startOffset": 450,
+          "endOffset": 456,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
           "chapterNumber": 13,
           "paragraphIndex": 1,
-          "startOffset": 89,
+          "startOffset": 100,
           "endOffset": 103,
-          "text": "written in Job"
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
         },
         {
-          "characterId": "st-paul",
           "chapterNumber": 13,
           "paragraphIndex": 9,
-          "startOffset": 178,
-          "endOffset": 195,
-          "text": "as St. Paul saith"
+          "startOffset": 181,
+          "endOffset": 189,
+          "text": "St. Paul",
+          "characterId": "st-paul",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 13,
+          "paragraphIndex": 11,
+          "startOffset": 4,
+          "endOffset": 7,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 14,
+          "paragraphIndex": 3,
+          "startOffset": 188,
+          "endOffset": 200,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 17,
+          "paragraphIndex": 1,
+          "startOffset": 517,
+          "endOffset": 523,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 18,
+          "paragraphIndex": 1,
+          "startOffset": 246,
+          "endOffset": 252,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 18,
+          "paragraphIndex": 2,
+          "startOffset": 146,
+          "endOffset": 152,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 22,
+          "paragraphIndex": 4,
+          "startOffset": 286,
+          "endOffset": 292,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 23,
+          "paragraphIndex": 4,
+          "startOffset": 300,
+          "endOffset": 306,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 23,
+          "paragraphIndex": 6,
+          "startOffset": 321,
+          "endOffset": 327,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 23,
+          "paragraphIndex": 6,
+          "startOffset": 406,
+          "endOffset": 412,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 24,
+          "paragraphIndex": 5,
+          "startOffset": 106,
+          "endOffset": 112,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 24,
+          "paragraphIndex": 6,
+          "startOffset": 963,
+          "endOffset": 969,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 25,
+          "paragraphIndex": 6,
+          "startOffset": 184,
+          "endOffset": 196,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 1,
+          "startOffset": 390,
+          "endOffset": 396,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 2,
+          "startOffset": 298,
+          "endOffset": 304,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 2,
+          "startOffset": 355,
+          "endOffset": 361,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 2,
+          "startOffset": 551,
+          "endOffset": 557,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 3,
+          "startOffset": 601,
+          "endOffset": 607,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 4,
+          "startOffset": 416,
+          "endOffset": 422,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 4,
+          "startOffset": 519,
+          "endOffset": 525,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 5,
+          "startOffset": 3,
+          "endOffset": 9,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 5,
+          "startOffset": 173,
+          "endOffset": 179,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 5,
+          "startOffset": 252,
+          "endOffset": 258,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 5,
+          "startOffset": 506,
+          "endOffset": 512,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 5,
+          "startOffset": 535,
+          "endOffset": 541,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 5,
+          "startOffset": 550,
+          "endOffset": 556,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 5,
+          "startOffset": 581,
+          "endOffset": 587,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 28,
+          "paragraphIndex": 3,
+          "startOffset": 547,
+          "endOffset": 553,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 31,
+          "paragraphIndex": 2,
+          "startOffset": 108,
+          "endOffset": 114,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
         },
         {
           "chapterNumber": 31,
@@ -1215,20 +1551,399 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "jesus-christ",
-          "chapterNumber": 33,
-          "paragraphIndex": 1,
-          "startOffset": 0,
-          "endOffset": 21,
-          "text": "When Jesus is present"
-        },
-        {
           "characterId": "mary-magdalene",
           "chapterNumber": 33,
           "paragraphIndex": 1,
           "startOffset": 256,
           "endOffset": 270,
           "text": "Mary Magdalene"
+        },
+        {
+          "chapterNumber": 33,
+          "paragraphIndex": 4,
+          "startOffset": 60,
+          "endOffset": 72,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 33,
+          "paragraphIndex": 5,
+          "startOffset": 693,
+          "endOffset": 705,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 34,
+          "paragraphIndex": 2,
+          "startOffset": 288,
+          "endOffset": 294,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 34,
+          "paragraphIndex": 3,
+          "startOffset": 245,
+          "endOffset": 251,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 34,
+          "paragraphIndex": 3,
+          "startOffset": 456,
+          "endOffset": 462,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 34,
+          "paragraphIndex": 5,
+          "startOffset": 909,
+          "endOffset": 912,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 34,
+          "paragraphIndex": 9,
+          "startOffset": 22,
+          "endOffset": 25,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 36,
+          "paragraphIndex": 3,
+          "startOffset": 219,
+          "endOffset": 225,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 1,
+          "startOffset": 540,
+          "endOffset": 546,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 4,
+          "startOffset": 446,
+          "endOffset": 452,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 6,
+          "startOffset": 158,
+          "endOffset": 170,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 6,
+          "startOffset": 272,
+          "endOffset": 278,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 7,
+          "startOffset": 21,
+          "endOffset": 27,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 8,
+          "startOffset": 556,
+          "endOffset": 562,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 8,
+          "startOffset": 793,
+          "endOffset": 799,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 9,
+          "startOffset": 632,
+          "endOffset": 638,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 10,
+          "startOffset": 64,
+          "endOffset": 70,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 11,
+          "startOffset": 84,
+          "endOffset": 90,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 13,
+          "startOffset": 308,
+          "endOffset": 314,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 14,
+          "startOffset": 272,
+          "endOffset": 278,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 14,
+          "startOffset": 391,
+          "endOffset": 397,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 14,
+          "startOffset": 486,
+          "endOffset": 492,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 14,
+          "startOffset": 574,
+          "endOffset": 580,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 15,
+          "startOffset": 102,
+          "endOffset": 108,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 38,
+          "paragraphIndex": 0,
+          "startOffset": 23,
+          "endOffset": 29,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 42,
+          "paragraphIndex": 1,
+          "startOffset": 51,
+          "endOffset": 63,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 50,
+          "paragraphIndex": 0,
+          "startOffset": 65,
+          "endOffset": 77,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 51,
+          "paragraphIndex": 5,
+          "startOffset": 4,
+          "endOffset": 7,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 53,
+          "paragraphIndex": 2,
+          "startOffset": 266,
+          "endOffset": 272,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 55,
+          "paragraphIndex": 0,
+          "startOffset": 70,
+          "endOffset": 76,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 57,
+          "paragraphIndex": 6,
+          "startOffset": 44,
+          "endOffset": 47,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 58,
+          "paragraphIndex": 3,
+          "startOffset": 29,
+          "endOffset": 41,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 69,
+          "paragraphIndex": 1,
+          "startOffset": 270,
+          "endOffset": 282,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 72,
+          "paragraphIndex": 2,
+          "startOffset": 551,
+          "endOffset": 557,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 80,
+          "paragraphIndex": 2,
+          "startOffset": 422,
+          "endOffset": 428,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 87,
+          "paragraphIndex": 9,
+          "startOffset": 28,
+          "endOffset": 31,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 87,
+          "paragraphIndex": 9,
+          "startOffset": 84,
+          "endOffset": 87,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 89,
+          "paragraphIndex": 5,
+          "startOffset": 23,
+          "endOffset": 26,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 90,
+          "paragraphIndex": 1,
+          "startOffset": 797,
+          "endOffset": 803,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 92,
+          "paragraphIndex": 6,
+          "startOffset": 408,
+          "endOffset": 420,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 93,
+          "paragraphIndex": 0,
+          "startOffset": 48,
+          "endOffset": 54,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 96,
+          "paragraphIndex": 9,
+          "startOffset": 13,
+          "endOffset": 19,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 97,
+          "paragraphIndex": 0,
+          "startOffset": 25,
+          "endOffset": 31,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "the-disciple",
@@ -1239,12 +1954,157 @@
           "text": "The Voice of the Disciple"
         },
         {
-          "characterId": "king-solomon",
+          "chapterNumber": 97,
+          "paragraphIndex": 2,
+          "startOffset": 23,
+          "endOffset": 29,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
           "chapterNumber": 97,
           "paragraphIndex": 5,
           "startOffset": 521,
-          "endOffset": 563,
-          "text": "Solomon, the wisest of the kings of Israel"
+          "endOffset": 528,
+          "text": "Solomon",
+          "characterId": "king-solomon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 97,
+          "paragraphIndex": 9,
+          "startOffset": 769,
+          "endOffset": 775,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 97,
+          "paragraphIndex": 10,
+          "startOffset": 569,
+          "endOffset": 575,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 97,
+          "paragraphIndex": 12,
+          "startOffset": 63,
+          "endOffset": 69,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 97,
+          "paragraphIndex": 13,
+          "startOffset": 145,
+          "endOffset": 151,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 98,
+          "paragraphIndex": 7,
+          "startOffset": 206,
+          "endOffset": 212,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 98,
+          "paragraphIndex": 7,
+          "startOffset": 314,
+          "endOffset": 320,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 98,
+          "paragraphIndex": 7,
+          "startOffset": 341,
+          "endOffset": 347,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 98,
+          "paragraphIndex": 7,
+          "startOffset": 701,
+          "endOffset": 707,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 101,
+          "paragraphIndex": 2,
+          "startOffset": 242,
+          "endOffset": 248,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 101,
+          "paragraphIndex": 2,
+          "startOffset": 508,
+          "endOffset": 514,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 101,
+          "paragraphIndex": 4,
+          "startOffset": 41,
+          "endOffset": 47,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 101,
+          "paragraphIndex": 4,
+          "startOffset": 194,
+          "endOffset": 200,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 101,
+          "paragraphIndex": 4,
+          "startOffset": 231,
+          "endOffset": 237,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 103,
+          "paragraphIndex": 4,
+          "startOffset": 822,
+          "endOffset": 828,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 104,
+          "paragraphIndex": 0,
+          "startOffset": 19,
+          "endOffset": 25,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
         },
         {
           "chapterNumber": 106,
@@ -1253,6 +2113,114 @@
           "endOffset": 172,
           "text": "written in Job",
           "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 106,
+          "paragraphIndex": 7,
+          "startOffset": 273,
+          "endOffset": 279,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 106,
+          "paragraphIndex": 7,
+          "startOffset": 659,
+          "endOffset": 665,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 107,
+          "paragraphIndex": 0,
+          "startOffset": 27,
+          "endOffset": 33,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 107,
+          "paragraphIndex": 5,
+          "startOffset": 743,
+          "endOffset": 749,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 107,
+          "paragraphIndex": 7,
+          "startOffset": 587,
+          "endOffset": 593,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 107,
+          "paragraphIndex": 8,
+          "startOffset": 87,
+          "endOffset": 93,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 108,
+          "paragraphIndex": 0,
+          "startOffset": 41,
+          "endOffset": 47,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 109,
+          "paragraphIndex": 0,
+          "startOffset": 74,
+          "endOffset": 80,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 110,
+          "paragraphIndex": 0,
+          "startOffset": 81,
+          "endOffset": 87,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 112,
+          "paragraphIndex": 0,
+          "startOffset": 45,
+          "endOffset": 51,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 113,
+          "paragraphIndex": 0,
+          "startOffset": 49,
+          "endOffset": 55,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 114,
+          "paragraphIndex": 0,
+          "startOffset": 87,
+          "endOffset": 93,
+          "text": "Christ",
+          "characterId": "jesus-christ",
           "resolution": "reviewed-name"
         }
       ]
@@ -2273,20 +3241,20 @@
           "storyRole": "central",
           "roleVisibleAt": {
             "chapterNumber": 1,
-            "paragraphIndex": 1,
-            "offset": 0
+            "paragraphIndex": 0,
+            "offset": 19
           },
           "firstMention": {
             "chapterNumber": 1,
-            "paragraphIndex": 1,
-            "offset": 0
+            "paragraphIndex": 0,
+            "offset": 19
           },
           "snapshots": [
             {
               "availableAt": {
                 "chapterNumber": 1,
-                "paragraphIndex": 1,
-                "offset": 0
+                "paragraphIndex": 0,
+                "offset": 19
               },
               "name": "Jesus Christ",
               "subtitle": "The book's namesake and model",
@@ -2432,36 +3400,364 @@
       ],
       "mentions": [
         {
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "startOffset": 13,
+          "endOffset": 19,
+          "text": "Christ",
           "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
           "chapterNumber": 1,
           "paragraphIndex": 1,
-          "startOffset": 63,
+          "startOffset": 86,
           "endOffset": 92,
-          "text": "These are the words of Christ"
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
         },
         {
-          "characterId": "job",
+          "chapterNumber": 1,
+          "paragraphIndex": 1,
+          "startOffset": 293,
+          "endOffset": 305,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 2,
+          "startOffset": 227,
+          "endOffset": 233,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 2,
+          "startOffset": 279,
+          "endOffset": 285,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 2,
+          "startOffset": 343,
+          "endOffset": 349,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 569,
+          "endOffset": 575,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 1,
+          "startOffset": 128,
+          "endOffset": 140,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 9,
+          "paragraphIndex": 2,
+          "startOffset": 115,
+          "endOffset": 121,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 12,
+          "paragraphIndex": 2,
+          "startOffset": 395,
+          "endOffset": 401,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
           "chapterNumber": 13,
           "paragraphIndex": 1,
-          "startOffset": 85,
+          "startOffset": 108,
           "endOffset": 111,
-          "text": "written in the book of Job"
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
         },
         {
-          "characterId": "st-paul",
           "chapterNumber": 13,
           "paragraphIndex": 9,
-          "startOffset": 128,
-          "endOffset": 144,
-          "text": "As St. Paul says"
+          "startOffset": 131,
+          "endOffset": 139,
+          "text": "St. Paul",
+          "characterId": "st-paul",
+          "resolution": "reviewed-name"
         },
         {
+          "chapterNumber": 13,
+          "paragraphIndex": 11,
+          "startOffset": 4,
+          "endOffset": 7,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 14,
+          "paragraphIndex": 3,
+          "startOffset": 189,
+          "endOffset": 201,
+          "text": "Jesus Christ",
           "characterId": "jesus-christ",
-          "chapterNumber": 33,
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 17,
           "paragraphIndex": 1,
-          "startOffset": 0,
-          "endOffset": 21,
-          "text": "When Jesus is present"
+          "startOffset": 509,
+          "endOffset": 515,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 18,
+          "paragraphIndex": 1,
+          "startOffset": 246,
+          "endOffset": 252,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 18,
+          "paragraphIndex": 2,
+          "startOffset": 141,
+          "endOffset": 147,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 22,
+          "paragraphIndex": 4,
+          "startOffset": 259,
+          "endOffset": 265,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 23,
+          "paragraphIndex": 6,
+          "startOffset": 296,
+          "endOffset": 302,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 23,
+          "paragraphIndex": 6,
+          "startOffset": 382,
+          "endOffset": 388,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 24,
+          "paragraphIndex": 5,
+          "startOffset": 118,
+          "endOffset": 124,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 24,
+          "paragraphIndex": 6,
+          "startOffset": 891,
+          "endOffset": 897,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 25,
+          "paragraphIndex": 6,
+          "startOffset": 160,
+          "endOffset": 172,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 1,
+          "startOffset": 379,
+          "endOffset": 385,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 2,
+          "startOffset": 252,
+          "endOffset": 258,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 2,
+          "startOffset": 327,
+          "endOffset": 333,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 2,
+          "startOffset": 522,
+          "endOffset": 528,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 3,
+          "startOffset": 569,
+          "endOffset": 575,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 4,
+          "startOffset": 385,
+          "endOffset": 391,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 4,
+          "startOffset": 482,
+          "endOffset": 488,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 5,
+          "startOffset": 3,
+          "endOffset": 9,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 5,
+          "startOffset": 164,
+          "endOffset": 170,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 5,
+          "startOffset": 250,
+          "endOffset": 256,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 5,
+          "startOffset": 477,
+          "endOffset": 483,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 5,
+          "startOffset": 497,
+          "endOffset": 503,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 5,
+          "startOffset": 512,
+          "endOffset": 518,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 26,
+          "paragraphIndex": 5,
+          "startOffset": 546,
+          "endOffset": 552,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 28,
+          "paragraphIndex": 3,
+          "startOffset": 548,
+          "endOffset": 554,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 31,
+          "paragraphIndex": 2,
+          "startOffset": 122,
+          "endOffset": 128,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 31,
+          "paragraphIndex": 4,
+          "startOffset": 124,
+          "endOffset": 132,
+          "text": "St. Paul",
+          "characterId": "st-paul",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "mary-magdalene",
@@ -2472,6 +3768,384 @@
           "text": "Mary Magdalene"
         },
         {
+          "chapterNumber": 33,
+          "paragraphIndex": 4,
+          "startOffset": 70,
+          "endOffset": 82,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 33,
+          "paragraphIndex": 5,
+          "startOffset": 552,
+          "endOffset": 564,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 34,
+          "paragraphIndex": 2,
+          "startOffset": 304,
+          "endOffset": 310,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 34,
+          "paragraphIndex": 3,
+          "startOffset": 447,
+          "endOffset": 453,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 34,
+          "paragraphIndex": 5,
+          "startOffset": 812,
+          "endOffset": 815,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 34,
+          "paragraphIndex": 9,
+          "startOffset": 22,
+          "endOffset": 25,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 1,
+          "startOffset": 509,
+          "endOffset": 515,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 4,
+          "startOffset": 424,
+          "endOffset": 430,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 6,
+          "startOffset": 126,
+          "endOffset": 138,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 6,
+          "startOffset": 243,
+          "endOffset": 249,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 7,
+          "startOffset": 22,
+          "endOffset": 28,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 8,
+          "startOffset": 416,
+          "endOffset": 422,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 8,
+          "startOffset": 671,
+          "endOffset": 677,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 9,
+          "startOffset": 564,
+          "endOffset": 570,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 10,
+          "startOffset": 60,
+          "endOffset": 66,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 11,
+          "startOffset": 76,
+          "endOffset": 82,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 13,
+          "startOffset": 282,
+          "endOffset": 288,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 14,
+          "startOffset": 221,
+          "endOffset": 227,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 14,
+          "startOffset": 339,
+          "endOffset": 345,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 14,
+          "startOffset": 402,
+          "endOffset": 408,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 14,
+          "startOffset": 480,
+          "endOffset": 486,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 37,
+          "paragraphIndex": 15,
+          "startOffset": 91,
+          "endOffset": 97,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 38,
+          "paragraphIndex": 0,
+          "startOffset": 22,
+          "endOffset": 28,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 42,
+          "paragraphIndex": 1,
+          "startOffset": 50,
+          "endOffset": 62,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 50,
+          "paragraphIndex": 0,
+          "startOffset": 46,
+          "endOffset": 58,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 51,
+          "paragraphIndex": 5,
+          "startOffset": 4,
+          "endOffset": 7,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 53,
+          "paragraphIndex": 2,
+          "startOffset": 242,
+          "endOffset": 248,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 55,
+          "paragraphIndex": 0,
+          "startOffset": 50,
+          "endOffset": 56,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 57,
+          "paragraphIndex": 6,
+          "startOffset": 44,
+          "endOffset": 47,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 58,
+          "paragraphIndex": 3,
+          "startOffset": 29,
+          "endOffset": 41,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 69,
+          "paragraphIndex": 1,
+          "startOffset": 243,
+          "endOffset": 255,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 72,
+          "paragraphIndex": 2,
+          "startOffset": 486,
+          "endOffset": 492,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 80,
+          "paragraphIndex": 2,
+          "startOffset": 431,
+          "endOffset": 437,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 82,
+          "paragraphIndex": 3,
+          "startOffset": 95,
+          "endOffset": 101,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 87,
+          "paragraphIndex": 9,
+          "startOffset": 28,
+          "endOffset": 31,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 87,
+          "paragraphIndex": 9,
+          "startOffset": 84,
+          "endOffset": 87,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 89,
+          "paragraphIndex": 5,
+          "startOffset": 23,
+          "endOffset": 26,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 90,
+          "paragraphIndex": 1,
+          "startOffset": 727,
+          "endOffset": 733,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 92,
+          "paragraphIndex": 6,
+          "startOffset": 424,
+          "endOffset": 436,
+          "text": "Jesus Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 93,
+          "paragraphIndex": 0,
+          "startOffset": 35,
+          "endOffset": 41,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 96,
+          "paragraphIndex": 9,
+          "startOffset": 13,
+          "endOffset": 19,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 97,
+          "paragraphIndex": 0,
+          "startOffset": 13,
+          "endOffset": 19,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "the-disciple",
           "chapterNumber": 97,
           "paragraphIndex": 1,
@@ -2480,12 +4154,265 @@
           "text": "The Voice of the Disciple"
         },
         {
-          "characterId": "king-solomon",
+          "chapterNumber": 97,
+          "paragraphIndex": 2,
+          "startOffset": 24,
+          "endOffset": 30,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
           "chapterNumber": 97,
           "paragraphIndex": 5,
           "startOffset": 483,
-          "endOffset": 520,
-          "text": "Solomon, the wisest of Israel's kings"
+          "endOffset": 490,
+          "text": "Solomon",
+          "characterId": "king-solomon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 97,
+          "paragraphIndex": 9,
+          "startOffset": 665,
+          "endOffset": 671,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 97,
+          "paragraphIndex": 10,
+          "startOffset": 216,
+          "endOffset": 222,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 97,
+          "paragraphIndex": 12,
+          "startOffset": 65,
+          "endOffset": 71,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 97,
+          "paragraphIndex": 13,
+          "startOffset": 124,
+          "endOffset": 130,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 98,
+          "paragraphIndex": 7,
+          "startOffset": 190,
+          "endOffset": 196,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 98,
+          "paragraphIndex": 7,
+          "startOffset": 271,
+          "endOffset": 277,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 98,
+          "paragraphIndex": 7,
+          "startOffset": 291,
+          "endOffset": 297,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 98,
+          "paragraphIndex": 7,
+          "startOffset": 637,
+          "endOffset": 643,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 101,
+          "paragraphIndex": 2,
+          "startOffset": 232,
+          "endOffset": 238,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 101,
+          "paragraphIndex": 2,
+          "startOffset": 497,
+          "endOffset": 503,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 101,
+          "paragraphIndex": 4,
+          "startOffset": 53,
+          "endOffset": 59,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 101,
+          "paragraphIndex": 4,
+          "startOffset": 162,
+          "endOffset": 168,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 101,
+          "paragraphIndex": 4,
+          "startOffset": 204,
+          "endOffset": 210,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 103,
+          "paragraphIndex": 4,
+          "startOffset": 742,
+          "endOffset": 748,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 104,
+          "paragraphIndex": 0,
+          "startOffset": 19,
+          "endOffset": 25,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 106,
+          "paragraphIndex": 3,
+          "startOffset": 129,
+          "endOffset": 132,
+          "text": "Job",
+          "characterId": "job",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 106,
+          "paragraphIndex": 7,
+          "startOffset": 262,
+          "endOffset": 268,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 106,
+          "paragraphIndex": 7,
+          "startOffset": 572,
+          "endOffset": 578,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 107,
+          "paragraphIndex": 0,
+          "startOffset": 29,
+          "endOffset": 35,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 107,
+          "paragraphIndex": 5,
+          "startOffset": 674,
+          "endOffset": 680,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 107,
+          "paragraphIndex": 7,
+          "startOffset": 549,
+          "endOffset": 555,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 107,
+          "paragraphIndex": 8,
+          "startOffset": 82,
+          "endOffset": 88,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 109,
+          "paragraphIndex": 0,
+          "startOffset": 47,
+          "endOffset": 53,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 110,
+          "paragraphIndex": 0,
+          "startOffset": 83,
+          "endOffset": 89,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 112,
+          "paragraphIndex": 0,
+          "startOffset": 28,
+          "endOffset": 34,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 113,
+          "paragraphIndex": 0,
+          "startOffset": 50,
+          "endOffset": 56,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 114,
+          "paragraphIndex": 0,
+          "startOffset": 72,
+          "endOffset": 78,
+          "text": "Christ",
+          "characterId": "jesus-christ",
+          "resolution": "reviewed-name"
         }
       ]
     }

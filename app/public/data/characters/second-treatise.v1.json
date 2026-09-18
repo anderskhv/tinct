@@ -602,21 +602,21 @@
           "kind": "person",
           "storyRole": "reference",
           "roleVisibleAt": {
-            "chapterNumber": 6,
-            "paragraphIndex": 4,
-            "offset": 0
+            "chapterNumber": 1,
+            "paragraphIndex": 1,
+            "offset": 14
           },
           "firstMention": {
-            "chapterNumber": 6,
-            "paragraphIndex": 4,
-            "offset": 0
+            "chapterNumber": 1,
+            "paragraphIndex": 1,
+            "offset": 14
           },
           "snapshots": [
             {
               "availableAt": {
-                "chapterNumber": 6,
-                "paragraphIndex": 4,
-                "offset": 0
+                "chapterNumber": 1,
+                "paragraphIndex": 1,
+                "offset": 14
               },
               "name": "Adam",
               "subtitle": "The first man, in the paternal-power debate",
@@ -626,6 +626,33 @@
         }
       ],
       "mentions": [
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 1,
+          "startOffset": 10,
+          "endOffset": 14,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 4,
+          "startOffset": 93,
+          "endOffset": 97,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 5,
+          "startOffset": 235,
+          "endOffset": 239,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
         {
           "characterId": "robert-filmer",
           "chapterNumber": 1,
@@ -643,20 +670,22 @@
           "text": "a state of perfect freedom"
         },
         {
-          "characterId": "richard-hooker",
           "chapterNumber": 2,
           "paragraphIndex": 2,
-          "startOffset": 32,
+          "startOffset": 46,
           "endOffset": 52,
-          "text": "the judicious Hooker"
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
         },
         {
-          "characterId": "richard-hooker",
           "chapterNumber": 2,
           "paragraphIndex": 13,
-          "startOffset": 108,
+          "startOffset": 122,
           "endOffset": 128,
-          "text": "the judicious Hooker"
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "the-state-of-war",
@@ -683,6 +712,33 @@
           "text": "Sir Robert Filmer"
         },
         {
+          "chapterNumber": 5,
+          "paragraphIndex": 0,
+          "startOffset": 296,
+          "endOffset": 300,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 5,
+          "paragraphIndex": 0,
+          "startOffset": 725,
+          "endOffset": 729,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 5,
+          "paragraphIndex": 0,
+          "startOffset": 890,
+          "endOffset": 894,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "labour-and-property",
           "chapterNumber": 5,
           "paragraphIndex": 2,
@@ -691,12 +747,76 @@
           "text": "mixed his labour with"
         },
         {
+          "chapterNumber": 5,
+          "paragraphIndex": 11,
+          "startOffset": 1058,
+          "endOffset": 1062,
+          "text": "Adam",
           "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 5,
+          "paragraphIndex": 15,
+          "startOffset": 66,
+          "endOffset": 70,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
           "chapterNumber": 6,
           "paragraphIndex": 4,
           "startOffset": 0,
-          "endOffset": 30,
-          "text": "Adam was created a perfect man"
+          "endOffset": 4,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 6,
+          "paragraphIndex": 4,
+          "startOffset": 548,
+          "endOffset": 552,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 6,
+          "paragraphIndex": 5,
+          "startOffset": 28,
+          "endOffset": 32,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 6,
+          "paragraphIndex": 5,
+          "startOffset": 521,
+          "endOffset": 525,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 6,
+          "paragraphIndex": 9,
+          "startOffset": 380,
+          "endOffset": 386,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 6,
+          "paragraphIndex": 10,
+          "startOffset": 775,
+          "endOffset": 779,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "robert-filmer",
@@ -716,12 +836,57 @@
           "resolution": "reviewed-name"
         },
         {
+          "chapterNumber": 6,
+          "paragraphIndex": 24,
+          "startOffset": 1058,
+          "endOffset": 1064,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 16,
+          "startOffset": 1221,
+          "endOffset": 1227,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 20,
+          "startOffset": 623,
+          "endOffset": 629,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 21,
+          "startOffset": 115,
+          "endOffset": 121,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "consent-and-political-society",
           "chapterNumber": 8,
           "paragraphIndex": 0,
           "startOffset": 161,
           "endOffset": 184,
           "text": "without his own consent"
+        },
+        {
+          "chapterNumber": 8,
+          "paragraphIndex": 20,
+          "startOffset": 612,
+          "endOffset": 618,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "the-legislative-power",
@@ -732,6 +897,33 @@
           "text": "legislative power"
         },
         {
+          "chapterNumber": 11,
+          "paragraphIndex": 1,
+          "startOffset": 510,
+          "endOffset": 516,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 11,
+          "paragraphIndex": 5,
+          "startOffset": 1010,
+          "endOffset": 1016,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 11,
+          "paragraphIndex": 7,
+          "startOffset": 380,
+          "endOffset": 386,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "tyranny",
           "chapterNumber": 18,
           "paragraphIndex": 0,
@@ -740,12 +932,30 @@
           "text": "tyranny is the exercise of power"
         },
         {
+          "chapterNumber": 18,
+          "paragraphIndex": 6,
+          "startOffset": 1293,
+          "endOffset": 1297,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "dissolution-of-government",
           "chapterNumber": 19,
           "paragraphIndex": 0,
           "startOffset": 41,
           "endOffset": 70,
           "text": "the dissolution of government"
+        },
+        {
+          "chapterNumber": 19,
+          "paragraphIndex": 43,
+          "startOffset": 2882,
+          "endOffset": 2888,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
         }
       ]
     },
@@ -1344,21 +1554,21 @@
           "kind": "person",
           "storyRole": "reference",
           "roleVisibleAt": {
-            "chapterNumber": 6,
-            "paragraphIndex": 4,
-            "offset": 0
+            "chapterNumber": 1,
+            "paragraphIndex": 1,
+            "offset": 14
           },
           "firstMention": {
-            "chapterNumber": 6,
-            "paragraphIndex": 4,
-            "offset": 0
+            "chapterNumber": 1,
+            "paragraphIndex": 1,
+            "offset": 14
           },
           "snapshots": [
             {
               "availableAt": {
-                "chapterNumber": 6,
-                "paragraphIndex": 4,
-                "offset": 0
+                "chapterNumber": 1,
+                "paragraphIndex": 1,
+                "offset": 14
               },
               "name": "Adam",
               "subtitle": "The first man, in the paternal-power debate",
@@ -1368,6 +1578,33 @@
         }
       ],
       "mentions": [
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 1,
+          "startOffset": 10,
+          "endOffset": 14,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 4,
+          "startOffset": 96,
+          "endOffset": 100,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 5,
+          "startOffset": 228,
+          "endOffset": 232,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
         {
           "characterId": "robert-filmer",
           "chapterNumber": 1,
@@ -1385,20 +1622,22 @@
           "text": "one of perfect freedom"
         },
         {
-          "characterId": "richard-hooker",
           "chapterNumber": 2,
           "paragraphIndex": 2,
-          "startOffset": 42,
+          "startOffset": 56,
           "endOffset": 62,
-          "text": "the judicious Hooker"
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
         },
         {
-          "characterId": "richard-hooker",
           "chapterNumber": 2,
           "paragraphIndex": 13,
-          "startOffset": 116,
+          "startOffset": 130,
           "endOffset": 136,
-          "text": "the judicious Hooker"
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "the-state-of-war",
@@ -1425,6 +1664,33 @@
           "text": "Sir Robert Filmer"
         },
         {
+          "chapterNumber": 5,
+          "paragraphIndex": 0,
+          "startOffset": 305,
+          "endOffset": 309,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 5,
+          "paragraphIndex": 0,
+          "startOffset": 737,
+          "endOffset": 741,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 5,
+          "paragraphIndex": 0,
+          "startOffset": 902,
+          "endOffset": 906,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "labour-and-property",
           "chapterNumber": 5,
           "paragraphIndex": 2,
@@ -1433,12 +1699,76 @@
           "text": "mixed his labour with"
         },
         {
+          "chapterNumber": 5,
+          "paragraphIndex": 11,
+          "startOffset": 1055,
+          "endOffset": 1059,
+          "text": "Adam",
           "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 5,
+          "paragraphIndex": 15,
+          "startOffset": 63,
+          "endOffset": 67,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
           "chapterNumber": 6,
           "paragraphIndex": 4,
           "startOffset": 0,
-          "endOffset": 30,
-          "text": "Adam was created a perfect man"
+          "endOffset": 4,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 6,
+          "paragraphIndex": 4,
+          "startOffset": 559,
+          "endOffset": 563,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 6,
+          "paragraphIndex": 5,
+          "startOffset": 27,
+          "endOffset": 31,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 6,
+          "paragraphIndex": 5,
+          "startOffset": 518,
+          "endOffset": 522,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 6,
+          "paragraphIndex": 9,
+          "startOffset": 382,
+          "endOffset": 388,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 6,
+          "paragraphIndex": 10,
+          "startOffset": 775,
+          "endOffset": 779,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "robert-filmer",
@@ -1458,12 +1788,57 @@
           "resolution": "reviewed-name"
         },
         {
+          "chapterNumber": 6,
+          "paragraphIndex": 24,
+          "startOffset": 1060,
+          "endOffset": 1066,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 16,
+          "startOffset": 1223,
+          "endOffset": 1229,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 20,
+          "startOffset": 625,
+          "endOffset": 631,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 21,
+          "startOffset": 117,
+          "endOffset": 123,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "consent-and-political-society",
           "chapterNumber": 8,
           "paragraphIndex": 0,
           "startOffset": 160,
           "endOffset": 183,
           "text": "without his own consent"
+        },
+        {
+          "chapterNumber": 8,
+          "paragraphIndex": 20,
+          "startOffset": 614,
+          "endOffset": 620,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "the-legislative-power",
@@ -1474,6 +1849,33 @@
           "text": "legislative power"
         },
         {
+          "chapterNumber": 11,
+          "paragraphIndex": 1,
+          "startOffset": 512,
+          "endOffset": 518,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 11,
+          "paragraphIndex": 5,
+          "startOffset": 1012,
+          "endOffset": 1018,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 11,
+          "paragraphIndex": 7,
+          "startOffset": 382,
+          "endOffset": 388,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "tyranny",
           "chapterNumber": 18,
           "paragraphIndex": 0,
@@ -1482,12 +1884,30 @@
           "text": "tyranny is the exercise of power"
         },
         {
+          "chapterNumber": 18,
+          "paragraphIndex": 6,
+          "startOffset": 1262,
+          "endOffset": 1266,
+          "text": "Adam",
+          "characterId": "adam",
+          "resolution": "reviewed-name"
+        },
+        {
           "characterId": "dissolution-of-government",
           "chapterNumber": 19,
           "paragraphIndex": 0,
           "startOffset": 44,
           "endOffset": 73,
           "text": "the dissolution of government"
+        },
+        {
+          "chapterNumber": 19,
+          "paragraphIndex": 43,
+          "startOffset": 2887,
+          "endOffset": 2893,
+          "text": "Hooker",
+          "characterId": "richard-hooker",
+          "resolution": "reviewed-name"
         }
       ]
     }
