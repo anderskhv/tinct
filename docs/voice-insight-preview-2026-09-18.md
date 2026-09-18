@@ -159,3 +159,26 @@ Its explicit REAL_PROVIDER_CHECK_UNAVAILABLE result is not a successful provider
 test. Worker credentials remain configured and are not copied into CI.
 Next: retry the human voice trial; if it still fails, use the newly captured
 startup stage/error to identify the actual remaining path before another patch.
+
+## Confirmed session rejection and diagnostic gap — September 18, 2026
+
+The subsequent user export confirms startup reached transcription_session and
+failed after 2,548 ms with invalid_value. It never connected. This isolates the
+observed failure to upstream session configuration validation; it provides no
+evidence of interference from concurrent reader changes. The rejected field was
+not included in the export, so the precise configuration defect remains unknown.
+
+With explicit user approval to publish only the provider classification and
+setting name, cloud diagnostic runs 35342491273 and 35342593973 searched bounded
+telemetry by message field and full-text needle. Both returned zero matching
+events. No credentials or private transcript content were printed. The separate
+codex/voice-startup-diagnostics branch performs no deployment.
+
+The preview now preserves only allowlisted configuration parameter names in the
+admin endpoint's error response and startup export. Tests cover allowed fields
+and suppression of unknown/private payloads; browser checks require the field
+in the visible failure notice. This is instrumentation, not a claimed startup
+fix. Session settings and models remain unchanged pending direct evidence.
+Next: after this diagnostic release passes, capture one startup failure with
+its rejected field. Real provider acceptance remains blocked by absent CI
+provider credentials; simulated checks do not establish a working call.
