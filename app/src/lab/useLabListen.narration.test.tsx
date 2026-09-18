@@ -254,6 +254,23 @@ describe('useLabListen narration pilot', () => {
     expect(h.calls.filter(call => call.indexes.includes(0)).length).toBe(1)
   })
 
+  it('does not start playback on its own when the reader pauses while preparing', async () => {
+    const h = harness()
+    await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+    await waitFor(() => expect(h.calls.length).toBe(1))
+    expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 0 })
+    act(() => h.result.current.pause())
+    expect(h.result.current.narration).toEqual({ status: 'idle' })
+    await act(async () => { h.calls[0].resolve([await readyResult(0)]) })
+    await act(async () => { await Promise.resolve() })
+    expect(h.audio.play).not.toHaveBeenCalled()
+    expect(h.result.current.playing).toBe(false)
+    // The recording is kept: the next play uses it without another request.
+    await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    expect(h.calls.filter(call => call.indexes.includes(0)).length).toBe(1)
+  })
+
   it('leaves the Kokoro path untouched when narration is off', async () => {
     const h = harness()
     await act(async () => { h.rerender({ voice: 'a', narrationOn: false, edition: 'original-en' }) })

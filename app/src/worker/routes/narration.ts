@@ -557,6 +557,12 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   const requestStartedAt = now()
   const results: EnsureParagraphResult[] = []
   let generatedThisRequest = 0
+  // One accounting write per request: concurrent read-modify-writes of the
+  // same KV counters would lose increments.
+  const usageDelta: UsageCounters = { ...EMPTY_USAGE }
+  const bump = (delta: Partial<UsageCounters>) => {
+    for (const field of Object.keys(EMPTY_USAGE) as Array<keyof UsageCounters>) usageDelta[field] += delta[field] ?? 0
+  }
 
   for (const item of requested) {
     const index = typeof item.index === 'number' ? item.index : -1
@@ -574,7 +580,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     const cached = await readReadyEntry(bucket, mapKey, { textHash: identity.textHash, hash: identity.hash })
     if (cached) {
       results.push(readyPayload(index, cached, 'cache'))
-      ctx.waitUntil(addUsage(kv, now(), { requests: 1, cacheHits: 1 }))
+      bump({ requests: 1, cacheHits: 1 })
       continue
     }
     if (narration.length === 0) {
@@ -594,7 +600,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       const waitedFor = await waitForRecording(bucket, mapKey, identity, now, sleep)
       if (waitedFor) {
         results.push(readyPayload(index, waitedFor, 'cache', { waited: true }))
-        ctx.waitUntil(addUsage(kv, now(), { requests: 1, cacheHits: 1 }))
+        bump({ requests: 1, cacheHits: 1 })
       } else {
         results.push({ paragraph: index, status: 'pending', textHash: identity.textHash, retryAfterMs: 1500 })
       }
@@ -609,9 +615,9 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     const textBytes = utf8ByteLength(narration)
     const keys = usageKeys(now())
     const [day, month] = await Promise.all([readUsage(kv, keys.day), readUsage(kv, keys.month)])
-    if (day.bytes + textBytes > config.dailyBytes || month.bytes + textBytes > config.monthlyBytes) {
+    if (day.bytes + usageDelta.bytes + textBytes > config.dailyBytes || month.bytes + usageDelta.bytes + textBytes > config.monthlyBytes) {
       results.push({ paragraph: index, status: 'failed', textHash: identity.textHash, reason: 'budget_exhausted', retryAfterMs: msUntilNextUtcDay(now()) })
-      ctx.waitUntil(addUsage(kv, now(), { requests: 1, failed: 1 }))
+      bump({ requests: 1, failed: 1 })
       continue
     }
 
@@ -626,7 +632,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       await recordProviderOutcome(kv, now(), true)
       if (!validation.ok) {
         results.push({ paragraph: index, status: 'failed', textHash: identity.textHash, reason: 'validation_failed', detail: validation.reasons.join(',') })
-        ctx.waitUntil(addUsage(kv, now(), { requests: 1, failed: 1, bytes: textBytes, providerMs: synthesis.providerMs }))
+        bump({ requests: 1, failed: 1, bytes: textBytes, providerMs: synthesis.providerMs })
         continue
       }
       const generationMs = now() - generationStartedAt
@@ -667,15 +673,15 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       }
       await bucket.put(mapKey, JSON.stringify(mapEntry), { httpMetadata: { contentType: 'application/json' } })
       generatedThisRequest += 1
-      ctx.waitUntil(addUsage(kv, now(), { requests: 1, generated: 1, bytes: textBytes, providerMs: synthesis.providerMs }))
+      bump({ requests: 1, generated: 1, bytes: textBytes, providerMs: synthesis.providerMs })
       results.push(readyPayload(index, {
         hash: identity.hash, textHash: identity.textHash, duration: validation.duration, words: validation.words,
         alignment: validation.alignment, timingsUsable: validation.timingsUsable, audioBytes: synthesis.audio.length,
       }, 'generated', { generationMs, providerMs: synthesis.providerMs, attempts: synthesis.attempts, timingsSource: synthesis.timingsSource, textBytes }))
     } catch (error) {
       const failure = error instanceof NarrationProviderError ? error : new NarrationProviderError(String((error as Error)?.message || error), 'provider_unavailable')
-      await recordProviderOutcome(kv, now(), failure.code === 'provider_rejected' || failure.code === 'provider_empty' ? true : false)
-      ctx.waitUntil(addUsage(kv, now(), { requests: 1, failed: 1 }))
+      await recordProviderOutcome(kv, now(), failure.code === 'provider_rejected' || failure.code === 'provider_empty')
+      bump({ requests: 1, failed: 1 })
       results.push({
         paragraph: index, status: 'failed', textHash: identity.textHash, reason: failure.code,
         retryAfterMs: failure.code === 'provider_unavailable' ? 3000 : undefined,
@@ -686,6 +692,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     }
   }
 
+  if (usageDelta.requests > 0) ctx.waitUntil(addUsage(kv, now(), usageDelta))
   return jsonResponse({
     bookId, editionKey, chapter, voice: voice.key, model: config.model,
     paragraphs: results,

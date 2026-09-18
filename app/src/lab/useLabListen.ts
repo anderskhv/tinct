@@ -215,19 +215,26 @@ export function useLabListen(options: UseLabListenOptions) {
     return prepared.has(indexes[0]) ? { ok: true } : failure
   }, [applyPreparedNarration])
 
-  /** Prepare `index`, then run `resume` unless a newer request or a tuple change superseded this one. */
+  /**
+   * Prepare `index`, then run `resume` — unless a newer preparation, a tuple
+   * change, or any playback request in between (pause, stop, another play)
+   * superseded this one. A reader who pauses while "Preparing narration…"
+   * must not hear the recording start on its own.
+   */
   const prepareThenRun = useCallback(async (index: number, resume: () => void) => {
     const request = ++narrationRequestRef.current
+    const playRequest = playRequestRef.current
+    const superseded = () => request !== narrationRequestRef.current || playRequest !== playRequestRef.current
     const clip = clipsRef.current[index]
     const paragraphIndex = clip?.kind === 'paragraph' ? clip.index : index
     setNarrationState({ status: 'loading', paragraphIndex })
     let outcome = await prepareNarration([paragraphIndex])
     for (let poll = 0; !outcome.ok && outcome.reason === 'pending' && poll < 3; poll += 1) {
       await wait(Math.min(5000, Math.max(500, outcome.retryAfterMs ?? 1500)))
-      if (request !== narrationRequestRef.current) return
+      if (superseded()) return
       outcome = await prepareNarration([paragraphIndex])
     }
-    if (request !== narrationRequestRef.current) return
+    if (superseded()) return
     if (!outcome.ok) {
       if (outcome.reason === 'cancelled') return
       narrationRetryRef.current = () => { void prepareThenRun(index, resume) }
@@ -670,6 +677,8 @@ export function useLabListen(options: UseLabListenOptions) {
 
   const pause = useCallback(() => {
     playRequestRef.current += 1
+    narrationRequestRef.current += 1
+    setNarrationState(current => (current.status === 'loading' ? { status: 'idle' } : current))
     audioRef.current?.pause()
     playingRef.current = false
     setPlaying(false)
@@ -712,6 +721,8 @@ export function useLabListen(options: UseLabListenOptions) {
 
   const stop = useCallback(() => {
     playRequestRef.current += 1
+    narrationRequestRef.current += 1
+    setNarrationState(current => (current.status === 'loading' ? { status: 'idle' } : current))
     const audio = audioRef.current
     if (audio) {
       audio.pause()
