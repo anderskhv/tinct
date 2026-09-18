@@ -196,3 +196,26 @@ include desktop-startup-error.png and phone-startup-error.png with the rejected
 field displayed. Provider handshake remains explicitly UNAVAILABLE in CI;
 no real working voice connection or configuration correction is claimed.
 One signed-in startup attempt is needed to capture the rejected field.
+
+## Turn-detection compatibility correction — September 18, 2026
+
+The user's instrumented startup error identifies
+session.audio.input.turn_detection as invalid_value. This establishes rejection
+of the submitted server-VAD configuration with gpt-live-transcribe in this
+deployment, not a reader update or microphone failure.
+
+The streamed chain depends on speech_started/stopped events and automatic
+audio commits. Setting turn_detection to null alone would let startup progress
+but leave question submission and interruption broken. The narrow correction
+uses gpt-4o-transcribe with the existing server VAD configuration, preserving
+the 900 ms silence interval and the chain's turn ownership. Sol remains the
+answer author; Marin remains speech output. No reader or production change.
+This supersedes the transcription model recorded earlier in this document.
+The optional cloud provider probe now uses the same model as the endpoint.
+
+Official reference: [Realtime input transcription and VAD](https://developers.openai.com/api/docs/guides/voice-latency-cost?api=realtime)
+documents gpt-4o-transcribe transcription when audio is committed manually or
+through VAD. Endpoint regression checks assert this model together with the
+configured silence interval. End-to-end provider access remains unavailable in
+CI; release gates and browser simulation do not prove a live voice connection.
+Next: complete cloud release verification, then verify a real startup/turn.
