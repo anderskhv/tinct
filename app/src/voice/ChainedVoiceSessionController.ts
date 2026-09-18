@@ -80,7 +80,7 @@ export class ChainedVoiceSessionController {
     })
     if (!result.ok) {
       const error = await result.json().catch(() => null) as any
-      throw new Error((error?.error || 'Voice request failed.') + (error?.stage ? ' [' + error.stage + (error?.code ? ': ' + error.code : '') + ']' : ''))
+      throw new Error((error?.error || 'Voice request failed.') + (error?.stage ? ' [' + error.stage + (error?.code ? ': ' + error.code : '') + (error?.param ? '; field=' + error.param : '') + ']' : ''))
     }
     return result
   }
