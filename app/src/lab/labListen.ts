@@ -33,6 +33,13 @@ export interface LabAudioParagraphClip {
   file: string
   duration?: number
   words?: FollowParagraph['words']
+  /**
+   * On-demand narration (Fish pilot): the clip's absolute audio URL once the
+   * recording is ready, else undefined while `narration` marks it pending.
+   * Kokoro clips never set either; their URL derives from `file`.
+   */
+  url?: string
+  narration?: { textHash: string; ready: boolean }
 }
 
 export type LabAudioClip = LabAudioTitleClip | LabAudioParagraphClip
@@ -130,7 +137,7 @@ export function clipsFromManifest(
       byIndex.set(entry.paragraph, entry)
     }
   }
-  const body = paragraphs.map((text, index) => {
+  const body = paragraphs.map((text, index): LabAudioParagraphClip | null => {
     const entry = byIndex.get(index) || byIndex.get(index + 1)
     const followed = followParagraphFromManifest(index, text, entry)
     if (!followed.file) return null

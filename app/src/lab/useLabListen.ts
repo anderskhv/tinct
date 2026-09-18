@@ -13,6 +13,8 @@ import {
 } from './labListen'
 import { sentenceStartWordIndex, nextHearingSpeed, parseHearingSpeed, playbackTimeSeconds, seekAcrossClips } from './labHearing'
 import { playAudioTransition, setAudioSource } from '../utils/audioPlayback'
+import { NarrationEnsureError, narrationFailureMessage, type NarrationParagraphResult } from './labNarration'
+import { narrationTextForParagraph, sha256Hex } from '../narration/narrationCore'
 import {
   alignTimedWordsToText,
   followParagraphFromManifest,
@@ -45,6 +47,44 @@ export interface UseLabListenOptions {
   createAudio?: () => HTMLAudioElement
   /** Return true when the reader accepted a transition to the next chapter. */
   onChapterComplete?: () => boolean
+  /**
+   * Fish narration pilot. When set, clips are prepared on demand through
+   * `ensure` instead of read from the Kokoro manifest, and only words the
+   * provider timed for that exact recording are painted. `voice` is part of
+   * the playback tuple: changing it resets playback like an edition change.
+   */
+  narration?: LabNarrationOption | null
+}
+
+export interface LabNarrationOption {
+  voice: string
+  ensure: (paragraphIndexes: number[], signal: AbortSignal) => Promise<NarrationParagraphResult[]>
+  /** Paragraphs prepared ahead of the one playing (default 2, at most 3). */
+  lookAhead?: number
+}
+
+export type LabNarrationState =
+  | { status: 'idle' }
+  | { status: 'loading'; paragraphIndex: number }
+  | { status: 'error'; paragraphIndex: number; message: string; reason?: string }
+
+interface PreparedNarration {
+  url: string
+  duration: number
+  words?: FollowParagraph['words']
+  textHash: string
+}
+
+type NarrationOutcome = { ok: true } | { ok: false; reason: string; retryAfterMs?: number }
+
+type PlaceInput = { paragraphIndex?: number; wordIndex?: number } | undefined
+
+function bareFollowParagraphs(paragraphs: FollowParagraph[]): FollowParagraph[] {
+  return paragraphs.map(paragraph => ({ index: paragraph.index, text: paragraph.text }))
+}
+
+function wait(ms: number): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 function chapterHasWordTimings(paragraphs: FollowParagraph[]): boolean {
@@ -76,6 +116,16 @@ export function useLabListen(options: UseLabListenOptions) {
   const playingRef = useRef(false)
   const playRequestRef = useRef(0)
   const requestIsCurrent = (request: number) => !optionsRef.current.guardPlaybackRequests || request === playRequestRef.current
+  // Narration pilot: prepared recordings for the current tuple, requests in
+  // flight (shared between play and look-ahead), and one abort controller
+  // that a tuple or voice change trips.
+  const narrationRequestRef = useRef(0)
+  const narrationAbortRef = useRef<AbortController | null>(null)
+  const narrationPreparedRef = useRef<Map<number, PreparedNarration>>(new Map())
+  const narrationInFlightRef = useRef<Map<number, Promise<NarrationParagraphResult[]>>>(new Map())
+  const narrationRetryRef = useRef<(() => void) | null>(null)
+  const [narrationState, setNarrationState] = useState<LabNarrationState>({ status: 'idle' })
+  const playPlaceRef = useRef<(clips: LabAudioClip[], place: PlaceInput, andPlay: boolean, includeTitle?: boolean) => boolean>(() => false)
   const optionsRef = useRef(options)
   optionsRef.current = options
   paragraphsRef.current = followParagraphs
@@ -90,19 +140,168 @@ export function useLabListen(options: UseLabListenOptions) {
     return followed
   }, [])
 
+  const narrationSignal = () => {
+    if (!narrationAbortRef.current || narrationAbortRef.current.signal.aborted) narrationAbortRef.current = new AbortController()
+    return narrationAbortRef.current.signal
+  }
+
+  /** Adopt ready recordings whose text hash still matches the clip they were asked for. */
+  const applyPreparedNarration = useCallback((results: NarrationParagraphResult[]) => {
+    const prepared = narrationPreparedRef.current
+    let changed = false
+    for (const result of results) {
+      if (result.status !== 'ready') continue
+      const clip = clipsRef.current.find(item => item.kind === 'paragraph' && item.index === result.paragraph)
+      if (!clip || clip.kind !== 'paragraph' || !clip.narration || clip.narration.textHash !== result.textHash) continue
+      if (prepared.get(result.paragraph)?.url === result.url) continue
+      const paragraph = paragraphsRef.current.find(item => item.index === result.paragraph)
+      const words = paragraph && result.words
+        ? alignTimedWordsToText(paragraph.text, wordsFromManifestParagraph({ words: result.words }))
+        : undefined
+      prepared.set(result.paragraph, { url: result.url, duration: result.duration, words, textHash: result.textHash })
+      changed = true
+    }
+    if (!changed) return
+    const clips = clipsRef.current.map((clip) => {
+      if (clip.kind !== 'paragraph' || !clip.narration) return clip
+      const ready = prepared.get(clip.index)
+      if (!ready || clip.url === ready.url) return clip
+      return { ...clip, url: ready.url, duration: ready.duration, words: ready.words, narration: { ...clip.narration, ready: true } }
+    })
+    clipsRef.current = clips
+    setClips(clips)
+    commitFollowParagraphs(paragraphsRef.current.map((paragraph) => {
+      const ready = prepared.get(paragraph.index)
+      return ready ? { ...paragraph, duration: ready.duration, words: ready.words } : paragraph
+    }))
+  }, [commitFollowParagraphs])
+
+  /**
+   * Make paragraphs playable. Requests already in flight for a paragraph are
+   * awaited rather than repeated, so a play request landing on a paragraph
+   * the look-ahead is preparing shares that work.
+   */
+  const prepareNarration = useCallback(async (indexes: number[]): Promise<NarrationOutcome> => {
+    const narration = optionsRef.current.narration
+    if (!narration || indexes.length === 0) return { ok: false, reason: 'not_configured' }
+    const prepared = narrationPreparedRef.current
+    const inFlight = narrationInFlightRef.current
+    const awaited = indexes.map(index => inFlight.get(index)).filter((item): item is Promise<NarrationParagraphResult[]> => Boolean(item))
+    const wanted = indexes.filter(index => !prepared.has(index) && !inFlight.has(index))
+    const signal = narrationSignal()
+    let request: Promise<NarrationParagraphResult[]> | null = null
+    if (wanted.length > 0) {
+      request = narration.ensure(wanted, signal).finally(() => {
+        for (const index of wanted) if (inFlight.get(index) === request) inFlight.delete(index)
+      })
+      for (const index of wanted) inFlight.set(index, request)
+    }
+    const settled = await Promise.allSettled([...awaited, ...(request ? [request] : [])])
+    if (signal.aborted) return { ok: false, reason: 'cancelled' }
+    let failure: NarrationOutcome = { ok: false, reason: 'network' }
+    for (const outcome of settled) {
+      if (outcome.status === 'fulfilled') {
+        applyPreparedNarration(outcome.value)
+        const first = outcome.value.find(item => item.paragraph === indexes[0])
+        if (first && first.status !== 'ready') {
+          failure = { ok: false, reason: first.status === 'failed' ? first.reason || 'failed' : first.status, retryAfterMs: first.retryAfterMs }
+        }
+      } else if ((outcome.reason as Error)?.name === 'AbortError') {
+        failure = { ok: false, reason: 'cancelled' }
+      } else if (outcome.reason instanceof NarrationEnsureError) {
+        failure = { ok: false, reason: outcome.reason.code }
+      }
+    }
+    return prepared.has(indexes[0]) ? { ok: true } : failure
+  }, [applyPreparedNarration])
+
+  /** Prepare `index`, then run `resume` unless a newer request or a tuple change superseded this one. */
+  const prepareThenRun = useCallback(async (index: number, resume: () => void) => {
+    const request = ++narrationRequestRef.current
+    const clip = clipsRef.current[index]
+    const paragraphIndex = clip?.kind === 'paragraph' ? clip.index : index
+    setNarrationState({ status: 'loading', paragraphIndex })
+    let outcome = await prepareNarration([paragraphIndex])
+    for (let poll = 0; !outcome.ok && outcome.reason === 'pending' && poll < 3; poll += 1) {
+      await wait(Math.min(5000, Math.max(500, outcome.retryAfterMs ?? 1500)))
+      if (request !== narrationRequestRef.current) return
+      outcome = await prepareNarration([paragraphIndex])
+    }
+    if (request !== narrationRequestRef.current) return
+    if (!outcome.ok) {
+      if (outcome.reason === 'cancelled') return
+      narrationRetryRef.current = () => { void prepareThenRun(index, resume) }
+      setNarrationState({ status: 'error', paragraphIndex, message: narrationFailureMessage(outcome.reason), reason: outcome.reason })
+      playingRef.current = false
+      setPlaying(false)
+      return
+    }
+    setNarrationState({ status: 'idle' })
+    resume()
+  }, [prepareNarration])
+
+  const scheduleNarrationLookAhead = useCallback((clipIndex: number) => {
+    const narration = optionsRef.current.narration
+    if (!narration) return
+    const ahead = Math.max(0, Math.min(narration.lookAhead ?? 2, 3))
+    const indexes: number[] = []
+    for (let k = 1; k <= ahead; k += 1) {
+      const next = clipsRef.current[clipIndex + k]
+      if (!next || next.kind !== 'paragraph' || !next.narration || next.url) continue
+      if (narrationPreparedRef.current.has(next.index) || narrationInFlightRef.current.has(next.index)) continue
+      indexes.push(next.index)
+    }
+    if (indexes.length === 0) return
+    // Outcome deliberately ignored: a paragraph that failed here is retried,
+    // with a visible state, when playback actually reaches it.
+    void prepareNarration(indexes)
+  }, [prepareNarration])
+
+  const retryNarration = useCallback(() => {
+    const retry = narrationRetryRef.current
+    narrationRetryRef.current = null
+    setNarrationState({ status: 'idle' })
+    retry?.()
+  }, [])
+
+  const dismissNarration = useCallback(() => {
+    narrationRetryRef.current = null
+    setNarrationState({ status: 'idle' })
+  }, [])
+
+  const narrationActive = Boolean(options.narration)
+  const narrationVoice = options.narration?.voice
   useEffect(() => {
     playRequestRef.current += 1
-    setFollowParagraphs(options.followParagraphs)
+    narrationRequestRef.current += 1
+    narrationAbortRef.current?.abort()
+    narrationAbortRef.current = null
+    narrationPreparedRef.current = new Map()
+    narrationInFlightRef.current = new Map()
+    narrationRetryRef.current = null
+    setNarrationState({ status: 'idle' })
+    setFollowParagraphs(optionsRef.current.narration ? bareFollowParagraphs(options.followParagraphs) : options.followParagraphs)
     clipsRef.current = []
     setClips([])
     setSrc(null)
     playingRef.current = false
     setPlaying(false)
     setFollow({ kind: 'none' })
-  }, [options.audioEdition, options.bookId, options.chapterNumber])
+  }, [options.audioEdition, options.bookId, options.chapterNumber, narrationActive, narrationVoice])
 
   useEffect(() => {
     setFollowParagraphs((current) => {
+      if (optionsRef.current.narration) {
+        // Kokoro manifest words belong to Kokoro audio; only words timed for
+        // the prepared Fish recording may paint over narrated text.
+        const prepared = narrationPreparedRef.current
+        return options.followParagraphs.map((paragraph) => {
+          const ready = prepared.get(paragraph.index)
+          return ready
+            ? { index: paragraph.index, text: paragraph.text, duration: ready.duration, words: ready.words }
+            : { index: paragraph.index, text: paragraph.text }
+        })
+      }
       if (chapterHasWordTimings(current)) return current
       return options.followParagraphs
     })
@@ -161,6 +360,16 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     const handleError = () => {
       if (switchingRef.current) return
+      const current = clipsRef.current[clipIndexRef.current]
+      if (current?.kind === 'paragraph' && current.narration) {
+        // Never skip ahead or swap narrators behind the reader's back: stop
+        // visibly and offer a retry of the same recording.
+        const index = clipIndexRef.current
+        narrationRetryRef.current = () => { playClipRef.current(index, 0) }
+        setNarrationState({ status: 'error', paragraphIndex: current.index, message: narrationFailureMessage('playback'), reason: 'playback' })
+        finishPlayback()
+        return
+      }
       const next = clipIndexRef.current + 1
       if (next < clipsRef.current.length) playClipRef.current(next, 0)
       else if (!optionsRef.current.onChapterComplete?.()) finishPlayback()
@@ -204,6 +413,8 @@ export function useLabListen(options: UseLabListenOptions) {
 
   useEffect(() => () => {
     playRequestRef.current += 1
+    narrationRequestRef.current += 1
+    narrationAbortRef.current?.abort()
     detachRef.current?.()
     const audio = audioRef.current
     if (audio) {
@@ -219,7 +430,17 @@ export function useLabListen(options: UseLabListenOptions) {
     const audio = ensureAudio()
     const clip = clipsRef.current[index]
     if (!clip) return false
-    const url = labAudioFileUrl(clip.file, audioChapter(), audioEdition(), audioBook())
+    if (clip.kind === 'paragraph' && clip.narration && !clip.url) {
+      // On-demand narration: prepare this paragraph, then play it for real.
+      clipIndexRef.current = index
+      setClipIndex(index)
+      try { audio.pause() } catch { /* ignore */ }
+      void prepareThenRun(index, () => { playClipRef.current(index, offsetSeconds, andPlay) })
+      return true
+    }
+    const url = clip.kind === 'paragraph' && clip.url
+      ? clip.url
+      : labAudioFileUrl(clip.file, audioChapter(), audioEdition(), audioBook())
     switchingRef.current = true
     clipIndexRef.current = index
     setClipIndex(index)
@@ -255,6 +476,7 @@ export function useLabListen(options: UseLabListenOptions) {
     syncFollow(index, offsetSeconds)
     playingRef.current = true
     setPlaying(true)
+    if (clip.kind === 'paragraph' && clip.narration) scheduleNarrationLookAhead(index)
     void playAudioTransition(
       audio,
       expectedSrc,
@@ -272,7 +494,7 @@ export function useLabListen(options: UseLabListenOptions) {
       setFollow({ kind: 'none' })
     })
     return true
-  }, [applyRate, ensureAudio, speed, syncFollow])
+  }, [applyRate, ensureAudio, prepareThenRun, scheduleNarrationLookAhead, speed, syncFollow])
   playClipRef.current = playClip
 
   const playPlace = useCallback((
@@ -289,13 +511,20 @@ export function useLabListen(options: UseLabListenOptions) {
       : clips.findIndex(clip => clip.kind === 'paragraph' && clip.index === paragraphIndex)
     if (index < 0) index = 0
     const clip = clips[index]
+    if (clip?.kind === 'paragraph' && clip.narration && !clip.url) {
+      clipIndexRef.current = index
+      setClipIndex(index)
+      void prepareThenRun(index, () => { playPlaceRef.current(clipsRef.current, place, andPlay, includeTitleAtChapterStart) })
+      return true
+    }
     const words = clip?.kind === 'paragraph' ? clip.words : undefined
     const clamped = words && words.length > 0
       ? Math.max(0, Math.min(wordIndex, words.length - 1))
       : 0
     const offset = words?.[clamped]?.start ?? 0
     return playClip(index, offset, andPlay)
-  }, [playClip])
+  }, [playClip, prepareThenRun])
+  playPlaceRef.current = playPlace
 
   const resolveClips = useCallback(async (): Promise<LabAudioClip[]> => {
     const chapter = audioChapter()
@@ -310,11 +539,46 @@ export function useLabListen(options: UseLabListenOptions) {
       ),
     }))
     const titleClip = optionsRef.current.titleClip
+    const narration = optionsRef.current.narration
+    const voice = narration?.voice
     const tupleMatches = () => (
       audioChapter() === chapter
       && audioEdition() === edition
       && audioBook() === bookId
+      && optionsRef.current.narration?.voice === voice
     )
+
+    if (narration) {
+      // Narration pilot: every paragraph is a clip; recordings arrive on
+      // demand. Anything prepared earlier for this tuple is reused as long as
+      // the paragraph text still hashes the same.
+      const hashes = await Promise.all(sourceParagraphs.map(text => sha256Hex(narrationTextForParagraph(text))))
+      if (!tupleMatches()) return []
+      const prepared = narrationPreparedRef.current
+      const usable = (index: number) => {
+        const ready = prepared.get(index)
+        return ready && ready.textHash === hashes[index] ? ready : undefined
+      }
+      commitFollowParagraphs(sourceParagraphs.map((text, index) => {
+        const ready = usable(index)
+        return ready ? { index, text, duration: ready.duration, words: ready.words } : { index, text }
+      }))
+      const clips: LabAudioClip[] = sourceParagraphs.map((text, index) => {
+        const ready = usable(index)
+        return {
+          kind: 'paragraph' as const,
+          index,
+          file: `narration-p${index}.mp3`,
+          url: ready?.url,
+          duration: ready?.duration,
+          words: ready?.words,
+          narration: { textHash: hashes[index], ready: Boolean(ready) },
+        }
+      })
+      clipsRef.current = clips
+      setClips(clips)
+      return clips
+    }
 
     const attachWords = (followed: FollowParagraph[], clips: LabAudioClip[]) => {
       const withWords = clips.map((clip) => {
@@ -519,6 +783,9 @@ export function useLabListen(options: UseLabListenOptions) {
     clipIndex,
     currentTime,
     speed,
+    narration: narrationState,
+    retryNarration,
+    dismissNarration,
     start,
     startAtPlace,
     seekToPlace,

@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { matchingAudioEditions } from '../utils/audioEditionSelection'
 import type { Edition } from '../types'
+import type { NarrationPilotInfo } from './labNarration'
 import { useAuth } from '../hooks/useAuth'
 import { useBalance } from '../hooks/useBalance'
 import {
@@ -39,6 +40,11 @@ export interface LabV2SheetProps {
   onPrefs: (prefs: LabPrefs) => void
   editions: Edition[]
   audioEditions?: Edition[]
+  /**
+   * Fish narration pilot row, present only for a reader who opted in with
+   * `?narration=fish` (docs/fish-audio-pilot-2026-09-18.md).
+   */
+  narrationPilot?: { info: NarrationPilotInfo | null; voice: string | null } | null
   /** Current reader path; the sign-in page returns here. */
   returnTo?: string
 }
@@ -163,7 +169,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), returnTo }: LabV2SheetProps) {
+export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), narrationPilot = null, returnTo }: LabV2SheetProps) {
   const auth = useAuth()
   const balance = useBalance(auth.session, auth.profile, auth.user, {
     authLoading: auth.isLoading,
@@ -277,6 +283,20 @@ export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, 
                   options={[{ value: '', label: 'Follow primary edition' }, ...audioEditions.map(edition => ({ value: edition.key, label: edition.label }))]}
                   onChange={value => onPrefs({ ...prefs, audioEdition: value || prefs.primaryEdition, audioFollowsPrimary: value === '' })}
                 />
+                {narrationPilot && (
+                  <SelectRow
+                    label="Narration pilot"
+                    testId="lab-v2-narration-voice"
+                    value={narrationPilot.info?.enabled && narrationPilot.voice ? narrationPilot.voice : ''}
+                    options={[
+                      { value: '', label: narrationPilot.info?.enabled ? 'Off' : 'Not set up on this server' },
+                      ...(narrationPilot.info?.voices ?? []).map(voice => ({ value: voice.key, label: voice.label })),
+                    ]}
+                    onChange={value => onPrefs(value
+                      ? { ...prefs, narrationProvider: 'fish', narrationVoice: value }
+                      : { ...prefs, narrationProvider: null })}
+                  />
+                )}
               </div>
               <div className="lab-v2-foot">
                 <button
