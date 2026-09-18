@@ -3,7 +3,7 @@
 Approved: isolate on codex/voice-insight-preview from 5e7459dc37f, without merging
 Claude's ongoing reader changes or deploying this experiment to production.
 
-Default preset: Insight — direct. Give one developed insight anchored in a
+Original preset (superseded below): Insight — direct. Give one developed insight anchored in a
 concrete detail; use direct voice for grounded familiar interpretation and Sol
 for uncertain facts, verified named-author claims, difficult reasoning and tools.
 Insight — Sol reasoning uses the same style with substantive interpretation
@@ -53,3 +53,46 @@ Next: compare Insight — direct and Insight — Sol reasoning on the same quest
 including one unseen passage, assessing insight and substantive-answer latency.
 The known reader-position issue remains intentionally deferred. Research service
 output limits remain unchanged in this first controlled prompt comparison.
+
+## Streamed Sol trial — approved September 18, 2026
+
+The user approved the next experiment after reviewing voice transcripts:
+Sol alone authors the spoken answer, using low reasoning effort and native web
+search when verification is needed. Transcription uses gpt-live-transcribe;
+gpt-4o-mini-tts/Marin reads each complete thought as Sol continues generating.
+Default becomes **Sol — streamed voice**; all previous Live presets remain
+available for comparison. This supersedes the original default above, not the
+production voice configuration.
+
+Failure class: multiple models restating answers, incomplete clarification
+continuations, repeated questions restarting pending research, and delayed
+generated text continuing after interruption. The preview introduces explicit
+turn ownership, ordered transcription completions, status/exact-repeat retention,
+speech cancellation, and a guard against executing reader actions while a spoken
+correction is still being transcribed. Heard history contains completed audio
+chunks; interrupted unfinished drafts are explicitly labelled as unheard.
+The current chapter is supplied as bounded reference without claiming it is the
+visible page. Reader position/navigation state is not changed.
+
+Sources come from native web citation annotations, are added to the test room's
+chat and exported diagnostics, then announced aloud. Existing preview history
+isolation remains; this does not persist experiments to normal book chat.
+The admin-only streaming endpoint fixes provider models and restricts tools,
+request sizes and rates. No dependency or database changes. Provider keys stay
+on the Worker. Development does not call Anthropic.
+
+First cloud run 35338764314 passed 2,413 tests in 195 files. Deployment correctly
+refused its outdated commit after additional regression work advanced the branch;
+no version was uploaded in that run. Final verification is pending on the frozen
+branch head. Added tests cover early PCM playback, cancellation, out-of-order
+transcriptions, yes-after-clarification, pending repeats/status, tool continuation,
+source handling and audio resume. Cloud browser acceptance exercises both Live
+and streamed paths using simulated microphones and PCM on Chromium and WebKit.
+
+Verification limits: automated audio is simulated. These checks do not establish
+provider account access, actual acoustic turn detection, audible quality or
+real-world latency. The chapter-position mismatch remains deferred. No latency
+promise is made; the next user trial should compare time to first useful spoken
+thought, insight, correction handling and sentence-to-sentence voice continuity.
+The preview continues to share account data and credentials with the existing
+Worker; production code and traffic remain untouched.
