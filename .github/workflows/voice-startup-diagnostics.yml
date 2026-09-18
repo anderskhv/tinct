@@ -1,0 +1,46 @@
+name: voice-startup-diagnostics
+on:
+  push:
+    branches: [codex/voice-startup-diagnostics]
+permissions:
+  contents: read
+jobs:
+  logs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+      - name: Read bounded startup classifications
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          node <<'NODE'
+          // Cloud-only diagnostics. Never log credentials, SDP or private transcripts.
+          if (process.platform === 'darwin') throw new Error('Run voice diagnostics in cloud CI only.');
+          
+          (async()=>{
+            const cf=process.env.CLOUDFLARE_API_TOKEN;
+            if(cf){
+              const headers={Authorization:'Bearer '+cf,'Content-Type':'application/json'};
+              const accounts=await fetch('https://api.cloudflare.com/client/v4/accounts',{headers}).then(r=>r.json());
+              if(!accounts.success) console.log('Cloudflare log access unavailable:',accounts.errors?.map(e=>e.code));
+              else for(const account of accounts.result){
+                const query={queryId:'voice-startup-diagnostic',timeframe:{from:Date.now()-21600000,to:Date.now()},view:'events',limit:20,parameters:{filters:[{key:'$metadata.message',operation:'includes',type:'string',value:'voice-chain provider error'}]}};
+                const r=await fetch('https://api.cloudflare.com/client/v4/accounts/'+account.id+'/workers/observability/telemetry/query',{method:'POST',headers,body:JSON.stringify(query)}).then(r=>r.json());
+                if(!r.success){console.log('Cloudflare log query unavailable:',r.errors?.map(e=>e.code));continue;}
+                console.log('Response shape:',Object.keys(r.result||{}), 'event shape:', Object.keys(r.result?.events||{}));
+                const rows=r.result?.events?.events||[];
+                // Print only the deliberately minimal provider classification logged by voiceChain.
+                for(const row of rows){
+                  const message=String(row.$metadata?.message||'');
+                  if(/^voice-chain provider error [a-z_\/]+ \d{3}(?: [a-zA-Z0-9_.\[\]-]+)*$/.test(message)) console.log('Provider classification:',message);
+                }
+                console.log('Matching provider classifications:',rows.length);
+              }
+            }
+          
+          })().catch(error=>{console.error(error.message);process.exit(1)});
+          
+          NODE
