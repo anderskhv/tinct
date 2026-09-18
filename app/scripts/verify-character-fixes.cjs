@@ -643,6 +643,27 @@ const CASES = [
   ['federalist-papers', 'original-en', undefined, 'charles-vii', undefined, 'fp-charles-vii'],
   ['federalist-papers', 'original-en', undefined, 'shays', undefined, 'fp-shays'],
   ['federalist-papers', 'modern-en', undefined, 'montesquieu', undefined, 'fp-modern-montesquieu'],
+  // Jerusalem — clickable-names pass (batch 4)
+  ['jerusalem', 'original-en', 1, 'ingmar-ingmarsson', undefined, 'je2-ingmar-bare-ch1'],
+  ['jerusalem', 'original-en', 2, 'storm', undefined, 'je2-storm-ch2'],
+  ['jerusalem', 'original-en', 4, 'karin', undefined, 'je2-karin-ch4'],
+  ['jerusalem', 'original-en', 7, 'hellgum', undefined, 'je2-hellgum-ch7'],
+  ['jerusalem', 'original-en', 6, 'gertrude', undefined, 'je2-gertrude-ch6'],
+  ['jerusalem', 'original-en', 4, 'tims-halvor', undefined, 'je2-halvor-ch4'],
+  ['jerusalem', 'original-en', undefined, 'strong-ingmar', undefined, 'je2-strong-ingmar'],
+  ['jerusalem', 'original-en', undefined, 'elof-ersson', undefined, 'je2-elof'],
+  ['jerusalem', 'original-en', undefined, 'hoek-matts', undefined, 'je2-hoek-matts'],
+  ['jerusalem', 'original-en', undefined, 'gabriel', undefined, 'je2-gabriel'],
+  ['jerusalem', 'original-en', undefined, 'gunhild', undefined, 'je2-gunhild'],
+  ['jerusalem', 'original-en', undefined, 'berger-sven-persson', undefined, 'je2-berger-sven-persson'],
+  ['jerusalem', 'original-en', undefined, 'bullet-gunner', undefined, 'je2-bullet-gunner'],
+  ['jerusalem', 'original-en', undefined, 'eva-gunnersdotter', undefined, 'je2-eva-gunnersdotter'],
+  ['jerusalem', 'original-en', undefined, 'the-dean', undefined, 'je2-the-dean'],
+  ['jerusalem', 'original-en', undefined, 'mother-martha', undefined, 'je2-mother-martha'],
+  ['jerusalem', 'original-en', undefined, 'eric-clockmaker', undefined, 'je2-eric-clockmaker'],
+  ['jerusalem', 'original-en', undefined, 'little-eric', undefined, 'je2-little-eric'],
+  ['jerusalem', 'modern-en', 1, 'ingmar-ingmarsson', undefined, 'je2-modern-ingmar-ch1'],
+  ['jerusalem', 'modern-en', undefined, 'strong-ingmar', undefined, 'je2-modern-strong-ingmar'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
