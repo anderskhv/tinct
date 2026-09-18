@@ -124,19 +124,18 @@ async function resolveSplitOwner(page, split, bookId, editionKey) {
     const candidates = [...document.querySelectorAll(`[data-testid="lab-word"][data-paragraph-index="${split.paragraphIndex}"][data-word-index]`)]
       .filter(node => { const rect = node.getBoundingClientRect(); return rect.width > 0 && rect.height > 0 })
       .map(node => ({ node, wordIndex: Number(node.dataset.wordIndex), remainder: node.textContent.trim() }))
-    // Bible audio indices omit silent verse-marker tokens, while the edition
-    // source keeps them. Resolve ownership from the visible continuation, then
-    // independently require the reconstructed word to exist in the source.
+    // Resolve ownership from the visible continuation, then independently
+    // require the reconstructed word to exist in the source. Narration sidecar
+    // indices stay in source-token coordinates; silent verse markers simply
+    // never become the current spoken word.
     const owner = candidates.find(({ remainder }) => sourceWords.includes(`${split.fragment}${remainder}`))
     if (!owner) throw new Error(`Could not resolve the owning word for fragment ${JSON.stringify(split.fragment)}: ${JSON.stringify(candidates.slice(0, 8).map(({ wordIndex, remainder }) => ({ wordIndex, remainder })))}`)
     const fullWord = `${split.fragment}${owner.remainder}`
     const sourceIndex = owner.wordIndex
     if (sourceWords[sourceIndex] !== fullWord) throw new Error(`Resolved owner ${owner.wordIndex} does not match source word ${JSON.stringify(sourceWords[sourceIndex])}`)
-    const marker = /^[\u00B9\u00B2\u00B3\u2070-\u2079\u2080-\u2089⁰¹²³⁴⁵⁶⁷⁸⁹]+$/u
-    const audioWordIndex = sourceWords.slice(0, sourceIndex + 1).filter(word => !marker.test(word)).length - 1
     return {
       targetKey: `${split.paragraphIndex}:${owner.wordIndex}`,
-      audioTargetKey: `${split.paragraphIndex}:${audioWordIndex}`,
+      audioTargetKey: `${split.paragraphIndex}:${owner.wordIndex}`,
       fullWord,
       remainder: owner.remainder,
     }
@@ -193,33 +192,29 @@ async function exerciseAudioAcrossSplit(page, split) {
   }
   try {
     const readingStage = page.getByTestId('lab-reading-stage')
-    const [targetParagraph, targetWord] = split.audioTargetKey.split(':').map(Number)
     const audioTargetKey = split.audioTargetKey
-    const seek = await readingStage.evaluate((stage, target) => {
-      const before = [...stage.querySelectorAll('.lab-hearing-word[data-paragraph-index][data-word-index]')].filter(node => {
-        const rect = node.getBoundingClientRect()
-        return rect.width > 0 && rect.height > 0 && !node.closest('.lab-page-measure')
-      }).map(node => ({ node,
-        paragraphIndex: Number(node.dataset.paragraphIndex),
-        wordIndex: Number(node.dataset.wordIndex),
-      })).filter(place => Number.isInteger(place.paragraphIndex) && Number.isInteger(place.wordIndex)
-        && (place.paragraphIndex < target.paragraphIndex || place.paragraphIndex === target.paragraphIndex && place.wordIndex < target.wordIndex))
-      const chosen = before.at(-1) ?? null
-      chosen?.node.click()
-      return chosen ? { paragraphIndex: chosen.paragraphIndex, wordIndex: chosen.wordIndex } : null
-    }, { paragraphIndex: targetParagraph, wordIndex: targetWord })
-    if (!seek) {
-      const debug = await readingStage.evaluate(stage => ({
-        passages: [...stage.querySelectorAll('.lab-passage')].map(node => node.className),
-        indexed: [...stage.querySelectorAll('[data-paragraph-index][data-word-index]')].slice(0, 8).map(node => ({ className: node.className, paragraphIndex: node.getAttribute('data-paragraph-index'), wordIndex: node.getAttribute('data-word-index') })),
-      }))
-      assert(seek, `the rendered split page must expose an owned word before the split: ${JSON.stringify(debug)}`)
-    }
-    // The native paginator keeps an off-screen measuring copy of the words;
-    // selection and click happen atomically above on the visible reader word.
-    // The audio renderer can begin on the prior visible leaf after pagination
-    // settles; allow normal muted playback to cross intervening paragraphs.
-    const deadline = Date.now() + 180000
+    const [targetParagraph, targetWord] = audioTargetKey.split(':').map(Number)
+    const target = readingStage.locator(`.lab-hearing-word[data-paragraph-index="${targetParagraph}"][data-word-index="${targetWord}"]:visible`).last()
+    await target.waitFor({ timeout: 10000 })
+    // Starting playback can briefly retain the paused paint before the audio
+    // source reports its first real time. Wait for that stale paint to move,
+    // then exercise the real rendered-word seek. Doing this in that order
+    // distinguishes the click result from the paint retained while paused.
+    await page.waitForFunction(({ paragraph, word }) => {
+      const current = [...document.querySelectorAll('[data-testid="lab-reading-stage"] .lab-hearing-word.is-current[data-paragraph-index][data-word-index]')]
+        .find(node => {
+          const rect = node.getBoundingClientRect()
+          return rect.width > 0 && rect.height > 0 && !node.closest('.lab-page-measure')
+        })
+      return current
+        && (Number(current.dataset.paragraphIndex) !== paragraph || Number(current.dataset.wordIndex) !== word)
+    }, { paragraph: targetParagraph, word: targetWord }, { timeout: 10000 })
+    await target.dispatchEvent('click')
+    await readingStage.locator(`.lab-hearing-word.is-current[data-paragraph-index="${targetParagraph}"][data-word-index="${targetWord}"]:visible`).first().waitFor({ timeout: 10000 })
+    // The owning page begins with the complete word whose display-only opening
+    // was painted on the prior page. Starting narration here proves the real
+    // audio paint belongs to that full logical word, never to the fragment.
+    const deadline = Date.now() + 30000
     while (Date.now() < deadline) {
       const current = await readingStage.locator('.lab-hearing-word.is-current[data-paragraph-index][data-word-index]').evaluateAll(nodes => nodes.filter(node => {
         const rect = node.getBoundingClientRect()
@@ -234,16 +229,13 @@ async function exerciseAudioAcrossSplit(page, split) {
       }
       await page.waitForTimeout(25)
     }
-    assert(result.sequence.some(value => {
-      const [paragraphIndex, wordIndex] = value.split(':').map(Number)
-      return paragraphIndex < targetParagraph || paragraphIndex === targetParagraph && wordIndex < targetWord
-    }), `audio follow must be observed before the split: ${JSON.stringify(result.sequence)}`)
     assert(result.sequence.includes(audioTargetKey), `audio follow must reach the split word ${audioTargetKey} on its owning page: ${JSON.stringify(result.sequence)}`)
-    const numeric = result.sequence.map(value => value.split(':').map(Number))
+    const targetAt = result.sequence.indexOf(audioTargetKey)
+    const numeric = result.sequence.slice(targetAt).map(value => value.split(':').map(Number))
     for (let index = 1; index < numeric.length; index += 1) {
       const [priorP, priorW] = numeric[index - 1]
       const [nextP, nextW] = numeric[index]
-      assert(nextP > priorP || nextP === priorP && nextW > priorW, 'audio follow must never move backward or duplicate')
+      assert(nextP > priorP || nextP === priorP && nextW > priorW, `audio follow must never move backward or duplicate after the split owner: ${JSON.stringify(result.sequence)}`)
     }
     assert.equal(await page.locator('[data-testid="lab-word-fragment"].is-current').count(), 0)
     result.actual = true
@@ -293,11 +285,11 @@ async function splitRestoreAcceptance(name, viewport) {
   assert.equal(reloaded.place, restorePlace, 'reload must preserve the logical reading position')
   assert(reloaded.keys.includes(split.targetKey), 'reload must restore the owning word in view')
   await page.screenshot({ path: `${output}/${live ? 'production' : 'candidate'}-${name}-restored.png` })
-  const splitAgain = await turn(page, 'ArrowLeft')
-  assert(splitAgain.fragments.some(fragment => fragment.text === split.fragment), 'audio proof must return to the same split page')
   const audio = name === 'desktop'
     ? await exerciseAudioAcrossSplit(page, split)
     : { service: 'production audio API', actual: false, limit: 'shared audio-follow path exercised on desktop', sequence: [] }
+  const splitAgain = await turn(page, 'ArrowLeft')
+  assert(splitAgain.fragments.some(fragment => fragment.text === split.fragment), 'audio proof must return to the same split page')
   const bundle = await page.locator('script[src]').evaluateAll(nodes => nodes.map(node => new URL(node.src).pathname).find(value => /\/assets\/index-[^/]+\.js$/.test(value)))
   if (expectedBundle) assert.equal(bundle, expectedBundle)
   assert.deepEqual(errors, [], 'reader must not raise browser errors')
