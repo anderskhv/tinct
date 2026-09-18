@@ -18,3 +18,7 @@ Input: baseline b269fb96 text (the consistency pass changes no readability). Ver
 | mid-8 | 231–241 | 231, 236 | 232–235, 237–241 | 231: physics/collision metaphors plus name cluster; 236: one truncated sentence "widow of the Grand…" (check source). |
 | mid-11 | 264–274 | 264, 265, 267 | 266, 268–274 | Unglossed euphemisms/allusions (bigamy euphemism, Tree of Knowledge), one opaque joke ("the path to Warsaw"). |
 | late-2 | 289–298 | 290, 294, 297, 298 | 289, 291–293, 295, 296 | Proper nouns dropped cold (worst 294); "the golden bridge" idiom unexplained; two unclear spots (290 "St. Thomas", 298 "blank sheet of paper"). |
+| late-6 | 329–337 | 335 | 329–334, 336, 337 | 335: one ambiguous "her"/"the princess" (Natasha vs Princess Mary). Prose reads as natural modern English throughout. |
+| mid-1 | 154–164 | 155 (French pass) | 154, 156–164 | 155's only unclear paragraph is an orphaned "(The French phrase means…)" note. |
+| late-1 | 279–288 | 280, 282, 288 | 279, 281, 283–287 | 280: dense geography/names; 282: A/B/D placeholders in a letter (check source); 288: conflated forged-currency passage (also in French batch 6). |
+| mid-10 | 253–263 | 256, 258 | 253–255, 257, 259–263 | 256: the "L'russe Besuhof"/666 paragraph (keep the arithmetic, per CONVENTIONS); 258: pronoun antecedent in the husband/lover anecdote. |
