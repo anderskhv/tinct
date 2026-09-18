@@ -119,3 +119,38 @@ or a phrase restored/translated, with no other prose movement.
 ch74 need a third touch, one paragraph-pair each.
 
 French round two verdict: ANOTHER ROUND
+
+---
+
+## Round three verdict
+
+Re-checked the three editor fixes only, by the same method: Python paragraph diff
+of each `chN-french-r2.json` against its predecessor (`ch30-baseline.json`,
+`ch40-french.json`, `ch74-french.json`), the `## Round three` log sections parsed
+and string-compared against the files, then a case-insensitive bracket scan, a
+slot-versus-inline duplication scan and `edition_checks.py` re-run.
+
+| Chapter | Diff vs predecessor | Log | Result |
+|---|---|---|---|
+| 30 | p15 only | p15 | Cue gone; p15 now reads `"You asked me to remind you about the officer Dolokhov, reduced to the ranks in this regiment."` with p14's "said in French:" carrying the cue. 85 other paragraphs byte-identical to baseline. **Finding 1 closed.** |
+| 40 | p36, p41 only | p35, p36, p40, p41 | p35 and p40 are byte-identical to `ch40-baseline.json` (verified), so they no longer differ from the round-one file and drop out of the diff — the log records them correctly as reverted. Slots now `* messieurs les maréchaux` and `* tête-de-pont`, the rule-4 form batch 3 prescribed. **Finding 2 closed.** |
+| 74 | p8, p16 | p16 | p8 is round two's accepted fix, unchanged. p16 now `* "But what the devil was he doing in that galley?"` — Maude's English, with the Molière French plus its gloss still inline in p15. **Finding 3 closed.** |
+
+Diff = log in all three: every `## Round three` **After** string matches the file
+byte-for-byte, no unlogged edit, and no paragraph outside p15 / p35, p36, p40, p41 /
+p16 moved. Paragraph counts intact (86 / 63 / 38), `number`, `title` and top-level
+keys unchanged.
+
+Re-verified across all 20 r2 files: zero `[` bracket spans of any kind, `blocks: 0`
+with no `bracket-tag`, `footnote-slot-bare` or `footnote-orphan-marker` flag, and
+no rule-5 slot printing foreign wording that also stands inline — ch74 p16 was the
+last one and is gone. The only remaining slot/inline overlaps are the English-on-English
+pairs at ch12 p15 and ch15 p16 (finding 5, accepted as unavoidable under rules 3+5)
+and the chained `(2)` slots. Findings 4–9 were all MINOR/COSMETIC/INFO and carried
+no required action; the ch300 p3 stray `*` and the ch64 p40 rule-5 shape remain
+noted for the final sweep, both outside this pass.
+
+All 20 chapters — 10, 12, 15, 18, 20, 21, 24, 26, 30, 31, 32, 38, 40, 43, 72, 74,
+300, 313, 316, 326 — are ACCEPT.
+
+French round three verdict: ACCEPT
