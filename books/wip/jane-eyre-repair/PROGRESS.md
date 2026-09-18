@@ -1,0 +1,62 @@
+# Jane Eyre — Modern English Repair — Progress Log
+
+**Owner:** Claude (translation content agent), session branch `claude/friendly-albattani-qgyqfi`
+**Scope:** Content only. No live edition files, app code, registry, audio, or defaults touched. All candidates staged under `books/wip/jane-eyre-repair/`.
+**Started:** 2026-09-17
+
+## Source & treatment
+
+- Source: `original-en` = Charlotte Brontë, 1847, public domain (Project Gutenberg #1260, `books/raw/jane-eyre/SOURCE.md`).
+- Unlike Confessions, Jane Eyre's `modern-en` is NOT a passthrough — it is genuine modernization across most of the book (see diagnostic audit below). Treatment here is **targeted spot-repair of a specific damaged zone**, not a full re-render.
+
+## Diagnostic audit finding (2026-09-17)
+
+Full-book diagnostic (structural integrity + close paragraph comparison across ~10 sampled chapters + word-retention-ratio scan of all 38 chapters):
+
+- **Structural integrity: perfect.** 38/38 chapters, paragraph counts match exactly in every chapter (4,047 paragraph pairs). Do not disturb this alignment.
+- **Chapters 1–26, 28–34: sound.** Genuine, accurate modernization; do not touch.
+- **Chapter 34 false alarm resolved:** its high near-identical rate is because it's dialogue-heavy, not half-finished — word ratio 1.031 (longer than original), zero flagged paragraphs, best fidelity in the book. Produced by a different (better/later) generation run — visible from its unique curly-quote typography vs. straight quotes everywhere else. **Leave untouched**, note the quote-style inconsistency as a cosmetic item for a future pass, not a fidelity defect.
+- **Damaged zone, "summarize-and-patch" failure mode (content dropped + invented text patched over the seam, sometimes including outright meaning inversion and one plot corruption):**
+  - Chapter 27, paragraphs ~146–162 only (163 total; rest of chapter is sound) — Jane's flight from Thornfield, ~290 words of the emotional/physical collapse passage dropped from one paragraph, an invented image substituted, a meaning inversion (locked gate → open gate).
+  - Chapter 35 (98 paragraphs) — paragraph 83: source's "verge of surrender" internal struggle inverted into its opposite (refusal), which self-contradicts the very next paragraph (84, sound) where Jane does capitulate — makes the psychological crisis unreadable as written.
+  - Chapter 36 (80 paragraphs) — paragraph 48: outright plot corruption. Fire geography reversed (who set which fire where, and whether Rochester was in the room), invented rescue narrative, ~150 words of aftermath (Rochester's search for Jane, Mrs. Fairfax pensioned, Adèle sent to school, Rochester's hermit years) dropped — breaks the next paragraph's dialogue cue.
+  - Chapter 37 (262 paragraphs) — worst chapter: 1,212 net words lost across 26 flagged paragraphs, including the emotional core of the reunion (mutual "I lived in his presence" passage), Rochester's account of his despair, and setup/payoff pairs broken (scorched eyebrows → "pocket-comb" line becomes a non-sequitur).
+  - Chapter 38 / Conclusion (24 paragraphs) — 4 flagged paragraphs: Adèle's epilogue gutted, the famous "bone of his bone" marriage passage has its ending replaced with invented text (plus a grammar break), and paragraph 13 is cut mid-thought, dropping the reciprocity passage that resolves the whole novel.
+- **Minor independent defect, not part of the damage zone:** `Adèle` → `Adele` (dropped accent) in 10 paragraphs across chapters 11, 12, 38. Trivial, fixable directly without full review cycle.
+
+**Total repair scope: ~464 of 4,047 paragraphs (~11.5%), covering the four chapters 35–38 in full plus chapter 27's tail (paragraphs 146–162 only).** Chapters 1–26, 28–34 are NOT being touched.
+
+**Acceptance check note from the audit** (important — difflib similarity does NOT discriminate the defect): use per-paragraph word-retention ratio (flag <0.85 for source paragraphs ≥25 words) plus a read-through for fabricated imagery, not a bare similarity score — sound chapter-1 paragraphs score as low as 0.05–0.10 on difflib, identical to damaged ones, because genuine modernization changes surface text heavily too.
+
+## STATUS: all 5 Jane Eyre repair units complete (2026-09-17)
+
+All 5 units accepted: Ch27 tail, Ch35, Ch36, Ch37, Ch38. **51 total paragraphs repaired** across a book of 4,047 paragraphs (~1.3% of the whole book — far less than the diagnostic audit's original ~11.5% estimate, because most of the flagged chapters turned out to have only 1-28 genuinely damaged paragraphs, not the whole chapter).
+
+Key methodological lesson from this pass, carried forward: **word-ratio scanning (comparing modern-en word count to source word count per paragraph) reliably catches OMISSION but is structurally blind to INVENTION of equal-or-greater length than what it replaced.** Every repair unit in this pass that got a close read (not just a ratio scan) found additional real defects beyond what ratio scanning caught — this happened in chapters 35, 36, 37 (twice), and 38. Any future Jane Eyre audit (including of the "sound" chapters 1-26, 28-34, never independently spot-checked) must use close reading / source-recall, not ratio scanning alone.
+
+## Important limitation surfaced during review (2026-09-17)
+
+Independent review of chapters 35 and 36 — each originally flagged for exactly ONE damaged paragraph by the diagnostic audit — found 2 additional genuinely damaged paragraphs apiece that the audit's chapter-level sampling had missed (same failure mode: invented text substituted for a dropped source passage). All 4 have now been fixed directly.
+
+**This means the original diagnostic audit's damage map is a lower bound, not a complete list.** The audit sampled ~10 of 38 chapters closely and used word-ratio scanning for the rest; it appears capable of missing isolated single-paragraph substitutions in chapters it did sample if their ratio doesn't dip far enough to be flagged (para 80's ratio in ch35 was borderline — invented text of similar length to what was cut). **Chapters 1–26 and 28–34, marked "sound" by the original audit, have NOT been paragraph-by-paragraph verified against source and may contain the same class of isolated defect.** Recommend a full 38-chapter word-ratio + spot-check pass before calling the whole book accepted, not just the 5 originally-flagged chapters. Flagging this now rather than overclaiming completeness.
+
+## Repair units and status
+
+| Unit | Draft | Independent review | Corrected | Verified | Accepted |
+|---|---|---|---|---|---|
+| Ch27 tail (paras 146–162, 0-based ~145-161) | done, verified | done — Opus, all 6 paragraphs confirmed clause-by-clause against source, no new errors, emotional weight confirmed intact | n/a | **accepted** (sha256 83957fef…) | **accepted** |
+| Ch35 (full chapter, preserving sound paragraphs) | done, verified, **+2 more paragraphs fixed post-review** | done — Opus confirmed para 83's fix, but ALSO found 2 more real defects outside original scope: para 80 (fabricated "Was this prayer for me?" replacing source's actual close) and para 87 (a load-bearing hedge sentence truncated off the end). Both fixed directly (source-quoted, not paraphrased) | paras 80, 87 fixed directly, same standard as reviewed fixes | **accepted** (sha256 621a8e23…) | **accepted** |
+| Ch36 (full chapter, preserving sound paragraphs) | done, verified, **+2 more paragraphs fixed post-review** | done — Opus confirmed para 48's fire-geography fix clause-by-clause (all 7 clauses correct), continuity with para 49 resolved. ALSO found 2 more real defects outside scope: para 46 (invented "raised eyebrows" ending replacing source's bewitched-suitor line) and para 50 (invented "he was quite fond of me... not the devil" replacing Grace Poole's actual bitter closing line about wishing Jane had drowned). Both fixed directly | paras 46, 50 fixed directly | **accepted** (sha256 a8bb10d7…) | **accepted** |
+| Ch37 (full chapter, preserving sound paragraphs) | done, verified | round 1 done (28 paras) — round 2 needed for 9 more paras missed by ratio-scanning (key methodological finding: invention same-length-or-longer than what it replaced is invisible to that method) — round 2 verified, but full close-read (not ratio scan) found 2 more required + 4 recommended fixes (paras 19, 24, 62, 112, 173, 247) | 3 correction rounds, 43 total paragraphs fixed (28 + 9 + 6), all independently diffed and confirmed at each stage | round 1 + round 2 both independently verified against source; round 3's 6 fixes applied directly with source-confirmed text (same standard as reviewed fixes) | **accepted** (sha256 a1fe8fde…) |
+| Ch38 / Conclusion (full chapter, preserving sound paragraphs) | done, verified, **+2 more paragraphs fixed post-review** | done — Opus confirmed all 4 originally-flagged paragraphs faithful and complete, pronoun fix in para 12 correct and matches source's elliptical claim structure, continuous read of the whole ending confirmed full weight with no flattening. ALSO found 2 more real defects outside scope: para 19 (fabricated "God is merciful! He sees that I have earned..." quote replacing and inverting the theology of source's actual line) and para 21 (the novel's LAST paragraph — St. John's peroration gutted below the 75% floor, with the Greatheart/Apollyon allusion, the Christ quotation, and the Revelation close all replaced by invented text). Both fixed directly with full source restoration. Reviewer also flagged a genuine upstream `original-en` defect (confirmed present in the live file, not just the staged copy): paragraphs 16/17 are a duplicate ("And have you a pale blue dress on?" — quoted, then bare) — a likely parsing artifact, NOT fixed here (touching live editions is out of scope), flagged for the content/app owner | paras 19, 21 fixed directly | **accepted** (sha256 8b4703ca…) | **accepted** |
+| Adèle accent fix (10 paragraphs, ch11/12/38) | not started (trivial, direct fix, no review cycle needed) | — | — | — | — |
+
+## Models used
+
+- Diagnostic audit: Claude Opus (Agent tool)
+- Drafting/correction: Claude Sonnet
+- Independent review/verification: Claude Opus
+
+## Next action
+
+Dispatch drafting for the 5 repair units. Given each unit only needs the FLAGGED paragraphs re-rendered (sound paragraphs preserved verbatim from the current modern-en), instruct drafters to only touch the specific paragraphs the audit identified, output the full chapter with sound paragraphs unchanged.
