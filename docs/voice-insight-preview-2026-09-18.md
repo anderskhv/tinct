@@ -123,3 +123,39 @@ Production was not deployed. These are wiring/security/streaming checks with
 simulated audio, not proof of real provider availability, human-perceived
 latency or acoustic quality. Next: one audible comparison using the default
 streamed preset, then inspect the exported first-audio timing and conversation.
+
+## Startup correction — September 18, 2026
+
+The first human trial could not start voice. The screenshot contained only the
+generic reader fallback; the precise browser failure was not captured.
+Code/API-contract inspection found an invalid transcription configuration path:
+the multipart /realtime/calls session parameter accepts conversational realtime
+configuration, while transcription configuration belongs on /realtime/client_secrets.
+The preview now creates a short-lived transcription credential server-side and
+uses it to exchange raw SDP. The credential never reaches the app or diagnostics.
+Startup stages and bounded provider error codes are retained; the reader also
+preserves thrown startup errors rather than replacing them with its generic notice.
+
+This is a verified configuration defect, not proof that it was the sole cause
+of the reported screenshot. Cloudflare's bounded classification query returned
+zero matching provider-error logs. The old tests simulated the provider and
+therefore accepted the invalid configuration. New endpoint tests assert the
+two-step contract and rejection behavior. Browser acceptance on both platforms
+asserts a rejected startup displays its specific stage/code.
+
+[Run 35340163621](https://github.com/anderskhv/tinct/actions/runs/35340163621)
+passed 2,417 tests in 196 files, documentation check, build, verify-bundle,
+version upload, served-bundle comparison, Chromium and WebKit acceptance.
+Source ec069d20c835894121d73c490bde764e8b1660df.
+Current preview bundle: index-DsLey6ca.js.
+[Immutable corrected preview](https://1c10b971-tinct.ahvelplund.workers.dev/lab/voice),
+Worker 1c10b971-1f65-490e-8907-ddd683b98726.
+[Artifacts](https://github.com/anderskhv/tinct/actions/runs/35340163621/artifacts/10544822226)
+include desktop-startup-error.png and phone-startup-error.png.
+Production remains index-DpT2T9Ec.js.
+
+The added silent real-provider WebRTC probe did not run: CI lacks OPENAI_API_KEY.
+Its explicit REAL_PROVIDER_CHECK_UNAVAILABLE result is not a successful provider
+test. Worker credentials remain configured and are not copied into CI.
+Next: retry the human voice trial; if it still fails, use the newly captured
+startup stage/error to identify the actual remaining path before another patch.
