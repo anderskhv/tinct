@@ -3,6 +3,10 @@
 Acoustic-only, cue-strip style. The 0.85 gate, timestamps and emitted source
 words do not change. No GPU run ships with this pin.
 
+Frozen. Canary 35323671028 showed that v6 `clean_text` is not prefix-safe:
+`45. I` (Hume modern-en/7 p14) empties during `restore_source_tokens`. The
+fix is helper v7 (`HEADING-RULE-V7.md`), not an in-place edit of this pin.
+
 ## Rule
 
 A paragraph is dropped from the scoring denominator only when the **whole
