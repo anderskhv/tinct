@@ -45,12 +45,12 @@ jobs:
         run: npx playwright install --with-deps chromium webkit
       - name: Verify library and preparation
         run: node scripts/check-library-layout.mjs
-      - name: Verify responsive landing and library
-        if: ${{ !cancelled() }}
-        run: node scripts/check-entry-responsive.mjs
       - name: Verify hyphenation hardening
         if: ${{ !cancelled() }}
         run: node scripts/check-hyphenation-hardening.mjs
+      - name: Verify responsive landing and library
+        if: ${{ !cancelled() }}
+        run: node scripts/check-entry-responsive.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
