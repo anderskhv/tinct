@@ -623,6 +623,19 @@ const CASES = [
   ['democracy-in-america', 'original-en', undefined, 'lincoln', undefined, 'da-lincoln'],
   ['democracy-in-america', 'original-en', 3, 'george-washington', undefined, 'da-washington-bare-ch3'],
   ['democracy-in-america', 'modern-en', undefined, 'judge-story', undefined, 'da-modern-judge-story'],
+  // Leviathan — clickable-names pass (batch 4)
+  ['leviathan', 'original-en', undefined, 'moses', undefined, 'lv-moses'],
+  ['leviathan', 'original-en', undefined, 'christ', undefined, 'lv-christ'],
+  ['leviathan', 'original-en', undefined, 'st-paul', undefined, 'lv-st-paul'],
+  ['leviathan', 'original-en', undefined, 'st-peter', undefined, 'lv-st-peter'],
+  ['leviathan', 'original-en', undefined, 'philip-the-deacon', undefined, 'lv-philip-the-deacon'],
+  ['leviathan', 'original-en', undefined, 'pope-innocent', undefined, 'lv-pope-innocent'],
+  ['leviathan', 'original-en', undefined, 'lot', undefined, 'lv-lot'],
+  ['leviathan', 'original-en', undefined, 'aquinas', undefined, 'lv-aquinas-thomas'],
+  ['leviathan', 'original-en', undefined, 'king-james', undefined, 'lv-king-james'],
+  ['leviathan', 'original-en', undefined, 'jupiter', undefined, 'lv-jupiter'],
+  ['leviathan', 'modern-en', undefined, 'moses', undefined, 'lv-modern-moses'],
+  ['leviathan', 'modern-en', undefined, 'st-paul', undefined, 'lv-modern-st-paul'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
