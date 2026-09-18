@@ -219,3 +219,15 @@ through VAD. Endpoint regression checks assert this model together with the
 configured silence interval. End-to-end provider access remains unavailable in
 CI; release gates and browser simulation do not prove a live voice connection.
 Next: complete cloud release verification, then verify a real startup/turn.
+
+### Compatibility release verification
+
+[Run 35344141414](https://github.com/anderskhv/tinct/actions/runs/35344141414)
+passed 2,418 tests in 196 files, documentation validation, build, verify-bundle,
+preview upload, served-bundle comparison and silent desktop/mobile acceptance.
+Source e2711ef1b17538560db7b2fd5d2f5be425e90144.
+Worker 7bab1fb6-f962-434e-95da-9a6b5fc11980; bundle index-D6f-Elsa.js.
+[Artifacts](https://github.com/anderskhv/tinct/actions/runs/35344141414/artifacts/10546293182).
+Independent HTTP verification confirmed the same bundle on the preview.
+The CI real-provider probe remains unavailable, not passed. Startup and acoustic
+quality require the next real signed-in trial. Production remains untouched.
