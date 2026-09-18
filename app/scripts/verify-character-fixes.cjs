@@ -150,7 +150,9 @@ const CASES = [
   // the-aeneid: names spaCy missed entirely, epithet aliases, Saturnia -> Juno
   ['the-aeneid', 'original-en', undefined, 'achates', undefined, 'ae-achates'],
   ['the-aeneid', 'original-en', undefined, 'neptune', undefined, 'ae-neptune'],
-  ['the-aeneid', 'original-en', undefined, 'apollo', 'Apollo', 'ae-apollo-phoebus'],
+  // chapter 2: the first mention is "Phoebus’ influence", a curly-apostrophe
+  // possessive the reader's trim rules don't strip (known app-side gap).
+  ['the-aeneid', 'original-en', 2, 'apollo', 'Apollo', 'ae-apollo-phoebus'],
   ['the-aeneid', 'original-en', undefined, 'hercules', 'Hercules', 'ae-hercules-alcides'],
   ['the-aeneid', 'original-en', undefined, 'juno', 'Juno', 'ae-saturnia-alias'],
   ['the-aeneid', 'original-en', undefined, 'anna', undefined, 'ae-anna'],
@@ -166,6 +168,16 @@ const CASES = [
   ['paradise-lost', 'original-en', undefined, 'satan', 'Satan', 'pl-tempter-alias'],
   ['paradise-lost', 'original-en', undefined, 'the-serpent', undefined, 'pl-serpent'],
   ['paradise-lost', 'original-en', undefined, 'the-son', undefined, 'pl-jesus-alias'],
+  // anna-karenina: aliases onto existing cards, homonym splits, the brother mis-binding fix
+  ['anna-karenina', 'original-en', undefined, 'levin', 'Levin', 'ak-kostya-alias'],
+  ['anna-karenina', 'original-en', undefined, 'kitty', 'Kitty', 'ak-katya-alias'],
+  ['anna-karenina', 'original-en', undefined, 'alexander-vronsky', undefined, 'ak-alexander-vronsky'],
+  ['anna-karenina', 'original-en', undefined, 'prince-shtcherbatsky', undefined, 'ak-prince-shtcherbatsky'],
+  ['anna-karenina', 'original-en', undefined, 'young-shtcherbatsky', undefined, 'ak-young-shtcherbatsky'],
+  ['anna-karenina', 'original-en', undefined, 'pyotr-footman', 'Pyotr', 'ak-pyotr-footman'],
+  ['anna-karenina', 'original-en', undefined, 'princess-varvara', undefined, 'ak-princess-varvara'],
+  ['anna-karenina', 'original-en', undefined, 'laska', undefined, 'ak-laska'],
+  ['anna-karenina', 'original-en', undefined, 'golenishtchev', undefined, 'ak-golenishtchev'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
