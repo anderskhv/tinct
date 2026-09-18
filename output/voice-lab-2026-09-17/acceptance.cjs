@@ -34,10 +34,11 @@ if (process.platform === 'darwin') throw new Error('Voice acceptance runs in Lin
   });
   await page.route('**/*.supabase.co/**', route => route.fulfill({ contentType: 'application/json', body: '[]' }));
 
-const requests=[], chainRequests=[];
+const requests=[], chainRequests=[]; let rejectChainStart=false;
 await page.route('**/api/**',r=>{
  if(r.request().url().endsWith('/voice-chain')){
    const body=r.request().postDataJSON(); chainRequests.push(body);
+   if(body.action==='transcription' && rejectChainStart)return r.fulfill({status:502,json:{error:'Could not create the transcription session.',stage:'transcription_session',code:'invalid_value'}});
    if(body.action==='transcription')return r.fulfill({contentType:'application/sdp',body:'fixture'});
    if(body.action==='speech')return r.fulfill({contentType:'audio/pcm',body:Buffer.alloc(4800)});
    if(body.action==='answer'){
@@ -112,5 +113,9 @@ await page.screenshot({path:__dirname+'/'+name+'-streamed-voice.png'});
 await page.getByRole('button',{name:'Hide test controls'}).click();
 await page.getByRole('button',{name:'End conversation',exact:true}).click();
 
+rejectChainStart=true;
+await page.getByTestId('lab-super').click();await page.getByTestId('lab-super-row-talk').click();
+await page.getByText('Could not create the transcription session. [transcription_session: invalid_value]',{exact:true}).waitFor();
+await page.screenshot({path:__dirname+'/'+name+'-startup-error.png'});
 const bundle=await page.locator('script[src*="assets/index-"]').count()?await page.locator('script[src*="assets/index-"]').getAttribute('src'):'development';assert.deepEqual(errors,[]);results.push({name,bundle,settingsSent:true,initialLocation:true,lateResultGuard:true,exported:true,historyIsolated:true,presetSurvivedReload:true,errors});await browser.close();}
 fs.writeFileSync(__dirname+'/'+(process.env.BASE?'production':'local')+'.json',JSON.stringify(results,null,2));console.log(JSON.stringify(results))})().catch(e=>{console.error(e);process.exit(1)});
