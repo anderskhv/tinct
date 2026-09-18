@@ -4,6 +4,16 @@ import { jsonResponse } from '../lib/responses'
 type AdminCheck = (env: any, request: Request) => Promise<boolean>
 type RateCheck = (key: string, kv?: KVNamespace, max?: number) => Promise<boolean>
 const MAX_BODY = 180_000
+// Keep provider payloads private; expose only known configuration field names.
+const TRANSCRIPTION_PARAMS = new Set([
+  'session', 'session.type', 'session.audio', 'session.audio.input',
+  'session.audio.input.noise_reduction', 'session.audio.input.noise_reduction.type',
+  'session.audio.input.transcription', 'session.audio.input.transcription.model',
+  'session.audio.input.transcription.prompt', 'session.audio.input.turn_detection',
+  'session.audio.input.turn_detection.type', 'session.audio.input.turn_detection.threshold',
+  'session.audio.input.turn_detection.prefix_padding_ms', 'session.audio.input.turn_detection.silence_duration_ms',
+  'expires_after', 'expires_after.anchor', 'expires_after.seconds',
+])
 /** Admin-only experimental chain. No endpoint or model is supplied by the client. */
 export async function handleVoiceChain(request: Request, env: VoiceEnv, admin: AdminCheck, rate: RateCheck): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
@@ -76,7 +86,7 @@ export async function handleVoiceChain(request: Request, env: VoiceEnv, admin: A
       const session = await created.json().catch(() => null) as any
       if (!created.ok || typeof session?.value !== 'string') {
         console.error('voice-chain provider error', 'transcription_session', created.status, session?.error?.code, session?.error?.param)
-        return jsonResponse({ error: 'Could not create the transcription session.', stage: 'transcription_session', code: String(session?.error?.code || 'session_creation_failed').slice(0, 100) }, 502, request)
+        return jsonResponse({ error: 'Could not create the transcription session.', stage: 'transcription_session', code: String(session?.error?.code || 'session_creation_failed').slice(0, 100), ...(TRANSCRIPTION_PARAMS.has(session?.error?.param) ? { param: session.error.param } : {}) }, 502, request)
       }
       credential = session.value
     }
