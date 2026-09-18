@@ -51,20 +51,28 @@ function harness(options: { voice?: string; kokoroWords?: boolean } = {}) {
   }))
   const fetchSpy = vi.fn()
   vi.stubGlobal('fetch', fetchSpy)
+  // Like `book.followParagraphs` in the app, the array is stable per text.
+  const followedCache = new Map<string[], Array<{ index: number; text: string }>>()
+  const followedFor = (paragraphs: string[]) => {
+    let entry = followedCache.get(paragraphs)
+    if (!entry) { entry = paragraphs.map((text, index) => ({ index, text })); followedCache.set(paragraphs, entry) }
+    return entry
+  }
   const hook = renderHook(
-    (props: { voice: string; narrationOn: boolean; edition: string }) => useLabListen({
+    (props: { voice: string; narrationOn: boolean; edition: string; paragraphs?: string[] }) => useLabListen({
       guardPlaybackRequests: true,
       bookId: 'odyssey',
       chapterNumber: 1,
       audioEdition: props.edition,
-      paragraphs: PARAGRAPHS,
-      followParagraphs: followed,
+      paragraphs: props.paragraphs ?? PARAGRAPHS,
+      followParagraphs: props.paragraphs ? followedFor(props.paragraphs) : followed,
       createAudio: () => audio,
       narration: props.narrationOn ? { voice: props.voice, ensure } : null,
     }),
-    { initialProps: { voice: options.voice ?? 'a', narrationOn: true, edition: 'original-en' } },
+    { initialProps: { voice: options.voice ?? 'a', narrationOn: true, edition: 'original-en' } as { voice: string; narrationOn: boolean; edition: string; paragraphs?: string[] } },
   )
-  return { ...hook, audio, pending, calls, ensure, fetchSpy }
+  const rerenderWith = (paragraphs: string[]) => hook.rerender({ voice: options.voice ?? 'a', narrationOn: true, edition: 'original-en', paragraphs })
+  return { ...hook, audio, pending, calls, ensure, fetchSpy, rerenderWith }
 }
 
 afterEach(() => { cleanup(); vi.unstubAllGlobals() })
@@ -269,6 +277,47 @@ describe('useLabListen narration pilot', () => {
     await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
     await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
     expect(h.calls.filter(call => call.indexes.includes(0)).length).toBe(1)
+  })
+
+  it('does not loop when a prepared entry no longer matches the paragraph text', async () => {
+    const h = harness()
+    await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+    await waitFor(() => expect(h.calls.length).toBe(1))
+    await act(async () => { h.calls[0].resolve([await readyResult(0)]) })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    act(() => h.result.current.stop())
+    // The paragraph text changes without a tuple change (same book, chapter, edition).
+    const changed = [...PARAGRAPHS]
+    changed[0] = 'Sing to me, Muse, of the man of twists and turns.'
+    await act(async () => { h.rerenderWith(changed) })
+    await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+    await waitFor(() => expect(h.calls.filter(call => call.indexes.includes(0)).length).toBe(2))
+    expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 0 })
+    const text = narrationTextForParagraph(changed[0])
+    await act(async () => {
+      const last = h.calls[h.calls.length - 1]
+      last.resolve([{ ...(await readyResult(0)), textHash: await sha256Hex(text), url: '/api/audio-file?path=narration%2Ffish%2Fblob%2Fhash-0b.mp3', words: null, timingsUsable: false }])
+    })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(2))
+    expect(h.audio.src).toContain('hash-0b')
+  })
+
+  it('keeps a paused seek into an unprepared paragraph paused', async () => {
+    const h = harness()
+    await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+    await waitFor(() => expect(h.calls.length).toBe(1))
+    await act(async () => { h.calls[0].resolve([await readyResult(0, { duration: 4 })]) })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    await act(async () => h.pending[0].resolve())
+    act(() => h.result.current.pause())
+    await waitFor(() => expect(h.calls.length).toBe(2)) // look-ahead [1, 2]
+    act(() => { h.result.current.seek(30) })
+    await waitFor(() => expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 1 }))
+    await act(async () => { h.calls[1].resolve([await readyResult(1), await readyResult(2)]) })
+    await act(async () => { await Promise.resolve() })
+    expect(h.audio.play).toHaveBeenCalledTimes(1)
+    expect(h.result.current.playing).toBe(false)
+    expect(h.result.current.clipIndex).toBe(1)
   })
 
   it('leaves the Kokoro path untouched when narration is off', async () => {

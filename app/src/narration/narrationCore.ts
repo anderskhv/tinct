@@ -179,6 +179,8 @@ export interface TokenAlignmentStats {
   heardWords: number
   matchedWords: number
   matchRatio: number
+  /** Position (among spoken tokens) of the last token the provider timed; -1 when none. */
+  lastMatchedWord?: number
 }
 
 export interface TokenAlignment {
@@ -340,6 +342,8 @@ export function alignSegmentsToTokens(tokens: string[], segments: TimingSegment[
   })
 
   const expectedWords = spoken.length
+  let lastMatchedWord = -1
+  spoken.forEach((index, position) => { if (slots[index].matched) lastMatchedWord = position })
   return {
     words,
     alignment: {
@@ -347,6 +351,7 @@ export function alignSegmentsToTokens(tokens: string[], segments: TimingSegment[
       heardWords: heard.length,
       matchedWords: matched,
       matchRatio: expectedWords === 0 ? 0 : round3(matched / expectedWords),
+      lastMatchedWord,
     },
   }
 }
@@ -563,6 +568,15 @@ export function validateNarrationAsset(candidate: NarrationAssetCandidate): Narr
   }
 
   const aligned = alignSegmentsToTokens(tokens, candidate.segments, duration)
+  // A stream cut off cleanly describes a consistent but partial recording:
+  // audio and timings agree, only the tail is missing. When the provider
+  // timed the paragraph at all, the last timed token must sit in its final
+  // tenth, or the recording is treated as truncated and not published.
+  if (candidate.segments.length > 0 && aligned.alignment.expectedWords > 0) {
+    const lastMatched = aligned.alignment.lastMatchedWord ?? -1
+    const tailStart = Math.max(0, Math.floor(aligned.alignment.expectedWords * 0.9) - 1)
+    if (lastMatched < tailStart) reasons.push('audio_truncated')
+  }
   let timingsUsable = candidate.segments.length > 0 && aligned.alignment.matchRatio >= NARRATION_WORD_MATCH_THRESHOLD
   if (timingsUsable && duration > 0) {
     const lastEnd = aligned.words.length > 0 ? aligned.words[aligned.words.length - 1].end : 0

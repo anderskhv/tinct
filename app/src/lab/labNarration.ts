@@ -108,6 +108,8 @@ export interface NarrationEnsureRequest {
   paragraphs: Array<{ index: number; text: string }>
 }
 
+export const NARRATION_ENSURE_TIMEOUT_MS = 70_000
+
 export class NarrationEnsureError extends Error {
   constructor(message: string, readonly code: 'unauthenticated' | 'not_configured' | 'rate_limited' | 'network' | 'http', readonly status?: number) {
     super(message)
@@ -130,17 +132,27 @@ export async function ensureNarration(
   })))
   const headers: Record<string, string> = { 'Content-Type': 'application/json' }
   if (options.authToken) headers.Authorization = `Bearer ${options.authToken}`
+  // The Worker may wait up to ~55 s on a busy provider; past that the
+  // request is abandoned client-side rather than left hanging.
+  const deadline = new AbortController()
+  const timer = setTimeout(() => deadline.abort(), NARRATION_ENSURE_TIMEOUT_MS)
+  const onCancel = () => deadline.abort()
+  options.signal?.addEventListener('abort', onCancel, { once: true })
   let response: Response
   try {
     response = await fetchImpl(apiUrl('/api/narration/ensure'), {
       method: 'POST',
       headers,
       body: JSON.stringify({ bookId: request.bookId, editionKey: request.editionKey, chapter: request.chapter, voice: request.voice, paragraphs }),
-      signal: options.signal,
+      signal: deadline.signal,
     })
   } catch (error) {
-    if ((error as Error)?.name === 'AbortError') throw error
+    if (options.signal?.aborted) throw error
+    if ((error as Error)?.name === 'AbortError') throw new NarrationEnsureError('timeout', 'network')
     throw new NarrationEnsureError('network', 'network')
+  } finally {
+    clearTimeout(timer)
+    options.signal?.removeEventListener('abort', onCancel)
   }
   if (response.status === 401) throw new NarrationEnsureError('Sign in to prepare narration', 'unauthenticated', 401)
   if (response.status === 503) throw new NarrationEnsureError('Narration pilot is not configured', 'not_configured', 503)
@@ -159,7 +171,8 @@ export function narrationFailureMessage(reason: string | undefined): string {
     case 'provider_payment':
     case 'not_configured': return 'Narration is not set up on this server yet.'
     case 'unauthenticated': return 'Sign in to hear this chapter narrated.'
-    case 'text_mismatch': return 'This passage changed; its narration is being refreshed.'
+    case 'text_mismatch': return 'This passage changed since the page was opened. Reload to hear it narrated.'
+    case 'unavailable': return 'This passage has no narration yet. Try again.'
     case 'validation_failed': return 'The narration came back damaged and was not saved. Try again.'
     case 'rate_limited': return 'Too many narration requests. Wait a moment and try again.'
     default: return 'Narration could not be prepared. Try again.'

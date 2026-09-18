@@ -98,7 +98,7 @@ describe('alignSegmentsToTokens', () => {
     const tokens = ['“I', 'can’t', 'believe', 'it’s', 'been', 'this', 'long.”']
     const segments = [seg('I', 0, 0.16), seg("can't", 0.16, 0.48), seg('believe', 0.48, 0.8), seg('its', 0.8, 1.12), seg('been', 1.2, 1.44), seg('this', 1.44, 1.76), seg('long', 1.76, 2.48)]
     const result = alignSegmentsToTokens(tokens, segments, 2.5)
-    expect(result.alignment).toEqual({ expectedWords: 7, heardWords: 7, matchedWords: 7, matchRatio: 1 })
+    expect(result.alignment).toEqual({ expectedWords: 7, heardWords: 7, matchedWords: 7, matchRatio: 1, lastMatchedWord: 6 })
     expect(result.words.map(word => word.text)).toEqual(tokens)
     expect(result.words[1]).toEqual({ text: 'can’t', start: 0.16, end: 0.48 })
     expect(result.words[6]).toEqual({ text: 'long.”', start: 1.76, end: 2.48 })
@@ -121,7 +121,7 @@ describe('alignSegmentsToTokens', () => {
 
   it('places punctuation-only tokens at the next spoken word without counting them', () => {
     const result = alignSegmentsToTokens(['Troy', '—', 'many', 'cities'], [seg('Troy', 0, 0.5), seg('many', 0.8, 1.1), seg('cities', 1.1, 1.6)])
-    expect(result.alignment).toEqual({ expectedWords: 3, heardWords: 3, matchedWords: 3, matchRatio: 1 })
+    expect(result.alignment).toEqual({ expectedWords: 3, heardWords: 3, matchedWords: 3, matchRatio: 1, lastMatchedWord: 2 })
     expect(result.words[1]).toEqual({ text: '—', start: 0.8, end: 0.8 })
   })
 
@@ -245,6 +245,20 @@ describe('MP3 inspection and validation', () => {
     expect(result.timingsUsable).toBe(false)
     expect(result.words).toBeNull()
     expect(result.alignment.matchRatio).toBe(0.2)
+  })
+
+  it('refuses a cleanly truncated stream whose timings stop before the final words', () => {
+    const text = 'one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty'
+    const frames = 200
+    const duration = frames * 1152 / 44100
+    const words = text.split(' ')
+    // Only the first 60 % of the words were spoken before the cut.
+    const spoken = words.slice(0, 12)
+    const segments = spoken.map((word, i) => ({ text: word, start: (i / spoken.length) * duration, end: ((i + 1) / spoken.length) * duration }))
+    const result = validateNarrationAsset({ text, audio: syntheticMp3(frames), reportedDuration: duration, segments })
+    expect(result.ok).toBe(false)
+    expect(result.reasons).toContain('audio_truncated')
+    expect(result.alignment.lastMatchedWord).toBe(11)
   })
 
   it('prefers the measured duration when the provider figure drifts', () => {

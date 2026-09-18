@@ -73,7 +73,11 @@ describe('narration API client', () => {
       await expect(ensureNarration(request, { fetchImpl })).rejects.toMatchObject({ code })
     }
     const abort = (async () => { throw new DOMException('aborted', 'AbortError') }) as unknown as typeof fetch
-    await expect(ensureNarration(request, { fetchImpl: abort })).rejects.toHaveProperty('name', 'AbortError')
+    const cancelled = new AbortController()
+    cancelled.abort()
+    await expect(ensureNarration(request, { fetchImpl: abort, signal: cancelled.signal })).rejects.toHaveProperty('name', 'AbortError')
+    // The same failure without a reader cancellation is a timeout, reported as a network error.
+    await expect(ensureNarration(request, { fetchImpl: abort })).rejects.toMatchObject({ code: 'network', message: 'timeout' })
     const offline = (async () => { throw new TypeError('Failed to fetch') }) as unknown as typeof fetch
     await expect(ensureNarration(request, { fetchImpl: offline })).rejects.toBeInstanceOf(NarrationEnsureError)
   })

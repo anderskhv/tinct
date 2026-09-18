@@ -27,6 +27,7 @@ import {
   DEFAULT_NARRATION_SETTINGS,
   NARRATION_CACHE_VERSION,
   NARRATION_MAX_PARAGRAPHS_PER_REQUEST,
+  NARRATION_PILOT_SCOPE,
   NARRATION_PROVIDER,
   absoluteSegments,
   isPilotScope,
@@ -140,7 +141,7 @@ export async function handleNarration(request: Request, env: NarrationEnv, ctx: 
   const sub = url.pathname.replace(/^\/api\/narration\/?/, '')
   switch (sub) {
     case 'voices': return handleVoices(request, env)
-    case 'chapter': return handleChapter(request, env)
+    case 'chapter': return handleChapter(request, env, deps)
     case 'ensure': return handleEnsure(request, env, ctx, deps)
     case 'usage': return handleUsage(request, env, deps)
     default: return jsonResponse({ error: 'Not found' }, 404, request)
@@ -155,7 +156,7 @@ function publicConfig(config: NarrationConfig) {
     model: config.model,
     voices: config.voices.map(voice => ({ key: voice.key, label: voice.label })),
     settings: config.settings,
-    scope: { bookId: 'odyssey', chapters: [1], editionKeys: ['original-en', 'modern-en'] },
+    scope: NARRATION_PILOT_SCOPE,
     cacheVersion: NARRATION_CACHE_VERSION,
   }
 }
@@ -276,11 +277,17 @@ function readyPayload(paragraph: number, entry: ReadyEntry, source: 'cache' | 'g
 
 // ===== GET /api/narration/chapter =====
 
-async function handleChapter(request: Request, env: NarrationEnv): Promise<Response> {
+async function handleChapter(request: Request, env: NarrationEnv, deps: NarrationDeps): Promise<Response> {
   if (request.method !== 'GET') return jsonResponse({ error: 'Method not allowed' }, 405, request)
   const config = narrationConfig(env)
   const scope = parseScope(new URL(request.url))
   if (!scope) return jsonResponse({ error: 'Invalid scope' }, 400, request)
+  // Listing costs an edition parse, a patch query and ~3 R2 reads per
+  // paragraph, so it is throttled per address like the patch endpoint.
+  const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
+  if (!await deps.checkRateLimit(`narration-chapter:${clientIP}`, env.RATE_LIMIT, 20)) {
+    return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
+  }
   if (!config.enabled || !env.AUDIO_BUCKET) return jsonResponse({ ...publicConfig(config), paragraphs: [] }, 200, request)
   if (!isPilotScope(scope.bookId, scope.editionKey, scope.chapter)) return jsonResponse({ error: 'Outside the pilot scope' }, 403, request)
   const voice = config.voices.find(item => item.key === scope.voiceKey)
@@ -402,7 +409,7 @@ export interface FishSynthesisResult {
 }
 
 export class NarrationProviderError extends Error {
-  constructor(message: string, readonly code: 'provider_auth' | 'provider_payment' | 'provider_unavailable' | 'provider_rejected' | 'provider_empty', readonly status?: number) {
+  constructor(message: string, readonly code: 'provider_auth' | 'provider_payment' | 'provider_unavailable' | 'provider_rejected' | 'provider_empty' | 'storage_failed', readonly status?: number) {
     super(message)
   }
 }
@@ -422,14 +429,17 @@ function fishRequestBody(text: string, voiceId: string, settings: NarrationSynth
   })
 }
 
-async function fetchWithTimeout(fetchImpl: typeof fetch, input: string, init: RequestInit, timeoutMs: number): Promise<Response> {
+/**
+ * A fetch whose deadline covers the whole exchange, body included: a
+ * provider that answers headers promptly and then stalls mid-stream must not
+ * hold a Worker request (and its lock) open indefinitely. `release()` must
+ * be called once the body has been consumed.
+ */
+function fetchWithDeadline(fetchImpl: typeof fetch, input: string, init: RequestInit, timeoutMs: number): { response: Promise<Response>; release: () => void } {
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort(), timeoutMs)
-  try {
-    return await fetchImpl(input, { ...init, signal: controller.signal })
-  } finally {
-    clearTimeout(timer)
-  }
+  const response = fetchImpl(input, { ...init, signal: controller.signal })
+  return { response, release: () => clearTimeout(timer) }
 }
 
 /**
@@ -463,40 +473,55 @@ export async function synthesizeWithFish(input: {
   for (let attempt = 0; attempt <= PROVIDER_RETRY_DELAYS_MS.length; attempt += 1) {
     if (attempt > 0) await input.sleep(PROVIDER_RETRY_DELAYS_MS[attempt - 1])
     attempts += 1
-    let response: Response
+    const exchange = fetchWithDeadline(
+      input.fetchImpl,
+      endpoint === 'with-timestamp' ? `${input.baseUrl}/v1/tts/stream/with-timestamp` : `${input.baseUrl}/v1/tts`,
+      { method: 'POST', headers: { ...headers, Accept: endpoint === 'with-timestamp' ? 'text/event-stream' : 'audio/mpeg' }, body },
+      PROVIDER_TIMEOUT_MS,
+    )
     try {
-      response = await fetchWithTimeout(
-        input.fetchImpl,
-        endpoint === 'with-timestamp' ? `${input.baseUrl}/v1/tts/stream/with-timestamp` : `${input.baseUrl}/v1/tts`,
-        { method: 'POST', headers: { ...headers, Accept: endpoint === 'with-timestamp' ? 'text/event-stream' : 'audio/mpeg' }, body },
-        PROVIDER_TIMEOUT_MS,
-      )
-    } catch (error) {
-      lastError = new NarrationProviderError(`network: ${(error as Error)?.name || 'error'}`, 'provider_unavailable')
-      continue
-    }
-    if (response.status === 401 || response.status === 403) throw new NarrationProviderError('Fish rejected the API key', 'provider_auth', response.status)
-    if (response.status === 402) throw new NarrationProviderError('Fish account has no credit', 'provider_payment', response.status)
-    if ((response.status === 404 || response.status === 405 || response.status === 501) && endpoint === 'with-timestamp') {
-      endpoint = 'none'
-      attempt -= 1 // the fallback endpoint gets a fresh attempt budget
-      continue
-    }
-    if (response.status === 429 || response.status >= 500) {
-      lastError = new NarrationProviderError(`Fish answered ${response.status}`, 'provider_unavailable', response.status)
-      continue
-    }
-    if (!response.ok) throw new NarrationProviderError(`Fish answered ${response.status}`, 'provider_rejected', response.status)
+      let response: Response
+      try {
+        response = await exchange.response
+      } catch (error) {
+        lastError = new NarrationProviderError(`network: ${(error as Error)?.name || 'error'}`, 'provider_unavailable')
+        continue
+      }
+      if (response.status === 401 || response.status === 403) throw new NarrationProviderError('Fish rejected the API key', 'provider_auth', response.status)
+      if (response.status === 402) throw new NarrationProviderError('Fish account has no credit', 'provider_payment', response.status)
+      if ((response.status === 404 || response.status === 405 || response.status === 501) && endpoint === 'with-timestamp') {
+        endpoint = 'none'
+        attempt -= 1 // the fallback endpoint gets a fresh attempt budget
+        continue
+      }
+      if (response.status === 429 || response.status >= 500) {
+        lastError = new NarrationProviderError(`Fish answered ${response.status}`, 'provider_unavailable', response.status)
+        continue
+      }
+      if (!response.ok) throw new NarrationProviderError(`Fish answered ${response.status}`, 'provider_rejected', response.status)
 
-    if (endpoint === 'with-timestamp') {
-      const stream = parseFishTimestampSse(await response.text())
-      if (stream.audio.length === 0) throw new NarrationProviderError('Fish returned no audio', 'provider_empty', response.status)
-      const absolute = absoluteSegments(stream.snapshots)
-      return { audio: stream.audio, segments: absolute.segments, reportedDuration: absolute.duration, timingsSource: 'with-timestamp', attempts, providerMs: input.now() - startedAt }
+      let bodyText: string | null = null
+      let bodyBytes: Uint8Array | null = null
+      try {
+        if (endpoint === 'with-timestamp') bodyText = await response.text()
+        else bodyBytes = new Uint8Array(await response.arrayBuffer())
+      } catch (error) {
+        // The deadline fired mid-stream or the connection dropped: retryable.
+        lastError = new NarrationProviderError(`stream: ${(error as Error)?.name || 'error'}`, 'provider_unavailable')
+        continue
+      }
+      if (bodyText != null) {
+        const stream = parseFishTimestampSse(bodyText)
+        if (stream.audio.length === 0) throw new NarrationProviderError('Fish returned no audio', 'provider_empty', response.status)
+        const absolute = absoluteSegments(stream.snapshots)
+        return { audio: stream.audio, segments: absolute.segments, reportedDuration: absolute.duration, timingsSource: 'with-timestamp', attempts, providerMs: input.now() - startedAt }
+      }
+      const audio = bodyBytes as Uint8Array
+      if (audio.length === 0) throw new NarrationProviderError('Fish returned no audio', 'provider_empty', response.status)
+      return { audio, segments: [], reportedDuration: 0, timingsSource: 'none', attempts, providerMs: input.now() - startedAt }
+    } finally {
+      exchange.release()
     }
-    const audio = new Uint8Array(await response.arrayBuffer())
-    if (audio.length === 0) throw new NarrationProviderError('Fish returned no audio', 'provider_empty', response.status)
-    return { audio, segments: [], reportedDuration: 0, timingsSource: 'none', attempts, providerMs: input.now() - startedAt }
   }
   throw lastError || new NarrationProviderError('Fish unavailable', 'provider_unavailable')
 }
@@ -621,7 +646,8 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       continue
     }
 
-    try { await kv?.put(lockKey, JSON.stringify({ at: now(), by: user.id.slice(0, 8) }), { expirationTtl: LOCK_TTL_SECONDS }) } catch { /* proceed without a lock */ }
+    const lockToken = `${now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`
+    try { await kv?.put(lockKey, JSON.stringify({ token: lockToken, at: now(), by: user.id.slice(0, 8) }), { expirationTtl: LOCK_TTL_SECONDS }) } catch { /* proceed without a lock */ }
     const generationStartedAt = now()
     try {
       const synthesis = await synthesizeWithFish({
@@ -679,8 +705,11 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
         alignment: validation.alignment, timingsUsable: validation.timingsUsable, audioBytes: synthesis.audio.length,
       }, 'generated', { generationMs, providerMs: synthesis.providerMs, attempts: synthesis.attempts, timingsSource: synthesis.timingsSource, textBytes }))
     } catch (error) {
-      const failure = error instanceof NarrationProviderError ? error : new NarrationProviderError(String((error as Error)?.message || error), 'provider_unavailable')
-      await recordProviderOutcome(kv, now(), failure.code === 'provider_rejected' || failure.code === 'provider_empty')
+      const failure = error instanceof NarrationProviderError ? error : new NarrationProviderError(String((error as Error)?.message || error), 'storage_failed')
+      // Only the provider being down (network failure, 5xx) counts toward
+      // the breaker; our own storage errors, rejections and 429s do not.
+      const providerDown = failure.code === 'provider_unavailable' && (failure.status === undefined || failure.status >= 500)
+      if (providerDown) await recordProviderOutcome(kv, now(), false)
       bump({ requests: 1, failed: 1 })
       results.push({
         paragraph: index, status: 'failed', textHash: identity.textHash, reason: failure.code,
@@ -688,7 +717,12 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       })
       if (failure.code === 'provider_auth' || failure.code === 'provider_payment') break
     } finally {
-      try { await kv?.delete(lockKey) } catch { /* lock expires on its own */ }
+      // Release only a lock this request took; a lock another generator has
+      // since written (after ours expired) stays in place.
+      try {
+        const held = kv ? await kv.get<{ token?: string }>(lockKey, 'json') : null
+        if (held?.token === lockToken) await kv?.delete(lockKey)
+      } catch { /* lock expires on its own */ }
     }
   }
 

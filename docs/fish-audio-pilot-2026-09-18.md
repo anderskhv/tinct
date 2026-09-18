@@ -166,6 +166,29 @@ reachable by a reader who never used the flag.
 | Silent browser acceptance (`app/scripts/check-narration-pilot.mjs`, Chromium 390×844, muted, every `/api/narration/*` call answered by an in-page mock, audio a silent WAV) | Passes: `?narration=fish` persisted in prefs; Play shows "Preparing narration…" then plays from the narration URL with word paint from the recording's timings; first ensure carries only paragraph 0 and the SHA-256 of the displayed text; look-ahead asks for `[1, 2]` once; zero Kokoro audio requests; pause keeps the place; Settings → Audiobook shows "Narration pilot" with Off / Nathan / Abby; choosing Abby persists and the next ensure carries voice `b`; a failed preparation shows the notice with Retry and no playback; Retry plays. Screenshots in `/tmp/tinct-narration-pilot/` during the run (01-preparing … 06-retry-playing). |
 | Fish endpoint reachability from this environment | `GET https://api.fish.audio/model` 200 (public); `POST /v1/tts` without a key → 401 `"this route requires an api-key"` |
 
+### Independent review
+
+A separate reviewer session read the full diff against the brief and ran the
+narration suites. Findings and what was done:
+
+| # | Severity | Finding | Outcome |
+| --- | --- | --- | --- |
+| 1 | High | A prepared entry whose text hash went stale without a tuple change could re-enter preparation forever (tab freeze). | Fixed: every prepared lookup is hash-checked against the clip; stale entries are purged when clips rebuild; "ready but no URL" is an error state, never a retry. Regression test added. |
+| 2 | Medium | Provider deadline covered headers only; a stalled SSE body hung the Worker and the reader. | Fixed: the deadline now covers the body on the Worker; the reader abandons an ensure call after 70 s. |
+| 3 | Medium | A cleanly truncated provider stream could validate and publish. | Fixed: when the provider timed the paragraph, the last timed token must lie in the final tenth or the recording is refused (`audio_truncated`). Test added. |
+| 4 | Medium | Spending ceiling is check-then-act on eventually consistent KV counters. | Accepted for the pilot scope (≈128 possible recordings); documented as a soft guard; to be replaced by a reservation or Durable Object counter before widening. |
+| 5 | Medium | Advisory KV lock could be released by a non-owner. | Fixed: token-tagged lock released only by its owner; the read-then-put race remains and only costs a duplicate generation of identical audio. Test added. |
+| 6 | Medium | Old clip's clock leaked into follow paint at an unprepared boundary. | Fixed: clock and follow reset when preparation starts; the frame tick pauses while the current clip has no URL. |
+| 7 | Medium | Seeking while paused into an unprepared paragraph auto-played. | Fixed; test added. |
+| 8 | Medium | Public chapter listing was unthrottled. | Fixed: per-address rate limit. |
+| 9 | Medium | Breaker counted storage errors and 429s as provider outages. | Fixed: only network failures and 5xx count. Test added. |
+| 10 | Low | Cache metadata JSON (text, voice id, segments) was publicly readable via the audio route. | Fixed: the audio route serves only `.mp3` under `narration/`. Test added. |
+| 11 | Low | `text_mismatch` copy promised a refresh that never happens. | Reworded to ask for a reload. |
+| 12 | Low | Chapter auto-advance out of the pilot scope continues with Kokoro without notice. | Known limitation; documented below. |
+| 13 | Low | Play pressed before `/api/narration/voices` resolves starts Kokoro and is cut off when the pilot activates. | Known limitation (sub-second window on load). |
+| 14 | Low | Choosing Off hid the Settings row. | Fixed: the row stays for the page load once the pilot was on. |
+| 15–17 | Low | Short-paragraph pace floor, dead monotonic check, hard-coded scope in the public config. | Scope constant now shared; the rest noted for the expansion proposal. |
+
 ## 6. Not yet measured (needs `FISH_AUDIO_API_KEY`)
 
 Time to first audible playback, buffering gaps at paragraph boundaries,
@@ -196,3 +219,14 @@ it is skipped otherwise.
   narrated chapters would need the blob URLs added to the offline manifest.
 - **Sleep timer**: none exists in the V2 reader today; a fade would sit in
   `useLabListen` where speed already lives.
+
+## 9. Known limitations of the pilot build
+
+- Auto-advance from Book 1 into Book 2 leaves the pilot scope, so Kokoro
+  narration continues there without a notice.
+- Pressing Play in the first fraction of a second after load, before the
+  pilot configuration has been fetched, starts Kokoro and is then reset.
+- The spending ceiling and the generation lock are best-effort on KV; the
+  content-addressed cache keeps duplicates harmless but not free.
+- Paragraphs are synthesised whole; time to first audio for the 1,875-
+  character paragraph 18 is unmeasured and may warrant sentence chunking.

@@ -350,6 +350,50 @@ describe('POST /api/narration/ensure', () => {
   })
 })
 
+describe('publish safety', () => {
+  it('serves narration audio publicly but never its metadata JSON', async () => {
+    const h = makeHarness()
+    const entry = (await ensure(h, { paragraphs: [{ index: 0 }] })).json.paragraphs[0]
+    const meta = await handleAudioFile(new Request(`https://tinct.app/api/audio-file?path=narration%2Ffish%2Fblob%2F${entry.hash}.json`), h.env as never)
+    expect(meta.status).toBe(400)
+    const audio = await handleAudioFile(new Request(`https://tinct.app${entry.url}`), h.env as never)
+    expect(audio.status).toBe(200)
+  })
+
+  it('releases only the lock it took', async () => {
+    const h = makeHarness()
+    const text = narrationTextForParagraph(PARAGRAPHS[2])
+    const { narrationCacheIdentity, DEFAULT_NARRATION_SETTINGS } = await import('./narration/narrationCore')
+    const identity = await narrationCacheIdentity({ provider: 'fish', model: 's2.1-pro', voiceId: 'voice-a-id', text, settings: DEFAULT_NARRATION_SETTINGS })
+    const lockKey = `narration:lock:${identity.hash}`
+    // Our lock expired mid-generation and another generator took a fresh one.
+    const respond = h.fish.respond
+    h.fish.respond = async (call) => {
+      await h.env.RATE_LIMIT.put(lockKey, JSON.stringify({ token: 'someone-else', at: 1 }))
+      return respond(call)
+    }
+    const result = await ensure(h, { paragraphs: [{ index: 2 }] })
+    expect(result.json.paragraphs[0].status).toBe('ready')
+    expect(await h.env.RATE_LIMIT.get(lockKey)).not.toBeNull()
+  })
+
+  it('does not open the breaker on our own storage failures', async () => {
+    const h = makeHarness()
+    h.env.AUDIO_BUCKET.put = async () => { throw new Error('r2 down') }
+    for (let round = 0; round < 3; round += 1) {
+      const result = await ensure(h, { paragraphs: [{ index: 0 }] })
+      expect(result.json.paragraphs[0]).toMatchObject({ status: 'failed', reason: 'storage_failed' })
+    }
+    expect(await h.env.RATE_LIMIT.get('narration:breaker')).toBeNull()
+    expect(h.fish.calls.length).toBe(3)
+  })
+
+  it('rate limits the public chapter listing', async () => {
+    const limited = makeHarness({}, { rateLimited: true })
+    expect((await chapter(limited)).status).toBe(429)
+  })
+})
+
 describe('GET /api/narration/usage', () => {
   it('is admin-only and reports counters and ceilings', async () => {
     const reader = makeHarness()

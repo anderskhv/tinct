@@ -462,6 +462,10 @@ export function LabApp({ pathname, search, online, source, authToken, voiceExper
   // changes for a reader who never used the flag.
   const narrationFlag = narrationPilotFlag(search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   const [narrationInfo, setNarrationInfo] = useState<NarrationPilotInfo | null>(null)
+  // Once the pilot has been on during this page load the Settings row stays,
+  // so "Off" is reversible without the URL flag.
+  const [narrationRowVisible, setNarrationRowVisible] = useState(prefs.narrationProvider === 'fish')
+  useEffect(() => { if (prefs.narrationProvider === 'fish') setNarrationRowVisible(true) }, [prefs.narrationProvider])
   useEffect(() => {
     if (prefs.narrationProvider !== 'fish') return
     let cancelled = false
@@ -4071,7 +4075,7 @@ export function LabApp({ pathname, search, online, source, authToken, voiceExper
           onPrefs={updatePrefs}
           editions={bookEditions}
           audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
-          narrationPilot={prefs.narrationProvider === 'fish' ? { info: narrationInfo, voice: narrationVoice } : null}
+          narrationPilot={narrationRowVisible ? { info: narrationInfo, voice: prefs.narrationProvider === 'fish' ? narrationVoice : null } : null}
           returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
         />
       )}
