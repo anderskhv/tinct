@@ -83,7 +83,7 @@ def run(src, cand, chapters=None):
 
     # --- per-paragraph content flags
     ratios_low, ratios_high, qm, long_sent, verbatim, arch, fr_kept = [], [], [], [], [], collections.Counter(), []
-    slot_bare, orphan_star, tags = [], [], []
+    slot_bare, orphan_star, tags, inline_marker = [], [], [], []
     for i in sel:
         s, c = src[i], cand[i]
         if len(s['paragraphs']) != len(c['paragraphs']):
@@ -110,6 +110,7 @@ def run(src, cand, chapters=None):
             elif re.search(r'(?<!\w)\*(?!\*)', b):
                 nxt = c['paragraphs'][j + 1] if j + 1 < len(c['paragraphs']) else ''
                 if not nxt.lstrip().startswith('*'): orphan_star.append((n, j))
+                else: inline_marker.append((n, j))  # dialogue paragraph still carries Maude's footnote marker (foreign text left inline, English in the slot)
             if re.search(r'\[(speaking in|på |note|translator|editor)', b, re.I): tags.append((n, j, b[:50]))
 
     for x in ratios_low: F(f"ratio-low ch{x[0]} p{x[1]}: {x[2]}->{x[3]} words ({x[4]})")
@@ -118,6 +119,7 @@ def run(src, cand, chapters=None):
     for x in long_sent: F(f"long-sentence ch{x[0]} p{x[1]}: {x[2]} words")
     for x in slot_bare: F(f"footnote-slot-bare ch{x[0]} p{x[1]}: {x[2]!r}")
     for x in orphan_star: F(f"footnote-orphan-marker ch{x[0]} p{x[1]}")
+    for x in inline_marker: F(f"inline-marker-with-slot ch{x[0]} p{x[1]}")
     for x in tags: F(f"bracket-tag ch{x[0]} p{x[1]}: {x[2]!r}")
     by_ch = collections.Counter(x[0] for x in verbatim)
     for i in sel:

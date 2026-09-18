@@ -190,7 +190,15 @@ python3 books/classify-modern-en.py {book-id} --gate --chapters 1-8   # per batc
 ```
 
 The gate fails on weighted similarity > 0.75, > 5% LIGHT/MECHANICAL chapters, or
-> 5% byte-identical long paragraphs. This is the instrument that caught the
+> 5% byte-identical long paragraphs.
+
+*Exception (decided 2026-09-18, DECISIONS.md):* for a book whose source is already
+a readable modern translation (Maude, Garnett), a chapter that has passed the
+two-gate repair procedure in `books/TRANSLATION_PROTOCOL.md` (Gate A accessibility
+read on the accepted hash plus Gate B fidelity ACCEPT, recorded with sha256 in the
+book's `ACCEPTED.md`) is accepted even if the classifier buckets it LIGHT. The
+LIGHT/MECHANICAL criterion is then a flag for that book. It stays blocking for
+editions with no such evidence. This is the instrument that caught the
 2026-05 mechanical-modernization failure (539 fake chapters); it exists so that
 failure class cannot recur silently. A prose claim that a rendering is "real"
 does not substitute for a passing gate. Run it per batch during rendering and on

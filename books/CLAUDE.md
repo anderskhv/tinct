@@ -94,7 +94,10 @@ publishable per `wip_inventory.py`, unless Anders directs otherwise.
 5b. Similarity gate (mandatory, blocking): `python3 books/classify-modern-en.py {book-id} --gate`
    must PASS before any `modern-da` or audio work. Run per batch with
    `--chapters N-M` while rendering. A prose claim that the rendering is
-   "real" does not substitute for a passing gate.
+   "real" does not substitute for a passing gate. Exception (2026-09-18): a
+   chapter accepted under the two-gate repair procedure (Gate A + Gate B on the
+   accepted hash) is accepted even if the classifier buckets it LIGHT when the
+   source is already a readable modern translation; see `AGENTS.md` QA Gates.
 6. Create `modern-da` from `modern-en`.
 7. Create onboarding content and threads when appropriate.
 8. Run QA: JSON validity, paragraph alignment, truncation checks, byte-identity checks for Danish, and manual spot reads.
