@@ -815,6 +815,44 @@ const CASES = [
   ['divine-comedy', 'modern-en', 14, 'alexander-the-great', undefined, 'dc2-modern-alexander-great'],
   ['divine-comedy', 'modern-en', 19, 'charles-of-anjou', undefined, 'dc2-modern-charles-anjou'],
   ['divine-comedy', 'modern-en', 21, 'malacoda', undefined, 'dc2-modern-malacoda'],
+  // Ulysses second sweep
+  ['ulysses', 'original-en', 15, 'bloom', 'Bloom', 'ul2-leo-bloom'],
+  ['ulysses', 'original-en', 9, 'richard-best', 'Best', 'ul2-richard-best'],
+  ['ulysses', 'original-en', 9, 'richard-shakespeare', 'Richard', 'ul2-richard-shakespeare'],
+  ['ulysses', 'original-en', 9, 'richard-iii', 'Richard III', 'ul2-richard-iii'],
+  ['ulysses', 'original-en', 9, 'john-eglinton', 'Eglinton', 'ul2-magee-eglinton'],
+  ['ulysses', 'original-en', 9, 'magee-mor-matthew', undefined, 'ul2-magee-mor-matthew'],
+  ['ulysses', 'original-en', 7, 'o-madden-burke', undefined, 'ul2-o-madden-burke'],
+  ['ulysses', 'original-en', 14, 'madden', 'Madden', 'ul2-madden-student'],
+  ['ulysses', 'original-en', 7, 'o-madden', undefined, 'ul2-o-madden-jockey'],
+  ['ulysses', 'original-en', 9, 'justice-madden', undefined, 'ul2-justice-madden'],
+  ['ulysses', 'original-en', 7, 'seymour-bushe', 'Bushe', 'ul2-seymour-bushe'],
+  ['ulysses', 'original-en', 7, 'kendal-bushe', undefined, 'ul2-kendal-bushe'],
+  ['ulysses', 'original-en', 1, 'seymour', 'Seymour', 'ul2-seymour-ch1'],
+  ['ulysses', 'original-en', 7, 'gumley', 'Gumley', 'ul2-gumley'],
+  ['ulysses', 'original-en', 7, 'john-f-taylor', 'Taylor', 'ul2-john-f-taylor'],
+  ['ulysses', 'original-en', 12, 'officer-taylor', undefined, 'ul2-officer-taylor'],
+  ['ulysses', 'original-en', 5, 'peter-claver', undefined, 'ul2-peter-claver'],
+  ['ulysses', 'original-en', 10, 'peter-kennedy', undefined, 'ul2-peter-kennedy'],
+  ['ulysses', 'original-en', 10, 'miss-kennedy', undefined, 'ul2-miss-kennedy'],
+  ['ulysses', 'original-en', 14, 'st-peter', 'Peter', 'ul2-st-peter'],
+  ['ulysses', 'original-en', 1, 'thomas-aquinas', undefined, 'ul2-aquinas'],
+  ['ulysses', 'original-en', 10, 'silken-thomas', undefined, 'ul2-silken-thomas'],
+  ['ulysses', 'original-en', 8, 'thomas-deane', undefined, 'ul2-thomas-deane'],
+  ['ulysses', 'original-en', 13, 'charley-macdowell', 'Charley', 'ul2-charley-macdowell'],
+  ['ulysses', 'original-en', 14, 'theodore-purefoy', undefined, 'ul2-doady'],
+  ['ulysses', 'original-en', 12, 'saint-lucy', undefined, 'ul2-saint-lucy'],
+  ['ulysses', 'original-en', 12, 'saint-columcille', undefined, 'ul2-saint-columcille'],
+  ['ulysses', 'original-en', 18, 'gardner', 'Gardner', 'ul2-gardner'],
+  ['ulysses', 'original-en', 18, 'hester-stanhope', 'Hester', 'ul2-hester'],
+  ['ulysses', 'original-en', 13, 'reggy-wylie', undefined, 'ul2-reggy-wylie'],
+  ['ulysses', 'original-en', 17, 'mrs-riordan', 'Riordan', 'ul2-dante-riordan'],
+  ['ulysses', 'original-en', 16, 'dante-alighieri', undefined, 'ul2-dante-alighieri'],
+  ['ulysses', 'original-en', 12, 'finn-maccool', undefined, 'ul2-finn-maccool'],
+  ['ulysses', 'original-en', 2, 'cochrane', 'Cochrane', 'ul2-cochrane'],
+  ['ulysses', 'original-en', 7, 'helen-of-troy', 'Helen', 'ul2-helen'],
+  ['ulysses', 'modern-en', 7, 'o-madden-burke', undefined, 'ul2-modern-o-madden-burke'],
+  ['ulysses', 'modern-en', 7, 'gumley', undefined, 'ul2-modern-gumley'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
@@ -852,8 +890,22 @@ async function run(conf, engine) {
         }))
       }, { book, edition, ch: m.chapterNumber, paragraphIndex: m.paragraphIndex })
 
-      await p.goto(origin + '/reader')
-      await p.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true')
+      // A single reader-ready timeout (dev-server hiccup, HMR reload while
+      // data files change) used to abort the whole multi-hour run. Retry the
+      // load once, then record the row as READER_TIMEOUT and move on.
+      let ready = false
+      for (let attempt = 0; attempt < 2 && !ready; attempt++) {
+        try {
+          await p.goto(origin + '/reader')
+          await p.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true')
+          ready = true
+        } catch (e) {
+          if (attempt === 1) {
+            results.push({ label, status: `READER_TIMEOUT (${e.name})`, device: conf.name, book, characterId })
+          }
+        }
+      }
+      if (!ready) { await p.close(); continue }
       await p.waitForTimeout(1000)
 
       // Multiple .lab-page-wrap containers can exist in the DOM at once
