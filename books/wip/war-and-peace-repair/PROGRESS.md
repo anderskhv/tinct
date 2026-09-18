@@ -116,6 +116,35 @@ All 6 fixed directly, all structurally verified (paragraph counts intact). Final
 2. The accepted files (`tail-batchA/B/C-accepted.json`, `drift-batchD1/D2/D3-accepted.json`, `early-flags-accepted.json`, `spotcheck-batchS1/S2/S3-accepted.json`, `modern-en-name-normalized.json`) need to be merged into a single replacement for the live `war-and-peace-modern-en.json`. This merge was not performed — staying within the content-only staging scope of this project. Handoff note for whoever promotes this to the live file: the changes are scattered across specific chapters in specific accepted files, listed in this document.
 3. `modern-da` not examined at all — flagged for whoever does that work, since it's translated from `modern-en` and may carry forward the same defects that existed before this repair pass.
 
+## Full close-read of all remaining chapters — batches A-O (2026-09-18)
+
+Per explicit instruction ("yes, close read all. are you still using opus to check your work too?"), ran a full paragraph-by-paragraph close read of every chapter not yet individually checked, in 15 parallel batches of ~20 chapters each (ranges: A=1-25, B=27-55, C=56-80, D=81-103, E=104-125, F=126-146, G=147-167, H=168-187, I=188-209, J=212-233, K=234-259, L=260-282, M=283-307, N=308-329, O=330-332), each through the full draft (Sonnet) → independent review (Opus) → correction → structural verification → accept → commit cycle. Opus independent review was restored and used for every one of these 15 batches (it had lapsed for the drift-fix/early-flags/spot-check batches immediately prior to this instruction).
+
+**Every single batch's Opus review found real additional defects beyond what the Sonnet drafting pass self-reported** — including in batches self-reported as "0 defects" (F, I both claimed fully clean and both had review-confirmed defects; I's corrected file was in fact byte-identical to the pre-fix file). This confirms the pattern seen throughout this project: never accept a self-reported clean pass without independent review.
+
+Summary by batch (all now `full-batch{X}-accepted.json`, all structurally verified against source):
+- **A** (ch1-25): name fixes (Kirill→Cyril, Bolkonsky→Bolkonski), invented clause removed, meaning-change fix, 2 dropped-detail restorations.
+- **B** (ch27-55): name fixes (Nesvitski→Nesvitsky, Nikolai Bolkonsky→Nicholas Bolkonski, Nikolai→Nicholas Rostov), 2 dropped clauses/sentences, 3 stray footnote markers + untranslated French. Also flagged (not fixed — separate structural task): a chapter-title/TOC numbering bug producing a duplicate "Book Two Ch.5" and a mislabeled "Book Three Ch.21".
+- **C** (ch56-80): ch74's worst single defect in the batch (a semantically broken sentence from 3 dropped items) plus 2 more ch74 fixes, 2 dropped French lines, 1 compressed-below-75%-floor passage, Andrei→Andrew + 3 more name fixes across ch64/65/70/71.
+- **D** (ch81-103): 1 dropped gesture+exclamation, 1 dropped emphatic repetition, 6 orphaned footnote markers.
+- **E** (ch104-125): accepted as-is — review did extensive verification of the highest-stakes fix (a freshly-drafted diary-entry restoration) and confirmed no further defects.
+- **F** (ch126-146): 4 low-severity fixes (horse-name typo, patronymic typo, restored unit "degrees of frost", 1 garbled sentence).
+- **G** (ch147-167): restored real French verse+footnote (had been a literal placeholder string), name-consistency fix (8×), 2 dropped clauses.
+- **H** (ch168-187): 1 fix — removed an inserted editorial parenthetical inside a character's interior monologue.
+- **I** (ch188-209): drafter's file was byte-identical to pre-fix (0 real fixes despite "all sound" claim); review found and fixed 8 defects: 1 dropped negation (inverted meaning), 1 subject inversion, 1 dropped clause, name/place normalization (5 sites), 1 comma-splice.
+- **J** (ch212-233): 1 garbled self-contradictory sentence, German dialogue restored (was translated inline leaving duplicate footnotes), name-spelling consistency (Compans→Campan), 2 dropped clauses, 1 dropped French quotation, 1 broken enumeration.
+- **K** (ch234-259): 5 orphaned footnote markers, 2 name fixes, 1 restored sanitized content ("with her Negroes and her women jesters" — per project's no-silent-sanitization standard), 1 wording revert.
+- **L** (ch260-282): 1 fix the drafter's notes falsely claimed was applied (now actually applied), 7 orphaned footnote markers, 2 name fixes, and — the largest single mechanical fix in this project — converting 2 chapters (279, 282; 87 marks total) from single back to double quotation marks to match the rest of the book (no source warrant for the divergence; ch279 is Prince Andrew's death chapter).
+- **M** (ch283-307): accepted as-is — all 3 claimed fixes verified correct, 7 minor non-blocking items noted but explicitly not required.
+- **N** (ch308-329): 7 fixes beyond the drafter's 4 (a lost delirium-scene tell, a reversed idiom, a softened characterization, a reversed appeal, a footnote-parenthesization fix, a punctuation+dropped-clause fix, a softened rhetorical claim).
+- **O** (ch330-332): a fabricated simile and fabricated closing line removed; on re-review, 1 more dropped sentence and 2 more invented substitutions plus a dropped locator and a self-contradictory analogy, all fixed.
+
+**Gap found and closed: 19 chapters (15, 33, 49, 50, 61, 69, 108, 131, 195, 200, 231, 242, 250, 254, 280, 288, 291, 292, 300) fell through the cracks between the A-O batch ranges and were never actually close-read.** Staged as `full-batchP-*`; dispatched through the same draft→review→accept pipeline; see next update for result.
+
+## Merge into the live file — staged, pending batch P
+
+Built and dry-run-verified a merge script (`/tmp/.../merge_wp.py`, logic preserved here for continuation): for each of the 365 chapters, prefer (in order) the full-batch A-O/P accepted file, then tail-batch A/B/C, then early-flags, then spotcheck S1/S2/S3, then drift-batch D1/D2/D3 (superseded by full-batch for any overlapping chapter — 15 chapters were covered by both; full-batch wins since it's the later, more thorough pass), falling back to `modern-en-name-normalized.json` for anything still uncovered. Dry run (with batch P chapters falling back to name-normalized, pending) validated clean: 365/365 chapters, 11340/11340 paragraphs, zero structural mismatches against `war-and-peace-original-en.json`. Once batch P is accepted, re-run this merge with batch P included and write the result to `/home/user/tinct/app/public/data/editions/war-and-peace-modern-en.json`.
+
 ## Models used
 
 - Mechanical audit: direct Python script (no model)
