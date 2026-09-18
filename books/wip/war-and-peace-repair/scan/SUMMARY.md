@@ -22,3 +22,5 @@ Input: baseline b269fb96 text (the consistency pass changes no readability). Ver
 | mid-1 | 154–164 | 155 (French pass) | 154, 156–164 | 155's only unclear paragraph is an orphaned "(The French phrase means…)" note. |
 | late-1 | 279–288 | 280, 282, 288 | 279, 281, 283–287 | 280: dense geography/names; 282: A/B/D placeholders in a letter (check source); 288: conflated forged-currency passage (also in French batch 6). |
 | mid-10 | 253–263 | 256, 258 | 253–255, 257, 259–263 | 256: the "L'russe Besuhof"/666 paragraph (keep the arithmetic, per CONVENTIONS); 258: pronoun antecedent in the husband/lover anecdote. |
+| mid-5 | 198–208 | 206, 207 (French pass) | 198–205, 208 | Seven orphaned asterisk one-liners; French pass batch 5 covers both. |
+| mid-6 | 209–219 | 209, 215, 217 | 210–214, 216, 218, 219 | 209: historiographical digression with translated-syntax rhythm; 215: one unclear "he"; 217: an unexplained August-to-September date jump (likely old-style/new-style dating in the source; check). |
