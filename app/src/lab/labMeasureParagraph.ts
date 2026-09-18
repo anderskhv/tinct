@@ -4,6 +4,8 @@ import { verseLineRanges } from './labVerseLines'
 export interface MeasurableWord {
   text: string
   emphasis?: boolean
+  /** Display-only page-edge fragment; measured, never indexed. */
+  fragment?: true
 }
 
 /**
@@ -39,8 +41,15 @@ export function labMeasureParagraphInto(
 ): HTMLElement {
   const makeWord = (index: number): HTMLElement => {
     const span = document.createElement('span')
-    span.className = 'lab-hearing-word'
     const word = words[index]
+    // The fragment carries the CSS hyphen, so it must be measured with it.
+    if (word.fragment) {
+      span.className = 'lab-word-fragment'
+      span.setAttribute('aria-hidden', 'true')
+      span.textContent = word.text
+      return span
+    }
+    span.className = 'lab-hearing-word'
     const content: Node = isLabVerseMarker(word.text)
       ? (() => {
           const marker = document.createElement('span')
@@ -77,8 +86,11 @@ export function labMeasureParagraphInto(
   // the same reason it carries verse-marker markup (see above): a paginator
   // that packs against a paragraph shape the reader never sees puts the page
   // breaks in the wrong places.
+  // Count OWNED words only: a trailing display fragment is drawn inside the
+  // last verse line, never as a line of its own.
+  const ownedCount = words.filter(word => !word.fragment).length
   const ranges = lineation
-    ? verseLineRanges(lineation.text, lineation.from, lineation.from + words.length)
+    ? verseLineRanges(lineation.text, lineation.from, lineation.from + ownedCount)
     : null
   if (!ranges) {
     p.replaceChildren(...children.map(child => child.node))
