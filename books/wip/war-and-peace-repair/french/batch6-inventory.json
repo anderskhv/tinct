@@ -3,7 +3,6 @@
  "chapters": [
   277,
   278,
-  288,
   300,
   302,
   305,
@@ -11,10 +10,7 @@
   312,
   313,
   316,
-  321,
-  322,
-  326,
-  351
+  326
  ],
  "items": [
   {
@@ -27,12 +23,6 @@
    "chapter": 278,
    "dialogue_index": 12,
    "slot_index": 13,
-   "kind": "french-kept"
-  },
-  {
-   "chapter": 288,
-   "dialogue_index": 8,
-   "slot_index": 9,
    "kind": "french-kept"
   },
   {
@@ -138,18 +128,6 @@
    "kind": "inline-bare-slot"
   },
   {
-   "chapter": 321,
-   "dialogue_index": 11,
-   "slot_index": 12,
-   "kind": "inline-bare-slot"
-  },
-  {
-   "chapter": 322,
-   "dialogue_index": 0,
-   "slot_index": 1,
-   "kind": "inline-bare-slot"
-  },
-  {
    "chapter": 326,
    "dialogue_index": 14,
    "slot_index": 15,
@@ -160,18 +138,12 @@
    "dialogue_index": 20,
    "slot_index": 21,
    "kind": "inline-bare-slot"
-  },
-  {
-   "chapter": 351,
-   "dialogue_index": 20,
-   "slot_index": 21,
-   "kind": "french-kept"
-  },
-  {
-   "chapter": 351,
-   "dialogue_index": 37,
-   "slot_index": 38,
-   "kind": "french-kept"
   }
+ ],
+ "excluded_drafted": [
+  288,
+  321,
+  322,
+  351
  ]
 }
