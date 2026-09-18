@@ -76,7 +76,7 @@ export class ChainedVoiceSessionController {
   private async request(body: unknown, signal: AbortSignal) {
     const result = await fetch(apiUrl('/api/voice-chain'), {
       method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + this.input?.authToken },
-      body: JSON.stringify(body), signal,
+      body: JSON.stringify(body), signal: AbortSignal.any([signal, AbortSignal.timeout(45000)]),
     })
     if (!result.ok) {
       const error = await result.json().catch(() => null) as any
