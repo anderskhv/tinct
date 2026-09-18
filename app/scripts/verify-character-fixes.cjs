@@ -528,6 +528,21 @@ const CASES = [
   ['confessions', 'original-en', undefined, 'hortensius', undefined, 'cf-hortensius'],
   ['confessions', 'modern-en', undefined, 'firminus', undefined, 'cf-modern-firminus'],
   ['confessions', 'modern-en', undefined, 'christ', undefined, 'cf-modern-christ'],
+  // Niels Lyhne — clickable-names pass (batch 4)
+  ['niels-lyhne', 'original-en', 1, 'lyhne-senior', undefined, 'nl-lyhne-senior'],
+  ['niels-lyhne', 'original-en', 6, 'mrs-boye', undefined, 'nl-mrs-boye-ch6'],
+  ['niels-lyhne', 'original-en', undefined, 'consul-claudi', undefined, 'nl-consul-claudi'],
+  ['niels-lyhne', 'original-en', undefined, 'berendt-claudi', undefined, 'nl-berendt-claudi'],
+  ['niels-lyhne', 'original-en', undefined, 'councillor-neergaard', undefined, 'nl-councillor-neergaard'],
+  ['niels-lyhne', 'original-en', undefined, 'mrs-neergaard', undefined, 'nl-mrs-neergaard'],
+  ['niels-lyhne', 'original-en', undefined, 'councillor-skinnerup', undefined, 'nl-councillor-skinnerup'],
+  ['niels-lyhne', 'original-en', undefined, 'madame-odero', undefined, 'nl-madame-odero'],
+  ['niels-lyhne', 'original-en', undefined, 'mikkelsen', undefined, 'nl-mikkelsen'],
+  ['niels-lyhne', 'original-en', undefined, 'mrs-refstrup', undefined, 'nl-mrs-refstrup'],
+  ['niels-lyhne', 'original-en', undefined, 'tove', undefined, 'nl-tove'],
+  ['niels-lyhne', 'original-en', undefined, 'the-konneroys', undefined, 'nl-konneroys'],
+  ['niels-lyhne', 'modern-en', undefined, 'madame-odero', undefined, 'nl-modern-madame-odero'],
+  ['niels-lyhne', 'modern-en', 1, 'lyhne-senior', undefined, 'nl-modern-lyhne-senior'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
