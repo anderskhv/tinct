@@ -156,3 +156,48 @@ candidate lists are usable.
 ## Release status
 
 All fixes on branch `claude/great-clarke-mugpy4`, not yet live.
+
+## Addendum (2026-09-18): Don Quixote, and two tooling fixes applied library-wide
+
+**Don Quixote: 24 → 104 characters** (102 modern-en). Same pipeline.
+"Pedro" (91 occurrences) split four ways after reading every one —
+Master Pedro the puppeteer, the goatherd of the Chrysostom story, Don
+Pedro de Aguilar, Pedro Alonso — with a dozen one-off "Pedro X" names
+left unbound. Corchuelo, Clara, Sancha, Maria and Amadis each had one
+unrelated occurrence excluded. Master Pedro's and the Countess Trifaldi's
+cards describe only what the reader knows at first appearance (both are
+unmasked later). Five aliases folded onto existing cards (Aldonza
+Lorenzo → Dulcinea, Alonso Quixano → Don Quixote, Antonia Quixana → the
+niece, Mari Gutierrez → Teresa Panza, Chloris → Camilla).
+
+**`prune_untappable.py`** — the "name glued to punctuation" bug had now
+surfaced in three consecutive books via browser verification, one first
+mention at a time. This tool mirrors the reader's word-trimming rules
+exactly and removes every mention no tap can resolve, re-anchoring
+`firstMention` only when the pruned mention was the earliest. Run across
+all 13 finished books it removed **385 dead taps**, several in
+pre-existing cards (Dorothea's and Maritornes's original first mentions
+in Don Quixote were dead; War and Peace had "Orlóv-Denísov" — a different
+man — bound to Denísov). It is now a standard post-step after binding.
+
+Stated limit: names inside *curly single quotes* (`‘Sancho,’`) are
+untappable today but were **kept, not pruned** — the reader trims curly
+double quotes but not U+2018/U+2019, a one-regex gap in
+`wordSelectionOffsets` (app lane). 61 such mentions across the 13 books
+come back to life when that is fixed.
+
+**`validate_package.py`** — the ad-hoc structural checks, made a tool,
+with a new cross-character overlap check. It immediately caught a round-3
+bug: bare `PAGE` had been bound inside every `MISTRESS PAGE` span in
+Merry Wives (13 original-en, all 120 of her speaker labels in
+modern-en), so tapping "PAGE" on her lines resolved to her husband under
+the narrowest-match rule. Fixed, and every binder (`add_entity`,
+`add_aliases`, `add_histories_helpers`, `bind_speaker_labels`) now skips
+any match overlapping another character's span, not just exact-span
+collisions.
+
+Real-browser suite after all of the above: **222/222 passed**, every
+earlier check re-run against the pruned data.
+
+Running total: **317 new characters across 5 books**, 13 homonym groups
+disambiguated, 385 dead taps removed library-wide.
