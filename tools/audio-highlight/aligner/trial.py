@@ -25,6 +25,11 @@ def tree_hash(path):return hashlib.sha256(json.dumps([(str(p.relative_to(path)),
 def restore_source_tokens(aligned,source_expected,acoustic_expected):
  if len(aligned)!=len(acoustic_expected):
   raise ValueError(f'source/acoustic token mapping changed: source={len(source_expected)} acoustic={len(acoustic_expected)} aligned={len(aligned)}')
+ # A whole paragraph can be acoustic-empty (v6 heading-only lines, or a
+ # paragraph that is only stripped markup). Prefixes of a heading are not
+ # themselves headings, so the incremental clean_text map cannot run.
+ if not acoustic_expected:
+  return [dict(text=token,start=0.0,end=0.0) for token in source_expected]
  # Prove a monotonic zero-or-one mapping from every exact source token to the
  # cleaned acoustic stream. A zero delta is allowed only for source markup
  # clean_text deliberately removes (for example standalone verse superscripts).
