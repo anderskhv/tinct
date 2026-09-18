@@ -11,6 +11,7 @@ import {
   VoiceReconnectIcon,
 } from './LabVoiceIcons'
 import { VoiceOrb } from './VoiceOrb'
+import { useDraggableSurface } from './useDraggableSurface'
 
 /**
  * The desktop voice surface. The conversation lives in the companion panel:
@@ -217,9 +218,15 @@ export function LabVoicePill({
 }: LabVoicePillProps) {
   const motion = reducedMotion ? 'still' : view.motion
   const line = labCallCaption(view, labCallUtterance(turns))
+  // The call keeps running wherever the pill sits, so where it sits is the
+  // reader's business: drag it off the passage being discussed and it stays
+  // there, on this device, across calls.
+  const drag = useDraggableSurface<HTMLDivElement>('tinct-lab-voice-pill-position')
   return (
     <div
-      className={`lab-voice-pill is-${view.status}`}
+      ref={drag.ref}
+      style={drag.style}
+      className={`lab-voice-pill is-${view.status}${drag.dragging ? ' is-dragging' : ''}`}
       data-testid="lab-voice-pill"
       data-status={view.status}
       data-connection={view.connected ? 'connected' : view.showReconnect ? 'lost' : 'connecting'}
