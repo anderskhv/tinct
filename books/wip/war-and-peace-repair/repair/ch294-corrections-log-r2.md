@@ -1,0 +1,6 @@
+Model: editor (Claude, main session) — round two on ch294-corrected.json
+
+## 5
+Before: On October tenth, when Dokhturov had gone halfway to Forminsk and stopped at the village of Aristovo, faithfully preparing to carry out his orders, the entire French army—having reached Murat's position as if to give battle—suddenly, for no reason, veered left onto the new Kaluga road and began to enter Forminsk, where previously only Broussier had been. At that point, Dokhturov had under his command, besides Dorokhov's detachment, the two small guerrilla bands of Figner and Seslavin.
+After: On October tenth, when Dokhturov had gone halfway to Forminsk and stopped at the village of Aristovo, faithfully preparing to carry out his orders, the entire French army—having, in its convulsive movement, reached Murat's position as if to give battle—suddenly, for no reason, veered left onto the new Kaluga road and began to enter Forminsk, where previously only Broussier had been. At that point, Dokhturov had under his command, besides Dorokhov's detachment, the two small guerrilla bands of Figner and Seslavin.
+Finding: round-one verification: the p5 fix dropped the source's "in its convulsive movement". Restored in the source's position; nothing else changed.

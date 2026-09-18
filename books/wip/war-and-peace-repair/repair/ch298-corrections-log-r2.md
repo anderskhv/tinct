@@ -1,0 +1,6 @@
+Model: editor (Claude, main session) — round two on ch298-corrected.json
+
+## 1
+Before: For the French during their advance, the promised land had been Moscow. During their retreat, it was their homeland. But their homeland was too far away, and for someone traveling a thousand miles, it's absolutely necessary to set aside the final goal and say to himself: 'Today I'll reach a place twenty-five miles ahead, where I'll rest and spend the night.' And during that first day's journey, the resting place eclipses the ultimate destination and draws all your hopes and desires. The impulses felt by a single person are always magnified in a crowd.
+After: For the French during their advance, the promised land had been Moscow. During their retreat, it was their homeland. But their homeland was too far away, and for someone traveling a thousand miles, it's absolutely necessary to set aside the final goal and say to himself: 'Today I'll reach a place twenty-five miles ahead, where I'll rest and spend the night.' And during that first day's journey, the resting place eclipses the ultimate destination and draws all his hopes and desires. The impulses felt by a single person are always magnified in a crowd.
+Finding: round-one verification MINOR: the person fix was half done ("say to himself" but "your hopes"); the source has "his hopes and desires". Nothing else changed.
