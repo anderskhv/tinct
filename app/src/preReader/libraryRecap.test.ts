@@ -7,6 +7,7 @@ import {
   catalogueBookIdForPlace,
   compactChapterTitle,
   continueTargetFor,
+  heroAside,
   heroHeadline,
   inProgressLabel,
   libraryModeFor,
@@ -299,4 +300,25 @@ it('includes finished books whose old reading sessions and positions are absent'
   const list = readingList({ memory: emptyReadingMemory(), viewer: null, positions: null, books, completedBookIds: new Set(['hamlet']) })
   expect(list.finished.map(book => book.bookId)).toEqual(['hamlet'])
   expect(list.readingNow).toEqual([])
+})
+
+describe('heroAside', () => {
+  const target = (chapterNumber: number, chapterLabel: string) => ({ target: { chapterNumber, chapterLabel } })
+
+  it('names the chapter the label compacts away, then the author', () => {
+    const book = { author: 'Herman Melville', readingStructure: { chapters: [{ number: 1, title: 'Chapter 1 — Loomings' }, { number: 2, title: 'Chapter 2 — The Carpet-Bag' }] } }
+    expect(heroAside(target(1, 'Chapter 1'), book)).toBe('Loomings · Herman Melville')
+    expect(heroAside(target(2, 'Chapter 2'), book)).toBe('The Carpet-Bag · Herman Melville')
+  })
+
+  it('falls back to the author and the chapter count when chapters have no name of their own', () => {
+    const chapters = Array.from({ length: 1189 }, (_, index) => ({ number: index + 1, title: index === 0 ? 'Genesis 1' : `Chapter ${index + 1}` }))
+    expect(heroAside(target(1, 'Genesis 1'), { author: 'Various', readingStructure: { chapters } })).toBe('Various · 1,189 chapters')
+  })
+
+  it('says nothing it cannot back up: no book, no author, a single chapter', () => {
+    expect(heroAside(target(1, 'Chapter 1'), undefined)).toBe('')
+    expect(heroAside(target(1, 'Chapter 1'), { author: '', readingStructure: { chapters: [{ number: 1, title: 'Chapter 1' }] } })).toBe('')
+    expect(heroAside(target(3, 'Book 3'), { author: 'Homer', readingStructure: null })).toBe('Homer')
+  })
 })

@@ -979,18 +979,50 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   /* The featured blurb is the only thing in this caption whose height varies
      with the book, so it is the only reason the shelf below it used to jump as
      you moved along the covers. Measured against all 101 live descriptions at
-     320pt: they run 4 to 13 lines, so "reserve the tallest" is not a fixed
-     pixel value anyone can eyeball -- it is this clamp. The block is now
-     exactly --lib-feat-lines tall whatever the book, and the clamp is also the
-     guard: a future description longer than the budget is cut instead of
-     pushing the page around. Lower the number to tighten the block; anything
-     below 8 starts truncating today's copy (see the note in BACKLOG.md). */
-  #tinct-onboarding-worlds-v5 .lib-caption { --lib-feat-lines:8; display:flex; flex-direction:column; gap:10px; min-height:176px; }
+     320pt they run 4 to 13 lines, so the block reserves a fixed budget instead:
+     a five-line preview (owner decision, 2026-09-18) and, under it, one
+     affordance row that is always laid out. A description that fits the five
+     lines leaves that row empty; one that does not gets an Expand control in
+     it. Either way the block is exactly the same height for every book, and
+     only the reader's own tap on Expand ever changes it. Lower or raise
+     --lib-feat-lines to change the preview; nothing else needs to move. */
+  #tinct-onboarding-worlds-v5 .lib-caption { --lib-feat-lines:5; --lib-feat-lh:1.4; display:flex; flex-direction:column; gap:10px; min-height:176px; }
   /* Selector carries .lib .lib-caption .lib-lede so it out-specifies
      library-glass.css / entry-responsive.css, which set the lede back to
      display:block, overflow:visible and line-clamp:unset. Line-height is set
      here too, so the reserved height and the clamp count the same lines. */
-  #tinct-onboarding-worlds-v5 .lib .lib-caption .lib-lede[data-popular-blurb] { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--lib-feat-lines); overflow:hidden; line-height:1.4; height:calc(var(--lib-feat-lines) * 1.4em); }
+  #tinct-onboarding-worlds-v5 .lib .lib-caption .lib-lede[data-popular-blurb] { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--lib-feat-lines); overflow:hidden; line-height:var(--lib-feat-lh); height:calc(var(--lib-feat-lines) * var(--lib-feat-lh) * 1em); }
+  #tinct-onboarding-worlds-v5 .lib .lib-caption .lib-lede[data-popular-blurb].is-open { -webkit-line-clamp:unset; height:auto; }
+  /* The title is the other line in this caption whose count depends on the
+     book: "The Strange Case of Dr Jekyll and Mr Hyde" wraps where "Hamlet"
+     does not. It is one line for every book: catalogue-runtime.js steps the
+     font size down for a title that would wrap (fitFeaturedTitle), and the
+     box is one line tall so nothing under it can move. */
+  #tinct-onboarding-worlds-v5 .lib .lib-caption .lib-h1[data-popular-title] { display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:100%; line-height:1.2; height:1.2em; min-height:0; text-wrap:nowrap; }
+  #tinct-onboarding-worlds-v5 .lib .lib-caption .lib-h1[data-popular-title] .lib-h1-fit { display:inline; vertical-align:baseline; }
+  /* A phone's height budget is the tightest: the first shelf of the library
+     must still show under the featured block, so the preview sits a touch
+     closer than the desktop measure. */
+  @media (max-width:600px) {
+    #tinct-onboarding-worlds-v5 .lib .lib-caption { --lib-feat-lh:1.32; }
+  }
+  /* The affordance row under the preview: the same row whether it says
+     Expand, Collapse or nothing, so a short description costs the block no
+     height. Empty, it is not a control. */
+  #tinct-onboarding-worlds-v5 .lib .lib-caption .lib-blurb-more { display:block; flex:none; min-height:18px; margin:-4px 0 0; padding:0; border:0; background:none; font-family:var(--lib-sans); font-size:13px; line-height:18px; letter-spacing:0; text-transform:none; text-decoration:underline; text-underline-offset:3px; color:var(--lib-muted); cursor:pointer; }
+  #tinct-onboarding-worlds-v5 .lib .lib-caption .lib-blurb-more:hover { color:var(--lib-cream); }
+  #tinct-onboarding-worlds-v5 .lib .lib-caption .lib-blurb-more[disabled] { cursor:default; text-decoration:none; }
+  /* A short, wide viewport (a tablet held sideways) keeps the first shelf
+     of the library in view under the featured block: a tighter top rhythm
+     and a slightly tighter preview, nothing else. */
+  @media (min-width:601px) and (max-height:760px) {
+    /* Doubled classes: the linked sheets (entry-responsive.css) set these
+       at the same specificity and load later. */
+    #tinct-onboarding-worlds-v5 .lib .lib-main.lib-main { gap:12px; }
+    #tinct-onboarding-worlds-v5 .lib .lib-caption.lib-caption { --lib-feat-lh:1.28; padding-top:0; }
+    #tinct-onboarding-worlds-v5 .lib .lib-caption .lib-lede.lib-lede[data-popular-blurb] { font-size:15px; }
+    #tinct-onboarding-worlds-v5 .lib .lib-browse-label.lib-browse-label { padding-top:10px; margin-bottom:10px; }
+  }
   #tinct-onboarding-worlds-v5 .lib-caption:empty { display:none; }
   /* The action above the row is the page's headline; the focused book's name
      is its subject, one step down. */
@@ -1092,11 +1124,11 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   /* The collapsed preview always occupies three lines and an affordance row.
      Empty, loading and unavailable recaps retain identical geometry. */
   #tinct-onboarding-worlds-v5 .lib-recap-summary { --lib-recap-lines:3; display:flex; flex-direction:column; align-items:flex-start; gap:4px; width:100%; margin:0; padding:0; border:0; background:none; text-align:left; font-family:inherit; color:var(--lib-lede); max-width:52ch; }
-  /* No "so far" line means no block. It used to stay laid out but invisible so
-     the Continue button below it would not jump between books; Continue now
-     sits above it, so nothing above can move and the caption simply ends after
-     the button instead of trailing three blank lines -- the empty hero that
-     looked broken on a phone. */
+  /* The block is always laid out, recap or not (owner decision, 2026-09-18):
+     until a recap exists it shows the aside -- the chapter's name and the
+     author -- in the muted voice, so the card is the same height for every
+     book and never empty. A recap replaces the aside in place. */
+  #tinct-onboarding-worlds-v5 .lib-recap-summary.is-fallback .lib-recap-summary-text { opacity:1; color:var(--lib-muted); }
   #tinct-onboarding-worlds-v5 .lib-recap-summary[hidden] { display:none!important; }
   #tinct-onboarding-worlds-v5 .lib-recap-summary-text { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--lib-recap-lines); overflow:hidden; width:100%; height:calc(var(--lib-recap-lines) * 1.5em); font-size:16.5px; line-height:1.5; color:var(--lib-lede); opacity:0; transition:opacity .28s ease,height .3s cubic-bezier(.2,.7,.2,1); }
   #tinct-onboarding-worlds-v5 .lib-recap-summary.is-shown .lib-recap-summary-text { opacity:1; }
@@ -1136,8 +1168,6 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .lib-h1 { font-size:56px; }
     #tinct-onboarding-worlds-v5 .lib-caption .lib-h1 { font-size:34px; }
     #tinct-onboarding-worlds-v5 .lib-lede { font-size:22px; max-width:680px; }
-    /* Wider measure, so the same copy needs fewer lines: 6 holds all but one. */
-    #tinct-onboarding-worlds-v5 .lib-caption { --lib-feat-lines:6; }
     #tinct-onboarding-worlds-v5 .lib-cell-t { font-size:15px; }
     #tinct-onboarding-worlds-v5 .lib-cell-a { font-size:13px; }
     #tinct-onboarding-worlds-v5 .lib-search { gap:16px; padding:22px 0; }

@@ -394,7 +394,12 @@ export function SelectionPopup({
           {/* Same markup as the compact palette, so opening a note does not
               resize or shift the dots: the row stays put and the note grows
               out beneath it. */}
-          {contextualExplain && <div className="popup-highlight-palette" aria-label="Highlight colour">{HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => { onColorClick(c.key); setLastColor(c.key) }} />)}</div>}
+          {contextualExplain && <div className="popup-highlight-palette" aria-label="Highlight colour">{HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => { onColorClick(c.key); setLastColor(c.key) }} />)}
+            {/* The same "+" the palette carries, so the row is the same width
+                and the pill does not narrow or re-centre; pressed, it folds
+                the note away again. */}
+            <button type="button" className="popup-add-note is-pressed" aria-label="Close note" aria-pressed="true" onClick={() => { setNoteInput(selection.existingNote || ''); setPopupMode(homeMode) }}>+</button>
+          </div>}
           <div className={contextualExplain ? 'popup-note-body' : undefined}>
             <textarea
               className="popup-textarea"

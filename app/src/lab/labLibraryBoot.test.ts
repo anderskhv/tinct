@@ -23,7 +23,7 @@ function snapshot(over: Partial<LabLibraryBootSnapshot> = {}): LabLibraryBootSna
     userId: 'user-a',
     readingNow: 2,
     finished: 1,
-    hero: { bookId: 'bible', title: 'The Bible', chapterLabel: 'Proverbs 17', headline: '“Better is a dry morsel…”', coverSrc: '/covers/bible.jpg', coverSrcSet: '/covers/bible.jpg 1x', note: '12% read' },
+    hero: { bookId: 'bible', title: 'The Bible', chapterLabel: 'Proverbs 17', headline: '“Better is a dry morsel…”', coverSrc: '/covers/bible.jpg', coverSrcSet: '/covers/bible.jpg 1x', note: '12% read', aside: 'Various · 1,189 chapters' },
     row: [{ bookId: 'odyssey', title: 'The Odyssey', coverSrc: '/covers/odyssey.jpg', coverSrcSet: null }],
     ...over,
   }
@@ -75,7 +75,7 @@ describe('boot snapshot', () => {
     expect(same.at).toBe(NOW)
 
     const moved = snapshotWithReaderPlace(snapshot(), { userId: 'user-a', bookId: 'bible', title: 'The Bible', chapterLabel: 'Hebrews 3', now: NOW })
-    expect(moved.hero).toEqual({ bookId: 'bible', title: 'The Bible', chapterLabel: 'Hebrews 3', headline: 'You stopped in Hebrews 3', lastReadAt: NOW, coverSrc: '/covers/bible.jpg', coverSrcSet: '/covers/bible.jpg 1x', note: null })
+    expect(moved.hero).toEqual({ bookId: 'bible', title: 'The Bible', chapterLabel: 'Hebrews 3', headline: 'You stopped in Hebrews 3', lastReadAt: NOW, coverSrc: '/covers/bible.jpg', coverSrcSet: '/covers/bible.jpg 1x', note: null, aside: null })
     expect(moved.readingNow).toBe(2)
 
     // A book that was on the row steps up: its cover comes with it, the old

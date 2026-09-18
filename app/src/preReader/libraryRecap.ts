@@ -420,6 +420,38 @@ export function heroHeadline(row: Pick<ReadingListRow, 'target' | 'progress'>): 
   return positionLine(row.progress, row.target.chapterLabel)
 }
 
+/**
+ * The line the hero's "so far" block shows until a recap exists (owner
+ * decision, 2026-09-18: the block keeps its size whether or not a recap
+ * was generated, so it is never empty). Zero cost: built from the catalogue
+ * the library already holds, never from chapter text. It says what the rest
+ * of the caption does not: the chapter's own name when the label compacts
+ * it away ("Chapter 1 — Loomings" is labelled "Chapter 1"), the author, and
+ * for books whose chapters have no name, how many there are.
+ */
+export function heroAside(
+  row: { target: Pick<ContinueTarget, 'chapterNumber' | 'chapterLabel'> },
+  book: { author?: string | null; readingStructure?: { chapters?: Array<{ number: number; title: string }> } | null } | null | undefined,
+): string {
+  const chapters = book?.readingStructure?.chapters ?? []
+  const chapter = chapters.find(candidate => candidate.number === row.target.chapterNumber)
+  const descriptor = chapterDescriptor(chapter?.title, row.target.chapterLabel)
+  const author = String(book?.author ?? '').trim()
+  const parts: string[] = []
+  if (descriptor) parts.push(descriptor)
+  if (author) parts.push(author)
+  if (!descriptor && chapters.length > 1) parts.push(`${chapters.length.toLocaleString('en-US')} chapters`)
+  return parts.join(' · ')
+}
+
+/** "Chapter 1 — Loomings" → "Loomings"; nothing when the title is only its label. */
+function chapterDescriptor(title: string | null | undefined, label: string): string {
+  if (!title) return ''
+  const rest = String(title).split(/\s+[—–-]\s+/).slice(1).join(' — ').trim()
+  if (!rest || rest === label.trim()) return ''
+  return rest
+}
+
 /** Label under an in-progress row: "Last time · Book 1". */
 export function inProgressLabel(row: { target: Pick<ContinueTarget, 'chapterLabel'> }): string {
   return `Last time · ${row.target.chapterLabel}`

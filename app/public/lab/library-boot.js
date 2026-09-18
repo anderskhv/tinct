@@ -163,7 +163,7 @@
       var h = raw.hero
       var bookId = str(h.bookId, 80), title = str(h.title, 200), chapterLabel = str(h.chapterLabel, 200), headline = str(h.headline, 600)
       if (!bookId || !title || !chapterLabel || !headline) return null
-      hero = { bookId: bookId, title: title, chapterLabel: chapterLabel, headline: headline, lastReadAt: h.lastReadAt, coverSrc: safeSrc(h.coverSrc), coverSrcSet: safeSrc(h.coverSrc) ? str(h.coverSrcSet, 4000) : null, note: str(h.note, 40) }
+      hero = { bookId: bookId, title: title, chapterLabel: chapterLabel, headline: headline, lastReadAt: h.lastReadAt, coverSrc: safeSrc(h.coverSrc), coverSrcSet: safeSrc(h.coverSrc) ? str(h.coverSrcSet, 4000) : null, note: str(h.note, 40), aside: str(h.aside, 200) }
     }
     var count = function (v) { return typeof v === 'number' && v >= 0 && v <= 10000 ? Math.floor(v) : 0 }
     // The cards after the hero (src/lab/labLibraryBoot.ts `row`): same
@@ -267,14 +267,19 @@
     }
     return cover
   }
-  /** The same element the confirmed render builds, with no text in it yet. */
-  function summaryBlock() {
-    var block = el('button', 'lib-recap-summary')
-    block.hidden = true
+  /**
+   * The same element the confirmed render builds: always laid out at the
+   * same size, carrying the aside (chapter name, author) until a recap
+   * replaces it. The skeleton paints it with no text; the geometry is the
+   * same either way.
+   */
+  function summaryBlock(aside) {
+    var block = el('button', 'lib-recap-summary is-fallback')
     block.type = 'button'
     block.disabled = true
+    block.setAttribute('data-summary-kind', 'fallback')
     block.setAttribute('data-expandable', 'false')
-    block.appendChild(el('span', 'lib-recap-summary-text'))
+    block.appendChild(el('span', 'lib-recap-summary-text', aside || ''))
     var more = el('span', 'lib-recap-summary-more')
     more.setAttribute('aria-hidden', 'true')
     block.appendChild(more)
@@ -351,7 +356,7 @@
       cta.appendChild(button)
       if (hero.note) cta.appendChild(el('span', 'lib-cta-note', hero.note))
       caption.appendChild(cta)
-      caption.appendChild(summaryBlock())
+      caption.appendChild(summaryBlock(hero.aside))
     } else {
       section.setAttribute('data-boot-recap', 'skeleton')
       section.setAttribute('aria-busy', 'true')
@@ -367,7 +372,7 @@
       skButton.setAttribute('data-recap-continue', '')
       skCta.appendChild(skButton)
       caption.appendChild(skCta)
-      caption.appendChild(summaryBlock())
+      caption.appendChild(summaryBlock(''))
     }
     wrap.appendChild(caption)
     section.appendChild(wrap)

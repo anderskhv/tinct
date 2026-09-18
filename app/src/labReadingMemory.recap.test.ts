@@ -219,18 +219,24 @@ describe('recap hero: a short absence is not summarised', () => {
     expect(section.dataset.book).toBe('bible')
     expect(section.querySelector('[data-testid=lab-recap-headline]')!.textContent).toBe('You’re in the middle of Proverbs 17')
     // The book's title leads the caption; it is not a stray line under the summary.
-    // Continue sits above the summary, so a book with no "so far" line ends the
-    // caption at the button instead of trailing reserved blank lines.
+    // Continue sits above the summary block, which is always the last thing in
+    // the caption and always the same size, recap or not.
     expect([...section.querySelectorAll('[data-now-caption] > *')].map(node => node.getAttribute('data-testid') ?? node.className.split(' ')[0]))
       .toEqual(['lab-recap-book', 'lab-recap-headline', 'lab-recap-eyebrow', 'lib-now-cta', 'lab-recap-summary'])
     expect(section.querySelector('[data-testid=lab-recap-book]')!.textContent).toBe('The Bible')
     expect(section.dataset.summaryLine).toBe('recent')
     expect(recapCalls).toEqual([])
-    // An optional recap with no text must not reserve blank space.
+    // No recap: the block keeps its place and its size, carrying the aside
+    // (author, chapter count — nothing the caption already says) and is not
+    // a control.
     const line = section.querySelector<HTMLElement>('[data-testid=lab-recap-summary]')!
     expect(line.classList.contains('is-shown')).toBe(false)
-    expect(line.hidden).toBe(true)
-    expect(line.textContent).toBe('')
+    expect(line.classList.contains('is-fallback')).toBe(true)
+    expect(line.dataset.summaryKind).toBe('fallback')
+    expect(line.hidden).toBe(false)
+    expect(line.querySelector('.lib-recap-summary-text')!.textContent).toBe('Various · 4 chapters')
+    expect(line.querySelector('.lib-recap-summary-more')!.textContent).toBe('')
+    expect((line as HTMLButtonElement).disabled).toBe(true)
   })
 
   it('asks for the summary and shows it three hours after reading', async () => {
@@ -249,8 +255,11 @@ describe('recap hero: a short absence is not summarised', () => {
     expect(['fresh', 'cached']).toContain(section.dataset.summaryLine)
     const line = section.querySelector<HTMLElement>('[data-testid=lab-recap-summary]')!
     expect(line.classList.contains('is-shown')).toBe(true)
+    expect(line.classList.contains('is-fallback')).toBe(false)
+    expect(line.dataset.summaryKind).toBe('summary')
     expect(line.hidden).toBe(false)
     expect(line.textContent).toContain('So far in bible 645.')
+    expect(line.textContent).not.toContain('Various')
   })
 
   it('still shows a summary the device already cached for that exact place, without a request', async () => {
@@ -297,9 +306,12 @@ describe('back out of the book\u2019s own reader', () => {
       .toBe('You\u2019re in the middle of Proverbs 17')
     expect(section.dataset.summaryLine).toBe('from-reader')
     expect(recapCalls).toEqual([])
-    // No recap is generated or shown, but its reserved empty slot remains
-    // identical to the first paint and to books with a cached recap.
-    expect(section.querySelector<HTMLButtonElement>('[data-testid=lab-recap-summary]')?.hidden).toBe(true)
+    // No recap is generated or shown; the block keeps the aside, the same
+    // size as the first paint and as a book with a cached recap.
+    const block = section.querySelector<HTMLButtonElement>('[data-testid=lab-recap-summary]')!
+    expect(block.hidden).toBe(false)
+    expect(block.dataset.summaryKind).toBe('fallback')
+    expect(block.querySelector('.lib-recap-summary-text')!.textContent).toBe('Various · 4 chapters')
   })
 
   it('does not even show a summary this device already cached for that place', async () => {
@@ -313,7 +325,8 @@ describe('back out of the book\u2019s own reader', () => {
       positionState([biblePlace(ago(3 * DAY))], 'proverbs'),
     )
     expect(section.dataset.summaryLine).toBe('from-reader')
-    expect(section.querySelector<HTMLButtonElement>('[data-testid=lab-recap-summary]')?.hidden).toBe(true)
+    expect(section.querySelector<HTMLButtonElement>('[data-testid=lab-recap-summary]')?.dataset.summaryKind).toBe('fallback')
+    expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent).not.toContain('Cached line')
     expect(recapCalls).toEqual([])
   })
 
