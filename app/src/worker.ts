@@ -1,3 +1,4 @@
+import { handleVoiceChain } from './worker/routes/voiceChain'
 import { handleVoiceResearch } from './worker/routes/voiceResearch'
 /**
  * Cloudflare Worker entry point.
@@ -158,6 +159,7 @@ export default {
       case '/api/chat': return handleChat(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/lab-chat': return handleLabChat(request, env, ctx, checkRateLimit)
       case '/api/voice-research': return handleVoiceResearch(request, env, verifyUser, checkRateLimit)
+      case '/api/voice-chain': return handleVoiceChain(request, env, verifySiteAdmin, checkRateLimit)
       case '/api/voice-lab': return jsonResponse({ allowed: await verifySiteAdmin(env, request) }, 200, request)
       case '/api/voice-session': return handleVoiceSession(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/lab-voice-session': return handleLabVoiceSession(request, env, ctx, checkRateLimit)
