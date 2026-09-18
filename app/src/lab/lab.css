@@ -2290,6 +2290,27 @@
   text-indent: -1.5em;
 }
 
+/* The opening of the NEXT page's word, shown so a page's last line fills
+   instead of stopping short. It is decoration, and deliberately invisible to
+   everything that reads text: the hyphen is generated content, so it is not in
+   `textContent` and is not copied; the fragment is unselectable, so a copy, a
+   selection offset or a saved highlight can never contain half a word; and it
+   is aria-hidden, so assistive technology hears the word once, whole, on the
+   page that owns it. */
+/* `.lab .has-text-range-highlights *` makes the whole passage selectable so
+   WebKit will paint custom highlights, and it out-specifies a bare class. The
+   fragment has to beat it, or a select-all picks up half a word. */
+.lab-word-fragment,
+.lab .lab-word-fragment,
+.lab .has-text-range-highlights .lab-word-fragment {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.lab-word-fragment::after {
+  content: '\2010';
+}
+
 .lab-verse-mark {
   font-size: 0.58em;
   vertical-align: super;

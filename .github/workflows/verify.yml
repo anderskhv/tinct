@@ -45,6 +45,9 @@ jobs:
         run: npx playwright install --with-deps chromium webkit
       - name: Verify library and preparation
         run: node scripts/check-library-layout.mjs
+      - name: Verify hyphenation hardening
+        if: ${{ !cancelled() }}
+        run: node scripts/check-hyphenation-hardening.mjs
       - name: Verify responsive landing and library
         if: ${{ !cancelled() }}
         run: node scripts/check-entry-responsive.mjs
@@ -55,6 +58,7 @@ jobs:
           path: |
             app/artifacts/library-layout
             app/artifacts/entry-responsive
+            app/artifacts/hyphenation-hardening
 
   reading-benchmark:
     runs-on: ubuntu-latest

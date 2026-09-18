@@ -76,3 +76,14 @@ reader location at connection, explicitly suppresses fillers and retains the
 original turn identity of late backend continuations. Release status and the
 limits of managed Live speech steering are recorded in
 [the voice follow-up plan](voice-sol-light-2026-09-18.md).
+
+## Page-edge hyphenation — September 18
+
+Measured reader pages may fill their final line with the opening of an English
+or Danish word and a discretionary hyphen. The fragment is display-only: the
+next page owns the complete logical word for position, selection, accessibility
+and audiobook follow. Language patterns load on demand, edition switches cancel
+stale layout work, and the reader preserves its logical position through
+repagination, page turns and reload. Candidate and production checks run in
+muted headless desktop and phone browsers. See the
+[hyphenation hardening release plan](hyphenation-hardening-2026-09-18.md).
