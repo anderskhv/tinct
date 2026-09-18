@@ -41,6 +41,11 @@ def process(book):
         data = json.loads(ed_path.read_bytes())
         paras = {(c['number'], pi): normalized(p) for c in data['chapters'] for pi, p in enumerate(c['paragraphs'])}
         existing_spans = {(m['chapterNumber'], m['paragraphIndex'], m['startOffset'], m['endOffset']) for m in ed['mentions']}
+        # Overlap index (not just exact spans): a label like "PAGE" must not be
+        # bound inside an existing "MISTRESS PAGE" span of another character.
+        taken = {}
+        for (chn, pi, a, b) in existing_spans:
+            taken.setdefault((chn, pi), []).append((a, b))
 
         # Longest display name first, so e.g. a two-word "PRINCE HAMLET" (if any)
         # would claim before a one-word "HAMLET" -- avoids double-claiming.
@@ -56,9 +61,10 @@ def process(book):
             for (chn, pi), text in paras.items():
                 for m in pat.finditer(text):
                     key = (chn, pi, u16(text[:m.start()]), u16(text[:m.end()]))
-                    if key in existing_spans:
+                    if key in existing_spans or any(key[2] < b and key[3] > a for a, b in taken.get((chn, pi), [])):
                         continue
                     existing_spans.add(key)
+                    taken.setdefault((chn, pi), []).append((key[2], key[3]))
                     new_mentions.append({'chapterNumber': chn, 'paragraphIndex': pi,
                                           'startOffset': key[2], 'endOffset': key[3],
                                           'text': m.group(), 'characterId': c['id'],

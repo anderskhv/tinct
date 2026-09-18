@@ -131,6 +131,22 @@ const CASES = [
   ['moby-dick', 'original-en', undefined, 'radney', undefined, 'md-radney-new'],
   ['moby-dick', 'original-en', undefined, 'captain-gardiner', undefined, 'md-captain-gardiner-new'],
   ['moby-dick', 'original-en', undefined, 'dr-bunger', undefined, 'md-dr-bunger-new'],
+  // don-quixote: new characters, the Pedro/Corchuelo/Clara/Sancha splits,
+  // aliases folded onto existing cards, and one modern-en spelling rebind.
+  ['don-quixote', 'original-en', undefined, 'master-pedro', 'Master Pedro', 'dq-master-pedro'],
+  ['don-quixote', 'original-en', undefined, 'pedro-goatherd', 'Pedro', 'dq-pedro-goatherd'],
+  ['don-quixote', 'original-en', undefined, 'corchuelo-bachelor', 'Corchuelo', 'dq-corchuelo-bachelor'],
+  ['don-quixote', 'original-en', undefined, 'lorenzo-corchuelo', 'Lorenzo Corchuelo', 'dq-lorenzo-corchuelo'],
+  ['don-quixote', 'original-en', undefined, 'dona-clara', undefined, 'dq-dona-clara'],
+  ['don-quixote', 'original-en', undefined, 'sanchica', undefined, 'dq-sanchica'],
+  ['don-quixote', 'original-en', undefined, 'cide-hamete-benengeli', undefined, 'dq-cide-hamete'],
+  ['don-quixote', 'original-en', undefined, 'amadis-of-gaul', undefined, 'dq-amadis'],
+  ['don-quixote', 'original-en', undefined, 'dulcinea', 'Dulcinea', 'dq-aldonza-alias'],
+  ['don-quixote', 'original-en', undefined, 'teresa-panza', 'Teresa Panza', 'dq-mari-gutierrez-alias'],
+  ['don-quixote', 'original-en', undefined, 'zoraida', undefined, 'dq-zoraida'],
+  ['don-quixote', 'original-en', undefined, 'ricote', undefined, 'dq-ricote'],
+  ['don-quixote', 'modern-en', undefined, 'dapple', undefined, 'dq-modern-dapple'],
+  ['divine-comedy', 'modern-en', undefined, 'branca-doria', undefined, 'dc-modern-doria-rebind'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {

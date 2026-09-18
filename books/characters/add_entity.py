@@ -78,8 +78,28 @@ def add_entity(book, eid, name, subtitle, body, role, kind, aliases, editions=('
                 assert mentions, f'no matches for {eid} in {ek}'
             print(book, ek, eid, 'WARNING: no matches, skipping this edition (aliases may not match this translation\'s spelling)')
             continue
-        collisions = [m for m in mentions if (m['chapterNumber'], m['paragraphIndex'], m['startOffset'], m['endOffset']) in existing_spans]
-        assert not collisions, f'{eid} in {ek} collides with existing mentions: {collisions[:3]}'
+        # Skip any match that overlaps an existing mention of ANOTHER character
+        # (not just exact-span collisions): a bare "PAGE" bound inside an
+        # existing "MISTRESS PAGE" made the reader's narrowest-match rule
+        # resolve her lines to her husband (merry-wives-of-windsor, caught by
+        # validate_package.py's cross-id overlap check).
+        by_para = {}
+        for (chn, pi, a, b) in existing_spans:
+            by_para.setdefault((chn, pi), []).append((a, b))
+        clean = []
+        skipped = 0
+        for m in mentions:
+            spans = by_para.get((m['chapterNumber'], m['paragraphIndex']), [])
+            if any(m['startOffset'] < b and m['endOffset'] > a for a, b in spans):
+                skipped += 1
+            else:
+                clean.append(m)
+        if skipped:
+            print(book, ek, eid, f'skipped {skipped} match(es) overlapping existing mentions of other characters')
+        mentions = clean
+        if not mentions:
+            print(book, ek, eid, 'WARNING: every match overlapped an existing mention; nothing added for this edition')
+            continue
         for m in mentions:
             m['characterId'] = eid
         first = mentions[0]

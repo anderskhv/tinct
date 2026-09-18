@@ -71,8 +71,17 @@ def add_entity_excluding(book, eid, name, subtitle, body, role, kind, aliases,
                 assert mentions, f'no matches for {eid} in {ek}'
             print(book, ek, eid, 'WARNING: no matches, skipping this edition')
             continue
-        collisions = [m for m in mentions if (m['chapterNumber'], m['paragraphIndex'], m['startOffset'], m['endOffset']) in existing_spans]
-        assert not collisions, f'{eid} in {ek} collides with existing mentions: {collisions[:3]}'
+        by_para = {}
+        for (chn, pi, a, b) in existing_spans:
+            by_para.setdefault((chn, pi), []).append((a, b))
+        clean = [m for m in mentions if not any(m['startOffset'] < b and m['endOffset'] > a
+                                                 for a, b in by_para.get((m['chapterNumber'], m['paragraphIndex']), []))]
+        if len(clean) != len(mentions):
+            print(book, ek, eid, f'skipped {len(mentions) - len(clean)} match(es) overlapping existing mentions of other characters')
+        mentions = clean
+        if not mentions:
+            print(book, ek, eid, 'WARNING: every match overlapped an existing mention; nothing added for this edition')
+            continue
         for m in mentions:
             m['characterId'] = eid
         first = mentions[0]

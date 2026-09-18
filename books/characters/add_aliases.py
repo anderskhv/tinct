@@ -44,6 +44,11 @@ def mention_end_point(m):
 def bind_new_spans(edition_json_path, existing_spans, aliases):
     data = json.loads(edition_json_path.read_bytes())
     patterns = [re.compile(r'(?<!\w)' + re.escape(a) + r'(?!\w)') for a in aliases]
+    # Existing spans by paragraph, in UTF-16 units, so a new match is skipped
+    # when it OVERLAPS any existing mention -- not only when it equals one.
+    by_para = {}
+    for (chn, pi, a, b) in existing_spans:
+        by_para.setdefault((chn, pi), []).append((a, b))
     new_mentions = []
     for c in data['chapters']:
         for pi, p in enumerate(c['paragraphs']):
@@ -53,11 +58,12 @@ def bind_new_spans(edition_json_path, existing_spans, aliases):
                 for m in pat.finditer(text):
                     candidates.append((m.start(), m.end()))
             chosen = []
+            taken = by_para.get((c['number'], pi), [])
             for a, b in sorted(set(candidates), key=lambda z: (-(z[1] - z[0]), z[0])):
                 if any(a < cb and b > ca for ca, cb in chosen):
                     continue
-                key = (c['number'], pi, u16(text[:a]), u16(text[:b]))
-                if key in existing_spans:
+                ua, ub = u16(text[:a]), u16(text[:b])
+                if any(ua < tb and ub > ta for ta, tb in taken):
                     continue
                 chosen.append((a, b))
             for a, b in sorted(chosen):
