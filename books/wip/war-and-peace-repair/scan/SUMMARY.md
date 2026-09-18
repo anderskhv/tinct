@@ -26,3 +26,10 @@ Input: baseline b269fb96 text (the consistency pass changes no readability). Ver
 | mid-6 | 209–219 | 209, 215, 217 | 210–214, 216, 218, 219 | 209: historiographical digression with translated-syntax rhythm; 215: one unclear "he"; 217: an unexplained August-to-September date jump (likely old-style/new-style dating in the source; check). |
 | late-3 | 299–308 | 299 (draft); 305, 307 (French pass) | 300–304, 306, 308 | 299: dense periodic sentences and unexplained names; 305/307: repeated parenthetical dialogue lines are French scaffolding. |
 | late-4 | 309–318 | 314, 315 (draft); 312, 313, 316 (French pass) | 309–311, 317, 318 | 314: Berthier's dispatch with a bare dateline (check source: probably the letter's own dateline); 315: three commanders in one clause and a garbled "punish the floor" image (Tolstoy's child-punishing-the-floor comparison; restore its sense). |
+| late-5 | 319–328 | 320, 321, 322, 327 (draft); 326 (French pass) | 319, 323–325, 328 | 320: unresolved "him"/Prince Andrew; 321–322: dense military and philosophical analysis plus stray citation/gloss artifacts; 326: duplicate lyric-gloss artifacts and an opaque proverb. |
+
+## Totals (all 21 bundles, chapters 154–365 excluding the two pilots)
+
+- Chapters scanned: 210. PASS: 161. REVISE for drafting: 40. REVISE routed to the French pass only: 9 (155, 189, 197, 206, 207, 248, 277, 278, 305, 307, 312, 313, 316 overlap partly with drafting; see french-batches.json).
+- The scan confirms the zone hypothesis: the philosophy-of-history chapters fail almost uniformly; narrative chapters fail for one of three reasons (a pronoun or referent left open, a cluster of unglossed proper nouns, or a French footnote artifact). No chapter in 154–365 reads as "older prose lightly edited" to the candidate-only readers except 209 and 154–164's stacked syntax; the near-verbatim metric over-predicted readability problems in the middle of the book.
+- Chapters 1–153 have not been scanned. Given the hit rate here, scan them before any drafting there.
