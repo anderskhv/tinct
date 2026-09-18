@@ -1,9 +1,9 @@
 # Pinned helper revisions
 
-`trial.py --helper <pin>` selects which helper the aligner compares with. All six
-are frozen: a change to any of these files is a new pin, never an edit in place.
-`test_normalisation.py` fails if these hashes drift; `test_trial.py` checks v1
-against the git object it was recovered from.
+`trial.py --helper <pin>` selects which helper the aligner compares with. All
+seven are frozen: a change to any of these files is a new pin, never an edit in
+place. `test_normalisation.py` fails if these hashes drift; `test_trial.py`
+checks v1 against the git object it was recovered from.
 
 | pin | file | SHA-256 | what it is |
 | --- | --- | --- | --- |
@@ -15,7 +15,9 @@ against the git object it was recovered from.
 
 | `v5` | `pinned_words_sidecar_lib_v5.py` | `4b8d29930ecc43f921dddb34c41647b1dcdfe1e4262e3fd815cb34abf9dd98ed` | v4 plus acoustic-only stripping of cues ASR does not say: ALL-CAPS speaker labels, Enter/Exeunt ALL-CAPS names, `[_…_]` wrappers, WEB `[of]`/`[and]` brackets, superscript verse markers, and a few archaic elisions (`prepar'd`, `Hear'st`, `Th'art`). Emitted source words, the 0.85 gate, timestamps and interpolation remain unchanged. Frozen; `--helper v5` still reproduces canary 35321419398 / PR #101 scoring. |
 
-| `v6` (default) | `pinned_words_sidecar_lib_v6.py` | `8265cca7376d4d03f1bc050583b552a6e04a679c5d214e4066a10b872ea87fab` | v5 plus acoustic-only stripping of unspoken whole-paragraph chapter/section headings: numbered ALL-CAPS labels (`1. REACTIONARY SOCIALISM`), lettered italic subsections (`_C. German, or “True,” Socialism_`), short Roman-numeral titles, `Chapter`/`Part`/`Section`/`Book` labels, short unquoted ALL-CAPS title lines (3+ words, no sentence end), and short italic title lines. Ordinary prose stays in the denominator, including numbered manifesto sentences (`I. Communism is already acknowledged…`) and spoken slogans (`WORKING MEN OF ALL COUNTRIES, UNITE!`). Emitted source words, the 0.85 gate, timestamps and interpolation remain unchanged. The canary workflow and pod default must use `--helper v6` when the next GPU canary is explicitly launched; this pin does not launch GPU work. |
+| `v6` | `pinned_words_sidecar_lib_v6.py` | `8265cca7376d4d03f1bc050583b552a6e04a679c5d214e4066a10b872ea87fab` | v5 plus acoustic-only stripping of unspoken whole-paragraph chapter/section headings: numbered ALL-CAPS labels (`1. REACTIONARY SOCIALISM`), lettered italic subsections (`_C. German, or “True,” Socialism_`), short Roman-numeral titles, `Chapter`/`Part`/`Section`/`Book` labels, short unquoted ALL-CAPS title lines (3+ words, no sentence end), and short italic title lines. Ordinary prose stays in the denominator, including numbered manifesto sentences (`I. Communism is already acknowledged…`) and spoken slogans (`WORKING MEN OF ALL COUNTRIES, UNITE!`). Emitted source words, the 0.85 gate, timestamps and interpolation remain unchanged. Frozen; `--helper v6` still reproduces the heading scoring from canary 35321419398 / PR #106 and still raises `processing_invariant_error` on numbered first-person prefixes (Hume modern-en/7 p14 / canary 35323671028). |
+
+| `v7` (default) | `pinned_words_sidecar_lib_v7.py` | `2b76abcd5e46a699b4ef4c410f86a62487b706a0817ae56d28ed1c2e8baa8c56` | v6 scoring plus a restore-safe `clean_text(..., strip_headings=False)` so incremental source/acoustic mapping does not treat prefixes of prose as headings. Hume `45. I shall add…` and the v6 prose fixtures (`2. A heavy…`, `WORKING MEN OF ALL COUNTRIES, UNITE!`, `I. Communism is already…`) restore without lowering the 0.85 gate. Heading-only paragraphs still collapse when `strip_headings` is left at its default. The canary workflow and pod default must use `--helper v7` when the next GPU canary is explicitly launched; this pin does not launch GPU work. |
 
 Run manifests (`run.json`) record `helper_pin`, `helper_module` and `helper_sha256`;
 per-paragraph checkpoints include the helper hash in their signature, so a checkpoint
