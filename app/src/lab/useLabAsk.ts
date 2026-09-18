@@ -478,7 +478,16 @@ export function useLabAsk(options: UseLabAskOptions) {
     })
     if (request !== voiceStartRequestRef.current) return false
     if (!knownToken) setStarting(true)
-    const snapshot = await voice.start({ authToken, greeting })
+    let snapshot
+    try { snapshot = await voice.start({ authToken, greeting }) }
+    catch (error) {
+      if (request !== voiceStartRequestRef.current) return false
+      setStarting(false)
+      const message = error instanceof Error ? error.message : LAB_COPY.voiceStartFailed
+      optionsRef.current.onVoiceDiagnostic?.({ at: Date.now(), type: 'startup.failed', id: 'reader_start', text: message })
+      setNotice(message)
+      return false
+    }
     if (request !== voiceStartRequestRef.current) return false
     setStarting(false)
     if (snapshot.error) {
