@@ -344,7 +344,6 @@
       caption.appendChild(el('p', 'lib-lede', hero.title))
       caption.appendChild(el('p', 'lib-h1', hero.headline))
       caption.appendChild(el('p', 'lib-eyebrow', lastReadLabel(hero.lastReadAt)))
-      caption.appendChild(summaryBlock())
       var cta = el('div', 'lib-now-cta')
       var button = el('button', 'lib-cta', 'Continue reading')
       button.type = 'button'
@@ -352,6 +351,7 @@
       cta.appendChild(button)
       if (hero.note) cta.appendChild(el('span', 'lib-cta-note', hero.note))
       caption.appendChild(cta)
+      caption.appendChild(summaryBlock())
     } else {
       section.setAttribute('data-boot-recap', 'skeleton')
       section.setAttribute('aria-busy', 'true')
@@ -361,13 +361,13 @@
       caption.appendChild(el('p', 'lib-lede lib-boot-bar'))
       caption.appendChild(el('p', 'lib-h1 lib-boot-bar'))
       caption.appendChild(el('p', 'lib-eyebrow lib-boot-bar'))
-      caption.appendChild(summaryBlock())
       var skCta = el('div', 'lib-now-cta')
       var skButton = el('button', 'lib-cta', 'Continue reading')
       skButton.type = 'button'
       skButton.setAttribute('data-recap-continue', '')
       skCta.appendChild(skButton)
       caption.appendChild(skCta)
+      caption.appendChild(summaryBlock())
     }
     wrap.appendChild(caption)
     section.appendChild(wrap)

@@ -976,7 +976,17 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-shelf-item .lib-cover { transform-origin:50% 100%; transition:transform .32s cubic-bezier(.2,.7,.2,1),box-shadow .32s ease; }
   #tinct-onboarding-worlds-v5 .lib-shelf-item.is-selected { opacity:1; z-index:1; }
   #tinct-onboarding-worlds-v5 .lib-shelf-item.is-selected .lib-cover { transform:scale(var(--lib-shelf-scale)); box-shadow:0 18px 40px var(--lib-shadow),0 0 64px var(--lib-select-glow); }
-  #tinct-onboarding-worlds-v5 .lib-caption { display:flex; flex-direction:column; gap:10px; min-height:176px; }
+  /* The featured blurb is the only thing in this caption whose height varies
+     with the book, so it is the only reason the shelf below it used to jump as
+     you moved along the covers. Measured against all 101 live descriptions at
+     320pt: they run 4 to 13 lines, so "reserve the tallest" is not a fixed
+     pixel value anyone can eyeball -- it is this clamp. The block is now
+     exactly --lib-feat-lines tall whatever the book, and the clamp is also the
+     guard: a future description longer than the budget is cut instead of
+     pushing the page around. Lower the number to tighten the block; anything
+     below 8 starts truncating today's copy (see the note in BACKLOG.md). */
+  #tinct-onboarding-worlds-v5 .lib-caption { --lib-feat-lines:8; display:flex; flex-direction:column; gap:10px; min-height:176px; }
+  #tinct-onboarding-worlds-v5 [data-popular-blurb] { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--lib-feat-lines); overflow:hidden; height:calc(var(--lib-feat-lines) * 1.45em); }
   #tinct-onboarding-worlds-v5 .lib-caption:empty { display:none; }
   /* The action above the row is the page's headline; the focused book's name
      is its subject, one step down. */
@@ -1078,7 +1088,12 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   /* The collapsed preview always occupies three lines and an affordance row.
      Empty, loading and unavailable recaps retain identical geometry. */
   #tinct-onboarding-worlds-v5 .lib-recap-summary { --lib-recap-lines:3; display:flex; flex-direction:column; align-items:flex-start; gap:4px; width:100%; margin:0; padding:0; border:0; background:none; text-align:left; font-family:inherit; color:var(--lib-lede); max-width:52ch; }
-  #tinct-onboarding-worlds-v5 .lib-recap-summary[hidden] { display:flex!important; visibility:hidden; pointer-events:none; }
+  /* No "so far" line means no block. It used to stay laid out but invisible so
+     the Continue button below it would not jump between books; Continue now
+     sits above it, so nothing above can move and the caption simply ends after
+     the button instead of trailing three blank lines -- the empty hero that
+     looked broken on a phone. */
+  #tinct-onboarding-worlds-v5 .lib-recap-summary[hidden] { display:none!important; }
   #tinct-onboarding-worlds-v5 .lib-recap-summary-text { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--lib-recap-lines); overflow:hidden; width:100%; height:calc(var(--lib-recap-lines) * 1.5em); font-size:16.5px; line-height:1.5; color:var(--lib-lede); opacity:0; transition:opacity .28s ease,height .3s cubic-bezier(.2,.7,.2,1); }
   #tinct-onboarding-worlds-v5 .lib-recap-summary.is-shown .lib-recap-summary-text { opacity:1; }
   #tinct-onboarding-worlds-v5 .lib-recap-summary.is-open .lib-recap-summary-text { -webkit-line-clamp:unset; height:auto; }
@@ -1117,6 +1132,8 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .lib-h1 { font-size:56px; }
     #tinct-onboarding-worlds-v5 .lib-caption .lib-h1 { font-size:34px; }
     #tinct-onboarding-worlds-v5 .lib-lede { font-size:22px; max-width:680px; }
+    /* Wider measure, so the same copy needs fewer lines: 6 holds all but one. */
+    #tinct-onboarding-worlds-v5 .lib-caption { --lib-feat-lines:6; }
     #tinct-onboarding-worlds-v5 .lib-cell-t { font-size:15px; }
     #tinct-onboarding-worlds-v5 .lib-cell-a { font-size:13px; }
     #tinct-onboarding-worlds-v5 .lib-search { gap:16px; padding:22px 0; }

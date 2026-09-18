@@ -650,9 +650,15 @@ function summaryMarkup(summaryKey: string): string {
 }
 
 /**
- * Title, one location, last-read age, a stable recap preview, then Continue.
- * The empty preview reserves the same space as a collapsed recap; selecting
- * another book rebuilds the caption closed. library-boot.js paints this order.
+ * Title, one location, last-read age, Continue, then the recap preview.
+ *
+ * Continue sits ABOVE the preview so that a book with no "so far" line costs
+ * the caption nothing: the preview is the last thing in the block, so its
+ * absence trims the card from the bottom instead of leaving a hole in the
+ * middle, and its arrival cannot move anything the reader is aiming at. That
+ * is what lets the preview stop reserving three blank lines (see
+ * `.lib-recap-summary[hidden]` in public/lab/index.html) without the CTA
+ * jumping as the focused book changes. library-boot.js paints this order.
  */
 function nowCaptionMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>): string {
   const book = books.get(row.bookId)
@@ -663,8 +669,8 @@ function nowCaptionMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>
   return `<p class="lib-lede" data-testid="lab-recap-book" title="${escapeHtml(bookTitle(book, row.bookId))}">${escapeHtml(bookTitle(book, row.bookId))}</p>
       <p class="lib-h1" data-testid="lab-recap-headline" title="${escapeHtml(heroHeadline(row))}">${escapeHtml(heroHeadline(row))}</p>
       <p class="lib-eyebrow" data-testid="lab-recap-eyebrow">${escapeHtml(recapEyebrow(row.lastActiveAt))}</p>
-      ${summary}
-      <div class="lib-now-cta"><button type="button" class="lib-cta" data-recap-continue="${escapeHtml(row.bookId)}">Continue reading</button>${note ? `<span class="lib-cta-note" data-testid="lab-recap-progress">${escapeHtml(note)}</span>` : ''}</div>`
+      <div class="lib-now-cta"><button type="button" class="lib-cta" data-recap-continue="${escapeHtml(row.bookId)}">Continue reading</button>${note ? `<span class="lib-cta-note" data-testid="lab-recap-progress">${escapeHtml(note)}</span>` : ''}</div>
+      ${summary}`
 }
 
 function finishedMarkup(row: ReadingList['finished'][number], books: Map<string, CatalogueBook>): string {

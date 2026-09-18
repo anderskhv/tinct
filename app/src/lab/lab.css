@@ -1299,6 +1299,11 @@
   flex: 1;
   min-width: 0;
   height: 100%;
+  /* With a highlight attached, the quoted passage takes most of the composer
+     and this field collapses to a single 1.4-line strip -- a target under 25px
+     tall, which is why the field was hard to hit on a phone. 44px is the floor
+     everything else tappable in the reader uses. */
+  min-height: 44px;
   border: 0;
   outline: none;
   background: transparent;
@@ -4493,6 +4498,8 @@
   right: auto;
   bottom: auto;
   width: min(560px, 48%);
+  /* ...unless the reader has dragged the divider; see LabAskPane. */
+  width: var(--lab-companion-width, min(560px, 48%));
   height: 100%;
   max-height: none;
   box-sizing: border-box;
@@ -4506,6 +4513,42 @@
   -webkit-backdrop-filter: blur(24px) saturate(1.08);
   overflow: hidden;
   z-index: 160;
+}
+
+/* The conversation's share of the desktop is the reader's to set: drag the
+   panel's inner edge. A 10px grab strip straddling the border, so it is
+   catchable without eating clicks meant for the text beside it, and invisible
+   until pointed at or focused. Bounds live in useDraggableSurface. */
+.lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer {
+  position: absolute;
+  left: -5px;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  z-index: 6;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: col-resize;
+  touch-action: none;
+}
+.lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: transparent;
+  transition: background 140ms ease;
+}
+.lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer:hover::after,
+.lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer:focus-visible::after,
+.lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer.is-resizing::after {
+  background: var(--lab-accent, #1f4a5c);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer::after { transition: none; }
 }
 
 .lab.is-desktop[data-playing="true"] .lab-ask.is-desktop-companion {
@@ -4909,7 +4952,7 @@
     padding-left: 46px;
   }
 
-  .lab.is-desktop .lab-ask.is-desktop-companion { width: 50%; }
+  .lab.is-desktop .lab-ask.is-desktop-companion { --lab-companion-width: 50%; }
 }
 
 /* Reader control accessibility: quiet glyphs, full finger-sized targets, and
@@ -6803,10 +6846,14 @@
 
 /* ── Desktop: the pill in the corner ──────────────────────────────────── */
 
+/* right/bottom below are the pill's RESTING corner. Once the reader drags it,
+   inline left/top win and those two are set to auto — see useDraggableSurface. */
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill {
   position: absolute;
   right: 40px;
   bottom: 34px;
+  cursor: grab;
+  touch-action: none;
   z-index: 170;
   display: flex;
   align-items: center;
@@ -7454,4 +7501,16 @@
 .lab[data-chrome-version="v2"] .lab-cover-entry button+button{border-top:0}
 .lab[data-chrome-version="v2"] .lab-cover-entry strong{font:500 20px/1.2 'EB Garamond',Georgia,serif}
 .lab[data-chrome-version="v2"] .lab-cover-entry span{font:400 12px/1.4 system-ui,sans-serif;color:#c1c1b6}
+
+
+
+/* A dragged pill follows the pointer, so the cursor says so and text under it
+   is not selected on the way past. The controls inside keep their own pointer
+   cursor: a press only becomes a drag after DRAG_SLOP px of travel. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill button { cursor: pointer; }
+
 
