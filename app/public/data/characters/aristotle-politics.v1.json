@@ -515,20 +515,20 @@
           "storyRole": "major",
           "roleVisibleAt": {
             "chapterNumber": 2,
-            "paragraphIndex": 1,
-            "offset": 0
+            "paragraphIndex": 7,
+            "offset": 576
           },
           "firstMention": {
             "chapterNumber": 2,
-            "paragraphIndex": 1,
-            "offset": 0
+            "paragraphIndex": 7,
+            "offset": 576
           },
           "snapshots": [
             {
               "availableAt": {
                 "chapterNumber": 2,
-                "paragraphIndex": 1,
-                "offset": 0
+                "paragraphIndex": 7,
+                "offset": 576
               },
               "name": "Plato",
               "subtitle": "Aristotle's teacher, argued against here",
@@ -595,21 +595,21 @@
           "kind": "person",
           "storyRole": "supporting",
           "roleVisibleAt": {
-            "chapterNumber": 2,
-            "paragraphIndex": 26,
-            "offset": 0
+            "chapterNumber": 1,
+            "paragraphIndex": 27,
+            "offset": 418
           },
           "firstMention": {
-            "chapterNumber": 2,
-            "paragraphIndex": 26,
-            "offset": 0
+            "chapterNumber": 1,
+            "paragraphIndex": 27,
+            "offset": 418
           },
           "snapshots": [
             {
               "availableAt": {
-                "chapterNumber": 2,
-                "paragraphIndex": 26,
-                "offset": 0
+                "chapterNumber": 1,
+                "paragraphIndex": 27,
+                "offset": 418
               },
               "name": "Solon",
               "subtitle": "Athenian legislator",
@@ -782,28 +782,29 @@
       ],
       "mentions": [
         {
-          "characterId": "plato",
-          "chapterNumber": 2,
-          "paragraphIndex": 1,
-          "startOffset": 671,
-          "endOffset": 676,
-          "text": "Plato"
+          "characterId": "the-political-animal",
+          "chapterNumber": 1,
+          "paragraphIndex": 10,
+          "startOffset": 69,
+          "endOffset": 104,
+          "text": "man is by nature a political animal"
         },
         {
-          "characterId": "plato",
-          "chapterNumber": 2,
-          "paragraphIndex": 7,
-          "startOffset": 561,
-          "endOffset": 576,
-          "text": "Plato's fashion"
+          "characterId": "the-political-animal",
+          "chapterNumber": 1,
+          "paragraphIndex": 12,
+          "startOffset": 26,
+          "endOffset": 62,
+          "text": "more of a political animal than bees"
         },
         {
-          "characterId": "plato",
-          "chapterNumber": 2,
-          "paragraphIndex": 18,
-          "startOffset": 50,
-          "endOffset": 78,
-          "text": "Plato's later work, the Laws"
+          "chapterNumber": 1,
+          "paragraphIndex": 27,
+          "startOffset": 413,
+          "endOffset": 418,
+          "text": "Solon",
+          "characterId": "solon",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "socrates",
@@ -822,36 +823,47 @@
           "text": "Socrates rests the necessity"
         },
         {
-          "characterId": "lycurgus",
+          "characterId": "plato",
           "chapterNumber": 2,
-          "paragraphIndex": 42,
-          "startOffset": 490,
-          "endOffset": 498,
-          "text": "Lycurgus"
+          "paragraphIndex": 7,
+          "startOffset": 561,
+          "endOffset": 576,
+          "text": "Plato's fashion"
         },
         {
-          "characterId": "lycurgus",
+          "characterId": "plato",
           "chapterNumber": 2,
-          "paragraphIndex": 66,
-          "startOffset": 523,
-          "endOffset": 541,
-          "text": "Lycurgus and Solon"
+          "paragraphIndex": 18,
+          "startOffset": 50,
+          "endOffset": 78,
+          "text": "Plato's later work, the Laws"
         },
         {
-          "characterId": "solon",
           "chapterNumber": 2,
-          "paragraphIndex": 26,
-          "startOffset": 749,
-          "endOffset": 754,
-          "text": "Solon"
+          "paragraphIndex": 22,
+          "startOffset": 1239,
+          "endOffset": 1244,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
         },
         {
-          "characterId": "solon",
           "chapterNumber": 2,
-          "paragraphIndex": 66,
-          "startOffset": 615,
-          "endOffset": 620,
-          "text": "Solon"
+          "paragraphIndex": 24,
+          "startOffset": 2795,
+          "endOffset": 2800,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 25,
+          "startOffset": 173,
+          "endOffset": 178,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "phaleas-of-chalcedon",
@@ -860,6 +872,14 @@
           "startOffset": 506,
           "endOffset": 526,
           "text": "Phaleas of Chalcedon"
+        },
+        {
+          "characterId": "solon",
+          "chapterNumber": 2,
+          "paragraphIndex": 26,
+          "startOffset": 749,
+          "endOffset": 754,
+          "text": "Solon"
         },
         {
           "characterId": "phaleas-of-chalcedon",
@@ -886,20 +906,152 @@
           "text": "The city of Hippodamus"
         },
         {
-          "characterId": "the-political-animal",
-          "chapterNumber": 1,
-          "paragraphIndex": 10,
-          "startOffset": 69,
-          "endOffset": 104,
-          "text": "man is by nature a political animal"
+          "characterId": "lycurgus",
+          "chapterNumber": 2,
+          "paragraphIndex": 42,
+          "startOffset": 490,
+          "endOffset": 498,
+          "text": "Lycurgus"
         },
         {
-          "characterId": "the-political-animal",
-          "chapterNumber": 1,
-          "paragraphIndex": 12,
-          "startOffset": 26,
-          "endOffset": 62,
-          "text": "more of a political animal than bees"
+          "chapterNumber": 2,
+          "paragraphIndex": 50,
+          "startOffset": 17,
+          "endOffset": 22,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 53,
+          "startOffset": 356,
+          "endOffset": 364,
+          "text": "Lycurgus",
+          "characterId": "lycurgus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "lycurgus",
+          "chapterNumber": 2,
+          "paragraphIndex": 66,
+          "startOffset": 523,
+          "endOffset": 541,
+          "text": "Lycurgus and Solon"
+        },
+        {
+          "characterId": "solon",
+          "chapterNumber": 2,
+          "paragraphIndex": 66,
+          "startOffset": 615,
+          "endOffset": 620,
+          "text": "Solon"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 66,
+          "startOffset": 1103,
+          "endOffset": 1108,
+          "text": "Solon",
+          "characterId": "solon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 67,
+          "startOffset": 509,
+          "endOffset": 514,
+          "text": "Solon",
+          "characterId": "solon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 67,
+          "startOffset": 707,
+          "endOffset": 712,
+          "text": "Solon",
+          "characterId": "solon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 68,
+          "startOffset": 466,
+          "endOffset": 474,
+          "text": "Lycurgus",
+          "characterId": "lycurgus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 72,
+          "startOffset": 37,
+          "endOffset": 42,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 3,
+          "paragraphIndex": 38,
+          "startOffset": 1195,
+          "endOffset": 1200,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 3,
+          "paragraphIndex": 44,
+          "startOffset": 162,
+          "endOffset": 167,
+          "text": "Solon",
+          "characterId": "solon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 25,
+          "startOffset": 513,
+          "endOffset": 518,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "the-middle-class",
+          "chapterNumber": 4,
+          "paragraphIndex": 37,
+          "startOffset": 933,
+          "endOffset": 971,
+          "text": "these are generally the middle classes"
+        },
+        {
+          "characterId": "the-middle-class",
+          "chapterNumber": 4,
+          "paragraphIndex": 38,
+          "startOffset": 142,
+          "endOffset": 180,
+          "text": "formed by citizens of the middle class"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 39,
+          "startOffset": 412,
+          "endOffset": 417,
+          "text": "Solon",
+          "characterId": "solon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 39,
+          "startOffset": 451,
+          "endOffset": 459,
+          "text": "Lycurgus",
+          "characterId": "lycurgus",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "the-best-constitution",
@@ -934,20 +1086,130 @@
           "text": "stir up revolution"
         },
         {
-          "characterId": "the-middle-class",
-          "chapterNumber": 4,
-          "paragraphIndex": 38,
-          "startOffset": 142,
-          "endOffset": 180,
-          "text": "formed by citizens of the middle class"
+          "chapterNumber": 5,
+          "paragraphIndex": 78,
+          "startOffset": 19,
+          "endOffset": 24,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
         },
         {
-          "characterId": "the-middle-class",
-          "chapterNumber": 4,
-          "paragraphIndex": 37,
-          "startOffset": 933,
-          "endOffset": 971,
-          "text": "these are generally the middle classes"
+          "chapterNumber": 5,
+          "paragraphIndex": 78,
+          "startOffset": 2627,
+          "endOffset": 2632,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 5,
+          "paragraphIndex": 80,
+          "startOffset": 13,
+          "endOffset": 18,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 20,
+          "startOffset": 64,
+          "endOffset": 69,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 22,
+          "startOffset": 1317,
+          "endOffset": 1322,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 39,
+          "startOffset": 4,
+          "endOffset": 9,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 43,
+          "startOffset": 193,
+          "endOffset": 198,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 62,
+          "startOffset": 1433,
+          "endOffset": 1438,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 67,
+          "startOffset": 63,
+          "endOffset": 68,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 71,
+          "startOffset": 670,
+          "endOffset": 675,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 8,
+          "paragraphIndex": 5,
+          "startOffset": 205,
+          "endOffset": 210,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 8,
+          "paragraphIndex": 10,
+          "startOffset": 4,
+          "endOffset": 9,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 8,
+          "paragraphIndex": 15,
+          "startOffset": 1760,
+          "endOffset": 1765,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 8,
+          "paragraphIndex": 20,
+          "startOffset": 373,
+          "endOffset": 378,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
         }
       ]
     },
@@ -1459,20 +1721,20 @@
           "storyRole": "major",
           "roleVisibleAt": {
             "chapterNumber": 2,
-            "paragraphIndex": 25,
-            "offset": 0
+            "paragraphIndex": 1,
+            "offset": 644
           },
           "firstMention": {
             "chapterNumber": 2,
-            "paragraphIndex": 25,
-            "offset": 0
+            "paragraphIndex": 1,
+            "offset": 644
           },
           "snapshots": [
             {
               "availableAt": {
                 "chapterNumber": 2,
-                "paragraphIndex": 25,
-                "offset": 0
+                "paragraphIndex": 1,
+                "offset": 644
               },
               "name": "Plato",
               "subtitle": "Aristotle's teacher, argued against here",
@@ -1539,21 +1801,21 @@
           "kind": "person",
           "storyRole": "supporting",
           "roleVisibleAt": {
-            "chapterNumber": 2,
-            "paragraphIndex": 26,
-            "offset": 0
+            "chapterNumber": 1,
+            "paragraphIndex": 27,
+            "offset": 410
           },
           "firstMention": {
-            "chapterNumber": 2,
-            "paragraphIndex": 26,
-            "offset": 0
+            "chapterNumber": 1,
+            "paragraphIndex": 27,
+            "offset": 410
           },
           "snapshots": [
             {
               "availableAt": {
-                "chapterNumber": 2,
-                "paragraphIndex": 26,
-                "offset": 0
+                "chapterNumber": 1,
+                "paragraphIndex": 27,
+                "offset": 410
               },
               "name": "Solon",
               "subtitle": "Athenian legislator",
@@ -1567,20 +1829,20 @@
           "storyRole": "reference",
           "roleVisibleAt": {
             "chapterNumber": 2,
-            "paragraphIndex": 31,
-            "offset": 0
+            "paragraphIndex": 25,
+            "offset": 510
           },
           "firstMention": {
             "chapterNumber": 2,
-            "paragraphIndex": 31,
-            "offset": 0
+            "paragraphIndex": 25,
+            "offset": 510
           },
           "snapshots": [
             {
               "availableAt": {
                 "chapterNumber": 2,
-                "paragraphIndex": 31,
-                "offset": 0
+                "paragraphIndex": 25,
+                "offset": 510
               },
               "name": "Phaleas of Chalcedon",
               "subtitle": "Theorist of property equality",
@@ -1726,12 +1988,30 @@
       ],
       "mentions": [
         {
-          "characterId": "plato",
+          "characterId": "the-political-animal",
+          "chapterNumber": 1,
+          "paragraphIndex": 10,
+          "startOffset": 69,
+          "endOffset": 104,
+          "text": "man is by nature a political animal"
+        },
+        {
+          "chapterNumber": 1,
+          "paragraphIndex": 27,
+          "startOffset": 405,
+          "endOffset": 410,
+          "text": "Solon",
+          "characterId": "solon",
+          "resolution": "reviewed-name"
+        },
+        {
           "chapterNumber": 2,
-          "paragraphIndex": 25,
-          "startOffset": 172,
-          "endOffset": 177,
-          "text": "Plato"
+          "paragraphIndex": 1,
+          "startOffset": 639,
+          "endOffset": 644,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "socrates",
@@ -1742,20 +2022,66 @@
           "text": "Socrates rests"
         },
         {
-          "characterId": "lycurgus",
           "chapterNumber": 2,
-          "paragraphIndex": 42,
-          "startOffset": 443,
-          "endOffset": 451,
-          "text": "Lycurgus"
+          "paragraphIndex": 7,
+          "startOffset": 552,
+          "endOffset": 557,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
         },
         {
-          "characterId": "lycurgus",
           "chapterNumber": 2,
-          "paragraphIndex": 66,
-          "startOffset": 506,
-          "endOffset": 524,
-          "text": "Lycurgus and Solon"
+          "paragraphIndex": 18,
+          "startOffset": 50,
+          "endOffset": 55,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 22,
+          "startOffset": 1114,
+          "endOffset": 1119,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 24,
+          "startOffset": 2691,
+          "endOffset": 2696,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "plato",
+          "chapterNumber": 2,
+          "paragraphIndex": 25,
+          "startOffset": 172,
+          "endOffset": 177,
+          "text": "Plato"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 25,
+          "startOffset": 503,
+          "endOffset": 510,
+          "text": "Phaleas",
+          "characterId": "phaleas-of-chalcedon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 26,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "solon",
@@ -1766,12 +2092,67 @@
           "text": "Solon"
         },
         {
-          "characterId": "solon",
           "chapterNumber": 2,
-          "paragraphIndex": 66,
-          "startOffset": 612,
-          "endOffset": 617,
-          "text": "Solon"
+          "paragraphIndex": 26,
+          "startOffset": 1844,
+          "endOffset": 1851,
+          "text": "Phaleas",
+          "characterId": "phaleas-of-chalcedon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 27,
+          "startOffset": 99,
+          "endOffset": 106,
+          "text": "Phaleas",
+          "characterId": "phaleas-of-chalcedon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 28,
+          "startOffset": 584,
+          "endOffset": 591,
+          "text": "Phaleas",
+          "characterId": "phaleas-of-chalcedon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 29,
+          "startOffset": 287,
+          "endOffset": 294,
+          "text": "Phaleas",
+          "characterId": "phaleas-of-chalcedon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 29,
+          "startOffset": 712,
+          "endOffset": 719,
+          "text": "Phaleas",
+          "characterId": "phaleas-of-chalcedon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 30,
+          "startOffset": 813,
+          "endOffset": 820,
+          "text": "Phaleas",
+          "characterId": "phaleas-of-chalcedon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 30,
+          "startOffset": 1117,
+          "endOffset": 1124,
+          "text": "Phaleas",
+          "characterId": "phaleas-of-chalcedon",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "phaleas-of-chalcedon",
@@ -1798,12 +2179,144 @@
           "text": "The city of Hippodamus"
         },
         {
-          "characterId": "the-political-animal",
-          "chapterNumber": 1,
-          "paragraphIndex": 10,
-          "startOffset": 69,
-          "endOffset": 104,
-          "text": "man is by nature a political animal"
+          "characterId": "lycurgus",
+          "chapterNumber": 2,
+          "paragraphIndex": 42,
+          "startOffset": 443,
+          "endOffset": 451,
+          "text": "Lycurgus"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 50,
+          "startOffset": 17,
+          "endOffset": 22,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 53,
+          "startOffset": 354,
+          "endOffset": 362,
+          "text": "Lycurgus",
+          "characterId": "lycurgus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "lycurgus",
+          "chapterNumber": 2,
+          "paragraphIndex": 66,
+          "startOffset": 506,
+          "endOffset": 524,
+          "text": "Lycurgus and Solon"
+        },
+        {
+          "characterId": "solon",
+          "chapterNumber": 2,
+          "paragraphIndex": 66,
+          "startOffset": 612,
+          "endOffset": 617,
+          "text": "Solon"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 66,
+          "startOffset": 1083,
+          "endOffset": 1088,
+          "text": "Solon",
+          "characterId": "solon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 67,
+          "startOffset": 504,
+          "endOffset": 509,
+          "text": "Solon",
+          "characterId": "solon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 67,
+          "startOffset": 699,
+          "endOffset": 704,
+          "text": "Solon",
+          "characterId": "solon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 68,
+          "startOffset": 461,
+          "endOffset": 469,
+          "text": "Lycurgus",
+          "characterId": "lycurgus",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 72,
+          "startOffset": 12,
+          "endOffset": 19,
+          "text": "Phaleas",
+          "characterId": "phaleas-of-chalcedon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 2,
+          "paragraphIndex": 72,
+          "startOffset": 56,
+          "endOffset": 61,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 3,
+          "paragraphIndex": 44,
+          "startOffset": 160,
+          "endOffset": 165,
+          "text": "Solon",
+          "characterId": "solon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 25,
+          "startOffset": 506,
+          "endOffset": 511,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "the-middle-class",
+          "chapterNumber": 4,
+          "paragraphIndex": 38,
+          "startOffset": 144,
+          "endOffset": 182,
+          "text": "formed by citizens of the middle class"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 39,
+          "startOffset": 389,
+          "endOffset": 394,
+          "text": "Solon",
+          "characterId": "solon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 4,
+          "paragraphIndex": 39,
+          "startOffset": 440,
+          "endOffset": 448,
+          "text": "Lycurgus",
+          "characterId": "lycurgus",
+          "resolution": "reviewed-name"
         },
         {
           "characterId": "the-best-constitution",
@@ -1822,12 +2335,58 @@
           "text": "causes of revolution in states"
         },
         {
-          "characterId": "the-middle-class",
-          "chapterNumber": 4,
-          "paragraphIndex": 38,
-          "startOffset": 144,
-          "endOffset": 182,
-          "text": "formed by citizens of the middle class"
+          "chapterNumber": 5,
+          "paragraphIndex": 78,
+          "startOffset": 3,
+          "endOffset": 8,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 5,
+          "paragraphIndex": 78,
+          "startOffset": 2579,
+          "endOffset": 2584,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 5,
+          "paragraphIndex": 80,
+          "startOffset": 26,
+          "endOffset": 31,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 5,
+          "paragraphIndex": 81,
+          "startOffset": 53,
+          "endOffset": 58,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 22,
+          "startOffset": 1277,
+          "endOffset": 1282,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
+        },
+        {
+          "chapterNumber": 7,
+          "paragraphIndex": 71,
+          "startOffset": 670,
+          "endOffset": 675,
+          "text": "Plato",
+          "characterId": "plato",
+          "resolution": "reviewed-name"
         }
       ]
     }
