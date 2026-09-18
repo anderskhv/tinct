@@ -29,7 +29,7 @@ it('configures transcription on client_secrets then exchanges raw SDP with the e
   const session = JSON.parse(fetch_.mock.calls[0][1].body).session
   expect(session.type).toBe('transcription')
   expect(session.audio.input.turn_detection.silence_duration_ms).toBe(900)
-  expect(session.audio.input.transcription.model).toBe('gpt-live-transcribe')
+  expect(session.audio.input.transcription.model).toBe('gpt-4o-transcribe')
   expect(fetch_.mock.calls[1][0]).toBe('https://api.openai.com/v1/realtime/calls')
   expect(fetch_.mock.calls[1][1]).toMatchObject({ headers: { Authorization: 'Bearer ephemeral-secret', 'Content-Type': 'application/sdp' }, body: 'offer' })
   expect(await result.text()).toBe('answer-sdp')
