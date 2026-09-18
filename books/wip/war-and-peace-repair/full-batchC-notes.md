@@ -203,11 +203,10 @@ changes made.
 
 ## Summary
 
-- **Sound, unchanged:** 14 of 20 chapters (56, 57, 58, 60, 62, 65, 67, 70, 71, 73,
+- **Sound, unchanged:** 15 of 20 chapters (56, 57, 58, 60, 62, 65, 67, 70, 71, 73,
   74, 75, 76, 79, 80)
-- **Defective, fixed:** 6 of 20 chapters (59, 64, 66, 72, 77) — note: this is 5
-  chapters with fixes; see below for the exact count.
-- **Total individual fixes applied:** 7, across 5 chapters (59, 64, 66, 72, 77)
+- **Defective, fixed:** 5 of 20 chapters (59, 64, 66, 72, 77)
+- **Total individual fixes applied:** 7, across those 5 chapters
 
 All defects were part of one systemic pattern — foreign-language dialogue quotes
 (French/German) that had been silently translated into English and tagged with
