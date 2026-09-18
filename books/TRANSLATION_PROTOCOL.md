@@ -1,5 +1,7 @@
 # Translation Protocol — modern-da from modern-en
 
+> **Modern-EN repair:** the procedure for repairing or upgrading a `modern-en` edition is the designated section at the end of this file, "Modern-EN repair procedure". It supersedes this file's model and subagent restrictions for modern-en repair only. Danish policy below is unchanged.
+
 This file governs how to translate a book's `modern-da` edition from its `modern-en` source, without repeating the failure mode that destroyed The Awakening modern-da (125/1044 paragraphs severely truncated, 12% fabrication/meaning reversals).
 
 Read this before starting ANY modern-da translation work.
@@ -104,3 +106,51 @@ When starting a fresh session on a book that already has partial translation in 
 ## In-progress translations (as of 2026-04-17)
 
 - **the-histories**: ch1-20 done (20/450), saved in `books/translations_in_progress/the-histories/`. Ratios verified 0.88-1.22, zero flags. Continue from ch21.
+
+---
+
+# Modern-EN repair procedure
+
+**Scope:** repairing or upgrading an existing `modern-en` edition, or rendering one from an identified public-domain source. Established 2026-09-18 from the War and Peace, Confessions and Jane Eyre repair passes. Content-only: no app code, reader behaviour, audio assets or published editions change under this procedure. Candidates are staged under `books/wip/{book}-repair/`.
+
+**Supersession, modern-en only:** for modern-en repair, drafting and review run as CLI subagents (Sonnet drafts, Opus reviews, see Models). The "Opus main conversation only, no subagents, Sonnet never translates" hard rule above remains in force for modern-da and is not changed by this section.
+
+## Target
+
+Tinct Modern English may become the default reading edition. It must be faithful **and** genuinely accessible to an intelligent new reader without specialist knowledge. Ordinary vocabulary, natural sentence structure, essential unfamiliar concepts explained briefly inside the prose without turning literature into commentary, necessary philosophical terms retained with minimal clarification. Difficult sentences may be split; a run of choppy sentences is a defect. The author's voice, images, ambiguity, humour, repetition and argumentative structure stay. Already-clear sentences may stay unchanged. There is no minimum rewrite percentage and no sentence-length target.
+
+## Definitions
+
+- **Fidelity means preserving meaning, not syntax.** Every source sentence and meaningful clause is accounted for; one source sentence may become several. Actors, actions, quantities, negation, conditions, degree of certainty, comparisons and causal relationships are preserved. The candidate is never more definite than the source: sequence does not become causation, difficulty does not become impossibility, an unstated motive does not become an explanation.
+- **Fidelity anchor:** exactly one identified source edition per book, pinned by sha256. Nothing is imported from remembered originals or other translations.
+- **Alignment identifier:** paragraph array index within a chapter. Paragraph boundaries and count are preserved exactly. A defective source structure (misnumbered title, garbled paragraph) is flagged for a separate structural repair, never silently changed in one edition.
+
+## Steps
+
+1. **Conventions first.** Write `books/wip/{book}-repair/CONVENTIONS.md`: source and provenance with hashes, character-name mapping by identity, recurring terms, foreign-language handling, footnote-slot policy, typography, known defects classified as structural / fidelity / accessibility / consistency. Names are normalised by character and context, never by blind global replacement. Anything needing Anders is marked DECISION NEEDED and left unchanged until decided. Template: `books/wip/war-and-peace-repair/CONVENTIONS.md`.
+2. **Stage inputs.** Per chapter: `chNNN-source.json`, `chNNN-baseline.json`, hashes in a `MANIFEST.md`. Verify chapter identity by `number` and opening sentence.
+3. **Draft** with `books/prompts/modern-en-repair/draft.md`. The drafter gets source, baseline candidate and conventions, and writes `chNNN-candidate.json` plus `chNNN-candidate-notes.md`. Drafter self-checks do not count as review.
+4. **Mechanical checks** on the candidate: `python3 books/edition_checks.py {book} --candidate books/wip/{book}-repair/chNNN-candidate.json`. BLOCK lines fail the candidate. FLAG lines are places to inspect, handed to the reviewers; they are not verdicts and are never "fixed" blindly. Also run the similarity gate `books/classify-modern-en.py` on the assembled edition before handoff.
+5. **Gate A, accessibility review**, `review-accessibility.md`: a reviewer who has not seen the source reads the candidate only, marks each paragraph clear / hard / unclear, quotes the obstacle, does not rewrite. Reading the source first makes unclear wording seem understandable, so this review always runs candidate-only and before the same reader sees any source.
+6. **Gate B, fidelity review**, `review-fidelity.md`: a separate reviewer compares candidate and source in packets of 2–3 paragraphs with neighbouring context, checks every paragraph (coverage recorded), then reads the whole chapter for what crosses packets. Severity MAJOR / MODERATE / MINOR / COSMETIC.
+7. **Correction**, `correct-and-verify.md`: apply findings source-anchored, log every change with index, exact before/after text and the finding it answers. Touch nothing else.
+8. **Verification** by someone other than the corrector: diff the files, confirm every logged change is present and every present change is logged, re-derive each correction from source, re-read as a new reader, structural and punctuation-parity checks. Records the sha256 of the verified file.
+9. **Acceptance** applies to that exact hash and requires **both** gates to pass: Gate A with no `unclear` paragraphs, Gate B with zero MAJOR or MODERATE findings. "Faithful but dense" is more work; "clear but inaccurate" is more work. Neither compensates for the other. Remaining uncertainties are written down, not rounded to "accepted".
+10. **Assembly.** Accepted chapters are merged into a staged whole-edition file. Re-run `edition_checks.py` and the similarity gate on the assembled file. Any later assembly, normalisation or scripted pass re-runs the checks; an edit after acceptance invalidates that chapter's acceptance until re-verified. Whole-book consistency (names, quotes, titles, footnote slots, dash style) is checked on the assembled edition, not on batches.
+11. **Changed-passage records.** For every paragraph whose text differs from the previously published edition, emit `{book_id, edition_key, chapter_number, paragraph_index, old_sha256, new_sha256, patched_text}` to `books/wip/{book}-repair/changed-passages.json`. This matches the key of the `pending_audio_regen` table (`book_id, edition_key, chapter_number, paragraph_index`, with `patched_text`); the audio workstream consumes it. Audio is never regenerated under this procedure.
+
+## Metrics are flags, not verdicts
+
+Long sentences, near-verbatim blocks, archaic tokens, ratio outliers, name variants, quote-style outliers, footnote remnants and title-sequence breaks identify where to look. They do not require rewriting and are not acceptance criteria. Definite structural failures (chapter count, paragraph count, empty paragraph) block; everything else is judgment.
+
+## Models
+
+- Sonnet is the economical drafting baseline and the accessibility reader (candidate-only; a cheaper model is a fairer stand-in for a new reader).
+- Opus does the fidelity review and verification.
+- Do not assume Opus drafts better because it catches Sonnet's errors. For dense philosophical prose, compare Sonnet and Opus on the same chapter, blinded (labels A/B, reviewers do not know which is which), before changing drafting policy. The pilot record for this is `books/wip/war-and-peace-repair/pilot/`.
+- Record the model of every draft, review and verification in the batch notes. Never claim independence when the drafting session reviewed itself.
+- Everything runs in the CLI conversation. Zero Anthropic API spend in development.
+
+## What needs Anders
+
+Conventions marked DECISION NEEDED (for example a book's French convention, a cast-name alignment), any change to a source edition or to more than one edition at once, merging a staged edition into the live file, and anything that costs money (audio). Per-chapter work inside an approved convention does not.
