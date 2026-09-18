@@ -178,6 +178,15 @@ const CASES = [
   ['anna-karenina', 'original-en', undefined, 'princess-varvara', undefined, 'ak-princess-varvara'],
   ['anna-karenina', 'original-en', undefined, 'laska', undefined, 'ak-laska'],
   ['anna-karenina', 'original-en', undefined, 'golenishtchev', undefined, 'ak-golenishtchev'],
+  // peloponnesian-war: the author's own card, homonym splits, minor commanders
+  ['peloponnesian-war', 'original-en', undefined, 'thucydides', undefined, 'pw-thucydides'],
+  ['peloponnesian-war', 'original-en', undefined, 'hippias-tyrant', 'Hippias', 'pw-hippias-tyrant'],
+  ['peloponnesian-war', 'original-en', undefined, 'hippias-arcadian', 'Hippias', 'pw-hippias-arcadian'],
+  ['peloponnesian-war', 'original-en', undefined, 'hippocrates-of-gela', 'Hippocrates', 'pw-hippocrates-gela'],
+  ['peloponnesian-war', 'original-en', undefined, 'aristeus', undefined, 'pw-aristeus'],
+  ['peloponnesian-war', 'original-en', undefined, 'leon-athenian', 'Leon', 'pw-leon-athenian'],
+  ['peloponnesian-war', 'original-en', undefined, 'epitadas', undefined, 'pw-epitadas'],
+  ['peloponnesian-war', 'original-en', undefined, 'agis', undefined, 'pw-agis'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
