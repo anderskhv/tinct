@@ -515,6 +515,19 @@ const CASES = [
   ['treasure-island', 'original-en', 19, 'ben-gunn', undefined, 'ti-ben-gunn-ch19'],
   ['treasure-island', 'modern-en', undefined, 'obrien', undefined, 'ti-modern-obrien'],
   ['treasure-island', 'modern-en', undefined, 'abraham-gray', undefined, 'ti-modern-abraham-gray'],
+  // Confessions — clickable-names pass (batch 4)
+  ['confessions', 'original-en', undefined, 'christ', undefined, 'cf-christ'],
+  ['confessions', 'original-en', undefined, 'paul', undefined, 'cf-paul'],
+  ['confessions', 'original-en', undefined, 'aeneas', undefined, 'cf-aeneas'],
+  ['confessions', 'original-en', undefined, 'firminus', undefined, 'cf-firminus'],
+  ['confessions', 'original-en', undefined, 'vindicianus', undefined, 'cf-vindicianus'],
+  ['confessions', 'original-en', undefined, 'hierius', undefined, 'cf-hierius'],
+  ['confessions', 'original-en', undefined, 'euodius', undefined, 'cf-euodius'],
+  ['confessions', 'original-en', undefined, 'manichaeus', undefined, 'cf-manichaeus'],
+  ['confessions', 'original-en', undefined, 'jove', undefined, 'cf-jove'],
+  ['confessions', 'original-en', undefined, 'hortensius', undefined, 'cf-hortensius'],
+  ['confessions', 'modern-en', undefined, 'firminus', undefined, 'cf-modern-firminus'],
+  ['confessions', 'modern-en', undefined, 'christ', undefined, 'cf-modern-christ'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
