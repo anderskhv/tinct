@@ -103,3 +103,58 @@ Anna Karenina `modern-en` has been fully re-rendered and checked:
 - Average chapter similarity vs `original-en`: 0.284.
 
 Follow-up required: regenerate `modern-da` from the repaired `modern-en`, then generate/upload `anna-karenina/modern-en` Kokoro audio and Danish audio.
+
+---
+
+# 2026-09-18 — Reconciliation and evidence-based queue
+
+Scope: **only books with existing review evidence.** This is not a fresh whole-library audit. Coverage and dates of the evidence are stated per row; books without a row have not been assessed under the current criteria. Procedure: the modern-en repair section of `books/TRANSLATION_PROTOCOL.md` (added 2026-09-18). Similarity numbers below are from `books/classify-modern-en.py --gate` run on the live files at this date.
+
+## What changed since the May audit
+
+The five books audited in May (wealth-of-nations, leviathan, don-quixote, essays-montaigne, anna-karenina) **now pass the similarity gate** (weighted similarity 0.21–0.37). They were re-rendered between May and September; the May "539 chapters need regen" figure is obsolete for them. They have not been through the two-gate procedure and carry no accessibility evidence.
+
+## Queue
+
+### A. Rights, source or structural blockers
+
+| Book | Evidence (date) | Blocker | Action |
+|---|---|---|---|
+| war-and-peace | edition_checks.py + close-read (2026-09-18) | Source mislabels the final chapter of every Book with the next Book's name (16 chapters); modern-en additionally has duplicate "Book Two — Chapter 1" and "Chapter 5" titles introduced by the repair branch | Structural repair of titles across original-en, modern-en, modern-da together; modern-en titles for ch 28–33 restored to mirror source. Not a drafting task. |
+| war-and-peace | CONVENTIONS.md (2026-09-18) | French handling uses three conventions; footnote-slot paragraphs cannot be dropped without touching all editions | DECISION NEEDED (Anders): adopt the proposed single convention, then one scripted pass plus review |
+| war-and-peace | CONVENTIONS.md | Cast tab uses Russian name forms, text uses Maude's anglicised forms | DECISION NEEDED: recommend aligning the cast file to the text |
+
+### B. Meaning or completeness repairs (fidelity)
+
+| Book | Evidence (date) | State | Action |
+|---|---|---|---|
+| confessions | branch b269fb96 repair log; gate FAIL on live file (sim 0.926, 9/13 books identical to source) | 9 books drafted (Sonnet), reviewed (Opus), corrected, verified, accepted with hashes; **never merged into the live file**; Codex spot-check of an earlier version found dense language and one meaning error | Classify as *repaired; verify latest version against the two-gate criteria*. Assemble the 13-book file from the accepted hashes, run Gate A (accessibility, candidate-only) on all 13, re-verify only what it flags plus the Codex-reported error location if supplied. Do not redraft. |
+| jane-eyre | branch b269fb96 repair log | Ch 27 tail, 35, 36, 37, 38 accepted after Opus review; live file untouched | Merge the accepted chapters; then Gate A on those chapters |
+| war-and-peace | 16-batch close-read (2026-09-17/18) + independent 24-chapter close-read (2026-09-18) | Fidelity certifiable: no MAJOR defects in 24 sampled chapters; residual minor drift (dropped clause, softened word) in about half the chapters; one grammar error ch 203 p38 | Caught by Gate B as chapters pass through the accessibility procedure; no separate fidelity pass |
+| the-awakening, jerusalem, vindication-rights-of-woman, brothers-karamazov | gate FAIL (sim 0.87–0.93; 8–37% of long paragraphs identical to source); Codex divergence audit 2026-09-12 | modern-en is largely the source text, so it is "faithful" only trivially | Real rendering needed under the two-gate procedure. Order by reader difficulty: Vindication (33% of sentences over 40 words) first; Karamazov is 349k words and its source is already plain Garnett prose, so scan for hard chapters before committing to a full render |
+| walden, jungle-book, heart-of-darkness | gate FAIL (sim 0.95–0.97) | passthrough | Walden has real readability need (21% of sentences over 40 words). Jungle Book and Heart of Darkness read easily already; lowest priority, a light pass may be all they need |
+| ulysses | gate FAIL (sim 0.937, 48% identical long paragraphs) | passthrough | DECISION NEEDED: whether modernising Joyce serves the reader at all. Not queued until decided |
+
+### C. Faithful but insufficiently accessible
+
+| Book | Evidence (date) | Where | Action |
+|---|---|---|---|
+| war-and-peace | sentence and similarity metrics + close-reads (2026-09-18) | Essays ch 338–365 (mean sentence 23.5 words, unchanged from Maude; 164 sentences over 50 words); ch 154–278 largely near-verbatim Maude (22 chapters more than half near-verbatim) | Pilot on ch 274 and 355 (this session, results below), then essays and mid-book first |
+| genealogy-of-morals, on-liberty, discourse-on-inequality, leviathan, descartes-meditations, don-quixote, symposium, second-treatise, beyond-good-and-evil, utilitarianism, kant-groundwork, hume-enquiry | library-wide sentence metrics (2026-09-18): 28–38% of sentences over 40 words, mean sentence 30–38 words | whole books | Candidates for the Gate A scan once the procedure is approved; no chapter-level evidence yet |
+
+### D. Editions good enough to retain
+
+| Book | Evidence (date) | Note |
+|---|---|---|
+| wealth-of-nations, leviathan, don-quixote, essays-montaigne, anna-karenina, jane-eyre | gate PASS (2026-09-18) | Genuinely modernised; no accessibility evidence either way. Leviathan and Don Quixote also appear in C on sentence metrics. |
+| Shakespeare plays, frankenstein, gilgamesh, romeo-and-juliet and the other 60-odd books at the bottom of the sentence-metric ranking | library-wide metrics (2026-09-18) | Retain; nothing indicates repair. |
+
+### Danish (kept separate from the modern-en queue)
+
+- odyssey modern-da: April 2026 spot-check PASS 4.2/5, review queue of 5 article-usage items. Not modern-en evidence.
+- war-and-peace modern-da: chapters 218, 220, 223, 226, 229, 340, 344, 350 run under 80% of source length (2026-09-18 ratio scan). Danish workstream.
+- confessions modern-da: translated from the pre-repair modern-en; re-translate after the modern-en is accepted.
+
+## Pilot results (War and Peace ch 274 and 355)
+
+_Filled at the end of the 2026-09-18 session; see `books/wip/war-and-peace-repair/pilot/`._
