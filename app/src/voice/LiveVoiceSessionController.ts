@@ -46,7 +46,7 @@ export class LiveVoiceSessionController {
   private publishReaderLocation() {
     const context = this.input?.context
     if (!context || !this.ready) return
-    const location = JSON.stringify({ book: context.bookTitle, chapter: context.chapterLabel, chapterNumber: context.chapterNumber, paragraphIndex: context.paragraphIndex, edition: context.editionLabel })
+    const location = JSON.stringify({ book: context.bookTitle, chapter: context.chapterLabel, chapterNumber: context.chapterNumber, paragraphIndex: context.paragraphIndex, edition: context.editionLabel, ...(this.input?.voiceExperiment ? { currentParagraph: context.currentParagraph?.slice(0, 2400), nearbyParagraphs: context.nearbyParagraphs?.slice(0, 5).map(text => text.slice(0, 1600)) } : {}) })
     if (location === this.readerLocation) return
     this.readerLocation = location
     this.send({ type: 'session.thinking.append', delegation_id: null, content: `Reader location (reference data): ${location}` })
