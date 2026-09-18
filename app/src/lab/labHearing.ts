@@ -512,6 +512,47 @@ export interface ChapterPageSegment {
   paragraphIndex: number
   from: number
   to: number
+  /**
+   * The last word of this segment is shown only up to this many characters,
+   * followed by a hyphen, because the page broke inside it. The next segment of
+   * the same paragraph then starts AT that word (`from` = `to - 1`) carrying
+   * `headBreak` with the same value — the one place two segments share a word.
+   */
+  tailBreak?: number
+  /** This segment's first word starts after this many characters (see above). */
+  headBreak?: number
+}
+
+/** The hyphen drawn at a page-edge break. U+2010, not the ASCII minus. */
+export const PAGE_BREAK_HYPHEN = '\u2010'
+
+/**
+ * The words of a segment as they are to be RENDERED: identical to the slice,
+ * except that a word the page broke inside carries only its own fragment, with
+ * a hyphen on the half that ends a page.
+ *
+ * Every surface goes through here — the reading column, the narration paint and
+ * the offscreen measurement — so the fragment the paginator measured is the
+ * fragment the reader sees. The word keeps its index on both pages, so
+ * highlights, narration follow and saved positions need to know nothing about
+ * any of this.
+ */
+export function segmentWordTexts<T extends { text: string }>(words: T[], segment: ChapterPageSegment): T[] {
+  const slice = words.slice(segment.from, segment.to)
+  if (!slice.length) return slice
+  const out = slice.slice()
+  if (segment.headBreak != null && segment.headBreak > 0) {
+    out[0] = { ...out[0], text: out[0].text.slice(segment.headBreak) }
+  }
+  const last = out.length - 1
+  if (segment.tailBreak != null && segment.tailBreak > 0) {
+    // On a one-word segment the head cut has already run, so measure the
+    // remaining break against the ORIGINAL word, not the shortened one.
+    const original = slice[last].text
+    const head = segment.headBreak != null && last === 0 ? segment.headBreak : 0
+    out[last] = { ...out[last], text: original.slice(head, segment.tailBreak) + PAGE_BREAK_HYPHEN }
+  }
+  return out
 }
 
 export function chapterPageSegments(page: ChapterHearingPage | undefined): ChapterPageSegment[] {
@@ -966,7 +1007,13 @@ export function chapterPagesCover(paragraphs: string[], pages: ChapterHearingPag
     const parts = pages.flatMap(page => chapterPageSegments(page)).filter(part => part.paragraphIndex === i)
     if (parts.length === 0 || parts[0].from !== 0 || parts[parts.length - 1].to !== n) return false
     for (let j = 0; j < parts.length - 1; j++) {
-      if (parts[j].to !== parts[j + 1].from) return false
+      if (parts[j].to === parts[j + 1].from) continue
+      // The one legal overlap: a page broke inside a word, so that word is the
+      // last of one segment and the first of the next. Both halves must say so,
+      // or this is a genuine gap and the layout is discarded.
+      const split = parts[j].to === parts[j + 1].from + 1
+        && parts[j].tailBreak != null && parts[j + 1].headBreak != null
+      if (!split) return false
     }
   }
   return pages.length === 0 ? paragraphs.every(text => tokenizeHearingWords(text).length === 0) : true
@@ -995,7 +1042,7 @@ export function readingPageLines(paragraphs: string[], page: ChapterHearingPage 
     return {
       paragraphIndex: segment.paragraphIndex,
       from: segment.from,
-      words: words.slice(segment.from, segment.to).map(word => ({ text: word.text, role: 'line' as const, emphasis: word.emphasis })),
+      words: segmentWordTexts(words, segment).map(word => ({ text: word.text, role: 'line' as const, emphasis: word.emphasis })),
     }
   })
 }
@@ -1012,7 +1059,7 @@ export function hearingReadingPageLines(
     return {
       paragraphIndex: segment.paragraphIndex,
       from: segment.from,
-      words: words.slice(segment.from, segment.to).map((word, offset) => {
+      words: segmentWordTexts(words, segment).map((word, offset) => {
         const wordIndex = segment.from + offset
         let role: HearingWordRole = 'line'
         if (follow.kind === 'word') {
