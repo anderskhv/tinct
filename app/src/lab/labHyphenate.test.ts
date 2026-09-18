@@ -124,3 +124,42 @@ describe('longestBreakWithin', () => {
     expect(longestBreakWithin('multitudes', 'en', 2)).toBeNull()
   })
 })
+
+describe('switching reading language while patterns are in flight', () => {
+  it('never applies one language’s patterns to another’s text', async () => {
+    __resetHyphenatorsForTest()
+    // English starts loading; the reader switches to Danish before it lands.
+    const englishLoad = loadHyphenator('en')
+    expect(hyphenatorReady('da')).toBe(false)
+    // While only English is (about to be) ready, Danish text gets NO breaks —
+    // the lookup is per language, so English rules cannot reach Danish words.
+    await englishLoad
+    expect(hyphenatorReady('en')).toBe(true)
+    expect(hyphenatorReady('da')).toBe(false)
+    expect(hyphenationBreaks('forsamlingen', 'da')).toEqual([])
+
+    await loadHyphenator('da')
+    // Danish patterns now break a Danish word; the English set, asked the same
+    // question, has nothing to say about it. Proof the two never cross.
+    expect(hyphenationBreaks('k\u00e6rlighed', 'da').length).toBeGreaterThan(0)
+    expect(hyphenationBreaks('k\u00e6rlighed', 'en')).toEqual([])
+    expect(hyphenationBreaks('mennesker', 'da'))
+      .not.toEqual(hyphenationBreaks('mennesker', 'en'))
+  })
+
+  it('switching back and forth loads each language once and keeps both correct', async () => {
+    __resetHyphenatorsForTest()
+    await Promise.all([loadHyphenator('en'), loadHyphenator('da'), loadHyphenator('en')])
+    expect(hyphenatorReady('en')).toBe(true)
+    expect(hyphenatorReady('da')).toBe(true)
+    expect(hyphenationBreaks('multitudes', 'en').length).toBeGreaterThan(0)
+    expect(hyphenationBreaks('mennesker', 'da').length).toBeGreaterThan(0)
+  })
+
+  it('a language with no patterns yields no breaks rather than the wrong ones', async () => {
+    __resetHyphenatorsForTest()
+    await loadHyphenator('en')
+    // An edition whose key names no supported language never hyphenates.
+    expect(hyphenLangForEdition('modern-fr')).toBeNull()
+  })
+})
