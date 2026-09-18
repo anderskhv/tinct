@@ -189,15 +189,56 @@ narration suites. Findings and what was done:
 | 14 | Low | Choosing Off hid the Settings row. | Fixed: the row stays for the page load once the pilot was on. |
 | 15–17 | Low | Short-paragraph pace floor, dead monotonic check, hard-coded scope in the public config. | Scope constant now shared; the rest noted for the expansion proposal. |
 
-## 6. Not yet measured (needs `FISH_AUDIO_API_KEY`)
+### Live probe — free tier, 2026-09-18 13:43 UTC (measured, no spend)
 
-Time to first audible playback, buffering gaps at paragraph boundaries,
-actual bytes and cost per chapter, and the share of tokens Fish times on real
-Odyssey paragraphs (names such as *Telemachus*, *Ithaca*, *Minerva*; the
-1,875-character quoted speech in paragraph 18). `src/narration/narration.live.test.ts`
-runs those measurements against the real API when the key is present in the
-environment and writes samples and numbers to `output/narration-pilot/`;
-it is skipped otherwise.
+Anders added `FISH_AUDIO_API_KEY` to the cloud environment. The paid model
+answered **402 "Insufficient API credit. API credit is managed independently
+from platform credit"**, so the probe ran on `s2.1-pro-free` (the same
+model, $0, no latency guarantee). Report:
+`artifacts/fish-narration-pilot-2026-09-18/live-probe-free-tier-2026-09-18.json`;
+samples were handed to Anders and Alex directly and are not committed.
+Free-tier output is licensed for personal use only, so nothing from this
+probe is cached in production.
+
+| Voice | Paragraph | Text | Audio | First audio byte | Complete | Generation ÷ audio | Tokens timed |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Nathan `bbb58d69…` | p0 (opening) | 605 chars | 38.8 s | 21.9 s | 21.9 s | 0.56 | 113 / 113 |
+| Nathan | p18 (quoted speech, names) | 1,875 chars, 1,887 bytes | 115.8 s | 52.2 s | 52.2 s | 0.45 | 362 / 362 |
+| Abby `f6a19fe5…` | p0 | 605 chars | 38.3 s | 15.6 s | 15.6 s | 0.41 | 113 / 113 |
+| Abby | p18 | 1,875 chars | 109.8 s | 39.5 s | 39.5 s | 0.36 | 362 / 362 |
+
+What this says:
+
+- **Word sync: passes.** Every display token of both paragraphs, including
+  *Telemachus*, *Achaean*, *Minerva*, the em-dashes and the quotation marks,
+  received a provider timing (`matchRatio` 1.0), validation passed with no
+  reasons, and the frame-walked MP3 duration matched the provider's within
+  0.1 s. The alignment mapping works on real Homeric prose without any of
+  the interpolation paths firing.
+- **Time to first audio: fails the experience bar as designed.** The
+  timestamped stream delivered its events only at completion (first byte ≈
+  complete), so an uncached paragraph waits for its whole generation:
+  15–22 s for the opening paragraph, 39–52 s for paragraph 18. Generation
+  runs at roughly 0.4–0.56 × audio length, so the two-paragraph look-ahead
+  keeps continuous playback gap-free once started, but the first press, and
+  any seek into unprepared text, waits too long. The paid tier promises
+  lower latency but the store-then-serve design still waits for the whole
+  recording. The fix is smaller synthesis units (see §10).
+- **Cost, at list price:** p0 $0.009, p18 $0.028; Book 1 (32 paragraphs,
+  ≈21,250 chars) ≈ $0.32 per voice; both voices ≈ $0.65 for the whole
+  pilot chapter.
+- **Pace:** ~175 words per minute for both voices; audio is 128 kbps MP3
+  (≈16 KB per second, ≈1.9 MB for paragraph 18).
+
+## 6. Not yet measured
+
+- The paid `s2.1-pro` tier: its latency and whether it streams
+  progressively. Needs API credit on the Fish account
+  (`https://fish.audio/app/developers`), then
+  `FISH_AUDIO_API_KEY=… npx vitest run src/narration/narration.live.test.ts`.
+- End-to-end through the deployed Worker (cache hit timing, two listeners on
+  one uncached passage) — needs the routes live and credit.
+- Listening quality: no human has auditioned the samples yet.
 
 ## 7. Rollback
 
@@ -230,3 +271,20 @@ it is skipped otherwise.
   content-addressed cache keeps duplicates harmless but not free.
 - Paragraphs are synthesised whole; time to first audio for the 1,875-
   character paragraph 18 is unmeasured and may warrant sentence chunking.
+
+## 10. Proposal after the probe: synthesise by sentence group, not paragraph
+
+The measured first-play wait comes from generation time being proportional
+to the unit synthesised. Splitting each paragraph into sentence groups of
+about 250–350 characters (Fish's own `chunk_length` ceiling) would cut the
+first wait to roughly a fifth of a paragraph's — on the free tier ≈ 4–8 s,
+on the paid tier plausibly a second or two — while the look-ahead prepares
+the rest of the paragraph and the next one. Mapping back is bounded work:
+each chunk becomes a clip carrying its paragraph index and first-word
+offset; paragraph word timings are the chunks' timings shifted by the
+chunks' durations; the map entry lists the chunks; text hashing stays per
+paragraph so invalidation is unchanged. Cost is identical (same bytes).
+Estimated size: Worker chunker + per-chunk publish (~150 lines), reader
+clip mapping (~80 lines), tests. This is the specific change to decide on
+before wider rollout; without it the pilot works but feels slow at every
+cold start.
