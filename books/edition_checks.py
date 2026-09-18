@@ -32,7 +32,8 @@ def wc(s):
 
 
 def sentences(t):
-    return [s for s in re.split(r'(?<=[.!?])\s+', t) if s.strip()]
+    # split after . ! ? optionally followed by closing quotes/brackets, then whitespace
+    return [s for s in re.split(r'(?<=[.!?])["\u201d\u2019\')\]]*\s+', t) if s.strip()]
 
 
 def norm_name(w):

@@ -15,7 +15,7 @@ Date: 2026-09-18. Same prompt (`books/prompts/modern-en-repair/draft.md`), same 
 
 ## Verdict
 
-No clear winner. Both drafts are faithful at the MAJOR level, both need the same kind of accessibility revision, and the amount and seriousness of correction needed is comparable (A slightly fewer minor findings, B slightly better on the accessibility read). Per the agreed rule ("if Opus wins clearly, use it for the difficult essays"), **Sonnet remains the drafting baseline for dense philosophical prose as well.** Candidate A was taken forward to correction.
+No clear winner. Both drafts are faithful at the MAJOR level, both need the same kind of accessibility revision, and the amount and seriousness of correction needed is comparable (A slightly fewer minor findings, B slightly better on the accessibility read). Per the agreed rule ("if Opus wins clearly, use it for the difficult essays"), **Sonnet remains the drafting baseline for dense philosophical prose as well.** Candidate A was taken forward to correction and accepted after two rounds (see `ch355-ACCEPTED.md`).
 
 ## What the comparison also showed
 

@@ -155,6 +155,34 @@ The five books audited in May (wealth-of-nations, leviathan, don-quixote, essays
 - war-and-peace modern-da: chapters 218, 220, 223, 226, 229, 340, 344, 350 run under 80% of source length (2026-09-18 ratio scan). Danish workstream.
 - confessions modern-da: translated from the pre-repair modern-en; re-translate after the modern-en is accepted.
 
-## Pilot results (War and Peace ch 274 and 355)
+## Pilot results (War and Peace ch 274 and 355) — 2026-09-18
 
-_Filled at the end of the 2026-09-18 session; see `books/wip/war-and-peace-repair/pilot/`._
+Full record in `books/wip/war-and-peace-repair/pilot/` (drafts, every review, corrections logs, verifications, acceptance records with hashes, blind key, changed-passage records). Baseline b269fb96, source pinned. Staged only; no live edition, audio or app change.
+
+| | ch 274 (narrative: the execution) | ch 355 (essay: what force moves nations) |
+|---|---|---|
+| Draft | Sonnet, 6/19 paragraphs changed | blind A Sonnet 6/13 vs B Opus 11/13; A taken forward |
+| Gate A on draft (Sonnet, candidate-only) | 15 clear / 4 hard / 0 unclear, REVISE | A 8/5/0, B 9/4/0, both REVISE |
+| Gate B on draft (Opus) | 0 MAJOR / 2 MODERATE / 11 MINOR, REVISE | A 0/2/22/1, B 0/2/28/3, both REVISE |
+| Correction rounds | 1 (8 paragraphs) | 2 (12, then 4 paragraphs) |
+| Verification (Opus) | ACCEPT, diff = log | round 1 ANOTHER ROUND (a real regression: source's "again" removed as an intensifier); round 2 ACCEPT |
+| Gate A on accepted hash | 17 / 1 / 1, PASS with two author-intrinsic rulings | 11 / 2 / 0, PASS |
+| Gate B on accepted hash | PASS | PASS |
+| Longest sentence | 55 → 55 words (kept: a deliberate cumulative sentence) | 118 → 50 words |
+| Accepted sha256 | `6f2a6734…d19681` | `c820d8c2…148b37` |
+
+**What the pilots established**
+
+1. The two-gate design works and the gates disagree in useful ways. Gate A found obstacles the fidelity reviewer would never have raised (an ambiguous "he was saved"; unglossed Thiers, Lanfrey, Gervinus, Schlosser; Le Contrat Social untranslated). Gate B caught a regression Gate A could not see (the dropped "again"). Neither would have been enough alone.
+2. Verification against the diff, not the log, is essential. Round-one correction of ch 355 removed a load-bearing word because the fidelity review's own quotation had elided it; only re-deriving from source caught it.
+3. Sentence splitting alone does not produce accessibility. On the essay chapter, the readability gain came mostly from minimal identifying glosses, which both drafting models under-applied until told. The drafting prompt now names this.
+4. Restructuring long sentences reliably introduces small intensifiers and connectives, in both models. The fidelity review catches them; the drafting prompt now names the habit.
+5. Candidate-only readers vary between runs (the second ch 274 reader flagged a paragraph the first did not). Two hard paragraphs and one author-intrinsic ruling is a normal outcome, not a failure; "author-intrinsic" is now protocol step 9 with a strict test.
+6. Blind drafting comparison: no clear winner between Sonnet and Opus on the essay chapter (see `BLIND-COMPARISON.md`). Sonnet stays the drafting baseline for all prose. Opus stays on fidelity review and verification.
+7. Cost per chapter under the full procedure: narrative chapter 1 draft + 2 reviews + 1 correction + 1 verification + 1 re-read = 6 agent runs; essay chapter with two rounds = 9 runs plus the comparison. About 70k–125k tokens per run. This is the honest unit cost for planning.
+
+**Recommendation: ready for the backlog, with three conditions.**
+
+- Approve the two DECISION NEEDED items in `CONVENTIONS.md` (French convention, cast-name alignment) before any further War and Peace chapter, since drafters currently leave French handling untouched.
+- Apply the procedure by zone, not by book: essays ch 338–365 and the near-verbatim middle ch 154–278 of War and Peace first; then the Confessions verification job; then the queue above. Run Gate A as a cheap scan over a whole book before committing drafting effort to it.
+- Keep the changed-passage records flowing to the audio workstream; the pilot's own records are in `pilot/changed-passages-pilot.json` (22 paragraphs) and the branch-vs-main records in `changed-passages-baseline-vs-main.json` (1,182 paragraphs). No audio was generated.
