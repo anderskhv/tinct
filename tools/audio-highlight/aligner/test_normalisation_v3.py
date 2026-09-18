@@ -14,6 +14,7 @@ import pinned_words_sidecar_lib_v2 as v2
 import pinned_words_sidecar_lib_v3 as v3
 import pinned_words_sidecar_lib_v4 as v4
 import pinned_words_sidecar_lib_v5 as v5
+import pinned_words_sidecar_lib_v6 as v6
 import trial
 
 def heard(words,step=.2):return [v3.HeardWord(w,round(i*step,3),round((i+1)*step,3)) for i,w in enumerate(words)]
@@ -154,27 +155,30 @@ class LetteredFootnoteMarkers(unittest.TestCase):
   self.assertEqual(ratio('I [ See the history.]',['See','the','history.'],lib=v4).unspoken,[])
 
 class CloudOrchestratorPin(unittest.TestCase):
- def test_v5_is_plumbed_from_workflow_through_pod(self):
+ def test_v6_is_plumbed_from_workflow_through_pod(self):
   root=Path(__file__).parents[3]
   workflow=(root/'.github'/'workflows'/'audio-align-canary.yml').read_text()
   orchestrator=(root/'tools'/'audio-highlight'/'gpu'/'orchestrate.py').read_text()
   pod=(root/'tools'/'audio-highlight'/'gpu'/'pod_job.py').read_text()
   trial_source=(root/'tools'/'audio-highlight'/'aligner'/'trial.py').read_text()
   pins=(root/'tools'/'audio-highlight'/'aligner'/'PINS.md').read_text()
-  self.assertIn('--helper v5',workflow)
-  self.assertNotIn('--helper v4',workflow)
-  self.assertIn('default="v5", choices=["v1", "v2", "v3", "v4", "v5"]',orchestrator)
+  self.assertIn('--helper v6',workflow)
+  self.assertNotIn('--helper v5',workflow)
+  self.assertIn('default="v6", choices=["v1", "v2", "v3", "v4", "v5", "v6"]',orchestrator)
   self.assertIn('TINCT_HELPER',orchestrator)
-  self.assertIn('pinned_words_sidecar_lib_v5.py',pod)
-  self.assertIn('os.environ.get("TINCT_HELPER", "v5")',pod)
+  self.assertIn('pinned_words_sidecar_lib_v6.py',pod)
+  self.assertIn('os.environ.get("TINCT_HELPER", "v6")',pod)
+  self.assertIn("'v6':'pinned_words_sidecar_lib_v6'",trial_source)
   self.assertIn("'v5':'pinned_words_sidecar_lib_v5'",trial_source)
+  self.assertIn(hashlib.sha256(Path(v6.__file__).read_bytes()).hexdigest(),pins)
   self.assertIn(hashlib.sha256(Path(v5.__file__).read_bytes()).hexdigest(),pins)
   self.assertIn(hashlib.sha256(Path(v4.__file__).read_bytes()).hexdigest(),pins)
   import sys
   sys.path.insert(0,str(root/'tools'/'audio-highlight'/'gpu'))
   import orchestrate
-  result=orchestrate.validate_remote_helper_payload('unused','v5',root.as_uri())
-  self.assertEqual(result['helper'],'v5')
+  result=orchestrate.validate_remote_helper_payload('unused','v6',root.as_uri())
+  self.assertEqual(result['helper'],'v6')
+  self.assertIn('pinned_words_sidecar_lib_v6.py',result['files'])
   self.assertIn('pinned_words_sidecar_lib_v5.py',result['files'])
  def test_exact_payload_fails_when_requested_helper_is_omitted(self):
   import shutil,tempfile,sys
@@ -185,9 +189,9 @@ class CloudOrchestratorPin(unittest.TestCase):
    replica=Path(directory)
    shutil.copytree(root/'tools',replica/'tools')
    pod=replica/'tools'/'audio-highlight'/'gpu'/'pod_job.py'
-   pod.write_text(pod.read_text().replace(',\n                 "pinned_words_sidecar_lib_v5.py"',''))
+   pod.write_text(pod.read_text().replace(', "pinned_words_sidecar_lib_v6.py"',''))
    with self.assertRaisesRegex(RuntimeError,'exact pod helper payload failed import'):
-    orchestrate.validate_remote_helper_payload('unused','v5',replica.as_uri())
+    orchestrate.validate_remote_helper_payload('unused','v6',replica.as_uri())
 
 class SourceTokenTextInvariant(unittest.TestCase):
  def test_emits_exact_source_tokens_after_acoustic_normalisation(self):
@@ -302,14 +306,79 @@ class CanaryRejectNormalisation(unittest.TestCase):
   self.assertEqual((d.stats.expected_words,d.stats.matched_words),(4,4))
   self.assertEqual(ratio('one hundred and twenty-two.',['one','hundred','and','twenty','-two.'],lib=v5).stats.match_ratio,1.0)
 
+class UnspokenHeadings(unittest.TestCase):
+ """Canary #15 / 35321419398: manifesto modern-en/4 p21 scored 0.80 under v5
+ because a chapter/section heading sat in the denominator. v6 drops heading-only
+ paragraphs the way v5 drops cues. The 0.85 gate does not move."""
+ MANIFESTO_P21='_C. German, or “True,” Socialism_'
+ def test_manifesto_p21_heading_noise_clears_under_v6(self):
+  # 5 expected tokens; a 4/5 near-miss is the 0.80 reject canary #15 recorded.
+  heard=['C.','German,','or','True,']
+  self.assertEqual(ratio(self.MANIFESTO_P21,heard,lib=v5).stats.match_ratio,.80)
+  self.assertLess(ratio(self.MANIFESTO_P21,heard,lib=v5).stats.match_ratio,.85)
+  d=ratio(self.MANIFESTO_P21,heard,lib=v6)
+  self.assertEqual(v6.clean_text(self.MANIFESTO_P21),'')
+  self.assertEqual(v6.expected_comparison_keys(self.MANIFESTO_P21.split()),[None]*5)
+  self.assertEqual(d.stats.expected_words,0)
+  self.assertEqual(d.stats.match_ratio,1.0)
+  trial.select_helper('v6')
+  result=trial.attempt(Model(heard),'unused',self.MANIFESTO_P21,'off')
+  self.assertEqual(result['acoustic_expected_tokens'],[])
+  self.assertEqual(result['expected_tokens'],self.MANIFESTO_P21.split())
+  self.assertEqual([word['text'] for word in result['candidate_words']],self.MANIFESTO_P21.split())
+  self.assertEqual(result['candidate_words'][0]['start'],result['candidate_words'][0]['end'])
+  self.assertEqual(result['rejection_reasons'],[])
+  self.assertGreaterEqual(result['match_ratio'],.85)
+  self.assertEqual(trial.GATE,.85)
+  trial.select_helper(trial.DEFAULT_HELPER)
+ def test_other_manifesto_heading_shapes_are_unspoken(self):
+  for source in (
+   '1. REACTIONARY SOCIALISM',
+   '_A. Feudal Socialism_',
+   '_B. Petty-Bourgeois Socialism_',
+   '2. CONSERVATIVE, OR BOURGEOIS, SOCIALISM',
+   '3. CRITICAL-UTOPIAN SOCIALISM AND COMMUNISM',
+   'CHAPTER XVIII: “Future” Part III',
+  ):
+   self.assertTrue(v6.is_unspoken_heading(source),source)
+   self.assertEqual(v6.clean_text(source),'')
+   self.assertTrue(all(key is None for key in v6.expected_comparison_keys(source.split())),source)
+ def test_ordinary_prose_is_not_stripped(self):
+  cases=(
+   'I. Communism is already acknowledged by all the European powers to be itself a power.',
+   'Two things follow from this fact.',
+   'WORKING MEN OF ALL COUNTRIES, UNITE!',
+   '"FITZWILLIAM DARCY."',
+   'NAPOLEON',
+   'Let us now take wage-labour.',
+   '2. A heavy progressive or graduated income tax.',
+   'The bourgeoisie has played a most revolutionary part in history.',
+  )
+  for source in cases:
+   self.assertFalse(v6.is_unspoken_heading(source),source)
+   self.assertTrue(v6.clean_text(source),source)
+   self.assertTrue(any(key is not None for key in v6.expected_comparison_keys(source.split())),source)
+ def test_heading_prefix_on_prose_is_left_in_the_denominator(self):
+  source='_C. German, or “True,” Socialism_ The aristocracy waved the alms-bag.'
+  self.assertFalse(v6.is_unspoken_heading(source))
+  heard=['The','aristocracy','waved','the','alms-bag.']
+  d=ratio(source,heard,lib=v6)
+  self.assertGreater(d.stats.expected_words,0)
+  self.assertLess(d.stats.match_ratio,.85)
+ def test_v5_cue_cases_still_clear_on_v6(self):
+  d=ratio('[_Exeunt all but Hortensio._]',['Exeunt','all','but','Hortensio._'],lib=v6)
+  self.assertGreaterEqual(d.stats.match_ratio,.85)
+  spoken=v6.expected_comparison_keys('Enter AMIENS, JAQUES, and OTHERS'.split())
+  self.assertEqual([key for key in spoken if key is not None],['enter','and'])
+
 class Pins(unittest.TestCase):
  def test_pins_file_records_all_three_helper_hashes(self):
   pins=(Path(__file__).parent/'PINS.md').read_text()
-  for module in (v1,v2,v3,v4,v5):
+  for module in (v1,v2,v3,v4,v5,v6):
    self.assertIn(hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest(),pins,module.__name__)
- def test_default_pin_is_v5_and_the_older_pins_are_selectable(self):
-  self.assertEqual(trial.DEFAULT_HELPER,'v5')
-  self.assertIs(trial.select_helper('v1'),v1);self.assertIs(trial.select_helper('v2'),v2);self.assertIs(trial.select_helper('v3'),v3);self.assertIs(trial.select_helper('v4'),v4);self.assertIs(trial.select_helper('v5'),v5)
+ def test_default_pin_is_v6_and_the_older_pins_are_selectable(self):
+  self.assertEqual(trial.DEFAULT_HELPER,'v6')
+  self.assertIs(trial.select_helper('v1'),v1);self.assertIs(trial.select_helper('v2'),v2);self.assertIs(trial.select_helper('v3'),v3);self.assertIs(trial.select_helper('v4'),v4);self.assertIs(trial.select_helper('v5'),v5);self.assertIs(trial.select_helper('v6'),v6)
   trial.select_helper(trial.DEFAULT_HELPER)
  def test_older_pins_still_reproduce_their_own_comparison(self):
   expected='They are—enough, now.'.split();spoken=['They','Are','Enough,','Now.']
