@@ -1,0 +1,48 @@
+
+=== webkit 390x844 reader { words: 83, verse: 36, title: 'Genesis 1' }
+  verse: {"align":"baseline","pad":"0px","display":"inline-block","markerText":"1","nextText":" In","nextStartsWithNbsp":true,"gap":0,"markerTop":113.4375,"nextTop":113.4375,"nextWordIndex":"1","nextParagraph":"0","nx":61.75571746826172,"ny":133.4375}
+  ok   [2] verse unit sits on the baseline with no padding (baseline, 0px)
+  ok   [2] separator after the verse marker belongs to the following word's span
+  ok   [2] following word's box starts where the marker ends (gap 0px)
+  ok   [2] long-press on the word after the marker starts selection there ([{"p":0,"w":1,"line":0,"text":" In"}])
+  ok   [2] selection popup opens on release
+  popup buttons: ["More actions"]
+  popup buttons now: ["Back to information","✧Explain","Ask","Highlight","Copy"]
+  ok   [3] Highlight opens the colour palette
+  ok   [3] picking a colour closes the popup
+  painted: {"cls":"lab-hearing-word is-hl-rose","bg":"rgba(0, 0, 0, 0)","left":37.26905822753906,"markerRight":37.26905822753906,"gap":0,"dTop":0,"dBottom":0}
+  ok   [3] the word carries the highlight class (lab-hearing-word is-hl-rose)
+  ok   [2] highlight paint starts flush against the verse marker, no notch (gap 0px)
+  ok   [2] highlighted word sits level with the marker (top 0px, bottom 0px)
+  short word target: {"text":"In","x":73.75,"y":133.4375,"hit":"P.lab-hearing-line is-continued is-tail-full","p":"0","w":"1","wordBox":[37,113,72,153],"alt":[[73.75,133.4375],[35.76905822753906,133.4375],[54.75952911376953,111.9375],[54.75952911376953,154.9375]]}
+  ok   [8] found a one/two-letter word with a touchable point on its line but off its box
+  dispatched on {"tag":"P","cls":"lab-hearing-line is-continued is-tail-full","word":null} selecting [{"p":0,"w":1,"line":0,"text":" In"}]
+  ok   [8] long-press beside "In" selects that word ([{"p":0,"w":1,"line":0,"text":" In"}])
+  ok   [8] and the popup opens for it
+  ok   [8] a touch outside any line (DIV.lab-hearing-stage) does not start a selection
+  ok   [4] multi-word touch selection opens the popup
+  ok   [4] Add note sits in the palette row
+  palette before {"popup":[62,245,288,56],"dots":[[15,16,24,24],[59,16,24,24],[103,16,24,24],[147,16,24,24],[191,16,24,24]]} after {"popup":[62,245,288,261],"dots":[[15,16,24,24],[59,16,24,24],[103,16,24,24],[147,16,24,24],[191,16,24,24]]}
+  ok   [4] colour dots neither move nor resize within the popup when the note opens ([[15,16,24,24],[59,16,24,24],[103,16,24,24],[147,16,24,24],[191,16,24,24]] -> [[15,16,24,24],[59,16,24,24],[103,16,24,24],[147,16,24,24],[191,16,24,24]])
+  ok   [4] popup keeps its width and place when the note opens (62,245,288 -> 62,245,288)
+  ok   [4] note field is usable width (266px)
+  ok   [4] note field opens beneath the row
+  ok   [4] note panel stays inside its frame and the viewport ({"w":288,"h":261,"overflowRight":0,"overflowBottom":0,"inViewport":true})
+  paged forward 1 times; headline undefined
+  short last line target: {"para":0,"startX":51.638343811035156,"startY":162.046875,"endX":353.203125,"endY":162.046875,"rowWords":[92,93],"lastText":"day.","ragged":229}
+  ok   [7] found a short paragraph-ending line with a ragged end
+  ok   [7] drag into the ragged end selects exactly that visual line and nothing below (got [92,93], expected [92,93], ends "day.")
+  ok   [1] multi-word touch selection opens the popup
+  ok   [1] explanation card shows the expand control
+  ok   [1] expanded, the control becomes Close
+  ok   [1] Close dismisses the card and the popup
+  ok   [5] Ask opens the conversation pane
+  composer: {"composerH":214.5625,"inputH":44,"inputMin":"44px","attached":true,"attH":88.5625,"inputInViewport":true,"tapX":18,"tapY":744.984375,"attTapX":33,"attTapY":636.421875}
+  ok   [5] the highlighted passage is attached
+  ok   [5] input keeps a 44px floor with the attachment (44px)
+  ok   [5] input is on screen
+  ok   [5] a press on the composer focuses the input (active: lab-ask-input)
+  ok   [0] no page errors ()
+
+ALL CHECKS PASSED
+exit 0

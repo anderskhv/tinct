@@ -596,8 +596,69 @@ import {
     }
     blendAtmosphere(book)
     renderFeatured()
-    caption.innerHTML = `<span class="lib-author">${escapeHtml(book.author)}</span><h2 class="lib-h1" data-popular-title>${escapeHtml(book.title)}</h2>${length ? `<span class="lib-readtime" title="${escapeHtml(length.ariaLabel)}" aria-label="${escapeHtml(length.ariaLabel)}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>${escapeHtml(length.value)}</span>` : ''}<p class="lib-lede" data-popular-blurb>${escapeHtml(bookDescription(book))}</p>`
+    caption.innerHTML = `<span class="lib-author">${escapeHtml(book.author)}</span><h2 class="lib-h1" data-popular-title><span class="lib-h1-fit" data-popular-title-text>${escapeHtml(book.title)}</span></h2>${length ? `<span class="lib-readtime" title="${escapeHtml(length.ariaLabel)}" aria-label="${escapeHtml(length.ariaLabel)}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>${escapeHtml(length.value)}</span>` : ''}<p class="lib-lede" data-popular-blurb>${escapeHtml(bookDescription(book))}</p><button type="button" class="lib-blurb-more" data-blurb-more aria-expanded="false" disabled></button>`
+    fitFeaturedTitle()
+    fitBlurb()
   }
+
+  /**
+   * The featured title is one line for every book. A title that would wrap
+   * ("The Strange Case of Dr Jekyll and Mr Hyde" at phone width) steps its
+   * font size down until it fits, so the block under it never moves; only a
+   * title that will not fit at three quarters size is cut with an ellipsis.
+   */
+  function fitFeaturedTitle() {
+    const title = root.querySelector('[data-popular-title]')
+    const text = title && title.querySelector('[data-popular-title-text]')
+    if (!title || !text) return
+    // The size steps down on the inner span; the heading keeps its own
+    // font size, so its one-line box is the same height whatever the title.
+    text.style.fontSize = ''
+    const base = parseFloat(getComputedStyle(title).fontSize)
+    if (!base) return
+    let size = base
+    while (title.scrollWidth > title.clientWidth + 0.5 && size > base * 0.6) {
+      size -= 1
+      text.style.fontSize = `${size}px`
+    }
+  }
+
+  /* A function, not a const: renderCaption runs before this point of the
+     module is evaluated, and a const would still be in its dead zone. */
+  function blurbLabel(open) { return open ? 'Collapse' : 'Expand' }
+  /**
+   * The five-line preview is a control only when there is more of the
+   * description than it shows. The affordance row under it is always laid
+   * out (see .lib-blurb-more in index.html), so measuring here changes the
+   * word in the row, never the height of the block.
+   */
+  function fitBlurb() {
+    const blurb = root.querySelector('[data-popular-blurb]')
+    const more = root.querySelector('[data-blurb-more]')
+    if (!blurb || !more) return
+    const open = blurb.classList.contains('is-open')
+    const clamped = open || blurb.scrollHeight > blurb.clientHeight + 1
+    more.disabled = !clamped
+    more.textContent = clamped ? blurbLabel(open) : ''
+    more.setAttribute('aria-expanded', String(open))
+    more.setAttribute('aria-label', clamped ? `${blurbLabel(open)} the description of ${blurbTitle()}` : '')
+  }
+  function blurbTitle() {
+    const book = state.shelfBooks[state.shelfIndex]
+    return book ? book.title : 'this book'
+  }
+  /** The reader's own tap is the one thing that changes the block's height. */
+  function toggleBlurb() {
+    const blurb = root.querySelector('[data-popular-blurb]')
+    if (!blurb) return
+    blurb.classList.toggle('is-open')
+    fitBlurb()
+  }
+  let blurbFitFrame = 0
+  window.addEventListener('resize', () => {
+    if (blurbFitFrame) return
+    blurbFitFrame = requestAnimationFrame(() => { blurbFitFrame = 0; fitFeaturedTitle(); fitBlurb() })
+  })
 
   function renderFirstCategory() {
     // The first category is the start of the complete index, not a sample copy.
@@ -1402,6 +1463,7 @@ import {
     const target = event.target instanceof Element ? event.target : null
     const scrollButton = target?.closest('[data-shelf-scroll]')
     if (scrollButton) { setShelfIndex(state.shelfIndex + Number(scrollButton.dataset.shelfScroll), true); return }
+    if (target?.closest('[data-blurb-more]')) { toggleBlurb(); return }
     if (target?.closest('[data-search-drawer]')) { revealSearch(); return }
     if (target?.closest('[data-search-toggle]')) { toggleSearch(); return }
     if (target?.closest('[data-open-full-library]')) { navigateView('library-index'); window.scrollTo(0,0); return }

@@ -1,8 +1,14 @@
-import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState, type Ref, type MutableRefObject } from 'react'
+import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type Ref, type MutableRefObject } from 'react'
 import { LAB_DESKTOP_PANES, labVoicePhaseLabel } from './labChrome'
 import { LAB_COPY } from './labCopy'
 import type { LabAskTurn, LabConversationState } from './labAsk'
 import { LabMarkdown } from './LabMarkdown'
+import { clampCompanionWidth, parseStoredWidth } from './useDraggableSurface'
+
+/** Where this device's chosen companion width is kept. */
+const COMPANION_WIDTH_KEY = 'tinct-lab-companion-width'
+/** Keyboard resize step, so the divider is usable without a pointer. */
+const COMPANION_NUDGE_PX = 24
 
 interface LabAskPaneProps {
   preparationSuggestions?: boolean
@@ -136,6 +142,66 @@ export function LabAskPane({
 }: LabAskPaneProps) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
   const [copiedTurn, setCopiedTurn] = useState<string | null>(null)
+  // How much of the desktop the conversation takes. Null means "whatever the
+  // stylesheet says", so an untouched panel keeps its designed proportion and
+  // only a reader who has actually dragged the divider gets a pinned width.
+  const [companionWidth, setCompanionWidth] = useState<number | null>(null)
+  const [resizing, setResizing] = useState(false)
+
+  useEffect(() => {
+    if (!desktopCompanion) return
+    let stored: number | null = null
+    try { stored = parseStoredWidth(window.localStorage.getItem(COMPANION_WIDTH_KEY)) } catch { stored = null }
+    if (stored != null) setCompanionWidth(clampCompanionWidth(stored, window.innerWidth))
+  }, [desktopCompanion])
+
+  // A narrower window must not leave the passage a slot too thin to read.
+  useEffect(() => {
+    if (!desktopCompanion) return
+    const onResize = () => setCompanionWidth(current => (current == null ? current : clampCompanionWidth(current, window.innerWidth)))
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [desktopCompanion])
+
+  const commitCompanionWidth = useCallback((width: number) => {
+    const next = clampCompanionWidth(width, window.innerWidth)
+    if (!next) return
+    setCompanionWidth(next)
+    try { window.localStorage.setItem(COMPANION_WIDTH_KEY, String(next)) } catch { /* private mode */ }
+  }, [])
+
+  // The panel is flush to the right, so its width is the gap from the pointer
+  // to the right edge. Pointer capture keeps the drag alive over the passage.
+  const beginResize = useCallback((event: React.PointerEvent<HTMLButtonElement>) => {
+    if (event.button !== 0) return
+    event.preventDefault()
+    const handle = event.currentTarget
+    try { handle.setPointerCapture(event.pointerId) } catch { /* jsdom */ }
+    setResizing(true)
+    const onMove = (move: PointerEvent) => {
+      const next = clampCompanionWidth(window.innerWidth - move.clientX, window.innerWidth)
+      if (next) setCompanionWidth(next)
+    }
+    const onUp = (up: PointerEvent) => {
+      window.removeEventListener('pointermove', onMove)
+      window.removeEventListener('pointerup', onUp)
+      window.removeEventListener('pointercancel', onUp)
+      try { handle.releasePointerCapture(up.pointerId) } catch { /* jsdom */ }
+      setResizing(false)
+      commitCompanionWidth(window.innerWidth - up.clientX)
+    }
+    window.addEventListener('pointermove', onMove)
+    window.addEventListener('pointerup', onUp)
+    window.addEventListener('pointercancel', onUp)
+  }, [commitCompanionWidth])
+
+  const nudgeResize = useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {
+    const step = event.key === 'ArrowLeft' ? COMPANION_NUDGE_PX : event.key === 'ArrowRight' ? -COMPANION_NUDGE_PX : 0
+    if (!step) return
+    event.preventDefault()
+    const current = companionWidth ?? (event.currentTarget.closest('.lab-ask') as HTMLElement | null)?.getBoundingClientRect().width ?? 0
+    commitCompanionWidth(current + step)
+  }, [companionWidth, commitCompanionWidth])
   // Auto-grow. The measurement collapses the field to 0px to read its
   // scrollHeight, which for that moment makes the content overflow the box by
   // its whole height — and an overflowing textarea paints a scrollbar. Where
@@ -413,6 +479,17 @@ export function LabAskPane({
         event.preventDefault()
         submit()
       }}
+      // An attached highlight fills most of the composer, so most of what the
+      // reader can see and aim at is the quote rather than the field. Any tap
+      // on the composer that is not aimed at a control means "write here".
+      onPointerDown={(event) => {
+        const target = event.target as HTMLElement
+        if (target.closest('button, a, input, textarea, [contenteditable]')) return
+        // The quote scrolls on its own; a tap inside it is not a miss.
+        if (target.closest('.lab-ask-attachment-text')) return
+        event.preventDefault()
+        textareaRef.current?.focus()
+      }}
     >
       {attachment && (
         <section className="lab-ask-attachment" data-testid="lab-ask-attachment" aria-label="Highlighted passage attached to question">
@@ -535,8 +612,19 @@ export function LabAskPane({
       className={`lab-ask ${empty ? 'is-empty' : 'has-thread'}${phoneSheet ? ' is-phone-sheet' : ''}${desktopCompanion ? ` is-desktop-companion is-${desktopCompanion}` : ''}`}
       data-testid="lab-ask-pane"
       data-companion={desktopCompanion || undefined}
+      style={desktopCompanion && companionWidth ? ({ '--lab-companion-width': `${companionWidth}px` } as CSSProperties) : undefined}
       aria-label={LAB_DESKTOP_PANES[0]}
     >
+      {desktopCompanion && (
+        <button
+          type="button"
+          className={`lab-ask-resizer${resizing ? ' is-resizing' : ''}`}
+          data-testid="lab-ask-resizer"
+          aria-label="Resize the conversation panel"
+          onPointerDown={beginResize}
+          onKeyDown={nudgeResize}
+        />
+      )}
       {desktopCompanion && (
         <div className="lab-desktop-companion-head">
           {desktopCompanion === 'talk' && <span className="lab-desktop-companion-mark" aria-hidden="true"><VoiceIcon /></span>}
