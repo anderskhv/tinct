@@ -79,7 +79,26 @@ Files: `app/src/voice/GrokVoiceSessionController.ts`, `grokConfig.ts`,
   locally; Node probes 248–365 ms. User transcript arrives ~35 ms after
   speech end. Filler is not counted: the assertion requires a ≥12-word answer
   that does not open with "hmm/okay/sure/let me".
-- Production numbers are in the section below once the deploy is verified.
+
+## Production release
+
+- Deploy workflow run 185 (`https://github.com/anderskhv/tinct/actions/runs/35356830019`)
+  on commit `6aeb71ce` succeeded: tests, `npm run deploy`, bundle-served
+  check, `scripts/smoke-test.sh`, library/entry/hyphenation browser checks.
+- Served bundle `/assets/index-DklYJ_Hz.js`; live Worker version
+  `410b729f-3c19-4250-995b-5a7fe1d967ce` (100%).
+- `POST https://tinct.app/api/lab-voice-session` returns a Grok client secret
+  with `model: grok-voice-latest`; the CSP on `/lab/phone` allows
+  `wss://api.x.ai`.
+- Real-provider browser smoke against `https://tinct.app` (headless, fake
+  microphone, muted):
+  - connected in 4.95 s; two user transcripts; an 84-word spoken answer;
+    interruption observed; End closed the call; microphone tracks `ended`;
+  - speech end → first audio delta: 398 ms and 355 ms (page-measured
+    `__tinctVoiceDebug`: 398, 356); speech end → user transcript ≈31 ms;
+  - spoken "take me back to the audiobook": `resume_audiobook` ran before the
+    accompanying `end_voice_session`, the call closed and the audiobook
+    reported playing (`data-playing="true"`).
 
 ## Sandbox notes (not production)
 
