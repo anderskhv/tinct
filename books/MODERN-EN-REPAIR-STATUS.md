@@ -121,8 +121,8 @@ The five books audited in May (wealth-of-nations, leviathan, don-quixote, essays
 | Book | Evidence (date) | Blocker | Action |
 |---|---|---|---|
 | war-and-peace | edition_checks.py + close-read (2026-09-18) | Source mislabels the final chapter of every Book with the next Book's name (16 chapters); modern-en additionally has duplicate "Book Two — Chapter 1" and "Chapter 5" titles introduced by the repair branch | Structural repair of titles across original-en, modern-en, modern-da together; modern-en titles for ch 28–33 restored to mirror source. Not a drafting task. |
-| war-and-peace | CONVENTIONS.md (2026-09-18) | French handling uses three conventions; footnote-slot paragraphs cannot be dropped without touching all editions | DECISION NEEDED (Anders): adopt the proposed single convention, then one scripted pass plus review |
-| war-and-peace | CONVENTIONS.md | Cast tab uses Russian name forms, text uses Maude's anglicised forms | DECISION NEEDED: recommend aligning the cast file to the text |
+| war-and-peace | CONVENTIONS.md (2026-09-18) | French handling uses three conventions | DECIDED: translate inline + "(in French)" cue, slot keeps original French. Scripted pass plus Gate B review queued ("French pass") |
+| war-and-peace | CONVENTIONS.md | Cast tab (legacy) uses Russian forms; character cards use English forms | DECIDED: text follows the character cards' English names; Bolkonski spelling per cards and Maude. Cast tab is legacy. |
 
 ### B. Meaning or completeness repairs (fidelity)
 
@@ -133,7 +133,7 @@ The five books audited in May (wealth-of-nations, leviathan, don-quixote, essays
 | war-and-peace | 16-batch close-read (2026-09-17/18) + independent 24-chapter close-read (2026-09-18) | Fidelity certifiable: no MAJOR defects in 24 sampled chapters; residual minor drift (dropped clause, softened word) in about half the chapters; one grammar error ch 203 p38 | Caught by Gate B as chapters pass through the accessibility procedure; no separate fidelity pass |
 | the-awakening, jerusalem, vindication-rights-of-woman, brothers-karamazov | gate FAIL (sim 0.87–0.93; 8–37% of long paragraphs identical to source); Codex divergence audit 2026-09-12 | modern-en is largely the source text, so it is "faithful" only trivially | Real rendering needed under the two-gate procedure. Order by reader difficulty: Vindication (33% of sentences over 40 words) first; Karamazov is 349k words and its source is already plain Garnett prose, so scan for hard chapters before committing to a full render |
 | walden, jungle-book, heart-of-darkness | gate FAIL (sim 0.95–0.97) | passthrough | Walden has real readability need (21% of sentences over 40 words). Jungle Book and Heart of Darkness read easily already; lowest priority, a light pass may be all they need |
-| ulysses | gate FAIL (sim 0.937, 48% identical long paragraphs) | passthrough | DECISION NEEDED: whether modernising Joyce serves the reader at all. Not queued until decided |
+| ulysses | gate FAIL (sim 0.937, 48% identical long paragraphs) | passthrough | DECIDED 2026-09-18: try it. Queued after the War and Peace zones and Confessions; start with a Gate A scan and one pilot episode, since Joyce's difficulty is partly the point and the author-intrinsic rule will be tested hard |
 
 ### C. Faithful but insufficiently accessible
 

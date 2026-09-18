@@ -15,7 +15,7 @@ The modern-en text uses Maude's anglicised forms without stress accents. Majorit
 
 | Character | Standard form | Do not use |
 |---|---|---|
-| Prince Andrew Bolkonsky | Andrew, Prince Andrew, Bolkonsky | Andrei, Bolkonski |
+| Prince Andrew Bolkonski | Andrew, Prince Andrew, Bolkonski (cards + Maude) | Andrei, Bolkonsky |
 | Nicholas Rostov | Nicholas | Nikolai, Nikolái |
 | Princess Mary Bolkonskaya | Princess Mary, Mary | Marya (for her) |
 | Marya Dmitrievna Akhrosimova | Marya Dmitrievna | Mary Dmitrievna |
@@ -31,7 +31,9 @@ The modern-en text uses Maude's anglicised forms without stress accents. Majorit
 
 Rules: "Marya" is correct for every character except Princess Mary Bolkonskaya. Forms of address (Prince, Count, Princess, "Your Excellency", "mon cher") are kept; briefly cue their meaning only where a new reader would otherwise be lost. Denisov's r-to-w speech impediment is preserved in every line he speaks and in proper nouns inside his speech.
 
-**DECISION NEEDED (cross-surface):** the Cast tab (`war-and-peace-threads.json`) uses Russian forms (Prince Andrei Bolkonsky, Nikolai Rostov, Princess Marya, Hélène) while the reading text uses Maude's anglicised forms. Options: (a) align the cast file to the text, (b) align the text to the cast (a whole-book rename touching ~2,000 occurrences plus modern-da), (c) keep both and rely on the cast file's `searchNames`. Recommendation: (a).
+**DECIDED 2026-09-18 (Anders):** the Cast tab (`war-and-peace-threads.json`) is legacy. The character cards (`app/public/data/characters/war-and-peace.v1.json`) are the reader-facing surface and use Maude's English forms (ids `andrew`, `nicholas-rostov`, `princess-mary`, `helene`, `old-prince-bolkonski`, `marya-dmitrievna`). The text follows the cards' English names. Surname spelling follows the cards and Maude: **Bolkonski**, Nesvitski is NOT adopted (cards do not name him; keep the text majority Nesvitsky). The table above is updated accordingly.
+
+**Downstream dependency:** the character-card file pins `sourceSha256` and per-paragraph hashes of modern-en and anchors 8,466 mentions by chapter, paragraph index and UTF-16 offsets. Any accepted text change invalidates the offsets in that paragraph. The changed-passage records (same key: chapter number + paragraph index) are what the card re-anchoring job should consume, exactly as audio does.
 
 ## Diacritics
 
@@ -42,15 +44,15 @@ Rules: "Marya" is correct for every character except Princess Mary Bolkonskaya. 
 
 Maude prints French (and German/Italian) speech in the original with an asterisk footnote paragraph carrying the English. The baseline handles this three different ways (59 `[Speaking in French]` tags in chapters 1–39, 63 passages with French kept plus `*` footnote, 54 passages translated inline with the footnote slot left as a bare one-line paragraph such as "Kutuzov." or "Ours.").
 
-**DECISION NEEDED — proposed single convention:**
+**DECIDED 2026-09-18 (Anders): translate to English, with a short parenthesis marking that it was spoken in French.** The single convention is:
 
-1. Ordinary French dialogue is translated inline in the dialogue paragraph.
-2. The fact that French is spoken is kept only where it matters (the source says so, or the switch is a social signal), as a light in-narrative cue: `she said in French`. No bracket tags.
-3. Original French is retained inline only where the wording itself is the point (a pun, a quoted maxim, verse, the 666 arithmetic).
-4. Footnote-slot paragraphs are never deleted (they exist in original-en and modern-da and alignment depends on them). The slot carries the original French, prefixed `*`, so the reader who wants it has it and nothing is duplicated: main paragraph = English, slot = `* Contez nous çela, Vicomte.`
-5. Any change to the slot convention is applied to modern-da in the same pass, never to one edition alone.
+1. French (and German/Italian) speech is translated inline in the dialogue paragraph.
+2. Where the source gives the passage in French (that is, wherever Maude prints French with a footnote, or says "in French"), the translated line carries the cue **(in French)** once, placed after the speech verb if there is one ("she said (in French)"), otherwise directly after the closing quotation mark. Not repeated for every sentence of a long French exchange: once per paragraph. No bracket tags, no "[Speaking in French]".
+3. Original French is retained inline only where the wording itself is the point (a pun, a quoted maxim, verse, the 666 arithmetic in ch 186), immediately followed by the English.
+4. Footnote-slot paragraphs are never deleted (they exist in original-en and modern-da and alignment depends on them). In modern-en the slot carries the original French, prefixed `*`, so a reader who wants the French has it and nothing is duplicated: main paragraph = English + (in French), slot = `* Contez nous çela, Vicomte.` Slots whose source footnote is not a translation but a gloss ("(Old style date.)", "An esaul is a captain of Cossacks") keep the gloss in parentheses.
+5. modern-da keeps its paragraph count; its slot convention is decided in the Danish workstream. Paragraph counts never diverge between editions.
 
-Until approved, drafters do not change French handling or slot paragraphs in a chapter.
+Scripted pass to apply this across the 180 affected passages, then Gate B review of every touched paragraph, is queued as the "French pass" (see MODERN-EN-REPAIR-STATUS.md).
 
 ## Typography
 
