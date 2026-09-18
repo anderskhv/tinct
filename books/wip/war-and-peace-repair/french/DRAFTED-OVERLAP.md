@@ -1,3 +1,5 @@
 # Chapters in the French inventory that went through drafting instead
 
 168, 215, 236, 288, 321, 322, 351 — their drafters were instructed to apply the French convention within the chapter. After acceptance, run `edition_checks.py` on each and hand any remaining bracket-tag / footnote-slot-bare / orphan-marker flag to a final French sweep.
+
+**Done 2026-09-18.** All seven accepted. `edition_checks.py` flags were clean, but a manual read of the inventory passages found three left with the French inline and an orphan `*` marker (ch288 p8, ch351 p20, ch351 p37) and one parenthesised translation-slot (ch321 p12). Fixed by the editor under rules 3 and 5, verified (Opus) as ch288-corrected-r3, ch321-corrected-r2, ch351-corrected-r2. The whole-edition check now reports 0 bracket-tag / slot-bare / orphan-marker flags. Lesson: the flag set does not catch "French inline + orphan marker + English in slot"; add an `inline-french-with-marker` flag to `edition_checks.py` before the chapters 1–153 scan.

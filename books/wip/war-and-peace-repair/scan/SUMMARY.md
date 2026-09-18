@@ -33,3 +33,7 @@ Input: baseline b269fb96 text (the consistency pass changes no readability). Ver
 - Chapters scanned: 210. PASS: 161. REVISE for drafting: 40. REVISE routed to the French pass only: 9 (155, 189, 197, 206, 207, 248, 277, 278, 305, 307, 312, 313, 316 overlap partly with drafting; see french-batches.json).
 - The scan confirms the zone hypothesis: the philosophy-of-history chapters fail almost uniformly; narrative chapters fail for one of three reasons (a pronoun or referent left open, a cluster of unglossed proper nouns, or a French footnote artifact). No chapter in 154–365 reads as "older prose lightly edited" to the candidate-only readers except 209 and 154–164's stacked syntax; the near-verbatim metric over-predicted readability problems in the middle of the book.
 - Chapters 1–153 have not been scanned. Given the hit rate here, scan them before any drafting there.
+
+## Disposition (2026-09-18, end of zone)
+
+Every REVISE chapter from this scan has been drafted, reviewed (Gate B, Opus), corrected, verified and re-read (Gate A on the accepted hash): 41 chapters plus the two pilots, all recorded with sha256 in `../repair/ACCEPTED.md`. The 9 French-only chapters went through the French pass. Post-correction re-reads returned REVISE on 23 of the 43 chapters, every one on author-intrinsic obstacles (Tolstoy's own quoted orders, essay abstractions, open pronouns the source leaves open, footnote slots in the decided convention), ruled and recorded per chapter under protocol step 9. No accepted chapter has an unresolved MAJOR or MODERATE fidelity finding.
