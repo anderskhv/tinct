@@ -986,7 +986,11 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
      pushing the page around. Lower the number to tighten the block; anything
      below 8 starts truncating today's copy (see the note in BACKLOG.md). */
   #tinct-onboarding-worlds-v5 .lib-caption { --lib-feat-lines:8; display:flex; flex-direction:column; gap:10px; min-height:176px; }
-  #tinct-onboarding-worlds-v5 [data-popular-blurb] { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--lib-feat-lines); overflow:hidden; height:calc(var(--lib-feat-lines) * 1.45em); }
+  /* Selector carries .lib .lib-caption .lib-lede so it out-specifies
+     library-glass.css / entry-responsive.css, which set the lede back to
+     display:block, overflow:visible and line-clamp:unset. Line-height is set
+     here too, so the reserved height and the clamp count the same lines. */
+  #tinct-onboarding-worlds-v5 .lib .lib-caption .lib-lede[data-popular-blurb] { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:var(--lib-feat-lines); overflow:hidden; line-height:1.4; height:calc(var(--lib-feat-lines) * 1.4em); }
   #tinct-onboarding-worlds-v5 .lib-caption:empty { display:none; }
   /* The action above the row is the page's headline; the focused book's name
      is its subject, one step down. */
