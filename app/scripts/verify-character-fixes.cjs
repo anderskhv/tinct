@@ -601,6 +601,19 @@ const CASES = [
   ['essays-montaigne', 'original-en', undefined, 'jupiter', undefined, 'mo-jupiter'],
   ['essays-montaigne', 'modern-en', undefined, 'pompey', undefined, 'mo-modern-pompey'],
   ['essays-montaigne', 'modern-en', 25, 'seneca-and-plutarch', undefined, 'mo-modern-seneca-ch25'],
+  // Wealth of Nations — clickable-names pass (batch 4)
+  ['wealth-of-nations', 'original-en', undefined, 'elizabeth-i', undefined, 'wn-elizabeth'],
+  ['wealth-of-nations', 'original-en', undefined, 'charles-ii', undefined, 'wn-charles-ii'],
+  ['wealth-of-nations', 'original-en', undefined, 'william-iii', undefined, 'wn-william-iii'],
+  ['wealth-of-nations', 'original-en', undefined, 'queen-anne', undefined, 'wn-queen-anne'],
+  ['wealth-of-nations', 'original-en', undefined, 'hume', undefined, 'wn-hume'],
+  ['wealth-of-nations', 'original-en', undefined, 'matthew-decker', undefined, 'wn-matthew-decker'],
+  ['wealth-of-nations', 'original-en', undefined, 'dr-burn', undefined, 'wn-dr-burn'],
+  ['wealth-of-nations', 'original-en', undefined, 'columbus', undefined, 'wn-columbus'],
+  ['wealth-of-nations', 'original-en', undefined, 'mr-law', undefined, 'wn-mr-law'],
+  ['wealth-of-nations', 'original-en', undefined, 'prince-henry', undefined, 'wn-prince-henry'],
+  ['wealth-of-nations', 'modern-en', undefined, 'elizabeth-i', undefined, 'wn-modern-elizabeth'],
+  ['wealth-of-nations', 'modern-en', undefined, 'hume', undefined, 'wn-modern-hume'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
