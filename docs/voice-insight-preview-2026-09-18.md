@@ -30,7 +30,7 @@ avoid writing the desired sparrows answer into the prompt. Browser simulations
 verify wiring only; actual voice latency and quality need an audible trial.
 Do not request microphone access or play audio on Anders's Mac during automation.
 
-Status: preview published and cloud acceptance passed September 18, 2026.
+Original rollout (superseded by the streamed trial below): preview published and cloud acceptance passed September 18, 2026.
 
 [Preview](https://voice-insight-tinct.ahvelplund.workers.dev/lab/voice)
 defaults to Insight — direct. [Immutable version](https://bf0a0291-tinct.ahvelplund.workers.dev/lab/voice)
@@ -49,7 +49,7 @@ microphone or audible quality test was performed. The unauthenticated preview
 admin endpoint returned allowed:false. Production still served index-DpT2T9Ec.js
 at verification; no main commits or production traffic deployment were made.
 
-Next: compare Insight — direct and Insight — Sol reasoning on the same questions,
+Original next step (superseded): compare Insight — direct and Insight — Sol reasoning on the same questions,
 including one unseen passage, assessing insight and substantive-answer latency.
 The known reader-position issue remains intentionally deferred. Research service
 output limits remain unchanged in this first controlled prompt comparison.
@@ -83,8 +83,7 @@ on the Worker. Development does not call Anthropic.
 
 First cloud run 35338764314 passed 2,413 tests in 195 files. Deployment correctly
 refused its outdated commit after additional regression work advanced the branch;
-no version was uploaded in that run. Final verification is pending on the frozen
-branch head. Added tests cover early PCM playback, cancellation, out-of-order
+no version was uploaded in that run. Final verification is recorded below. Added tests cover early PCM playback, cancellation, out-of-order
 transcriptions, yes-after-clarification, pending repeats/status, tool continuation,
 source handling and audio resume. Cloud browser acceptance exercises both Live
 and streamed paths using simulated microphones and PCM on Chromium and WebKit.
@@ -96,3 +95,31 @@ promise is made; the next user trial should compare time to first useful spoken
 thought, insight, correction handling and sentence-to-sentence voice continuity.
 The preview continues to share account data and credentials with the existing
 Worker; production code and traffic remain untouched.
+
+### Streamed preview release evidence
+
+Published September 18, 2026 from commit
+3827307e851a520cb3d2509ff9e7607de305de85.
+[Cloud run 35339030045](https://github.com/anderskhv/tinct/actions/runs/35339030045)
+passed **2,416 tests in 196 files**, documentation validation, build,
+verify-bundle, version upload, exact served-bundle comparison, and silent
+Chromium desktop / WebKit phone acceptance. Both browser runs had zero page
+errors and exercised the new streamed preset as well as the prior Live preset.
+The first speech request contained the first complete sentence; diagnostics
+recorded first scheduled audio, and exported settings retained the transport.
+
+Current [preview](https://voice-insight-tinct.ahvelplund.workers.dev/lab/voice)
+defaults to **Sol — streamed voice**.
+[Immutable version](https://ead86fe1-tinct.ahvelplund.workers.dev/lab/voice):
+ead86fe1-505e-4a34-acda-e5cc4ba8889c, bundle **index-C2SCWlKR.js**.
+[Acceptance artifacts](https://github.com/anderskhv/tinct/actions/runs/35339030045/artifacts/10544252905)
+include desktop-streamed-voice.png and phone-streamed-voice.png under
+output/voice-lab-2026-09-17, along with existing settings/results screenshots
+and remote acceptance JSON.
+
+Independent HTTP checks confirmed the preview bundle, unauthenticated POST
+/api/voice-chain returns 403, and production still serves index-DpT2T9Ec.js.
+Production was not deployed. These are wiring/security/streaming checks with
+simulated audio, not proof of real provider availability, human-perceived
+latency or acoustic quality. Next: one audible comparison using the default
+streamed preset, then inspect the exported first-audio timing and conversation.
