@@ -45,7 +45,9 @@ export async function handleVoiceChain(request: Request, env: VoiceEnv, admin: A
       type: 'transcription',
       audio: { input: {
         noise_reduction: { type: 'near_field' },
-        transcription: { model: 'gpt-live-transcribe', prompt: 'A literary conversation about books. Names may include Tim Keller, Bildad, Dostoevsky and biblical figures.' },
+        // This chain requires server VAD events and automatic turn commits.
+        // gpt-live-transcribe rejected turn_detection in the real preview session.
+        transcription: { model: 'gpt-4o-transcribe', prompt: 'A literary conversation about books. Names may include Tim Keller, Bildad, Dostoevsky and biblical figures.' },
         turn_detection: { type: 'server_vad', threshold: 0.6, prefix_padding_ms: 300, silence_duration_ms: 900 },
       } },
     }
