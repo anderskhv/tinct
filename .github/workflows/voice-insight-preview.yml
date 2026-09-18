@@ -1,0 +1,63 @@
+name: voice-insight-preview
+on:
+  push:
+    branches: [codex/voice-insight-preview]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: voice-insight-preview
+  cancel-in-progress: false
+jobs:
+  preview:
+    if: github.ref == 'refs/heads/codex/voice-insight-preview'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: app
+    env:
+      CI: true
+      TINCT_DEPLOY_TARGET: voice-preview
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash ../scripts/cloud-setup.sh
+      - run: npm test
+      - run: python3 ../scripts/check-docs.py
+      - name: Upload preview only
+        run: |
+          set -o pipefail
+          npm run deploy | tee /tmp/voice-preview-release.txt
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      - name: Verify preview bundle
+        run: |
+          url=$(grep -oE 'https://voice-insight-[a-z0-9.-]+\.workers\.dev' /tmp/voice-preview-release.txt | head -1)
+          test -n "$url"
+          echo "BASE=$url" >> "$GITHUB_ENV"
+          expected=$(grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' dist/app.html | head -1)
+          for attempt in $(seq 1 20); do
+            bundle=$(curl -fsS "$url/lab/voice" | grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' | head -1) || true
+            if [ "$bundle" = "$expected" ] && curl -fsS "$url$bundle" -o /tmp/voice-preview-bundle.js && cmp -s "dist$expected" /tmp/voice-preview-bundle.js; then
+              echo "Verified $url/lab/voice $bundle"
+              exit 0
+            fi
+            sleep 5
+          done
+          exit 1
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Silent preview acceptance
+        run: node ../output/voice-lab-2026-09-17/acceptance.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: voice-insight-preview
+          path: |
+            output/voice-lab-2026-09-17/
+            /tmp/voice-preview-release.txt
