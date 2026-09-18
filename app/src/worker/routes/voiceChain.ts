@@ -29,18 +29,19 @@ export async function handleVoiceChain(request: Request, env: VoiceEnv, admin: A
   try { body = JSON.parse(raw) } catch { return jsonResponse({ error: 'Invalid JSON' }, 400, request) }
   if (!body || typeof body !== 'object') return jsonResponse({ error: 'Invalid request' }, 400, request)
   let endpoint: string, payload: BodyInit, type: string, contentType = 'application/json'
+  let transcriptionSession: Record<string, unknown> | undefined
   if (body.action === 'transcription' && typeof body.sdp === 'string' && body.sdp.length < 30_000) {
-    const form = new FormData()
-    form.set('sdp', body.sdp)
-    form.set('session', JSON.stringify({
+    transcriptionSession = {
       type: 'transcription',
       audio: { input: {
         noise_reduction: { type: 'near_field' },
         transcription: { model: 'gpt-live-transcribe', prompt: 'A literary conversation about books. Names may include Tim Keller, Bildad, Dostoevsky and biblical figures.' },
         turn_detection: { type: 'server_vad', threshold: 0.6, prefix_padding_ms: 300, silence_duration_ms: 900 },
       } },
-    }))
-    endpoint = 'realtime/calls'; payload = form; contentType = ''; type = 'application/sdp'
+    }
+    // /calls multipart session accepts RealtimeSessionCreateRequest, not a
+    // transcription session. Configure transcription on /client_secrets first.
+    endpoint = 'realtime/calls'; payload = body.sdp; contentType = 'application/sdp'; type = 'application/sdp'
   } else if (body.action === 'answer' && typeof body.instructions === 'string' && body.instructions.length <= 65_536 && Array.isArray(body.messages) && body.messages.length <= 100 && Array.isArray(body.tools) && body.tools.length <= 40) {
     // Only client-side function declarations; no arbitrary hosted tools, remote MCP or URLs.
     if (body.tools.some((t: any) => !t || t.type !== 'function' || typeof t.name !== 'string' || !/^[a-zA-Z0-9_-]{1,64}$/.test(t.name))) return jsonResponse({ error: 'Invalid tools' }, 400, request)
@@ -65,15 +66,29 @@ export async function handleVoiceChain(request: Request, env: VoiceEnv, admin: A
     })
   } else return jsonResponse({ error: 'Invalid voice request' }, 400, request)
   try {
+    let credential = env.OPENAI_API_KEY
+    if (transcriptionSession) {
+      const created = await fetch('https://api.openai.com/v1/realtime/client_secrets', {
+        method: 'POST', headers: { Authorization: 'Bearer ' + credential, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ expires_after: { anchor: 'created_at', seconds: 60 }, session: transcriptionSession }),
+        signal: request.signal,
+      })
+      const session = await created.json().catch(() => null) as any
+      if (!created.ok || typeof session?.value !== 'string') {
+        console.error('voice-chain provider error', 'transcription_session', created.status, session?.error?.code, session?.error?.param)
+        return jsonResponse({ error: 'Could not create the transcription session.', stage: 'transcription_session', code: String(session?.error?.code || 'session_creation_failed').slice(0, 100) }, 502, request)
+      }
+      credential = session.value
+    }
     const upstream = await fetch('https://api.openai.com/v1/' + endpoint, {
-      method: 'POST', headers: { Authorization: 'Bearer ' + env.OPENAI_API_KEY, ...(contentType ? { 'Content-Type': contentType } : {}) },
+      method: 'POST', headers: { Authorization: 'Bearer ' + credential, ...(contentType ? { 'Content-Type': contentType } : {}) },
       body: payload, signal: request.signal,
     })
     if (!upstream.ok) {
       // Log only provider error classification, never credentials or private conversation.
       const detail = await upstream.json().catch(() => null) as any
       console.error('voice-chain provider error', endpoint, upstream.status, detail?.error?.code, detail?.error?.param)
-      return jsonResponse({ error: 'Voice provider could not complete ' + body.action + '. Please try again.' }, 502, request)
+      return jsonResponse({ error: 'Voice provider could not complete ' + body.action + '. Please try again.', stage: body.action === 'transcription' ? 'transcription_handshake' : body.action, code: String(detail?.error?.code || 'provider_request_failed').slice(0, 100) }, 502, request)
     }
     return new Response(upstream.body, { headers: { 'Content-Type': type, 'Cache-Control': 'no-store' } })
   } catch {
