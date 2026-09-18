@@ -14,3 +14,7 @@ Input: baseline b269fb96 text (the consistency pass changes no readability). Ver
 | mid-9 | 242–252 | 245, 252 (draft); 248 (French pass) | 242–244, 246, 247, 249–251 | 245: one unclear line ("Are we miserable Germans?") plus unglossed terms; 252: crowd-dialogue speaker attribution; 248: four asterisked one-liners are French footnote scaffolding. |
 | mid-2 | 165–175 | 168 | 165–167, 169–175 | 168 is the essay on the causes of the 1812 war: long tangled sentences, unglossed references. |
 | mid-4 | 187–197 | 191, 196 (draft); 189, 197 (French pass) | 187, 188, 190, 192–195 | 191: dense unexplained names at headquarters (Pfuel, Toll, Paulucci, Bennigsen…) plus one rank contradiction to check against source; 196: unparseable elliptical opening sentence; 189/197: orphan footnote fragments. |
+| essays-3 | 357–365 | 357, 358, 360, 361, 363 | 359, 362, 364, 365 | Unglossed historical/biblical names, stacked clauses; 360's ship-wake metaphor reads inconsistently (check against source). |
+| mid-8 | 231–241 | 231, 236 | 232–235, 237–241 | 231: physics/collision metaphors plus name cluster; 236: one truncated sentence "widow of the Grand…" (check source). |
+| mid-11 | 264–274 | 264, 265, 267 | 266, 268–274 | Unglossed euphemisms/allusions (bigamy euphemism, Tree of Knowledge), one opaque joke ("the path to Warsaw"). |
+| late-2 | 289–298 | 290, 294, 297, 298 | 289, 291–293, 295, 296 | Proper nouns dropped cold (worst 294); "the golden bridge" idiom unexplained; two unclear spots (290 "St. Thomas", 298 "blank sheet of paper"). |
