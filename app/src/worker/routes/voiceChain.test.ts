@@ -40,7 +40,7 @@ it('never exchanges SDP after a rejected transcription session or exposes its se
   const result = await handleVoiceChain(request({ action: 'transcription', sdp: 'offer' }), env, admin, rate)
   expect(fetch_).toHaveBeenCalledTimes(1)
   expect(result.status).toBe(502)
-  expect(await result.json()).toEqual({ error: 'Could not create the transcription session.', stage: 'transcription_session', code: 'invalid_value' })
+  expect(await result.json()).toEqual({ error: 'Could not create the transcription session.', stage: 'transcription_session', code: 'invalid_value', param: 'session.type' })
 })
 
 it('rejects arbitrary hosted tools, model injection and oversized speech', async () => {
@@ -55,4 +55,14 @@ it('returns generic provider failures without leaking provider payloads', async 
   const result = await handleVoiceChain(request({ action: 'speech', text: 'A thought.' }), env, admin, rate)
   expect(result.status).toBe(502)
   expect(await result.text()).not.toContain('secret')
+})
+
+it('does not expose unknown parameter names or private provider messages', async () => {
+  vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(JSON.stringify({
+    error: { code: 'invalid_value', param: 'private-value', message: 'private provider message' }
+  }), { status: 400 })))
+  const result = await handleVoiceChain(request({ action: 'transcription', sdp: 'offer' }), env, admin, rate)
+  expect(await result.json()).toEqual({
+    error: 'Could not create the transcription session.', stage: 'transcription_session', code: 'invalid_value'
+  })
 })
