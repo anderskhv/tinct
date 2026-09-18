@@ -614,6 +614,15 @@ const CASES = [
   ['wealth-of-nations', 'original-en', undefined, 'prince-henry', undefined, 'wn-prince-henry'],
   ['wealth-of-nations', 'modern-en', undefined, 'elizabeth-i', undefined, 'wn-modern-elizabeth'],
   ['wealth-of-nations', 'modern-en', undefined, 'hume', undefined, 'wn-modern-hume'],
+  // Democracy in America — clickable-names pass (batch 4)
+  ['democracy-in-america', 'original-en', undefined, 'judge-story', undefined, 'da-judge-story'],
+  ['democracy-in-america', 'original-en', undefined, 'chancellor-kent', undefined, 'da-chancellor-kent'],
+  ['democracy-in-america', 'original-en', undefined, 'clarke-and-cass', undefined, 'da-clarke-and-cass'],
+  ['democracy-in-america', 'original-en', undefined, 'louis-xiv', undefined, 'da-louis-xiv'],
+  ['democracy-in-america', 'original-en', undefined, 'pascal', undefined, 'da-pascal'],
+  ['democracy-in-america', 'original-en', undefined, 'lincoln', undefined, 'da-lincoln'],
+  ['democracy-in-america', 'original-en', 3, 'george-washington', undefined, 'da-washington-bare-ch3'],
+  ['democracy-in-america', 'modern-en', undefined, 'judge-story', undefined, 'da-modern-judge-story'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
