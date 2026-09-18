@@ -147,6 +147,25 @@ const CASES = [
   ['don-quixote', 'original-en', undefined, 'ricote', undefined, 'dq-ricote'],
   ['don-quixote', 'modern-en', undefined, 'dapple', undefined, 'dq-modern-dapple'],
   ['divine-comedy', 'modern-en', undefined, 'branca-doria', undefined, 'dc-modern-doria-rebind'],
+  // the-aeneid: names spaCy missed entirely, epithet aliases, Saturnia -> Juno
+  ['the-aeneid', 'original-en', undefined, 'achates', undefined, 'ae-achates'],
+  ['the-aeneid', 'original-en', undefined, 'neptune', undefined, 'ae-neptune'],
+  ['the-aeneid', 'original-en', undefined, 'apollo', 'Apollo', 'ae-apollo-phoebus'],
+  ['the-aeneid', 'original-en', undefined, 'hercules', 'Hercules', 'ae-hercules-alcides'],
+  ['the-aeneid', 'original-en', undefined, 'juno', 'Juno', 'ae-saturnia-alias'],
+  ['the-aeneid', 'original-en', undefined, 'anna', undefined, 'ae-anna'],
+  ['the-aeneid', 'original-en', undefined, 'euryalus', undefined, 'ae-euryalus'],
+  ['the-aeneid', 'original-en', undefined, 'fame', undefined, 'ae-fame'],
+  ['the-aeneid', 'modern-en', undefined, 'acestes', undefined, 'ae-modern-acestes-reanchored'],
+  // paradise-lost: angels spaCy missed, the fallen-gods catalogue, Satan aliases, personified Night
+  ['paradise-lost', 'original-en', undefined, 'uriel', undefined, 'pl-uriel'],
+  ['paradise-lost', 'original-en', undefined, 'mulciber', undefined, 'pl-mulciber'],
+  ['paradise-lost', 'original-en', undefined, 'astoreth', 'Astoreth', 'pl-astoreth-reanchored'],
+  ['paradise-lost', 'original-en', undefined, 'chaos', undefined, 'pl-chaos'],
+  ['paradise-lost', 'original-en', undefined, 'night', 'Night', 'pl-night-personified'],
+  ['paradise-lost', 'original-en', undefined, 'satan', 'Satan', 'pl-tempter-alias'],
+  ['paradise-lost', 'original-en', undefined, 'the-serpent', undefined, 'pl-serpent'],
+  ['paradise-lost', 'original-en', undefined, 'the-son', undefined, 'pl-jesus-alias'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
