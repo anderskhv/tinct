@@ -341,7 +341,8 @@ export const LabNativePaginator = memo(function LabNativePaginator({
             })
             stage.append(p)
           }
-          const last = [...stage.querySelectorAll('.lab-hearing-word')].at(-1)
+          const painted = [...stage.querySelectorAll('.lab-hearing-word, .lab-word-fragment')]
+          const last = painted[painted.length - 1]
           const lastBottom = last ? Math.max(...[...last.getClientRects()].map(rect => rect.bottom)) : Infinity
           return labPageFitsPaint({ lastBottom, chromeTop: host.getBoundingClientRect().bottom })
         }, wordBreaks)

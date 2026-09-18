@@ -146,8 +146,11 @@ export function renderWordGroups<T extends { text: string }>(
       })
     }
   }
+  // As in labMeasureParagraph: a trailing display fragment is not a word, so
+  // it must not extend the verse-line ranges by one.
+  const ownedCount = words.filter(word => !(word as { fragment?: boolean }).fragment).length
   const ranges = lineation
-    ? verseLineRanges(lineation.text, lineation.from, lineation.from + words.length)
+    ? verseLineRanges(lineation.text, lineation.from, lineation.from + ownedCount)
     : null
   if (!ranges) return rendered.map(item => item.node)
   const base = lineation!.from

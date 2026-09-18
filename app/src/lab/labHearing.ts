@@ -576,8 +576,21 @@ export function chapterPageSegments(page: ChapterHearingPage | undefined): Chapt
   return [{ paragraphIndex: page.paragraphIndex, from: page.from, to: page.to }]
 }
 
+/**
+ * Rebuild a page from reshaped segments.
+ *
+ * Every caller is a post-paint adjuster that moves `from` or `to` — growing a
+ * page, cutting its tail, reflowing after a cut. A page-edge break is an offset
+ * into the word at a particular boundary, so the moment that boundary moves the
+ * offset describes a different word: kept, it would duplicate or drop letters.
+ * They are therefore dropped here, at the one place all of those adjusters pass
+ * through. The page falls back to breaking between words, which is always
+ * correct, and the next measurement pass re-hyphenates it.
+ */
 function pageFromSegments(segments: ChapterPageSegment[]): ChapterHearingPage | null {
-  const clean = segments.filter(segment => segment.to > segment.from)
+  const clean = segments
+    .filter(segment => segment.to > segment.from)
+    .map(({ tailFragment: _tailFragment, headBreak: _headBreak, ...segment }) => segment)
   const first = clean[0]
   if (!first) return null
   return {
@@ -852,6 +865,11 @@ export function sameChapterPages(a: ChapterHearingPage[], b: ChapterHearingPage[
       segment.paragraphIndex === right[segmentIndex]?.paragraphIndex
       && segment.from === right[segmentIndex]?.from
       && segment.to === right[segmentIndex]?.to
+      // Hyphenation never moves `from`/`to`, so without these the hyphenated
+      // re-measure compares equal to the plain one and is thrown away — the
+      // second pass would silently never reach the reader.
+      && segment.tailFragment === right[segmentIndex]?.tailFragment
+      && segment.headBreak === right[segmentIndex]?.headBreak
     ))
   })
 }
@@ -1039,9 +1057,23 @@ export function pageBreakPairIsSound(
   const word = words[before.to]?.text
   if (!word) return false
   // A break must be strictly inside the word: neither half may be empty.
-  if (fragment <= 0 || fragment >= word.length) return false
-  // The halves must spell the word once: no dropped and no duplicated letters.
-  return word.slice(0, fragment) + word.slice(fragment) === word
+  return fragment > 0 && fragment < word.length
+}
+
+/**
+ * The two halves as the pages will DRAW them, reconstructed. This is what
+ * "spells the word exactly once" actually means, and unlike comparing
+ * `slice(0,n) + slice(n)` to the original — which is true for any n — it can
+ * fail, because each side is taken from its own segment's offset.
+ */
+export function drawnBrokenWord(
+  before: ChapterPageSegment,
+  after: ChapterPageSegment,
+  words: Array<{ text: string }>,
+): string | null {
+  const word = words[before.to]?.text
+  if (!word || before.tailFragment == null || after.headBreak == null) return null
+  return word.slice(0, before.tailFragment) + word.slice(after.headBreak)
 }
 
 /** True when every paragraph is covered, in order, with no gaps or N/M holes. */

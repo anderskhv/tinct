@@ -86,8 +86,11 @@ export function labMeasureParagraphInto(
   // the same reason it carries verse-marker markup (see above): a paginator
   // that packs against a paragraph shape the reader never sees puts the page
   // breaks in the wrong places.
+  // Count OWNED words only: a trailing display fragment is drawn inside the
+  // last verse line, never as a line of its own.
+  const ownedCount = words.filter(word => !word.fragment).length
   const ranges = lineation
-    ? verseLineRanges(lineation.text, lineation.from, lineation.from + words.length)
+    ? verseLineRanges(lineation.text, lineation.from, lineation.from + ownedCount)
     : null
   if (!ranges) {
     p.replaceChildren(...children.map(child => child.node))

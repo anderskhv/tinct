@@ -207,7 +207,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
     observer.observe(host)
     document.fonts?.addEventListener('loadingdone', schedule)
     return () => { cancelled = true; cancelAnimationFrame(frame); observer.disconnect(); document.fonts?.removeEventListener('loadingdone', schedule) }
-  }, [paragraphs, comparison, chapterTitle, layoutKey])
+  }, [paragraphs, comparison, chapterTitle, layoutKey, hyphenLang, hyphensReady])
   return <div ref={hostRef} className={`lab-desktop-measure lab-page-measure${comparison ? ' is-paired' : ''}`} aria-hidden="true">
     <div className="lab-desktop-measure-page">
       <header className="lab-passage-header"><h1 className="lab-passage-headline">{chapterTitle}</h1></header>

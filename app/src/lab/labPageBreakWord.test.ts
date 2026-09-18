@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import {
+  chapterPageSegments,
   chapterPagesCover,
+  cutPageTailTo,
+  sameChapterPages,
   pageBreakPairIsSound,
   segmentWordTexts,
   tokenizeHearingWords,
@@ -150,5 +153,43 @@ describe('chapterPagesCover', () => {
       page([{ paragraphIndex: 0, from: 0, to: 1 }]),
       page([{ paragraphIndex: 0, from: 2, to: 4 }]),
     ])).toBe(false)
+  })
+})
+
+describe('page maps that differ only in where they break words', () => {
+  const page = (segments: ChapterPageSegment[]) => ({ ...segments[0], segments })
+  const plain = [page([{ paragraphIndex: 0, from: 0, to: 1 }]), page([{ paragraphIndex: 0, from: 1, to: 4 }])]
+  const broken = [
+    page([{ paragraphIndex: 0, from: 0, to: 1, tailFragment: 5 }]),
+    page([{ paragraphIndex: 0, from: 1, to: 4, headBreak: 5 }]),
+  ]
+
+  it('are not the same map, so the hyphenated re-measure is not thrown away', () => {
+    // Hyphenation never moves `from`/`to`. If those were all that were
+    // compared, the second pagination pass would compare equal to the first
+    // and never reach the reader — the feature would silently no-op.
+    expect(sameChapterPages(plain, broken)).toBe(false)
+    expect(sameChapterPages(broken, plain)).toBe(false)
+  })
+
+  it('still recognises a genuinely identical map', () => {
+    expect(sameChapterPages(broken, broken.map(p => ({ ...p })))).toBe(true)
+  })
+})
+
+describe('a page reshaped after painting', () => {
+  it('drops break offsets rather than pointing them at the wrong word', () => {
+    // Cutting the tail moves the boundary the offset was measured against.
+    const pages = [
+      { paragraphIndex: 0, from: 0, to: 3, tailFragment: 5, segments: undefined },
+      { paragraphIndex: 0, from: 3, to: 4, headBreak: 5, segments: undefined },
+    ]
+    const cut = cutPageTailTo(pages, 0, 2)
+    for (const page of cut) {
+      for (const segment of chapterPageSegments(page)) {
+        expect(segment.tailFragment).toBeUndefined()
+        expect(segment.headBreak).toBeUndefined()
+      }
+    }
   })
 })
