@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-18T09:54:20Z",
+  "asOf": "2026-09-18T10:10:00Z",
   "policy": "Conservative carry-forward uses the prior $0.70 estimate plus every cloud-resume pod estimate, including failed hosts. Provider settlement can lag and does not reduce this envelope.",
   "priorEstimate": 0.7,
   "attempts": [
@@ -141,9 +141,16 @@
       "estimatedCost": 0.0154,
       "status": "EXITED",
       "terminateHttp": 204
+    },
+    {
+      "run": 35331967709,
+      "pod": "1sopm793hbikgw",
+      "estimatedCost": 0.0216,
+      "status": "EXITED",
+      "terminateHttp": 204
     }
   ],
-  "exactConservativeTotal": 1.1048,
-  "guardCarryForward": 1.11,
+  "exactConservativeTotal": 1.1264,
+  "guardCarryForward": 1.13,
   "aggregateBudget": 15
 }
