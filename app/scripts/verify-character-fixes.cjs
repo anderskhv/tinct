@@ -581,6 +581,26 @@ const CASES = [
   ['ulysses', 'modern-en', undefined, 'father-cowley', undefined, 'ul-modern-father-cowley'],
   ['ulysses', 'modern-en', 12, 'joe-hynes', undefined, 'ul-modern-joe-hynes-ch12'],
   ['ulysses', 'modern-en', undefined, 'bella-cohen', undefined, 'ul-modern-bella-cohen'],
+  // Montaigne — clickable-names pass (batch 4, first sweep)
+  ['essays-montaigne', 'original-en', 25, 'seneca-and-plutarch', undefined, 'mo-seneca-plutarch-ch25'],
+  ['essays-montaigne', 'original-en', 25, 'etienne-de-la-boetie', undefined, 'mo-la-boetie-ch25'],
+  ['essays-montaigne', 'original-en', 36, 'cato-and-roman-exemplars', undefined, 'mo-cato-ch36'],
+  ['essays-montaigne', 'original-en', undefined, 'pompey', undefined, 'mo-pompey'],
+  ['essays-montaigne', 'original-en', undefined, 'zeno', undefined, 'mo-zeno'],
+  ['essays-montaigne', 'original-en', undefined, 'epaminondas', undefined, 'mo-epaminondas'],
+  ['essays-montaigne', 'original-en', undefined, 'mark-antony', undefined, 'mo-mark-antony'],
+  ['essays-montaigne', 'original-en', undefined, 'dion', undefined, 'mo-dion'],
+  ['essays-montaigne', 'original-en', 89, 'dion-cassius', undefined, 'mo-dion-cassius'],
+  ['essays-montaigne', 'original-en', undefined, 'diogenes-laertius', undefined, 'mo-diogenes-laertius'],
+  ['essays-montaigne', 'original-en', undefined, 'francis-i', undefined, 'mo-francis-i'],
+  ['essays-montaigne', 'original-en', undefined, 'charles-v', undefined, 'mo-charles-v'],
+  ['essays-montaigne', 'original-en', undefined, 'julian', undefined, 'mo-julian'],
+  ['essays-montaigne', 'original-en', undefined, 'poris', undefined, 'mo-poris'],
+  ['essays-montaigne', 'original-en', undefined, 'sebond', undefined, 'mo-sebond'],
+  ['essays-montaigne', 'original-en', undefined, 'guise', undefined, 'mo-guise'],
+  ['essays-montaigne', 'original-en', undefined, 'jupiter', undefined, 'mo-jupiter'],
+  ['essays-montaigne', 'modern-en', undefined, 'pompey', undefined, 'mo-modern-pompey'],
+  ['essays-montaigne', 'modern-en', 25, 'seneca-and-plutarch', undefined, 'mo-modern-seneca-ch25'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {

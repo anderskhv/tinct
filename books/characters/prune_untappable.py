@@ -33,8 +33,12 @@ POSS = re.compile(r"[’']s$")
 # gap (one regex), not a data problem, so such mentions are KEPT and only
 # reported: they come back to life the moment the app trims curly quotes.
 # Only mentions that stay dead even with curly quotes trimmed are pruned.
-LEAD_CURLY = LEAD | {'‘', '’'}
-TRAIL_CURLY = TRAIL | {'‘', '’'}
+LEAD_CURLY = LEAD | {'‘', '’', '-', '—', '–'}
+TRAIL_CURLY = TRAIL | {'‘', '’', '-', '—', '–'}
+# Also kept under the same "app-side" category: names glued to a LEADING
+# or TRAILING dash ("--Seneca, Ep. 98", "Marcaret—"), which a one-line
+# trim fix in the reader would make tappable. A dash INSIDE a token
+# ("Achilles—Achilles") cannot be fixed by trimming and stays pruned.
 
 
 def normalized(text):
@@ -97,7 +101,7 @@ def prune(book, editions=('original-en', 'modern-en'), write=True):
             else:
                 dead.append(m)
         if curly_only:
-            print(f'{book} {ek}: {len(curly_only)} mention(s) untappable ONLY because the reader does not trim curly single quotes (kept; app-side fix)')
+            print(f'{book} {ek}: {len(curly_only)} mention(s) untappable ONLY because the reader does not trim curly single quotes / leading-trailing dashes (kept; app-side fix)')
         if not dead:
             report[ek] = (0, [], [])
             continue
