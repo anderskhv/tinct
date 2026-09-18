@@ -26,7 +26,7 @@ Environment:
   TINCT_ARMS            space-separated arms (default "off auto")
   TINCT_COMPUTE_TYPE    float16 (default) or int8
   TINCT_DEVICE          cuda (default) or cpu
-  TINCT_HELPER          pinned helper revision, v1, v2, v3, v4 or v5 (default v5; PINS.md)
+  TINCT_HELPER          pinned helper revision, v1, v2, v3, v4, v5 or v6 (default v6; PINS.md)
   PORT                  HTTP port (default 8000)
 """
 from __future__ import annotations
@@ -52,13 +52,14 @@ MODEL_SHA = os.environ.get("TINCT_MODEL_SHA256", "")
 MODEL_REV = os.environ.get("TINCT_MODEL_REVISION", "d1d751a5f8271d482d14ca55d9e2deeebbae577f")
 DEVICE = os.environ.get("TINCT_DEVICE", "cuda")
 RAW = f"https://raw.githubusercontent.com/anderskhv/tinct/{COMMIT}"
-HELPER = os.environ.get("TINCT_HELPER", "v5")
+HELPER = os.environ.get("TINCT_HELPER", "v6")
 # Every pin travels to the pod: trial.py imports the default at module scope and
 # selects the requested pin at startup, so a missing file is an immediate
 # ImportError on the pod rather than a silently different comparison.
 ALIGNER_FILES = ["trial.py", "pinned_words_sidecar_lib.py", "pinned_words_sidecar_lib_v2.py",
                  "pinned_words_sidecar_lib_v3.py", "pinned_words_sidecar_lib_v4.py",
-                 "pinned_words_sidecar_lib_v5.py", "spoken_policy.py", "cloud_cohort.py"]
+                 "pinned_words_sidecar_lib_v5.py", "pinned_words_sidecar_lib_v6.py",
+                 "spoken_policy.py", "cloud_cohort.py"]
 
 STATE: dict = {"phase": "booting", "started": time.time(), "setup": {}, "job": {}, "log": []}
 LOCK = threading.Lock()

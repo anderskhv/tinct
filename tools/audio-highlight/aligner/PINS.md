@@ -1,6 +1,6 @@
 # Pinned helper revisions
 
-`trial.py --helper <pin>` selects which helper the aligner compares with. All five
+`trial.py --helper <pin>` selects which helper the aligner compares with. All six
 are frozen: a change to any of these files is a new pin, never an edit in place.
 `test_normalisation.py` fails if these hashes drift; `test_trial.py` checks v1
 against the git object it was recovered from.
@@ -13,7 +13,9 @@ against the git object it was recovered from.
 
 | `v4` | `pinned_words_sidecar_lib_v4.py` | `c2e8c37d4534e0d81569198069689f494830205ec5161bf330ebf0f03232c773` | v3 plus a narrow source-structure rule for whole-paragraph lettered footnotes written as `a [ text ]`: the lowercase label and standalone opening bracket are excluded from the acoustic denominator while every narrated word remains gated. Ordinary bracketed prose, uppercase/list markers, the 0.85 gate, timestamps and interpolation remain unchanged. |
 
-| `v5` (default) | `pinned_words_sidecar_lib_v5.py` | `4b8d29930ecc43f921dddb34c41647b1dcdfe1e4262e3fd815cb34abf9dd98ed` | v4 plus acoustic-only stripping of cues ASR does not say: ALL-CAPS speaker labels, Enter/Exeunt ALL-CAPS names, `[_…_]` wrappers, WEB `[of]`/`[and]` brackets, superscript verse markers, and a few archaic elisions (`prepar'd`, `Hear'st`, `Th'art`). Emitted source words, the 0.85 gate, timestamps and interpolation remain unchanged. The canary workflow and pod default must use `--helper v5`. Merge this pin to `codex/audio-runner-reviewed` before the next GPU canary; do not invent a parallel launcher. |
+| `v5` | `pinned_words_sidecar_lib_v5.py` | `4b8d29930ecc43f921dddb34c41647b1dcdfe1e4262e3fd815cb34abf9dd98ed` | v4 plus acoustic-only stripping of cues ASR does not say: ALL-CAPS speaker labels, Enter/Exeunt ALL-CAPS names, `[_…_]` wrappers, WEB `[of]`/`[and]` brackets, superscript verse markers, and a few archaic elisions (`prepar'd`, `Hear'st`, `Th'art`). Emitted source words, the 0.85 gate, timestamps and interpolation remain unchanged. Frozen; `--helper v5` still reproduces canary 35321419398 / PR #101 scoring. |
+
+| `v6` (default) | `pinned_words_sidecar_lib_v6.py` | `8265cca7376d4d03f1bc050583b552a6e04a679c5d214e4066a10b872ea87fab` | v5 plus acoustic-only stripping of unspoken whole-paragraph chapter/section headings: numbered ALL-CAPS labels (`1. REACTIONARY SOCIALISM`), lettered italic subsections (`_C. German, or “True,” Socialism_`), short Roman-numeral titles, `Chapter`/`Part`/`Section`/`Book` labels, short unquoted ALL-CAPS title lines (3+ words, no sentence end), and short italic title lines. Ordinary prose stays in the denominator, including numbered manifesto sentences (`I. Communism is already acknowledged…`) and spoken slogans (`WORKING MEN OF ALL COUNTRIES, UNITE!`). Emitted source words, the 0.85 gate, timestamps and interpolation remain unchanged. The canary workflow and pod default must use `--helper v6` when the next GPU canary is explicitly launched; this pin does not launch GPU work. |
 
 Run manifests (`run.json`) record `helper_pin`, `helper_module` and `helper_sha256`;
 per-paragraph checkpoints include the helper hash in their signature, so a checkpoint
