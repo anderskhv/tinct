@@ -1,0 +1,61 @@
+Model: opus
+
+# Chapter 282 (Book Thirteen — Chapter 3) — fidelity review
+
+Structure: source 9 paragraphs, candidate 9 paragraphs. Titles identical ("Book Thirteen (1812) — Chapter 3"), `number` 282 in both. No structural stop.
+
+## Findings
+
+| P | Severity | Source | Candidate | Explanation |
+|---|---|---|---|---|
+| 0 | MINOR | "on the supposition that Moscow was still in our hands" | "assumed Moscow was still in Russian hands" | "Our hands" → "Russian hands": the narrator's first-person-plural stance is removed (recurs at p3). |
+| 0 | MINOR | "movements arranged from a distance were always difficult to execute" | "plans made at a distance were always difficult to execute" | Kutúzov's objection is to movements ordered remotely, not to planning; the candidate makes his reply about plans, which is a milder and more general complaint. |
+| 1 | MAJOR | "to put A in B's place and B in D's, or on the contrary to put D in A's place, and so on" | "to put officer A in B's place and B in D's, or the reverse" | A named permutation ("D in A's place") and the open-ended "and so on" are both dropped, and "the reverse" misstates what remains: the reverse of "A in B's place and B in D's" is "B in A's place and D in B's", not "D in A's place". Tolstoy's joke is an unbounded shuffle of interchangeable letters; the candidate reduces it to a two-way swap. |
+| 1 | MINOR | "to put A in B's place" | "to put officer A in B's place" | Added cue. See ruling below. |
+| 1 | COSMETIC | "as if anything more than A's or B's satisfaction depended on this" | "as if anything beyond A's or B's personal satisfaction depended on these decisions" | "Personal" added. |
+| 2 | MODERATE | "the subject of intrigue was generally the conduct of the war" | "the subject was supposedly the conduct of the war" | "Generally" (usually, in most cases) is replaced by "supposedly" (allegedly). The source states what the intrigues were about; the candidate casts doubt on it, an editorial move the source makes later and by other means ("but this affair of the war went on independently of them"). |
+| 2 | MODERATE | "this affair of the war went on independently of them, as it had to go" | "the war went on independently of them all, following its own course" | "As it had to go" is the necessity claim this whole Book rests on. "Following its own course" asserts autonomy, not necessity, and softens the thesis. |
+| 2 | MODERATE | "all these schemes, crossings, and interminglings" | "all these schemes and machinations" | A three-term list becomes two, and the two lost terms are the ones carrying the image of threads crossing and interweaving. "Machinations" is a synonym for "schemes", so the replacement does not stand in for either. |
+| 2 | MINOR | "in all possible combinations and permutations" | "in every possible combination" | "And permutations" dropped — the second half of the same combinatorial conceit collapsed in p1. |
+| 2 | MINOR | "a more than usually complicated play of parties" | "an unusually complicated web of political maneuvering" | "Web" is an added metaphor; the source's figure is theatrical ("play of parties"), not a web. |
+| 2 | MINOR | "was going on among the staff of the army. A was undermining B" | "was underway among the staff. Among the officers, A was undermining B" | Added cue. See ruling below. |
+| 3 | MODERATE | "You will be responsible if the enemy is able to direct a force of any size against Petersburg" | "You will be held responsible if the enemy manages to direct a significant force against Petersburg" | "A force of any size" means any force at all; "a significant force" restricts the condition under which Kutúzov is answerable. The Emperor's threat is narrowed. "To threaten this capital" is also dropped. |
+| 3 | MINOR | "not only has no action been taken … but according to your last report you have even retreated farther" | "no action has been taken … . According to your latest dispatch, you have even retreated further." | The "not only … but" escalation is split into two flat sentences, flattening the rebuke's build. All facts survive. |
+| 3 | MINOR | "availing yourself of these circumstances, you might advantageously attack a weaker one" | "you could advantageously attack a weaker force" | The participial clause instructing him to exploit the situation is dropped; "might" becomes "could". |
+| 3 | MINOR | "retaining in our hands an important part of the provinces" | "holding an important part of the provinces" | "In our hands" dropped — the same loss of the first-person-plural stance as at p0. |
+| 3 | MINOR | "a fourth, rather considerable detachment is stationed" | "a fourth, quite sizable, is stationed" | The noun "detachment" is dropped, so the fourth unit silently inherits "corps" from the preceding sentences. |
+| 3 | COSMETIC | "an enemy corps of ten thousand men" / "Another corps of several thousand men" | "an enemy corps of ten thousand" / "Another of several thousand" | "Men" dropped twice; "corps" dropped on the second. |
+| 3 | COSMETIC | "is it possible that the enemy's forces confronting you are so considerable" | "is it really possible that the forces facing you are too strong" | "Really" added to the rhetorical question; "he is probably pursuing you" gains "only". |
+| 3 | COSMETIC | "Prince Michael Ilariónovich! (wrote the Emperor … ) Since September 2" | "\"Prince Michael Ilarionovich!\" wrote the Emperor … . \"Since September 2" | The source's unquoted letter with a parenthetical interpolation becomes quoted speech with a narrative frame. Nothing is lost; flagged because it changes how the letter is set on the page and should match whatever the other letters in the edition do. |
+| 4 | MINOR | "which proved that the real relation of the forces had already made itself felt in Petersburg" | "which showed that the real balance of forces had already made itself felt even in Petersburg" | "Proved" softened to "showed"; "even" added. |
+| 5 | MINOR | "A cornet, hearing the story, informed his commander." | "A junior officer, hearing the story, passed it to his commander." | A named rank is replaced by a generic description. Note the candidate's practice is inconsistent: it adds "officer" where the source has none (p1, p2) and removes a specific officer's rank here. |
+| 5 | COSMETIC | "he made his way far into the forest" | "he wandered deep into the forest" | "Wandered" suggests aimlessness; he is following a wounded hare. |
+| 6 | MINOR | "Ermólov had been to see Bennigsen a few days previously" | "Ermolov had recently visited Bennigsen" | A dated interval becomes a vague one, in a chapter whose point is how fast events ripened. |
+| 6 | MINOR | "one of the superior officers, who was acquainted with the higher authorities" | "one of the senior officers, who had connections to the higher authorities" | "Acquainted with" is an acquaintance; "had connections to" asserts influence. |
+| 7 | COSMETIC | "I need only advise anything and his Highness is sure to do the opposite" | "I only have to suggest something for His Highness to do the opposite" | "Is sure to" (Bennigsen's certainty) is absorbed into the construction; "actually" is added to the first sentence. |
+| 8 | MAJOR | "a note from Bennigsen who sent personal reports to the Emperor" | "Bennigsen's note to the Emperor" | Wrong recipient. In the source the note is one of the things Kutúzov weighed, i.e. a note to Kutúzov, and the relative clause explains why it carried weight — Bennigsen had the Emperor's ear privately. The candidate turns it into a note addressed to the Emperor and deletes the characterising clause, so both the document and Bennigsen's leverage change. |
+| 8 | MINOR | "the fact that all the generals expressed the same wish" | "the unanimous desire of all his generals" | An act (they said so) becomes a state (they wanted it), and "his" is added. |
+| 8 | MINOR | "could no longer check the inevitable movement" | "could no longer hold back the inevitable" | "Movement" dropped; the chapter is about a specific movement, not inevitability in the abstract. |
+| 8 | COSMETIC | "confirmed by horse patrols who were sent out" | "confirmed by cavalry patrols sent out afterward" | "Afterward" added. |
+
+## Cue rulings (requested)
+
+- **"officer A" (p1)** — *allowed, logged MINOR*. The paragraph states that the army staff was being reorganised and that the vacant posts were Bagratión's and Barclay's, so A, B and D are plainly candidates for staff posts; "officer" states only what the source establishes and adds no claim. Two reservations for the corrector: it is applied to A alone and not to B or D, which is untidy in a sentence whose whole effect depends on the letters being interchangeable; and Tolstoy's algebra is deliberately bloodless — concretising one letter slightly works against that. Proposal: either drop it or extend it once at the head of the sentence ("whether it would be better to move officer A into B's place…").
+- **"Among the officers" (p2)** — *allowed, logged MINOR*. The preceding sentence says the play of parties was going on "among the staff of the army", so the cue restates the source's own frame and adds nothing. Reservation: the candidate also renders "among the staff of the army" as just "among the staff", so the cue is doing work that was created by a cut a line earlier, and the category quietly shifts from "staff" to "officers". Proposal: restore "among the staff of the army" in the previous sentence and drop the cue, or make the cue "Among them".
+- Both cues are far less exposed than ch 280's "Murat, the French cavalry commander", because each states something the surrounding source sentences already establish. Neither is a fidelity defect on its own.
+
+## Coverage
+
+All 9 paragraphs checked, in packets (0–2, 2–4, 3–5, 5–7, 6–8) with the neighbouring paragraph read on each side, then the whole candidate read against the whole source.
+
+## Whole-chapter notes
+
+- Sentence splits were checked one by one: p2 (one sentence → two at "But the war went on"), p3 (two splits, including the long list of demands recast as a semicolon series), p8 (one → two at "He gave the order"). No clause is lost *in* a split — every drop logged above sits inside a retained sentence. The p3 semicolon series in particular preserves all four of the Emperor's demands in order (add your efforts / forget the misfortunes / hope for a less cruel fate / be certain of death for attackers / do not doubt safety), and the p8 split keeps all four things Kutúzov weighed.
+- The combinatorial conceit is the chapter's running joke: letters shuffled between posts in p1, letters undermining each other in "all possible combinations and permutations" in p2. The candidate weakens it at both ends — "or the reverse" in p1, "every possible combination" in p2 — so the callback between the two paragraphs stops working. This is the clearest cross-packet loss.
+- The chapter's shape is: men at the top believe they direct the war (p0–p2) → the Emperor's letter, written in that belief, arrives after the event it demands (p3–p4) → a Cossack chasing a hare actually starts the battle (p5–p8). That shape survives, and the deadpan of p5 is well kept. But p2's "as it had to go" and p8's "could no longer check the inevitable movement" are the two sentences that state the thesis explicitly, and both are softened.
+- Bennigsen appears three times (p2 as Chief of Staff and Kutúzov's enemy, p6–p7 as Ermólov's channel, p8 as the note). The p8 error breaks that chain: the reader is shown Bennigsen going over Kutúzov's head, which is exactly what "who sent personal reports to the Emperor" tells them, and the candidate removes it.
+- Every name, place, rank and number survives except the p5 "cornet": Kutúzov, Bennigsen, Bagratión, Barclay, Ermólov, Shapoválov, Murat, Wintzingerode, Sérpukhov, Túla, Dmítrov, Vladímir, Rúza, Mozháysk, Petersburg, Tarútino; September 2, the twentieth, the twenty-fifth, the second of October, ten thousand.
+- Conventions: stress accents dropped, straight double quotes throughout, unspaced em dashes, "Kutuzov", "Bennigsen", "Bagration", "Ermolov". Compliant; no name-variant defects.
+- Paragraph ratios 0.84–0.94 (chapter 0.87); nothing is summarised.
+
+Fidelity verdict: REVISE
