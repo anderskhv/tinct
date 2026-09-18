@@ -68,3 +68,11 @@ A dim divider precedes Browse the library. Mobile librarian Chat and Talk occupy
 the visible screen and hide the dock until closed. Desktop retains its chat window
 and uses a bounded, centred voice surface with round Mute/End controls.
 [Verification and release status](library-voice-layout-2026-09-17.md).
+
+## Voice follow-ups — September 18
+
+Sol with compact context is the approved next Talk default. The change supplies
+reader location at connection, explicitly suppresses fillers and retains the
+original turn identity of late backend continuations. Release status and the
+limits of managed Live speech steering are recorded in
+[the voice follow-up plan](voice-sol-light-2026-09-18.md).

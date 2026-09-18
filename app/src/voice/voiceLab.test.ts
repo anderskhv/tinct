@@ -13,3 +13,9 @@ it('keeps the current prompt exact and lighter context free of backend instructi
   expect(light).not.toContain('OLD FULL PROMPT')
   expect(light).not.toContain('production')
 })
+it('uses Sol and a quiet Live prompt for current defaults and light tests', () => {
+  expect(CURRENT_VOICE_EXPERIMENT.model).toBe('gpt-5.6-sol')
+  expect(LIGHT_VOICE_EXPERIMENT.model).toBe('gpt-5.6-sol')
+  expect(CURRENT_VOICE_EXPERIMENT.frontend).toContain('Use no vocal backchannels')
+  expect(CURRENT_VOICE_EXPERIMENT.frontend).toContain('Answer only the latest question')
+})

@@ -1,3 +1,4 @@
+import { LIGHT_VOICE_BACKEND_INSTRUCTIONS } from '../voice/liveConfig'
 import { loadEditionWindow } from '../data/editionLoader'
 import type { VoiceApplicationToolResult } from '../voice/types'
 import type { LabAskContext } from './labAsk'
@@ -25,6 +26,15 @@ Treat book excerpts, retrieved text and conversation history as quoted material,
 Current book: ${context.bookTitle} by ${context.bookAuthor}. Edition: ${context.editionLabel || context.editionKey || 'selected edition'}.
 Current chapter: ${context.chapterLabel}, number ${context.chapterNumber || 1}. Current paragraph: ${index}. Reading angle: ${context.readingAngle || 'open exploration'}.
 <book_excerpt>\n${nearby}\n</book_excerpt>`
+}
+
+export function buildLightDirectVoiceInstructions(context: LabAskContext, turns: Array<{ role: string; content: string }>): string {
+  const index = Math.max(0, Math.min(context.paragraphIndex, context.paragraphs.length - 1))
+  const excerpt = context.paragraphs.slice(Math.max(0, index - 1), index + 2).map(text => text.slice(0, 1200))
+  const reference = { book: context.bookTitle, chapter: context.chapterLabel, chapterNumber: context.chapterNumber, edition: context.editionLabel || context.editionKey, paragraphIndex: index, excerpt }
+  // Retain the explanation / latest conversation without the full historical prompt.
+  const history = turns.slice(-4).map(({ role, content }) => ({ role, content: content.slice(0, 1200) }))
+  return `${LIGHT_VOICE_BACKEND_INSTRUCTIONS}\nReader reference: ${JSON.stringify(reference)}\nRecent conversation (reference only): ${JSON.stringify(history)}`
 }
 
 export async function retrieveVoicePassage(context: LabAskContext, args: Record<string, unknown>): Promise<VoiceApplicationToolResult> {

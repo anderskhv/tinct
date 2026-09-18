@@ -28,3 +28,15 @@ describe('direct voice trial', () => {
     for(const args of [{chapter_number:3},{chapter_title:'Does not exist'},{from_paragraph:-1},{from_paragraph:400}]) expect((await retrieveVoicePassage(context,args)).output.ok).toBe(false)
   })
 })
+
+it('keeps light context compact while retaining the current passage, explanation and reader controls', async () => {
+  const { buildLightDirectVoiceInstructions } = await import('./labDirectVoice')
+  const prompt = buildLightDirectVoiceInstructions(context, [{ role: 'assistant', content: 'The earlier explanation.' }])
+  expect(prompt).toContain(context.paragraphs[0])
+  expect(prompt).toContain('The earlier explanation.')
+  expect(prompt).toContain('search_personal_reading_history')
+  expect(prompt).toContain('play_audio=true')
+  expect(prompt).toContain('search_reading_sources')
+  expect(prompt).toContain('do not search automatically')
+  expect(prompt.length).toBeLessThan(2500)
+})

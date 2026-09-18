@@ -27,6 +27,8 @@ export class LiveVoiceSessionController {
   private captions = { user: '', assistant: '' }
   private responses = new Map<string, { id: string; calls: ToolCall[] }>()
   private handled = new Set<string>()
+  private userTurn = 0
+  private delegations = new Map<string, { turn: number; guardedAt: number }>()
   private toolQueue: Promise<void> = Promise.resolve()
   constructor(private callbacks: VoiceSessionCallbacks) {}
   getSnapshot() { return this.ui }
@@ -40,6 +42,26 @@ export class LiveVoiceSessionController {
   }
   private send(event: Record<string, unknown>) {
     if (this.ready && this.dc?.readyState === 'open') this.dc.send(JSON.stringify({ event_id: crypto.randomUUID(), ...event }))
+  }
+  private publishReaderLocation() {
+    const context = this.input?.context
+    if (!context || !this.ready) return
+    const location = JSON.stringify({ book: context.bookTitle, chapter: context.chapterLabel, chapterNumber: context.chapterNumber, paragraphIndex: context.paragraphIndex, edition: context.editionLabel })
+    if (location === this.readerLocation) return
+    this.readerLocation = location
+    this.send({ type: 'session.thinking.append', delegation_id: null, content: `Reader location (reference data): ${location}` })
+  }
+  private guardLateResponse(id: string): boolean {
+    const delegation = this.delegations.get(id)
+    if (!delegation || delegation.turn >= this.userTurn) return false
+    if (delegation.guardedAt !== this.userTurn) {
+      delegation.guardedAt = this.userTurn
+      // Managed Responses sends text to Live independently. Steer Live using its
+      // supported instruction channel; do not pretend a local filter cancels it.
+      this.send({ type: 'session.instructions.append', delegation_id: null, content: `A delayed backend result belongs to earlier reader turn ${delegation.turn}; the current turn is ${this.userTurn}. Do not speak that earlier answer or its lookup failure as a reply to the current question. Keep it as background only. Listen to and answer the latest question using its own result. Do not repeat an answer already spoken.` })
+      this.diagnose({ type: 'response.superseded', id, text: `Earlier turn ${delegation.turn}; current turn ${this.userTurn}` })
+    }
+    return true
   }
   unlockLabAudioContext() {
     if (!this.context && typeof AudioContext !== 'undefined') this.context = new AudioContext()
@@ -62,11 +84,7 @@ export class LiveVoiceSessionController {
     // Frontend context is location only. In the reader visibleText carries the
     // entire backend prompt; truncating its JSON can leak conflicting role and
     // tool instructions into Live after the first turn.
-    const location = JSON.stringify({ book: context.bookTitle, chapter: context.chapterLabel, chapterNumber: context.chapterNumber, paragraphIndex: context.paragraphIndex, edition: context.editionLabel })
-    if (location !== this.readerLocation) {
-      this.readerLocation = location
-      this.send({ type: 'session.thinking.append', delegation_id: null, content: `Reader location (reference data): ${location}` })
-    }
+    this.publishReaderLocation()
     this.diagnose({ type: 'context.updated', instructions: this.backendInstructions(context) })
     this.send({ type: 'session.update', session: { delegation: { type: 'responses', responses: { instructions: this.backendInstructions(context) } } } })
   }
@@ -81,6 +99,8 @@ export class LiveVoiceSessionController {
     if (role === 'user' && !this.userTurnAccepted && /[\p{L}\p{N}]/u.test(delta)) {
       if (this.callbacks.onBeforeUserTurn?.() === false) { this.stop(); return }
       this.userTurnAccepted = true
+      this.userTurn++
+      if (this.userTurn > 1) this.send({ type: 'session.instructions.append', delegation_id: null, content: `The reader has started turn ${this.userTurn}. Stop the previous answer and listen. Prior backend work may still finish: do not restart its answer. Use earlier results only as background relevant to the latest request. Do not acknowledge this instruction aloud.` })
     }
     this.diagnose({ type: `${role}.transcript`, text: delta })
     this.captions[role] += delta
@@ -175,6 +195,7 @@ export class LiveVoiceSessionController {
       this.diagnose({ type: 'call.connected' })
       if (this.ready) return
       this.ready = true
+      this.publishReaderLocation()
       this.emit({ connection: 'connected', activity: 'listening', state: 'listening' })
       if (this.input?.greeting) this.send({ type: 'session.instructions.append', delegation_id: null, content: `The reader opened this conversation to prepare for the book. Say this opening line now, once: ${JSON.stringify(this.input.greeting)} Then pause for the reader. Keep the introduction spoiler-free unless asked otherwise.` })
     }
@@ -185,10 +206,14 @@ export class LiveVoiceSessionController {
     else if (event.type === 'response.event' && event.event && event.delegation_id) {
       const nested = event.event
       const key = event.delegation_id
+      this.guardLateResponse(key)
       if (nested.type === 'response.output_text.delta') this.diagnose({ type: 'backend.text', id: key, text: nested.delta })
       if (nested.type === 'response.created' || nested.type === 'response.completed' || nested.type === 'response.failed') this.diagnose({ type: nested.type, id: key })
       if (nested.type === 'response.created') {
-        this.flush('user')
+        if (!this.delegations.has(key)) {
+          this.delegations.set(key, { turn: this.userTurn, guardedAt: -1 })
+          this.flush('user')
+        }
         this.responses.set(key, { id: nested.response?.id ?? '', calls: [] })
       }
       const response = this.responses.get(key)
@@ -208,6 +233,8 @@ export class LiveVoiceSessionController {
             this.diagnose({ type: 'tool.started', id: call.callId, text: call.name + ' ' + call.arguments })
             let output: unknown
             try { output = await this.runTool(call) } catch { output = { ok: false, error: 'The action could not be completed.' } }
+            if (generation !== this.generation) return
+            if (this.guardLateResponse(key)) output = { result: output, superseded: true, responseInstructions: 'This result belongs to an earlier reader turn. Retain as background; do not repeat the old answer or announce an old lookup failure. Address only the latest question using its own evidence.' }
             this.diagnose({ type: 'tool.completed', id: call.callId, text: (JSON.stringify(output) ?? '').slice(0, 16000), durationMs: Date.now() - toolStarted })
             if (generation !== this.generation) return
             this.send({ type: 'response.item.create', item: { type: 'function_call_output', call_id: call.callId, output: JSON.stringify(output) } })
@@ -270,7 +297,7 @@ export class LiveVoiceSessionController {
     this.dc?.close(); this.pc?.close()
     if (this.audio) { this.audio.pause(); this.audio.srcObject = null }
     this.stream = null; this.dc = null; this.pc = null; this.audio = null; this.analyser = null
-    this.responses.clear(); this.handled.clear(); this.input = null
+    this.responses.clear(); this.handled.clear(); this.delegations.clear(); this.userTurn = 0; this.userTurnAccepted = false; this.input = null
     this.ui = idle(); this.callbacks.onSnapshot(this.ui)
   }
   dispose() { this.stop(); void this.context?.close(); this.context = null }

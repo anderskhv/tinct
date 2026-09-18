@@ -4,7 +4,7 @@ import { CHAPTER_CHAT_MESSAGES, buildChapterChatInstructions, chapterChatHistory
 import { VOICE_RESEARCH_TOOL, researchVoiceQuestion, voiceSourceLinks, type VoiceSource } from './labVoiceResearch'
 import { labVoiceRequestsAudio } from './labVoiceControls'
 import type { VoiceTrial } from '../voice/voiceTrial'
-import { BOOK_PASSAGE_TOOL, buildDirectVoiceInstructions, retrieveVoicePassage } from './labDirectVoice'
+import { BOOK_PASSAGE_TOOL, buildDirectVoiceInstructions, buildLightDirectVoiceInstructions, retrieveVoicePassage } from './labDirectVoice'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
 import { useAuth } from '../hooks/useAuth'
@@ -327,7 +327,9 @@ export function useLabAsk(options: UseLabAskOptions) {
     return selected ? turnsFromConversations([selected]) : null
   }, [options.conversationId, conversations, chatBookId])
   const talkInstructions = useMemo(
-    () => buildLabVoiceControlInstructions(
+    () => !options.voiceTrial ? buildLightDirectVoiceInstructions(askContext,
+      (selectedConversationTurns ?? turns).map(turn => ({ ...turn, content: chapterChatHistoryContent(turn) })),
+    ) : buildLabVoiceControlInstructions(
       buildDirectVoiceInstructions(askContext) + (!options.voiceTrial ? '\nFor resume_audiobook, set play_audio=true when the reader asks to hear, play or resume audio. Set play_audio=false for returning to the page; the app restores the prior reading mode. Use the understood request, not potentially garbled transcript captions.' : ''),
       (selectedConversationTurns ?? turns).map(turn => ({ ...turn, content: chapterChatHistoryContent(turn) })),
     ),

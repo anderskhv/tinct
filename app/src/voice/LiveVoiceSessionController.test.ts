@@ -143,3 +143,48 @@ it('collects experiment backend and spoken output separately without changing no
     expect.objectContaining({ type: 'backend.text', text: 'Backend', id: 'd' }),
   ])
 })
+
+it('publishes reader location at connection, before the first question', () => {
+  const c = new LiveVoiceSessionController({ onSnapshot: vi.fn(), onTurn: vi.fn() })
+  const sent: any[] = []
+  Object.assign(c, { dc: { readyState: 'open', send: (x: string) => sent.push(JSON.parse(x)) }, input: { context: { bookTitle: 'The Bible', chapterLabel: 'Genesis 1', chapterNumber: 1 } } })
+  c.handleEvent({ type: 'session.started' })
+  c.handleEvent({ type: 'session.started' })
+  expect(sent).toHaveLength(1)
+  expect(sent[0]).toMatchObject({ type: 'session.thinking.append', delegation_id: null })
+  expect(sent[0].content).toContain('Genesis 1')
+})
+
+it('keeps an old search continuation attached to its original turn after a Keller follow-up', async () => {
+  const onTurn = vi.fn(), onVoiceDiagnostic = vi.fn(), onBeforeUserTurn = vi.fn(() => true)
+  const c = new LiveVoiceSessionController({ onSnapshot: vi.fn(), onTurn, onVoiceDiagnostic, onBeforeUserTurn })
+  const sent: any[] = []
+  let resolveSearch!: (x: unknown) => void
+  const search = vi.spyOn(c as any, 'runTool').mockImplementation(() => new Promise(resolve => { resolveSearch = resolve }))
+  Object.assign(c, { ready: true, dc: { readyState: 'open', send: (x: string) => sent.push(JSON.parse(x)) }, input: { voiceExperiment: { label: 'Regression' } } })
+  const backend = (id: string, event: any) => c.handleEvent({ type: 'response.event', delegation_id: id, event })
+  c.handleEvent({ type: 'session.input_transcript.delta', delta: 'Compare creation stories.' })
+  backend('old', { type: 'response.created' })
+  backend('old', { type: 'response.output_item.done', item: { type: 'function_call', name: 'search_reading_sources', call_id: 'search', arguments: '{}' } })
+  backend('old', { type: 'response.completed' })
+  await vi.waitFor(() => expect(search).toHaveBeenCalledOnce())
+  c.handleEvent({ type: 'session.output_transcript.delta', delta: 'An initial comparison.' })
+  c.handleEvent({ type: 'session.input_transcript.delta', delta: 'Has Tim Keller ' })
+  resolveSearch({ result: { ok: false, reason: 'search_unavailable' } })
+  await vi.waitFor(() => expect(sent.some(e => e.type === 'response.item.create')).toBe(true))
+  const result = JSON.parse(sent.find(e => e.type === 'response.item.create').item.output)
+  expect(result.superseded).toBe(true)
+  expect(result.result.result.reason).toBe('search_unavailable')
+  backend('old', { type: 'response.created' })
+  backend('old', { type: 'response.output_text.delta', delta: 'Could not verify the old comparison.' })
+  backend('old', { type: 'response.completed' })
+  c.handleEvent({ type: 'session.input_transcript.delta', delta: 'spoken about this?' })
+  backend('keller', { type: 'response.created' })
+  backend('keller', { type: 'response.output_text.delta', delta: 'Keller discusses this in a sermon.' })
+  expect(onBeforeUserTurn).toHaveBeenCalledTimes(2)
+  expect(onTurn).toHaveBeenCalledWith('user', 'Has Tim Keller spoken about this?')
+  const superseded = onVoiceDiagnostic.mock.calls.map(([e]) => e).filter(e => e.type === 'response.superseded')
+  expect(superseded).toEqual([expect.objectContaining({ id: 'old' })])
+  expect(sent.some(e => e.type === 'session.instructions.append' && e.content.includes('Do not speak that earlier answer'))).toBe(true)
+  expect(sent.filter(e => e.type === 'response.create')).toHaveLength(1)
+})
