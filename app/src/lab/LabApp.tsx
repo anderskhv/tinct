@@ -4153,6 +4153,7 @@ export function LabApp({ pathname, search, online, source, authToken, voiceExper
               fillPages={chromeV2}
               chapterTitle={book.chapterTitle}
               paragraphs={readerParagraphs}
+              editionKey={readerEditionKey}
               layoutKey={layoutKeyFor(readerEditionKey)}
               onPages={applyNativePages}
             />
@@ -4160,6 +4161,7 @@ export function LabApp({ pathname, search, online, source, authToken, voiceExper
           {!chapterCoverTitle && desktopPaging && <LabDesktopPaginator
             chapterTitle={book.chapterTitle} paragraphs={readerParagraphs}
             comparison={desktopCompareActive && desktopCompareEnabled ? book.compareParagraphs : undefined}
+            editionKey={readerEditionKey}
             layoutKey={desktopLayoutKey} onPages={applyDesktopPages}
           />}
           {/* The standby edition, measured in the same box while nobody is

@@ -1,5 +1,6 @@
-import { useLayoutEffect, useRef } from 'react'
-import { tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { hyphenLangForEdition, hyphenationBreaks, hyphenatorReady, loadHyphenator } from './labHyphenate'
+import { segmentWordTexts, tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
 import { labMeasureParagraphInto } from './labMeasureParagraph'
 
 /** Proportional word boundaries preserve all of each aligned paragraph, even
@@ -12,27 +13,66 @@ export function comparisonSegment(segment: ChapterPageSegment, primary: string[]
     to: segment.to >= sourceLength ? targetLength : Math.floor(segment.to * targetLength / Math.max(1, sourceLength)) }
 }
 
+/**
+ * Where a word may be broken, for the paginator: character offsets into the
+ * word at `wordIndex`, ascending. Supplying none keeps the old behaviour
+ * exactly — every page break lands between whole words.
+ */
+export type WordBreakLookup = (paragraphIndex: number, wordIndex: number) => number[]
+
 /** Greedily fill the measured page, splitting a long paragraph at a word.
- * Both columns are measured as a paired row, so subsequent paragraphs align. */
-export function measuredDesktopPages(lengths: number[], fits: (segments: ChapterPageSegment[], first: boolean) => boolean): ChapterHearingPage[] {
+ * Both columns are measured as a paired row, so subsequent paragraphs align.
+ *
+ * With `breaks`, a page that still has room on its last line for part of the
+ * next word takes it, hyphenated, rather than ending short: the longest break
+ * that still fits wins, so the line is filled as far as it can be. The word is
+ * then shared with the next page (see `segmentWordTexts`). Without `breaks`,
+ * or where no break fits, the page ends between words as it always has. */
+export function measuredDesktopPages(
+  lengths: number[],
+  fits: (segments: ChapterPageSegment[], first: boolean) => boolean,
+  breaks?: WordBreakLookup,
+): ChapterHearingPage[] {
   const pages: ChapterHearingPage[] = []
   let segments: ChapterPageSegment[] = []
   const commit = () => { if (segments.length) pages.push({ ...segments[0], segments }); segments = [] }
   lengths.forEach((length, paragraphIndex) => {
     let from = 0
+    let headBreak: number | undefined
     while (from < length) {
-      const full = { paragraphIndex, from, to: length }
+      const segment = (to: number, tailBreak?: number): ChapterPageSegment => ({
+        paragraphIndex,
+        from,
+        to,
+        ...(headBreak != null ? { headBreak } : {}),
+        ...(tailBreak != null ? { tailBreak } : {}),
+      })
+      const full = segment(length)
       if (fits([...segments, full], pages.length === 0)) { segments.push(full); break }
       let low = from, high = length
       while (low < high) {
         const to = Math.ceil((low + high) / 2)
-        if (fits([...segments, { paragraphIndex, from, to }], pages.length === 0)) low = to
+        if (fits([...segments, segment(to)], pages.length === 0)) low = to
         else high = to - 1
       }
       if (low === from && segments.length) { commit(); continue }
       const to = Math.max(from + 1, low)
-      segments.push({ paragraphIndex, from, to })
+      // The last line has whatever room the next whole word could not use.
+      // Longest break first: the most of the word that still fits.
+      let tailBreak: number | undefined
+      if (to < length && breaks) {
+        const points = breaks(paragraphIndex, to)
+        for (let index = points.length - 1; index >= 0; index -= 1) {
+          if (fits([...segments, segment(to + 1, points[index])], pages.length === 0)) {
+            tailBreak = points[index]
+            break
+          }
+        }
+      }
+      segments.push(segment(tailBreak != null ? to + 1 : to, tailBreak))
       commit()
+      // A broken word starts the next page as its own remainder.
+      headBreak = tailBreak
       from = to
     }
   })
@@ -64,13 +104,26 @@ export function measuredLeafCapacity(page: HTMLElement, probe: HTMLElement, word
   return { wordsPerPage: Math.max(1, Math.round((words / lines) * linesPerLeaf)), leafHeight: Math.round(leafHeight) }
 }
 
-export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layoutKey, onPages }: {
+export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layoutKey, editionKey, onPages }: {
   paragraphs: string[]; comparison?: string[]; chapterTitle: string; layoutKey: string
+  /** Reading edition, for the hyphenation patterns a page-edge break needs. */
+  editionKey?: string
   onPages: (pages: ChapterHearingPage[], content: string[], key: string, capacity: LabLeafCapacity | null) => void
 }) {
   const hostRef = useRef<HTMLDivElement>(null)
   const callbackRef = useRef(onPages)
   callbackRef.current = onPages
+  // Same two-pass arrangement as the phone reader: break between words until
+  // the patterns land, then re-measure and fill the last lines.
+  const hyphenLang = hyphenLangForEdition(editionKey)
+  const [hyphensReady, setHyphensReady] = useState(() => (hyphenLang ? hyphenatorReady(hyphenLang) : false))
+  useEffect(() => {
+    if (!hyphenLang) { setHyphensReady(false); return }
+    if (hyphenatorReady(hyphenLang)) { setHyphensReady(true); return }
+    let live = true
+    void loadHyphenator(hyphenLang).then(() => { if (live) setHyphensReady(hyphenatorReady(hyphenLang)) })
+    return () => { live = false }
+  }, [hyphenLang])
   useLayoutEffect(() => {
     const host = hostRef.current
     if (!host) return
@@ -112,7 +165,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             // against a line box that was the wrong width and the wrong height.
             return labMeasureParagraphInto(
               p,
-              (words[segment.paragraphIndex] || []).slice(segment.from, segment.to),
+              segmentWordTexts(words[segment.paragraphIndex] || [], segment),
               { text: texts[segment.paragraphIndex], from: segment.from },
             )
           }
@@ -128,7 +181,9 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             }
             const bottom = rows.getBoundingClientRect().bottom
             return bottom <= page.getBoundingClientRect().bottom + .1
-          })
+          }, hyphenLang && hyphensReady
+            ? (paragraphIndex, wordIndex) => hyphenationBreaks(source[paragraphIndex]?.[wordIndex]?.text ?? '', hyphenLang)
+            : undefined)
           header.hidden = true
           const capacityProbe = document.createElement('p')
           capacityProbe.className = 'lab-hearing-line'

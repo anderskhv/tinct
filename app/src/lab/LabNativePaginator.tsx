@@ -1,5 +1,6 @@
 import { labMeasureParagraphInto } from './labMeasureParagraph'
-import { Fragment, memo, useLayoutEffect, useRef, type ReactNode } from 'react'
+import { Fragment, memo, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
+import { hyphenLangForEdition, hyphenationBreaks, hyphenatorReady, loadHyphenator } from './labHyphenate'
 import {
   LAB_ORPHAN_PAGE_WORDS,
   chapterPagesCover,
@@ -11,6 +12,7 @@ import {
   labVerseMarkerDisplay,
   sameChapterPages,
   snapShrinkEndToSentence,
+  segmentWordTexts,
   tokenizeHearingWords,
   type ChapterHearingPage,
   type ChapterPageSegment,
@@ -260,16 +262,30 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   paragraphs,
   layoutKey,
   fillPages = false,
+  editionKey,
   onPages,
 }: {
   chapterTitle: string
   paragraphs: string[]
   layoutKey: string
   fillPages?: boolean
+  /** Reading edition, for the hyphenation patterns a page-edge break needs. */
+  editionKey?: string
   onPages: (pages: ChapterHearingPage[], paragraphs?: string[]) => void
 }) {
   const hostRef = useRef<HTMLDivElement | null>(null)
   const generationRef = useRef(0)
+  const hyphenLang = hyphenLangForEdition(editionKey)
+  // Patterns arrive after the first layout. Re-measuring once they do is the
+  // whole point: the first pass breaks between words, the second fills the
+  // last lines. Both are correct pages, so the reader sees no error state.
+  const [hyphensReady, setHyphensReady] = useState(() => (hyphenLang ? hyphenatorReady(hyphenLang) : false))
+  useEffect(() => {
+    if (!hyphenLang || hyphenatorReady(hyphenLang)) { setHyphensReady(!!hyphenLang && hyphenatorReady(hyphenLang)); return }
+    let live = true
+    void loadHyphenator(hyphenLang).then(() => { if (live) setHyphensReady(hyphenatorReady(hyphenLang)) })
+    return () => { live = false }
+  }, [hyphenLang])
 
   useLayoutEffect(() => {
     const host = hostRef.current
@@ -308,11 +324,16 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         const header = surface.querySelector<HTMLElement>('.lab-passage-header')!
         const stage = surface.querySelector<HTMLElement>('.lab-hearing-stage')!
         const sourceWords = paragraphs.map(tokenizeHearingWords)
+        const wordBreaks = hyphenLang && hyphensReady
+          ? (paragraphIndex: number, wordIndex: number) => hyphenationBreaks(
+              sourceWords[paragraphIndex]?.[wordIndex]?.text ?? '', hyphenLang,
+            )
+          : undefined
         pages = measuredDesktopPages(sourceWords.map(words => words.length), (segments, first) => {
           header.hidden = !first
           stage.replaceChildren()
           for (const segment of segments) {
-            const words = sourceWords[segment.paragraphIndex].slice(segment.from, segment.to)
+            const words = segmentWordTexts(sourceWords[segment.paragraphIndex], segment)
             const p = document.createElement('p')
             p.className = 'lab-hearing-line'
             labMeasureParagraphInto(p, words, {
@@ -323,7 +344,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           const last = [...stage.querySelectorAll('.lab-hearing-word')].at(-1)
           const lastBottom = last ? Math.max(...[...last.getClientRects()].map(rect => rect.bottom)) : Infinity
           return labPageFitsPaint({ lastBottom, chromeTop: host.getBoundingClientRect().bottom })
-        })
+        }, wordBreaks)
         stage.replaceChildren()
       }
       if (placements.length === wordNodes.length && chapterPagesCover(paragraphs, pages)) {
@@ -360,7 +381,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
       observer?.disconnect()
       document.fonts?.removeEventListener?.('loadingdone', schedule)
     }
-  }, [chapterTitle, paragraphs, layoutKey, fillPages, onPages])
+  }, [chapterTitle, paragraphs, layoutKey, fillPages, onPages, hyphenLang, hyphensReady])
 
   return (
     <div ref={hostRef} className="lab-page-measure lab-native-page-measure" aria-hidden="true" data-testid="lab-native-page-measure">
