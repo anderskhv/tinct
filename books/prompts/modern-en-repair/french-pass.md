@@ -21,7 +21,7 @@ You are applying one fixed convention for foreign-language speech to a set of ch
 - `tag`: remove the tag; add the cue; slot ← `* ` + the source's foreign wording.
 - `tag-no-slot`: remove the tag; add the cue at the switch point in the sentence ("she said in French" is acceptable when the source has it that way).
 - `french-kept`: translate the foreign wording into natural English in the dialogue paragraph (use the source's own footnote translation as the anchor, modernised only as much as the surrounding paragraph already is); add the cue; slot ← `* ` + the source's foreign wording.
-- `inline-bare-slot`: add the cue to the dialogue paragraph if missing; slot ← `* ` + the source's foreign wording (or the parenthesised gloss, per rule 4).
+- `inline-bare-slot`: add the cue to the dialogue paragraph if missing; slot ← `* ` + the source's foreign wording (or `* ` + the gloss, per rule 4).
 
 ## Output
 

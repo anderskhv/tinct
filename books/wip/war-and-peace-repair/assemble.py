@@ -64,6 +64,12 @@ for c, s in zip(base, src):
         for i, (p, b0) in enumerate(zip(over['paragraphs'], fb['paragraphs'])):
             if p != b0 and p != paras[i]: paras[i] = p; changed.append((n, i, 'french'))
     assert len(paras) == len(s['paragraphs'])
+    # slot normalisation (2026-09-18): every footnote-slot paragraph begins with "* ", gloss slots included,
+    # so the app can style slots with one rule and chapter-only readers do not meet bare "(Denisov.)" lines.
+    for i, sp in enumerate(s['paragraphs']):
+        y = paras[i].strip()
+        if sp.lstrip().startswith('*') and y.startswith('(') and y.endswith(')'):
+            paras[i] = '* ' + y[1:-1].strip(); changed.append((n, i, 'slot-normalised'))
     out.append({'number': n, 'title': c['title'], 'paragraphs': paras})
 (R/'assembled').mkdir(exist_ok=True)
 outp = R/'assembled/war-and-peace-modern-en.assembled.json'
@@ -77,7 +83,7 @@ open(R/'assembled/ASSEMBLY.md', 'w').write(f"""# Assembled staged edition
 - Baseline v2: `consistency/modern-en-consistency-candidate.json` sha256 `{sha(R/'consistency/modern-en-consistency-candidate.json')}`
 - Accepted repair chapters merged ({len(repair)}): {sorted(repair)}
 - Accepted French batches merged: {sorted(acc_batches)} → chapters ({len(french)}): {sorted(french)}
-- Paragraphs overridden: {len(changed)} (repair {len([x for x in changed if x[2]=='repair'])}, french {len([x for x in changed if x[2]=='french'])})
+- Paragraphs overridden: {len(changed)} (repair {len([x for x in changed if x[2]=='repair'])}, french {len([x for x in changed if x[2]=='french'])}, slot-normalised {len([x for x in changed if x[2]=='slot-normalised'])})
 - Not applied to any live edition file.
 """)
 print('assembled', h[:16], 'repair chapters', len(repair), 'french chapters', len(french), 'paragraphs overridden', len(changed))
