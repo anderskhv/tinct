@@ -50,12 +50,18 @@ if sweep.exists():
 out, changed = [], []
 for c, s in zip(base, src):
     n = c['number']; paras = list(c['paragraphs'])
-    over = repair.get(n) or french.get(n)
-    kind = 'repair' if n in repair else ('french' if n in french else None)
-    if over:
+    if n in repair:
+        over = repair[n]
         assert over['number'] == n and len(over['paragraphs']) == len(paras), f'ch{n} paragraph count mismatch'
         for i, p in enumerate(over['paragraphs']):
-            if p != paras[i]: paras[i] = p; changed.append((n, i, kind))
+            if p != paras[i]: paras[i] = p; changed.append((n, i, 'repair'))
+    elif n in french:
+        # apply only the French file's own diff against the baseline it was drafted from
+        over = french[n]
+        fb = json.load(open(R/f'french/ch{n}-baseline.json'))
+        assert over['number'] == n and len(over['paragraphs']) == len(paras) == len(fb['paragraphs']), f'ch{n} paragraph count mismatch'
+        for i, (p, b0) in enumerate(zip(over['paragraphs'], fb['paragraphs'])):
+            if p != b0 and p != paras[i]: paras[i] = p; changed.append((n, i, 'french'))
     assert len(paras) == len(s['paragraphs'])
     out.append({'number': n, 'title': c['title'], 'paragraphs': paras})
 (R/'assembled').mkdir(exist_ok=True)
