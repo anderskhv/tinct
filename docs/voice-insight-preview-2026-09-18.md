@@ -182,3 +182,17 @@ fix. Session settings and models remain unchanged pending direct evidence.
 Next: after this diagnostic release passes, capture one startup failure with
 its rejected field. Real provider acceptance remains blocked by absent CI
 provider credentials; simulated checks do not establish a working call.
+
+### Diagnostic release verification
+
+[Run 35342783639](https://github.com/anderskhv/tinct/actions/runs/35342783639)
+passed 2,418 tests in 196 files, documentation validation, build, verify-bundle,
+preview upload, exact served-bundle comparison, and silent Chromium/WebKit
+acceptance. Source f035d9133e82d9984f19376e9588916148c5a788.
+Worker 154eccfa-d33a-4daa-897c-be182f2f0049; bundle index-DN5Pvp4J.js,
+also independently confirmed on the preview URL.
+[Artifacts](https://github.com/anderskhv/tinct/actions/runs/35342783639/artifacts/10546375407)
+include desktop-startup-error.png and phone-startup-error.png with the rejected
+field displayed. Provider handshake remains explicitly UNAVAILABLE in CI;
+no real working voice connection or configuration correction is claimed.
+One signed-in startup attempt is needed to capture the rejected field.
