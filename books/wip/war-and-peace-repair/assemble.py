@@ -32,8 +32,9 @@ for line in open(R/'repair/ACCEPTED.md'):
 french = {}
 acc_batches = set()
 for line in open(R/'french/ACCEPTED.md'):
-    m = re.match(r'\|\s*(\d+)\s*\|', line)
-    if m and 'ACCEPT' in line and 'ANOTHER' not in line: acc_batches.add(int(m.group(1)))
+    cells = [c.strip() for c in line.strip().strip('|').split('|')]
+    # columns: Batch | Chapters | Review | Verdict | hashes; the verdict cell decides, the review cell may mention earlier rounds
+    if len(cells) >= 4 and cells[0].isdigit() and cells[3].startswith('ACCEPT'): acc_batches.add(int(cells[0]))
 for b in acc_batches:
     inv = json.load(open(R/f'french/batch{b}-inventory.json'))
     for ch in inv['chapters']:
