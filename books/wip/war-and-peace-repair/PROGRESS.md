@@ -94,10 +94,26 @@ Close-read all 8 remaining chapters the original mechanical scan flagged (>15% o
 
 **This closes out every chapter the original mechanical diagnostic scan flagged as suspicious anywhere in the book.**
 
+## Random spot-check of unflagged chapters (2026-09-18)
+
+Since mechanical-scan-flagged territory turned out not to be a reliable proxy for defect location (the alignment-drift investigation found real defects in unflagged spots and false alarms in flagged ones), ran a genuine random sample: 20 chapters drawn uniformly from the ~300 the mechanical scan never flagged, spread across Books One through Fourteen (11, 23, 36, 63, 68, 78, 88, 107, 165, 210, 211, 222, 244, 245, 257, 261, 281, 290, 310, 325). Full paragraph-by-paragraph close read against source for all 20, in 3 parallel batches.
+
+**Result: 14 of 20 chapters (70%) genuinely sound, no changes. 6 of 20 (30%) had a real, previously-undetected defect — always narrow (1-3 word-or-clause-level fixes per chapter), never wholesale, but never the kind of thing a mechanical scan would catch:**
+- Ch 36: name-spelling inconsistency (Nikolai → Nicholas Rostov, 1 occurrence).
+- Ch 210: softened stated intent (Pierre "present at" vs. source's "taking part in" the battle — narratively relevant since he's later drawn into hand-to-hand combat).
+- Ch 244: dropped clause (wounded men billeted in the Rostovs' own house, not just neighboring houses).
+- Ch 245: a genuine meaning inversion (which servants were leaving vs. staying in Moscow, flipped to the opposite).
+- Ch 281: a meaning-weakening word swap ("marauders" → "stragglers," changing the sentence's actual point) plus two dropped explanatory clauses.
+- Ch 310: a place-name distortion ("Dorogobuzh," a real town on the French retreat route, became the nonexistent "Dorogobuzhsk").
+
+All 6 fixed directly, all structurally verified (paragraph counts intact). Final: `spotcheck-batchS1/S2/S3-accepted.json`.
+
+**Honest interpretation:** a ~30% defect rate in a random sample means unflagged chapters are NOT reliably sound — this repair pass fixed real defects in every one of the 3 spot-check batches. Extrapolating (with real uncertainty, since 20 is a small sample of 300): the ~300 unflagged chapters likely contain on the order of dozens more similar narrow, low-severity defects (word-choice softenings, single dropped clauses, occasional inversions or factual slips) that have not been found. This is qualitatively different from the severe, concentrated damage found and fixed in chapters 333-365 — these are scattered, low-severity errors, not systemic failure — but they are real and would need the same close-read treatment across the remaining ~280 unchecked chapters to find and fix exhaustively.
+
 ## Still remaining for War and Peace, honestly not done in this session
 
-1. Chapters outside any mechanical flag (roughly 300 of 365 — the vast majority of the book) were not individually close-read. This session's repeated finding across four books is that close reading surfaces real defects invisible to mechanical scans, so this is a genuine coverage gap, not claimed complete. Given the mechanical scan's demonstrated methodology (catches omission-type damage reliably; every chapter it did flag either turned out sound or had a real, now-fixed defect), the unflagged chapters are very likely sound, but "very likely" is not "verified."
-2. The accepted files (`tail-batchA/B/C-accepted.json`, `drift-batchD1/D2/D3-accepted.json`, `early-flags-accepted.json`, `modern-en-name-normalized.json`) need to be merged into a single replacement for the live `war-and-peace-modern-en.json`. This merge was not performed — staying within the content-only staging scope of this project. Handoff note for whoever promotes this to the live file: the changes are scattered across specific chapters in specific accepted files, listed in this document; the bulk of the book (chapters 1-332 minus the 12 individually-touched early chapters) is unchanged from the current live file and doesn't need replacing.
+1. **~280 of 365 chapters have never been individually close-read** (300 unflagged minus the 20-chapter spot-check sample). Based on the spot-check's 30% hit rate, this very likely contains further scattered narrow defects (word-choice softenings, single dropped clauses, occasional inversions/factual slips) of the same kind just found and fixed — not systemic damage, but real and currently unfound. A full close-read of the remaining chapters, at the same per-chapter cost already demonstrated in this session (~20-30 chapters per batch of 3 parallel agents), would be needed to find and fix them exhaustively.
+2. The accepted files (`tail-batchA/B/C-accepted.json`, `drift-batchD1/D2/D3-accepted.json`, `early-flags-accepted.json`, `spotcheck-batchS1/S2/S3-accepted.json`, `modern-en-name-normalized.json`) need to be merged into a single replacement for the live `war-and-peace-modern-en.json`. This merge was not performed — staying within the content-only staging scope of this project. Handoff note for whoever promotes this to the live file: the changes are scattered across specific chapters in specific accepted files, listed in this document.
 3. `modern-da` not examined at all — flagged for whoever does that work, since it's translated from `modern-en` and may carry forward the same defects that existed before this repair pass.
 
 ## Models used
