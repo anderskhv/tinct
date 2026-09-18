@@ -80,7 +80,7 @@ export class ChainedVoiceSessionController {
     })
     if (!result.ok) {
       const error = await result.json().catch(() => null) as any
-      throw new Error(error?.error || 'Voice request failed.')
+      throw new Error((error?.error || 'Voice request failed.') + (error?.stage ? ' [' + error.stage + (error?.code ? ': ' + error.code : '') + ']' : ''))
     }
     return result
   }
@@ -92,6 +92,7 @@ export class ChainedVoiceSessionController {
     this.input = { ...input, voiceExperiment: input.voiceExperiment ? { ...input.voiceExperiment } : undefined }
     this.sessionAbort = new AbortController()
     this.pace = input.assistantPace || 'normal'
+    let stage = 'audio_setup'
     this.anchor = input.audio.pausePlayback()?.anchor ?? null
     this.emit({ isActive: true, connection: 'connecting', activity: 'connecting', mode: input.mode ?? 'conversation' })
     this.diagnose({ type: 'call.started', settings: input.voiceExperiment, instructions: this.instructions() })
@@ -126,9 +127,11 @@ export class ChainedVoiceSessionController {
         () => this.finishTurn(),
         error => { this.cancelTurn(); this.emit({ error: error instanceof Error ? error.message : 'Speech failed.', activity: 'listening', state: 'listening' }) },
       )
+      stage = 'microphone'
       const stream = await navigator.mediaDevices.getUserMedia({ audio: { ...LAB_AUDIO_CONSTRAINTS } })
       if (!current()) { stream.getTracks().forEach(track => track.stop()); return }
       this.stream = stream
+      stage = 'peer_connection'
       const pc = this.pc = new RTCPeerConnection()
       stream.getTracks().forEach(track => pc.addTrack(track, stream))
       pc.onconnectionstatechange = () => { if (current() && ['failed', 'disconnected'].includes(pc.connectionState)) this.fail('Voice connection lost. Reconnect to continue.') }
@@ -148,10 +151,13 @@ export class ChainedVoiceSessionController {
       try {
         await pc.setLocalDescription(await pc.createOffer())
         if (!current()) return
+        stage = 'transcription_session'
         const response = await this.request({ action: 'transcription', sdp: pc.localDescription?.sdp }, this.sessionAbort.signal)
         const sdp = await response.text()
         if (!current()) return
+        stage = 'transcription_handshake'
         await pc.setRemoteDescription({ type: 'answer', sdp })
+        stage = 'data_channel'
         await connected
       } finally { clearTimeout(timeout) }
       if (!current()) return
@@ -159,7 +165,7 @@ export class ChainedVoiceSessionController {
       this.diagnose({ type: 'call.connected' })
       this.callbacks.onUsage?.()
       this.callbacks.onLatency?.({ kind: 'session_setup', at: Date.now(), model: 'gpt-live-transcribe', sessionSetupMs: Date.now() - setupAt })
-    } catch (error) { if (current()) this.fail(error instanceof Error ? error.message : 'Voice could not start.') }
+    } catch (error) { if (current()) { this.diagnose({ type: 'startup.failed', id: stage, text: error instanceof Error ? error.message : 'Voice could not start.' }); this.fail(error instanceof Error ? error.message : 'Voice could not start.') } }
   }
   /** Exposed for deterministic transport tests; no browser microphone needed. */
   handleEvent(event: any) {
