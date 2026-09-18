@@ -1,9 +1,9 @@
 import { LabMarkdown } from '../../lab/LabMarkdown'
-import { VoiceExpandIcon } from '../../lab/LabVoiceIcons'
+import { VoiceEndIcon, VoiceExpandIcon } from '../../lab/LabVoiceIcons'
 import { RowIcon } from '../../lab/LabSuperMenu.tsx'
 import { useEffect, useRef, useState } from 'react'
 
-export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady }: {
+export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady, onClose }: {
   passage: string
   request: (onDelta: (text: string) => void) => Promise<string>
   onReady?: (answer: string) => void
@@ -47,8 +47,19 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady
   return (
     <section className={`lab-contextual-explain${expanded ? ' is-expanded' : ''}`} aria-label="Explanation">
       <div className="lab-contextual-explain-heading">
-        <button type="button" aria-label={expanded ? 'Collapse explanation' : 'Expand explanation'} aria-expanded={expanded} onClick={() => setExpanded(value => !value)}>
-          <VoiceExpandIcon size={16} />
+        {/* Expanded, the control becomes a close: there is nothing left to expand
+            into, and the way out of a full-height card is to dismiss it. Without
+            an onClose it falls back to collapsing so the control is never inert. */}
+        <button
+          type="button"
+          aria-label={expanded ? 'Close explanation' : 'Expand explanation'}
+          aria-expanded={expanded ? undefined : false}
+          onClick={() => {
+            if (!expanded) { setExpanded(true); return }
+            if (onClose) onClose(); else setExpanded(false)
+          }}
+        >
+          {expanded ? <VoiceEndIcon size={16} /> : <VoiceExpandIcon size={16} />}
         </button>
       </div>
       <div className="lab-contextual-explain-scroll">
