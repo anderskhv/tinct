@@ -79,6 +79,27 @@ async function pageState(page) {
   })
 }
 
+async function stablePageState(page, timeout = 10000) {
+  const deadline = Date.now() + timeout
+  let previous = null
+  let stableSamples = 0
+  while (Date.now() < deadline) {
+    const current = await pageState(page)
+    const signature = JSON.stringify({
+      place: current.place,
+      edition: current.edition,
+      lang: current.lang,
+      keys: current.keys,
+      fragments: current.fragments.map(fragment => fragment.text),
+    })
+    stableSamples = signature === previous ? stableSamples + 1 : 0
+    if (stableSamples >= 3) return current
+    previous = signature
+    await page.waitForTimeout(250)
+  }
+  throw new Error('reader page did not settle before the acceptance deadline')
+}
+
 async function turn(page, key) {
   await page.keyboard.press(key)
   await page.waitForTimeout(450)
@@ -323,14 +344,12 @@ async function languageAcceptance(name, viewport) {
     return root?.dataset.readerEdition === 'modern-da' && root.lang === 'da'
   }, null, { timeout: 45000 })
   await page.waitForFunction(() => [...performance.getEntriesByType('resource')].some(entry => /\/assets\/da-[^/]+\.js$/.test(new URL(entry.name).pathname)), null, { timeout: 30000 })
-  await page.waitForTimeout(900)
-  const danish = await pageState(page)
+  const danish = await stablePageState(page)
   assert.equal(danish.place, before.place, 'EN to DA must preserve logical position')
   const danishKeys = danish.keys
   englishReleased = true
   releaseEnglish()
-  await page.waitForTimeout(1200)
-  const afterStaleEnglish = await pageState(page)
+  const afterStaleEnglish = await stablePageState(page)
   assert.equal(afterStaleEnglish.edition, 'modern-da', 'late English patterns must not replace Danish')
   assert.equal(afterStaleEnglish.lang, 'da')
   assert.deepEqual(afterStaleEnglish.keys, danishKeys, 'late English completion must not repaginate the Danish edition')
