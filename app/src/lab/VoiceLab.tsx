@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { apiUrl } from '../utils/apiUrl'
-import { CURRENT_VOICE_EXPERIMENT, LIGHT_VOICE_EXPERIMENT, VOICE_LAB_MODELS, parseVoiceExperiment, type VoiceDiagnostic, type VoiceExperiment } from '../voice/voiceLab'
+import { CURRENT_VOICE_EXPERIMENT, LIGHT_VOICE_EXPERIMENT, INSIGHT_VOICE_EXPERIMENT, INSIGHT_REASONED_EXPERIMENT, VOICE_LAB_MODELS, parseVoiceExperiment, type VoiceDiagnostic, type VoiceExperiment } from '../voice/voiceLab'
 import { LabApp } from './LabApp'
 import './voiceLab.css'
 
@@ -10,7 +10,7 @@ export function VoiceLab() {
   const [access, setAccess] = useState<'checking' | 'allowed' | 'denied'>('checking')
   const [open, setOpen] = useState(true)
   const [tab, setTab] = useState<'settings' | 'results'>('settings')
-  const [draft, setDraft] = useState<VoiceExperiment>({ ...CURRENT_VOICE_EXPERIMENT })
+  const [draft, setDraft] = useState<VoiceExperiment>({ ...INSIGHT_VOICE_EXPERIMENT })
   const [presets, setPresets] = useState<VoiceExperiment[]>([])
   const [events, setEvents] = useState<VoiceDiagnostic[]>([])
   const [active, setActive] = useState(false)
@@ -28,7 +28,7 @@ export function VoiceLab() {
     return () => { cancelled = true }
   }, [session?.access_token])
   useEffect(() => {
-    setEvents([]); setActive(false); setDraft({ ...CURRENT_VOICE_EXPERIMENT })
+    setEvents([]); setActive(false); setDraft({ ...INSIGHT_VOICE_EXPERIMENT })
     try {
       const raw: unknown = presetKey ? JSON.parse(localStorage.getItem(presetKey) || '[]') : []
       setPresets(Array.isArray(raw) ? raw.map(parseVoiceExperiment).filter((p): p is VoiceExperiment => !!p).slice(-12) : [])
@@ -69,12 +69,13 @@ export function VoiceLab() {
     <button className="voice-lab-toggle" onClick={() => setOpen(!open)}>{open ? 'Hide test controls' : `Voice test${active ? ' · recording diagnostics' : ''}`}</button>
     {open && <aside className="voice-lab-panel" aria-label="Voice test controls">
       <h1>Voice test room</h1>
+      <p><strong>Isolated voice preview.</strong> Start with Insight — direct; compare Insight — Sol reasoning for depth. Production reader changes are not included here.</p>
       <p>Choose a passage in the reader, hide these controls, then open Talk. Settings apply to the next call. Reader controls act on your real book.</p>
       <nav><button aria-pressed={tab === 'settings'} onClick={() => setTab('settings')}>Settings</button><button aria-pressed={tab === 'results'} onClick={() => setTab('results')}>Results ({events.filter(e => e.type === 'call.started').length})</button></nav>
       {tab === 'settings' ? <>
         <fieldset disabled={active}>
           <legend>{active ? 'End the call before changing settings' : 'Next call'}</legend>
-          <label>Preset<select aria-label="Preset" value="" onChange={e => { const presets_ = [CURRENT_VOICE_EXPERIMENT, LIGHT_VOICE_EXPERIMENT, ...presets]; const selected = presets_[Number(e.target.value)]; if (selected) setDraft({ ...selected }) }}><option value="" disabled>Choose a preset…</option>{[CURRENT_VOICE_EXPERIMENT, LIGHT_VOICE_EXPERIMENT, ...presets].map((p, i) => <option key={i} value={i}>{p.label}</option>)}</select></label>
+          <label>Preset<select aria-label="Preset" value="" onChange={e => { const presets_ = [CURRENT_VOICE_EXPERIMENT, LIGHT_VOICE_EXPERIMENT, INSIGHT_VOICE_EXPERIMENT, INSIGHT_REASONED_EXPERIMENT, ...presets]; const selected = presets_[Number(e.target.value)]; if (selected) setDraft({ ...selected }) }}><option value="" disabled>Choose a preset…</option>{[CURRENT_VOICE_EXPERIMENT, LIGHT_VOICE_EXPERIMENT, INSIGHT_VOICE_EXPERIMENT, INSIGHT_REASONED_EXPERIMENT, ...presets].map((p, i) => <option key={i} value={i}>{p.label}</option>)}</select></label>
           <label>Test name<input value={draft.label} maxLength={100} onChange={e => setDraft({ ...draft, label: e.target.value })} /></label>
           <p>Voice: GPT Live1. Grok is not connected in this first version.</p>
           <label>Reasoning model<select value={draft.model} onChange={e => setDraft({ ...draft, model: e.target.value as VoiceExperiment['model'] })}>{VOICE_LAB_MODELS.map(model => <option key={model}>{model}</option>)}</select></label>
