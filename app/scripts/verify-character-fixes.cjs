@@ -407,7 +407,7 @@ const CASES = [
   ['odyssey', 'original-en', undefined, 'demodocus', undefined, 'od-demodocus'],
   ['odyssey', 'original-en', undefined, 'arete', undefined, 'od-arete'],
   ['odyssey', 'original-en', undefined, 'proteus', undefined, 'od-proteus'],
-  ['odyssey', 'original-en', 3, 'ajax', undefined, 'od-ajax-telamonian'],
+  ['odyssey', 'original-en', 11, 'ajax', undefined, 'od-ajax-telamonian'],
   ['odyssey', 'original-en', 4, 'ajax-lesser', undefined, 'od-ajax-lesser'],
   ['odyssey', 'original-en', 22, 'polybus-suitor', undefined, 'od-polybus-suitor'],
   ['odyssey', 'original-en', 1, 'polybus', undefined, 'od-polybus-father'],
