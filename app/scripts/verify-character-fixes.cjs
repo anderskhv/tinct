@@ -921,11 +921,33 @@ function findMention(book, edition, characterId, chapterHint) {
   return { m, character, asset }
 }
 
+// Long runs (800+ rows x 2 devices, ~2.5 h) used to lose everything on a
+// container restart or one unexpected Playwright error. Every row now
+// lands in results.partial.json as it completes; VERIFY_RESUME=1 skips
+// rows that already PASSed there, VERIFY_ONLY=<regex> restricts labels.
+const partialPath = `${dir}/results.partial.json`
+const onlyRe = process.env.VERIFY_ONLY ? new RegExp(process.env.VERIFY_ONLY) : null
+function loadPartial() {
+  try { return JSON.parse(fs.readFileSync(partialPath, 'utf8')) } catch (e) { return [] }
+}
+const partial = process.env.VERIFY_RESUME ? loadPartial() : []
+const donePass = new Set(partial.filter(r => r.status === 'PASS').map(r => `${r.device}|${r.label}`))
+function persist(row) {
+  partial.push(row)
+  fs.mkdirSync(dir, { recursive: true })
+  fs.writeFileSync(partialPath, JSON.stringify(partial, null, 2))
+}
+
 async function run(conf, engine) {
   const b = await engine.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' })
   const results = []
+  const push = row => { results.push(row); persist(row) }
   try {
     for (const [book, edition, chapterHint, characterId, expectedNameSubstring, label] of CASES) {
+      if (onlyRe && !onlyRe.test(label)) continue
+      if (donePass.has(`${conf.name}|${label}`)) { results.push(partial.find(r => r.device === conf.name && r.label === label && r.status === 'PASS')); continue }
+      let p = null
+      try {
       const { m, character } = findMention(book, edition, characterId, chapterHint)
       const source = JSON.parse(fs.readFileSync(`public/data/editions/${book}-${edition}.json`, 'utf8'))
       const chapter = source.chapters.find(c => c.number === m.chapterNumber)
@@ -933,7 +955,7 @@ async function run(conf, engine) {
       const wordIndex = [...text.matchAll(/\S+/g)].findIndex(w => w.index < m.endOffset && w.index + w[0].length > m.startOffset)
       assert.ok(wordIndex >= 0, `${label}: could not locate word index`)
 
-      const p = await b.newPage({ viewport: conf.width ? { width: conf.width, height: conf.height } : undefined, isMobile: conf.name === 'phone', hasTouch: conf.name === 'phone' })
+      p = await b.newPage({ viewport: conf.width ? { width: conf.width, height: conf.height } : undefined, isMobile: conf.name === 'phone', hasTouch: conf.name === 'phone' })
       p.setDefaultTimeout(15000)
       const pageErrors = []
       p.on('pageerror', e => pageErrors.push(e.message))
@@ -956,7 +978,7 @@ async function run(conf, engine) {
           ready = true
         } catch (e) {
           if (attempt === 1) {
-            results.push({ label, status: `READER_TIMEOUT (${e.name})`, device: conf.name, book, characterId })
+            push({ label, status: `READER_TIMEOUT (${e.name})`, device: conf.name, book, characterId })
           }
         }
       }
@@ -984,7 +1006,7 @@ async function run(conf, engine) {
       const found = await onPage()
       if (!found) {
         await p.screenshot({ path: `${dir}/${conf.name}-${label}-notfound.png` })
-        results.push({ label, status: 'WORD_NOT_FOUND_ON_ANY_PAGE', device: conf.name, book, characterId })
+        push({ label, status: 'WORD_NOT_FOUND_ON_ANY_PAGE', device: conf.name, book, characterId })
         await p.close(); continue
       }
 
@@ -1007,8 +1029,13 @@ async function run(conf, engine) {
       }
       if (pageErrors.length) status += ` + JS_ERRORS: ${pageErrors.join('; ')}`
       await p.screenshot({ path: `${dir}/${conf.name}-${label}.png` })
-      results.push({ label, status, device: conf.name, book, characterId, expectedName: expectedNameSubstring || character.snapshots[0].name, gotName: popupText, paged })
+      push({ label, status, device: conf.name, book, characterId, expectedName: expectedNameSubstring || character.snapshots[0].name, gotName: popupText, paged })
       await p.close()
+      } catch (e) {
+        // any other Playwright/runtime error: record it for this row, keep going
+        push({ label, status: `ROW_ERROR (${e.name}: ${String(e.message).split('\n')[0].slice(0, 160)})`, device: conf.name, book, characterId })
+        if (p) await p.close().catch(() => {})
+      }
     }
   } finally {
     await b.close()
