@@ -12,3 +12,4 @@ Input: baseline b269fb96 text (the consistency pass changes no readability). Ver
 | mid-3 | 176–186 | 176, 186 | 177–185 | 176: dense name roster plus unglossed allusions (1807, Finland, Suvorov). 186: the 666 gematria table runs together without delimiters, plus an orphaned French footnote (French pass). |
 | mid-7 | 220–230 | — | all 11 | Hard flags are long stacked clauses and proper nouns only. |
 | mid-9 | 242–252 | 245, 252 (draft); 248 (French pass) | 242–244, 246, 247, 249–251 | 245: one unclear line ("Are we miserable Germans?") plus unglossed terms; 252: crowd-dialogue speaker attribution; 248: four asterisked one-liners are French footnote scaffolding. |
+| mid-2 | 165–175 | 168 | 165–167, 169–175 | 168 is the essay on the causes of the 1812 war: long tangled sentences, unglossed references. |
