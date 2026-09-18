@@ -88,6 +88,8 @@ export interface VoiceReaderContext {
   pageNumber?: number
   totalPages?: number
   readingAngle?: string
+  /** Preview chain reference, never claimed to be the visible page. */
+  chapterText?: string
   currentParagraph?: string
   nearbyParagraphs?: string[]
   visibleText?: string
