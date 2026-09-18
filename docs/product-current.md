@@ -71,7 +71,7 @@ and uses a bounded, centred voice surface with round Mute/End controls.
 
 ## Voice follow-ups — September 18
 
-Sol with compact context is the approved next Talk default. The change supplies
+Sol with compact context is the shipped Talk default. The change supplies
 reader location at connection, explicitly suppresses fillers and retains the
 original turn identity of late backend continuations. Release status and the
 limits of managed Live speech steering are recorded in
