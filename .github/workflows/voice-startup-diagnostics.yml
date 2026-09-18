@@ -27,14 +27,14 @@ jobs:
               const accounts=await fetch('https://api.cloudflare.com/client/v4/accounts',{headers}).then(r=>r.json());
               if(!accounts.success) console.log('Cloudflare log access unavailable:',accounts.errors?.map(e=>e.code));
               else for(const account of accounts.result){
-                const query={queryId:'voice-startup-diagnostic',timeframe:{from:Date.now()-21600000,to:Date.now()},view:'events',limit:20,parameters:{filters:[{key:'$metadata.message',operation:'includes',type:'string',value:'voice-chain provider error'}]}};
+                const query={queryId:'voice-startup-classification-search',timeframe:{from:Date.now()-21600000,to:Date.now()},view:'events',limit:20,parameters:{needle:{value:'voice-chain provider error',matchCase:true}}};
                 const r=await fetch('https://api.cloudflare.com/client/v4/accounts/'+account.id+'/workers/observability/telemetry/query',{method:'POST',headers,body:JSON.stringify(query)}).then(r=>r.json());
                 if(!r.success){console.log('Cloudflare log query unavailable:',r.errors?.map(e=>e.code));continue;}
                 console.log('Response shape:',Object.keys(r.result||{}), 'event shape:', Object.keys(r.result?.events||{}));
                 const rows=r.result?.events?.events||[];
                 // Print only the deliberately minimal provider classification logged by voiceChain.
                 for(const row of rows){
-                  const message=String(row.$metadata?.message||'');
+                  const message=String(row.$metadata?.message||row.message||row.source?.message||'');
                   if(/^voice-chain provider error [a-z_\/]+ \d{3}(?: [a-zA-Z0-9_.\[\]-]+)*$/.test(message)) console.log('Provider classification:',message);
                 }
                 console.log('Matching provider classifications:',rows.length);
