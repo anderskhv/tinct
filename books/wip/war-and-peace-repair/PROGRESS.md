@@ -79,11 +79,26 @@ Given this session's remaining scope, item 3 is completed now (mechanical, low-r
 
 All 3 batches complete: A (ch333-340), B (ch341-352), C (ch353-365) — 33 chapters, 790 paragraphs, each through full draft → independent review → correct → verify. Every batch's independent review found real additional defects beyond what the drafter self-reported or what the original diagnostic audit flagged (same pattern seen throughout this session in Confessions and Jane Eyre) — all fixed and independently confirmed. Chapters 338-340 and the ch355/357/361/362 cluster (the highest-stakes philosophical content, and the worst-documented pre-existing damage) came back with their content fully verified restored.
 
-**Still remaining for War and Peace, not done in this session:**
-1. The 21-chapter paragraph-alignment drift fix (chapters 5, 19, 22, 31, 51, 55, 97, 100, 111, 142, 150, 172, 194, 204, 215, 236, 326, 336, 349, 350, 358) — a structural defect, separate from translation quality, that breaks the app's split-pane view and has caused one outright content loss (ch358's final paragraph). This needs re-splitting modern-en paragraphs to match source boundaries, chapter by chapter.
-2. Chapters 1-332 (the vast majority of the book) were only spot-checked (4 chapters close-read, confirmed sound) — not close-read individually. Given this session's repeated finding that close reading surfaces defects invisible to mechanical scans, a full close-read of the remaining 332 chapters was not attempted and is not claimed complete.
-3. The three accepted batch files (`tail-batchA/B/C-accepted.json`) need to be merged into a single replacement for chapters 333-365 in the live `war-and-peace-modern-en.json`, and combined with the separately-staged `modern-en-name-normalized.json` (whole-book name fix) — this merge was not performed, staying within the content-only staging scope of this project. Handoff note for whoever promotes this to the live file.
-4. `modern-da` not examined at all.
+## Remaining early-flagged chapters — closed out (2026-09-18)
+
+Close-read all 8 remaining chapters the original mechanical scan flagged (>15% of paragraphs below 85% ratio) that hadn't yet been individually checked: 6, 26, 29, 45, 52, 53, 94, 102. (Chapters 49-51 in this same flag cluster were already confirmed sound in the initial diagnostic audit.)
+
+- **Sound / false positives, no changes: chapters 6, 45, 53, 94.**
+- **Defective, fixed: chapters 26, 29, 52, 102** — all minor consistency issues, none involving dropped/invented/inverted content:
+  - Ch 26: old-style "Prince Andrei" (16 occurrences) normalized to the project's standard "Prince Andrew."
+  - Ch 29: chapter title mislabeled "Chapter 2" — corrected to "Chapter 1" (matches source and structure).
+  - Ch 52: dropped the character's given name at introduction ("Old Prince Bolkonsky" → restored "Old Prince Nicholas Bolkonsky").
+  - Ch 102: Denisov's signature r→w speech impediment (a recurring Tolstoy characterization device) had been silently normalized away in two of his speaking passages — restored.
+- Independently spot-checked all 4 fixes directly against the corrected file — confirmed.
+- Final: `early-flags-corrected.json`, sha256 `57516eff4edabf0e64e4755857856384a1253a1a0c812a8c0dfe4369b0502a20`, accepted as `early-flags-accepted.json`.
+
+**This closes out every chapter the original mechanical diagnostic scan flagged as suspicious anywhere in the book.**
+
+## Still remaining for War and Peace, honestly not done in this session
+
+1. Chapters outside any mechanical flag (roughly 300 of 365 — the vast majority of the book) were not individually close-read. This session's repeated finding across four books is that close reading surfaces real defects invisible to mechanical scans, so this is a genuine coverage gap, not claimed complete. Given the mechanical scan's demonstrated methodology (catches omission-type damage reliably; every chapter it did flag either turned out sound or had a real, now-fixed defect), the unflagged chapters are very likely sound, but "very likely" is not "verified."
+2. The accepted files (`tail-batchA/B/C-accepted.json`, `drift-batchD1/D2/D3-accepted.json`, `early-flags-accepted.json`, `modern-en-name-normalized.json`) need to be merged into a single replacement for the live `war-and-peace-modern-en.json`. This merge was not performed — staying within the content-only staging scope of this project. Handoff note for whoever promotes this to the live file: the changes are scattered across specific chapters in specific accepted files, listed in this document; the bulk of the book (chapters 1-332 minus the 12 individually-touched early chapters) is unchanged from the current live file and doesn't need replacing.
+3. `modern-da` not examined at all — flagged for whoever does that work, since it's translated from `modern-en` and may carry forward the same defects that existed before this repair pass.
 
 ## Models used
 
