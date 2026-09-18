@@ -636,6 +636,13 @@ const CASES = [
   ['leviathan', 'original-en', undefined, 'jupiter', undefined, 'lv-jupiter'],
   ['leviathan', 'modern-en', undefined, 'moses', undefined, 'lv-modern-moses'],
   ['leviathan', 'modern-en', undefined, 'st-paul', undefined, 'lv-modern-st-paul'],
+  // Federalist Papers — clickable-names pass (batch 4)
+  ['federalist-papers', 'original-en', undefined, 'montesquieu', undefined, 'fp-montesquieu'],
+  ['federalist-papers', 'original-en', undefined, 'philip-of-macedon', undefined, 'fp-philip-of-macedon'],
+  ['federalist-papers', 'original-en', undefined, 'william-temple', undefined, 'fp-william-temple'],
+  ['federalist-papers', 'original-en', undefined, 'charles-vii', undefined, 'fp-charles-vii'],
+  ['federalist-papers', 'original-en', undefined, 'shays', undefined, 'fp-shays'],
+  ['federalist-papers', 'modern-en', undefined, 'montesquieu', undefined, 'fp-modern-montesquieu'],
 ]
 
 function findMention(book, edition, characterId, chapterHint) {
