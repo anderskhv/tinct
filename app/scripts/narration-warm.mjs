@@ -52,6 +52,8 @@ async function warm(book, edition, voice, indexes) {
 }
 
 const totals = { generated: 0, requests: 0, failures: 0, startedAt: Date.now() }
+const MAX_REQUESTS_PER_TARGET = 120
+const STALL_ROUNDS = 5
 
 async function warmTarget(book, edition, voice) {
   const label = `${book}/${edition}/${voice}`
@@ -59,17 +61,29 @@ async function warmTarget(book, edition, voice) {
   if (firstN != null) paragraphs = paragraphs.slice(0, firstN)
   let incomplete = paragraphs.filter(p => p.status !== 'ready').map(p => p.paragraph)
   let stalled = 0
+  // Progress is the ready-chunk count of the first incomplete paragraph; a
+  // target that generates without ever advancing it is stalled, not busy.
+  let progressed = { paragraph: -1, ready: -1, rounds: 0 }
+  let requests = 0
   while (incomplete.length > 0) {
+    if (requests >= MAX_REQUESTS_PER_TARGET) { console.error(`  ${label}: gave up after ${requests} requests`); return 'stalled' }
     const batch = incomplete.slice(0, 3)
     const started = Date.now()
     let results
     try { results = await warm(book, edition, voice, batch) } catch (error) { console.error(`  ${label}: ${error.message}`); totals.failures += 1; if (++stalled >= 3) break; await new Promise(r => setTimeout(r, 5000)); continue }
     totals.requests += 1
+    requests += 1
+    const first = results.find(r => r.paragraph === batch[0])
+    const ready = first?.readyChunks ?? (first?.status === 'ready' ? Infinity : -1)
+    if (first && progressed.paragraph === first.paragraph && ready <= progressed.ready) {
+      if (++progressed.rounds >= STALL_ROUNDS) { console.error(`  ${label}: p${first.paragraph} stuck at ${first.readyChunks}/${first.chunkCount} ready for ${STALL_ROUNDS} rounds`); return 'stalled' }
+    } else progressed = { paragraph: first?.paragraph ?? -1, ready, rounds: 0 }
     const failed = results.filter(r => r.status === 'failed' || r.failure)
     const done = results.filter(r => r.status === 'ready').map(r => r.paragraph)
     const generated = results.reduce((sum, r) => sum + (r.source === 'generated' ? 1 : 0), 0)
     totals.generated += generated
-    console.log(`  ${label}: p${batch.join(',p')} → ${results.map(r => `${r.status}${r.readyChunks != null ? ` ${r.readyChunks}/${r.chunkCount}` : ''}`).join(' | ')} (${((Date.now() - started) / 1000).toFixed(1)}s)`)
+    const notes = results.flatMap(r => [r.waited ? 'waited' : null, r.raced ? 'raced' : null, r.retryAfterMs ? `retry ${r.retryAfterMs}ms` : null]).filter(Boolean)
+    console.log(`  ${label}: p${batch.join(',p')} → ${results.map(r => `${r.status}${r.readyChunks != null ? ` ${r.readyChunks}/${r.chunkCount}` : ''}`).join(' | ')} (${((Date.now() - started) / 1000).toFixed(1)}s${generated ? `, +${generated}` : ''}${notes.length ? `, ${notes.join(' ')}` : ''})`)
     if (failed.length > 0) {
       const reason = failed[0].reason || failed[0].failure?.reason
       console.error(`  ${label}: stop, ${reason}${failed[0].detail ? ` (${failed[0].detail})` : ''}`)

@@ -246,8 +246,13 @@ function parseScope(url: URL): { bookId: string; editionKey: string; chapter: nu
 
 // ===== Storage helpers =====
 
+/** One retry on a thrown R2 read: a transient error must not read as "missing". */
+async function withOneRetry<T>(read: () => Promise<T>): Promise<T> {
+  try { return await read() } catch { return read() }
+}
+
 async function readJsonObject<T>(bucket: R2Bucket, key: string): Promise<T | null> {
-  const object = await bucket.get(key)
+  const object = await withOneRetry(() => bucket.get(key))
   if (!object) return null
   try { return await object.json() as T } catch { return null }
 }
@@ -283,35 +288,73 @@ interface ParagraphState {
  * audio must agree with the live text hash, the chunk layout and each other.
  * The first chunk that fails ends the prefix; nothing past it is trusted.
  */
-async function readParagraphState(bucket: R2Bucket, mapKey: string, textHash: string, chunks: NarrationChunk[], voiceId: string, model: string, settings: NarrationSynthesisSettings): Promise<ParagraphState> {
+/** Identity hashes for every chunk of a paragraph, computed once per request. */
+async function chunkIdentities(chunks: NarrationChunk[], model: string, voiceId: string, settings: NarrationSynthesisSettings): Promise<string[]> {
+  return Promise.all(chunks.map(chunk => narrationCacheIdentity({ provider: NARRATION_PROVIDER, model, voiceId, text: chunk.text, settings }).then(identity => identity.hash)))
+}
+
+/**
+ * One listed recording, only if its meta and audio agree with the live text
+ * hash, the chunk layout and each other. Null means missing or torn.
+ */
+async function readReadyChunk(bucket: R2Bucket, position: number, expected: NarrationChunk, listedHash: string, textHash: string): Promise<ReadyChunk | null> {
+  const keys = narrationBlobKeys(listedHash)
+  const [meta, head] = await Promise.all([readJsonObject<NarrationBlobMeta>(bucket, keys.meta), withOneRetry(() => bucket.head(keys.audio))])
+  if (!meta || !head || meta.version !== NARRATION_CACHE_VERSION || meta.textHash !== textHash || meta.hash !== listedHash) return null
+  if (meta.chunkIndex !== position || meta.text !== expected.text || !(meta.duration > 0) || head.size !== meta.audioBytes || head.size < 800) return null
+  return {
+    index: position,
+    hash: meta.hash,
+    wordFrom: expected.wordFrom,
+    wordTo: expected.wordTo,
+    duration: meta.duration,
+    words: meta.timingsUsable && Array.isArray(meta.words) ? meta.words : null,
+    alignment: meta.alignment,
+    timingsUsable: meta.timingsUsable,
+    audioBytes: meta.audioBytes,
+  }
+}
+
+function mapEntryMatches(entry: NarrationMapEntry | null, textHash: string, chunkCount: number, voiceId: string, model: string): entry is NarrationMapEntry {
+  return !!entry && entry.textHash === textHash && entry.chunkCount === chunkCount && entry.voiceId === voiceId && entry.model === model
+}
+
+async function readParagraphState(bucket: R2Bucket, mapKey: string, textHash: string, chunks: NarrationChunk[], voiceId: string, model: string, settings: NarrationSynthesisSettings, identities?: string[]): Promise<ParagraphState> {
   const state: ParagraphState = { textHash, chunks, ready: [] }
   const entry = await readMapEntry(bucket, mapKey)
-  if (!entry || entry.textHash !== textHash || entry.chunkCount !== chunks.length || entry.voiceId !== voiceId || entry.model !== model) return state
+  if (!mapEntryMatches(entry, textHash, chunks.length, voiceId, model)) return state
+  const hashes = identities ?? await chunkIdentities(chunks, model, voiceId, settings)
   for (let position = 0; position < entry.chunks.length; position += 1) {
     const listed = entry.chunks[position]
     const expected = chunks[position]
     if (!listed || !expected || listed.index !== position || listed.wordFrom !== expected.wordFrom || listed.wordTo !== expected.wordTo || typeof listed.hash !== 'string') break
     // The listed recording must be the one this text, model, voice and
     // settings would produce today; any changed setting is a different hash.
-    const identity = await narrationCacheIdentity({ provider: NARRATION_PROVIDER, model, voiceId, text: expected.text, settings })
-    if (listed.hash !== identity.hash) break
-    const keys = narrationBlobKeys(listed.hash)
-    const [meta, head] = await Promise.all([readJsonObject<NarrationBlobMeta>(bucket, keys.meta), bucket.head(keys.audio)])
-    if (!meta || !head || meta.version !== NARRATION_CACHE_VERSION || meta.textHash !== textHash || meta.hash !== listed.hash) break
-    if (meta.chunkIndex !== position || meta.text !== expected.text || !(meta.duration > 0) || head.size !== meta.audioBytes || head.size < 800) break
-    state.ready.push({
-      index: position,
-      hash: meta.hash,
-      wordFrom: expected.wordFrom,
-      wordTo: expected.wordTo,
-      duration: meta.duration,
-      words: meta.timingsUsable && Array.isArray(meta.words) ? meta.words : null,
-      alignment: meta.alignment,
-      timingsUsable: meta.timingsUsable,
-      audioBytes: meta.audioBytes,
-    })
+    if (listed.hash !== hashes[position]) break
+    const ready = await readReadyChunk(bucket, position, expected, listed.hash, textHash)
+    if (!ready) break
+    state.ready.push(ready)
   }
   return state
+}
+
+/**
+ * The chunk list to write into the map: our validated prefix, extended by
+ * whatever the existing entry already lists beyond it as long as each listed
+ * recording is the one today's text, voice and settings would produce. A
+ * transient miss while validating one chunk must never drop the chunks after
+ * it: readers validate on read and regenerate only the chunk that fails.
+ */
+function listedChunksForMap(existing: NarrationMapEntry | null, ready: ReadyChunk[], chunks: NarrationChunk[], identities: string[], textHash: string, voiceId: string, model: string): NarrationMapEntry['chunks'] {
+  const listed = ready.map(item => ({ index: item.index, hash: item.hash, wordFrom: item.wordFrom, wordTo: item.wordTo }))
+  if (!mapEntryMatches(existing, textHash, chunks.length, voiceId, model)) return listed
+  for (let position = listed.length; position < chunks.length; position += 1) {
+    const entry = existing.chunks[position]
+    const expected = chunks[position]
+    if (!entry || entry.index !== position || entry.hash !== identities[position] || entry.wordFrom !== expected.wordFrom || entry.wordTo !== expected.wordTo) break
+    listed.push({ index: position, hash: entry.hash, wordFrom: entry.wordFrom, wordTo: entry.wordTo })
+  }
+  return listed
 }
 
 function chunkPayload(chunk: NarrationChunk, ready: ReadyChunk | undefined) {
@@ -699,7 +742,8 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       continue
     }
     const mapKey = narrationMapKey(bookId, editionKey, chapter, voice.key, index)
-    const state = await readParagraphState(bucket, mapKey, textHash, chunks, voice.id, config.model, config.settings)
+    const identities = await chunkIdentities(chunks, config.model, voice.id, config.settings)
+    const state = await readParagraphState(bucket, mapKey, textHash, chunks, voice.id, config.model, config.settings, identities)
     if (state.ready.length > 0) bump({ requests: 1, cacheHits: 1 })
     let failure: EnsureParagraphResult | null = null
     const extra: Record<string, unknown> = {}
@@ -707,7 +751,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     while (state.ready.length < chunks.length && !generationDone && !failure) {
       if (now() - requestStartedAt > REQUEST_TIME_BUDGET_MS) { generationDone = true; break }
       const chunk = chunks[state.ready.length]
-      const identity = await narrationCacheIdentity({ provider: NARRATION_PROVIDER, model: config.model, voiceId: voice.id, text: chunk.text, settings: config.settings })
+      const identity = { hash: identities[state.ready.length] }
 
       // Someone else may be generating this exact chunk right now.
       const lockKey = `narration:lock:${identity.hash}`
@@ -778,17 +822,27 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
           generationMs,
         }
         const blobKeys = narrationBlobKeys(identity.hash)
-        await bucket.put(blobKeys.audio, synthesis.audio, { httpMetadata: { contentType: 'audio/mpeg' } })
-        await bucket.put(blobKeys.meta, JSON.stringify(meta), { httpMetadata: { contentType: 'application/json' } })
-        state.ready.push({
-          index: chunk.index, hash: identity.hash, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo,
-          duration: validation.duration, words: validation.words, alignment: validation.alignment,
-          timingsUsable: validation.timingsUsable, audioBytes: synthesis.audio.length,
-        })
-        // Another generator may have published a longer prefix meanwhile;
-        // never shorten the map, only extend it.
-        const latest = await readParagraphState(bucket, mapKey, textHash, chunks, voice.id, config.model, config.settings)
-        if (latest.ready.length > state.ready.length) state.ready.splice(0, state.ready.length, ...latest.ready)
+        // Keys are content-addressed, so a second rendering of the same chunk
+        // would overwrite the first and could tear its audio/meta pair. If
+        // another generator finished this chunk while we synthesised it, keep
+        // theirs and write nothing.
+        const finished = await readReadyChunk(bucket, chunk.index, chunk, identity.hash, textHash)
+        if (finished) {
+          state.ready.push(finished)
+          extra.raced = true
+        } else {
+          await bucket.put(blobKeys.audio, synthesis.audio, { httpMetadata: { contentType: 'audio/mpeg' } })
+          await bucket.put(blobKeys.meta, JSON.stringify(meta), { httpMetadata: { contentType: 'application/json' } })
+          state.ready.push({
+            index: chunk.index, hash: identity.hash, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo,
+            duration: validation.duration, words: validation.words, alignment: validation.alignment,
+            timingsUsable: validation.timingsUsable, audioBytes: synthesis.audio.length,
+          })
+        }
+        // Never shorten the map: keep every chunk the existing entry lists
+        // beyond our prefix whose identity still matches today's text.
+        const existing = await readMapEntry(bucket, mapKey)
+        const listed = listedChunksForMap(existing, state.ready, chunks, identities, textHash, voice.id, config.model)
         const mapEntry: NarrationMapEntry = {
           version: NARRATION_CACHE_VERSION,
           textHash,
@@ -798,11 +852,18 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
           voiceId: voice.id,
           model: config.model,
           bookId, editionKey, chapter, paragraphIndex: index,
-          chunks: state.ready.map(ready => ({ index: ready.index, hash: ready.hash, wordFrom: ready.wordFrom, wordTo: ready.wordTo })),
-          complete: state.ready.length === chunks.length,
+          chunks: listed,
+          complete: listed.length === chunks.length,
           publishedAt: new Date(now()).toISOString(),
         }
         await bucket.put(mapKey, JSON.stringify(mapEntry), { httpMetadata: { contentType: 'application/json' } })
+        // Adopt the listed recordings beyond our prefix that validate, so the
+        // next chunk we generate is the first one truly missing.
+        for (let position = state.ready.length; position < listed.length; position += 1) {
+          const adopted = await readReadyChunk(bucket, position, chunks[position], listed[position].hash, textHash)
+          if (!adopted) break
+          state.ready.push(adopted)
+        }
         generatedThisRequest += 1
         bump({ requests: 1, generated: 1, bytes: textBytes, providerMs: synthesis.providerMs })
         extra.source = 'generated'
@@ -862,6 +923,11 @@ async function waitForChunk(
   const wanted = state.ready.length
   while (now() < deadline) {
     await sleep(LOCK_POLL_MS)
+    // One read per poll; only a map that lists more than we have is worth
+    // validating chunk by chunk (each poll of a long paragraph would
+    // otherwise cost dozens of subrequests).
+    const entry = await readMapEntry(bucket, mapKey)
+    if (!entry || entry.chunks.length <= wanted) continue
     const fresh = await readParagraphState(bucket, mapKey, state.textHash, state.chunks, voiceId, model, settings)
     if (fresh.ready.length > wanted) {
       state.ready.splice(0, state.ready.length, ...fresh.ready)
