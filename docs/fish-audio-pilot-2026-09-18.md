@@ -361,3 +361,20 @@ The paid model still delivers the timestamped stream only at completion,
 but a sentence group completes in one to three seconds, so an uncached
 paragraph now starts within a few seconds and the look-ahead has 7–13 s of
 audio per group to stay ahead. Cost for the four groups: $0.009.
+
+### Independent review of the sentence-group work (2026-09-19)
+
+| # | Severity | Finding | Outcome |
+| --- | --- | --- | --- |
+| 1 | High | Tapping a word ahead while listening left the previous chunk playing under "Preparing narration…", painting the target's words from the wrong clock and skipping the target on `ended`. | Fixed: one deferred entry (`enterPreparing`) pauses and clears the element, resets the clock and follow, and `ended` from an empty element is ignored; failure also pauses. Test added. |
+| 2 | Medium | Bible verse numbers (standalone superscripts) were sent to the narrator and broke word paint for every Bible paragraph. | Fixed: markers are silent end to end — never sent or hashed, kept in token ranges, given no timing; the reader re-inserts them by position. Tests added (core, Worker, reader alignment). |
+| 3 | Medium | Cache reads did not enforce settings, so a settings change could serve old audio until the cache version was bumped. | Fixed: every listed chunk must equal the identity hash recomputed from today's text, model, voice and settings. Test added. |
+| 4 | Medium (ops) | Warm script hit the public chapter-listing throttle on a re-run. | Fixed: admin callers are exempt from the throttle and the script backs off on 429/5xx. Test added. |
+| 5 | Low-medium | Two callers awaiting one in-flight round could both start a round. | Fixed: `while` loop with the satisfied check; a stale answer never shortens a playable prefix. |
+| 6 | Low-medium | Pause during preparation then Play replayed the previous chunk. | Fixed: the element's source is cleared while preparing and `resume` re-enters `playClip` whenever the current narration clip is not what the element holds. Test added. |
+| 7 | Low | Per-chunk worst case exceeded the request budget and the lock TTL. | Fixed: provider timeout 25 s per attempt and no attempt starts past the request deadline. |
+| 8 | Low | Map rewrite could shorten a prefix another generator had extended. | Fixed: the map is re-read before writing and only ever extended. |
+| 9 | Low | Prefetch marked a chapter done before finishing and lost the current warm when the reader neared the end; anonymous readers burned 401s. | Fixed: two effects, done only on completion, no rounds without a session token. Test added. |
+| 10 | Low | A 429 in the reader's own round surfaced as a failure. | Fixed: treated as a short wait; the per-user limit is 60/min. Test added. |
+| 11 | Low | Warm token compared with `!==`, after the configuration check. | Fixed: constant-time compare, checked first. |
+| 12 | Low | The hearing stage looked paragraphs up by clip index. | Fixed: by the clip's own paragraph index. |

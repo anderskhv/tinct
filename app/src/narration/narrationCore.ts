@@ -117,6 +117,22 @@ export function narrationTokens(paragraph: string): string[] {
   return text.length === 0 ? [] : text.split(' ')
 }
 
+/**
+ * Printed but never spoken: Bible verse numbers as standalone superscript
+ * digits. They stay in the token list (the reader paints them and indexes by
+ * position) but never reach the narrator, and get no timing of their own;
+ * the reader's `alignTimedWordsToText` gives them a zero-length time at the
+ * next spoken word.
+ */
+export function isSilentNarrationToken(token: string): boolean {
+  return /^[⁰¹²³⁴⁵⁶⁷⁸⁹]+$/.test(token)
+}
+
+/** The spoken words of a token range: what the provider is sent. */
+export function spokenText(tokens: string[], from = 0, to = tokens.length): string {
+  return tokens.slice(from, to).filter(token => !isSilentNarrationToken(token)).join(' ')
+}
+
 /** UTF-8 byte length — Fish bills TTS per million UTF-8 bytes of input text. */
 export function utf8ByteLength(text: string): number {
   return new TextEncoder().encode(text).length
@@ -629,15 +645,18 @@ export function validateNarrationAsset(candidate: NarrationAssetCandidate): Narr
 
 export interface NarrationChunk {
   index: number
-  /** Token range `[wordFrom, wordTo)` of the paragraph's narration tokens. */
+  /** Token range `[wordFrom, wordTo)` of the paragraph's narration tokens (silent markers included). */
   wordFrom: number
   wordTo: number
+  /** Spoken text of the range — silent markers dropped — as sent to the provider and hashed. */
   text: string
 }
 
 const ABBREVIATIONS = new Set(['mr', 'mrs', 'ms', 'dr', 'st', 'mt', 'no', 'vs', 'etc', 'ie', 'eg', 'jr', 'sr', 'prof', 'rev', 'gen', 'col', 'capt', 'lt', 'sgt', 'hon', 'messrs', 'esq', 'viz', 'cf', 'ch', 'vol', 'pp', 'op', 'bk'])
 
 function endsSentence(token: string, next: string | undefined): boolean {
+  if (isSilentNarrationToken(token)) return false
+  if (next !== undefined && isSilentNarrationToken(next)) return /[.!?…][\u0022\u0027\u2019\u201d)\]]*$/.test(token)
   if (!/[.!?…][\u0022\u0027\u2019\u201d)\]]*$/.test(token)) return false
   const bare = token.replace(/[^\p{L}\p{N}]/gu, '').toLowerCase()
   if (ABBREVIATIONS.has(bare)) return false
@@ -651,7 +670,8 @@ function endsClause(token: string): boolean {
 }
 
 function joinedLength(tokens: string[]): number {
-  return tokens.reduce((sum, token) => sum + token.length, 0) + Math.max(0, tokens.length - 1)
+  const spoken = tokens.filter(token => !isSilentNarrationToken(token))
+  return spoken.reduce((sum, token) => sum + token.length, 0) + Math.max(0, spoken.length - 1)
 }
 
 /** Greedily pack runs of tokens (split on `boundary`) into groups of at most `max` characters. */
@@ -701,8 +721,19 @@ function packTokens(tokens: string[], max: number): string[][] {
  * ranges tile the paragraph.
  */
 export function chunkNarrationTokens(tokens: string[], max = NARRATION_CHUNK_MAX_CHARS): NarrationChunk[] {
-  if (tokens.length === 0) return []
-  const groups = packRuns(tokens, endsSentence, max, sentence => packRuns(sentence, endsClause, max, clause => packTokens(clause, max)))
+  if (tokens.length === 0 || tokens.every(isSilentNarrationToken)) return []
+  let groups = packRuns(tokens, endsSentence, max, sentence => packRuns(sentence, endsClause, max, clause => packTokens(clause, max)))
+  // A group of only silent markers has nothing to say: it joins the next group.
+  const merged: string[][] = []
+  for (const group of groups) {
+    if (merged.length > 0 && merged[merged.length - 1].every(isSilentNarrationToken)) merged[merged.length - 1] = merged[merged.length - 1].concat(group)
+    else merged.push(group)
+  }
+  if (merged.length > 1 && merged[merged.length - 1].every(isSilentNarrationToken)) {
+    const tail = merged.pop() as string[]
+    merged[merged.length - 1] = merged[merged.length - 1].concat(tail)
+  }
+  groups = merged
   if (groups.length > 1) {
     const last = groups[groups.length - 1]
     const previous = groups[groups.length - 2]
@@ -713,7 +744,7 @@ export function chunkNarrationTokens(tokens: string[], max = NARRATION_CHUNK_MAX
   const chunks: NarrationChunk[] = []
   let cursor = 0
   groups.forEach((group, index) => {
-    chunks.push({ index, wordFrom: cursor, wordTo: cursor + group.length, text: group.join(' ') })
+    chunks.push({ index, wordFrom: cursor, wordTo: cursor + group.length, text: spokenText(group) })
     cursor += group.length
   })
   return chunks

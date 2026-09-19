@@ -63,6 +63,12 @@ describe('useNarrationPrefetch', () => {
     expect(noVoice.calls.length).toBe(0)
   })
 
+  it('does not call the Worker for a reader without a session token', async () => {
+    const h = harness({ authToken: null, readToken: async () => null } as never)
+    await new Promise(resolve => setTimeout(resolve, 30))
+    expect(h.calls.length).toBe(0)
+  })
+
   it('stops on a failure and aborts on unmount', async () => {
     const calls: number[] = []
     const failing = vi.fn(async (request: { paragraphs: Array<{ index: number }> }) => {

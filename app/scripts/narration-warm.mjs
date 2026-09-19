@@ -30,9 +30,15 @@ function readDotEnv(key) {
 }
 
 async function listChapter(book, edition, voice) {
-  const res = await fetch(`${origin}/api/narration/chapter?bookId=${book}&editionKey=${edition}&chapter=${chapter}&voice=${voice}`)
-  if (!res.ok) throw new Error(`chapter ${book}/${edition} ${voice}: HTTP ${res.status}`)
-  return (await res.json()).paragraphs
+  // The admin header exempts the listing from the public per-address throttle;
+  // a 429 or transient error is retried with backoff rather than aborting the run.
+  for (let attempt = 0; attempt < 5; attempt += 1) {
+    const res = await fetch(`${origin}/api/narration/chapter?bookId=${book}&editionKey=${edition}&chapter=${chapter}&voice=${voice}`, { headers: { 'x-narration-admin': token } })
+    if (res.ok) return (await res.json()).paragraphs
+    if (res.status === 429 || res.status >= 500) { await new Promise(r => setTimeout(r, 3000 * (attempt + 1))); continue }
+    throw new Error(`chapter ${book}/${edition} ${voice}: HTTP ${res.status}`)
+  }
+  throw new Error(`chapter ${book}/${edition} ${voice}: gave up after retries`)
 }
 
 async function warm(book, edition, voice, indexes) {

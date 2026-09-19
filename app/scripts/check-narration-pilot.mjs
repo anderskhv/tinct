@@ -94,12 +94,11 @@ state.paragraphs = await (async () => {
 const prefs = JSON.parse(await page.evaluate(() => localStorage.getItem('tinct-lab-prefs')))
 assert.equal(prefs.shared.narrationProvider, 'fish', 'opt-in flag persisted in prefs')
 
-// Prefetch on chapter open asks for the opening paragraphs without text hashes.
-await page.waitForFunction(() => true)
+// The chapter-open prefetch needs a signed-in reader (it would only collect
+// 401s otherwise); this check runs anonymously, so nothing may be requested
+// before Play. The prefetch itself is covered by useNarrationPrefetch.test.tsx.
 await page.waitForTimeout(1200)
-const prefetchCalls = state.ensureCalls.filter(call => call.paragraphs.every(p => !p.textHash))
-assert.ok(prefetchCalls.length >= 1, 'chapter-open prefetch was requested')
-assert.deepEqual(prefetchCalls[0].paragraphs.map(p => p.index), [0, 1, 2], 'prefetch warms the first three paragraphs')
+assert.equal(state.ensureCalls.length, 0, 'no narration request before Play for an anonymous reader')
 state.playPressed = true
 state.ensureCalls.length = 0
 await page.getByTestId('lab-v2-play').click()

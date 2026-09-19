@@ -45,39 +45,52 @@ export function useNarrationPrefetch(input: NarrationPrefetchInput): void {
   const { active, voice, bookId, editionKey, chapter, nextChapter, paragraphCount, currentParagraph } = input
   const nearEnd = paragraphCount > 0 && currentParagraph >= paragraphCount - NARRATION_PREFETCH_TAIL
 
-  useEffect(() => {
-    if (!active || !voice) return
-    const targets: Array<{ chapter: number; key: string }> = [{ chapter, key: `${bookId}/${editionKey}/${chapter}/${voice}` }]
-    if (nearEnd && nextChapter != null) targets.push({ chapter: nextChapter, key: `${bookId}/${editionKey}/${nextChapter}/${voice}` })
-    const pending = targets.filter(target => !doneRef.current.has(target.key))
-    if (pending.length === 0) return
+  const warmChapter = (target: number, key: string) => {
     const controller = new AbortController()
     let cancelled = false
     const run = async () => {
-      for (const target of pending) {
-        if (cancelled) return
-        doneRef.current.add(target.key)
-        const indexes = Array.from({ length: NARRATION_PREFETCH_PARAGRAPHS }, (_, index) => index)
-        for (let round = 0; round < MAX_ROUNDS && !cancelled; round += 1) {
-          const current = inputRef.current
-          const token = current.authToken ?? (current.readToken ? await current.readToken() : null)
-          if (cancelled) return
-          let results: NarrationParagraphResult[]
-          try {
-            results = await (current.ensureImpl ?? ensureNarration)({
-              bookId, editionKey, chapter: target.chapter, voice,
-              paragraphs: indexes.map(index => ({ index })),
-              mode: 'next',
-            }, { signal: controller.signal, authToken: token })
-          } catch {
-            return
-          }
-          if (results.length === 0 || complete(results, indexes)) break
-          if (results.some(item => item.status === 'failed' || ('failure' in item && item.failure))) break
+      const current = inputRef.current
+      const token = current.authToken ?? (current.readToken ? await current.readToken() : null)
+      // Preparation needs a signed-in reader; without a token every round would be a 401.
+      if (cancelled || !token) return
+      const indexes = Array.from({ length: NARRATION_PREFETCH_PARAGRAPHS }, (_, index) => index)
+      let finished = false
+      for (let round = 0; round < MAX_ROUNDS && !cancelled; round += 1) {
+        let results: NarrationParagraphResult[]
+        try {
+          results = await (current.ensureImpl ?? ensureNarration)({
+            bookId, editionKey, chapter: target, voice: voice as string,
+            paragraphs: indexes.map(index => ({ index })),
+            mode: 'next',
+          }, { signal: controller.signal, authToken: token })
+        } catch {
+          return
         }
+        if (results.length === 0 || complete(results, indexes)) { finished = true; break }
+        if (results.some(item => item.status === 'failed' || ('failure' in item && item.failure))) { finished = true; break }
       }
+      // Marked done only once complete (or given up), so an aborted warm can resume.
+      if (finished && !cancelled) doneRef.current.add(key)
     }
     void run()
     return () => { cancelled = true; controller.abort() }
+  }
+
+  // The chapter's own opening, on arrival.
+  useEffect(() => {
+    if (!active || !voice) return
+    const key = `${bookId}/${editionKey}/${chapter}/${voice}`
+    if (doneRef.current.has(key)) return
+    return warmChapter(chapter, key)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active, voice, bookId, editionKey, chapter])
+
+  // The next chapter's opening, once the reader is near the end of this one.
+  useEffect(() => {
+    if (!active || !voice || !nearEnd || nextChapter == null) return
+    const key = `${bookId}/${editionKey}/${nextChapter}/${voice}`
+    if (doneRef.current.has(key)) return
+    return warmChapter(nextChapter, key)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, voice, bookId, editionKey, chapter, nextChapter, nearEnd])
 }

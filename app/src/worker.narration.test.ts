@@ -48,6 +48,8 @@ const PARAGRAPHS = [
   'Tell me, O Muse, of that ingenious hero who travelled far and wide\nafter he had sacked the famous town of Troy.',
   'So now all who escaped death in battle or by shipwreck had got safely\nhome except Ulysses.',
   '“But there! It rests with heaven to determine whether he is to return,\nand take his revenge in his own house or no.”',
+  // Bible-style verse markers: printed, never spoken.
+  '¹ In the beginning God created the heaven and the earth. ² And the earth was without form, and void.',
   // Long enough for three sentence groups at the 300-character ceiling.
   'Now Neptune had gone off to the Ethiopians, who are at the world’s end, and lie in two halves, the one looking West and the other East. '
   + 'He had gone there to accept a hecatomb of sheep and oxen, and was enjoying himself at his festival; but the other gods met in the house of Olympian Jove, and the sire of gods and men spoke first. '
@@ -215,40 +217,40 @@ describe('POST /api/narration/ensure', () => {
 
   it("generates one sentence group per call in 'next' mode and reports the growing prefix", async () => {
     const h = makeHarness()
-    const chunks = chunkNarrationText(PARAGRAPHS[3])
+    const chunks = chunkNarrationText(PARAGRAPHS[4])
     expect(chunks.length).toBeGreaterThanOrEqual(3)
-    const first = (await ensure(h, { paragraphs: [{ index: 3 }], mode: 'next' })).json.paragraphs[0] as Result
+    const first = (await ensure(h, { paragraphs: [{ index: 4 }], mode: 'next' })).json.paragraphs[0] as Result
     expect(first).toMatchObject({ status: 'partial', chunkCount: chunks.length, readyChunks: 1, words: null })
     expect(first.chunks![0]).toMatchObject({ ready: true, wordFrom: 0, wordTo: chunks[0].wordTo })
     expect(first.chunks![1]).toMatchObject({ ready: false })
     expect(h.fish.calls.length).toBe(1)
     expect(JSON.parse(h.fish.calls[0].body).text).toBe(chunks[0].text)
 
-    const second = (await ensure(h, { paragraphs: [{ index: 3 }], mode: 'next' })).json.paragraphs[0] as Result
+    const second = (await ensure(h, { paragraphs: [{ index: 4 }], mode: 'next' })).json.paragraphs[0] as Result
     expect(second).toMatchObject({ readyChunks: 2 })
     expect(h.fish.calls.length).toBe(2)
     expect(JSON.parse(h.fish.calls[1].body).text).toBe(chunks[1].text)
 
     let last = second
     for (let guard = 0; guard < 8 && last.status !== 'ready'; guard += 1) {
-      last = (await ensure(h, { paragraphs: [{ index: 3 }], mode: 'next' })).json.paragraphs[0] as Result
+      last = (await ensure(h, { paragraphs: [{ index: 4 }], mode: 'next' })).json.paragraphs[0] as Result
     }
     expect(last).toMatchObject({ status: 'ready', readyChunks: chunks.length, timingsUsable: true })
     const words = last.words as Array<{ text: string; start: number }>
-    expect(words.map(word => word.text)).toEqual(narrationTextForParagraph(PARAGRAPHS[3]).split(' '))
+    expect(words.map(word => word.text)).toEqual(narrationTextForParagraph(PARAGRAPHS[4]).split(' '))
     for (let i = 1; i < words.length; i += 1) expect(words[i].start).toBeGreaterThanOrEqual(words[i - 1].start)
     expect(h.fish.calls.length).toBe(chunks.length)
     // 'next' with everything ready generates nothing.
-    await ensure(h, { paragraphs: [{ index: 3 }], mode: 'next' })
+    await ensure(h, { paragraphs: [{ index: 4 }], mode: 'next' })
     expect(h.fish.calls.length).toBe(chunks.length)
   })
 
   it("'all' mode finishes every missing chunk of every requested paragraph", async () => {
     const h = makeHarness()
-    const result = await ensure(h, { paragraphs: [{ index: 3 }, { index: 1 }], mode: 'all' })
-    expect(result.json.paragraphs[0]).toMatchObject({ paragraph: 3, status: 'ready' })
+    const result = await ensure(h, { paragraphs: [{ index: 4 }, { index: 1 }], mode: 'all' })
+    expect(result.json.paragraphs[0]).toMatchObject({ paragraph: 4, status: 'ready' })
     expect(result.json.paragraphs[1]).toMatchObject({ paragraph: 1, status: 'ready' })
-    expect(h.fish.calls.length).toBe(chunkNarrationText(PARAGRAPHS[3]).length + 1)
+    expect(h.fish.calls.length).toBe(chunkNarrationText(PARAGRAPHS[4]).length + 1)
   })
 
   it('never plays stale narration: a changed paragraph is stale and regenerated', async () => {
@@ -370,11 +372,11 @@ describe('POST /api/narration/ensure', () => {
       if (calls === 2) return new Response(`data: ${JSON.stringify({ audio_base64: Buffer.from(new Uint8Array(2000)).toString('base64'), chunk_seq: 0, chunk_audio_offset_sec: 0, alignment: { audio_duration: 5, segments: [] } })}\n\n`, { status: 200 })
       return respond(call)
     }
-    const result = (await ensure(h, { paragraphs: [{ index: 3 }] })).json.paragraphs[0] as Result
+    const result = (await ensure(h, { paragraphs: [{ index: 4 }] })).json.paragraphs[0] as Result
     expect(result).toMatchObject({ status: 'partial', readyChunks: 1 })
     expect((result.failure as Record<string, unknown>).reason).toBe('validation_failed')
     expect(String((result.failure as Record<string, unknown>).detail)).toContain('audio_not_mp3')
-    const map = JSON.parse(decoder.decode(h.env.AUDIO_BUCKET.store.get(narrationMapKey('odyssey', 'original-en', 1, 'a', 3))!))
+    const map = JSON.parse(decoder.decode(h.env.AUDIO_BUCKET.store.get(narrationMapKey('odyssey', 'original-en', 1, 'a', 4))!))
     expect(map.chunks.length).toBe(1)
     expect(map.complete).toBe(false)
   })
@@ -401,7 +403,48 @@ describe('POST /api/narration/ensure', () => {
   })
 })
 
+describe('verse markers and cache identity', () => {
+  it('sends the narrator only spoken words and times one word per spoken token', async () => {
+    const h = makeHarness()
+    const result = (await ensure(h, { paragraphs: [{ index: 3, textHash: await textHashOf(PARAGRAPHS[3]) }] })).json.paragraphs[0] as Result
+    expect(result.status).toBe('ready')
+    const sent = JSON.parse(h.fish.calls[0].body).text as string
+    expect(sent).not.toMatch(/[⁰¹²³⁴⁵⁶⁷⁸⁹]/)
+    expect(sent.startsWith('In the beginning')).toBe(true)
+    const words = result.chunks![0].words as Array<{ text: string }>
+    expect(words.length).toBe(sent.split(' ').length)
+    expect(words.map(w => w.text)).not.toContain('¹')
+    // The reader re-inserts the silent markers by position.
+    const { alignTimedWordsToText } = await import('./lab/labFollow')
+    const aligned = alignTimedWordsToText(narrationTextForParagraph(PARAGRAPHS[3]), words as never)
+    expect(aligned?.length).toBe(narrationTextForParagraph(PARAGRAPHS[3]).split(' ').length)
+    expect(aligned?.[0]).toMatchObject({ text: '¹', start: aligned?.[1].start })
+  })
+
+  it('treats a listed recording whose identity no longer matches as missing', async () => {
+    const h = makeHarness()
+    await ensure(h, { paragraphs: [{ index: 0 }] })
+    const mapKey = narrationMapKey('odyssey', 'original-en', 1, 'a', 0)
+    const map = JSON.parse(decoder.decode(h.env.AUDIO_BUCKET.store.get(mapKey)!))
+    // A recording made under different settings would carry a different hash.
+    map.chunks[0].hash = 'f'.repeat(64)
+    await h.env.AUDIO_BUCKET.put(mapKey, JSON.stringify(map))
+    expect((await chapter(h)).json.paragraphs[0]).toMatchObject({ status: 'stale' })
+    const again = (await ensure(h, { paragraphs: [{ index: 0 }] })).json.paragraphs[0] as Result
+    expect(again).toMatchObject({ status: 'ready', source: 'generated' })
+    expect(h.fish.calls.length).toBe(2)
+  })
+})
+
 describe('POST /api/narration/warm', () => {
+  it('rejects a bad token before revealing configuration and lists chapters without the public throttle', async () => {
+    const off = makeHarness({ NARRATION_PILOT: '0' }, { user: null })
+    expect((await ensure(off, { paragraphs: [{ index: 0 }] }, { 'x-narration-admin': 'wrong' }, 'warm')).status).toBe(403)
+    const limited = makeHarness({}, { rateLimited: true })
+    const response = await handleNarration(new Request('https://tinct.app/api/narration/chapter?bookId=odyssey&editionKey=original-en&chapter=1&voice=a', { headers: { 'x-narration-admin': 'warm-token-0123456789abcdef' } }), limited.env, limited.ctx, limited.deps)
+    expect(response.status).toBe(200)
+  })
+
   it('needs the admin token, not a reader, and generates like ensure', async () => {
     const anonymous = makeHarness({}, { user: null })
     expect((await ensure(anonymous, { paragraphs: [{ index: 0 }] }, {}, 'warm')).status).toBe(403)
@@ -481,9 +524,9 @@ describe('GET /api/narration/chapter', () => {
     const listing = await chapter(off)
     expect(listing.status).toBe(200)
     expect(listing.json.paragraphs).toEqual([])
-    await ensure(h, { paragraphs: [{ index: 3 }], mode: 'next' })
+    await ensure(h, { paragraphs: [{ index: 4 }], mode: 'next' })
     const progress = await chapter(h)
-    expect(progress.json.paragraphs[3]).toMatchObject({ status: 'partial', readyChunks: 1 })
+    expect(progress.json.paragraphs[4]).toMatchObject({ status: 'partial', readyChunks: 1 })
     expect(progress.json.paragraphs[0]).toMatchObject({ status: 'missing', chunkCount: 1 })
   })
 })

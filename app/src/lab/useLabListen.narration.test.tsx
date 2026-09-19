@@ -63,7 +63,9 @@ function harness(options: { voice?: string } = {}) {
   const audio = new EventTarget() as HTMLAudioElement
   Object.assign(audio, {
     src: '', currentTime: 0, playbackRate: 1,
-    pause: vi.fn(), load: vi.fn(), removeAttribute: vi.fn(),
+    pause: vi.fn(), load: vi.fn(),
+    // Like a real element: removing the attribute empties `src`.
+    removeAttribute: vi.fn((name: string) => { if (name === 'src') (audio as { src: string }).src = '' }),
     play: vi.fn(() => new Promise<void>((resolve, reject) => pending.push({ resolve, reject }))),
   })
   const calls: EnsureCall[] = []
@@ -364,6 +366,79 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     expect(h.audio.play).toHaveBeenCalledTimes(1)
     expect(h.result.current.playing).toBe(false)
     expect(h.result.current.clipIndex).toBe(1)
+  })
+
+  it('tapping a word ahead while listening silences the old chunk until the target is ready', async () => {
+    const h = harness()
+    await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+    await waitFor(() => expect(h.calls.length).toBe(1))
+    await act(async () => { await h.answer(h.calls[0], { 0: 1 }) })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    await act(async () => h.pending[0].resolve())
+    act(() => h.audio.dispatchEvent(new Event('playing')))
+    expect(h.result.current.playing).toBe(true)
+    await waitFor(() => expect(h.calls.length).toBe(2)) // look-ahead [1, 2]
+    const pauses = (h.audio.pause as ReturnType<typeof vi.fn>).mock.calls.length
+
+    act(() => h.result.current.seekToPlace(3, 0))
+    // The old chunk stops at once; its clock cannot paint the target's words.
+    expect((h.audio.pause as ReturnType<typeof vi.fn>).mock.calls.length).toBeGreaterThan(pauses)
+    expect(h.audio.removeAttribute).toHaveBeenCalledWith('src')
+    expect(h.result.current.follow).toEqual({ kind: 'none' })
+    await waitFor(() => expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 3 }))
+    // An `ended` from the silenced element must not advance past the target.
+    h.audio.src = ''
+    act(() => h.audio.dispatchEvent(new Event('ended')))
+    expect(h.audio.play).toHaveBeenCalledTimes(1)
+    // The look-ahead round answers first, then the target's own round.
+    await act(async () => { await h.answer(h.calls[1], { 1: 1, 2: 1 }) })
+    await waitFor(() => expect(h.calls.length).toBe(3))
+    expect(h.calls[2].indexes).toEqual([3])
+    await act(async () => { await h.answer(h.calls[2], { 3: 1 }) })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(2))
+    expect(h.audio.src).toContain('hash-3-0.mp3')
+    expect(h.result.current.clipIndex).toBe(h.result.current.clips.findIndex(clip => clip.kind === 'paragraph' && clip.index === 3))
+  })
+
+  it('resumes through preparation, never by replaying the previous chunk', async () => {
+    const h = harness()
+    await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+    await waitFor(() => expect(h.calls.length).toBe(1))
+    await act(async () => { await h.answer(h.calls[0], { 0: 1 }) })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    await act(async () => h.pending[0].resolve())
+    await waitFor(() => expect(h.calls.length).toBe(2))
+    // Paragraph 1 is not ready yet; playback reaches it.
+    act(() => h.audio.dispatchEvent(new Event('ended')))
+    await waitFor(() => expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 1 }))
+    expect(h.result.current.src).toBeTruthy()
+    expect(h.result.current.src).not.toContain('hash-0-0')
+    act(() => h.result.current.pause())
+    expect(h.result.current.narration).toEqual({ status: 'idle' })
+    // Play again: the shell sees a src and resumes; the hook prepares the target instead of replaying chunk 0.
+    act(() => { h.result.current.resume() })
+    await waitFor(() => expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 1 }))
+    expect(h.audio.play).toHaveBeenCalledTimes(1)
+    await act(async () => { await h.answer(h.calls[1], { 1: 1, 2: 0 }) })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(2))
+    expect(h.audio.src).toContain('hash-1-0.mp3')
+  })
+
+  it('treats a rate limit as a short wait, not a failure', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    try {
+      const h = harness()
+      await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+      await waitFor(() => expect(h.calls.length).toBe(1))
+      await act(async () => { h.calls[0].reject(new NarrationEnsureError('Too many', 'rate_limited', 429)) })
+      await act(async () => { await vi.advanceTimersByTimeAsync(3100) })
+      await waitFor(() => expect(h.calls.length).toBe(2))
+      expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 0 })
+      await act(async () => { await h.answer(h.calls[1], { 0: 1 }) })
+      await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    } finally {
+      vi.useRealTimers()
+    }
   })
 
   it('leaves the Kokoro path untouched when narration is off', async () => {

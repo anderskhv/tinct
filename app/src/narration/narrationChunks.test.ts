@@ -8,8 +8,10 @@ import {
   chunkNarrationText,
   chunkNarrationTokens,
   isPilotScope,
+  isSilentNarrationToken,
   narrationTokens,
   paragraphWordsFromChunks,
+  spokenText,
 } from './narrationCore'
 
 describe('narration scope', () => {
@@ -85,5 +87,31 @@ describe('chunkNarrationTokens', () => {
     ])
     expect(merged.duration).toBe(3.5)
     expect(merged.words[2]).toEqual({ text: 'c', start: 2.2, end: 3.4 })
+  })
+})
+
+describe('silent verse markers', () => {
+  const genesis = '¹ In the beginning God created the heaven and the earth. ² And the earth was without form, and void; and darkness was upon the face of the deep. ³ And God said, Let there be light: and there was light.'
+
+  it('keeps markers in the token ranges but never in the spoken text', () => {
+    const tokens = narrationTokens(genesis)
+    expect(tokens.filter(isSilentNarrationToken)).toEqual(['¹', '²', '³'])
+    const chunks = chunkNarrationTokens(tokens, 90)
+    expect(chunks[0].wordFrom).toBe(0)
+    expect(chunks[chunks.length - 1].wordTo).toBe(tokens.length)
+    for (const chunk of chunks) {
+      expect(chunk.text).not.toMatch(/[⁰¹²³⁴⁵⁶⁷⁸⁹]/)
+      expect(chunk.text).toBe(spokenText(tokens, chunk.wordFrom, chunk.wordTo))
+      expect(chunk.text.length).toBeGreaterThan(0)
+    }
+    // A verse number opens its verse's group rather than closing the previous one.
+    expect(tokens[chunks[1].wordFrom]).toBe('²')
+  })
+
+  it('never yields a chunk with nothing to say', () => {
+    expect(chunkNarrationText('¹ ²')).toEqual([])
+    const chunks = chunkNarrationText('¹ Word. ²', 6)
+    expect(chunks.length).toBe(1)
+    expect(chunks[0]).toMatchObject({ wordFrom: 0, wordTo: 3, text: 'Word.' })
   })
 })

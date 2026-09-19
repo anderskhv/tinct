@@ -32,6 +32,9 @@ import {
 // changes only follow paint; seeking and persisted playback time stay exact.
 export const LAB_FOLLOW_LEAD_SECONDS = 0.08
 
+/** `src` reported while a narration chunk is being prepared: truthy so the shell resumes through the hook, never a URL. */
+export const NARRATION_PENDING_SRC = 'narration:pending'
+
 export interface UseLabListenOptions {
   playbackUnavailable?: boolean
   /** V2: cancelled or superseded play requests cannot skip or repaint clips. */
@@ -238,6 +241,9 @@ export function useLabListen(options: UseLabListenOptions) {
       if (expected == null || result.textHash !== expected) continue
       const paragraph = paragraphsRef.current.find(item => item.index === result.paragraph)
       if (!paragraph) continue
+      // A stale answer never shortens what is already playable.
+      const known = prepared.get(result.paragraph)
+      if (known && known.textHash === result.textHash && known.chunks.filter(chunk => chunk.ready).length > result.readyChunks) continue
       const tokens = narrationTokens(paragraph.text)
       const chunks: PreparedChunk[] = result.chunks.map((chunk) => {
         const chunkText = tokens.slice(chunk.wordFrom, chunk.wordTo).join(' ')
@@ -273,7 +279,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const ensureRound = useCallback(async (indexes: number[], satisfied?: () => boolean): Promise<NarrationOutcome> => {
     const narration = optionsRef.current.narration
     if (!narration || indexes.length === 0) return { ok: false, reason: 'not_configured' }
-    if (narrationRoundRef.current) {
+    while (narrationRoundRef.current) {
       try { await narrationRoundRef.current } catch { /* reported by its own caller */ }
       // The round in flight may have landed exactly what this caller needs.
       if (satisfied?.()) return { ok: true }
@@ -297,11 +303,35 @@ export function useLabListen(options: UseLabListenOptions) {
       return { ok: true }
     } catch (error) {
       if ((error as Error)?.name === 'AbortError' || signal.aborted) return { ok: false, reason: 'cancelled' }
+      if (error instanceof NarrationEnsureError && error.code === 'rate_limited') return { ok: false, reason: 'pending', retryAfterMs: 3000 }
       return { ok: false, reason: error instanceof NarrationEnsureError ? error.code : 'network' }
     } finally {
       if (narrationRoundRef.current === round) narrationRoundRef.current = null
     }
   }, [applyPreparedNarration])
+
+  /**
+   * Leave the element silent and the clock at the target while a sentence
+   * group is prepared: the previous chunk must not keep playing under the
+   * "Preparing narration…" notice, its clock must not paint the target's
+   * words, and an `ended` from it must not advance past the target.
+   */
+  const enterPreparing = useCallback((index: number, offsetSeconds: number) => {
+    const audio = audioRef.current
+    switchingRef.current = true
+    if (audio) {
+      try { audio.pause() } catch { /* ignore */ }
+      try { audio.removeAttribute('src') } catch { /* ignore */ }
+    }
+    clipIndexRef.current = index
+    setClipIndex(index)
+    positionRef.current = { clipIndex: index, time: offsetSeconds }
+    setCurrentTime(offsetSeconds)
+    setFollow({ kind: 'none' })
+    // A sentinel keeps the shell on the resume path, which re-enters playClip.
+    setSrc(NARRATION_PENDING_SRC)
+    switchingRef.current = false
+  }, [])
 
   /**
    * Prepare one sentence group, then run `resume` — unless a newer
@@ -335,6 +365,7 @@ export function useLabListen(options: UseLabListenOptions) {
       if (outcome.reason === 'cancelled') return
       narrationRetryRef.current = () => { void prepareThenRun(target, resume) }
       setNarrationState({ status: 'error', paragraphIndex: target.paragraphIndex, message: narrationFailureMessage(outcome.reason), reason: outcome.reason })
+      try { audioRef.current?.pause() } catch { /* ignore */ }
       playingRef.current = false
       setPlaying(false)
       return
@@ -477,7 +508,7 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     const handleEnded = () => {
       // Safari fires ended again when src changes on an already-ended element.
-      if (switchingRef.current || !playingRef.current) return
+      if (switchingRef.current || !playingRef.current || !audio.src) return
       const next = clipIndexRef.current + 1
       const clip = clipsRef.current[next]
       if (!clip) {
@@ -571,12 +602,7 @@ export function useLabListen(options: UseLabListenOptions) {
       // real. The clock starts over here so the previous clip's end time
       // cannot leak into the follow paint or the progress bar while we wait.
       const target: ChunkTarget = { paragraphIndex: clip.index, chunkIndex: clip.chunk?.index ?? 0 }
-      clipIndexRef.current = index
-      setClipIndex(index)
-      positionRef.current = { clipIndex: index, time: offsetSeconds }
-      setCurrentTime(offsetSeconds)
-      setFollow({ kind: 'none' })
-      try { audio.pause() } catch { /* ignore */ }
+      enterPreparing(index, offsetSeconds)
       void prepareThenRun(target, () => {
         const ready = findClipIndex(target)
         if (ready >= 0) playClipRef.current(ready, offsetSeconds, andPlay)
@@ -639,7 +665,7 @@ export function useLabListen(options: UseLabListenOptions) {
       setFollow({ kind: 'none' })
     })
     return true
-  }, [applyRate, ensureAudio, prepareThenRun, scheduleNarrationLookAhead, speed, syncFollow])
+  }, [applyRate, ensureAudio, enterPreparing, prepareThenRun, scheduleNarrationLookAhead, speed, syncFollow])
   playClipRef.current = playClip
 
   const playPlace = useCallback((
@@ -664,8 +690,9 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     if (clip?.kind === 'paragraph' && clip.narration && !clip.url) {
       const target: ChunkTarget = { paragraphIndex: clip.index, chunkIndex: clip.chunk?.index ?? 0 }
-      clipIndexRef.current = index
-      setClipIndex(index)
+      ensureAudio()
+      enterPreparing(index, 0)
+      if (!andPlay) { playingRef.current = false; setPlaying(false) }
       void prepareThenRun(target, () => { playPlaceRef.current(clipsRef.current, place, andPlay, includeTitleAtChapterStart) })
       return true
     }
@@ -676,7 +703,7 @@ export function useLabListen(options: UseLabListenOptions) {
       : 0
     const offset = words?.[clamped]?.start ?? 0
     return playClip(index, offset, andPlay)
-  }, [playClip, prepareThenRun])
+  }, [enterPreparing, ensureAudio, playClip, prepareThenRun])
   playPlaceRef.current = playPlace
 
   const resolveClips = useCallback(async (): Promise<LabAudioClip[]> => {
@@ -818,6 +845,14 @@ export function useLabListen(options: UseLabListenOptions) {
     if (optionsRef.current.playbackUnavailable) return false
     const request = ++playRequestRef.current
     const audio = audioRef.current
+    // Narration: the current clip may still need preparing, or its recording
+    // arrived while paused and the element still holds the previous chunk;
+    // either way re-enter through playClip rather than replaying the element.
+    const current = clipsRef.current[clipIndexRef.current]
+    if (current?.kind === 'paragraph' && current.narration && (!audio?.src || !current.url || !audio.src.endsWith(current.url))) {
+      playClip(clipIndexRef.current, positionRef.current.time)
+      return
+    }
     if (!audio?.src) {
       void start()
       return
@@ -846,7 +881,7 @@ export function useLabListen(options: UseLabListenOptions) {
       playingRef.current = false
       setPlaying(false)
     })
-  }, [applyRate, speed, start, syncFollow])
+  }, [applyRate, playClip, speed, start, syncFollow])
 
   const stop = useCallback(() => {
     playRequestRef.current += 1

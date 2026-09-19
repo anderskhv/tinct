@@ -94,11 +94,12 @@ export const FISH_API_BASE_URL = 'https://api.fish.audio'
 export const NARRATION_DEFAULT_MODEL = 's2.1-pro'
 export const NARRATION_DEFAULT_DAILY_BYTES = 2_000_000   // ≈ $30 / day at $15 per M bytes
 export const NARRATION_DEFAULT_MONTHLY_BYTES = 10_000_000 // ≈ $150 / month
-export const NARRATION_ENSURE_RATE_PER_MINUTE = 40
+export const NARRATION_ENSURE_RATE_PER_MINUTE = 60
 const LOCK_TTL_SECONDS = 120
 const LOCK_WAIT_MS = 20_000
 const LOCK_POLL_MS = 750
-const PROVIDER_TIMEOUT_MS = 45_000
+/** A sentence group answers in seconds; a stalled one is retried, not waited on. */
+const PROVIDER_TIMEOUT_MS = 25_000
 const PROVIDER_RETRY_DELAYS_MS = [400, 1200]
 const BREAKER_OPEN_MS = 60_000
 const BREAKER_FAILURES = 3
@@ -140,6 +141,19 @@ export function narrationConfig(env: NarrationEnv): NarrationConfig {
   if (voices.length === 0) return { ...base, enabled: false, reason: 'missing_voices' }
   if (!env.AUDIO_BUCKET) return { ...base, enabled: false, reason: 'missing_bucket' }
   return { ...base, enabled: true }
+}
+
+/** Constant-time string comparison for the warm token. */
+function tokensMatch(given: string, expected: string): boolean {
+  if (given.length !== expected.length || expected.length < 16) return false
+  let diff = 0
+  for (let i = 0; i < expected.length; i += 1) diff |= given.charCodeAt(i) ^ expected.charCodeAt(i)
+  return diff === 0
+}
+
+function isWarmCaller(request: Request, env: NarrationEnv): boolean {
+  const token = request.headers.get('x-narration-admin') || ''
+  return Boolean(env.NARRATION_ADMIN_TOKEN) && tokensMatch(token, env.NARRATION_ADMIN_TOKEN as string)
 }
 
 function positiveInt(value: string | undefined, fallback: number): number {
@@ -269,7 +283,7 @@ interface ParagraphState {
  * audio must agree with the live text hash, the chunk layout and each other.
  * The first chunk that fails ends the prefix; nothing past it is trusted.
  */
-async function readParagraphState(bucket: R2Bucket, mapKey: string, textHash: string, chunks: NarrationChunk[], voiceId: string, model: string): Promise<ParagraphState> {
+async function readParagraphState(bucket: R2Bucket, mapKey: string, textHash: string, chunks: NarrationChunk[], voiceId: string, model: string, settings: NarrationSynthesisSettings): Promise<ParagraphState> {
   const state: ParagraphState = { textHash, chunks, ready: [] }
   const entry = await readMapEntry(bucket, mapKey)
   if (!entry || entry.textHash !== textHash || entry.chunkCount !== chunks.length || entry.voiceId !== voiceId || entry.model !== model) return state
@@ -277,6 +291,10 @@ async function readParagraphState(bucket: R2Bucket, mapKey: string, textHash: st
     const listed = entry.chunks[position]
     const expected = chunks[position]
     if (!listed || !expected || listed.index !== position || listed.wordFrom !== expected.wordFrom || listed.wordTo !== expected.wordTo || typeof listed.hash !== 'string') break
+    // The listed recording must be the one this text, model, voice and
+    // settings would produce today; any changed setting is a different hash.
+    const identity = await narrationCacheIdentity({ provider: NARRATION_PROVIDER, model, voiceId, text: expected.text, settings })
+    if (listed.hash !== identity.hash) break
     const keys = narrationBlobKeys(listed.hash)
     const [meta, head] = await Promise.all([readJsonObject<NarrationBlobMeta>(bucket, keys.meta), bucket.head(keys.audio)])
     if (!meta || !head || meta.version !== NARRATION_CACHE_VERSION || meta.textHash !== textHash || meta.hash !== listed.hash) break
@@ -345,7 +363,7 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
   // Listing costs an edition parse, a patch query and ~3 R2 reads per
   // paragraph, so it is throttled per address like the patch endpoint.
   const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
-  if (!await deps.checkRateLimit(`narration-chapter:${clientIP}`, env.RATE_LIMIT, 20)) {
+  if (!isWarmCaller(request, env) && !await deps.checkRateLimit(`narration-chapter:${clientIP}`, env.RATE_LIMIT, 20)) {
     return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
   }
   if (!config.enabled || !env.AUDIO_BUCKET) return jsonResponse({ ...publicConfig(config), paragraphs: [] }, 200, request)
@@ -364,7 +382,7 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
     const textHash = await sha256Hex(tokens.join(' '))
     const mapKey = narrationMapKey(scope.bookId, scope.editionKey, scope.chapter, voice.key, index)
     if (!present.has(mapKey)) return { paragraph: index, status: 'missing' as const, textHash, chunkCount: chunks.length, readyChunks: 0 }
-    const state = await readParagraphState(bucket, mapKey, textHash, chunks, voice.id, config.model)
+    const state = await readParagraphState(bucket, mapKey, textHash, chunks, voice.id, config.model, config.settings)
     if (state.ready.length === 0) return { paragraph: index, status: 'stale' as const, textHash, chunkCount: chunks.length, readyChunks: 0 }
     return paragraphPayload(index, state)
   }))
@@ -520,6 +538,8 @@ export async function synthesizeWithFish(input: {
   fetchImpl: typeof fetch
   sleep: (ms: number) => Promise<void>
   now: () => number
+  /** No attempt starts if it could not finish before this time. */
+  deadlineAt?: number
 }): Promise<FishSynthesisResult> {
   const startedAt = input.now()
   const headers = {
@@ -533,6 +553,7 @@ export async function synthesizeWithFish(input: {
   let endpoint: 'with-timestamp' | 'none' = 'with-timestamp'
   for (let attempt = 0; attempt <= PROVIDER_RETRY_DELAYS_MS.length; attempt += 1) {
     if (attempt > 0) await input.sleep(PROVIDER_RETRY_DELAYS_MS[attempt - 1])
+    if (input.deadlineAt != null && input.now() + PROVIDER_TIMEOUT_MS > input.deadlineAt && attempts > 0) break
     attempts += 1
     const exchange = fetchWithDeadline(
       input.fetchImpl,
@@ -606,14 +627,13 @@ type EnsureParagraphResult =
 
 async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionContext, deps: NarrationDeps, caller: 'reader' | 'warm'): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
+  if (caller === 'warm' && !isWarmCaller(request, env)) return jsonResponse({ error: 'Forbidden' }, 403, request)
   const config = narrationConfig(env)
   if (!config.enabled || !env.AUDIO_BUCKET || !env.FISH_AUDIO_API_KEY) {
     return jsonResponse({ error: 'Narration pilot is not configured', reason: config.reason }, 503, request)
   }
   let userId: string
   if (caller === 'warm') {
-    const token = request.headers.get('x-narration-admin') || ''
-    if (!env.NARRATION_ADMIN_TOKEN || token.length < 16 || token !== env.NARRATION_ADMIN_TOKEN) return jsonResponse({ error: 'Forbidden' }, 403, request)
     userId = 'warm'
   } else {
     const user = await deps.verifyUser(env, request)
@@ -679,7 +699,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       continue
     }
     const mapKey = narrationMapKey(bookId, editionKey, chapter, voice.key, index)
-    const state = await readParagraphState(bucket, mapKey, textHash, chunks, voice.id, config.model)
+    const state = await readParagraphState(bucket, mapKey, textHash, chunks, voice.id, config.model, config.settings)
     if (state.ready.length > 0) bump({ requests: 1, cacheHits: 1 })
     let failure: EnsureParagraphResult | null = null
     const extra: Record<string, unknown> = {}
@@ -694,7 +714,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       let locked = false
       try { locked = !!(kv && await kv.get(lockKey)) } catch { locked = false }
       if (locked) {
-        const arrived = await waitForChunk(bucket, mapKey, state, voice.id, config.model, now, sleep)
+        const arrived = await waitForChunk(bucket, mapKey, state, voice.id, config.model, config.settings, now, sleep)
         if (arrived) { extra.waited = true; if (mode === 'next') generationDone = true; continue }
         extra.retryAfterMs = 1500
         break
@@ -721,6 +741,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
         const synthesis = await synthesizeWithFish({
           apiKey: env.FISH_AUDIO_API_KEY, baseUrl: config.baseUrl, model: config.model, voiceId: voice.id,
           text: chunk.text, settings: config.settings, fetchImpl, sleep, now,
+          deadlineAt: requestStartedAt + REQUEST_TIME_BUDGET_MS + PROVIDER_TIMEOUT_MS,
         })
         const validation = validateNarrationAsset({ text: chunk.text, audio: synthesis.audio, reportedDuration: synthesis.reportedDuration, segments: synthesis.segments })
         await recordProviderOutcome(kv, now(), true)
@@ -764,6 +785,10 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
           duration: validation.duration, words: validation.words, alignment: validation.alignment,
           timingsUsable: validation.timingsUsable, audioBytes: synthesis.audio.length,
         })
+        // Another generator may have published a longer prefix meanwhile;
+        // never shorten the map, only extend it.
+        const latest = await readParagraphState(bucket, mapKey, textHash, chunks, voice.id, config.model, config.settings)
+        if (latest.ready.length > state.ready.length) state.ready.splice(0, state.ready.length, ...latest.ready)
         const mapEntry: NarrationMapEntry = {
           version: NARRATION_CACHE_VERSION,
           textHash,
@@ -829,6 +854,7 @@ async function waitForChunk(
   state: ParagraphState,
   voiceId: string,
   model: string,
+  settings: NarrationSynthesisSettings,
   now: () => number,
   sleep: (ms: number) => Promise<void>,
 ): Promise<boolean> {
@@ -836,7 +862,7 @@ async function waitForChunk(
   const wanted = state.ready.length
   while (now() < deadline) {
     await sleep(LOCK_POLL_MS)
-    const fresh = await readParagraphState(bucket, mapKey, state.textHash, state.chunks, voiceId, model)
+    const fresh = await readParagraphState(bucket, mapKey, state.textHash, state.chunks, voiceId, model, settings)
     if (fresh.ready.length > wanted) {
       state.ready.splice(0, state.ready.length, ...fresh.ready)
       return true
