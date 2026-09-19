@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { handleNarration, narrationConfig, type NarrationDeps, type NarrationEnv } from './worker/routes/narration'
 import { handleAudioFile } from './worker/routes/audio'
-import { chunkNarrationText, narrationMapKey, narrationTextForParagraph, sha256Hex } from './narration/narrationCore'
+import { NARRATION_CACHE_VERSION, chunkNarrationText, narrationBlobKeys, narrationCacheIdentity, narrationMapKey, narrationTextForParagraph, sha256Hex } from './narration/narrationCore'
 import { fishTimestampSseFor, syntheticMp3 } from './narration/narrationTestFixtures'
 
 const encoder = new TextEncoder()
@@ -528,5 +528,55 @@ describe('GET /api/narration/chapter', () => {
     const progress = await chapter(h)
     expect(progress.json.paragraphs[4]).toMatchObject({ status: 'partial', readyChunks: 1 })
     expect(progress.json.paragraphs[0]).toMatchObject({ status: 'missing', chunkCount: 1 })
+  })
+})
+
+describe('narration cache integrity under interference', () => {
+  it('regenerates only a torn chunk and keeps the chunks after it listed', async () => {
+    const h = makeHarness()
+    const warmed = await ensure(h, { paragraphs: [{ index: 4 }], mode: 'all' })
+    expect(warmed.json.paragraphs[0].readyChunks).toBe(3)
+    const callsAfterWarm = h.fish.calls.length
+    const mapKey = narrationMapKey('odyssey', 'original-en', 1, 'a', 4)
+    const entry = JSON.parse(decoder.decode(h.env.AUDIO_BUCKET.store.get(mapKey)!)) as { chunks: Array<{ hash: string }> }
+    // Tear chunk 1: a different rendering lands under its key, so meta and audio disagree.
+    h.env.AUDIO_BUCKET.store.set(narrationBlobKeys(entry.chunks[1].hash).audio, syntheticMp3(90))
+    const listing = await chapter(h)
+    expect(listing.json.paragraphs[4].readyChunks).toBe(1)
+    const repaired = await ensure(h, { paragraphs: [{ index: 4 }], mode: 'next' })
+    expect(repaired.json.paragraphs[0].readyChunks).toBe(3)
+    expect(h.fish.calls.length - callsAfterWarm).toBe(1)
+    const after = JSON.parse(decoder.decode(h.env.AUDIO_BUCKET.store.get(mapKey)!)) as { chunks: unknown[]; complete: boolean }
+    expect(after.chunks).toHaveLength(3)
+    expect(after.complete).toBe(true)
+  })
+
+  it('keeps the recording another generator finished during synthesis instead of overwriting it', async () => {
+    const h = makeHarness()
+    const text = chunkNarrationText(narrationTextForParagraph(PARAGRAPHS[0]))[0].text
+    const textHash = await textHashOf(PARAGRAPHS[0])
+    const config = narrationConfig(h.env)
+    const identity = await narrationCacheIdentity({ provider: 'fish', model: config.model, voiceId: 'voice-a-id', text, settings: config.settings })
+    const keys = narrationBlobKeys(identity.hash)
+    const theirs = syntheticMp3(150)
+    const original = h.fish.respond
+    h.fish.respond = async (call) => {
+      // While we synthesise, a competitor publishes a valid recording of the same chunk.
+      await h.env.AUDIO_BUCKET.put(keys.audio, theirs)
+      await h.env.AUDIO_BUCKET.put(keys.meta, JSON.stringify({
+        version: NARRATION_CACHE_VERSION, provider: 'fish', model: config.model, voiceId: 'voice-a-id', voiceKey: 'a', settings: config.settings,
+        hash: identity.hash, textHash, text, bookId: 'odyssey', editionKey: 'original-en', chapter: 1, paragraphIndex: 0,
+        chunkIndex: 0, chunkCount: 1, wordFrom: 0, wordTo: text.split(' ').length, createdAt: '2026-09-19T00:00:00.000Z',
+        audioBytes: theirs.length, textBytes: 1, duration: 3.9, measuredDuration: 3.9, words: null,
+        alignment: { expectedWords: 0, heardWords: 0, matchedWords: 0, matchRatio: 0, lastMatchedWord: -1 }, timingsUsable: false, providerSegments: [], generationMs: 1,
+      }))
+      h.fish.respond = original
+      return original(call)
+    }
+    const result = await ensure(h, { paragraphs: [{ index: 0 }] })
+    expect(result.json.paragraphs[0].status).toBe('ready')
+    expect(result.json.paragraphs[0].raced).toBe(true)
+    expect(result.json.paragraphs[0].duration).toBe(3.9)
+    expect(h.env.AUDIO_BUCKET.store.get(keys.audio)!.length).toBe(theirs.length)
   })
 })

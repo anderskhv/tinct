@@ -454,6 +454,21 @@ NARRATION_ADMIN_TOKEN=… node scripts/narration-warm.mjs --chapter 1 --voices a
 Hamlet's four targets were re-warmed after the second fix so every stage
 direction is a plain reading with word timings.
 
+3. *A long paragraph could loop* (PR #117). Two Meditations targets (voice b,
+   a 23-chunk paragraph) ran for over an hour: the ready prefix wandered
+   between 19 and 22, fell to 11, and every request regenerated chunks. Three
+   causes, all in the Worker: the map was rewritten from the *validated*
+   prefix after each chunk, so one transient miss on chunk k orphaned every
+   chunk after it; content-addressed keys let a second rendering of the same
+   chunk tear its audio/meta pair; and a lock wait re-validated every chunk
+   on each 750 ms poll, hundreds of subrequests per wait. A single
+   uncontended request advanced the same paragraph from 12 to 21 of 23 in
+   64 s, so generation itself was sound. Now the map merges by identity hash
+   and never shortens, a chunk that became valid during our synthesis is
+   kept rather than overwritten, the lock wait polls the map alone, R2 reads
+   retry once, and the warm script gives a target up after five rounds
+   without progress. Two regression tests.
+
 <!-- WARMUP_TOTALS -->
 
 ## 13. Stage 3 proposal (after the audition; decisions for Anders)
