@@ -33,16 +33,48 @@ it('omits the duplicate quote on failure and retries only when asked', async () 
   expect(request).toHaveBeenCalledTimes(2)
 })
 
-it('renders the full formatted explanation and passes the exact answer to Chat', async () => {
-  const answer = '**Bold** and ***emphasised***.\n\n' + 'A long explanation. '.repeat(70)
+it('shows the opener whole, keeps the rest behind More, and passes the exact answer to Chat', async () => {
+  const rest = 'A long explanation. '.repeat(70).trim()
+  const answer = '**Bold** and ***emphasised***.\n\n' + rest
   const onAsk = vi.fn()
   const { container } = render(<ContextualExplainCard passage="Selected text" request={async () => answer} onAsk={onAsk} onClose={vi.fn()} />)
   await screen.findByText('Bold')
   expect(container.querySelector('strong em')?.textContent).toBe('emphasised')
-  expect(container.textContent).toContain('A long explanation. '.repeat(70).trim())
-  expect(screen.queryByText('A little more')).toBeNull()
+  // Collapsed: the opener is never clipped and the detail is not on screen.
+  expect(container.textContent).not.toContain(rest)
+  expect(container.querySelector('.lab-contextual-explain.is-expanded')).toBeNull()
+  const more = screen.getByRole('button', { name: 'More' })
+  expect(more.getAttribute('aria-expanded')).toBe('false')
+  expect(more.classList.contains('is-busy')).toBe(false)
+  fireEvent.click(more)
+  expect(container.textContent).toContain(rest)
+  expect(container.querySelector('.lab-contextual-explain.is-expanded')).not.toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: 'Less' }))
+  expect(container.textContent).not.toContain(rest)
+  // Chat and Talk carry the whole answer, both stages, whatever is showing.
   fireEvent.click(screen.getByRole('button', { name: 'Chat about this explanation' }))
   expect(onAsk).toHaveBeenCalledWith(answer)
+})
+
+it('offers no More for a one-paragraph answer', async () => {
+  render(<ContextualExplainCard passage="A name" request={async () => 'Gennesaret is a plain on the north-west shore of the Sea of Galilee.'} onAsk={vi.fn()} />)
+  await screen.findByText(/Gennesaret is a plain/)
+  expect(screen.queryByRole('button', { name: 'More' })).toBeNull()
+})
+
+it('marks More busy until a second paragraph has streamed in', async () => {
+  let stream!: (text: string) => void
+  let finish!: (text: string) => void
+  const request = (delta: (text: string) => void) => { stream = delta; return new Promise<string>(resolve => { finish = resolve }) }
+  render(<ContextualExplainCard passage="Quote" request={request} onAsk={vi.fn()} />)
+  expect(document.querySelector('.lab-contextual-explain-skeleton')).not.toBeNull()
+  await act(async () => stream('The opener.\n\nSecond unfinished'))
+  expect(screen.getByRole('button', { name: 'More' }).classList.contains('is-busy')).toBe(true)
+  await act(async () => stream('The opener.\n\nSecond done.\n\nThird unfinished'))
+  expect(screen.getByRole('button', { name: 'More' }).classList.contains('is-busy')).toBe(false)
+  await act(async () => finish('The opener.\n\nSecond done.\n\nThird done.'))
+  fireEvent.click(screen.getByRole('button', { name: 'More' }))
+  expect(screen.getByText('Third done.')).toBeTruthy()
 })
 
 it('reveals complete paragraphs and offers the same answer to Talk', async () => {

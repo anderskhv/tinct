@@ -40,6 +40,8 @@ export interface LabV2SheetProps {
   onPrefs: (prefs: LabPrefs) => void
   editions: Edition[]
   audioEditions?: Edition[]
+  /** Present once a compare edition is chosen: the switch between the main and compare page. */
+  compare?: { active: boolean; onToggle: () => void } | null
   /**
    * Fish narration pilot row, present only for a reader who opted in with
    * `?narration=fish` (docs/fish-audio-pilot-2026-09-18.md).
@@ -169,7 +171,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), narrationPilot = null, returnTo }: LabV2SheetProps) {
+export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions, compare = matchingAudioEditions(prefs.primaryEdition, editions), narrationPilot = null, returnTo }: LabV2SheetProps) {
   const auth = useAuth()
   const balance = useBalance(auth.session, auth.profile, auth.user, {
     authLoading: auth.isLoading,
@@ -276,6 +278,19 @@ export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, 
                   options={[{ value: '', label: 'None' }, ...editionOptions.filter(option => option.value !== prefs.primaryEdition)]}
                   onChange={value => onPrefs({ ...prefs, compareEdition: value || prefs.compareEdition, compareOpen: value !== '' })}
                 />
+                {compare && prefs.compareOpen && (
+                  <button
+                    type="button"
+                    className="lab-v2-row is-toggle"
+                    role="switch"
+                    aria-checked={compare.active}
+                    data-testid="lab-v2-show-compare"
+                    onClick={compare.onToggle}
+                  >
+                    <span className="lab-v2-row-label">Show compare version</span>
+                    <span className="lab-v2-switch" aria-hidden="true"><span className="lab-v2-switch-knob" /></span>
+                  </button>
+                )}
                 <SelectRow
                   label="Audiobook"
                   testId="lab-v2-audio-edition"

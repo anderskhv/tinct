@@ -18,6 +18,12 @@ import { followGranularity, followWordRole, type FollowParagraph, type FollowTar
 import { verseLineRanges } from './labVerseLines'
 import { labSwipeCompareSwap, labSwipePageDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
 
+/** Drag-to-select page turns: the strip at the top and bottom of the page
+ *  that turns it, and how long the finger rests there first. 24px / 700ms
+ *  was hard to reach on a full-width line (2026-09-19 phone QA). */
+export const LAB_EDGE_ZONE_PX = 32
+export const LAB_EDGE_HOLD_MS = 450
+
 export type LabPassageMode = 'reading' | 'hearing'
 
 interface LabPassageProps {
@@ -66,6 +72,8 @@ interface LabPassageProps {
   pageTurn?: { direction: 'next' | 'previous'; nonce: number } | null
   onPageTurn?: (direction: LabPageTurnDirection) => void
   onSelectionPageTurn?: (direction: LabPageTurnDirection) => void
+  /** The range under the finger while a selection is being made, null when it ends. */
+  onSelectingChange?: (range: LabHighlightRange | null) => void
   /**
    * Which pointers may turn the page by tapping the outer thirds. Set by the
    * pointer, never by the window width: 'none' where a mouse has visible
@@ -395,6 +403,7 @@ export function LabPassage({
   pageTurn,
   onPageTurn,
   onSelectionPageTurn,
+  onSelectingChange,
   tapZones = 'all',
   onCompareSwap,
   onToggleControls,
@@ -433,6 +442,10 @@ export function LabPassage({
   } | null>(null)
   const edgeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const edgeDirectionRef = useRef<-1 | 1 | null>(null)
+  /** One page per visit to the edge: after a turn the finger has to leave the
+   *  zone before it can turn another. A timer alone re-fired under a finger
+   *  that simply stayed put (2026-09-19 phone QA: the surprise second flip). */
+  const edgeArmedRef = useRef(true)
   const pageTurnRef = useRef(onSelectionPageTurn ?? onPageTurn)
   pageTurnRef.current = onSelectionPageTurn ?? onPageTurn
   const cancelEdge = () => {
@@ -447,6 +460,9 @@ export function LabPassage({
   const [endOverflow, setEndOverflow] = useState(false)
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
+  const selectingChangeRef = useRef(onSelectingChange)
+  selectingChangeRef.current = onSelectingChange
+  useEffect(() => { selectingChangeRef.current?.(localSelecting) }, [localSelecting])
 
   useEffect(() => () => {
     if (longPressRef.current) clearTimeout(longPressRef.current)
@@ -621,9 +637,10 @@ export function LabPassage({
     }
     event.preventDefault()
     const bounds = event.currentTarget.getBoundingClientRect()
-    const direction = event.clientY >= bounds.bottom - 24 ? 1 : event.clientY <= bounds.top + 24 ? -1 : null
+    const direction = event.clientY >= bounds.bottom - LAB_EDGE_ZONE_PX ? 1 : event.clientY <= bounds.top + LAB_EDGE_ZONE_PX ? -1 : null
+    if (!direction) edgeArmedRef.current = true
     if (direction !== edgeDirectionRef.current) cancelEdge()
-    if (direction && !edgeTimerRef.current && pageTurnRef.current && !drag.comparison) {
+    if (direction && edgeArmedRef.current && !edgeTimerRef.current && pageTurnRef.current && !drag.comparison) {
       edgeDirectionRef.current = direction
       const advance = () => {
         if (dragRef.current !== drag || !drag.selecting) { cancelEdge(); return }
@@ -635,6 +652,7 @@ export function LabPassage({
           ? edge.paragraphIndex === lastP && edge.wordIndex >= tokenizeHearingWords(paragraphs[lastP] || '').length - 1
           : edge.paragraphIndex === 0 && edge.wordIndex === 0)
         if (!edge || atEnd) { cancelEdge(); return }
+        edgeArmedRef.current = false
         pageTurnRef.current?.(direction)
         edgeTimerRef.current = setTimeout(() => {
           if (dragRef.current !== drag) return
@@ -645,10 +663,11 @@ export function LabPassage({
             drag.end = next
             setLocalSelecting(buildHighlightRange(paragraphs, drag.start, next))
           }
-          edgeTimerRef.current = setTimeout(advance, 700)
+          // No further turn from here: the finger must leave the zone first.
+          edgeTimerRef.current = null
         }, 200)
       }
-      edgeTimerRef.current = setTimeout(advance, 700)
+      edgeTimerRef.current = setTimeout(advance, LAB_EDGE_HOLD_MS)
     }
     const pointTarget = typeof document.elementFromPoint === 'function'
       ? document.elementFromPoint(event.clientX, event.clientY)

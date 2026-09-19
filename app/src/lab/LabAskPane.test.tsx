@@ -633,6 +633,17 @@ describe('V2 multiline composer and copying', () => {
     expect(onKeyboardOpenChange).toHaveBeenLastCalledWith(false)
     expect(onSubmit).toHaveBeenCalledWith('Why?')
   })
+  it('keeps Back to book reachable with the keyboard up and closes both in one tap', () => {
+    const onDone = vi.fn(), onKeyboardOpenChange = vi.fn()
+    render(<LabAskPane {...base} draft="" onDone={onDone} onKeyboardOpenChange={onKeyboardOpenChange} />)
+    const field = screen.getByTestId('lab-ask-input')
+    field.focus()
+    expect(document.activeElement).toBe(field)
+    fireEvent.click(screen.getByTestId('lab-ask-done'))
+    expect(document.activeElement).not.toBe(field)
+    expect(onKeyboardOpenChange).toHaveBeenLastCalledWith(false)
+    expect(onDone).toHaveBeenCalledOnce()
+  })
   it('grows the writing area, swaps voice for send, and uses Enter for a new line', () => {
     const onSubmit = vi.fn()
     const { rerender } = render(<LabAskPane {...base} draft="" onSubmit={onSubmit} />)

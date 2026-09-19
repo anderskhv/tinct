@@ -4679,8 +4679,10 @@ it('V2 plays from the new visible page after pausing and browsing, without repla
   expect(screen.getByTestId('lab-v2-play').getAttribute('aria-label')).toBe('Play')
   expect(screen.getByTestId('lab-listen').getAttribute('aria-label')).toBe('Resume audiobook')
   expect(document.querySelector('[data-chrome-version="v2"]')?.getAttribute('data-transport')).toBe('open')
+  // 2026-09-19: turning the page while paused puts the transport away; the
+  // top-bar Play still resumes from the page now in view.
   fireEvent.click(screen.getByTestId('lab-page-next'))
-  expect(document.querySelector('[data-chrome-version="v2"]')?.getAttribute('data-transport')).toBe('open')
+  expect(document.querySelector('[data-chrome-version="v2"]')?.getAttribute('data-transport')).toBe('closed')
   const first = screen.getByTestId('lab-book').querySelector<HTMLElement>('[data-testid="lab-word"]')!
   const index = Number(first.dataset.wordIndex)
   expect(index).toBeGreaterThan(0)
