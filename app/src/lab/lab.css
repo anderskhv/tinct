@@ -1137,11 +1137,28 @@
 
 .lab-contextual-explain footer button { display: grid; place-items: center; width: 44px; }
 
-.selection-popup.is-compact .popup-highlight-note { width: 100%; padding: 8px; box-sizing: border-box; }
-.selection-popup.is-compact .popup-highlight-note .popup-colors { padding: 0 0 12px; }
-.selection-popup.is-compact .popup-highlight-note .popup-textarea { box-sizing: border-box; width: 100%; min-height: 96px; padding: 12px; border: 1px solid var(--lab-border, #d8d0c2); border-radius: 8px; background: transparent; color: inherit; font: 18px/1.4 'EB Garamond', Georgia, serif; resize: vertical; }
+.selection-popup.is-compact .popup-highlight-note { width: 100%; padding: 0 4px 4px; box-sizing: border-box; }
+.selection-popup.is-compact .popup-highlight-note .popup-textarea { box-sizing: border-box; width: 100%; min-height: 72px; margin-top: 4px; padding: 10px 12px; border: 1px solid var(--lab-border, #d8d0c2); border-radius: 8px; background: transparent; color: inherit; font: 18px/1.4 'EB Garamond', Georgia, serif; resize: none; }
 .selection-popup.is-compact .popup-highlight-note .popup-button { min-height: 44px; padding: 8px 12px; border: 0; background: transparent; color: inherit; font: 16px/1.3 'EB Garamond', Georgia, serif; cursor: pointer; }
-.selection-popup.is-compact .popup-highlight-note > .popup-button { opacity: 0.65; }
+.selection-popup.is-compact .popup-note-body > .popup-button { opacity: 0.65; }
+
+/* The note grows out of the palette rather than replacing it with a bigger
+   box: the colour row keeps the exact geometry it had a moment ago, and only
+   the field and its actions animate open beneath. `max-height` is the
+   animated property (not `height: auto`, which cannot be animated) and no
+   fill-mode is set, so once the animation ends the panel is back to its
+   natural height and can never clip its own content. */
+@keyframes popupNoteOpen {
+  from { opacity: 0; transform: translateY(-6px); max-height: 0; }
+  to { opacity: 1; transform: none; max-height: 340px; }
+}
+.selection-popup.is-compact .popup-note-body {
+  overflow: hidden;
+  animation: popupNoteOpen 180ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .selection-popup.is-compact .popup-note-body { animation: none; }
+}
 
 @media (min-width: 769px) {
   .lab .selection-popup.is-contextual-explain { top: 115px !important; left: calc(75vw - 190px) !important; transform: none !important; max-height: min(70dvh, 610px); }
@@ -1282,6 +1299,11 @@
   flex: 1;
   min-width: 0;
   height: 100%;
+  /* With a highlight attached, the quoted passage takes most of the composer
+     and this field collapses to a single 1.4-line strip -- a target under 25px
+     tall, which is why the field was hard to hit on a phone. 44px is the floor
+     everything else tappable in the reader uses. */
+  min-height: 44px;
   border: 0;
   outline: none;
   background: transparent;
@@ -2266,10 +2288,15 @@
   line-height: 1.42;
 }
 
+/* Keeps a verse number welded to its first word. `vertical-align: baseline`
+   and no padding matter for highlights: an inline-block that sits off the
+   baseline paints its word's mark a few pixels below the marks either side,
+   which is what made a highlight starting at a verse look like a separate
+   block rather than one continuous run. */
 .lab-verse-unit {
   display: inline-block;
   white-space: nowrap;
-  padding-top: 0.08em;
+  vertical-align: baseline;
 }
 
 /*
@@ -4471,6 +4498,8 @@
   right: auto;
   bottom: auto;
   width: min(560px, 48%);
+  /* ...unless the reader has dragged the divider; see LabAskPane. */
+  width: var(--lab-companion-width, min(560px, 48%));
   height: 100%;
   max-height: none;
   box-sizing: border-box;
@@ -4484,6 +4513,42 @@
   -webkit-backdrop-filter: blur(24px) saturate(1.08);
   overflow: hidden;
   z-index: 160;
+}
+
+/* The conversation's share of the desktop is the reader's to set: drag the
+   panel's inner edge. A 10px grab strip straddling the border, so it is
+   catchable without eating clicks meant for the text beside it, and invisible
+   until pointed at or focused. Bounds live in useDraggableSurface. */
+.lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer {
+  position: absolute;
+  left: -5px;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  z-index: 6;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: col-resize;
+  touch-action: none;
+}
+.lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: transparent;
+  transition: background 140ms ease;
+}
+.lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer:hover::after,
+.lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer:focus-visible::after,
+.lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer.is-resizing::after {
+  background: var(--lab-accent, #1f4a5c);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lab.is-desktop .lab-ask.is-desktop-companion .lab-ask-resizer::after { transition: none; }
 }
 
 .lab.is-desktop[data-playing="true"] .lab-ask.is-desktop-companion {
@@ -4887,7 +4952,7 @@
     padding-left: 46px;
   }
 
-  .lab.is-desktop .lab-ask.is-desktop-companion { width: 50%; }
+  .lab.is-desktop .lab-ask.is-desktop-companion { --lab-companion-width: 50%; }
 }
 
 /* Reader control accessibility: quiet glyphs, full finger-sized targets, and
@@ -5233,9 +5298,15 @@
 
 /* Selection palette: no note form until the explicit + action. */
 .lab .selection-popup.is-lab[data-popup-mode="colors"]{width:max-content!important;min-width:0!important;max-width:calc(100vw - 24px);padding:5px 10px!important;border-radius:16px}
+/* The note opens inside the very same pill: same width, same padding, same
+   corner, so the colour row does not move or resize by a pixel and the popup
+   does not re-centre -- only the field and its actions grow out beneath. */
+.lab .selection-popup.is-lab[data-popup-mode="note"]{width:max-content!important;min-width:0!important;max-width:calc(100vw - 24px);padding:5px 10px!important;border-radius:16px}
+.lab .selection-popup.is-lab[data-popup-mode="note"] .popup-highlight-note{padding:0}
 .lab .popup-highlight-palette{display:flex;align-items:center;gap:20px;min-height:44px;padding:0 4px}
 .lab .popup-highlight-palette .popup-color-dot{margin:0;cursor:pointer}
 .lab .popup-highlight-palette .popup-add-note{width:38px;height:40px;border:0;border-left:1px solid var(--lab-border,#cfc8b8);background:none;color:inherit;font:28px/1 system-ui;cursor:pointer}
+.lab .popup-highlight-palette .popup-add-note.is-pressed{transform:rotate(45deg);transform-origin:50% 50%;opacity:.7}
 .lab .lab-preparation-questions{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:16px 0}
 .lab .lab-preparation-questions button{border:1px solid var(--lab-border,#cfc8b8);background:transparent;color:inherit;border-radius:14px;padding:10px 14px;font:14px/1.4 system-ui;text-align:left;cursor:pointer}
 
@@ -6781,10 +6852,14 @@
 
 /* ── Desktop: the pill in the corner ──────────────────────────────────── */
 
+/* right/bottom below are the pill's RESTING corner. Once the reader drags it,
+   inline left/top win and those two are set to auto — see useDraggableSurface. */
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill {
   position: absolute;
   right: 40px;
   bottom: 34px;
+  cursor: grab;
+  touch-action: none;
   z-index: 170;
   display: flex;
   align-items: center;
@@ -6979,11 +7054,16 @@
   padding: 12px;
   border-radius: 24px;
 }
+/* The writing row keeps the 44px floor every other tappable thing in the
+   reader has. With a highlight attached the quote takes most of the composer
+   and this field used to sit at 28px -- the strip that was hard to hit on a
+   phone. This rule out-specifies the shared .lab-ask-composer floor, so the
+   floor has to be stated here as well. */
 .lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-input {
   flex: 0 0 100%;
   width: 100%;
   min-width: 0;
-  min-height: 28px;
+  min-height: 44px;
   max-height: min(180px, 30dvh);
   box-sizing: border-box;
   padding: 2px 4px;
@@ -7292,9 +7372,14 @@
   padding-left: max(14px, calc(25% - 320px));
   padding-right: max(14px, calc(25% - 320px));
 }
+/* The divider drag (LabAskPane, --lab-companion-width) must win over the
+   designed 50% here too, or the panel ignores the width the reader chose. */
+.lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-ask.is-desktop-companion {
+  width: var(--lab-companion-width, 50%);
+}
 .lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-ask.is-desktop-companion.is-chat {
   --lab-chat-inset: clamp(12px, 1.4vw, 24px);
-  width: calc(50% - 2 * var(--lab-chat-inset));
+  width: calc(var(--lab-companion-width, 50%) - 2 * var(--lab-chat-inset));
   height: calc(100% - var(--lab-chat-inset) - 48px);
   align-self: start;
   margin-top: var(--lab-chat-inset);
@@ -7432,4 +7517,16 @@
 .lab[data-chrome-version="v2"] .lab-cover-entry button+button{border-top:0}
 .lab[data-chrome-version="v2"] .lab-cover-entry strong{font:500 20px/1.2 'EB Garamond',Georgia,serif}
 .lab[data-chrome-version="v2"] .lab-cover-entry span{font:400 12px/1.4 system-ui,sans-serif;color:#c1c1b6}
+
+
+
+/* A dragged pill follows the pointer, so the cursor says so and text under it
+   is not selected on the way past. The controls inside keep their own pointer
+   cursor: a press only becomes a drag after DRAG_SLOP px of travel. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill button { cursor: pointer; }
+
 

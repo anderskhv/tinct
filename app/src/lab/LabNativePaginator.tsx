@@ -160,7 +160,9 @@ function nativeWordSpacing(
   previous?: { text: string },
 ): string {
   if (wordIndex <= 0 || word.text.startsWith("'") || word.text.startsWith(',') || word.text.startsWith('.')) return ''
-  return previous && isLabVerseMarker(previous.text) ? '' : ' '
+  // Mirrors LabPassage.wordSpacing exactly: the paginator must measure the same
+  // characters the reading column renders, or pages break in different places.
+  return previous && isLabVerseMarker(previous.text) ? '\u00a0' : ' '
 }
 
 function NativeWord({
@@ -168,13 +170,11 @@ function NativeWord({
   paragraphIndex,
   wordIndex,
   spacing,
-  hasFollowingWord,
 }: {
   text: string
   paragraphIndex: number
   wordIndex: number
   spacing: string
-  hasFollowingWord: boolean
 }) {
   return (
     <>
@@ -186,10 +186,7 @@ function NativeWord({
         data-word-index={wordIndex}
       >
         {isLabVerseMarker(text) ? (
-          <span className="lab-verse-mark">
-            {labVerseMarkerDisplay(text)}
-            {hasFollowingWord ? '\u00a0' : ''}
-          </span>
+          <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
         ) : text}
       </span>
     </>
@@ -208,7 +205,6 @@ function NativeParagraph({ text, paragraphIndex }: { text: string; paragraphInde
         paragraphIndex={paragraphIndex}
         wordIndex={wordIndex}
         spacing={nativeWordSpacing(word, wordIndex, words[wordIndex - 1])}
-        hasFollowingWord={wordIndex < words.length - 1}
       />
     )
     if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
@@ -222,14 +218,12 @@ function NativeParagraph({ text, paragraphIndex }: { text: string; paragraphInde
               paragraphIndex={paragraphIndex}
               wordIndex={wordIndex}
               spacing=""
-              hasFollowingWord
             />
             <NativeWord
               text={words[nextIndex].text}
               paragraphIndex={paragraphIndex}
               wordIndex={nextIndex}
-              spacing=""
-              hasFollowingWord={nextIndex < words.length - 1}
+              spacing={nativeWordSpacing(words[nextIndex], nextIndex, word)}
             />
           </span>
         </Fragment>

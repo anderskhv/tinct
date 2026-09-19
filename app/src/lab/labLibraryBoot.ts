@@ -37,6 +37,8 @@ export interface LabLibraryBootHero {
   coverSrcSet: string | null
   /** "12% read", when known. */
   note: string | null
+  /** The "so far" block's fallback line (chapter name, author); absent in older snapshots. */
+  aside?: string | null
 }
 
 /** A Reading-now card after the hero: enough to paint its cover before any module has loaded. */
@@ -112,6 +114,7 @@ export function parseLabLibraryBootSnapshot(raw: unknown, now = Date.now()): Lab
       coverSrc: safeCoverSource(h.coverSrc),
       coverSrcSet: safeCoverSource(h.coverSrc) ? text(h.coverSrcSet, 4_000) : null,
       note: text(h.note, 40),
+      aside: text(h.aside, 200),
     }
   }
   const count = (value: unknown) => typeof value === 'number' && Number.isInteger(value) && value >= 0 && value <= 10_000 ? value : 0
@@ -188,6 +191,7 @@ export function snapshotWithReaderPlace(existing: LabLibraryBootSnapshot | null,
     coverSrc: sameBook && base?.hero ? base.hero.coverSrc : fromRow?.coverSrc ?? null,
     coverSrcSet: sameBook && base?.hero ? base.hero.coverSrcSet : fromRow?.coverSrcSet ?? null,
     note: sameChapter && base?.hero ? base.hero.note : null,
+    aside: sameChapter && base?.hero ? base.hero.aside ?? null : null,
   }
   // The row keeps its order; a hero that steps down goes to its front, the
   // way the confirmed list would order it (newest first).

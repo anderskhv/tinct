@@ -32,7 +32,7 @@ function mountRoot(): HTMLElement {
 }
 
 const SESSION = JSON.stringify({ access_token: 'x', user: { id: 'user-a', email: 'anders@example.com', user_metadata: { full_name: 'Anders Hvelplund' } } })
-const SNAPSHOT = { v: 1, at: Date.now() - 5_000, userId: 'user-a', readingNow: 2, finished: 0, hero: { bookId: 'bible', title: 'The Bible', chapterLabel: 'Proverbs 17', headline: 'You stopped in Proverbs 17', lastReadAt: Date.now() - 2 * 86_400_000, coverSrc: '/covers/bible.jpg', coverSrcSet: null, note: '12% read' }, row: [{ bookId: 'odyssey', title: 'The Odyssey', coverSrc: '/covers/odyssey.jpg', coverSrcSet: null }] }
+const SNAPSHOT = { v: 1, at: Date.now() - 5_000, userId: 'user-a', readingNow: 2, finished: 0, hero: { bookId: 'bible', title: 'The Bible', chapterLabel: 'Proverbs 17', headline: 'You stopped in Proverbs 17', lastReadAt: Date.now() - 2 * 86_400_000, coverSrc: '/covers/bible.jpg', coverSrcSet: null, note: '12% read', aside: 'Various · 1,189 chapters' }, row: [{ bookId: 'odyssey', title: 'The Odyssey', coverSrc: '/covers/odyssey.jpg', coverSrcSet: null }] }
 
 beforeEach(() => { history.replaceState(null, '', '/'); document.cookie = 'tinct_auth=; Max-Age=0; path=/'; localStorage.clear(); sessionStorage.clear(); document.body.innerHTML = '' })
 afterEach(() => { localStorage.clear(); sessionStorage.clear(); document.body.innerHTML = '' })
@@ -138,7 +138,7 @@ describe('lab/index.html boot script', () => {
     expect(recap.querySelector('[data-now-caption] .lib-h1')?.textContent).toBe('You stopped in Proverbs 17')
     expect(recap.querySelector('[data-now-caption] .lib-lede')?.textContent).toBe('The Bible')
     // Title over the eyebrow over the headline, the order the confirmed render paints.
-    expect([...recap.querySelectorAll('[data-now-caption] > *')].map(node => node.className.split(' ')[0])).toEqual(['lib-lede', 'lib-h1', 'lib-eyebrow', 'lib-recap-summary', 'lib-now-cta'])
+    expect([...recap.querySelectorAll('[data-now-caption] > *')].map(node => node.className.split(' ')[0])).toEqual(['lib-lede', 'lib-h1', 'lib-eyebrow', 'lib-now-cta', 'lib-recap-summary'])
     expect(recap.querySelector('[data-recap-continue]')?.getAttribute('data-recap-continue')).toBe('bible')
     expect(recap.querySelector('.lib-now-item .lib-cover img')?.getAttribute('src')).toBe('/covers/bible.jpg')
     expect(recap.querySelector('.lib-cta-note')?.textContent).toBe('12% read')
@@ -155,6 +155,11 @@ describe('lab/index.html boot script', () => {
     expect(recap.hidden).toBe(false)
     expect(recap.getAttribute('data-boot-recap')).toBe('skeleton')
     expect(recap.textContent).not.toContain('Proverbs 17')
+    // The skeleton lays out the same block, with nothing in it yet.
+    const skeletonBlock = root.querySelector<HTMLButtonElement>('[data-now-caption] .lib-recap-summary')!
+    expect(skeletonBlock.hidden).toBe(false)
+    expect(skeletonBlock.classList.contains('is-fallback')).toBe(true)
+    expect(skeletonBlock.querySelector('.lib-recap-summary-text')?.textContent).toBe('')
 
     localStorage.removeItem('sb-yazjyiqsxjystvpkyouk-auth-token')
     localStorage.setItem(LAB_LIBRARY_BOOT_KEY, JSON.stringify({ ...SNAPSHOT, userId: null }))
@@ -165,31 +170,36 @@ describe('lab/index.html boot script', () => {
   })
 
   /**
-   * The boot paint and the confirmed render must reserve the "so far" block
+   * The boot paint and the confirmed render must lay out the "so far" block
    * on exactly the same terms, or the page grows or shrinks three lines a
-   * frame after it paints — which is the return-from-the-reader jump.
+   * frame after it paints — which is the return-from-the-reader jump. The
+   * block is always there at the same size; until a recap exists it carries
+   * the aside (chapter name, author) from the snapshot, never a control.
    */
-  it('reserves the optional summary even coming back from the hero\'s reader', () => {
+  it('lays out the summary block with the aside, even coming back from the hero\'s reader', () => {
     localStorage.setItem('sb-yazjyiqsxjystvpkyouk-auth-token', SESSION)
     localStorage.setItem(LAB_LIBRARY_BOOT_KEY, JSON.stringify(SNAPSHOT))
     const boot = runBoot()
 
-    // Ordinary visit: the block is there, empty, disabled, three lines tall.
+    // Ordinary visit: the block is there, shown, disabled, carrying the aside.
     let root = mountRoot()
     boot.paint(root, boot.bootState({ pathname: '/lab/library', search: '' }, '', localStorage))
     const block = root.querySelector<HTMLButtonElement>('[data-now-caption] .lib-recap-summary')!
     expect(block).toBeTruthy()
     expect(block.tagName).toBe('BUTTON')
     expect(block.disabled).toBe(true)
-    expect(block.hidden).toBe(true)
-    expect(block.querySelector('.lib-recap-summary-text')?.textContent).toBe('')
+    expect(block.hidden).toBe(false)
+    expect(block.classList.contains('is-fallback')).toBe(true)
+    expect(block.dataset.summaryKind).toBe('fallback')
+    expect(block.querySelector('.lib-recap-summary-text')?.textContent).toBe('Various · 1,189 chapters')
     expect(block.querySelector('.lib-recap-summary-more')?.textContent).toBe('')
 
-    // Straight back out of the hero's reader: same empty reserved block.
+    // Straight back out of the hero's reader: the same block, same aside.
     leftReaderOn('bible')
     root = mountRoot()
     boot.paint(root, boot.bootState({ pathname: '/lab/library', search: '' }, '', localStorage))
-    expect(root.querySelector<HTMLButtonElement>('[data-now-caption] .lib-recap-summary')?.hidden).toBe(true)
+    expect(root.querySelector<HTMLButtonElement>('[data-now-caption] .lib-recap-summary')?.hidden).toBe(false)
+    expect(root.querySelector('[data-now-caption] .lib-recap-summary-text')?.textContent).toBe('Various · 1,189 chapters')
 
     // Another book's reader: the hero is unaffected, so the block stays.
     leftReaderOn('odyssey')
@@ -203,7 +213,7 @@ describe('lab/index.html boot script', () => {
     localStorage.setItem(LAB_LIBRARY_BOOT_KEY, JSON.stringify({ ...SNAPSHOT, at: Date.now() - 60_000 }))
     root = mountRoot()
     boot.paint(root, boot.bootState({ pathname: '/lab/library', search: '' }, '', localStorage))
-    expect(root.querySelector<HTMLButtonElement>('[data-now-caption] .lib-recap-summary')?.hidden).toBe(true)
+    expect(root.querySelector<HTMLButtonElement>('[data-now-caption] .lib-recap-summary')?.hidden).toBe(false)
 
     // An hour later the marker means nothing.
     localStorage.setItem(LAB_LIBRARY_BOOT_KEY, JSON.stringify(SNAPSHOT))
