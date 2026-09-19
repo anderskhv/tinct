@@ -430,6 +430,30 @@ all 8 targets (both Bible editions, both voices). Full pass:
 NARRATION_ADMIN_TOKEN=… node scripts/narration-warm.mjs --chapter 1 --voices a,b --concurrency 4
 ```
 
+**Two findings from the warm-up, both fixed and deployed the same day.**
+
+1. *Short lines and the pace guard* (PR #115, `588082b6b`). The validator
+   refused every bracketed stage direction in Hamlet as
+   `audio_too_long_for_text`: at 4 characters per second a seven-character
+   "[Exit.]" was allowed 1.75 s of audio, less than any rendering with lead-in
+   and lead-out silence. The slow-pace bound now carries a fixed 4 s pause
+   allowance (`NARRATION_PAUSE_ALLOWANCE_SECONDS`); a 300-character chunk moves
+   from 75 s to 79 s, so the guard against runaway audio stands. Failures now
+   report the measured duration and character count.
+2. *Square brackets are tags to Fish* (PR #116, `2a1a03e92`). With the
+   allowance in place the same lines came back with **zero word segments**:
+   "[Exit.]" as 0.76 s of audio, "[Enter Horatio and Marcellus]" as 3.2 s once
+   and 12.2 s the next time, while the plain lines beside them aligned 10/10
+   and 5/5. The provider treats `[...]` as a paralinguistic tag, not words.
+   `spokenText` now drops square brackets from what is sent and hashed;
+   display tokens keep them and the aligner maps timings back. The chunk
+   identities of bracketed lines changed with their spoken text, so the
+   artefact blobs are orphaned and never served. Parentheses are untouched
+   until there is evidence.
+
+Hamlet's four targets were re-warmed after the second fix so every stage
+direction is a plain reading with word timings.
+
 <!-- WARMUP_TOTALS -->
 
 ## 13. Stage 3 proposal (after the audition; decisions for Anders)
