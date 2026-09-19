@@ -62,10 +62,13 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    const track=page.locator('.entry-cover-track .lib-cover,.entry-cover-column').first()
    assert.notEqual(await track.evaluate(n=>getComputedStyle(n).animationName),'none','cover reveal configured')
    assert.equal(await page.getByRole('button',{name:'Pause covers',exact:true}).count(),0,'no pause control exposed')
-   await page.waitForTimeout(1800)
-   const settled=await track.evaluate(n=>getComputedStyle(n).transform)
-   await page.waitForTimeout(150)
-   assert.equal(await track.evaluate(n=>getComputedStyle(n).transform),settled,'reveal settles')
+   // The reveal is a finite animation. Wait for its transform to stop changing
+   // rather than assuming it has finished by 1.8 s: a slow WebKit runner starts
+   // it late and a fixed sample catches it mid-rotation. A looping animation
+   // never settles and still fails.
+   let settled=await track.evaluate(n=>getComputedStyle(n).transform),stable=false
+   for(let i=0;i<40&&!stable;i++){await page.waitForTimeout(150);const next=await track.evaluate(n=>getComputedStyle(n).transform);stable=next===settled;settled=next}
+   assert(stable,'reveal settles')
    await page.emulateMedia({reducedMotion:'reduce'})
    assert.equal(await track.evaluate(n=>getComputedStyle(n).animationName),'none','reduced motion')
    await page.emulateMedia({reducedMotion:'no-preference'})
