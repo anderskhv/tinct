@@ -1048,7 +1048,37 @@ async function run(conf, engine) {
 }
 
 ;(async () => {
-  const all = []
+  const all = [  // Residual sweep: Histories deities, War and Peace marshals/Tikhons, Moby-Dick allusions
+  ['the-histories', 'original-en', 3, 'alexander-paris', 'Alexander', 'rs-hist-alexander-paris'],
+  ['the-histories', 'original-en', 780, 'alexander-of-macedon', 'Alexander', 'rs-hist-alexander-macedon'],
+  ['the-histories', 'original-en', undefined, 'zeus', 'Zeus', 'rs-hist-zeus'],
+  ['the-histories', 'original-en', undefined, 'heracles', 'Heracles', 'rs-hist-heracles'],
+  ['the-histories', 'original-en', undefined, 'athene', 'Athene', 'rs-hist-athene'],
+  ['the-histories', 'original-en', 991, 'pan', 'Pan', 'rs-hist-pan'],
+  ['the-histories', 'original-en', 328, 'helen', 'Helen', 'rs-hist-helen'],
+  ['the-histories', 'modern-en', undefined, 'zeus', undefined, 'rs-hist-modern-zeus'],
+  ['war-and-peace', 'original-en', 26, 'tikhon-valet', 'Tíkhon', 'rs-wap-tikhon-valet'],
+  ['war-and-peace', 'original-en', 303, 'tikhon-shcherbaty', 'Tíkhon', 'rs-wap-tikhon-shcherbaty'],
+  ['war-and-peace', 'original-en', 139, 'uncle', 'Uncle', 'rs-wap-uncle'],
+  ['war-and-peace', 'original-en', 137, 'karay', 'Karáy', 'rs-wap-karay'],
+  ['war-and-peace', 'original-en', 31, 'general-mack', 'Mack', 'rs-wap-mack'],
+  ['war-and-peace', 'original-en', 87, 'rhetor', 'Rhetor', 'rs-wap-rhetor'],
+  ['war-and-peace', 'original-en', 32, 'nicholas-rostov', 'Rostóv', 'rs-wap-wostov'],
+  ['war-and-peace', 'original-en', undefined, 'murat', 'Murat', 'rs-wap-murat'],
+  ['war-and-peace', 'original-en', undefined, 'barclay-de-tolly', 'Barclay', 'rs-wap-barclay'],
+  ['war-and-peace', 'original-en', 22, 'catherine-the-great', 'Catherine', 'rs-wap-catherine-great'],
+  ['war-and-peace', 'original-en', 21, 'catherine-semenovna', 'Catherine', 'rs-wap-catherine-semenovna'],
+  ['war-and-peace', 'original-en', 25, 'emperor-paul', 'Paul', 'rs-wap-emperor-paul'],
+  ['war-and-peace', 'modern-en', 31, 'general-mack', undefined, 'rs-wap-modern-mack'],
+  ['moby-dick', 'original-en', 113, 'perth', 'Perth', 'rs-md-perth'],
+  ['moby-dick', 'original-en', 54, 'steelkilt', 'Steelkilt', 'rs-md-lakeman'],
+  ['moby-dick', 'original-en', 101, 'samuel-enderby', undefined, 'rs-md-samuel-enderby'],
+  ['moby-dick', 'original-en', 2, 'peter-coffin', 'Coffin', 'rs-md-peter-coffin-bare'],
+  ['moby-dick', 'original-en', 12, 'czar-peter', undefined, 'rs-md-czar-peter'],
+  ['moby-dick', 'original-en', 42, 'jove', 'Jove', 'rs-md-jove'],
+  ['moby-dick', 'original-en', 24, 'job', 'Job', 'rs-md-job'],
+  ['moby-dick', 'modern-en', 113, 'perth', undefined, 'rs-md-modern-perth'],
+]
   all.push(...await run({ name: 'desktop', width: 1440, height: 950 }, chromium))
   all.push(...await run({ name: 'phone', width: 390, height: 844 }, chromium))
   fs.writeFileSync(`${dir}/results.json`, JSON.stringify(all, null, 2))
