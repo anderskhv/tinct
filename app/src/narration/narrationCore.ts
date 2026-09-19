@@ -578,6 +578,14 @@ export interface NarrationValidation {
 /** Plausible speaking pace: characters per second of audio. */
 const MIN_CHARS_PER_SECOND = 4
 const MAX_CHARS_PER_SECOND = 40
+/**
+ * Silence a narrator adds around a line (lead-in, a breath, the beat before
+ * a stage direction) does not scale with the text: a seven-character
+ * "[Exit.]" cannot be held to 1.75 s. The slow-pace bound therefore carries
+ * this fixed allowance; for a full 300-character chunk it moves the ceiling
+ * from 75 s to 79 s, well above any real reading.
+ */
+export const NARRATION_PAUSE_ALLOWANCE_SECONDS = 4
 const MIN_AUDIO_BYTES = 800
 
 /**
@@ -606,9 +614,9 @@ export function validateNarrationAsset(candidate: NarrationAssetCandidate): Narr
   }
   if (!(duration > 0)) reasons.push('no_duration')
   else {
-    const charsPerSecond = candidate.text.length / duration
-    if (charsPerSecond < MIN_CHARS_PER_SECOND) reasons.push('audio_too_long_for_text')
-    if (charsPerSecond > MAX_CHARS_PER_SECOND) reasons.push('audio_too_short_for_text')
+    const longestPlausible = candidate.text.length / MIN_CHARS_PER_SECOND + NARRATION_PAUSE_ALLOWANCE_SECONDS
+    if (duration > longestPlausible) reasons.push('audio_too_long_for_text')
+    if (candidate.text.length / duration > MAX_CHARS_PER_SECOND) reasons.push('audio_too_short_for_text')
   }
 
   const aligned = alignSegmentsToTokens(tokens, candidate.segments, duration)

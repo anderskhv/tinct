@@ -378,3 +378,121 @@ audio per group to stay ahead. Cost for the four groups: $0.009.
 | 10 | Low | A 429 in the reader's own round surfaced as a failure. | Fixed: treated as a short wait; the per-user limit is 60/min. Test added. |
 | 11 | Low | Warm token compared with `!==`, after the configuration check. | Fixed: constant-time compare, checked first. |
 | 12 | Low | The hearing stage looked paragraphs up by clip index. | Fixed: by the clip's own paragraph index. |
+
+## 12. Release 2026-09-19: merged, deployed, verified on production, warmed
+
+**Merge and deploy.** PR #110 was squash-merged as `ba06996a9` on `main`
+after CI passed on the merge head `97fc4298f` (`app`, `reading-benchmark`,
+`Workers Builds: tinct`). The `deploy` workflow run
+[35432617391](https://github.com/anderskhv/tinct/actions/runs/35432617391)
+succeeded end to end: tests, `npm run deploy`, the served-bundle comparison,
+the production smoke test and the production browser checks. Served bundle
+`/assets/index-CnnXbk7G.js`. Secrets `FISH_AUDIO_API_KEY` and
+`NARRATION_ADMIN_TOKEN` were already on the Worker.
+
+**Production API verification** (evidence:
+`artifacts/fish-narration-pilot-2026-09-18/prod-verification-2026-09-19.json`):
+
+| Check | Result |
+| --- | --- |
+| `GET /api/narration/voices` | enabled, `s2.1-pro`, voices `a` Nathan / `b` Abby, cache v2, chunker 1, scope = 16 featured ids + `^[a-z0-9-]+-en$` |
+| `GET /api/narration/chapter` (Odyssey, original-en, ch 1, voice a) | 32 paragraphs listed, 0 ready before warm |
+| `POST /api/narration/warm` paragraph 0, `mode: all` | ready after 19.6 s wall: 4 chunks, 38.2 s of audio, 113/113 words timed, `timingsUsable: true`, `source: generated` |
+| First chunk blob via `/api/audio-file` | 127,894 bytes, MPEG frame header, `Content-Type: audio/mpeg`, `Range: bytes=0-1` → 206 with `Accept-Ranges: bytes` |
+| Chapter listing after warm | paragraph 0 `ready 4/4`, 113 words |
+| Served bundle | contains the settings row, the pending sentinel and the ensure route; no `FISH_AUDIO_API_KEY` / `NARRATION_ADMIN` strings |
+| Out-of-scope book (`great-expectations`) via warm | 403 |
+| Anonymous `POST /api/narration/ensure` | 401 |
+| Kokoro manifest (`odyssey/original-en/ch1`) | 200, unchanged |
+
+**Production browser check** (muted, headless Chromium, fresh anonymous
+context, 390×844 mobile viewport, no route mocks; screenshots
+`prod-optin-anonymous-notice-2026-09-19.png` and
+`prod-optin-settings-row-2026-09-19.png` in the artifacts folder):
+
+| Scenario | Result |
+| --- | --- |
+| `/reader?narration=fish`, anonymous | opt-in persisted in prefs; voices fetched; **no** ensure request before Play; Play shows "Sign in to hear this chapter narrated." with Retry and close; no Kokoro audio requested after the refusal and nothing plays; Settings → Reading settings shows **Narration pilot: Off / Nathan (male, warm) / Abby (female, clear)** |
+| `/reader`, anonymous, no flag | zero `/api/narration/*` requests; Play streams the Kokoro recording as before |
+
+Two observations from the run. The anonymous default book on production is
+the Bible (KJV, Genesis 1), which is inside the scope, so the very first
+opted-in visitor lands on a warmed chapter. The Kokoro chapter manifest is
+still fetched on load for an opted-in reader (the reader's availability
+probe); it is not used for playback and costs one small request per
+chapter. The refusal notice offers Retry but no sign-in action; a "Sign in"
+button in that notice is a small follow-up.
+
+**Warm-up.** Trial `--books odyssey,bible --first 2 --voices a,b` completed
+all 8 targets (both Bible editions, both voices). Full pass:
+
+```
+NARRATION_ADMIN_TOKEN=… node scripts/narration-warm.mjs --chapter 1 --voices a,b --concurrency 4
+```
+
+<!-- WARMUP_TOTALS -->
+
+## 13. Stage 3 proposal (after the audition; decisions for Anders)
+
+The pilot is live, opt-in and inert for everyone who has not opened the
+flag. Stage 3 is the step from "works for us" to "on for readers", and every
+item below is a product or spend decision rather than an engineering one.
+
+**1. Turn it on for featured books.** For signed-in readers on the featured
+shelf, make Fish the narrator by default (Settings → Audiobook keeps Kokoro
+as an explicit choice, and every non-featured book keeps Kokoro). Gate: Anders
+and Alex accept the two voices on the production samples in §12 and a full
+chapter of listening, not just clips. Engineering is a preference default
+plus the prefetch already in place; nothing new on the Worker.
+
+**2. Anonymous readers.** Today an anonymous opted-in reader sees "Sign in to
+hear this chapter narrated." with Retry and no sign-in button. Options: (a)
+add a Sign in action to the notice (small); (b) let anonymous readers hear the
+warmed opening of chapter 1 (cache hits only, no generation, so no spend) as
+the taste that converts; (c) keep it signed-in only. Recommendation: (a) now,
+(b) once the warm-up covers the shelf, since a cached paragraph costs nothing
+to serve.
+
+**3. One voice persona across Talk and narration.** Talk runs on Grok
+(`altair`); narration on Fish (Nathan / Abby). Readers should pick one voice
+for Tinct, not two. Recommendation: a Tinct persona table that maps each
+persona to a Fish narration voice and the closest Grok Talk voice, chosen by
+listening; the settings row becomes "Voice" and both features read it. The
+alternative, putting Fish behind Talk (Fish agents with Grok as the language
+model, or Fish streaming TTS after Grok text), trades Grok's native
+speech-to-speech latency for a single vendor and is not recommended for now.
+
+**4. Voice rights before a public default.** The two pilot voices are Fish
+public-library voices used under Fish's terms for the pilot. Before narration
+is on by default, either license a voice with terms that cover commercial
+audiobook use or create Tinct's own with Fish Voice Design (no cloning of a
+real person without permission). This is the one item that should not wait
+for usage data.
+
+**5. Coverage and spend.** The featured shelf's English editions total
+27,476,615 characters over 6502 chapters (32 book/edition
+targets), ≈$412 per voice at Fish's $15 per million bytes;
+the Bible alone is 8,334,233 characters (≈$125 per voice) and
+the other 15 books 19,142,382 (≈$287 per voice). Chapter 1
+everywhere is 702,117 characters (≈$11 per voice), now warmed.
+Recommendation: do not pre-generate whole books. Keep chapter 1 warm for
+both voices, let the reader-side prefetch generate the next chapter as
+people approach it, and run `narration-warm.mjs` for chapters 2–3 of the
+five most-opened books once the first week's usage shows which they are.
+The monthly ceiling (10,000,000 bytes ≈ $150) already caps the worst case;
+raise it deliberately when the default flips, not before.
+
+**6. Operations.** Add a Cron Trigger on the Worker that reports the daily
+usage counters and breaker state to Anders (one line, only when non-zero),
+and a small admin page for `/api/narration/usage` so spend is visible without
+a token in a terminal. Alert when the breaker opens or a day crosses 50% of
+its ceiling.
+
+**7. Not in Stage 3.** Danish narration (Fish's Danish quality is unmeasured
+and the modern-da editions are the larger corpus), voice chat over Fish,
+offline narration bundles and the sleep timer stay out of scope until the
+English default has a month of data.
+
+**Needs a decision from Anders:** items 1, 2 and 4 before any default flips;
+item 3 as a design direction; items 5 and 6 are recommendations that can
+proceed on approval without further design.
