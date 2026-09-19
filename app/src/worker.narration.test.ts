@@ -424,15 +424,14 @@ describe('verse markers and cache identity', () => {
   it('treats a listed recording whose identity no longer matches as missing', async () => {
     const h = makeHarness()
     await ensure(h, { paragraphs: [{ index: 0 }] })
-    const mapKey = narrationMapKey('odyssey', 'original-en', 1, 'a', 0)
-    const map = JSON.parse(decoder.decode(h.env.AUDIO_BUCKET.store.get(mapKey)!))
-    // A recording made under different settings would carry a different hash.
-    map.chunks[0].hash = 'f'.repeat(64)
-    await h.env.AUDIO_BUCKET.put(mapKey, JSON.stringify(map))
+    // A different model is a different identity: the recording on disk is not
+    // the one today's settings would produce, however the map lists it.
+    h.env.NARRATION_MODEL = 's2.1-pro-next'
     expect((await chapter(h)).json.paragraphs[0]).toMatchObject({ status: 'stale' })
     const again = (await ensure(h, { paragraphs: [{ index: 0 }] })).json.paragraphs[0] as Result
     expect(again).toMatchObject({ status: 'ready', source: 'generated' })
     expect(h.fish.calls.length).toBe(2)
+    expect(h.fish.calls[1].model).toBe('s2.1-pro-next')
   })
 })
 
@@ -580,5 +579,24 @@ describe('narration cache integrity under interference', () => {
     expect(result.json.paragraphs[0].raced).toBe(true)
     expect(result.json.paragraphs[0].duration).toBe(3.9)
     expect(h.env.AUDIO_BUCKET.store.get(keys.audio)!.length).toBe(theirs.length)
+  })
+})
+
+describe('narration recordings are found by identity, not only by the map', () => {
+  it('adopts an existing recording the map does not list without calling the provider, and repairs the map', async () => {
+    const h = makeHarness()
+    const warmed = await ensure(h, { paragraphs: [{ index: 0 }], mode: 'all' })
+    expect(warmed.json.paragraphs[0].status).toBe('ready')
+    const calls = h.fish.calls.length
+    const mapKey = narrationMapKey('odyssey', 'original-en', 1, 'a', 0)
+    const entry = JSON.parse(decoder.decode(h.env.AUDIO_BUCKET.store.get(mapKey)!)) as Record<string, unknown> & { chunks: unknown[] }
+    // The map lags its last write: it lists nothing although the recording exists.
+    await h.env.AUDIO_BUCKET.put(mapKey, JSON.stringify({ ...entry, chunks: [], complete: false }))
+    const again = await ensure(h, { paragraphs: [{ index: 0 }], mode: 'next' })
+    expect(again.json.paragraphs[0]).toMatchObject({ status: 'ready', readyChunks: 1, probed: 1 })
+    expect(h.fish.calls.length).toBe(calls)
+    const repaired = JSON.parse(decoder.decode(h.env.AUDIO_BUCKET.store.get(mapKey)!)) as { chunks: unknown[]; complete: boolean }
+    expect(repaired.chunks).toHaveLength(1)
+    expect(repaired.complete).toBe(true)
   })
 })
