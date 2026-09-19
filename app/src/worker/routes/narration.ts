@@ -774,11 +774,46 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     if (state.ready.length > 0) bump({ requests: 1, cacheHits: 1 })
     let failure: EnsureParagraphResult | null = null
     const extra: Record<string, unknown> = {}
+    let adoptedByProbe = 0
+    let wroteMap = false
+    const writeMap = async () => {
+      // Never shorten the map: keep every chunk the existing entry lists
+      // beyond our prefix whose identity still matches today's text.
+      const existing = await readMapEntry(bucket, mapKey)
+      const listed = listedChunksForMap(existing, state.ready, chunks, identities, textHash, voice.id, config.model)
+      const mapEntry: NarrationMapEntry = {
+        version: NARRATION_CACHE_VERSION,
+        textHash,
+        chunker: NARRATION_CHUNKER_VERSION,
+        chunkCount: chunks.length,
+        voiceKey: voice.key,
+        voiceId: voice.id,
+        model: config.model,
+        bookId, editionKey, chapter, paragraphIndex: index,
+        chunks: listed,
+        complete: listed.length === chunks.length,
+        publishedAt: new Date(now()).toISOString(),
+      }
+      await bucket.put(mapKey, JSON.stringify(mapEntry), { httpMetadata: { contentType: 'application/json' } })
+      wroteMap = true
+      return listed
+    }
 
     while (state.ready.length < chunks.length && !generationDone && !failure) {
       if (now() - requestStartedAt > REQUEST_TIME_BUDGET_MS) { generationDone = true; break }
       const chunk = chunks[state.ready.length]
       const identity = { hash: identities[state.ready.length] }
+
+      // The map is an index, not the truth: keys are content-addressed, so
+      // probe the recording itself before paying for a synthesis. A map that
+      // lags its last write, or a miss while validating the prefix, would
+      // otherwise cost a synthesis of a chunk that already exists.
+      const present = await readReadyChunk(bucket, chunk.index, chunk, identity.hash, textHash)
+      if (present) {
+        state.ready.push(present)
+        adoptedByProbe += 1
+        continue
+      }
 
       // Someone else may be generating this exact chunk right now.
       const lockKey = `narration:lock:${identity.hash}`
@@ -866,24 +901,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
             timingsUsable: validation.timingsUsable, audioBytes: synthesis.audio.length,
           })
         }
-        // Never shorten the map: keep every chunk the existing entry lists
-        // beyond our prefix whose identity still matches today's text.
-        const existing = await readMapEntry(bucket, mapKey)
-        const listed = listedChunksForMap(existing, state.ready, chunks, identities, textHash, voice.id, config.model)
-        const mapEntry: NarrationMapEntry = {
-          version: NARRATION_CACHE_VERSION,
-          textHash,
-          chunker: NARRATION_CHUNKER_VERSION,
-          chunkCount: chunks.length,
-          voiceKey: voice.key,
-          voiceId: voice.id,
-          model: config.model,
-          bookId, editionKey, chapter, paragraphIndex: index,
-          chunks: listed,
-          complete: listed.length === chunks.length,
-          publishedAt: new Date(now()).toISOString(),
-        }
-        await bucket.put(mapKey, JSON.stringify(mapEntry), { httpMetadata: { contentType: 'application/json' } })
+        const listed = await writeMap()
         // Adopt the listed recordings beyond our prefix that validate, so the
         // next chunk we generate is the first one truly missing.
         for (let position = state.ready.length; position < listed.length; position += 1) {
@@ -919,6 +937,13 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
           if (held?.token === lockToken) await kv?.delete(lockKey)
         } catch { /* lock expires on its own */ }
       }
+    }
+
+    // Recordings adopted by probe alone are not yet in the map; list them so
+    // the listing and the next request stop treating them as missing.
+    if (adoptedByProbe > 0) {
+      extra.probed = adoptedByProbe
+      if (!wroteMap) { try { await writeMap() } catch { /* the next generation rewrites the map */ } }
     }
 
     // A failure on a later chunk still leaves the ready prefix playable.
