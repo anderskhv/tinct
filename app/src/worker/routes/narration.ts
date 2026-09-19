@@ -374,6 +374,27 @@ function chunkPayload(chunk: NarrationChunk, ready: ReadyChunk | undefined) {
   }
 }
 
+/** Listing payload from the map alone: what is recorded, not re-validated. */
+function listedParagraphPayload(paragraph: number, textHash: string, chunks: NarrationChunk[], listed: NarrationMapEntry['chunks']) {
+  const complete = chunks.length > 0 && listed.length === chunks.length
+  return {
+    paragraph,
+    status: complete ? 'ready' as const : listed.length > 0 ? 'partial' as const : 'pending' as const,
+    textHash,
+    chunkCount: chunks.length,
+    readyChunks: listed.length,
+    listedOnly: true,
+    chunks: chunks.map((chunk, position) => {
+      const entry = listed[position]
+      if (!entry) return { index: chunk.index, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo, ready: false as const }
+      return {
+        index: chunk.index, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo, ready: true as const, hash: entry.hash,
+        audioPath: narrationAudioPath(entry.hash), url: `/api/audio-file?path=${encodeURIComponent(narrationAudioPath(entry.hash))}`,
+      }
+    }),
+  }
+}
+
 /** Reader-facing description of a paragraph: its chunk layout and which chunks are playable. */
 function paragraphPayload(paragraph: number, state: ParagraphState, extra: Record<string, unknown> = {}) {
   const complete = state.chunks.length > 0 && state.ready.length === state.chunks.length
@@ -403,7 +424,7 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
   const config = narrationConfig(env)
   const scope = parseScope(new URL(request.url))
   if (!scope) return jsonResponse({ error: 'Invalid scope' }, 400, request)
-  // Listing costs an edition parse, a patch query and ~3 R2 reads per
+  // Listing costs an edition parse, a prefix list and one R2 read per
   // paragraph, so it is throttled per address like the patch endpoint.
   const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
   if (!isWarmCaller(request, env) && !await deps.checkRateLimit(`narration-chapter:${clientIP}`, env.RATE_LIMIT, 20)) {
@@ -425,9 +446,15 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
     const textHash = await sha256Hex(tokens.join(' '))
     const mapKey = narrationMapKey(scope.bookId, scope.editionKey, scope.chapter, voice.key, index)
     if (!present.has(mapKey)) return { paragraph: index, status: 'missing' as const, textHash, chunkCount: chunks.length, readyChunks: 0 }
-    const state = await readParagraphState(bucket, mapKey, textHash, chunks, voice.id, config.model, config.settings)
-    if (state.ready.length === 0) return { paragraph: index, status: 'stale' as const, textHash, chunkCount: chunks.length, readyChunks: 0 }
-    return paragraphPayload(index, state)
+    // The listing reports what the map records for today's text, voice and
+    // settings; it does not open every blob (a 430-paragraph chapter would
+    // exceed the Worker's subrequest budget). The ensure path validates the
+    // audio and metadata of each chunk before anything plays.
+    const identities = await chunkIdentities(chunks, config.model, voice.id, config.settings)
+    const entry = await readMapEntry(bucket, mapKey)
+    const listedChunks = listedChunksForMap(entry, [], chunks, identities, textHash, voice.id, config.model)
+    if (listedChunks.length === 0) return { paragraph: index, status: 'stale' as const, textHash, chunkCount: chunks.length, readyChunks: 0 }
+    return listedParagraphPayload(index, textHash, chunks, listedChunks)
   }))
   const response = jsonResponse({
     bookId: scope.bookId,
