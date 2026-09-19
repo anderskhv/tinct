@@ -477,7 +477,50 @@ direction is a plain reading with word timings.
    checked (`listedOnly: true`); the ensure path still validates every blob
    before anything plays. Only the warm script and admin checks use it.
 
-<!-- WARMUP_TOTALS -->
+**Result (2026-09-19, ≈15:00 UTC).** Chapter 1 of all 16 featured books,
+both English editions (KJV and WEB for the Bible), both voices: **64
+targets, 4,216 paragraphs, 8,442 sentence-group chunks, all
+listed and nothing missing** (evidence:
+`artifacts/fish-narration-pilot-2026-09-18/warmup-chapter1-2026-09-19.json`,
+from the map-only listing; the ensure path validates each chunk's audio and
+metadata before it plays).
+
+| Book | Paragraphs (4 targets) | Chunks (4 targets) |
+| --- | --- | --- |
+| bible | 28 | 78 |
+| crime-and-punishment | 208 | 382 |
+| divine-comedy | 184 | 184 |
+| frankenstein | 52 | 124 |
+| frederick-douglass | 40 | 196 |
+| hamlet | 284 | 338 |
+| iliad | 220 | 580 |
+| jane-eyre | 168 | 254 |
+| meditations | 68 | 312 |
+| moby-dick | 60 | 228 |
+| odyssey | 128 | 390 |
+| pride-and-prejudice | 136 | 144 |
+| the-art-of-war | 124 | 124 |
+| the-histories | 4 | 22 |
+| the-republic | 1968 | 2394 |
+| walden | 544 | 2692 |
+
+Runs: the first pass (08:58–11:05 UTC, concurrency 4) reached 58 of 64
+targets before it was stopped for the Meditations loop; a Hamlet re-warm
+after the bracket fix (5.8 min, four targets, no refusals); the re-run after
+#117 and #118 (64 min, 620 paragraph generations, 0 failures, 44 batches
+`raced`) completed Meditations, Walden and Frederick Douglass and confirmed
+every other target from cache; The Republic (492 paragraphs per target) was
+confirmed through the map-only listing. Throughput with four targets in
+flight was about 5.5 s per chunk including the Worker's reads and writes; a
+55 s request finishes 8–10 chunks of a long paragraph.
+
+Spend: the corpus is ≈1.40 M characters (≈$21 at $15 per million bytes),
+plus the generations the findings above wasted: the Hamlet retries, the
+Meditations loop (a few hundred chunks) and the 44 raced batches, together
+on the order of $1.50. The Worker's usage counters hold the exact byte
+count behind the admin-only `/api/narration/usage` route (a site-admin
+login, not the warm token); verify against the Fish account statement.
+
 
 ## 13. Stage 3 proposal (after the audition; decisions for Anders)
 
