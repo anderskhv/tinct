@@ -541,8 +541,10 @@ describe('narration cache integrity under interference', () => {
     const entry = JSON.parse(decoder.decode(h.env.AUDIO_BUCKET.store.get(mapKey)!)) as { chunks: Array<{ hash: string }> }
     // Tear chunk 1: a different rendering lands under its key, so meta and audio disagree.
     h.env.AUDIO_BUCKET.store.set(narrationBlobKeys(entry.chunks[1].hash).audio, syntheticMp3(90))
+    // The listing reports the map (one read per paragraph); the torn chunk
+    // is only found by the ensure path, which validates before playing.
     const listing = await chapter(h)
-    expect(listing.json.paragraphs[4].readyChunks).toBe(1)
+    expect(listing.json.paragraphs[4]).toMatchObject({ readyChunks: 3, listedOnly: true })
     const repaired = await ensure(h, { paragraphs: [{ index: 4 }], mode: 'next' })
     expect(repaired.json.paragraphs[0].readyChunks).toBe(3)
     expect(h.fish.calls.length - callsAfterWarm).toBe(1)

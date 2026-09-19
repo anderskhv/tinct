@@ -469,6 +469,14 @@ direction is a plain reading with word timings.
    retry once, and the warm script gives a target up after five rounds
    without progress. Two regression tests.
 
+4. *The listing could not describe a long cached chapter* (PR #118). Once
+   The Republic's 430-paragraph Book I was cached, the chapter listing,
+   which opened every chunk's meta and audio, needed about 1,300 R2 reads
+   and timed out past 60 s (a Worker request allows 1,000 subrequests). The
+   listing now reports the map alone, one read per paragraph and identity
+   checked (`listedOnly: true`); the ensure path still validates every blob
+   before anything plays. Only the warm script and admin checks use it.
+
 <!-- WARMUP_TOTALS -->
 
 ## 13. Stage 3 proposal (after the audition; decisions for Anders)
