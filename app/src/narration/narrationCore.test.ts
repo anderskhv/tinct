@@ -15,6 +15,8 @@ import {
   parseFishTimestampSse,
   utf8ByteLength,
   validateNarrationAsset,
+  chunkNarrationTokens,
+  spokenText,
   DEFAULT_NARRATION_SETTINGS,
   NARRATION_CACHE_VERSION,
 } from './narrationCore'
@@ -293,5 +295,31 @@ describe('pace guard on short lines', () => {
     const chunk = 'x'.repeat(300)
     expect(at(chunk, 78).reasons).not.toContain('audio_too_long_for_text')
     expect(at(chunk, 80).reasons).toContain('audio_too_long_for_text')
+  })
+})
+
+describe('stage directions are read as words', () => {
+  it('strips square brackets from the spoken text only', () => {
+    expect(spokenText(['[Enter', 'Horatio', 'and', 'Marcellus]'])).toBe('Enter Horatio and Marcellus')
+    expect(spokenText(['[Exit.]'])).toBe('Exit.')
+    expect(spokenText(['¹', '[Enter', 'Ghost]'])).toBe('Enter Ghost')
+  })
+
+  it('sends the narrator bracket-free chunk text while the display tokens keep the brackets', () => {
+    const tokens = narrationTokens('[Enter Horatio and Marcellus]')
+    expect(tokens).toEqual(['[Enter', 'Horatio', 'and', 'Marcellus]'])
+    const chunks = chunkNarrationTokens(tokens)
+    expect(chunks).toHaveLength(1)
+    expect(chunks[0].text).toBe('Enter Horatio and Marcellus')
+    expect([chunks[0].wordFrom, chunks[0].wordTo]).toEqual([0, 4])
+  })
+
+  it('maps the timings of the bracket-free reading back onto the bracketed tokens', () => {
+    const tokens = ['[Enter', 'Horatio', 'and', 'Marcellus]']
+    const segments = ['Enter', 'Horatio', 'and', 'Marcellus'].map((text, i) => ({ text, start: i * 0.5, end: i * 0.5 + 0.4 }))
+    const aligned = alignSegmentsToTokens(tokens, segments, 2.2)
+    expect(aligned.alignment.matchRatio).toBe(1)
+    expect(aligned.words).toHaveLength(4)
+    expect(aligned.words[0].start).toBe(0)
   })
 })
