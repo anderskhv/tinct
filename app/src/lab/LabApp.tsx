@@ -9,6 +9,17 @@ import { LabChapterEnd } from './LabChapterEnd'
 import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest } from './labChapterChat'
 import { LabDesktopPaginator, type LabLeafCapacity } from './LabDesktopPaginator'
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
+import {
+  applyNarrationPilotFlag,
+  ensureNarration,
+  fetchNarrationPilotInfo,
+  narrationPilotApplies,
+  narrationPilotFlag,
+  resolveNarrationVoice,
+  type NarrationPilotInfo,
+} from './labNarration'
+import { readSupabaseAccessToken } from './labAuth'
+import { useNarrationPrefetch } from './useNarrationPrefetch'
 import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
 import { LAB_COPY } from './labCopy'
@@ -378,7 +389,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ? prefsFromLabReaderHandoff(stored, readerHandoff)
       : prefsFromLabResumePlace(stored, boot.resume)
     const migrated = migrateLabPrefsEditions(restored, book.bookId || 'bible')
-    return syncLabAudioEdition(migrated, book.editions?.length ? book.editions : bibleEditions())
+    // Fish narration pilot opt-in/out from the URL, applied before the first
+    // render so every write of these prefs already carries it.
+    const flagged = applyNarrationPilotFlag(migrated, narrationPilotFlag(search ?? (typeof window !== 'undefined' ? window.location.search : '')))
+    return syncLabAudioEdition(flagged, book.editions?.length ? book.editions : bibleEditions())
   })
   const bookEditions = selectableLabEditions(
     book.bookId || 'bible',
@@ -440,6 +454,27 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setPrefs(synced)
     writeLabPrefs(synced, appearanceProfile)
   }, [appearanceProfile, book.bookId, bookEditions])
+  // Fish narration pilot (docs/fish-audio-pilot-2026-09-18.md). `?narration=fish`
+  // opts this device in and is remembered; `?narration=off` opts out. Nothing
+  // changes for a reader who never used the flag.
+  const narrationFlag = narrationPilotFlag(search ?? (typeof window !== 'undefined' ? window.location.search : ''))
+  const [narrationInfo, setNarrationInfo] = useState<NarrationPilotInfo | null>(null)
+  // Once the pilot has been on during this page load the Settings row stays,
+  // so "Off" is reversible without the URL flag.
+  const [narrationRowVisible, setNarrationRowVisible] = useState(prefs.narrationProvider === 'fish')
+  useEffect(() => { if (prefs.narrationProvider === 'fish') setNarrationRowVisible(true) }, [prefs.narrationProvider])
+  useEffect(() => {
+    if (prefs.narrationProvider !== 'fish') return
+    let cancelled = false
+    void fetchNarrationPilotInfo().then((info) => { if (!cancelled) setNarrationInfo(info) })
+    return () => { cancelled = true }
+  }, [prefs.narrationProvider])
+  const narrationVoice = narrationInfo ? resolveNarrationVoice(prefs, narrationInfo.voices) : null
+  // Narration follows the text on the page: the primary edition, not the
+  // Kokoro audio edition, so painted words and spoken words are one text.
+  const narrationApplies = narrationInfo?.enabled === true
+    && narrationVoice != null
+    && narrationPilotApplies(prefs, book.bookId || 'bible', prefs.primaryEdition, book.chapterNumber)
   const prefsProfileRef = useRef(appearanceProfile)
   useLayoutEffect(() => {
     if (prefsProfileRef.current === appearanceProfile) return
@@ -460,6 +495,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   useEffect(() => {
     releaseLabReaderHandoffForPage(readerHandoff)
     if (readerHandoff) writeLabPrefs(prefs, appearanceProfile)
+    // The narration flag was folded into the initial prefs; remember it.
+    else if (narrationFlag) writeLabPrefs(prefs, appearanceProfile)
     // This effect only releases the StrictMode bridge after the committed mount.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -947,14 +984,36 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     },
   })
 
+  const narrationContextRef = useRef({ bookId: listenSource.bookId, editionKey: prefs.primaryEdition, chapter: listenSource.chapterNumber, paragraphs: listenSource.paragraphs, voice: narrationVoice })
+  narrationContextRef.current = { bookId: listenSource.bookId, editionKey: prefs.primaryEdition, chapter: listenSource.chapterNumber, paragraphs: listenSource.paragraphs, voice: narrationVoice }
+  const narrationEnsure = useCallback(async (indexes: number[], signal: AbortSignal, mode?: 'next' | 'all') => {
+    const context = narrationContextRef.current
+    if (!context.voice) return []
+    const token = authToken ?? await readSupabaseAccessToken()
+    return ensureNarration({
+      bookId: context.bookId,
+      editionKey: context.editionKey,
+      chapter: context.chapter,
+      voice: context.voice,
+      paragraphs: indexes
+        .filter(index => index >= 0 && index < context.paragraphs.length)
+        .map(index => ({ index, text: context.paragraphs[index] })),
+      mode: mode ?? 'next',
+    }, { signal, authToken: token })
+  }, [authToken])
+  const narrationOption = useMemo(
+    () => (narrationApplies && narrationVoice ? { voice: narrationVoice, ensure: narrationEnsure } : null),
+    [narrationApplies, narrationVoice, narrationEnsure],
+  )
   const listen = useLabListen({
     guardPlaybackRequests: chromeV2,
-    playbackUnavailable: audioUnavailable,
+    playbackUnavailable: narrationOption ? false : audioUnavailable,
     bookId: listenSource.bookId,
     paragraphs: listenSource.paragraphs,
     followParagraphs: listenSource.followParagraphs,
     chapterNumber: listenSource.chapterNumber,
-    audioEdition: audioEditionKey,
+    audioEdition: narrationOption ? prefs.primaryEdition : audioEditionKey,
+    narration: narrationOption,
     playbackSpeed: prefs.audioSpeed,
     onPlaybackSpeedChange: (audioSpeed) => updatePrefs({ ...prefs, audioSpeed }),
     titleClip: listenSource.audioTitle,
@@ -962,6 +1021,23 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   })
   listenSpeedRef.current = listen.speed
   listenPlayingRef.current = listen.playing
+  // Warm narration ahead of the reader: the chapter's opening on arrival, the
+  // next chapter's opening when the reader nears the end of this one.
+  const narrationCurrentParagraph = listen.playing && listen.follow.kind !== 'none'
+    ? listen.follow.paragraphIndex
+    : (readingPages[readingPageIndex]?.paragraphIndex ?? 0)
+  useNarrationPrefetch({
+    active: Boolean(narrationOption) && listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber,
+    voice: narrationVoice,
+    bookId: book.bookId || 'bible',
+    editionKey: prefs.primaryEdition,
+    chapter: book.chapterNumber,
+    nextChapter: nextLabChapter(book.chapters, book.chapterNumber),
+    paragraphCount: book.paragraphs.length,
+    currentParagraph: narrationCurrentParagraph,
+    authToken,
+    readToken: readSupabaseAccessToken,
+  })
 
   useEffect(() => {
     if (listen.playing || browseWhileListening) return
@@ -4014,6 +4090,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           onPrefs={updatePrefs}
           editions={bookEditions}
           audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
+          narrationPilot={narrationRowVisible ? { info: narrationInfo, voice: prefs.narrationProvider === 'fish' ? narrationVoice : null } : null}
           returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
         />
       )}
@@ -4592,6 +4669,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       {audioUnavailableNotice && <div className="lab-audio-unavailable" role="status">
         <span>Audio is temporarily unavailable for this edition. You can keep reading.</span>
         <button type="button" onClick={() => setAudioUnavailableNotice(false)} aria-label="Dismiss audio notice">×</button>
+      </div>}
+      {listen.narration.status !== 'idle' && <div className="lab-audio-unavailable lab-narration-notice" role="status" data-testid="lab-narration-notice" data-status={listen.narration.status}>
+        <span>{listen.narration.status === 'loading' ? 'Preparing narration…' : listen.narration.message}</span>
+        {listen.narration.status === 'error' && (
+          <button type="button" className="lab-narration-retry" data-testid="lab-narration-retry" onClick={listen.retryNarration}>Retry</button>
+        )}
+        <button type="button" onClick={listen.dismissNarration} aria-label="Dismiss narration notice">×</button>
       </div>}
       <LabSettingsSheet
         open={gearOpen}

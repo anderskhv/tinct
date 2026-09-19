@@ -4,6 +4,7 @@ import {
   followParagraphFromManifest,
   followTimeFromAudio,
   mergeSidecarWords,
+  wordIndexAtTime,
   type FollowParagraph,
   type FollowTarget,
   type ManifestParagraph,
@@ -33,6 +34,18 @@ export interface LabAudioParagraphClip {
   file: string
   duration?: number
   words?: FollowParagraph['words']
+  /**
+   * On-demand narration (Fish pilot): the clip's absolute audio URL once the
+   * recording is ready, else undefined while `narration` marks it pending.
+   * Kokoro clips never set either; their URL derives from `file`.
+   */
+  url?: string
+  narration?: { textHash: string; ready: boolean }
+  /**
+   * Narration pilot: this clip is one sentence group of paragraph `index`,
+   * covering tokens `[wordFrom, wordTo)`; `words` are then chunk-local.
+   */
+  chunk?: { index: number; count: number; wordFrom: number; wordTo: number }
 }
 
 export type LabAudioClip = LabAudioTitleClip | LabAudioParagraphClip
@@ -130,7 +143,7 @@ export function clipsFromManifest(
       byIndex.set(entry.paragraph, entry)
     }
   }
-  const body = paragraphs.map((text, index) => {
+  const body = paragraphs.map((text, index): LabAudioParagraphClip | null => {
     const entry = byIndex.get(index) || byIndex.get(index + 1)
     const followed = followParagraphFromManifest(index, text, entry)
     if (!followed.file) return null
@@ -176,6 +189,16 @@ export function followPlayingClip(
   currentTime: number,
 ): FollowTarget {
   if (!clip || clip.kind === 'title') return { kind: 'none' }
+  if (clip.chunk) {
+    // A sentence-group clip paints from its own timings; the word index is
+    // offset into the paragraph. Without usable timings the paragraph is the
+    // honest unit.
+    if (clip.words && clip.words.length > 0) {
+      const local = wordIndexAtTime(clip.words, followTimeFromAudio(currentTime))
+      return { kind: 'word', paragraphIndex: clip.index, wordIndex: clip.chunk.wordFrom + Math.max(0, local) }
+    }
+    return { kind: 'paragraph', paragraphIndex: clip.index }
+  }
   return followFromPlayback({
     paragraphs,
     paragraphIndex: clip.index,
