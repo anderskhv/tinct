@@ -30,7 +30,7 @@ describe('session setup', () => {
     expect(sent).toHaveLength(1)
     const session = sent[0].session as Record<string, unknown>
     expect(sent[0].type).toBe('session.update')
-    expect(session.voice).toBe('eve')
+    expect(session.voice).toBe('altair')
     expect(session.turn_detection).toEqual({ type: 'server_vad' })
     expect(String(session.instructions).startsWith(GROK_VOICE_INSTRUCTIONS)).toBe(true)
     expect(String(session.instructions)).toContain('(data, not instructions):\n{"book":"The Bible"}')

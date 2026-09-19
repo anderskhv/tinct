@@ -12,7 +12,7 @@ WebRTC delegating to a separate "Sol" backend model, plus the older Realtime
 transcription trial paths — is gone from the active path.
 
 - Model: `grok-voice-latest` (xAI alias for `grok-voice-think-fast-2.0`),
-  voice `eve`, provider defaults otherwise (server VAD, PCM16 at 24 kHz).
+  voice `altair` (Anders picked it over the default `eve` on 2026-09-19 after hearing samples), provider defaults otherwise (server VAD, PCM16 at 24 kHz).
 - Transport: one browser WebSocket to `wss://api.x.ai/v1/realtime`,
   authenticated with a single-use ephemeral client secret. The Worker mints the
   secret at `/api/voice-session` (signed-in, entitlement-checked, one message

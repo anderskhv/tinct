@@ -125,7 +125,7 @@ Current caveat: plain `npx tsc --noEmit` is not a clean repo gate; it reports ex
 
 ## Voice (Talk)
 
-Talk runs on xAI Grok native speech-to-speech (`grok-voice-latest`, voice `eve`)
+Talk runs on xAI Grok native speech-to-speech (`grok-voice-latest`, voice `altair`)
 over one browser WebSocket; see `docs/voice-grok-2026-09-18.md`.
 
 - Worker secret `XAI_API_KEY` mints single-use client secrets at

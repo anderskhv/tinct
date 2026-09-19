@@ -3,7 +3,7 @@ import type { VoiceReaderContext } from './types'
 /** xAI native speech-to-speech. Rollback: revert the Grok commit; the OpenAI Worker secret stays in place. */
 export const GROK_VOICE_MODEL = 'grok-voice-latest'
 export const GROK_REALTIME_URL = 'wss://api.x.ai/v1/realtime'
-export const GROK_VOICE = 'eve'
+export const GROK_VOICE = 'altair'
 /** PCM16 little-endian, mono. The provider default rate. */
 export const GROK_AUDIO_RATE = 24000
 /** Ephemeral client secrets are minted by the Worker and used once to open the socket. */
