@@ -269,3 +269,29 @@ describe('MP3 inspection and validation', () => {
     expect(result.duration).toBeCloseTo(measured, 2)
   })
 })
+
+describe('pace guard on short lines', () => {
+  const secondsToFrames = (seconds: number) => Math.ceil(seconds / (1152 / 44100))
+  const at = (text: string, seconds: number) => {
+    const frames = secondsToFrames(seconds)
+    return validateNarrationAsset({ text, audio: syntheticMp3(frames), reportedDuration: frames * 1152 / 44100, segments: [] })
+  }
+
+  it('lets a stage direction carry the silence a narrator puts around it', () => {
+    // Hamlet's "[Exit.]" was refused six times on production at 4 chars/s
+    // (1.75 s for seven characters); the allowance makes room for the beat.
+    expect(at('[Exit.]', 5).reasons).not.toContain('audio_too_long_for_text')
+    expect(at('[Enter Horatio and Marcellus]', 10).ok).toBe(true)
+  })
+
+  it('still refuses audio far longer than a short line can explain', () => {
+    expect(at('[Exit.]', 6.5).reasons).toContain('audio_too_long_for_text')
+    expect(at('[Enter Horatio and Marcellus]', 12).reasons).toContain('audio_too_long_for_text')
+  })
+
+  it('leaves a full chunk with its pace bound, allowance included', () => {
+    const chunk = 'x'.repeat(300)
+    expect(at(chunk, 78).reasons).not.toContain('audio_too_long_for_text')
+    expect(at(chunk, 80).reasons).toContain('audio_too_long_for_text')
+  })
+})

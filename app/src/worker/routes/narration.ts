@@ -746,7 +746,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
         const validation = validateNarrationAsset({ text: chunk.text, audio: synthesis.audio, reportedDuration: synthesis.reportedDuration, segments: synthesis.segments })
         await recordProviderOutcome(kv, now(), true)
         if (!validation.ok) {
-          failure = { paragraph: index, status: 'failed', textHash, reason: 'validation_failed', detail: `chunk ${chunk.index}: ${validation.reasons.join(',')}` }
+          failure = { paragraph: index, status: 'failed', textHash, reason: 'validation_failed', detail: `chunk ${chunk.index}: ${validation.reasons.join(',')} (${validation.duration}s of audio for ${chunk.text.length} chars)` }
           bump({ requests: 1, failed: 1, bytes: textBytes, providerMs: synthesis.providerMs })
           break
         }
