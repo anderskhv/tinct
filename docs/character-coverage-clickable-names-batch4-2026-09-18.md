@@ -168,6 +168,27 @@ first mention glued to an em-dash or possessive curly quote (Lazarus,
 Mrs. Boye, Mina Purefoy); Faust's Lilith and Will-o'-the-Wisp dropped
 (no clean mention until the tokenizer trims trailing `’`).
 
+## Residual sweep (2026-09-19)
+
+A library-wide residual scan after the batch (uncarded name-like forms,
+≥2 occurrences, all 100 non-Bible packages) showed the three early-batch
+books still missing real names; everything else on the list was noise
+(Hobbes's capitalised nouns, place names, archaic verbs, kinship nouns).
+
+| Book | Before | After | What was missing |
+|---|---|---|---|
+| The Histories | 114 | 162 | no deity cards at all (Zeus ×77, Heracles ×67, Athene ×39, Dionysos ×34, Apollo ×32 …); "Alexander" ×51 split into Paris of Troy (Book II) / Alexander I of Macedon (Books V–IX); Helen, Perseus, Priam, Menelaos, Homer … |
+| War and Peace | 135 | 157 | Murat, Davout, Lannes, Weyrother, Barclay de Tolly, General Mack; the two Tikhons (the old prince's valet ≤ ch. 277 / Tikhon Shcherbaty ≥ ch. 301); "Uncle" of the hunt; Karáy the borzoi; the Rhetor; the Karágins; Catherine the Great vs Catherine Semënovna; Emperor Paul vs two other Pauls; Frederick the Great; "Wostóv" → Nicholas |
+| Moby-Dick | 62 | 102 | Perth the blacksmith; Lakeman → Steelkilt, Tash → Tashtego, Quohog → Queequeg; Samuel Enderby the merchant; Czar Peter; the biblical and classical allusions |
+
+Verify: +29 rows (866), 58/58 device-rows pass.
+
+**Coverage status after this sweep:** every published book is swept.
+Remaining exceptions are deliberate: the Bible (LORD/God rebind is a
+product decision), Treasure Island (staged, unverifiable until published),
+Ulysses' single-mention single-token noise tail, and spans the reader's
+tokenizer cannot tap (app-side).
+
 ## Open, app-side (not done from this lane)
 
 - `wordSelectionOffsets` does not trim curly single quotes (U+2018/2019)
