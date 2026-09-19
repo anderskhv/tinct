@@ -431,3 +431,68 @@ NARRATION_ADMIN_TOKEN=… node scripts/narration-warm.mjs --chapter 1 --voices a
 ```
 
 <!-- WARMUP_TOTALS -->
+
+## 13. Stage 3 proposal (after the audition; decisions for Anders)
+
+The pilot is live, opt-in and inert for everyone who has not opened the
+flag. Stage 3 is the step from "works for us" to "on for readers", and every
+item below is a product or spend decision rather than an engineering one.
+
+**1. Turn it on for featured books.** For signed-in readers on the featured
+shelf, make Fish the narrator by default (Settings → Audiobook keeps Kokoro
+as an explicit choice, and every non-featured book keeps Kokoro). Gate: Anders
+and Alex accept the two voices on the production samples in §12 and a full
+chapter of listening, not just clips. Engineering is a preference default
+plus the prefetch already in place; nothing new on the Worker.
+
+**2. Anonymous readers.** Today an anonymous opted-in reader sees "Sign in to
+hear this chapter narrated." with Retry and no sign-in button. Options: (a)
+add a Sign in action to the notice (small); (b) let anonymous readers hear the
+warmed opening of chapter 1 (cache hits only, no generation, so no spend) as
+the taste that converts; (c) keep it signed-in only. Recommendation: (a) now,
+(b) once the warm-up covers the shelf, since a cached paragraph costs nothing
+to serve.
+
+**3. One voice persona across Talk and narration.** Talk runs on Grok
+(`altair`); narration on Fish (Nathan / Abby). Readers should pick one voice
+for Tinct, not two. Recommendation: a Tinct persona table that maps each
+persona to a Fish narration voice and the closest Grok Talk voice, chosen by
+listening; the settings row becomes "Voice" and both features read it. The
+alternative, putting Fish behind Talk (Fish agents with Grok as the language
+model, or Fish streaming TTS after Grok text), trades Grok's native
+speech-to-speech latency for a single vendor and is not recommended for now.
+
+**4. Voice rights before a public default.** The two pilot voices are Fish
+public-library voices used under Fish's terms for the pilot. Before narration
+is on by default, either license a voice with terms that cover commercial
+audiobook use or create Tinct's own with Fish Voice Design (no cloning of a
+real person without permission). This is the one item that should not wait
+for usage data.
+
+**5. Coverage and spend.** The featured shelf's English editions total
+27,476,615 characters over 6502 chapters (32 book/edition
+targets), ≈$412 per voice at Fish's $15 per million bytes;
+the Bible alone is 8,334,233 characters (≈$125 per voice) and
+the other 15 books 19,142,382 (≈$287 per voice). Chapter 1
+everywhere is 702,117 characters (≈$11 per voice), now warmed.
+Recommendation: do not pre-generate whole books. Keep chapter 1 warm for
+both voices, let the reader-side prefetch generate the next chapter as
+people approach it, and run `narration-warm.mjs` for chapters 2–3 of the
+five most-opened books once the first week's usage shows which they are.
+The monthly ceiling (10,000,000 bytes ≈ $150) already caps the worst case;
+raise it deliberately when the default flips, not before.
+
+**6. Operations.** Add a Cron Trigger on the Worker that reports the daily
+usage counters and breaker state to Anders (one line, only when non-zero),
+and a small admin page for `/api/narration/usage` so spend is visible without
+a token in a terminal. Alert when the breaker opens or a day crosses 50% of
+its ceiling.
+
+**7. Not in Stage 3.** Danish narration (Fish's Danish quality is unmeasured
+and the modern-da editions are the larger corpus), voice chat over Fish,
+offline narration bundles and the sleep timer stay out of scope until the
+English default has a month of data.
+
+**Needs a decision from Anders:** items 1, 2 and 4 before any default flips;
+item 3 as a design direction; items 5 and 6 are recommendations that can
+proceed on approval without further design.
