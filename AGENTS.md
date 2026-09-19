@@ -143,6 +143,31 @@ over one browser WebSocket; see `docs/voice-grok-2026-09-18.md`.
   from `app/`. Headless, fake microphone, muted output. Against production use
   `https://tinct.app`. Mocked tests alone do not prove the provider connection.
 
+## Narration (Fish Audio pilot)
+
+On-demand narration through Fish Audio for readers who open
+`/reader?narration=fish`, on the featured shelf (16 books), English editions,
+every chapter; everyone else keeps the Kokoro recordings. Design, measurements,
+reviews and the release record are in `docs/fish-audio-pilot-2026-09-18.md`.
+
+- Worker routes under `/api/narration/*` (`app/src/worker/routes/narration.ts`);
+  pure core in `app/src/narration/narrationCore.ts`. Fish is reached only with
+  the Worker secret `FISH_AUDIO_API_KEY`; `NARRATION_ADMIN_TOKEN` gates the warm
+  route. Neither goes in browser assets, the repo or logs.
+- Audio is synthesised per sentence group (≤300 chars), validated, then cached
+  content-addressed in R2 under `narration/fish/`. Identity = text + model +
+  voice + settings; a text change never plays stale audio. Chunker and cache
+  versions are pinned in `narrationCore.ts`; bumping either is a new cache.
+- Voices, model, scope and the daily/monthly text-byte ceilings are Worker
+  vars (`NARRATION_*` in `wrangler.jsonc`). Raise a ceiling there, not in code.
+- Pre-generate a chapter from `app/`:
+  `node scripts/narration-warm.mjs --chapter N --voices a,b [--books …] [--first N]`
+  with `NARRATION_ADMIN_TOKEN` in `app/.env`. Safe to re-run; cached chunks cost
+  nothing. Chapter 1 of the shelf is ≈700k characters per voice (≈$10.5).
+- Silent acceptance with an in-page provider mock:
+  `node scripts/check-narration-pilot.mjs` (muted, headless). Unit tests cover
+  the core, the Worker route, the reader hook and the prefetch.
+
 ## Reader And Position Invariants
 
 These are production-critical:
