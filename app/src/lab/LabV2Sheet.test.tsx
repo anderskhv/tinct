@@ -95,6 +95,7 @@ describe('reading settings', () => {
     expect(readLabPrefs().compareEdition).toBe(other)
 
     expect(readLabPrefs().compareOpen).toBe(true)
+    // No compare text in this source, so no page to switch to and no switch.
     expect(screen.queryByTestId('lab-v2-show-compare')).toBeNull()
     fireEvent.change(compare, { target: { value: '' } })
     expect(readLabPrefs().compareOpen).toBe(false)

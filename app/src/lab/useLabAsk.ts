@@ -103,6 +103,16 @@ export interface UseLabAskOptions {
   voiceVersion?: LabVoiceVersion
 }
 
+/** The card shows the first paragraph whole, then "More". The opener's word
+ *  cap is what keeps it to two or three lines on a phone; the rest is capped
+ *  at three short paragraphs so the expanded card stays a glance, not a read. */
+export const LAB_EXPLAIN_PROMPT = [
+  'Explain this selected passage for a reader at this point in the book.',
+  'First paragraph: the answer itself, one sentence, at most 25 words. It must stand alone. If the passage is a name or place, say what it is and why it is here, nothing more. Then a blank line.',
+  'Then at most three short paragraphs of useful detail, most important first. Skip any paragraph that only adds background.',
+  'Do not repeat the full selected passage. Discuss its meaning and significance without using knowledge from later in the work.',
+].join('\n\n')
+
 export function useLabAsk(options: UseLabAskOptions) {
   const { session, likelyAuthenticated } = useAuth()
   const voiceVersion: LabVoiceVersion = options.voiceVersion === 'v2' ? 'v2' : 'v1'
@@ -778,7 +788,15 @@ export function useLabAsk(options: UseLabAskOptions) {
     for (const turn of added) recordTurn({ ...turn, timestamp: turn.timestamp!, source: 'text', isComplete: true }, chapterNumber, paragraphIndex)
   }, [recordTurn])
 
-  const explanationRef = useRef<{ key: string; time: number; text: string; promise: Promise<string>; listeners: Set<(text: string) => void> } | null>(null)
+  const explanationRef = useRef<{ key: string; time: number; text: string; promise: Promise<string>; listeners: Set<(text: string) => void>; speculative: boolean; abort: AbortController } | null>(null)
+  /** Drop a prefetch nobody asked to see: the popup closed on Highlight,
+   *  Copy or a dismiss. A fetch the reader did open is left to finish. */
+  const discardSpeculativeExplanation = useCallback(() => {
+    const entry = explanationRef.current
+    if (!entry || !entry.speculative) return
+    entry.abort.abort()
+    explanationRef.current = null
+  }, [])
   const explainSelection = useCallback(async (input: {
     text: string
     editionKey: string
@@ -794,12 +812,22 @@ export function useLabAsk(options: UseLabAskOptions) {
     const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text])
     const cached = explanationRef.current
     if (cached?.key === key && Date.now() - cached.time < 60_000) {
+      // The reader asked for it: this is the moment the action is charged,
+      // whether or not the answer was already fetched on speculation.
+      if (!input.speculative && cached.speculative) {
+        if (!gateAiAction('chat')) throw new LabChatError('unavailable')
+        cached.speculative = false
+      }
       if (cached.text) onDelta(cached.text)
       cached.listeners.add(onDelta)
       try { return await cached.promise } finally { cached.listeners.delete(onDelta) }
     }
-    if (!gateAiAction('chat')) throw new LabChatError('unavailable')
-    const entry = { key, time: Date.now(), text: '', promise: Promise.resolve(''), listeners: new Set([onDelta]) }
+    // Speculation is on the house: it fires as a selection settles and is
+    // never charged. Only a tap on Explain goes through the gate.
+    if (!input.speculative && !gateAiAction('chat')) throw new LabChatError('unavailable')
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) throw new LabChatError('unavailable')
+    if (explanationRef.current?.speculative) explanationRef.current.abort.abort()
+    const entry = { key, time: Date.now(), text: '', promise: Promise.resolve(''), listeners: new Set([onDelta]), speculative: !!input.speculative, abort: new AbortController() }
     explanationRef.current = entry
     entry.promise = (async () => {
       const context: LabAskContext = {
@@ -816,15 +844,16 @@ export function useLabAsk(options: UseLabAskOptions) {
       const response = await fetch(apiUrl(authToken ? '/api/chat' : '/api/lab-chat'), {
         method: 'POST',
         headers,
+        signal: entry.abort.signal,
         body: JSON.stringify({
           model: COMPANION_MODEL,
-          max_tokens: 700,
+          max_tokens: 450,
           stream: true,
           effort: COMPANION_EFFORT_VOICE,
           system: buildLabAskInstructions(context),
           messages: [{
             role: 'user',
-            content: `Explain this selected passage clearly and concisely for a reader at this point in the book. Start with a self-contained opening paragraph of one or two short sentences, followed by a blank line. Then add the useful detail in short paragraphs, so the reader can begin before the rest arrives. Do not repeat the full selected passage. Discuss its meaning and significance without using knowledge from later in the work.\n\n<selected_passage>\n${text}\n</selected_passage>`,
+            content: `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${text}\n</selected_passage>`,
           }],
           ...labCompanionBookFields(context),
         }),
@@ -842,6 +871,7 @@ export function useLabAsk(options: UseLabAskOptions) {
 
   return {
     turns,
+    discardSpeculativeExplanation,
     /** This book's stored history (classic shape), for the chapter picker. */
     conversations,
     historyStatus,

@@ -1,9 +1,42 @@
 # Reader polish batch — 2026-09-19
 
 Eight items from Anders's phone QA on 2026-09-19 (Bible, Matthew 14–15, v2
-chrome, night mode). Decisions are locked; this document is the build brief.
-**Do not start until the Fish Audio and highlighting work in flight has
-landed**, then build in the order below on a fresh branch off `main`.
+chrome, night mode). Decisions are locked; this document was the build brief
+and now records the outcome. **Built 2026-09-19 on
+`claude/determined-heisenberg-da5vdq`** after the Fish Audio work landed.
+
+## Outcome
+
+| # | Item | Status |
+|---|------|--------|
+| 1 | Explain: 25-word opener, More/Less, icon circles, prefetch on selection start | Built. Card never clips; expanded card sizes to its text. |
+| 2 | Define miss → Explain card | Built. Offline keeps the plain not-found line. |
+| 3 | Verse-number highlight band | Built. Root cause below differs from the brief's guess. |
+| 4 | Drag-to-edge page flip | Built: one turn per visit to the edge, 32px zone, 450ms hold. Hyphen case still needs a device log. |
+| 5 | Compare out of the menu, switch in Reading settings | Built, both chromes. |
+| 6 | Paused transport hides on page turn | Built. Playing transport stays. |
+| 7 | Back to book with the keyboard up | Built. One tap closes keyboard and chat. |
+| 8 | Smaller Chat/Talk | Built as part of 1. |
+
+**Item 3, what it actually was.** v2 paints highlights with the CSS Custom
+Highlight API (`::highlight`, `useTextRangeHighlights.ts`), per text
+fragment. The verse number is a small raised fragment, so its painted box
+was a small raised box: a notch in the band, plus an unpainted slit where
+`.lab-verse-mark` had `margin-left`. The earlier fix (an `inline-block`
+`.lab-verse-unit` painted as one band via `:has()`) sat a few pixels off the
+neighbouring marks in WebKit. Now: the unit is `display: inline`, the
+number's own word span keeps a real background in the highlight colour
+under the fragment paint (the span's box is the line's box), the margin is
+gone and the space before the number carries the room via letter-spacing,
+which is painted. Superior figures (`font-feature-settings: "sups"`) were
+tried first and rejected: none of the served fonts carry them.
+
+**Item 4, still open.** The finger-stays-put double turn is fixed with an
+armed flag reset when the finger leaves the zone. The "hyphenated last word
+never turns" report could not be reproduced in headless Chromium, which
+has no hyphenation dictionary. Log `edge`, `atEnd`, `next` inside `advance`
+in `LabPassage.tsx` on a real phone at Matthew 14:36 before touching it.
+
 
 Mock-up for item 1 (approved v8): https://claude.ai/artifact/UMuQ3fpTX48UXwX7SVjFQB
 

@@ -155,6 +155,20 @@ describe('compact selection popup', () => {
     expect(input.onExplain).toHaveBeenCalledOnce()
   })
 
+  it('explains a word the dictionary does not know instead of stopping at not found', async () => {
+    const request = vi.fn().mockResolvedValue('Gennesaret is a plain on the north-west shore of the Sea of Galilee.')
+    const input = props({ lab: true, popupMode: 'define', defineQuery: 'Gennesaret', defineLoading: false, defineNotFound: true, onRequestExplanation: request })
+    render(<SelectionPopup {...input} />)
+    expect(screen.queryByText(/No definition found/)).toBeNull()
+    await screen.findByText(/Gennesaret is a plain/)
+    expect(request).toHaveBeenCalledWith(expect.any(Function), 'Gennesaret')
+  })
+
+  it('keeps the plain not-found line when there is no explanation to fall back to', () => {
+    render(<SelectionPopup {...props({ popupMode: 'define', defineQuery: 'Gennesaret', defineLoading: false, defineNotFound: true })} />)
+    expect(screen.getByText(/No definition found/)).toBeTruthy()
+  })
+
   it('does not autofocus the optional note and keeps recolouring in the same editor', () => {
     const input = props({
       lab: true,

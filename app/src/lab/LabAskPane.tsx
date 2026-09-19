@@ -637,7 +637,9 @@ export function LabAskPane({
           <button
             type="button"
             className="lab-ask-done"
-            onClick={onDone}
+            // With the keyboard up this is still the way back to the book:
+            // one tap puts the keyboard away and closes Chat together.
+            onClick={() => { textareaRef.current?.blur(); onKeyboardOpenChange?.(false); onDone?.() }}
             data-testid="lab-ask-done"
           >
             {chromeV2 ? '← Back to book' : LAB_COPY.done}

@@ -88,9 +88,11 @@ describe('the compare gesture', () => {
     renderPhone()
     swipe(screen.getByTestId('lab-book'), 0, -110, 'mouse')
     expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
-    // The pointer's way into Compare is the menu row, which is there.
+    // The pointer's way into Compare is the switch in Reading settings.
     fireEvent.click(screen.getByTestId('lab-super'))
-    expect(screen.getByTestId('lab-super-row-compare')).toBeTruthy()
+    expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    expect(screen.getByTestId('lab-v2-show-compare')).toBeTruthy()
   })
 
   it('does nothing without a compare edition, and offers no Compare anywhere', () => {
@@ -102,7 +104,9 @@ describe('the compare gesture', () => {
     expect(screen.queryByTestId('lab-v2-compare-mark')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
-    expect(labSuperMenuRows({ compare: false }).some(row => row.id === 'compare')).toBe(false)
+    expect(labSuperMenuRows({ phone: true }).some(row => row.id === 'compare')).toBe(false)
+    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    expect(screen.queryByTestId('lab-v2-show-compare')).toBeNull()
   })
 })
 
@@ -241,15 +245,21 @@ describe('where the compare page begins', () => {
   })
 })
 
-it('updates the menu action after a compare swap and restores the primary text', () => {
+it('swaps to the compare version from the Reading settings switch and back, closing the sheet each time', () => {
   withCompare()
   renderPhone()
-  fireEvent.click(screen.getByTestId('lab-super'))
-  expect(screen.getByTestId('lab-super-row-compare').textContent).toBe('Compare Version')
-  fireEvent.click(screen.getByTestId('lab-super-row-compare'))
+  const openSwitch = () => {
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    return screen.getByTestId('lab-v2-show-compare')
+  }
+  const first = openSwitch()
+  expect(first.getAttribute('aria-checked')).toBe('false')
+  fireEvent.click(first)
+  expect(screen.queryByTestId('lab-v2-sheet')).toBeNull()
   expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('true')
-  fireEvent.click(screen.getByTestId('lab-super'))
-  expect(screen.getByTestId('lab-super-row-compare').textContent).toBe('Main Version')
-  fireEvent.click(screen.getByTestId('lab-super-row-compare'))
+  const second = openSwitch()
+  expect(second.getAttribute('aria-checked')).toBe('true')
+  fireEvent.click(second)
   expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
 })

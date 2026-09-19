@@ -2743,26 +2743,44 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     return () => observer.disconnect()
   }, [selectionPopup?.x, selectionPopup?.y, selectionPopup?.showBelow, popupMode, noteInput])
 
+  // Explain is fetched on speculation the moment a selection settles under
+  // the finger, so the opener is usually there before Explain is tapped. It
+  // is never charged; the tap is. A dismissed popup drops the fetch.
+  const speculateExplanation = useCallback((text: string, paragraphIndex: number, comparison: boolean) => {
+    if (text.trim().split(/\s+/).length < 2) return
+    const editionKey = comparison ? prefs.compareEdition : prefs.primaryEdition
+    void ask.explainSelection({ text, editionKey,
+      editionLabel: editionLabelFor(editionKey, bookEditions),
+      paragraphs: comparison ? book.compareParagraphs : book.paragraphs,
+      paragraphIndex, speculative: true,
+    }, () => {}).catch(() => { /* Speculation must never open an error or account prompt. */ })
+  }, [ask.explainSelection, bookEditions, book.compareParagraphs, book.paragraphs, prefs.compareEdition, prefs.primaryEdition])
+  const selectingTimerRef = useRef<number | null>(null)
+  const handleSelectingChange = useCallback((range: LabHighlightRange | null) => {
+    if (selectingTimerRef.current) window.clearTimeout(selectingTimerRef.current)
+    selectingTimerRef.current = null
+    if (!range || phoneAskOpen) return
+    selectingTimerRef.current = window.setTimeout(() => {
+      selectingTimerRef.current = null
+      speculateExplanation(range.text, range.paragraphIndex, mobileCompareActive)
+    }, 400)
+  }, [mobileCompareActive, phoneAskOpen, speculateExplanation])
+  useEffect(() => () => { if (selectingTimerRef.current) window.clearTimeout(selectingTimerRef.current) }, [])
   useEffect(() => {
-    if (!selectionPopup || selectionPopup.existingHighlightId || selectionPopup.text.trim().split(/\s+/).length < 2) return
-    const timer = window.setTimeout(() => {
-      const editionKey = selectionPopup.editionKey || readerEditionKey
-      const compare = editionKey === prefs.compareEdition && editionKey !== prefs.primaryEdition
-      void ask.explainSelection({ text: selectionPopup.text, editionKey,
-        editionLabel: editionLabelFor(editionKey, bookEditions),
-        paragraphs: compare ? book.compareParagraphs : book.paragraphs,
-        paragraphIndex: selectionPopup.paragraphIndex, speculative: true,
-      }, () => {}).catch(() => { /* Speculation must never open an error or account prompt. */ })
-    }, 180)
+    // Desktop native selection never reports in progress; the popup opening is its settle.
+    if (!selectionPopup || selectionPopup.existingHighlightId) return
+    const editionKey = selectionPopup.editionKey || readerEditionKey
+    const timer = window.setTimeout(() => speculateExplanation(selectionPopup.text, selectionPopup.paragraphIndex, editionKey === prefs.compareEdition && editionKey !== prefs.primaryEdition), 180)
     return () => window.clearTimeout(timer)
-  }, [selectionPopup, readerEditionKey, prefs.compareEdition, prefs.primaryEdition, book.paragraphs, book.compareParagraphs, bookEditions, ask.explainSelection])
+  }, [selectionPopup, readerEditionKey, prefs.compareEdition, prefs.primaryEdition, speculateExplanation])
 
   const dismissSelectionPopup = useCallback(() => {
     setSelectionPopup(null)
     setPopupMode('colors')
     setNoteInput('')
     define.setQuery('')
-  }, [define])
+    ask.discardSpeculativeExplanation()
+  }, [ask.discardSpeculativeExplanation, define])
 
 
   // A new passage/view invalidates a frozen card, including while edition data loads.
@@ -3205,9 +3223,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   skipRef.current = applyPlaybackSkip
 
   const quietDesktopAfterTurn = useCallback(() => {
+    // A page turn while audio is paused puts the transport away on every
+    // chrome; while audio plays it stays up wherever the reader goes.
+    if (!listen.playing) { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }
     if (!desktopPaging) return
     setReaderControlsVisible(false)
-    if (!listen.playing) { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }
   }, [desktopPaging, listen.playing])
 
   useLayoutEffect(() => {
@@ -3703,13 +3723,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setSuperMenuOpen(false)
     if (id === 'chat') { handleChat(); return }
     if (id === 'talk') { handleTalk(); return }
-    if (id === 'compare') { (showPhoneChrome ? handleMobileCompare : handleDesktopCompare)(); return }
     if (id === 'settings') { setSuperSheet('reading'); return }
     if (id === 'account') { setSuperSheet('account'); return }
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
     window.location.assign(chromeV2 ? `${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}` : LAB_LIBRARY_URL)
-  }, [chromeV2, handleChat, handleDesktopCompare, handleMobileCompare, handleTalk, rememberLibraryPlace, showPhoneChrome])
+  }, [chromeV2, handleChat, handleTalk, rememberLibraryPlace])
 
   // The first view: the mark spins once per reader load, 400 ms after the
   // first page has laid out, and never over playing audio. `superFirstViewRef`
@@ -4074,8 +4093,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       {chromeV2 && !frontispieceVisible && (
         <LabSuperMenu
           open={superMenuOpen}
-          compare={showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled}
-          compareActive={showPhoneChrome ? mobileCompareActive : desktopCompareActive}
           phone={showPhoneChrome}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
@@ -4090,6 +4107,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           onPrefs={updatePrefs}
           editions={bookEditions}
           audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
+          compare={(showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)
+            ? { active: showPhoneChrome ? mobileCompareActive : desktopCompareActive, onToggle: () => { setSuperSheet(null); (showPhoneChrome ? handleMobileCompare : handleDesktopCompare)() } }
+            : null}
           narrationPilot={narrationRowVisible ? { info: narrationInfo, voice: prefs.narrationProvider === 'fish' ? narrationVoice : null } : null}
           returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
         />
@@ -4196,6 +4216,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             pageTurn={chromeV2 ? undefined : pageTurn}
             tapZones={pageTurnAffordance.tapZones}
             onSelectRange={phoneAsk ? undefined : handleSelectRange}
+            onSelectingChange={phoneAsk ? undefined : handleSelectingChange}
             onSelectionPageTurn={chromeV2 && !phoneAsk && !selectionPopup && !mobileCompareActive && !desktopCompareActive ? direction => { if (direction > 0) goNext(); else goPrev() } : undefined}
             onPageTurn={labPageTurnSurfaceEnabled({
               phoneChrome: showPhoneChrome,
@@ -4897,11 +4918,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             // Let the explanation enter the hook's context before starting voice.
             requestAnimationFrame(() => handleTalk())
           }}
-          onRequestExplanation={(onDelta) => {
+          onRequestExplanation={(onDelta, text) => {
             const editionKey = selectionPopup.editionKey || readerEditionKey
             const compare = editionKey === prefs.compareEdition && editionKey !== prefs.primaryEdition
             return ask.explainSelection({
-              text: selectionPopup.text,
+              text: text ?? selectionPopup.text,
               editionKey,
               editionLabel: editionLabelFor(editionKey, bookEditions),
               paragraphs: compare ? book.compareParagraphs : book.paragraphs,

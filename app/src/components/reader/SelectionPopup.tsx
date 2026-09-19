@@ -59,7 +59,8 @@ export interface SelectionPopupProps {
   onExplanationReady?: (answer: string) => void
   onTalkExplanation?: (answer: string) => void
   onExplain: (answer?: string) => void
-  onRequestExplanation?: (onDelta: (text: string) => void) => Promise<string>
+  /** `text` overrides the selection: a dictionary miss explains the looked-up word. */
+  onRequestExplanation?: (onDelta: (text: string) => void, text?: string) => Promise<string>
   onCopy: () => void
   onShare?: (text: string) => void
   onDeleteHighlight?: (id: string) => void
@@ -346,7 +347,10 @@ export function SelectionPopup({
               </ol>
             </div>
           )}
-          {!defineLoading && defineNotFound && (
+          {!defineLoading && defineNotFound && contextualExplain && (typeof navigator === 'undefined' || navigator.onLine !== false) ? (
+            // A dictionary miss is not a dead end: the same card explains the word in its place.
+            <ContextualExplainCard passage={defineQuery} request={onDelta => onRequestExplanation!(onDelta, defineQuery)} onAsk={onExplain} onTalk={onTalkExplanation} onReady={onExplanationReady} />
+          ) : !defineLoading && defineNotFound && (
             <div className="popup-define-status popup-define-empty">
               No definition found for &ldquo;{defineQuery}&rdquo;.
             </div>

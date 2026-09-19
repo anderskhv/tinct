@@ -6,6 +6,8 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import {
   LAB_CONTINUED_TAIL_MIN_FILL,
+  LAB_EDGE_HOLD_MS,
+  LAB_EDGE_ZONE_PX,
   LabPassage,
   continuedTailFill,
   lineContinuesParagraph,
@@ -693,7 +695,7 @@ it('extends across a page only after a deliberate edge hold, retaining the origi
    fireEvent.pointerDown(first, { pointerType: 'touch', clientX: 100, clientY: 200 })
    act(() => vi.advanceTimersByTime(170))
    fireEvent.pointerMove(first, { pointerType: 'touch', clientX: 100, clientY: 695 })
-   act(() => vi.advanceTimersByTime(699))
+   act(() => vi.advanceTimersByTime(LAB_EDGE_HOLD_MS - 1))
    expect(turn).not.toHaveBeenCalled()
    act(() => vi.advanceTimersByTime(1))
    expect(turn).toHaveBeenCalledWith(1)
@@ -703,6 +705,70 @@ it('extends across a page only after a deliberate edge hold, retaining the origi
    expect(select.mock.calls[0][0].text).toBe('one two three four')
    act(() => vi.advanceTimersByTime(1000))
    expect(turn).toHaveBeenCalledTimes(1)
+ } finally { vi.useRealTimers() }
+})
+
+it('paints the verse number\'s word under the fragment highlight so the band across a verse is one rectangle', () => {
+  const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
+  // The unit is an inline run, not its own box: each word paints on the line's box.
+  expect(css).toMatch(/\.lab-verse-unit \{\s*display: inline;/)
+  expect(css).not.toContain('.lab-verse-unit:has(')
+  // ::highlight paints only the small raised figure; the span behind it keeps the colour.
+  for (const colour of ['warm', 'rose', 'sage', 'sky', 'lavender']) {
+    expect(css).toContain(`.lab-hearing-word.is-hl-${colour}:has(> .lab-verse-mark) { background: var(--highlight-`)
+  }
+  expect(css).toContain('.lab-hearing-word.is-selecting:has(> .lab-verse-mark)')
+  // No unpainted margin before the number; the space before it carries the room.
+  expect(css).toMatch(/\.lab-verse-mark \{[^}]*margin-left: 0;/)
+  expect(css).toContain('.lab-highlight-gap:has(+ .lab-verse-unit) { letter-spacing: 0.2em; }')
+})
+
+it('turns one page per visit to the edge: a finger that stays put never turns a second', () => {
+ vi.useFakeTimers()
+ try {
+   const paragraphs = ['one two three four five six seven eight nine']
+   const select = vi.fn(), turn = vi.fn()
+   const base = passageProps(paragraphs, { paragraphIndex: 0, from: 0, to: 3 })
+   const { rerender } = render(<LabPassage {...base} onSelectRange={select} onPageTurn={turn} />)
+   const surface = screen.getByTestId('lab-book')
+   vi.spyOn(surface, 'getBoundingClientRect').mockReturnValue({ left: 0, right: 390, top: 0, bottom: 700, width: 390, height: 700 } as DOMRect)
+   const first = screen.getAllByTestId('lab-word')[0]
+   fireEvent.pointerDown(first, { pointerType: 'touch', clientX: 100, clientY: 200 })
+   act(() => vi.advanceTimersByTime(170))
+   fireEvent.pointerMove(first, { pointerType: 'touch', clientX: 100, clientY: 700 - LAB_EDGE_ZONE_PX + 1 })
+   act(() => vi.advanceTimersByTime(LAB_EDGE_HOLD_MS))
+   expect(turn).toHaveBeenCalledTimes(1)
+   rerender(<LabPassage {...base} readingPage={{ paragraphIndex: 0, from: 3, to: 6 }} onSelectRange={select} onPageTurn={turn} />)
+   // Jitter inside the zone and a long rest: still one turn.
+   act(() => vi.advanceTimersByTime(200))
+   fireEvent.pointerMove(first, { pointerType: 'touch', clientX: 102, clientY: 696 })
+   act(() => vi.advanceTimersByTime(3000))
+   fireEvent.pointerMove(first, { pointerType: 'touch', clientX: 101, clientY: 698 })
+   act(() => vi.advanceTimersByTime(3000))
+   expect(turn).toHaveBeenCalledTimes(1)
+   // Leaving the zone re-arms it; coming back turns the next page after the same hold.
+   fireEvent.pointerMove(first, { pointerType: 'touch', clientX: 100, clientY: 400 })
+   fireEvent.pointerMove(first, { pointerType: 'touch', clientX: 100, clientY: 695 })
+   act(() => vi.advanceTimersByTime(LAB_EDGE_HOLD_MS))
+   expect(turn).toHaveBeenCalledTimes(2)
+ } finally { vi.useRealTimers() }
+})
+
+it('reports the range under the finger while selecting, and null when the selection ends', () => {
+ vi.useFakeTimers()
+ try {
+   const paragraphs = ['one two three four five six']
+   const selecting = vi.fn()
+   render(<LabPassage {...passageProps(paragraphs, { paragraphIndex: 0, from: 0, to: 6 })} onSelectRange={vi.fn()} onSelectingChange={selecting} />)
+   const words = screen.getAllByTestId('lab-word')
+   expect(selecting).toHaveBeenLastCalledWith(null)
+   fireEvent.pointerDown(words[1], { pointerType: 'touch', clientX: 100, clientY: 200 })
+   act(() => vi.advanceTimersByTime(170))
+   expect(selecting.mock.calls.at(-1)?.[0]?.text).toBe('two')
+   fireEvent.pointerMove(words[3], { pointerType: 'touch', clientX: 200, clientY: 200 })
+   expect(selecting.mock.calls.at(-1)?.[0]?.text).toBe('two three four')
+   fireEvent.pointerUp(words[3], { pointerType: 'touch', clientX: 200, clientY: 200 })
+   expect(selecting).toHaveBeenLastCalledWith(null)
  } finally { vi.useRealTimers() }
 })
 
