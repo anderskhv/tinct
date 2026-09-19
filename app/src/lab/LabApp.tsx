@@ -1,4 +1,3 @@
-import type { VoiceExperiment, VoiceDiagnostic } from '../voice/voiceLab'
 import { ReadIcon, ChatIcon, TalkIcon } from './LabReaderIcons'
 import { isAudioHeld, isEditionDiscoverable } from '../data/audioAvailability'
 import { useCharacterCards } from '../services/characters/useCharacterCards'
@@ -97,7 +96,7 @@ import {
   type LabReaderProgressMode,
 } from './labPrefs'
 import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioEditionSelection'
-import { labChromeVersion, labLayoutOverride, labVoiceVersion, labVoiceTrial } from './labRoute'
+import { labChromeVersion, labLayoutOverride, labVoiceVersion } from './labRoute'
 import { useLabDictation } from './useLabDictation'
 import { LabAskPane } from './LabAskPane'
 import { LabConversationOverlay, LabVoiceGate } from './LabConversation'
@@ -327,8 +326,6 @@ function CompareIcon() {
 }
 
 export interface LabAppProps {
-  voiceExperiment?: VoiceExperiment
-  onVoiceDiagnostic?: (event: VoiceDiagnostic) => void
   pathname?: string
   /** Query string. Only `?voice=v2` on `/lab/reader` selects the Voice V2 preview. */
   search?: string
@@ -355,12 +352,11 @@ function quickCatalogueFallback(current: LabSource): QuickBookCatalogueEntry[] {
   }))
 }
 
-export function LabApp({ pathname, search, online, source, authToken, voiceExperiment, onVoiceDiagnostic }: LabAppProps) {
+export function LabApp({ pathname, search, online, source, authToken }: LabAppProps) {
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/lab')
   const layoutOverride = labLayoutOverride(path)
-  const voiceTrial = labVoiceTrial(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   const chromeV2 = labChromeVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : '')) === 'v2'
-  const voiceVersion = (chromeV2 || voiceTrial) ? 'v2' : labVoiceVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
+  const voiceVersion = chromeV2 ? 'v2' : labVoiceVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   // The face on the page. A reader who has never picked one reads V2's new
   // default in V2 and the face today's reader has always set in V1.
   const [isPhone, setIsPhone] = useState(() => readPhoneSurface(layoutOverride))
@@ -943,7 +939,6 @@ export function LabApp({ pathname, search, online, source, authToken, voiceExper
   const lockPaginationRef = useRef(false)
 
   const ask = useLabAsk({
-    voiceExperiment, onVoiceDiagnostic,
     bookTitle: book.bookTitle,
     bookAuthor: book.bookAuthor,
     headerBook: book.headerBook,
@@ -971,8 +966,6 @@ export function LabApp({ pathname, search, online, source, authToken, voiceExper
     onPlaybackSkip: (kind) => skipRef.current(kind),
     userId: authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
     voiceToolAdapter,
-    quietCompanionHandoff: chromeV2 && !voiceTrial,
-    voiceTrial,
     voiceVersion,
     onVoiceToolAction: (entry) => {
       setVoiceActions(current => {
@@ -2265,7 +2258,7 @@ export function LabApp({ pathname, search, online, source, authToken, voiceExper
     }
     if (listen.src) listen.resume(true)
     else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
-  }, [ask, listen, voiceTrial, chromeV2, callOpen, book.bookId, returnToPreparation])
+  }, [ask, listen, chromeV2, callOpen, book.bookId, returnToPreparation])
   resumeListenRef.current = (forceAudio = true) => resumeListenAfterAsk(forceAudio)
   const closeAccountPrompt = useCallback(() => {
     const request = accountPrompt
@@ -2320,7 +2313,7 @@ export function LabApp({ pathname, search, online, source, authToken, voiceExper
       if (!askNoticeRef.current && chromeRef.current === 'talking') setDesktopAskOpen(false)
       setChrome(current => (current === 'talking' ? labAfterTalk(returnToRef.current) : current))
     }
-  }, [ask.voiceActive, ask.voiceConnection, resumeListenAfterAsk, voiceTrial])
+  }, [ask.voiceActive, ask.voiceConnection, resumeListenAfterAsk])
 
   useEffect(() => {
     setVoiceGate(current => nextLabVoiceGate(
@@ -2417,7 +2410,7 @@ export function LabApp({ pathname, search, online, source, authToken, voiceExper
   const callView = labCallView({
     connection: callConnection,
     activity: ask.conversationState,
-    fullDuplex: !voiceTrial,
+    fullDuplex: false,
     micMuted: ask.micMuted,
   })
   // The first transport fact the session reports ends the grace window.

@@ -71,3 +71,10 @@ artifacts/**/*.tar.gz
 
 # Fish narration pilot audition samples: free-tier output, personal-use licence, handed over directly
 output/narration-pilot/*.mp3
+
+# Wrangler local secrets
+.dev.vars
+.dev.vars.*
+
+# Voice smoke artifacts
+app/artifacts/grok-voice-smoke*/

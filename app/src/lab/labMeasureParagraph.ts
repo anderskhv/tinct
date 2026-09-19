@@ -19,7 +19,9 @@ export function labMeasuredWordSpacing(
   previous?: MeasurableWord,
 ): string {
   if (wordIndex <= 0 || word.text.startsWith("'") || word.text.startsWith(',') || word.text.startsWith('.')) return ''
-  return previous && isLabVerseMarker(previous.text) ? '' : ' '
+  // Mirrors LabPassage.wordSpacing exactly: the measured paragraph has to hold
+  // the same characters the reader paints, or pages break in the wrong places.
+  return previous && isLabVerseMarker(previous.text) ? '\u00a0' : ' '
 }
 
 /**
@@ -39,7 +41,7 @@ export function labMeasureParagraphInto(
   words: MeasurableWord[],
   lineation?: { text?: string; from: number },
 ): HTMLElement {
-  const makeWord = (index: number): HTMLElement => {
+  const makeWord = (index: number, leading = ''): HTMLElement => {
     const span = document.createElement('span')
     const word = words[index]
     // The fragment carries the CSS hyphen, so it must be measured with it.
@@ -54,7 +56,7 @@ export function labMeasureParagraphInto(
       ? (() => {
           const marker = document.createElement('span')
           marker.className = 'lab-verse-mark'
-          marker.textContent = labVerseMarkerDisplay(word.text) + (index < words.length - 1 ? '\u00a0' : '')
+          marker.textContent = labVerseMarkerDisplay(word.text)
           return marker
         })()
       : document.createTextNode(word.text)
@@ -63,6 +65,9 @@ export function labMeasureParagraphInto(
       em.append(content)
       span.append(em)
     } else span.append(content)
+    // The separator that follows a verse marker belongs INSIDE the next word's
+    // span, matching the reader, so a highlight starting there paints it.
+    if (leading) span.prepend(document.createTextNode(leading))
     return span
   }
   const children: Array<{ at: number; node: Node }> = []
@@ -72,7 +77,7 @@ export function labMeasureParagraphInto(
     if (isLabVerseMarker(words[index].text) && words[index + 1]) {
       const unit = document.createElement('span')
       unit.className = 'lab-verse-unit'
-      unit.append(makeWord(index), makeWord(index + 1))
+      unit.append(makeWord(index), makeWord(index + 1, labMeasuredWordSpacing(words[index + 1], index + 1, words[index])))
       group.append(unit)
       children.push({ at: index, node: group })
       index += 1

@@ -1,10 +1,8 @@
-import type { VoiceExperiment, VoiceDiagnostic } from '../voice/voiceLab'
 import { PERSONAL_HISTORY_TOOL, personalHistoryEvidence, requestsPersonalHistory } from './labPersonalHistory'
 import { CHAPTER_CHAT_MESSAGES, buildChapterChatInstructions, chapterChatHistoryContent, loadChapterChatTarget, type ChapterChatRequest } from './labChapterChat'
 import { VOICE_RESEARCH_TOOL, researchVoiceQuestion, voiceSourceLinks, type VoiceSource } from './labVoiceResearch'
 import { labVoiceRequestsAudio } from './labVoiceControls'
-import type { VoiceTrial } from '../voice/voiceTrial'
-import { BOOK_PASSAGE_TOOL, buildDirectVoiceInstructions, buildLightDirectVoiceInstructions, retrieveVoicePassage } from './labDirectVoice'
+import { BOOK_PASSAGE_TOOL, buildLabTalkReference, retrieveVoicePassage } from './labDirectVoice'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
 import { useAuth } from '../hooks/useAuth'
@@ -55,7 +53,6 @@ import {
 } from './labChatHistory'
 import type { ChatConversation } from '../types'
 import {
-  buildLabVoiceControlInstructions,
   labVoiceActionEntry,
   mergeLabVoiceTools,
   shouldResumePlaybackAfterNavigation,
@@ -70,8 +67,6 @@ function nextId() {
 }
 
 export interface UseLabAskOptions {
-  voiceExperiment?: VoiceExperiment
-  onVoiceDiagnostic?: (event: VoiceDiagnostic) => void
   bookTitle: string
   bookAuthor: string
   /** Biblical book / registry title; display only. History is keyed by `bookId`. */
@@ -104,9 +99,7 @@ export interface UseLabAskOptions {
   voiceToolAdapter: TinctVoiceToolAdapter<LabVoiceViewSnapshot>
   onVoiceToolAction?: (entry: LabVoiceActionEntry) => void
   onVoiceToolSessionStart?: () => void
-  /** `'v2'` only from `/lab/reader?voice=v2`. Defaults to Voice V1. */
-  quietCompanionHandoff?: boolean
-  voiceTrial?: VoiceTrial | null
+  /** `'v2'` only from `/lab/reader?voice=v2` and Chrome V2. Defaults to Voice V1. */
   voiceVersion?: LabVoiceVersion
 }
 
@@ -250,7 +243,6 @@ export function useLabAsk(options: UseLabAskOptions) {
 
   /** Record a finalized turn: local mirror first, then the cloud row when signed in. */
   const recordTurn = useCallback((message: ChatMessage, chapterNumber: number, paragraphIndex?: number) => {
-    if (optionsRef.current.voiceExperiment && message.source === 'voice') return
     const bookId = chatBookIdRef.current
     if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return
     const next = appendLabChatTurn(bookId, withVoiceSources(message), chapterNumber, paragraphIndex, optionsRef.current.conversationId || undefined)
@@ -326,22 +318,20 @@ export function useLabAsk(options: UseLabAskOptions) {
     const selected = options.conversationId ? conversations.find(item => item.id === options.conversationId && item.bookId === chatBookId) : null
     return selected ? turnsFromConversations([selected]) : null
   }, [options.conversationId, conversations, chatBookId])
-  const talkInstructions = useMemo(
-    () => !options.voiceTrial ? buildLightDirectVoiceInstructions(askContext,
-      (selectedConversationTurns ?? turns).map(turn => ({ ...turn, content: chapterChatHistoryContent(turn) })),
-    ) : buildLabVoiceControlInstructions(
-      buildDirectVoiceInstructions(askContext) + (!options.voiceTrial ? '\nFor resume_audiobook, set play_audio=true when the reader asks to hear, play or resume audio. Set play_audio=false for returning to the page; the app restores the prior reading mode. Use the understood request, not potentially garbled transcript captions.' : ''),
+  // Reference material only: the Tinct prompt itself lives in grokConfig.ts.
+  const talkReference = useMemo(
+    () => buildLabTalkReference(askContext,
       (selectedConversationTurns ?? turns).map(turn => ({ ...turn, content: chapterChatHistoryContent(turn) })),
     ),
-    [askContext, selectedConversationTurns, turns, options.voiceTrial],
+    [askContext, selectedConversationTurns, turns],
   )
   const tinctVoiceTools = useTinctVoiceTools(options.voiceToolAdapter)
   const mergedVoiceTools = useMemo(
     () => mergeLabVoiceTools([...LAB_VOICE_TOOLS.filter(tool => tool.name !== 'ask_companion'), BOOK_PASSAGE_TOOL, VOICE_RESEARCH_TOOL, PERSONAL_HISTORY_TOOL]).map(tool =>
-      !options.voiceTrial && tool && typeof tool === 'object' && 'name' in tool && tool.name === 'resume_audiobook'
-        ? { ...tool, parameters: { type: 'object', properties: { play_audio: { type: 'boolean', description: 'True for an explicit request to play or resume audio. False to return to the page and restore its previous mode.' } }, required: ['play_audio'], additionalProperties: false } }
+      tool && typeof tool === 'object' && 'name' in tool && tool.name === 'resume_audiobook'
+        ? { ...tool, description: 'Return the reader to the book. Call for "back to the book", "resume", "continue reading" or "play the audiobook"; not for a bare thanks.', parameters: { type: 'object', properties: { play_audio: { type: 'boolean', description: 'True for an explicit request to play or resume audio. False to return to the page and restore its previous mode.' } }, required: ['play_audio'], additionalProperties: false } }
         : tool),
-    [options.voiceTrial],
+    [],
   )
 
   const onTinctVoiceTool = useCallback(async (
@@ -402,8 +392,6 @@ export function useLabAsk(options: UseLabAskOptions) {
   // Same hook as App.tsx + AudioStrip. Lab supplies its own instructions
   // so production buildVoiceInstructions stays the in-car brief.
   const voice = useVoiceSession({
-    voiceExperiment: options.voiceExperiment,
-    onVoiceDiagnostic: options.onVoiceDiagnostic,
     authToken: liveToken,
     isAnonymous: !liveToken,
     labGuest: true,
@@ -416,7 +404,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     readingObjective: labReadingAngle(),
     chapterParagraphs: options.paragraphs,
     paragraphIndex: options.paragraphIndex,
-    visibleText: talkInstructions,
+    visibleText: '',
     isAudioPlaying: false,
     pausePlayback: () => null,
     resumePlayback: (_anchor, playAudio) => {
@@ -430,22 +418,17 @@ export function useLabAsk(options: UseLabAskOptions) {
     onNeedAuth: () => setNotice(LAB_COPY.signInVoice),
     onInsufficientBalance: () => setNotice(LAB_COPY.balanceEmpty),
     mode: 'conversation',
-    instructions: talkInstructions,
+    reference: talkReference,
     tools: mergedVoiceTools,
     onApplicationTool: onTinctVoiceTool,
     onSessionStart: () => {
       tinctVoiceTools.resetUndo()
       optionsRef.current.onVoiceToolSessionStart?.()
     },
-    onCompanionAsk: undefined,
-    voiceTrial: options.voiceTrial,
-    honorModelResume: true,
-    quietCompanionHandoff: options.quietCompanionHandoff,
     setPlaybackSpeed: (rate) => optionsRef.current.onSetPlaybackSpeed?.(rate),
     skipPlayback: (kind) => optionsRef.current.onPlaybackSkip?.(kind),
     assistantPace,
     onSetAssistantPace: setAssistantPace,
-    voiceVersion,
   })
 
   // Voice V2: a mid-session failure is shown, not swallowed. The notice

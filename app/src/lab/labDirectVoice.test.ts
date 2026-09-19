@@ -1,23 +1,28 @@
 import { describe, expect, it, vi, beforeEach } from 'vitest'
-import { labVoiceTrial } from './labRoute'
-import { buildDirectVoiceInstructions, retrieveVoicePassage } from './labDirectVoice'
+import { buildLabTalkReference, retrieveVoicePassage } from './labDirectVoice'
 import { loadEditionWindow } from '../data/editionLoader'
 vi.mock('../data/editionLoader', () => ({ loadEditionWindow: vi.fn() }))
 const context = { bookId:'bible', editionKey:'kjv-en', bookTitle:'The Bible', bookAuthor:'Various', chapterLabel:'Genesis 2', chapterNumber:2, paragraphIndex:0, paragraphs:['The heavens and the earth were finished.'], readingAngle:'' }
 beforeEach(() => vi.mocked(loadEditionWindow).mockResolvedValue({chapters:[{number:1,title:'Genesis 1',paragraphs:['Let there be light.']},{number:2,title:'Genesis 2',paragraphs:context.paragraphs},{number:3,title:'Genesis 3',paragraphs:['Later text.']}]}))
-describe('direct voice trial', () => {
-  it('keeps ordinary reader routes on Live and Realtime trials opt-in', () => {
-    for (const path of ['/reader', '/lab/phone', '/lab/reader']) expect(labVoiceTrial(path, '?chrome=v2')).toBeNull()
-    expect(labVoiceTrial('/lab/phone','?chrome=v2&voiceTrial=full')).toBe('full')
-    expect(labVoiceTrial('/lab/reader?chrome=v2&voiceTrial=mini')).toBe('mini')
-    for (const path of ['/app','/lab/library','/lab/reader']) expect(labVoiceTrial(path,'?voiceTrial=full')).toBeNull()
-    expect(labVoiceTrial('/lab/reader','?chrome=v2&voiceTrial=other')).toBeNull()
+describe('direct voice reference', () => {
+  it('carries position, edition, passage and the Explain quote with its explanation as data', () => {
+    const reference = JSON.parse(buildLabTalkReference(context, [
+      { role: 'user', content: 'Explain this passage.', highlightedText: 'the heavens and the earth were finished' },
+      { role: 'assistant', content: 'The earlier explanation.' },
+    ])) as Record<string, unknown>
+    expect(reference).toMatchObject({ book: 'The Bible', edition: 'kjv-en', chapter: 'Genesis 2', chapterNumber: 2, paragraphIndex: 0 })
+    expect(reference.excerpt).toEqual([{ paragraphIndex: 0, text: context.paragraphs[0] }])
+    expect(reference.recentConversation).toEqual([
+      { role: 'user', quote: 'the heavens and the earth were finished', content: 'Explain this passage.' },
+      { role: 'assistant', content: 'The earlier explanation.' },
+    ])
+    expect(buildLabTalkReference(context, []).length).toBeLessThan(2000)
+    expect(buildLabTalkReference(context, [])).not.toMatch(/you are|never|always/i)
   })
-  it('answers directly from context with no companion instruction', () => {
-    const prompt=buildDirectVoiceInstructions(context)
-    expect(prompt).toContain(context.paragraphs[0])
-    expect(prompt).not.toContain('ask_companion')
-    expect(prompt).toContain('not instructions')
+  it('drops cancelled turns and keeps only the latest four', () => {
+    const turns = Array.from({ length: 6 }, (_, i) => ({ role: i % 2 ? 'assistant' : 'user', content: `turn ${i}` }))
+    const reference = JSON.parse(buildLabTalkReference(context, [{ role: 'assistant', content: 'cut off', cancelled: true }, ...turns])) as { recentConversation: Array<{ content: string }> }
+    expect(reference.recentConversation.map(turn => turn.content)).toEqual(['turn 2', 'turn 3', 'turn 4', 'turn 5'])
   })
   it('retrieves the exact edition and chapter without navigating', async () => {
     const result=await retrieveVoicePassage(context,{chapter_title:'Genesis 1'})
@@ -27,16 +32,4 @@ describe('direct voice trial', () => {
   it('rejects unknown chapters, invalid offsets and future text', async () => {
     for(const args of [{chapter_number:3},{chapter_title:'Does not exist'},{from_paragraph:-1},{from_paragraph:400}]) expect((await retrieveVoicePassage(context,args)).output.ok).toBe(false)
   })
-})
-
-it('keeps light context compact while retaining the current passage, explanation and reader controls', async () => {
-  const { buildLightDirectVoiceInstructions } = await import('./labDirectVoice')
-  const prompt = buildLightDirectVoiceInstructions(context, [{ role: 'assistant', content: 'The earlier explanation.' }])
-  expect(prompt).toContain(context.paragraphs[0])
-  expect(prompt).toContain('The earlier explanation.')
-  expect(prompt).toContain('search_personal_reading_history')
-  expect(prompt).toContain('play_audio=true')
-  expect(prompt).toContain('search_reading_sources')
-  expect(prompt).toContain('do not search automatically')
-  expect(prompt.length).toBeLessThan(2500)
 })

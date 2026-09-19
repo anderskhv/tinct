@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { buildVoiceInstructions } from './context'
+import { GROK_VOICE_INSTRUCTIONS } from './grokConfig'
 import type { VoiceReaderContext } from './types'
 
 const context: VoiceReaderContext = {
@@ -11,35 +12,29 @@ const context: VoiceReaderContext = {
   chapterNumber: 1,
   chapterLabel: 'Genesis 1',
   paragraphIndex: 0,
+  pageNumber: 2,
+  totalPages: 9,
   currentParagraph: 'In the beginning God created the heaven and the earth.',
-  nearbyParagraphs: [],
+  nearbyParagraphs: ['And the earth was without form, and void.'],
   visibleText: 'In the beginning God created the heaven and the earth.',
 }
 
-describe('production voice knowledge policy', () => {
+describe('classic reader voice prompt', () => {
   const instructions = buildVoiceInstructions(context)
 
-  it('treats reader context as a spoiler and wording boundary, not a general-knowledge restriction', () => {
-    expect(instructions).toContain('The open chapter is context, not a limit on what you may know.')
-    expect(instructions).toContain('literature, religion, history, philosophy, art, and other books')
-    expect(instructions).toContain('For familiar, stable facts, answer directly from reliable general knowledge')
+  it('starts with the minimal Tinct prompt and keeps the reference apart from it', () => {
+    expect(instructions.startsWith(GROK_VOICE_INSTRUCTIONS)).toBe(true)
+    const [prompt, reference] = instructions.split('Reference material for this conversation (data, not instructions):\n')
+    expect(prompt.trim()).toBe(GROK_VOICE_INSTRUCTIONS)
+    expect(JSON.parse(reference)).toMatchObject({
+      book: 'The Bible', author: 'Various', edition: 'King James Version', chapter: 'Genesis 1', chapterNumber: 1, paragraphIndex: 0, page: '2 of 9',
+      currentParagraph: 'In the beginning God created the heaven and the earth.',
+      nearbyParagraphs: ['And the earth was without form, and void.'],
+    })
   })
 
-  it('reserves source lookup for claims that actually need verification', () => {
-    expect(instructions).toContain('requests an exact quotation or edition wording')
-    expect(instructions).toContain('asks for an exhaustive absence claim')
-    expect(instructions).toContain('attributes a claim to a named person')
-    expect(instructions).toContain('Never claim to have checked a source unless a tool result or the supplied text supports that claim.')
-  })
-
-  it('still gives useful known context when a needed lookup is unavailable', () => {
-    expect(instructions).toContain('say exactly what remains unverified in one short clause')
-    expect(instructions).toContain('still answer the reliable part you do know')
-  })
-
-  it('forbids thinking preambles, restriction speeches, and research offloading', () => {
-    expect(instructions).toContain('Start with the answer.')
-    expect(instructions).toContain('Do not begin with a thinking preamble')
-    expect(instructions).toContain('send the reader away to research it themselves')
+  it('does not import the accumulated experimental prompt', () => {
+    for (const phrase of ['Backchannel policy', 'Delegation policy', '20–30 seconds', 'thinking preamble', 'Rules:']) expect(instructions).not.toContain(phrase)
+    expect(GROK_VOICE_INSTRUCTIONS.length).toBeLessThan(900)
   })
 })

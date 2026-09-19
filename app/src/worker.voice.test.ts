@@ -1,10 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { handleLabVoiceSession, handleVoiceSession, VOICE_NOT_CONFIGURED_ERROR } from './worker/routes/voice'
-import { VOICE_REALTIME_MODEL } from './voice/types'
+import { handleLabVoiceSession, handleVoiceSession, VOICE_NOT_CONFIGURED_ERROR, XAI_CLIENT_SECRETS_URL } from './worker/routes/voice'
+import { GROK_CLIENT_SECRET_TTL_SECONDS, GROK_VOICE_MODEL } from './voice/grokConfig'
 
 const userId = '11111111-1111-4111-8111-111111111111'
 const env = {
-  OPENAI_API_KEY: 'openai-key',
+  XAI_API_KEY: 'xai-test-key',
   SUPABASE_URL: 'https://example.supabase.co',
   SUPABASE_SERVICE_ROLE_KEY: 'service-role',
 }
@@ -21,17 +21,18 @@ function makeExecutionContext() {
   }
 }
 
-function voiceRequest() {
+function voiceRequest(body = '{}') {
   return new Request('https://tinct.app/api/voice-session', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
+    body,
   })
 }
 
-describe('voice session route', () => {
+describe('voice session route (Grok native speech-to-speech)', () => {
   beforeEach(() => {
     vi.useFakeTimers()
-    vi.setSystemTime(new Date('2026-06-16T12:00:00Z'))
+    vi.setSystemTime(new Date('2026-09-18T12:00:00Z'))
   })
 
   afterEach(() => {
@@ -51,13 +52,13 @@ describe('voice session route', () => {
     expect(response.status).toBe(405)
   })
 
-  it('fails clearly when OPENAI_API_KEY is missing', async () => {
+  it('fails clearly when XAI_API_KEY is missing, even if the old OpenAI key is present', async () => {
     const fetchMock = vi.fn()
     vi.stubGlobal('fetch', fetchMock)
     const { ctx } = makeExecutionContext()
     const response = await handleVoiceSession(
       voiceRequest(),
-      {},
+      { OPENAI_API_KEY: 'openai-key' },
       ctx,
       async () => ({ id: userId, email: 'reader@example.com' }),
       async () => true,
@@ -67,27 +68,18 @@ describe('voice session route', () => {
     expect(fetchMock).not.toHaveBeenCalled()
   })
 
-  it('requires auth before minting a token', async () => {
+  it('requires auth before minting a client secret', async () => {
     const fetchMock = vi.fn()
     vi.stubGlobal('fetch', fetchMock)
     const { ctx } = makeExecutionContext()
-    const response = await handleVoiceSession(
-      voiceRequest(),
-      env,
-      ctx,
-      async () => null,
-      async () => true,
-    )
+    const response = await handleVoiceSession(voiceRequest(), env, ctx, async () => null, async () => true)
     expect(response.status).toBe(401)
     expect(fetchMock).not.toHaveBeenCalled()
   })
 
-  it('mints a lab guest realtime token without a session and does not charge', async () => {
+  it('mints a lab guest client secret without a session and does not charge', async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
-      const url = String(input)
-      if (url === 'https://api.openai.com/v1/realtime/client_secrets') {
-        return Response.json({ value: 'ek_lab_guest', expires_at: 1_771_600_000 })
-      }
+      if (String(input) === XAI_CLIENT_SECRETS_URL) return Response.json({ value: 'xai-realtime-guest', expires_at: 1_789_740_000 })
       return Response.json({ error: 'unexpected fetch' }, { status: 500 })
     })
     vi.stubGlobal('fetch', fetchMock)
@@ -97,21 +89,17 @@ describe('voice session route', () => {
     })
     const { ctx, waitUntil } = makeExecutionContext()
 
-    const response = await handleLabVoiceSession(
-      voiceRequest(),
-      env,
-      ctx,
-      rateLimit,
-    )
+    const response = await handleLabVoiceSession(voiceRequest(), env, ctx, rateLimit)
 
     expect(response.status).toBe(200)
-    expect(await response.json()).toMatchObject({ value: 'ek_lab_guest' })
+    expect(await response.json()).toEqual({ value: 'xai-realtime-guest', expires_at: 1_789_740_000, model: GROK_VOICE_MODEL })
     expect(waitUntil).not.toHaveBeenCalled()
     expect(fetchMock).toHaveBeenCalledTimes(1)
   })
 
-  it('mints an ephemeral realtime token and charges one message', async () => {
-    let openaiBody: Record<string, unknown> | null = null
+  it('mints a client secret for a signed-in reader and charges one message', async () => {
+    let xaiBody: Record<string, unknown> | null = null
+    let xaiAuth = ''
     const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input)
       if (url.includes('/rest/v1/profiles')) {
@@ -123,13 +111,12 @@ describe('voice session route', () => {
           created_at: '2026-06-01T12:00:00Z',
         }])
       }
-      if (url === 'https://api.openai.com/v1/realtime/client_secrets') {
-        openaiBody = JSON.parse(String(init?.body)) as Record<string, unknown>
-        return Response.json({ value: 'ek_test_123', expires_at: 1_771_600_000 })
+      if (url === XAI_CLIENT_SECRETS_URL) {
+        xaiBody = JSON.parse(String(init?.body)) as Record<string, unknown>
+        xaiAuth = String((init?.headers as Record<string, string>).Authorization)
+        return Response.json({ value: 'xai-realtime-secret', expires_at: 1_789_740_000 })
       }
-      if (url.includes('/rest/v1/rpc/use_message')) {
-        return Response.json({})
-      }
+      if (url.includes('/rest/v1/rpc/use_message')) return Response.json({})
       return Response.json({ error: 'unexpected fetch' }, { status: 500 })
     })
     vi.stubGlobal('fetch', fetchMock)
@@ -144,74 +131,76 @@ describe('voice session route', () => {
     )
 
     expect(response.status).toBe(200)
-    expect(await response.json()).toEqual({
-      value: 'ek_test_123',
-      expires_at: 1_771_600_000,
-      model: VOICE_REALTIME_MODEL,
-    })
-    expect(openaiBody).toMatchObject({
-      session: { type: 'realtime', model: VOICE_REALTIME_MODEL },
-    })
+    expect(await response.json()).toEqual({ value: 'xai-realtime-secret', expires_at: 1_789_740_000, model: GROK_VOICE_MODEL })
+    expect(xaiBody).toEqual({ expires_after: { seconds: GROK_CLIENT_SECRET_TTL_SECONDS } })
+    expect(xaiAuth).toBe('Bearer xai-test-key')
     expect(waitUntil).toHaveBeenCalledTimes(1)
     await Promise.all(pending)
-    expect(fetchMock).toHaveBeenCalledWith(
-      'https://example.supabase.co/rest/v1/rpc/use_message',
-      expect.objectContaining({ method: 'POST' }),
-    )
+    expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/rest/v1/rpc/use_message'))).toBe(true)
   })
-})
 
-it('selects only explicit trial models without changing the default', async () => {
-  for (const [voiceTrial, expected] of [['full','gpt-realtime-2.1'],['mini',VOICE_REALTIME_MODEL],['arbitrary-model',VOICE_REALTIME_MODEL]]) {
-    let requested: unknown
-    vi.stubGlobal('fetch',vi.fn(async (_url, init) => { requested=JSON.parse(init.body); return Response.json({value:'ephemeral-test'}) }))
-    const {ctx}=makeExecutionContext()
-    const response=await handleVoiceSession(new Request('https://tinct.app/api/lab-voice-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({voiceTrial})}),{OPENAI_API_KEY:'test'},ctx,async()=>null,async()=>true,{allowLabGuest:true})
-    expect(response.status).toBe(200)
-    expect(requested).toMatchObject({session:{model:expected}})
-    expect(await response.json()).toMatchObject({model:expected})
-  }
-})
-
-it('creates GPT Live sessions through the server and exposes only the SDP answer', async () => {
-  const fetcher = vi.fn().mockResolvedValue(new Response(JSON.stringify({ session: { id: 'live_test' }, transport: { type: 'webrtc', sdp: 'answer' } }), { status: 201 }))
-  vi.stubGlobal('fetch', fetcher)
-  try {
-    const request = new Request('https://tinct.app/api/lab-voice-session', { method: 'POST', body: JSON.stringify({ protocol: 'live', sdp: 'v=0\r\n', instructions: 'Use the companion.', tools: [{ type: 'function', name: 'ask_companion', parameters: { type: 'object', properties: {} } }] }) })
+  it('never forwards client-supplied provider parameters', async () => {
+    let xaiBody: Record<string, unknown> | null = null
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input) === XAI_CLIENT_SECRETS_URL) {
+        xaiBody = JSON.parse(String(init?.body)) as Record<string, unknown>
+        return Response.json({ value: 'xai-realtime-secret', expires_at: 1 })
+      }
+      return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+    }))
     const { ctx } = makeExecutionContext()
-    const response = await handleLabVoiceSession(request, env, ctx, async () => true)
+    const response = await handleLabVoiceSession(
+      voiceRequest(JSON.stringify({ model: 'grok-4', voiceTrial: 'full', session: { instructions: 'x' }, expires_after: { seconds: 999999 } })),
+      env,
+      ctx,
+      async () => true,
+    )
     expect(response.status).toBe(200)
-    expect(fetcher.mock.calls[0][0]).toBe('https://api.openai.com/v1/live/sessions')
-    const body = JSON.parse(fetcher.mock.calls[0][1].body)
-    expect(body.session.model).toBe('gpt-live-1')
-    expect(body.session.delegation.responses.parallel_tool_calls).toBe(false)
-    expect(await response.json()).toEqual({ session: { id: 'live_test' }, transport: { type: 'webrtc', sdp: 'answer' }, model: 'gpt-live-1' })
-  } finally { vi.unstubAllGlobals() }
-})
+    expect(xaiBody).toEqual({ expires_after: { seconds: GROK_CLIENT_SECRET_TTL_SECONDS } })
+  })
 
-it('rejects guest and non-admin experiment overrides before contacting OpenAI', async () => {
-  const fetcher = vi.fn(async (_url: unknown) => Response.json([])); vi.stubGlobal('fetch', fetcher)
-  const { ctx } = makeExecutionContext()
-  const make = () => new Request('https://tinct.app/api/voice-session', { method: 'POST', body: JSON.stringify({ protocol: 'live', voiceExperiment: { label: 'Test', model: 'gpt-5.6-sol', frontend: 'Speak', backend: 'Think' } }) })
-  expect((await handleLabVoiceSession(make(), env, ctx, async () => true)).status).toBe(403)
-  expect(fetcher).not.toHaveBeenCalled()
-  expect((await handleVoiceSession(make(), env, ctx, async () => ({ id: userId, email: 'test@example.com' }), async () => true)).status).toBe(403)
-  expect(fetcher.mock.calls.every(call => !String(call[0]).includes('openai.com'))).toBe(true)
-  vi.unstubAllGlobals()
-})
+  it('blocks readers without chat access before contacting xAI', async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      if (String(input).includes('/rest/v1/profiles')) {
+        return Response.json([{
+          messages_used_this_period: 100,
+          message_balance: 0,
+          subscription_status: 'canceled',
+          subscription_period_end: '2026-01-01T00:00:00Z',
+          created_at: '2025-01-01T12:00:00Z',
+        }])
+      }
+      return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    const { ctx } = makeExecutionContext()
+    const response = await handleVoiceSession(
+      voiceRequest(),
+      env,
+      ctx,
+      async () => ({ id: userId, email: 'reader@example.com' }),
+      async () => true,
+    )
+    expect(response.status).toBe(402)
+    expect(fetchMock.mock.calls.some(call => String(call[0]) === XAI_CLIENT_SECRETS_URL)).toBe(false)
+  })
 
-it('uses validated admin experiment prompts and model without changing the voice model', async () => {
-  let upstream: any
-  vi.stubGlobal('fetch', vi.fn(async (url, init) => {
-    if (String(url).includes('site_admins')) return Response.json([{ user_id: userId }])
-    if (String(url).includes('profiles?')) return Response.json([{ message_balance: 100, subscription_status: 'active' }])
-    if (String(url).includes('api.openai.com')) { upstream = JSON.parse(init.body); return Response.json({ transport: { sdp: 'answer' } }) }
-    return Response.json({})
-  }))
-  const { ctx } = makeExecutionContext()
-  const body = { protocol: 'live', sdp: 'v=0\r\n', instructions: 'Resolved experiment reasoning prompt', tools: [], voiceExperiment: { label: 'Test', model: 'gpt-5.6-sol', frontend: 'Custom speaker prompt', backend: '{{passage}}' } }
-  const res = await handleVoiceSession(new Request('https://tinct.app/api/voice-session', { method: 'POST', body: JSON.stringify(body) }), env, ctx, async () => ({ id: userId, email: 'test@example.com' }), async () => true)
-  expect(res.status).toBe(200)
-  expect(upstream.session).toMatchObject({ model: 'gpt-live-1', instructions: 'Custom speaker prompt', delegation: { responses: { model: 'gpt-5.6-sol', instructions: body.instructions } } })
-  vi.unstubAllGlobals()
+  it('rate limits guests per minute', async () => {
+    const fetchMock = vi.fn()
+    vi.stubGlobal('fetch', fetchMock)
+    const { ctx } = makeExecutionContext()
+    const response = await handleLabVoiceSession(voiceRequest(), env, ctx, async () => false)
+    expect(response.status).toBe(429)
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it('surfaces a provider failure without leaking the key', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json({ error: 'Insufficient credits' }, { status: 402 })))
+    const { ctx } = makeExecutionContext()
+    const response = await handleLabVoiceSession(voiceRequest(), env, ctx, async () => true)
+    expect(response.status).toBe(402)
+    const body = await response.json() as { error: string }
+    expect(body.error).toBe('Insufficient credits')
+    expect(JSON.stringify(body)).not.toContain('xai-test-key')
+  })
 })

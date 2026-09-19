@@ -13,7 +13,7 @@
  */
 
 import type { LabConversationState } from './labAsk'
-import type { VoiceConnectionState } from '../voice/VoiceSessionController'
+import type { VoiceConnectionState } from '../voice/session'
 
 export type LabCallStatus =
   | 'live'
