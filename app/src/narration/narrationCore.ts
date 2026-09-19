@@ -129,8 +129,19 @@ export function isSilentNarrationToken(token: string): boolean {
 }
 
 /** The spoken words of a token range: what the provider is sent. */
+/**
+ * What the narrator is asked to read. Silent tokens (verse numbers) are
+ * dropped. Square brackets are removed: Fish treats `[...]` as a
+ * paralinguistic tag rather than words, and Hamlet's "[Enter Ghost]" came
+ * back as 0.8–12 s of audio with no spoken words. Display tokens keep their
+ * brackets; the aligner ignores punctuation when it maps timings back.
+ */
 export function spokenText(tokens: string[], from = 0, to = tokens.length): string {
-  return tokens.slice(from, to).filter(token => !isSilentNarrationToken(token)).join(' ')
+  return tokens.slice(from, to)
+    .filter(token => !isSilentNarrationToken(token))
+    .map(token => token.replace(/[[\]]/g, ''))
+    .filter(token => token.length > 0)
+    .join(' ')
 }
 
 /** UTF-8 byte length — Fish bills TTS per million UTF-8 bytes of input text. */
