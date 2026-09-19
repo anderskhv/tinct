@@ -343,3 +343,21 @@ list price.
 
 **Ceilings.** Daily 2,000,000 text bytes (≈$30), monthly 10,000,000 (≈$150),
 so the warm-up fits in one day with headroom for readers.
+
+### Live probe — paid model, one sentence group, 2026-09-19 (measured)
+
+`s2.1-pro` with API credit, narrating only the first sentence group of
+Odyssey Book 1 paragraphs 0 (111 chars) and 18 (199 chars), both voices.
+Report: `artifacts/fish-narration-pilot-2026-09-18/live-probe-paid-chunks-2026-09-19.json`.
+
+| Voice | Group | Audio | First audio byte | Tokens timed |
+| --- | --- | --- | --- | --- |
+| Nathan | p0 first sentence | 7.8 s | 6.6 s (first call of the session) | 100 % |
+| Nathan | p18 first group | 13.0 s | 2.5 s | 100 % |
+| Abby | p0 first sentence | 7.2 s | 1.3 s | 100 % |
+| Abby | p18 first group | 12.1 s | 2.6 s | 100 % |
+
+The paid model still delivers the timestamped stream only at completion,
+but a sentence group completes in one to three seconds, so an uncached
+paragraph now starts within a few seconds and the look-ahead has 7–13 s of
+audio per group to stay ahead. Cost for the four groups: $0.009.

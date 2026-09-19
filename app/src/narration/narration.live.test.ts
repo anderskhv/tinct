@@ -18,6 +18,7 @@ import {
   DEFAULT_NARRATION_SETTINGS,
   absoluteSegments,
   alignSegmentsToTokens,
+  chunkNarrationText,
   narrationTextForParagraph,
   parseFishTimestampSse,
   utf8ByteLength,
@@ -33,6 +34,8 @@ const VOICES = [
 ]
 const PARAGRAPH_INDEXES = (process.env.NARRATION_PROBE_PARAGRAPHS || '0,18').split(',').map(Number)
 const EDITION = process.env.NARRATION_PROBE_EDITION || 'original-en'
+/** With NARRATION_PROBE_CHUNK=1 only each paragraph's first sentence group is narrated (what a reader waits for). */
+const CHUNK_ONLY = process.env.NARRATION_PROBE_CHUNK === '1'
 
 const describeLive = API_KEY ? describe : describe.skip
 
@@ -44,7 +47,8 @@ describeLive('Fish Audio live probe (spends money; needs NARRATION_LIVE_PROBE=1 
     const report: Record<string, unknown>[] = []
     for (const voice of VOICES) {
       for (const index of PARAGRAPH_INDEXES) {
-        const text = narrationTextForParagraph(edition.chapters[0].paragraphs[index])
+        const whole = narrationTextForParagraph(edition.chapters[0].paragraphs[index])
+        const text = CHUNK_ONLY ? chunkNarrationText(whole)[0].text : whole
         const startedAt = performance.now()
         const response = await fetch('https://api.fish.audio/v1/tts/stream/with-timestamp', {
           method: 'POST',
@@ -72,11 +76,11 @@ describeLive('Fish Audio live probe (spends money; needs NARRATION_LIVE_PROBE=1 
         const absolute = absoluteSegments(stream.snapshots)
         const validation = validateNarrationAsset({ text, audio: stream.audio, reportedDuration: absolute.duration, segments: absolute.segments })
         const aligned = alignSegmentsToTokens(text.split(' '), absolute.segments, validation.duration)
-        const sample = path.join(outDir, `odyssey-${EDITION}-ch1-p${index}-${voice.key}-${voice.label.toLowerCase()}.mp3`)
+        const sample = path.join(outDir, `odyssey-${EDITION}-ch1-p${index}${CHUNK_ONLY ? '-chunk0' : ''}-${voice.key}-${voice.label.toLowerCase()}-${MODEL}.mp3`)
         fs.writeFileSync(sample, stream.audio)
         fs.writeFileSync(sample.replace(/\.mp3$/, '.segments.json'), JSON.stringify({ text, segments: absolute.segments, words: aligned.words }, null, 2))
         report.push({
-          voice: voice.label, voiceId: voice.id, model: MODEL, edition: EDITION, paragraph: index,
+          voice: voice.label, voiceId: voice.id, model: MODEL, edition: EDITION, paragraph: index, unit: CHUNK_ONLY ? 'chunk0' : 'paragraph',
           textChars: text.length, textBytes: utf8ByteLength(text), costUsd: (utf8ByteLength(text) / 1_000_000) * 15,
           msToFirstAudioByte: firstAudioAt == null ? null : Math.round(firstAudioAt - startedAt),
           msToComplete: Math.round(finishedAt - startedAt),
