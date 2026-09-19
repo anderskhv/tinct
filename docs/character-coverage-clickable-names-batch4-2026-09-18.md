@@ -137,12 +137,36 @@ spans ("What are you saying, Storm?"); stripped and rebound. Bare
 
 ## Verify
 
-Suite rows: 601 → 786 (`precheck_verify_cases.py` gate: 0 bad). The
-601-row run of the earlier books aborted at row ~600 on a single
-reader-ready timeout (`page.waitForFunction`); the suite now retries a
-load once and records `READER_TIMEOUT` per row instead of aborting.
-Result of the full 786-row run is recorded in the commit that follows
-this ledger.
+Suite rows: 601 → 837 (`precheck_verify_cases.py` gate: 0 bad), run on
+desktop and phone = 1,674 device-rows. The suite was made resumable and
+row-fault-tolerant on the way (three multi-hour runs were lost to
+container restarts and one uncaught Playwright timeout); it now writes
+`results.partial.json` per row, `VERIFY_RESUME=1` continues a run,
+`VERIFY_ONLY=<regex>` runs a subset, rows for staged books are
+`SKIPPED_STAGED`, and the benign Web Locks console message no longer
+taints a pass. `books/characters/reader_verify_replica.py` reproduces the
+app's package gate offline (0 problems across 101 books).
+
+**Result (2026-09-19):** 1,608 / 1,626 device-rows pass (98.9%); 48 rows
+skipped because Treasure Island is staged (not in `BOOKS`, so the reader
+cannot open it — its package verifies and will light up on publication).
+Desktop: 811 / 813. The 18 remaining non-passes are not character data:
+
+- 16 phone-only rows in long-paragraph books (Ulysses Circe/Ithaca,
+  Wealth of Nations, C&P, P&P, BK): the phone viewport paginates a single
+  paragraph across dozens of pages and the suite's locator/paging either
+  times out or never finds the word; the same rows pass on desktop.
+- 2 desktop rows, both Wealth of Nations `modern-en`: the reader renders
+  the **original-en** text when the handoff asks for modern-en (the word
+  the suite tapped is exactly the original's word at that index). App-
+  side edition selection for this one book; flagged for the Codex lane.
+
+Row fixes made during triage: expectations corrected where the card's
+name differs from the alias (Jane Eyre → "Miss Eyre", C&P Nikolay →
+"Mikolka", Lucifer → "Satan", Tiberius); rows re-pointed away from a
+first mention glued to an em-dash or possessive curly quote (Lazarus,
+Mrs. Boye, Mina Purefoy); Faust's Lilith and Will-o'-the-Wisp dropped
+(no clean mention until the tokenizer trims trailing `’`).
 
 ## Open, app-side (not done from this lane)
 
@@ -152,6 +176,7 @@ this ledger.
   quote/dash cases (validator: `curly_quote_only`); the mid-token cases
   are pruned and would need a tokenizer change to come back (Montaigne
   ~412, Nietzsche's `--` prose, Moby-Dick's em-dashes).
+- Wealth of Nations: reader shows original-en when modern-en is requested (see Verify).
 - `paragraphHashes` size; Bible LORD/God rebind is a product decision.
 
 ## Next in the queue
