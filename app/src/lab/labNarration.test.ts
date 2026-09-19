@@ -34,8 +34,9 @@ describe('narration pilot flag and prefs', () => {
     expect(narrationPilotApplies(on, 'odyssey', 'original-en', 1)).toBe(true)
     expect(narrationPilotApplies(on, 'odyssey', 'modern-en', 1)).toBe(true)
     expect(narrationPilotApplies(on, 'odyssey', 'modern-da', 1)).toBe(false)
-    expect(narrationPilotApplies(on, 'odyssey', 'original-en', 2)).toBe(false)
-    expect(narrationPilotApplies(on, 'bible', 'kjv-en', 1)).toBe(false)
+    expect(narrationPilotApplies(on, 'odyssey', 'original-en', 2)).toBe(true)
+    expect(narrationPilotApplies(on, 'bible', 'kjv-en', 1)).toBe(true)
+    expect(narrationPilotApplies(on, 'ulysses', 'original-en', 1)).toBe(false)
     expect(narrationPilotApplies(DEFAULT_LAB_PREFS, 'odyssey', 'original-en', 1)).toBe(false)
   })
 
@@ -54,9 +55,9 @@ describe('narration API client', () => {
     const textHash = await sha256Hex(narrationTextForParagraph(paragraph))
     const fetchImpl = vi.fn(async (_url: string, init?: RequestInit) => {
       const body = JSON.parse(String(init?.body))
-      expect(body).toEqual({ bookId: 'odyssey', editionKey: 'original-en', chapter: 1, voice: 'a', paragraphs: [{ index: 0, textHash }] })
+      expect(body).toEqual({ bookId: 'odyssey', editionKey: 'original-en', chapter: 1, voice: 'a', paragraphs: [{ index: 0, textHash }], mode: 'next' })
       expect(new Headers(init?.headers).get('Authorization')).toBe('Bearer token-1')
-      return Response.json({ paragraphs: [{ paragraph: 0, status: 'ready', url: '/api/audio-file?path=x', duration: 3, words: null, timingsUsable: false, hash: 'h', textHash, source: 'cache' }] })
+      return Response.json({ paragraphs: [{ paragraph: 0, status: 'ready', textHash, chunkCount: 1, readyChunks: 1, chunks: [{ index: 0, wordFrom: 0, wordTo: 8, ready: true, url: '/api/audio-file?path=x', duration: 3, words: null, timingsUsable: false, hash: 'h' }], duration: 3, words: null, timingsUsable: false, source: 'cache' }] })
     }) as unknown as typeof fetch
     const results = await ensureNarration(
       { bookId: 'odyssey', editionKey: 'original-en', chapter: 1, voice: 'a', paragraphs: [{ index: 0, text: paragraph }] },
@@ -64,6 +65,17 @@ describe('narration API client', () => {
     )
     expect(results[0]).toMatchObject({ status: 'ready', paragraph: 0 })
     expect(fetchImpl).toHaveBeenCalledWith('/api/narration/ensure', expect.objectContaining({ method: 'POST' }))
+  })
+
+  it('omits the text hash when prefetching a paragraph whose text it has not loaded', async () => {
+    const fetchImpl = vi.fn(async (_url: string, init?: RequestInit) => {
+      const body = JSON.parse(String(init?.body))
+      expect(body.paragraphs).toEqual([{ index: 0 }, { index: 1 }])
+      expect(body.mode).toBe('all')
+      return Response.json({ paragraphs: [] })
+    }) as unknown as typeof fetch
+    await ensureNarration({ bookId: 'odyssey', editionKey: 'original-en', chapter: 2, voice: 'a', paragraphs: [{ index: 0 }, { index: 1 }], mode: 'all' }, { fetchImpl })
+    expect(fetchImpl).toHaveBeenCalledTimes(1)
   })
 
   it('turns HTTP failures into typed errors and passes aborts through', async () => {

@@ -45,7 +45,7 @@ export interface NarrationPilotInfo {
   voices: NarrationVoiceOption[]
 }
 
-/** True when the reader opted in and the current text is inside the pilot scope. */
+/** True when the reader opted in and the current text is inside the narration scope (featured books, English editions). */
 export function narrationPilotApplies(prefs: LabPrefs, bookId: string, editionKey: string, chapter: number): boolean {
   return prefs.narrationProvider === 'fish' && isPilotScope(bookId, editionKey, chapter)
 }
@@ -76,36 +76,63 @@ export async function fetchNarrationPilotInfo(fetchImpl: typeof fetch = fetch): 
   }
 }
 
-export interface NarrationParagraphReady {
-  paragraph: number
-  status: 'ready'
-  source: 'cache' | 'generated'
-  url: string
-  duration: number
-  words: AlignedWord[] | null
+/** One sentence group of a paragraph: playable when `ready`. */
+export interface NarrationChunkResult {
+  index: number
+  wordFrom: number
+  wordTo: number
+  ready: boolean
+  hash?: string
+  url?: string
+  duration?: number
+  /** Chunk-local word timings, one per token in `[wordFrom, wordTo)`. */
+  words?: AlignedWord[] | null
   alignment?: TokenAlignmentStats
-  timingsUsable: boolean
-  hash: string
+  timingsUsable?: boolean
+}
+
+/**
+ * A paragraph's narration state. `ready` means every chunk is playable;
+ * `partial` means a playable prefix exists; `pending` means nothing yet.
+ */
+export interface NarrationParagraphState {
+  paragraph: number
+  status: 'ready' | 'partial' | 'pending'
   textHash: string
+  chunkCount: number
+  readyChunks: number
+  chunks: NarrationChunkResult[]
+  /** Whole-paragraph duration and absolute words, present once complete and fully timed. */
+  duration?: number
+  words?: AlignedWord[] | null
+  timingsUsable?: boolean
+  source?: 'cache' | 'generated'
   generationMs?: number
+  retryAfterMs?: number
+  /** A later chunk failed; the ready prefix stays playable. */
+  failure?: { reason: string; detail?: string; retryAfterMs?: number }
 }
 
 export interface NarrationParagraphNotReady {
   paragraph: number
-  status: 'pending' | 'failed' | 'text_mismatch'
+  status: 'failed' | 'text_mismatch'
   textHash?: string
   reason?: string
   retryAfterMs?: number
+  detail?: string
 }
 
-export type NarrationParagraphResult = NarrationParagraphReady | NarrationParagraphNotReady
+export type NarrationParagraphResult = NarrationParagraphState | NarrationParagraphNotReady
 
 export interface NarrationEnsureRequest {
   bookId: string
   editionKey: string
   chapter: number
   voice: string
-  paragraphs: Array<{ index: number; text: string }>
+  /** Text is optional for prefetching another chapter; when given, its hash guards against stale audio. */
+  paragraphs: Array<{ index: number; text?: string }>
+  /** 'next' (default): one missing chunk, then answer. 'all': everything missing within the Worker's time budget. */
+  mode?: 'next' | 'all'
 }
 
 export const NARRATION_ENSURE_TIMEOUT_MS = 70_000
@@ -126,10 +153,11 @@ export async function ensureNarration(
   options: { signal?: AbortSignal; authToken?: string | null; fetchImpl?: typeof fetch } = {},
 ): Promise<NarrationParagraphResult[]> {
   const fetchImpl = options.fetchImpl || fetch
-  const paragraphs = await Promise.all(request.paragraphs.map(async item => ({
-    index: item.index,
-    textHash: await sha256Hex(narrationTextForParagraph(item.text)),
-  })))
+  const paragraphs = await Promise.all(request.paragraphs.map(async item => (
+    typeof item.text === 'string'
+      ? { index: item.index, textHash: await sha256Hex(narrationTextForParagraph(item.text)) }
+      : { index: item.index }
+  )))
   const headers: Record<string, string> = { 'Content-Type': 'application/json' }
   if (options.authToken) headers.Authorization = `Bearer ${options.authToken}`
   // The Worker may wait up to ~55 s on a busy provider; past that the
@@ -143,7 +171,7 @@ export async function ensureNarration(
     response = await fetchImpl(apiUrl('/api/narration/ensure'), {
       method: 'POST',
       headers,
-      body: JSON.stringify({ bookId: request.bookId, editionKey: request.editionKey, chapter: request.chapter, voice: request.voice, paragraphs }),
+      body: JSON.stringify({ bookId: request.bookId, editionKey: request.editionKey, chapter: request.chapter, voice: request.voice, paragraphs, mode: request.mode ?? 'next' }),
       signal: deadline.signal,
     })
   } catch (error) {

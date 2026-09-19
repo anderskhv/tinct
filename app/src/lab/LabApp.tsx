@@ -20,6 +20,7 @@ import {
   type NarrationPilotInfo,
 } from './labNarration'
 import { readSupabaseAccessToken } from './labAuth'
+import { useNarrationPrefetch } from './useNarrationPrefetch'
 import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
 import { LAB_COPY } from './labCopy'
@@ -992,7 +993,7 @@ export function LabApp({ pathname, search, online, source, authToken, voiceExper
 
   const narrationContextRef = useRef({ bookId: listenSource.bookId, editionKey: prefs.primaryEdition, chapter: listenSource.chapterNumber, paragraphs: listenSource.paragraphs, voice: narrationVoice })
   narrationContextRef.current = { bookId: listenSource.bookId, editionKey: prefs.primaryEdition, chapter: listenSource.chapterNumber, paragraphs: listenSource.paragraphs, voice: narrationVoice }
-  const narrationEnsure = useCallback(async (indexes: number[], signal: AbortSignal) => {
+  const narrationEnsure = useCallback(async (indexes: number[], signal: AbortSignal, mode?: 'next' | 'all') => {
     const context = narrationContextRef.current
     if (!context.voice) return []
     const token = authToken ?? await readSupabaseAccessToken()
@@ -1004,6 +1005,7 @@ export function LabApp({ pathname, search, online, source, authToken, voiceExper
       paragraphs: indexes
         .filter(index => index >= 0 && index < context.paragraphs.length)
         .map(index => ({ index, text: context.paragraphs[index] })),
+      mode: mode ?? 'next',
     }, { signal, authToken: token })
   }, [authToken])
   const narrationOption = useMemo(
@@ -1026,6 +1028,23 @@ export function LabApp({ pathname, search, online, source, authToken, voiceExper
   })
   listenSpeedRef.current = listen.speed
   listenPlayingRef.current = listen.playing
+  // Warm narration ahead of the reader: the chapter's opening on arrival, the
+  // next chapter's opening when the reader nears the end of this one.
+  const narrationCurrentParagraph = listen.playing && listen.follow.kind !== 'none'
+    ? listen.follow.paragraphIndex
+    : (readingPages[readingPageIndex]?.paragraphIndex ?? 0)
+  useNarrationPrefetch({
+    active: Boolean(narrationOption) && listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber,
+    voice: narrationVoice,
+    bookId: book.bookId || 'bible',
+    editionKey: prefs.primaryEdition,
+    chapter: book.chapterNumber,
+    nextChapter: nextLabChapter(book.chapters, book.chapterNumber),
+    paragraphCount: book.paragraphs.length,
+    currentParagraph: narrationCurrentParagraph,
+    authToken,
+    readToken: readSupabaseAccessToken,
+  })
 
   useEffect(() => {
     if (listen.playing || browseWhileListening) return

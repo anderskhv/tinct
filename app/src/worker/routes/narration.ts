@@ -4,21 +4,27 @@
  *   GET  /api/narration/voices   public   pilot configuration and curated voices
  *   GET  /api/narration/chapter  public   which paragraphs of a chapter are cached for a voice
  *   POST /api/narration/ensure   signed-in  make 1–3 paragraphs playable (cache hit or generate)
+ *   POST /api/narration/warm     admin token  same as ensure, for pre-generating chapters
  *   GET  /api/narration/usage    admin    generation accounting and ceilings
+ *
+ * Paragraphs are synthesised as sentence groups ("chunks") of at most 300
+ * characters so the first audio of an uncached paragraph is seconds away, not
+ * the whole paragraph's generation. `mode: 'next'` generates exactly one
+ * missing chunk and returns; the reader loops it ahead of playback.
  *
  * Audio bytes themselves are served by the existing `/api/audio-file` route
  * from `narration/fish/blob/{hash}.mp3`. The Fish API key only ever lives in
  * the Worker secret `FISH_AUDIO_API_KEY`; it is never logged or echoed.
  *
  * Cache layout (R2, bucket `tinct-audio`):
- *   narration/fish/blob/{hash}.mp3              the recording
- *   narration/fish/blob/{hash}.json             NarrationBlobMeta (text, timings, provenance)
- *   narration/fish/map/{book}/{edition}/ch{N}/{voiceKey}/p{i}.json   NarrationMapEntry
- * A map entry is written last, after audio and meta validated, so a reader
- * that finds a map entry always finds a complete recording behind it. The
- * map entry carries the text hash of the words it was recorded from; the
- * reader and this route both recompute that hash from the live text, so a
- * changed paragraph simply stops matching and is regenerated on demand.
+ *   narration/fish/blob/{hash}.mp3              one chunk's recording
+ *   narration/fish/blob/{hash}.json             NarrationBlobMeta (chunk text, timings, provenance)
+ *   narration/fish/map/{book}/{edition}/ch{N}/{voiceKey}/p{i}.json   NarrationMapEntry (ready chunks, in order)
+ * A map entry is rewritten after each chunk's audio and meta validated, so a
+ * reader that finds a chunk listed always finds a complete recording behind
+ * it. The map entry carries the text hash of the paragraph it was recorded
+ * from; the reader and this route both recompute that hash from the live
+ * text, so a changed paragraph simply stops matching and is regenerated.
  */
 
 import { jsonResponse } from '../lib/responses'
@@ -26,10 +32,12 @@ import { supabaseGet, type SupabaseEnv } from '../lib/supabase'
 import {
   DEFAULT_NARRATION_SETTINGS,
   NARRATION_CACHE_VERSION,
+  NARRATION_CHUNKER_VERSION,
   NARRATION_MAX_PARAGRAPHS_PER_REQUEST,
   NARRATION_PILOT_SCOPE,
   NARRATION_PROVIDER,
   absoluteSegments,
+  chunkNarrationTokens,
   isPilotScope,
   narrationAudioPath,
   narrationBlobKeys,
@@ -37,12 +45,15 @@ import {
   narrationMapKey,
   narrationMapPrefix,
   narrationTextForParagraph,
+  narrationTokens,
+  paragraphWordsFromChunks,
   parseFishTimestampSse,
   sha256Hex,
   utf8ByteLength,
   validateNarrationAsset,
   type AlignedWord,
   type NarrationBlobMeta,
+  type NarrationChunk,
   type NarrationMapEntry,
   type NarrationSynthesisSettings,
   type TimingSegment,
@@ -63,6 +74,8 @@ export type NarrationEnv = SupabaseEnv & {
   NARRATION_MONTHLY_BYTES?: string
   /** Override for tests and mocks; production uses the Fish API origin. */
   NARRATION_FISH_BASE_URL?: string
+  /** Secret for the warm route (pre-generation from a script), never a var. */
+  NARRATION_ADMIN_TOKEN?: string
   RATE_LIMIT?: KVNamespace
   AUDIO_BUCKET?: R2Bucket
   ASSETS?: { fetch: (request: Request) => Promise<Response> }
@@ -79,8 +92,8 @@ export interface NarrationDeps {
 
 export const FISH_API_BASE_URL = 'https://api.fish.audio'
 export const NARRATION_DEFAULT_MODEL = 's2.1-pro'
-export const NARRATION_DEFAULT_DAILY_BYTES = 200_000   // ≈ $3 / day at $15 per M bytes
-export const NARRATION_DEFAULT_MONTHLY_BYTES = 1_000_000 // ≈ $15 / month
+export const NARRATION_DEFAULT_DAILY_BYTES = 2_000_000   // ≈ $30 / day at $15 per M bytes
+export const NARRATION_DEFAULT_MONTHLY_BYTES = 10_000_000 // ≈ $150 / month
 export const NARRATION_ENSURE_RATE_PER_MINUTE = 40
 const LOCK_TTL_SECONDS = 120
 const LOCK_WAIT_MS = 20_000
@@ -142,7 +155,8 @@ export async function handleNarration(request: Request, env: NarrationEnv, ctx: 
   switch (sub) {
     case 'voices': return handleVoices(request, env)
     case 'chapter': return handleChapter(request, env, deps)
-    case 'ensure': return handleEnsure(request, env, ctx, deps)
+    case 'ensure': return handleEnsure(request, env, ctx, deps, 'reader')
+    case 'warm': return handleEnsure(request, env, ctx, deps, 'warm')
     case 'usage': return handleUsage(request, env, deps)
     default: return jsonResponse({ error: 'Not found' }, 404, request)
   }
@@ -158,6 +172,7 @@ function publicConfig(config: NarrationConfig) {
     settings: config.settings,
     scope: NARRATION_PILOT_SCOPE,
     cacheVersion: NARRATION_CACHE_VERSION,
+    chunker: NARRATION_CHUNKER_VERSION,
   }
 }
 
@@ -225,13 +240,16 @@ async function readJsonObject<T>(bucket: R2Bucket, key: string): Promise<T | nul
 
 async function readMapEntry(bucket: R2Bucket, key: string): Promise<NarrationMapEntry | null> {
   const entry = await readJsonObject<NarrationMapEntry>(bucket, key)
-  if (!entry || entry.version !== NARRATION_CACHE_VERSION || typeof entry.hash !== 'string' || typeof entry.textHash !== 'string') return null
+  if (!entry || entry.version !== NARRATION_CACHE_VERSION || entry.chunker !== NARRATION_CHUNKER_VERSION) return null
+  if (typeof entry.textHash !== 'string' || !Array.isArray(entry.chunks) || typeof entry.chunkCount !== 'number') return null
   return entry
 }
 
-interface ReadyEntry {
+interface ReadyChunk {
+  index: number
   hash: string
-  textHash: string
+  wordFrom: number
+  wordTo: number
   duration: number
   words: AlignedWord[] | null
   alignment: TokenAlignmentStats
@@ -239,38 +257,80 @@ interface ReadyEntry {
   audioBytes: number
 }
 
-/** A cached recording counts only when its map entry, meta and audio all agree with the live text. */
-async function readReadyEntry(bucket: R2Bucket, mapKey: string, expected: { textHash: string; hash: string }): Promise<ReadyEntry | null> {
+interface ParagraphState {
+  textHash: string
+  chunks: NarrationChunk[]
+  /** Ready chunks, a prefix of `chunks` in order. */
+  ready: ReadyChunk[]
+}
+
+/**
+ * The ready prefix of a paragraph's chunks: each listed chunk's meta and
+ * audio must agree with the live text hash, the chunk layout and each other.
+ * The first chunk that fails ends the prefix; nothing past it is trusted.
+ */
+async function readParagraphState(bucket: R2Bucket, mapKey: string, textHash: string, chunks: NarrationChunk[], voiceId: string, model: string): Promise<ParagraphState> {
+  const state: ParagraphState = { textHash, chunks, ready: [] }
   const entry = await readMapEntry(bucket, mapKey)
-  if (!entry || entry.textHash !== expected.textHash || entry.hash !== expected.hash) return null
-  const keys = narrationBlobKeys(entry.hash)
-  const [meta, head] = await Promise.all([readJsonObject<NarrationBlobMeta>(bucket, keys.meta), bucket.head(keys.audio)])
-  if (!meta || !head || meta.version !== NARRATION_CACHE_VERSION || meta.textHash !== expected.textHash || meta.hash !== expected.hash) return null
-  if (!(meta.duration > 0) || head.size !== meta.audioBytes || head.size < 800) return null
+  if (!entry || entry.textHash !== textHash || entry.chunkCount !== chunks.length || entry.voiceId !== voiceId || entry.model !== model) return state
+  for (let position = 0; position < entry.chunks.length; position += 1) {
+    const listed = entry.chunks[position]
+    const expected = chunks[position]
+    if (!listed || !expected || listed.index !== position || listed.wordFrom !== expected.wordFrom || listed.wordTo !== expected.wordTo || typeof listed.hash !== 'string') break
+    const keys = narrationBlobKeys(listed.hash)
+    const [meta, head] = await Promise.all([readJsonObject<NarrationBlobMeta>(bucket, keys.meta), bucket.head(keys.audio)])
+    if (!meta || !head || meta.version !== NARRATION_CACHE_VERSION || meta.textHash !== textHash || meta.hash !== listed.hash) break
+    if (meta.chunkIndex !== position || meta.text !== expected.text || !(meta.duration > 0) || head.size !== meta.audioBytes || head.size < 800) break
+    state.ready.push({
+      index: position,
+      hash: meta.hash,
+      wordFrom: expected.wordFrom,
+      wordTo: expected.wordTo,
+      duration: meta.duration,
+      words: meta.timingsUsable && Array.isArray(meta.words) ? meta.words : null,
+      alignment: meta.alignment,
+      timingsUsable: meta.timingsUsable,
+      audioBytes: meta.audioBytes,
+    })
+  }
+  return state
+}
+
+function chunkPayload(chunk: NarrationChunk, ready: ReadyChunk | undefined) {
+  if (!ready) return { index: chunk.index, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo, ready: false as const }
   return {
-    hash: meta.hash,
-    textHash: meta.textHash,
-    duration: meta.duration,
-    words: meta.timingsUsable && Array.isArray(meta.words) ? meta.words : null,
-    alignment: meta.alignment,
-    timingsUsable: meta.timingsUsable,
-    audioBytes: meta.audioBytes,
+    index: chunk.index,
+    wordFrom: chunk.wordFrom,
+    wordTo: chunk.wordTo,
+    ready: true as const,
+    hash: ready.hash,
+    audioPath: narrationAudioPath(ready.hash),
+    url: `/api/audio-file?path=${encodeURIComponent(narrationAudioPath(ready.hash))}`,
+    duration: ready.duration,
+    words: ready.words,
+    alignment: ready.alignment,
+    timingsUsable: ready.timingsUsable,
   }
 }
 
-function readyPayload(paragraph: number, entry: ReadyEntry, source: 'cache' | 'generated', extra: Record<string, unknown> = {}) {
+/** Reader-facing description of a paragraph: its chunk layout and which chunks are playable. */
+function paragraphPayload(paragraph: number, state: ParagraphState, extra: Record<string, unknown> = {}) {
+  const complete = state.chunks.length > 0 && state.ready.length === state.chunks.length
+  const status = complete ? 'ready' as const : state.ready.length > 0 ? 'partial' as const : 'pending' as const
+  const merged = complete
+    ? paragraphWordsFromChunks(state.ready.map(chunk => ({ words: chunk.words ?? [], duration: chunk.duration })))
+    : null
+  const allTimed = complete && state.ready.every(chunk => chunk.timingsUsable && chunk.words)
   return {
     paragraph,
-    status: 'ready' as const,
-    source,
-    hash: entry.hash,
-    textHash: entry.textHash,
-    audioPath: narrationAudioPath(entry.hash),
-    url: `/api/audio-file?path=${encodeURIComponent(narrationAudioPath(entry.hash))}`,
-    duration: entry.duration,
-    words: entry.words,
-    alignment: entry.alignment,
-    timingsUsable: entry.timingsUsable,
+    status,
+    textHash: state.textHash,
+    chunkCount: state.chunks.length,
+    readyChunks: state.ready.length,
+    chunks: state.chunks.map(chunk => chunkPayload(chunk, state.ready[chunk.index])),
+    duration: merged?.duration,
+    words: allTimed && merged ? merged.words : null,
+    timingsUsable: allTimed,
     ...extra,
   }
 }
@@ -299,13 +359,14 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
   const listed = await bucket.list({ prefix: narrationMapPrefix(scope.bookId, scope.editionKey, scope.chapter, voice.key) })
   const present = new Set(listed.objects.map((object: { key: string }) => object.key))
   const paragraphs = await Promise.all(text.paragraphs.map(async (raw, index) => {
-    const narration = narrationTextForParagraph(raw)
-    const identity = await narrationCacheIdentity({ provider: NARRATION_PROVIDER, model: config.model, voiceId: voice.id, text: narration, settings: config.settings })
+    const tokens = narrationTokens(raw)
+    const chunks = chunkNarrationTokens(tokens)
+    const textHash = await sha256Hex(tokens.join(' '))
     const mapKey = narrationMapKey(scope.bookId, scope.editionKey, scope.chapter, voice.key, index)
-    if (!present.has(mapKey)) return { paragraph: index, status: 'missing' as const, textHash: identity.textHash }
-    const ready = await readReadyEntry(bucket, mapKey, { textHash: identity.textHash, hash: identity.hash })
-    if (!ready) return { paragraph: index, status: 'stale' as const, textHash: identity.textHash }
-    return readyPayload(index, ready, 'cache')
+    if (!present.has(mapKey)) return { paragraph: index, status: 'missing' as const, textHash, chunkCount: chunks.length, readyChunks: 0 }
+    const state = await readParagraphState(bucket, mapKey, textHash, chunks, voice.id, config.model)
+    if (state.ready.length === 0) return { paragraph: index, status: 'stale' as const, textHash, chunkCount: chunks.length, readyChunks: 0 }
+    return paragraphPayload(index, state)
   }))
   const response = jsonResponse({
     bookId: scope.bookId,
@@ -526,7 +587,7 @@ export async function synthesizeWithFish(input: {
   throw lastError || new NarrationProviderError('Fish unavailable', 'provider_unavailable')
 }
 
-// ===== POST /api/narration/ensure =====
+// ===== POST /api/narration/ensure (and /warm) =====
 
 interface EnsureRequestBody {
   bookId?: string
@@ -534,22 +595,31 @@ interface EnsureRequestBody {
   chapter?: number
   voice?: string
   paragraphs?: Array<{ index?: number; textHash?: string }>
+  /** 'next': generate at most one missing chunk, then answer. 'all': everything missing, within the time budget. */
+  mode?: 'next' | 'all'
 }
 
 type EnsureParagraphResult =
-  | ReturnType<typeof readyPayload>
-  | { paragraph: number; status: 'pending'; textHash: string; retryAfterMs: number }
+  | ReturnType<typeof paragraphPayload>
   | { paragraph: number; status: 'text_mismatch'; textHash: string }
   | { paragraph: number; status: 'failed'; textHash: string; reason: string; retryAfterMs?: number; detail?: string }
 
-async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionContext, deps: NarrationDeps): Promise<Response> {
+async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionContext, deps: NarrationDeps, caller: 'reader' | 'warm'): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
   const config = narrationConfig(env)
   if (!config.enabled || !env.AUDIO_BUCKET || !env.FISH_AUDIO_API_KEY) {
     return jsonResponse({ error: 'Narration pilot is not configured', reason: config.reason }, 503, request)
   }
-  const user = await deps.verifyUser(env, request)
-  if (!user) return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
+  let userId: string
+  if (caller === 'warm') {
+    const token = request.headers.get('x-narration-admin') || ''
+    if (!env.NARRATION_ADMIN_TOKEN || token.length < 16 || token !== env.NARRATION_ADMIN_TOKEN) return jsonResponse({ error: 'Forbidden' }, 403, request)
+    userId = 'warm'
+  } else {
+    const user = await deps.verifyUser(env, request)
+    if (!user) return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
+    userId = user.id
+  }
 
   let body: EnsureRequestBody
   try { body = await request.json() as EnsureRequestBody } catch { return jsonResponse({ error: 'Invalid JSON' }, 400, request) }
@@ -557,17 +627,18 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   const editionKey = typeof body.editionKey === 'string' ? body.editionKey : ''
   const chapter = typeof body.chapter === 'number' ? body.chapter : NaN
   const voiceKey = typeof body.voice === 'string' ? body.voice : ''
+  const mode: 'next' | 'all' = body.mode === 'all' ? 'all' : 'next'
   if (!/^[a-z0-9-]{1,64}$/.test(bookId) || !/^[a-z0-9-]{1,32}$/.test(editionKey) || !Number.isInteger(chapter) || chapter < 1) {
     return jsonResponse({ error: 'Invalid scope' }, 400, request)
   }
-  if (!isPilotScope(bookId, editionKey, chapter)) return jsonResponse({ error: 'Outside the pilot scope' }, 403, request)
+  if (!isPilotScope(bookId, editionKey, chapter)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
   const voice = config.voices.find(item => item.key === voiceKey)
   if (!voice) return jsonResponse({ error: 'Unknown voice' }, 400, request)
   const requested = Array.isArray(body.paragraphs) ? body.paragraphs : []
   if (requested.length === 0 || requested.length > NARRATION_MAX_PARAGRAPHS_PER_REQUEST) {
     return jsonResponse({ error: `Request 1–${NARRATION_MAX_PARAGRAPHS_PER_REQUEST} paragraphs` }, 400, request)
   }
-  if (!await deps.checkRateLimit(`narration:${user.id}`, env.RATE_LIMIT, NARRATION_ENSURE_RATE_PER_MINUTE)) {
+  if (caller === 'reader' && !await deps.checkRateLimit(`narration:${userId}`, env.RATE_LIMIT, NARRATION_ENSURE_RATE_PER_MINUTE)) {
     return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
   }
 
@@ -582,6 +653,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   const requestStartedAt = now()
   const results: EnsureParagraphResult[] = []
   let generatedThisRequest = 0
+  let generationDone = false
   // One accounting write per request: concurrent read-modify-writes of the
   // same KV counters would lose increments.
   const usageDelta: UsageCounters = { ...EMPTY_USAGE }
@@ -595,159 +667,182 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       results.push({ paragraph: index, status: 'failed', textHash: '', reason: 'unknown_paragraph' })
       continue
     }
-    const narration = narrationTextForParagraph(text.paragraphs[index])
-    const identity = await narrationCacheIdentity({ provider: NARRATION_PROVIDER, model: config.model, voiceId: voice.id, text: narration, settings: config.settings })
-    if (typeof item.textHash === 'string' && item.textHash !== identity.textHash) {
-      results.push({ paragraph: index, status: 'text_mismatch', textHash: identity.textHash })
+    const tokens = narrationTokens(text.paragraphs[index])
+    const chunks = chunkNarrationTokens(tokens)
+    const textHash = await sha256Hex(tokens.join(' '))
+    if (typeof item.textHash === 'string' && item.textHash !== textHash) {
+      results.push({ paragraph: index, status: 'text_mismatch', textHash })
+      continue
+    }
+    if (chunks.length === 0) {
+      results.push({ paragraph: index, status: 'failed', textHash, reason: 'empty_paragraph' })
       continue
     }
     const mapKey = narrationMapKey(bookId, editionKey, chapter, voice.key, index)
-    const cached = await readReadyEntry(bucket, mapKey, { textHash: identity.textHash, hash: identity.hash })
-    if (cached) {
-      results.push(readyPayload(index, cached, 'cache'))
-      bump({ requests: 1, cacheHits: 1 })
-      continue
-    }
-    if (narration.length === 0) {
-      results.push({ paragraph: index, status: 'failed', textHash: identity.textHash, reason: 'empty_paragraph' })
-      continue
-    }
-    if (now() - requestStartedAt > REQUEST_TIME_BUDGET_MS) {
-      results.push({ paragraph: index, status: 'pending', textHash: identity.textHash, retryAfterMs: 1500 })
-      continue
-    }
+    const state = await readParagraphState(bucket, mapKey, textHash, chunks, voice.id, config.model)
+    if (state.ready.length > 0) bump({ requests: 1, cacheHits: 1 })
+    let failure: EnsureParagraphResult | null = null
+    const extra: Record<string, unknown> = {}
 
-    // Someone else may be generating this exact recording right now.
-    const lockKey = `narration:lock:${identity.hash}`
-    let locked = false
-    try { locked = !!(kv && await kv.get(lockKey)) } catch { locked = false }
-    if (locked) {
-      const waitedFor = await waitForRecording(bucket, mapKey, identity, now, sleep)
-      if (waitedFor) {
-        results.push(readyPayload(index, waitedFor, 'cache', { waited: true }))
-        bump({ requests: 1, cacheHits: 1 })
-      } else {
-        results.push({ paragraph: index, status: 'pending', textHash: identity.textHash, retryAfterMs: 1500 })
-      }
-      continue
-    }
+    while (state.ready.length < chunks.length && !generationDone && !failure) {
+      if (now() - requestStartedAt > REQUEST_TIME_BUDGET_MS) { generationDone = true; break }
+      const chunk = chunks[state.ready.length]
+      const identity = await narrationCacheIdentity({ provider: NARRATION_PROVIDER, model: config.model, voiceId: voice.id, text: chunk.text, settings: config.settings })
 
-    const breaker = await readBreaker(kv)
-    if (breaker.openUntil > now()) {
-      results.push({ paragraph: index, status: 'failed', textHash: identity.textHash, reason: 'provider_unavailable', retryAfterMs: breaker.openUntil - now() })
-      continue
-    }
-    const textBytes = utf8ByteLength(narration)
-    const keys = usageKeys(now())
-    const [day, month] = await Promise.all([readUsage(kv, keys.day), readUsage(kv, keys.month)])
-    if (day.bytes + usageDelta.bytes + textBytes > config.dailyBytes || month.bytes + usageDelta.bytes + textBytes > config.monthlyBytes) {
-      results.push({ paragraph: index, status: 'failed', textHash: identity.textHash, reason: 'budget_exhausted', retryAfterMs: msUntilNextUtcDay(now()) })
-      bump({ requests: 1, failed: 1 })
-      continue
-    }
+      // Someone else may be generating this exact chunk right now.
+      const lockKey = `narration:lock:${identity.hash}`
+      let locked = false
+      try { locked = !!(kv && await kv.get(lockKey)) } catch { locked = false }
+      if (locked) {
+        const arrived = await waitForChunk(bucket, mapKey, state, voice.id, config.model, now, sleep)
+        if (arrived) { extra.waited = true; if (mode === 'next') generationDone = true; continue }
+        extra.retryAfterMs = 1500
+        break
+      }
 
-    const lockToken = `${now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`
-    try { await kv?.put(lockKey, JSON.stringify({ token: lockToken, at: now(), by: user.id.slice(0, 8) }), { expirationTtl: LOCK_TTL_SECONDS }) } catch { /* proceed without a lock */ }
-    const generationStartedAt = now()
-    try {
-      const synthesis = await synthesizeWithFish({
-        apiKey: env.FISH_AUDIO_API_KEY, baseUrl: config.baseUrl, model: config.model, voiceId: voice.id,
-        text: narration, settings: config.settings, fetchImpl, sleep, now,
-      })
-      const validation = validateNarrationAsset({ text: narration, audio: synthesis.audio, reportedDuration: synthesis.reportedDuration, segments: synthesis.segments })
-      await recordProviderOutcome(kv, now(), true)
-      if (!validation.ok) {
-        results.push({ paragraph: index, status: 'failed', textHash: identity.textHash, reason: 'validation_failed', detail: validation.reasons.join(',') })
-        bump({ requests: 1, failed: 1, bytes: textBytes, providerMs: synthesis.providerMs })
-        continue
+      const breaker = await readBreaker(kv)
+      if (breaker.openUntil > now()) {
+        failure = { paragraph: index, status: 'failed', textHash, reason: 'provider_unavailable', retryAfterMs: breaker.openUntil - now() }
+        break
       }
-      const generationMs = now() - generationStartedAt
-      const meta: NarrationBlobMeta = {
-        version: NARRATION_CACHE_VERSION,
-        provider: NARRATION_PROVIDER,
-        model: config.model,
-        voiceId: voice.id,
-        voiceKey: voice.key,
-        settings: config.settings,
-        hash: identity.hash,
-        textHash: identity.textHash,
-        text: narration,
-        bookId, editionKey, chapter, paragraphIndex: index,
-        createdAt: new Date(now()).toISOString(),
-        audioBytes: synthesis.audio.length,
-        textBytes,
-        duration: validation.duration,
-        measuredDuration: validation.measuredDuration,
-        words: validation.words,
-        alignment: validation.alignment,
-        timingsUsable: validation.timingsUsable,
-        providerSegments: synthesis.segments,
-        generationMs,
+      const textBytes = utf8ByteLength(chunk.text)
+      const keys = usageKeys(now())
+      const [day, month] = await Promise.all([readUsage(kv, keys.day), readUsage(kv, keys.month)])
+      if (day.bytes + usageDelta.bytes + textBytes > config.dailyBytes || month.bytes + usageDelta.bytes + textBytes > config.monthlyBytes) {
+        failure = { paragraph: index, status: 'failed', textHash, reason: 'budget_exhausted', retryAfterMs: msUntilNextUtcDay(now()) }
+        bump({ requests: 1, failed: 1 })
+        break
       }
-      const blobKeys = narrationBlobKeys(identity.hash)
-      await bucket.put(blobKeys.audio, synthesis.audio, { httpMetadata: { contentType: 'audio/mpeg' } })
-      await bucket.put(blobKeys.meta, JSON.stringify(meta), { httpMetadata: { contentType: 'application/json' } })
-      const mapEntry: NarrationMapEntry = {
-        version: NARRATION_CACHE_VERSION,
-        hash: identity.hash,
-        textHash: identity.textHash,
-        voiceKey: voice.key,
-        voiceId: voice.id,
-        model: config.model,
-        bookId, editionKey, chapter, paragraphIndex: index,
-        publishedAt: new Date(now()).toISOString(),
-      }
-      await bucket.put(mapKey, JSON.stringify(mapEntry), { httpMetadata: { contentType: 'application/json' } })
-      generatedThisRequest += 1
-      bump({ requests: 1, generated: 1, bytes: textBytes, providerMs: synthesis.providerMs })
-      results.push(readyPayload(index, {
-        hash: identity.hash, textHash: identity.textHash, duration: validation.duration, words: validation.words,
-        alignment: validation.alignment, timingsUsable: validation.timingsUsable, audioBytes: synthesis.audio.length,
-      }, 'generated', { generationMs, providerMs: synthesis.providerMs, attempts: synthesis.attempts, timingsSource: synthesis.timingsSource, textBytes }))
-    } catch (error) {
-      const failure = error instanceof NarrationProviderError ? error : new NarrationProviderError(String((error as Error)?.message || error), 'storage_failed')
-      // Only the provider being down (network failure, 5xx) counts toward
-      // the breaker; our own storage errors, rejections and 429s do not.
-      const providerDown = failure.code === 'provider_unavailable' && (failure.status === undefined || failure.status >= 500)
-      if (providerDown) await recordProviderOutcome(kv, now(), false)
-      bump({ requests: 1, failed: 1 })
-      results.push({
-        paragraph: index, status: 'failed', textHash: identity.textHash, reason: failure.code,
-        retryAfterMs: failure.code === 'provider_unavailable' ? 3000 : undefined,
-      })
-      if (failure.code === 'provider_auth' || failure.code === 'provider_payment') break
-    } finally {
-      // Release only a lock this request took; a lock another generator has
-      // since written (after ours expired) stays in place.
+
+      const lockToken = `${now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`
+      try { await kv?.put(lockKey, JSON.stringify({ token: lockToken, at: now(), by: userId.slice(0, 8) }), { expirationTtl: LOCK_TTL_SECONDS }) } catch { /* proceed without a lock */ }
+      const generationStartedAt = now()
       try {
-        const held = kv ? await kv.get<{ token?: string }>(lockKey, 'json') : null
-        if (held?.token === lockToken) await kv?.delete(lockKey)
-      } catch { /* lock expires on its own */ }
+        const synthesis = await synthesizeWithFish({
+          apiKey: env.FISH_AUDIO_API_KEY, baseUrl: config.baseUrl, model: config.model, voiceId: voice.id,
+          text: chunk.text, settings: config.settings, fetchImpl, sleep, now,
+        })
+        const validation = validateNarrationAsset({ text: chunk.text, audio: synthesis.audio, reportedDuration: synthesis.reportedDuration, segments: synthesis.segments })
+        await recordProviderOutcome(kv, now(), true)
+        if (!validation.ok) {
+          failure = { paragraph: index, status: 'failed', textHash, reason: 'validation_failed', detail: `chunk ${chunk.index}: ${validation.reasons.join(',')}` }
+          bump({ requests: 1, failed: 1, bytes: textBytes, providerMs: synthesis.providerMs })
+          break
+        }
+        const generationMs = now() - generationStartedAt
+        const meta: NarrationBlobMeta = {
+          version: NARRATION_CACHE_VERSION,
+          provider: NARRATION_PROVIDER,
+          model: config.model,
+          voiceId: voice.id,
+          voiceKey: voice.key,
+          settings: config.settings,
+          hash: identity.hash,
+          textHash,
+          text: chunk.text,
+          bookId, editionKey, chapter, paragraphIndex: index,
+          chunkIndex: chunk.index,
+          chunkCount: chunks.length,
+          wordFrom: chunk.wordFrom,
+          wordTo: chunk.wordTo,
+          createdAt: new Date(now()).toISOString(),
+          audioBytes: synthesis.audio.length,
+          textBytes,
+          duration: validation.duration,
+          measuredDuration: validation.measuredDuration,
+          words: validation.words,
+          alignment: validation.alignment,
+          timingsUsable: validation.timingsUsable,
+          providerSegments: synthesis.segments,
+          generationMs,
+        }
+        const blobKeys = narrationBlobKeys(identity.hash)
+        await bucket.put(blobKeys.audio, synthesis.audio, { httpMetadata: { contentType: 'audio/mpeg' } })
+        await bucket.put(blobKeys.meta, JSON.stringify(meta), { httpMetadata: { contentType: 'application/json' } })
+        state.ready.push({
+          index: chunk.index, hash: identity.hash, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo,
+          duration: validation.duration, words: validation.words, alignment: validation.alignment,
+          timingsUsable: validation.timingsUsable, audioBytes: synthesis.audio.length,
+        })
+        const mapEntry: NarrationMapEntry = {
+          version: NARRATION_CACHE_VERSION,
+          textHash,
+          chunker: NARRATION_CHUNKER_VERSION,
+          chunkCount: chunks.length,
+          voiceKey: voice.key,
+          voiceId: voice.id,
+          model: config.model,
+          bookId, editionKey, chapter, paragraphIndex: index,
+          chunks: state.ready.map(ready => ({ index: ready.index, hash: ready.hash, wordFrom: ready.wordFrom, wordTo: ready.wordTo })),
+          complete: state.ready.length === chunks.length,
+          publishedAt: new Date(now()).toISOString(),
+        }
+        await bucket.put(mapKey, JSON.stringify(mapEntry), { httpMetadata: { contentType: 'application/json' } })
+        generatedThisRequest += 1
+        bump({ requests: 1, generated: 1, bytes: textBytes, providerMs: synthesis.providerMs })
+        extra.source = 'generated'
+        extra.generationMs = (typeof extra.generationMs === 'number' ? extra.generationMs : 0) + generationMs
+        extra.attempts = synthesis.attempts
+        extra.timingsSource = synthesis.timingsSource
+        if (mode === 'next') generationDone = true
+      } catch (error) {
+        const fail = error instanceof NarrationProviderError ? error : new NarrationProviderError(String((error as Error)?.message || error), 'storage_failed')
+        // Only the provider being down (network failure, 5xx) counts toward
+        // the breaker; our own storage errors, rejections and 429s do not.
+        const providerDown = fail.code === 'provider_unavailable' && (fail.status === undefined || fail.status >= 500)
+        if (providerDown) await recordProviderOutcome(kv, now(), false)
+        bump({ requests: 1, failed: 1 })
+        failure = {
+          paragraph: index, status: 'failed', textHash, reason: fail.code,
+          retryAfterMs: fail.code === 'provider_unavailable' ? 3000 : undefined,
+          detail: `chunk ${chunk.index}`,
+        }
+        if (fail.code === 'provider_auth' || fail.code === 'provider_payment') generationDone = true
+      } finally {
+        // Release only a lock this request took; a lock another generator has
+        // since written (after ours expired) stays in place.
+        try {
+          const held = kv ? await kv.get<{ token?: string }>(lockKey, 'json') : null
+          if (held?.token === lockToken) await kv?.delete(lockKey)
+        } catch { /* lock expires on its own */ }
+      }
     }
+
+    // A failure on a later chunk still leaves the ready prefix playable.
+    if (failure && state.ready.length === 0) results.push(failure)
+    else results.push(paragraphPayload(index, state, failure ? { ...extra, failure: { reason: (failure as { reason: string }).reason, detail: (failure as { detail?: string }).detail, retryAfterMs: (failure as { retryAfterMs?: number }).retryAfterMs } } : extra))
+    if (failure && (failure as { reason: string }).reason === 'provider_auth') break
+    if (failure && (failure as { reason: string }).reason === 'provider_payment') break
   }
 
   if (usageDelta.requests > 0) ctx.waitUntil(addUsage(kv, now(), usageDelta))
   return jsonResponse({
-    bookId, editionKey, chapter, voice: voice.key, model: config.model,
+    bookId, editionKey, chapter, voice: voice.key, model: config.model, mode,
     paragraphs: results,
     generated: generatedThisRequest,
   }, 200, request)
 }
 
-async function waitForRecording(
+async function waitForChunk(
   bucket: R2Bucket,
   mapKey: string,
-  identity: { textHash: string; hash: string },
+  state: ParagraphState,
+  voiceId: string,
+  model: string,
   now: () => number,
   sleep: (ms: number) => Promise<void>,
-): Promise<ReadyEntry | null> {
+): Promise<boolean> {
   const deadline = now() + LOCK_WAIT_MS
+  const wanted = state.ready.length
   while (now() < deadline) {
     await sleep(LOCK_POLL_MS)
-    const ready = await readReadyEntry(bucket, mapKey, identity)
-    if (ready) return ready
+    const fresh = await readParagraphState(bucket, mapKey, state.textHash, state.chunks, voiceId, model)
+    if (fresh.ready.length > wanted) {
+      state.ready.splice(0, state.ready.length, ...fresh.ready)
+      return true
+    }
   }
-  return null
+  return false
 }
 
 function msUntilNextUtcDay(now: number): number {

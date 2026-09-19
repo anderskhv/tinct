@@ -13,8 +13,8 @@ import {
 } from './labListen'
 import { sentenceStartWordIndex, nextHearingSpeed, parseHearingSpeed, playbackTimeSeconds, seekAcrossClips } from './labHearing'
 import { playAudioTransition, setAudioSource } from '../utils/audioPlayback'
-import { NarrationEnsureError, narrationFailureMessage, type NarrationParagraphResult } from './labNarration'
-import { narrationTextForParagraph, sha256Hex } from '../narration/narrationCore'
+import { NarrationEnsureError, narrationFailureMessage, type NarrationEnsureRequest, type NarrationParagraphNotReady, type NarrationParagraphResult } from './labNarration'
+import { narrationTextForParagraph, narrationTokens, sha256Hex } from '../narration/narrationCore'
 import {
   alignTimedWordsToText,
   followParagraphFromManifest,
@@ -58,8 +58,9 @@ export interface UseLabListenOptions {
 
 export interface LabNarrationOption {
   voice: string
-  ensure: (paragraphIndexes: number[], signal: AbortSignal) => Promise<NarrationParagraphResult[]>
-  /** Paragraphs prepared ahead of the one playing (default 2, at most 3). */
+  /** One call generates at most one missing sentence group (`mode: 'next'`) and reports every requested paragraph's state. */
+  ensure: (paragraphIndexes: number[], signal: AbortSignal, mode?: NarrationEnsureRequest['mode']) => Promise<NarrationParagraphResult[]>
+  /** Paragraphs kept complete ahead of the one playing (default 2, at most 3). */
   lookAhead?: number
 }
 
@@ -68,14 +69,30 @@ export type LabNarrationState =
   | { status: 'loading'; paragraphIndex: number }
   | { status: 'error'; paragraphIndex: number; message: string; reason?: string }
 
-interface PreparedNarration {
-  url: string
-  duration: number
+interface PreparedChunk {
+  index: number
+  wordFrom: number
+  wordTo: number
+  ready: boolean
+  url?: string
+  duration?: number
   words?: FollowParagraph['words']
+}
+
+/** What the reader knows about one paragraph's narration for the current tuple. */
+interface ParagraphNarration {
   textHash: string
+  chunkCount: number
+  chunks: PreparedChunk[]
+  duration?: number
+  words?: FollowParagraph['words']
+  failure?: { reason: string; retryAfterMs?: number }
+  retryAfterMs?: number
 }
 
 type NarrationOutcome = { ok: true } | { ok: false; reason: string; retryAfterMs?: number }
+
+interface ChunkTarget { paragraphIndex: number; chunkIndex: number }
 
 type PlaceInput = { paragraphIndex?: number; wordIndex?: number } | undefined
 
@@ -85,6 +102,10 @@ function bareFollowParagraphs(paragraphs: FollowParagraph[]): FollowParagraph[] 
 
 function wait(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+function isNotReady(result: NarrationParagraphResult): result is NarrationParagraphNotReady {
+  return result.status === 'failed' || result.status === 'text_mismatch'
 }
 
 function chapterHasWordTimings(paragraphs: FollowParagraph[]): boolean {
@@ -121,8 +142,11 @@ export function useLabListen(options: UseLabListenOptions) {
   // that a tuple or voice change trips.
   const narrationRequestRef = useRef(0)
   const narrationAbortRef = useRef<AbortController | null>(null)
-  const narrationPreparedRef = useRef<Map<number, PreparedNarration>>(new Map())
-  const narrationInFlightRef = useRef<Map<number, Promise<NarrationParagraphResult[]>>>(new Map())
+  const narrationPreparedRef = useRef<Map<number, ParagraphNarration>>(new Map())
+  /** Paragraph index → hash of its narration text, for the current tuple. */
+  const narrationHashesRef = useRef<Map<number, string>>(new Map())
+  const narrationRoundRef = useRef<Promise<NarrationParagraphResult[]> | null>(null)
+  const narrationLookAheadRef = useRef<Promise<void> | null>(null)
   const narrationRetryRef = useRef<(() => void) | null>(null)
   const [narrationState, setNarrationState] = useState<LabNarrationState>({ status: 'idle' })
   const playPlaceRef = useRef<(clips: LabAudioClip[], place: PlaceInput, andPlay: boolean, includeTitle?: boolean) => boolean>(() => false)
@@ -145,135 +169,220 @@ export function useLabListen(options: UseLabListenOptions) {
     return narrationAbortRef.current.signal
   }
 
-  /** Adopt ready recordings whose text hash still matches the clip they were asked for. */
-  const applyPreparedNarration = useCallback((results: NarrationParagraphResult[]) => {
-    const prepared = narrationPreparedRef.current
-    let changed = false
-    for (const result of results) {
-      if (result.status !== 'ready') continue
-      const clip = clipsRef.current.find(item => item.kind === 'paragraph' && item.index === result.paragraph)
-      if (!clip || clip.kind !== 'paragraph' || !clip.narration || clip.narration.textHash !== result.textHash) continue
-      if (prepared.get(result.paragraph)?.url === result.url) continue
-      const paragraph = paragraphsRef.current.find(item => item.index === result.paragraph)
-      const words = paragraph && result.words
-        ? alignTimedWordsToText(paragraph.text, wordsFromManifestParagraph({ words: result.words }))
-        : undefined
-      prepared.set(result.paragraph, { url: result.url, duration: result.duration, words, textHash: result.textHash })
-      changed = true
+  const findClipIndex = (target: ChunkTarget): number => clipsRef.current.findIndex(clip => (
+    clip.kind === 'paragraph' && clip.index === target.paragraphIndex
+    && (clip.chunk ? clip.chunk.index === target.chunkIndex : target.chunkIndex === 0)
+  ))
+
+  const chunkReady = (target: ChunkTarget): boolean => {
+    const entry = narrationPreparedRef.current.get(target.paragraphIndex)
+    return Boolean(entry?.chunks[target.chunkIndex]?.ready && entry.chunks[target.chunkIndex].url)
+  }
+
+  const paragraphComplete = (paragraphIndex: number): boolean => {
+    const entry = narrationPreparedRef.current.get(paragraphIndex)
+    return Boolean(entry && entry.chunkCount > 0 && entry.chunks.length === entry.chunkCount && entry.chunks.every(chunk => chunk.ready))
+  }
+
+  /** Clips for the narration tuple: one per known sentence group, or one placeholder per paragraph. */
+  const rebuildNarrationClips = useCallback(() => {
+    const before = clipsRef.current[clipIndexRef.current]
+    const identity: ChunkTarget | null = before?.kind === 'paragraph'
+      ? { paragraphIndex: before.index, chunkIndex: before.chunk?.index ?? 0 }
+      : null
+    const hashes = narrationHashesRef.current
+    const clips: LabAudioClip[] = []
+    for (const paragraph of paragraphsRef.current) {
+      const textHash = hashes.get(paragraph.index)
+      if (textHash == null) continue
+      const entry = narrationPreparedRef.current.get(paragraph.index)
+      if (!entry || entry.textHash !== textHash || entry.chunkCount === 0) {
+        clips.push({ kind: 'paragraph', index: paragraph.index, file: `narration-p${paragraph.index}.mp3`, narration: { textHash, ready: false } })
+        continue
+      }
+      for (let c = 0; c < entry.chunkCount; c += 1) {
+        const chunk = entry.chunks[c]
+        clips.push({
+          kind: 'paragraph',
+          index: paragraph.index,
+          file: `narration-p${paragraph.index}-c${c}.mp3`,
+          url: chunk?.ready ? chunk.url : undefined,
+          duration: chunk?.ready ? chunk.duration : undefined,
+          words: chunk?.ready ? chunk.words : undefined,
+          chunk: { index: c, count: entry.chunkCount, wordFrom: chunk?.wordFrom ?? 0, wordTo: chunk?.wordTo ?? 0 },
+          narration: { textHash, ready: Boolean(chunk?.ready) },
+        })
+      }
     }
-    if (!changed) return
-    const clips = clipsRef.current.map((clip) => {
-      if (clip.kind !== 'paragraph' || !clip.narration) return clip
-      const ready = prepared.get(clip.index)
-      if (!ready || clip.url === ready.url) return clip
-      return { ...clip, url: ready.url, duration: ready.duration, words: ready.words, narration: { ...clip.narration, ready: true } }
-    })
     clipsRef.current = clips
     setClips(clips)
+    if (identity) {
+      const index = findClipIndex(identity)
+      if (index >= 0) { clipIndexRef.current = index; setClipIndex(index) }
+    }
     commitFollowParagraphs(paragraphsRef.current.map((paragraph) => {
-      const ready = prepared.get(paragraph.index)
-      return ready ? { ...paragraph, duration: ready.duration, words: ready.words } : paragraph
+      const entry = narrationPreparedRef.current.get(paragraph.index)
+      if (!entry || entry.textHash !== hashes.get(paragraph.index)) return paragraph.words || paragraph.duration ? { index: paragraph.index, text: paragraph.text } : paragraph
+      return { index: paragraph.index, text: paragraph.text, duration: entry.duration, words: entry.words }
     }))
   }, [commitFollowParagraphs])
 
-  /**
-   * Make paragraphs playable. Requests already in flight for a paragraph are
-   * awaited rather than repeated, so a play request landing on a paragraph
-   * the look-ahead is preparing shares that work.
-   */
-  /** A prepared recording counts only for the clip text it was prepared for. */
-  const preparedFor = useCallback((index: number): PreparedNarration | undefined => {
-    const ready = narrationPreparedRef.current.get(index)
-    if (!ready) return undefined
-    const clip = clipsRef.current.find(item => item.kind === 'paragraph' && item.index === index)
-    if (!clip || clip.kind !== 'paragraph' || !clip.narration || clip.narration.textHash !== ready.textHash) return undefined
-    return ready
-  }, [])
+  /** Adopt paragraph states whose text hash still matches the text on the page. */
+  const applyPreparedNarration = useCallback((results: NarrationParagraphResult[]) => {
+    const prepared = narrationPreparedRef.current
+    const hashes = narrationHashesRef.current
+    let changed = false
+    for (const result of results) {
+      if (result.status !== 'ready' && result.status !== 'partial' && result.status !== 'pending') continue
+      const expected = hashes.get(result.paragraph)
+      if (expected == null || result.textHash !== expected) continue
+      const paragraph = paragraphsRef.current.find(item => item.index === result.paragraph)
+      if (!paragraph) continue
+      const tokens = narrationTokens(paragraph.text)
+      const chunks: PreparedChunk[] = result.chunks.map((chunk) => {
+        const chunkText = tokens.slice(chunk.wordFrom, chunk.wordTo).join(' ')
+        const words = chunk.ready && chunk.words
+          ? alignTimedWordsToText(chunkText, wordsFromManifestParagraph({ words: chunk.words }))
+          : undefined
+        return { index: chunk.index, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo, ready: Boolean(chunk.ready && chunk.url), url: chunk.url, duration: chunk.duration, words }
+      })
+      const complete = result.status === 'ready'
+      const words = complete && result.words
+        ? alignTimedWordsToText(paragraph.text, wordsFromManifestParagraph({ words: result.words }))
+        : undefined
+      prepared.set(result.paragraph, {
+        textHash: result.textHash,
+        chunkCount: result.chunkCount,
+        chunks,
+        duration: complete ? result.duration : undefined,
+        words,
+        failure: result.failure ? { reason: result.failure.reason, retryAfterMs: result.failure.retryAfterMs } : undefined,
+        retryAfterMs: result.retryAfterMs,
+      })
+      changed = true
+    }
+    if (changed) rebuildNarrationClips()
+  }, [rebuildNarrationClips])
 
-  const prepareNarration = useCallback(async (indexes: number[]): Promise<NarrationOutcome> => {
+  /**
+   * One ensure round: the Worker generates at most one missing sentence
+   * group for the first incomplete paragraph in `indexes` and reports every
+   * requested paragraph. Rounds are serialised so two loops never race the
+   * same chunk; a caller that finds a round in flight awaits it.
+   */
+  const ensureRound = useCallback(async (indexes: number[], satisfied?: () => boolean): Promise<NarrationOutcome> => {
     const narration = optionsRef.current.narration
     if (!narration || indexes.length === 0) return { ok: false, reason: 'not_configured' }
-    const inFlight = narrationInFlightRef.current
-    const awaited = indexes.map(index => inFlight.get(index)).filter((item): item is Promise<NarrationParagraphResult[]> => Boolean(item))
-    const wanted = indexes.filter(index => !preparedFor(index) && !inFlight.has(index))
+    if (narrationRoundRef.current) {
+      try { await narrationRoundRef.current } catch { /* reported by its own caller */ }
+      // The round in flight may have landed exactly what this caller needs.
+      if (satisfied?.()) return { ok: true }
+    }
     const signal = narrationSignal()
-    let request: Promise<NarrationParagraphResult[]> | null = null
-    if (wanted.length > 0) {
-      request = narration.ensure(wanted, signal).finally(() => {
-        for (const index of wanted) if (inFlight.get(index) === request) inFlight.delete(index)
-      })
-      for (const index of wanted) inFlight.set(index, request)
-    }
-    const settled = await Promise.allSettled([...awaited, ...(request ? [request] : [])])
-    if (signal.aborted) return { ok: false, reason: 'cancelled' }
-    let failure: NarrationOutcome = { ok: false, reason: 'network' }
-    for (const outcome of settled) {
-      if (outcome.status === 'fulfilled') {
-        applyPreparedNarration(outcome.value)
-        const first = outcome.value.find(item => item.paragraph === indexes[0])
-        if (first && first.status !== 'ready') {
-          failure = { ok: false, reason: first.status === 'failed' ? first.reason || 'failed' : first.status, retryAfterMs: first.retryAfterMs }
-        }
-      } else if ((outcome.reason as Error)?.name === 'AbortError') {
-        failure = { ok: false, reason: 'cancelled' }
-      } else if (outcome.reason instanceof NarrationEnsureError) {
-        failure = { ok: false, reason: outcome.reason.code }
+    const round = narration.ensure(indexes, signal, 'next')
+    narrationRoundRef.current = round
+    try {
+      const results = await round
+      if (signal.aborted) return { ok: false, reason: 'cancelled' }
+      applyPreparedNarration(results)
+      const first = results.find(item => item.paragraph === indexes[0])
+      if (!first) return { ok: false, reason: 'unavailable' }
+      // An answer about different words than the page shows is never used.
+      if (!isNotReady(first) && first.textHash !== narrationHashesRef.current.get(indexes[0])) return { ok: false, reason: 'text_mismatch' }
+      if (isNotReady(first)) {
+        return { ok: false, reason: first.status === 'failed' ? first.reason || 'failed' : first.status, retryAfterMs: first.retryAfterMs }
       }
+      if (first.failure) return { ok: false, reason: first.failure.reason, retryAfterMs: first.failure.retryAfterMs }
+      if (first.status === 'pending' && first.readyChunks === 0) return { ok: false, reason: 'pending', retryAfterMs: first.retryAfterMs ?? 1500 }
+      return { ok: true }
+    } catch (error) {
+      if ((error as Error)?.name === 'AbortError' || signal.aborted) return { ok: false, reason: 'cancelled' }
+      return { ok: false, reason: error instanceof NarrationEnsureError ? error.code : 'network' }
+    } finally {
+      if (narrationRoundRef.current === round) narrationRoundRef.current = null
     }
-    return preparedFor(indexes[0]) ? { ok: true } : failure
-  }, [applyPreparedNarration, preparedFor])
+  }, [applyPreparedNarration])
 
   /**
-   * Prepare `index`, then run `resume` — unless a newer preparation, a tuple
-   * change, or any playback request in between (pause, stop, another play)
-   * superseded this one. A reader who pauses while "Preparing narration…"
-   * must not hear the recording start on its own.
+   * Prepare one sentence group, then run `resume` — unless a newer
+   * preparation, a tuple change, or any playback request in between (pause,
+   * stop, another play) superseded this one. A reader who pauses while
+   * "Preparing narration…" must not hear the recording start on its own.
    */
-  const prepareThenRun = useCallback(async (index: number, resume: () => void) => {
+  const prepareThenRun = useCallback(async (target: ChunkTarget, resume: () => void) => {
     const request = ++narrationRequestRef.current
     const playRequest = playRequestRef.current
     const superseded = () => request !== narrationRequestRef.current || playRequest !== playRequestRef.current
-    const clip = clipsRef.current[index]
-    const paragraphIndex = clip?.kind === 'paragraph' ? clip.index : index
-    setNarrationState({ status: 'loading', paragraphIndex })
-    let outcome = await prepareNarration([paragraphIndex])
-    for (let poll = 0; !outcome.ok && outcome.reason === 'pending' && poll < 3; poll += 1) {
-      await wait(Math.min(5000, Math.max(500, outcome.retryAfterMs ?? 1500)))
+    setNarrationState({ status: 'loading', paragraphIndex: target.paragraphIndex })
+    let outcome: NarrationOutcome = { ok: true }
+    let polls = 0
+    // Each round lands one chunk; a chunk beyond the ready prefix needs as
+    // many rounds as it is deep, plus a few for waits on other generators.
+    for (let round = 0; round < target.chunkIndex + 6 && !chunkReady(target); round += 1) {
+      outcome = await ensureRound([target.paragraphIndex], () => chunkReady(target))
       if (superseded()) return
-      outcome = await prepareNarration([paragraphIndex])
+      if (!outcome.ok) {
+        if (outcome.reason !== 'pending' || polls >= 3) break
+        polls += 1
+        await wait(Math.min(5000, Math.max(500, outcome.retryAfterMs ?? 1500)))
+        if (superseded()) return
+      }
     }
     if (superseded()) return
-    // Never re-enter preparation for a clip that is "ready" without a URL.
-    const readyClip = clipsRef.current[index]
-    if (outcome.ok && !(readyClip?.kind === 'paragraph' && readyClip.url)) outcome = { ok: false, reason: 'unavailable' }
+    if (chunkReady(target)) outcome = { ok: true }
+    else if (outcome.ok) outcome = { ok: false, reason: 'unavailable' }
     if (!outcome.ok) {
       if (outcome.reason === 'cancelled') return
-      narrationRetryRef.current = () => { void prepareThenRun(index, resume) }
-      setNarrationState({ status: 'error', paragraphIndex, message: narrationFailureMessage(outcome.reason), reason: outcome.reason })
+      narrationRetryRef.current = () => { void prepareThenRun(target, resume) }
+      setNarrationState({ status: 'error', paragraphIndex: target.paragraphIndex, message: narrationFailureMessage(outcome.reason), reason: outcome.reason })
       playingRef.current = false
       setPlaying(false)
       return
     }
     setNarrationState({ status: 'idle' })
     resume()
-  }, [prepareNarration])
+  }, [ensureRound])
 
-  const scheduleNarrationLookAhead = useCallback((clipIndex: number) => {
+  /**
+   * Keep the playing paragraph and the next `lookAhead` paragraphs complete,
+   * one sentence group per round, ahead of playback. One loop at a time; it
+   * follows the playing clip as it moves and ends on a tuple change, a stop,
+   * or when nothing in the window is missing. Failures here are silent — the
+   * clip that fails is retried, with a visible state, when playback reaches it.
+   */
+  const scheduleNarrationLookAhead = useCallback(() => {
     const narration = optionsRef.current.narration
-    if (!narration) return
+    if (!narration || narrationLookAheadRef.current) return
+    const generation = narrationRequestRef.current
     const ahead = Math.max(0, Math.min(narration.lookAhead ?? 2, 3))
-    const indexes: number[] = []
-    for (let k = 1; k <= ahead; k += 1) {
-      const next = clipsRef.current[clipIndex + k]
-      if (!next || next.kind !== 'paragraph' || !next.narration || next.url) continue
-      if (preparedFor(next.index) || narrationInFlightRef.current.has(next.index)) continue
-      indexes.push(next.index)
+    const loop = async () => {
+      let idle = 0
+      for (let round = 0; round < 60; round += 1) {
+        if (generation !== narrationRequestRef.current && !playingRef.current) return
+        const current = clipsRef.current[clipIndexRef.current]
+        if (!current || current.kind !== 'paragraph') return
+        const indexes: number[] = []
+        for (let k = 0; k <= ahead; k += 1) {
+          const paragraphIndex = current.index + k
+          if (!narrationHashesRef.current.has(paragraphIndex)) break
+          if (!paragraphComplete(paragraphIndex)) indexes.push(paragraphIndex)
+        }
+        if (indexes.length === 0) return
+        const before = indexes.map(index => narrationPreparedRef.current.get(index)?.chunks.filter(chunk => chunk.ready).length ?? 0).join(',')
+        const outcome = await ensureRound(indexes, () => indexes.every(paragraphComplete))
+        if (!outcome.ok && outcome.reason === 'cancelled') return
+        const after = indexes.map(index => narrationPreparedRef.current.get(index)?.chunks.filter(chunk => chunk.ready).length ?? 0).join(',')
+        if (after === before) {
+          idle += 1
+          if (idle >= 3 || (!outcome.ok && outcome.reason !== 'pending')) return
+          await wait(Math.min(5000, Math.max(750, (!outcome.ok && outcome.retryAfterMs) || 1500)))
+        } else {
+          idle = 0
+        }
+      }
     }
-    if (indexes.length === 0) return
-    // Outcome deliberately ignored: a paragraph that failed here is retried,
-    // with a visible state, when playback actually reaches it.
-    void prepareNarration(indexes)
-  }, [prepareNarration, preparedFor])
+    narrationLookAheadRef.current = loop().finally(() => { narrationLookAheadRef.current = null })
+  }, [ensureRound])
 
   const retryNarration = useCallback(() => {
     const retry = narrationRetryRef.current
@@ -295,7 +404,8 @@ export function useLabListen(options: UseLabListenOptions) {
     narrationAbortRef.current?.abort()
     narrationAbortRef.current = null
     narrationPreparedRef.current = new Map()
-    narrationInFlightRef.current = new Map()
+    narrationHashesRef.current = new Map()
+    narrationRoundRef.current = null
     narrationRetryRef.current = null
     setNarrationState({ status: 'idle' })
     setFollowParagraphs(optionsRef.current.narration ? bareFollowParagraphs(options.followParagraphs) : options.followParagraphs)
@@ -313,9 +423,10 @@ export function useLabListen(options: UseLabListenOptions) {
         // Kokoro manifest words belong to Kokoro audio; only words timed for
         // the prepared Fish recording may paint over narrated text.
         const prepared = narrationPreparedRef.current
+        const hashes = narrationHashesRef.current
         return options.followParagraphs.map((paragraph) => {
           const ready = prepared.get(paragraph.index)
-          return ready
+          return ready && ready.textHash === hashes.get(paragraph.index)
             ? { index: paragraph.index, text: paragraph.text, duration: ready.duration, words: ready.words }
             : { index: paragraph.index, text: paragraph.text }
         })
@@ -383,10 +494,11 @@ export function useLabListen(options: UseLabListenOptions) {
         if (!playingRef.current) return
         // Never skip ahead or swap narrators behind the reader's back: stop
         // visibly and offer a retry of the same recording, reloaded.
-        const index = clipIndexRef.current
+        const identity: ChunkTarget = { paragraphIndex: current.index, chunkIndex: current.chunk?.index ?? 0 }
         narrationRetryRef.current = () => {
           try { audio.removeAttribute('src') } catch { /* ignore */ }
-          playClipRef.current(index, 0)
+          const index = findClipIndex(identity)
+          if (index >= 0) playClipRef.current(index, 0)
         }
         setNarrationState({ status: 'error', paragraphIndex: current.index, message: narrationFailureMessage('playback'), reason: 'playback' })
         finishPlayback()
@@ -455,16 +567,20 @@ export function useLabListen(options: UseLabListenOptions) {
     const clip = clipsRef.current[index]
     if (!clip) return false
     if (clip.kind === 'paragraph' && clip.narration && !clip.url) {
-      // On-demand narration: prepare this paragraph, then play it for real.
-      // The clock starts over here so the previous clip's end time cannot
-      // leak into the follow paint or the progress bar while we wait.
+      // On-demand narration: prepare this sentence group, then play it for
+      // real. The clock starts over here so the previous clip's end time
+      // cannot leak into the follow paint or the progress bar while we wait.
+      const target: ChunkTarget = { paragraphIndex: clip.index, chunkIndex: clip.chunk?.index ?? 0 }
       clipIndexRef.current = index
       setClipIndex(index)
       positionRef.current = { clipIndex: index, time: offsetSeconds }
       setCurrentTime(offsetSeconds)
       setFollow({ kind: 'none' })
       try { audio.pause() } catch { /* ignore */ }
-      void prepareThenRun(index, () => { playClipRef.current(index, offsetSeconds, andPlay) })
+      void prepareThenRun(target, () => {
+        const ready = findClipIndex(target)
+        if (ready >= 0) playClipRef.current(ready, offsetSeconds, andPlay)
+      })
       return true
     }
     const url = clip.kind === 'paragraph' && clip.url
@@ -505,7 +621,7 @@ export function useLabListen(options: UseLabListenOptions) {
     syncFollow(index, offsetSeconds)
     playingRef.current = true
     setPlaying(true)
-    if (clip.kind === 'paragraph' && clip.narration) scheduleNarrationLookAhead(index)
+    if (clip.kind === 'paragraph' && clip.narration) scheduleNarrationLookAhead()
     void playAudioTransition(
       audio,
       expectedSrc,
@@ -539,16 +655,24 @@ export function useLabListen(options: UseLabListenOptions) {
       ? titleIndex
       : clips.findIndex(clip => clip.kind === 'paragraph' && clip.index === paragraphIndex)
     if (index < 0) index = 0
-    const clip = clips[index]
+    let clip = clips[index]
+    if (clip?.kind === 'paragraph' && clip.chunk) {
+      // Sentence-group clips: the one whose token range holds the word.
+      const owner = clips.findIndex(item => item.kind === 'paragraph' && item.index === paragraphIndex && !!item.chunk
+        && item.chunk.wordFrom <= wordIndex && (wordIndex < item.chunk.wordTo || item.chunk.index === item.chunk.count - 1))
+      if (owner >= 0) { index = owner; clip = clips[owner] }
+    }
     if (clip?.kind === 'paragraph' && clip.narration && !clip.url) {
+      const target: ChunkTarget = { paragraphIndex: clip.index, chunkIndex: clip.chunk?.index ?? 0 }
       clipIndexRef.current = index
       setClipIndex(index)
-      void prepareThenRun(index, () => { playPlaceRef.current(clipsRef.current, place, andPlay, includeTitleAtChapterStart) })
+      void prepareThenRun(target, () => { playPlaceRef.current(clipsRef.current, place, andPlay, includeTitleAtChapterStart) })
       return true
     }
     const words = clip?.kind === 'paragraph' ? clip.words : undefined
+    const localIndex = clip?.kind === 'paragraph' && clip.chunk ? wordIndex - clip.chunk.wordFrom : wordIndex
     const clamped = words && words.length > 0
-      ? Math.max(0, Math.min(wordIndex, words.length - 1))
+      ? Math.max(0, Math.min(localIndex, words.length - 1))
       : 0
     const offset = words?.[clamped]?.start ?? 0
     return playClip(index, offset, andPlay)
@@ -578,35 +702,18 @@ export function useLabListen(options: UseLabListenOptions) {
     )
 
     if (narration) {
-      // Narration pilot: every paragraph is a clip; recordings arrive on
-      // demand. Anything prepared earlier for this tuple is reused as long as
-      // the paragraph text still hashes the same.
+      // Narration pilot: clips are sentence groups that arrive on demand.
+      // Anything prepared earlier for this tuple is reused as long as the
+      // paragraph text still hashes the same.
       const hashes = await Promise.all(sourceParagraphs.map(text => sha256Hex(narrationTextForParagraph(text))))
       if (!tupleMatches()) return []
-      const prepared = narrationPreparedRef.current
-      for (const [index, ready] of Array.from(prepared.entries())) {
-        if (ready.textHash !== hashes[index]) prepared.delete(index)
+      narrationHashesRef.current = new Map(hashes.map((hash, index) => [index, hash]))
+      for (const [index, entry] of Array.from(narrationPreparedRef.current.entries())) {
+        if (entry.textHash !== hashes[index]) narrationPreparedRef.current.delete(index)
       }
-      const usable = (index: number) => prepared.get(index)
-      commitFollowParagraphs(sourceParagraphs.map((text, index) => {
-        const ready = usable(index)
-        return ready ? { index, text, duration: ready.duration, words: ready.words } : { index, text }
-      }))
-      const clips: LabAudioClip[] = sourceParagraphs.map((text, index) => {
-        const ready = usable(index)
-        return {
-          kind: 'paragraph' as const,
-          index,
-          file: `narration-p${index}.mp3`,
-          url: ready?.url,
-          duration: ready?.duration,
-          words: ready?.words,
-          narration: { textHash: hashes[index], ready: Boolean(ready) },
-        }
-      })
-      clipsRef.current = clips
-      setClips(clips)
-      return clips
+      paragraphsRef.current = sourceParagraphs.map((text, index) => ({ index, text }))
+      rebuildNarrationClips()
+      return clipsRef.current
     }
 
     const attachWords = (followed: FollowParagraph[], clips: LabAudioClip[]) => {
@@ -673,7 +780,7 @@ export function useLabListen(options: UseLabListenOptions) {
     followed = commitFollowParagraphs(followed)
     const clips = clipsFromManifest(sourceParagraphs, manifest.paragraphs || [])
     return attachWords(followed, clips)
-  }, [commitFollowParagraphs])
+  }, [commitFollowParagraphs, rebuildNarrationClips])
 
   const start = useCallback(async (place?: { paragraphIndex: number; wordIndex?: number }) => {
     if (optionsRef.current.playbackUnavailable) return false
@@ -744,6 +851,9 @@ export function useLabListen(options: UseLabListenOptions) {
   const stop = useCallback(() => {
     playRequestRef.current += 1
     narrationRequestRef.current += 1
+    // Stop ends look-ahead too; prepared recordings for this tuple are kept.
+    narrationAbortRef.current?.abort()
+    narrationAbortRef.current = null
     setNarrationState(current => (current.status === 'loading' ? { status: 'idle' } : current))
     const audio = audioRef.current
     if (audio) {

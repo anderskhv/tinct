@@ -18,16 +18,44 @@
 import { stripUnderscoreEmphasis } from '../lab/labEmphasis'
 
 /** Bump when the cache layout or validation rules change incompatibly. */
-export const NARRATION_CACHE_VERSION = 1
+export const NARRATION_CACHE_VERSION = 2
+
+/** Bump when `chunkNarrationTokens` changes where it cuts; chunk audio depends on it. */
+export const NARRATION_CHUNKER_VERSION = 1
 
 export const NARRATION_PROVIDER = 'fish' as const
 
-/** The pilot is deliberately narrow: one book, one chapter, English editions only. */
+/**
+ * Narration scope: the library's featured ("popular") shelf, English editions,
+ * every chapter. Kept as a plain list so the Worker bundle does not pull the
+ * catalogue in; `narrationScope.test.ts` pins it to `LAB_POPULAR_BOOK_IDS`.
+ */
+export const NARRATION_SCOPE_BOOK_IDS: readonly string[] = [
+  'odyssey',
+  'hamlet',
+  'the-republic',
+  'pride-and-prejudice',
+  'bible',
+  'frankenstein',
+  'the-art-of-war',
+  'the-histories',
+  'crime-and-punishment',
+  'jane-eyre',
+  'meditations',
+  'moby-dick',
+  'divine-comedy',
+  'iliad',
+  'walden',
+  'frederick-douglass',
+]
+
 export const NARRATION_PILOT_SCOPE = {
-  bookId: 'odyssey',
-  chapters: [1],
-  editionKeys: ['original-en', 'modern-en'],
+  bookIds: NARRATION_SCOPE_BOOK_IDS,
+  editionKeyPattern: '^[a-z0-9-]+-en$',
 } as const
+
+/** Sentence groups handed to the provider are at most this long (Fish's own chunk ceiling). */
+export const NARRATION_CHUNK_MAX_CHARS = 300
 
 /** Word-level follow needs this share of tokens matched to provider timings. */
 export const NARRATION_WORD_MATCH_THRESHOLD = 0.85
@@ -67,9 +95,9 @@ export interface NarrationIdentityInput {
 }
 
 export function isPilotScope(bookId: string, editionKey: string, chapter: number): boolean {
-  return bookId === NARRATION_PILOT_SCOPE.bookId
-    && (NARRATION_PILOT_SCOPE.editionKeys as readonly string[]).includes(editionKey)
-    && (NARRATION_PILOT_SCOPE.chapters as readonly number[]).includes(chapter)
+  return NARRATION_SCOPE_BOOK_IDS.includes(bookId)
+    && /^[a-z0-9-]+-en$/.test(editionKey)
+    && Number.isInteger(chapter) && chapter >= 1
 }
 
 /**
@@ -597,9 +625,118 @@ export function validateNarrationAsset(candidate: NarrationAssetCandidate): Narr
   }
 }
 
+// ===== Sentence-group chunking =====
+
+export interface NarrationChunk {
+  index: number
+  /** Token range `[wordFrom, wordTo)` of the paragraph's narration tokens. */
+  wordFrom: number
+  wordTo: number
+  text: string
+}
+
+const ABBREVIATIONS = new Set(['mr', 'mrs', 'ms', 'dr', 'st', 'mt', 'no', 'vs', 'etc', 'ie', 'eg', 'jr', 'sr', 'prof', 'rev', 'gen', 'col', 'capt', 'lt', 'sgt', 'hon', 'messrs', 'esq', 'viz', 'cf', 'ch', 'vol', 'pp', 'op', 'bk'])
+
+function endsSentence(token: string, next: string | undefined): boolean {
+  if (!/[.!?…][\u0022\u0027\u2019\u201d)\]]*$/.test(token)) return false
+  const bare = token.replace(/[^\p{L}\p{N}]/gu, '').toLowerCase()
+  if (ABBREVIATIONS.has(bare)) return false
+  if (/^[A-Z]$/.test(token.replace(/[^\p{L}]/gu, '')) && next && /^[A-Z]/.test(next.replace(/^[\u0022\u0027\u2018\u201c(\[]+/, ''))) return false // an initial: "J. Alfred"
+  if (!next) return true
+  return /^[\u0022\u0027\u2018\u201c(\[]*[A-Z0-9“‘]/.test(next)
+}
+
+function endsClause(token: string): boolean {
+  return /[;:,—–][\u0022\u0027\u2019\u201d)\]]*$/.test(token)
+}
+
+function joinedLength(tokens: string[]): number {
+  return tokens.reduce((sum, token) => sum + token.length, 0) + Math.max(0, tokens.length - 1)
+}
+
+/** Greedily pack runs of tokens (split on `boundary`) into groups of at most `max` characters. */
+function packRuns(tokens: string[], boundary: (token: string, next: string | undefined) => boolean, max: number, split: (run: string[]) => string[][]): string[][] {
+  const runs: string[][] = []
+  let run: string[] = []
+  tokens.forEach((token, index) => {
+    run.push(token)
+    if (boundary(token, tokens[index + 1])) { runs.push(run); run = [] }
+  })
+  if (run.length > 0) runs.push(run)
+  const groups: string[][] = []
+  let current: string[] = []
+  for (const item of runs) {
+    const itemLength = joinedLength(item)
+    if (itemLength > max) {
+      if (current.length > 0) { groups.push(current); current = [] }
+      groups.push(...split(item))
+      continue
+    }
+    if (current.length > 0 && joinedLength(current) + 1 + itemLength > max) { groups.push(current); current = [] }
+    current = current.concat(item)
+  }
+  if (current.length > 0) groups.push(current)
+  return groups
+}
+
+/** Hard split: whole tokens, greedy, never above `max` unless one token alone exceeds it. */
+function packTokens(tokens: string[], max: number): string[][] {
+  const groups: string[][] = []
+  let current: string[] = []
+  for (const token of tokens) {
+    if (current.length > 0 && joinedLength(current) + 1 + token.length > max) { groups.push(current); current = [] }
+    current.push(token)
+  }
+  if (current.length > 0) groups.push(current)
+  return groups
+}
+
+/**
+ * Cut a paragraph's narration tokens into sentence groups of at most
+ * `max` characters: whole sentences packed greedily; a sentence longer than
+ * the ceiling falls back to clause boundaries, then to whole tokens. A tiny
+ * final group (under 40 characters) rejoins the previous one when that stays
+ * within a fifth over the ceiling, so no chunk is a lone word or two. Every
+ * token lands in exactly one chunk, in order, so chunk `[wordFrom, wordTo)`
+ * ranges tile the paragraph.
+ */
+export function chunkNarrationTokens(tokens: string[], max = NARRATION_CHUNK_MAX_CHARS): NarrationChunk[] {
+  if (tokens.length === 0) return []
+  const groups = packRuns(tokens, endsSentence, max, sentence => packRuns(sentence, endsClause, max, clause => packTokens(clause, max)))
+  if (groups.length > 1) {
+    const last = groups[groups.length - 1]
+    const previous = groups[groups.length - 2]
+    if (joinedLength(last) < 40 && joinedLength(previous) + 1 + joinedLength(last) <= max * 1.2) {
+      groups.splice(groups.length - 2, 2, previous.concat(last))
+    }
+  }
+  const chunks: NarrationChunk[] = []
+  let cursor = 0
+  groups.forEach((group, index) => {
+    chunks.push({ index, wordFrom: cursor, wordTo: cursor + group.length, text: group.join(' ') })
+    cursor += group.length
+  })
+  return chunks
+}
+
+export function chunkNarrationText(paragraph: string, max = NARRATION_CHUNK_MAX_CHARS): NarrationChunk[] {
+  return chunkNarrationTokens(narrationTokens(paragraph), max)
+}
+
+/** Absolute paragraph words from ready chunk words in order (chunk-local times shifted by earlier durations). */
+export function paragraphWordsFromChunks(chunks: Array<{ words: AlignedWord[]; duration: number }>): { words: AlignedWord[]; duration: number } {
+  const words: AlignedWord[] = []
+  let offset = 0
+  for (const chunk of chunks) {
+    for (const word of chunk.words) words.push({ text: word.text, start: round3(word.start + offset), end: round3(word.end + offset) })
+    offset = round3(offset + chunk.duration)
+  }
+  return { words, duration: offset }
+}
+
 // ===== Stored metadata shapes =====
 
-/** `narration/fish/blob/{hash}.json` — the recording's own description. */
+/** `narration/fish/blob/{hash}.json` — one chunk recording's own description. */
 export interface NarrationBlobMeta {
   version: number
   provider: typeof NARRATION_PROVIDER
@@ -608,12 +745,18 @@ export interface NarrationBlobMeta {
   voiceKey: string
   settings: NarrationSynthesisSettings
   hash: string
+  /** Hash of the whole paragraph's narration text the chunk belongs to. */
   textHash: string
+  /** The chunk's own narration text (what the provider was sent). */
   text: string
   bookId: string
   editionKey: string
   chapter: number
   paragraphIndex: number
+  chunkIndex: number
+  chunkCount: number
+  wordFrom: number
+  wordTo: number
   createdAt: string
   audioBytes: number
   textBytes: number
@@ -626,11 +769,16 @@ export interface NarrationBlobMeta {
   generationMs: number
 }
 
-/** `narration/fish/map/.../p{i}.json` — explicit edition → recording mapping. */
+/**
+ * `narration/fish/map/.../p{i}.json` — explicit edition → recordings mapping
+ * for one paragraph. Rewritten after every chunk publish; `chunks` lists the
+ * ready chunks in order, so a reader sees a growing prefix until `complete`.
+ */
 export interface NarrationMapEntry {
   version: number
-  hash: string
   textHash: string
+  chunker: number
+  chunkCount: number
   voiceKey: string
   voiceId: string
   model: string
@@ -638,5 +786,7 @@ export interface NarrationMapEntry {
   editionKey: string
   chapter: number
   paragraphIndex: number
+  chunks: Array<{ index: number; hash: string; wordFrom: number; wordTo: number }>
+  complete: boolean
   publishedAt: string
 }

@@ -288,3 +288,58 @@ Estimated size: Worker chunker + per-chunk publish (~150 lines), reader
 clip mapping (~80 lines), tests. This is the specific change to decide on
 before wider rollout; without it the pilot works but feels slow at every
 cold start.
+
+## 11. 2026-09-19: sentence groups, featured-shelf scope, prefetch, warm-up
+
+Anders added Fish API credit, approved sentence grouping, and asked for a
+smooth start on every featured book with generation running ahead of the
+reader. Implemented on the same branch:
+
+**Sentence groups.** `chunkNarrationTokens` cuts a paragraph's narration
+tokens into groups of at most 300 characters: whole sentences packed
+greedily (abbreviations such as *Mr.* and initials such as *J. Alfred* do not
+end a sentence), a sentence over the ceiling falls back to clause boundaries
+and then to whole tokens, and a tiny final group rejoins the previous one.
+Every token lands in exactly one chunk in order, so chunk `[wordFrom, wordTo)`
+ranges tile the paragraph. Odyssey Book 1 paragraph 18 becomes seven groups.
+The chunker version is pinned in every map entry; a chunker change is a new
+cache.
+
+**Cache v2.** One blob per chunk (`narration/fish/blob/{hash}.mp3` +
+`.json`), identity hashed from the chunk text plus model, voice and settings.
+The paragraph map entry is rewritten after each chunk lands and lists the
+ready chunks in order; a reader trusts only the prefix whose metas and audio
+agree with the live paragraph text, the chunk layout and each other.
+
+**Requests.** `mode: 'next'` generates exactly one missing chunk of the first
+incomplete requested paragraph and reports every requested paragraph's chunk
+state; the reader loops it. `mode: 'all'` completes everything missing within
+the Worker's time budget; the warm script uses it.
+
+**Reader.** Clips are sentence groups; the paragraph placeholder is replaced
+by its chunk clips as soon as the layout is known. The clip about to play is
+prepared first (rounds until that chunk is ready); once playing, a single
+serialised look-ahead loop keeps the playing paragraph and the next two
+complete, one chunk per round. Follow paint reads the playing chunk's own
+timings, offset into the paragraph; word seek picks the chunk that owns the
+word and prepares it if needed. `stop`, a tuple change and a voice change
+abort every request in flight.
+
+**Prefetch.** `useNarrationPrefetch` warms the first three paragraphs of the
+chapter on arrival and of the next chapter once the reader is within its
+last three paragraphs, one chunk per round, once per (chapter, voice) per
+page load, only for opted-in readers inside the scope.
+
+**Scope.** The featured shelf (`LAB_POPULAR_BOOK_IDS`, 16 books), every
+English edition, every chapter. `narrationChunks.test.ts` pins the list to
+the catalogue.
+
+**Warm-up.** `POST /api/narration/warm` is the ensure path without a reader
+(gated by the `NARRATION_ADMIN_TOKEN` Worker secret, same locks, validation
+and ceilings); `app/scripts/narration-warm.mjs` drives it per (book, edition,
+voice) with a `--first N` pass for instant openings and a full pass after.
+Chapter 1 of the shelf is ≈700k characters per voice, ≈$10.5 per voice at
+list price.
+
+**Ceilings.** Daily 2,000,000 text bytes (≈$30), monthly 10,000,000 (≈$150),
+so the warm-up fits in one day with headroom for readers.

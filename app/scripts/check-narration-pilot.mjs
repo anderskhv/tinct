@@ -27,7 +27,7 @@ function silentWav(seconds, sampleRate = 8000) {
   return buffer
 }
 
-const state = { ensureCalls: [], failNext: false, textHashes: new Map() }
+const state = { ensureCalls: [], failNext: false, playPressed: false }
 
 async function sha256(text) {
   const { createHash } = await import('node:crypto')
@@ -49,25 +49,35 @@ await page.route('**/api/narration/voices', route => route.fulfill({
   status: 200, contentType: 'application/json',
   body: JSON.stringify({ enabled: true, provider: 'fish', model: 's2.1-pro', voices: [{ key: 'a', label: 'Nathan (male, warm)' }, { key: 'b', label: 'Abby (female, clear)' }] }),
 }))
+// The mock Worker: one sentence group per paragraph. Before Play is pressed
+// (the reader's prefetch on chapter open) nothing is ready, so the first press
+// shows "Preparing narration…"; afterwards every requested paragraph is ready.
+const textHashOf = async text => sha256(text)
 await page.route('**/api/narration/ensure', async (route) => {
   const body = route.request().postDataJSON()
   state.ensureCalls.push(body)
-  assert.equal(body.bookId, 'odyssey'); assert.equal(body.editionKey, 'original-en'); assert.equal(body.chapter, 1)
+  assert.equal(body.bookId, 'odyssey'); assert.equal(body.editionKey, 'original-en'); assert.equal(body.mode, 'next')
   if (state.failNext) {
     state.failNext = false
     return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ paragraphs: body.paragraphs.map(p => ({ paragraph: p.index, status: 'failed', reason: 'provider_unavailable', textHash: p.textHash })) }) })
   }
-  const paragraphs = body.paragraphs.map((p) => {
-    const text = state.paragraphs[p.index]
+  const paragraphs = await Promise.all(body.paragraphs.map(async (p) => {
+    const text = state.paragraphs[p.index] || ''
     const tokens = text.split(' ')
     const duration = Math.max(2, tokens.length * 0.32)
-    return {
-      paragraph: p.index, status: 'ready', source: 'generated', hash: `mock-${p.index}`, textHash: p.textHash,
-      url: `/api/audio-file?path=narration%2Ffish%2Fblob%2Fmock-${p.index}.mp3`, duration, timingsUsable: true,
+    const textHash = p.textHash || await textHashOf(text)
+    const ready = state.playPressed && body.chapter === 1
+    const chunk = { index: 0, wordFrom: 0, wordTo: tokens.length, ready }
+    if (ready) Object.assign(chunk, {
+      hash: `mock-${p.index}`, url: `/api/audio-file?path=narration%2Ffish%2Fblob%2Fmock-${p.index}.mp3`, duration, timingsUsable: true,
       words: tokens.map((word, i) => ({ text: word, start: (i * duration) / tokens.length, end: ((i + 1) * duration) / tokens.length })),
+    })
+    return {
+      paragraph: p.index, status: ready ? 'ready' : 'pending', textHash, chunkCount: 1, readyChunks: ready ? 1 : 0, chunks: [chunk],
+      duration: ready ? duration : undefined, words: ready ? chunk.words : null, timingsUsable: ready, source: ready ? 'generated' : undefined,
     }
-  })
-  await new Promise(resolve => setTimeout(resolve, 600)) // visible "Preparing narration…"
+  }))
+  await new Promise(resolve => setTimeout(resolve, state.playPressed ? 600 : 150)) // visible "Preparing narration…"
   return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ paragraphs }) })
 })
 await page.route('**/api/audio-file?path=narration**', route => route.fulfill({ status: 200, contentType: 'audio/wav', body: silentWav(12) }))
@@ -84,20 +94,30 @@ state.paragraphs = await (async () => {
 const prefs = JSON.parse(await page.evaluate(() => localStorage.getItem('tinct-lab-prefs')))
 assert.equal(prefs.shared.narrationProvider, 'fish', 'opt-in flag persisted in prefs')
 
+// Prefetch on chapter open asks for the opening paragraphs without text hashes.
+await page.waitForFunction(() => true)
+await page.waitForTimeout(1200)
+const prefetchCalls = state.ensureCalls.filter(call => call.paragraphs.every(p => !p.textHash))
+assert.ok(prefetchCalls.length >= 1, 'chapter-open prefetch was requested')
+assert.deepEqual(prefetchCalls[0].paragraphs.map(p => p.index), [0, 1, 2], 'prefetch warms the first three paragraphs')
+state.playPressed = true
+state.ensureCalls.length = 0
 await page.getByTestId('lab-v2-play').click()
 await page.waitForSelector('[data-testid="lab-narration-notice"][data-status="loading"]', { timeout: 15000 })
 await page.screenshot({ path: `${artifactDir}/01-preparing.png` })
 await page.waitForFunction(() => document.querySelector('.lab')?.dataset.playing === 'true', null, { timeout: 30000 })
 await page.waitForFunction(() => !document.querySelector('[data-testid="lab-narration-notice"]'), null, { timeout: 15000 })
-const first = state.ensureCalls[0]
-assert.deepEqual(first.paragraphs.map(p => p.index), [0], 'first request prepares only the paragraph about to play')
+const first = state.ensureCalls.find(call => call.paragraphs.some(p => p.textHash))
+assert.ok(first, 'the play request carries the displayed text hash')
+assert.deepEqual(first.paragraphs.map(p => p.index), [0], 'the play request prepares only the paragraph about to play')
 assert.equal(first.paragraphs[0].textHash, await sha256(state.paragraphs[0]), 'reader sends the hash of the displayed text')
 await page.waitForFunction(() => document.querySelector('.lab-page-wrap > .lab-passage .lab-hearing-word.is-current'), null, { timeout: 20000 })
 await page.screenshot({ path: `${artifactDir}/02-playing-word-paint.png` })
-// Look-ahead prepared the next two paragraphs, once.
-await page.waitForTimeout(1500)
-assert.ok(state.ensureCalls.length >= 2, 'look-ahead request was made')
-assert.deepEqual(state.ensureCalls[1].paragraphs.map(p => p.index), [1, 2], 'look-ahead is bounded to two paragraphs')
+// Look-ahead keeps the next two paragraphs complete, bounded.
+await page.waitForTimeout(2500)
+const ahead = state.ensureCalls.filter(call => call.paragraphs.some(p => p.textHash) && call.paragraphs.length > 1)
+assert.ok(ahead.length >= 1, 'look-ahead request was made')
+assert.ok(ahead.every(call => Math.max(...call.paragraphs.map(p => p.index)) <= 2), 'look-ahead is bounded to two paragraphs ahead')
 assert.equal(kokoroRequests.length, 0, 'no Kokoro audio requested while narration is on')
 
 // Word seek within the prepared paragraph keeps playing from the narration URL.
@@ -133,7 +153,7 @@ state.ensureCalls.length = 0
 state.failNext = true
 await page.getByTestId('lab-v2-play').click()
 await page.waitForSelector('[data-testid="lab-narration-notice"][data-status="error"]', { timeout: 20000 })
-assert.equal(state.ensureCalls[0].voice, 'b', 'ensure uses the newly chosen voice')
+assert.ok(state.ensureCalls.every(call => call.voice === 'b'), 'ensure uses the newly chosen voice')
 await page.screenshot({ path: `${artifactDir}/05-failure-with-retry.png` })
 await page.getByTestId('lab-narration-retry').click()
 await page.waitForFunction(() => document.querySelector('.lab')?.dataset.playing === 'true', null, { timeout: 30000 })

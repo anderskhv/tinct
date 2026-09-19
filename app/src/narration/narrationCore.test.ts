@@ -82,12 +82,11 @@ describe('cache identity', () => {
     expect(narrationMapKey('odyssey', 'original-en', 1, 'a', 18)).toBe('narration/fish/map/odyssey/original-en/ch1/a/p18.json')
   })
 
-  it('limits the pilot to Odyssey Book 1 English editions', () => {
+  it('limits narration to featured books in English editions', () => {
     expect(isPilotScope('odyssey', 'original-en', 1)).toBe(true)
-    expect(isPilotScope('odyssey', 'modern-en', 1)).toBe(true)
+    expect(isPilotScope('odyssey', 'modern-en', 3)).toBe(true)
     expect(isPilotScope('odyssey', 'modern-da', 1)).toBe(false)
-    expect(isPilotScope('odyssey', 'original-en', 2)).toBe(false)
-    expect(isPilotScope('iliad', 'original-en', 1)).toBe(false)
+    expect(isPilotScope('ulysses', 'original-en', 1)).toBe(false)
   })
 })
 
