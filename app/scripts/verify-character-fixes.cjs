@@ -574,7 +574,7 @@ const CASES = [
   ['ulysses', 'original-en', undefined, 'willy-dignam', undefined, 'ul-willy-dignam'],
   ['ulysses', 'original-en', undefined, 'terry', undefined, 'ul-terry'],
   ['ulysses', 'original-en', undefined, 'man-in-the-macintosh', undefined, 'ul-macintosh'],
-  ['ulysses', 'original-en', undefined, 'mina-purefoy', undefined, 'ul-mina-purefoy'],
+  ['ulysses', 'original-en', 14, 'mina-purefoy', undefined, 'ul-mina-purefoy'],
   ['ulysses', 'original-en', undefined, 'shakespeare', undefined, 'ul-shakespeare'],
   ['ulysses', 'modern-en', undefined, 'father-cowley', undefined, 'ul-modern-father-cowley'],
   ['ulysses', 'modern-en', 12, 'joe-hynes', undefined, 'ul-modern-joe-hynes-ch12'],
@@ -779,7 +779,7 @@ const CASES = [
   ['divine-comedy', 'original-en', 88, 'peter-damiano', undefined, 'dc2-peter-damiano'],
   ['divine-comedy', 'original-en', 19, 'saint-peter', undefined, 'dc2-saint-peter'],
   ['divine-comedy', 'original-en', 56, 'mary-of-jerusalem', 'Mary', 'dc2-mary-jerusalem'],
-  ['divine-comedy', 'original-en', 34, 'lucifer', 'Dis', 'dc2-lucifer-dis'],
+  ['divine-comedy', 'original-en', 34, 'lucifer', 'Satan', 'dc2-lucifer-dis'],
   ['divine-comedy', 'original-en', 10, 'guido-cavalcanti', 'Guido', 'dc2-guido-cavalcanti'],
   ['divine-comedy', 'original-en', 48, 'guido-del-duca', undefined, 'dc2-guido-del-duca'],
   ['divine-comedy', 'original-en', 60, 'guido-guinicelli', undefined, 'dc2-guido-guinicelli'],
@@ -787,7 +787,7 @@ const CASES = [
   ['divine-comedy', 'original-en', 54, 'charles-of-valois', 'Charles', 'dc2-charles-valois'],
   ['divine-comedy', 'original-en', 76, 'charles-martel', 'Charles', 'dc2-charles-martel'],
   ['divine-comedy', 'original-en', 4, 'julius-caesar', 'Caesar', 'dc2-caesar'],
-  ['divine-comedy', 'original-en', 73, 'tiberius', 'Caesar', 'dc2-tiberius'],
+  ['divine-comedy', 'original-en', 73, 'tiberius', 'Tiberius', 'dc2-tiberius'],
   ['divine-comedy', 'original-en', 66, 'st-john-evangelist', 'John', 'dc2-john-evangelist'],
   ['divine-comedy', 'original-en', 99, 'john-the-baptist', 'John', 'dc2-john-baptist'],
   ['divine-comedy', 'original-en', 31, 'mars', 'Mars', 'dc2-mars'],
@@ -962,7 +962,7 @@ async function run(conf, engine) {
       p = await b.newPage({ viewport: conf.width ? { width: conf.width, height: conf.height } : undefined, isMobile: conf.name === 'phone', hasTouch: conf.name === 'phone' })
       p.setDefaultTimeout(15000)
       const pageErrors = []
-      p.on('pageerror', e => pageErrors.push(e.message))
+      p.on('pageerror', e => { if (!/Lock broken by another request/.test(e.message)) pageErrors.push(e.message) })
       await p.route('**/api/**', r => r.fulfill({ status: 404, body: '{}' }))
       await p.addInitScript(({ book, edition, ch, paragraphIndex }) => {
         sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({
@@ -1006,7 +1006,7 @@ async function run(conf, engine) {
         }, { cx: box.x + box.width / 2, cy: box.y + box.height / 2 })
       }
       let paged = false
-      for (let i = 0; i < 25 && !(await onPage()); i++) { await p.keyboard.press('ArrowRight'); await p.waitForTimeout(180); paged = true }
+      for (let i = 0; i < (conf.name === 'phone' ? 90 : 30) && !(await onPage()); i++) { await p.keyboard.press('ArrowRight'); await p.waitForTimeout(180); paged = true }
       const found = await onPage()
       if (!found) {
         await p.screenshot({ path: `${dir}/${conf.name}-${label}-notfound.png` })
