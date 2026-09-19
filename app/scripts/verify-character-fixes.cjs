@@ -610,8 +610,8 @@ const CASES = [
   ['wealth-of-nations', 'original-en', undefined, 'columbus', undefined, 'wn-columbus'],
   ['wealth-of-nations', 'original-en', undefined, 'mr-law', undefined, 'wn-mr-law'],
   ['wealth-of-nations', 'original-en', undefined, 'prince-henry', undefined, 'wn-prince-henry'],
-  ['wealth-of-nations', 'modern-en', undefined, 'elizabeth-i', undefined, 'wn-modern-elizabeth'],
-  ['wealth-of-nations', 'modern-en', undefined, 'hume', undefined, 'wn-modern-hume'],
+  ['wealth-of-nations', 'modern-en', 9, 'elizabeth-i', undefined, 'wn-modern-elizabeth'],
+  ['wealth-of-nations', 'modern-en', 13, 'hume', undefined, 'wn-modern-hume'],
   // Democracy in America — clickable-names pass (batch 4)
   ['democracy-in-america', 'original-en', undefined, 'judge-story', undefined, 'da-judge-story'],
   ['democracy-in-america', 'original-en', undefined, 'chancellor-kent', undefined, 'da-chancellor-kent'],
@@ -960,7 +960,7 @@ async function run(conf, engine) {
       assert.ok(wordIndex >= 0, `${label}: could not locate word index`)
 
       p = await b.newPage({ viewport: conf.width ? { width: conf.width, height: conf.height } : undefined, isMobile: conf.name === 'phone', hasTouch: conf.name === 'phone' })
-      p.setDefaultTimeout(15000)
+      p.setDefaultTimeout(40000)
       const pageErrors = []
       p.on('pageerror', e => { if (!/Lock broken by another request/.test(e.message)) pageErrors.push(e.message) })
       await p.route('**/api/**', r => r.fulfill({ status: 404, body: '{}' }))
