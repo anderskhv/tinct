@@ -19,18 +19,10 @@ import {
 } from './labPrefs'
 import {
   LAB_FONT_PICKER_GROUPS,
-  LAB_LINE_SPACINGS,
-  LAB_MARGIN_STEPS,
-  LAB_PARAGRAPH_SPACINGS,
   LAB_V2_SHEET_TITLES,
   LAB_V2_THEMES,
   labAlignmentValue,
   labFontValue,
-  labLineSpacingValue,
-  labMarginsValue,
-  labParagraphSpacingValue,
-  labStepAt,
-  labStepIndex,
   type LabV2SheetLayer,
 } from './labV2Sheet'
 

@@ -28,7 +28,13 @@ await page.route('**/*',async route=>{
 })
 await page.addInitScript(()=>{
   sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'notes-from-underground',primaryEditionKey:'original-en',savedPlace:{bookId:'notes-from-underground',chapterNumber:1,paragraphIndex:0,wordIndex:0,page:0}}))
-  window.__captureQA={events:[],sent:0,tracks:[]}
+  window.__captureQA={events:[],sent:0,tracks:[],dictationActive:false}
+  // SpeechRecognition itself is browser-vendor hosted. Exercise its lifecycle
+  // contract with a fixture; Grok below still receives real synthetic PCM.
+  window.SpeechRecognition=class {
+    start(){window.__captureQA.dictationActive=true;this.onstart?.();this.onresult?.({results:[{isFinal:true,0:{transcript:'A fixture dictated question'}}]})}
+    stop(){window.__captureQA.dictationActive=false;this.onend?.()}
+  }
   const original=navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices)
   navigator.mediaDevices.getUserMedia=async constraints=>{
     const stream=await original(constraints)
@@ -61,7 +67,24 @@ async function open(){
 try{
   await page.goto(origin+'/reader?chrome=v2',{waitUntil:'domcontentloaded'})
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
-  await open()
+  await page.getByTestId('lab-super').click()
+  await page.getByTestId('lab-super-row-chat').click()
+  await page.getByTestId('lab-ask-mic').click()
+  await page.getByTestId('lab-dictation-status').waitFor()
+  assert(await page.evaluate(()=>window.__captureQA.dictationActive))
+  await page.getByTestId('lab-ask-voice').click()
+  await page.waitForFunction(()=>document.querySelector('[data-testid="lab-voice-panel"]')?.dataset.connection==='connected',null,{timeout:30000})
+  assert.equal(await page.evaluate(()=>window.__captureQA.dictationActive),false,'Talk must stop dictation')
+  report.checks.push({name:'dictation fixture hands microphone ownership to real Grok capture'})
+  const panel=page.getByTestId('lab-voice-panel')
+  const box=await panel.boundingBox(), head=await panel.locator('[data-reader-window-handle]').boundingBox()
+  await page.mouse.move(head.x+35,head.y+head.height/2)
+  await page.mouse.down();await page.mouse.move(head.x-65,head.y+head.height/2+35,{steps:8});await page.mouse.up()
+  assert(Math.abs((await panel.boundingBox()).x-box.x)>60,'Talk panel can move during a call')
+  const resize=panel.locator('[data-reader-window-resize]')
+  await resize.focus();await page.keyboard.press('ArrowLeft')
+  assert((await panel.boundingBox()).width<box.width,'Talk panel can resize during a call')
+  await page.screenshot({path:output+'/desktop-call.png'})
   await page.waitForFunction(()=>window.__captureQA.events.filter(e=>e.type==='response.done').length>=3&&(window.__captureQA.audio||0)>100000,null,{timeout:90000})
   const first=await evidence()
   assert(first.events.filter(e=>e.type==='input_audio_buffer.speech_started').length>=3)
@@ -87,7 +110,7 @@ try{
   // fall back on every restart. Require fresh audio and a new completed turn.
   const prior=(await evidence()).events.filter(e=>e.type==='response.done').length
   await open()
-  await page.waitForFunction(prior=>window.__captureQA.events.filter(e=>e.type==='response.done').length>prior,null,{timeout:40000})
+  await page.waitForFunction(prior=>window.__captureQA.events.filter(e=>e.type==='response.done').length>prior,prior,{timeout:40000})
   report.checks.push({name:'restart same page',...(await evidence())})
   await page.getByTestId('lab-voice-panel-end').click()
   assert((await evidence()).tracks.every(s=>s==='ended'))

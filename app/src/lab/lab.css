@@ -7627,3 +7627,11 @@
   left:calc(50vw + 24px)!important; max-height:calc(100dvh - 122px);
 }
 .lab.is-desktop[data-chrome-version="v2"] .selection-popup.is-contextual-explain[data-explain-side="left"]:has(.is-expanded) { left:64px!important; right:auto!important; }
+
+/* The desktop rail is transparent to pointer events; its progress control is
+   explicitly interactive, just like the page arrows. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-chapter-progress.is-interactive {
+  flex:0 1 auto; width:max-content; max-width:100%; min-height:34px;
+  margin:0 auto; padding:0 12px; border:0; background:transparent; color:inherit;
+  appearance:none; pointer-events:auto; cursor:pointer;
+}

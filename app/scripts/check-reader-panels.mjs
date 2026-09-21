@@ -51,10 +51,18 @@ async function clickMenu(page,id) {
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-row-'+id).click()
 }
-const wordBoxes = page => page.getByTestId('lab-word').evaluateAll(nodes=>nodes.map(node=>({
-  key:node.dataset.paragraphIndex+':'+node.dataset.wordIndex,
-  rects:[...node.getClientRects()].map(r=>[r.left,r.top,r.width,r.height])
-})))
+// Compare the ink of each character, not span-fragment bookkeeping:
+// Chromium merges adjacent inline rects when a highlight wrapper changes.
+const wordBoxes = page => page.getByTestId('lab-word').evaluateAll(nodes=>nodes.map(node=>{
+  const chars=[], walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT)
+  let text
+  while(text=walker.nextNode())for(let i=0;i<text.length;i++){
+    const range=document.createRange();range.setStart(text,i);range.setEnd(text,i+1)
+    chars.push({text:text.data[i],rects:[...range.getClientRects()].map(r=>[r.left,r.top,r.width,r.height])})
+  }
+  return {key:node.dataset.paragraphIndex+':'+node.dataset.wordIndex,chars}
+}))
+
 async function drag(page, locator, dx, dy) {
   const box = await locator.boundingBox(); assert(box)
   await page.mouse.move(box.x+Math.min(70,box.width/3),box.y+box.height/2)

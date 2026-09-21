@@ -332,7 +332,8 @@ function renderHearingWords(
 function wordPlaceFromTarget(target: EventTarget | null): LabWordPlace | null {
   const el = target instanceof Element ? target.closest('[data-testid="lab-word"],[data-fragment-word]') : null
   if (el?.hasAttribute('data-fragment-word')) {
-    return { paragraphIndex: Number(el.getAttribute('data-fragment-paragraph')), wordIndex: Number(el.getAttribute('data-fragment-word')) }
+    const paragraphIndex = Number(el.getAttribute('data-fragment-paragraph')), wordIndex = Number(el.getAttribute('data-fragment-word'))
+    return Number.isInteger(paragraphIndex) && Number.isInteger(wordIndex) ? { paragraphIndex, wordIndex } : null
   }
   if (!el) return null
   const paragraphIndex = Number(el.getAttribute('data-paragraph-index'))
