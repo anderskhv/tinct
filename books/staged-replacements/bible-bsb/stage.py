@@ -163,6 +163,16 @@ def canonical_projection(templates, usj_index, texts):
         compact = lambda t: re.sub(r"\s", "", t)
         matching = compact("".join(original)) == compact(target)
         if matching:
+            # Do not transfer a source line break into the middle of an official word.
+            positions_check = [i for i,c in enumerate(target) if not c.isspace()]
+            consumed = 0
+            for fragment in original[:-1]:
+                consumed += len(compact(fragment))
+                left, right = positions_check[consumed-1], positions_check[consumed]
+                if right == left + 1 and target[left] != "—" and target[right] != "—":
+                    matching = False
+                    break
+        if matching:
             positions = [i for i,c in enumerate(target) if not c.isspace()]
             cursor = 0
             projected = []
@@ -208,7 +218,7 @@ def canonical_projection(templates, usj_index, texts):
     if set(reconstructed) != set(expected):
         raise ValueError("Lost verse during projection")
     for ref, text in expected.items():
-        if norm(" ".join(reconstructed[ref])) != norm(text):
+        if re.sub(r"\s", "", "".join(reconstructed[ref])) != re.sub(r"\s", "", text):
             raise ValueError("Changed official text during layout projection: " + ref)
     return chapters, index, fallback, layout
 
