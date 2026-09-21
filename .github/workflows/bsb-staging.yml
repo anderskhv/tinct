@@ -28,6 +28,8 @@ jobs:
         run: python scripts/check-docs.py
       - name: Import and validate in staging only
         run: python books/staged-replacements/bible-bsb/stage.py --repo . --output /tmp/bsb-staged
+      - name: Independently read back generated text and mappings
+        run: python books/staged-replacements/bible-bsb/verify_artifact.py /tmp/bsb-staged
       - name: Verify input files remained unchanged
         if: always()
         run: git diff --exit-code
