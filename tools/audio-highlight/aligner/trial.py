@@ -89,14 +89,14 @@ def attempt(model,audio,text,mode):
  asr_seconds=time.monotonic()-started
  alignment_start=time.monotonic();normalisation={}
  if hasattr(lib,'align_tokens_detailed'):
-  detailed,citation_changes=citation_equivalence.align(expected,heard);aligned,stats,opcodes,observed=detailed.words,detailed.stats,detailed.opcodes,detailed.observed
+  detailed,citation_changes=citation_equivalence.align(expected,heard) if lib.__name__=='pinned_words_sidecar_lib_v7' else (lib.align_tokens_detailed(expected,heard),{});aligned,stats,opcodes,observed=detailed.words,detailed.stats,detailed.opcodes,detailed.observed
   unspoken=set(detailed.unspoken);normalisation=dict(spoken_expected_indexes=detailed.spoken,unspoken_expected_indexes=detailed.unspoken,compared_heard=[dict(raw=h.raw,start=h.start,end=h.end,key=h.key,pieces=list(h.pieces)) for h in detailed.heard],merges=detailed.merges,groups=getattr(detailed,'groups',[]))
  else:
   aligned,stats=lib.align_tokens_with_stats(expected,heard);unspoken=set()
   opcodes=list(difflib.SequenceMatcher(None,[lib.canonical_alignment_token(t) for t in expected],[lib.canonical_alignment_token(w.raw) for w in heard],autojunk=False).get_opcodes())
   observed={i:j1+i-i1 for tag,i1,i2,j1,j2 in opcodes if tag=='equal' for i in range(i1,i2)}
  aligned=restore_source_tokens(aligned,source_expected,expected)
- aligned,restored_prefix=observed_prefix_repair.restore_observed_prefix(aligned,source_expected,expected,[dataclasses.asdict(w) for w in heard])
+ aligned,restored_prefix=observed_prefix_repair.restore_observed_prefix(aligned,source_expected,expected,[dataclasses.asdict(w) for w in heard]) if lib.__name__=='pinned_words_sidecar_lib_v7' else (aligned,0)
  normalisation['observed_prefix_restored']=restored_prefix
  provenance=[dict(index=i,source='observed' if i in observed else 'unspoken' if i in unspoken else 'interpolated',heard_index=observed.get(i)) for i in range(len(expected))]
  assert len(observed)==stats.matched_words
