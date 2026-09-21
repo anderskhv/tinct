@@ -2,15 +2,27 @@
 
 **Book id:** `richard-iii`
 **Edition:** `modern-en`
-**Accepted (pending independent verification):** 2026-09-21
+
+> **STATUS 2026-09-21: NOT ACCEPTED — PARKED (round 2 of 3).**
+> The round-2 independent verification pass (Claude Opus,
+> `claude-opus-5`) confirmed this record's structure findings and all 9
+> of round 1's fixes, and found **15 further live defects in the
+> "erasure of the source's own printed forms" class** (2 proper nouns
+> silently standardized, 10 `Exeunt` locations partially erased, 2
+> inconsistent `Mistress Shore`→`Mrs. Shore`, 1 dropped `God speed`).
+> **No acceptance hash is pinned and no
+> `accepted-paragraph-hashes.tsv` exists.** See `PARKED.md` for the
+> full finding list, the clean-sweep evidence, and round-3 scope.
+> Everything below is round 1's own record, retained unedited as the
+> round-1 artifact; its "READY FOR INDEPENDENT VERIFICATION" sign-off
+> has been superseded by that verification.
 
 **Model note.** Round 1 (structure check, blind accessibility review,
 full-book fidelity review including mandatory register-check, defect
 fixes, and this record) was performed entirely by **Claude Sonnet 5**
-(`claude-sonnet-5`). Per the dispatch instructions, this record is not the
-final word — a separate independent Opus verification pass runs after
-this and produces the release packet and accepted-paragraph-hashes.tsv,
-neither of which is written here.
+(`claude-sonnet-5`). Round 2 (independent adversarial fidelity
+verification) was performed by **Claude Opus** (`claude-opus-5`) and is
+recorded in `PARKED.md`.
 
 **Staged files:** `books/wip/green-richard-iii/source.json` (unmodified,
 locked, kept read-only during this work), `books/wip/green-richard-iii/
