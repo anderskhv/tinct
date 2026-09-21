@@ -1,5 +1,11 @@
 # First-Ten Green Library — Tracker
 
+**BATCH COMPLETE (2026-09-21): all 10 books reached Text accepted, with a
+release packet prepared for each. Nothing in this batch is live —
+publication handoff to a release owner is the next step, out of this
+lane's scope. See the summary table in this session's final report (or
+each book's `RELEASE-PACKET.md`) for hashes and coverage.**
+
 Goal: 10 complete books reaching **whole-book green acceptance** (fidelity +
 accessibility, both required — see `books/TRANSLATION_PROTOCOL.md`) and
 handed off for publication. This is the one authoritative tracker for this
