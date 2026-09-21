@@ -1,5 +1,13 @@
 # Acceptance Record — Narrative of the Life of Frederick Douglass, an American Slave (`frederick-douglass`), modern-en
 
+> **SUPERSEDED 2026-09-21 — this document is no longer the verdict.**
+> Its "ACCEPTED" verdict and its hash were written after round 1. Two
+> further correction rounds followed on the same defect (the Matthew 23
+> quotation, ch12 p2), blockers remain, and the book is now **PARKED**
+> under the three-round rule. Read `PARKED.md` in this directory instead.
+> Its "Round 3: not needed" line and "1 of the allotted 3 correction
+> rounds used" line are both factually wrong as of now: all 3 were used.
+
 Model/session note: this repair pass (staging, blind accessibility review,
 packet/full-context fidelity review, correction, re-verification) was
 performed by Claude Sonnet 5 (model id `claude-sonnet-5`), the same model
