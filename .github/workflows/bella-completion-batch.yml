@@ -1,42 +1,85 @@
-name: bella-completion-batch-recovery
+name: bella-completion-batch
 on:
   push:
     branches: ['codex/bella-completion-batch-20260921']
-    paths: ['.github/workflows/bella-completion-batch.yml']
+    paths: ['tools/audio-highlight/bella_batch_prepare.py', '.github/workflows/bella-completion-batch.yml']
 permissions:
   contents: write
   actions: read
+concurrency:
+  group: audio-align-canary
+  cancel-in-progress: false
 jobs:
-  recover:
+  guard:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 48
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
+      - name: Independently enforce this batch's rate and deadline
+        env:
+          RUNPOD_API_KEY: ${{ secrets.RUNPOD_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 tools/audio-highlight/bella_batch_guard.py
+      - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: bella-completion-batch
-          run-id: 35594476955
-          github-token: ${{ github.token }}
-          path: artifacts/bella-completion-batch-2026-09-21
-      - name: Show recorded cause without starting another pod
+          name: bella-batch-guard
+          path: artifacts/bella-completion-guard
+  align:
+    runs-on: ubuntu-latest
+    timeout-minutes: 42
+    env:
+      RUNPOD_API_KEY: ${{ secrets.RUNPOD_API_KEY }}
+      ARTIFACT_DIR: artifacts/bella-completion-batch-2026-09-21
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify every source and recording in the next bounded batch
+        run: python3 tools/audio-highlight/bella_batch_prepare.py
+      - name: Verify guards and launch invariants
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
+          python3 tools/audio-highlight/gpu/test_preflight_launch.py
           python3 - <<'PY'
-          import json
-          from pathlib import Path
-          for p in Path("artifacts/bella-completion-batch-2026-09-21").rglob("pod.json"):
-              j=json.loads(p.read_text())
-              print(json.dumps(j,indent=1))
+          import json,os,time,urllib.request
+          for _ in range(12):
+              req=urllib.request.Request("https://api.github.com/repos/anderskhv/tinct/actions/runs/"+os.environ["GITHUB_RUN_ID"]+"/jobs",headers={"Authorization":"Bearer "+os.environ["GITHUB_TOKEN"],"User-Agent":"tinct-audit"})
+              jobs=json.load(urllib.request.urlopen(req))["jobs"]
+              if any(j["name"]=="guard" and j["status"]=="in_progress" and any(s["name"]=="Independently enforce this batch's rate and deadline" and s["status"]=="in_progress" for s in j.get("steps",[])) for j in jobs):break
+              time.sleep(5)
+          else:raise SystemExit("Independent guard is not active")
           PY
-      - name: Preserve recovered evidence
+          python3 tools/audio-highlight/runpod_guard.py status --budget 15 --spent 2.20 --max-rate 1 --max-minutes 35 --json-out "$ARTIFACT_DIR/preflight.json"
+          python3 tools/audio-highlight/gpu/preflight_launch.py "$ARTIFACT_DIR/preflight.json" --budget 15 --reserve 0.70
+      - name: Align bounded batch under independent cloud watchdog
+        run: |
+          python3 tools/audio-highlight/gpu/orchestrate.py run --name "tinct-bella-completion-${GITHUB_RUN_ID}" --batch "$ARTIFACT_DIR/batch.json" --commit "${GITHUB_SHA}" --artifacts "$ARTIFACT_DIR" --cloud SECURE --gpus "NVIDIA GeForce RTX 3090" "NVIDIA RTX A6000" --helper v7 --arms auto --max-seconds 1500 --deadline-minutes 30 --boot-timeout 600
+      - name: Collect output without publishing
+        if: always()
+        run: |
+          python3 tools/audio-highlight/aligner/collect_candidates.py --run "$ARTIFACT_DIR/pods" --out "$ARTIFACT_DIR/candidates.json" --report "$ARTIFACT_DIR/collection-report.json"
+          python3 tools/audio-highlight/publish_timings.py --candidates "$ARTIFACT_DIR/candidates.json" --journal "$ARTIFACT_DIR/validation.json"
+          python3 tools/audio-highlight/gpu/billing_check.py "$ARTIFACT_DIR" > "$ARTIFACT_DIR/billing.txt" || true
+      - name: Preserve diagnostics and candidates
+        if: always()
         run: |
           git config user.name tinct-audit
           git config user.email tinct-audit@users.noreply.github.com
           python3 - <<'PY'
-          import subprocess
+          import os,subprocess
           from pathlib import Path
-          files=[str(p) for p in Path("artifacts/bella-completion-batch-2026-09-21").rglob("*") if p.is_file() and p.suffix in (".json",".log",".txt")]
+          files=[str(p) for p in Path(os.environ["ARTIFACT_DIR"]).rglob("*") if p.is_file() and p.suffix in (".json",".log",".txt")]
           subprocess.run(["git","add","--",*files],check=True)
           PY
           git diff --cached --quiet && exit 0
-          git commit -m "Preserve failed-host diagnostics before retry [skip ci]"
+          git commit -m "Record bounded Bella completion batch results [skip ci]"
           git push origin HEAD:codex/bella-completion-batch-20260921
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bella-completion-batch
+          path: artifacts/bella-completion-batch-2026-09-21
+          retention-days: 30
