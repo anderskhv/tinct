@@ -57,7 +57,7 @@ started.
 
 | # | Book | id | Gate sim | Buckets | Lane | Stage |
 |---|---|---|---|---|---|---|
-| 1 | Medea | `medea` | 0.499 | 4 REAL-HEAVY/3 REAL | A | Reviewing |
+| 1 | Medea | `medea` | 0.499 | 4 REAL-HEAVY/3 REAL | freed | **Text accepted.** sha256 `8aafd12a4c3fab2c24dd6776b00ba42da12c3bc2bf2a10ebe01e348dda699381` (2026-09-21). Took 3 rounds — round 1's coverage claim proved inaccurate (miscounted paragraphs), independent verification caught a silent name correction + dropped word, and a fresh full Opus pass then found 5 more blocking + 8 minor defects. Release packet pending. |
 | 2 | Gilgamesh | `gilgamesh` | 0.547 | 1 REAL-HEAVY/11 REAL | B | Reviewing |
 | 3 | Frederick Douglass (Narrative) | `frederick-douglass` | 0.658 | 12/12 REAL | **PARKED** | PARKED after 3 rounds — see `books/wip/green-frederick-douglass/PARKED.md`. Recurring defect: ch12 p2's Matthew 23 quotation kept importing NIV/ESV wording across 3 rewrites; round 4 surfaced 2 new book-wide defect classes (emphasis-markup loss, a second unmodernized KJV quote at ch12 p5). Next book pulled from pool in its place. |
 | 4 | The Death of Ivan Ilyich | `ivan-ilyich` | 0.641 | 12/12 REAL | queued | Screening done |
