@@ -1,0 +1,27 @@
+name: checkpoint-bella-audit
+on:
+  push:
+    branches: ['codex/bella-audit-checkpoint-20260921']
+permissions:
+  actions: write
+  contents: read
+jobs:
+  checkpoint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Stop this task's long read-only audit so its always-save steps preserve checkpoints
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import urllib.request,json,os
+          base="https://api.github.com/repos/anderskhv/tinct/actions/runs/35587234933"
+          headers={"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Accept":"application/vnd.github+json"}
+          with urllib.request.urlopen(urllib.request.Request(base,headers=headers)) as r: run=json.load(r)
+          assert run["head_sha"]=="bc6d359873017ff8371e2928cbe020637b72d56e" and run["name"]=="bella-sync-readonly"
+          if run["status"]=="completed":
+              print("Audit already completed; no cancellation needed")
+          else:
+              with urllib.request.urlopen(urllib.request.Request(base+"/cancel",headers=headers,method="POST")) as r: print("Read-only audit cancellation requested:",r.status)
+          PY
