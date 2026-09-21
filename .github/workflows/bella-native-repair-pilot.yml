@@ -1,0 +1,36 @@
+name: bella-native-repair-pilot
+on:
+  push:
+    branches: ['codex/bella-native-repair-pilot-20260921']
+permissions:
+  contents: write
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg espeak-ng
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install kokoro==0.9.4 soundfile huggingface_hub
+      - run: python3 tools/audio-highlight/bella_native_repair_pilot.py
+        timeout-minutes: 35
+      - if: always()
+        run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          find artifacts/bella-native-repair-pilot-2026-09-21 -name '*.json' -print0 | xargs -0 git add -f --
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve native Bella timing pilot and provenance without publication [skip ci]"
+          git push origin HEAD:codex/bella-native-repair-pilot-20260921
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bella-native-repair-pilot
+          path: artifacts/bella-native-repair-pilot-2026-09-21
+          retention-days: 30
