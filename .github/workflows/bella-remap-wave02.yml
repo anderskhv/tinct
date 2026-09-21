@@ -59,7 +59,7 @@ jobs:
           python3 tools/audio-highlight/gpu/preflight_launch.py "$ARTIFACT_DIR/preflight.json" --budget 15 --reserve 0.70
       - name: Align bounded batch under independent cloud watchdog
         run: |
-          python3 tools/audio-highlight/gpu/orchestrate.py run --name "tinct-bella-completion-${GITHUB_RUN_ID}" --batch "$ARTIFACT_DIR/batch.json" --commit "${GITHUB_SHA}" --artifacts "$ARTIFACT_DIR" --cloud SECURE --gpus "NVIDIA GeForce RTX 3090" "NVIDIA RTX A6000" --helper v7 --arms auto --max-seconds 1500 --deadline-minutes 30 --boot-timeout 600
+          python3 tools/audio-highlight/gpu/orchestrate.py run --name "tinct-bella-completion-${GITHUB_RUN_ID}" --batch "$ARTIFACT_DIR/batch.json" --commit "${GITHUB_SHA}" --artifacts "$ARTIFACT_DIR" --cloud SECURE --gpus "NVIDIA RTX A4000" "NVIDIA RTX A4500" "NVIDIA RTX A5000" "NVIDIA GeForce RTX 3090" "NVIDIA RTX A6000" "NVIDIA GeForce RTX 4090" "NVIDIA A40" "NVIDIA L4" --helper v7 --arms auto --max-seconds 1500 --deadline-minutes 30 --boot-timeout 600
       - name: Collect output without publishing
         if: always()
         run: |
