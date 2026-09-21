@@ -439,6 +439,19 @@ async function contentsAndSameEdition(engine,name,phone){
 
 
 
+async function paintDiagnostics(page,label){
+ const read=()=>page.evaluate(()=>{
+   const word=document.querySelector('.is-hl-warm[data-testid="lab-word"]'), line=word?.closest('.lab-hearing-line')
+   const style=word&&getComputedStyle(word)
+   return {word:word&&{text:word.textContent,rect:word.getBoundingClientRect().toJSON(),select:style.userSelect,background:style.backgroundColor},line:line&&{rect:line.getBoundingClientRect().toJSON(),isolation:getComputedStyle(line).isolation},seams:[...document.querySelectorAll('.lab-highlight-seam')].map(n=>({rect:n.getBoundingClientRect().toJSON(),style:n.getAttribute('style')})),ranges:[...(CSS.highlights||[])].map(([key,value])=>({key,ranges:[...value].map(r=>({text:r.toString().slice(0,80),rects:[...r.getClientRects()].map(b=>b.toJSON())}))}))}
+ })
+ const before=await read()
+ await page.addStyleTag({content:'.lab .lab-passage.has-text-range-highlights .lab-hearing-line {isolation:auto!important}'})
+ await page.screenshot({path:output+'/'+label+'-without-isolation.png'})
+ const noIsolation=await read()
+ await fs.writeFile(output+'/'+label+'-paint-diagnostic.json',JSON.stringify({before,noIsolation},null,2))
+}
+
 async function checkHighlightPaint(page){
   await page.locator('.lab-highlight-seam').first().waitFor({state:'attached'})
   const geometry=await page.locator('.lab-highlight-seam').evaluateAll(nodes=>nodes.map(node=>{
@@ -502,6 +515,7 @@ async function highlightRegression(engine,name){
         result.clicks.push({book:fixture.book,index,text,menu:'highlight'})
         await page.keyboard.press('Escape')
       }
+      if(name==='webkit')await paintDiagnostics(page,name+'-'+fixture.book)
       result[fixture.book].pixels=await checkHighlightPaint(page)
       result[fixture.book].paint=await page.evaluate(()=>{
         const root=document.querySelector('.lab-passage')
@@ -558,12 +572,16 @@ async function mobileChromeRegression(engine,name){
       // A real quiet-reading tap, away from the edge page-turn zones.
       await page.touchscreen.tap(195,220)
       await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]').dataset.readerControls==='hidden')
-      await page.waitForTimeout(200)
+      await page.waitForFunction(()=>{
+        const header=document.querySelector('.lab-header-brand'),progress=document.querySelector('.lab-chapter-progress-info')
+        return [header,progress].every(n=>Math.abs(Number(getComputedStyle(n).opacity)-.58)<.001)
+      },null,{timeout:3000}).catch(()=>{})
       const quiet=await page.evaluate(()=>{
         const header=document.querySelector('.lab-header-brand'),title=header.querySelector('.lab-header-work'),progress=document.querySelector('.lab-chapter-progress-info')
         return {headerOpacity:getComputedStyle(header).opacity,progressOpacity:getComputedStyle(progress).opacity,title:getComputedStyle(title).color,progress:getComputedStyle(progress).color}
       })
-      assert(Math.abs(Number(quiet.progressOpacity)-Number(quiet.headerOpacity))<.001,'quiet progress fades with the header')
+      (result.quiet??=[]).push({theme,...quiet})
+      assert(Math.abs(Number(quiet.progressOpacity)-Number(quiet.headerOpacity))<.001,'quiet progress fades with the header: '+JSON.stringify(quiet))
       assert.equal(quiet.progress,quiet.title,'quiet progress uses the same grey ink as the header')
       await page.screenshot({path:output+'/'+name+'-phone-quiet-'+theme+'.png'})
       await page.touchscreen.tap(195,220)
