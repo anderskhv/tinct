@@ -397,15 +397,11 @@ necessarily the true final count.
   verified to match `PARKED.md`'s declared candidate hash exactly):
   **exactly 13 paragraphs changed** — Ch3 ¶16, Ch5 ¶27, Ch8 ¶37, Ch8 ¶39,
   Ch10 ¶70, Ch10 ¶83, Ch10 ¶98, Ch12 ¶19, Ch13 ¶16, Ch14 ¶126, Ch15 ¶28,
-  Ch18 ¶119, Ch18 ¶123 — matching the 13 fixes applied (12 assigned
-  fixes landing in 11 paragraphs because two of the 12 shared Ch14 ¶126,
-  plus the 1 fresh `cubiculo` find, = 12 paragraphs... 
-
-  Correction for precision: 12 distinct paragraphs were touched by the
-  12 assigned fixes (Ch14 ¶126 absorbed 2 of them), plus 1 more
-  paragraph (Ch12 ¶19) for the fresh `cubiculo` find = **13 paragraphs
-  changed for 13 fix operations**, which is what the diff shows. No
-  paragraph outside this set changed.
+  Ch18 ¶119, Ch18 ¶123. The 12 assigned fixes touch 12 distinct
+  paragraphs (two of the 12 fix operations — `firago`→ and `the Sophy`→
+  — both landed in Ch14 ¶126), plus 1 more paragraph (Ch12 ¶19) for the
+  fresh `cubiculo` find, giving 13 paragraphs changed for 13 fix
+  locations total. No paragraph outside this set changed.
 - All 13 fixed locations independently re-read against `source.json`
   fresh, after all edits: all match source's exact wording; none of the
   erased forms they replaced remain.
