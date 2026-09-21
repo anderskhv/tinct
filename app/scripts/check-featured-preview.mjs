@@ -66,7 +66,14 @@ for(const [name,engine] of Object.entries({chromium,webkit})){
  await frame.locator('.reel').focus()
  await page.keyboard.press('Home');await page.waitForTimeout(600)
  assert.equal(await frame.locator('.book[aria-current=true]').getAttribute('data-index'),'0')
+ await frame.evaluate(()=>{window.keyTrace=[];document.addEventListener('keydown',e=>window.keyTrace.push({key:e.key,target:e.target.className}),true)})
  await page.keyboard.press('ArrowRight');await page.waitForTimeout(600)
+ try{await frame.waitForFunction(()=>document.querySelector('.book[aria-current=true]')?.dataset.index==='1',{},{timeout:3000})}catch{
+  console.log('KEY_DIAGNOSTIC '+name+' '+label+' '+JSON.stringify(await frame.evaluate(()=>({keys:window.keyTrace,active:document.activeElement?.outerHTML.slice(0,300),scroll:document.querySelector('.reel').scrollLeft,selected:document.querySelector('.book[aria-current=true]')?.dataset.index,buttons:[...document.querySelectorAll('.book')].map(n=>({left:n.offsetLeft,width:n.offsetWidth}))}))))
+  await frame.locator('[data-step="1"]').click();await page.waitForTimeout(1200)
+  console.log('BUTTON_DIAGNOSTIC '+JSON.stringify(await geometry()))
+  throw Error('Keyboard ArrowRight did not advance in '+name+' '+label)
+ }
  assert.equal(await frame.locator('.book[aria-current=true]').getAttribute('data-index'),'1')
  if(name==='chromium'&&touch){
   const client=await context.newCDPSession(page)
@@ -85,8 +92,8 @@ for(const [name,engine] of Object.entries({chromium,webkit})){
   await page.waitForTimeout(700)
   assert.notEqual(await frame.locator('.book[aria-current=true]').getAttribute('data-index'),'1','mouse drag changes book')
  }
- await frame.locator('.reel').focus();await page.keyboard.press('Home');await page.keyboard.press('ArrowRight')
- await page.waitForTimeout(650)
+ await frame.locator('.book').nth(3).evaluate(n=>{const r=n.parentElement;r.scrollTo({left:n.offsetLeft+n.offsetWidth/2-r.clientWidth/2,behavior:'instant'});document.activeElement?.blur()})
+ await page.waitForTimeout(350)
  await page.screenshot({path:out+'/'+name+'-'+label+'.png',fullPage:true})
  if(label==='phone'||label==='desktop'){
   const b64=(await page.screenshot({type:'jpeg',quality:65})).toString('base64')

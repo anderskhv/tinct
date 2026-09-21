@@ -1,4 +1,4 @@
-import { LAB_CATALOGUE_URL, popularBooks, bookDescription, catalogueLengthLine } from '/lab/library-model.js?v=20260921-preview'
+import { LAB_CATALOGUE_URL, popularBooks, listableBooks, bookDescription, catalogueLengthLine } from '/lab/library-model.js?v=20260921-preview'
 const reel=document.querySelector('.reel')
 const captions=document.querySelector('.captions')
 const status=document.querySelector('[role=status]')
@@ -74,7 +74,10 @@ new ResizeObserver(()=>{
 try{
  const response=await fetch(LAB_CATALOGUE_URL)
  if(!response.ok)throw Error('Catalogue unavailable')
- books=popularBooks(await response.json(),8)
+ const catalogue=await response.json()
+ const byId=new Map(listableBooks(catalogue).map(book=>[book.id,book]))
+ books=['the-prince','meditations','frankenstein','notes-from-underground','jekyll-and-hyde','the-manual'].map(id=>byId.get(id)).filter(book=>book?.art?.src)
+ if(books.length<3)books=popularBooks(catalogue,8)
  if(!books.length)throw Error('No featured books')
  // Start within the row, so both directions are visibly available.
  const initial=Math.max(0,books.findIndex(book=>book.id==='notes-from-underground'))
@@ -88,3 +91,5 @@ try{
  centre(initial,false);paint()
  document.documentElement.dataset.ready='true'
 }catch(error){document.querySelector('.error').hidden=false;document.querySelector('.featured').hidden=true;console.error(error)}
+
+document.querySelector('#retry').addEventListener('click',()=>parent.location.reload())
