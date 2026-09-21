@@ -124,6 +124,10 @@ A book may move into public `BOOKS` only when:
 - audio flags match actual R2 coverage
 - app build and bundle verification pass
 
+## Bella word-sync planning — 2026-09-21
+
+See [Bella word-sync repair plan](docs/bella-word-sync-repair-plan-2026-09-21.md). Planning only: first refresh the Bella-specific production ledger, recover reusable results, and choose a small representative pilot. No new paid alignment, publication or deployment has started. Existing historical audio backlog instructions do not authorize execution of this proposed repair plan.
+
 ## Next Actions
 
 1. Confirm Claude's current modern-English repair assignment, then verify JSON/structure/terms.
