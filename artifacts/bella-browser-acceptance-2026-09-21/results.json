@@ -31,7 +31,7 @@
     "audio": {
       "src": "https://tinct.app/api/audio-file?path=king-lear%2Foriginal-en%2Fch3%2Fp0.mp3",
       "muted": true,
-      "time": 0.065156,
+      "time": 0.068863,
       "duration": 2.575
     },
     "speed": 1.5,
@@ -39,5 +39,188 @@
     "pauseResume": true,
     "seek": true,
     "status": "pass"
+  },
+  {
+    "book": "imitation-of-christ",
+    "chapter": 76,
+    "width": 390,
+    "http": [
+      {
+        "url": "https://tinct.app/api/audio-manifest?path=imitation-of-christ%2Fmodern-en%2Fch76%2Fmanifest.json",
+        "status": 200,
+        "type": "application/json"
+      },
+      {
+        "url": "https://tinct.app/api/audio-manifest?path=imitation-of-christ%2Fmodern-en%2Fch76%2Fmanifest.json",
+        "status": 200,
+        "type": "application/json"
+      },
+      {
+        "url": "https://tinct.app/api/audio-file?path=imitation-of-christ%2Fmodern-en%2Fch76%2Fwords.json&timing=2",
+        "status": 404,
+        "type": "text/plain;charset=UTF-8"
+      },
+      {
+        "url": "https://tinct.app/api/audio-file?path=imitation-of-christ%2Fmodern-en%2Fch76%2Fp0.mp3",
+        "status": 206,
+        "type": "audio/mpeg"
+      },
+      {
+        "url": "https://tinct.app/api/audio-file?path=imitation-of-christ%2Fmodern-en%2Fch76%2Fp1.mp3",
+        "status": 206,
+        "type": "audio/mpeg"
+      },
+      {
+        "url": "https://tinct.app/api/audio-file?path=imitation-of-christ%2Fmodern-en%2Fch76%2Fp2.mp3",
+        "status": 206,
+        "type": "audio/mpeg"
+      }
+    ],
+    "requestFailures": [],
+    "bundle": "/assets/index-DIuP-7hv.js",
+    "status": "fail",
+    "error": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.",
+    "media": [
+      {
+        "src": "https://tinct.app/api/audio-file?path=imitation-of-christ%2Fmodern-en%2Fch76%2Fp2.mp3",
+        "time": 0.304382,
+        "duration": 13.175,
+        "readyState": 4,
+        "networkState": 1,
+        "paused": false,
+        "error": null
+      }
+    ],
+    "url": "https://tinct.app/lab/phone?chrome=v2"
+  },
+  {
+    "book": "winters-tale",
+    "chapter": 6,
+    "width": 390,
+    "http": [
+      {
+        "url": "https://tinct.app/api/audio-manifest?path=winters-tale%2Fmodern-en%2Fch6%2Fmanifest.json",
+        "status": 200,
+        "type": "application/json"
+      }
+    ],
+    "requestFailures": [],
+    "bundle": "/assets/index-DIuP-7hv.js",
+    "status": "fail",
+    "error": "TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.",
+    "media": [],
+    "url": "https://tinct.app/lab/phone?chrome=v2"
+  },
+  {
+    "book": "king-lear",
+    "chapter": 3,
+    "width": 1440,
+    "http": [
+      {
+        "url": "https://tinct.app/api/audio-manifest?path=king-lear%2Foriginal-en%2Fch3%2Fmanifest.json",
+        "status": 200,
+        "type": "application/json"
+      },
+      {
+        "url": "https://tinct.app/api/audio-manifest?path=king-lear%2Foriginal-en%2Fch3%2Fmanifest.json",
+        "status": 200,
+        "type": "application/json"
+      },
+      {
+        "url": "https://tinct.app/api/audio-file?path=king-lear%2Foriginal-en%2Fch3%2Fwords.json&timing=2",
+        "status": 200,
+        "type": "application/json"
+      },
+      {
+        "url": "https://tinct.app/api/audio-file?path=king-lear%2Foriginal-en%2Fch3%2Fp0.mp3",
+        "status": 206,
+        "type": "audio/mpeg"
+      }
+    ],
+    "requestFailures": [],
+    "bundle": "/assets/index-DIuP-7hv.js",
+    "firstHighlight": "Enter",
+    "audio": {
+      "src": "https://tinct.app/api/audio-file?path=king-lear%2Foriginal-en%2Fch3%2Fp0.mp3",
+      "muted": true,
+      "time": 0.067546,
+      "duration": 2.575
+    },
+    "speed": 1.5,
+    "paragraphTransition": true,
+    "pauseResume": true,
+    "seek": true,
+    "status": "pass"
+  },
+  {
+    "book": "imitation-of-christ",
+    "chapter": 76,
+    "width": 1440,
+    "http": [
+      {
+        "url": "https://tinct.app/api/audio-manifest?path=imitation-of-christ%2Fmodern-en%2Fch76%2Fmanifest.json",
+        "status": 200,
+        "type": "application/json"
+      },
+      {
+        "url": "https://tinct.app/api/audio-manifest?path=imitation-of-christ%2Fmodern-en%2Fch76%2Fmanifest.json",
+        "status": 200,
+        "type": "application/json"
+      },
+      {
+        "url": "https://tinct.app/api/audio-file?path=imitation-of-christ%2Fmodern-en%2Fch76%2Fwords.json&timing=2",
+        "status": 404,
+        "type": "text/plain;charset=UTF-8"
+      },
+      {
+        "url": "https://tinct.app/api/audio-file?path=imitation-of-christ%2Fmodern-en%2Fch76%2Fp0.mp3",
+        "status": 206,
+        "type": "audio/mpeg"
+      },
+      {
+        "url": "https://tinct.app/api/audio-file?path=imitation-of-christ%2Fmodern-en%2Fch76%2Fp1.mp3",
+        "status": 206,
+        "type": "audio/mpeg"
+      },
+      {
+        "url": "https://tinct.app/api/audio-file?path=imitation-of-christ%2Fmodern-en%2Fch76%2Fp2.mp3",
+        "status": 206,
+        "type": "audio/mpeg"
+      }
+    ],
+    "requestFailures": [],
+    "bundle": "/assets/index-DIuP-7hv.js",
+    "status": "fail",
+    "error": "TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.",
+    "media": [
+      {
+        "src": "https://tinct.app/api/audio-file?path=imitation-of-christ%2Fmodern-en%2Fch76%2Fp2.mp3",
+        "time": 0.30147,
+        "duration": 13.175,
+        "readyState": 4,
+        "networkState": 1,
+        "paused": false,
+        "error": null
+      }
+    ],
+    "url": "https://tinct.app/lab/phone?chrome=v2"
+  },
+  {
+    "book": "winters-tale",
+    "chapter": 6,
+    "width": 1440,
+    "http": [
+      {
+        "url": "https://tinct.app/api/audio-manifest?path=winters-tale%2Fmodern-en%2Fch6%2Fmanifest.json",
+        "status": 200,
+        "type": "application/json"
+      }
+    ],
+    "requestFailures": [],
+    "bundle": "/assets/index-DIuP-7hv.js",
+    "status": "fail",
+    "error": "TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.",
+    "media": [],
+    "url": "https://tinct.app/lab/phone?chrome=v2"
   }
 ]
