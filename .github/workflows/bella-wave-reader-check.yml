@@ -1,0 +1,36 @@
+name: bella-reader-data-check
+on:
+  push:
+    branches: ['codex/bella-wave02-reader-check-20260921']
+    paths: ['tools/audio-highlight/bella_wave_reader_prepare.py', '.github/workflows/bella-wave-reader-check.yml']
+permissions:
+  contents: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+      - name: Prepare verified candidate fixtures
+        run: python3 tools/audio-highlight/bella_wave_reader_prepare.py
+      - name: Install existing app test dependencies in cloud
+        working-directory: app
+        run: npm ci
+      - name: Exercise existing reader with actual repair data without playback
+        working-directory: app
+        run: |
+          cp ../tools/audio-highlight/bellaReaderData.test.ts src/lab/bellaRepairData.test.ts
+          npm test -- src/lab/bellaRepairData.test.ts src/lab/labListen.test.ts > ../artifacts/bella-reader-data-check-2026-09-21/test-results.txt 2>&1
+      - name: Preserve acceptance evidence only
+        if: always()
+        run: |
+          cat artifacts/bella-reader-data-check-2026-09-21/test-results.txt
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add -f artifacts/bella-reader-data-check-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Record reader acceptance of repaired audio data without reader edits [skip ci]"
+          git push origin HEAD:codex/bella-wave02-reader-check-20260921
