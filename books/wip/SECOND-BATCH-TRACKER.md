@@ -59,7 +59,7 @@ started.
 |---|---|---|---|---|---|---|
 | 1 | Medea | `medea` | 0.499 | 4 REAL-HEAVY/3 REAL | A | Reviewing |
 | 2 | Gilgamesh | `gilgamesh` | 0.547 | 1 REAL-HEAVY/11 REAL | B | Reviewing |
-| 3 | Frederick Douglass (Narrative) | `frederick-douglass` | 0.658 | 12/12 REAL | C | Reviewing |
+| 3 | Frederick Douglass (Narrative) | `frederick-douglass` | 0.658 | 12/12 REAL | **PARKED** | PARKED after 3 rounds — see `books/wip/green-frederick-douglass/PARKED.md`. Recurring defect: ch12 p2's Matthew 23 quotation kept importing NIV/ESV wording across 3 rewrites; round 4 surfaced 2 new book-wide defect classes (emphasis-markup loss, a second unmodernized KJV quote at ch12 p5). Next book pulled from pool in its place. |
 | 4 | The Death of Ivan Ilyich | `ivan-ilyich` | 0.641 | 12/12 REAL | queued | Screening done |
 | 5 | A Midsummer Night's Dream | `midsummer` | 0.411 | 8 REAL-HEAVY/1 REAL | queued | Screening done |
 | 6 | The Bacchae | `bacchae` | 0.620 | 11/11 REAL | queued | Screening done |
