@@ -31,6 +31,7 @@ jobs:
         run: |
           python3 tools/audio-highlight/runpod_guard.py status --budget 15 --spent 1 --json-out artifacts/bella-sync-2026-09-21/provider-status.json
       - name: Audit published text, audio manifests and timings
+        timeout-minutes: 55
         run: python3 -u tools/audio-highlight/bella_inventory.py
       - name: Preserve audit results on this branch only
         if: always()
