@@ -59,7 +59,6 @@ try {
   assert.equal(report.requestedVoice, expectedVoice)
   assert.equal(report.sessionUpdated, true)
   assert.deepEqual(report.errors, [])
-  await page.getByTestId('lab-voice-panel-end').click()
   report.passed = true
 } catch (error) {
   report.passed = false
