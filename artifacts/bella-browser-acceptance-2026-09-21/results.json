@@ -26,12 +26,13 @@
       }
     ],
     "requestFailures": [],
+    "pageErrors": [],
     "bundle": "/assets/index-DIuP-7hv.js",
     "firstHighlight": "Enter",
     "audio": {
       "src": "https://tinct.app/api/audio-file?path=king-lear%2Foriginal-en%2Fch3%2Fp0.mp3",
       "muted": true,
-      "time": 0.065488,
+      "time": 0.066,
       "duration": 2.575
     },
     "speed": 1.5,
@@ -44,35 +45,91 @@
     "book": "merchant-of-venice",
     "chapter": 6,
     "width": 390,
-    "http": [
-      {
-        "url": "https://tinct.app/api/audio-manifest?path=bible%2Fkjv-en%2Fch1%2Fmanifest.json",
-        "status": 200,
-        "type": "application/json"
-      }
-    ],
+    "http": [],
     "requestFailures": [],
+    "pageErrors": [],
     "status": "fail",
-    "error": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://tinct.app/lab/phone?chrome=v2\", waiting until \"networkidle\"\n",
+    "error": "Error: wrong book",
     "media": [],
-    "url": "https://tinct.app/lab/phone?chrome=v2"
+    "url": "https://tinct.app/lab/phone?chrome=v2",
+    "rootState": {
+      "lang": "en",
+      "class": "lab is-phone has-phone-chrome has-reader-controls",
+      "data-testid": "lab-root",
+      "data-theme": "light",
+      "data-lab-layout": "phone",
+      "data-chrome-state": "reading",
+      "data-phone-bar": "none",
+      "data-page-height": "743",
+      "data-chapter": "1",
+      "data-book-id": "bible",
+      "data-cover-page": "false",
+      "data-reader-ready": "true",
+      "data-position-resolving": "false",
+      "data-biblical-book": "genesis",
+      "data-place": "0:0",
+      "data-playing": "false",
+      "data-fullscreen": "false",
+      "data-reader-controls": "visible",
+      "data-reader-edition": "original-en",
+      "data-compare-active": "false",
+      "data-desktop-view": "read",
+      "data-desktop-panel": "none",
+      "data-voice-surface": "read",
+      "data-voice-version": "v2",
+      "data-chrome-version": "v2",
+      "data-transport": "closed",
+      "data-super-menu": "closed",
+      "data-super-sheet": "closed",
+      "data-voice-history-fixture": "false",
+      "data-audio-speed": "1",
+      "style": "--lab-font-reader: 'Literata', 'EB Garamond', Georgia, serif; --lab-font-size: 1.3; --lab-text-align: justify; --lab-line-height: 1.48; --lab-reader-margin: 1.55rem; --lab-reader-margin-scale: 1; --lab-paragraph-gap: .28em; --lab-vvh: 844px;"
+    }
   },
   {
     "book": "merchant-of-venice",
     "chapter": 9,
     "width": 390,
-    "http": [
-      {
-        "url": "https://tinct.app/api/audio-manifest?path=bible%2Fkjv-en%2Fch1%2Fmanifest.json",
-        "status": 200,
-        "type": "application/json"
-      }
-    ],
+    "http": [],
     "requestFailures": [],
+    "pageErrors": [],
     "status": "fail",
-    "error": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://tinct.app/lab/phone?chrome=v2\", waiting until \"networkidle\"\n",
+    "error": "Error: wrong book",
     "media": [],
-    "url": "https://tinct.app/lab/phone?chrome=v2"
+    "url": "https://tinct.app/lab/phone?chrome=v2",
+    "rootState": {
+      "lang": "en",
+      "class": "lab is-phone has-phone-chrome has-reader-controls",
+      "data-testid": "lab-root",
+      "data-theme": "light",
+      "data-lab-layout": "phone",
+      "data-chrome-state": "reading",
+      "data-phone-bar": "none",
+      "data-page-height": "743",
+      "data-chapter": "1",
+      "data-book-id": "bible",
+      "data-cover-page": "false",
+      "data-reader-ready": "true",
+      "data-position-resolving": "false",
+      "data-biblical-book": "genesis",
+      "data-place": "0:0",
+      "data-playing": "false",
+      "data-fullscreen": "false",
+      "data-reader-controls": "visible",
+      "data-reader-edition": "original-en",
+      "data-compare-active": "false",
+      "data-desktop-view": "read",
+      "data-desktop-panel": "none",
+      "data-voice-surface": "read",
+      "data-voice-version": "v2",
+      "data-chrome-version": "v2",
+      "data-transport": "closed",
+      "data-super-menu": "closed",
+      "data-super-sheet": "closed",
+      "data-voice-history-fixture": "false",
+      "data-audio-speed": "1",
+      "style": "--lab-font-reader: 'Literata', 'EB Garamond', Georgia, serif; --lab-font-size: 1.3; --lab-text-align: justify; --lab-line-height: 1.48; --lab-reader-margin: 1.55rem; --lab-reader-margin-scale: 1; --lab-paragraph-gap: .28em; --lab-vvh: 844px;"
+    }
   },
   {
     "book": "king-lear",
@@ -85,12 +142,12 @@
         "type": "application/json"
       },
       {
-        "url": "https://tinct.app/api/audio-manifest?path=king-lear%2Foriginal-en%2Fch3%2Fmanifest.json",
+        "url": "https://tinct.app/api/audio-file?path=king-lear%2Foriginal-en%2Fch3%2Fwords.json&timing=2",
         "status": 200,
         "type": "application/json"
       },
       {
-        "url": "https://tinct.app/api/audio-file?path=king-lear%2Foriginal-en%2Fch3%2Fwords.json&timing=2",
+        "url": "https://tinct.app/api/audio-manifest?path=king-lear%2Foriginal-en%2Fch3%2Fmanifest.json",
         "status": 200,
         "type": "application/json"
       },
@@ -101,12 +158,13 @@
       }
     ],
     "requestFailures": [],
+    "pageErrors": [],
     "bundle": "/assets/index-DIuP-7hv.js",
     "firstHighlight": "Enter",
     "audio": {
       "src": "https://tinct.app/api/audio-file?path=king-lear%2Foriginal-en%2Fch3%2Fp0.mp3",
       "muted": true,
-      "time": 0.06176,
+      "time": 0.060796,
       "duration": 2.575
     },
     "speed": 1.5,
@@ -119,34 +177,90 @@
     "book": "merchant-of-venice",
     "chapter": 6,
     "width": 1440,
-    "http": [
-      {
-        "url": "https://tinct.app/api/audio-manifest?path=bible%2Fkjv-en%2Fch1%2Fmanifest.json",
-        "status": 200,
-        "type": "application/json"
-      }
-    ],
+    "http": [],
     "requestFailures": [],
+    "pageErrors": [],
     "status": "fail",
-    "error": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://tinct.app/lab/phone?chrome=v2\", waiting until \"networkidle\"\n",
+    "error": "Error: wrong book",
     "media": [],
-    "url": "https://tinct.app/lab/phone?chrome=v2"
+    "url": "https://tinct.app/lab/phone?chrome=v2",
+    "rootState": {
+      "lang": "en",
+      "class": "lab is-phone has-phone-chrome has-reader-controls",
+      "data-testid": "lab-root",
+      "data-theme": "light",
+      "data-lab-layout": "phone",
+      "data-chrome-state": "reading",
+      "data-phone-bar": "none",
+      "data-page-height": "799",
+      "data-chapter": "1",
+      "data-book-id": "bible",
+      "data-cover-page": "false",
+      "data-reader-ready": "true",
+      "data-position-resolving": "false",
+      "data-biblical-book": "genesis",
+      "data-place": "0:0",
+      "data-playing": "false",
+      "data-fullscreen": "false",
+      "data-reader-controls": "visible",
+      "data-reader-edition": "original-en",
+      "data-compare-active": "false",
+      "data-desktop-view": "read",
+      "data-desktop-panel": "none",
+      "data-voice-surface": "read",
+      "data-voice-version": "v2",
+      "data-chrome-version": "v2",
+      "data-transport": "closed",
+      "data-super-menu": "closed",
+      "data-super-sheet": "closed",
+      "data-voice-history-fixture": "false",
+      "data-audio-speed": "1",
+      "style": "--lab-font-reader: 'Literata', 'EB Garamond', Georgia, serif; --lab-font-size: 1.3; --lab-text-align: justify; --lab-line-height: 1.48; --lab-reader-margin: 1.55rem; --lab-reader-margin-scale: 1; --lab-paragraph-gap: .28em; --lab-vvh: 900px;"
+    }
   },
   {
     "book": "merchant-of-venice",
     "chapter": 9,
     "width": 1440,
-    "http": [
-      {
-        "url": "https://tinct.app/api/audio-manifest?path=bible%2Fkjv-en%2Fch1%2Fmanifest.json",
-        "status": 200,
-        "type": "application/json"
-      }
-    ],
+    "http": [],
     "requestFailures": [],
+    "pageErrors": [],
     "status": "fail",
-    "error": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://tinct.app/lab/phone?chrome=v2\", waiting until \"networkidle\"\n",
+    "error": "Error: wrong book",
     "media": [],
-    "url": "https://tinct.app/lab/phone?chrome=v2"
+    "url": "https://tinct.app/lab/phone?chrome=v2",
+    "rootState": {
+      "lang": "en",
+      "class": "lab is-phone has-phone-chrome has-reader-controls",
+      "data-testid": "lab-root",
+      "data-theme": "light",
+      "data-lab-layout": "phone",
+      "data-chrome-state": "reading",
+      "data-phone-bar": "none",
+      "data-page-height": "799",
+      "data-chapter": "1",
+      "data-book-id": "bible",
+      "data-cover-page": "false",
+      "data-reader-ready": "true",
+      "data-position-resolving": "false",
+      "data-biblical-book": "genesis",
+      "data-place": "0:0",
+      "data-playing": "false",
+      "data-fullscreen": "false",
+      "data-reader-controls": "visible",
+      "data-reader-edition": "original-en",
+      "data-compare-active": "false",
+      "data-desktop-view": "read",
+      "data-desktop-panel": "none",
+      "data-voice-surface": "read",
+      "data-voice-version": "v2",
+      "data-chrome-version": "v2",
+      "data-transport": "closed",
+      "data-super-menu": "closed",
+      "data-super-sheet": "closed",
+      "data-voice-history-fixture": "false",
+      "data-audio-speed": "1",
+      "style": "--lab-font-reader: 'Literata', 'EB Garamond', Georgia, serif; --lab-font-size: 1.3; --lab-text-align: justify; --lab-line-height: 1.48; --lab-reader-margin: 1.55rem; --lab-reader-margin-scale: 1; --lab-paragraph-gap: .28em; --lab-vvh: 900px;"
+    }
   }
 ]
