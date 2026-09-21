@@ -1,3 +1,4 @@
+import { handleFeaturedPreview } from './worker/routes/featuredPreview'
 import { handleVoiceResearch } from './worker/routes/voiceResearch'
 /**
  * Cloudflare Worker entry point.
@@ -171,6 +172,7 @@ export default {
     }
 
     switch (url.pathname) {
+      case '/api/featured-preview': return handleFeaturedPreview(request, env, verifySiteAdmin)
       case '/api/chat': return handleChat(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/lab-chat': return handleLabChat(request, env, ctx, checkRateLimit)
       case '/api/voice-research': return handleVoiceResearch(request, env, verifyUser, checkRateLimit)

@@ -195,6 +195,8 @@ function isLabPathname(pathname: string): boolean {
 }
 
 const LAB_PRE_READER_PATHS = new Map([
+  ['/lab/featured', '/lab/featured/'],
+  ['/lab/featured/', '/lab/featured/'],
   ['/library', '/lab/'],
   ['/library/', '/lab/'],
   ['/lab', '/lab/'],

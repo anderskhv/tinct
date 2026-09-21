@@ -115,3 +115,9 @@ muted headless desktop and phone browsers. See the
   tracks on End. Same-page restart reuses worklet registration, and stale response
   completions cannot overwrite a new answer. Real-device echo and Bluetooth
   behaviour remain outside silent browser verification.
+
+## Featured-library design preview — September 21
+
+An isolated admin-only featured-book experiment is tracked in the
+[preview plan](featured-library-preview-2026-09-21.md). It does not replace or
+change the public library; release and acceptance status live in that plan.

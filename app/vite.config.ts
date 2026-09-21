@@ -73,13 +73,14 @@ export default defineConfig(({ mode, command }) => {
     rollupOptions: {
       input: {
         index: path.resolve(process.cwd(), 'index.html'),
+        labFeaturedAccess: path.resolve(process.cwd(), 'src/labFeaturedAccess.ts'),
         labAuthStatus: path.resolve(process.cwd(), 'src/labAuthStatus.ts'),
         labSignIn: path.resolve(process.cwd(), 'src/labSignIn.ts'),
         labReadingMemory: path.resolve(process.cwd(), 'src/labReadingMemory.ts'),
         labLibraryAssistant: path.resolve(process.cwd(), 'src/labLibraryAssistant.tsx'),
       },
       output: {
-        entryFileNames: chunk => chunk.name === 'labAuthStatus'
+        entryFileNames: chunk => chunk.name === 'labFeaturedAccess' ? 'lab/featured-access.js' : chunk.name === 'labAuthStatus'
           ? 'lab/auth-status.js'
           : chunk.name === 'labSignIn'
             ? 'lab/sign-in-runtime.js'

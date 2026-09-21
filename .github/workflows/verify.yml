@@ -31,7 +31,7 @@ jobs:
       - name: Check project documentation
         run: |
           python3 ../scripts/check-docs.py
-          python3 ../scripts/check-docs.py docs/library-voice-layout-2026-09-17.md docs/library-responsive-2026-09-17.md docs/library-iteration-2026-09-17.md docs/product-current.md docs/reader-panels-selection-2026-09-21.md
+          python3 ../scripts/check-docs.py docs/featured-library-preview-2026-09-21.md docs/library-voice-layout-2026-09-17.md docs/library-responsive-2026-09-17.md docs/library-iteration-2026-09-17.md docs/product-current.md docs/reader-panels-selection-2026-09-21.md
       - name: Test audio GPU launch preflight
         run: python3 ../tools/audio-highlight/gpu/test_preflight_launch.py
       - name: Test pinned audio normalisation and cloud plumbing
@@ -99,3 +99,29 @@ jobs:
         run: node benchmarks/reading-companion/benchmark.mjs validate benchmarks/reading-companion/cases.json .
       - name: Prepare calibration requests without inference
         run: node benchmarks/reading-companion/benchmark.mjs prepare benchmarks/reading-companion/cases.json benchmarks/reading-companion/candidates.json /tmp/tinct-benchmark-ci calibration
+
+  featured-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash ../scripts/cloud-setup.sh
+      - run: npm run build
+        env:
+          CI: true
+      - run: npm run verify-bundle
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node scripts/check-featured-preview.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: featured-preview-acceptance
+          path: app/artifacts/featured-preview
