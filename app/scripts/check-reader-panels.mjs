@@ -580,7 +580,7 @@ async function mobileChromeRegression(engine,name){
         const header=document.querySelector('.lab-header-brand'),title=header.querySelector('.lab-header-work'),progress=document.querySelector('.lab-chapter-progress-info')
         return {headerOpacity:getComputedStyle(header).opacity,progressOpacity:getComputedStyle(progress).opacity,title:getComputedStyle(title).color,progress:getComputedStyle(progress).color}
       })
-      (result.quiet??=[]).push({theme,...quiet})
+      ;(result.quiet??=[]).push({theme,...quiet})
       assert(Math.abs(Number(quiet.progressOpacity)-Number(quiet.headerOpacity))<.001,'quiet progress fades with the header: '+JSON.stringify(quiet))
       assert.equal(quiet.progress,quiet.title,'quiet progress uses the same grey ink as the header')
       await page.screenshot({path:output+'/'+name+'-phone-quiet-'+theme+'.png'})
