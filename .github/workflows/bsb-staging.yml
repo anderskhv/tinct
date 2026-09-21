@@ -6,6 +6,9 @@ on:
       - '.github/workflows/bsb-staging.yml'
 permissions:
   contents: read
+concurrency:
+  group: bsb-staging-${{ github.head_ref }}
+  cancel-in-progress: true
 jobs:
   stage:
     if: github.head_ref == 'codex/bsb-staging-20260921'
@@ -13,27 +16,21 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Inspect official source
-        run: |
-          python - <<'PY'
-          import urllib.request, zipfile, io, json, hashlib, collections
-          raw = urllib.request.urlopen("https://bereanbible.com/bsb_usj.zip", timeout=90).read()
-          z = zipfile.ZipFile(io.BytesIO(raw))
-          print("ZIP_SHA256", hashlib.sha256(raw).hexdigest())
-          names = [n for n in z.namelist() if n.endswith((".json", ".usj")) and not n.startswith("__MACOSX")]
-          print("FILES", names)
-          markers = collections.Counter()
-          def scan(x):
-              if isinstance(x, dict):
-                  markers[(x.get("type"), x.get("marker"))] += 1
-                  for c in x.get("content", []): scan(c)
-          for name in names: scan(json.loads(z.read(name)))
-          print("MARKERS", sorted((str(k), v) for k,v in markers.items()))
-          print("FIRST", z.read(names[0]).decode()[:18000])
-          text = urllib.request.urlopen("https://bereanbible.com/bsb.txt", timeout=90).read()
-          print("TEXT_SHA256", hashlib.sha256(text).hexdigest())
-          print("TEXT_FIRST", text[:1700].decode("utf-8-sig"))
-          PY
+      - name: Import and validate in staging only
+        run: python books/staged-replacements/bible-bsb/stage.py --repo . --output /tmp/bsb-staged
+      - name: Verify input files remained unchanged
+        if: always()
+        run: git diff --exit-code
+      - name: Save complete source, candidate and validation package
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bsb-staged-${{ github.event.pull_request.head.sha }}
+          path: /tmp/bsb-staged
+          retention-days: 90
