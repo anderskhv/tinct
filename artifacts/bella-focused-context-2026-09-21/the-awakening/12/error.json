@@ -1,0 +1,5 @@
+{
+ "key": "the-awakening/original-en/ch12",
+ "error": "ValueError: Whole-paragraph alternative did not improve anchor agreement",
+ "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/tinct/tinct/tools/audio-highlight/bella_focused_context.py\", line 79, in <module>\n    try:main()\n        ^^^^^^\n  File \"/home/runner/work/tinct/tinct/tools/audio-highlight/bella_focused_context.py\", line 41, in main\n    if decision[\"newScore\"]>=decision[\"oldScore\"]:raise ValueError(\"Whole-paragraph alternative did not improve anchor agreement\")\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Whole-paragraph alternative did not improve anchor agreement\n"
+}

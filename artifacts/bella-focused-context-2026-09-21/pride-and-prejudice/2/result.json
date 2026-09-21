@@ -1,0 +1,22 @@
+{
+ "key": "pride-and-prejudice/original-en/ch2",
+ "status": "acoustic-fail",
+ "candidateSha256": "470bed037b97966ba2f6ecbe715faf33a7caaef4e3e82f02f4979c6249e4645c",
+ "changedParagraphs": [
+  10
+ ],
+ "probes": [
+  {
+   "model": "base",
+   "passGate": false,
+   "within": 28,
+   "maxDelta": 0.42
+  },
+  {
+   "model": "small",
+   "passGate": true,
+   "within": 29,
+   "maxDelta": 0.4699999999999998
+  }
+ ]
+}
