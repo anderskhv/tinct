@@ -1,5 +1,12 @@
 """Recover prior passing original-English candidates without new ASR or writes to production."""
-import io, json, os, sys, hashlib, urllib.request, zipfile, collections
+import io, json, os, sys, hashlib, urllib.request, urllib.parse, zipfile, collections
+class SafeRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        new=super().redirect_request(req,fp,code,msg,headers,newurl)
+        if new is not None and urllib.parse.urlparse(newurl).netloc != urllib.parse.urlparse(req.full_url).netloc:
+            new.remove_header("Authorization")
+        return new
+opener=urllib.request.build_opener(SafeRedirect())
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import prodapi, publish_timings, audio_readiness
@@ -7,7 +14,7 @@ OUT=Path("artifacts/bella-sync-recovery-2026-09-21");OUT.mkdir(parents=True,exis
 def gh(path):
     url="https://api.github.com/repos/anderskhv/tinct/"+path
     req=urllib.request.Request(url,headers={"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Accept":"application/vnd.github+json"})
-    with urllib.request.urlopen(req,timeout=90) as r:return r.read()
+    with opener.open(req,timeout=90) as r:return r.read()
 def main():
     runs=json.loads(gh("actions/runs?branch=codex%2Faudio-canary-run-20260916&per_page=100"))["workflow_runs"]
     runs=[r for r in runs if r["name"]=="audio-align-canary" and r["conclusion"]=="success"][:20]
