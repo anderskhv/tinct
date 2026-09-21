@@ -1,0 +1,24 @@
+name: bella-zero-span-audit
+on:
+  push:
+    branches: ['codex/bella-zero-span-audit-20260921']
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 tools/audio-highlight/bella_zero_span_audit.py
+      - if: always()
+        run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add -f artifacts/bella-zero-span-audit-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Record existing all-zero timing suspects for audio adjudication [skip ci]"
+          git push origin HEAD:codex/bella-zero-span-audit-20260921
