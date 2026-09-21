@@ -12,9 +12,13 @@ state, after round-1 fixes and round-2 independent re-verification)
 **Model/settings note:** This pass (drafting was already present in the
 live `winters-tale-modern-en.json`; this session performed acceptance-
 procedure review and repair only) used Sonnet (this session) for review
-and repair. An independent Opus verification pass is expected to follow
-separately per the second-batch process, and has **not** happened yet —
-this acceptance is the Sonnet-side acceptance only.
+and repair. **Independent verification:** Claude Opus (model id
+`claude-opus-5`) — re-derived both round-1 fixes from source, ran a
+location-level (not count-only) case-form check on 41 proper nouns,
+did its own word-for-word reads of the bear scene, trial scene, and
+peddler scene, spot-checked 18 further paragraphs, and independently
+verified the full 911-paragraph structure. Verdict: VERIFIED, no
+further changes needed.
 
 ## Source structure verification (step 1–2)
 

@@ -63,9 +63,9 @@ started.
 | 4 | The Death of Ivan Ilyich | `ivan-ilyich` | 0.641 | 12/12 REAL | freed | **Text accepted.** sha256 `2132e58a400175fa679ecd5e811d66d4bd89fa9ce3b1f12270f004a62b311cbc` (2026-09-21). 3 rounds — round 1's whole-book name audit was count-based and missed a location mismatch; round 3 built a proper location-based occurrence map and found 2 more micro-corrections. Release packet pending. |
 | 5 | A Midsummer Night's Dream | `midsummer` | 0.411 | 8 REAL-HEAVY/1 REAL | **PARKED** | PARKED after 3 rounds — see `books/wip/green-midsummer/PARKED.md`. Recurring defect: malapropism/deliberate-mangling erasure survived 2 fix rounds (12 restored) before round 3 found 3 MORE fresh instances (an invented "Rawr!" replacing Snug's "Oh!", a malapropism "deflower'd" both corrected and softened, "Jew" removed from "most lovely Jew"). Next book pulled from pool in its place. |
 | 6 | The Bacchae | `bacchae` | 0.620 | 11/11 REAL | freed | **Text accepted.** sha256 `19507a56111d7394a028782d42997e75028a0502fec39c97e631f6efc0f799a8` (2026-09-21). 4 rounds — round 2's name-normalization sweep missed the all-caps speaker-tag form (case-sensitivity gap), fixed directly as a mechanical, unambiguous correction rather than parking hard-won clean work; round 4 confirmed clean with a full case-sensitivity sweep. Release packet pending. |
-| 7 | The Taming of the Shrew | `taming-of-the-shrew` | 0.624 | 12/12 REAL | queued | Screening done |
+| 7 | The Taming of the Shrew | `taming-of-the-shrew` | 0.624 | 12/12 REAL | C | Round-3 fix applied (epithet consistency + "score"->"dozen"), final confirmation dispatched |
 | 8 | Julius Caesar | `julius-caesar` | 0.621 | 18/18 REAL | queued | Screening done |
-| 9 | The Winter's Tale | `winters-tale` | 0.639 | 3 REAL-HEAVY/12 REAL | queued | Screening done |
+| 9 | The Winter's Tale | `winters-tale` | 0.639 | 3 REAL-HEAVY/12 REAL | freed | **Text accepted.** sha256 `4c6ee62fec2b1c65230f378574a7c5b6551169e5824e1c9e012fbdea10f6da3d` (2026-09-21). 2 rounds, independently verified clean. Release packet done. |
 | 10 | Othello | `othello` | 0.692 | 2 REAL-HEAVY/13 REAL | queued | Screening done |
 | 11 | Twelfth Night | `twelfth-night` | 0.696 | 1 REAL-HEAVY/17 REAL | queued | Screening done |
 | 12 | The Merchant of Venice | `merchant-of-venice` | 0.682 | 1 REAL-HEAVY/19 REAL | queued | Screening done |
