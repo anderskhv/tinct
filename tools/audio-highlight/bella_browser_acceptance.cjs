@@ -8,7 +8,8 @@ const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
  try{
  for(const width of [390,1440])for(const target of [{book:'king-lear',chapter:3},{book:'merchant-of-venice',chapter:6},{book:'merchant-of-venice',chapter:9}]){
   const context=await browser.newContext({viewport:{width,height:width===390?844:900},permissions:[]});
-  const page=await context.newPage();const row={...target,width,http:[],requestFailures:[]};
+  const page=await context.newPage();const row={...target,width,http:[],requestFailures:[],pageErrors:[]};
+  page.on('pageerror',e=>row.pageErrors.push(String(e)));
   page.on('response',r=>{if(r.url().includes('/api/audio'))row.http.push({url:r.url(),status:r.status(),type:r.headers()['content-type']})});
   page.on('requestfailed',r=>{if(r.url().includes('/api/audio'))row.requestFailures.push({url:r.url(),error:r.failure()})});
   try{
@@ -19,7 +20,7 @@ const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
     sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:book,primaryEditionKey:'original-en',audioEditionKey:'original-en',savedPlace:{bookId:book,chapterNumber:chapter,paragraphIndex:0,page:0}}));
    },target);
    await page.route('**/api/**',r=>['GET','HEAD'].includes(r.request().method())?r.continue():r.abort());
-   await page.goto('https://tinct.app/lab/phone?chrome=v2',{waitUntil:'networkidle'});
+   await page.goto('https://tinct.app/lab/phone?chrome=v2',{waitUntil:'domcontentloaded'});
    const root=page.getByTestId('lab-root');
    await root.waitFor();await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.getAttribute('data-reader-ready')==='true');
    assert(await root.getAttribute('data-book-id')===target.book,'wrong book');
@@ -56,7 +57,7 @@ const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
    await page.waitForFunction(old=>document.querySelector('[data-testid="lab-listen-status"]').getAttribute('data-src')!==old,before,{timeout:10000});
    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-hearing-current"]')!=null);
    row.paragraphTransition=true;row.pauseResume=true;row.seek=true;row.status='pass';
-  }catch(e){row.status='fail';row.error=String(e);row.media=await page.evaluate(()=>window.__bellaAudio?.map(a=>({src:a.src,time:a.currentTime,duration:a.duration,readyState:a.readyState,networkState:a.networkState,paused:a.paused,error:a.error?{code:a.error.code,message:a.error.message}:null}))).catch(()=>null);row.url=page.url();await page.screenshot({path:path.join(dir,target.book+'-'+width+'-failure.png')}).catch(()=>{});}
+  }catch(e){row.status='fail';row.error=String(e);row.media=await page.evaluate(()=>window.__bellaAudio?.map(a=>({src:a.src,time:a.currentTime,duration:a.duration,readyState:a.readyState,networkState:a.networkState,paused:a.paused,error:a.error?{code:a.error.code,message:a.error.message}:null}))).catch(()=>null);row.url=page.url();row.rootState=await page.getByTestId('lab-root').evaluate(e=>Object.fromEntries([...e.attributes].map(a=>[a.name,a.value]))).catch(()=>null);await page.screenshot({path:path.join(dir,target.book+'-'+width+'-failure.png')}).catch(()=>{});}
   finally{await context.close();results.push(row);fs.writeFileSync(path.join(dir,'results.json'),JSON.stringify(results,null,2));console.log(JSON.stringify(row));}
  }
  }finally{await browser.close()}
