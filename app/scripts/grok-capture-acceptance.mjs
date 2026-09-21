@@ -3,7 +3,10 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
 
-const origin='https://tinct.app', output='artifacts/voice-capture'
+const origin='https://tinct.app'
+const persona=process.env.VOICE_PERSONA==='male'?'male':'female'
+const expectedVoice=persona==='male'?'helios':'ursa'
+const output=`artifacts/voice-capture/${persona}`
 const live=process.env.READER_LIVE==='1'
 await fs.mkdir(output,{recursive:true})
 const browser=await chromium.launch({headless:true,args:[
@@ -14,7 +17,7 @@ const browser=await chromium.launch({headless:true,args:[
 const context=await browser.newContext({viewport:{width:1440,height:900},permissions:['microphone'],serviceWorkers:'block'})
 const page=await context.newPage()
 page.setDefaultTimeout(10000)
-const report={live,checks:[],events:[],errors:[]}
+const report={live,persona,expectedVoice,checks:[],events:[],errors:[]}
 page.on('pageerror',error=>report.errors.push(error.message))
 await page.route('**/*',async route=>{
   const url=new URL(route.request().url())
@@ -27,7 +30,8 @@ await page.route('**/*',async route=>{
   }
   return route.continue()
 })
-await page.addInitScript(()=>{
+await page.addInitScript(({persona})=>{
+  localStorage.setItem('tinct-lab-prefs',JSON.stringify({voicePersona:persona}))
   sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'notes-from-underground',primaryEditionKey:'original-en',savedPlace:{bookId:'notes-from-underground',chapterNumber:1,paragraphIndex:0,wordIndex:0,page:0}}))
   window.__captureQA={events:[],sent:0,tracks:[],dictationActive:false}
   // SpeechRecognition itself is browser-vendor hosted. Exercise its lifecycle
@@ -58,7 +62,7 @@ await page.addInitScript(()=>{
     }
     send(data){try{if(JSON.parse(data).type==='input_audio_buffer.append')window.__captureQA.sent++}catch{};return super.send(data)}
   }
-})
+},{persona})
 const evidence=()=>page.evaluate(()=>({events:window.__captureQA.events,sent:window.__captureQA.sent,audio:window.__captureQA.audio||0,tracks:window.__captureQA.tracks.map(t=>t.readyState),capture:window.__tinctVoiceCapture?.(),latency:window.__tinctVoiceDebug?.samples}))
 async function open(){
   await page.getByTestId('lab-super').click()
@@ -74,6 +78,8 @@ try{
   await page.getByTestId('lab-dictation-status').waitFor()
   assert(await page.evaluate(()=>window.__captureQA.dictationActive))
   await open()
+  await page.waitForFunction(()=>window.__captureQA.events.some(event=>event.type==='session.updated'),null,{timeout:30000})
+  report.checks.push({name:`provider accepted exact ${expectedVoice} session voice`})
   assert.equal(await page.evaluate(()=>window.__captureQA.dictationActive),false,'Talk must stop dictation')
   report.checks.push({name:'dictation fixture hands microphone ownership to real Grok capture'})
   const panel=page.getByTestId('lab-voice-panel')
