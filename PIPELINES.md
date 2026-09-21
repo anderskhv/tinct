@@ -124,9 +124,9 @@ A book may move into public `BOOKS` only when:
 - audio flags match actual R2 coverage
 - app build and bundle verification pass
 
-## Bella word-sync planning — 2026-09-21
+## Bella word-sync repair — 2026-09-21
 
-See [Bella word-sync repair plan](docs/bella-word-sync-repair-plan-2026-09-21.md). Planning only: first refresh the Bella-specific production ledger, recover reusable results, and choose a small representative pilot. No new paid alignment, publication or deployment has started. Existing historical audio backlog instructions do not authorize execution of this proposed repair plan.
+See [repair plan](docs/bella-word-sync-repair-plan-2026-09-21.md) and [execution evidence](docs/bella-word-sync-execution-2026-09-21.md). Anders authorized audio-data work without reader changes. The current non-modern English inventory has 846 chapters missing timings, 12 invalid timing files and 12 chapters without audio; historical voice identity is not proven per recording. A three-chapter cloud pilot produced one verified publication: Winter’s Tale original-en chapter 6, 179 words. Reader code, recordings and text were untouched; no app deployment or rented GPU job. Remaining repairs and modern-English retention decisions are open.
 
 ## Next Actions
 

@@ -1,6 +1,6 @@
 # Bella word-sync repair plan
 
-Status: proposed execution plan, 2026-09-21. Planning only: no audio generation, GPU launch, publication, app change or deployment is authorized by this document.
+Status: execution started with Anders’s 2026-09-21 authorization to proceed without changing the reader. Inventory and a three-chapter pilot completed; one timing sidecar published. The remaining backlog is open. No reader code, text or recording changes, app deployment, or rented GPU jobs were made. See [execution evidence](bella-word-sync-execution-2026-09-21.md).
 
 ## Outcome and scope
 
@@ -10,7 +10,7 @@ Danish is outside the strategy. Follow [Language scope](../STRATEGY.md#language-
 
 ## Evidence reviewed and limits
 
-Reviewed the current repository tooling, run-3 report and v7 helper notes on 2026-09-21. This is not a new production census or a verified Bella coverage total. Historical English/Kokoro counts must not be relabelled Bella counts without voice provenance.
+Reviewed the current repository tooling, run-3 report and v7 helper notes on 2026-09-21; the subsequent production inventory and pilot are recorded in the execution evidence above. The inventory is not a verified Bella-only coverage total: historical English/Kokoro counts must not be relabelled Bella counts without voice provenance.
 
 - [Run 3](audio-highlight-run3-2026-09-12.md) records 990 published chapters and 15 completed editions. It found that ranking only by fewest missing chapters repeatedly selected known failures; rank by demonstrated completability instead.
 - [Helper v7](../tools/audio-highlight/aligner/HEADING-RULE-V7.md) fixes a heading-prefix restoration bug. It explicitly does not fix recognition near-misses such as fortnight/Fortnite. Its presence in main is not evidence that the reviewed execution runner or every production timing uses it.
@@ -75,4 +75,4 @@ Future text changes must invalidate only dependent audio/timing chunks. Unchange
 
 A retained Bella edition is complete only when all intended spoken paragraphs have matching recordings and accepted timings, representative acoustic/reader checks pass, and no unresolved exceptions are hidden by an availability flag. Report held material separately with its reason and next action.
 
-Next execution step: the read-only ledger in step 1. Then a bounded pilot proposal with exact targets, method and spend ceiling. App implementation, timing publication and paid repair work remain future execution stages.
+Next action: reconcile the 633 missing-timing chapters that pass sampled readiness with prior failures, content holds and voice provenance, then expand the pilot using a demonstrably better method for unresolved short phrases. Keep the 174 mapping defects, 35 audio defects, four separator cases, 12 missing-audio chapters and 12 invalid Meditations timing files separate. Modern-English retention is not yet approved chapter by chapter. One verified timing publication is complete; no full edition is claimed complete. App changes and paid full-corpus work have not started.
