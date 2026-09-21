@@ -1,0 +1,29 @@
+name: bella-focused-muted-browser
+on:
+  push:
+    branches: ['codex/bella-focused-browser-20260921']
+    paths: ['tools/audio-highlight/bella_focused_browser.cjs', '.github/workflows/bella-focused-browser.yml']
+permissions:
+  contents: write
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+      - working-directory: app
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+      - run: node tools/audio-highlight/bella_focused_browser.cjs
+      - if: always()
+        run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add -f artifacts/bella-focused-browser-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve silent Jekyll production playback checks [skip ci]"
+          git push origin HEAD:codex/bella-focused-browser-20260921
