@@ -674,7 +674,7 @@ async function designReference(){
     }
   }finally{await browser.close()}
 }
-await safariPaintProbe()
+if(process.env.READER_PAINT_PROBE==='1')await safariPaintProbe()
 await designReference()
 
 for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){

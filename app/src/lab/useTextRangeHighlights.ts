@@ -1,14 +1,20 @@
 import { useId, useLayoutEffect, type RefObject } from 'react'
 
 type PaintRect = Pick<DOMRect, 'left' | 'right' | 'top' | 'bottom' | 'height'>
-/** Fill only subpixel cracks between touching rows, never paragraph/line spacing. */
-export function highlightSeams(rects: PaintRect[], fontSize: number, pixel = 1): Array<{left:number;top:number;width:number;height:number}> {
+/** Full-sized line fragments; raised verse glyphs do not grow the band. */
+export function highlightRows(rects: PaintRect[], fontSize: number): Array<{left:number;right:number;top:number;bottom:number}> {
   const rows: Array<{left:number;right:number;top:number;bottom:number}> = []
   for (const rect of [...rects].filter(r => r.height >= fontSize && r.right > r.left).sort((a,b) => a.top-b.top || a.left-b.left)) {
     const row = rows.find(r => Math.abs(r.top-rect.top) < 1)
     if (row) { row.left=Math.min(row.left,rect.left); row.right=Math.max(row.right,rect.right); row.bottom=Math.max(row.bottom,rect.bottom) }
     else rows.push({left:rect.left,right:rect.right,top:rect.top,bottom:rect.bottom})
   }
+  return rows
+}
+
+/** Fill only subpixel cracks between touching rows, never paragraph/line spacing. */
+export function highlightSeams(rects: PaintRect[], fontSize: number, pixel = 1): Array<{left:number;top:number;width:number;height:number}> {
+  const rows=highlightRows(rects,fontSize)
   return rows.slice(1).flatMap((next,index) => {
     const previous=rows[index], gap=next.top-previous.bottom
     const left=Math.max(previous.left,next.left), right=Math.min(previous.right,next.right)
@@ -60,20 +66,22 @@ export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>) {
     }).join('\n')
     document.head.append(style)
     root.classList.add('has-text-range-highlights')
-    // Native ::highlight backgrounds round each row separately. Fractional
-    // line-height can leave a one-device-pixel paper slit between full rows.
-    // A paint-only underlay joins those edges without changing text metrics,
-    // verse geometry, selection ranges, or deliberate line/paragraph spacing.
+    // WebKit can expose correct custom-highlight ranges and computed colours
+    // without painting their backgrounds. Paint the same measured row boxes
+    // underneath the text in every engine, plus fractional edge joins. These
+    // absolute, noninteractive layers never affect text metrics or selection.
     const layers: HTMLElement[] = []
-    const paintSeams = () => {
+    const paintRanges = () => {
       layers.splice(0).forEach(layer => layer.remove())
       if (!root.isConnected) return
       for (const {line,color,range} of runs) {
         if (typeof range.getClientRects !== 'function') continue
         const box=line.getBoundingClientRect(), fontSize=parseFloat(getComputedStyle(line).fontSize)
-        for (const seam of highlightSeams([...range.getClientRects()],fontSize,1/(window.devicePixelRatio || 1))) {
+        const rects=[...range.getClientRects()]
+        const paint=[...highlightRows(rects,fontSize).map(r=>({left:r.left,top:r.top,width:r.right-r.left,height:r.bottom-r.top,seam:false})),...highlightSeams(rects,fontSize,1/(window.devicePixelRatio || 1)).map(r=>({...r,seam:true}))]
+        for (const seam of paint) {
           const layer=document.createElement('span')
-          layer.className='lab-highlight-seam'
+          layer.className=seam.seam ? 'lab-highlight-seam' : 'lab-highlight-fill'
           layer.setAttribute('aria-hidden','true')
           const [token,light,dark]=colors[color as keyof typeof colors]
           const fallback=root.closest('.is-night') ? dark : light
@@ -84,11 +92,11 @@ export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>) {
       }
     }
     // Paint immediately so unrelated renders never expose an unpainted frame.
-    paintSeams()
+    paintRanges()
     // Continued-tail alignment runs in a later layout effect; measure again after it.
-    let frame=requestAnimationFrame(paintSeams)
+    let frame=requestAnimationFrame(paintRanges)
     const observer=typeof ResizeObserver==='function' ? new ResizeObserver(() => {
-      cancelAnimationFrame(frame); frame=requestAnimationFrame(paintSeams)
+      cancelAnimationFrame(frame); frame=requestAnimationFrame(paintRanges)
     }) : null
     observer?.observe(root)
     return () => {

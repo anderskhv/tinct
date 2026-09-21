@@ -1240,7 +1240,7 @@
 .lab .lab-ask-attachment-text { display: block; max-height: 100px; overflow-y: auto; overscroll-behavior: contain; -webkit-line-clamp: unset; }
 /* The seam underlay belongs behind ink inside its own paragraph. */
 .lab .lab-passage.has-text-range-highlights .lab-hearing-line { position:relative; isolation:isolate; }
-.lab-highlight-seam { position:absolute; z-index:-1; pointer-events:none; user-select:none; }
+.lab-highlight-seam, .lab-highlight-fill { position:absolute; z-index:-1; pointer-events:none; user-select:none; }
 .lab .lab-passage.has-text-range-highlights .lab-hearing-word[class*="is-hl-"],
 .lab .lab-passage.has-text-range-highlights .lab-highlight-gap,
 .lab .lab-passage.has-text-range-highlights .lab-hearing-word[class~="is-selecting"] { background: transparent !important; }

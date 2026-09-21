@@ -785,6 +785,8 @@ function fitNowShelf(): void {
   if (!shelf) return
   shelf.classList.remove('is-flush', 'is-grid')
   shelf.classList.add('is-reel')
+  // The former native scroller may retain a snapped offset after boot paint.
+  shelf.scrollLeft = 0
   if (nowReelShelf !== shelf) {
     nowReel?.destroy()
     nowReelShelf = shelf
@@ -793,11 +795,7 @@ function fitNowShelf(): void {
   nowReel?.setIndex(nowFocus)
 }
 
-/**
- * The row's shape is measured, so a resize — a window dragged across the
- * 1280px line, a tablet turned — measures it again and attaches or detaches
- * the scroll-driven focus to match.
- */
+/** Repaint the shared reel after viewport or font metrics change. */
 let nowResizeFrame = 0
 function refitNowShelfOnResize(): void {
   if (nowResizeFrame) return
@@ -812,13 +810,7 @@ function refitNowShelfOnResize(): void {
   })
 }
 
-/**
- * Which cover the row is on, from its geometry: nearest the middle, and at
- * either end of the track the cover at that end. The last cover finishes the
- * track at the page's margin (there is no trailing spacer — that spacer let
- * the row scroll an empty slot past it), so it can never come to the middle
- * and the end-of-track case is how it is ever focused.
- */
+/** Reconcile newly loaded covers with the shared reel. */
 function observeNowShelf(): void { fitNowShelf() }
 
 /**

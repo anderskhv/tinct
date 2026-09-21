@@ -10,7 +10,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
  try{for(const width of [390,1440]){
   const context=await browser.newContext({viewport:{width,height:900},serviceWorkers:'block',reducedMotion:'reduce'})
   const page=await context.newPage();page.setDefaultTimeout(15000)
-  const errors=[];page.on('pageerror',e=>errors.push(e.message))
+  let phase='boot'; const errors=[];page.on('pageerror',e=>errors.push(e.message))
   const now=Date.now(), ids=['beowulf','the-prince','notes-from-underground','frankenstein']
   const books=Object.fromEntries(ids.map((id,i)=>[id,{bookId:id,headerBook:id,chapterNumber:1,sequentialChapter:1,paragraphIndex:2,wordIndex:0,primaryEditionKey:'original-en',deviceId:'fixture',rev:1,updatedAt:now-i*1000}]))
   const positions={owner:null,books,finished:{},hidden:{},lastSettledBookId:'beowulf',lastSettledAt:now,updatedAt:now,deviceId:'fixture'}
@@ -39,9 +39,11 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
     const r=n.getBoundingClientRect(),cards=[...n.querySelectorAll('[data-now-index]')].map(c=>({id:c.dataset.nowBook,x:c.getBoundingClientRect().x+c.getBoundingClientRect().width/2}))
     return {center:r.x+r.width/2,cards,overflow:document.documentElement.scrollWidth>innerWidth}
    })
+   phase='centred geometry';
    assert(!geometry.overflow)
-   assert(Math.abs(geometry.cards.find(c=>c.id==='beowulf').x-geometry.center)<3,'latest book centred')
+   assert(Math.abs(geometry.cards.find(c=>c.id==='beowulf').x-geometry.center)<3,'latest book centred: '+JSON.stringify(geometry))
    assert(geometry.cards.some(c=>c.x<geometry.center-20)&&geometry.cards.some(c=>c.x>geometry.center+20),'neighbours on both sides')
+   phase='drag';
    const before=await page.evaluate(()=>localStorage.getItem('tinct-lab-position'))
    const box=await shelf.boundingBox()
    await page.mouse.move(box.x+box.width/2,box.y+100)
@@ -51,18 +53,20 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    const selected=await page.locator('[data-reading-memory-recap]').getAttribute('data-book')
    assert.equal(await page.locator('[data-recap-continue]').getAttribute('data-recap-continue'),selected)
    await page.screenshot({path:output+'/'+engine+'-'+width+'.png'})
+   phase='remove';
    await page.locator('[data-now-book="'+selected+'"] [data-now-remove]').click()
    await page.waitForFunction(id=>!document.querySelector('[data-now-book="'+id+'"]'),selected)
    const after=JSON.parse(await page.evaluate(()=>localStorage.getItem('tinct-lab-position')))
    assert.deepEqual(after.books,JSON.parse(before).books,'remove keeps all saved reading tuples')
    assert.equal(await page.locator('[data-now-index]').count(),3)
+   phase='continue';
    await page.locator('[data-recap-continue]').click()
    await page.waitForURL('**/reader**')
    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
    assert.equal(await page.locator('[data-testid="lab-book-preface"][open]').count(),0,'Continue returns directly to saved text')
    assert.deepEqual(errors,[])
    results.push({engine,width,geometry,selected,passed:true})
-  }catch(error){await page.screenshot({path:output+'/'+engine+'-'+width+'-failure.png'});results.push({engine,width,passed:false,error:String(error)});process.exitCode=1}
+  }catch(error){await page.screenshot({path:output+'/'+engine+'-'+width+'-failure.png'});results.push({engine,width,passed:false,phase,error:error.stack||String(error)});process.exitCode=1}
   await context.close()
  }}finally{await browser.close()}
 }

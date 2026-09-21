@@ -21,6 +21,8 @@ export function createCoverReel(shelf, { selector, index = 0, onSelect, centreFi
   function select(n) { position = clamp(n); paint(); onSelect(rawItems().indexOf(items()[position])) }
   shelf.ondragstart = event => event.preventDefault()
   shelf.onpointerdown = event => {
+    // A fresh press is intentional; only swallow the click emitted by a drag.
+    blockedUntil = 0
     if (event.button !== 0 || event.target.closest('[data-now-remove]')) return
     drag = { id: event.pointerId, x: event.clientX, y: event.clientY, initial: position, moved: 0 }
     if (event.pointerType === 'mouse') event.preventDefault()
