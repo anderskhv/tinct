@@ -1,0 +1,56 @@
+name: bella-remap-pilot
+on:
+  push:
+    branches: ['codex/bella-remap-pilot-20260921']
+    paths: ['tools/audio-highlight/bella_remap_run.py', '.github/workflows/bella-remap-pilot.yml']
+permissions:
+  contents: write
+concurrency:
+  group: bella-remap-pilot
+  cancel-in-progress: false
+jobs:
+  escalation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install existing audio tooling dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install openai-whisper faster-whisper==1.2.1 ctranslate2==4.8.2 av==18.1.0 huggingface-hub
+      - name: Verify existing helper regressions
+        run: |
+          git fetch --no-tags origin f5b23de7795e73983edf55d922d0801d57d61287
+          python3 -m unittest discover -s tools/audio-highlight/aligner -p 'test_*.py'
+      - name: Freeze source and all recordings
+        run: |
+          python3 tools/audio-highlight/bella_remap_prepare.py
+      - name: Fetch stronger pinned recognizer
+        run: |
+          python3 - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download("Systran/faster-whisper-small.en",revision="d1d751a5f8271d482d14ca55d9e2deeebbae577f",local_dir="/tmp/bella-small")
+          PY
+      - name: Diagnose and retry failed chapters with stronger model
+        timeout-minutes: 25
+        run: python3 tools/audio-highlight/bella_remap_run.py
+      - name: Preserve every completed result
+        if: always()
+        run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add artifacts/bella-remap-pilot-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve stronger-model Bella repair results [skip ci]"
+          git push origin HEAD:codex/bella-remap-pilot-20260921
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bella-remap-pilot
+          path: artifacts/bella-remap-pilot-2026-09-21
+          retention-days: 30
