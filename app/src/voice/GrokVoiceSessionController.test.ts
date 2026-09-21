@@ -363,4 +363,30 @@ describe('microphone and response recovery', () => {
     expect(node.disconnect).toHaveBeenCalled()
     vi.unstubAllGlobals()
   })
+
+  it('does not misclassify an iPhone lock suspension as a dead microphone and gives unlock a recovery interval', () => {
+    vi.useFakeTimers()
+    let visibility: DocumentVisibilityState = 'hidden'
+    vi.spyOn(document, 'visibilityState', 'get').mockImplementation(() => visibility)
+    const controller = new GrokVoiceSessionController({ onSnapshot: vi.fn(), onTurn: vi.fn() })
+    const node = { connect: vi.fn(), disconnect: vi.fn(), onaudioprocess: null as any }
+    const gain = { gain: { value: 1 }, connect: vi.fn(), disconnect: vi.fn() }
+    const track = { stop: vi.fn(), onended: null, readyState: 'live' }
+    const context = { state: 'running', sampleRate: 48000, destination: {}, resume: vi.fn().mockResolvedValue(undefined),
+      createMediaStreamSource: () => node, createScriptProcessor: () => node, createGain: () => gain }
+    vi.stubGlobal('AudioContext', vi.fn())
+    Object.assign(controller, { context, stream: { getAudioTracks: () => [track], getTracks: () => [track] },
+      ui: { ...controller.getSnapshot(), isActive: true, activity: 'listening' } })
+    ;(controller as any).startCapture()
+    vi.advanceTimersByTime(12_000)
+    expect(controller.getSnapshot().isActive).toBe(true)
+
+    visibility = 'visible'
+    document.dispatchEvent(new Event('visibilitychange'))
+    vi.advanceTimersByTime(4_000)
+    expect(controller.getSnapshot().isActive).toBe(true)
+    vi.advanceTimersByTime(2_000)
+    expect(controller.getSnapshot()).toMatchObject({ isActive: false, connection: 'disconnected' })
+    vi.unstubAllGlobals()
+  })
 })

@@ -78,7 +78,10 @@ function sourceWithFilesNoWords() {
 }
 
 class FakeAudio {
-  src = ''
+  private source = ''
+  ended = false
+  get src() { return this.source }
+  set src(value: string) { this.source = value; this.ended = false }
   currentTime = 0
   duration = 20
   playbackRate = 1
@@ -112,6 +115,7 @@ class FakeAudio {
   }
 
   emit(type: string) {
+    if (type === 'ended') this.ended = true
     for (const fn of this.listeners.get(type) ?? []) fn()
   }
 }
@@ -667,6 +671,7 @@ describe('lab chrome', () => {
     const source = {
       ...bibleFallbackSource(),
       paragraphs,
+      chapters: [{ number: 1, title: 'Genesis 1', path: 'ch0001.json' }],
       followParagraphs: paragraphs.map((text, index) => ({
         index,
         text,

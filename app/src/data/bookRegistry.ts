@@ -3072,7 +3072,7 @@ export const JEKYLL_AND_HYDE: Book = {
   coverColor: '#1b1d24',
   coverAccent: '#a83232',
   editions: [
-    { key: 'original-en', language: 'en', style: 'original', label: 'Stevenson (1886)', year: 1886, aligned: true },
+    { key: 'original-en', language: 'en', style: 'original', label: 'Stevenson (1886)', year: 1886, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true,
       hasAudio: true,
     },
