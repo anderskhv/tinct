@@ -1,6 +1,12 @@
 # ACCEPTANCE RECORD — The Bacchae (`bacchae`), modern-en
 
-**Status:** ACCEPTED.
+> **SUPERSEDED 2026-09-21 — THIS RECORD IS NOT LIVE. The book is PARKED.**
+> This is a round-1 artifact. Its acceptance was based on a sampled review
+> that did not detect a book-wide silent name-normalization defect, still
+> unresolved after 3 rounds. See `PARKED.md` in this directory. Do not
+> register, deploy, or publish on the basis of this file.
+
+**Status:** ACCEPTED *(round-1 claim, superseded — see banner above)*.
 **Date:** 2026-09-21.
 **Drafted/repaired by:** Claude Sonnet 5 (`claude-sonnet-5`), this pass
 (drafting + both reviews + fixes). An independent Opus verification pass is
