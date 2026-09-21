@@ -330,7 +330,11 @@ function renderHearingWords(
 }
 
 function wordPlaceFromTarget(target: EventTarget | null): LabWordPlace | null {
-  const el = target instanceof Element ? target.closest('[data-testid="lab-word"]') : null
+  const el = target instanceof Element ? target.closest('[data-testid="lab-word"],[data-fragment-word]') : null
+  if (el?.hasAttribute('data-fragment-word')) {
+    const paragraphIndex = Number(el.getAttribute('data-fragment-paragraph')), wordIndex = Number(el.getAttribute('data-fragment-word'))
+    return Number.isInteger(paragraphIndex) && Number.isInteger(wordIndex) ? { paragraphIndex, wordIndex } : null
+  }
   if (!el) return null
   const paragraphIndex = Number(el.getAttribute('data-paragraph-index'))
   const wordIndex = Number(el.getAttribute('data-word-index'))
@@ -348,13 +352,15 @@ function wordPlaceFromTarget(target: EventTarget | null): LabWordPlace | null {
 function nearestWordPlaceIn(line: Element, clientX: number, clientY: number): LabWordPlace | null {
   let nearest: Element | null = null
   let best = Infinity
-  for (const word of line.querySelectorAll('[data-testid="lab-word"]')) {
-    const box = word.getBoundingClientRect()
-    if (!box.width || !box.height) continue
-    const dx = Math.max(box.left - clientX, 0, clientX - box.right)
-    const dy = Math.max(box.top - clientY, 0, clientY - box.bottom)
-    const distance = dy * dy * 10000 + dx * dx
-    if (distance < best) { best = distance; nearest = word }
+  for (const word of line.querySelectorAll('[data-testid="lab-word"],[data-fragment-word]')) {
+    const fragments = Array.from(word.getClientRects())
+    for (const box of fragments.length ? fragments : [word.getBoundingClientRect()]) {
+      if (!box.width || !box.height) continue
+      const dx = Math.max(box.left - clientX, 0, clientX - box.right)
+      const dy = Math.max(box.top - clientY, 0, clientY - box.bottom)
+      const distance = dy * dy * 10000 + dx * dx
+      if (distance < best) { best = distance; nearest = word }
+    }
   }
   return wordPlaceFromTarget(nearest)
 }
@@ -644,7 +650,7 @@ export function LabPassage({
       edgeDirectionRef.current = direction
       const advance = () => {
         if (dragRef.current !== drag || !drag.selecting) { cancelEdge(); return }
-        const visible = Array.from(articleRef.current?.querySelectorAll<HTMLElement>('[data-testid="lab-word"]') || [])
+        const visible = Array.from(articleRef.current?.querySelectorAll<HTMLElement>('[data-testid="lab-word"],[data-fragment-word]') || [])
           .filter(word => !word.closest('.lab-book-col-compare'))
         const edge = wordPlaceFromTarget(direction === 1 ? visible[visible.length - 1] : visible[0])
         const lastP = paragraphs.length - 1
@@ -656,7 +662,7 @@ export function LabPassage({
         pageTurnRef.current?.(direction)
         edgeTimerRef.current = setTimeout(() => {
           if (dragRef.current !== drag) return
-          const after = Array.from(articleRef.current?.querySelectorAll<HTMLElement>('[data-testid="lab-word"]') || [])
+          const after = Array.from(articleRef.current?.querySelectorAll<HTMLElement>('[data-testid="lab-word"],[data-fragment-word]') || [])
             .filter(word => !word.closest('.lab-book-col-compare'))
           const next = wordPlaceFromTarget(direction === 1 ? after[0] : after[after.length - 1])
           if (next && drag.start) {
@@ -689,14 +695,16 @@ export function LabPassage({
     if (!place && sameSide) {
       let nearest: Element | null = null
       let best = Infinity
-      for (const word of event.currentTarget.querySelectorAll('[data-testid="lab-word"]')) {
+      for (const word of event.currentTarget.querySelectorAll('[data-testid="lab-word"],[data-fragment-word]')) {
         if (!!word.closest('.lab-book-col-compare') !== drag.comparison) continue
-        const box = word.getBoundingClientRect()
-        if (!box.width || !box.height) continue
-        const dx = Math.max(box.left - event.clientX, 0, event.clientX - box.right)
-        const dy = Math.max(box.top - event.clientY, 0, event.clientY - box.bottom)
-        const distance = dy * dy * 10000 + dx * dx
-        if (distance < best) { best = distance; nearest = word }
+        const fragments = Array.from(word.getClientRects())
+        for (const box of fragments.length ? fragments : [word.getBoundingClientRect()]) {
+          if (!box.width || !box.height) continue
+          const dx = Math.max(box.left - event.clientX, 0, event.clientX - box.right)
+          const dy = Math.max(box.top - event.clientY, 0, event.clientY - box.bottom)
+          const distance = dy * dy * 10000 + dx * dx
+          if (distance < best) { best = distance; nearest = word }
+        }
       }
       place = wordPlaceFromTarget(nearest)
     }
@@ -834,8 +842,10 @@ export function LabPassage({
                         return (
                           <span
                             key={`${lineIndex}-${wordIndex}`}
-                            className="lab-word-fragment"
+                            className={`lab-word-fragment ${labHighlightCssClass(color, selecting)}`}
                             data-testid="lab-word-fragment"
+                            data-fragment-paragraph={paragraphIndex}
+                            data-fragment-word={absoluteWord}
                             aria-hidden="true"
                           >
                             {spacing}
@@ -926,8 +936,7 @@ export function LabPassage({
         if (!hearing && onSelectRange) event.preventDefault()
       }}
     >
-      {localSelecting && <span className="lab-selection-hint" role="status">Hold at the top or bottom edge to select across pages</span>}
-      {showHeadline && !desktopSpread && (
+            {showHeadline && !desktopSpread && (
         <header className="lab-passage-header">
           <h1 className="lab-passage-headline" data-testid="lab-passage-headline">
             {chapterTitle}

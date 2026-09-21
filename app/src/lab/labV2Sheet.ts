@@ -59,15 +59,15 @@ function titleCase(value: string): string {
 }
 
 export function labLineSpacingValue(value: LabLineSpacing): string {
-  return LINE_SPACING_VALUES[value]
+  return typeof value === 'number' ? value.toFixed(2).replace('.', ',') : LINE_SPACING_VALUES[value]
 }
 
 export function labParagraphSpacingValue(value: LabParagraphSpacing): string {
-  return titleCase(value)
+  return typeof value === 'number' ? value.toFixed(2).replace('.', ',') : titleCase(value)
 }
 
 export function labMarginsValue(value: LabMargins): string {
-  return titleCase(value)
+  return typeof value === 'number' ? value.toFixed(2).replace('.', ',') : titleCase(value)
 }
 
 export function labAlignmentValue(value: LabTextAlignment): string {

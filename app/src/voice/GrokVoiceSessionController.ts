@@ -101,6 +101,10 @@ export class GrokVoiceSessionController {
   private context: AudioContext | null = null
   private captureNode: AudioWorkletNode | ScriptProcessorNode | null = null
   private captureSource: MediaStreamAudioSourceNode | null = null
+  private captureSink: GainNode | null = null
+  private captureModule: Promise<void> | null = null
+  private lastCaptureAt = 0
+  private sentAudioChunks = 0
   private outputGain: GainNode | null = null
   private analyser: AnalyserNode | null = null
   private pendingCapture: Float32Array[] = []
@@ -150,7 +154,10 @@ export class GrokVoiceSessionController {
 
   unlockLabAudioContext(): void {
     if (typeof AudioContext === 'undefined') return
-    if (!this.context) {
+    if (!this.context || this.context.state === 'closed') {
+      this.captureModule = null
+      this.outputGain = null
+      this.analyser = null
       try { this.context = new AudioContext() } catch { return }
     }
     if (this.context.state === 'suspended') void this.context.resume().catch(() => {})
@@ -164,7 +171,11 @@ export class GrokVoiceSessionController {
   }
 
   setMicMuted(muted: boolean): void {
+    this.pendingCapture = []
+    this.pendingCaptureLength = 0
+    this.send({ type: 'input_audio_buffer.clear' })
     this.stream?.getAudioTracks().forEach(track => { track.enabled = !muted })
+    if (!muted) this.unlockLabAudioContext()
     this.emit({ micMuted: muted })
   }
 
@@ -221,6 +232,9 @@ export class GrokVoiceSessionController {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: { ...LAB_AUDIO_CONSTRAINTS } })
       if (!current()) { stream.getTracks().forEach(track => track.stop()); return }
       this.stream = stream
+      for (const track of stream.getAudioTracks()) track.onended = () => {
+        if (current() && this.ui.isActive) this.fail('Microphone disconnected. Reconnect to continue.')
+      }
       const response = await fetch(apiUrl(input.labGuest && !input.authToken ? '/api/lab-voice-session' : '/api/voice-session'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', ...(input.authToken ? { Authorization: `Bearer ${input.authToken}` } : {}) },
@@ -278,6 +292,11 @@ export class GrokVoiceSessionController {
   handleEvent(event: GrokEvent): void {
     const input = this.input
     if (!input) return
+    // A cancellation can arrive after the next response has already started.
+    // It must never clear that response or mix its audio/transcript with it.
+    const responseId = event.response_id ?? event.response?.id
+    if (event.type !== 'response.created' && event.type.startsWith('response.') &&
+      responseId && this.response?.id && responseId !== this.response.id) return
     switch (event.type) {
       case 'session.created': {
         this.instructions = this.buildInstructions(input.context)
@@ -299,7 +318,8 @@ export class GrokVoiceSessionController {
       case 'session.updated': {
         if (this.ready) return
         this.ready = true
-        this.startCapture()
+        try { this.startCapture() }
+        catch (error) { this.fail(error instanceof Error ? error.message : 'Microphone capture could not start. Reconnect to continue.'); return }
         this.emit({ connection: 'connected', activity: 'listening', state: 'listening' })
         if (input.greeting) {
           this.send({ type: 'response.create', response: { instructions: `The reader opened this conversation to prepare for the book. Say this opening line now, once: ${JSON.stringify(input.greeting)} Then wait for the reader. Keep the introduction spoiler-free unless asked otherwise.` } })
@@ -372,7 +392,7 @@ export class GrokVoiceSessionController {
       }
       case 'error': {
         if (isBenignRealtimeError(event.error?.message)) return
-        this.emit({ error: event.error?.message || 'Voice could not complete that request.' })
+        this.fail(event.error?.message || 'Voice could not complete that request. Reconnect to continue.')
         return
       }
       default:
@@ -482,50 +502,75 @@ export class GrokVoiceSessionController {
 
   private startCapture(): void {
     const stream = this.stream
-    if (!stream || typeof AudioContext === 'undefined') return
+    if (!stream || typeof AudioContext === 'undefined') throw new Error('Microphone capture is unavailable. Reconnect to continue.')
     this.unlockLabAudioContext()
     const context = this.context
-    if (!context) return
-    try {
-      const source = context.createMediaStreamSource(stream)
-      this.captureSource = source
-      const rate = context.sampleRate
-      const onChunk = (chunk: Float32Array) => {
-        if (this.ui.micMuted) return
-        this.pendingCapture.push(resampleFloat(chunk, rate, GROK_AUDIO_RATE))
-        this.pendingCaptureLength += this.pendingCapture[this.pendingCapture.length - 1].length
-      }
-      const useWorklet = typeof AudioWorkletNode !== 'undefined' && context.audioWorklet && typeof Blob !== 'undefined' && typeof URL !== 'undefined'
-      if (useWorklet) {
-        const generation = this.generation
-        const url = URL.createObjectURL(new Blob([CAPTURE_WORKLET], { type: 'application/javascript' }))
-        void context.audioWorklet.addModule(url).then(() => {
-          URL.revokeObjectURL(url)
-          if (generation !== this.generation || !this.captureSource) return
-          const node = new AudioWorkletNode(context, 'tinct-pcm-capture', { numberOfInputs: 1, numberOfOutputs: 0, channelCount: 1 })
-          node.port.onmessage = message => onChunk(message.data as Float32Array)
-          source.connect(node)
-          this.captureNode = node
-        }).catch(() => { this.startScriptCapture(context, source, onChunk) })
-      } else {
-        this.startScriptCapture(context, source, onChunk)
-      }
-      this.sendTimer = setInterval(() => this.flushCapture(), SEND_INTERVAL_MS)
-    } catch {
-      /* A browser without WebAudio capture still keeps the session; it simply hears nothing. */
+    if (!context) throw new Error('Audio could not start. Reconnect to continue.')
+    const generation = this.generation
+    const current = () => generation === this.generation
+    const source = context.createMediaStreamSource(stream)
+    this.captureSource = source
+    this.lastCaptureAt = Date.now()
+    this.sentAudioChunks = 0
+    const onChunk = (chunk: Float32Array) => {
+      if (!current()) return
+      this.lastCaptureAt = Date.now()
+      if (this.ui.micMuted) return
+      this.pendingCapture.push(resampleFloat(chunk, context.sampleRate, GROK_AUDIO_RATE))
+      this.pendingCaptureLength += this.pendingCapture[this.pendingCapture.length - 1].length
     }
+    // Keep the microphone graph connected to an inaudible destination. A
+    // zero-output worklet is not a reliable continuously rendered graph.
+    const sink = context.createGain()
+    sink.gain.value = 0
+    sink.connect(context.destination)
+    this.captureSink = sink
+    const fallback = () => {
+      if (!current()) return
+      try { this.startScriptCapture(context, source, sink, onChunk) }
+      catch { this.fail('Microphone capture could not start. Reconnect to continue.') }
+    }
+    if (typeof AudioWorkletNode !== 'undefined' && context.audioWorklet && typeof Blob !== 'undefined' && typeof URL !== 'undefined') {
+      if (!this.captureModule) {
+        const url = URL.createObjectURL(new Blob([CAPTURE_WORKLET], { type: 'application/javascript' }))
+        this.captureModule = context.audioWorklet.addModule(url).finally(() => URL.revokeObjectURL(url))
+      }
+      void this.captureModule.then(() => {
+        if (!current()) return
+        const node = new AudioWorkletNode(context, 'tinct-pcm-capture', { numberOfInputs: 1, numberOfOutputs: 1, outputChannelCount: [1], channelCount: 1 })
+        node.port.onmessage = message => onChunk(message.data as Float32Array)
+        node.onprocessorerror = () => { if (current()) this.fail('Microphone capture stopped. Reconnect to continue.') }
+        source.connect(node)
+        node.connect(sink)
+        this.captureNode = node
+      }).catch(fallback)
+    } else fallback()
+    if (!current()) return
+    this.sendTimer = setInterval(() => {
+      if (!current()) return
+      if (context.state !== 'running') void context.resume().catch(() => {})
+      if (Date.now() - this.lastCaptureAt > 5000) {
+        this.fail('Microphone audio stopped reaching the conversation. Reconnect to continue.')
+        return
+      }
+      this.flushCapture()
+    }, SEND_INTERVAL_MS)
   }
 
-  private startScriptCapture(context: AudioContext, source: MediaStreamAudioSourceNode, onChunk: (chunk: Float32Array) => void): void {
-    if (typeof context.createScriptProcessor !== 'function') return
+  private startScriptCapture(context: AudioContext, source: MediaStreamAudioSourceNode, sink: GainNode, onChunk: (chunk: Float32Array) => void): void {
+    if (typeof context.createScriptProcessor !== 'function') throw new Error('Audio capture unavailable')
     const node = context.createScriptProcessor(2048, 1, 1)
     node.onaudioprocess = event => onChunk(event.inputBuffer.getChannelData(0).slice(0))
     source.connect(node)
-    const silence = context.createGain()
-    silence.gain.value = 0
-    node.connect(silence)
-    silence.connect(context.destination)
+    node.connect(sink)
     this.captureNode = node
+  }
+
+  /** Counts and device state only; never audio, text or credentials. */
+  getCaptureDiagnostics() {
+    return { context: this.context?.state ?? 'absent', track: this.stream?.getAudioTracks()[0]?.readyState ?? 'absent',
+      framesAgoMs: this.lastCaptureAt ? Date.now() - this.lastCaptureAt : null,
+      sentChunks: this.sentAudioChunks, socket: this.socket?.readyState ?? null }
   }
 
   private flushCapture(): void {
@@ -535,7 +580,10 @@ export class GrokVoiceSessionController {
     for (const chunk of this.pendingCapture) { merged.set(chunk, offset); offset += chunk.length }
     this.pendingCapture = []
     this.pendingCaptureLength = 0
-    this.send({ type: 'input_audio_buffer.append', audio: floatToPcm16Base64(merged) })
+    if (!this.ui.micMuted && this.socket?.readyState === 1) {
+      this.send({ type: 'input_audio_buffer.append', audio: floatToPcm16Base64(merged) })
+      this.sentAudioChunks++
+    }
   }
 
   // ----- assistant playback -----
@@ -598,16 +646,21 @@ export class GrokVoiceSessionController {
       if (/[\p{L}\p{N}]/u.test(text)) this.callbacks.onTurn('assistant', text, { cancelled: !response.done })
     }
     this.response = null
+    if (this.captureNode && 'port' in this.captureNode) { this.captureNode.port.onmessage = null; this.captureNode.port.close() }
+    if (this.captureNode && 'onaudioprocess' in this.captureNode) this.captureNode.onaudioprocess = null
+    try { this.captureSink?.disconnect() } catch { /* ignore */ }
+    this.captureSink = null
     try { this.captureNode?.disconnect() } catch { /* ignore */ }
     try { this.captureSource?.disconnect() } catch { /* ignore */ }
     this.captureNode = null
     this.captureSource = null
-    this.stream?.getTracks().forEach(track => track.stop())
+    this.stream?.getTracks().forEach(track => { track.onended = null; track.stop() })
     this.stream = null
     try { this.socket?.close() } catch { /* ignore */ }
     this.socket = null
     this.instructions = ''
     this.handledCalls.clear()
+    this.toolQueue = Promise.resolve()
     this.turnNumber = 0
     this.speechStoppedAt = 0
     this.input = null

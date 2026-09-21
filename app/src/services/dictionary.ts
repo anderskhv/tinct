@@ -13,13 +13,13 @@ export type DictResult = {
   word: string
   definitions: string[]
   resolvedFrom?: string
+  source?: 'ai'
 }
 
 const SHARD_LETTERS = 'abcdefghijklmnopqrstuvwxyz'.split('')
 
 const shardCache: Map<string, Record<string, string[]>> = new Map()
 const shardLoading: Map<string, Promise<Record<string, string[]>>> = new Map()
-const failedShards: Set<string> = new Set()
 
 function shardKey(word: string): string | null {
   const first = word.trim().toLowerCase().charAt(0)
@@ -31,7 +31,6 @@ async function loadShard(letter: string): Promise<Record<string, string[]>> {
   if (cached) return cached
   const inflight = shardLoading.get(letter)
   if (inflight) return inflight
-  if (failedShards.has(letter)) return {}
 
   const promise = (async () => {
     try {
@@ -41,7 +40,6 @@ async function loadShard(letter: string): Promise<Record<string, string[]>> {
       shardCache.set(letter, data)
       return data
     } catch (err) {
-      failedShards.add(letter)
       console.warn(`[dictionary] failed to load shard ${letter}:`, err)
       return {}
     } finally {
@@ -53,7 +51,7 @@ async function loadShard(letter: string): Promise<Record<string, string[]>> {
 }
 
 function normalize(word: string): string {
-  return word.trim().toLowerCase().replace(/[‘’]/g, "'")
+  return word.normalize('NFKC').trim().toLowerCase().replace(/[‘’]/g, "'").replace(/\u00ad/g, '').replace(/^[^\p{L}]+|[^\p{L}]+$/gu, '')
 }
 
 // Conservative stems — strip common English suffixes one at a time and try
@@ -110,7 +108,10 @@ export async function lookup(input: string): Promise<DictResult | null> {
   const letter = shardKey(word)
   if (!letter) return null
 
-  const shard = await loadShard(letter)
+  // The shipped supplement was previously orphaned. Read it alongside the
+  // letter shard, and cache only successful downloads so a later tap retries.
+  const [shard, archaic] = await Promise.all([loadShard(letter), loadShard('archaic')])
+  if (archaic[word]?.length) return { word, definitions: archaic[word] }
 
   const direct = shard[word]
   if (direct && direct.length) return { word, definitions: direct }
@@ -128,21 +129,21 @@ export async function lookup(input: string): Promise<DictResult | null> {
 }
 
 export function isFullyLoaded(): boolean {
-  return SHARD_LETTERS.every(l => shardCache.has(l) || failedShards.has(l))
+  return SHARD_LETTERS.every(l => shardCache.has(l))
 }
 
 export async function preloadAll(
   onProgress?: (done: number, total: number) => void,
 ): Promise<void> {
   const total = SHARD_LETTERS.length
-  let done = SHARD_LETTERS.filter(l => shardCache.has(l) || failedShards.has(l)).length
+  let done = SHARD_LETTERS.filter(l => shardCache.has(l)).length
   onProgress?.(done, total)
   // Sequential so the progress bar advances visibly and we're polite to the
   // edge cache. 26 small JSON requests aren't worth parallelising.
   for (const letter of SHARD_LETTERS) {
-    if (shardCache.has(letter) || failedShards.has(letter)) continue
+    if (shardCache.has(letter)) continue
     await loadShard(letter)
-    done++
+    if (shardCache.has(letter)) done++
     onProgress?.(done, total)
   }
 }

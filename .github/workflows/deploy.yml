@@ -73,6 +73,25 @@ jobs:
 
       - name: Install silent production browser
         run: npx playwright install --with-deps chromium webkit
+      - name: Verify production reader panels and selection
+        env:
+          READER_LIVE: '1'
+          TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
+        run: node scripts/check-reader-panels.mjs
+      - name: Save reader acceptance screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reader-panels-acceptance
+          path: app/artifacts/reader-panels
+      - name: Verify real Grok microphone recovery silently
+        if: ${{ !cancelled() && steps.bundle.outputs.path != '' && contains(github.event.head_commit.message, '[reader-voice-qa]') }}
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y espeak-ng
+          espeak-ng -s 175 -w /tmp/tinct-voice-source.wav "Why does the Underground Man call himself sick? What is behind that?"
+          python3 scripts/make-voice-qa-wav.py /tmp/tinct-voice-source.wav /tmp/tinct-voice-qa.wav
+          READER_LIVE=1 node scripts/grok-capture-acceptance.mjs /tmp/tinct-voice-qa.wav
       - name: Verify production featured-book preview
         run: LIBRARY_LIVE=1 node scripts/check-featured-preview.mjs
       - name: Verify production library and preparation
@@ -89,6 +108,7 @@ jobs:
         with:
           name: production-library-preparation
           path: |
+            app/artifacts/voice-capture
             app/artifacts/featured-preview
             app/artifacts/library-layout
             app/artifacts/entry-responsive

@@ -720,7 +720,7 @@ it('paints the verse number\'s word under the fragment highlight so the band acr
   expect(css).toContain('.lab-hearing-word.is-selecting:has(> .lab-verse-mark)')
   // No unpainted margin before the number; the space before it carries the room.
   expect(css).toMatch(/\.lab-verse-mark \{[^}]*margin-left: 0;/)
-  expect(css).toContain('.lab-highlight-gap:has(+ .lab-verse-unit) { letter-spacing: 0.2em; }')
+  expect(css).not.toMatch(/\.lab-highlight-gap:has\(\+ \.lab-verse-unit\)\s*\{[^}]*letter-spacing:/)
 })
 
 it('turns one page per visit to the edge: a finger that stays put never turns a second', () => {
@@ -778,4 +778,47 @@ it('keeps just the last audio word marked when paused in reading mode', () => {
    playing={false} inlineHearingPaint follow={{ kind: 'word', paragraphIndex: 0, wordIndex: 1 }} />)
  expect(container.querySelector('.is-current')?.textContent).toBe('two')
  expect(container.querySelectorAll('.is-spoken,.is-upcoming')).toHaveLength(0)
+})
+
+it.each(['mouse', 'touch'])('catches a short last word beside a wrapped word with %s selection', pointerType => {
+  vi.useFakeTimers()
+  try {
+    const select = vi.fn()
+    render(<LabPassage {...passageProps(['splitword final following'], { paragraphIndex: 0, from: 0, to: 3 })} onSelectRange={select} />)
+    const surface = screen.getByTestId('lab-book')
+    const words = screen.getAllByTestId('lab-word')
+    const rect = (left: number, top: number, width: number, height = 20) => ({ left, top, width, height, right: left + width, bottom: top + height }) as DOMRect
+    vi.spyOn(surface, 'getBoundingClientRect').mockReturnValue(rect(0, 0, 390, 700))
+    vi.spyOn(words[0], 'getBoundingClientRect').mockReturnValue(rect(0, 100, 300, 60))
+    vi.spyOn(words[0], 'getClientRects').mockReturnValue([rect(100,100,200),rect(0,140,50)] as unknown as DOMRectList)
+    vi.spyOn(words[1], 'getClientRects').mockReturnValue([rect(60,140,40)] as unknown as DOMRectList)
+    vi.spyOn(words[2], 'getClientRects').mockReturnValue([rect(0,180,100)] as unknown as DOMRectList)
+    fireEvent.pointerDown(words[0], { pointerType, clientX: 150, clientY: 110 })
+    act(() => vi.advanceTimersByTime(170))
+    fireEvent.pointerMove(surface, { pointerType, clientX: 110, clientY: 150 })
+    fireEvent.pointerUp(surface, { pointerType, clientX: 110, clientY: 150 })
+    expect(select.mock.calls[0][0].text).toBe('splitword final')
+  } finally { vi.useRealTimers() }
+})
+
+it('paints a hyphenated tail while waiting at the page edge without duplicating word ownership', () => {
+  vi.useFakeTimers()
+  try {
+    const select = vi.fn(), turn = vi.fn()
+    const page = { paragraphIndex: 0, from: 0, to: 2, segments: [{ paragraphIndex: 0, from: 0, to: 2, tailFragment: 2 }] }
+    render(<LabPassage {...passageProps(['they shall become one'], page)} onSelectRange={select} onPageTurn={turn} />)
+    const surface = screen.getByTestId('lab-book')
+    vi.spyOn(surface, 'getBoundingClientRect').mockReturnValue({ left: 0, top: 0, right: 390, bottom: 700, width: 390, height: 700 } as DOMRect)
+    const first = screen.getAllByTestId('lab-word')[0], fragment = screen.getByTestId('lab-word-fragment')
+    fireEvent.pointerDown(first, { pointerType: 'touch', clientX: 100, clientY: 200 })
+    act(() => vi.advanceTimersByTime(170))
+    fireEvent.pointerMove(fragment, { pointerType: 'touch', clientX: 100, clientY: 695 })
+    act(() => vi.advanceTimersByTime(LAB_EDGE_HOLD_MS - 1))
+    expect(fragment.classList.contains('is-selecting')).toBe(true)
+    expect(fragment.hasAttribute('data-word-index')).toBe(false)
+    expect(fragment.getAttribute('aria-hidden')).toBe('true')
+    expect(turn).not.toHaveBeenCalled()
+    fireEvent.pointerUp(fragment, { pointerType: 'touch', clientX: 100, clientY: 695 })
+    expect(select.mock.calls[0][0].text).toBe('they shall become')
+  } finally { vi.useRealTimers() }
 })

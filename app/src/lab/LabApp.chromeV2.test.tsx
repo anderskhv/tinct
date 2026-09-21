@@ -577,8 +577,8 @@ describe('the Margins preference on the desktop leaves', () => {
     render(<LabApp pathname="/lab/desktop" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
     openAdvanced()
     // The rem figure the phone reads, and the scale the desktop leaves read.
-    for (const [value, rem, scale] of [['narrow', '1.1rem', '0.7'], ['wide', '2.2rem', '1.45'], ['medium', '1.55rem', '1']] as const) {
-      fireEvent.change(screen.getByTestId('lab-v2-margins'), { target: { value: String(['narrow', 'medium', 'wide'].indexOf(value)) } })
+    for (const [rem, scale] of [['1.085rem', '0.7'], ['2.2475rem', '1.45'], ['1.55rem', '1']] as const) {
+      fireEvent.change(screen.getByTestId('lab-v2-margins'), { target: { value: scale } })
       expect(root().style.getPropertyValue('--lab-reader-margin')).toBe(rem)
       expect(root().style.getPropertyValue('--lab-reader-margin-scale')).toBe(scale)
     }

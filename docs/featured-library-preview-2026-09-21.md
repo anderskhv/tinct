@@ -26,3 +26,5 @@ response fixture; this does not establish a real admin sign-in session.
 No physical-device, microphone or paid-model testing.
 
 Next: finish cloud acceptance, inspect screenshots and record release evidence.
+
+Candidate preview acceptance passed in [run 35579802539](https://github.com/anderskhv/tinct/actions/runs/35579802539), with eight Chromium/WebKit viewports. Startup resize paints now wait for catalogue data. Explicit controls use a short interruptible transition to avoid WebKit native smooth-scroll cancellation; touch remains native. Concurrent reader changes from e8cb75ab are preserved for the final integrated verification.

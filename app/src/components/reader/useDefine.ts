@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { lookup as dictLookup } from '../../services/dictionary'
 import type { DictResult } from '../../services/dictionary'
 import { isSingleWordSelection, normalizeSelectionText } from './selectionPopupMode'
@@ -21,14 +21,17 @@ export interface UseDefine {
 }
 
 export function useDefine(): UseDefine {
+  const requestId = useRef(0)
   const [query, setQuery] = useState('')
   const [result, setResult] = useState<DictResult | null>(null)
   const [loading, setLoading] = useState(false)
   const [notFound, setNotFound] = useState(false)
 
   const run = useCallback((q: string) => {
+    const id = ++requestId.current
     const trimmed = normalizeSelectionText(q)
     if (!trimmed) {
+      setLoading(false)
       setResult(null)
       setNotFound(false)
       return
@@ -36,6 +39,7 @@ export function useDefine(): UseDefine {
     setLoading(true)
     setNotFound(false)
     dictLookup(trimmed).then(res => {
+      if (id !== requestId.current) return
       setLoading(false)
       setResult(res)
       setNotFound(!res)
@@ -48,15 +52,9 @@ export function useDefine(): UseDefine {
     setQuery(single ? raw : '')
     setResult(null)
     setNotFound(false)
-    if (single) {
-      setLoading(true)
-      dictLookup(raw).then(res => {
-        setLoading(false)
-        setResult(res)
-        setNotFound(!res)
-      })
-    }
-  }, [])
+    if (single) run(raw)
+    else { requestId.current++; setLoading(false) }
+  }, [run])
 
   return { query, setQuery, result, loading, notFound, begin, run }
 }
