@@ -1,0 +1,27 @@
+name: bella-source-map
+on:
+  push:
+    branches: ['codex/bella-source-map-20260921']
+    paths: ['tools/audio-highlight/bella_source_map.py', '.github/workflows/bella-source-map.yml']
+permissions:
+  contents: write
+jobs:
+  map:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recover paragraph identities from preserved texts
+        run: python3 tools/audio-highlight/bella_source_map.py
+      - name: Save evidence
+        if: always()
+        run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add artifacts/bella-source-map-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Record old and current audio paragraph correspondences [skip ci]"
+          git push origin HEAD:codex/bella-source-map-20260921
