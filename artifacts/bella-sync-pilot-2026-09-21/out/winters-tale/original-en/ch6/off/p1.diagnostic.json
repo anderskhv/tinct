@@ -1,0 +1,786 @@
+{
+  "complete": true,
+  "signature": "6ceb78e8883bdcfd028579c862c2bfa2df537f7719f51d1e7c5331475413f3bc",
+  "attempts": [
+    {
+      "asr_seconds": 3.013279716999989,
+      "alignment_seconds": 0.0009594800000058967,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cleo means the climate's delicate, the air most sweet, fertile the aisle, the temple",
+          "start": 0.05,
+          "end": 5.39,
+          "words": [
+            {
+              "text": " Cleo",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.8586969375610352
+            },
+            {
+              "text": " means",
+              "start": 0.75,
+              "end": 0.91,
+              "probability": 0.9909517765045166
+            },
+            {
+              "text": " the",
+              "start": 0.91,
+              "end": 1.13,
+              "probability": 0.9231058359146118
+            },
+            {
+              "text": " climate's",
+              "start": 1.13,
+              "end": 1.57,
+              "probability": 0.983368992805481
+            },
+            {
+              "text": " delicate,",
+              "start": 1.57,
+              "end": 1.89,
+              "probability": 0.9880934357643127
+            },
+            {
+              "text": " the",
+              "start": 2.45,
+              "end": 2.57,
+              "probability": 0.9384816884994507
+            },
+            {
+              "text": " air",
+              "start": 2.57,
+              "end": 2.79,
+              "probability": 0.9784324169158936
+            },
+            {
+              "text": " most",
+              "start": 2.79,
+              "end": 3.01,
+              "probability": 0.9890333414077759
+            },
+            {
+              "text": " sweet,",
+              "start": 3.01,
+              "end": 3.47,
+              "probability": 0.9983768463134766
+            },
+            {
+              "text": " fertile",
+              "start": 3.97,
+              "end": 4.05,
+              "probability": 0.9895301461219788
+            },
+            {
+              "text": " the",
+              "start": 4.05,
+              "end": 4.31,
+              "probability": 0.9687018394470215
+            },
+            {
+              "text": " aisle,",
+              "start": 4.31,
+              "end": 4.61,
+              "probability": 0.21709349751472473
+            },
+            {
+              "text": " the",
+              "start": 5.09,
+              "end": 5.15,
+              "probability": 0.9923787117004395
+            },
+            {
+              "text": " temple",
+              "start": 5.15,
+              "end": 5.39,
+              "probability": 0.9757903218269348
+            }
+          ]
+        },
+        {
+          "text": " much surpassing the common praise it bears.",
+          "start": 5.39,
+          "end": 7.73,
+          "words": [
+            {
+              "text": " much",
+              "start": 5.39,
+              "end": 5.79,
+              "probability": 0.993988037109375
+            },
+            {
+              "text": " surpassing",
+              "start": 5.79,
+              "end": 6.49,
+              "probability": 0.998102217912674
+            },
+            {
+              "text": " the",
+              "start": 6.49,
+              "end": 6.61,
+              "probability": 0.998833954334259
+            },
+            {
+              "text": " common",
+              "start": 6.61,
+              "end": 6.89,
+              "probability": 0.9989620447158813
+            },
+            {
+              "text": " praise",
+              "start": 6.89,
+              "end": 7.19,
+              "probability": 0.9796756505966187
+            },
+            {
+              "text": " it",
+              "start": 7.19,
+              "end": 7.45,
+              "probability": 0.9963687658309937
+            },
+            {
+              "text": " bears.",
+              "start": 7.45,
+              "end": 7.73,
+              "probability": 0.988543689250946
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleo",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "means",
+          "start": 0.75,
+          "end": 0.91
+        },
+        {
+          "raw": "the",
+          "start": 0.91,
+          "end": 1.13
+        },
+        {
+          "raw": "climate's",
+          "start": 1.13,
+          "end": 1.57
+        },
+        {
+          "raw": "delicate,",
+          "start": 1.57,
+          "end": 1.89
+        },
+        {
+          "raw": "the",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "raw": "air",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "raw": "most",
+          "start": 2.79,
+          "end": 3.01
+        },
+        {
+          "raw": "sweet,",
+          "start": 3.01,
+          "end": 3.47
+        },
+        {
+          "raw": "fertile",
+          "start": 3.97,
+          "end": 4.05
+        },
+        {
+          "raw": "the",
+          "start": 4.05,
+          "end": 4.31
+        },
+        {
+          "raw": "aisle,",
+          "start": 4.31,
+          "end": 4.61
+        },
+        {
+          "raw": "the",
+          "start": 5.09,
+          "end": 5.15
+        },
+        {
+          "raw": "temple",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "raw": "much",
+          "start": 5.39,
+          "end": 5.79
+        },
+        {
+          "raw": "surpassing",
+          "start": 5.79,
+          "end": 6.49
+        },
+        {
+          "raw": "the",
+          "start": 6.49,
+          "end": 6.61
+        },
+        {
+          "raw": "common",
+          "start": 6.61,
+          "end": 6.89
+        },
+        {
+          "raw": "praise",
+          "start": 6.89,
+          "end": 7.19
+        },
+        {
+          "raw": "it",
+          "start": 7.19,
+          "end": 7.45
+        },
+        {
+          "raw": "bears.",
+          "start": 7.45,
+          "end": 7.73
+        }
+      ],
+      "expected_tokens": [
+        "CLEOMENES",
+        "The",
+        "climate’s",
+        "delicate;",
+        "the",
+        "air",
+        "most",
+        "sweet,",
+        "Fertile",
+        "the",
+        "isle,",
+        "the",
+        "temple",
+        "much",
+        "surpassing",
+        "The",
+        "common",
+        "praise",
+        "it",
+        "bears."
+      ],
+      "acoustic_expected_tokens": [
+        "Cleomenes",
+        "The",
+        "climate's",
+        "delicate;",
+        "the",
+        "air",
+        "most",
+        "sweet,",
+        "Fertile",
+        "the",
+        "isle,",
+        "the",
+        "temple",
+        "much",
+        "surpassing",
+        "The",
+        "common",
+        "praise",
+        "it",
+        "bears."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          10,
+          2,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          12
+        ],
+        [
+          "equal",
+          11,
+          20,
+          12,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleo",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "cleo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 0.75,
+          "end": 0.91,
+          "key": "means",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.91,
+          "end": 1.13,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "climate's",
+          "start": 1.13,
+          "end": 1.57,
+          "key": "climates",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "delicate,",
+          "start": 1.57,
+          "end": 1.89,
+          "key": "delicate",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.45,
+          "end": 2.57,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "air",
+          "start": 2.57,
+          "end": 2.79,
+          "key": "air",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.79,
+          "end": 3.01,
+          "key": "most",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sweet,",
+          "start": 3.01,
+          "end": 3.47,
+          "key": "sweet",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fertile",
+          "start": 3.97,
+          "end": 4.05,
+          "key": "fertile",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.05,
+          "end": 4.31,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "aisle,",
+          "start": 4.31,
+          "end": 4.61,
+          "key": "aisle",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.09,
+          "end": 5.15,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "temple",
+          "start": 5.15,
+          "end": 5.39,
+          "key": "temple",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 5.39,
+          "end": 5.79,
+          "key": "much",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "surpassing",
+          "start": 5.79,
+          "end": 6.49,
+          "key": "surpassing",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.49,
+          "end": 6.61,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "common",
+          "start": 6.61,
+          "end": 6.89,
+          "key": "common",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "praise",
+          "start": 6.89,
+          "end": 7.19,
+          "key": "praise",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 7.19,
+          "end": 7.45,
+          "key": "it",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "bears.",
+          "start": 7.45,
+          "end": 7.73,
+          "key": "bears",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "CLEOMENES",
+          "start": 0.0,
+          "end": 0.455
+        },
+        {
+          "text": "The",
+          "start": 0.91,
+          "end": 1.13
+        },
+        {
+          "text": "climate’s",
+          "start": 1.13,
+          "end": 1.57
+        },
+        {
+          "text": "delicate;",
+          "start": 1.57,
+          "end": 1.89
+        },
+        {
+          "text": "the",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "text": "air",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "text": "most",
+          "start": 2.79,
+          "end": 3.01
+        },
+        {
+          "text": "sweet,",
+          "start": 3.01,
+          "end": 3.47
+        },
+        {
+          "text": "Fertile",
+          "start": 3.97,
+          "end": 4.05
+        },
+        {
+          "text": "the",
+          "start": 4.05,
+          "end": 4.31
+        },
+        {
+          "text": "isle,",
+          "start": 4.31,
+          "end": 4.7
+        },
+        {
+          "text": "the",
+          "start": 5.09,
+          "end": 5.15
+        },
+        {
+          "text": "temple",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "text": "much",
+          "start": 5.39,
+          "end": 5.79
+        },
+        {
+          "text": "surpassing",
+          "start": 5.79,
+          "end": 6.49
+        },
+        {
+          "text": "The",
+          "start": 6.49,
+          "end": 6.61
+        },
+        {
+          "text": "common",
+          "start": 6.61,
+          "end": 6.89
+        },
+        {
+          "text": "praise",
+          "start": 6.89,
+          "end": 7.19
+        },
+        {
+          "text": "it",
+          "start": 7.19,
+          "end": 7.45
+        },
+        {
+          "text": "bears.",
+          "start": 7.45,
+          "end": 7.73
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 3.014289861000009
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "65a9cfa395930a9f69e22818ac1ef8b3229569e922f52beeeb965f2d1c7ba58e",
+  "selected_reasons": []
+}

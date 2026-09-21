@@ -1,0 +1,740 @@
+{
+  "complete": true,
+  "signature": "dba2bc4929f1fcffb5603c797e8cb80bb19ddb408e0de83d83b2eda5ec5361a3",
+  "attempts": [
+    {
+      "asr_seconds": 2.9917732319999573,
+      "alignment_seconds": 0.0008620790000009038,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cleo means great Apollo turn all to T.H. best.",
+          "start": 0.05,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Cleo",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.7895504236221313
+            },
+            {
+              "text": " means",
+              "start": 0.69,
+              "end": 0.89,
+              "probability": 0.9873139262199402
+            },
+            {
+              "text": " great",
+              "start": 0.89,
+              "end": 1.19,
+              "probability": 0.6007281541824341
+            },
+            {
+              "text": " Apollo",
+              "start": 1.19,
+              "end": 1.53,
+              "probability": 0.9898765683174133
+            },
+            {
+              "text": " turn",
+              "start": 1.53,
+              "end": 1.85,
+              "probability": 0.8966158628463745
+            },
+            {
+              "text": " all",
+              "start": 1.85,
+              "end": 2.11,
+              "probability": 0.9831006526947021
+            },
+            {
+              "text": " to",
+              "start": 2.11,
+              "end": 2.29,
+              "probability": 0.9850549697875977
+            },
+            {
+              "text": " T",
+              "start": 2.29,
+              "end": 2.51,
+              "probability": 0.4455137252807617
+            },
+            {
+              "text": ".H.",
+              "start": 2.51,
+              "end": 2.81,
+              "probability": 0.904259204864502
+            },
+            {
+              "text": " best.",
+              "start": 2.81,
+              "end": 3.19,
+              "probability": 0.825374186038971
+            }
+          ]
+        },
+        {
+          "text": " These proclamations, so forcing faults upon Hermione, I little like.",
+          "start": 3.95,
+          "end": 7.93,
+          "words": [
+            {
+              "text": " These",
+              "start": 3.95,
+              "end": 4.13,
+              "probability": 0.9640213251113892
+            },
+            {
+              "text": " proclamations,",
+              "start": 4.13,
+              "end": 4.95,
+              "probability": 0.9874477088451385
+            },
+            {
+              "text": " so",
+              "start": 5.37,
+              "end": 5.59,
+              "probability": 0.9718629717826843
+            },
+            {
+              "text": " forcing",
+              "start": 5.59,
+              "end": 5.97,
+              "probability": 0.9942516088485718
+            },
+            {
+              "text": " faults",
+              "start": 5.97,
+              "end": 6.31,
+              "probability": 0.9848174452781677
+            },
+            {
+              "text": " upon",
+              "start": 6.31,
+              "end": 6.59,
+              "probability": 0.9970101118087769
+            },
+            {
+              "text": " Hermione,",
+              "start": 6.59,
+              "end": 7.07,
+              "probability": 0.7898949980735779
+            },
+            {
+              "text": " I",
+              "start": 7.37,
+              "end": 7.45,
+              "probability": 0.9858394861221313
+            },
+            {
+              "text": " little",
+              "start": 7.45,
+              "end": 7.59,
+              "probability": 0.9916280508041382
+            },
+            {
+              "text": " like.",
+              "start": 7.59,
+              "end": 7.93,
+              "probability": 0.9647115468978882
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleo",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "means",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "raw": "great",
+          "start": 0.89,
+          "end": 1.19
+        },
+        {
+          "raw": "Apollo",
+          "start": 1.19,
+          "end": 1.53
+        },
+        {
+          "raw": "turn",
+          "start": 1.53,
+          "end": 1.85
+        },
+        {
+          "raw": "all",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "raw": "to",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "raw": "T",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "raw": ".H.",
+          "start": 2.51,
+          "end": 2.81
+        },
+        {
+          "raw": "best.",
+          "start": 2.81,
+          "end": 3.19
+        },
+        {
+          "raw": "These",
+          "start": 3.95,
+          "end": 4.13
+        },
+        {
+          "raw": "proclamations,",
+          "start": 4.13,
+          "end": 4.95
+        },
+        {
+          "raw": "so",
+          "start": 5.37,
+          "end": 5.59
+        },
+        {
+          "raw": "forcing",
+          "start": 5.59,
+          "end": 5.97
+        },
+        {
+          "raw": "faults",
+          "start": 5.97,
+          "end": 6.31
+        },
+        {
+          "raw": "upon",
+          "start": 6.31,
+          "end": 6.59
+        },
+        {
+          "raw": "Hermione,",
+          "start": 6.59,
+          "end": 7.07
+        },
+        {
+          "raw": "I",
+          "start": 7.37,
+          "end": 7.45
+        },
+        {
+          "raw": "little",
+          "start": 7.45,
+          "end": 7.59
+        },
+        {
+          "raw": "like.",
+          "start": 7.59,
+          "end": 7.93
+        }
+      ],
+      "expected_tokens": [
+        "CLEOMENES",
+        "Great",
+        "Apollo",
+        "Turn",
+        "all",
+        "to",
+        "th’",
+        "best!",
+        "These",
+        "proclamations,",
+        "So",
+        "forcing",
+        "faults",
+        "upon",
+        "Hermione,",
+        "I",
+        "little",
+        "like."
+      ],
+      "acoustic_expected_tokens": [
+        "Cleomenes",
+        "Great",
+        "Apollo",
+        "Turn",
+        "all",
+        "to",
+        "th'",
+        "best!",
+        "These",
+        "proclamations,",
+        "So",
+        "forcing",
+        "faults",
+        "upon",
+        "Hermione,",
+        "I",
+        "little",
+        "like."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          6,
+          2,
+          7
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          9
+        ],
+        [
+          "equal",
+          7,
+          18,
+          9,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleo",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "cleo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 0.69,
+          "end": 0.89,
+          "key": "means",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 0.89,
+          "end": 1.19,
+          "key": "great",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Apollo",
+          "start": 1.19,
+          "end": 1.53,
+          "key": "apollo",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 1.53,
+          "end": 1.85,
+          "key": "turn",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.85,
+          "end": 2.11,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.11,
+          "end": 2.29,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 2.29,
+          "end": 2.51,
+          "key": "t",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 2.51,
+          "end": 2.81,
+          "key": "h",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "best.",
+          "start": 2.81,
+          "end": 3.19,
+          "key": "best",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 3.95,
+          "end": 4.13,
+          "key": "these",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "proclamations,",
+          "start": 4.13,
+          "end": 4.95,
+          "key": "proclamations",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 5.37,
+          "end": 5.59,
+          "key": "so",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "forcing",
+          "start": 5.59,
+          "end": 5.97,
+          "key": "forcing",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "faults",
+          "start": 5.97,
+          "end": 6.31,
+          "key": "faults",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 6.31,
+          "end": 6.59,
+          "key": "upon",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Hermione,",
+          "start": 6.59,
+          "end": 7.07,
+          "key": "hermione",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.37,
+          "end": 7.45,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 7.45,
+          "end": 7.59,
+          "key": "little",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "like.",
+          "start": 7.59,
+          "end": 7.93,
+          "key": "like",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "CLEOMENES",
+          "start": 0.0,
+          "end": 0.445
+        },
+        {
+          "text": "Great",
+          "start": 0.89,
+          "end": 1.19
+        },
+        {
+          "text": "Apollo",
+          "start": 1.19,
+          "end": 1.53
+        },
+        {
+          "text": "Turn",
+          "start": 1.53,
+          "end": 1.85
+        },
+        {
+          "text": "all",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "text": "to",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "text": "th’",
+          "start": 2.29,
+          "end": 2.55
+        },
+        {
+          "text": "best!",
+          "start": 2.81,
+          "end": 3.19
+        },
+        {
+          "text": "These",
+          "start": 3.95,
+          "end": 4.13
+        },
+        {
+          "text": "proclamations,",
+          "start": 4.13,
+          "end": 4.95
+        },
+        {
+          "text": "So",
+          "start": 5.37,
+          "end": 5.59
+        },
+        {
+          "text": "forcing",
+          "start": 5.59,
+          "end": 5.97
+        },
+        {
+          "text": "faults",
+          "start": 5.97,
+          "end": 6.31
+        },
+        {
+          "text": "upon",
+          "start": 6.31,
+          "end": 6.59
+        },
+        {
+          "text": "Hermione,",
+          "start": 6.59,
+          "end": 7.07
+        },
+        {
+          "text": "I",
+          "start": 7.37,
+          "end": 7.45
+        },
+        {
+          "text": "little",
+          "start": 7.45,
+          "end": 7.59
+        },
+        {
+          "text": "like.",
+          "start": 7.59,
+          "end": 7.93
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 20,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 2.992684391999944
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7b0f2ee31e5d898ee4a22f090d0755aea0a444b09912780b17da9bde828e4174",
+  "selected_reasons": []
+}

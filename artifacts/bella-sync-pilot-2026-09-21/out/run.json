@@ -1,0 +1,143 @@
+{
+  "hardware": null,
+  "argv": [
+    "tools/audio-highlight/aligner/trial.py",
+    "--input",
+    "/tmp/bella-cohort/cohort.json",
+    "--output",
+    "artifacts/bella-sync-pilot-2026-09-21/out",
+    "--model-path",
+    "/tmp/bella-model",
+    "--model-sha256",
+    "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5",
+    "--device",
+    "cpu",
+    "--compute-type",
+    "int8",
+    "--helper",
+    "v7",
+    "--arms",
+    "off",
+    "auto",
+    "--max-seconds",
+    "1200",
+    "--run"
+  ],
+  "started": 1789986275.3803606,
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 13 2026, 02:47:42) [GCC 13.3.0]",
+  "dependencies": {
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2"
+  },
+  "installed_packages": [
+    [
+      "PyYAML",
+      "6.0.3"
+    ],
+    [
+      "anyio",
+      "4.15.1"
+    ],
+    [
+      "av",
+      "18.1.0"
+    ],
+    [
+      "certifi",
+      "2026.7.22"
+    ],
+    [
+      "click",
+      "8.5.0"
+    ],
+    [
+      "ctranslate2",
+      "4.8.2"
+    ],
+    [
+      "faster-whisper",
+      "1.2.1"
+    ],
+    [
+      "filelock",
+      "4.0.1"
+    ],
+    [
+      "flatbuffers",
+      "25.12.19"
+    ],
+    [
+      "fsspec",
+      "2026.9.0"
+    ],
+    [
+      "h11",
+      "0.16.0"
+    ],
+    [
+      "hf-xet",
+      "1.6.0"
+    ],
+    [
+      "httpcore",
+      "1.0.9"
+    ],
+    [
+      "httpx",
+      "0.28.1"
+    ],
+    [
+      "huggingface_hub",
+      "1.32.0"
+    ],
+    [
+      "idna",
+      "3.20"
+    ],
+    [
+      "numpy",
+      "2.5.3"
+    ],
+    [
+      "onnxruntime",
+      "1.30.0"
+    ],
+    [
+      "packaging",
+      "26.3"
+    ],
+    [
+      "pip",
+      "26.2.1"
+    ],
+    [
+      "protobuf",
+      "7.36.2"
+    ],
+    [
+      "tokenizers",
+      "0.23.2"
+    ],
+    [
+      "tqdm",
+      "4.70.1"
+    ],
+    [
+      "typing_extensions",
+      "4.16.0"
+    ]
+  ],
+  "input_sha256": "35a7812512bc7514f7758565be557743353aa7b126c4316acf93bfe142f1086f",
+  "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5",
+  "code_sha256": "230702664d2d601a0306a25debdb8f7da0592da9b6c7f91cc5319837bdccaadd",
+  "helper_pin": "v7",
+  "helper_module": "pinned_words_sidecar_lib_v7",
+  "helper_sha256": "2b76abcd5e46a699b4ef4c410f86a62487b706a0817ae56d28ed1c2e8baa8c56",
+  "gate": 0.85,
+  "upload": false,
+  "status": "complete",
+  "max_process_seconds": 1200,
+  "exit_code": 0,
+  "finished": 1789986495.027213
+}

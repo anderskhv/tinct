@@ -1,0 +1,255 @@
+{
+  "complete": true,
+  "signature": "966061bde1d45559c29fa38db68806244f12a061a205c190cb4d2b6361644c32",
+  "attempts": [
+    {
+      "asr_seconds": 2.1707111480000094,
+      "alignment_seconds": 0.0003269869999940056,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Cleo means and Dionne",
+          "start": 0.11,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.9384558200836182
+            },
+            {
+              "text": " Cleo",
+              "start": 0.63,
+              "end": 0.99,
+              "probability": 0.5637470781803131
+            },
+            {
+              "text": " means",
+              "start": 0.99,
+              "end": 1.19,
+              "probability": 0.5291757583618164
+            },
+            {
+              "text": " and",
+              "start": 1.19,
+              "end": 1.35,
+              "probability": 0.5642609596252441
+            },
+            {
+              "text": " Dionne",
+              "start": 1.35,
+              "end": 2.29,
+              "probability": 0.7089338004589081
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "Cleo",
+          "start": 0.63,
+          "end": 0.99
+        },
+        {
+          "raw": "means",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "raw": "and",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "raw": "Dionne",
+          "start": 1.35,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Cleomenes",
+        "and",
+        "Dion."
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "Cleomenes",
+        "and",
+        "Dion."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ],
+        [
+          "replace",
+          3,
+          4,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cleo",
+          "start": 0.63,
+          "end": 0.99,
+          "key": "cleo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 0.99,
+          "end": 1.19,
+          "key": "means",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.19,
+          "end": 1.35,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dionne",
+          "start": 1.35,
+          "end": 2.29,
+          "key": "dionne",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "Cleomenes",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "text": "and",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "text": "Dion.",
+          "start": 1.35,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 2.171062971000026
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ac0977834b3e4861aff16351716b84307825d329ada7aee436775aae98cdc879",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

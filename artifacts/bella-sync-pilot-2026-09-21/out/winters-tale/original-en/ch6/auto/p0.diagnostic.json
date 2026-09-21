@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "1287777fd32de14d132eb74f9921f77a172673963976c4a1a05da338a8ba768f",
+  "attempts": [
+    {
+      "asr_seconds": 2.188927509999985,
+      "alignment_seconds": 0.00024150799998778893,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Cleomenes and Dion.",
+        "hotwords": "Enter, Cleomenes, Dion"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Cleomenes and Dion.",
+          "start": 0.11,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.9384558200836182
+            },
+            {
+              "text": " Cleomenes",
+              "start": 0.63,
+              "end": 1.23,
+              "probability": 0.5916193836989502
+            },
+            {
+              "text": " and",
+              "start": 1.23,
+              "end": 1.33,
+              "probability": 0.837384819984436
+            },
+            {
+              "text": " Dion.",
+              "start": 1.33,
+              "end": 1.59,
+              "probability": 0.896591305732727
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "Cleomenes",
+          "start": 0.63,
+          "end": 1.23
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "raw": "Dion.",
+          "start": 1.33,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Cleomenes",
+        "and",
+        "Dion."
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "Cleomenes",
+        "and",
+        "Dion."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cleomenes",
+          "start": 0.63,
+          "end": 1.23,
+          "key": "cleomenes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.33,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dion.",
+          "start": 1.33,
+          "end": 1.59,
+          "key": "dion",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "Cleomenes",
+          "start": 0.63,
+          "end": 1.23
+        },
+        {
+          "text": "and",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "text": "Dion.",
+          "start": 1.33,
+          "end": 1.59
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.1891914390000125
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ac0977834b3e4861aff16351716b84307825d329ada7aee436775aae98cdc879",
+  "selected_reasons": []
+}

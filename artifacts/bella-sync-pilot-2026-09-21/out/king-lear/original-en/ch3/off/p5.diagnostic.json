@@ -1,0 +1,302 @@
+{
+  "complete": true,
+  "signature": "7caed47dbccf169c5a5b023d3c66daf3d8aed2f143fcfa04841dac40feea969f",
+  "attempts": [
+    {
+      "asr_seconds": 2.353125769000002,
+      "alignment_seconds": 0.0003673520000120334,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oswald, he's coming, madam, I hear him.",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Oswald,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5722991824150085
+            },
+            {
+              "text": " he's",
+              "start": 1.27,
+              "end": 1.47,
+              "probability": 0.9683497846126556
+            },
+            {
+              "text": " coming,",
+              "start": 1.47,
+              "end": 1.69,
+              "probability": 0.9979524612426758
+            },
+            {
+              "text": " madam,",
+              "start": 1.91,
+              "end": 2.09,
+              "probability": 0.7760315835475922
+            },
+            {
+              "text": " I",
+              "start": 2.15,
+              "end": 2.25,
+              "probability": 0.9885192513465881
+            },
+            {
+              "text": " hear",
+              "start": 2.25,
+              "end": 2.45,
+              "probability": 0.9991945624351501
+            },
+            {
+              "text": " him.",
+              "start": 2.45,
+              "end": 2.73,
+              "probability": 0.9992477893829346
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "he's",
+          "start": 1.27,
+          "end": 1.47
+        },
+        {
+          "raw": "coming,",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "raw": "madam,",
+          "start": 1.91,
+          "end": 2.09
+        },
+        {
+          "raw": "I",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "raw": "hear",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "raw": "him.",
+          "start": 2.45,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "OSWALD.",
+        "He’s",
+        "coming,",
+        "madam;",
+        "I",
+        "hear",
+        "him."
+      ],
+      "acoustic_expected_tokens": [
+        "He's",
+        "coming,",
+        "madam;",
+        "I",
+        "hear",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          6,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "oswald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he's",
+          "start": 1.27,
+          "end": 1.47,
+          "key": "hes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "coming,",
+          "start": 1.47,
+          "end": 1.69,
+          "key": "coming",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 1.91,
+          "end": 2.09,
+          "key": "madam",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.15,
+          "end": 2.25,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 2.25,
+          "end": 2.45,
+          "key": "hear",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.45,
+          "end": 2.73,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "OSWALD.",
+          "start": 1.27,
+          "end": 1.27
+        },
+        {
+          "text": "He’s",
+          "start": 1.27,
+          "end": 1.47
+        },
+        {
+          "text": "coming,",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "text": "madam;",
+          "start": 1.91,
+          "end": 2.09
+        },
+        {
+          "text": "I",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "text": "hear",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "text": "him.",
+          "start": 2.45,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.3535212230000013
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9dd7242f1108d24aa1780b01d6e51d9580cea113019534030baca7c1dc7276b8",
+  "selected_reasons": []
+}
