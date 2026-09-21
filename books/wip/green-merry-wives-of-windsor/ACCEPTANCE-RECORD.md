@@ -1,6 +1,32 @@
 # Acceptance Record — The Merry Wives of Windsor (`merry-wives-of-windsor`, modern-en)
 
-> **ACCEPTED 2026-09-21 (round 3). Current status.** Round 3 (Claude Sonnet 5,
+> # ⛔ NOT ACCEPTED — HARD PARKED 2026-09-21 (round 4, Claude Opus, `claude-opus-5`)
+>
+> **Round 3's "ACCEPTED" banner below is superseded and must not be trusted
+> as status.** Round 4's independent verification confirmed round 3's own
+> work — the hash, the structure, and all 22 of its fixes re-derive correctly
+> from `source.json` — but found the dialect/idiolect-preservation defect
+> class still unresolved: **14 further paragraphs across 6 items and 4
+> characters**, including the Host's signature `bully`/`bully-rook` erased at
+> 9 of 14 locations (a whole uncovered character voice), a structurally
+> broken joke at 7.31/7.32 of the same shape as the `Seese`/`putter` failure,
+> Quickly's `phlegmatic` malapropism, Nym's `humour` catchphrase, and the
+> `cozen-germans` pun round 2 named and round 3 left. Full detail in
+> `PARKED-RESOLVED.md`, "Round 4 findings".
+>
+> **No acceptance hash is pinned. No `accepted-paragraph-hashes.tsv` was
+> written. `candidate.json` was not modified by round 4.** Rounds used: 3 of
+> 3 nominal correction rounds; round 4 was verification only and did not
+> perform a correction round.
+>
+> Model note: round 1 = Claude Sonnet 5 (`claude-sonnet-5`); round 2 =
+> Claude Opus (`claude-opus-5`); round 3 = Claude Sonnet 5
+> (`claude-sonnet-5`); round 4 = Claude Opus (`claude-opus-5`).
+
+---
+
+> **SUPERSEDED — round 3's own verdict, retained for history.**
+> **ACCEPTED 2026-09-21 (round 3). ~~Current status.~~** Round 3 (Claude Sonnet 5,
 > `claude-sonnet-5`) fixed all defects round 2 (Claude Opus, independent
 > verification) found parked, re-derived every fix fresh against `source.json`
 > (not from round 1's notes — round 1's own notes misquoted source at 23.45),
